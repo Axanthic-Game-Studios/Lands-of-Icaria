@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=down": { "model": "blab:pillar_head_ruinic", "x": 270 },
+        "facing=up": { "model": "blab:pillar_head_ruinic_inverted", "x": 90 },
+        "facing=north": { "model": "blab:pillar_head_ruinic_inverted", "y": 180 },
+        "facing=south": { "model": "blab:pillar_head_ruinic" },
+        "facing=west": { "model": "blab:pillar_head_ruinic", "y": 90 },
+        "facing=east": { "model": "blab:pillar_head_ruinic_inverted", "y": 270 }
+    }
+}

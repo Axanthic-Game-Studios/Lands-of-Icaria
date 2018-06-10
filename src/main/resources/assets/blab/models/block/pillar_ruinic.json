@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "blab:blocks/pillar_ruinic_top",
+        "side": "blab:blocks/pillar_ruinic_side"
+    }
+}

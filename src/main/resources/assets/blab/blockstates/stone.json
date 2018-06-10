@@ -1,0 +1,10 @@
+{
+    "variants": {
+		"type=yellowstone": [
+            { "model": "blab:stone_yellowstone" },
+            { "model": "blab:stone_yellowstone", "y": 90 },
+            { "model": "blab:stone_yellowstone", "y": 180 },
+            { "model": "blab:stone_yellowstone", "y": 270 }
+        ]
+    }
+}
