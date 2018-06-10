@@ -11,7 +11,7 @@ public class BlockPillar extends BlockRotatedPillar {
 		super(Material.ROCK);
 		this.setCreativeTab(Blab.modTab);
 		this.setHardness(1.2F);
-		this.setUnlocalizedName("pillar");
-		this.setRegistryName("pillar");
+		this.setUnlocalizedName("pillar_ruinic");
+		this.setRegistryName("pillar_ruinic");
 	}
 }

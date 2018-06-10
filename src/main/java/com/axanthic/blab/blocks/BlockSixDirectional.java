@@ -9,6 +9,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
@@ -20,66 +21,43 @@ public class BlockSixDirectional extends BlockDirectional {
 
 	public BlockSixDirectional(Material material) {
 		super(material);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.DOWN));
 	}
-	
-    public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
-        return this.getDefaultState().withProperty(FACING, getFacingFromEntity(pos, placer));
-    }
 
-    @Nullable
-    public static EnumFacing getFacing(int meta)
-    {
-        int i = meta & 7;
-        return i > 5 ? null : EnumFacing.getFront(i);
-    }
+	@Nullable
+	public static EnumFacing getFacing(int meta) {
+		int i = meta & 7;
+		return i > 5 ? null : EnumFacing.getFront(i);
+	}
 
-    public static EnumFacing getFacingFromEntity(BlockPos pos, EntityLivingBase p_185647_1_)
-    {
-        if (MathHelper.abs((float)p_185647_1_.posX - (float)pos.getX()) < 2.0F && MathHelper.abs((float)p_185647_1_.posZ - (float)pos.getZ()) < 2.0F)
-        {
-            double d0 = p_185647_1_.posY + (double)p_185647_1_.getEyeHeight();
+	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+		EnumFacing direction = facing;
+		if (placer.isSneaking())
+			direction = direction.getOpposite();
+		return this.getDefaultState().withProperty(FACING, direction);
+	}
 
-            if (d0 - (double)pos.getY() > 2.0D)
-            {
-                return EnumFacing.UP;
-            }
+	//public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+		//worldIn.setBlockState(pos, state.withProperty(FACING, EnumFacing.getDirectionFromEntityLiving(pos, placer)), 2);
+	//}
 
-            if ((double)pos.getY() - d0 > 0.0D)
-            {
-                return EnumFacing.DOWN;
-            }
-        }
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(FACING, getFacing(meta));
+	}
 
-        return p_185647_1_.getHorizontalFacing().getOpposite();
-    }
+	public int getMetaFromState(IBlockState state) {
+		return ((EnumFacing)state.getValue(FACING)).getIndex();
+	}
 
-    public IBlockState getStateFromMeta(int meta)
-    {
-        return this.getDefaultState().withProperty(FACING, getFacing(meta));
-    }
+	public IBlockState withRotation(IBlockState state, Rotation rot) {
+		return state.withProperty(FACING, rot.rotate((EnumFacing)state.getValue(FACING)));
+	}
 
-    public int getMetaFromState(IBlockState state)
-    {
-        int i = 0;
-        i = i | ((EnumFacing)state.getValue(FACING)).getIndex();
+	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
+		return state.withRotation(mirrorIn.toRotation((EnumFacing)state.getValue(FACING)));
+	}
 
-        return i;
-    }
-
-    public IBlockState withRotation(IBlockState state, Rotation rot)
-    {
-        return state.withProperty(FACING, rot.rotate((EnumFacing)state.getValue(FACING)));
-    }
-
-    public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
-    {
-        return state.withRotation(mirrorIn.toRotation((EnumFacing)state.getValue(FACING)));
-    }
-
-    protected BlockStateContainer createBlockState()
-    {
-        return new BlockStateContainer(this, new IProperty[] {FACING});
-    }
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, new IProperty[] {FACING});
+	}
 }
