@@ -19,6 +19,8 @@ public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(Blab.instance);
+		Resources.registerBlocks();
+		Resources.registerItems();
 	}
 
 	public void init(FMLInitializationEvent event) {
@@ -30,12 +32,14 @@ public class CommonProxy {
 	}
 
 	public void registerBlocks(RegistryEvent.Register<Block> event) {
-		event.getRegistry().register(Resources.pillar);
-		event.getRegistry().register(Resources.pillarHead);
+		for (Block block : Resources.blocks)
+			event.getRegistry().register(block);
 	}
 
 	public void registerItems(RegistryEvent.Register<Item> event) {
-		event.getRegistry().register(new ItemBlock(Resources.pillar).setRegistryName(Resources.pillar.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(Resources.pillarHead).setRegistryName(Resources.pillarHead.getRegistryName()));
+		for (Block block : Resources.blocks)
+			event.getRegistry().register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+		for (Item item : Resources.items)
+			event.getRegistry().register(item);
 	}
 }

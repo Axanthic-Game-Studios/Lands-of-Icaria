@@ -24,12 +24,6 @@ public class BlockSixDirectional extends BlockDirectional {
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.DOWN));
 	}
 
-	@Nullable
-	public static EnumFacing getFacing(int meta) {
-		int i = meta & 7;
-		return i > 5 ? null : EnumFacing.getFront(i);
-	}
-
 	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 		EnumFacing direction = facing;
 		if (placer.isSneaking())
@@ -42,7 +36,7 @@ public class BlockSixDirectional extends BlockDirectional {
 	//}
 
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(FACING, getFacing(meta));
+		return this.getDefaultState().withProperty(FACING, EnumFacing.getFront(meta));
 	}
 
 	public int getMetaFromState(IBlockState state) {
