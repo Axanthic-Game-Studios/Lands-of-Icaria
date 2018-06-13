@@ -2,8 +2,6 @@ package com.axanthic.blab.proxy;
 
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.Resources;
-import com.axanthic.blab.blocks.BlockPillar;
-import com.axanthic.blab.blocks.BlockPillarHead;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -13,7 +11,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 

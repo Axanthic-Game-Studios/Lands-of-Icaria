@@ -1,11 +1,8 @@
 package com.axanthic.blab.proxy;
 
-import javax.annotation.Nonnull;
-
 import com.axanthic.blab.Resources;
-import com.axanthic.blab.blocks.BlockMeta.StoneTypes;
-import com.axanthic.blab.blocks.BlockPillar;
-import com.axanthic.blab.blocks.BlockPillarHead;
+import com.axanthic.blab.blocks.BlockMeta;
+import com.axanthic.blab.blocks.BlockStone;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -46,8 +43,7 @@ public class ClientProxy extends CommonProxy {
 				ModelLoader.setCustomMeshDefinition(block, new ItemMeshDefinition() {
 					@Override
 					public ModelResourceLocation getModelLocation(ItemStack stack) {
-						//block.getBlock().getStateFromMeta(stack.getMetadata());
-						return new ModelResourceLocation(block.getRegistryName(), "type=" + StoneTypes.byMetadata(stack.getMetadata()).getName());
+						return new ModelResourceLocation(block.getRegistryName(), "type=" + ((BlockMeta) block.getBlock()).getNameForMeta(stack.getMetadata()));
 					}});
 			} else
 				ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
