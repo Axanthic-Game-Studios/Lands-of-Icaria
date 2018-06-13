@@ -1,10 +1,21 @@
 {
-    "variants": {
-		"type=yellowstone": [
-            { "model": "blab:stone_yellowstone" },
-            { "model": "blab:stone_yellowstone", "y": 90 },
-            { "model": "blab:stone_yellowstone", "y": 180 },
-            { "model": "blab:stone_yellowstone", "y": 270 }
-        ]
-    }
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "cube_all",
+		"uvlock": true,
+		"textures": {
+			"all": "blab:blocks/stone_yellowstone",
+			"particle": "#all"
+		}
+	},
+	"variants": {
+		"type": {
+			"yellowstone": { "textures": { "all": "blab:blocks/stone_yellowstone" } },
+			"silkstone": { "textures": { "all": "blab:blocks/stone_silkstone" } },
+			"sunstone": { "textures": { "all": "blab:blocks/stone_sunstone" } },
+			"blackshale": { "textures": { "all": "blab:blocks/stone_blackshale" } },
+			"puddingstone": { "textures": { "all": "blab:blocks/stone_puddingstone" } }
+		}
+	}
 }

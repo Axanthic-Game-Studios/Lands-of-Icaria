@@ -1,6 +1,12 @@
 itemGroup.blab.creativeTab=Blab
 
-tile.yellowstone.name=Yellowstone
+item.wimba_stick.name=Wimba Stick
+
+tile.stone.yellowstone.name=Yellowstone
+tile.stone.silkstone.name=Silkstone
+tile.stone.sunstone.name=Sunstone
+tile.stone.blackshale.name=Blackshale
+tile.stone.puddingstone.name=Puddingstone
 
 tile.pillar_ruinic.name=Ruinic Pillar
 tile.pillar_head_ruinic.name=Ruinic Pillar Head

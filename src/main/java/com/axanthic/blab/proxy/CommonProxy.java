@@ -32,13 +32,13 @@ public class CommonProxy {
 	}
 
 	public void registerBlocks(RegistryEvent.Register<Block> event) {
-		for (Block block : Resources.blocks)
-			event.getRegistry().register(block);
+		for (ItemBlock block : Resources.blocks)
+			event.getRegistry().register(block.getBlock());
 	}
 
 	public void registerItems(RegistryEvent.Register<Item> event) {
-		for (Block block : Resources.blocks)
-			event.getRegistry().register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+		for (ItemBlock block : Resources.blocks)
+			event.getRegistry().register(block);
 		for (Item item : Resources.items)
 			event.getRegistry().register(item);
 	}

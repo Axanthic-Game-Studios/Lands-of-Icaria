@@ -4,8 +4,10 @@ import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,10 +19,17 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockSixDirectional extends BlockDirectional {
+public class BlockSixDirectional extends Block {
+
+	public static final PropertyDirection FACING = PropertyDirection.create("facing");
 
 	public BlockSixDirectional(Material material) {
 		super(material);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.DOWN));
+	}
+
+	public BlockSixDirectional(Material material, MapColor mapColor) {
+		super(material, mapColor);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.DOWN));
 	}
 
@@ -30,10 +39,6 @@ public class BlockSixDirectional extends BlockDirectional {
 			direction = direction.getOpposite();
 		return this.getDefaultState().withProperty(FACING, direction);
 	}
-
-	//public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-		//worldIn.setBlockState(pos, state.withProperty(FACING, EnumFacing.getDirectionFromEntityLiving(pos, placer)), 2);
-	//}
 
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(FACING, EnumFacing.getFront(meta));
