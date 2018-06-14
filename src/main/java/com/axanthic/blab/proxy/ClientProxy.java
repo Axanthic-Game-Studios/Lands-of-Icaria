@@ -3,6 +3,7 @@ package com.axanthic.blab.proxy;
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.blocks.BlockMeta;
 import com.axanthic.blab.items.ItemBlockMeta;
+import com.axanthic.blab.items.ItemMeta;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -36,7 +37,7 @@ public class ClientProxy extends CommonProxy {
 
 	public void registerItems(RegistryEvent.Register<Item> event) {
 		super.registerItems(event);
-		
+
 		for (ItemBlock block : Resources.blocks) {
 			if (block instanceof ItemBlockMeta) {
 				ModelLoader.setCustomMeshDefinition(block, new ItemMeshDefinition() {
@@ -47,7 +48,14 @@ public class ClientProxy extends CommonProxy {
 			} else
 				ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
 		}
-		for (Item item : Resources.items)
-			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+
+		for (Item item : Resources.items) {
+			if (item instanceof ItemMeta) {
+				for (int i = 0; i < ((ItemMeta) item).names.length; i++) {
+					ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(item.getRegistryName(), "type=" + ((ItemMeta) item).names[i]));
+				}
+			} else
+				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+		}
 	}
 }

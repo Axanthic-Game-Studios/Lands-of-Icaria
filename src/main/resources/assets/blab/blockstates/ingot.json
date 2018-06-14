@@ -1,0 +1,19 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "blab:generated",
+		"textures": {
+			"layer0": "blab:items/ingot_cooper"
+		}
+	},
+	"variants": {
+		"type": {
+			"cooper": { "textures": { "layer0": "blab:items/ingot_cooper" } },
+			"tan": { "textures": { "layer0": "blab:items/ingot_tan" } },
+			"vanadium": { "textures": { "layer0": "blab:items/ingot_vanadium" } },
+			"slither": { "textures": { "layer0": "blab:items/ingot_slither" } },
+			"molybdenum": { "textures": { "layer0": "blab:items/ingot_molybdenum" } },
+			"green_gold": { "textures": { "layer0": "blab:items/ingot_green_gold" } }
+		}
+	}
+}

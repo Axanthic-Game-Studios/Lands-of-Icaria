@@ -2,6 +2,13 @@ itemGroup.blab.creativeTab=Blab
 
 item.wimba_stick.name=Wimba Stick
 
+item.ingot.cooper.name=Cooper Ingot
+item.ingot.tan.name=Tan Ingot
+item.ingot.vanadium.name=Vanadium Ingot
+item.ingot.slither.name=Slither Ingot
+item.ingot.molybdenum.name=Molybdenum Ingot
+item.ingot.green_gold.name=Green Gold Ingot
+
 tile.stone.yellowstone.name=Yellowstone
 tile.stone.silkstone.name=Silkstone
 tile.stone.sunstone.name=Sunstone

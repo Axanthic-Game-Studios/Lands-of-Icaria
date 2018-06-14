@@ -13,8 +13,9 @@ public class Resources {
 
 	public static List<Item> items = new ArrayList<Item>();
 	public static List<ItemBlock> blocks = new ArrayList<ItemBlock>();
-	
+
 	public static Item stickWimba = new ItemBasic("wimba_stick");
+	public static ItemMeta ingot = new ItemMeta("ingot", new String[]{"cooper", "tan", "vanadium", "slither", "molybdenum", "green_gold"});
 
 	public static ItemBlockMeta stone = new ItemBlockMeta(new BlockStone());
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
@@ -22,6 +23,7 @@ public class Resources {
 	
 	public static void registerItems() {
 		items.add(stickWimba);
+		items.add(ingot);
 	}
 	
 	public static void registerBlocks() {
