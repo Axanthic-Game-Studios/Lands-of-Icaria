@@ -4,15 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.axanthic.blab.blocks.*;
-import com.axanthic.blab.blocks.BlockStone.StoneTypes;
 import com.axanthic.blab.items.*;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemMultiTexture;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
 public class Resources {
 
@@ -21,7 +16,7 @@ public class Resources {
 	
 	public static Item stickWimba = new ItemBasic("wimba_stick");
 
-	public static ItemMultiTexture stone = new ItemMultiTexture(new BlockStone(), null, StoneTypes.getNames());
+	public static ItemBlockMeta stone = new ItemBlockMeta(new BlockStone());
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
 	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead());
 	
