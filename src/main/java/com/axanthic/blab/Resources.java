@@ -17,7 +17,7 @@ public class Resources {
 	public static Item stickWimba = new ItemBasic("wimba_stick");
 	public static ItemMeta ingot = new ItemMeta("ingot", new String[]{"cooper", "tan", "vanadium", "slither", "molybdenum", "green_gold"});
 
-	public static ItemBlockMeta stone = new ItemBlockMeta(new BlockStone());
+	public static ItemBlockMeta rock = new ItemBlockMeta(new BlockRock());
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
 	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead());
 	
@@ -27,7 +27,7 @@ public class Resources {
 	}
 	
 	public static void registerBlocks() {
-		registerBlock(stone);
+		registerBlock(rock);
 		registerBlock(pillar);
 		registerBlock(pillarHead);
 	}
