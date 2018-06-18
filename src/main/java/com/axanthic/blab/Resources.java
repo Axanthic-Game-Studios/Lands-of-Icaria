@@ -6,10 +6,16 @@ import java.util.List;
 import com.axanthic.blab.blocks.*;
 import com.axanthic.blab.items.*;
 
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
 public class Resources {
+
+    public static final SoundType SILENCE = new SoundType(-10.0F, 1.0F, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL);
 
 	public static List<Item> items = new ArrayList<Item>();
 	public static List<ItemBlock> blocks = new ArrayList<ItemBlock>();
@@ -20,6 +26,7 @@ public class Resources {
 	public static ItemBlockMeta stone = new ItemBlockMeta(new BlockStone());
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
 	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead());
+	public static ItemBlock black = new ItemBlock(new BlockBasic(Material.ROCK, 10, "black", MapColor.BLACK).setSoundType(SILENCE));
 	
 	public static void registerItems() {
 		items.add(stickWimba);
@@ -30,6 +37,7 @@ public class Resources {
 		registerBlock(stone);
 		registerBlock(pillar);
 		registerBlock(pillarHead);
+		registerBlock(black);
 	}
 
 	public static void registerBlock(ItemBlock block) {
