@@ -1,6 +1,6 @@
 # Lands of Icarus/ia Minecraft Mod.
 #
-Floating Jungle Dimension with several core elements to its gameplay:
+Floating Dimension with several core elements to its gameplay:
 #
 Setting: Greek Mythology
 Terrain: Floating Islands (proof of concept shape of nanpa development)
