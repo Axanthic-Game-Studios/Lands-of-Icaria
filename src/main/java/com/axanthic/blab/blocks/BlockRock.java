@@ -18,17 +18,17 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockStone extends BlockMeta {
+public class BlockRock extends BlockMeta {
 
 	public static PropertyEnum TYPES = PropertyEnum.create("type", StoneTypes.class);
 	public static int metaCount = StoneTypes.values().length;
 
-	public BlockStone() {
+	public BlockRock() {
 		super(Material.ROCK);
 		this.setCreativeTab(Blab.modTab);
 		this.setHardness(1.2F);
-		this.setUnlocalizedName("stone");
-		this.setRegistryName("blab", "stone");
+		this.setUnlocalizedName("rock");
+		this.setRegistryName("blab", "rock");
 		this.setDefaultState(getStateFromMeta(0));
 	}
 
@@ -79,11 +79,11 @@ public class BlockStone extends BlockMeta {
 	}
 	
 	public enum StoneTypes implements IStringSerializable {
-		YELLOWSTONE(0, "yellowstone", MapColor.GOLD),
-		SILKSTONE(1, "silkstone", MapColor.CLAY),
-		SUNSTONE(2, "sunstone", MapColor.ORANGE_STAINED_HARDENED_CLAY),
-		BLACKSHALE(3, "blackshale", MapColor.BLACK),
-		PUDDINGSTONE(4, "puddingstone", MapColor.BLUE_STAINED_HARDENED_CLAY);
+		YELLOWSTONE(0, "yellowstone", MapColor.DIRT),
+		SILKSTONE(1, "silkstone", MapColor.PINK_STAINED_HARDENED_CLAY),
+		SUNSTONE(2, "sunstone", MapColor.WOOD),
+		VOIDSHALE(3, "voidshale", MapColor.GRAY),
+		BAETYL(4, "baetyl", MapColor.SILVER);
 
 		private static final StoneTypes[] META_LOOKUP = new StoneTypes[values().length];
 		private final int meta;

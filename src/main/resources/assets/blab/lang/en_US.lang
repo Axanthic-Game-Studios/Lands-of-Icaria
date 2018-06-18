@@ -9,11 +9,11 @@ item.ingot.slither.name=Slither Ingot
 item.ingot.molybdenum.name=Molybdenum Ingot
 item.ingot.green_gold.name=Green Gold Ingot
 
-tile.stone.yellowstone.name=Yellowstone
-tile.stone.silkstone.name=Silkstone
-tile.stone.sunstone.name=Sunstone
-tile.stone.blackshale.name=Blackshale
-tile.stone.puddingstone.name=Puddingstone
+tile.rock.yellowstone.name=Yellowstone
+tile.rock.silkstone.name=Silkstone
+tile.rock.sunstone.name=Sunstone
+tile.rock.blackshale.name=Voidshale
+tile.rock.baetyl.name=Baetyl
 
 tile.pillar_ruinic.name=Ruinic Pillar
 tile.pillar_head_ruinic.name=Ruinic Pillar Head
