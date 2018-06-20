@@ -1,21 +1,51 @@
 itemGroup.blab.creativeTab=Blab
 
 item.wimba_stick.name=Wimba Stick
+item.resource.silkstone_brick.name=Silkstone Brick
+item.resource.silkstone_powder.name=Silkstone Powder
 
-item.ingot.cooper.name=Cooper Ingot
-item.ingot.tan.name=Tan Ingot
-item.ingot.vanadium.name=Vanadium Ingot
-item.ingot.slither.name=Slither Ingot
-item.ingot.molybdenum.name=Molybdenum Ingot
-item.ingot.green_gold.name=Green Gold Ingot
+item.ingot.name=%s Ingot
+item.nugget.name=%s Nugget
+item.axe.name=%s Axe
+item.bident.name=%s Bident
+item.dagger.name=%s Dagger
+item.pickaxe.name=%s Pickaxe
+item.scythe.name=%s Scythe
+item.spade.name=%s Spade
+item.sword.name=%s Sword
 
-tile.rock.yellowstone.name=Yellowstone
-tile.rock.silkstone.name=Silkstone
-tile.rock.sunstone.name=Sunstone
-tile.rock.blackshale.name=Voidshale
-tile.rock.baetyl.name=Baetyl
+tile.rock.name=%s
+tile.bricks.name=%s Bricks
+tile.ore.name=%s Ore
+tile.block.name=%s Block
 
 tile.pillar_ruinic.name=Ruinic Pillar
 tile.pillar_head_ruinic.name=Ruinic Pillar Head
 tile.black.name=Black
 
+material.yellowstone.name=Yellowstone
+material.silkstone.name=Silkstone
+material.sunstone.name=Sunstone
+material.voidshale.name=Voidshale
+material.baetyl.name=Baetyl
+
+material.chalkos.name=Chalkos
+material.kassiteros.name=Kassiteros
+material.molibos.name=Molibos
+material.vanadium.name=Vanadium
+material.vanadiumsteel.name=Vanadium Steel
+material.sliver.name=Sliver
+material.orichalcum.name=Orichalcum
+material.sideros.name=Sideros
+material.molybdenum.name=Molybdenum
+material.molybdenumsteel.name=Molybdenum Steel
+material.bluridium.name=Bluridium
+material.yilaster.name=Yilaster
+
+material.lignite.name=Lignite
+material.calcite.name=Calcite
+material.dolomite.name=Dolomite
+material.anthracite.name=Anthracite
+material.jasper.name=Jasper
+material.zircon.name=Zircon
+material.abyssal_essence.name=Abyssal Essence

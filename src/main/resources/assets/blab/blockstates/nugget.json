@@ -1,0 +1,25 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "blab:generated",
+		"textures": {
+			"layer0": "blab:items/metal_chalkos_nugget"
+		}
+	},
+	"variants": {
+		"type": {
+			"chalkos": { "textures": { "layer0": "blab:items/metal_chalkos_nugget" } },
+			"kassiteros": { "textures": { "layer0": "blab:items/metal_kassiteros_nugget" } },
+			"molibos": { "textures": { "layer0": "blab:items/metal_molibos_nugget" } },
+			"vanadium": { "textures": { "layer0": "blab:items/metal_vanadium_nugget" } },
+			"vanadiumsteel": { "textures": { "layer0": "blab:items/metal_vanadiumsteel_nugget" } },
+			"sliver": { "textures": { "layer0": "blab:items/metal_sliver_nugget" } },
+			"orichalcum": { "textures": { "layer0": "blab:items/metal_orichalcum_nugget" } },
+			"sideros": { "textures": { "layer0": "blab:items/metal_sideros_nugget" } },
+			"molybdenum": { "textures": { "layer0": "blab:items/metal_molybdenum_nugget" } },
+			"molybdenumsteel": { "textures": { "layer0": "blab:items/metal_molybdenumsteel_nugget" } },
+			"bluridium": { "textures": { "layer0": "blab:items/metal_bluridium_nugget" } },
+			"yilaster": { "textures": { "layer0": "blab:items/metal_yilaster_nugget" } }
+		}
+	}
+}

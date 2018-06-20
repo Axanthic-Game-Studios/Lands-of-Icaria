@@ -3,17 +3,23 @@
 	"defaults": {
 		"model": "blab:generated",
 		"textures": {
-			"layer0": "blab:items/ingot_cooper"
+			"layer0": "blab:items/metal_chalkos_ingot"
 		}
 	},
 	"variants": {
 		"type": {
-			"cooper": { "textures": { "layer0": "blab:items/ingot_cooper" } },
-			"tan": { "textures": { "layer0": "blab:items/ingot_tan" } },
-			"vanadium": { "textures": { "layer0": "blab:items/ingot_vanadium" } },
-			"slither": { "textures": { "layer0": "blab:items/ingot_slither" } },
-			"molybdenum": { "textures": { "layer0": "blab:items/ingot_molybdenum" } },
-			"green_gold": { "textures": { "layer0": "blab:items/ingot_green_gold" } }
+			"chalkos": { "textures": { "layer0": "blab:items/metal_chalkos_ingot" } },
+			"kassiteros": { "textures": { "layer0": "blab:items/metal_kassiteros_ingot" } },
+			"molibos": { "textures": { "layer0": "blab:items/metal_molibos_ingot" } },
+			"vanadium": { "textures": { "layer0": "blab:items/metal_vanadium_ingot" } },
+			"vanadiumsteel": { "textures": { "layer0": "blab:items/metal_vanadiumsteel_ingot" } },
+			"sliver": { "textures": { "layer0": "blab:items/metal_sliver_ingot" } },
+			"orichalcum": { "textures": { "layer0": "blab:items/metal_orichalcum_ingot" } },
+			"sideros": { "textures": { "layer0": "blab:items/metal_sideros_ingot" } },
+			"molybdenum": { "textures": { "layer0": "blab:items/metal_molybdenum_ingot" } },
+			"molybdenumsteel": { "textures": { "layer0": "blab:items/metal_molybdenumsteel_ingot" } },
+			"bluridium": { "textures": { "layer0": "blab:items/metal_bluridium_ingot" } },
+			"yilaster": { "textures": { "layer0": "blab:items/metal_yilaster_ingot" } }
 		}
 	}
 }
