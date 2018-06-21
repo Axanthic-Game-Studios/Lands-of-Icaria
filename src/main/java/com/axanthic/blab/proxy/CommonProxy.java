@@ -1,16 +1,20 @@
 package com.axanthic.blab.proxy;
 
 import com.axanthic.blab.Blab;
+import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
+import com.axanthic.blab.entity.EntityBident;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class CommonProxy {
 
@@ -18,6 +22,7 @@ public class CommonProxy {
 		MinecraftForge.EVENT_BUS.register(Blab.instance);
 		Resources.registerBlocks();
 		Resources.registerItems();
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "bident", 0, ModInformation.ID, 64, 20, false);
 	}
 
 	public void init(FMLInitializationEvent event) {
