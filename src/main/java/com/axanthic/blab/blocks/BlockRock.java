@@ -73,7 +73,6 @@ public class BlockRock extends BlockMeta {
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		System.out.println(this.getUnlocalizedName());
 		if (getMetaFromState(state) == 1 && this.getUnlocalizedName().equals("tile.rock")) {
 			return Resources.resource;
 		}
@@ -87,7 +86,7 @@ public class BlockRock extends BlockMeta {
 			if (i < 0) {
 				i = 0;
 			}
-			return (random.nextInt(3) + 1) * (i + 1);
+			return Math.min(4, (random.nextInt(3) + 1) * (i + 1));
 		} else {
 			return this.quantityDropped(random);
 		}
@@ -121,7 +120,7 @@ public class BlockRock extends BlockMeta {
 		IBlockState state = world.getBlockState(pos);
 		int toolLevel = stack.getItem().getHarvestLevel(stack, "pickaxe", player, state);
 		if (stack.getItem().getRegistryName().getResourceDomain().equals(ModInformation.ID)) {
-			toolLevel += 1;
+			toolLevel += 2;
 		}
 		return toolLevel >= StoneTypes.byMetadata(getMetaFromState(state)).mineLevel;
 	}

@@ -106,7 +106,7 @@ public class BlockOre extends BlockMeta {
 		IBlockState state = world.getBlockState(pos);
 		int toolLevel = stack.getItem().getHarvestLevel(stack, "pickaxe", player, state);
 		if (stack.getItem().getRegistryName().getResourceDomain().equals(ModInformation.ID)) {
-			toolLevel += 1;
+			toolLevel += 2;
 		}
 		return toolLevel >= OreTypes.byMetadata(getMetaFromState(state)).mineLevel;
 	}

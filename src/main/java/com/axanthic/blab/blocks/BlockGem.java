@@ -82,9 +82,9 @@ public class BlockGem extends BlockSixDirectional {
 
 	@Override
 	public int damageDropped(IBlockState state) {
-		if (unlocalizedName.equals("zircon")) {
+		if (unlocalizedName.equals("jasper")) {
 			return 8;
-		} else if (unlocalizedName.equals("jasper")) {
+		} else if (unlocalizedName.equals("zircon")) {
 			return 7;
 		} else {
 			return 6;
