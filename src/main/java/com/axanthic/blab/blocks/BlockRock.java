@@ -33,7 +33,7 @@ public class BlockRock extends BlockMeta {
 		this.setCreativeTab(Blab.modTab);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName(name);
-		this.setRegistryName("blab", name);
+		this.setRegistryName(ModInformation.ID, name);
 		this.setDefaultState(getStateFromMeta(0));
 	}
 

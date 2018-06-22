@@ -14,7 +14,7 @@ public class ToolAxe extends ItemAxe {
 		super(material.material, material.material.getAttackDamage(), material.attackSpeed);
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("axe");
-		this.setRegistryName("blab", "axe_" + material.material.name().substring(ModInformation.ID.length() + 1));
+		this.setRegistryName(ModInformation.ID, "axe_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}
 
 	@Override

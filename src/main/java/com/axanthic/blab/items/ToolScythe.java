@@ -20,7 +20,7 @@ public class ToolScythe extends ItemTool {
 		super(material.material.getAttackDamage(), material.attackSpeed, material.material, null);
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("scythe");
-		this.setRegistryName("blab", "scythe_" + material.material.name().substring(ModInformation.ID.length() + 1));
+		this.setRegistryName(ModInformation.ID, "scythe_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}
 
 	@Override

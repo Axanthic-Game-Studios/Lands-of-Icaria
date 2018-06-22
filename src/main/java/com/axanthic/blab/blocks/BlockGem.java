@@ -5,6 +5,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.axanthic.blab.Blab;
+import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
 
 import net.minecraft.block.Block;
@@ -35,7 +36,7 @@ public class BlockGem extends BlockSixDirectional {
 		this.setLightOpacity(0);
 		this.setUnlocalizedName(name);
 		unlocalizedName = name;
-		this.setRegistryName("blab", name);
+		this.setRegistryName(ModInformation.ID, name);
 	}
 
 	@Override

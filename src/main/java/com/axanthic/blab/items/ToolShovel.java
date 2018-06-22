@@ -14,7 +14,7 @@ public class ToolShovel extends ItemSpade {
 		super(material.material);
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("shovel");
-		this.setRegistryName("blab", "shovel_" + material.material.name().substring(ModInformation.ID.length() + 1));
+		this.setRegistryName(ModInformation.ID, "shovel_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}
 
 	@Override

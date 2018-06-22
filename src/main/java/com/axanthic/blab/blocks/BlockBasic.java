@@ -1,6 +1,7 @@
 package com.axanthic.blab.blocks;
 
 import com.axanthic.blab.Blab;
+import com.axanthic.blab.ModInformation;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -14,7 +15,7 @@ public class BlockBasic extends Block {
 		this.setCreativeTab(Blab.modTab);
 		this.setHardness(hardness);
 		this.setUnlocalizedName(name);
-		this.setRegistryName("blab", name);
+		this.setRegistryName(ModInformation.ID, name);
 	}
 
 	@Override

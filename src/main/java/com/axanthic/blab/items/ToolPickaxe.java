@@ -14,7 +14,7 @@ public class ToolPickaxe extends ItemPickaxe {
 		super(material.material);
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("pickaxe");
-		this.setRegistryName("blab", "pickaxe_" + material.material.name().substring(ModInformation.ID.length() + 1));
+		this.setRegistryName(ModInformation.ID, "pickaxe_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}
 
 	@Override

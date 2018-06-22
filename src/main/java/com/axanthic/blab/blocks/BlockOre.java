@@ -34,7 +34,7 @@ public class BlockOre extends BlockMeta {
 		this.setCreativeTab(Blab.modTab);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("ore");
-		this.setRegistryName("blab", "ore");
+		this.setRegistryName(ModInformation.ID, "ore");
 		this.setDefaultState(getStateFromMeta(0));
 	}
 

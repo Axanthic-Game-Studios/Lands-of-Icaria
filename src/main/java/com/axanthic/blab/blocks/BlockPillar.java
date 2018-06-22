@@ -1,6 +1,7 @@
 package com.axanthic.blab.blocks;
 
 import com.axanthic.blab.Blab;
+import com.axanthic.blab.ModInformation;
 
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.MapColor;
@@ -13,6 +14,6 @@ public class BlockPillar extends BlockRotatedPillar {
 		this.setCreativeTab(Blab.modTab);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("pillar_ruinic");
-		this.setRegistryName("blab", "pillar_ruinic");
+		this.setRegistryName(ModInformation.ID, "pillar_ruinic");
 	}
 }

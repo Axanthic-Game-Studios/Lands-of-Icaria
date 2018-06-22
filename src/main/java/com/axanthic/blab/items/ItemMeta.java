@@ -1,6 +1,7 @@
 package com.axanthic.blab.items;
 
 import com.axanthic.blab.Blab;
+import com.axanthic.blab.ModInformation;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -16,7 +17,7 @@ public class ItemMeta extends Item {
 		this.names = names;
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName(name);
-		this.setRegistryName("blab", name);
+		this.setRegistryName(ModInformation.ID, name);
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 	}

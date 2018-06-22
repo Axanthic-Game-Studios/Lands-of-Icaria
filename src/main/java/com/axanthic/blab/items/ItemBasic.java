@@ -1,6 +1,7 @@
 package com.axanthic.blab.items;
 
 import com.axanthic.blab.Blab;
+import com.axanthic.blab.ModInformation;
 
 import net.minecraft.item.Item;
 
@@ -10,6 +11,6 @@ public class ItemBasic extends Item {
 		super();
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName(name);
-		this.setRegistryName("blab", name);
+		this.setRegistryName(ModInformation.ID, name);
 	}
 }

@@ -17,7 +17,7 @@ public class ToolSword extends ItemSword {
 		this.material = material;
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("sword");
-		this.setRegistryName("blab", "sword_" + material.material.name().substring(ModInformation.ID.length() + 1));
+		this.setRegistryName(ModInformation.ID, "sword_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}
 
 	@Override
