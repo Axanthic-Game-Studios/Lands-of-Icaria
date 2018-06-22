@@ -1,0 +1,18 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "blab:handheld",
+		"textures": {
+			"layer0": "blab:items/metal_molybdenumsteel_tool_axe"
+		}
+	},
+	"variants": {
+		"axe": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_molybdenumsteel_tool_axe" } },
+		"pickaxe": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_molybdenumsteel_tool_pickaxe" } },
+		"shovel": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_molybdenumsteel_tool_shovel" } },
+		"sword": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_molybdenumsteel_tool_sword" } },
+		"dagger": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_molybdenumsteel_tool_dagger" } },
+		"bident": { "model": "blab:bident", "textures": { "layer0": "blab:items/metal_molybdenumsteel_tool_bident" } },
+		"scythe": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_molybdenumsteel_tool_scythe" } }
+	}
+}

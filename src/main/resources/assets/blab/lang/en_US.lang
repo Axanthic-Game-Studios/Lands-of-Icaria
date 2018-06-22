@@ -11,7 +11,7 @@ item.bident.name=%s Bident
 item.dagger.name=%s Dagger
 item.pickaxe.name=%s Pickaxe
 item.scythe.name=%s Scythe
-item.spade.name=%s Spade
+item.shovel.name=%s Shovel
 item.sword.name=%s Sword
 
 tile.rock.name=%s

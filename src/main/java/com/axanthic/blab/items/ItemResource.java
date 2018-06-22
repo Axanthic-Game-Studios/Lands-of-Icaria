@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 public class ItemResource extends ItemMeta {
 
 	public ItemResource() {
-		super("resource", new String[]{"lignite", "dolomite", "anthracite", "abyssal_essence", "silkstone_powder", "silkstone_brick", "calcite", "jasper", "zircon"});
+		super("resource", new String[]{"lignite", "dolomite", "anthracite", "abyssal_essence", "silkstone_powder", "silkstone_brick", "calcite", "zircon", "jasper"});
 	}
 
 	@Override

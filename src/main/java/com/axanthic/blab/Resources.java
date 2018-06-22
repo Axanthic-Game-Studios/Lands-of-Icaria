@@ -11,12 +11,15 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.EnumHelper;
 
 public class Resources {
 
 	public static final SoundType SILENCE = new SoundType(-10.0F, 1.0F, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL);
-	public static final String[] metals = new String[]{"chalkos", "kassiteros", "molibos", "vanadium", "vanadiumsteel", "sliver", "orichalcum", "sideros", "molybdenum", "molybdenumsteel", "bluridium", "yilaster"};
+	public static final String[] metals = new String[]{"chalkos", "kassiteros", "molibos", "orichalcum", "sliver", "vanadium", "vanadiumsteel", "sideros", "molybdenum", "molybdenumsteel", "bluridium", "yilaster"};
 
 	public static List<Item> items = new ArrayList<Item>();
 	public static List<ItemBlock> blocks = new ArrayList<ItemBlock>();
@@ -25,6 +28,13 @@ public class Resources {
 	public static ItemMeta resource = new ItemResource();
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", metals);
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", metals);
+
+	public static toolSet chalkos = new toolSet(new CompleteToolMaterial("chalkos", -3.0F, 1, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 0)));
+	public static toolSet kassiteros = new toolSet(new CompleteToolMaterial("kassiteros", -3.0F, 2, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 1)));
+	public static toolSet orichalcum = new toolSet(new CompleteToolMaterial("orichalcum", -3.0F, 3, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 3)));
+	public static toolSet vanadiumsteel = new toolSet(new CompleteToolMaterial("vanadiumsteel", -3.0F, 3, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 6)));
+	public static toolSet sideros = new toolSet(new CompleteToolMaterial("sideros", -3.0F, 4, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 7)));
+	public static toolSet molybdenumsteel = new toolSet(new CompleteToolMaterial("molybdenumsteel", -3.0F, 4, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 9)));
 
 	public static ItemBlockMeta rock = new ItemBlockMetaMaterial(new BlockRock("rock"));
 	public static ItemBlockMeta brick = new ItemBlockMetaMaterial(new BlockRock("bricks"));
@@ -41,6 +51,13 @@ public class Resources {
 		items.add(resource);
 		items.add(ingot);
 		items.add(nugget);
+
+		chalkos.register();
+		kassiteros.register();
+		orichalcum.register();
+		vanadiumsteel.register();
+		sideros.register();
+		molybdenumsteel.register();
 	}
 
 	public static void registerBlocks() {
@@ -57,5 +74,47 @@ public class Resources {
 
 	public static void registerBlock(ItemBlock block) {
 		blocks.add((ItemBlock) block.setRegistryName(block.getBlock().getRegistryName()));
+	}
+
+	public static class CompleteToolMaterial {
+
+		public ToolMaterial material;
+		public float attackSpeed;
+
+		public CompleteToolMaterial(String name, float attackSpeed, int harvestLevel, int maxUses, float efficiency, float damage, int enchantability, ItemStack repair) {
+			this.material = EnumHelper.addToolMaterial(ModInformation.ID + ":" + name, harvestLevel, maxUses, efficiency, damage, enchantability).setRepairItem(repair);
+			this.attackSpeed = attackSpeed;
+		}
+	}
+
+	public static class toolSet {
+
+		public ToolAxe axe;
+		public ToolPickaxe pickaxe;
+		public ToolShovel shovel;
+		public ToolSword sword;
+		public ToolDagger dagger;
+		public ToolBident bident;
+		public ToolScythe scythe;
+
+		public toolSet(CompleteToolMaterial material) {
+			axe = new ToolAxe(material);
+			pickaxe = new ToolPickaxe(material);
+			shovel = new ToolShovel(material);
+			sword = new ToolSword(material);
+			dagger = new ToolDagger(material);
+			bident = new ToolBident(material);
+			scythe = new ToolScythe(material);
+		}
+
+		public void register() {
+			items.add(axe);
+			items.add(pickaxe);
+			items.add(shovel);
+			items.add(sword);
+			items.add(dagger);
+			items.add(bident);
+			items.add(scythe);
+		}
 	}
 }
