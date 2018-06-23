@@ -92,11 +92,6 @@ public class BlockGem extends BlockSixDirectional {
 		}
 	}
 
-	public boolean canPlaceOn(World worldIn, BlockPos pos) {
-		IBlockState state = worldIn.getBlockState(pos);
-		return state.getBlock().canPlaceTorchOnTop(state, worldIn, pos);
-	}
-
 	@Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
 		for (EnumFacing enumfacing : FACING.getAllowedValues()) {
@@ -104,7 +99,6 @@ public class BlockGem extends BlockSixDirectional {
 				return true;
 			}
 		}
-
 		return false;
 	}
 
@@ -114,13 +108,7 @@ public class BlockGem extends BlockSixDirectional {
 		Block block = iblockstate.getBlock();
 		BlockFaceShape blockfaceshape = iblockstate.getBlockFaceShape(worldIn, blockpos, facing);
 
-		if (facing.equals(EnumFacing.UP) && this.canPlaceOn(worldIn, blockpos)) {
-			return true;
-		} else if (facing != EnumFacing.UP && facing != EnumFacing.DOWN) {
-			return !isExceptBlockForAttachWithPiston(block) && blockfaceshape == BlockFaceShape.SOLID;
-		} else {
-			return false;
-		}
+		return !isExceptBlockForAttachWithPiston(block) && blockfaceshape == BlockFaceShape.SOLID;
 	}
 
 	@Override
@@ -130,37 +118,31 @@ public class BlockGem extends BlockSixDirectional {
 
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-		if (!this.checkForDrop(worldIn, pos, state)) {
+		if (!this.checkForDrop(worldIn, pos, state))
 			return;
-		} else {
-			EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
-			EnumFacing.Axis enumfacing$axis = enumfacing.getAxis();
-			EnumFacing enumfacing1 = enumfacing.getOpposite();
-			BlockPos blockpos = pos.offset(enumfacing1);
-			boolean flag = false;
+		EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
+		EnumFacing.Axis enumfacing$axis = enumfacing.getAxis();
+		EnumFacing enumfacing1 = enumfacing.getOpposite();
+		BlockPos blockpos = pos.offset(enumfacing1);
+		boolean flag = false;
 
-			if (enumfacing$axis.isHorizontal() && worldIn.getBlockState(blockpos).getBlockFaceShape(worldIn, blockpos, enumfacing) != BlockFaceShape.SOLID) {
-				flag = true;
-			} else if (enumfacing$axis.isVertical() && !this.canPlaceOn(worldIn, blockpos)) {
-				flag = true;
-			}
-
-			if (flag) {
-				this.dropBlockAsItem(worldIn, pos, state, 0);
-				worldIn.setBlockToAir(pos);
-			}
+		if (enumfacing$axis.isHorizontal() && worldIn.getBlockState(blockpos).getBlockFaceShape(worldIn, blockpos, enumfacing) != BlockFaceShape.SOLID) {
+			flag = true;
+		} else if (enumfacing$axis.isVertical() && !this.canPlaceAt(worldIn, blockpos, enumfacing1)) {
+			flag = true;
+		}
+		if (flag) {
+			worldIn.destroyBlock(pos, true);
 		}
 	}
 
 	public boolean checkForDrop(World worldIn, BlockPos pos, IBlockState state) {
 		if (state.getBlock() == this && this.canPlaceAt(worldIn, pos, (EnumFacing)state.getValue(FACING))) {
 			return true;
-		} else {
-			if (worldIn.getBlockState(pos).getBlock() == this) {
-				this.dropBlockAsItem(worldIn, pos, state, 0);
-				worldIn.setBlockToAir(pos);
-			}
-			return false;
 		}
+		if (worldIn.getBlockState(pos).getBlock() == this) {
+			worldIn.destroyBlock(pos, true);
+		}
+		return false;
 	}
 }

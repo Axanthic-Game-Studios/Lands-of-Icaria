@@ -1,0 +1,19 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "grass",
+		"uvlock": true,
+		"textures": {
+			"particle": "blab:blocks/soil_marl",
+			"bottom": "blab:blocks/soil_marl",
+			"top": "blab:blocks/soil_grass_top",
+			"side": "blab:blocks/soil_marl",
+			"overlay": "blab:blocks/soil_grass_side_overlay"
+		}
+	},
+    "variants": {
+		"normal":  { "model": "grass" },
+		"inventory":  { "model": "grass" }
+    }
+}

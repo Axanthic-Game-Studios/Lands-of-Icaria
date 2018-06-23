@@ -11,7 +11,7 @@ import net.minecraft.util.text.translation.I18n;
 public class ToolAxe extends ItemAxe {
 
 	public ToolAxe(CompleteToolMaterial material) {
-		super(material.material, material.material.getAttackDamage(), material.attackSpeed);
+		super(material.material, material.material.getAttackDamage() + 6.0F, material.attackSpeed - 2.0F);
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("axe");
 		this.setRegistryName(ModInformation.ID, "axe_" + material.material.name().substring(ModInformation.ID.length() + 1));

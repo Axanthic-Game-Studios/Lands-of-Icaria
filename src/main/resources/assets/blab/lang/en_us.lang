@@ -22,6 +22,10 @@ tile.block.name=%s Block
 tile.pillar_ruinic.name=Ruinic Pillar
 tile.pillar_head_ruinic.name=Ruinic Pillar Head
 tile.black.name=Black
+tile.soil.marl.name=Marl
+tile.soil.course_marl.name=Course Marl
+tile.soil.loam.name=Loam
+tile.soil_grass.name=Marl Grass
 
 material.yellowstone.name=Yellowstone
 material.silkstone.name=Silkstone

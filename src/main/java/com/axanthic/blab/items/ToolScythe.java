@@ -3,11 +3,16 @@ package com.axanthic.blab.items;
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources.CompleteToolMaterial;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.math.BlockPos;
@@ -16,8 +21,11 @@ import net.minecraft.world.World;
 
 public class ToolScythe extends ItemTool {
 
+	public CompleteToolMaterial material;
+
 	public ToolScythe(CompleteToolMaterial material) {
 		super(material.material.getAttackDamage(), material.attackSpeed, material.material, null);
+		this.material = material;
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("scythe");
 		this.setRegistryName(ModInformation.ID, "scythe_" + material.material.name().substring(ModInformation.ID.length() + 1));
@@ -48,10 +56,10 @@ public class ToolScythe extends ItemTool {
 
 	@Override
 	public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player) {
-		if (!(stack.getItem() instanceof ToolScythe))
-			return false;
-		
 		World world = player.getEntityWorld();
+
+		if (!(stack.getItem() instanceof ToolScythe) || getDestroySpeed(stack, world.getBlockState(pos)) != efficiency)
+			return false;
 
 		int x = pos.getX();
 		int y = pos.getY();
@@ -69,5 +77,16 @@ public class ToolScythe extends ItemTool {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot) {
+		Multimap<String, AttributeModifier> multimap = HashMultimap.<String, AttributeModifier>create();
+
+		if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.material.material.getAttackDamage() + 4.0D, 0));
+			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)this.material.attackSpeed - 2.0D, 0));
+		}
+		return multimap;
 	}
 }
