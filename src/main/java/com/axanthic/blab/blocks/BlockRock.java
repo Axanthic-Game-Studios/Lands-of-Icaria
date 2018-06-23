@@ -28,17 +28,17 @@ public class BlockRock extends BlockMeta {
 	public static PropertyEnum TYPES = PropertyEnum.create("type", StoneTypes.class);
 	public static int metaCount = StoneTypes.values().length;
 
-	public BlockRock(String name) {
+	public BlockRock(final String name) {
 		super(Material.ROCK);
 		this.setCreativeTab(Blab.modTab);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);
-		this.setDefaultState(getStateFromMeta(0));
+		this.setDefaultState(this.getStateFromMeta(0));
 	}
 
 	@Override
-	public String getNameForMeta(int meta) {
+	public String getNameForMeta(final int meta) {
 		return StoneTypes.byMetadata(meta).getName();
 	}
 
@@ -48,40 +48,40 @@ public class BlockRock extends BlockMeta {
 	}
 
 	@Override
-	public int getMetaFromState(IBlockState state) {
-		return ((StoneTypes) state.getValue(TYPES)).meta;
+	public int getMetaFromState(final IBlockState state) {
+		return ((StoneTypes) state.getValue(BlockRock.TYPES)).meta;
 	}
 
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState().withProperty(TYPES, StoneTypes.byMetadata(meta));
+	public IBlockState getStateFromMeta(final int meta) {
+		return this.getDefaultState().withProperty(BlockRock.TYPES, StoneTypes.byMetadata(meta));
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[]{TYPES});
+		return new BlockStateContainer(this, new IProperty[]{BlockRock.TYPES});
 	}
 
 	@Override
-	public int damageDropped(IBlockState state) {
-		int meta = getMetaFromState(state);
-		if (meta == 1 && this.getUnlocalizedName().equals("tile.rock")) {
+	public int damageDropped(final IBlockState state) {
+		final int meta = this.getMetaFromState(state);
+		if ((meta == 1) && this.getUnlocalizedName().equals("tile.rock")) {
 			return 4;
 		}
 		return meta;
 	}
 
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		if (getMetaFromState(state) == 1 && this.getUnlocalizedName().equals("tile.rock")) {
+	public Item getItemDropped(final IBlockState state, final Random rand, final int fortune) {
+		if ((this.getMetaFromState(state) == 1) && this.getUnlocalizedName().equals("tile.rock")) {
 			return Resources.resource;
 		}
 		return super.getItemDropped(state, rand, fortune);
 	}
 
 	@Override
-	public int quantityDropped(IBlockState state, int fortune, Random random) {
-		if (getMetaFromState(state) == 1 && this.getUnlocalizedName().equals("tile.rock")) {
+	public int quantityDropped(final IBlockState state, final int fortune, final Random random) {
+		if ((this.getMetaFromState(state) == 1) && this.getUnlocalizedName().equals("tile.rock")) {
 			int i = random.nextInt(fortune + 2) - 1;
 			if (i < 0) {
 				i = 0;
@@ -93,36 +93,36 @@ public class BlockRock extends BlockMeta {
 	}
 
 	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(final IBlockState state, final RayTraceResult target, final World world, final BlockPos pos, final EntityPlayer player) {
 		return new ItemStack(this, 1, this.getMetaFromState(world.getBlockState(pos)));
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
-		for (StoneTypes stoneType : StoneTypes.values()) {
+	public void getSubBlocks(final CreativeTabs itemIn, final NonNullList<ItemStack> items) {
+		for (final StoneTypes stoneType : StoneTypes.values()) {
 			items.add(new ItemStack(this, 1, stoneType.meta));
 		}
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-		return ((StoneTypes) state.getValue(TYPES)).mapColor;
+	public MapColor getMapColor(final IBlockState state, final IBlockAccess worldIn, final BlockPos pos) {
+		return ((StoneTypes) state.getValue(BlockRock.TYPES)).mapColor;
 	}
 
 	@Override
-	public int getHarvestLevel(IBlockState state) {
-		return StoneTypes.byMetadata(getMetaFromState(state)).mineLevel;
+	public int getHarvestLevel(final IBlockState state) {
+		return StoneTypes.byMetadata(this.getMetaFromState(state)).mineLevel;
 	}
 
 	@Override
-	public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player) {
-		ItemStack stack = player.getHeldItemMainhand();
-		IBlockState state = world.getBlockState(pos);
+	public boolean canHarvestBlock(final IBlockAccess world, final BlockPos pos, final EntityPlayer player) {
+		final ItemStack stack = player.getHeldItemMainhand();
+		final IBlockState state = world.getBlockState(pos);
 		int toolLevel = stack.getItem().getHarvestLevel(stack, "pickaxe", player, state);
 		if (stack.getItem().getRegistryName().getResourceDomain().equals(ModInformation.ID)) {
 			toolLevel += 2;
 		}
-		return toolLevel >= StoneTypes.byMetadata(getMetaFromState(state)).mineLevel;
+		return toolLevel >= StoneTypes.byMetadata(this.getMetaFromState(state)).mineLevel;
 	}
 
 	public enum StoneTypes implements IStringSerializable {
@@ -132,13 +132,13 @@ public class BlockRock extends BlockMeta {
 		VOIDSHALE(3, "voidshale", MapColor.GRAY, 5),
 		BAETYL(4, "baetyl", MapColor.STONE, 6);
 
-		private static final StoneTypes[] META_LOOKUP = new StoneTypes[values().length];
+		private static final StoneTypes[] META_LOOKUP = new StoneTypes[StoneTypes.values().length];
 		private final int meta;
 		private final String unlocalizedName;
 		private final MapColor mapColor;
 		private final int mineLevel;
 
-		StoneTypes(int metaIn, String unlocalizedNameIn, MapColor mapColorIn, int mineLevelIn) {
+		StoneTypes(final int metaIn, final String unlocalizedNameIn, final MapColor mapColorIn, final int mineLevelIn) {
 			this.meta = metaIn;
 			this.unlocalizedName = unlocalizedNameIn;
 			this.mapColor = mapColorIn;
@@ -146,28 +146,33 @@ public class BlockRock extends BlockMeta {
 		}
 
 		public static StoneTypes byMetadata(int meta) {
-			if (meta < 0 || meta >= META_LOOKUP.length) {
+			if ((meta < 0) || (meta >= StoneTypes.META_LOOKUP.length)) {
 				meta = 0;
 			}
 
-			return META_LOOKUP[meta];
+			return StoneTypes.META_LOOKUP[meta];
 		}
 
+		@Override
 		public String getName() {
 			return this.unlocalizedName;
 		}
 
+		public int getMeta() {
+			return this.meta;
+		}
+
 		public static String[] getNames() {
-			String[] names = new String[META_LOOKUP.length];
-			for (int i = 0; i < META_LOOKUP.length; i++) {
-				names[i] = META_LOOKUP[i].getName();
+			final String[] names = new String[StoneTypes.META_LOOKUP.length];
+			for (int i = 0; i < StoneTypes.META_LOOKUP.length; i++) {
+				names[i] = StoneTypes.META_LOOKUP[i].getName();
 			}
 			return names;
 		}
 
 		static {
-			for (StoneTypes stoneType : values()) {
-				META_LOOKUP[stoneType.meta] = stoneType;
+			for (final StoneTypes stoneType : StoneTypes.values()) {
+				StoneTypes.META_LOOKUP[stoneType.meta] = stoneType;
 			}
 		}
 	}
