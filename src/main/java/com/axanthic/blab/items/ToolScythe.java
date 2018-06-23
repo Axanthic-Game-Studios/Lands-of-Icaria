@@ -48,10 +48,10 @@ public class ToolScythe extends ItemTool {
 
 	@Override
 	public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player) {
-		if (!(stack.getItem() instanceof ToolScythe))
-			return false;
-		
 		World world = player.getEntityWorld();
+
+		if (!(stack.getItem() instanceof ToolScythe) || getDestroySpeed(stack, world.getBlockState(pos)) != efficiency)
+			return false;
 
 		int x = pos.getX();
 		int y = pos.getY();
