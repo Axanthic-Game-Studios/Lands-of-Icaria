@@ -29,12 +29,12 @@ public class Resources {
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", metals);
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", metals);
 
-	public static toolSet chalkos = new toolSet(new CompleteToolMaterial("chalkos", -3.0F, 1, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 0)));
-	public static toolSet kassiteros = new toolSet(new CompleteToolMaterial("kassiteros", -3.0F, 2, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 1)));
-	public static toolSet orichalcum = new toolSet(new CompleteToolMaterial("orichalcum", -3.0F, 3, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 3)));
-	public static toolSet vanadiumsteel = new toolSet(new CompleteToolMaterial("vanadiumsteel", -3.0F, 3, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 6)));
-	public static toolSet sideros = new toolSet(new CompleteToolMaterial("sideros", -3.0F, 4, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 7)));
-	public static toolSet molybdenumsteel = new toolSet(new CompleteToolMaterial("molybdenumsteel", -3.0F, 4, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 9)));
+	public static toolSet chalkos = new toolSet(new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(ingot, 1, 0)));
+	public static toolSet kassiteros = new toolSet(new CompleteToolMaterial("kassiteros", -1.1F, 2, 234, 5.0F, 1.5F, 15, new ItemStack(ingot, 1, 1)));
+	public static toolSet orichalcum = new toolSet(new CompleteToolMaterial("orichalcum", -0.8F, 3, 385, 6.0F, 2.0F, 19, new ItemStack(ingot, 1, 3)));
+	public static toolSet vanadiumsteel = new toolSet(new CompleteToolMaterial("vanadiumsteel", -1.0F, 3, 424, 4.0F, 3.0F, 11, new ItemStack(ingot, 1, 6)));
+	public static toolSet sideros = new toolSet(new CompleteToolMaterial("sideros", -1.1F, 4, 528, 7.0F, 2.5F, 14, new ItemStack(ingot, 1, 7)));
+	public static toolSet molybdenumsteel = new toolSet(new CompleteToolMaterial("molybdenumsteel", -1.2F, 4, 673, 7.5F, 2.0F, 12, new ItemStack(ingot, 1, 9)));
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
