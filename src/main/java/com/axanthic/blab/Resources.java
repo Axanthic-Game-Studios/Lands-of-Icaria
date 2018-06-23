@@ -36,6 +36,8 @@ public class Resources {
 	public static toolSet sideros = new toolSet(new CompleteToolMaterial("sideros", -3.0F, 4, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 7)));
 	public static toolSet molybdenumsteel = new toolSet(new CompleteToolMaterial("molybdenumsteel", -3.0F, 4, 512, 12.0F, 2.0F, 22, new ItemStack(ingot, 1, 9)));
 
+	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
+	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
 	public static ItemBlockMeta rock = new ItemBlockMetaMaterial(new BlockRock("rock"));
 	public static ItemBlockMeta brick = new ItemBlockMetaMaterial(new BlockRock("bricks"));
 	public static ItemBlockMeta ore = new ItemBlockMetaMaterial(new BlockOre());
@@ -61,6 +63,8 @@ public class Resources {
 	}
 
 	public static void registerBlocks() {
+		registerBlock(soil);
+		registerBlock(grass);
 		registerBlock(rock);
 		registerBlock(brick);
 		registerBlock(ore);
