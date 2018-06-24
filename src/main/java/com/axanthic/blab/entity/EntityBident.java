@@ -2,10 +2,19 @@ package com.axanthic.blab.entity;
 
 import javax.annotation.Nonnull;
 
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityEnderman;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.play.server.SPacketChangeGameState;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class EntityBident extends EntityArrow {
@@ -43,5 +52,60 @@ public class EntityBident extends EntityArrow {
 		super.readEntityFromNBT(compound);
 		NBTTagCompound stackTag = compound.getCompoundTag("stack");
 		bident = new ItemStack(stackTag);
+	}
+
+	@Override
+	protected void onHit(RayTraceResult raytraceResult) {
+		Entity entity = raytraceResult.entityHit;
+		if (raytraceResult != null && raytraceResult.entityHit instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer) raytraceResult.entityHit;
+
+			if (this.shootingEntity instanceof EntityPlayer && !((EntityPlayer) this.shootingEntity).canAttackPlayer(entityplayer)) {
+				raytraceResult = null;
+			}
+		}
+
+		if (raytraceResult != null && entity != null && raytraceResult.typeOfHit == RayTraceResult.Type.ENTITY) {
+			float f = MathHelper.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
+			int i = MathHelper.ceil((double) f * this.getDamage());
+			if (this.getIsCritical()) {
+				i += this.rand.nextInt(i / 2 + 2);
+			}
+
+			DamageSource damagesource;
+
+			if (this.shootingEntity == null) {
+				damagesource = DamageSource.causeArrowDamage(this, this);
+			} else {
+				damagesource = DamageSource.causeArrowDamage(this, this.shootingEntity);
+			}
+
+			if (this.isBurning() && !(entity instanceof EntityEnderman)) {
+				entity.setFire(5);
+			}
+
+			if (entity.attackEntityFrom(damagesource, (float) i)) {
+				if (entity instanceof EntityLivingBase) {
+					EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
+
+					if (!this.world.isRemote) {
+						entitylivingbase.setArrowCountInEntity(entitylivingbase.getArrowCountInEntity() + 1);
+					}
+
+					if (this.shootingEntity instanceof EntityLivingBase) {
+						EnchantmentHelper.applyThornEnchantments(entitylivingbase, this.shootingEntity);
+						EnchantmentHelper.applyArthropodEnchantments(new EntityItemContainer(world, bident), entitylivingbase);
+					}
+
+					this.arrowHit(entitylivingbase);
+
+					if (this.shootingEntity != null && entitylivingbase != this.shootingEntity && entitylivingbase instanceof EntityPlayer && this.shootingEntity instanceof EntityPlayerMP) {
+						((EntityPlayerMP) this.shootingEntity).connection.sendPacket(new SPacketChangeGameState(6, 0.0F));
+					}
+				}
+			}
+		}
+		super.onHit(raytraceResult);
+		this.isDead = false;
 	}
 }
