@@ -73,14 +73,14 @@ public class ToolBident extends ItemSword {
 				stack.damageItem(1, entityplayer);
 				EntityBident entityBident = new EntityBident(worldIn, entityplayer);
 				entityBident.setItemStack(stack.copy());
-				System.out.println(stack.toString());
+				entityBident.setDamage(material.material.getAttackDamage());
 				entityBident.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F, 1.0F);
 
 				if (f == 1.0F) {
 					entityBident.setIsCritical(true);
 				}
 
-				/*int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.SHARPNESS, stack);
+				int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.SHARPNESS, stack);
 				if (j > 0)
 					entityBident.setDamage(entityBident.getDamage() + (double)j * 0.5D + 0.5D);
 
@@ -89,7 +89,7 @@ public class ToolBident extends ItemSword {
 					entityBident.setKnockbackStrength(k);
 
 				if (EnchantmentHelper.getEnchantmentLevel(Enchantments.FIRE_ASPECT, stack) > 0)
-					entityBident.setFire(100);*/
+					entityBident.setFire(100);
 
 				if (flag)
 					entityBident.pickupStatus = EntityArrow.PickupStatus.CREATIVE_ONLY;

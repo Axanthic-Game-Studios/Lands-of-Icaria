@@ -75,9 +75,9 @@ public class BlockSoil extends BlockMeta {
 	}
 
 	public enum SoilTypes implements IStringSerializable {
-		MARL(0, "marl", MapColor.DIRT),
-		MARLCOURSE(1, "course_marl", MapColor.DIRT),
-		LOAM(2, "loam", MapColor.DIRT);
+		MARL(0, "marl", MapColor.GRAY_STAINED_HARDENED_CLAY),
+		MARLCOURSE(1, "course_marl", MapColor.GRAY_STAINED_HARDENED_CLAY),
+		LOAM(2, "loam", MapColor.SILVER_STAINED_HARDENED_CLAY);
 
 		private static final SoilTypes[] META_LOOKUP = new SoilTypes[values().length];
 		private final int meta;

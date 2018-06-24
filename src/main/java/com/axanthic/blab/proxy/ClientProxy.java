@@ -2,6 +2,8 @@ package com.axanthic.blab.proxy;
 
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.blocks.BlockMeta;
+import com.axanthic.blab.entity.EntityBident;
+import com.axanthic.blab.entity.RenderBident;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemMeta;
 
@@ -16,6 +18,7 @@ import net.minecraft.item.ItemTool;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -24,6 +27,7 @@ public class ClientProxy extends CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBident.class, RenderBident::new);
 	}
 
 	public void init(FMLInitializationEvent event) {
