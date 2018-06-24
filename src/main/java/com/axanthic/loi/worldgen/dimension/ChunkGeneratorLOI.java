@@ -37,6 +37,11 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	protected static final IBlockState VOIDSHALE = BlocksLOI.VOIDSHALE;
 	protected static final IBlockState BAETYL = BlocksLOI.BAETYL;
 
+	protected static final IBlockState MARLGRASS = BlocksLOI.MARLGRASS.getDefaultState();
+	protected static final IBlockState LOAM = BlocksLOI.LOAM;
+	protected static final IBlockState MARL = BlocksLOI.MARL;
+	protected static final IBlockState MARLCOURSE = BlocksLOI.MARLCOURSE;
+
 	protected static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
 	protected static final IBlockState GRASS = Blocks.GRASS.getDefaultState();
 	protected static final IBlockState DIRT = Blocks.DIRT.getDefaultState();
@@ -64,6 +69,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 	/** Determines whether something other than rock can be generated at a location */
 	private final NoiseGeneratorOctaves exculsivityNoiseGen;
+	private final NoiseGeneratorOctaves loamMarlNoiseGen;
 
 	/*****************************************************************/
 	/// PRIVATE VARIABLES
@@ -74,6 +80,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	private final float[] biomeWeights;
 	private double[] buffer;
 	private double[] depthBuffer = new double[256];
+	private double[] loamNoise = new double[256];
+	private double[] marlNoise = new double[256];
 
 	double[] pnr;
 	double[] ar;
@@ -97,6 +105,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		this.lperlinNoise2 = new NoiseGeneratorOctaves(this._rand, 16);
 		this.perlinNoise1 = new NoiseGeneratorOctaves(this._rand, 8);
 		this.exculsivityNoiseGen = new NoiseGeneratorOctaves(this._rand, 4);
+		this.loamMarlNoiseGen = new NoiseGeneratorOctaves(this._rand, 4);
 		this.scaleNoise = new NoiseGeneratorOctaves(this._rand, 10);
 		this.depthNoise = new NoiseGeneratorOctaves(this._rand, 16);
 		worldIn.setSeaLevel(63);
@@ -293,12 +302,16 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	{
 		final int sea_level = this._world.getSeaLevel() + 1;
 		final double impact = 0.03125D;
+		this.loamNoise = this.loamMarlNoiseGen.generateNoiseOctaves(this.loamNoise, wcx * 16, wcz * 16, 0, 16, 16, 1, 0.03125D, 0.03125D, 1.0D);
+		this.marlNoise = this.loamMarlNoiseGen.generateNoiseOctaves(this.marlNoise, wcx * 16, 109, wcz * 16, 16, 1, 16, 0.03125D, 1.0D, 0.03125D);
 		this.depthBuffer = this.exculsivityNoiseGen.generateNoiseOctaves(this.depthBuffer, wcx * 16, wcz * 16, 0, 16, 16, 1, impact * 2D, impact * 2D, impact * 2D);
 
 		for (int cx = 0; cx < 16; ++cx)
 		{
 			for (int cz = 0; cz < 16; ++cz)
 			{
+				final boolean loamFlag = (this.loamNoise[cx + (cz * 16)] + (this._rand.nextDouble() * 0.2D)) > 0.0D;
+				final boolean marlFlag = (this.marlNoise[cx + (cz * 16)] + (this._rand.nextDouble() * 0.2D)) > 0.0D;
 				final int exculsivity = (int)((this.depthBuffer[cx + (cz * 16)] / 3.0D) + 3.0D + (this._rand.nextDouble() * 0.25D));
 				int tmp_exculsivity = -1;
 				IBlockState primaryBlockToSet = ChunkGeneratorLOI.MAIN_BLOCK;
@@ -323,12 +336,24 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 								{
 									primaryBlockToSet = ChunkGeneratorLOI.MAIN_BLOCK;
 									secondaryBlockToSet = ChunkGeneratorLOI.MAIN_BLOCK;
+
+									if (marlFlag)
+									{
+										primaryBlockToSet = ChunkGeneratorLOI.MARLCOURSE;
+										secondaryBlockToSet = ChunkGeneratorLOI.MAIN_BLOCK;
+									}
+
+									if (loamFlag)
+									{
+										primaryBlockToSet = ChunkGeneratorLOI.MARLGRASS;
+										secondaryBlockToSet = ChunkGeneratorLOI.MARLGRASS;
+									}
 								}
 
-								if ((cy < sea_level) && ((primaryBlockToSet == null) || (primaryBlockToSet.getMaterial() == Material.AIR)))
-								{
-									primaryBlockToSet = ChunkGeneratorLOI.MAIN_BLOCK;
-								}
+								//								if ((cy < sea_level) && ((primaryBlockToSet == null) || (primaryBlockToSet.getMaterial() == Material.AIR)))
+								//								{
+								//									primaryBlockToSet = ChunkGeneratorLOI.MAIN_BLOCK;
+								//								}
 
 								tmp_exculsivity = exculsivity;
 
@@ -398,8 +423,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		this.biomesForGeneration = this._world.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration, (x * 4) - 2, (z * 4) - 2, 10, 10);
 		@SuppressWarnings("unused")
 		int wx, wz;
-		float noisePumice, noisePhosphorite;
-		int pumice_density, phosphorite_density;
+		float noiseLoam, noiseYellowstone;
+		int loam_density, yellowstone_density;
 
 		for(int cx = 0; cx < ChunkGeneratorLOI.CHUNK_WIDTH; cx++)
 		{
@@ -407,11 +432,11 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 			for(int cz = 0; cz < ChunkGeneratorLOI.CHUNK_WIDTH; cz++)
 			{
 				wz = (z * ChunkGeneratorLOI.CHUNK_WIDTH) + cz;
-				noisePumice = this.perlin.noise2(wx / 120f, wz / 120f);
-				noisePhosphorite = this.perlin.noise2((wx + 5521f) / 95f, (wz + 5521f) / 95f);
+				noiseLoam = this.perlin.noise2(wx / 120f, wz / 120f);
+				noiseYellowstone = this.perlin.noise2((wx + 5521f) / 95f, (wz + 5521f) / 95f);
 
-				pumice_density = (noisePumice <= 0f) ? 0 : (int) (noisePumice * 5f);
-				phosphorite_density = (noisePhosphorite <= 0f) ? 0 : (int) (noisePhosphorite * 5f);
+				loam_density = (noiseLoam <= 0f) ? 0 : (int) (noiseLoam * 5f);
+				yellowstone_density = (noiseYellowstone <= 0f) ? 0 : (int) (noiseYellowstone * 5f);
 
 				for(int cy = ChunkGeneratorLOI.CHUNK_HEIGHT; cy > 1; cy--)
 				{
@@ -419,7 +444,9 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					final IBlockState upper = primer.getBlockState(cx, cy + 1, cz);
 					if((b.getBlock() != Blocks.AIR) && (upper.getBlock() == Blocks.AIR))
 					{
-						primer.setBlockState(cx, cy, cz, ChunkGeneratorLOI.GRASS);
+						if ((b != BlocksLOI.MARLCOURSE) && (b.getBlock() != BlocksLOI.MARL)) {
+							primer.setBlockState(cx, cy, cz, ChunkGeneratorLOI.MARLGRASS);
+						}
 
 						for(int gy = 1; gy < cy; gy++)
 						{
@@ -430,18 +457,20 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 							// /.\ Spaghetti code warning /.\
 							if(gy < 3) {
-								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.DIRT);
-							} else if(gy < 7) {
-								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.GRAVEL);
-							} else if(gy < 17) {
+								if ((b != BlocksLOI.MARLCOURSE) && (b.getBlock() != BlocksLOI.MARL)) {
+									primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.LOAM);
+								}
+							} else if(gy < (7 + loam_density)) {
+								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.LOAM);
+							} else if(gy < (17 + loam_density + yellowstone_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.YELLOWSTONE);
-							} else if(gy < 23) {
+							} else if(gy < (23 + loam_density + yellowstone_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.SILKSTONE);
-							} else if(gy < (31 + pumice_density)) {
+							} else if(gy < (31 + loam_density + yellowstone_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.SUNSTONE);
-							} else if(gy < (36 + pumice_density)) {
+							} else if(gy < (36 + loam_density + yellowstone_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.VOIDSHALE);
-							} else if(gy < (48 + pumice_density)) {
+							} else if(gy < (48 + loam_density + yellowstone_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.BAETYL);
 							} else {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.BAETYL);

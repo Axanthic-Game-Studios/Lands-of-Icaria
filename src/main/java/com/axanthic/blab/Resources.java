@@ -9,6 +9,8 @@ import com.axanthic.blab.blocks.BlockOre;
 import com.axanthic.blab.blocks.BlockPillar;
 import com.axanthic.blab.blocks.BlockPillarHead;
 import com.axanthic.blab.blocks.BlockRock;
+import com.axanthic.blab.blocks.BlockSoil;
+import com.axanthic.blab.blocks.BlockSoilGrass;
 import com.axanthic.blab.items.ItemBasic;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemBlockMetaMaterial;
@@ -48,13 +50,15 @@ public class Resources {
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", Resources.metals);
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", Resources.metals);
 
-	public static toolSet chalkos = new toolSet(new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(ingot, 1, 0)));
-	public static toolSet kassiteros = new toolSet(new CompleteToolMaterial("kassiteros", -1.1F, 2, 234, 5.0F, 1.5F, 15, new ItemStack(ingot, 1, 1)));
-	public static toolSet orichalcum = new toolSet(new CompleteToolMaterial("orichalcum", -0.8F, 3, 385, 6.0F, 2.0F, 19, new ItemStack(ingot, 1, 3)));
-	public static toolSet vanadiumsteel = new toolSet(new CompleteToolMaterial("vanadiumsteel", -1.0F, 3, 424, 4.0F, 3.0F, 11, new ItemStack(ingot, 1, 6)));
-	public static toolSet sideros = new toolSet(new CompleteToolMaterial("sideros", -1.1F, 4, 528, 7.0F, 2.5F, 14, new ItemStack(ingot, 1, 7)));
-	public static toolSet molybdenumsteel = new toolSet(new CompleteToolMaterial("molybdenumsteel", -1.2F, 4, 673, 7.5F, 2.0F, 12, new ItemStack(ingot, 1, 9)));
+	public static toolSet chalkos = new toolSet(new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(Resources.ingot, 1, 0)));
+	public static toolSet kassiteros = new toolSet(new CompleteToolMaterial("kassiteros", -1.1F, 2, 234, 5.0F, 1.5F, 15, new ItemStack(Resources.ingot, 1, 1)));
+	public static toolSet orichalcum = new toolSet(new CompleteToolMaterial("orichalcum", -0.8F, 3, 385, 6.0F, 2.0F, 19, new ItemStack(Resources.ingot, 1, 3)));
+	public static toolSet vanadiumsteel = new toolSet(new CompleteToolMaterial("vanadiumsteel", -1.0F, 3, 424, 4.0F, 3.0F, 11, new ItemStack(Resources.ingot, 1, 6)));
+	public static toolSet sideros = new toolSet(new CompleteToolMaterial("sideros", -1.1F, 4, 528, 7.0F, 2.5F, 14, new ItemStack(Resources.ingot, 1, 7)));
+	public static toolSet molybdenumsteel = new toolSet(new CompleteToolMaterial("molybdenumsteel", -1.2F, 4, 673, 7.5F, 2.0F, 12, new ItemStack(Resources.ingot, 1, 9)));
 
+	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
+	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
 	public static ItemBlockMeta rock = new ItemBlockMetaMaterial(new BlockRock("rock"));
 	public static ItemBlockMeta brick = new ItemBlockMetaMaterial(new BlockRock("bricks"));
 	public static ItemBlockMeta ore = new ItemBlockMetaMaterial(new BlockOre());
@@ -81,6 +85,8 @@ public class Resources {
 	}
 
 	public static void registerBlocks() {
+		Resources.registerBlock(Resources.soil);
+		Resources.registerBlock(Resources.grass);
 		Resources.registerBlock(Resources.rock);
 		Resources.registerBlock(Resources.brick);
 		Resources.registerBlock(Resources.ore);

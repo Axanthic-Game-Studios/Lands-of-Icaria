@@ -2,6 +2,7 @@ package com.axanthic.blab.blocks;
 
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
+
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -29,11 +30,11 @@ public class BlockSoil extends BlockMeta {
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("soil");
 		this.setRegistryName(ModInformation.ID, "soil");
-		this.setDefaultState(getStateFromMeta(0));
+		this.setDefaultState(this.getStateFromMeta(0));
 	}
 
 	@Override
-	public String getNameForMeta(int meta) {
+	public String getNameForMeta(final int meta) {
 		return SoilTypes.byMetadata(meta).getName();
 	}
 
@@ -43,35 +44,35 @@ public class BlockSoil extends BlockMeta {
 	}
 
 	@Override
-	public int getMetaFromState(IBlockState state) {
-		return ((SoilTypes) state.getValue(TYPES)).meta;
+	public int getMetaFromState(final IBlockState state) {
+		return ((SoilTypes) state.getValue(BlockSoil.TYPES)).meta;
 	}
 
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState().withProperty(TYPES, SoilTypes.byMetadata(meta));
+	public IBlockState getStateFromMeta(final int meta) {
+		return this.getDefaultState().withProperty(BlockSoil.TYPES, SoilTypes.byMetadata(meta));
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[]{TYPES});
+		return new BlockStateContainer(this, new IProperty[]{BlockSoil.TYPES});
 	}
 
 	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(final IBlockState state, final RayTraceResult target, final World world, final BlockPos pos, final EntityPlayer player) {
 		return new ItemStack(this, 1, this.getMetaFromState(world.getBlockState(pos)));
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
-		for (SoilTypes soilType : SoilTypes.values()) {
+	public void getSubBlocks(final CreativeTabs itemIn, final NonNullList<ItemStack> items) {
+		for (final SoilTypes soilType : SoilTypes.values()) {
 			items.add(new ItemStack(this, 1, soilType.meta));
 		}
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-		return ((SoilTypes) state.getValue(TYPES)).mapColor;
+	public MapColor getMapColor(final IBlockState state, final IBlockAccess worldIn, final BlockPos pos) {
+		return ((SoilTypes) state.getValue(BlockSoil.TYPES)).mapColor;
 	}
 
 	public enum SoilTypes implements IStringSerializable {
@@ -79,40 +80,45 @@ public class BlockSoil extends BlockMeta {
 		MARLCOURSE(1, "course_marl", MapColor.DIRT),
 		LOAM(2, "loam", MapColor.DIRT);
 
-		private static final SoilTypes[] META_LOOKUP = new SoilTypes[values().length];
+		private static final SoilTypes[] META_LOOKUP = new SoilTypes[SoilTypes.values().length];
 		private final int meta;
 		private final String unlocalizedName;
 		private final MapColor mapColor;
 
-		SoilTypes(int metaIn, String unlocalizedNameIn, MapColor mapColorIn) {
+		SoilTypes(final int metaIn, final String unlocalizedNameIn, final MapColor mapColorIn) {
 			this.meta = metaIn;
 			this.unlocalizedName = unlocalizedNameIn;
 			this.mapColor = mapColorIn;
 		}
 
 		public static SoilTypes byMetadata(int meta) {
-			if (meta < 0 || meta >= META_LOOKUP.length) {
+			if ((meta < 0) || (meta >= SoilTypes.META_LOOKUP.length)) {
 				meta = 0;
 			}
 
-			return META_LOOKUP[meta];
+			return SoilTypes.META_LOOKUP[meta];
 		}
 
+		@Override
 		public String getName() {
 			return this.unlocalizedName;
 		}
 
+		public int getMeta() {
+			return this.meta;
+		}
+
 		public static String[] getNames() {
-			String[] names = new String[META_LOOKUP.length];
-			for (int i = 0; i < META_LOOKUP.length; i++) {
-				names[i] = META_LOOKUP[i].getName();
+			final String[] names = new String[SoilTypes.META_LOOKUP.length];
+			for (int i = 0; i < SoilTypes.META_LOOKUP.length; i++) {
+				names[i] = SoilTypes.META_LOOKUP[i].getName();
 			}
 			return names;
 		}
 
 		static {
-			for (SoilTypes soilType : values()) {
-				META_LOOKUP[soilType.meta] = soilType;
+			for (final SoilTypes soilType : SoilTypes.values()) {
+				SoilTypes.META_LOOKUP[soilType.meta] = soilType;
 			}
 		}
 	}
