@@ -3,23 +3,12 @@ package com.axanthic.blab.entity;
 import javax.annotation.Nonnull;
 
 import com.axanthic.blab.ModInformation;
-
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
@@ -38,50 +27,40 @@ public class RenderBident extends Render<EntityBident> {
 	public RenderBident(RenderManager renderManager) {
 		super(renderManager);
 	}
-	
+
 	@Override
-    public void doRender(@Nonnull EntityBident bident, double x, double y, double z, float entityYaw, float partialTicks) {
+	public void doRender(@Nonnull EntityBident bident, double x, double y, double z, float entityYaw, float partialTicks) {
 		GlStateManager.pushMatrix();
-        this.bindEntityTexture(bident);
-        GlStateManager.translate((float)x, (float)y, (float)z);
-        GlStateManager.enableRescaleNormal();
-        TextureAtlasSprite textureatlassprite = Minecraft.getMinecraft().getRenderItem().getItemModelMesher().getParticleIcon(bident.bident.getItem());
-        GlStateManager.rotate(bident.prevRotationYaw + (bident.rotationYaw - bident.prevRotationYaw) * partialTicks - 90.0F, 0.0F, 1.0F, 0.0F);
-        GlStateManager.rotate(bident.prevRotationPitch + (bident.rotationPitch - bident.prevRotationPitch) * partialTicks, 0.0F, 0.0F, 1.0F);
-        Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder bufferbuilder = tessellator.getBuffer();
-        float f = textureatlassprite.getMinU();
-        float f1 = textureatlassprite.getMaxU();
-        float f2 = textureatlassprite.getMinV();
-        float f3 = textureatlassprite.getMaxV();
-        float f4 = 1.0F;
-        float f5 = 0.5F;
-        float f6 = 0.25F;
-        //GlStateManager.rotate(180.0F - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
-        //GlStateManager.rotate((float)(this.renderManager.options.thirdPersonView == 2 ? -1 : 1) * -this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
+		GlStateManager.translate((float) x, (float) y, (float) z);
+		GlStateManager.rotate((bident.prevRotationYaw + (bident.rotationYaw - bident.prevRotationYaw) * partialTicks) - 90.0F, 0.0F, 1.0F, 0.0F);
+		GlStateManager.translate(-0.5F, 0.0F, 0.0F);
+		GlStateManager.rotate((bident.prevRotationPitch + (bident.rotationPitch - bident.prevRotationPitch) * partialTicks) -45, 0.0F, 0.0F, 1.0F);
+		GlStateManager.enableRescaleNormal();
+		float f9 = (float) bident.arrowShake - partialTicks;
 
-        if (this.renderOutlines)
-        {
-            GlStateManager.enableColorMaterial();
-            GlStateManager.enableOutlineMode(this.getTeamColor(bident));
-        }
+		if (f9 > 0.0F) {
+			float f10 = -MathHelper.sin(f9 * 3.0F) * f9;
+			GlStateManager.rotate(f10, 0.0F, 0.0F, 1.0F);
+		}
 
-        bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);
-        bufferbuilder.pos(-0.5D, -0.25D, 0.0D).tex((double)f, (double)f3).normal(0.0F, 1.0F, 0.0F).endVertex();
-        bufferbuilder.pos(0.5D, -0.25D, 0.0D).tex((double)f1, (double)f3).normal(0.0F, 1.0F, 0.0F).endVertex();
-        bufferbuilder.pos(0.5D, 0.75D, 0.0D).tex((double)f1, (double)f2).normal(0.0F, 1.0F, 0.0F).endVertex();
-        bufferbuilder.pos(-0.5D, 0.75D, 0.0D).tex((double)f, (double)f2).normal(0.0F, 1.0F, 0.0F).endVertex();
-        tessellator.draw();
+		GlStateManager.scale(2.0F, 2.0F, 2.0F);
 
-        if (this.renderOutlines)
-        {
-            GlStateManager.disableOutlineMode();
-            GlStateManager.disableColorMaterial();
-        }
+		if (this.renderOutlines) {
+			GlStateManager.enableColorMaterial();
+			GlStateManager.enableOutlineMode(this.getTeamColor(bident));
+		}
 
-        GlStateManager.disableRescaleNormal();
-        GlStateManager.popMatrix();
-        super.doRender(bident, x, y, z, entityYaw, partialTicks);
+		Minecraft.getMinecraft().getRenderItem().renderItem(bident.getArrowStack(), ItemCameraTransforms.TransformType.GROUND);
+
+		if (this.renderOutlines) {
+			GlStateManager.disableOutlineMode();
+			GlStateManager.disableColorMaterial();
+		}
+
+		GlStateManager.disableRescaleNormal();
+		GlStateManager.enableLighting();
+		GlStateManager.popMatrix();
+		super.doRender(bident, x, y, z, entityYaw, partialTicks);
 	}
 
 	@Override

@@ -22,7 +22,7 @@ public class CommonProxy {
 		MinecraftForge.EVENT_BUS.register(Blab.instance);
 		Resources.registerBlocks();
 		Resources.registerItems();
-		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "bident", 0, ModInformation.ID, 64, 20, false);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "bident", 0, ModInformation.ID, 64, 20, true);
 	}
 
 	public void init(FMLInitializationEvent event) {
