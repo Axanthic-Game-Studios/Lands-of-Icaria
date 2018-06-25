@@ -11,6 +11,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.network.play.server.SPacketChangeGameState;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
@@ -19,7 +22,8 @@ import net.minecraft.world.World;
 
 public class EntityBident extends EntityArrow {
 
-	public ItemStack bident = ItemStack.EMPTY;
+	private static final DataParameter<ItemStack> BIDENT = EntityDataManager.<ItemStack>createKey(EntityBident.class, DataSerializers.ITEM_STACK);
+	private ItemStack bident = ItemStack.EMPTY;
 
 	public EntityBident(World worldIn) {
 		super(worldIn);
@@ -30,12 +34,20 @@ public class EntityBident extends EntityArrow {
 		this.bident = shooter.getActiveItemStack();
 	}
 
+	@Override
+	protected void entityInit() {
+		super.entityInit();
+		this.dataManager.register(BIDENT, bident);
+	}
+
 	public void setItemStack(ItemStack item) {
+		dataManager.set(BIDENT, item);
 		this.bident = item;
 	}
 
 	@Override
 	public ItemStack getArrowStack() {
+		bident = dataManager.get(BIDENT);
 		return bident;
 	}
 
