@@ -50,12 +50,12 @@ public class Resources {
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", Resources.metals);
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", Resources.metals);
 
-	public static toolSet chalkos = new toolSet(new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(Resources.ingot, 1, 0)));
-	public static toolSet kassiteros = new toolSet(new CompleteToolMaterial("kassiteros", -1.1F, 2, 234, 5.0F, 1.5F, 15, new ItemStack(Resources.ingot, 1, 1)));
-	public static toolSet orichalcum = new toolSet(new CompleteToolMaterial("orichalcum", -0.8F, 3, 385, 6.0F, 2.0F, 19, new ItemStack(Resources.ingot, 1, 3)));
-	public static toolSet vanadiumsteel = new toolSet(new CompleteToolMaterial("vanadiumsteel", -1.0F, 3, 424, 4.0F, 3.0F, 11, new ItemStack(Resources.ingot, 1, 6)));
-	public static toolSet sideros = new toolSet(new CompleteToolMaterial("sideros", -1.1F, 4, 528, 7.0F, 2.5F, 14, new ItemStack(Resources.ingot, 1, 7)));
-	public static toolSet molybdenumsteel = new toolSet(new CompleteToolMaterial("molybdenumsteel", -1.2F, 4, 673, 7.5F, 2.0F, 12, new ItemStack(Resources.ingot, 1, 9)));
+	public static ToolSet chalkos = new ToolSet(new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(Resources.ingot, 1, 0)));
+	public static ToolSet kassiteros = new ToolSet(new CompleteToolMaterial("kassiteros", -1.1F, 2, 234, 5.0F, 1.5F, 15, new ItemStack(Resources.ingot, 1, 1)));
+	public static ToolSet orichalcum = new ToolSet(new CompleteToolMaterial("orichalcum", -0.8F, 3, 385, 6.0F, 2.0F, 19, new ItemStack(Resources.ingot, 1, 3)));
+	public static ToolSet vanadiumsteel = new ToolSet(new CompleteToolMaterial("vanadiumsteel", -1.0F, 3, 424, 4.0F, 3.0F, 11, new ItemStack(Resources.ingot, 1, 6)));
+	public static ToolSet sideros = new ToolSet(new CompleteToolMaterial("sideros", -1.1F, 4, 528, 7.0F, 2.5F, 14, new ItemStack(Resources.ingot, 1, 7)));
+	public static ToolSet molybdenumsteel = new ToolSet(new CompleteToolMaterial("molybdenumsteel", -1.2F, 4, 673, 7.5F, 2.0F, 12, new ItemStack(Resources.ingot, 1, 9)));
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
@@ -65,6 +65,7 @@ public class Resources {
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
+	public static ItemBlock relicstone = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "smooth_relicstone", MapColor.WOOD));
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
 	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead());
 	public static ItemBlock black = new ItemBlock(new BlockBasic(Material.ROCK, 10, "black", MapColor.BLACK).setSoundType(Resources.SILENCE));
@@ -93,6 +94,7 @@ public class Resources {
 		Resources.registerBlock(Resources.calcite);
 		Resources.registerBlock(Resources.jasper);
 		Resources.registerBlock(Resources.zircon);
+		Resources.registerBlock(Resources.relicstone);
 		Resources.registerBlock(Resources.pillar);
 		Resources.registerBlock(Resources.pillarHead);
 		Resources.registerBlock(Resources.black);
@@ -113,7 +115,7 @@ public class Resources {
 		}
 	}
 
-	public static class toolSet {
+	public static class ToolSet {
 
 		public ToolAxe axe;
 		public ToolPickaxe pickaxe;
@@ -123,7 +125,7 @@ public class Resources {
 		public ToolBident bident;
 		public ToolScythe scythe;
 
-		public toolSet(final CompleteToolMaterial material) {
+		public ToolSet(final CompleteToolMaterial material) {
 			this.axe = new ToolAxe(material);
 			this.pickaxe = new ToolPickaxe(material);
 			this.shovel = new ToolShovel(material);

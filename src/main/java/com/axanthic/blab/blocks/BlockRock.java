@@ -130,7 +130,8 @@ public class BlockRock extends BlockMeta {
 		SILKSTONE(1, "silkstone", MapColor.PINK_STAINED_HARDENED_CLAY, 3),
 		SUNSTONE(2, "sunstone", MapColor.WOOD, 4),
 		VOIDSHALE(3, "voidshale", MapColor.GRAY, 5),
-		BAETYL(4, "baetyl", MapColor.STONE, 6);
+		BAETYL(4, "baetyl", MapColor.STONE, 6),
+		RELICSTONE(5, "relicstone", MapColor.WOOD, 0);
 
 		private static final StoneTypes[] META_LOOKUP = new StoneTypes[StoneTypes.values().length];
 		private final int meta;

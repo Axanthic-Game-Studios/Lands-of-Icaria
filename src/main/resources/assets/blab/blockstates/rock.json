@@ -15,7 +15,8 @@
 			"silkstone": { "textures": { "all": "blab:blocks/rock_silkstone" } },
 			"sunstone": { "textures": { "all": "blab:blocks/rock_sunstone" } },
 			"voidshale": { "textures": { "all": "blab:blocks/rock_voidshale" } },
-			"baetyl": { "textures": { "all": "blab:blocks/rock_baetyl" } }
+			"baetyl": { "textures": { "all": "blab:blocks/rock_baetyl" } },
+			"relicstone": { "textures": { "all": "blab:blocks/rock_relicstone" } }
 		}
 	}
 }

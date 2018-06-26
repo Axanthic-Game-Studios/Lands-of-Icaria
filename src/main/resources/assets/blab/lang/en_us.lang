@@ -19,8 +19,9 @@ tile.generic.bricks.name=%s Bricks
 tile.generic.ore.name=%s Ore
 tile.generic.block.name=%s Block
 
-tile.pillar_ruinic.name=Ruinic Pillar
-tile.pillar_head_ruinic.name=Ruinic Pillar Head
+tile.smooth_relicstone.name=Smooth Relicstone
+tile.pillar_relicstone.name=Relicstone Pillar
+tile.pillar_head_relicstone.name=Relisctone Pillar Head
 tile.black.name=Black
 tile.soil.marl.name=Marl
 tile.soil.course_marl.name=Course Marl
@@ -32,6 +33,7 @@ material.silkstone.name=Silkstone
 material.sunstone.name=Sunstone
 material.voidshale.name=Voidshale
 material.baetyl.name=Baetyl
+material.relicstone.name=Relicstone
 
 material.chalkos.name=Chalkos
 material.kassiteros.name=Kassiteros

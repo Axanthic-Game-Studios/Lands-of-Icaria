@@ -3,9 +3,9 @@
 	"defaults": {
 		"model": "cube_column",
 		"textures": {
-				"all": "blab:blocks/pillar_ruinic_side",
-				"end": "blab:blocks/pillar_ruinic_top",
-				"side": "blab:blocks/pillar_ruinic_side"
+				"all": "blab:blocks/rock_relicstone_pillar_side",
+				"end": "blab:blocks/rock_relicstone_pillar_top",
+				"side": "blab:blocks/rock_relicstone_pillar_side"
 		}
 	},
     "variants": {
