@@ -21,7 +21,7 @@ public class ToolDagger extends ItemSword {
 		super(material.material);
 		this.material = material;
 		this.setCreativeTab(Blab.modTab);
-		this.setUnlocalizedName("dagger");
+		this.setUnlocalizedName("generic.dagger");
 		this.setRegistryName(ModInformation.ID, "dagger_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}
 

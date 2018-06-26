@@ -12,6 +12,11 @@ public class ItemBlockMetaMaterial extends ItemBlockMeta {
 	}
 
 	@Override
+	public String getUnlocalizedName() {
+		return "tile.generic." + block.getUnlocalizedName().substring(5);
+	}
+
+	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
 		try {
 			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal("material." + ((BlockMeta) this.block).getNames()[stack.getItemDamage()] + ".name"));

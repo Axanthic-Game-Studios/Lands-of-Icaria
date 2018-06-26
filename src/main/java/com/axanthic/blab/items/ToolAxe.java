@@ -13,7 +13,7 @@ public class ToolAxe extends ItemAxe {
 	public ToolAxe(CompleteToolMaterial material) {
 		super(material.material, material.material.getAttackDamage() + 6.0F, material.attackSpeed - 2.0F);
 		this.setCreativeTab(Blab.modTab);
-		this.setUnlocalizedName("axe");
+		this.setUnlocalizedName("generic.axe");
 		this.setRegistryName(ModInformation.ID, "axe_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}
 

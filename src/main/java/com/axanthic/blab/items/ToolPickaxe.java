@@ -13,7 +13,7 @@ public class ToolPickaxe extends ItemPickaxe {
 	public ToolPickaxe(CompleteToolMaterial material) {
 		super(material.material);
 		this.setCreativeTab(Blab.modTab);
-		this.setUnlocalizedName("pickaxe");
+		this.setUnlocalizedName("generic.pickaxe");
 		this.setRegistryName(ModInformation.ID, "pickaxe_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}
 

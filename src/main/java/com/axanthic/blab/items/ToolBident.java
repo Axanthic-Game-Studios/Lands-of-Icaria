@@ -37,7 +37,7 @@ public class ToolBident extends ItemSword {
 		super(material.material);
 		this.material = material;
 		this.setCreativeTab(Blab.modTab);
-		this.setUnlocalizedName("bident");
+		this.setUnlocalizedName("generic.bident");
 		this.setRegistryName(ModInformation.ID, "bident_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}
 

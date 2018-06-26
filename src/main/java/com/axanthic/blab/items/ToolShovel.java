@@ -13,7 +13,7 @@ public class ToolShovel extends ItemSpade {
 	public ToolShovel(CompleteToolMaterial material) {
 		super(material.material);
 		this.setCreativeTab(Blab.modTab);
-		this.setUnlocalizedName("shovel");
+		this.setUnlocalizedName("generic.shovel");
 		this.setRegistryName(ModInformation.ID, "shovel_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}
 

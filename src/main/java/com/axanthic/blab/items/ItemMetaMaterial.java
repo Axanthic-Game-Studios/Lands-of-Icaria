@@ -7,6 +7,7 @@ public class ItemMetaMaterial extends ItemMeta {
 
 	public ItemMetaMaterial(String name, String[] names) {
 		super(name, names);
+		this.setUnlocalizedName("generic." + name);
 	}
 
 	@Override
