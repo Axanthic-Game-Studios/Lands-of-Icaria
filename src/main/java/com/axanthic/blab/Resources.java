@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.axanthic.blab.blocks.BlockBasic;
 import com.axanthic.blab.blocks.BlockGem;
+import com.axanthic.blab.blocks.BlockGravity;
 import com.axanthic.blab.blocks.BlockOre;
 import com.axanthic.blab.blocks.BlockPillar;
 import com.axanthic.blab.blocks.BlockPillarHead;
@@ -62,6 +63,7 @@ public class Resources {
 	public static ItemBlockMeta rock = new ItemBlockMetaMaterial(new BlockRock("rock"));
 	public static ItemBlockMeta brick = new ItemBlockMetaMaterial(new BlockRock("bricks"));
 	public static ItemBlockMeta ore = new ItemBlockMetaMaterial(new BlockOre());
+	public static ItemBlock silkstoneSand = new ItemBlock(new BlockGravity(Material.SAND, 1.2F, "silkstone_sand", MapColor.PINK_STAINED_HARDENED_CLAY));
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
@@ -91,6 +93,7 @@ public class Resources {
 		Resources.registerBlock(Resources.rock);
 		Resources.registerBlock(Resources.brick);
 		Resources.registerBlock(Resources.ore);
+		Resources.registerBlock(Resources.silkstoneSand);
 		Resources.registerBlock(Resources.calcite);
 		Resources.registerBlock(Resources.jasper);
 		Resources.registerBlock(Resources.zircon);
