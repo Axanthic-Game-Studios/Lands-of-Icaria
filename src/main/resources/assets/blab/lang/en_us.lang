@@ -23,12 +23,12 @@ tile.generic.block.name=%s Block
 
 tile.smooth_relicstone.name=Smooth Relicstone
 tile.pillar_relicstone.name=Relicstone Pillar
-tile.pillar_head_relicstone.name=Relisctone Pillar Head
+tile.pillar_head_relicstone.name=Relicstone Pillar Head
 tile.black.name=Black
 tile.soil.marl.name=Marl
-tile.soil.course_marl.name=Course Marl
+tile.soil.course_marl.name=Coarse Marl
 tile.soil.loam.name=Loam
-tile.soil_grass.name=Marl Grass
+tile.soil_grass.name=Grassy Marl
 tile.silkstone_sand.name=Silkstone Sand
 
 material.yellowstone.name=Yellowstone
@@ -56,5 +56,5 @@ material.calcite.name=Calcite
 material.dolomite.name=Dolomite
 material.anthracite.name=Anthracite
 material.jasper.name=Jasper
-material.zircon.name=Zircon
+material.zircon.name=Raw Zircon
 material.abyssal_essence.name=Abyssal Essence
