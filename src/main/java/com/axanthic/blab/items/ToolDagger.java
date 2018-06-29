@@ -3,22 +3,19 @@ package com.axanthic.blab.items;
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources.CompleteToolMaterial;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemTool;
 import net.minecraft.util.text.translation.I18n;
 
-public class ToolDagger extends ItemSword {
+public class ToolDagger extends ItemTool {
 
 	public CompleteToolMaterial material;
 
 	public ToolDagger(CompleteToolMaterial material) {
-		super(material.material);
+		super(material.material.getAttackDamage(), material.attackSpeed, material.material, null);
 		this.material = material;
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("generic.dagger");
@@ -35,13 +32,16 @@ public class ToolDagger extends ItemSword {
 	}
 
 	@Override
-	public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot) {
-		Multimap<String, AttributeModifier> multimap = HashMultimap.<String, AttributeModifier>create();
+	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
+		stack.damageItem(1, attacker);
+		return true;
+	}
 
-		if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
-			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.material.material.getAttackDamage(), 0));
-			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)this.material.attackSpeed, 0));
+	@Override
+	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+		if (enchantment.type.equals(EnumEnchantmentType.ALL) || enchantment.type.equals(EnumEnchantmentType.BREAKABLE) || enchantment.type.equals(EnumEnchantmentType.WEAPON)) {
+			return true;
 		}
-		return multimap;
+		return enchantment.type.canEnchantItem(stack.getItem());
 	}
 }

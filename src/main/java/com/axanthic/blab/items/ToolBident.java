@@ -4,23 +4,18 @@ import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources.CompleteToolMaterial;
 import com.axanthic.blab.entity.EntityBident;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemTool;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -29,12 +24,12 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
-public class ToolBident extends ItemSword {
+public class ToolBident extends ItemTool {
 
 	public CompleteToolMaterial material;
 
 	public ToolBident(CompleteToolMaterial material) {
-		super(material.material);
+		super(material.material.getAttackDamage() + 1.0F, material.attackSpeed - 0.5F, material.material, null);
 		this.material = material;
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("generic.bident");
@@ -51,11 +46,16 @@ public class ToolBident extends ItemSword {
 	}
 
 	@Override
+	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
+		stack.damageItem(1, attacker);
+		return true;
+	}
+
+	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
 		if (enchantment.type.equals(EnumEnchantmentType.WEAPON) || enchantment.type.equals(EnumEnchantmentType.ALL) || enchantment.type.equals(EnumEnchantmentType.BREAKABLE) || enchantment.equals(Enchantments.INFINITY)) {
 			return true;
 		}
-
 		return enchantment.type.canEnchantItem(stack.getItem());
 	}
 
@@ -135,16 +135,5 @@ public class ToolBident extends ItemSword {
 
 		playerIn.setActiveHand(handIn);
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
-	}
-
-	@Override
-	public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot) {
-		Multimap<String, AttributeModifier> multimap = HashMultimap.<String, AttributeModifier>create();
-
-		if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
-			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.material.material.getAttackDamage() + 1.0D, 0));
-			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)this.material.attackSpeed - 0.5D, 0));
-		}
-		return multimap;
 	}
 }

@@ -8,23 +8,25 @@ import com.google.common.collect.Multimap;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
+import net.minecraft.item.ItemSword;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
-public class ToolScythe extends ItemTool {
+public class ToolScythe extends ItemSword {
 
 	public CompleteToolMaterial material;
 
 	public ToolScythe(CompleteToolMaterial material) {
-		super(material.material.getAttackDamage(), material.attackSpeed, material.material, null);
+		super(material.material);
 		this.material = material;
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("generic.scythe");
@@ -34,17 +36,25 @@ public class ToolScythe extends ItemTool {
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
 		try {
-			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal("material." + toolMaterial.name().substring(ModInformation.ID.length() + 1) + ".name"));
+			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal("material." + material.material.name().substring(ModInformation.ID.length() + 1) + ".name"));
 		} catch (Exception e) {
 			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), "");
 		}
 	}
 
 	@Override
+	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+		if (enchantment.type.equals(EnumEnchantmentType.ALL) || enchantment.type.equals(EnumEnchantmentType.BREAKABLE) || enchantment.type.equals(EnumEnchantmentType.DIGGER) || enchantment.type.equals(EnumEnchantmentType.WEAPON)) {
+			return true;
+		}
+		return enchantment.type.canEnchantItem(stack.getItem());
+	}
+
+	@Override
 	public float getDestroySpeed(ItemStack stack, IBlockState state) {
-		Material material = state.getMaterial();
-		if (material.equals(Material.CACTUS) || material.equals(Material.CORAL) || material.equals(Material.GOURD) || material.equals(Material.LEAVES) || material.equals(Material.PLANTS) || material.equals(Material.VINE) || material.equals(Material.WEB))
-			return efficiency;
+		Material blockMaterial = state.getMaterial();
+		if (blockMaterial.equals(Material.CACTUS) || blockMaterial.equals(Material.CORAL) || blockMaterial.equals(Material.GOURD) || blockMaterial.equals(Material.LEAVES) || blockMaterial.equals(Material.PLANTS) || blockMaterial.equals(Material.VINE) || blockMaterial.equals(Material.WEB))
+			return material.material.getEfficiency();
 		return 1.0F;
 	}
 
@@ -58,7 +68,7 @@ public class ToolScythe extends ItemTool {
 	public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player) {
 		World world = player.getEntityWorld();
 
-		if (!(stack.getItem() instanceof ToolScythe) || getDestroySpeed(stack, world.getBlockState(pos)) != efficiency)
+		if (!(stack.getItem() instanceof ToolScythe) || getDestroySpeed(stack, world.getBlockState(pos)) != material.material.getEfficiency())
 			return false;
 
 		int x = pos.getX();
@@ -70,7 +80,7 @@ public class ToolScythe extends ItemTool {
 				for (int k = -1; k <= 1; k++) {
 					if ((x + i) != x || (y + j) != y || (z + k) != z) {
 						BlockPos newPos = new BlockPos(x + i, y + j, z + k);
-						if (getDestroySpeed(stack, world.getBlockState(newPos)) == efficiency)
+						if (getDestroySpeed(stack, world.getBlockState(newPos)) == material.material.getEfficiency())
 							world.destroyBlock(newPos, true);
 					}
 				}
