@@ -3,6 +3,8 @@ itemGroup.blab.creativeTab=Blab
 item.wimba_stick.name=Wimba Stick
 item.resource.silkstone_brick.name=Silkstone Brick
 item.resource.silkstone_powder.name=Silkstone Powder
+item.resource.polished_zircon.name=Polished Zircon
+item.resource.loam_lump.name=Lump of Loam
 
 item.generic.ingot.name=%s Ingot
 item.generic.nugget.name=%s Nugget
@@ -27,6 +29,7 @@ tile.soil.marl.name=Marl
 tile.soil.course_marl.name=Course Marl
 tile.soil.loam.name=Loam
 tile.soil_grass.name=Marl Grass
+tile.silkstone_sand.name=Silkstone Sand
 
 material.yellowstone.name=Yellowstone
 material.silkstone.name=Silkstone

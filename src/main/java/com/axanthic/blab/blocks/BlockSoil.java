@@ -1,7 +1,10 @@
 package com.axanthic.blab.blocks;
 
+import java.util.Random;
+
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
+import com.axanthic.blab.Resources;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -11,6 +14,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
@@ -56,6 +60,36 @@ public class BlockSoil extends BlockMeta {
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[]{BlockSoil.TYPES});
+	}
+
+	@Override
+	public int damageDropped(final IBlockState state) {
+		final int meta = this.getMetaFromState(state);
+		if ((meta == 2) && this.getUnlocalizedName().equals("tile.soil")) {
+			return 10;
+		}
+		return meta;
+	}
+
+	@Override
+	public Item getItemDropped(final IBlockState state, final Random rand, final int fortune) {
+		if ((this.getMetaFromState(state) == 2) && this.getUnlocalizedName().equals("tile.soil")) {
+			return Resources.resource;
+		}
+		return super.getItemDropped(state, rand, fortune);
+	}
+
+	@Override
+	public int quantityDropped(final IBlockState state, final int fortune, final Random random) {
+		if ((this.getMetaFromState(state) == 2) && this.getUnlocalizedName().equals("tile.soil")) {
+			int i = random.nextInt(fortune + 2) - 1;
+			if (i < 0) {
+				i = 0;
+			}
+			return Math.min(4, (random.nextInt(3) + 1) * (i + 1));
+		} else {
+			return 1;
+		}
 	}
 
 	@Override

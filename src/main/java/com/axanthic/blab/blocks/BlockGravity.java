@@ -1,0 +1,45 @@
+package com.axanthic.blab.blocks;
+
+import com.axanthic.blab.Blab;
+import com.axanthic.blab.ModInformation;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFalling;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+public class BlockGravity extends BlockFalling {
+	
+	MapColor color;
+
+	public BlockGravity(Material material, float hardness, String name, MapColor color) {
+		super(material);
+		this.setCreativeTab(Blab.modTab);
+		this.setHardness(hardness);
+		this.setUnlocalizedName(name);
+		this.setRegistryName(ModInformation.ID, name);
+		this.color = color;
+	}
+
+	@Override
+	public Block setSoundType(SoundType sound) {
+		return super.setSoundType(sound);
+	}
+
+	@Override
+	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+		return color;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getDustColor(IBlockState state) {
+		return color.colorValue;
+	}
+}
