@@ -6,9 +6,12 @@ import java.util.List;
 import com.axanthic.blab.blocks.BlockBasic;
 import com.axanthic.blab.blocks.BlockGem;
 import com.axanthic.blab.blocks.BlockGravity;
+import com.axanthic.blab.blocks.BlockLeaf;
+import com.axanthic.blab.blocks.BlockLog;
 import com.axanthic.blab.blocks.BlockOre;
 import com.axanthic.blab.blocks.BlockPillar;
 import com.axanthic.blab.blocks.BlockPillarHead;
+import com.axanthic.blab.blocks.BlockPlanks;
 import com.axanthic.blab.blocks.BlockRock;
 import com.axanthic.blab.blocks.BlockSoil;
 import com.axanthic.blab.blocks.BlockSoilGrass;
@@ -58,6 +61,9 @@ public class Resources {
 	public static ToolSet sideros = new ToolSet(new CompleteToolMaterial("sideros", -1.1F, 4, 528, 7.0F, 2.5F, 14, new ItemStack(Resources.ingot, 1, 7)));
 	public static ToolSet molybdenumsteel = new ToolSet(new CompleteToolMaterial("molybdenumsteel", -1.2F, 4, 673, 7.5F, 2.0F, 12, new ItemStack(Resources.ingot, 1, 9)));
 
+	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE);
+	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS);
+
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
 	public static ItemBlockMeta rock = new ItemBlockMetaMaterial(new BlockRock("rock"));
@@ -101,6 +107,9 @@ public class Resources {
 		Resources.registerBlock(Resources.pillar);
 		Resources.registerBlock(Resources.pillarHead);
 		Resources.registerBlock(Resources.black);
+		
+		Resources.plane.register();
+		Resources.populus.register();
 	}
 
 	public static void registerBlock(final ItemBlock block) {
@@ -146,6 +155,28 @@ public class Resources {
 			Resources.items.add(this.dagger);
 			Resources.items.add(this.bident);
 			Resources.items.add(this.scythe);
+		}
+	}
+
+	public static class WoodSet {
+
+		public ItemBlock log;
+		public ItemBlock strippedLog;
+		public ItemBlock sapling;
+		public ItemBlock leaf;
+
+		public WoodSet(final BlockPlanks.WoodTypes type) {
+			this.log = new ItemBlock(new BlockLog(type, type.logColor));
+			this.strippedLog = new ItemBlock(new BlockLog(type, type.mapColor));
+			//this.sapling = new ItemBlock(new BlockSapling(type));
+			this.leaf = new ItemBlock(new BlockLeaf(type, sapling));
+		}
+
+		public void register() {
+			Resources.registerBlock(log);
+			Resources.registerBlock(strippedLog);
+			//Resources.registerBlock(sapling);
+			//Resources.registerBlock(leaf);
 		}
 	}
 }

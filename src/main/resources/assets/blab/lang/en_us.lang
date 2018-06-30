@@ -20,6 +20,11 @@ tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Bricks
 tile.generic.ore.name=%s Ore
 tile.generic.block.name=%s Block
+tile.generic.sapling.name=%s Sapling
+tile.generic.leaf.name=%s Leaves
+tile.generic.log.name=%s Log
+tile.generic.log_stripped.name=Stripped %s Log
+tile.generic.planks.name=%s Planks
 
 tile.smooth_relicstone.name=Smooth Relicstone
 tile.pillar_relicstone.name=Relicstone Pillar
@@ -58,3 +63,6 @@ material.anthracite.name=Anthracite
 material.jasper.name=Jasper
 material.zircon.name=Zircon
 material.abyssal_essence.name=Abyssal Essence
+
+material.plane.name=Plane
+material.populus.name=Populus
