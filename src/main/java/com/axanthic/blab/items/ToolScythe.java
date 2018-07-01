@@ -65,6 +65,11 @@ public class ToolScythe extends ItemSword {
 	}
 
 	@Override
+	public boolean canDestroyBlockInCreative(World world, BlockPos pos, ItemStack stack, EntityPlayer player) {
+		return true;
+	}
+
+	@Override
 	public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player) {
 		World world = player.getEntityWorld();
 

@@ -12,9 +12,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockLog extends BlockRotatedPillar {
+public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 
-	BlockPlanks.WoodTypes type;
+	public BlockPlanks.WoodTypes type;
 
 	public BlockLog(BlockPlanks.WoodTypes type, MapColor color) {
 		super(Material.WOOD, color);
@@ -23,7 +23,7 @@ public class BlockLog extends BlockRotatedPillar {
 		this.type = type;
 		if (type.mapColor.equals(color)) {
 			this.setUnlocalizedName("log_stripped");
-			this.setRegistryName(ModInformation.ID, "log_stripped_" + type.unlocalizedName);
+			this.setRegistryName(ModInformation.ID, "stripped_" + type.unlocalizedName);
 		} else {
 			this.setUnlocalizedName("log");
 			this.setRegistryName(ModInformation.ID, "log_" + type.unlocalizedName);
@@ -61,5 +61,10 @@ public class BlockLog extends BlockRotatedPillar {
 		if (((EnumFacing.Axis)state.getValue(AXIS)).equals(EnumFacing.Axis.Y) || state.getBlock().getUnlocalizedName().equals("tile.log_stripped"))
 			return type.mapColor;
 		return type.logColor;
+	}
+
+	@Override
+	public String getName() {
+		return type.getName();
 	}
 }

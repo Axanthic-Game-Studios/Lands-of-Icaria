@@ -1,0 +1,18 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "cube_all",
+		"uvlock": true,
+		"textures": {
+			"all": "blab:blocks/wood_plane_planks",
+			"particle": "#all"
+		}
+	},
+	"variants": {
+		"type": {
+			"plane": { "textures": { "all": "blab:blocks/wood_plane_planks" } },
+			"populus": { "textures": { "all": "blab:blocks/wood_populus_planks" } }
+		}
+	}
+}

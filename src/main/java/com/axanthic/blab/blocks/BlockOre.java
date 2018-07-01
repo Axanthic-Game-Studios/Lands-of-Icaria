@@ -6,6 +6,7 @@ import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -24,7 +25,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockOre extends BlockMeta {
+public class BlockOre extends Block implements IBlockMeta {
 
 	public static PropertyEnum TYPES = PropertyEnum.create("type", OreTypes.class);
 	public static int metaCount = OreTypes.values().length;

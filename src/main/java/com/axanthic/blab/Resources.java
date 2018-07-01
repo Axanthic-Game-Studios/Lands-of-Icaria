@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.axanthic.blab.blocks.BlockBasic;
+import com.axanthic.blab.blocks.BlockFlower;
 import com.axanthic.blab.blocks.BlockGem;
 import com.axanthic.blab.blocks.BlockGravity;
 import com.axanthic.blab.blocks.BlockLeaf;
@@ -13,9 +14,11 @@ import com.axanthic.blab.blocks.BlockPillar;
 import com.axanthic.blab.blocks.BlockPillarHead;
 import com.axanthic.blab.blocks.BlockPlanks;
 import com.axanthic.blab.blocks.BlockRock;
+import com.axanthic.blab.blocks.BlockSapling;
 import com.axanthic.blab.blocks.BlockSoil;
 import com.axanthic.blab.blocks.BlockSoilGrass;
 import com.axanthic.blab.items.ItemBasic;
+import com.axanthic.blab.items.ItemBlockMaterial;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemBlockMetaMaterial;
 import com.axanthic.blab.items.ItemDimensionTeleporter;
@@ -66,6 +69,8 @@ public class Resources {
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
+	public static ItemBlockMeta flower = new ItemBlockMeta(new BlockFlower());
+	public static ItemBlockMeta planks = new ItemBlockMetaMaterial(new BlockPlanks());
 	public static ItemBlockMeta rock = new ItemBlockMetaMaterial(new BlockRock("rock"));
 	public static ItemBlockMeta brick = new ItemBlockMetaMaterial(new BlockRock("bricks"));
 	public static ItemBlockMeta ore = new ItemBlockMetaMaterial(new BlockOre());
@@ -96,6 +101,8 @@ public class Resources {
 	public static void registerBlocks() {
 		Resources.registerBlock(Resources.soil);
 		Resources.registerBlock(Resources.grass);
+		Resources.registerBlock(Resources.flower);
+		Resources.registerBlock(Resources.planks);
 		Resources.registerBlock(Resources.rock);
 		Resources.registerBlock(Resources.brick);
 		Resources.registerBlock(Resources.ore);
@@ -160,23 +167,23 @@ public class Resources {
 
 	public static class WoodSet {
 
-		public ItemBlock log;
-		public ItemBlock strippedLog;
-		public ItemBlock sapling;
-		public ItemBlock leaf;
+		public ItemBlockMaterial log;
+		public ItemBlockMaterial strippedLog;
+		public ItemBlockMaterial sapling;
+		public ItemBlockMaterial leaf;
 
 		public WoodSet(final BlockPlanks.WoodTypes type) {
-			this.log = new ItemBlock(new BlockLog(type, type.logColor));
-			this.strippedLog = new ItemBlock(new BlockLog(type, type.mapColor));
-			//this.sapling = new ItemBlock(new BlockSapling(type));
-			this.leaf = new ItemBlock(new BlockLeaf(type, sapling));
+			this.log = new ItemBlockMaterial(new BlockLog(type, type.logColor));
+			this.strippedLog = new ItemBlockMaterial(new BlockLog(type, type.mapColor));
+			this.sapling = new ItemBlockMaterial(new BlockSapling(type));
+			this.leaf = new ItemBlockMaterial(new BlockLeaf(type, sapling));
 		}
 
 		public void register() {
 			Resources.registerBlock(log);
 			Resources.registerBlock(strippedLog);
-			//Resources.registerBlock(sapling);
-			//Resources.registerBlock(leaf);
+			Resources.registerBlock(sapling);
+			Resources.registerBlock(leaf);
 		}
 	}
 }

@@ -1,14 +1,16 @@
 package com.axanthic.blab.items;
 
-import com.axanthic.blab.blocks.IBlockMeta;
+import com.axanthic.blab.blocks.IBlockMaterial;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.translation.I18n;
 
-public class ItemBlockMetaMaterial extends ItemBlockMeta {
+public class ItemBlockMaterial extends ItemBlock {
 
-	public ItemBlockMetaMaterial(IBlockMeta block) {
-		super(block);
+	public ItemBlockMaterial(IBlockMaterial block) {
+		super((Block) block);
 	}
 
 	@Override
@@ -19,7 +21,7 @@ public class ItemBlockMetaMaterial extends ItemBlockMeta {
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
 		try {
-			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal("material." + ((IBlockMeta) this.block).getNames()[stack.getItemDamage()] + ".name"));
+			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal("material." + ((IBlockMaterial) this.block).getName() + ".name"));
 		} catch (Exception e) {
 			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), "");
 		}

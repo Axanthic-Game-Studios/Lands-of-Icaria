@@ -2,6 +2,8 @@ package com.axanthic.blab.blocks;
 
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -18,7 +20,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockPlanks extends BlockMeta {
+public class BlockPlanks extends Block implements IBlockMeta {
 
 	public static PropertyEnum TYPES = PropertyEnum.create("type", WoodTypes.class);
 	public static int metaCount = WoodTypes.values().length;

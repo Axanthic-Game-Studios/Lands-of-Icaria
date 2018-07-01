@@ -1,15 +1,20 @@
 package com.axanthic.blab.proxy;
 
 import com.axanthic.blab.Resources;
-import com.axanthic.blab.blocks.BlockMeta;
+import com.axanthic.blab.blocks.BlockLeaf;
+import com.axanthic.blab.blocks.BlockLog;
+import com.axanthic.blab.blocks.BlockSapling;
+import com.axanthic.blab.blocks.IBlockMeta;
 import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.RenderBident;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemMeta;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -50,7 +55,33 @@ public class ClientProxy extends CommonProxy {
 				ModelLoader.setCustomMeshDefinition(block, new ItemMeshDefinition() {
 					@Override
 					public ModelResourceLocation getModelLocation(ItemStack stack) {
-						return new ModelResourceLocation(block.getRegistryName(), "type=" + ((BlockMeta) block.getBlock()).getNameForMeta(stack.getMetadata()));
+						return new ModelResourceLocation(block.getRegistryName(), "type=" + ((IBlockMeta) block.getBlock()).getNameForMeta(stack.getMetadata()));
+					}});
+			} else if (block.getBlock() instanceof BlockSapling || block.getBlock() instanceof BlockLeaf) {
+				String[] path = block.getRegistryName().getResourcePath().split("_");
+				ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation(new ResourceLocation(block.getRegistryName().getResourceDomain(), "wood_" + path[1]), path[0]));
+				ModelLoader.setCustomStateMapper(block.getBlock(), new StateMapperBase() {
+					@Override
+					public ModelResourceLocation getModelResourceLocation(IBlockState state) {
+						return new ModelResourceLocation(new ResourceLocation(block.getRegistryName().getResourceDomain(), "wood_" + path[1]), path[0]);
+					}});
+			} else if (block.getBlock() instanceof BlockLog) {
+				String[] path = block.getRegistryName().getResourcePath().split("_");
+				ResourceLocation loc = new ResourceLocation(block.getRegistryName().getResourceDomain(), "wood_" + path[1]);
+				ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation(loc, path[0] + "_y"));
+				ModelLoader.setCustomStateMapper(block.getBlock(), new StateMapperBase() {
+					@Override
+					public ModelResourceLocation getModelResourceLocation(IBlockState state) {
+						String axis = "bark";
+						int meta = ((BlockLog) block.getBlock()).getMetaFromState(state);
+						if (meta == 0) {
+							axis = "y";
+						} else if (meta == 4) {
+							axis = "x";
+						} else if (meta == 8) {
+							axis = "z";
+						}
+						return new ModelResourceLocation(loc, path[0] + "_" + axis);
 					}});
 			} else
 				ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
@@ -63,7 +94,7 @@ public class ClientProxy extends CommonProxy {
 				}
 			} else if (item instanceof ItemTool || item instanceof ItemSword) {
 				String[] path = item.getRegistryName().getResourcePath().split("_");
-				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), "tool_" +path[1]), path[0]));
+				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), "tool_" + path[1]), path[0]));
 			} else
 				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 		}

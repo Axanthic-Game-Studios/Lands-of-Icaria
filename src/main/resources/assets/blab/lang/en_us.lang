@@ -35,6 +35,17 @@ tile.soil.course_marl.name=Coarse Marl
 tile.soil.loam.name=Loam
 tile.soil_grass.name=Grassy Marl
 tile.silkstone_sand.name=Silkstone Sand
+tile.flower.chameomile.name=Chameomile
+tile.flower.clover.name=Clover
+tile.flower.yellow_staghorn.name=Yellow Staghorn
+tile.flower.speardrops.name=Speardrops
+tile.flower.blindweed.name=Blindweed
+tile.flower.purple_hydracinth.name=Purple Hydracinth
+tile.flower.lionfangs.name=Lionfangs
+tile.flower.purple_staghorn.name=Purple Staghorn
+tile.flower.blue_hydracinth.name=Blue Hydracinth
+tile.flower.firehilt.name=Firehilt
+tile.flower.voidlily.name=Voidlily
 
 material.yellowstone.name=Yellowstone
 material.silkstone.name=Silkstone
