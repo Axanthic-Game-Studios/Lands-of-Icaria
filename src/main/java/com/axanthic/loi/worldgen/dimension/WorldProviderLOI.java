@@ -118,7 +118,7 @@ public class WorldProviderLOI extends WorldProvider {
 	@SideOnly(Side.CLIENT)
 	public Vec3d getFogColor(final float p_76562_1_, final float p_76562_2_)
 	{
-		return new Vec3d(0.3703125D, 0.565625D, 0.26328125D);
+		return new Vec3d(0.929411D, 0.828125D, 0.3529411D);
 	}
 
 	@Override

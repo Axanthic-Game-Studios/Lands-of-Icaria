@@ -21,6 +21,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
 public class ChunkGeneratorLOI implements IChunkGenerator {
 
@@ -66,6 +67,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	private final NoiseGeneratorOctaves perlinNoise1;
 	public NoiseGeneratorOctaves scaleNoise;
 	public NoiseGeneratorOctaves depthNoise;
+	private final NoiseGeneratorPerlin surfaceNoise;
 
 	/** Determines whether something other than rock can be generated at a location */
 	private final NoiseGeneratorOctaves exculsivityNoiseGen;
@@ -108,6 +110,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		this.loamMarlNoiseGen = new NoiseGeneratorOctaves(this._rand, 4);
 		this.scaleNoise = new NoiseGeneratorOctaves(this._rand, 10);
 		this.depthNoise = new NoiseGeneratorOctaves(this._rand, 16);
+		this.surfaceNoise = new NoiseGeneratorPerlin(this._rand, 4);
 		worldIn.setSeaLevel(63);
 	}
 
@@ -125,6 +128,18 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		this.setBlocksInChunk(x, z, chunkprimer);
 		//this.setBlocksInChunk(x, z, chunkprimer);
 		//this.replaceBiomeBlocks(x, z, chunkprimer, this.biomesForGeneration);
+
+		//        this.topBlock = Blocks.GRASS.getDefaultState();
+		//        this.fillerBlock = Blocks.DIRT.getDefaultState();
+		//
+		//        if (noiseVal > 1.75D)
+		//        {
+		//            this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
+		//        }
+		//        else if (noiseVal > -0.95D)
+		//        {
+		//            this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
+		//        }
 
 		final Chunk chunk = new Chunk(this._world, chunkprimer, x, z);
 		final Biome[] abiome = this._world.getBiomeProvider().getBiomes((Biome[])null, x * 16, z * 16, 16, 16);
@@ -281,14 +296,6 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 						value = (value * (1.0D - topSmoothing)) + (-5D * topSmoothing);
 					}
 
-					//					if (y < 0.0D)
-					//					{
-					//						System.out.println("caled");
-					//						double d10 = (0.0D - y) / 4.0D;
-					//						d10 = MathHelper.clamp(d10, 0.0D, 1.0D);
-					//						value = (value * (1.0D - d10)) + (-10.0D * d10);
-					//					}
-
 					buffer[index] = value;
 					++index;
 				}
@@ -382,49 +389,17 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		}
 	}
 
-	public void invertBlocks(final int x, final int z, final ChunkPrimer primer)
-	{
-		for(int cx = 0; cx < ChunkGeneratorLOI.CHUNK_WIDTH; cx++)
-		{
-			//wx = (x * ChunkGeneratorLOI.CHUNK_WIDTH) + cx;
-			for(int cz = 0; cz < ChunkGeneratorLOI.CHUNK_WIDTH; cz++)
-			{
-				//wz = (z * ChunkGeneratorLOI.CHUNK_WIDTH) + cz;
-				for(int cy = 0; cy < ChunkGeneratorLOI.CHUNK_HEIGHT; cy++)
-				{
-					final IBlockState block = primer.getBlockState(cx, cy, cz);
-					if(block.getMaterial() != Material.AIR)
-					{
-						primer.setBlockState(cx, cy, cz, ChunkGeneratorLOI.AIR);
-					}
-					else
-					{
-						primer.setBlockState(cx, cy, cz, ChunkGeneratorLOI.MAIN_BLOCK);
-					}
-				}
-			}
-		}
-
-		// Lazy fix...
-		for(int cx = 0; cx < ChunkGeneratorLOI.CHUNK_WIDTH; cx++)
-		{
-			for(int cz = 0; cz < ChunkGeneratorLOI.CHUNK_WIDTH; cz++)
-			{
-				for(int cy = 128; cy < ChunkGeneratorLOI.CHUNK_HEIGHT; cy++)
-				{
-					primer.setBlockState(cx, cy, cz, ChunkGeneratorLOI.AIR);
-				}
-			}
-		}
-	}
-
 	public void setBlocksInChunk(final int x, final int z, final ChunkPrimer primer)
 	{
+		this.depthBuffer = this.surfaceNoise.getRegion(this.depthBuffer, x * 16, z * 16, 16, 16, 0.0625D, 0.0625D, 1.0D);
 		this.biomesForGeneration = this._world.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration, (x * 4) - 2, (z * 4) - 2, 10, 10);
+
 		@SuppressWarnings("unused")
 		int wx, wz;
-		float noiseLoam, noiseYellowstone;
-		int loam_density, yellowstone_density;
+		final float noiseLoam;
+		float noiseYellowstone, noiseSilkstone, noiseSunstone, noiseVoidshale;
+		final int loam_density;
+		int yellowstone_density, silkstone_density, sunstone_density, voidshale_density;
 
 		for(int cx = 0; cx < ChunkGeneratorLOI.CHUNK_WIDTH; cx++)
 		{
@@ -432,11 +407,32 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 			for(int cz = 0; cz < ChunkGeneratorLOI.CHUNK_WIDTH; cz++)
 			{
 				wz = (z * ChunkGeneratorLOI.CHUNK_WIDTH) + cz;
-				noiseLoam = this.perlin.noise2(wx / 120f, wz / 120f);
-				noiseYellowstone = this.perlin.noise2((wx + 5521f) / 95f, (wz + 5521f) / 95f);
 
-				loam_density = (noiseLoam <= 0f) ? 0 : (int) (noiseLoam * 5f);
-				yellowstone_density = (noiseYellowstone <= 0f) ? 0 : (int) (noiseYellowstone * 5f);
+				final double noiseValue = this.depthBuffer[cx + (cz * 16)];
+				final int fillerBlockDensity = (int)((noiseValue / 3.0D) + 3.0D + (this._rand.nextDouble() * 0.25D));
+				IBlockState topBlock = ChunkGeneratorLOI.MARLGRASS;
+				IBlockState fillerBlock = ChunkGeneratorLOI.LOAM;
+
+				if (noiseValue > 1.75D)
+				{
+					topBlock = ChunkGeneratorLOI.MARLCOURSE;
+					fillerBlock = ChunkGeneratorLOI.MARLCOURSE;
+				}
+				else if (noiseValue > -0.95D)
+				{
+					topBlock = ChunkGeneratorLOI.MARL;
+					fillerBlock = ChunkGeneratorLOI.MARL;
+				}
+
+				noiseYellowstone = this.perlin.noise2((wx + 2221f) / 95f, (wz + 2221f) / 95f);
+				noiseSilkstone = this.perlin.noise2((wx + 7542f) / 75f, (wz + 7542f) / 75f);
+				noiseSunstone = this.perlin.noise2((wx + 5517f) / 65f, (wz + 5517f) / 65f);
+				noiseVoidshale = this.perlin.noise2((wx + 9784f) / 85f, (wz + 9784f) / 85f);
+
+				yellowstone_density = (noiseYellowstone <= 0f) ? fillerBlockDensity : (int) (noiseYellowstone * 3f) + fillerBlockDensity;
+				silkstone_density = (noiseSilkstone <= 0f) ? yellowstone_density : (int) (noiseSilkstone * 4f) + yellowstone_density;
+				sunstone_density = (noiseSunstone <= 0f) ? silkstone_density : (int) (noiseSunstone * 4f) + silkstone_density;
+				voidshale_density = (noiseVoidshale <= 0f) ? sunstone_density : (int) (noiseVoidshale * 5f) + sunstone_density;
 
 				for(int cy = ChunkGeneratorLOI.CHUNK_HEIGHT; cy > 1; cy--)
 				{
@@ -444,10 +440,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					final IBlockState upper = primer.getBlockState(cx, cy + 1, cz);
 					if((b.getBlock() != Blocks.AIR) && (upper.getBlock() == Blocks.AIR))
 					{
-						if ((b != BlocksLOI.MARLCOURSE) && (b.getBlock() != BlocksLOI.MARL)) {
-							primer.setBlockState(cx, cy, cz, ChunkGeneratorLOI.MARLGRASS);
-						}
-
+						primer.setBlockState(cx, cy, cz, topBlock);
 						for(int gy = 1; gy < cy; gy++)
 						{
 							b = primer.getBlockState(cx, cy - gy, cz);
@@ -456,22 +449,16 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 							}
 
 							// /.\ Spaghetti code warning /.\
-							if(gy < 3) {
-								if ((b != BlocksLOI.MARLCOURSE) && (b.getBlock() != BlocksLOI.MARL)) {
-									primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.LOAM);
-								}
-							} else if(gy < (7 + loam_density)) {
-								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.LOAM);
-							} else if(gy < (17 + loam_density + yellowstone_density)) {
+							if(gy < (5 + fillerBlockDensity)) {
+								primer.setBlockState(cx, cy - gy, cz, fillerBlock);
+							} else if(cy > (84 - yellowstone_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.YELLOWSTONE);
-							} else if(gy < (23 + loam_density + yellowstone_density)) {
+							} else if(cy > (64 - silkstone_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.SILKSTONE);
-							} else if(gy < (31 + loam_density + yellowstone_density)) {
+							} else if(cy > (52 - sunstone_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.SUNSTONE);
-							} else if(gy < (36 + loam_density + yellowstone_density)) {
+							} else if(cy > (38 - voidshale_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.VOIDSHALE);
-							} else if(gy < (48 + loam_density + yellowstone_density)) {
-								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.BAETYL);
 							} else {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.BAETYL);
 							}
@@ -498,7 +485,6 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		final ChunkPos chunkpos = new ChunkPos(x, z);
 
 		// GENERATE DECORATIONS HERE.
-
 		//biome.decorate(this._world, this._rand, new BlockPos(i, 0, j));
 
 		//net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.terraingen.DecorateBiomeEvent.Post(this._world, this._rand, blockpos));
