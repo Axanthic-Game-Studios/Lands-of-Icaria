@@ -9,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -43,5 +44,13 @@ public class CommonProxy {
 			event.getRegistry().register(block);
 		for (Item item : Resources.items)
 			event.getRegistry().register(item);
+	}
+
+	public void registerBlockColors(ColorHandlerEvent.Block event) {
+		
+	}
+
+	public void registerItemColors(ColorHandlerEvent.Item event) {
+		
 	}
 }

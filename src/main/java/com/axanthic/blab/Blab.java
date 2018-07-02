@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldType;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -68,5 +69,15 @@ public class Blab {
 	@SubscribeEvent
 	public void itemRegistry(final RegistryEvent.Register<Item> event) {
 		Blab.proxy.registerItems(event);
+	}
+
+	@SubscribeEvent
+	public void blockColorRegistry(final ColorHandlerEvent.Block event) {
+		Blab.proxy.registerBlockColors(event);
+	}
+
+	@SubscribeEvent
+	public void ItemColorRegistry(final ColorHandlerEvent.Item event) {
+		Blab.proxy.registerItemColors(event);
 	}
 }

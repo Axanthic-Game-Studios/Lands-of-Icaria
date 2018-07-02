@@ -1,5 +1,9 @@
 package com.axanthic.blab.proxy;
 
+import java.awt.Color;
+
+import javax.annotation.Nullable;
+
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.blocks.BlockLeaf;
 import com.axanthic.blab.blocks.BlockLog;
@@ -15,12 +19,19 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ColorizerGrass;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.biome.BiomeColorHelper;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -98,5 +109,28 @@ public class ClientProxy extends CommonProxy {
 			} else
 				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 		}
+	}
+
+	public void registerBlockColors(ColorHandlerEvent.Block event) {
+		event.getBlockColors().registerBlockColorHandler(new IBlockColor() {
+			@Override
+			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
+				return reduceGreen(worldIn != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(worldIn, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D));
+			}
+		}, Resources.grass.getBlock());
+	}
+
+	public void registerItemColors(ColorHandlerEvent.Item event) {
+		event.getItemColors().registerItemColorHandler(new IItemColor() {
+			@Override
+			public int colorMultiplier(ItemStack stack, int tintIndex) {
+				return reduceGreen(ColorizerGrass.getGrassColor(0.5D, 1.0D));
+			}
+		}, Resources.grass);
+	}
+
+	public int reduceGreen(int color) {
+		Color col = new Color(color);
+		return new Color(Math.min(col.getRed() + 30, 255), Math.max(col.getGreen() - 10, 0), col.getBlue()).getRGB();
 	}
 }
