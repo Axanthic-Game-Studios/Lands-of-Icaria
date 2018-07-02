@@ -7,6 +7,7 @@ import com.axanthic.blab.ModInformation;
 
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
@@ -29,6 +30,7 @@ public class BlockSapling extends BlockBush implements IGrowable, IBlockMaterial
 		this.setUnlocalizedName("sapling");
 		this.setRegistryName(ModInformation.ID, "sapling_" + type.unlocalizedName);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
+		this.setSoundType(SoundType.PLANT);
 	}
 
 	@Override

@@ -7,6 +7,7 @@ import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -36,6 +37,7 @@ public class BlockSoil extends Block implements IBlockMeta {
 		this.setUnlocalizedName("soil");
 		this.setRegistryName(ModInformation.ID, "soil");
 		this.setDefaultState(this.getStateFromMeta(0));
+		this.setSoundType(SoundType.GROUND);
 	}
 
 	@Override

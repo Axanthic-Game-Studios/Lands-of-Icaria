@@ -4,6 +4,7 @@ item.wimba_stick.name=Wimba Stick
 item.resource.silkstone_brick.name=Silkstone Brick
 item.resource.silkstone_powder.name=Silkstone Powder
 item.resource.polished_zircon.name=Polished Zircon
+item.resource.calcite_powder.name=Calcite Powder
 item.resource.loam_lump.name=Lump of Loam
 
 item.generic.ingot.name=%s Ingot
@@ -65,7 +66,7 @@ material.sideros.name=Sideros
 material.molybdenum.name=Molybdenum
 material.molybdenumsteel.name=Molybdenum Steel
 material.bluridium.name=Bluridium
-material.yilaster.name=Yilaster
+material.hyliastrum.name=Hyliastrum
 
 material.lignite.name=Lignite
 material.calcite.name=Calcite

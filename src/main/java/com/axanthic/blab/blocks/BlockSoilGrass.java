@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.axanthic.blab.Resources;
 
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -19,6 +20,7 @@ public class BlockSoilGrass extends BlockBasic {
 	public BlockSoilGrass() {
 		super(Material.GRASS, 1.2F, "soil_grass", MapColor.GREEN);
 		this.setTickRandomly(true);
+		this.setSoundType(SoundType.GROUND);
 	}
 
 	@Override

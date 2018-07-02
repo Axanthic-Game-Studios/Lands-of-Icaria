@@ -4,6 +4,7 @@ import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 
 import net.minecraft.block.BlockRotatedPillar;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -21,6 +22,7 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 		this.setCreativeTab(Blab.modTab);
 		this.setHardness(2.0F);
 		this.type = type;
+		this.setSoundType(SoundType.WOOD);
 		if (type.mapColor.equals(color)) {
 			this.setUnlocalizedName("log_stripped");
 			this.setRegistryName(ModInformation.ID, "stripped_" + type.unlocalizedName);

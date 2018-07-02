@@ -22,7 +22,7 @@
 			"anthracite": { "textures": { "all": "blab:blocks/rock_voidshale_ore_anthracite" } },
 			"molybdenum": { "textures": { "all": "blab:blocks/rock_voidshale_ore_molybdenum" } },
 			"bluridium": { "textures": { "all": "blab:blocks/rock_baetyl_ore_bluridium" } },
-			"yilaster": { "textures": { "all": "blab:blocks/rock_baetyl_ore_yilaster" } },
+			"hyliastrum": { "textures": { "all": "blab:blocks/rock_baetyl_ore_hyliastrum" } },
 			"abyssal_essence": { "textures": { "all": "blab:blocks/rock_baetyl_ore_abyssal_essence" } }
 		}
 	}

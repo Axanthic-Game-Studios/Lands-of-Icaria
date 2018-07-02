@@ -9,6 +9,7 @@ import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
@@ -37,6 +38,7 @@ public class BlockGem extends BlockSixDirectional {
 		this.setUnlocalizedName(name);
 		unlocalizedName = name;
 		this.setRegistryName(ModInformation.ID, name);
+		this.setSoundType(SoundType.GLASS);
 	}
 
 	@Override
@@ -118,22 +120,7 @@ public class BlockGem extends BlockSixDirectional {
 
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-		if (!this.checkForDrop(worldIn, pos, state))
-			return;
-		EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
-		EnumFacing.Axis enumfacing$axis = enumfacing.getAxis();
-		EnumFacing enumfacing1 = enumfacing.getOpposite();
-		BlockPos blockpos = pos.offset(enumfacing1);
-		boolean flag = false;
-
-		if (enumfacing$axis.isHorizontal() && worldIn.getBlockState(blockpos).getBlockFaceShape(worldIn, blockpos, enumfacing) != BlockFaceShape.SOLID) {
-			flag = true;
-		} else if (enumfacing$axis.isVertical() && !this.canPlaceAt(worldIn, blockpos, enumfacing1)) {
-			flag = true;
-		}
-		if (flag) {
-			worldIn.destroyBlock(pos, true);
-		}
+		this.checkForDrop(worldIn, pos, state);
 	}
 
 	public boolean checkForDrop(World worldIn, BlockPos pos, IBlockState state) {

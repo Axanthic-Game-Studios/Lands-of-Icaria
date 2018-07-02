@@ -4,6 +4,7 @@ import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -32,6 +33,7 @@ public class BlockPlanks extends Block implements IBlockMeta {
 		this.setUnlocalizedName("planks");
 		this.setRegistryName(ModInformation.ID, "planks");
 		this.setDefaultState(getStateFromMeta(0));
+		this.setSoundType(SoundType.WOOD);
 	}
 
 	@Override

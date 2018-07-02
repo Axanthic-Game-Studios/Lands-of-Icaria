@@ -8,6 +8,7 @@ import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 
 import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.properties.IProperty;
@@ -30,6 +31,7 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 		this.sapling = sapling;
 		this.setUnlocalizedName("leaf");
 		this.setRegistryName(ModInformation.ID, "leaf_" + type.unlocalizedName);
+		this.setSoundType(SoundType.PLANT);
 	}
 
 	@Override

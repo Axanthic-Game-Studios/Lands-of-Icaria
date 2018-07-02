@@ -17,7 +17,6 @@ import com.axanthic.blab.blocks.BlockRock;
 import com.axanthic.blab.blocks.BlockSapling;
 import com.axanthic.blab.blocks.BlockSoil;
 import com.axanthic.blab.blocks.BlockSoilGrass;
-import com.axanthic.blab.items.ItemBasic;
 import com.axanthic.blab.items.ItemBlockMaterial;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemBlockMetaMaterial;
@@ -46,13 +45,12 @@ import net.minecraftforge.common.util.EnumHelper;
 public class Resources {
 
 	public static final SoundType SILENCE = new SoundType(-10.0F, 1.0F, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL);
-	public static final String[] metals = new String[]{"chalkos", "kassiteros", "molibos", "orichalcum", "sliver", "vanadium", "vanadiumsteel", "sideros", "molybdenum", "molybdenumsteel", "bluridium", "yilaster"};
+	public static final String[] metals = new String[]{"chalkos", "kassiteros", "molibos", "orichalcum", "sliver", "vanadium", "vanadiumsteel", "sideros", "molybdenum", "molybdenumsteel", "bluridium"};
 
 	public static List<Item> items = new ArrayList<Item>();
 	public static List<ItemBlock> blocks = new ArrayList<ItemBlock>();
 
 	public static Item dimensionTp = new ItemDimensionTeleporter().setUnlocalizedName("dimension_teleporter").setRegistryName("dimension_teleporter");
-	public static Item stickWimba = new ItemBasic("wimba_stick");
 	public static ItemMeta resource = new ItemResource();
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", Resources.metals);
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", Resources.metals);
@@ -74,18 +72,16 @@ public class Resources {
 	public static ItemBlockMeta rock = new ItemBlockMetaMaterial(new BlockRock("rock"));
 	public static ItemBlockMeta brick = new ItemBlockMetaMaterial(new BlockRock("bricks"));
 	public static ItemBlockMeta ore = new ItemBlockMetaMaterial(new BlockOre());
-	public static ItemBlock silkstoneSand = new ItemBlock(new BlockGravity(Material.SAND, 1.2F, "silkstone_sand", MapColor.PINK_STAINED_HARDENED_CLAY));
+	public static ItemBlock silkstoneSand = new ItemBlock(new BlockGravity(Material.SAND, 1.2F, "silkstone_sand", MapColor.PINK_STAINED_HARDENED_CLAY).setSoundType(SoundType.SAND));
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
-	public static ItemBlock relicstone = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "smooth_relicstone", MapColor.WOOD));
+	public static ItemBlock relicstone = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "smooth_relicstone", MapColor.WOOD).setSoundType(SoundType.STONE));
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
 	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead());
-	public static ItemBlock black = new ItemBlock(new BlockBasic(Material.ROCK, 10, "black", MapColor.BLACK).setSoundType(Resources.SILENCE));
 
 	public static void registerItems() {
 		Resources.items.add(Resources.dimensionTp);
-		Resources.items.add(Resources.stickWimba);
 		Resources.items.add(Resources.resource);
 		Resources.items.add(Resources.ingot);
 		Resources.items.add(Resources.nugget);
@@ -113,7 +109,6 @@ public class Resources {
 		Resources.registerBlock(Resources.relicstone);
 		Resources.registerBlock(Resources.pillar);
 		Resources.registerBlock(Resources.pillarHead);
-		Resources.registerBlock(Resources.black);
 		
 		Resources.plane.register();
 		Resources.populus.register();

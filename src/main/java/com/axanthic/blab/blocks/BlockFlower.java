@@ -5,6 +5,7 @@ import com.axanthic.blab.ModInformation;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -32,6 +33,7 @@ public class BlockFlower extends BlockBush implements IBlockMeta {
 		this.setUnlocalizedName("flower");
 		this.setRegistryName(ModInformation.ID, "flower");
 		this.setDefaultState(this.getStateFromMeta(0));
+		this.setSoundType(SoundType.PLANT);
 	}
 
 	@Override

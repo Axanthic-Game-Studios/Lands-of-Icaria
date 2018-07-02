@@ -7,6 +7,7 @@ import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -37,6 +38,7 @@ public class BlockOre extends Block implements IBlockMeta {
 		this.setUnlocalizedName("ore");
 		this.setRegistryName(ModInformation.ID, "ore");
 		this.setDefaultState(getStateFromMeta(0));
+		this.setSoundType(SoundType.STONE);
 	}
 
 	@Override
@@ -161,7 +163,7 @@ public class BlockOre extends Block implements IBlockMeta {
 		ANTHRACITE(8, "anthracite", MapColor.GRAY, 5),
 		MOLYBDENUM(9, "molybdenum", MapColor.GRAY, 5),
 		BLURIDIUM(10, "bluridium", MapColor.STONE, 6),
-		YILASTER(11, "yilaster", MapColor.STONE, 6),
+		HYLIASTRUM(11, "hyliastrum", MapColor.STONE, 6),
 		ABYSSAL(12, "abyssal_essence", MapColor.STONE, 6);
 
 		private static final OreTypes[] META_LOOKUP = new OreTypes[values().length];

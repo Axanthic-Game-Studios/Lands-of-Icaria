@@ -18,8 +18,7 @@
 			"sideros": { "textures": { "layer0": "blab:items/metal_sideros_nugget" } },
 			"molybdenum": { "textures": { "layer0": "blab:items/metal_molybdenum_nugget" } },
 			"molybdenumsteel": { "textures": { "layer0": "blab:items/metal_molybdenumsteel_nugget" } },
-			"bluridium": { "textures": { "layer0": "blab:items/metal_bluridium_nugget" } },
-			"yilaster": { "textures": { "layer0": "blab:items/metal_yilaster_nugget" } }
+			"bluridium": { "textures": { "layer0": "blab:items/metal_bluridium_nugget" } }
 		}
 	}
 }
