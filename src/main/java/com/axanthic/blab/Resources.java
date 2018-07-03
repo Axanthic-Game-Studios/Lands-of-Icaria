@@ -64,6 +64,9 @@ public class Resources {
 
 	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE);
 	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS);
+	public static WoodSet cypress = new WoodSet(BlockPlanks.WoodTypes.CYPRESS);
+	public static WoodSet fir = new WoodSet(BlockPlanks.WoodTypes.FIR);
+	public static WoodSet olive = new WoodSet(BlockPlanks.WoodTypes.OLIVE);
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
@@ -112,6 +115,9 @@ public class Resources {
 		
 		Resources.plane.register();
 		Resources.populus.register();
+		Resources.cypress.register();
+		Resources.fir.register();
+		Resources.olive.register();
 	}
 
 	public static void registerBlock(final ItemBlock block) {
