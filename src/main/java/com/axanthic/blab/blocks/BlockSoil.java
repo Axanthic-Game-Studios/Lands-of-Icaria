@@ -7,6 +7,7 @@ import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -16,8 +17,10 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
@@ -48,6 +51,11 @@ public class BlockSoil extends Block implements IBlockMeta {
 	@Override
 	public String[] getNames() {
 		return SoilTypes.getNames();
+	}
+
+	@Override
+	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable) {
+		return Blocks.DIRT.canSustainPlant(state, world, pos, direction, plantable) || plantable instanceof BlockBush;
 	}
 
 	@Override

@@ -24,6 +24,7 @@ import com.axanthic.blab.items.ItemDimensionTeleporter;
 import com.axanthic.blab.items.ItemMeta;
 import com.axanthic.blab.items.ItemMetaMaterial;
 import com.axanthic.blab.items.ItemResource;
+import com.axanthic.blab.items.ItemSharpBone;
 import com.axanthic.blab.items.ToolAxe;
 import com.axanthic.blab.items.ToolBident;
 import com.axanthic.blab.items.ToolDagger;
@@ -52,6 +53,7 @@ public class Resources {
 
 	public static Item dimensionTp = new ItemDimensionTeleporter().setUnlocalizedName("dimension_teleporter").setRegistryName("dimension_teleporter");
 	public static ItemMeta resource = new ItemResource();
+	public static Item sharpBone = new ItemSharpBone();
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", Resources.metals);
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", Resources.metals);
 
@@ -67,6 +69,7 @@ public class Resources {
 	public static WoodSet cypress = new WoodSet(BlockPlanks.WoodTypes.CYPRESS);
 	public static WoodSet fir = new WoodSet(BlockPlanks.WoodTypes.FIR);
 	public static WoodSet olive = new WoodSet(BlockPlanks.WoodTypes.OLIVE);
+	public static WoodSet laurel = new WoodSet(BlockPlanks.WoodTypes.LAUREL);
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
@@ -86,6 +89,7 @@ public class Resources {
 	public static void registerItems() {
 		Resources.items.add(Resources.dimensionTp);
 		Resources.items.add(Resources.resource);
+		Resources.items.add(Resources.sharpBone);
 		Resources.items.add(Resources.ingot);
 		Resources.items.add(Resources.nugget);
 
@@ -118,6 +122,7 @@ public class Resources {
 		Resources.cypress.register();
 		Resources.fir.register();
 		Resources.olive.register();
+		Resources.laurel.register();
 	}
 
 	public static void registerBlock(final ItemBlock block) {

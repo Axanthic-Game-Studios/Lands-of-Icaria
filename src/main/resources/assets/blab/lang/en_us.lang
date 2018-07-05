@@ -6,6 +6,7 @@ item.resource.silkstone_powder.name=Silkstone Powder
 item.resource.polished_zircon.name=Polished Zircon
 item.resource.calcite_powder.name=Calcite Powder
 item.resource.loam_lump.name=Lump of Loam
+item.bone_sharp.name=Sharpened Bone
 
 item.generic.ingot.name=%s Ingot
 item.generic.nugget.name=%s Nugget
@@ -81,3 +82,4 @@ material.populus.name=Populus
 material.cypress.name=Cypress
 material.fir.name=Fir
 material.olive.name=Olive
+material.laurel.name=Laurel
