@@ -21,6 +21,7 @@ import com.axanthic.blab.items.ItemBlockMaterial;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemBlockMetaMaterial;
 import com.axanthic.blab.items.ItemDimensionTeleporter;
+import com.axanthic.blab.items.ItemLaurelWreath;
 import com.axanthic.blab.items.ItemMeta;
 import com.axanthic.blab.items.ItemMetaMaterial;
 import com.axanthic.blab.items.ItemResource;
@@ -54,6 +55,7 @@ public class Resources {
 	public static Item dimensionTp = new ItemDimensionTeleporter().setUnlocalizedName("dimension_teleporter").setRegistryName("dimension_teleporter");
 	public static ItemMeta resource = new ItemResource();
 	public static Item sharpBone = new ItemSharpBone();
+	public static Item laurelWreath = new ItemLaurelWreath();
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", Resources.metals);
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", Resources.metals);
 
@@ -90,6 +92,7 @@ public class Resources {
 		Resources.items.add(Resources.dimensionTp);
 		Resources.items.add(Resources.resource);
 		Resources.items.add(Resources.sharpBone);
+		Resources.items.add(Resources.laurelWreath);
 		Resources.items.add(Resources.ingot);
 		Resources.items.add(Resources.nugget);
 

@@ -7,6 +7,7 @@ item.resource.polished_zircon.name=Polished Zircon
 item.resource.calcite_powder.name=Calcite Powder
 item.resource.loam_lump.name=Lump of Loam
 item.bone_sharp.name=Sharpened Bone
+item.laurel_wreath.name=Laurel Wreath
 
 item.generic.ingot.name=%s Ingot
 item.generic.nugget.name=%s Nugget
