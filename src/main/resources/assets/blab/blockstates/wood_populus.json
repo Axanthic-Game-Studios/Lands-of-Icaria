@@ -1,7 +1,6 @@
 {
 	"forge_marker": 1,
 	"defaults": {
-		"transform": "forge:default-block",
 		"model": "cube_all",
 		"uvlock": true,
 		"textures": {
@@ -10,7 +9,8 @@
 		}
 	},
 	"variants": {
-		"sapling": { "model": "cross", "textures": { "cross": "blab:blocks/wood_populus_sapling" } },
+		"sapling": { "model": "cross", "textures": { "cross": "blab:blocks/wood_populus_sapling", "particle": "#cross" } },
+		"inv_sapling": { "model": "blab:generated", "textures": { "layer0": "blab:blocks/wood_populus_sapling" } },
 		"log_y": { "model": "cube_column", "textures": { "all": "blab:blocks/wood_populus_log_side", "end": "blab:blocks/wood_populus_log_top", "side": "blab:blocks/wood_populus_log_side" } },
 		"log_z": { "model": "cube_column", "textures": { "all": "blab:blocks/wood_populus_log_side", "end": "blab:blocks/wood_populus_log_top", "side": "blab:blocks/wood_populus_log_side" }, "x": 90 },
 		"log_x": { "model": "cube_column", "textures": { "all": "blab:blocks/wood_populus_log_side", "end": "blab:blocks/wood_populus_log_top", "side": "blab:blocks/wood_populus_log_side" }, "x": 90, "y": 90 },

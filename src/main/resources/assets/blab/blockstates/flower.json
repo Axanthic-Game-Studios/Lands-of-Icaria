@@ -5,7 +5,8 @@
 		"model": "cross",
 		"uvlock": true,
 		"textures": {
-			"cross": "blab:blocks/flower_white_chameomile"
+			"cross": "blab:blocks/flower_white_chameomile",
+			"particle": "#cross"
 		}
 	},
 	"variants": {

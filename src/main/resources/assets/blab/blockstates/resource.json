@@ -3,7 +3,7 @@
 	"defaults": {
 		"model": "blab:generated",
 		"textures": {
-			"layer0": "blab:items/g"
+			"layer0": "blab:items/mineral_lignite"
 		}
 	},
 	"variants": {

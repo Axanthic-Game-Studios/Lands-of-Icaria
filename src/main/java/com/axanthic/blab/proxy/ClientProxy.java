@@ -5,10 +5,12 @@ import java.awt.Color;
 import javax.annotation.Nullable;
 
 import com.axanthic.blab.Resources;
+import com.axanthic.blab.blocks.BlockFlower;
 import com.axanthic.blab.blocks.BlockLeaf;
 import com.axanthic.blab.blocks.BlockLog;
 import com.axanthic.blab.blocks.BlockSapling;
 import com.axanthic.blab.blocks.IBlockMeta;
+import com.axanthic.blab.blocks.BlockFlower.FlowerTypes;
 import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.RenderBident;
 import com.axanthic.blab.items.ItemBlockMeta;
@@ -62,15 +64,22 @@ public class ClientProxy extends CommonProxy {
 		super.registerItems(event);
 
 		for (ItemBlock block : Resources.blocks) {
-			if (block instanceof ItemBlockMeta) {
+			if (block.getBlock() instanceof BlockFlower) {
+				for (int i = 0; i < FlowerTypes.getNames().length; i++) {
+					ModelLoader.setCustomModelResourceLocation(block, i, new ModelResourceLocation(block.getRegistryName() + "_inv", "type=" + FlowerTypes.getNames()[i]));
+				}
+			} else if (block instanceof ItemBlockMeta) {
 				ModelLoader.setCustomMeshDefinition(block, new ItemMeshDefinition() {
 					@Override
 					public ModelResourceLocation getModelLocation(ItemStack stack) {
 						return new ModelResourceLocation(block.getRegistryName(), "type=" + ((IBlockMeta) block.getBlock()).getNameForMeta(stack.getMetadata()));
 					}});
-			} else if (block.getBlock() instanceof BlockSapling || block.getBlock() instanceof BlockLeaf) {
+			} else if (block.getBlock() instanceof BlockLeaf || block.getBlock() instanceof BlockSapling) {
 				String[] path = block.getRegistryName().getResourcePath().split("_");
-				ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation(new ResourceLocation(block.getRegistryName().getResourceDomain(), "wood_" + path[1]), path[0]));
+				if (block.getBlock() instanceof BlockSapling)
+					ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation(new ResourceLocation(block.getRegistryName().getResourceDomain(), "wood_" + path[1]), "inv_" + path[0]));
+				else
+					ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation(new ResourceLocation(block.getRegistryName().getResourceDomain(), "wood_" + path[1]), path[0]));
 				ModelLoader.setCustomStateMapper(block.getBlock(), new StateMapperBase() {
 					@Override
 					public ModelResourceLocation getModelResourceLocation(IBlockState state) {
