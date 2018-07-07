@@ -217,8 +217,8 @@ public class Resources {
 		public ItemBlockMaterial leaf;
 
 		public WoodSet(final BlockPlanks.WoodTypes type) {
-			this.log = new ItemBlockMaterial(new BlockLog(type, type.logColor));
-			this.strippedLog = new ItemBlockMaterial(new BlockLog(type, type.mapColor));
+			this.strippedLog = new ItemBlockMaterial(new BlockLog(type, type.mapColor, null));
+			this.log = new ItemBlockMaterial(new BlockLog(type, type.logColor, strippedLog));
 			this.sapling = new ItemBlockMaterial(new BlockSapling(type));
 			this.leaf = new ItemBlockMaterial(new BlockLeaf(type, sapling));
 		}
