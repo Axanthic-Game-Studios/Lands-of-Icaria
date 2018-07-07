@@ -27,7 +27,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockGem extends BlockSixDirectional {
 
 	private String unlocalizedName;
-	public static final AxisAlignedBB NOTHING_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
+	public static final AxisAlignedBB GEM_AABB = new AxisAlignedBB(0.49D, 0.51D, 0.49D, 0.51D, 0.49D, 0.51D);
 
 	public BlockGem(String name) {
 		super(Material.GLASS, MapColor.AIR);
@@ -75,7 +75,7 @@ public class BlockGem extends BlockSixDirectional {
 
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return NOTHING_AABB;
+		return GEM_AABB;
 	}
 
 	@Override

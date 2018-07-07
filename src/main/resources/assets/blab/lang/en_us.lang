@@ -1,6 +1,5 @@
 itemGroup.blab.creativeTab=Blab
 
-item.wimba_stick.name=Wimba Stick
 item.resource.silkstone_brick.name=Silkstone Brick
 item.resource.silkstone_powder.name=Silkstone Powder
 item.resource.polished_zircon.name=Polished Zircon
@@ -36,7 +35,6 @@ tile.generic.planks.name=%s Planks
 tile.smooth_relicstone.name=Smooth Relicstone
 tile.pillar_relicstone.name=Relicstone Pillar
 tile.pillar_head_relicstone.name=Relicstone Pillar Head
-tile.black.name=Black
 tile.soil.marl.name=Marl
 tile.soil.course_marl.name=Coarse Marl
 tile.soil.loam.name=Loam
