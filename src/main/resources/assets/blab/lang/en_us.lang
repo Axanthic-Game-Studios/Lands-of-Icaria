@@ -18,6 +18,10 @@ item.generic.pickaxe.name=%s Pickaxe
 item.generic.scythe.name=%s Scythe
 item.generic.shovel.name=%s Shovel
 item.generic.sword.name=%s Sword
+item.generic.helmet.name=%s Helmet
+item.generic.chestplate.name=%s Chestplate
+item.generic.legs.name=%s Leggings
+item.generic.boots.name=%s Boots
 
 tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Bricks

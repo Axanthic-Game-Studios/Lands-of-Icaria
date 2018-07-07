@@ -13,6 +13,10 @@
 		"sword": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_orichalcum_tool_sword" } },
 		"dagger": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_orichalcum_tool_dagger" } },
 		"bident": { "model": "blab:bident", "textures": { "layer0": "blab:items/metal_orichalcum_tool_bident" } },
-		"scythe": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_orichalcum_tool_scythe" } }
+		"scythe": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_orichalcum_tool_scythe" } },
+		"helmet": { "model": "blab:generated", "textures": { "layer0": "blab:items/armor_orichalcum_helmet" } },
+		"chestplate": { "model": "blab:generated", "textures": { "layer0": "blab:items/armor_orichalcum_chestplate" } },
+		"legs": { "model": "blab:generated", "textures": { "layer0": "blab:items/armor_orichalcum_legs" } },
+		"boots": { "model": "blab:generated", "textures": { "layer0": "blab:items/armor_orichalcum_boots" } }
 	}
 }

@@ -14,6 +14,7 @@ import com.axanthic.blab.blocks.BlockFlower.FlowerTypes;
 import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.RenderBident;
 import com.axanthic.blab.items.ItemBlockMeta;
+import com.axanthic.blab.items.ItemCustomArmor;
 import com.axanthic.blab.items.ItemMeta;
 
 import net.minecraft.block.Block;
@@ -112,7 +113,7 @@ public class ClientProxy extends CommonProxy {
 				for (int i = 0; i < ((ItemMeta) item).names.length; i++) {
 					ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(item.getRegistryName(), "type=" + ((ItemMeta) item).names[i]));
 				}
-			} else if (item instanceof ItemTool || item instanceof ItemSword) {
+			} else if (item instanceof ItemTool || item instanceof ItemSword || item instanceof ItemCustomArmor) {
 				String[] path = item.getRegistryName().getResourcePath().split("_");
 				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), "tool_" + path[1]), path[0]));
 			} else

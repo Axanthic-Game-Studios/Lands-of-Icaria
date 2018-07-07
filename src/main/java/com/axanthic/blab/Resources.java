@@ -20,6 +20,7 @@ import com.axanthic.blab.blocks.BlockSoilGrass;
 import com.axanthic.blab.items.ItemBlockMaterial;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemBlockMetaMaterial;
+import com.axanthic.blab.items.ItemCustomArmor;
 import com.axanthic.blab.items.ItemDimensionTeleporter;
 import com.axanthic.blab.items.ItemLaurelWreath;
 import com.axanthic.blab.items.ItemMeta;
@@ -38,7 +39,9 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -65,6 +68,11 @@ public class Resources {
 	public static ToolSet vanadiumsteel = new ToolSet(new CompleteToolMaterial("vanadiumsteel", -1.0F, 3, 424, 4.0F, 3.0F, 11, new ItemStack(Resources.ingot, 1, 6)));
 	public static ToolSet sideros = new ToolSet(new CompleteToolMaterial("sideros", -1.1F, 4, 528, 7.0F, 2.5F, 14, new ItemStack(Resources.ingot, 1, 7)));
 	public static ToolSet molybdenumsteel = new ToolSet(new CompleteToolMaterial("molybdenumsteel", -1.2F, 4, 673, 7.5F, 2.0F, 12, new ItemStack(Resources.ingot, 1, 9)));
+
+	public static ArmorSet chalkosArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "chalkos", ModInformation.ID + ":" + "armor_chalkos", 11, new int[]{1, 3, 4, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 0)));
+	public static ArmorSet kassiterosArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "kassiteros", ModInformation.ID + ":" + "armor_kassiteros", 15, new int[]{2, 3, 5, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 1)));
+	public static ArmorSet orichalcumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "orichalcum", ModInformation.ID + ":" + "armor_orichalcum", 24, new int[]{2, 4, 6, 2}, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 3)));
+	public static ArmorSet vanadiumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "vanadiumsteel", ModInformation.ID + ":" + "armor_vanadiumsteel", 27, new int[]{3, 5, 7, 3}, 11, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.5F).setRepairItem(new ItemStack(Resources.ingot, 1, 5)));
 
 	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE);
 	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS);
@@ -102,6 +110,11 @@ public class Resources {
 		Resources.vanadiumsteel.register();
 		Resources.sideros.register();
 		Resources.molybdenumsteel.register();
+
+		Resources.chalkosArmor.register();
+		Resources.kassiterosArmor.register();
+		Resources.orichalcumArmor.register();
+		Resources.vanadiumArmor.register();
 	}
 
 	public static void registerBlocks() {
@@ -171,6 +184,28 @@ public class Resources {
 			Resources.items.add(this.dagger);
 			Resources.items.add(this.bident);
 			Resources.items.add(this.scythe);
+		}
+	}
+
+	public static class ArmorSet {
+
+		public Item helmet;
+		public Item chestplate;
+		public Item leggings;
+		public Item boots;
+
+		public ArmorSet(final ItemArmor.ArmorMaterial material) {
+			this.helmet = new ItemCustomArmor(material, EntityEquipmentSlot.HEAD);
+			this.chestplate = new ItemCustomArmor(material, EntityEquipmentSlot.CHEST);
+			this.leggings = new ItemCustomArmor(material, EntityEquipmentSlot.LEGS);
+			this.boots = new ItemCustomArmor(material, EntityEquipmentSlot.FEET);
+		}
+
+		public void register() {
+			Resources.items.add(this.helmet);
+			Resources.items.add(this.chestplate);
+			Resources.items.add(this.leggings);
+			Resources.items.add(this.boots);
 		}
 	}
 

@@ -13,6 +13,10 @@
 		"sword": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_kassiteros_tool_sword" } },
 		"dagger": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_kassiteros_tool_dagger" } },
 		"bident": { "model": "blab:bident", "textures": { "layer0": "blab:items/metal_kassiteros_tool_bident" } },
-		"scythe": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_kassiteros_tool_scythe" } }
+		"scythe": { "model": "blab:handheld", "textures": { "layer0": "blab:items/metal_kassiteros_tool_scythe" } },
+		"helmet": { "model": "blab:generated", "textures": { "layer0": "blab:items/armor_kassiteros_helmet" } },
+		"chestplate": { "model": "blab:generated", "textures": { "layer0": "blab:items/armor_kassiteros_chestplate" } },
+		"legs": { "model": "blab:generated", "textures": { "layer0": "blab:items/armor_kassiteros_legs" } },
+		"boots": { "model": "blab:generated", "textures": { "layer0": "blab:items/armor_kassiteros_boots" } }
 	}
 }
