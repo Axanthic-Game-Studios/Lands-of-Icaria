@@ -5,6 +5,7 @@ import com.axanthic.blab.Blab;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
@@ -50,9 +51,10 @@ public class ItemDimensionTeleporter extends Item
 				final WorldServer worldserver = minecraftserver.getWorld(i);
 				final WorldServer worldserver1 = minecraftserver.getWorld(Blab.dimensionId);
 				playerIn.dimension = Blab.dimensionId;
-
+				
 				worldIn.removeEntity(playerIn);
-				playerIn.isDead = false;
+				playerIn.isDead = true;
+				playerIn.setHealth((float) 0.0);
 				worldIn.profiler.startSection("reposition");
 				final BlockPos blockpos = new BlockPos(0, 180, 0);
 				worldserver.updateEntityWithOptionalForce(playerIn, false);
