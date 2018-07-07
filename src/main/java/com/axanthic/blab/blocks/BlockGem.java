@@ -28,6 +28,7 @@ public class BlockGem extends BlockSixDirectional {
 
 	private String unlocalizedName;
 	public static final AxisAlignedBB GEM_AABB = new AxisAlignedBB(0.49D, 0.51D, 0.49D, 0.51D, 0.49D, 0.51D);
+	public static final AxisAlignedBB NOTHING_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
 
 	public BlockGem(String name) {
 		super(Material.GLASS, MapColor.AIR);
@@ -37,6 +38,7 @@ public class BlockGem extends BlockSixDirectional {
 		this.setLightOpacity(0);
 		this.setUnlocalizedName(name);
 		unlocalizedName = name;
+		this.setLightLevel(1.0F);
 		this.setRegistryName(ModInformation.ID, name);
 		this.setSoundType(SoundType.GLASS);
 	}
@@ -70,12 +72,12 @@ public class BlockGem extends BlockSixDirectional {
 	@Override
 	@Nullable
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
-		return NULL_AABB;
+		return GEM_AABB;
 	}
 
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return GEM_AABB;
+		return NOTHING_AABB;
 	}
 
 	@Override
