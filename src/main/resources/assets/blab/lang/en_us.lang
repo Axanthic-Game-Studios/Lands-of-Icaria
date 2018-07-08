@@ -32,7 +32,14 @@ tile.generic.log.name=%s Log
 tile.generic.log_stripped.name=Stripped %s Log
 tile.generic.planks.name=%s Planks
 
-tile.smooth_relicstone.name=Smooth Relicstone
+tile.relicstone.smooth.name=Smooth Relicstone
+tile.relicstone.bricks_cracked.name=Cracked Relicstone Bricks
+tile.relicstone.bricks_mossy.name=Mossy Relicstone Bricks
+tile.relicstone.bricks_draft.name=Structure Relicstone Bricks
+tile.relicstone.tiles.name=Relicstone Tiles
+tile.relicstone.tiles_cracked.name=Cracked Relicstone Tiles
+tile.relicstone.tiles_mossy.name=Mossy Relicstone Tiles
+tile.relicstone.tiles_draft.name=Structure Relicstone Tiles
 tile.pillar_relicstone.name=Relicstone Pillar
 tile.pillar_head_relicstone.name=Relicstone Pillar Head
 tile.soil.marl.name=Marl
@@ -51,6 +58,7 @@ tile.flower.purple_staghorn.name=Purple Staghorn
 tile.flower.blue_hydracinth.name=Blue Hydracinth
 tile.flower.firehilt.name=Firehilt
 tile.flower.voidlily.name=Voidlily
+tile.loot_vase.name=Loot Vase
 
 material.yellowstone.name=Yellowstone
 material.silkstone.name=Silkstone

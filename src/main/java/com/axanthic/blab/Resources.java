@@ -9,10 +9,12 @@ import com.axanthic.blab.blocks.BlockGem;
 import com.axanthic.blab.blocks.BlockGravity;
 import com.axanthic.blab.blocks.BlockLeaf;
 import com.axanthic.blab.blocks.BlockLog;
+import com.axanthic.blab.blocks.BlockLootVase;
 import com.axanthic.blab.blocks.BlockOre;
 import com.axanthic.blab.blocks.BlockPillar;
 import com.axanthic.blab.blocks.BlockPillarHead;
 import com.axanthic.blab.blocks.BlockPlanks;
+import com.axanthic.blab.blocks.BlockRelicstone;
 import com.axanthic.blab.blocks.BlockRock;
 import com.axanthic.blab.blocks.BlockSapling;
 import com.axanthic.blab.blocks.BlockSoil;
@@ -94,9 +96,10 @@ public class Resources {
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
-	public static ItemBlock relicstone = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "smooth_relicstone", MapColor.WOOD).setSoundType(SoundType.STONE));
+	public static ItemBlockMeta relicstone = new ItemBlockMeta(new BlockRelicstone());
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
 	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead());
+	public static ItemBlock lootVase = new ItemBlock(new BlockLootVase());
 
 	public static void registerItems() {
 		Resources.items.add(Resources.dimensionTp);
@@ -135,6 +138,7 @@ public class Resources {
 		Resources.registerBlock(Resources.relicstone);
 		Resources.registerBlock(Resources.pillar);
 		Resources.registerBlock(Resources.pillarHead);
+		Resources.registerBlock(Resources.lootVase);
 		
 		Resources.plane.register();
 		Resources.populus.register();

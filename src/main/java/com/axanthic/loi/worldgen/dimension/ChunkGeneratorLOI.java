@@ -265,6 +265,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		{
 			for (int z = 0; z < sizeZ; ++z)
 			{
+				final float cell = this.cell.noise((wx + x) / 500d, (wz + z) / 500d, 1.0);
 				final double d3 = 0.0D;
 
 				for (int y = 0; y < sizeY; ++y)
@@ -296,7 +297,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 						value = (value * (1.0D - topSmoothing)) + (-5D * topSmoothing);
 					}
 
-					buffer[index] = value;
+					buffer[index] = cell < 0.2d ? value : value / 5;
 					++index;
 				}
 			}
@@ -411,17 +412,17 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 				final double noiseValue = this.depthBuffer[cx + (cz * 16)];
 				final int fillerBlockDensity = (int)((noiseValue / 3.0D) + 3.0D + (this._rand.nextDouble() * 0.25D));
 				IBlockState topBlock = ChunkGeneratorLOI.MARLGRASS;
-				IBlockState fillerBlock = ChunkGeneratorLOI.LOAM;
+				IBlockState fillerBlock = ChunkGeneratorLOI.MARL;
 
 				if (noiseValue > 1.75D)
 				{
+					topBlock = ChunkGeneratorLOI.LOAM;
+					fillerBlock = ChunkGeneratorLOI.MARL;
+				}
+				else if (noiseValue > 0.0D)
+				{
 					topBlock = ChunkGeneratorLOI.MARLCOURSE;
 					fillerBlock = ChunkGeneratorLOI.MARLCOURSE;
-				}
-				else if (noiseValue > -0.95D)
-				{
-					topBlock = ChunkGeneratorLOI.MARL;
-					fillerBlock = ChunkGeneratorLOI.MARL;
 				}
 
 				noiseYellowstone = this.perlin.noise2((wx + 2221f) / 95f, (wz + 2221f) / 95f);
@@ -449,15 +450,15 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 							}
 
 							// /.\ Spaghetti code warning /.\
-							if(gy < (5 + fillerBlockDensity)) {
+							if(gy < (3 + fillerBlockDensity)) {
 								primer.setBlockState(cx, cy - gy, cz, fillerBlock);
-							} else if(cy > (84 - yellowstone_density)) {
+							} else if((cy - gy) > (84 - yellowstone_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.YELLOWSTONE);
-							} else if(cy > (64 - silkstone_density)) {
+							} else if((cy - gy) > (64 - silkstone_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.SILKSTONE);
-							} else if(cy > (52 - sunstone_density)) {
+							} else if((cy - gy) > (52 - sunstone_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.SUNSTONE);
-							} else if(cy > (38 - voidshale_density)) {
+							} else if((cy - gy) > (38 - voidshale_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.VOIDSHALE);
 							} else {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.BAETYL);
