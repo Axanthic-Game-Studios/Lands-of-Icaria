@@ -96,3 +96,5 @@ material.cypress.name=Cypress
 material.fir.name=Fir
 material.olive.name=Olive
 material.laurel.name=Laurel
+
+message.loot_vase.pickup=Sneak to throw vase

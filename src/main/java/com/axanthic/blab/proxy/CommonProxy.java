@@ -4,6 +4,7 @@ import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityBident;
+import com.axanthic.blab.entity.EntityFallingVase;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -24,6 +25,7 @@ public class CommonProxy {
 		Resources.registerBlocks();
 		Resources.registerItems();
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "bident", 0, ModInformation.ID, 64, 20, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "fallingVase"), EntityFallingVase.class, "fallingVase", 1, ModInformation.ID, 160, 20, true);
 	}
 
 	public void init(FMLInitializationEvent event) {

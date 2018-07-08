@@ -12,6 +12,7 @@ import com.axanthic.blab.blocks.BlockSapling;
 import com.axanthic.blab.blocks.IBlockMeta;
 import com.axanthic.blab.blocks.BlockFlower.FlowerTypes;
 import com.axanthic.blab.entity.EntityBident;
+import com.axanthic.blab.entity.EntityFallingVase;
 import com.axanthic.blab.entity.RenderBident;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemCustomArmor;
@@ -24,6 +25,7 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.renderer.entity.RenderFallingBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -47,6 +49,7 @@ public class ClientProxy extends CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBident.class, RenderBident::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityFallingVase.class, RenderFallingBlock::new);
 	}
 
 	public void init(FMLInitializationEvent event) {
