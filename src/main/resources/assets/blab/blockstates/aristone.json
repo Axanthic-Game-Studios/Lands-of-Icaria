@@ -5,7 +5,7 @@
 		"model": "cube_all",
 		"uvlock": true,
 		"textures": {
-			"all": "blab:blocks/black",
+			"all": "blab:blocks/rock_aristone_ice",
 			"particle": "#all"
 		}
 	},

@@ -3,7 +3,7 @@ package com.axanthic.blab;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.axanthic.blab.blocks.BlockBasic;
+import com.axanthic.blab.blocks.BlockAristone;
 import com.axanthic.blab.blocks.BlockFlower;
 import com.axanthic.blab.blocks.BlockGem;
 import com.axanthic.blab.blocks.BlockGravity;
@@ -53,6 +53,8 @@ import net.minecraftforge.common.util.EnumHelper;
 public class Resources {
 
 	public static final SoundType SILENCE = new SoundType(-10.0F, 1.0F, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL);
+	public static final SoundType SLICK = new SoundType(1.0F, 1.0F, SoundEvents.BLOCK_GLASS_BREAK, SoundEvents.BLOCK_SLIME_PLACE, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_SLIME_FALL);
+    public static final SoundType CERAMIC = new SoundType(1.0F, 1.0F, SoundEvents.BLOCK_GLASS_BREAK, SoundEvents.BLOCK_GLASS_STEP, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_GLASS_FALL);
 	public static final String[] metals = new String[]{"chalkos", "kassiteros", "molibos", "orichalcum", "sliver", "vanadium", "vanadiumsteel", "sideros", "molybdenum", "molybdenumsteel", "bluridium"};
 
 	public static List<Item> items = new ArrayList<Item>();
@@ -89,6 +91,8 @@ public class Resources {
 	public static ItemBlock tallGrass = new ItemBlock(new BlockTallGrass());
 	public static ItemBlockMeta flower = new ItemBlockMeta(new BlockFlower());
 	public static ItemBlockMeta planks = new ItemBlockMetaMaterial(new BlockPlanks());
+	public static ItemBlock aristone = new ItemBlock(new BlockAristone("aristone"));
+	public static ItemBlock aristonePacked = new ItemBlock(new BlockAristone("aristone_packed"));
 	public static ItemBlockMeta rock = new ItemBlockMetaMaterial(new BlockRock("rock"));
 	public static ItemBlockMeta brick = new ItemBlockMetaMaterial(new BlockRock("bricks"));
 	public static ItemBlockMeta ore = new ItemBlockMetaMaterial(new BlockOre());
@@ -128,6 +132,8 @@ public class Resources {
 		Resources.registerBlock(Resources.tallGrass);
 		Resources.registerBlock(Resources.flower);
 		Resources.registerBlock(Resources.planks);
+		Resources.registerBlock(Resources.aristone);
+		Resources.registerBlock(Resources.aristonePacked);
 		Resources.registerBlock(Resources.rock);
 		Resources.registerBlock(Resources.brick);
 		Resources.registerBlock(Resources.ore);

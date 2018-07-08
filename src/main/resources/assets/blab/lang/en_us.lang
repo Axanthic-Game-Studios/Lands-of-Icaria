@@ -58,6 +58,8 @@ tile.flower.purple_staghorn.name=Purple Staghorn
 tile.flower.blue_hydracinth.name=Blue Hydracinth
 tile.flower.firehilt.name=Firehilt
 tile.flower.voidlily.name=Voidlily
+tile.aristone.name=Aristone
+tile.aristone_packed.name=Packed Aristone
 tile.loot_vase.name=Loot Vase
 
 material.yellowstone.name=Yellowstone
