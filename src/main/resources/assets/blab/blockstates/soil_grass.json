@@ -3,7 +3,6 @@
 	"defaults": {
 		"transform": "forge:default-block",
 		"model": "grass",
-		"uvlock": true,
 		"textures": {
 			"particle": "blab:blocks/soil_marl",
 			"bottom": "blab:blocks/soil_marl",
@@ -13,7 +12,12 @@
 		}
 	},
     "variants": {
-		"normal":  { "model": "grass" },
+		"normal": [
+            { "model": "grass" },
+            { "model": "grass", "y": 90 },
+            { "model": "grass", "y": 180 },
+            { "model": "grass", "y": 270 }
+        ],
 		"inventory":  { "model": "grass" }
     }
 }

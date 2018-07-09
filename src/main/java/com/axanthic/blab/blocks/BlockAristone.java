@@ -34,6 +34,6 @@ public class BlockAristone extends BlockBasic {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		return blockAccess.getBlockState(pos.offset(side)).getBlock().equals(this) || super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+		return blockAccess.getBlockState(pos.offset(side)).getBlock().equals(this) ? false : super.shouldSideBeRendered(blockState, blockAccess, pos, side);
 	}
 }
