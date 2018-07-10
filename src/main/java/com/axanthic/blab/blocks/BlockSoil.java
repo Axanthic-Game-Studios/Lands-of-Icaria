@@ -55,6 +55,9 @@ public class BlockSoil extends Block implements IBlockMeta {
 
 	@Override
 	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable) {
+		if (getMetaFromState(state) == 2)
+			return Blocks.SAND.canSustainPlant(state, world, pos, direction, plantable) || Blocks.DIRT.canSustainPlant(state, world, pos, direction, plantable) || plantable instanceof BlockBush;
+
 		return Blocks.DIRT.canSustainPlant(state, world, pos, direction, plantable) || plantable instanceof BlockBush;
 	}
 

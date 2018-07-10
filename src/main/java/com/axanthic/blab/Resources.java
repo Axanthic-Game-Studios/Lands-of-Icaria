@@ -85,6 +85,7 @@ public class Resources {
 	public static WoodSet fir = new WoodSet(BlockPlanks.WoodTypes.FIR);
 	public static WoodSet olive = new WoodSet(BlockPlanks.WoodTypes.OLIVE);
 	public static WoodSet laurel = new WoodSet(BlockPlanks.WoodTypes.LAUREL);
+	public static WoodSet droughtroot = new WoodSet(BlockPlanks.WoodTypes.DROUGHTROOT);
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
@@ -97,6 +98,7 @@ public class Resources {
 	public static ItemBlockMeta brick = new ItemBlockMetaMaterial(new BlockRock("bricks"));
 	public static ItemBlockMeta ore = new ItemBlockMetaMaterial(new BlockOre());
 	public static ItemBlock silkstoneSand = new ItemBlock(new BlockGravity(Material.SAND, 1.2F, "silkstone_sand", MapColor.PINK_STAINED_HARDENED_CLAY).setSoundType(SoundType.SAND));
+	public static ItemBlock grainelSand = new ItemBlock(new BlockGravity(Material.SAND, 1.2F, "grainel_sand", MapColor.WOOD).setSoundType(SoundType.SAND));
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
@@ -138,6 +140,7 @@ public class Resources {
 		Resources.registerBlock(Resources.brick);
 		Resources.registerBlock(Resources.ore);
 		Resources.registerBlock(Resources.silkstoneSand);
+		Resources.registerBlock(Resources.grainelSand);
 		Resources.registerBlock(Resources.calcite);
 		Resources.registerBlock(Resources.jasper);
 		Resources.registerBlock(Resources.zircon);
@@ -152,6 +155,7 @@ public class Resources {
 		Resources.fir.register();
 		Resources.olive.register();
 		Resources.laurel.register();
+		Resources.droughtroot.register();
 	}
 
 	public static void registerBlock(final ItemBlock block) {

@@ -89,7 +89,8 @@ public class BlockPlanks extends Block implements IBlockMeta {
 		CYPRESS(2, "cypress", MapColor.BROWN, MapColor.STONE, MapColor.GREEN_STAINED_HARDENED_CLAY),
 		FIR(3, "fir", MapColor.WHITE_STAINED_HARDENED_CLAY, MapColor.BROWN_STAINED_HARDENED_CLAY, MapColor.GREEN),
 		OLIVE(4, "olive", MapColor.ADOBE, MapColor.STONE, MapColor.YELLOW),
-		LAUREL(5, "laurel", MapColor.BROWN, MapColor.OBSIDIAN, MapColor.GREEN_STAINED_HARDENED_CLAY);
+		LAUREL(5, "laurel", MapColor.BROWN, MapColor.OBSIDIAN, MapColor.GREEN_STAINED_HARDENED_CLAY),
+		DROUGHTROOT(6, "droughtroot", MapColor.GRAY, MapColor.OBSIDIAN, MapColor.GREEN_STAINED_HARDENED_CLAY);
 
 		public static final WoodTypes[] META_LOOKUP = new WoodTypes[values().length];
 		public final int meta;

@@ -9,6 +9,8 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
@@ -25,6 +27,11 @@ public class BlockGravity extends BlockFalling {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);
 		this.color = color;
+	}
+
+	@Override
+	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable) {
+		return this.blockMaterial.equals(Material.SAND) && Blocks.SAND.canSustainPlant(state, world, pos, direction, plantable);
 	}
 
 	@Override

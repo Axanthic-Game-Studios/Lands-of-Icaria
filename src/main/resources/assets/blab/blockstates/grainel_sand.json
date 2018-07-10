@@ -4,7 +4,7 @@
 		"transform": "forge:default-block",
 		"model": "cube_all",
 		"textures": {
-			"all": "blab:blocks/rock_silkstone_sand",
+			"all": "blab:blocks/rock_grainel_sand",
 			"particle": "#all"
 		}
 	},
