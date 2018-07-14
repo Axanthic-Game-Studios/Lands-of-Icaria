@@ -19,44 +19,44 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class BlockRelicstone extends Block implements IBlockMeta {
+public class BlockGrainelStone extends Block implements IBlockMeta {
 
-	public static PropertyEnum TYPES = PropertyEnum.create("type", BrickTypes.class);
-	public static int metaCount = BrickTypes.values().length;
+	public static PropertyEnum TYPES = PropertyEnum.create("type", GrainiteTypes.class);
+	public static int metaCount = GrainiteTypes.values().length;
 
-	public BlockRelicstone() {
+	public BlockGrainelStone() {
 		super(Material.ROCK, MapColor.WOOD);
 		this.setCreativeTab(Blab.modTab);
 		this.setHardness(1.2F);
-		this.setUnlocalizedName("relicstone");
-		this.setRegistryName(ModInformation.ID, "relicstone");
+		this.setUnlocalizedName("grainite");
+		this.setRegistryName(ModInformation.ID, "grainite");
 		this.setDefaultState(this.getStateFromMeta(0));
 		this.setSoundType(SoundType.STONE);
 	}
 
 	@Override
 	public String getNameForMeta(final int meta) {
-		return BrickTypes.byMetadata(meta).getName();
+		return GrainiteTypes.byMetadata(meta).getName();
 	}
 
 	@Override
 	public String[] getNames() {
-		return BrickTypes.getNames();
+		return GrainiteTypes.getNames();
 	}
 
 	@Override
 	public int getMetaFromState(final IBlockState state) {
-		return ((BrickTypes) state.getValue(BlockRelicstone.TYPES)).meta;
+		return ((GrainiteTypes) state.getValue(BlockGrainelStone.TYPES)).meta;
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(final int meta) {
-		return this.getDefaultState().withProperty(BlockRelicstone.TYPES, BrickTypes.byMetadata(meta));
+		return this.getDefaultState().withProperty(BlockGrainelStone.TYPES, GrainiteTypes.byMetadata(meta));
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[]{BlockRelicstone.TYPES});
+		return new BlockStateContainer(this, new IProperty[]{BlockGrainelStone.TYPES});
 	}
 
 	@Override
@@ -75,37 +75,31 @@ public class BlockRelicstone extends Block implements IBlockMeta {
 
 	@Override
 	public void getSubBlocks(final CreativeTabs itemIn, final NonNullList<ItemStack> items) {
-		for (final BrickTypes brickType : BrickTypes.values()) {
+		for (final GrainiteTypes brickType : GrainiteTypes.values()) {
 			items.add(new ItemStack(this, 1, brickType.meta));
 		}
 	}
 
-	public enum BrickTypes implements IStringSerializable {
-		SMOOTH(0, "smooth"),
-		BRICKS_CRACKED(1, "bricks_cracked"),
-		BRICKS_MOSSY(2, "bricks_mossy"),
-		BRICKS_DRAFT(3, "bricks_draft"),
-		TILES(4, "tiles"),
-		TILES_CRACKED(5, "tiles_cracked"),
-		TILES_MOSSY(6, "tiles_mossy"),
-		TILES_DRAFT(7, "tiles_draft"),
-		CHISELED(8, "chiseled");
+	public enum GrainiteTypes implements IStringSerializable {
+		COBBLE(0, "cobble"),
+		BRICKS(1, "bricks"),
+		BRICKS_CHISELED(2, "bricks_chiseled");
 
-		private static final BrickTypes[] META_LOOKUP = new BrickTypes[BrickTypes.values().length];
+		private static final GrainiteTypes[] META_LOOKUP = new GrainiteTypes[GrainiteTypes.values().length];
 		private final int meta;
 		private final String unlocalizedName;
 
-		BrickTypes(final int metaIn, final String unlocalizedNameIn) {
+		GrainiteTypes(final int metaIn, final String unlocalizedNameIn) {
 			this.meta = metaIn;
 			this.unlocalizedName = unlocalizedNameIn;
 		}
 
-		public static BrickTypes byMetadata(int meta) {
-			if ((meta < 0) || (meta >= BrickTypes.META_LOOKUP.length)) {
+		public static GrainiteTypes byMetadata(int meta) {
+			if ((meta < 0) || (meta >= GrainiteTypes.META_LOOKUP.length)) {
 				meta = 0;
 			}
 
-			return BrickTypes.META_LOOKUP[meta];
+			return GrainiteTypes.META_LOOKUP[meta];
 		}
 
 		@Override
@@ -118,16 +112,16 @@ public class BlockRelicstone extends Block implements IBlockMeta {
 		}
 
 		public static String[] getNames() {
-			final String[] names = new String[BrickTypes.META_LOOKUP.length];
-			for (int i = 0; i < BrickTypes.META_LOOKUP.length; i++) {
-				names[i] = BrickTypes.META_LOOKUP[i].getName();
+			final String[] names = new String[GrainiteTypes.META_LOOKUP.length];
+			for (int i = 0; i < GrainiteTypes.META_LOOKUP.length; i++) {
+				names[i] = GrainiteTypes.META_LOOKUP[i].getName();
 			}
 			return names;
 		}
 
 		static {
-			for (final BrickTypes brickType : BrickTypes.values()) {
-				BrickTypes.META_LOOKUP[brickType.meta] = brickType;
+			for (final GrainiteTypes brickType : GrainiteTypes.values()) {
+				GrainiteTypes.META_LOOKUP[brickType.meta] = brickType;
 			}
 		}
 	}

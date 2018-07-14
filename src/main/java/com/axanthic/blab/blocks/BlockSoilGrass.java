@@ -84,14 +84,16 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 			while (true) {
 				if (j >= i / 16) {
 					if (worldIn.isAirBlock(blockpos1)) {
+						IBlockState iblockstate1 = Resources.tallGrass.getBlock().getStateFromMeta(rand.nextInt(BlockTallGrass.GrassTypes.values().length));
 						if (rand.nextInt(8) == 0) {
-							worldIn.setBlockState(blockpos1, Resources.flower.getBlock().getStateFromMeta(rand.nextInt(BlockFlower.FlowerTypes.values().length + 1)), 3);
-						} else {
-							IBlockState iblockstate1 = Resources.tallGrass.getBlock().getDefaultState();
-
-							if (((BlockBush) Resources.tallGrass.getBlock()).canBlockStay(worldIn, blockpos1, iblockstate1)) {
-								worldIn.setBlockState(blockpos1, iblockstate1, 3);
-							}
+							int meta = rand.nextInt(BlockFlower.FlowerTypes.values().length + BlockFlower2.FlowerTypes2.values().length);
+							if (meta < 16)
+								iblockstate1 = Resources.flower.getBlock().getStateFromMeta(meta);
+							else
+								iblockstate1 = Resources.flower2.getBlock().getStateFromMeta(meta - 16);
+						}
+						if (((BlockBush) iblockstate1.getBlock()).canBlockStay(worldIn, blockpos1, iblockstate1)) {
+							worldIn.setBlockState(blockpos1, iblockstate1, 3);
 						}
 					}
 					break;

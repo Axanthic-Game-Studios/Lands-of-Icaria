@@ -9,8 +9,8 @@ import com.axanthic.blab.blocks.BlockFlower;
 import com.axanthic.blab.blocks.BlockLeaf;
 import com.axanthic.blab.blocks.BlockLog;
 import com.axanthic.blab.blocks.BlockSapling;
+import com.axanthic.blab.blocks.BlockTallGrass;
 import com.axanthic.blab.blocks.IBlockMeta;
-import com.axanthic.blab.blocks.BlockFlower.FlowerTypes;
 import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.EntityFallingVase;
 import com.axanthic.blab.entity.RenderBident;
@@ -68,9 +68,9 @@ public class ClientProxy extends CommonProxy {
 		super.registerItems(event);
 
 		for (ItemBlock block : Resources.blocks) {
-			if (block.getBlock() instanceof BlockFlower) {
-				for (int i = 0; i < FlowerTypes.getNames().length; i++) {
-					ModelLoader.setCustomModelResourceLocation(block, i, new ModelResourceLocation(block.getRegistryName() + "_inv", "type=" + FlowerTypes.getNames()[i]));
+			if (block.getBlock() instanceof BlockFlower || block.getBlock() instanceof BlockTallGrass) {
+				for (int i = 0; i < ((IBlockMeta) block.getBlock()).getNames().length; i++) {
+					ModelLoader.setCustomModelResourceLocation(block, i, new ModelResourceLocation(block.getRegistryName() + "_inv", "type=" + ((IBlockMeta) block.getBlock()).getNames()[i]));
 				}
 			} else if (block instanceof ItemBlockMeta) {
 				ModelLoader.setCustomMeshDefinition(block, new ItemMeshDefinition() {
@@ -130,7 +130,7 @@ public class ClientProxy extends CommonProxy {
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
 				return reduceGreen(worldIn != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(worldIn, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D));
 			}
-		}, Resources.grass.getBlock());
+		}, Resources.grass.getBlock(), Resources.tallGrass.getBlock());
 	}
 
 	public void registerItemColors(ColorHandlerEvent.Item event) {
@@ -139,7 +139,7 @@ public class ClientProxy extends CommonProxy {
 			public int colorMultiplier(ItemStack stack, int tintIndex) {
 				return reduceGreen(ColorizerGrass.getGrassColor(0.5D, 1.0D));
 			}
-		}, Resources.grass);
+		}, Resources.grass, Resources.tallGrass);
 	}
 
 	public int reduceGreen(int color) {

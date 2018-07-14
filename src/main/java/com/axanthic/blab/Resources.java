@@ -5,7 +5,10 @@ import java.util.List;
 
 import com.axanthic.blab.blocks.BlockAristone;
 import com.axanthic.blab.blocks.BlockFlower;
+import com.axanthic.blab.blocks.BlockFlower2;
 import com.axanthic.blab.blocks.BlockGem;
+import com.axanthic.blab.blocks.BlockGlassy;
+import com.axanthic.blab.blocks.BlockGrainelStone;
 import com.axanthic.blab.blocks.BlockGravity;
 import com.axanthic.blab.blocks.BlockLeaf;
 import com.axanthic.blab.blocks.BlockLog;
@@ -89,8 +92,9 @@ public class Resources {
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
-	public static ItemBlock tallGrass = new ItemBlock(new BlockTallGrass());
+	public static ItemBlockMeta tallGrass = new ItemBlockMeta(new BlockTallGrass());
 	public static ItemBlockMeta flower = new ItemBlockMeta(new BlockFlower());
+	public static ItemBlockMeta flower2 = new ItemBlockMeta(new BlockFlower2());
 	public static ItemBlockMeta planks = new ItemBlockMetaMaterial(new BlockPlanks());
 	public static ItemBlock aristone = new ItemBlock(new BlockAristone("aristone"));
 	public static ItemBlock aristonePacked = new ItemBlock(new BlockAristone("aristone_packed"));
@@ -99,6 +103,8 @@ public class Resources {
 	public static ItemBlockMeta ore = new ItemBlockMetaMaterial(new BlockOre());
 	public static ItemBlock silkstoneSand = new ItemBlock(new BlockGravity(Material.SAND, 1.2F, "silkstone_sand", MapColor.PINK_STAINED_HARDENED_CLAY).setSoundType(SoundType.SAND));
 	public static ItemBlock grainelSand = new ItemBlock(new BlockGravity(Material.SAND, 1.2F, "grainel_sand", MapColor.WOOD).setSoundType(SoundType.SAND));
+	public static ItemBlockMeta grainelStone = new ItemBlockMeta(new BlockGrainelStone());
+	public static ItemBlock grainelGlass = new ItemBlock(new BlockGlassy(Material.GLASS, 0.3F, "grainel_glass", MapColor.WOOD));
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
@@ -133,6 +139,7 @@ public class Resources {
 		Resources.registerBlock(Resources.grass);
 		Resources.registerBlock(Resources.tallGrass);
 		Resources.registerBlock(Resources.flower);
+		Resources.registerBlock(Resources.flower2);
 		Resources.registerBlock(Resources.planks);
 		Resources.registerBlock(Resources.aristone);
 		Resources.registerBlock(Resources.aristonePacked);
@@ -141,6 +148,8 @@ public class Resources {
 		Resources.registerBlock(Resources.ore);
 		Resources.registerBlock(Resources.silkstoneSand);
 		Resources.registerBlock(Resources.grainelSand);
+		Resources.registerBlock(Resources.grainelStone);
+		Resources.registerBlock(Resources.grainelGlass);
 		Resources.registerBlock(Resources.calcite);
 		Resources.registerBlock(Resources.jasper);
 		Resources.registerBlock(Resources.zircon);

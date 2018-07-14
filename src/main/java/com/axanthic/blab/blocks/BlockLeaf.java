@@ -15,12 +15,14 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -36,6 +38,7 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 		this.sapling = sapling;
 		this.setUnlocalizedName("leaf");
 		this.setRegistryName(ModInformation.ID, "leaf_" + type.unlocalizedName);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
 		this.setSoundType(SoundType.PLANT);
 	}
 
@@ -55,13 +58,23 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	}
 
 	@Override
+	protected ItemStack getSilkTouchDrop(IBlockState state) {
+		return new ItemStack(this, 1, 0);
+	}
+
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(DECAYABLE, Boolean.valueOf((meta & 4) == 0)).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
 	}
 
 	@Override
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+        return this.getDefaultState().withProperty(DECAYABLE, false).withProperty(CHECK_DECAY, false);
+    }
+
+	@Override
 	public int getMetaFromState(IBlockState state) {
-		int i = 0;
+		int i = 0 | 0;
 
 		if (!((Boolean)state.getValue(DECAYABLE)).booleanValue()) {
 			i |= 4;

@@ -13,7 +13,6 @@
 			"anthracite": { "textures": { "layer0": "blab:items/mineral_anthracite" } },
 			"abyssal_essence": { "textures": { "layer0": "blab:items/mineral_abyssalessence" } },
 			"silkstone_powder": { "textures": { "layer0": "blab:items/rock_silkstone_powder" } },
-			"silkstone_brick": { "textures": { "layer0": "blab:items/rock_silkstone_brick_item" } },
 			"calcite": { "textures": { "layer0": "blab:items/mineral_calcite" } },
 			"jasper": { "textures": { "layer0": "blab:items/mineral_jasper" } },
 			"zircon": { "textures": { "layer0": "blab:items/mineral_zircon_raw" } },
