@@ -30,6 +30,10 @@ tile.generic.leaf.name=%s Leaves
 tile.generic.log.name=%s Log
 tile.generic.log_stripped.name=Stripped %s Log
 tile.generic.planks.name=%s Planks
+tile.generic.fence.name=%s Fence
+tile.generic.gate.name=%s Fence Gate
+tile.generic.stairs.name=%s Stairs
+tile.generic.slab.name=%s Slab
 
 tile.relicstone.smooth.name=Smooth Relicstone
 tile.relicstone.bricks_cracked.name=Cracked Relicstone Bricks

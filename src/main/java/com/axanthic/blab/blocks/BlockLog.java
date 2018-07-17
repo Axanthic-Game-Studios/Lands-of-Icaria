@@ -90,6 +90,6 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 
 	@Override
 	public String getName() {
-		return type.getName();
+		return "material." + type.getName();
 	}
 }

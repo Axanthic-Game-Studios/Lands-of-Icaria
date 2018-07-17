@@ -92,7 +92,7 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 
 	@Override
 	public String getName() {
-		return type.getName();
+		return "material." + type.getName();
 	}
 
 	@Override

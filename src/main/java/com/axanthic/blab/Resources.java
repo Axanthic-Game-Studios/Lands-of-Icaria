@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.axanthic.blab.blocks.BlockAristone;
+import com.axanthic.blab.blocks.BlockCustomFence;
+import com.axanthic.blab.blocks.BlockCustomFenceGate;
+import com.axanthic.blab.blocks.BlockCustomSlab;
+import com.axanthic.blab.blocks.BlockCustomStairs;
 import com.axanthic.blab.blocks.BlockFlower;
 import com.axanthic.blab.blocks.BlockFlower2;
 import com.axanthic.blab.blocks.BlockGem;
@@ -24,6 +28,7 @@ import com.axanthic.blab.blocks.BlockSoil;
 import com.axanthic.blab.blocks.BlockSoilGrass;
 import com.axanthic.blab.blocks.BlockTallGrass;
 import com.axanthic.blab.items.ItemBlockMaterial;
+import com.axanthic.blab.items.ItemBlockMaterialSlab;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemBlockMetaMaterial;
 import com.axanthic.blab.items.ItemCustomArmor;
@@ -44,6 +49,7 @@ import com.axanthic.blab.items.ToolSword;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -82,14 +88,6 @@ public class Resources {
 	public static ArmorSet orichalcumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "orichalcum", ModInformation.ID + ":" + "armor_orichalcum", 24, new int[]{2, 4, 6, 2}, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 3)));
 	public static ArmorSet vanadiumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "vanadiumsteel", ModInformation.ID + ":" + "armor_vanadiumsteel", 27, new int[]{3, 5, 7, 3}, 11, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.5F).setRepairItem(new ItemStack(Resources.ingot, 1, 5)));
 
-	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE);
-	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS);
-	public static WoodSet cypress = new WoodSet(BlockPlanks.WoodTypes.CYPRESS);
-	public static WoodSet fir = new WoodSet(BlockPlanks.WoodTypes.FIR);
-	public static WoodSet olive = new WoodSet(BlockPlanks.WoodTypes.OLIVE);
-	public static WoodSet laurel = new WoodSet(BlockPlanks.WoodTypes.LAUREL);
-	public static WoodSet droughtroot = new WoodSet(BlockPlanks.WoodTypes.DROUGHTROOT);
-
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
 	public static ItemBlockMeta tallGrass = new ItemBlockMeta(new BlockTallGrass());
@@ -112,6 +110,14 @@ public class Resources {
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
 	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead());
 	public static ItemBlock lootVase = new ItemBlock(new BlockLootVase());
+
+	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE);
+	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS);
+	public static WoodSet cypress = new WoodSet(BlockPlanks.WoodTypes.CYPRESS);
+	public static WoodSet fir = new WoodSet(BlockPlanks.WoodTypes.FIR);
+	public static WoodSet olive = new WoodSet(BlockPlanks.WoodTypes.OLIVE);
+	public static WoodSet laurel = new WoodSet(BlockPlanks.WoodTypes.LAUREL);
+	public static WoodSet droughtroot = new WoodSet(BlockPlanks.WoodTypes.DROUGHTROOT);
 
 	public static void registerItems() {
 		Resources.items.add(Resources.dimensionTp);
@@ -241,12 +247,22 @@ public class Resources {
 		public ItemBlockMaterial strippedLog;
 		public ItemBlockMaterial sapling;
 		public ItemBlockMaterial leaf;
+		public ItemBlockMaterial fence;
+		public ItemBlockMaterial fenceGate;
+		public ItemBlockMaterialSlab slab;
+		public ItemBlockMaterial stairs;
 
 		public WoodSet(final BlockPlanks.WoodTypes type) {
 			this.strippedLog = new ItemBlockMaterial(new BlockLog(type, type.mapColor, null));
 			this.log = new ItemBlockMaterial(new BlockLog(type, type.logColor, strippedLog));
 			this.sapling = new ItemBlockMaterial(new BlockSapling(type));
 			this.leaf = new ItemBlockMaterial(new BlockLeaf(type, sapling));
+			IBlockState plankState = Resources.planks.getBlock().getDefaultState().withProperty(BlockPlanks.TYPES, type);
+			String materialName = "material." + type.unlocalizedName;
+			this.fence = new ItemBlockMaterial(new BlockCustomFence(plankState, materialName));
+			this.fenceGate = new ItemBlockMaterial(new BlockCustomFenceGate(plankState, materialName));
+			this.slab = new ItemBlockMaterialSlab(new BlockCustomSlab(plankState, materialName));
+			this.stairs = new ItemBlockMaterial(new BlockCustomStairs(plankState, materialName));
 		}
 
 		public void register() {
@@ -254,6 +270,10 @@ public class Resources {
 			Resources.registerBlock(strippedLog);
 			Resources.registerBlock(sapling);
 			Resources.registerBlock(leaf);
+			Resources.registerBlock(fence);
+			Resources.registerBlock(fenceGate);
+			Resources.registerBlock(slab);
+			Resources.registerBlock(stairs);
 		}
 	}
 }

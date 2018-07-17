@@ -96,6 +96,6 @@ public class BlockSapling extends BlockBush implements IGrowable, IBlockMaterial
 
 	@Override
 	public String getName() {
-		return type.getName();
+		return "material." + type.getName();
 	}
 }
