@@ -9,6 +9,7 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -39,6 +40,8 @@ public class BlockCustomFenceGate extends BlockFenceGate implements IBlockMateri
 
 	@Override
 	public String getName() {
+		if (name == null)
+			return new ItemStack(modelBlock, 1, modelBlock.getMetaFromState(modelState)).getDisplayName();
 		return name;
 	}
 

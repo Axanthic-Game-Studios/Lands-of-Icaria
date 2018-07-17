@@ -5,8 +5,8 @@ import com.axanthic.blab.ModInformation;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -21,6 +21,7 @@ public class BlockCustomFence extends BlockFence implements IBlockMaterial{
 		super(modelState.getBlock().getMaterial(modelState), modelState.getBlock().getMapColor(modelState, null, null));
 		this.name = name;
 		this.modelBlock = modelState.getBlock();
+		this.modelState = modelState;
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("fence");
 		this.setHardness(modelState.getBlock().getBlockHardness(modelState, null, null));
@@ -36,12 +37,9 @@ public class BlockCustomFence extends BlockFence implements IBlockMaterial{
 
 	@Override
 	public String getName() {
+		if (name == null)
+			return new ItemStack(modelBlock, 1, modelBlock.getMetaFromState(modelState)).getDisplayName();
 		return name;
-	}
-
-	@Override
-	public Material getMaterial(IBlockState state) {
-		return modelBlock.getMaterial(modelState);
 	}
 
 	@Override

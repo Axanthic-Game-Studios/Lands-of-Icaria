@@ -299,11 +299,8 @@ public class Resources {
 
 		public StairSlabPair(ItemBlock baseBlock, int meta) {
 			IBlockState baseState = baseBlock.getBlock().getStateFromMeta(meta);
-			String name = baseBlock.getItemStackDisplayName(new ItemStack(baseBlock, 1, meta));
-			if (name.contains("Bricks"))
-				name = name.replaceAll("Bricks", "Brick");
-			this.slab = new ItemBlockMaterialSlab(new BlockCustomSlab(baseState, name));
-			this.stairs = new ItemBlockMaterial(new BlockCustomStairs(baseState, name));
+			this.slab = new ItemBlockMaterialSlab(new BlockCustomSlab(baseState, null));
+			this.stairs = new ItemBlockMaterial(new BlockCustomStairs(baseState, null));
 		}
 
 		public void register() {

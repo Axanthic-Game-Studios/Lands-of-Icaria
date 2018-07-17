@@ -6,6 +6,7 @@ import com.axanthic.blab.ModInformation;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -14,11 +15,13 @@ public class BlockCustomStairs extends BlockStairs implements IBlockMaterial{
 
 	public String name;
 	public Block modelBlock;
+	public IBlockState modelState;
 
 	public BlockCustomStairs(IBlockState modelState, String name) {// + "_" + modelState.getProperties().
 		super(modelState);
 		this.name = name;
 		this.modelBlock = modelState.getBlock();
+		this.modelState = modelState;
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("stairs");
 		if (modelBlock instanceof IBlockMaterial)
@@ -31,6 +34,8 @@ public class BlockCustomStairs extends BlockStairs implements IBlockMaterial{
 
 	@Override
 	public String getName() {
+		if (name == null)
+			return new ItemStack(modelBlock, 1, modelBlock.getMetaFromState(modelState)).getDisplayName();
 		return name;
 	}
 

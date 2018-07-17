@@ -27,11 +27,13 @@ public class BlockCustomSlab extends BlockSlab implements IBlockMaterial{
 	public static final PropertyBool DOUBLE = PropertyBool.create("double");;
 	public String name;
 	public Block modelBlock;
+	public IBlockState modelState;
 
 	public BlockCustomSlab(IBlockState modelState, String name) {
 		super(modelState.getBlock().getMaterial(modelState), modelState.getBlock().getMapColor(modelState, null, null));
 		this.name = name;
 		this.modelBlock = modelState.getBlock();
+		this.modelState = modelState;
         this.setLightOpacity(0);
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("slab");
@@ -49,6 +51,8 @@ public class BlockCustomSlab extends BlockSlab implements IBlockMaterial{
 
 	@Override
 	public String getName() {
+		if (name == null)
+			return new ItemStack(modelBlock, 1, modelBlock.getMetaFromState(modelState)).getDisplayName();
 		return name;
 	}
 
