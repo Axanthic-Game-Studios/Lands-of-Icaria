@@ -90,6 +90,16 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 
 	@Override
 	public String getName() {
-		return "material." + type.getName();
+		return "material." + type.getName() + ".name";
+	}
+
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return 5;
+	}
+
+	@Override
+	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return 5;
 	}
 }

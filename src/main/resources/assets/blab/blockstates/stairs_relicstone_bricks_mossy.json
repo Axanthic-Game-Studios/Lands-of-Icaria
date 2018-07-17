@@ -4,9 +4,9 @@
 		"model": "stairs",
 		"uvlock": true,
 		"textures": {
-			"bottom": "blab:blocks/wood__planks",
-			"top": "blab:blocks/wood__planks",
-			"side": "blab:blocks/wood__planks"
+			"bottom": "blab:blocks/rock_relicstone_brick_mossy",
+			"top": "#bottom",
+			"side": "#bottom"
 		}
 	},
     "variants": {

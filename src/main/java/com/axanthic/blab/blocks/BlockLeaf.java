@@ -92,7 +92,17 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 
 	@Override
 	public String getName() {
-		return "material." + type.getName();
+		return "material." + type.getName() + ".name";
+	}
+
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return 60;
+	}
+
+	@Override
+	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return 30;
 	}
 
 	@Override

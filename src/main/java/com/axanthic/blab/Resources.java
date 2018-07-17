@@ -111,6 +111,32 @@ public class Resources {
 	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead());
 	public static ItemBlock lootVase = new ItemBlock(new BlockLootVase());
 
+	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0);
+	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1);
+	public static StairSlabPair sunstoneStone = new StairSlabPair(rock, 2);
+	public static StairSlabPair voidshaleStone = new StairSlabPair(rock, 3);
+	public static StairSlabPair baetylStone = new StairSlabPair(rock, 4);
+	public static StairSlabPair relicstoneStone = new StairSlabPair(rock, 5);
+
+	public static StairSlabPair yellowstoneBrick = new StairSlabPair(brick, 0);
+	public static StairSlabPair silkstoneBrick = new StairSlabPair(brick, 1);
+	public static StairSlabPair sunstoneBrick = new StairSlabPair(brick, 2);
+	public static StairSlabPair voidshaleBrick = new StairSlabPair(brick, 3);
+	public static StairSlabPair baetylBrick = new StairSlabPair(brick, 4);
+	public static StairSlabPair relicstoneBrick = new StairSlabPair(brick, 5);
+
+	public static StairSlabPair relicstoneSmooth = new StairSlabPair(relicstone, 0);
+	public static StairSlabPair relicstoneCrackBrick = new StairSlabPair(relicstone, 1);
+	public static StairSlabPair relicstoneMossBrick = new StairSlabPair(relicstone, 2);
+	public static StairSlabPair relicstoneDraftBrick = new StairSlabPair(relicstone, 3);
+	public static StairSlabPair relicstoneTile = new StairSlabPair(relicstone, 4);
+	public static StairSlabPair relicstoneCrackTile = new StairSlabPair(relicstone, 5);
+	public static StairSlabPair relicstoneMossTile = new StairSlabPair(relicstone, 6);
+	public static StairSlabPair relicstoneDraftTile = new StairSlabPair(relicstone, 7);
+
+	public static StairSlabPair grainiteStone = new StairSlabPair(grainelStone, 0);
+	public static StairSlabPair grainiteBricks = new StairSlabPair(grainelStone, 1);
+
 	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE);
 	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS);
 	public static WoodSet cypress = new WoodSet(BlockPlanks.WoodTypes.CYPRESS);
@@ -163,7 +189,7 @@ public class Resources {
 		Resources.registerBlock(Resources.pillar);
 		Resources.registerBlock(Resources.pillarHead);
 		Resources.registerBlock(Resources.lootVase);
-		
+
 		Resources.plane.register();
 		Resources.populus.register();
 		Resources.cypress.register();
@@ -171,6 +197,32 @@ public class Resources {
 		Resources.olive.register();
 		Resources.laurel.register();
 		Resources.droughtroot.register();
+
+		Resources.yellowstoneStone.register();
+		Resources.silkstoneStone.register();
+		Resources.sunstoneStone.register();
+		Resources.voidshaleStone.register();
+		Resources.baetylStone.register();
+		Resources.relicstoneStone.register();
+
+		Resources.yellowstoneBrick.register();
+		Resources.silkstoneBrick.register();
+		Resources.sunstoneBrick.register();
+		Resources.voidshaleBrick.register();
+		Resources.baetylBrick.register();
+		Resources.relicstoneBrick.register();
+
+		Resources.relicstoneSmooth.register();
+		Resources.relicstoneCrackBrick.register();
+		Resources.relicstoneMossBrick.register();
+		Resources.relicstoneDraftBrick.register();
+		Resources.relicstoneTile.register();
+		Resources.relicstoneCrackTile.register();
+		Resources.relicstoneMossTile.register();
+		Resources.relicstoneDraftTile.register();
+
+		Resources.grainiteStone.register();
+		Resources.grainiteBricks.register();
 	}
 
 	public static void registerBlock(final ItemBlock block) {
@@ -241,6 +293,25 @@ public class Resources {
 		}
 	}
 
+	public static class StairSlabPair {
+		public ItemBlockMaterialSlab slab;
+		public ItemBlockMaterial stairs;
+
+		public StairSlabPair(ItemBlock baseBlock, int meta) {
+			IBlockState baseState = baseBlock.getBlock().getStateFromMeta(meta);
+			String name = baseBlock.getItemStackDisplayName(new ItemStack(baseBlock, 1, meta));
+			if (name.contains("Bricks"))
+				name = name.replaceAll("Bricks", "Brick");
+			this.slab = new ItemBlockMaterialSlab(new BlockCustomSlab(baseState, name));
+			this.stairs = new ItemBlockMaterial(new BlockCustomStairs(baseState, name));
+		}
+
+		public void register() {
+			Resources.registerBlock(slab);
+			Resources.registerBlock(stairs);
+		}
+	}
+
 	public static class WoodSet {
 
 		public ItemBlockMaterial log;
@@ -258,7 +329,7 @@ public class Resources {
 			this.sapling = new ItemBlockMaterial(new BlockSapling(type));
 			this.leaf = new ItemBlockMaterial(new BlockLeaf(type, sapling));
 			IBlockState plankState = Resources.planks.getBlock().getDefaultState().withProperty(BlockPlanks.TYPES, type);
-			String materialName = "material." + type.unlocalizedName;
+			String materialName = "material." + type.unlocalizedName + ".name";
 			this.fence = new ItemBlockMaterial(new BlockCustomFence(plankState, materialName));
 			this.fenceGate = new ItemBlockMaterial(new BlockCustomFenceGate(plankState, materialName));
 			this.slab = new ItemBlockMaterialSlab(new BlockCustomSlab(plankState, materialName));

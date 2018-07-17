@@ -5,6 +5,7 @@ import java.util.Random;
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -25,10 +26,12 @@ public class BlockCustomSlab extends BlockSlab implements IBlockMaterial{
 
 	public static final PropertyBool DOUBLE = PropertyBool.create("double");;
 	public String name;
+	public Block modelBlock;
 
 	public BlockCustomSlab(IBlockState modelState, String name) {
 		super(modelState.getBlock().getMaterial(modelState), modelState.getBlock().getMapColor(modelState, null, null));
 		this.name = name;
+		this.modelBlock = modelState.getBlock();
         this.setLightOpacity(0);
 		this.setCreativeTab(Blab.modTab);
 		this.setUnlocalizedName("slab");
@@ -36,17 +39,27 @@ public class BlockCustomSlab extends BlockSlab implements IBlockMaterial{
 		this.setResistance(modelState.getBlock().getExplosionResistance(null));
 		this.setSoundType(modelState.getBlock().getSoundType());
 		this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, EnumBlockHalf.BOTTOM).withProperty(DOUBLE, false));
-		String[] splitName = name.split(".");
-		if (name.contains(".")) {
-			this.setRegistryName(ModInformation.ID, "slab_" + name.substring(name.lastIndexOf(".") + 1));
-		} else {
-			this.setRegistryName(ModInformation.ID, "slab_" + name);
-		}
+		if (modelBlock instanceof IBlockMaterial)
+			this.setRegistryName(ModInformation.ID, "slab_" + modelState.getBlock().getRegistryName().getResourcePath() + "_" + ((IBlockMaterial) modelBlock).getName());
+		else if (modelBlock instanceof IBlockMeta)
+			this.setRegistryName(ModInformation.ID, "slab_" + modelState.getBlock().getRegistryName().getResourcePath() + "_" + ((IBlockMeta) modelBlock).getNameForMeta(modelBlock.getMetaFromState(modelState)));
+		else
+			this.setRegistryName(ModInformation.ID, "slab_" + modelState.getBlock().getRegistryName().getResourcePath());
 	}
 
 	@Override
 	public String getName() {
 		return name;
+	}
+
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return modelBlock.getFlammability(world, pos, face);
+	}
+
+	@Override
+	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return modelBlock.getFireSpreadSpeed(world, pos, face);
 	}
 
 	@Override
