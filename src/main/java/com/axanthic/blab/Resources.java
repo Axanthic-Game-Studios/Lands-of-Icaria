@@ -28,6 +28,7 @@ import com.axanthic.blab.blocks.BlockSapling;
 import com.axanthic.blab.blocks.BlockSoil;
 import com.axanthic.blab.blocks.BlockSoilGrass;
 import com.axanthic.blab.blocks.BlockStorageGem;
+import com.axanthic.blab.blocks.BlockStorageMetal;
 import com.axanthic.blab.blocks.BlockTallGrass;
 import com.axanthic.blab.items.ItemBlockMaterial;
 import com.axanthic.blab.items.ItemBlockMaterialSlab;
@@ -66,7 +67,6 @@ public class Resources {
 	public static final SoundType SILENCE = new SoundType(-10.0F, 1.0F, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL);
 	public static final SoundType SLICK = new SoundType(1.0F, 1.0F, SoundEvents.BLOCK_GLASS_BREAK, SoundEvents.BLOCK_SLIME_PLACE, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_SLIME_FALL);
     public static final SoundType CERAMIC = new SoundType(1.0F, 1.0F, SoundEvents.BLOCK_GLASS_BREAK, SoundEvents.BLOCK_GLASS_STEP, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_GLASS_FALL);
-	public static final String[] metals = new String[]{"chalkos", "kassiteros", "molibos", "orichalcum", "sliver", "vanadium", "vanadiumsteel", "sideros", "molybdenum", "molybdenumsteel", "bluridium"};
 
 	public static List<Item> items = new ArrayList<Item>();
 	public static List<ItemBlock> blocks = new ArrayList<ItemBlock>();
@@ -75,8 +75,8 @@ public class Resources {
 	public static ItemMeta resource = new ItemResource();
 	public static Item sharpBone = new ItemSharpBone();
 	public static Item laurelWreath = new ItemLaurelWreath();
-	public static ItemMeta ingot = new ItemMetaMaterial("ingot", Resources.metals);
-	public static ItemMeta nugget = new ItemMetaMaterial("nugget", Resources.metals);
+	public static ItemMeta ingot = new ItemMetaMaterial("ingot", BlockStorageMetal.MetalTypes.getNames());
+	public static ItemMeta nugget = new ItemMetaMaterial("nugget", BlockStorageMetal.MetalTypes.getNames());
 
 	public static ToolSet chalkos = new ToolSet(new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(Resources.ingot, 1, 0)));
 	public static ToolSet kassiteros = new ToolSet(new CompleteToolMaterial("kassiteros", -1.1F, 2, 234, 5.0F, 1.5F, 15, new ItemStack(Resources.ingot, 1, 1)));
@@ -109,6 +109,7 @@ public class Resources {
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
+	public static ItemBlockMeta metalBlock = new ItemBlockMetaMaterial(new BlockStorageMetal());
 	public static ItemBlockMeta gemBlock = new ItemBlockMetaMaterial(new BlockStorageGem());
 	public static ItemBlockMeta relicstone = new ItemBlockMeta(new BlockRelicstone());
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
@@ -190,6 +191,7 @@ public class Resources {
 		Resources.registerBlock(Resources.calcite);
 		Resources.registerBlock(Resources.jasper);
 		Resources.registerBlock(Resources.zircon);
+		Resources.registerBlock(Resources.metalBlock);
 		Resources.registerBlock(Resources.gemBlock);
 		Resources.registerBlock(Resources.relicstone);
 		Resources.registerBlock(Resources.pillar);

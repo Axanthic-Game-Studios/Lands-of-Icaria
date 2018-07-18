@@ -16,29 +16,25 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockStorageGem extends Block implements IBlockMeta  {
+public class BlockStorageMetal extends Block implements IBlockMeta  {
 
-	public static PropertyEnum TYPES = PropertyEnum.create("type", GemTypes.class);
+	public static PropertyEnum TYPES = PropertyEnum.create("type", MetalTypes.class);
 
-	public BlockStorageGem() {
+	public BlockStorageMetal() {
 		super(Material.IRON);
 		this.setCreativeTab(Blab.modTab);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("block");
-		this.setRegistryName(ModInformation.ID, "block_gem");
+		this.setRegistryName(ModInformation.ID, "block_metal");
 		this.setDefaultState(this.getStateFromMeta(0));
-		this.setSoundType(SoundType.GLASS);
+		this.setSoundType(SoundType.METAL);
 	}
 
 	@Override
@@ -48,40 +44,23 @@ public class BlockStorageGem extends Block implements IBlockMeta  {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer() {
-		return BlockRenderLayer.TRANSLUCENT;
-	}
-
-	@Override
-	public boolean isOpaqueCube(IBlockState state) {
-		return false;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		return blockAccess.getBlockState(pos.offset(side)).equals(blockState) ? false : super.shouldSideBeRendered(blockState, blockAccess, pos, side);
-	}
-
-	@Override
 	public String getNameForMeta(final int meta) {
-		return GemTypes.byMetadata(meta).getName();
+		return MetalTypes.byMetadata(meta).getName();
 	}
 
 	@Override
 	public String[] getNames() {
-		return GemTypes.getNames();
+		return MetalTypes.getNames();
 	}
 
 	@Override
 	public int getMetaFromState(final IBlockState state) {
-		return ((GemTypes) state.getValue(TYPES)).meta;
+		return ((MetalTypes) state.getValue(TYPES)).meta;
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(final int meta) {
-		return this.getDefaultState().withProperty(TYPES, GemTypes.byMetadata(meta));
+		return this.getDefaultState().withProperty(TYPES, MetalTypes.byMetadata(meta));
 	}
 
 	@Override
@@ -101,38 +80,46 @@ public class BlockStorageGem extends Block implements IBlockMeta  {
 
 	@Override
 	public void getSubBlocks(final CreativeTabs itemIn, final NonNullList<ItemStack> items) {
-		for (final GemTypes gemType : GemTypes.values()) {
-			items.add(new ItemStack(this, 1, gemType.meta));
+		for (final MetalTypes metalType : MetalTypes.values()) {
+			items.add(new ItemStack(this, 1, metalType.meta));
 		}
 	}
 
 	@Override
 	public MapColor getMapColor(final IBlockState state, final IBlockAccess worldIn, final BlockPos pos) {
-		return ((GemTypes) state.getValue(TYPES)).mapColor;
+		return ((MetalTypes) state.getValue(TYPES)).mapColor;
 	}
 
-	public enum GemTypes implements IStringSerializable {
-		CALCITE(0, "calcite", MapColor.QUARTZ),
-		JASPER(1, "jasper", MapColor.RED_STAINED_HARDENED_CLAY),
-		ZIRCON(2, "zircon", MapColor.LAPIS);
+	public enum MetalTypes implements IStringSerializable {
+		CHALKOS(0, "chalkos", MapColor.QUARTZ),
+		KASSITEROS(1, "kassiteros", MapColor.RED_STAINED_HARDENED_CLAY),
+		MOLIBOS(2, "molibos", MapColor.LAPIS),
+		ORICHALCUM(3, "orichalcum", MapColor.LAPIS),
+		SLIVER(4, "sliver", MapColor.LAPIS),
+		VANADIUM(5, "vanadium", MapColor.LAPIS),
+		VANADIUMSTEEL(6, "vanadiumsteel", MapColor.LAPIS),
+		SIDEROS(7, "sideros", MapColor.LAPIS),
+		MOLYBDENUM(8, "molybdenum", MapColor.LAPIS),
+		MOLYBDENUMSTEEL(9, "molybdenumsteel", MapColor.LAPIS),
+		BLURIDIUM(10, "bluridium", MapColor.LAPIS);
 
-		private static final GemTypes[] META_LOOKUP = new GemTypes[GemTypes.values().length];
+		private static final MetalTypes[] META_LOOKUP = new MetalTypes[MetalTypes.values().length];
 		private final int meta;
 		private final String unlocalizedName;
 		private final MapColor mapColor;
 
-		GemTypes(final int metaIn, final String unlocalizedNameIn, final MapColor mapColorIn) {
+		MetalTypes(final int metaIn, final String unlocalizedNameIn, final MapColor mapColorIn) {
 			this.meta = metaIn;
 			this.unlocalizedName = unlocalizedNameIn;
 			this.mapColor = mapColorIn;
 		}
 
-		public static GemTypes byMetadata(int meta) {
-			if ((meta < 0) || (meta >= GemTypes.META_LOOKUP.length)) {
+		public static MetalTypes byMetadata(int meta) {
+			if ((meta < 0) || (meta >= MetalTypes.META_LOOKUP.length)) {
 				meta = 0;
 			}
 
-			return GemTypes.META_LOOKUP[meta];
+			return MetalTypes.META_LOOKUP[meta];
 		}
 
 		@Override
@@ -145,16 +132,16 @@ public class BlockStorageGem extends Block implements IBlockMeta  {
 		}
 
 		public static String[] getNames() {
-			final String[] names = new String[GemTypes.META_LOOKUP.length];
-			for (int i = 0; i < GemTypes.META_LOOKUP.length; i++) {
-				names[i] = GemTypes.META_LOOKUP[i].getName();
+			final String[] names = new String[MetalTypes.META_LOOKUP.length];
+			for (int i = 0; i < MetalTypes.META_LOOKUP.length; i++) {
+				names[i] = MetalTypes.META_LOOKUP[i].getName();
 			}
 			return names;
 		}
 
 		static {
-			for (final GemTypes gemType : GemTypes.values()) {
-				GemTypes.META_LOOKUP[gemType.meta] = gemType;
+			for (final MetalTypes metalType : MetalTypes.values()) {
+				MetalTypes.META_LOOKUP[metalType.meta] = metalType;
 			}
 		}
 	}
