@@ -25,7 +25,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockSoilGrass extends BlockBasic implements IGrowable {
 
 	public BlockSoilGrass() {
-		super(Material.GRASS, 1.2F, "soil_grass", MapColor.GREEN);
+		super(Material.GRASS, 1.2F, "soil_grass", MapColor.GREEN_STAINED_HARDENED_CLAY);
 		this.setTickRandomly(true);
 		this.setSoundType(SoundType.GROUND);
 	}
