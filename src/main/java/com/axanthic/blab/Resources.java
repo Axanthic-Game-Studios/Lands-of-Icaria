@@ -6,6 +6,7 @@ import java.util.List;
 import com.axanthic.blab.blocks.BlockAristone;
 import com.axanthic.blab.blocks.BlockCustomFence;
 import com.axanthic.blab.blocks.BlockCustomFenceGate;
+import com.axanthic.blab.blocks.BlockCustomPane;
 import com.axanthic.blab.blocks.BlockCustomSlab;
 import com.axanthic.blab.blocks.BlockCustomStairs;
 import com.axanthic.blab.blocks.BlockFlower;
@@ -103,6 +104,7 @@ public class Resources {
 	public static ItemBlock grainelSand = new ItemBlock(new BlockGravity(Material.SAND, 1.2F, "grainel_sand", MapColor.WOOD).setSoundType(SoundType.SAND));
 	public static ItemBlockMeta grainelStone = new ItemBlockMeta(new BlockGrainelStone());
 	public static ItemBlock grainelGlass = new ItemBlock(new BlockGlassy(Material.GLASS, 0.3F, "grainel_glass", MapColor.WOOD));
+	public static ItemBlock grainelGlassPane = new ItemBlock(new BlockCustomPane(Material.GLASS, 0.3F, "grainel_pane", false).setSoundType(SoundType.GLASS));
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
@@ -182,6 +184,7 @@ public class Resources {
 		Resources.registerBlock(Resources.grainelSand);
 		Resources.registerBlock(Resources.grainelStone);
 		Resources.registerBlock(Resources.grainelGlass);
+		Resources.registerBlock(Resources.grainelGlassPane);
 		Resources.registerBlock(Resources.calcite);
 		Resources.registerBlock(Resources.jasper);
 		Resources.registerBlock(Resources.zircon);

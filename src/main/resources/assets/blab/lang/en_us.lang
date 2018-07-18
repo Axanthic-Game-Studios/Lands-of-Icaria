@@ -56,6 +56,7 @@ tile.grainite.cobble.name=Grainite
 tile.grainite.bricks.name=Grainite Bricks
 tile.grainite.bricks_chiseled.name=Chiseled Grainite Bricks
 tile.grainel_glass.name=Grainglass
+tile.grainel_pane.name=Grainglass Pane
 tile.tallgrass.small.name=Small Grass
 tile.tallgrass.medium.name=Grass
 tile.tallgrass.large.name=Large Grass
