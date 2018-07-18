@@ -78,6 +78,7 @@ public class EntityFallingVase extends EntityFallingBlock {
 				this.motionY += riding.motionY * 0.6D;
 
 			this.addVelocity(x, y, z);
+			this.fallTime = 1;
 		}
 	}
 
@@ -200,8 +201,10 @@ public class EntityFallingVase extends EntityFallingBlock {
 	}
 
 	public void applyEntityCollision(Entity entityIn) {
+		if (this.fallTime <3)
+			return;
 		super.applyEntityCollision(entityIn);
-		if (this.hurtEntities) {
+		if (this.hurtEntities && entityIn.hurtResistantTime == 0) {
 			entityIn.attackEntityFrom(DamageSource.FALLING_BLOCK, (float)Math.min(MathHelper.floor((float)(Math.abs(this.motionX) + Math.abs(this.motionY) + Math.abs(this.motionZ)) * this.fallHurtAmount * 4), this.fallHurtMax));
 		}
 	}
