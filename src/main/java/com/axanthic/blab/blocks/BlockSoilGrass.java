@@ -2,6 +2,8 @@ package com.axanthic.blab.blocks;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.axanthic.blab.Resources;
 
 import net.minecraft.block.BlockBush;
@@ -26,6 +28,12 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 		super(Material.GRASS, 1.2F, "soil_grass", MapColor.GREEN);
 		this.setTickRandomly(true);
 		this.setSoundType(SoundType.GROUND);
+	}
+
+	@Override
+	@Nullable
+	public String getHarvestTool(IBlockState state) {
+		return "shovel";
 	}
 
 	@Override

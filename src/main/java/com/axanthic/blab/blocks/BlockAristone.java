@@ -1,5 +1,7 @@
 package com.axanthic.blab.blocks;
 
+import javax.annotation.Nullable;
+
 import com.axanthic.blab.Resources;
 
 import net.minecraft.block.material.MapColor;
@@ -18,6 +20,12 @@ public class BlockAristone extends BlockBasic {
 		super(Material.ICE, 1.2F, name, MapColor.GREEN_STAINED_HARDENED_CLAY);
 		this.setSoundType(Resources.SLICK);
 		this.slipperiness = 1.06F;
+	}
+
+	@Override
+	@Nullable
+	public String getHarvestTool(IBlockState state) {
+		return "pickaxe";
 	}
 
 	@Override

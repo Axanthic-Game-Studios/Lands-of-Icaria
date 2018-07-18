@@ -1,5 +1,7 @@
 package com.axanthic.blab.blocks;
 
+import javax.annotation.Nullable;
+
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 
@@ -27,6 +29,14 @@ public class BlockGravity extends BlockFalling {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);
 		this.color = color;
+	}
+
+	@Override
+	@Nullable
+	public String getHarvestTool(IBlockState state) {
+		if (this.blockMaterial.equals(Material.SAND))
+			return "shovel";
+		return null;
 	}
 
 	@Override

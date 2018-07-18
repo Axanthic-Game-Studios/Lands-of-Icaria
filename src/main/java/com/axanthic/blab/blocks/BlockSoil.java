@@ -2,6 +2,8 @@ package com.axanthic.blab.blocks;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
@@ -41,6 +43,12 @@ public class BlockSoil extends Block implements IBlockMeta {
 		this.setRegistryName(ModInformation.ID, "soil");
 		this.setDefaultState(this.getStateFromMeta(0));
 		this.setSoundType(SoundType.GROUND);
+	}
+
+	@Override
+	@Nullable
+	public String getHarvestTool(IBlockState state) {
+		return "shovel";
 	}
 
 	@Override

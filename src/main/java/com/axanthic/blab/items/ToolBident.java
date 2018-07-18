@@ -5,6 +5,7 @@ import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources.CompleteToolMaterial;
 import com.axanthic.blab.entity.EntityBident;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnumEnchantmentType;
@@ -49,6 +50,11 @@ public class ToolBident extends ItemTool {
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		stack.damageItem(1, attacker);
 		return true;
+	}
+
+	@Override
+	public float getDestroySpeed(ItemStack stack, IBlockState state){
+		return 1.0F;
 	}
 
 	@Override
