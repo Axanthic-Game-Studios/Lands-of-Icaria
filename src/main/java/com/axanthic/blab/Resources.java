@@ -27,6 +27,7 @@ import com.axanthic.blab.blocks.BlockRock;
 import com.axanthic.blab.blocks.BlockSapling;
 import com.axanthic.blab.blocks.BlockSoil;
 import com.axanthic.blab.blocks.BlockSoilGrass;
+import com.axanthic.blab.blocks.BlockStorageGem;
 import com.axanthic.blab.blocks.BlockTallGrass;
 import com.axanthic.blab.items.ItemBlockMaterial;
 import com.axanthic.blab.items.ItemBlockMaterialSlab;
@@ -108,6 +109,7 @@ public class Resources {
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
+	public static ItemBlockMeta gemBlock = new ItemBlockMetaMaterial(new BlockStorageGem());
 	public static ItemBlockMeta relicstone = new ItemBlockMeta(new BlockRelicstone());
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
 	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead());
@@ -188,6 +190,7 @@ public class Resources {
 		Resources.registerBlock(Resources.calcite);
 		Resources.registerBlock(Resources.jasper);
 		Resources.registerBlock(Resources.zircon);
+		Resources.registerBlock(Resources.gemBlock);
 		Resources.registerBlock(Resources.relicstone);
 		Resources.registerBlock(Resources.pillar);
 		Resources.registerBlock(Resources.pillarHead);

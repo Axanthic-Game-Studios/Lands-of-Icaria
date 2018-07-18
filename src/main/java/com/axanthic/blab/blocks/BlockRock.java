@@ -28,7 +28,6 @@ import net.minecraft.world.World;
 public class BlockRock extends Block implements IBlockMeta {
 
 	public static PropertyEnum TYPES = PropertyEnum.create("type", StoneTypes.class);
-	public static int metaCount = StoneTypes.values().length;
 
 	public BlockRock(final String name) {
 		super(Material.ROCK);
