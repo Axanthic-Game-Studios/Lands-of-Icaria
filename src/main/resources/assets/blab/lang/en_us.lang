@@ -122,4 +122,6 @@ material.olive.name=Olive
 material.laurel.name=Laurel
 material.droughtroot.name=Droughtroot
 
+entity.fallingVase.name=Loot Vase
+
 message.loot_vase.pickup=Sneak to throw vase

@@ -1,12 +1,8 @@
 package com.axanthic.blab.entity;
 
-import java.util.List;
-
 import javax.annotation.Nullable;
 
 import com.axanthic.blab.Resources;
-import com.google.common.collect.Lists;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
@@ -52,6 +48,7 @@ public class EntityFallingVase extends EntityFallingBlock {
 		super(worldIn, x, y, z, fallingBlockState);
 		this.fallTile = fallingBlockState;
 		this.preventEntitySpawning = true;
+		this.hurtEntities = true;
 		this.setSize(0.98F, 0.98F);
 		this.setPosition(x, y + (double)((1.0F - this.height) / 2.0F), z);
 		this.motionX = 0.0D;
@@ -120,6 +117,10 @@ public class EntityFallingVase extends EntityFallingBlock {
 	 * Returns true if other Entities should be prevented from moving through this Entity.
 	 */
 	public boolean canBeCollidedWith() {
+		return !this.isDead;
+	}
+
+	public boolean canBePushed() {
 		return !this.isDead;
 	}
 
@@ -195,23 +196,18 @@ public class EntityFallingVase extends EntityFallingBlock {
 	}
 
 	public void fall(float distance, float damageMultiplier) {
-		Block block = this.fallTile.getBlock();
 
+	}
+
+	public void applyEntityCollision(Entity entityIn) {
+		super.applyEntityCollision(entityIn);
 		if (this.hurtEntities) {
-			int i = MathHelper.ceil(distance - 1.0F);
-
-			if (i > 0) {
-				List<Entity> list = Lists.newArrayList(this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox()));
-
-				for (Entity entity : list) {
-					entity.attackEntityFrom(DamageSource.FALLING_BLOCK, (float)Math.min(MathHelper.floor((float)i * this.fallHurtAmount), this.fallHurtMax));
-				}
-			}
+			entityIn.attackEntityFrom(DamageSource.FALLING_BLOCK, (float)Math.min(MathHelper.floor((float)(Math.abs(this.motionX) + Math.abs(this.motionY) + Math.abs(this.motionZ)) * this.fallHurtAmount * 4), this.fallHurtMax));
 		}
 	}
 
 	public static void registerFixesFallingBlock(DataFixer fixer) {
-		
+
 	}
 
 	/**
