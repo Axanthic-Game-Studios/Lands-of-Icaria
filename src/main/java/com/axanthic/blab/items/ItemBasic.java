@@ -9,7 +9,7 @@ public class ItemBasic extends Item {
 
 	public ItemBasic(String name) {
 		super();
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabItems);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);
 	}

@@ -17,7 +17,7 @@ public class ToolDagger extends ItemTool {
 	public ToolDagger(CompleteToolMaterial material) {
 		super(material.material.getAttackDamage(), material.attackSpeed, material.material, null);
 		this.material = material;
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabItems);
 		this.setUnlocalizedName("generic.dagger");
 		this.setRegistryName(ModInformation.ID, "dagger_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}

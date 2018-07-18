@@ -12,7 +12,7 @@ public class BlockBasic extends Block {
 
 	public BlockBasic(Material material, float hardness, String name, MapColor color) {
 		super(material, color);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(hardness);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);

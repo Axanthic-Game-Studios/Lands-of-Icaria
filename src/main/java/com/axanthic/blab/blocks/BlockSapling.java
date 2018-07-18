@@ -25,7 +25,7 @@ public class BlockSapling extends BlockBush implements IGrowable, IBlockMaterial
 
 	public BlockSapling(BlockPlanks.WoodTypes type) {
 		super();
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabFlora);
 		this.type = type;
 		this.setUnlocalizedName("sapling");
 		this.setRegistryName(ModInformation.ID, "sapling_" + type.unlocalizedName);

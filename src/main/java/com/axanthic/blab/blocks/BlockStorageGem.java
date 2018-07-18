@@ -33,7 +33,7 @@ public class BlockStorageGem extends Block implements IBlockMeta  {
 
 	public BlockStorageGem() {
 		super(Material.IRON);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("block");
 		this.setRegistryName(ModInformation.ID, "block_gem");

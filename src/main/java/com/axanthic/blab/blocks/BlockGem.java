@@ -32,7 +32,7 @@ public class BlockGem extends BlockSixDirectional {
 
 	public BlockGem(String name) {
 		super(Material.GLASS, MapColor.AIR);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.fullBlock = false;
 		this.setLightOpacity(0);

@@ -5,12 +5,16 @@ import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.EntityFallingVase;
+import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.DimensionType;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -29,7 +33,14 @@ public class CommonProxy {
 	}
 
 	public void init(FMLInitializationEvent event) {
-		
+		/******** Dimension initialisation ********/
+		Blab.dimensionId = DimensionManager.getNextFreeDimId();
+		Blab.dimensionTypeLoi = DimensionType.register("loi", "_loi", Blab.dimensionId, WorldProviderLOI.class, false);
+		DimensionManager.registerDimension(Blab.dimensionId, Blab.dimensionTypeLoi);
+		/******************************************/
+		Blab.modTabBlocks.setTabIconItem(new ItemStack(Resources.grass));
+		Blab.modTabFlora.setTabIconItem(new ItemStack(Resources.tallGrass, 1, 2));
+		Blab.modTabItems.setTabIconItem(new ItemStack(Resources.orichalcum.pickaxe));
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {

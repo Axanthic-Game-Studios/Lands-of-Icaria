@@ -12,7 +12,7 @@ public class BlockCustomPane extends BlockPane {
 
 	public BlockCustomPane(Material material, float hardness, String name, boolean drops) {
 		super(material, drops);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(hardness);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);

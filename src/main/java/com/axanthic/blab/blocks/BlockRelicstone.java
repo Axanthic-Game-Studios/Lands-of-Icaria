@@ -26,7 +26,7 @@ public class BlockRelicstone extends Block implements IBlockMeta {
 
 	public BlockRelicstone() {
 		super(Material.ROCK, MapColor.WOOD);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("relicstone");
 		this.setRegistryName(ModInformation.ID, "relicstone");

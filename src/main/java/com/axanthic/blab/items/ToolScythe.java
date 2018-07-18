@@ -28,7 +28,7 @@ public class ToolScythe extends ItemSword {
 	public ToolScythe(CompleteToolMaterial material) {
 		super(material.material);
 		this.material = material;
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabItems);
 		this.setUnlocalizedName("generic.scythe");
 		this.setRegistryName(ModInformation.ID, "scythe_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}

@@ -26,7 +26,7 @@ public class BlockGrainelStone extends Block implements IBlockMeta {
 
 	public BlockGrainelStone() {
 		super(Material.ROCK, MapColor.WOOD);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("grainite");
 		this.setRegistryName(ModInformation.ID, "grainite");

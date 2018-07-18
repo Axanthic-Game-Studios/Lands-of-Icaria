@@ -15,7 +15,7 @@ public class ItemMeta extends Item {
 	public ItemMeta(String name, String[] names) {
 		super();
 		this.names = names;
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabItems);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);
 		this.setHasSubtypes(true);

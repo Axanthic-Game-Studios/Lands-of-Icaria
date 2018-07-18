@@ -41,7 +41,7 @@ public class BlockTallGrass extends BlockBush implements net.minecraftforge.comm
 
 	public BlockTallGrass() {
 		super(Material.VINE, MapColor.AIR);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabFlora);
 		this.setUnlocalizedName("tallgrass");
 		this.setRegistryName(ModInformation.ID, "tallgrass");
 		this.setSoundType(SoundType.PLANT);

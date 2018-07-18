@@ -29,7 +29,7 @@ public class BlockStorageMetal extends Block implements IBlockMeta  {
 
 	public BlockStorageMetal() {
 		super(Material.IRON);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("block");
 		this.setRegistryName(ModInformation.ID, "block_metal");

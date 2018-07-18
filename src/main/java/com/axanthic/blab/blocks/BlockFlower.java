@@ -36,7 +36,7 @@ public class BlockFlower extends BlockBush implements IBlockMeta {
 	
 	public BlockFlower(String number) {
 		super(Material.PLANTS, MapColor.AIR);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabFlora);
 		this.setUnlocalizedName("flower");
 		this.setRegistryName(ModInformation.ID, "flower" + number);
 		this.setDefaultState(this.getStateFromMeta(0));

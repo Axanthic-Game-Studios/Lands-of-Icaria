@@ -2,17 +2,13 @@ package com.axanthic.blab;
 
 import com.axanthic.blab.proxy.CommonProxy;
 import com.axanthic.blab.utils.CreativeTab;
-import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
 import com.axanthic.loi.worldgen.dimension.WorldTypeLOI;
 
 import net.minecraft.block.Block;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -29,7 +25,9 @@ public class Blab {
 	@SidedProxy(clientSide = ModInformation.CLIENTPROXY, serverSide = ModInformation.COMMONPROXY)
 	public static CommonProxy proxy;
 
-	public static CreativeTab modTab = new CreativeTab(ModInformation.ID + ".creativeTab", new ItemStack(Items.BUCKET));
+	public static CreativeTab modTabBlocks = new CreativeTab(ModInformation.ID + ".blocks.creativeTab");
+	public static CreativeTab modTabFlora = new CreativeTab(ModInformation.ID + ".flora.creativeTab");
+	public static CreativeTab modTabItems = new CreativeTab(ModInformation.ID + ".items.creativeTab");
 
 	// Dimension stuff
 	public static int dimensionId;
@@ -41,13 +39,6 @@ public class Blab {
 
 	@EventHandler
 	public void preInit(final FMLPreInitializationEvent event) {
-
-		/******** Dimension initialisation ********/
-		Blab.dimensionId = DimensionManager.getNextFreeDimId();
-		Blab.dimensionTypeLoi = DimensionType.register("Lands of Icar???", "_loi", Blab.dimensionId, WorldProviderLOI.class, false);
-		DimensionManager.registerDimension(Blab.dimensionId, Blab.dimensionTypeLoi);
-		/******************************************/
-
 		Blab.proxy.preInit(event);
 	}
 

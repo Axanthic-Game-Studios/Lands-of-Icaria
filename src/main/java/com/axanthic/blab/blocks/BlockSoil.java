@@ -37,7 +37,7 @@ public class BlockSoil extends Block implements IBlockMeta {
 
 	public BlockSoil() {
 		super(Material.GROUND);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("soil");
 		this.setRegistryName(ModInformation.ID, "soil");

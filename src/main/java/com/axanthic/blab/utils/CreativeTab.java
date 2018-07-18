@@ -10,8 +10,11 @@ public class CreativeTab extends CreativeTabs {
 
 	public ItemStack icon;
 
-	public CreativeTab(String label, ItemStack icon) {
+	public CreativeTab(String label) {
 		super(label);
+	}
+
+	public void setTabIconItem(ItemStack icon) {
 		this.icon = icon;
 	}
 
@@ -28,7 +31,6 @@ public class CreativeTab extends CreativeTabs {
 
 	@Override
 	public void displayAllRelevantItems(NonNullList<ItemStack> items) {
-		super.displayAllRelevantItems(items);
+        super.displayAllRelevantItems(items);
 	}
-
 }

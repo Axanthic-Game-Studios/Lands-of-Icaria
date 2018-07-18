@@ -19,7 +19,7 @@ public class WorldTypeLOI extends WorldType
 
 	public WorldTypeLOI()
 	{
-		super("Lands of Icar???");
+		super("loi");
 	}
 
 	@Override

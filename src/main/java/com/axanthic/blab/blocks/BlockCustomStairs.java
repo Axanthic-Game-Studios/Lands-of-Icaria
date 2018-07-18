@@ -1,6 +1,5 @@
 package com.axanthic.blab.blocks;
 
-import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 
 import net.minecraft.block.Block;
@@ -22,7 +21,7 @@ public class BlockCustomStairs extends BlockStairs implements IBlockMaterial{
 		this.name = name;
 		this.modelBlock = modelState.getBlock();
 		this.modelState = modelState;
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(modelBlock.getCreativeTabToDisplayOn());
 		this.setUnlocalizedName("stairs");
 		if (modelBlock instanceof IBlockMaterial)
 			this.setRegistryName(ModInformation.ID, "stairs_" + modelState.getBlock().getRegistryName().getResourcePath() + "_" + ((IBlockMaterial) modelBlock).getName());

@@ -1,6 +1,5 @@
 package com.axanthic.blab.blocks;
 
-import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 
 import net.minecraft.block.Block;
@@ -25,7 +24,7 @@ public class BlockCustomFenceGate extends BlockFenceGate implements IBlockMateri
 		this.name = name;
 		this.modelBlock = modelState.getBlock();
 		this.modelState = modelState;
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(modelBlock.getCreativeTabToDisplayOn());
 		this.setUnlocalizedName("gate");
 		this.setHardness(modelState.getBlock().getBlockHardness(modelState, null, null));
 		this.setResistance(modelState.getBlock().getExplosionResistance(null));

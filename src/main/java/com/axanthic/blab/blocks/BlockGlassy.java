@@ -19,7 +19,7 @@ public class BlockGlassy extends BlockBreakable {
 
 	public BlockGlassy(Material material, float hardness, String name, MapColor color) {
 		super(material, false, color);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(hardness);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);

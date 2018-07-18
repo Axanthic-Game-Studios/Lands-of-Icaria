@@ -32,7 +32,7 @@ public class ToolBident extends ItemTool {
 	public ToolBident(CompleteToolMaterial material) {
 		super(material.material.getAttackDamage() + 1.0F, material.attackSpeed - 0.5F, material.material, null);
 		this.material = material;
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabItems);
 		this.setUnlocalizedName("generic.bident");
 		this.setRegistryName(ModInformation.ID, "bident_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}

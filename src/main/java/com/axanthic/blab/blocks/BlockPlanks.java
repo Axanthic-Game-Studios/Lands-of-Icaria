@@ -29,7 +29,7 @@ public class BlockPlanks extends Block implements IBlockMeta {
 
 	public BlockPlanks() {
 		super(Material.WOOD);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabFlora);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("planks");
 		this.setRegistryName(ModInformation.ID, "planks");

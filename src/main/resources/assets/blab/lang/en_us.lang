@@ -1,4 +1,9 @@
-itemGroup.blab.creativeTab=Blab
+itemGroup.blab.blocks.creativeTab=Blab Blocks
+itemGroup.blab.flora.creativeTab=Blab Flora
+itemGroup.blab.items.creativeTab=Blab Items
+
+generator.loi=Lands of Icar???
+generator.loi.info=Replaces the overworld with an additional Lands of Icar??? dimension.
 
 item.resource.silkstone_powder.name=Silkstone Powder
 item.resource.polished_zircon.name=Polished Zircon

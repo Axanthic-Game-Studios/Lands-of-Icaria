@@ -24,7 +24,7 @@ public class BlockGravity extends BlockFalling {
 
 	public BlockGravity(Material material, float hardness, String name, MapColor color) {
 		super(material);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(hardness);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);

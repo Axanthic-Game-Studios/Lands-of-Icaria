@@ -33,7 +33,7 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 
 	public BlockLeaf(BlockPlanks.WoodTypes type, Item sapling) {
 		super();
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabFlora);
 		this.type = type;
 		this.sapling = sapling;
 		this.setUnlocalizedName("leaf");

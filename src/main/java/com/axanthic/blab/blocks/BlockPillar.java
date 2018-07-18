@@ -12,7 +12,7 @@ public class BlockPillar extends BlockRotatedPillar {
 
 	public BlockPillar() {
 		super(Material.ROCK, MapColor.WOOD);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("pillar_relicstone");
 		this.setRegistryName(ModInformation.ID, "pillar_relicstone");

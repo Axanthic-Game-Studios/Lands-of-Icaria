@@ -19,7 +19,7 @@ public class ToolSword extends ItemSword {
 	public ToolSword(CompleteToolMaterial material) {
 		super(material.material);
 		this.material = material;
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabItems);
 		this.setUnlocalizedName("generic.sword");
 		this.setRegistryName(ModInformation.ID, "sword_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}

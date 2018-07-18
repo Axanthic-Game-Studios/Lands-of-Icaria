@@ -28,7 +28,7 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 
 	public BlockLog(BlockPlanks.WoodTypes type, MapColor color, ItemBlockMaterial stripped) {
 		super(Material.WOOD, color);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabFlora);
 		this.setHardness(2.0F);
 		this.type = type;
 		this.strippedLog = stripped;
