@@ -18,7 +18,8 @@
 			"zircon": { "textures": { "layer0": "blab:items/mineral_zircon_raw" } },
 			"polished_zircon": { "textures": { "layer0": "blab:items/mineral_zircon_gem" } },
 			"calcite_powder": { "textures": { "layer0": "blab:items/mineral_calcite_powder" } },
-			"loam_lump": { "textures": { "layer0": "blab:items/soil_loam_lump" } }
+			"loam_lump": { "textures": { "layer0": "blab:items/soil_loam_lump" } },
+			"raw_vase": { "textures": { "layer0": "blab:items/container_vase_raw" } }
 		}
 	}
 }

@@ -29,6 +29,7 @@ import com.axanthic.blab.blocks.BlockSoil;
 import com.axanthic.blab.blocks.BlockSoilGrass;
 import com.axanthic.blab.blocks.BlockStorageGem;
 import com.axanthic.blab.blocks.BlockStorageMetal;
+import com.axanthic.blab.blocks.BlockStorageVase;
 import com.axanthic.blab.blocks.BlockTallGrass;
 import com.axanthic.blab.items.ItemBlockMaterial;
 import com.axanthic.blab.items.ItemBlockMaterialSlab;
@@ -115,6 +116,7 @@ public class Resources {
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
 	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead());
 	public static ItemBlock lootVase = new ItemBlock(new BlockLootVase());
+	public static ItemBlock storageVase = new ItemBlock(new BlockStorageVase());
 
 	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0);
 	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1);
@@ -197,6 +199,7 @@ public class Resources {
 		Resources.registerBlock(Resources.pillar);
 		Resources.registerBlock(Resources.pillarHead);
 		Resources.registerBlock(Resources.lootVase);
+		Resources.registerBlock(Resources.storageVase);
 
 		Resources.plane.register();
 		Resources.populus.register();

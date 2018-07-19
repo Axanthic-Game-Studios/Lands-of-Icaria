@@ -9,6 +9,7 @@ item.resource.silkstone_powder.name=Silkstone Powder
 item.resource.polished_zircon.name=Polished Zircon
 item.resource.calcite_powder.name=Calcite Powder
 item.resource.loam_lump.name=Lump of Loam
+item.resource.raw_vase.name=Unfired Storage Vase
 item.bone_sharp.name=Sharpened Bone
 item.laurel_wreath.name=Laurel Wreath
 
@@ -85,6 +86,7 @@ tile.flower.sunkettle.name=Sunkettle
 tile.aristone.name=Aristone
 tile.aristone_packed.name=Packed Aristone
 tile.loot_vase.name=Loot Vase
+tile.storage_vase.name=Baked Storage Vase
 
 material.yellowstone.name=Yellowstone
 material.silkstone.name=Silkstone
@@ -121,6 +123,8 @@ material.fir.name=Fir
 material.olive.name=Olive
 material.laurel.name=Laurel
 material.droughtroot.name=Droughtroot
+
+container.vase=Storage Vase
 
 entity.fallingVase.name=Loot Vase
 
