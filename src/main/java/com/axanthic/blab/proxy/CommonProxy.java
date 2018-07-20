@@ -2,6 +2,7 @@ package com.axanthic.blab.proxy;
 
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
+import com.axanthic.blab.Recipes;
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.EntityFallingVase;
@@ -67,6 +68,9 @@ public class CommonProxy {
 			event.getRegistry().register(block);
 		for (Item item : Resources.items)
 			event.getRegistry().register(item);
+
+		Recipes.registerOredict();
+		Recipes.registerRecipes();
 	}
 
 	public void registerBlockColors(ColorHandlerEvent.Block event) {

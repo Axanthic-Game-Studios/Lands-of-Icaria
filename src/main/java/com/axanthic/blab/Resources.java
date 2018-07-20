@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.axanthic.blab.blocks.BlockAristone;
+import com.axanthic.blab.blocks.BlockBasic;
 import com.axanthic.blab.blocks.BlockCustomFence;
 import com.axanthic.blab.blocks.BlockCustomFenceGate;
 import com.axanthic.blab.blocks.BlockCustomPane;
@@ -89,7 +90,7 @@ public class Resources {
 	public static ArmorSet chalkosArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "chalkos", ModInformation.ID + ":" + "armor_chalkos", 11, new int[]{1, 3, 4, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 0)));
 	public static ArmorSet kassiterosArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "kassiteros", ModInformation.ID + ":" + "armor_kassiteros", 15, new int[]{2, 3, 5, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 1)));
 	public static ArmorSet orichalcumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "orichalcum", ModInformation.ID + ":" + "armor_orichalcum", 24, new int[]{2, 4, 6, 2}, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 3)));
-	public static ArmorSet vanadiumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "vanadiumsteel", ModInformation.ID + ":" + "armor_vanadiumsteel", 27, new int[]{3, 5, 7, 3}, 11, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.5F).setRepairItem(new ItemStack(Resources.ingot, 1, 5)));
+	public static ArmorSet vanadiumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "vanadiumsteel", ModInformation.ID + ":" + "armor_vanadiumsteel", 27, new int[]{3, 5, 7, 3}, 11, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.5F).setRepairItem(new ItemStack(Resources.ingot, 1, 6)));
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
@@ -107,6 +108,7 @@ public class Resources {
 	public static ItemBlockMeta grainelStone = new ItemBlockMeta(new BlockGrainelStone());
 	public static ItemBlock grainelGlass = new ItemBlock(new BlockGlassy(Material.GLASS, 0.3F, "grainel_glass", MapColor.WOOD));
 	public static ItemBlock grainelGlassPane = new ItemBlock(new BlockCustomPane(Material.GLASS, 0.3F, "grainel_pane", false).setSoundType(SoundType.GLASS));
+	public static ItemBlock loamBricks = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "loam_bricks", MapColor.NETHERRACK).setSoundType(SoundType.STONE));
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
@@ -143,6 +145,7 @@ public class Resources {
 
 	public static StairSlabPair grainiteStone = new StairSlabPair(grainelStone, 0);
 	public static StairSlabPair grainiteBricks = new StairSlabPair(grainelStone, 1);
+	public static StairSlabPair loamBrick = new StairSlabPair(loamBricks, 0);
 
 	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE);
 	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS);
@@ -190,6 +193,7 @@ public class Resources {
 		Resources.registerBlock(Resources.grainelStone);
 		Resources.registerBlock(Resources.grainelGlass);
 		Resources.registerBlock(Resources.grainelGlassPane);
+		Resources.registerBlock(Resources.loamBricks);
 		Resources.registerBlock(Resources.calcite);
 		Resources.registerBlock(Resources.jasper);
 		Resources.registerBlock(Resources.zircon);
@@ -234,6 +238,7 @@ public class Resources {
 
 		Resources.grainiteStone.register();
 		Resources.grainiteBricks.register();
+		Resources.loamBrick.register();
 	}
 
 	public static void registerBlock(final ItemBlock block) {
@@ -284,12 +289,14 @@ public class Resources {
 
 	public static class ArmorSet {
 
+		public ItemArmor.ArmorMaterial material;
 		public Item helmet;
 		public Item chestplate;
 		public Item leggings;
 		public Item boots;
 
 		public ArmorSet(final ItemArmor.ArmorMaterial material) {
+			this.material = material;
 			this.helmet = new ItemCustomArmor(material, EntityEquipmentSlot.HEAD);
 			this.chestplate = new ItemCustomArmor(material, EntityEquipmentSlot.CHEST);
 			this.leggings = new ItemCustomArmor(material, EntityEquipmentSlot.LEGS);
@@ -305,10 +312,15 @@ public class Resources {
 	}
 
 	public static class StairSlabPair {
+		
+		public Item baseItem;
+		public int baseMeta;
 		public ItemBlockMaterialSlab slab;
 		public ItemBlockMaterial stairs;
 
 		public StairSlabPair(ItemBlock baseBlock, int meta) {
+			this.baseItem = baseBlock;
+			this.baseMeta = meta;
 			IBlockState baseState = baseBlock.getBlock().getStateFromMeta(meta);
 			this.slab = new ItemBlockMaterialSlab(new BlockCustomSlab(baseState, null));
 			this.stairs = new ItemBlockMaterial(new BlockCustomStairs(baseState, null));
@@ -322,6 +334,7 @@ public class Resources {
 
 	public static class WoodSet {
 
+		public BlockPlanks.WoodTypes type;
 		public ItemBlockMaterial log;
 		public ItemBlockMaterial strippedLog;
 		public ItemBlockMaterial sapling;
@@ -332,6 +345,7 @@ public class Resources {
 		public ItemBlockMaterial stairs;
 
 		public WoodSet(final BlockPlanks.WoodTypes type) {
+			this.type = type;
 			this.strippedLog = new ItemBlockMaterial(new BlockLog(type, type.mapColor, null));
 			this.log = new ItemBlockMaterial(new BlockLog(type, type.logColor, strippedLog));
 			this.sapling = new ItemBlockMaterial(new BlockSapling(type));

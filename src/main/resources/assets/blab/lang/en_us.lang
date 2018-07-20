@@ -10,6 +10,7 @@ item.resource.polished_zircon.name=Polished Zircon
 item.resource.calcite_powder.name=Calcite Powder
 item.resource.loam_lump.name=Lump of Loam
 item.resource.raw_vase.name=Unfired Storage Vase
+item.resource.loam_brick.name=Loam Brick
 item.bone_sharp.name=Sharpened Bone
 item.laurel_wreath.name=Laurel Wreath
 
@@ -63,6 +64,7 @@ tile.grainite.bricks.name=Grainite Bricks
 tile.grainite.bricks_chiseled.name=Chiseled Grainite Bricks
 tile.grainel_glass.name=Grainglass
 tile.grainel_pane.name=Grainglass Pane
+tile.loam_bricks.name=Loam Bricks
 tile.tallgrass.small.name=Small Grass
 tile.tallgrass.medium.name=Grass
 tile.tallgrass.large.name=Large Grass
