@@ -8,6 +8,7 @@ import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.EntityFallingVase;
 import com.axanthic.blab.gui.GuiHandlerBlab;
 import com.axanthic.blab.gui.GuiHandlerRegistry;
+import com.axanthic.blab.utils.MessageCustomReachAttack;
 import com.axanthic.blab.utils.TileEntityVase;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
 
@@ -18,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -27,6 +29,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 
 public class CommonProxy {
 
@@ -52,6 +55,10 @@ public class CommonProxy {
 		Blab.modTabBlocks.setTabIconItem(new ItemStack(Resources.grass));
 		Blab.modTabFlora.setTabIconItem(new ItemStack(Resources.tallGrass, 1, 2));
 		Blab.modTabItems.setTabIconItem(new ItemStack(Resources.orichalcum.pickaxe));
+
+		Blab.network = NetworkRegistry.INSTANCE.newSimpleChannel(ModInformation.NETWORK_CHANNEL_NAME);
+		int packetId = 0;
+		Blab.network.registerMessage(MessageCustomReachAttack.Handler.class, MessageCustomReachAttack.class, packetId++, Side.SERVER);
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
@@ -78,6 +85,10 @@ public class CommonProxy {
 	}
 
 	public void registerItemColors(ColorHandlerEvent.Item event) {
+		
+	}
+
+	public void onMouseEvent(MouseEvent event) {
 		
 	}
 }

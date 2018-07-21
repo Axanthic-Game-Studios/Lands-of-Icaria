@@ -128,6 +128,8 @@ material.droughtroot.name=Droughtroot
 
 container.vase=Storage Vase
 
+attribute.name.generic.attackRange=Attack Range
+
 entity.fallingVase.name=Loot Vase
 
 message.loot_vase.pickup=Sneak to throw vase

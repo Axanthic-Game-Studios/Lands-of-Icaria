@@ -1,9 +1,11 @@
 package com.axanthic.blab.proxy;
 
 import java.awt.Color;
+import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.axanthic.blab.Blab;
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.blocks.BlockFlower;
 import com.axanthic.blab.blocks.BlockLeaf;
@@ -14,31 +16,45 @@ import com.axanthic.blab.blocks.IBlockMeta;
 import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.EntityFallingVase;
 import com.axanthic.blab.entity.RenderBident;
+import com.axanthic.blab.items.IItemCustomReach;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemCustomArmor;
 import com.axanthic.blab.items.ItemMeta;
+import com.axanthic.blab.utils.MessageCustomReachAttack;
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.entity.RenderFallingBlock;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
+import net.minecraft.util.EntitySelectors;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -46,24 +62,29 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
 
+	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBident.class, RenderBident::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFallingVase.class, RenderFallingBlock::new);
 	}
 
+	@Override
 	public void init(FMLInitializationEvent event) {
 		super.init(event);
 	}
 
+	@Override
 	public void postInit(FMLPostInitializationEvent event) {
 		super.postInit(event);
 	}
 
+	@Override
 	public void registerBlocks(RegistryEvent.Register<Block> event) {
 		super.registerBlocks(event);
 	}
 
+	@Override
 	public void registerItems(RegistryEvent.Register<Item> event) {
 		super.registerItems(event);
 
@@ -124,6 +145,7 @@ public class ClientProxy extends CommonProxy {
 		}
 	}
 
+	@Override
 	public void registerBlockColors(ColorHandlerEvent.Block event) {
 		event.getBlockColors().registerBlockColorHandler(new IBlockColor() {
 			@Override
@@ -133,6 +155,7 @@ public class ClientProxy extends CommonProxy {
 		}, Resources.grass.getBlock(), Resources.tallGrass.getBlock());
 	}
 
+	@Override
 	public void registerItemColors(ColorHandlerEvent.Item event) {
 		event.getItemColors().registerItemColorHandler(new IItemColor() {
 			@Override
@@ -145,5 +168,73 @@ public class ClientProxy extends CommonProxy {
 	public int reduceGreen(int color) {
 		Color col = new Color(color);
 		return new Color(Math.min(col.getRed() + 30, 255), Math.max(col.getGreen() - 10, 0), col.getBlue()).getRGB();
+	}
+
+	@Override
+	public void onMouseEvent(MouseEvent event) {
+		if (event.getButton() == 0 && event.isButtonstate()) {
+			Minecraft mc = Minecraft.getMinecraft();
+			EntityPlayer thePlayer = mc.player;
+			if (thePlayer != null) {
+				ItemStack itemstack = thePlayer.getHeldItemMainhand();
+				IItemCustomReach ieri = null;
+				if (itemstack != null) {
+					if (itemstack.getItem() instanceof IItemCustomReach) {
+						ieri = (IItemCustomReach) itemstack.getItem();
+					}
+					if (ieri != null) {
+						float reach = ieri.getReach();
+						RayTraceResult mov = getMouseOverExtended(reach);
+						if (mov != null && mov.entityHit != null) {
+							if (mov.entityHit.hurtResistantTime == 0) {
+								if (mov.entityHit != thePlayer) {
+									Blab.network.sendToServer(new MessageCustomReachAttack(mov.entityHit.getEntityId()));
+								}
+							}
+						} else {
+							thePlayer.swingArm(EnumHand.MAIN_HAND);
+							event.setCanceled(true);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	public static RayTraceResult getMouseOverExtended(float dist) {
+		Minecraft mc = FMLClientHandler.instance().getClient();
+		Entity theRenderViewEntity = mc.getRenderViewEntity();
+		RayTraceResult returnRTR = null;
+		if (mc.world != null) {
+			returnRTR = theRenderViewEntity.rayTrace(dist, 0);
+			Vec3d pos = theRenderViewEntity.getPositionEyes(0);
+			Vec3d lookvec = theRenderViewEntity.getLook(0);
+			Vec3d var8 = pos.addVector(lookvec.x * dist, lookvec.y * dist, lookvec.z * dist);
+			Entity pointedEntity = null;
+			float var9 = 1.0F;
+			List<Entity> list = mc.world.getEntitiesInAABBexcluding(theRenderViewEntity, theRenderViewEntity.getEntityBoundingBox().expand(lookvec.x * dist, lookvec.y * dist, lookvec.z * dist).grow(var9, var9, var9), Predicates.and(EntitySelectors.NOT_SPECTATING, new Predicate<Entity>() {
+				public boolean apply(@Nullable Entity entity) {
+					return entity != null && entity.canBeCollidedWith();
+				}
+			}));
+			double d = dist;
+
+			for (Entity entity : list) {
+				AxisAlignedBB aabb = entity.getEntityBoundingBox().grow((double)entity.getCollisionBorderSize());
+				RayTraceResult mop0 = aabb.calculateIntercept(pos, var8);
+
+				if (mop0 != null) {
+					double d1 = pos.distanceTo(mop0.hitVec);
+					if (d1 < d) {
+						pointedEntity = entity;
+						d = d1;
+					}
+				}
+			}
+			if (pointedEntity != null && (d < dist )) {
+				returnRTR = new RayTraceResult(pointedEntity);
+			}
+		}
+		return returnRTR;
 	}
 }
