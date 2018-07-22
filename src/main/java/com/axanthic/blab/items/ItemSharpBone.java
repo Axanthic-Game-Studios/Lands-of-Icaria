@@ -1,5 +1,6 @@
 package com.axanthic.blab.items;
 
+import com.axanthic.blab.Blab;
 import com.google.common.collect.Multimap;
 
 import net.minecraft.block.state.IBlockState;
@@ -13,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ItemSharpBone extends ItemBasic {
+public class ItemSharpBone extends ItemBasic implements IItemCustomReach {
 
 	public ItemSharpBone() {
 		super("bone_sharp");
@@ -46,7 +47,13 @@ public class ItemSharpBone extends ItemBasic {
 		if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
 			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 1.5D, 0));
 			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -1.0D, 0));
+			multimap.put(Blab.ATTACK_RANGE.getName(), new AttributeModifier(Blab.ATTACK_RANGE_MODIFIER, "Weapon modifier", (double)this.getReach() - 5.0D, 0));
 		}
 		return multimap;
+	}
+
+	@Override
+	public float getReach() {
+		return 3.0F;
 	}
 }
