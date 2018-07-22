@@ -6,11 +6,15 @@ import javax.annotation.Nullable;
 
 import com.axanthic.blab.Resources;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -24,10 +28,19 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockSoilGrass extends BlockBasic implements IGrowable {
 
+	public static final PropertyBool MOSSY = PropertyBool.create("mossy");
+
 	public BlockSoilGrass() {
 		super(Material.GRASS, 1.2F, "soil_grass", MapColor.GREEN_STAINED_HARDENED_CLAY);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(MOSSY, Boolean.valueOf(false)));
 		this.setTickRandomly(true);
 		this.setSoundType(SoundType.GROUND);
+	}
+
+	@Override
+	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+		Block block = worldIn.getBlockState(pos.up()).getBlock();
+		return state.withProperty(MOSSY, Boolean.valueOf(block.equals(Resources.moss.getBlock())));
 	}
 
 	@Override
@@ -120,5 +133,15 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.CUTOUT_MIPPED;
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, new IProperty[] {MOSSY});
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return 0;
 	}
 }

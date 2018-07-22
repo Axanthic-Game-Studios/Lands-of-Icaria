@@ -21,6 +21,7 @@ import com.axanthic.blab.blocks.BlockGravity;
 import com.axanthic.blab.blocks.BlockLeaf;
 import com.axanthic.blab.blocks.BlockLog;
 import com.axanthic.blab.blocks.BlockLootVase;
+import com.axanthic.blab.blocks.BlockMoss;
 import com.axanthic.blab.blocks.BlockOre;
 import com.axanthic.blab.blocks.BlockPillar;
 import com.axanthic.blab.blocks.BlockPillarHead;
@@ -97,6 +98,7 @@ public class Resources {
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
+	public static ItemBlock moss = new ItemBlock(new BlockMoss());
 	public static ItemBlockMeta tallGrass = new ItemBlockMeta(new BlockTallGrass());
 	public static ItemBlockMeta flower = new ItemBlockMeta(new BlockFlower());
 	public static ItemBlockMeta flower2 = new ItemBlockMeta(new BlockFlower2());
@@ -182,6 +184,7 @@ public class Resources {
 	public static void registerBlocks() {
 		Resources.registerBlock(Resources.soil);
 		Resources.registerBlock(Resources.grass);
+		Resources.registerBlock(Resources.moss);
 		Resources.registerBlock(Resources.tallGrass);
 		Resources.registerBlock(Resources.flower);
 		Resources.registerBlock(Resources.flower2);
