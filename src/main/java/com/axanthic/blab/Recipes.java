@@ -139,6 +139,8 @@ public class Recipes {
 		addRecipe(new ItemStack(set.fenceGate, 3), new Object[]{"SPS", "SPS", 'S', "stickWood", 'P', new ItemStack(Resources.planks, 1, meta)});
 		addRecipe(new ItemStack(set.slab, 6), new Object[]{"PPP", 'P', new ItemStack(Resources.planks, 1, meta)});
 		addRecipe(new ItemStack(set.stairs, 4), new Object[]{"P  ", "PP ", "PPP", 'P', new ItemStack(Resources.planks, 1, meta)});
+		addRecipe(new ItemStack(set.door, 3), new Object[]{"PP", "PP", "PP", 'P', new ItemStack(Resources.planks, 1, meta)});
+		addRecipe(new ItemStack(set.trapdoor, 2), new Object[]{"PPP", "PPP", 'P', new ItemStack(Resources.planks, 1, meta)});
 	}
 
 	public static void registerSlabStairRecipe(StairSlabPair set) {

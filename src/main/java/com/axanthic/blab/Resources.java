@@ -5,11 +5,13 @@ import java.util.List;
 
 import com.axanthic.blab.blocks.BlockAristone;
 import com.axanthic.blab.blocks.BlockBasic;
+import com.axanthic.blab.blocks.BlockCustomDoor;
 import com.axanthic.blab.blocks.BlockCustomFence;
 import com.axanthic.blab.blocks.BlockCustomFenceGate;
 import com.axanthic.blab.blocks.BlockCustomPane;
 import com.axanthic.blab.blocks.BlockCustomSlab;
 import com.axanthic.blab.blocks.BlockCustomStairs;
+import com.axanthic.blab.blocks.BlockCustomTrapdoor;
 import com.axanthic.blab.blocks.BlockFlower;
 import com.axanthic.blab.blocks.BlockFlower2;
 import com.axanthic.blab.blocks.BlockGem;
@@ -33,6 +35,7 @@ import com.axanthic.blab.blocks.BlockStorageMetal;
 import com.axanthic.blab.blocks.BlockStorageVase;
 import com.axanthic.blab.blocks.BlockTallGrass;
 import com.axanthic.blab.items.ItemBlockMaterial;
+import com.axanthic.blab.items.ItemBlockMaterialDoor;
 import com.axanthic.blab.items.ItemBlockMaterialSlab;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemBlockMetaMaterial;
@@ -343,6 +346,8 @@ public class Resources {
 		public ItemBlockMaterial fenceGate;
 		public ItemBlockMaterialSlab slab;
 		public ItemBlockMaterial stairs;
+		public ItemBlockMaterialDoor door;
+		public ItemBlockMaterial trapdoor;
 
 		public WoodSet(final BlockPlanks.WoodTypes type) {
 			this.type = type;
@@ -356,6 +361,8 @@ public class Resources {
 			this.fenceGate = new ItemBlockMaterial(new BlockCustomFenceGate(plankState, materialName));
 			this.slab = new ItemBlockMaterialSlab(new BlockCustomSlab(plankState, materialName));
 			this.stairs = new ItemBlockMaterial(new BlockCustomStairs(plankState, materialName));
+			this.door = new ItemBlockMaterialDoor(new BlockCustomDoor(plankState, materialName));
+			this.trapdoor = new ItemBlockMaterial(new BlockCustomTrapdoor(plankState, materialName));
 		}
 
 		public void register() {
@@ -367,6 +374,8 @@ public class Resources {
 			Resources.registerBlock(fenceGate);
 			Resources.registerBlock(slab);
 			Resources.registerBlock(stairs);
+			Resources.registerBlock(door);
+			Resources.registerBlock(trapdoor);
 		}
 	}
 }

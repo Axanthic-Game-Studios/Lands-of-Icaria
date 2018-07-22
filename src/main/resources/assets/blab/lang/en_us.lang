@@ -41,6 +41,8 @@ tile.generic.fence.name=%s Fence
 tile.generic.gate.name=%s Fence Gate
 tile.generic.stairs.name=%s Stairs
 tile.generic.slab.name=%s Slab
+tile.generic.door.name=%s Door
+tile.generic.trapdoor.name=%s Trapdoor
 
 tile.relicstone.smooth.name=Smooth Relicstone
 tile.relicstone.bricks_cracked.name=Cracked Relicstone Bricks
