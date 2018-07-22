@@ -122,7 +122,6 @@ public class ToolScythe extends ItemSword implements IItemCustomReach {
 		}
 		return multimap;
 	}
-<<<<<<< HEAD
     @SuppressWarnings("incomplete-switch")
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
@@ -172,12 +171,9 @@ public class ToolScythe extends ItemSword implements IItemCustomReach {
             stack.damageItem(1, player);
         }
     }
-}
-=======
 
 	@Override
 	public float getReach() {
 		return 6.0F;
 	}
 }
->>>>>>> 3f73f01dc10ab3493e37077d540f4795b03375a8
