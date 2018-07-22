@@ -40,6 +40,7 @@ public class BlockSoil extends Block implements IBlockMeta {
 		this.setUnlocalizedName("soil");
 		this.setRegistryName(ModInformation.ID, "soil");
 		this.setDefaultState(this.getStateFromMeta(0));
+		this.setDefaultState(this.blockState.getBaseState());
 		this.setSoundType(SoundType.GROUND);
 	}
 
