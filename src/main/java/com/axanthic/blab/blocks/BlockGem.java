@@ -27,16 +27,18 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockGem extends BlockSixDirectional {
 
 	private String unlocalizedName;
+	public static final AxisAlignedBB GEM_AABB = new AxisAlignedBB(0.49D, 0.51D, 0.49D, 0.51D, 0.49D, 0.51D);
 	public static final AxisAlignedBB NOTHING_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
 
 	public BlockGem(String name) {
 		super(Material.GLASS, MapColor.AIR);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.fullBlock = false;
 		this.setLightOpacity(0);
 		this.setUnlocalizedName(name);
 		unlocalizedName = name;
+		this.setLightLevel(1.0F);
 		this.setRegistryName(ModInformation.ID, name);
 		this.setSoundType(SoundType.GLASS);
 	}
@@ -70,7 +72,7 @@ public class BlockGem extends BlockSixDirectional {
 	@Override
 	@Nullable
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
-		return NULL_AABB;
+		return GEM_AABB;
 	}
 
 	@Override
@@ -86,11 +88,11 @@ public class BlockGem extends BlockSixDirectional {
 	@Override
 	public int damageDropped(IBlockState state) {
 		if (unlocalizedName.equals("jasper")) {
-			return 7;
-		} else if (unlocalizedName.equals("zircon")) {
-			return 8;
-		} else {
 			return 6;
+		} else if (unlocalizedName.equals("zircon")) {
+			return 7;
+		} else {
+			return 5;
 		}
 	}
 

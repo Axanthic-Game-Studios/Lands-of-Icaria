@@ -37,14 +37,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ToolScythe extends ItemSword {
+public class ToolScythe extends ItemSword implements IItemCustomReach {
 
 	public CompleteToolMaterial material;
 
 	public ToolScythe(CompleteToolMaterial material) {
 		super(material.material);
 		this.material = material;
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabItems);
 		this.setUnlocalizedName("generic.scythe");
 		this.setRegistryName(ModInformation.ID, "scythe_" + material.material.name().substring(ModInformation.ID.length() + 1));
     }
@@ -118,9 +118,11 @@ public class ToolScythe extends ItemSword {
 		if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
 			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.material.material.getAttackDamage() + 4.0D, 0));
 			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)this.material.attackSpeed - 2.0D, 0));
+			multimap.put(Blab.ATTACK_RANGE.getName(), new AttributeModifier(Blab.ATTACK_RANGE_MODIFIER, "Weapon modifier", (double)this.getReach() - 5.0D, 0));
 		}
 		return multimap;
 	}
+<<<<<<< HEAD
     @SuppressWarnings("incomplete-switch")
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
@@ -171,3 +173,11 @@ public class ToolScythe extends ItemSword {
         }
     }
 }
+=======
+
+	@Override
+	public float getReach() {
+		return 6.0F;
+	}
+}
+>>>>>>> 3f73f01dc10ab3493e37077d540f4795b03375a8

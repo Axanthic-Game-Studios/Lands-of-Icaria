@@ -2,6 +2,8 @@ package com.axanthic.blab.blocks;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
@@ -18,11 +20,15 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
@@ -35,13 +41,33 @@ public class BlockSoil extends Block implements IBlockMeta {
 
 	public BlockSoil() {
 		super(Material.GROUND);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("soil");
 		this.setRegistryName(ModInformation.ID, "soil");
 		this.setDefaultState(this.getStateFromMeta(0));
 		this.setDefaultState(this.blockState.getBaseState());
 		this.setSoundType(SoundType.GROUND);
+	}
+
+	@Override
+	@Nullable
+	public String getHarvestTool(IBlockState state) {
+		return "shovel";
+	}
+
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		ItemStack itemstack = playerIn.getHeldItem(hand);
+		if (getMetaFromState(state) == 1 && itemstack.getItem() instanceof ItemHoe && playerIn.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
+			worldIn.playSound(playerIn, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+			if (!worldIn.isRemote) {
+				worldIn.setBlockState(pos, getStateFromMeta(0));
+				itemstack.damageItem(1, playerIn);
+			}
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -56,6 +82,9 @@ public class BlockSoil extends Block implements IBlockMeta {
 
 	@Override
 	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable) {
+		if (getMetaFromState(state) == 2)
+			return Blocks.SAND.canSustainPlant(state, world, pos, direction, plantable) || Blocks.DIRT.canSustainPlant(state, world, pos, direction, plantable) || plantable instanceof BlockBush;
+
 		return Blocks.DIRT.canSustainPlant(state, world, pos, direction, plantable) || plantable instanceof BlockBush;
 	}
 
@@ -122,8 +151,8 @@ public class BlockSoil extends Block implements IBlockMeta {
 	}
 
 	public enum SoilTypes implements IStringSerializable {
-		MARL(0, "marl", MapColor.GRAY_STAINED_HARDENED_CLAY),
-		MARLCOURSE(1, "course_marl", MapColor.GRAY_STAINED_HARDENED_CLAY),
+		MARL(0, "marl", MapColor.BROWN),
+		MARLCOURSE(1, "course_marl", MapColor.BROWN),
 		LOAM(2, "loam", MapColor.SILVER_STAINED_HARDENED_CLAY);
 
 		private static final SoilTypes[] META_LOOKUP = new SoilTypes[SoilTypes.values().length];

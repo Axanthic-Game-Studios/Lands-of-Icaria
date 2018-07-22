@@ -1,0 +1,19 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "cube_all",
+		"uvlock": true,
+		"textures": {
+			"all": "blab:blocks/mineral_calcite_block",
+			"particle": "#all"
+		}
+	},
+	"variants": {
+		"type": {
+			"calcite": { "textures": { "all": "blab:blocks/mineral_calcite_block" } },
+			"jasper": { "textures": { "all": "blab:blocks/mineral_jasper_block" } },
+			"zircon": { "textures": { "all": "blab:blocks/mineral_zircon_block" } }
+		}
+	}
+}

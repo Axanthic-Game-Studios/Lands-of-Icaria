@@ -3,14 +3,30 @@
 	"defaults": {
 		"transform": "forge:default-block",
 		"model": "cube_all",
-		"uvlock": true,
 		"textures": {
 			"all": "blab:blocks/rock_silkstone_sand",
 			"particle": "#all"
 		}
 	},
     "variants": {
-		"normal":  { "model": "cube_all" },
+		"normal": [
+			{ "model": "cube_all" },
+            { "model": "cube_all", "x": 90 },
+            { "model": "cube_all", "x": 180 },
+            { "model": "cube_all", "x": 270 },
+            { "model": "cube_all", "y": 90 },
+            { "model": "cube_all", "y": 90, "x": 90 },
+            { "model": "cube_all", "y": 90, "x": 180 },
+            { "model": "cube_all", "y": 90, "x": 270 },
+            { "model": "cube_all", "y": 180 },
+            { "model": "cube_all", "y": 180, "x": 90 },
+            { "model": "cube_all", "y": 180, "x": 180 },
+            { "model": "cube_all", "y": 180, "x": 270 },
+            { "model": "cube_all", "y": 270 },
+            { "model": "cube_all", "y": 270, "x": 90 },
+            { "model": "cube_all", "y": 270, "x": 180 },
+            { "model": "cube_all", "y": 270, "x": 270 }
+        ],
 		"inventory":  { "model": "cube_all" }
     }
 }

@@ -33,7 +33,7 @@ public class BlockOre extends Block implements IBlockMeta {
 
 	public BlockOre() {
 		super(Material.ROCK);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("ore");
 		this.setRegistryName(ModInformation.ID, "ore");

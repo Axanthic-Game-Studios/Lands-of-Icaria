@@ -15,7 +15,7 @@ public class ItemLaurelWreath extends ItemArmor {
 
 	public ItemLaurelWreath() {
 		super(EnumHelper.addArmorMaterial("laurel", ModInformation.ID + ":" + "armor_laurel", 0, new int[]{0, 0, 0, 0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F), 0, EntityEquipmentSlot.HEAD);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabItems);
 		this.setUnlocalizedName("laurel_wreath");
 		this.setRegistryName(ModInformation.ID, "laurel_wreath");
 	}

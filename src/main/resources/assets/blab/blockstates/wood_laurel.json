@@ -2,7 +2,6 @@
 	"forge_marker": 1,
 	"defaults": {
 		"model": "cube_all",
-		"uvlock": true,
 		"textures": {
 			"all": "blab:blocks/wood_laurel_log_side",
 			"particle": "#all"

@@ -1,0 +1,27 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "cube_all",
+		"uvlock": true,
+		"textures": {
+			"all": "blab:blocks/metal_chalkos_block",
+			"particle": "#all"
+		}
+	},
+	"variants": {
+		"type": {
+			"chalkos": { "textures": { "all": "blab:blocks/metal_chalkos_block" } },
+			"kassiteros": { "textures": { "all": "blab:blocks/metal_kassiteros_block" } },
+			"molibos": { "textures": { "all": "blab:blocks/metal_molibos_block" } },
+			"orichalcum": { "textures": { "all": "blab:blocks/metal_orichalcum_block" } },
+			"sliver": { "textures": { "all": "blab:blocks/metal_sliver_block" } },
+			"vanadium": { "textures": { "all": "blab:blocks/metal_vanadium_block" } },
+			"vanadiumsteel": { "textures": { "all": "blab:blocks/metal_vanadiumsteel_block" } },
+			"sideros": { "textures": { "all": "blab:blocks/metal_sideros_block" } },
+			"molybdenum": { "textures": { "all": "blab:blocks/metal_molybdenum_block" } },
+			"molybdenumsteel": { "textures": { "all": "blab:blocks/metal_molybdenumsteel_block" } },
+			"bluridium": { "textures": { "all": "blab:blocks/metal_bluridium_block" } }
+		}
+	}
+}

@@ -16,7 +16,8 @@
 			"cypress": { "textures": { "all": "blab:blocks/wood_cypress_planks" } },
 			"fir": { "textures": { "all": "blab:blocks/wood_fir_planks" } },
 			"olive": { "textures": { "all": "blab:blocks/wood_olive_planks" } },
-			"laurel": { "textures": { "all": "blab:blocks/wood_laurel_planks" } }
+			"laurel": { "textures": { "all": "blab:blocks/wood_laurel_planks" } },
+			"droughtroot": { "textures": { "all": "blab:blocks/wood_droughtroot_planks" } }
 		}
 	}
 }

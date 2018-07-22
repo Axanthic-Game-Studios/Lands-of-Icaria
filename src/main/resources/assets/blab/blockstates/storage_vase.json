@@ -1,0 +1,15 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "blab:container_vase",
+		"uvlock": true,
+		"textures": {
+			"layer0": "blab:items/container_vase_baked_af",
+			"particle": "#layer0"
+		}
+	},
+	"variants": {
+		"normal": { "model": "blab:container_vase" },
+		"inventory": { "model": "blab:generated" }
+	}
+}

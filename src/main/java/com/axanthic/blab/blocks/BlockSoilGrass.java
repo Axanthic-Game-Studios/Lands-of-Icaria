@@ -2,9 +2,12 @@ package com.axanthic.blab.blocks;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.axanthic.blab.Resources;
 
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -19,12 +22,18 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockSoilGrass extends BlockBasic {
+public class BlockSoilGrass extends BlockBasic implements IGrowable {
 
 	public BlockSoilGrass() {
-		super(Material.GRASS, 1.2F, "soil_grass", MapColor.GREEN);
+		super(Material.GRASS, 1.2F, "soil_grass", MapColor.GREEN_STAINED_HARDENED_CLAY);
 		this.setTickRandomly(true);
 		this.setSoundType(SoundType.GROUND);
+	}
+
+	@Override
+	@Nullable
+	public String getHarvestTool(IBlockState state) {
+		return "shovel";
 	}
 
 	@Override
@@ -62,6 +71,49 @@ public class BlockSoilGrass extends BlockBasic {
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return Resources.soil;
+	}
+
+	@Override
+	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
+		return true;
+	}
+
+	@Override
+	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+		return true;
+	}
+
+	@Override
+	public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+		BlockPos blockpos = pos.up();
+		for (int i = 0; i < 128; ++i) {
+			BlockPos blockpos1 = blockpos;
+			int j = 0;
+			while (true) {
+				if (j >= i / 16) {
+					if (worldIn.isAirBlock(blockpos1)) {
+						IBlockState iblockstate1 = Resources.tallGrass.getBlock().getStateFromMeta(rand.nextInt(BlockTallGrass.GrassTypes.values().length));
+						if (rand.nextInt(8) == 0) {
+							int meta = rand.nextInt(BlockFlower.FlowerTypes.values().length + BlockFlower2.FlowerTypes2.values().length);
+							if (meta < 16)
+								iblockstate1 = Resources.flower.getBlock().getStateFromMeta(meta);
+							else
+								iblockstate1 = Resources.flower2.getBlock().getStateFromMeta(meta - 16);
+						}
+						if (((BlockBush) iblockstate1.getBlock()).canBlockStay(worldIn, blockpos1, iblockstate1)) {
+							worldIn.setBlockState(blockpos1, iblockstate1, 3);
+						}
+					}
+					break;
+				}
+				blockpos1 = blockpos1.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
+
+				if (worldIn.getBlockState(blockpos1.down()).getBlock() != Resources.grass.getBlock() || worldIn.getBlockState(blockpos1).isNormalCube()) {
+					break;
+				}
+				++j;
+			}
+		}
 	}
 
 	@Override

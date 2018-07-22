@@ -1,18 +1,19 @@
 package com.axanthic.blab;
 
+import java.util.UUID;
+
 import com.axanthic.blab.proxy.CommonProxy;
 import com.axanthic.blab.utils.CreativeTab;
-import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
 import com.axanthic.loi.worldgen.dimension.WorldTypeLOI;
 
 import net.minecraft.block.Block;
-import net.minecraft.init.Items;
+import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -20,7 +21,9 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 @Mod.EventBusSubscriber
 @Mod(modid = ModInformation.ID, name = ModInformation.NAME, version = ModInformation.VERSION, dependencies = ModInformation.DEPEND)
@@ -29,7 +32,9 @@ public class Blab {
 	@SidedProxy(clientSide = ModInformation.CLIENTPROXY, serverSide = ModInformation.COMMONPROXY)
 	public static CommonProxy proxy;
 
-	public static CreativeTab modTab = new CreativeTab(ModInformation.ID + ".creativeTab", new ItemStack(Items.BUCKET));
+	public static CreativeTab modTabBlocks = new CreativeTab(ModInformation.ID + ".blocks.creativeTab");
+	public static CreativeTab modTabFlora = new CreativeTab(ModInformation.ID + ".flora.creativeTab");
+	public static CreativeTab modTabItems = new CreativeTab(ModInformation.ID + ".items.creativeTab");
 
 	// Dimension stuff
 	public static int dimensionId;
@@ -39,15 +44,13 @@ public class Blab {
 	@Mod.Instance
 	public static Blab instance;
 
+	public static SimpleNetworkWrapper network;
+
+	public static final IAttribute ATTACK_RANGE = new RangedAttribute((IAttribute)null, "generic.attackRange", 5.0D, 0.0D, 2048.0D);
+    public static final UUID ATTACK_RANGE_MODIFIER = UUID.fromString("971104f5-17b7-48d9-b16c-1109f0536884");
+
 	@EventHandler
 	public void preInit(final FMLPreInitializationEvent event) {
-
-		/******** Dimension initialisation ********/
-		Blab.dimensionId = DimensionManager.getNextFreeDimId();
-		Blab.dimensionTypeLoi = DimensionType.register("Lands of Icar???", "_loi", Blab.dimensionId, WorldProviderLOI.class, false);
-		DimensionManager.registerDimension(Blab.dimensionId, Blab.dimensionTypeLoi);
-		/******************************************/
-
 		Blab.proxy.preInit(event);
 	}
 
@@ -79,5 +82,10 @@ public class Blab {
 	@SubscribeEvent
 	public void ItemColorRegistry(final ColorHandlerEvent.Item event) {
 		Blab.proxy.registerItemColors(event);
+	}
+
+	@SubscribeEvent(priority=EventPriority.HIGHEST, receiveCanceled=true)
+	public void onMouseEvent(MouseEvent event) {
+		Blab.proxy.onMouseEvent(event);
 	}
 }

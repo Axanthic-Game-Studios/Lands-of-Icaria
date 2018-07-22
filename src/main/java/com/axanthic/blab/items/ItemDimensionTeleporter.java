@@ -20,7 +20,7 @@ public class ItemDimensionTeleporter extends Item
 	public ItemDimensionTeleporter()
 	{
 		super();
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabItems);
 	}
 
 	/**

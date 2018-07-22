@@ -21,7 +21,12 @@
 			"purple_staghorn": { "textures": { "cross": "blab:blocks/flower_purple_staghorn" } },
 			"blue_hydracinth": { "textures": { "cross": "blab:blocks/flower_blue_hydracinth" } },
 			"firehilt": { "textures": { "cross": "blab:blocks/flower_red_firehilt" } },
-			"voidlily": { "textures": { "cross": "blab:blocks/flower_black_voidlily" } }
+			"voidlily": { "textures": { "cross": "blab:blocks/flower_black_voidlily" } },
+			"charmonder": { "textures": { "cross": "blab:blocks/flower_blue_charmonder" } },
+			"blue_stormcotton": { "textures": { "cross": "blab:blocks/flower_blue_stormcotton" } },
+			"pink_stormcotton": { "textures": { "cross": "blab:blocks/flower_pink_stormcotton" } },
+			"purple_stormcotton": { "textures": { "cross": "blab:blocks/flower_purple_stormcotton" } },
+			"sunsponge": { "textures": { "cross": "blab:blocks/flower_red_sunsponge" } }
 		}
 	}
 }

@@ -13,8 +13,11 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -28,10 +31,14 @@ public class BlockFlower extends BlockBush implements IBlockMeta {
 	public static PropertyEnum TYPES = PropertyEnum.create("type", FlowerTypes.class);
 
 	public BlockFlower() {
+		this("");
+	}
+	
+	public BlockFlower(String number) {
 		super(Material.PLANTS, MapColor.AIR);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabFlora);
 		this.setUnlocalizedName("flower");
-		this.setRegistryName(ModInformation.ID, "flower");
+		this.setRegistryName(ModInformation.ID, "flower" + number);
 		this.setDefaultState(this.getStateFromMeta(0));
 		this.setSoundType(SoundType.PLANT);
 	}
@@ -54,6 +61,16 @@ public class BlockFlower extends BlockBush implements IBlockMeta {
 	@Override
 	public String[] getNames() {
 		return FlowerTypes.getNames();
+	}
+
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return 100;
+	}
+
+	@Override
+	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return 60;
 	}
 
 	@Override
@@ -88,6 +105,12 @@ public class BlockFlower extends BlockBush implements IBlockMeta {
 		}
 	}
 
+	@Override
+	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+		if (getMetaFromState(state) == 2 || getMetaFromState(state) == 7)
+			entityIn.attackEntityFrom(DamageSource.CACTUS, 0.1F);
+	}
+
 	public enum FlowerTypes implements IStringSerializable {
 		CHAMEOMILE(0, "chameomile"),
 		CLOVER(1, "clover"),
@@ -99,7 +122,12 @@ public class BlockFlower extends BlockBush implements IBlockMeta {
 		PURPLESTAGHORN(7, "purple_staghorn"),
 		BLUEHYDRACINTH(8, "blue_hydracinth"),
 		FIREHILT(9, "firehilt"),
-		VOIDLILY(10, "voidlily");
+		VOIDLILY(10, "voidlily"),
+		CHARMONDER(11, "charmonder"),
+		BLUESTORMCOTTON(12, "blue_stormcotton"),
+		PINKSTORMCOTTON(13, "pink_stormcotton"),
+		PURPLESTORMCOTTON(14, "purple_stormcotton"),
+		SUNSPONGE(15, "sunsponge");
 
 		private static final FlowerTypes[] META_LOOKUP = new FlowerTypes[FlowerTypes.values().length];
 		private final int meta;

@@ -2,7 +2,7 @@
     "parent": "block/cube_all",
     "textures": {
         "all": "blab:blocks/gem_jasper_model",
-		"particle": "blab:blocks/gem_jasper_particle"
+		"particle": "blab:blocks/mineral_jasper_block"
     },
     "elements": [
         {
