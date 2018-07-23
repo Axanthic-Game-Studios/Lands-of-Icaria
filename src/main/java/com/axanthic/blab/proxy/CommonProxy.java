@@ -10,6 +10,7 @@ import com.axanthic.blab.gui.GuiHandlerBlab;
 import com.axanthic.blab.gui.GuiHandlerRegistry;
 import com.axanthic.blab.items.IItemCustomReach;
 import com.axanthic.blab.utils.MessageCustomReachAttack;
+import com.axanthic.blab.utils.TileEntityKiln;
 import com.axanthic.blab.utils.TileEntityVase;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
 
@@ -46,6 +47,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "fallingVase"), EntityFallingVase.class, "fallingVase", 1, ModInformation.ID, 160, 20, true);
 
 		GameRegistry.registerTileEntity(TileEntityVase.class, new ResourceLocation(ModInformation.ID, "storage_vase"));
+		GameRegistry.registerTileEntity(TileEntityKiln.class, new ResourceLocation(ModInformation.ID, "crafting_kiln"));
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(Blab.instance, GuiHandlerRegistry.getInstance());
 		GuiHandlerRegistry.getInstance().registerGuiHandler(new GuiHandlerBlab(), GuiHandlerBlab.getGuiID());

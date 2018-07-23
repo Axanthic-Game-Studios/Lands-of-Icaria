@@ -36,6 +36,9 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.resource, 1, 10), new ItemStack(Resources.resource, 1, 12), 0.1F);
 		addRecipe(new ItemStack(Resources.loamBricks, 1, 0), new Object[]{"BB", "BB", 'B', new ItemStack(Resources.resource, 1, 12)});
 
+		addRecipe(new ItemStack(Resources.kiln, 1, 0), new Object[]{"SSS", "S S", "SSS", 'S', new ItemStack(Resources.rock, 1, 0)});
+		addRecipe(new ItemStack(Resources.kiln, 1, 0), new Object[]{"BBB", "B B", "BBB", 'B', new ItemStack(Resources.brick, 1, 0)});
+
 		addRecipe(new ItemStack(Resources.silkstoneSand, 1, 0), new Object[]{"PP", "PP", 'P', new ItemStack(Resources.resource, 1, 4)});
 		GameRegistry.addSmelting(new ItemStack(Resources.silkstoneSand, 1, 0), new ItemStack(Resources.rock, 1, 1), 0.1F);
 

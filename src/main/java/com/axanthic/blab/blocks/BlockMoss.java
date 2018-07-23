@@ -23,7 +23,7 @@ public class BlockMoss extends BlockBasic {
 	protected static final AxisAlignedBB MOSS_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.125D, 1.0D);
 
 	public BlockMoss() {
-		super(Material.PLANTS, 0.5F, "moss", MapColor.GREEN_STAINED_HARDENED_CLAY);
+		super(Material.PLANTS, 0.5F, "moss", MapColor.LIME_STAINED_HARDENED_CLAY);
 		this.setCreativeTab(Blab.modTabFlora);
 		this.setSoundType(SoundType.SLIME);
 	}

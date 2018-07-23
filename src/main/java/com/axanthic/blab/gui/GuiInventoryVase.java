@@ -14,10 +14,12 @@ import com.axanthic.blab.utils.TileEntityVase;
 public class GuiInventoryVase extends GuiContainer {
 
 	private static final ResourceLocation texture = new ResourceLocation("blab", "textures/gui/container_vase_gui.png");
+    private final InventoryPlayer playerInventory;
 	private TileEntityVase tileEntityVase;
 
 	public GuiInventoryVase(InventoryPlayer invPlayer, TileEntityVase tile) {
 		super(new ContainerVase(invPlayer, tile));
+        this.playerInventory = invPlayer;
 		tileEntityVase = tile;
 		xSize = 176;
 		ySize = 222;
@@ -39,9 +41,7 @@ public class GuiInventoryVase extends GuiContainer {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		final int LABEL_XPOS = 5;
-		final int LABEL_YPOS = 5;
-
-		fontRenderer.drawString(tileEntityVase.getDisplayName().getUnformattedText(), LABEL_XPOS, LABEL_YPOS, 0x504537);
+		fontRenderer.drawString(tileEntityVase.getDisplayName().getUnformattedText(), 8, 6, 0x504537);
+		fontRenderer.drawString(playerInventory.getDisplayName().getUnformattedText(), 8, 128, 0x504537);
 	}
 }

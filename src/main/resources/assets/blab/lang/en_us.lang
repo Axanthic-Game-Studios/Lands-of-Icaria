@@ -92,6 +92,7 @@ tile.aristone.name=Aristone
 tile.aristone_packed.name=Packed Aristone
 tile.loot_vase.name=Loot Vase
 tile.storage_vase.name=Baked Storage Vase
+tile.crafting_kiln.name=Kiln
 
 material.yellowstone.name=Yellowstone
 material.silkstone.name=Silkstone
@@ -130,6 +131,7 @@ material.laurel.name=Laurel
 material.droughtroot.name=Droughtroot
 
 container.vase=Storage Vase
+container.kiln=Kiln
 
 attribute.name.generic.attackRange=Attack Range
 

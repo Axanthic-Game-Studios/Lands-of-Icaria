@@ -1,5 +1,6 @@
 package com.axanthic.blab.gui;
 
+import com.axanthic.blab.utils.TileEntityKiln;
 import com.axanthic.blab.utils.TileEntityVase;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,6 +25,10 @@ public class GuiHandlerBlab implements IGuiHandler {
 			TileEntityVase tileEntityInventoryBasic = (TileEntityVase) tileEntity;
 			return new ContainerVase(player.inventory, tileEntityInventoryBasic);
 		}
+		if (tileEntity instanceof TileEntityKiln) {
+			TileEntityKiln tileEntityInventoryBasic = (TileEntityKiln) tileEntity;
+			return new ContainerKiln(player.inventory, tileEntityInventoryBasic);
+		}
 		return null;
 	}
 
@@ -38,6 +43,10 @@ public class GuiHandlerBlab implements IGuiHandler {
 		if (tileEntity instanceof TileEntityVase) {
 			TileEntityVase tileEntityInventoryBasic = (TileEntityVase) tileEntity;
 			return new GuiInventoryVase(player.inventory, tileEntityInventoryBasic);
+		}
+		if (tileEntity instanceof TileEntityKiln) {
+			TileEntityKiln tileEntityInventoryBasic = (TileEntityKiln) tileEntity;
+			return new GuiInventoryKiln(player.inventory, tileEntityInventoryBasic);
 		}
 		return null;
 	}
