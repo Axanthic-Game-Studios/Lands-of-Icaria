@@ -1,5 +1,7 @@
 package com.axanthic.blab.blocks;
 
+import java.util.Random;
+
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.gui.GuiHandlerBlab;
@@ -18,6 +20,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
@@ -26,8 +29,10 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -110,6 +115,37 @@ public class BlockKiln extends BlockContainer {
 		super.breakBlock(worldIn, pos, state);
 	}
 
+	@SideOnly(Side.CLIENT)
+	@SuppressWarnings("incomplete-switch")
+	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+		if (((Boolean) stateIn.getValue(BURNING))) {
+			EnumFacing enumfacing = (EnumFacing) stateIn.getValue(FACING);
+			double d0 = (double) pos.getX() + 8.0D / 16.0D;
+			double d1 = (double) pos.getY() + rand.nextDouble() * 2.0D / 16.0D + 10.0D / 16.0D;
+			double d2 = (double) pos.getZ() + 8.0D / 16.0D;
+			double d3 = 0.52D;
+			double d4 = rand.nextDouble() * 6.0D / 16.0D - 3.0D / 16.0D;
+
+			if (rand.nextDouble() < 0.1D) {
+				worldIn.playSound((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+			}
+
+			switch (enumfacing) {
+			case WEST:
+				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 - 6.5D / 16.0D, d1, d2 + d4, -0.03D, 0.0D, 0.0D);
+				break;
+			case EAST:
+				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + 6.5D / 16.0D, d1, d2 + d4, 0.03D, 0.0D, 0.0D);
+				break;
+			case NORTH:
+				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 - 6.5D / 16.0D, 0.0D, 0.0D, -0.03D);
+				break;
+			case SOUTH:
+				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 + 6.5D / 16.0D, 0.0D, 0.0D, 0.03D);
+			}
+		}
+	}
+
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (worldIn.isRemote) {
@@ -149,18 +185,15 @@ public class BlockKiln extends BlockContainer {
 			burning = true;
 			meta = meta - 4;
 		}
-		EnumFacing enumfacing = EnumFacing.getFront(meta);
-		if (enumfacing.getAxis() == EnumFacing.Axis.Y) {
-			enumfacing = EnumFacing.NORTH;
-		}
+		EnumFacing enumfacing = EnumFacing.getHorizontal(meta);
 		return this.getDefaultState().withProperty(FACING, enumfacing).withProperty(BURNING, burning);
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		if (((Boolean)state.getValue(BURNING)))
-			return ((EnumFacing)state.getValue(FACING)).getIndex() + 4;
-		return ((EnumFacing)state.getValue(FACING)).getIndex();
+			return ((EnumFacing)state.getValue(FACING)).getHorizontalIndex() + 4;
+		return ((EnumFacing)state.getValue(FACING)).getHorizontalIndex();
 	}
 
 	@Override
