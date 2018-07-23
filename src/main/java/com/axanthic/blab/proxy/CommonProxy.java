@@ -8,11 +8,14 @@ import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.EntityFallingVase;
 import com.axanthic.blab.gui.GuiHandlerBlab;
 import com.axanthic.blab.gui.GuiHandlerRegistry;
+import com.axanthic.blab.items.IItemCustomReach;
 import com.axanthic.blab.utils.MessageCustomReachAttack;
 import com.axanthic.blab.utils.TileEntityVase;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -23,9 +26,11 @@ import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -90,5 +95,18 @@ public class CommonProxy {
 
 	public void onMouseEvent(MouseEvent event) {
 		
+	}
+
+	public void onAttackEntityEvent(AttackEntityEvent event) {
+		Entity attacker = event.getEntity();
+		if (attacker != null && attacker instanceof EntityPlayer) {
+			ItemStack weapon = ((EntityPlayer) attacker).getHeldItemMainhand();
+			if (weapon != null && weapon.getItem() instanceof IItemCustomReach) {
+				if (attacker.getDistance(event.getTarget()) > ((IItemCustomReach) weapon.getItem()).getReach()) {
+					event.setResult(Result.DENY);
+					event.setCanceled(true);
+				}
+			}
+		}
 	}
 }

@@ -15,6 +15,7 @@ import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -84,8 +85,13 @@ public class Blab {
 		Blab.proxy.registerItemColors(event);
 	}
 
-	@SubscribeEvent(priority=EventPriority.HIGHEST, receiveCanceled=true)
+	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onMouseEvent(MouseEvent event) {
 		Blab.proxy.onMouseEvent(event);
+	}
+	
+	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
+	public void onAttackEntity(AttackEntityEvent event) {
+		Blab.proxy.onAttackEntityEvent(event);
 	}
 }

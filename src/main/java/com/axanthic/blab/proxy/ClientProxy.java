@@ -41,7 +41,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.EntitySelectors;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -191,9 +190,6 @@ public class ClientProxy extends CommonProxy {
 									Blab.network.sendToServer(new MessageCustomReachAttack(mov.entityHit.getEntityId()));
 								}
 							}
-						} else {
-							thePlayer.swingArm(EnumHand.MAIN_HAND);
-							event.setCanceled(true);
 						}
 					}
 				}
