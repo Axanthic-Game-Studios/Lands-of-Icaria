@@ -1,0 +1,62 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "textures": {
+        "0": "blocks/crafting_forge_model_back",
+        "1": "blocks/crafting_forge_model_side",
+        "2": "blocks/crafting_forge_model_top"
+    },
+    "elements": [
+        {
+            "name": "NEUTop",
+            "from": [ 0.0, 8.0, 2.0 ], 
+            "to": [ 14.0, 12.0, 16.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 1.0, 2.0, 8.0, 4.0 ] },
+                "east": { "texture": "#1", "uv": [ 8.0, 2.0, 15.0, 4.0 ] },
+                "south": { "texture": "#-1", "uv": [ 0.0, 0.0, 7.0, 2.0 ] },
+                "west": { "texture": "#-1", "uv": [ 1.0, 2.0, 8.0, 4.0 ] },
+                "up": { "texture": "#2", "uv": [ 8.0, 1.0, 15.0, 8.0 ] },
+                "down": { "texture": "#2", "uv": [ 8.0, 8.0, 15.0, 15.0 ] }
+            }
+        },
+        {
+            "name": "NEURear",
+            "from": [ 4.0, 0.0, 2.0 ], 
+            "to": [ 14.0, 8.0, 8.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 1.0, 4.0, 6.0, 8.0 ] },
+                "east": { "texture": "#1", "uv": [ 12.0, 4.0, 15.0, 8.0 ] },
+                "south": { "texture": "#0", "uv": [ 10.0, 4.0, 15.0, 8.0 ] },
+                "west": { "texture": "#1", "uv": [ 5.0, 8.0, 8.0, 12.0 ] },
+                "up": { "texture": "#-1", "uv": [ 1.0, 1.0, 6.0, 4.0 ] },
+                "down": { "texture": "#-1", "uv": [ 1.0, 8.0, 6.0, 11.0 ] }
+            }
+        },
+        {
+            "name": "NEUCenter",
+            "from": [ 0.0, 0.0, 2.0 ], 
+            "to": [ 4.0, 6.0, 8.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 6.0, 5.0, 8.0, 8.0 ] },
+                "east": { "texture": "#-1", "uv": [ 8.0, 8.0, 11.0, 11.0 ] },
+                "south": { "texture": "#0", "uv": [ 8.0, 5.0, 10.0, 8.0 ] },
+                "west": { "texture": "#-1", "uv": [ 1.0, 4.0, 4.0, 8.0 ] },
+                "up": { "texture": "#2", "uv": [ 10.0, 12.0, 12.0, 15.0 ] },
+                "down": { "texture": "#-1", "uv": [ 1.0, 8.0, 3.0, 11.0 ] }
+            }
+        },
+        {
+            "name": "NEUEast",
+            "from": [ 8.0, 0.0, 8.0 ], 
+            "to": [ 14.0, 8.0, 16.0 ], 
+            "faces": {
+                "north": { "texture": "#-1", "uv": [ 10.0, 4.0, 15.0, 8.0 ] },
+                "east": { "texture": "#1", "uv": [ 12.0, 4.0, 8.0, 8.0 ] },
+                "south": { "texture": "#-1", "uv": [ 1.0, 4.0, 4.0, 8.0 ] },
+                "west": { "texture": "#1", "uv": [ 4.0, 4.0, 8.0, 8.0 ] },
+                "up": { "texture": "#-1", "uv": [ 1.0, 1.0, 4.0, 5.0 ] },
+                "down": { "texture": "#-1", "uv": [ 1.0, 8.0, 4.0, 12.0 ] }
+            }
+        }
+    ]
+}
