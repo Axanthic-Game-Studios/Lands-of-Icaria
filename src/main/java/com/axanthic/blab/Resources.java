@@ -18,6 +18,7 @@ import com.axanthic.blab.blocks.BlockGem;
 import com.axanthic.blab.blocks.BlockGlassy;
 import com.axanthic.blab.blocks.BlockGrainelStone;
 import com.axanthic.blab.blocks.BlockGravity;
+import com.axanthic.blab.blocks.BlockGrinder;
 import com.axanthic.blab.blocks.BlockKiln;
 import com.axanthic.blab.blocks.BlockLeaf;
 import com.axanthic.blab.blocks.BlockLog;
@@ -126,6 +127,7 @@ public class Resources {
 	public static ItemBlock lootVase = new ItemBlock(new BlockLootVase());
 	public static ItemBlock storageVase = new ItemBlock(new BlockStorageVase());
 	public static ItemBlock kiln = new ItemBlock(new BlockKiln());
+	public static ItemBlock grinder = new ItemBlock(new BlockGrinder());
 
 	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0);
 	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1);
@@ -213,6 +215,7 @@ public class Resources {
 		Resources.registerBlock(Resources.lootVase);
 		Resources.registerBlock(Resources.storageVase);
 		Resources.registerBlock(Resources.kiln);
+		Resources.registerBlock(Resources.grinder);
 
 		Resources.plane.register();
 		Resources.populus.register();

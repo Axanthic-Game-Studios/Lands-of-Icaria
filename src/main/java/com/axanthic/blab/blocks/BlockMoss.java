@@ -25,7 +25,7 @@ public class BlockMoss extends BlockBasic {
 	public BlockMoss() {
 		super(Material.PLANTS, 0.5F, "moss", MapColor.LIME_STAINED_HARDENED_CLAY);
 		this.setCreativeTab(Blab.modTabFlora);
-		this.setSoundType(SoundType.SLIME);
+		this.setSoundType(SoundType.SNOW);
 	}
 
 	@Override

@@ -1,7 +1,8 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "parent": "block/cube_all",
     "textures": {
-        "0": "blocks/crafting_grinder_model"
+        "0": "blab:blocks/crafting_grinder_model",
+		"particle": "blab:blocks/rock_sunstone"
     },
     "elements": [
         {

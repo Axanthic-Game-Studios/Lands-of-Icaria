@@ -1,5 +1,6 @@
 package com.axanthic.blab.gui;
 
+import com.axanthic.blab.utils.TileEntityGrinder;
 import com.axanthic.blab.utils.TileEntityKiln;
 import com.axanthic.blab.utils.TileEntityVase;
 
@@ -29,6 +30,10 @@ public class GuiHandlerBlab implements IGuiHandler {
 			TileEntityKiln tileEntityInventoryBasic = (TileEntityKiln) tileEntity;
 			return new ContainerKiln(player.inventory, tileEntityInventoryBasic);
 		}
+		if (tileEntity instanceof TileEntityGrinder) {
+			TileEntityGrinder tileEntityInventoryBasic = (TileEntityGrinder) tileEntity;
+			return new ContainerGrinder(player.inventory, tileEntityInventoryBasic);
+		}
 		return null;
 	}
 
@@ -47,6 +52,10 @@ public class GuiHandlerBlab implements IGuiHandler {
 		if (tileEntity instanceof TileEntityKiln) {
 			TileEntityKiln tileEntityInventoryBasic = (TileEntityKiln) tileEntity;
 			return new GuiInventoryKiln(player.inventory, tileEntityInventoryBasic);
+		}
+		if (tileEntity instanceof TileEntityGrinder) {
+			TileEntityGrinder tileEntityInventoryBasic = (TileEntityGrinder) tileEntity;
+			return new GuiInventoryGrinder(player.inventory, tileEntityInventoryBasic);
 		}
 		return null;
 	}

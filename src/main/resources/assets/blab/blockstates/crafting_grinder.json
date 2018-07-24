@@ -1,0 +1,15 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "blab:crafting_grinder"
+	},
+	"variants": {
+		"inventory": { "model": "blab:crafting_grinder" },
+		"facing": {
+			"north": {},
+			"east": { "y": 90 },
+			"south": { "y": 180 },
+			"west": { "y": 270 }
+		}
+	}
+}

@@ -1,5 +1,8 @@
 package com.axanthic.blab;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Nonnull;
 
 import com.axanthic.blab.Resources.ArmorSet;
@@ -22,7 +25,15 @@ public class Recipes {
 
 	static ResourceLocation group = new ResourceLocation("");
 
+    public static Map<String, ItemStack> grindingRecipes = new HashMap<String, ItemStack>();
+    public static Map<String, Integer> grinderFuel = new HashMap<String, Integer>();
+
 	public static void registerRecipes() {
+		addGrinderRecipe(new ItemStack(Resources.resource, 1, 8), new ItemStack(Resources.resource, 1, 5));
+		addGrinderRecipe(new ItemStack(Resources.resource, 1, 9), new ItemStack(Resources.resource, 1, 7));
+
+		addGrinderFuel(new ItemStack(Items.BLAZE_POWDER), 1600);
+
 		addRecipe(new ItemStack(Resources.laurelWreath), new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
 
 		addRecipe(new ItemStack(Resources.aristonePacked), new Object[]{"AAA", "AAA", "AAA", 'A', Resources.aristone});
@@ -38,6 +49,8 @@ public class Recipes {
 
 		addRecipe(new ItemStack(Resources.kiln, 1, 0), new Object[]{"SSS", "S S", "SSS", 'S', new ItemStack(Resources.rock, 1, 0)});
 		addRecipe(new ItemStack(Resources.kiln, 1, 0), new Object[]{"BBB", "B B", "BBB", 'B', new ItemStack(Resources.brick, 1, 0)});
+		addRecipe(new ItemStack(Resources.grinder, 1, 0), new Object[]{"SSS", "SIS", "SSS", 'S', new ItemStack(Resources.rock, 1, 2), 'I', "ingotOrichalcum"});
+		addRecipe(new ItemStack(Resources.grinder, 1, 0), new Object[]{"BBB", "BIB", "BBB", 'B', new ItemStack(Resources.brick, 1, 2), 'I', "ingotOrichalcum"});
 
 		addRecipe(new ItemStack(Resources.silkstoneSand, 1, 0), new Object[]{"PP", "PP", 'P', new ItemStack(Resources.resource, 1, 4)});
 		GameRegistry.addSmelting(new ItemStack(Resources.silkstoneSand, 1, 0), new ItemStack(Resources.rock, 1, 1), 0.1F);
@@ -177,6 +190,14 @@ public class Recipes {
 
 	public static void addShapelessRecipe(@Nonnull ItemStack output, Ingredient... params) {
 		GameRegistry.addShapelessRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + output.getUnlocalizedName() + params.toString()), group, output, params);
+	}
+
+	public static void addGrinderRecipe(ItemStack output, ItemStack input) {
+		grindingRecipes.put(input.getItem().getRegistryName().toString() + ":" + input.getMetadata(), output);
+	}
+
+	public static void addGrinderFuel(ItemStack fuel, int burnTime) {
+		grinderFuel.put(fuel.getItem().getRegistryName().toString() + ":" + fuel.getMetadata(), burnTime);
 	}
 
 	public static String upCase(String string) {

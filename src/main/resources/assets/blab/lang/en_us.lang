@@ -93,6 +93,7 @@ tile.aristone_packed.name=Packed Aristone
 tile.loot_vase.name=Loot Vase
 tile.storage_vase.name=Baked Storage Vase
 tile.crafting_kiln.name=Kiln
+tile.crafting_grinder.name=Grinder
 
 material.yellowstone.name=Yellowstone
 material.silkstone.name=Silkstone
@@ -132,6 +133,7 @@ material.droughtroot.name=Droughtroot
 
 container.vase=Storage Vase
 container.kiln=Kiln
+container.grinder=Grinder
 
 attribute.name.generic.attackRange=Attack Range
 
