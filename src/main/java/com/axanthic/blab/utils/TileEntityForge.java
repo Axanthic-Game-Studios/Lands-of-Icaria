@@ -294,7 +294,7 @@ public class TileEntityForge extends TileEntityLockable implements ITickable, IS
 			}
 			if (!done) {
 				if (itemstack3.isEmpty()) {
-					this.inventoryItems.set(4, itemstack1.copy());
+					this.inventoryItems.set(5, itemstack1.copy());
 					done = true;
 				} else if (itemstack3.getItem() == itemstack1.getItem()) {
 					itemstack3.grow(itemstack1.getCount());
