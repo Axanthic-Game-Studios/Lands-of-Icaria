@@ -288,7 +288,7 @@ public class TileEntityForge extends TileEntityLockable implements ITickable, IS
 			if (itemstack2.isEmpty()) {
 				this.inventoryItems.set(4, itemstack1.copy());
 				done = true;
-			} else if (itemstack2.getItem() == itemstack1.getItem()) {
+			} else if (itemstack2.getItem() == itemstack1.getItem() && itemstack2.getCount() + itemstack1.getCount() <= itemstack1.getMaxStackSize()) {
 				itemstack2.grow(itemstack1.getCount());
 				done = true;
 			}
@@ -296,7 +296,7 @@ public class TileEntityForge extends TileEntityLockable implements ITickable, IS
 				if (itemstack3.isEmpty()) {
 					this.inventoryItems.set(5, itemstack1.copy());
 					done = true;
-				} else if (itemstack3.getItem() == itemstack1.getItem()) {
+				} else if (itemstack3.getItem() == itemstack1.getItem() && itemstack3.getCount() + itemstack1.getCount() <= itemstack1.getMaxStackSize()) {
 					itemstack3.grow(itemstack1.getCount());
 					done = true;
 				}
