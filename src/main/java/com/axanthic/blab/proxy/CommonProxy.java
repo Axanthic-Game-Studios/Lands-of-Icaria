@@ -10,6 +10,8 @@ import com.axanthic.blab.gui.GuiHandlerBlab;
 import com.axanthic.blab.gui.GuiHandlerRegistry;
 import com.axanthic.blab.items.IItemCustomReach;
 import com.axanthic.blab.utils.MessageCustomReachAttack;
+import com.axanthic.blab.utils.TileEntityForge;
+import com.axanthic.blab.utils.TileEntityForgeRedirector;
 import com.axanthic.blab.utils.TileEntityGrinder;
 import com.axanthic.blab.utils.TileEntityKiln;
 import com.axanthic.blab.utils.TileEntityVase;
@@ -50,6 +52,8 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityVase.class, new ResourceLocation(ModInformation.ID, "storage_vase"));
 		GameRegistry.registerTileEntity(TileEntityKiln.class, new ResourceLocation(ModInformation.ID, "crafting_kiln"));
 		GameRegistry.registerTileEntity(TileEntityGrinder.class, new ResourceLocation(ModInformation.ID, "crafting_grinder"));
+		GameRegistry.registerTileEntity(TileEntityForge.class, new ResourceLocation(ModInformation.ID, "crafting_forge"));
+		GameRegistry.registerTileEntity(TileEntityForgeRedirector.class, new ResourceLocation(ModInformation.ID, "crafting_forge_redirector"));
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(Blab.instance, GuiHandlerRegistry.getInstance());
 		GuiHandlerRegistry.getInstance().registerGuiHandler(new GuiHandlerBlab(), GuiHandlerBlab.getGuiID());
