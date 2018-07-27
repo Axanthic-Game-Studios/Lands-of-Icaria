@@ -2,13 +2,19 @@ package com.axanthic.blab.blocks;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.axanthic.blab.Resources;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -22,10 +28,25 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockSoilGrass extends BlockBasic implements IGrowable {
 
+	public static final PropertyBool MOSSY = PropertyBool.create("mossy");
+
 	public BlockSoilGrass() {
-		super(Material.GRASS, 1.2F, "soil_grass", MapColor.GREEN);
+		super(Material.GRASS, 1.2F, "soil_grass", MapColor.GREEN_STAINED_HARDENED_CLAY);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(MOSSY, Boolean.valueOf(false)));
 		this.setTickRandomly(true);
 		this.setSoundType(SoundType.GROUND);
+	}
+
+	@Override
+	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+		Block block = worldIn.getBlockState(pos.up()).getBlock();
+		return state.withProperty(MOSSY, Boolean.valueOf(block.equals(Resources.moss.getBlock())));
+	}
+
+	@Override
+	@Nullable
+	public String getHarvestTool(IBlockState state) {
+		return "shovel";
 	}
 
 	@Override
@@ -84,14 +105,16 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 			while (true) {
 				if (j >= i / 16) {
 					if (worldIn.isAirBlock(blockpos1)) {
+						IBlockState iblockstate1 = Resources.tallGrass.getBlock().getStateFromMeta(rand.nextInt(BlockTallGrass.GrassTypes.values().length));
 						if (rand.nextInt(8) == 0) {
-							worldIn.setBlockState(blockpos1, Resources.flower.getBlock().getStateFromMeta(rand.nextInt(BlockFlower.FlowerTypes.values().length + 1)), 3);
-						} else {
-							IBlockState iblockstate1 = Resources.tallGrass.getBlock().getDefaultState();
-
-							if (((BlockBush) Resources.tallGrass.getBlock()).canBlockStay(worldIn, blockpos1, iblockstate1)) {
-								worldIn.setBlockState(blockpos1, iblockstate1, 3);
-							}
+							int meta = rand.nextInt(BlockFlower.FlowerTypes.values().length + BlockFlower2.FlowerTypes2.values().length);
+							if (meta < 16)
+								iblockstate1 = Resources.flower.getBlock().getStateFromMeta(meta);
+							else
+								iblockstate1 = Resources.flower2.getBlock().getStateFromMeta(meta - 16);
+						}
+						if (((BlockBush) iblockstate1.getBlock()).canBlockStay(worldIn, blockpos1, iblockstate1)) {
+							worldIn.setBlockState(blockpos1, iblockstate1, 3);
 						}
 					}
 					break;
@@ -110,5 +133,15 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.CUTOUT_MIPPED;
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, new IProperty[] {MOSSY});
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return 0;
 	}
 }

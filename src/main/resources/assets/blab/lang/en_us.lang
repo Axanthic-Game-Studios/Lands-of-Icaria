@@ -1,10 +1,16 @@
-itemGroup.blab.creativeTab=Blab
+itemGroup.blab.blocks.creativeTab=Blab Blocks
+itemGroup.blab.flora.creativeTab=Blab Flora
+itemGroup.blab.items.creativeTab=Blab Items
 
-item.resource.silkstone_brick.name=Silkstone Brick
+generator.loi=Lands of Icar???
+generator.loi.info=Replaces the overworld with an additional Lands of Icar??? dimension.
+
 item.resource.silkstone_powder.name=Silkstone Powder
 item.resource.polished_zircon.name=Polished Zircon
 item.resource.calcite_powder.name=Calcite Powder
 item.resource.loam_lump.name=Lump of Loam
+item.resource.raw_vase.name=Unfired Storage Vase
+item.resource.loam_brick.name=Loam Brick
 item.bone_sharp.name=Sharpened Bone
 item.laurel_wreath.name=Laurel Wreath
 
@@ -31,6 +37,12 @@ tile.generic.leaf.name=%s Leaves
 tile.generic.log.name=%s Log
 tile.generic.log_stripped.name=Stripped %s Log
 tile.generic.planks.name=%s Planks
+tile.generic.fence.name=%s Fence
+tile.generic.gate.name=%s Fence Gate
+tile.generic.stairs.name=%s Stairs
+tile.generic.slab.name=%s Slab
+tile.generic.door.name=%s Door
+tile.generic.trapdoor.name=%s Trapdoor
 
 tile.relicstone.smooth.name=Smooth Relicstone
 tile.relicstone.bricks_cracked.name=Cracked Relicstone Bricks
@@ -40,13 +52,25 @@ tile.relicstone.tiles.name=Relicstone Tiles
 tile.relicstone.tiles_cracked.name=Cracked Relicstone Tiles
 tile.relicstone.tiles_mossy.name=Mossy Relicstone Tiles
 tile.relicstone.tiles_draft.name=Structure Relicstone Tiles
+tile.relicstone.chiseled.name=Chiseled Relicstone
 tile.pillar_relicstone.name=Relicstone Pillar
 tile.pillar_head_relicstone.name=Relicstone Pillar Head
 tile.soil.marl.name=Marl
 tile.soil.course_marl.name=Coarse Marl
 tile.soil.loam.name=Loam
 tile.soil_grass.name=Grassy Marl
+tile.moss.name=Moss
 tile.silkstone_sand.name=Silkstone Sand
+tile.grainel_sand.name=Grainel
+tile.grainite.cobble.name=Grainite
+tile.grainite.bricks.name=Grainite Bricks
+tile.grainite.bricks_chiseled.name=Chiseled Grainite Bricks
+tile.grainel_glass.name=Grainglass
+tile.grainel_pane.name=Grainglass Pane
+tile.loam_bricks.name=Loam Bricks
+tile.tallgrass.small.name=Small Grass
+tile.tallgrass.medium.name=Grass
+tile.tallgrass.large.name=Large Grass
 tile.flower.chameomile.name=Chameomile
 tile.flower.clover.name=Clover
 tile.flower.yellow_staghorn.name=Yellow Staghorn
@@ -58,7 +82,19 @@ tile.flower.purple_staghorn.name=Purple Staghorn
 tile.flower.blue_hydracinth.name=Blue Hydracinth
 tile.flower.firehilt.name=Firehilt
 tile.flower.voidlily.name=Voidlily
+tile.flower.charmonder.name=Charmonder
+tile.flower.blue_stormcotton.name=Blue Stormcotton
+tile.flower.pink_stormcotton.name=Pink Stormcotton
+tile.flower.purple_stormcotton.name=Purple Stormcotton
+tile.flower.sunsponge.name=Sunsponge
+tile.flower.sunkettle.name=Sunkettle
+tile.aristone.name=Aristone
+tile.aristone_packed.name=Packed Aristone
 tile.loot_vase.name=Loot Vase
+tile.storage_vase.name=Baked Storage Vase
+tile.crafting_kiln.name=Kiln
+tile.crafting_grinder.name=Grinder
+tile.crafting_forge.name=Forge
 
 material.yellowstone.name=Yellowstone
 material.silkstone.name=Silkstone
@@ -94,3 +130,15 @@ material.cypress.name=Cypress
 material.fir.name=Fir
 material.olive.name=Olive
 material.laurel.name=Laurel
+material.droughtroot.name=Droughtroot
+
+container.vase=Storage Vase
+container.kiln=Kiln
+container.grinder=Grinder
+container.forge=Forge
+
+attribute.name.generic.attackRange=Attack Range
+
+entity.fallingVase.name=Loot Vase
+
+message.loot_vase.pickup=Sneak to throw vase

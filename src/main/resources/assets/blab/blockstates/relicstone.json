@@ -18,7 +18,8 @@
 			"tiles": { "textures": { "all": "blab:blocks/rock_relicstone_tiles" } },
 			"tiles_cracked": { "textures": { "all": "blab:blocks/rock_relicstone_tiles_cracked" } },
 			"tiles_mossy": { "textures": { "all": "blab:blocks/rock_relicstone_tiles_mossy" } },
-			"tiles_draft": { "textures": { "all": "blab:blocks/rock_relicstone_tiles_draft" } }
+			"tiles_draft": { "textures": { "all": "blab:blocks/rock_relicstone_tiles_draft" } },
+			"chiseled": { "textures": { "all": "blab:blocks/rock_relicstone_chiseled" } }
 		}
 	}
 }

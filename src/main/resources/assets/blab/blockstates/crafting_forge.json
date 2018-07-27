@@ -1,0 +1,32 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "blab:crafting_forge_inventorymodel",
+		"textures": {
+			"flame": "blab:blocks/empty"
+		}
+	},
+	"variants": {
+		"inventory": { "model": "blab:crafting_forge_inventorymodel", "y": 180 },
+		"facing": {
+			"north": {},
+			"east": { "y": 90 },
+			"south": { "y": 180 },
+			"west": { "y": 270 }
+		},
+		"burning": {
+			"true": { "textures": { "flame": "blab:blocks/crafting_forge_fire" } },
+			"false": {}
+		},
+		"corner": {
+			"top_back_left": { "model": "blab:crafting_forge_reartopleft" },
+			"top_back_right": { "model": "blab:crafting_forge_reartopright" },
+			"top_front_left": { "model": "blab:crafting_forge_fronttopleft" },
+			"top_front_right": { "model": "blab:crafting_forge_fronttopright" },
+			"bottom_back_left": { "model": "blab:crafting_forge_rearbottomleft" },
+			"bottom_back_right": { "model": "blab:crafting_forge_rearbottomright" },
+			"bottom_front_left": { "model": "blab:crafting_forge_frontbottomleft" },
+			"bottom_front_right": { "model": "blab:crafting_forge_frontbottomright" }
+		}
+	}
+}

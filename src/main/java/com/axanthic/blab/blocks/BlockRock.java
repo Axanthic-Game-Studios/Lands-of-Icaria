@@ -28,11 +28,10 @@ import net.minecraft.world.World;
 public class BlockRock extends Block implements IBlockMeta {
 
 	public static PropertyEnum TYPES = PropertyEnum.create("type", StoneTypes.class);
-	public static int metaCount = StoneTypes.values().length;
 
 	public BlockRock(final String name) {
 		super(Material.ROCK);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);

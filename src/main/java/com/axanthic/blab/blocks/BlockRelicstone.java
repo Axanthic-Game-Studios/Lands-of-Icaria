@@ -26,7 +26,7 @@ public class BlockRelicstone extends Block implements IBlockMeta {
 
 	public BlockRelicstone() {
 		super(Material.ROCK, MapColor.WOOD);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("relicstone");
 		this.setRegistryName(ModInformation.ID, "relicstone");
@@ -88,7 +88,8 @@ public class BlockRelicstone extends Block implements IBlockMeta {
 		TILES(4, "tiles"),
 		TILES_CRACKED(5, "tiles_cracked"),
 		TILES_MOSSY(6, "tiles_mossy"),
-		TILES_DRAFT(7, "tiles_draft");
+		TILES_DRAFT(7, "tiles_draft"),
+		CHISELED(8, "chiseled");
 
 		private static final BrickTypes[] META_LOOKUP = new BrickTypes[BrickTypes.values().length];
 		private final int meta;

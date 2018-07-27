@@ -1,0 +1,15 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "blab:generated",
+		"uvlock": true,
+		"textures": {
+			"layer0": "blab:blocks/flower_yellow_sunkettle"
+		}
+	},
+	"variants": {
+		"type": {
+			"sunkettle": { "textures": { "layer0": "blab:blocks/flower_yellow_sunkettle" } }
+		}
+	}
+}

@@ -1,0 +1,64 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+		"-1": "blab:blocks/rock_grainel_bricks",
+		"particle": "blab:blocks/rock_grainel_bricks",
+        "0": "blab:blocks/crafting_forge_model_side",
+        "1": "blab:blocks/crafting_forge_model_front",
+        "2": "blab:blocks/crafting_forge_model_top"
+    },
+    "elements": [
+        {
+            "name": "SEUTop",
+            "from": [ 0.0, 8.0, 0.0 ], 
+            "to": [ 14.0, 12.0, 14.0 ], 
+            "faces": {
+                "north": { "texture": "#-1", "uv": [ 1.0, 2.0, 8.0, 4.0 ] },
+                "east": { "texture": "#0", "uv": [ 1.0, 2.0, 8.0, 4.0 ] },
+                "south": { "texture": "#1", "uv": [ 8.0, 2.0, 15.0, 4.0 ] },
+                "west": { "texture": "#-1", "uv": [ 1.0, 2.0, 8.0, 4.0 ] },
+                "up": { "texture": "#2", "uv": [ 8.0, 8.0, 15.0, 15.0 ] },
+                "down": { "texture": "#2", "uv": [ 8.0, 1.0, 15.0, 8.0 ] }
+            }
+        },
+        {
+            "name": "SEUFront",
+            "from": [ 4.0, 0.0, 8.0 ], 
+            "to": [ 14.0, 8.0, 14.0 ], 
+            "faces": {
+                "north": { "texture": "#1", "uv": [ 1.0, 4.0, 6.0, 8.0 ] },
+                "east": { "texture": "#0", "uv": [ 1.0, 4.0, 4.0, 8.0 ] },
+                "south": { "texture": "#1", "uv": [ 10.0, 4.0, 15.0, 8.0 ] },
+                "west": { "texture": "#0", "uv": [ 5.0, 8.0, 8.0, 12.0 ] },
+                "up": { "texture": "#-1", "uv": [ 1.0, 1.0, 6.0, 4.0 ] },
+                "down": { "texture": "#-1", "uv": [ 1.0, 8.0, 6.0, 11.0 ] }
+            }
+        },
+        {
+            "name": "SEUEast",
+            "from": [ 8.0, 0.0, 0.0 ], 
+            "to": [ 14.0, 8.0, 8.0 ], 
+            "faces": {
+                "north": { "texture": "#-1", "uv": [ 10.0, 4.0, 15.0, 8.0 ] },
+                "east": { "texture": "#0", "uv": [ 8.0, 4.0, 4.0, 8.0 ] },
+                "south": { "texture": "#-1", "uv": [ 1.0, 4.0, 4.0, 8.0 ] },
+                "west": { "texture": "#0", "uv": [ 8.0, 4.0, 12.0, 8.0 ] },
+                "up": { "texture": "#-1", "uv": [ 1.0, 1.0, 4.0, 5.0 ] },
+                "down": { "texture": "#-1", "uv": [ 1.0, 8.0, 4.0, 12.0 ] }
+            }
+        },
+        {
+            "name": "SEUCenter",
+            "from": [ 0.0, 4.0, 8.0 ], 
+            "to": [ 4.0, 8.0, 14.0 ], 
+            "faces": {
+                "north": { "texture": "#1", "uv": [ 6.0, 4.0, 8.0, 6.0 ] },
+                "east": { "texture": "#-1", "uv": [ 8.0, 8.0, 11.0, 10.0 ] },
+                "south": { "texture": "#1", "uv": [ 8.0, 4.0, 10.0, 6.0 ] },
+                "west": { "texture": "#-1", "uv": [ 1.0, 4.0, 4.0, 8.0 ] },
+                "up": { "texture": "#-1", "uv": [ 10.0, 12.0, 12.0, 15.0 ] },
+                "down": { "texture": "#1", "uv": [ 8.0, 8.0, 10.0, 11.0 ] }
+            }
+        }
+    ]
+}

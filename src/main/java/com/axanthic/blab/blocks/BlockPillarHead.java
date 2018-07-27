@@ -11,7 +11,7 @@ public class BlockPillarHead extends BlockSixDirectional {
 
 	public BlockPillarHead() {
 		super(Material.ROCK, MapColor.WOOD);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("pillar_head_relicstone");
 		this.setRegistryName(ModInformation.ID, "pillar_head_relicstone");

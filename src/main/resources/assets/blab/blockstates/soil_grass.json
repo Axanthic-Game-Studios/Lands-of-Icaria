@@ -3,7 +3,6 @@
 	"defaults": {
 		"transform": "forge:default-block",
 		"model": "grass",
-		"uvlock": true,
 		"textures": {
 			"particle": "blab:blocks/soil_marl",
 			"bottom": "blab:blocks/soil_marl",
@@ -13,7 +12,18 @@
 		}
 	},
     "variants": {
-		"normal":  { "model": "grass" },
+		"mossy=false": [
+            { "model": "grass", "textures": { "side": "blab:blocks/soil_marl" } },
+            { "model": "grass", "textures": { "side": "blab:blocks/soil_marl" }, "y": 90 },
+            { "model": "grass", "textures": { "side": "blab:blocks/soil_marl" }, "y": 180 },
+            { "model": "grass", "textures": { "side": "blab:blocks/soil_marl" }, "y": 270 }
+        ],
+		"mossy=true": [
+            { "model": "cube_bottom_top", "textures": { "side": "blab:blocks/soil_moss_side" } },
+            { "model": "cube_bottom_top", "textures": { "side": "blab:blocks/soil_moss_side" }, "y": 90 },
+            { "model": "cube_bottom_top", "textures": { "side": "blab:blocks/soil_moss_side" }, "y": 180 },
+            { "model": "cube_bottom_top", "textures": { "side": "blab:blocks/soil_moss_side" }, "y": 270 }
+        ],
 		"inventory":  { "model": "grass" }
     }
 }

@@ -14,6 +14,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
@@ -28,7 +29,7 @@ public class BlockPlanks extends Block implements IBlockMeta {
 
 	public BlockPlanks() {
 		super(Material.WOOD);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabFlora);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("planks");
 		this.setRegistryName(ModInformation.ID, "planks");
@@ -44,6 +45,16 @@ public class BlockPlanks extends Block implements IBlockMeta {
 	@Override
 	public String[] getNames() {
 		return WoodTypes.getNames();
+	}
+
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return 20;
+	}
+
+	@Override
+	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return 5;
 	}
 
 	@Override
@@ -89,7 +100,8 @@ public class BlockPlanks extends Block implements IBlockMeta {
 		CYPRESS(2, "cypress", MapColor.BROWN, MapColor.STONE, MapColor.GREEN_STAINED_HARDENED_CLAY),
 		FIR(3, "fir", MapColor.WHITE_STAINED_HARDENED_CLAY, MapColor.BROWN_STAINED_HARDENED_CLAY, MapColor.GREEN),
 		OLIVE(4, "olive", MapColor.ADOBE, MapColor.STONE, MapColor.YELLOW),
-		LAUREL(5, "laurel", MapColor.BROWN, MapColor.OBSIDIAN, MapColor.GREEN_STAINED_HARDENED_CLAY);
+		LAUREL(5, "laurel", MapColor.BROWN, MapColor.OBSIDIAN, MapColor.GREEN_STAINED_HARDENED_CLAY),
+		DROUGHTROOT(6, "droughtroot", MapColor.GRAY, MapColor.OBSIDIAN, MapColor.GREEN_STAINED_HARDENED_CLAY);
 
 		public static final WoodTypes[] META_LOOKUP = new WoodTypes[values().length];
 		public final int meta;

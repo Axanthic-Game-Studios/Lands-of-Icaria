@@ -28,7 +28,7 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 
 	public BlockLog(BlockPlanks.WoodTypes type, MapColor color, ItemBlockMaterial stripped) {
 		super(Material.WOOD, color);
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabFlora);
 		this.setHardness(2.0F);
 		this.type = type;
 		this.strippedLog = stripped;
@@ -90,6 +90,16 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 
 	@Override
 	public String getName() {
-		return type.getName();
+		return "material." + type.getName() + ".name";
+	}
+
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return 5;
+	}
+
+	@Override
+	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return 5;
 	}
 }

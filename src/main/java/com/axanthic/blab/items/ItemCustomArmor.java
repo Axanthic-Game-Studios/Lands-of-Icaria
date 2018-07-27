@@ -22,7 +22,7 @@ public class ItemCustomArmor extends ItemArmor {
 			type = "chestplate";
 		else if (slot.equals(EntityEquipmentSlot.LEGS))
 			type = "legs";
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabItems);
 		this.setUnlocalizedName("generic." + type);
 		this.setRegistryName(ModInformation.ID, type + "_" + materialName);
 	}

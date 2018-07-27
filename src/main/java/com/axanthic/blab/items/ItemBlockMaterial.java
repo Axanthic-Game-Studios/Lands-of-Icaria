@@ -21,7 +21,7 @@ public class ItemBlockMaterial extends ItemBlock {
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
 		try {
-			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal("material." + ((IBlockMaterial) this.block).getName() + ".name"));
+			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal(((IBlockMaterial) this.block).getName()));
 		} catch (Exception e) {
 			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), "");
 		}

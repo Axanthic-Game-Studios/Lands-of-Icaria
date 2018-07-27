@@ -2,7 +2,7 @@
     "parent": "block/cube_all",
     "textures": {
         "all": "blab:blocks/gem_zircon_model",
-		"particle": "blab:blocks/gem_zircon_particle"
+		"particle": "blab:blocks/mineral_zircon_block"
     },
     "elements": [
         {

@@ -2,7 +2,7 @@
     "parent": "block/cube_all",
     "textures": {
         "all": "blab:blocks/gem_calcite_model",
-		"particle": "blab:blocks/gem_calcite_particle"
+		"particle": "blab:blocks/mineral_calcite_block"
     },
     "elements": [
         {

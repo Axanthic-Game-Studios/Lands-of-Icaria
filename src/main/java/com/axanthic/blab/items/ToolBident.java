@@ -4,15 +4,19 @@ import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources.CompleteToolMaterial;
 import com.axanthic.blab.entity.EntityBident;
+import com.google.common.collect.Multimap;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
@@ -24,14 +28,14 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
-public class ToolBident extends ItemTool {
+public class ToolBident extends ItemTool implements IItemCustomReach {
 
 	public CompleteToolMaterial material;
 
 	public ToolBident(CompleteToolMaterial material) {
 		super(material.material.getAttackDamage() + 1.0F, material.attackSpeed - 0.5F, material.material, null);
 		this.material = material;
-		this.setCreativeTab(Blab.modTab);
+		this.setCreativeTab(Blab.modTabItems);
 		this.setUnlocalizedName("generic.bident");
 		this.setRegistryName(ModInformation.ID, "bident_" + material.material.name().substring(ModInformation.ID.length() + 1));
 	}
@@ -49,6 +53,11 @@ public class ToolBident extends ItemTool {
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		stack.damageItem(1, attacker);
 		return true;
+	}
+
+	@Override
+	public float getDestroySpeed(ItemStack stack, IBlockState state){
+		return 1.0F;
 	}
 
 	@Override
@@ -135,5 +144,20 @@ public class ToolBident extends ItemTool {
 
 		playerIn.setActiveHand(handIn);
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+	}
+
+	@Override
+	public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot) {
+		Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
+
+		if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
+			multimap.put(Blab.ATTACK_RANGE.getName(), new AttributeModifier(Blab.ATTACK_RANGE_MODIFIER, "Weapon modifier", (double)this.getReach() - 5.0D, 0));
+		}
+		return multimap;
+	}
+
+	@Override
+	public float getReach() {
+		return 7.0F;
 	}
 }
