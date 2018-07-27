@@ -14,6 +14,7 @@ import com.axanthic.blab.blocks.BlockCustomStairs;
 import com.axanthic.blab.blocks.BlockCustomTrapdoor;
 import com.axanthic.blab.blocks.BlockFlower;
 import com.axanthic.blab.blocks.BlockFlower2;
+import com.axanthic.blab.blocks.BlockForge;
 import com.axanthic.blab.blocks.BlockGem;
 import com.axanthic.blab.blocks.BlockGlassy;
 import com.axanthic.blab.blocks.BlockGrainelStone;
@@ -37,6 +38,7 @@ import com.axanthic.blab.blocks.BlockStorageGem;
 import com.axanthic.blab.blocks.BlockStorageMetal;
 import com.axanthic.blab.blocks.BlockStorageVase;
 import com.axanthic.blab.blocks.BlockTallGrass;
+import com.axanthic.blab.items.ItemBlockForge;
 import com.axanthic.blab.items.ItemBlockMaterial;
 import com.axanthic.blab.items.ItemBlockMaterialDoor;
 import com.axanthic.blab.items.ItemBlockMaterialSlab;
@@ -128,6 +130,7 @@ public class Resources {
 	public static ItemBlock storageVase = new ItemBlock(new BlockStorageVase());
 	public static ItemBlock kiln = new ItemBlock(new BlockKiln());
 	public static ItemBlock grinder = new ItemBlock(new BlockGrinder());
+	public static ItemBlock forge = new ItemBlockForge(new BlockForge());
 
 	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0);
 	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1);
@@ -216,6 +219,7 @@ public class Resources {
 		Resources.registerBlock(Resources.storageVase);
 		Resources.registerBlock(Resources.kiln);
 		Resources.registerBlock(Resources.grinder);
+		Resources.registerBlock(Resources.forge);
 
 		Resources.plane.register();
 		Resources.populus.register();

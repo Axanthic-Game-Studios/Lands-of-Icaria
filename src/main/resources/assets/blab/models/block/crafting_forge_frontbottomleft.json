@@ -1,10 +1,11 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "parent": "block/cube_all",
     "textures": {
-        "0": "blocks/crafting_forge_model_front",
-        "1": "blocks/crafting_forge_model_side",
-        "2": "blocks/crafting_forge_model_top",
-        "3": "blocks/crafting_forge_fire"
+		"-1": "blab:blocks/rock_grainel_bricks",
+		"particle": "blab:blocks/rock_grainel_bricks",
+        "0": "blab:blocks/crafting_forge_model_front",
+        "1": "blab:blocks/crafting_forge_model_side",
+        "2": "blab:blocks/crafting_forge_model_top"
     },
     "elements": [
         {
@@ -78,9 +79,9 @@
             "to": [ 19.30000000447035, 12.0, 8.0 ], 
             "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 45.0 },
             "faces": {
-                "north": { "texture": "#3", "uv": [ 8.0, 0.0, 16.0, 8.0 ] },
+                "north": { "texture": "#flame", "uv": [ 8.0, 0.0, 16.0, 8.0 ] },
                 "east": { "texture": "#-1", "uv": [ 0.0, 0.0, -2.0, 8.0 ] },
-                "south": { "texture": "#3", "uv": [ 0.0, 0.0, 8.0, 8.0 ] },
+                "south": { "texture": "#flame", "uv": [ 0.0, 0.0, 8.0, 8.0 ] },
                 "west": { "texture": "#-1", "uv": [ 0.0, 0.0, 0.0, 8.0 ] },
                 "up": { "texture": "#-1", "uv": [ 0.0, 0.0, 8.0, 0.0 ] },
                 "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 8.0, 0.0 ] }

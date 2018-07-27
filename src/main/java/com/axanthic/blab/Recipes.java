@@ -51,6 +51,7 @@ public class Recipes {
 		addRecipe(new ItemStack(Resources.kiln, 1, 0), new Object[]{"BBB", "B B", "BBB", 'B', new ItemStack(Resources.brick, 1, 0)});
 		addRecipe(new ItemStack(Resources.grinder, 1, 0), new Object[]{"SSS", "SIS", "SSS", 'S', new ItemStack(Resources.rock, 1, 2), 'I', "ingotOrichalcum"});
 		addRecipe(new ItemStack(Resources.grinder, 1, 0), new Object[]{"BBB", "BIB", "BBB", 'B', new ItemStack(Resources.brick, 1, 2), 'I', "ingotOrichalcum"});
+		addRecipe(new ItemStack(Resources.forge, 1, 0), new Object[]{"LGL", "L L", "LGL", 'L', new ItemStack(Resources.loamBricks, 1, 0), 'G', new ItemStack(Resources.grainelStone, 1, 1)});
 
 		addRecipe(new ItemStack(Resources.silkstoneSand, 1, 0), new Object[]{"PP", "PP", 'P', new ItemStack(Resources.resource, 1, 4)});
 		GameRegistry.addSmelting(new ItemStack(Resources.silkstoneSand, 1, 0), new ItemStack(Resources.rock, 1, 1), 0.1F);
@@ -266,7 +267,6 @@ public class Recipes {
 		OreDictionary.registerOre("dustCalcite", new ItemStack(Resources.resource, 1, 8));
 		OreDictionary.registerOre("gemPolishedZircon", new ItemStack(Resources.resource, 1, 9));
 
-		OreDictionary.registerOre("cobblestone", new ItemStack(Resources.rock, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("sand", new ItemStack(Resources.silkstoneSand, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("blockSand", new ItemStack(Resources.silkstoneSand, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("sand", new ItemStack(Resources.grainelSand, 1, OreDictionary.WILDCARD_VALUE));

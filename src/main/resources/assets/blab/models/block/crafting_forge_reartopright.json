@@ -1,9 +1,11 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "parent": "block/cube_all",
     "textures": {
-        "0": "blocks/crafting_forge_model_back",
-        "1": "blocks/crafting_forge_model_side",
-        "2": "blocks/crafting_forge_model_top"
+		"-1": "blab:blocks/soil_loam_brick_block",
+		"particle": "blab:blocks/soil_loam_brick_block",
+        "0": "blab:blocks/crafting_forge_model_back",
+        "1": "blab:blocks/crafting_forge_model_side",
+        "2": "blab:blocks/crafting_forge_model_top"
     },
     "elements": [
         {

@@ -94,6 +94,7 @@ tile.loot_vase.name=Loot Vase
 tile.storage_vase.name=Baked Storage Vase
 tile.crafting_kiln.name=Kiln
 tile.crafting_grinder.name=Grinder
+tile.crafting_forge.name=Forge
 
 material.yellowstone.name=Yellowstone
 material.silkstone.name=Silkstone
@@ -134,6 +135,7 @@ material.droughtroot.name=Droughtroot
 container.vase=Storage Vase
 container.kiln=Kiln
 container.grinder=Grinder
+container.forge=Forge
 
 attribute.name.generic.attackRange=Attack Range
 
