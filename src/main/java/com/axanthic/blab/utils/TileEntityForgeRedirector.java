@@ -2,71 +2,24 @@ package com.axanthic.blab.utils;
 
 import javax.annotation.Nullable;
 
-import com.axanthic.blab.blocks.BlockForge;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.BlockPos;
 
 public class TileEntityForgeRedirector extends TileEntityLockable implements ISidedInventory {
 
 	public TileEntityForge original;
-	public IBlockState state;
-	public BlockPos oriPos;
 
-
-	public TileEntityForgeRedirector (IBlockState state) {
+	public TileEntityForgeRedirector (TileEntityForge original) {
 		super();
-		this.state = state;
+		this.original = original;
 	}
 	public TileEntityForgeRedirector () {
 		super();
-	}
-
-	public void setPos(BlockPos posIn) {
-		super.setPos(posIn);
-
-		if (original != null)
-			return;
-		if (oriPos == null)
-			oriPos = BlockForge.getTileLocation(pos, state);
-		if (oriPos == null || this.world == null || this.world.isRemote)
-			return;
-		TileEntity ori = this.world.getTileEntity(oriPos);
-		if (ori != null && ori instanceof TileEntityForge) {
-			this.original = (TileEntityForge) ori;
-		}
-	}
-
-	public void readFromNBT(NBTTagCompound compound) {
-		super.readFromNBT(compound);
-		if (compound.hasKey("orix") && compound.hasKey("oriy") && compound.hasKey("oriz"))
-			this.oriPos = new BlockPos(compound.getInteger("orix"), compound.getInteger("oriy"), compound.getInteger("oriz"));
-
-		if (original != null)
-			return;
-		if (oriPos == null)
-			oriPos = BlockForge.getTileLocation(pos, state);
-		if (oriPos == null || this.world == null || this.world.isRemote)
-			return;
-		TileEntity ori = this.world.getTileEntity(oriPos);
-		if (ori != null && ori instanceof TileEntityForge) {
-			this.original = (TileEntityForge) ori;
-		}
-	}
-
-	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-		compound.setInteger("orix", this.oriPos.getX());
-		compound.setInteger("oriy", this.oriPos.getY());
-		compound.setInteger("oriz", this.oriPos.getZ());
-		return super.writeToNBT(compound);
 	}
 
 	public int getSizeInventory() {

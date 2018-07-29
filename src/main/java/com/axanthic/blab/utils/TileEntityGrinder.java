@@ -276,7 +276,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 
 			if (itemstack2.isEmpty()) {
 				this.inventoryItems.set(2, itemstack1.copy());
-			} else if (itemstack2.getItem() == itemstack1.getItem()) {
+			} else if (ItemStack.areItemsEqual(itemstack2, itemstack1)) {
 				itemstack2.grow(itemstack1.getCount());
 			}
 

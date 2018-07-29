@@ -1,5 +1,7 @@
 package com.axanthic.blab.gui;
 
+import com.axanthic.blab.utils.TileEntityForge;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -115,6 +117,10 @@ public class ContainerForge extends Container {
 					}
 				} else if (TileEntityFurnace.isItemFuel(itemstack1)) {
 					if (!this.mergeItemStack(itemstack1, 3, 4, false)) {
+						return ItemStack.EMPTY;
+					}
+				} else if (TileEntityForge.hasAlloyResult(itemstack1)) {
+					if (!this.mergeItemStack(itemstack1, 0, 3, false)) {
 						return ItemStack.EMPTY;
 					}
 				} else if (index >= 6 && index < 33) {

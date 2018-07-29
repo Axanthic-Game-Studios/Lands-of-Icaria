@@ -60,20 +60,23 @@ public class BlockForge extends BlockContainer {
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false).withProperty(CORNER, EnumCorner.BOTTOM_FRONT_LEFT));
 		this.setSoundType(SoundType.STONE);
 	}
+	
+	public void onNeighborChange(IBlockAccess world, BlockPos pos, BlockPos neighbor){
+		if (world.getTileEntity(pos) instanceof TileEntityForge) {
+			((TileEntityForge) world.getTileEntity(pos)).setNeighbours(pos);
+		}
+	}
 
 	public void setState(IBlockState state, World worldIn, BlockPos pos) {
 		state = getActualState(state, worldIn, pos);
 		EnumFacing facing = (EnumFacing) state.getValue(FACING);
-		TileEntity[] tileentities = new TileEntity[] { worldIn.getTileEntity(pos),
-				worldIn.getTileEntity(pos.offset(facing)),
-				worldIn.getTileEntity(pos.offset(facing).offset(facing.rotateY())),
-				worldIn.getTileEntity(pos.offset(facing.rotateY())),
-				worldIn.getTileEntity(pos.offset(EnumFacing.UP)),
-				worldIn.getTileEntity(pos.offset(EnumFacing.UP).offset(facing)),
-				worldIn.getTileEntity(pos.offset(EnumFacing.UP).offset(facing).offset(facing.rotateY())),
-				worldIn.getTileEntity(pos.offset(EnumFacing.UP).offset(facing.rotateY()))
-		};
+		TileEntity tileentity = worldIn.getTileEntity(pos);
 		worldIn.setBlockState(pos, state, 3);
+		worldIn.setBlockState(pos, state, 3);
+		if (tileentity != null) {
+			tileentity.validate();
+			worldIn.setTileEntity(pos, tileentity);
+		}
 		worldIn.setBlockState(pos.offset(facing), state.withProperty(CORNER, EnumCorner.BOTTOM_BACK_LEFT), 3);
 		worldIn.setBlockState(pos.offset(facing).offset(facing.rotateY()), state.withProperty(CORNER, EnumCorner.BOTTOM_BACK_RIGHT), 3);
 		worldIn.setBlockState(pos.offset(facing.rotateY()), state.withProperty(CORNER, EnumCorner.BOTTOM_FRONT_RIGHT), 3);
@@ -81,13 +84,6 @@ public class BlockForge extends BlockContainer {
 		worldIn.setBlockState(pos.offset(EnumFacing.UP).offset(facing), state.withProperty(CORNER, EnumCorner.TOP_BACK_LEFT), 3);
 		worldIn.setBlockState(pos.offset(EnumFacing.UP).offset(facing).offset(facing.rotateY()), state.withProperty(CORNER, EnumCorner.TOP_BACK_RIGHT), 3);
 		worldIn.setBlockState(pos.offset(EnumFacing.UP).offset(facing.rotateY()), state.withProperty(CORNER, EnumCorner.TOP_FRONT_RIGHT), 3);
-
-		for (TileEntity tileentity : tileentities) {
-			if (tileentity != null) {
-				tileentity.validate();
-				worldIn.setTileEntity(pos, tileentity);
-			}
-		}
 	}
 
 	@Override
@@ -147,15 +143,19 @@ public class BlockForge extends BlockContainer {
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
 		if (worldIn.getBlockState(pos).getBlock() instanceof BlockForge)
 			return;
+		if (((EnumFacing) state.getValue(FACING)) == EnumFacing.NORTH)
+			state = getActualState(state, worldIn, pos);
+
 		EnumFacing facing = (EnumFacing) state.getValue(FACING);
 		TileEntity tileentity = worldIn.getTileEntity(pos);
 		BlockPos pos2 = getTileLocation(pos, state);
 		if (tileentity instanceof TileEntityForgeRedirector) {
 			TileEntity tileentityOrigin = worldIn.getTileEntity(pos2);
-			if (tileentity instanceof IInventory) {
+			if (tileentityOrigin instanceof TileEntityForge) {
 				InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory)tileentityOrigin);
+				worldIn.destroyBlock(pos2, false);
 			}
-		} else if (tileentity instanceof IInventory) {
+		} else if (tileentity instanceof TileEntityForge) {
 			InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory)tileentity);
 			worldIn.destroyBlock(pos.offset(facing), false);
 			worldIn.destroyBlock(pos.offset(facing).offset(facing.rotateY()), false);
@@ -249,7 +249,7 @@ public class BlockForge extends BlockContainer {
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
 		if (meta == 6 || meta == 14)
 			return new TileEntityForge();
-		return null;//new TileEntityForgeRedirector(getStateFromMeta(meta));
+		return null;
 	}
 
 	@Override
@@ -259,7 +259,7 @@ public class BlockForge extends BlockContainer {
 
 	@Override
 	public int getComparatorInputOverride(IBlockState blockState, World worldIn, BlockPos pos) {
-		return Container.calcRedstone(worldIn.getTileEntity(pos));
+		return Container.calcRedstone(worldIn.getTileEntity(this.getTileLocation(pos, blockState)));
 	}
 
 	@Override
