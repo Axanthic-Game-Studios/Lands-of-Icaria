@@ -28,5 +28,5 @@ Team:
 - Joey41114 - Recruit
 #
 Additional contributions:
-Concinus: Some 3D models for mushrooms and types of crops
-The old Eternal Frost and Nanpa teams: Some textures (altered for this project)
+- Concinus: Some 3D models for mushrooms and types of crops
+- The old Eternal Frost and Nanpa teams: Some textures (altered for this project)
