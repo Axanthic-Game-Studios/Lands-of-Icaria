@@ -140,5 +140,6 @@ container.forge=Forge
 attribute.name.generic.attackRange=Attack Range
 
 entity.fallingVase.name=Loot Vase
+entity.aeternae.name=Aeternae
 
 message.loot_vase.pickup=Sneak to throw vase

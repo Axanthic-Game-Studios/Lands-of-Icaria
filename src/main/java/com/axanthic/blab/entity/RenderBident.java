@@ -2,7 +2,6 @@ package com.axanthic.blab.entity;
 
 import javax.annotation.Nonnull;
 
-import com.axanthic.blab.ModInformation;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -16,13 +15,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderBident extends Render<EntityBident> {
-
-	public static final ResourceLocation CHALKOS = new ResourceLocation(ModInformation.ID, "textures/items/metal_chalkos_tool_bident.png");
-	public static final ResourceLocation KASSITEROS = new ResourceLocation(ModInformation.ID, "textures/items/metal_kassiteros_tool_bident.png");
-	public static final ResourceLocation ORICHALCUM = new ResourceLocation(ModInformation.ID, "textures/items/metal_orichalcum_tool_bident.png");
-	public static final ResourceLocation VANADIUMSTEEL = new ResourceLocation(ModInformation.ID, "textures/items/metal_vanadiumsteel_tool_bident.png");
-	public static final ResourceLocation SIDEROS = new ResourceLocation(ModInformation.ID, "textures/items/metal_sideros_tool_bident.png");
-	public static final ResourceLocation MOLYBDENUMSTEEL = new ResourceLocation(ModInformation.ID, "textures/items/metal_molybdenumsteel_tool_bident.png");
 
 	public RenderBident(RenderManager renderManager) {
 		super(renderManager);
