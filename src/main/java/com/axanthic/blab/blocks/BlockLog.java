@@ -1,7 +1,12 @@
 package com.axanthic.blab.blocks;
 
+import java.util.Random;
+
+import javax.annotation.Nullable;
+
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
+import com.axanthic.blab.entity.EntityForestHag;
 import com.axanthic.blab.items.ItemBlockMaterial;
 
 import net.minecraft.block.BlockRotatedPillar;
@@ -9,14 +14,18 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -49,9 +58,43 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 		if (worldIn.isAreaLoaded(pos.add(-5, -5, -5), pos.add(5, 5, 5))) {
 			for (BlockPos blockpos : BlockPos.getAllInBox(pos.add(-4, -4, -4), pos.add(4, 4, 4))) {
 				IBlockState iblockstate = worldIn.getBlockState(blockpos);
-
 				if (iblockstate.getBlock().isLeaves(iblockstate, worldIn, blockpos)) {
 					iblockstate.getBlock().beginLeavesDecay(iblockstate, worldIn, blockpos);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack) {
+		super.harvestBlock(worldIn, player, pos, state, te, stack);
+		if (stripped || player == null)
+			return;
+		for(EntityForestHag forestHag : worldIn.getEntitiesWithinAABB(EntityForestHag.class, new AxisAlignedBB(pos).grow(32))) {
+			if (forestHag.getType() == this.type.meta)
+				forestHag.setAttackTarget(player);
+		}
+
+		Random rand = new Random();
+		if (rand.nextInt(100) != 0)
+			return;
+		EntityForestHag forestHag = new EntityForestHag(worldIn);
+		forestHag.setType(type.meta);
+
+		int i = MathHelper.floor(pos.getX());
+		int j = MathHelper.floor(pos.getY());
+		int k = MathHelper.floor(pos.getZ());
+		for (int l = 0; l < 50; ++l) {
+			int i1 = i + MathHelper.getInt(rand, 7, 40) * MathHelper.getInt(rand, -1, 1);
+			int j1 = j + MathHelper.getInt(rand, 7, 40) * MathHelper.getInt(rand, -1, 1);
+			int k1 = k + MathHelper.getInt(rand, 7, 40) * MathHelper.getInt(rand, -1, 1);
+
+			if (worldIn.getBlockState(new BlockPos(i1, j1 - 1, k1)).isSideSolid(worldIn, new BlockPos(i1, j1 - 1, k1), net.minecraft.util.EnumFacing.UP)) {
+				forestHag.setPosition((double)i1, (double)j1, (double)k1);
+				if (!worldIn.isAnyPlayerWithinRangeAt((double)i1, (double)j1, (double)k1, 7.0D) && worldIn.checkNoEntityCollision(forestHag.getEntityBoundingBox(), forestHag) && worldIn.getCollisionBoxes(forestHag, forestHag.getEntityBoundingBox()).isEmpty() && !worldIn.containsAnyLiquid(forestHag.getEntityBoundingBox())) {
+					worldIn.spawnEntity(forestHag);
+					forestHag.onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(forestHag)), (IEntityLivingData)null);
+					break;
 				}
 			}
 		}

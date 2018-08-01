@@ -1,15 +1,15 @@
-package blab;
+package com.axanthic.blab.entity;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-/**
- * ModelEnderman - Either Mojang or a mod author
- * Created using Tabula 7.0.0
- */
-public class IcariaForesthag extends ModelBase {
-    public ModelRenderer arm_right;
+@SideOnly(Side.CLIENT)
+public class ModelForestHag extends ModelBase {
+	public ModelRenderer arm_right;
     public ModelRenderer leg_right;
     public ModelRenderer head;
     public ModelRenderer body;
@@ -19,7 +19,7 @@ public class IcariaForesthag extends ModelBase {
     public ModelRenderer back_lower;
     public ModelRenderer back_top;
 
-    public IcariaForesthag() {
+    public ModelForestHag() {
         this.textureWidth = 64;
         this.textureHeight = 32;
         this.head = new ModelRenderer(this, 0, 0);
@@ -73,12 +73,18 @@ public class IcariaForesthag extends ModelBase {
         this.back_top.render(f5);
     }
 
-    /**
-     * This is a helper function from Tabula to set the rotation of model parts
-     */
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-        modelRenderer.rotateAngleX = x;
-        modelRenderer.rotateAngleY = y;
-        modelRenderer.rotateAngleZ = z;
-    }
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+		modelRenderer.rotateAngleX = x;
+		modelRenderer.rotateAngleY = y;
+		modelRenderer.rotateAngleZ = z;
+	}
+
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+		this.head.rotateAngleX = headPitch * 0.017453292F;
+		this.head.rotateAngleY = netHeadYaw * 0.017453292F;
+		this.leg_left.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 0.75F * limbSwingAmount;
+		this.leg_right.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 0.5F * limbSwingAmount;
+		this.arm_left.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 0.5F * limbSwingAmount - 0.17453292519943295F;
+		this.arm_right.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 0.5F * limbSwingAmount - 0.17453292519943295F;
+	}
 }

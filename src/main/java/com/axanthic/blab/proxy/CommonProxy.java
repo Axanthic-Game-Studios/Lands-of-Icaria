@@ -7,6 +7,7 @@ import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityAeternae;
 import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.EntityFallingVase;
+import com.axanthic.blab.entity.EntityForestHag;
 import com.axanthic.blab.gui.GuiHandlerBlab;
 import com.axanthic.blab.gui.GuiHandlerRegistry;
 import com.axanthic.blab.items.IItemCustomReach;
@@ -50,6 +51,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "bident", 0, ModInformation.ID, 64, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "fallingVase"), EntityFallingVase.class, "fallingVase", 1, ModInformation.ID, 160, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "aeternae"), EntityAeternae.class, "aeternae", 2, ModInformation.ID, 80, 3, true, 0xE27E1E, 0xF9BC0B);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forestHag"), EntityForestHag.class, "forestHag", 3, ModInformation.ID, 80, 3, true, 0x554937, 0x4D7F2F);
 
 		GameRegistry.registerTileEntity(TileEntityVase.class, new ResourceLocation(ModInformation.ID, "storage_vase"));
 		GameRegistry.registerTileEntity(TileEntityKiln.class, new ResourceLocation(ModInformation.ID, "crafting_kiln"));
