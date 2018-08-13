@@ -13,9 +13,13 @@ import com.axanthic.blab.blocks.BlockLog;
 import com.axanthic.blab.blocks.BlockSapling;
 import com.axanthic.blab.blocks.BlockTallGrass;
 import com.axanthic.blab.blocks.IBlockMeta;
+import com.axanthic.blab.entity.EntityAeternae;
 import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.EntityFallingVase;
+import com.axanthic.blab.entity.EntityForestHag;
+import com.axanthic.blab.entity.RenderAeternae;
 import com.axanthic.blab.entity.RenderBident;
+import com.axanthic.blab.entity.RenderForestHag;
 import com.axanthic.blab.items.IItemCustomReach;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemCustomArmor;
@@ -66,6 +70,8 @@ public class ClientProxy extends CommonProxy {
 		super.preInit(event);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBident.class, RenderBident::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFallingVase.class, RenderFallingBlock::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityAeternae.class, RenderAeternae::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityForestHag.class, RenderForestHag::new);
 	}
 
 	@Override

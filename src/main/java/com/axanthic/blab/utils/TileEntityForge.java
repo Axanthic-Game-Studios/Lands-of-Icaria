@@ -1,10 +1,19 @@
 package com.axanthic.blab.utils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+
+import com.axanthic.blab.Recipes;
+import com.axanthic.blab.Resources;
 import com.axanthic.blab.blocks.BlockForge;
+import com.axanthic.blab.blocks.BlockForge.EnumCorner;
 import com.axanthic.blab.gui.ContainerForge;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
@@ -27,6 +36,7 @@ import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -41,6 +51,37 @@ public class TileEntityForge extends TileEntityLockable implements ITickable, IS
 	private int cookTime;
 	private int totalCookTime;
 	private String customName;
+
+	public void setNeighbours(BlockPos posIn) {
+		if (posIn == null || this.world == null || !this.world.isValid(posIn) || !this.world.isBlockLoaded(posIn))
+			return;
+
+		try {
+			IBlockState state = Resources.forge.getBlock().getActualState(this.world.getBlockState(posIn), this.world, posIn);
+			if (state != null && state.getProperties().containsKey(BlockForge.CORNER) && state.getValue(BlockForge.CORNER).equals(EnumCorner.BOTTOM_FRONT_LEFT)) {
+				EnumFacing facing = state.getValue(BlockHorizontal.FACING);
+				this.world.setTileEntity(posIn.offset(facing), new TileEntityForgeRedirector(this));
+				this.world.setTileEntity(posIn.offset(facing).offset(facing.rotateY()), new TileEntityForgeRedirector(this));
+				this.world.setTileEntity(posIn.offset(facing.rotateY()), new TileEntityForgeRedirector(this));
+				this.world.setTileEntity(posIn.offset(EnumFacing.UP), new TileEntityForgeRedirector(this));
+				this.world.setTileEntity(posIn.offset(EnumFacing.UP).offset(facing), new TileEntityForgeRedirector(this));
+				this.world.setTileEntity(posIn.offset(EnumFacing.UP).offset(facing).offset(facing.rotateY()), new TileEntityForgeRedirector(this));
+				this.world.setTileEntity(posIn.offset(EnumFacing.UP).offset(facing.rotateY()), new TileEntityForgeRedirector(this));
+			}
+		} catch (Exception e) {
+			System.out.println("blegh");
+		}
+	}
+
+	public void setPos(BlockPos posIn) {
+		super.setPos(posIn);
+		setNeighbours(posIn);
+	}
+
+	public void onLoad() {
+		super.onLoad();
+		setNeighbours(this.pos);
+	}
 
 	/**
 	 * Returns the number of slots in the inventory.
@@ -241,6 +282,8 @@ public class TileEntityForge extends TileEntityLockable implements ITickable, IS
 			itemstack = FurnaceRecipes.instance().getSmeltingResult(this.inventoryItems.get(1));
 		if (!((ItemStack) this.inventoryItems.get(0)).isEmpty())
 			itemstack = FurnaceRecipes.instance().getSmeltingResult(this.inventoryItems.get(0));
+		if (!getAlloyResult(this.inventoryItems.get(0), this.inventoryItems.get(1), this.inventoryItems.get(2)).isEmpty())
+			itemstack = getAlloyResult(this.inventoryItems.get(0), this.inventoryItems.get(1), this.inventoryItems.get(2));
 		if (itemstack.isEmpty()) 
 			return false;
 
@@ -271,16 +314,47 @@ public class TileEntityForge extends TileEntityLockable implements ITickable, IS
 		return canSmelt;
 	}
 
+	public static ItemStack getAlloyResult(ItemStack input1, ItemStack input2, ItemStack input3) {
+		Collection<String> ingredients = new ArrayList(Arrays.asList(input1.getItem().getRegistryName().toString() + ":" + input1.getMetadata(), input2.getItem().getRegistryName().toString() + ":" + input2.getMetadata(), input3.getItem().getRegistryName().toString() + ":" + input3.getMetadata()));
+
+		if (Recipes.forgeRecipes.containsKey(ingredients))
+			return Recipes.forgeRecipes.get(ingredients).copy();
+
+		for (Collection<String> recipe : Recipes.forgeRecipes.keySet()) {
+			if (ingredients.containsAll(recipe) && recipe.containsAll(ingredients) && ingredients.size() == recipe.size())
+				return Recipes.forgeRecipes.get(recipe).copy();
+		}
+		return ItemStack.EMPTY;
+	}
+
+	public static boolean hasAlloyResult(ItemStack input) {
+		return Recipes.forgeIngredients.contains(input.getItem().getRegistryName().toString() + ":" + input.getMetadata());
+	}
+
 	public void smeltItem() {
 		if (this.canSmelt()) {
-			ItemStack itemstack = ItemStack.EMPTY;
-			if (!((ItemStack) this.inventoryItems.get(2)).isEmpty())
-				itemstack = this.inventoryItems.get(2);
-			if (!((ItemStack) this.inventoryItems.get(1)).isEmpty())
-				itemstack = this.inventoryItems.get(1);
-			if (!((ItemStack) this.inventoryItems.get(0)).isEmpty())
-				itemstack = this.inventoryItems.get(0);
-			ItemStack itemstack1 = FurnaceRecipes.instance().getSmeltingResult(itemstack);
+			ItemStack itemstack;
+			ItemStack itemstack1;
+			if (getAlloyResult(this.inventoryItems.get(0), this.inventoryItems.get(1), this.inventoryItems.get(2)).isEmpty()) {
+				itemstack = ItemStack.EMPTY;
+				if (!((ItemStack) this.inventoryItems.get(2)).isEmpty())
+					itemstack = this.inventoryItems.get(2);
+				if (!((ItemStack) this.inventoryItems.get(1)).isEmpty())
+					itemstack = this.inventoryItems.get(1);
+				if (!((ItemStack) this.inventoryItems.get(0)).isEmpty())
+					itemstack = this.inventoryItems.get(0);
+				itemstack1 = FurnaceRecipes.instance().getSmeltingResult(itemstack);
+
+				if (itemstack.getItem() == Item.getItemFromBlock(Blocks.SPONGE) && itemstack.getMetadata() == 1 && !((ItemStack) this.inventoryItems.get(3)).isEmpty() && ((ItemStack) this.inventoryItems.get(3)).getItem() == Items.BUCKET) {
+					this.inventoryItems.set(3, new ItemStack(Items.WATER_BUCKET));
+				}
+				itemstack.shrink(1);
+			} else {
+				itemstack1 = getAlloyResult(this.inventoryItems.get(0), this.inventoryItems.get(1), this.inventoryItems.get(2));
+				this.inventoryItems.get(0).shrink(1);
+				this.inventoryItems.get(1).shrink(1);
+				this.inventoryItems.get(2).shrink(1);
+			}
 			ItemStack itemstack2 = this.inventoryItems.get(4);
 			ItemStack itemstack3 = this.inventoryItems.get(5);
 
@@ -288,7 +362,7 @@ public class TileEntityForge extends TileEntityLockable implements ITickable, IS
 			if (itemstack2.isEmpty()) {
 				this.inventoryItems.set(4, itemstack1.copy());
 				done = true;
-			} else if (itemstack2.getItem() == itemstack1.getItem() && itemstack2.getCount() + itemstack1.getCount() <= itemstack1.getMaxStackSize()) {
+			} else if (ItemStack.areItemsEqual(itemstack2, itemstack1) && itemstack2.getCount() + itemstack1.getCount() <= itemstack1.getMaxStackSize()) {
 				itemstack2.grow(itemstack1.getCount());
 				done = true;
 			}
@@ -296,15 +370,11 @@ public class TileEntityForge extends TileEntityLockable implements ITickable, IS
 				if (itemstack3.isEmpty()) {
 					this.inventoryItems.set(5, itemstack1.copy());
 					done = true;
-				} else if (itemstack3.getItem() == itemstack1.getItem() && itemstack3.getCount() + itemstack1.getCount() <= itemstack1.getMaxStackSize()) {
+				} else if (ItemStack.areItemsEqual(itemstack3, itemstack1) && itemstack3.getCount() + itemstack1.getCount() <= itemstack1.getMaxStackSize()) {
 					itemstack3.grow(itemstack1.getCount());
 					done = true;
 				}
 			}
-			if (itemstack.getItem() == Item.getItemFromBlock(Blocks.SPONGE) && itemstack.getMetadata() == 1 && !((ItemStack) this.inventoryItems.get(3)).isEmpty() && ((ItemStack) this.inventoryItems.get(3)).getItem() == Items.BUCKET) {
-				this.inventoryItems.set(3, new ItemStack(Items.WATER_BUCKET));
-			}
-			itemstack.shrink(1);
 		}
 	}
 

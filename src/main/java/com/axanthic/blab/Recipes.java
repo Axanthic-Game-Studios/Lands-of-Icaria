@@ -1,5 +1,8 @@
 package com.axanthic.blab;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,10 +28,17 @@ public class Recipes {
 
 	static ResourceLocation group = new ResourceLocation("");
 
-    public static Map<String, ItemStack> grindingRecipes = new HashMap<String, ItemStack>();
-    public static Map<String, Integer> grinderFuel = new HashMap<String, Integer>();
+	public static Map<String, ItemStack> grindingRecipes = new HashMap<String, ItemStack>();
+	public static Map<String, Integer> grinderFuel = new HashMap<String, Integer>();
+
+	public static Map<Collection<String>, ItemStack> forgeRecipes = new HashMap<Collection<String>, ItemStack>();
+	public static Collection<String> forgeIngredients = new ArrayList<String>();
 
 	public static void registerRecipes() {
+		addForgeRecipe(new ItemStack(Resources.ingot, 3, 3), new ItemStack(Resources.ingot, 1, 1), new ItemStack(Resources.ingot, 1, 0), new ItemStack(Resources.ingot, 1, 0));
+		addForgeRecipe(new ItemStack(Resources.ingot, 2, 6), new ItemStack(Resources.ingot, 1, 1), new ItemStack(Resources.ingot, 1, 5), new ItemStack(Resources.resource, 1, 0));
+		addForgeRecipe(new ItemStack(Resources.ingot, 2, 9), new ItemStack(Resources.ingot, 1, 7), new ItemStack(Resources.ingot, 1, 8), new ItemStack(Resources.resource, 1, 2));
+
 		addGrinderRecipe(new ItemStack(Resources.resource, 1, 8), new ItemStack(Resources.resource, 1, 5));
 		addGrinderRecipe(new ItemStack(Resources.resource, 1, 9), new ItemStack(Resources.resource, 1, 7));
 
@@ -84,7 +94,7 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 9), new ItemStack(Resources.ingot, 1, 8), 0.9F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 10), new ItemStack(Resources.ingot, 1, 10), 1.0F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 12), new ItemStack(Resources.resource, 1, 3), 0.5F);
-		
+
 		for (int i = 0; i < BlockRock.StoneTypes.getNames().length; i++) {
 			addRecipe(new ItemStack(Resources.brick, 4, i), new Object[]{"RR", "RR", 'R', new ItemStack(Resources.rock, 1, i)});
 		}
@@ -199,6 +209,12 @@ public class Recipes {
 
 	public static void addGrinderFuel(ItemStack fuel, int burnTime) {
 		grinderFuel.put(fuel.getItem().getRegistryName().toString() + ":" + fuel.getMetadata(), burnTime);
+	}
+
+	public static void addForgeRecipe(ItemStack output, ItemStack input1, ItemStack input2, ItemStack input3) {
+		Collection ingredients  = new ArrayList(Arrays.asList(input1.getItem().getRegistryName().toString() + ":" + input1.getMetadata(), input2.getItem().getRegistryName().toString() + ":" + input2.getMetadata(), input3.getItem().getRegistryName().toString() + ":" + input3.getMetadata()));
+		forgeIngredients.addAll(ingredients);
+		forgeRecipes.put(ingredients,  output);
 	}
 
 	public static String upCase(String string) {
