@@ -94,6 +94,7 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 				if (!worldIn.isAnyPlayerWithinRangeAt((double)i1, (double)j1, (double)k1, 7.0D) && worldIn.checkNoEntityCollision(forestHag.getEntityBoundingBox(), forestHag) && worldIn.getCollisionBoxes(forestHag, forestHag.getEntityBoundingBox()).isEmpty() && !worldIn.containsAnyLiquid(forestHag.getEntityBoundingBox())) {
 					worldIn.spawnEntity(forestHag);
 					forestHag.onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(forestHag)), (IEntityLivingData)null);
+					worldIn.playSound(player, pos, SoundEvents.ENTITY_WITHER_BREAK_BLOCK, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					break;
 				}
 			}

@@ -1,7 +1,9 @@
 package com.axanthic.blab.utils;
 
 import com.axanthic.blab.Recipes;
+import com.axanthic.blab.blocks.BlockGrinder;
 import com.axanthic.blab.gui.ContainerKiln;
+import com.axanthic.blab.proxy.ClientProxy;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -14,14 +16,19 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.datafix.FixTypes;
 import net.minecraft.util.datafix.walkers.ItemStackDataLists;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
@@ -35,6 +42,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 	private int currentItemBurnTime;
 	private int cookTime;
 	private int totalCookTime;
+	private int lastSound = 285;
 	private String customName;
 
 	/**
@@ -147,6 +155,27 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 		return compound;
 	}
 
+	@Override
+	public NBTTagCompound getUpdateTag() {
+		return this.writeToNBT(new NBTTagCompound());
+	}
+
+	@Override
+	public void handleUpdateTag(NBTTagCompound nbt) {
+		this.readFromNBT(nbt);
+	}
+
+	@Override
+	public SPacketUpdateTileEntity getUpdatePacket(){
+		NBTTagCompound nbtTag = this.getUpdateTag();
+		return new SPacketUpdateTileEntity(getPos(), 1, nbtTag);
+	}
+
+	@Override
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt){
+		this.handleUpdateTag(pkt.getNbtCompound());
+	}
+
 	/**
 	 * Returns the maximum stack size for a inventory slot. Seems to always be 64,
 	 * possibly will be extended.
@@ -159,6 +188,10 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 		return this.burnTime > 0;
 	}
 
+	public boolean isGrinding() {
+		return this.cookTime > 0;
+	}
+
 	@SideOnly(Side.CLIENT)
 	public static boolean isBurning(IInventory inventory) {
 		return inventory.getField(0) > 0;
@@ -168,7 +201,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 	 * Like the old updateEntity(), except more generic.
 	 */
 	public void update() {
-		boolean flag = this.isBurning();
+		boolean flag = this.isGrinding();
 		boolean flag1 = false;
 
 		if (!this.world.isRemote) {
@@ -210,10 +243,37 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 			} else if (!this.isBurning() && this.cookTime > 0) {
 				this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
 			}
+
+			if (flag != this.isGrinding()) {
+				flag1 = true;
+				((BlockGrinder) this.world.getBlockState(this.pos).getBlock()).setState(this.world.getBlockState(this.pos).withProperty(BlockGrinder.BURNING, this.canSmelt()), this.world, pos);
+			}
+		} else {
+			if (this.isGrinding()) {
+				if (this.lastSound > 285) {
+					this.world.playSound((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, ClientProxy.GRIND, SoundCategory.BLOCKS, 0.7F, 1.0F, false);
+					this.lastSound = 0;
+				} else
+					this.lastSound++;
+			} else
+				this.lastSound++;
 		}
 
 		if (flag1) {
 			this.markDirty();
+		}
+
+		if (this.isGrinding()) {
+			double d0 = (double) pos.getX() + 8.0D / 16.0D;
+			double d1 = (double) pos.getY() + 8.0D / 16.0D;
+			double d2 = (double) pos.getZ() + 8.0D / 16.0D;
+			ItemStack stack = this.getStackInSlot(0);
+			if (!stack.isEmpty()) {
+				if (this.world instanceof WorldServer)
+					((WorldServer)this.world).spawnParticle(EnumParticleTypes.ITEM_CRACK, d0, d1 + 7.0D / 16.0D, d2, 0.0D, 0.3D, 0.0D, Item.getIdFromItem(stack.getItem()), stack.getMetadata());
+				else
+					this.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, d0, d1 + 7.0D / 16.0D, d2, 0.0D, 0.3D, 0.0D, Item.getIdFromItem(stack.getItem()), stack.getMetadata());
+			}
 		}
 	}
 

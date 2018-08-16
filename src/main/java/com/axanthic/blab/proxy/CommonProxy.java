@@ -26,6 +26,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.MouseEvent;
@@ -102,6 +103,10 @@ public class CommonProxy {
 	}
 
 	public void registerItemColors(ColorHandlerEvent.Item event) {
+		
+	}
+
+	public void registerSounds(RegistryEvent.Register<SoundEvent> event) {
 		
 	}
 

@@ -10,6 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.item.Item;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.ColorHandlerEvent;
@@ -83,6 +84,11 @@ public class Blab {
 	@SubscribeEvent
 	public void ItemColorRegistry(final ColorHandlerEvent.Item event) {
 		Blab.proxy.registerItemColors(event);
+	}
+	
+	@SubscribeEvent
+	public static void registerSoundEvents(RegistryEvent.Register<SoundEvent> event) {	
+		Blab.proxy.registerSounds(event);	
 	}
 
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)

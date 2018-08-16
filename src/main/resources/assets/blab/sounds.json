@@ -1,0 +1,10 @@
+{
+    "block.grinder.grind":
+    {
+        "category": "block",
+        "sounds":
+        [
+            "blab:block/crafting_grinder_loop"
+        ]
+    }
+}

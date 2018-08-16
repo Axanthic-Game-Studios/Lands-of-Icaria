@@ -4,12 +4,20 @@
 		"model": "blab:crafting_grinder"
 	},
 	"variants": {
-		"inventory": { "model": "blab:crafting_grinder" },
+		"inventory": {
+			"model": "blab:crafting_grinder_inv"
+		},
 		"facing": {
 			"north": {},
 			"east": { "y": 90 },
 			"south": { "y": 180 },
 			"west": { "y": 270 }
+		},
+		"burning": {
+			"true": {
+			},
+			"false": {
+			}
 		}
 	}
 }

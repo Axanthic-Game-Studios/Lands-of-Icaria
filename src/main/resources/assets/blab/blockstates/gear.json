@@ -1,0 +1,17 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "blab:generated",
+		"textures": {
+			"layer0": "blab:items/crafting_grinder_gear_big"
+		}
+	},
+	"variants": {
+		"type": {
+			"large": { "textures": { "layer0": "blab:items/crafting_grinder_gear_big" } },
+			"large_active": { "textures": { "layer0": "blab:items/crafting_grinder_gear_big_active" } },
+			"small": { "textures": { "layer0": "blab:items/crafting_grinder_gear_small" } },
+			"small_active": { "textures": { "layer0": "blab:items/crafting_grinder_gear_small_active" } }
+		}
+	}
+}
