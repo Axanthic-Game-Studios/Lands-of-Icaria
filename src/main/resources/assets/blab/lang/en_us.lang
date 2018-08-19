@@ -142,5 +142,6 @@ attribute.name.generic.attackRange=Attack Range
 entity.fallingVase.name=Loot Vase
 entity.aeternae.name=Aeternae
 entity.forestHag.name=Forest Hag
+entity.revenant.name=Revenant
 
 message.loot_vase.pickup=Sneak to throw vase
