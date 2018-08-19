@@ -3,6 +3,8 @@ package com.axanthic.blab.entity;
 import java.util.Random;
 import java.util.UUID;
 import javax.annotation.Nullable;
+
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -25,6 +27,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.datafix.DataFixer;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 
@@ -138,6 +141,14 @@ public class EntityForestHag extends EntityMob {
 		super.onLivingUpdate();
 	}
 
+	public boolean attackEntityAsMob(Entity entityIn) {
+		boolean flag = super.attackEntityAsMob(entityIn);
+		if (flag && this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+			entityIn.addVelocity(0.0D, 0.25D, 0.0D);
+		}
+		return flag;
+	}
+
 	protected SoundEvent getAmbientSound() {
 		return this.isScreaming() ? SoundEvents.ENTITY_ENDERMEN_SCREAM : SoundEvents.ENTITY_ENDERMEN_AMBIENT;
 	}
@@ -148,13 +159,6 @@ public class EntityForestHag extends EntityMob {
 
 	protected SoundEvent getDeathSound() {
 		return SoundEvents.ENTITY_ENDERMEN_DEATH;
-	}
-
-	/**
-	 * Drop the equipment for this entity.
-	 */
-	protected void dropEquipment(boolean wasRecentlyHit, int lootingModifier) {
-		super.dropEquipment(wasRecentlyHit, lootingModifier);
 	}
 
 	@Nullable
