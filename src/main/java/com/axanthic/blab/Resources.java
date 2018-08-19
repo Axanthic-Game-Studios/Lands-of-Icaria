@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.axanthic.blab.blocks.BlockAristone;
 import com.axanthic.blab.blocks.BlockBasic;
+import com.axanthic.blab.blocks.BlockBromelia;
 import com.axanthic.blab.blocks.BlockCustomDoor;
 import com.axanthic.blab.blocks.BlockCustomFence;
 import com.axanthic.blab.blocks.BlockCustomFenceGate;
@@ -20,6 +21,7 @@ import com.axanthic.blab.blocks.BlockGlassy;
 import com.axanthic.blab.blocks.BlockGrainelStone;
 import com.axanthic.blab.blocks.BlockGravity;
 import com.axanthic.blab.blocks.BlockGrinder;
+import com.axanthic.blab.blocks.BlockHerb;
 import com.axanthic.blab.blocks.BlockKiln;
 import com.axanthic.blab.blocks.BlockLeaf;
 import com.axanthic.blab.blocks.BlockLog;
@@ -108,6 +110,8 @@ public class Resources {
 	public static ItemBlockMeta tallGrass = new ItemBlockMeta(new BlockTallGrass());
 	public static ItemBlockMeta flower = new ItemBlockMeta(new BlockFlower());
 	public static ItemBlockMeta flower2 = new ItemBlockMeta(new BlockFlower2());
+	public static ItemBlockMeta herb = new ItemBlockMeta(new BlockHerb());
+	public static ItemBlockMeta bromelia = new ItemBlockMeta(new BlockBromelia());
 	public static ItemBlockMeta planks = new ItemBlockMetaMaterial(new BlockPlanks());
 	public static ItemBlock aristone = new ItemBlock(new BlockAristone("aristone"));
 	public static ItemBlock aristonePacked = new ItemBlock(new BlockAristone("aristone_packed"));
@@ -198,6 +202,8 @@ public class Resources {
 		Resources.registerBlock(Resources.tallGrass);
 		Resources.registerBlock(Resources.flower);
 		Resources.registerBlock(Resources.flower2);
+		Resources.registerBlock(Resources.herb);
+		Resources.registerBlock(Resources.bromelia);
 		Resources.registerBlock(Resources.planks);
 		Resources.registerBlock(Resources.aristone);
 		Resources.registerBlock(Resources.aristonePacked);

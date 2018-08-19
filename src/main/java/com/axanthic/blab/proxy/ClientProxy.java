@@ -9,6 +9,7 @@ import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.blocks.BlockFlower;
+import com.axanthic.blab.blocks.BlockHerb;
 import com.axanthic.blab.blocks.BlockLeaf;
 import com.axanthic.blab.blocks.BlockLog;
 import com.axanthic.blab.blocks.BlockSapling;
@@ -106,7 +107,7 @@ public class ClientProxy extends CommonProxy {
 		super.registerItems(event);
 
 		for (ItemBlock block : Resources.blocks) {
-			if (block.getBlock() instanceof BlockFlower || block.getBlock() instanceof BlockTallGrass) {
+			if (block.getBlock() instanceof BlockFlower || block.getBlock() instanceof BlockTallGrass || block.getBlock() instanceof BlockHerb) {
 				for (int i = 0; i < ((IBlockMeta) block.getBlock()).getNames().length; i++) {
 					ModelLoader.setCustomModelResourceLocation(block, i, new ModelResourceLocation(block.getRegistryName() + "_inv", "type=" + ((IBlockMeta) block.getBlock()).getNames()[i]));
 				}
