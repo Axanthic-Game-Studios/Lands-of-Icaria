@@ -62,6 +62,7 @@ import com.axanthic.blab.items.ToolScythe;
 import com.axanthic.blab.items.ToolShovel;
 import com.axanthic.blab.items.ToolSword;
 
+import net.minecraft.block.BlockCardonCactus;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -112,6 +113,7 @@ public class Resources {
 	public static ItemBlockMeta flower2 = new ItemBlockMeta(new BlockFlower2());
 	public static ItemBlockMeta herb = new ItemBlockMeta(new BlockHerb());
 	public static ItemBlockMeta bromelia = new ItemBlockMeta(new BlockBromelia());
+	public static ItemBlock cardon = new ItemBlock(new BlockCardonCactus());
 	public static ItemBlockMeta planks = new ItemBlockMetaMaterial(new BlockPlanks());
 	public static ItemBlock aristone = new ItemBlock(new BlockAristone("aristone"));
 	public static ItemBlock aristonePacked = new ItemBlock(new BlockAristone("aristone_packed"));
@@ -204,6 +206,7 @@ public class Resources {
 		Resources.registerBlock(Resources.flower2);
 		Resources.registerBlock(Resources.herb);
 		Resources.registerBlock(Resources.bromelia);
+		Resources.registerBlock(Resources.cardon);
 		Resources.registerBlock(Resources.planks);
 		Resources.registerBlock(Resources.aristone);
 		Resources.registerBlock(Resources.aristonePacked);
