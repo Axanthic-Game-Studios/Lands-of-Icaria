@@ -5,6 +5,7 @@ import java.util.Random;
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
+import com.google.common.base.Predicate;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -37,6 +38,11 @@ public class BlockRock extends Block implements IBlockMeta {
 		this.setRegistryName(ModInformation.ID, name);
 		this.setDefaultState(this.getStateFromMeta(0));
 		this.setSoundType(SoundType.STONE);
+	}
+
+	@Override
+	public boolean isReplaceableOreGen(IBlockState state, IBlockAccess world, BlockPos pos, Predicate<IBlockState> target) {
+		return target.apply(state);
 	}
 
 	@Override

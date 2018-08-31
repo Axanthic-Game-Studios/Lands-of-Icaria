@@ -6,6 +6,7 @@ import java.util.List;
 import com.axanthic.blab.blocks.BlockAristone;
 import com.axanthic.blab.blocks.BlockBasic;
 import com.axanthic.blab.blocks.BlockBromelia;
+import com.axanthic.blab.blocks.BlockCardonCactus;
 import com.axanthic.blab.blocks.BlockCustomDoor;
 import com.axanthic.blab.blocks.BlockCustomFence;
 import com.axanthic.blab.blocks.BlockCustomFenceGate;
@@ -62,7 +63,6 @@ import com.axanthic.blab.items.ToolScythe;
 import com.axanthic.blab.items.ToolShovel;
 import com.axanthic.blab.items.ToolSword;
 
-import net.minecraft.block.BlockCardonCactus;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;

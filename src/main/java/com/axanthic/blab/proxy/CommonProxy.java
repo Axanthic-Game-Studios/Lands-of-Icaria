@@ -18,6 +18,7 @@ import com.axanthic.blab.utils.TileEntityForgeRedirector;
 import com.axanthic.blab.utils.TileEntityGrinder;
 import com.axanthic.blab.utils.TileEntityKiln;
 import com.axanthic.blab.utils.TileEntityVase;
+import com.axanthic.loi.worldgen.dimension.OreGeneratorLOI;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
 
 import net.minecraft.block.Block;
@@ -75,6 +76,7 @@ public class CommonProxy {
 		/******** Dimension initialisation ********/
 		Blab.dimensionId = DimensionManager.getNextFreeDimId();
 		Blab.dimensionTypeLoi = DimensionType.register("loi", "_loi", Blab.dimensionId, WorldProviderLOI.class, false);
+		GameRegistry.registerWorldGenerator(new OreGeneratorLOI(), 0);
 		DimensionManager.registerDimension(Blab.dimensionId, Blab.dimensionTypeLoi);
 		/******************************************/
 		Blab.modTabBlocks.setTabIconItem(new ItemStack(Resources.grass));
