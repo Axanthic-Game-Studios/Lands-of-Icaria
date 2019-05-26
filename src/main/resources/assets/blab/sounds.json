@@ -6,5 +6,15 @@
         [
             "blab:block/crafting_grinder_loop"
         ]
+    },
+    "block.ceramic.break":
+    {
+        "category": "block",
+        "sounds":
+        [
+            "blab:block/ceramic_break1",
+            "blab:block/ceramic_break2",
+            "blab:block/ceramic_break3"
+        ]
     }
 }

@@ -75,6 +75,8 @@ public class ClientProxy extends CommonProxy {
 
 	public static final ResourceLocation SOUND_GRIND = new ResourceLocation(ModInformation.ID, "block.grinder.grind");
 	public static final SoundEvent GRIND = new SoundEvent(SOUND_GRIND).setRegistryName(SOUND_GRIND);
+	public static final ResourceLocation SOUND_CERAMIC_BREAK = new ResourceLocation(ModInformation.ID, "block.ceramic.break");
+	public static final SoundEvent CERAMIC_BREAK = new SoundEvent(SOUND_CERAMIC_BREAK).setRegistryName(SOUND_CERAMIC_BREAK);
 
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
@@ -191,6 +193,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerSounds(RegistryEvent.Register<SoundEvent> event) {
 		event.getRegistry().register(GRIND);
+		event.getRegistry().register(CERAMIC_BREAK);
 	}
 
 	@Override
