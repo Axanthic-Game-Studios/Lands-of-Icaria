@@ -114,7 +114,7 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		ItemStack itemstack = playerIn.getHeldItem(hand);
-		if (!stripped && itemstack.getItem() instanceof ItemAxe && playerIn.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
+		if (!stripped && (itemstack.getItem() instanceof ItemAxe || itemstack.getItem().getToolClasses(itemstack).contains("axe")) && playerIn.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
 			worldIn.playSound(playerIn, pos, SoundEvents.BLOCK_WOOD_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			if (!worldIn.isRemote) {
 				worldIn.setBlockState(pos, strippedLog.getBlock().getStateFromMeta(this.getMetaFromState(worldIn.getBlockState(pos))));
