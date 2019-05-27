@@ -141,32 +141,32 @@ public class Resources {
 	public static ItemBlock grinder = new ItemBlock(new BlockGrinder());
 	public static ItemBlock forge = new ItemBlockForge(new BlockForge());
 
-	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0);
-	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1);
-	public static StairSlabPair sunstoneStone = new StairSlabPair(rock, 2);
-	public static StairSlabPair voidshaleStone = new StairSlabPair(rock, 3);
-	public static StairSlabPair baetylStone = new StairSlabPair(rock, 4);
-	public static StairSlabPair relicstoneStone = new StairSlabPair(rock, 5);
+	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0, "yellowstone");
+	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1, "silkstone");
+	public static StairSlabPair sunstoneStone = new StairSlabPair(rock, 2, "sunstone");
+	public static StairSlabPair voidshaleStone = new StairSlabPair(rock, 3, "voidshale");
+	public static StairSlabPair baetylStone = new StairSlabPair(rock, 4, "baetyl");
+	public static StairSlabPair relicstoneStone = new StairSlabPair(rock, 5, "relicstone");
 
-	public static StairSlabPair yellowstoneBrick = new StairSlabPair(brick, 0);
-	public static StairSlabPair silkstoneBrick = new StairSlabPair(brick, 1);
-	public static StairSlabPair sunstoneBrick = new StairSlabPair(brick, 2);
-	public static StairSlabPair voidshaleBrick = new StairSlabPair(brick, 3);
-	public static StairSlabPair baetylBrick = new StairSlabPair(brick, 4);
-	public static StairSlabPair relicstoneBrick = new StairSlabPair(brick, 5);
+	public static StairSlabPair yellowstoneBrick = new StairSlabPair(brick, 0, "yellowstone_bricks");
+	public static StairSlabPair silkstoneBrick = new StairSlabPair(brick, 1, "silkstone_bricks");
+	public static StairSlabPair sunstoneBrick = new StairSlabPair(brick, 2, "sunstone_bricks");
+	public static StairSlabPair voidshaleBrick = new StairSlabPair(brick, 3, "voidshale_bricks");
+	public static StairSlabPair baetylBrick = new StairSlabPair(brick, 4, "baetyl_bricks");
+	public static StairSlabPair relicstoneBrick = new StairSlabPair(brick, 5, "relicstone_bricks");
 
-	public static StairSlabPair relicstoneSmooth = new StairSlabPair(relicstone, 0);
-	public static StairSlabPair relicstoneCrackBrick = new StairSlabPair(relicstone, 1);
-	public static StairSlabPair relicstoneMossBrick = new StairSlabPair(relicstone, 2);
-	public static StairSlabPair relicstoneDraftBrick = new StairSlabPair(relicstone, 3);
-	public static StairSlabPair relicstoneTile = new StairSlabPair(relicstone, 4);
-	public static StairSlabPair relicstoneCrackTile = new StairSlabPair(relicstone, 5);
-	public static StairSlabPair relicstoneMossTile = new StairSlabPair(relicstone, 6);
-	public static StairSlabPair relicstoneDraftTile = new StairSlabPair(relicstone, 7);
+	public static StairSlabPair relicstoneSmooth = new StairSlabPair(relicstone, 0, "relicstone_smooth");
+	public static StairSlabPair relicstoneCrackBrick = new StairSlabPair(relicstone, 1, "relicstone_bricks_cracked");
+	public static StairSlabPair relicstoneMossBrick = new StairSlabPair(relicstone, 2, "relicstone_bricks_mossy");
+	public static StairSlabPair relicstoneDraftBrick = new StairSlabPair(relicstone, 3, "relicstone_bricks_draft");
+	public static StairSlabPair relicstoneTile = new StairSlabPair(relicstone, 4, "relicstone_tile");
+	public static StairSlabPair relicstoneCrackTile = new StairSlabPair(relicstone, 5, "relicstone_tile_cracked");
+	public static StairSlabPair relicstoneMossTile = new StairSlabPair(relicstone, 6, "relicstone_tile_mossy");
+	public static StairSlabPair relicstoneDraftTile = new StairSlabPair(relicstone, 7, "relicstone_tile_draft");
 
-	public static StairSlabPair grainiteStone = new StairSlabPair(grainelStone, 0);
-	public static StairSlabPair grainiteBricks = new StairSlabPair(grainelStone, 1);
-	public static StairSlabPair loamBrick = new StairSlabPair(loamBricks, 0);
+	public static StairSlabPair grainiteStone = new StairSlabPair(grainelStone, 0, "grainel_stone");
+	public static StairSlabPair grainiteBricks = new StairSlabPair(grainelStone, 1, "grainel_stone_bricks");
+	public static StairSlabPair loamBrick = new StairSlabPair(loamBricks, 0, "loam_bricks");
 
 	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE);
 	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS);
@@ -344,12 +344,14 @@ public class Resources {
 		
 		public Item baseItem;
 		public int baseMeta;
+		public String name;
 		public ItemBlockMaterialSlab slab;
 		public ItemBlockMaterial stairs;
 
-		public StairSlabPair(ItemBlock baseBlock, int meta) {
+		public StairSlabPair(ItemBlock baseBlock, int meta, String name) {
 			this.baseItem = baseBlock;
 			this.baseMeta = meta;
+			this.name = name;
 			IBlockState baseState = baseBlock.getBlock().getStateFromMeta(meta);
 			this.slab = new ItemBlockMaterialSlab(new BlockCustomSlab(baseState, null));
 			this.stairs = new ItemBlockMaterial(new BlockCustomStairs(baseState, null));
