@@ -8,7 +8,10 @@ import com.axanthic.blab.entity.EntityFallingVase;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -40,6 +43,22 @@ public class BlockLootVase extends BlockGravity {
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
+	}
+
+	@Override
+	public boolean canHarvestBlock(final IBlockAccess world, final BlockPos pos, final EntityPlayer player) {
+		double damage = 0;
+		for (AttributeModifier modifier : player.getHeldItemMainhand().getAttributeModifiers(EntityEquipmentSlot.MAINHAND).get(SharedMonsterAttributes.ATTACK_DAMAGE.getName())) {
+			damage += modifier.getAmount();
+		}
+		return damage > 0;
+	}
+
+	@Override
+	public float getPlayerRelativeBlockHardness(IBlockState state, EntityPlayer player, World worldIn, BlockPos pos) {
+		if (canHarvestBlock(worldIn, pos, player))
+			return super.getPlayerRelativeBlockHardness(state, player, worldIn, pos);
+		return 0.0f;
 	}
 
 	@Override
