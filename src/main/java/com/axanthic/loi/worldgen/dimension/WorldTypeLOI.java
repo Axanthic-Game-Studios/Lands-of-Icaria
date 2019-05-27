@@ -25,7 +25,7 @@ public class WorldTypeLOI extends WorldType
 	@Override
 	public BiomeProvider getBiomeProvider(final World world)
 	{
-		return new BiomeProviderSingle(Biomes.DEFAULT);
+		return new BiomeProviderSingle(Biomes.SKY);
 	}
 
 	@Override

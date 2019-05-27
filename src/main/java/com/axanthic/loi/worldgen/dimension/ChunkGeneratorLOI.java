@@ -3,6 +3,7 @@ package com.axanthic.loi.worldgen.dimension;
 import java.util.List;
 import java.util.Random;
 
+import com.axanthic.blab.Blab;
 import com.axanthic.blab.blocks.BlocksLOI;
 import com.axanthic.blab.utils.CellNoise;
 import com.axanthic.blab.utils.PerlinNoise;
@@ -228,6 +229,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 	private double[] getHeights(double[] buffer, final int wx, final int wy, final int wz, final int sizeX, final int sizeY, final int sizeZ)
 	{
+		//BOY DO I LOVE THE LACK OF DOCUMENTATION IN THIS CODE
 		if (buffer == null)
 		{
 			buffer = new double[sizeX * sizeY * sizeZ];
@@ -238,16 +240,16 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		this.pnr = this.perlinNoise1.generateNoiseOctaves(this.pnr, wx, wy, wz, sizeX, sizeY, sizeZ, 5d, 115d, 5d);
 		this.ar = this.lperlinNoise1.generateNoiseOctaves(this.ar, wx, wy, wz, sizeX, sizeY, sizeZ, noiseWidth, noiseY, noiseWidth);
 		this.br = this.lperlinNoise2.generateNoiseOctaves(this.br, wx, wy, wz, sizeX, sizeY, sizeZ, noiseWidth, noiseY, noiseWidth);
-
 		int index = 0;
 		final double[] bufferY = new double[sizeY];
 
+		//					*Inhales*
 		final int numberOfLayers = 3;
 		final double cosinusCoeff = sizeY / (numberOfLayers + 1);
 		for (int y = 0; y < sizeY; ++y)
 		{
 			bufferY[y] = Math.cos((y * Math.PI * cosinusCoeff) / sizeY) * 2.0D;
-			int distanceFromTop = y;
+			int distanceFromTop = sizeY - y;
 
 			if (y > (sizeY / 2))
 			{
@@ -257,10 +259,10 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 			if (distanceFromTop < 4)
 			{
 				distanceFromTop = 4 - distanceFromTop;
-				bufferY[y] -= distanceFromTop * distanceFromTop * distanceFromTop * 10.0D;
+				bufferY[y] -= Math.pow(distanceFromTop, 3) * 10.0D;
 			}
 		}
-
+		//			   [Chaotic Screaming]
 		for (int x = 0; x < sizeX; ++x)
 		{
 			for (int z = 0; z < sizeZ; ++z)
@@ -278,34 +280,36 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 					if (d7 < 0.0D)
 					{
-						value = d5;
+						value = 0;
 					}
-					else if (d7 > 1.0D)
+					else if (d7 > 1.0D) 
 					{
-						value = d6;
+						value = 0;
 					}
 					else
 					{
-						value = d5 + ((d6 - d5) * d7);
+						value = d5/((Math.tan(d6)/2)*1000);
 					}
-
-					value = value - d4;
-
-					if (y > (sizeY - 4))
+					if (y > this._world.getSeaLevel())
 					{
 						final double topSmoothing = (y - (sizeY - 4)) / 3.0F;
 						value = (value * (1.0D - topSmoothing)) + (-5D * topSmoothing);
 					}
-
-					buffer[index] = cell < 0.2d ? value : value / 5;
+					//Random r = new Random();
+					//if(r.nextInt(20) == 10){
+					buffer[index] = cell < 0.2d ? value/6000: value/40000;
 					++index;
+					//}else{
+					//	buffer[index] = 0;
+						++index;
+					//}
 				}
 			}
 		}
 
 		return buffer;
 	}
-
+	//Someday, people will be looking at my petrafied corpse in a museum, wondering what caused this man so much frustration 
 	public void buildSurfaces(final int wcx, final int wcz, final ChunkPrimer primer)
 	{
 		final int sea_level = this._world.getSeaLevel() + 1;
@@ -313,32 +317,33 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		this.loamNoise = this.loamMarlNoiseGen.generateNoiseOctaves(this.loamNoise, wcx * 16, wcz * 16, 0, 16, 16, 1, 0.03125D, 0.03125D, 1.0D);
 		this.marlNoise = this.loamMarlNoiseGen.generateNoiseOctaves(this.marlNoise, wcx * 16, 109, wcz * 16, 16, 1, 16, 0.03125D, 1.0D, 0.03125D);
 		this.depthBuffer = this.exculsivityNoiseGen.generateNoiseOctaves(this.depthBuffer, wcx * 16, wcz * 16, 0, 16, 16, 1, impact * 2D, impact * 2D, impact * 2D);
-
-		for (int cx = 0; cx < 16; ++cx)
+		
+		for (int cx = 0; cx < 25; ++cx)
 		{
-			for (int cz = 0; cz < 16; ++cz)
+			for (int cz = 0; cz < 25; ++cz)
 			{
 				final boolean loamFlag = (this.loamNoise[cx + (cz * 16)] + (this._rand.nextDouble() * 0.2D)) > 0.0D;
 				final boolean marlFlag = (this.marlNoise[cx + (cz * 16)] + (this._rand.nextDouble() * 0.2D)) > 0.0D;
-				final int exculsivity = (int)((this.depthBuffer[cx + (cz * 16)] / 3.0D) + 3.0D + (this._rand.nextDouble() * 0.25D));
-				int tmp_exculsivity = -1;
+				//final int exculsivity = (int)((this.depthBuffer[(cz * 16)- cx] / 3.0D) - 3.0D - (this._rand.nextDouble() * 0.25D));
+				boolean tmp_exculsivity = false;
 				IBlockState primaryBlockToSet = ChunkGeneratorLOI.MAIN_BLOCK;
 				IBlockState secondaryBlockToSet = ChunkGeneratorLOI.MAIN_BLOCK;
-
+				boolean exculsivity = (cx) % 2 >= 0 || cz % 2 >=0;
 				for (int cy = 127; cy >= 0; --cy)
 				{
+					
 					final IBlockState blockAtPos = primer.getBlockState(cz, cy, cx);
 
 					if ((blockAtPos.getBlock() != null) && (blockAtPos.getMaterial() != Material.AIR))
 					{
 						if (blockAtPos.getBlock() == BlocksLOI.STONE_LOI)
 						{
-							if (tmp_exculsivity == -1)
+							if (tmp_exculsivity = false)
 							{
-								if (exculsivity <= 0)
+								if (exculsivity)
 								{
 									primaryBlockToSet = ChunkGeneratorLOI.AIR;
-									secondaryBlockToSet = ChunkGeneratorLOI.MAIN_BLOCK;
+									secondaryBlockToSet = ChunkGeneratorLOI.AIR;
 								}
 								else if ((cy >= (sea_level - 4)) && (cy <= (sea_level + 1)))
 								{
@@ -374,22 +379,28 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 									primer.setBlockState(cz, cy, cx, secondaryBlockToSet);
 								}
 							}
-							else if (tmp_exculsivity > 0)
+							else if (tmp_exculsivity =true )
 							{
-								--tmp_exculsivity;
+								tmp_exculsivity = false;
 								primer.setBlockState(cz, cy, cx, secondaryBlockToSet);
 							}
 						}
 					}
 					else
 					{
-						tmp_exculsivity = -1;
+						tmp_exculsivity = false;
 					}
 				}
+
 			}
 		}
+		//Therapist: On a scale of 1-10, how much do you want to die?
+		//Me: [profusely sweating] Is 10 a limit or a guideline?
 	}
-
+	
+/**
+ * This is what places the blocks INTO the surfaces generated above
+ */
 	public void setBlocksInChunk(final int x, final int z, final ChunkPrimer primer)
 	{
 		this.depthBuffer = this.surfaceNoise.getRegion(this.depthBuffer, x * 16, z * 16, 16, 16, 0.0625D, 0.0625D, 1.0D);
@@ -404,13 +415,13 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 		for(int cx = 0; cx < ChunkGeneratorLOI.CHUNK_WIDTH; cx++)
 		{
-			wx = (x * ChunkGeneratorLOI.CHUNK_WIDTH) + cx;
+			wx = (x * ChunkGeneratorLOI.CHUNK_WIDTH) - cx;
 			for(int cz = 0; cz < ChunkGeneratorLOI.CHUNK_WIDTH; cz++)
 			{
-				wz = (z * ChunkGeneratorLOI.CHUNK_WIDTH) + cz;
+				wz = (z * ChunkGeneratorLOI.CHUNK_WIDTH) - cz;
 
 				final double noiseValue = this.depthBuffer[cx + (cz * 16)];
-				final int fillerBlockDensity = (int)((noiseValue / 3.0D) + 3.0D + (this._rand.nextDouble() * 0.25D));
+				final int fillerBlockDensity = (int)((noiseValue / 3.0D) - 3.0D - (this._rand.nextDouble() * 0.5D));
 				IBlockState topBlock = ChunkGeneratorLOI.MARLGRASS;
 				IBlockState fillerBlock = ChunkGeneratorLOI.MARL;
 
@@ -450,7 +461,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 							}
 
 							// /.\ Spaghetti code warning /.\
-							if(gy < (3 + fillerBlockDensity)) {
+							if(gy < ( fillerBlockDensity - 10)) {
 								primer.setBlockState(cx, cy - gy, cz, fillerBlock);
 							} else if((cy - gy) > (84 - yellowstone_density)) {
 								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.YELLOWSTONE);
