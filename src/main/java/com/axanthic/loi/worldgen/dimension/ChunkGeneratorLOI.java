@@ -282,16 +282,16 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 					if (d7 < 0.0D)
 					{
-						value = 0;
+						value = 0.50d;
 					}
 					else if (d7 > 1.0D) 
 					{
-						value = 0;
+						value = 0.99d;
 					}
 					else
 					{
 						// WHAT THE HELL IS UP WITH MINECRAFT'S CODE AS A WHOLE!?
-						value = (d5 + d4 + d6 + d7)*((Math.tan(d6)/2)*1000);
+						value = d4*((Math.tan(d6)/2)*1000);
 						// WHY THE HELL DOES THIS MAKE EVERYTHING A SKYLANDS-TYPE WORLD?!
 					}
 					if (y > this._world.getSeaLevel())
@@ -299,14 +299,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 						final double topSmoothing = (y + (sizeY + 4)) / 3.0F;
 						value = (value * (1.0D + topSmoothing)) + (5D * topSmoothing);
 					}
-					//Random r = new Random();
-					//if(r.nextInt(20) == 10){
 					buffer[index] = cell < 0.2d ? value*5: value;
 					++index;
-					//}else{
-					//	buffer[index] = 0;
-						++index;
-					//}
 				}
 			}
 		}
