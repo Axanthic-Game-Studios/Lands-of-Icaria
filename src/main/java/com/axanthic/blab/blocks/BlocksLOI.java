@@ -49,7 +49,7 @@ public class BlocksLOI {
 		STONE_LOI = Resources.rock.getBlock();
 
 		// ROCKS
-		YELLOWSTONE = ((BlockRock)Resources.rock.getBlock()).getStateFromMeta(StoneTypes.SILKSTONE.getMeta());
+		YELLOWSTONE = ((BlockRock)Resources.rock.getBlock()).getStateFromMeta(StoneTypes.YELLOWSTONE.getMeta());
 		SILKSTONE = ((BlockRock)Resources.rock.getBlock()).getStateFromMeta(StoneTypes.SILKSTONE.getMeta());
 		SUNSTONE = ((BlockRock)Resources.rock.getBlock()).getStateFromMeta(StoneTypes.SUNSTONE.getMeta());
 		VOIDSHALE = ((BlockRock)Resources.rock.getBlock()).getStateFromMeta(StoneTypes.VOIDSHALE.getMeta());

@@ -95,7 +95,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	{
 		this._world = worldIn;
 		this._rand = new Random(seed);
-		this.terrainType = worldIn.getWorldInfo().getTerrainType();
+		this.terrainType = new WorldTypeLOI();
 		this.cell = new CellNoise(seed, (short) 0);
 		this.cell.setUseDistance(true);
 		this.perlin = new PerlinNoise(seed);
@@ -142,7 +142,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		//        }
 
 		final Chunk chunk = new Chunk(this._world, chunkprimer, x, z);
-		final Biome[] abiome = this._world.getBiomeProvider().getBiomes((Biome[])null, x * 16, z * 16, 16, 16);
+		final Biome[] abiome = terrainType.getBiomeProvider(_world).getBiomes((Biome[])null, x * 16, z * 16, 16, 16);
 		final byte[] abyte = chunk.getBiomeArray();
 
 		for (int i = 0; i < abyte.length; ++i)
@@ -406,7 +406,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	public void setBlocksInChunk(final int x, final int z, final ChunkPrimer primer)
 	{
 		this.depthBuffer = this.surfaceNoise.getRegion(this.depthBuffer, x * 16, z * 16, 16, 16, 0.0625D, 0.0625D, 1.0D);
-		this.biomesForGeneration = this._world.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration, (x * 4) - 2, (z * 4) - 2, 10, 10);
+		this.biomesForGeneration = terrainType.getBiomeProvider(_world).getBiomesForGeneration(this.biomesForGeneration, (x * 4) - 2, (z * 4) - 2, 10, 10);
 
 		@SuppressWarnings("unused")
 		int wx, wz;
@@ -491,7 +491,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	public void populate(final int x, final int z)
 	{
 		BlockFalling.fallInstantly = true;
-		//net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this._world, this._rand, x, z, false);
+		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this._world, this._rand, x, z, false);
 		final int i = x * 16;
 		final int j = z * 16;
 		final BlockPos blockpos = new BlockPos(i, 0, j);
@@ -499,9 +499,9 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		final ChunkPos chunkpos = new ChunkPos(x, z);
 
 		// GENERATE DECORATIONS HERE.
-		//biome.decorate(this._world, this._rand, new BlockPos(i, 0, j));
+		biome.decorate(this._world, this._rand, new BlockPos(i, 0, j));
 
-		//net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.terraingen.DecorateBiomeEvent.Post(this._world, this._rand, blockpos));
+		net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.terraingen.DecorateBiomeEvent.Post(this._world, this._rand, blockpos));
 
 		BlockFalling.fallInstantly = false;
 	}

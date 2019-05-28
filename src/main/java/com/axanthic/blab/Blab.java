@@ -13,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldType;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -74,6 +75,11 @@ public class Blab {
 	@SubscribeEvent
 	public void itemRegistry(final RegistryEvent.Register<Item> event) {
 		Blab.proxy.registerItems(event);
+	}
+
+	@SubscribeEvent
+	public void biomeRegistry(final RegistryEvent.Register<Biome> event) {
+		Blab.proxy.registerBiomes(event);
 	}
 
 	@SubscribeEvent

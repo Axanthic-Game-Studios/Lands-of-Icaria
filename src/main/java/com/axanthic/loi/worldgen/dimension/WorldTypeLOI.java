@@ -2,9 +2,10 @@ package com.axanthic.loi.worldgen.dimension;
 
 import java.util.Random;
 
+import com.axanthic.loi.worldgen.biome.LOIBiomes;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiCreateWorld;
-import net.minecraft.init.Biomes;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldType;
@@ -25,7 +26,7 @@ public class WorldTypeLOI extends WorldType
 	@Override
 	public BiomeProvider getBiomeProvider(final World world)
 	{
-		return new BiomeProviderSingle(Biomes.DEFAULT);
+		return new BiomeProviderSingle(LOIBiomes.scrubland);
 	}
 
 	@Override
