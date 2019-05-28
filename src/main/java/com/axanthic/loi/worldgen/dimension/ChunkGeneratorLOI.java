@@ -228,6 +228,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 	private double[] getHeights(double[] buffer, final int wx, final int wy, final int wz, final int sizeX, final int sizeY, final int sizeZ)
 	{
+		//BOY DO I LOVE THE LACK OF DOCUMENTATION IN THIS CODE
 		if (buffer == null)
 		{
 			buffer = new double[sizeX * sizeY * sizeZ];
@@ -242,6 +243,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		int index = 0;
 		final double[] bufferY = new double[sizeY];
 
+		//					*Inhales*
 		final int numberOfLayers = 3;
 		final double cosinusCoeff = sizeY / (numberOfLayers + 1);
 		for (int y = 0; y < sizeY; ++y)
@@ -257,10 +259,10 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 			if (distanceFromTop < 4)
 			{
 				distanceFromTop = 4 - distanceFromTop;
-				bufferY[y] -= distanceFromTop * distanceFromTop * distanceFromTop * 10.0D;
+				bufferY[y] -= Math.pow(distanceFromTop, 3) * 10.0D;
 			}
 		}
-
+		//			   [Chaotic Screaming]
 		for (int x = 0; x < sizeX; ++x)
 		{
 			for (int z = 0; z < sizeZ; ++z)
@@ -270,11 +272,13 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 				for (int y = 0; y < sizeY; ++y)
 				{
-					final double d4 = bufferY[y];
-					final double d5 = this.ar[index] / 512.0D;
-					final double d6 = this.br[index] / 512.0D;
-					final double d7 = ((this.pnr[index] / 10.0D) + 1.0D) / 2.0D;
-					double value;
+					// WHAT THE HELL IS UP WITH THESE VARIABLE NAMES
+					final double d4 = bufferY[y]; //Density value of the terrain
+					final double d5 = this.ar[index] / 512.0D;	//noise value
+					final double d6 = this.br[index] / 512.0D;	//noise value
+					final double d7 = ((this.pnr[index] / 10.0D) + 1.0D) / 2.0D;	//noise value
+					double value;	//terrain smoothing value
+					//WHAT THE HELL IS UP WITH THIS CODE
 
 					if (d7 < 0.0D)
 					{
@@ -287,6 +291,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					else
 					{
 						value = d5 + ((d6 - d5) * d7);
+						// WHAT THE HELL IS UP WITH MINECRAFT'S CODE AS A WHOLE!?
+						// WHY THE HELL DOES THIS MAKE EVERYTHING A SKYLANDS-TYPE WORLD?!
 					}
 
 					value = value - d4;
@@ -306,6 +312,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		return buffer;
 	}
 
+	//Someday, people will be looking at my petrified corpse in a museum, and they will wonder:
+	//"what horrible monster caused this man so much frustration?" 
 	public void buildSurfaces(final int wcx, final int wcz, final ChunkPrimer primer)
 	{
 		final int sea_level = this._world.getSeaLevel() + 1;
@@ -388,8 +396,13 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 				}
 			}
 		}
+		//Therapist: On a scale of 1-10, how much do you want to smash something?
+		//Me: [profusely sweating] Is 10 a limit or a guideline?
 	}
-
+	
+/**
+ * This is what places the blocks INTO the surfaces generated above
+ */
 	public void setBlocksInChunk(final int x, final int z, final ChunkPrimer primer)
 	{
 		this.depthBuffer = this.surfaceNoise.getRegion(this.depthBuffer, x * 16, z * 16, 16, 16, 0.0625D, 0.0625D, 1.0D);
