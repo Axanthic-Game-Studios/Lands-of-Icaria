@@ -94,6 +94,7 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 				if (!worldIn.isAnyPlayerWithinRangeAt((double)i1, (double)j1, (double)k1, 7.0D) && worldIn.checkNoEntityCollision(forestHag.getEntityBoundingBox(), forestHag) && worldIn.getCollisionBoxes(forestHag, forestHag.getEntityBoundingBox()).isEmpty() && !worldIn.containsAnyLiquid(forestHag.getEntityBoundingBox())) {
 					worldIn.spawnEntity(forestHag);
 					forestHag.onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(forestHag)), (IEntityLivingData)null);
+					worldIn.playSound(player, pos, SoundEvents.ENTITY_WITHER_BREAK_BLOCK, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					break;
 				}
 			}
@@ -113,7 +114,7 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		ItemStack itemstack = playerIn.getHeldItem(hand);
-		if (!stripped && itemstack.getItem() instanceof ItemAxe && playerIn.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
+		if (!stripped && (itemstack.getItem() instanceof ItemAxe || itemstack.getItem().getToolClasses(itemstack).contains("axe")) && playerIn.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
 			worldIn.playSound(playerIn, pos, SoundEvents.BLOCK_WOOD_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			if (!worldIn.isRemote) {
 				worldIn.setBlockState(pos, strippedLog.getBlock().getStateFromMeta(this.getMetaFromState(worldIn.getBlockState(pos))));

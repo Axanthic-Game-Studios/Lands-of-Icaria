@@ -1,0 +1,18 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "blab:bromelia",
+		"uvlock": true,
+		"textures": {
+			"0": "blab:blocks/bromelia_orange"
+		}
+	},
+	"variants": {
+		"type": {
+			"orange": { "textures": { "0": "blab:blocks/bromelia_orange" } },
+			"pink": { "textures": { "0": "blab:blocks/bromelia_pink" } },
+			"purple": { "textures": { "0": "blab:blocks/bromelia_purple" } },
+			"white": { "textures": { "0": "blab:blocks/bromelia_white" } }
+		}
+	}
+}

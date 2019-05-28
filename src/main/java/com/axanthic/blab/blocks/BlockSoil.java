@@ -59,7 +59,7 @@ public class BlockSoil extends Block implements IBlockMeta {
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		ItemStack itemstack = playerIn.getHeldItem(hand);
-		if (getMetaFromState(state) == 1 && itemstack.getItem() instanceof ItemHoe && playerIn.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
+		if (getMetaFromState(state) == 1 && (itemstack.getItem() instanceof ItemHoe || itemstack.getItem().getToolClasses(itemstack).contains("hoe")) && playerIn.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
 			worldIn.playSound(playerIn, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			if (!worldIn.isRemote) {
 				worldIn.setBlockState(pos, getStateFromMeta(0));

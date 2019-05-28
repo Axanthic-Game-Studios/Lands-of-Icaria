@@ -3,6 +3,8 @@ package com.axanthic.blab.entity;
 import java.util.Random;
 import java.util.UUID;
 import javax.annotation.Nullable;
+
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -10,7 +12,7 @@ import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
+import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
@@ -25,6 +27,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.datafix.DataFixer;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 
@@ -44,11 +47,11 @@ public class EntityForestHag extends EntityMob {
 
 	protected void initEntityAI() {
 		this.tasks.addTask(0, new EntityAISwimming(this));
-		this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
-		this.tasks.addTask(5, new EntityAIWanderAvoidWater(this, 1.0D));
-		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(8, new EntityAILookIdle(this));
-		this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false, new Class[0]));
+		this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
+		this.tasks.addTask(2, new EntityAIWander(this, 1.0D));
+		this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		this.tasks.addTask(4, new EntityAILookIdle(this));
+		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false, new Class[0]));
 	}
 
 	protected void applyEntityAttributes() {
@@ -91,8 +94,7 @@ public class EntityForestHag extends EntityMob {
 			this.lastCreepySound = this.ticksExisted;
 
 			if (!this.isSilent()) {
-				this.world.playSound(this.posX, this.posY + (double) this.getEyeHeight(), this.posZ,
-						SoundEvents.ENTITY_ENDERMEN_STARE, this.getSoundCategory(), 2.5F, 1.0F, false);
+				this.world.playSound(this.posX, this.posY + (double) this.getEyeHeight(), this.posZ, SoundEvents.ENTITY_ENDERMEN_STARE, this.getSoundCategory(), 2.5F, 1.0F, false);
 			}
 		}
 	}
@@ -139,6 +141,14 @@ public class EntityForestHag extends EntityMob {
 		super.onLivingUpdate();
 	}
 
+	public boolean attackEntityAsMob(Entity entityIn) {
+		boolean flag = super.attackEntityAsMob(entityIn);
+		if (flag && this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+			entityIn.addVelocity(0.0D, 0.25D, 0.0D);
+		}
+		return flag;
+	}
+
 	protected SoundEvent getAmbientSound() {
 		return this.isScreaming() ? SoundEvents.ENTITY_ENDERMEN_SCREAM : SoundEvents.ENTITY_ENDERMEN_AMBIENT;
 	}
@@ -149,13 +159,6 @@ public class EntityForestHag extends EntityMob {
 
 	protected SoundEvent getDeathSound() {
 		return SoundEvents.ENTITY_ENDERMEN_DEATH;
-	}
-
-	/**
-	 * Drop the equipment for this entity.
-	 */
-	protected void dropEquipment(boolean wasRecentlyHit, int lootingModifier) {
-		super.dropEquipment(wasRecentlyHit, lootingModifier);
 	}
 
 	@Nullable

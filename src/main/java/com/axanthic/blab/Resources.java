@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.axanthic.blab.blocks.BlockAristone;
 import com.axanthic.blab.blocks.BlockBasic;
+import com.axanthic.blab.blocks.BlockBromelia;
+import com.axanthic.blab.blocks.BlockCardonCactus;
 import com.axanthic.blab.blocks.BlockCustomDoor;
 import com.axanthic.blab.blocks.BlockCustomFence;
 import com.axanthic.blab.blocks.BlockCustomFenceGate;
@@ -20,6 +22,7 @@ import com.axanthic.blab.blocks.BlockGlassy;
 import com.axanthic.blab.blocks.BlockGrainelStone;
 import com.axanthic.blab.blocks.BlockGravity;
 import com.axanthic.blab.blocks.BlockGrinder;
+import com.axanthic.blab.blocks.BlockHerb;
 import com.axanthic.blab.blocks.BlockKiln;
 import com.axanthic.blab.blocks.BlockLeaf;
 import com.axanthic.blab.blocks.BlockLog;
@@ -46,6 +49,7 @@ import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemBlockMetaMaterial;
 import com.axanthic.blab.items.ItemCustomArmor;
 import com.axanthic.blab.items.ItemDimensionTeleporter;
+import com.axanthic.blab.items.ItemGear;
 import com.axanthic.blab.items.ItemLaurelWreath;
 import com.axanthic.blab.items.ItemMeta;
 import com.axanthic.blab.items.ItemMetaMaterial;
@@ -59,6 +63,7 @@ import com.axanthic.blab.items.ToolPickaxe;
 import com.axanthic.blab.items.ToolScythe;
 import com.axanthic.blab.items.ToolShovel;
 import com.axanthic.blab.items.ToolSword;
+import com.axanthic.blab.proxy.ClientProxy;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -77,13 +82,14 @@ public class Resources {
 
 	public static final SoundType SILENCE = new SoundType(-10.0F, 1.0F, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL);
 	public static final SoundType SLICK = new SoundType(1.0F, 1.0F, SoundEvents.BLOCK_GLASS_BREAK, SoundEvents.BLOCK_SLIME_PLACE, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_SLIME_FALL);
-    public static final SoundType CERAMIC = new SoundType(1.0F, 1.0F, SoundEvents.BLOCK_GLASS_BREAK, SoundEvents.BLOCK_GLASS_STEP, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_GLASS_FALL);
+    public static final SoundType CERAMIC = new SoundType(1.0F, 1.0F, ClientProxy.CERAMIC_BREAK, SoundEvents.BLOCK_GLASS_STEP, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_GLASS_FALL);
 
 	public static List<Item> items = new ArrayList<Item>();
 	public static List<ItemBlock> blocks = new ArrayList<ItemBlock>();
 
 	public static Item dimensionTp = new ItemDimensionTeleporter().setUnlocalizedName("dimension_teleporter").setRegistryName("dimension_teleporter");
 	public static ItemMeta resource = new ItemResource();
+	public static ItemMeta gear = new ItemGear();
 	public static Item sharpBone = new ItemSharpBone();
 	public static Item trident = new ItemTrident();
 	public static Item laurelWreath = new ItemLaurelWreath();
@@ -108,6 +114,9 @@ public class Resources {
 	public static ItemBlockMeta tallGrass = new ItemBlockMeta(new BlockTallGrass());
 	public static ItemBlockMeta flower = new ItemBlockMeta(new BlockFlower());
 	public static ItemBlockMeta flower2 = new ItemBlockMeta(new BlockFlower2());
+	public static ItemBlockMeta herb = new ItemBlockMeta(new BlockHerb());
+	public static ItemBlockMeta bromelia = new ItemBlockMeta(new BlockBromelia());
+	public static ItemBlock cardon = new ItemBlock(new BlockCardonCactus());
 	public static ItemBlockMeta planks = new ItemBlockMetaMaterial(new BlockPlanks());
 	public static ItemBlock aristone = new ItemBlock(new BlockAristone("aristone"));
 	public static ItemBlock aristonePacked = new ItemBlock(new BlockAristone("aristone_packed"));
@@ -134,32 +143,32 @@ public class Resources {
 	public static ItemBlock grinder = new ItemBlock(new BlockGrinder());
 	public static ItemBlock forge = new ItemBlockForge(new BlockForge());
 
-	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0);
-	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1);
-	public static StairSlabPair sunstoneStone = new StairSlabPair(rock, 2);
-	public static StairSlabPair voidshaleStone = new StairSlabPair(rock, 3);
-	public static StairSlabPair baetylStone = new StairSlabPair(rock, 4);
-	public static StairSlabPair relicstoneStone = new StairSlabPair(rock, 5);
+	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0, "yellowstone");
+	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1, "silkstone");
+	public static StairSlabPair sunstoneStone = new StairSlabPair(rock, 2, "sunstone");
+	public static StairSlabPair voidshaleStone = new StairSlabPair(rock, 3, "voidshale");
+	public static StairSlabPair baetylStone = new StairSlabPair(rock, 4, "baetyl");
+	public static StairSlabPair relicstoneStone = new StairSlabPair(rock, 5, "relicstone");
 
-	public static StairSlabPair yellowstoneBrick = new StairSlabPair(brick, 0);
-	public static StairSlabPair silkstoneBrick = new StairSlabPair(brick, 1);
-	public static StairSlabPair sunstoneBrick = new StairSlabPair(brick, 2);
-	public static StairSlabPair voidshaleBrick = new StairSlabPair(brick, 3);
-	public static StairSlabPair baetylBrick = new StairSlabPair(brick, 4);
-	public static StairSlabPair relicstoneBrick = new StairSlabPair(brick, 5);
+	public static StairSlabPair yellowstoneBrick = new StairSlabPair(brick, 0, "yellowstone_bricks");
+	public static StairSlabPair silkstoneBrick = new StairSlabPair(brick, 1, "silkstone_bricks");
+	public static StairSlabPair sunstoneBrick = new StairSlabPair(brick, 2, "sunstone_bricks");
+	public static StairSlabPair voidshaleBrick = new StairSlabPair(brick, 3, "voidshale_bricks");
+	public static StairSlabPair baetylBrick = new StairSlabPair(brick, 4, "baetyl_bricks");
+	public static StairSlabPair relicstoneBrick = new StairSlabPair(brick, 5, "relicstone_bricks");
 
-	public static StairSlabPair relicstoneSmooth = new StairSlabPair(relicstone, 0);
-	public static StairSlabPair relicstoneCrackBrick = new StairSlabPair(relicstone, 1);
-	public static StairSlabPair relicstoneMossBrick = new StairSlabPair(relicstone, 2);
-	public static StairSlabPair relicstoneDraftBrick = new StairSlabPair(relicstone, 3);
-	public static StairSlabPair relicstoneTile = new StairSlabPair(relicstone, 4);
-	public static StairSlabPair relicstoneCrackTile = new StairSlabPair(relicstone, 5);
-	public static StairSlabPair relicstoneMossTile = new StairSlabPair(relicstone, 6);
-	public static StairSlabPair relicstoneDraftTile = new StairSlabPair(relicstone, 7);
+	public static StairSlabPair relicstoneSmooth = new StairSlabPair(relicstone, 0, "relicstone_smooth");
+	public static StairSlabPair relicstoneCrackBrick = new StairSlabPair(relicstone, 1, "relicstone_bricks_cracked");
+	public static StairSlabPair relicstoneMossBrick = new StairSlabPair(relicstone, 2, "relicstone_bricks_mossy");
+	public static StairSlabPair relicstoneDraftBrick = new StairSlabPair(relicstone, 3, "relicstone_bricks_draft");
+	public static StairSlabPair relicstoneTile = new StairSlabPair(relicstone, 4, "relicstone_tile");
+	public static StairSlabPair relicstoneCrackTile = new StairSlabPair(relicstone, 5, "relicstone_tile_cracked");
+	public static StairSlabPair relicstoneMossTile = new StairSlabPair(relicstone, 6, "relicstone_tile_mossy");
+	public static StairSlabPair relicstoneDraftTile = new StairSlabPair(relicstone, 7, "relicstone_tile_draft");
 
-	public static StairSlabPair grainiteStone = new StairSlabPair(grainelStone, 0);
-	public static StairSlabPair grainiteBricks = new StairSlabPair(grainelStone, 1);
-	public static StairSlabPair loamBrick = new StairSlabPair(loamBricks, 0);
+	public static StairSlabPair grainiteStone = new StairSlabPair(grainelStone, 0, "grainel_stone");
+	public static StairSlabPair grainiteBricks = new StairSlabPair(grainelStone, 1, "grainel_stone_bricks");
+	public static StairSlabPair loamBrick = new StairSlabPair(loamBricks, 0, "loam_bricks");
 
 	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE);
 	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS);
@@ -172,6 +181,7 @@ public class Resources {
 	public static void registerItems() {
 		Resources.items.add(Resources.dimensionTp);
 		Resources.items.add(Resources.resource);
+		Resources.items.add(Resources.gear);
 		Resources.items.add(Resources.sharpBone);
 		Resources.items.add(Resources.trident);
 		Resources.items.add(Resources.laurelWreath);
@@ -198,6 +208,9 @@ public class Resources {
 		Resources.registerBlock(Resources.tallGrass);
 		Resources.registerBlock(Resources.flower);
 		Resources.registerBlock(Resources.flower2);
+		Resources.registerBlock(Resources.herb);
+		Resources.registerBlock(Resources.bromelia);
+		Resources.registerBlock(Resources.cardon);
 		Resources.registerBlock(Resources.planks);
 		Resources.registerBlock(Resources.aristone);
 		Resources.registerBlock(Resources.aristonePacked);
@@ -334,12 +347,14 @@ public class Resources {
 		
 		public Item baseItem;
 		public int baseMeta;
+		public String name;
 		public ItemBlockMaterialSlab slab;
 		public ItemBlockMaterial stairs;
 
-		public StairSlabPair(ItemBlock baseBlock, int meta) {
+		public StairSlabPair(ItemBlock baseBlock, int meta, String name) {
 			this.baseItem = baseBlock;
 			this.baseMeta = meta;
+			this.name = name;
 			IBlockState baseState = baseBlock.getBlock().getStateFromMeta(meta);
 			this.slab = new ItemBlockMaterialSlab(new BlockCustomSlab(baseState, null));
 			this.stairs = new ItemBlockMaterial(new BlockCustomStairs(baseState, null));

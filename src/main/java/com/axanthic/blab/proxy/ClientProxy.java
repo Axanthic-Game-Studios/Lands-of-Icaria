@@ -6,8 +6,10 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.axanthic.blab.Blab;
+import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.blocks.BlockFlower;
+import com.axanthic.blab.blocks.BlockHerb;
 import com.axanthic.blab.blocks.BlockLeaf;
 import com.axanthic.blab.blocks.BlockLog;
 import com.axanthic.blab.blocks.BlockSapling;
@@ -17,14 +19,18 @@ import com.axanthic.blab.entity.EntityAeternae;
 import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.EntityFallingVase;
 import com.axanthic.blab.entity.EntityForestHag;
+import com.axanthic.blab.entity.EntityRevenant;
 import com.axanthic.blab.entity.RenderAeternae;
 import com.axanthic.blab.entity.RenderBident;
 import com.axanthic.blab.entity.RenderForestHag;
+import com.axanthic.blab.entity.RenderRevenant;
 import com.axanthic.blab.items.IItemCustomReach;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemCustomArmor;
 import com.axanthic.blab.items.ItemMeta;
 import com.axanthic.blab.utils.MessageCustomReachAttack;
+import com.axanthic.blab.utils.TileEntityGrinder;
+import com.axanthic.blab.utils.TileEntitySpecialRendererGrinder;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
@@ -46,6 +52,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -58,12 +65,18 @@ import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
+
+	public static final ResourceLocation SOUND_GRIND = new ResourceLocation(ModInformation.ID, "block.grinder.grind");
+	public static final SoundEvent GRIND = new SoundEvent(SOUND_GRIND).setRegistryName(SOUND_GRIND);
+	public static final ResourceLocation SOUND_CERAMIC_BREAK = new ResourceLocation(ModInformation.ID, "block.ceramic.break");
+	public static final SoundEvent CERAMIC_BREAK = new SoundEvent(SOUND_CERAMIC_BREAK).setRegistryName(SOUND_CERAMIC_BREAK);
 
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
@@ -72,11 +85,13 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityFallingVase.class, RenderFallingBlock::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityAeternae.class, RenderAeternae::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityForestHag.class, RenderForestHag::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityRevenant.class, RenderRevenant::new);
 	}
 
 	@Override
 	public void init(FMLInitializationEvent event) {
 		super.init(event);
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrinder.class, new TileEntitySpecialRendererGrinder());
 	}
 
 	@Override
@@ -94,7 +109,7 @@ public class ClientProxy extends CommonProxy {
 		super.registerItems(event);
 
 		for (ItemBlock block : Resources.blocks) {
-			if (block.getBlock() instanceof BlockFlower || block.getBlock() instanceof BlockTallGrass) {
+			if (block.getBlock() instanceof BlockFlower || block.getBlock() instanceof BlockTallGrass || block.getBlock() instanceof BlockHerb) {
 				for (int i = 0; i < ((IBlockMeta) block.getBlock()).getNames().length; i++) {
 					ModelLoader.setCustomModelResourceLocation(block, i, new ModelResourceLocation(block.getRegistryName() + "_inv", "type=" + ((IBlockMeta) block.getBlock()).getNames()[i]));
 				}
@@ -173,6 +188,12 @@ public class ClientProxy extends CommonProxy {
 	public int reduceGreen(int color) {
 		Color col = new Color(color);
 		return new Color(Math.min(col.getRed() + 30, 255), Math.max(col.getGreen() - 10, 0), col.getBlue()).getRGB();
+	}
+
+	@Override
+	public void registerSounds(RegistryEvent.Register<SoundEvent> event) {
+		event.getRegistry().register(GRIND);
+		event.getRegistry().register(CERAMIC_BREAK);
 	}
 
 	@Override

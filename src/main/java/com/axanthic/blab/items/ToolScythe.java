@@ -3,9 +3,7 @@ package com.axanthic.blab.items;
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources.CompleteToolMaterial;
-import com.axanthic.blab.blocks.BlockSoil;
-import com.axanthic.blab.blocks.BlockSoil.SoilTypes;
-import com.axanthic.blab.blocks.BlocksLOI;
+import com.axanthic.blab.entity.EntityFakePlayer;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
@@ -20,22 +18,18 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ToolScythe extends ItemSword implements IItemCustomReach {
 
@@ -47,7 +41,7 @@ public class ToolScythe extends ItemSword implements IItemCustomReach {
 		this.setCreativeTab(Blab.modTabItems);
 		this.setUnlocalizedName("generic.scythe");
 		this.setRegistryName(ModInformation.ID, "scythe_" + material.material.name().substring(ModInformation.ID.length() + 1));
-    }
+	}
 
 
 	@Override
@@ -122,55 +116,64 @@ public class ToolScythe extends ItemSword implements IItemCustomReach {
 		}
 		return multimap;
 	}
-    @SuppressWarnings("incomplete-switch")
-    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
-        ItemStack itemstack = player.getHeldItem(hand);
 
-        if (!player.canPlayerEdit(pos.offset(facing), facing, itemstack))
-        {
-            return EnumActionResult.FAIL;
-        }
-        else
-        {
-            int hook = net.minecraftforge.event.ForgeEventFactory.onHoeUse(itemstack, player, worldIn, pos);
-            if (hook != 0) return hook > 0 ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
+	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		ItemStack itemstack = player.getHeldItem(hand);
+		ItemStack itemstackHoe = new ItemStack(Items.IRON_HOE, itemstack.getCount(), itemstack.getItemDamage());
+		if (itemstack.getItem().getNBTShareTag(itemstack) != null)
+			itemstackHoe.writeToNBT(itemstack.getItem().getNBTShareTag(itemstack));
 
-            IBlockState iblockstate = worldIn.getBlockState(pos);
-            Block block = iblockstate.getBlock();
+		if (!player.canPlayerEdit(pos.offset(facing), facing, itemstackHoe)) {
+			return EnumActionResult.FAIL;
+		} else {
+			int hook = net.minecraftforge.event.ForgeEventFactory.onHoeUse(itemstackHoe, player, worldIn, pos);
+			if (hook != 0) {
+				itemstack.setItemDamage(itemstackHoe.getItemDamage());
+				return hook > 0 ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
+			}
 
-            if (facing != EnumFacing.DOWN && worldIn.isAirBlock(pos.up()))
-            {
-                if (block == BlocksLOI.MARLGRASS)
-                {
-                    this.setBlock(itemstack, player, worldIn, pos, Blocks.FARMLAND.getDefaultState());
-                    return EnumActionResult.SUCCESS;
-                }
-            }
-        }
-		return null;
-    }
+			IBlockState iblockstate = worldIn.getBlockState(pos);
+			Block block = iblockstate.getBlock();
 
-    /**
-     * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise
-     * the damage on the stack.
-     */
-    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
-    {
-        stack.damageItem(1, attacker);
-        return true;
-    }
+			if (facing != EnumFacing.DOWN && worldIn.isAirBlock(pos.up())) {
+				if (block == Blocks.GRASS || block == Blocks.GRASS_PATH) {
+					this.setBlock(itemstack, player, worldIn, pos, Blocks.FARMLAND.getDefaultState());
+					return EnumActionResult.SUCCESS;
+				}
+				if (block == Blocks.DIRT) {
+					if (BlockDirt.DirtType.COARSE_DIRT.equals((BlockDirt.DirtType) iblockstate.getValue(BlockDirt.VARIANT))) {
+						this.setBlock(itemstack, player, worldIn, pos, Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.DIRT));
+						return EnumActionResult.SUCCESS;
+					}
+					if (BlockDirt.DirtType.DIRT.equals((BlockDirt.DirtType) iblockstate.getValue(BlockDirt.VARIANT))) {
+						this.setBlock(itemstack, player, worldIn, pos, Blocks.FARMLAND.getDefaultState());
+						return EnumActionResult.SUCCESS;
+					}
+				}
+			}
+			EntityPlayer fakeplayer = new EntityFakePlayer(player.getEntityWorld(), player.getGameProfile(), player.isCreative(), player.isSpectator());
 
-    protected void setBlock(ItemStack stack, EntityPlayer player, World worldIn, BlockPos pos, IBlockState state)
-    {
-        worldIn.playSound(player, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+			if (hand == EnumHand.MAIN_HAND)
+				fakeplayer.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, itemstackHoe);
+	        else if (hand == EnumHand.OFF_HAND)
+				fakeplayer.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, itemstackHoe);
 
-        if (!worldIn.isRemote)
-        {
-            worldIn.setBlockState(pos, state, 11);
-            stack.damageItem(1, player);
-        }
-    }
+			if (block.onBlockActivated(worldIn, pos, iblockstate, fakeplayer, hand, facing, hitX, hitY, hitZ)) {
+				itemstack.setItemDamage(itemstackHoe.getItemDamage());
+				return EnumActionResult.SUCCESS;
+			}
+			return EnumActionResult.PASS;
+		}
+	}
+
+	protected void setBlock(ItemStack stack, EntityPlayer player, World worldIn, BlockPos pos, IBlockState state) {
+		worldIn.playSound(player, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+		if (!worldIn.isRemote) {
+			worldIn.setBlockState(pos, state, 11);
+			stack.damageItem(1, player);
+		}
+	}
 
 	@Override
 	public float getReach() {

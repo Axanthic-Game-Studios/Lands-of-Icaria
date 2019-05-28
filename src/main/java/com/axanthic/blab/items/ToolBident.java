@@ -62,10 +62,13 @@ public class ToolBident extends ItemTool implements IItemCustomReach {
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-		if (enchantment.type.equals(EnumEnchantmentType.WEAPON) || enchantment.type.equals(EnumEnchantmentType.ALL) || enchantment.type.equals(EnumEnchantmentType.BREAKABLE) || enchantment.equals(Enchantments.INFINITY)) {
+		if (enchantment.equals(Enchantments.SWEEPING)) {
+			return false;
+		}
+		if (enchantment.type.equals(EnumEnchantmentType.ALL) || enchantment.type.equals(EnumEnchantmentType.WEAPON) || enchantment.type.equals(EnumEnchantmentType.BREAKABLE) || enchantment.equals(Enchantments.INFINITY)) {
 			return true;
 		}
-		return enchantment.type.canEnchantItem(stack.getItem());
+		return false;
 	}
 
 	@Override
