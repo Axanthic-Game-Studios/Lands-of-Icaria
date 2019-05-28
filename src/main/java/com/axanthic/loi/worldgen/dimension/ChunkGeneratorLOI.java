@@ -272,11 +272,13 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 				for (int y = 0; y < sizeY; ++y)
 				{
-					final double d4 = bufferY[y];
-					final double d5 = this.ar[index] / 512.0D;
-					final double d6 = this.br[index] / 512.0D;
-					final double d7 = ((this.pnr[index] / 10.0D) + 1.0D) / 2.0D;
-					double value;
+					// WHAT THE HELL IS UP WITH THESE VARIABLE NAMES
+					final double d4 = bufferY[y]; //Density value of the terrain
+					final double d5 = this.ar[index] / 512.0D;	//noise value
+					final double d6 = this.br[index] / 512.0D;	//noise value
+					final double d7 = ((this.pnr[index] / 10.0D) + 1.0D) / 2.0D;	//noise value
+					double value;	//terrain smoothing value
+					//WHAT THE HELL IS UP WITH THIS CODE
 
 					if (d7 < 0.0D)
 					{
@@ -288,16 +290,18 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					}
 					else
 					{
-						value = d5/((Math.tan(d6)/2)*1000);
+						// WHAT THE HELL IS UP WITH MINECRAFT'S CODE AS A WHOLE!?
+						value = (d5 + d4 + d6 + d7)*((Math.tan(d6)/2)*1000);
+						// WHY THE HELL DOES THIS MAKE EVERYTHING A SKYLANDS-TYPE WORLD?!
 					}
 					if (y > this._world.getSeaLevel())
 					{
-						final double topSmoothing = (y - (sizeY - 4)) / 3.0F;
-						value = (value * (1.0D - topSmoothing)) + (-5D * topSmoothing);
+						final double topSmoothing = (y + (sizeY + 4)) / 3.0F;
+						value = (value * (1.0D + topSmoothing)) + (5D * topSmoothing);
 					}
 					//Random r = new Random();
 					//if(r.nextInt(20) == 10){
-					buffer[index] = cell < 0.2d ? value/6000: value/40000;
+					buffer[index] = cell < 0.2d ? value*5: value;
 					++index;
 					//}else{
 					//	buffer[index] = 0;
@@ -309,7 +313,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 		return buffer;
 	}
-	//Someday, people will be looking at my petrafied corpse in a museum, wondering what caused this man so much frustration 
+	//Someday, people will be looking at my petrified corpse in a museum, and they will wonder:
+	//"what horrible monster caused this man so much frustration?" 
 	public void buildSurfaces(final int wcx, final int wcz, final ChunkPrimer primer)
 	{
 		final int sea_level = this._world.getSeaLevel() + 1;
