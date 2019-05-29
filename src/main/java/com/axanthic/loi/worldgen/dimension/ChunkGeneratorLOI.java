@@ -154,6 +154,12 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		return chunk;
 	}
 
+	/**
+	 * Pretty sure this is the part that actually builds the height map: The thing that we will later place blocks into. 
+	 * @param x
+	 * @param z
+	 * @param primer
+	 */
 	public void prepareHeights(final int x, final int z, final ChunkPrimer primer)
 	{
 		final int seaLevel = (this._world.getSeaLevel() / 2) + 1;
