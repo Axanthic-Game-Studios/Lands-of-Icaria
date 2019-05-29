@@ -8,7 +8,7 @@
 		}
 	},
 	"variants": {
-		"sapling": { "model": "cross", "textures": { "cross": "blab:blocks/wood_laurel_sapling", "particle": "#cross" } },
+		"sapling": { "model": "oak_sapling", "textures": { "cross": "blab:blocks/wood_laurel_sapling", "particle": "#cross" } },
 		"inv_sapling": { "model": "blab:generated", "textures": { "layer0": "blab:blocks/wood_laurel_sapling" } },
 		"log_y": { "model": "cube_column", "textures": { "all": "blab:blocks/wood_laurel_log_side", "end": "blab:blocks/wood_laurel_log_top", "side": "blab:blocks/wood_laurel_log_side" } },
 		"log_z": { "model": "cube_column", "textures": { "all": "blab:blocks/wood_laurel_log_side", "end": "blab:blocks/wood_laurel_log_top", "side": "blab:blocks/wood_laurel_log_side" }, "x": 90 },
