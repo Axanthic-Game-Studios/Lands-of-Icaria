@@ -3,7 +3,6 @@ package com.axanthic.loi.worldgen.biome;
 import java.util.Random;
 
 import com.axanthic.blab.Resources;
-import com.axanthic.blab.entity.EntityAeternae;
 import com.axanthic.blab.entity.EntityForestHag;
 import com.axanthic.blab.entity.EntityRevenant;
 
@@ -18,24 +17,25 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class BiomeScrubland extends BiomeLOI {
+public class BiomeDesert extends BiomeLOI {
 
-	public BiomeScrubland() {
-		super(new BiomeProperties("blab:scrubland").setRainDisabled().setTemperature(1.2F));
-		this.setRegistryName("blab:scrubland");
+	public BiomeDesert() {
+		super(new BiomeProperties("blab:desert").setRainDisabled().setTemperature(2.0F));
+		this.setRegistryName("blab:desert");
+
+		topBlockPrimary = Resources.grainelSand.getBlock().getDefaultState();
+		fillerBlockPrimary = Resources.grainelSand.getBlock().getDefaultState();
+		topBlockSecondary = Resources.silkstoneSand.getBlock().getDefaultState();
+		fillerBlockSecondary = Resources.silkstoneSand.getBlock().getDefaultState();
 
 		spawnableCreatureList.clear();
 		spawnableMonsterList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
-		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityAeternae.class, 50, 2, 4));
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityForestHag.class, 50, 1, 2));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 1, 4));
 
 		flowers.clear();
-		addFlower(Resources.flower.getBlock().getStateFromMeta(0), 20);
-		addFlower(Resources.flower.getBlock().getStateFromMeta(1), 20);
-		addFlower(Resources.flower.getBlock().getStateFromMeta(5), 20);
 		addFlower(Resources.herb.getBlock().getStateFromMeta(0), 1);
 		addFlower(Resources.herb.getBlock().getStateFromMeta(1), 1);
 		addFlower(Resources.herb.getBlock().getStateFromMeta(2), 1);
@@ -58,9 +58,9 @@ public class BiomeScrubland extends BiomeLOI {
 
 		biomeDecorator.treesPerChunk = 3;
 		biomeDecorator.extraTreeChance = 0.1F;
-		biomeDecorator.flowersPerChunk = 5;
-		biomeDecorator.grassPerChunk = 8;
-		biomeDecorator.generateBoulders = true;
+		biomeDecorator.flowersPerChunk = 1;
+		biomeDecorator.cactiPerChunk = 20;
+		biomeDecorator.grassPerChunk = 0;
 
 		return biomeDecorator;
 	}

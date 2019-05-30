@@ -2,21 +2,20 @@ package com.axanthic.loi.worldgen.dimension;
 
 import java.util.Random;
 
-import com.axanthic.loi.worldgen.biome.LOIBiomes;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeProvider;
-import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldTypeLOI extends WorldType
 {
+	
+	public BiomeProvider biomeProvider = null;
 
 	public WorldTypeLOI()
 	{
@@ -26,7 +25,10 @@ public class WorldTypeLOI extends WorldType
 	@Override
 	public BiomeProvider getBiomeProvider(final World world)
 	{
-		return new BiomeProviderSingle(LOIBiomes.scrubland);
+		if (biomeProvider == null) {
+			biomeProvider = new BiomeProviderLOI(world.getWorldInfo());
+		}
+		return biomeProvider;
 	}
 
 	@Override

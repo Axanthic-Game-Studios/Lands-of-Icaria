@@ -3,9 +3,11 @@ package com.axanthic.loi.worldgen.dimension;
 import java.util.List;
 import java.util.Random;
 
+import com.axanthic.blab.Resources;
 import com.axanthic.blab.blocks.BlocksLOI;
 import com.axanthic.blab.utils.CellNoise;
 import com.axanthic.blab.utils.PerlinNoise;
+import com.axanthic.loi.worldgen.biome.BiomeLOI;
 
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
@@ -15,7 +17,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
@@ -59,7 +60,6 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 	private final World _world;
 	private final Random _rand;
-	private final WorldType terrainType;
 	private final CellNoise cell;
 	private final PerlinNoise perlin;
 	private final NoiseGeneratorOctaves lperlinNoise1;
@@ -95,7 +95,6 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	{
 		this._world = worldIn;
 		this._rand = new Random(seed);
-		this.terrainType = new WorldTypeLOI();
 		this.cell = new CellNoise(seed, (short) 0);
 		this.cell.setUseDistance(true);
 		this.perlin = new PerlinNoise(seed);
@@ -142,14 +141,15 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		//        }
 
 		final Chunk chunk = new Chunk(this._world, chunkprimer, x, z);
-		final Biome[] abiome = terrainType.getBiomeProvider(_world).getBiomes((Biome[])null, x * 16, z * 16, 16, 16);
+		//final Biome[] abiome = _world.getBiomeProvider().getBiomes((Biome[])null, x * 16, z * 16, 16, 16);
 		final byte[] abyte = chunk.getBiomeArray();
 
 		for (int i = 0; i < abyte.length; ++i)
 		{
-			abyte[i] = (byte)Biome.getIdForBiome(abiome[i]);
+			abyte[i] = (byte)Biome.getIdForBiome(biomesForGeneration[i]);
 		}
 
+		//chunk.setBiomeArray(abyte);
 		chunk.generateSkylightMap();
 		return chunk;
 	}
@@ -399,14 +399,14 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		//Therapist: On a scale of 1-10, how much do you want to smash something?
 		//Me: [profusely sweating] Is 10 a limit or a guideline?
 	}
-	
-/**
- * This is what places the blocks INTO the surfaces generated above
- */
+
+	/**
+	 * This is what places the blocks INTO the surfaces generated above
+	 */
 	public void setBlocksInChunk(final int x, final int z, final ChunkPrimer primer)
 	{
 		this.depthBuffer = this.surfaceNoise.getRegion(this.depthBuffer, x * 16, z * 16, 16, 16, 0.0625D, 0.0625D, 1.0D);
-		this.biomesForGeneration = terrainType.getBiomeProvider(_world).getBiomesForGeneration(this.biomesForGeneration, (x * 4) - 2, (z * 4) - 2, 10, 10);
+		this.biomesForGeneration = _world.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration, x * 16, z * 16, 16, 16);
 
 		@SuppressWarnings("unused")
 		int wx, wz;
@@ -420,22 +420,50 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 			wx = (x * ChunkGeneratorLOI.CHUNK_WIDTH) + cx;
 			for(int cz = 0; cz < ChunkGeneratorLOI.CHUNK_WIDTH; cz++)
 			{
+				Biome biome = biomesForGeneration[cx + cz * 16];
+				IBlockState upperBlockPrimary = null;
+				IBlockState topBlockPrimary = Resources.grass.getBlock().getDefaultState();
+				IBlockState fillerBlockPrimary = Resources.soil.getBlock().getDefaultState();
+				IBlockState upperBlockSecondary = null;
+				IBlockState topBlockSecondary = Resources.soil.getBlock().getStateFromMeta(1);
+				IBlockState fillerBlockSecondary = Resources.soil.getBlock().getStateFromMeta(1);
+				IBlockState upperBlockTertiary = null;
+				IBlockState topBlockTertiary = Resources.soil.getBlock().getStateFromMeta(2);
+				IBlockState fillerBlockTertiary = Resources.soil.getBlock().getDefaultState();
+
+				BiomeLOI biomeLOI = null;
+				if (biome instanceof BiomeLOI) {
+					biomeLOI = (BiomeLOI) biome;
+					upperBlockPrimary = biomeLOI.upperBlockPrimary;
+					topBlockPrimary = biomeLOI.topBlockPrimary;
+					fillerBlockPrimary = biomeLOI.fillerBlockPrimary;
+					upperBlockSecondary = biomeLOI.upperBlockSecondary;
+					topBlockSecondary = biomeLOI.topBlockSecondary;
+					fillerBlockSecondary = biomeLOI.fillerBlockSecondary;
+					upperBlockTertiary = biomeLOI.upperBlockTertiary;
+					topBlockTertiary = biomeLOI.topBlockTertiary;
+					fillerBlockTertiary = biomeLOI.fillerBlockTertiary;
+				}
+
 				wz = (z * ChunkGeneratorLOI.CHUNK_WIDTH) + cz;
 
 				final double noiseValue = this.depthBuffer[cx + (cz * 16)];
 				final int fillerBlockDensity = (int)((noiseValue / 3.0D) + 3.0D + (this._rand.nextDouble() * 0.25D));
-				IBlockState topBlock = ChunkGeneratorLOI.MARLGRASS;
-				IBlockState fillerBlock = ChunkGeneratorLOI.MARL;
+				IBlockState upperBlock = upperBlockPrimary;
+				IBlockState topBlock = topBlockPrimary;
+				IBlockState fillerBlock = fillerBlockPrimary;
 
 				if (noiseValue > 1.75D)
 				{
-					topBlock = ChunkGeneratorLOI.LOAM;
-					fillerBlock = ChunkGeneratorLOI.MARL;
+					upperBlock = upperBlockTertiary;
+					topBlock = topBlockTertiary;
+					fillerBlock = fillerBlockTertiary;
 				}
 				else if (noiseValue > 0.0D)
 				{
-					topBlock = ChunkGeneratorLOI.MARLCOURSE;
-					fillerBlock = ChunkGeneratorLOI.MARLCOURSE;
+					upperBlock = upperBlockSecondary;
+					topBlock = topBlockSecondary;
+					fillerBlock = fillerBlockSecondary;
 				}
 
 				noiseYellowstone = this.perlin.noise2((wx + 2221f) / 95f, (wz + 2221f) / 95f);
@@ -455,6 +483,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					if((b.getBlock() != Blocks.AIR) && (upper.getBlock() == Blocks.AIR))
 					{
 						primer.setBlockState(cx, cy, cz, topBlock);
+						if (upperBlock != null)
+							primer.setBlockState(cx, cy + 1, cz, upperBlock);
 						for(int gy = 1; gy < cy; gy++)
 						{
 							b = primer.getBlockState(cx, cy - gy, cz);
