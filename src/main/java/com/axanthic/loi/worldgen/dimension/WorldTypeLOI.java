@@ -4,10 +4,12 @@ import java.util.Random;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiCreateWorld;
+import net.minecraft.init.Biomes;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeProvider;
+import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -25,7 +27,7 @@ public class WorldTypeLOI extends WorldType
 	@Override
 	public BiomeProvider getBiomeProvider(final World world)
 	{
-		return new BiomeProviderSingle(Biomes.SKY);
+		//return new BiomeProviderSingle(Biomes.SKY);
 		if (biomeProvider == null) {
 			biomeProvider = new BiomeProviderLOI(world.getWorldInfo());
 		}
