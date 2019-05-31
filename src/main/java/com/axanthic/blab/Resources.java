@@ -47,8 +47,10 @@ import com.axanthic.blab.items.ItemBlockMaterialDoor;
 import com.axanthic.blab.items.ItemBlockMaterialSlab;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemBlockMetaMaterial;
+import com.axanthic.blab.items.ItemBottleOEpic;
 import com.axanthic.blab.items.ItemCustomArmor;
 import com.axanthic.blab.items.ItemDimensionTeleporter;
+import com.axanthic.blab.items.ItemDippedWreath;
 import com.axanthic.blab.items.ItemGear;
 import com.axanthic.blab.items.ItemLaurelWreath;
 import com.axanthic.blab.items.ItemMeta;
@@ -80,33 +82,61 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class Resources {
 
-	public static final SoundType SILENCE = new SoundType(-10.0F, 1.0F, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL);
-	public static final SoundType SLICK = new SoundType(1.0F, 1.0F, SoundEvents.BLOCK_GLASS_BREAK, SoundEvents.BLOCK_SLIME_PLACE, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_SLIME_FALL);
-    public static final SoundType CERAMIC = new SoundType(1.0F, 1.0F, ClientProxy.CERAMIC_BREAK, SoundEvents.BLOCK_GLASS_STEP, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_GLASS_FALL);
+	public static final SoundType SILENCE = new SoundType(-10.0F, 1.0F, SoundEvents.ITEM_HOE_TILL,
+			SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL);
+	public static final SoundType SLICK = new SoundType(1.0F, 1.0F, SoundEvents.BLOCK_GLASS_BREAK,
+			SoundEvents.BLOCK_SLIME_PLACE, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT,
+			SoundEvents.BLOCK_SLIME_FALL);
+	public static final SoundType CERAMIC = new SoundType(1.0F, 1.0F, ClientProxy.CERAMIC_BREAK,
+			SoundEvents.BLOCK_GLASS_STEP, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT,
+			SoundEvents.BLOCK_GLASS_FALL);
 
 	public static List<Item> items = new ArrayList<Item>();
 	public static List<ItemBlock> blocks = new ArrayList<ItemBlock>();
 
-	public static Item dimensionTp = new ItemDimensionTeleporter().setUnlocalizedName("dimension_teleporter").setRegistryName("dimension_teleporter");
+	public static Item dimensionTp = new ItemDimensionTeleporter().setUnlocalizedName("dimension_teleporter")
+			.setRegistryName("dimension_teleporter");
 	public static ItemMeta resource = new ItemResource();
 	public static ItemMeta gear = new ItemGear();
 	public static Item sharpBone = new ItemSharpBone();
 	public static Item trident = new ItemTrident();
 	public static Item laurelWreath = new ItemLaurelWreath();
+	public static Item dippedWreath = new ItemDippedWreath();
+	public static Item bottle = new ItemBottleOEpic("BottleOEpic");
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", BlockStorageMetal.MetalTypes.getNames());
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", BlockStorageMetal.MetalTypes.getNames());
 
-	public static ToolSet chalkos = new ToolSet(new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(Resources.ingot, 1, 0)));
-	public static ToolSet kassiteros = new ToolSet(new CompleteToolMaterial("kassiteros", -1.1F, 2, 234, 5.0F, 1.5F, 15, new ItemStack(Resources.ingot, 1, 1)));
-	public static ToolSet orichalcum = new ToolSet(new CompleteToolMaterial("orichalcum", -0.8F, 3, 385, 6.0F, 2.0F, 19, new ItemStack(Resources.ingot, 1, 3)));
-	public static ToolSet vanadiumsteel = new ToolSet(new CompleteToolMaterial("vanadiumsteel", -1.0F, 3, 424, 4.0F, 3.0F, 11, new ItemStack(Resources.ingot, 1, 6)));
-	public static ToolSet sideros = new ToolSet(new CompleteToolMaterial("sideros", -1.1F, 4, 528, 7.0F, 2.5F, 14, new ItemStack(Resources.ingot, 1, 7)));
-	public static ToolSet molybdenumsteel = new ToolSet(new CompleteToolMaterial("molybdenumsteel", -1.2F, 4, 673, 7.5F, 2.0F, 12, new ItemStack(Resources.ingot, 1, 9)));
+	public static ToolSet chalkos = new ToolSet(
+			new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(Resources.ingot, 1, 0)));
+	public static ToolSet kassiteros = new ToolSet(new CompleteToolMaterial("kassiteros", -1.1F, 2, 234, 5.0F, 1.5F, 15,
+			new ItemStack(Resources.ingot, 1, 1)));
+	public static ToolSet orichalcum = new ToolSet(new CompleteToolMaterial("orichalcum", -0.8F, 3, 385, 6.0F, 2.0F, 19,
+			new ItemStack(Resources.ingot, 1, 3)));
+	public static ToolSet vanadiumsteel = new ToolSet(new CompleteToolMaterial("vanadiumsteel", -1.0F, 3, 424, 4.0F,
+			3.0F, 11, new ItemStack(Resources.ingot, 1, 6)));
+	public static ToolSet sideros = new ToolSet(
+			new CompleteToolMaterial("sideros", -1.1F, 4, 528, 7.0F, 2.5F, 14, new ItemStack(Resources.ingot, 1, 7)));
+	public static ToolSet molybdenumsteel = new ToolSet(new CompleteToolMaterial("molybdenumsteel", -1.2F, 4, 673, 7.5F,
+			2.0F, 12, new ItemStack(Resources.ingot, 1, 9)));
 
-	public static ArmorSet chalkosArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "chalkos", ModInformation.ID + ":" + "armor_chalkos", 11, new int[]{1, 3, 4, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 0)));
-	public static ArmorSet kassiterosArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "kassiteros", ModInformation.ID + ":" + "armor_kassiteros", 15, new int[]{2, 3, 5, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 1)));
-	public static ArmorSet orichalcumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "orichalcum", ModInformation.ID + ":" + "armor_orichalcum", 24, new int[]{2, 4, 6, 2}, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 3)));
-	public static ArmorSet vanadiumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "vanadiumsteel", ModInformation.ID + ":" + "armor_vanadiumsteel", 27, new int[]{3, 5, 7, 3}, 11, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.5F).setRepairItem(new ItemStack(Resources.ingot, 1, 6)));
+	public static ArmorSet chalkosArmor = new ArmorSet(EnumHelper
+			.addArmorMaterial(ModInformation.ID + ":" + "chalkos", ModInformation.ID + ":" + "armor_chalkos", 11,
+					new int[] { 1, 3, 4, 1 }, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F)
+			.setRepairItem(new ItemStack(Resources.ingot, 1, 0)));
+	public static ArmorSet kassiterosArmor = new ArmorSet(EnumHelper
+			.addArmorMaterial(ModInformation.ID + ":" + "kassiteros", ModInformation.ID + ":" + "armor_kassiteros", 15,
+					new int[] { 2, 3, 5, 1 }, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F)
+			.setRepairItem(new ItemStack(Resources.ingot, 1, 1)));
+	public static ArmorSet orichalcumArmor = new ArmorSet(EnumHelper
+			.addArmorMaterial(ModInformation.ID + ":" + "orichalcum", ModInformation.ID + ":" + "armor_orichalcum", 24,
+					new int[] { 2, 4, 6, 2 }, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F)
+			.setRepairItem(new ItemStack(Resources.ingot, 1, 3)));
+	public static ArmorSet vanadiumArmor = new ArmorSet(
+			EnumHelper
+					.addArmorMaterial(ModInformation.ID + ":" + "vanadiumsteel",
+							ModInformation.ID + ":" + "armor_vanadiumsteel", 27, new int[] { 3, 5, 7, 3 }, 11,
+							SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.5F)
+					.setRepairItem(new ItemStack(Resources.ingot, 1, 6)));
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
@@ -123,12 +153,18 @@ public class Resources {
 	public static ItemBlockMeta rock = new ItemBlockMetaMaterial(new BlockRock("rock"));
 	public static ItemBlockMeta brick = new ItemBlockMetaMaterial(new BlockRock("bricks"));
 	public static ItemBlockMeta ore = new ItemBlockMetaMaterial(new BlockOre());
-	public static ItemBlock silkstoneSand = new ItemBlock(new BlockGravity(Material.SAND, 1.2F, "silkstone_sand", MapColor.PINK_STAINED_HARDENED_CLAY).setSoundType(SoundType.SAND));
-	public static ItemBlock grainelSand = new ItemBlock(new BlockGravity(Material.SAND, 1.2F, "grainel_sand", MapColor.WOOD).setSoundType(SoundType.SAND));
+	public static ItemBlock silkstoneSand = new ItemBlock(
+			new BlockGravity(Material.SAND, 1.2F, "silkstone_sand", MapColor.PINK_STAINED_HARDENED_CLAY)
+					.setSoundType(SoundType.SAND));
+	public static ItemBlock grainelSand = new ItemBlock(
+			new BlockGravity(Material.SAND, 1.2F, "grainel_sand", MapColor.WOOD).setSoundType(SoundType.SAND));
 	public static ItemBlockMeta grainelStone = new ItemBlockMeta(new BlockGrainelStone());
-	public static ItemBlock grainelGlass = new ItemBlock(new BlockGlassy(Material.GLASS, 0.3F, "grainel_glass", MapColor.WOOD));
-	public static ItemBlock grainelGlassPane = new ItemBlock(new BlockCustomPane(Material.GLASS, 0.3F, "grainel_pane", false).setSoundType(SoundType.GLASS));
-	public static ItemBlock loamBricks = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "loam_bricks", MapColor.NETHERRACK).setSoundType(SoundType.STONE));
+	public static ItemBlock grainelGlass = new ItemBlock(
+			new BlockGlassy(Material.GLASS, 0.3F, "grainel_glass", MapColor.WOOD));
+	public static ItemBlock grainelGlassPane = new ItemBlock(
+			new BlockCustomPane(Material.GLASS, 0.3F, "grainel_pane", false).setSoundType(SoundType.GLASS));
+	public static ItemBlock loamBricks = new ItemBlock(
+			new BlockBasic(Material.ROCK, 1.2F, "loam_bricks", MapColor.NETHERRACK).setSoundType(SoundType.STONE));
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
@@ -185,6 +221,8 @@ public class Resources {
 		Resources.items.add(Resources.sharpBone);
 		Resources.items.add(Resources.trident);
 		Resources.items.add(Resources.laurelWreath);
+		Resources.items.add(Resources.dippedWreath);
+		Resources.items.add(Resources.bottle);
 		Resources.items.add(Resources.ingot);
 		Resources.items.add(Resources.nugget);
 
@@ -282,8 +320,11 @@ public class Resources {
 		public ToolMaterial material;
 		public float attackSpeed;
 
-		public CompleteToolMaterial(final String name, final float attackSpeed, final int harvestLevel, final int maxUses, final float efficiency, final float damage, final int enchantability, final ItemStack repair) {
-			this.material = EnumHelper.addToolMaterial(ModInformation.ID + ":" + name, harvestLevel, maxUses, efficiency, damage, enchantability).setRepairItem(repair);
+		public CompleteToolMaterial(final String name, final float attackSpeed, final int harvestLevel,
+				final int maxUses, final float efficiency, final float damage, final int enchantability,
+				final ItemStack repair) {
+			this.material = EnumHelper.addToolMaterial(ModInformation.ID + ":" + name, harvestLevel, maxUses,
+					efficiency, damage, enchantability).setRepairItem(repair);
 			this.attackSpeed = attackSpeed;
 		}
 	}
@@ -344,7 +385,7 @@ public class Resources {
 	}
 
 	public static class StairSlabPair {
-		
+
 		public Item baseItem;
 		public int baseMeta;
 		public String name;
@@ -386,7 +427,8 @@ public class Resources {
 			this.log = new ItemBlockMaterial(new BlockLog(type, type.logColor, strippedLog));
 			this.sapling = new ItemBlockMaterial(new BlockSapling(type));
 			this.leaf = new ItemBlockMaterial(new BlockLeaf(type, sapling));
-			IBlockState plankState = Resources.planks.getBlock().getDefaultState().withProperty(BlockPlanks.TYPES, type);
+			IBlockState plankState = Resources.planks.getBlock().getDefaultState().withProperty(BlockPlanks.TYPES,
+					type);
 			String materialName = "material." + type.unlocalizedName + ".name";
 			this.fence = new ItemBlockMaterial(new BlockCustomFence(plankState, materialName));
 			this.fenceGate = new ItemBlockMaterial(new BlockCustomFenceGate(plankState, materialName));
