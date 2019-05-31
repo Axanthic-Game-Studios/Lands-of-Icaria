@@ -20,8 +20,8 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
 public class LOIBiomeDecorator extends BiomeDecorator {
 
-	boolean generateBoulders = false;
-	int boulderRadius = 0;
+	public boolean generateBoulders = false;
+	public boolean generateFerns = false;
 
 	public OreGeneratorLOI oreGen = new OreGeneratorLOI();
 
@@ -71,7 +71,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 					for (int i = 0; i < 128; ++i) {
 						BlockPos blockpos = position.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
-						IBlockState iblockstate2 = Resources.tallGrass.getBlock().getStateFromMeta(random.nextInt(BlockTallGrass.GrassTypes.values().length - 1));
+						IBlockState iblockstate2 = Resources.tallGrass.getBlock().getStateFromMeta(random.nextInt(BlockTallGrass.GrassTypes.values().length - (generateFerns ? 0 : 1)));
 
 						if (worldIn.isAirBlock(blockpos) && ((BlockTallGrass) Resources.tallGrass.getBlock()).canBlockStay(worldIn, blockpos, iblockstate2)) {
 							worldIn.setBlockState(blockpos, iblockstate2, 2);
@@ -82,7 +82,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 			//yellowstone boulder generation
 			if (generateBoulders) {
-				int e = random.nextInt(3);
+				int e = random.nextInt(5) - 3;
 
 				for (int a = 0; a < e; ++a) {
 					int g = random.nextInt(16) + 8;
@@ -99,12 +99,12 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 						if (position.getY() <= 3) {
 							break;
 						}
-						int i1 = boulderRadius;
+						int i1 = 2;
 
 						for (int i = 0; i1 >= 0 && i < 3; ++i) {
-							int j = i1 + random.nextInt(2);
-							int k = i1 + random.nextInt(2);
-							int l = i1 + random.nextInt(2);
+							int j = i1 + random.nextInt(4);
+							int k = i1 + random.nextInt(4);
+							int l = i1 + random.nextInt(4);
 							float f = (float)(j + k + l) * 0.333F + 0.5F;
 
 							for (BlockPos blockpos : BlockPos.getAllInBox(position.add(-j, -k, -l), position.add(j, k, l))) {

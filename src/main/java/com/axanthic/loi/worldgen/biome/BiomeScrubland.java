@@ -17,6 +17,8 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BiomeScrubland extends BiomeLOI {
 
@@ -36,15 +38,16 @@ public class BiomeScrubland extends BiomeLOI {
 		addFlower(Resources.flower.getBlock().getStateFromMeta(0), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(1), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(5), 20);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(0), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(1), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(2), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(3), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(4), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(5), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(6), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(7), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(8), 1);
+		addFlower(Resources.flower.getBlock().getStateFromMeta(12), 20);
+		addFlower(Resources.flower.getBlock().getStateFromMeta(13), 20);
+		addFlower(Resources.flower.getBlock().getStateFromMeta(14), 20);
+		addFlower(Resources.herb.getBlock().getStateFromMeta(0), 10);
+		addFlower(Resources.herb.getBlock().getStateFromMeta(6), 10);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public int getGrassColorAtPos(BlockPos pos) {
+		return 0x70B263;
 	}
 
 	@Override

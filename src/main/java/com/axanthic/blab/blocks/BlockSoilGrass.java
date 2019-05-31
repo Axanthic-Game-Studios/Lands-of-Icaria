@@ -5,6 +5,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.axanthic.blab.Resources;
+import com.axanthic.loi.worldgen.biome.BiomeForest;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -105,22 +106,13 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 			while (true) {
 				if (j >= i / 16) {
 					if (worldIn.isAirBlock(blockpos1)) {
-						IBlockState iblockstate1 = Resources.tallGrass.getBlock().getStateFromMeta(rand.nextInt(BlockTallGrass.GrassTypes.values().length));
 						if (rand.nextInt(8) == 0) {
-							if (rand.nextInt(6) == 0) {
-								iblockstate1 = Resources.herb.getBlock().getStateFromMeta(rand.nextInt(BlockHerb.HerbTypes.values().length));
-							} else if (rand.nextInt(3) == 0) {
-								iblockstate1 = Resources.bromelia.getBlock().getStateFromMeta(rand.nextInt(BlockBromelia.BromeliaTypes.values().length));
-							} else {
-								int meta = rand.nextInt(BlockFlower.FlowerTypes.values().length + BlockFlower2.FlowerTypes2.values().length);
-								if (meta < 16)
-									iblockstate1 = Resources.flower.getBlock().getStateFromMeta(meta);
-								else
-									iblockstate1 = Resources.flower2.getBlock().getStateFromMeta(meta - 16);
+							worldIn.getBiome(blockpos1).plantFlower(worldIn, rand, blockpos1);
+						} else {
+							IBlockState iblockstate1 = Resources.tallGrass.getBlock().getStateFromMeta(rand.nextInt(BlockTallGrass.GrassTypes.values().length - (worldIn.getBiome(blockpos1) instanceof BiomeForest ? 0 : 1)));
+							if (((BlockBush) iblockstate1.getBlock()).canBlockStay(worldIn, blockpos1, iblockstate1)) {
+								worldIn.setBlockState(blockpos1, iblockstate1, 3);
 							}
-						}
-						if (((BlockBush) iblockstate1.getBlock()).canBlockStay(worldIn, blockpos1, iblockstate1)) {
-							worldIn.setBlockState(blockpos1, iblockstate1, 3);
 						}
 					}
 					break;

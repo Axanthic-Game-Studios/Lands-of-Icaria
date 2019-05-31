@@ -17,6 +17,8 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BiomeForest extends BiomeLOI {
 
@@ -43,19 +45,18 @@ public class BiomeForest extends BiomeLOI {
 		addFlower(Resources.flower.getBlock().getStateFromMeta(6), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(9), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(10), 20);
-		addFlower(Resources.bromelia.getBlock().getStateFromMeta(0), 5);
-		addFlower(Resources.bromelia.getBlock().getStateFromMeta(1), 5);
-		addFlower(Resources.bromelia.getBlock().getStateFromMeta(2), 5);
-		addFlower(Resources.bromelia.getBlock().getStateFromMeta(3), 5);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(0), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(1), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(2), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(3), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(4), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(5), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(6), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(7), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(8), 1);
+		addFlower(Resources.bromelia.getBlock().getStateFromMeta(0), 10);
+		addFlower(Resources.bromelia.getBlock().getStateFromMeta(1), 10);
+		addFlower(Resources.bromelia.getBlock().getStateFromMeta(2), 10);
+		addFlower(Resources.bromelia.getBlock().getStateFromMeta(3), 10);
+		addFlower(Resources.herb.getBlock().getStateFromMeta(1), 10);
+		addFlower(Resources.herb.getBlock().getStateFromMeta(4), 10);
+		addFlower(Resources.herb.getBlock().getStateFromMeta(7), 10);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public int getGrassColorAtPos(BlockPos pos) {
+		return 0x728B4D;
 	}
 
 	@Override
@@ -71,6 +72,7 @@ public class BiomeForest extends BiomeLOI {
 		biomeDecorator.extraTreeChance = 0.1F;
 		biomeDecorator.flowersPerChunk = 5;
 		biomeDecorator.grassPerChunk = 7;
+		biomeDecorator.generateFerns = true;
 
 		return biomeDecorator;
 	}

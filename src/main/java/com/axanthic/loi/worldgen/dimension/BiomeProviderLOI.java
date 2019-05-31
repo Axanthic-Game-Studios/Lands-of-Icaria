@@ -49,6 +49,7 @@ public class BiomeProviderLOI extends BiomeProvider {
         biomes = new GenLayerZoom(1003, biomes);
         biomes = new GenLayerZoom(1004, biomes);
         biomes = new GenLayerZoom(1005, biomes);
+        biomes = GenLayerZoom.magnify(1000L, biomes, 2);
 
         GenLayer biomeIndexLayer = new GenLayerVoronoiZoom(10L, biomes);
         biomeIndexLayer.initWorldGenSeed(seed);

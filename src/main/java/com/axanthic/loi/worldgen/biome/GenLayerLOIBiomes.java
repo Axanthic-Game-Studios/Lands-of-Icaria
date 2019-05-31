@@ -65,7 +65,7 @@ public class GenLayerLOIBiomes extends GenLayer {
 
         // do we need to shuffle this better?
         // the current version just "rotates" the 4 key biomes
-        switch ((index + offset) % 3) {
+        switch ((index + offset) % 4) {
             case 0:
             default:
                 return Biome.getIdForBiome(LOIBiomes.desert);
@@ -73,6 +73,8 @@ public class GenLayerLOIBiomes extends GenLayer {
                 return Biome.getIdForBiome(LOIBiomes.scrubland);
             case 2:
                 return Biome.getIdForBiome(LOIBiomes.forest);
+            case 3:
+                return Biome.getIdForBiome(LOIBiomes.steppe);
         }
     }
 }
