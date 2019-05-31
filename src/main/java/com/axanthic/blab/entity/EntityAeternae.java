@@ -3,6 +3,9 @@ package com.axanthic.blab.entity;
 import java.util.UUID;
 
 import javax.annotation.Nullable;
+
+import com.axanthic.blab.Resources;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -51,6 +54,7 @@ public class EntityAeternae extends EntityAnimal {
 	public EntityAeternae(World worldIn) {
 		super(worldIn);
 		this.setSize(0.9F, 1.5F);
+		this.spawnableBlock = Resources.grass.getBlock();
 	}
 
 	public static void registerFixesCow(DataFixer fixer) {

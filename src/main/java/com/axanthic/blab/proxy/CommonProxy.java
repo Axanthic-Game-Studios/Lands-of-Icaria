@@ -18,7 +18,7 @@ import com.axanthic.blab.utils.TileEntityForgeRedirector;
 import com.axanthic.blab.utils.TileEntityGrinder;
 import com.axanthic.blab.utils.TileEntityKiln;
 import com.axanthic.blab.utils.TileEntityVase;
-import com.axanthic.loi.worldgen.dimension.OreGeneratorLOI;
+import com.axanthic.loi.worldgen.biome.LOIBiomes;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
 
 import net.minecraft.block.Block;
@@ -32,6 +32,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.common.DimensionManager;
@@ -74,9 +75,10 @@ public class CommonProxy {
 
 	public void init(FMLInitializationEvent event) {
 		/******** Dimension initialisation ********/
+		LOIBiomes.init();
 		Blab.dimensionId = DimensionManager.getNextFreeDimId();
 		Blab.dimensionTypeLoi = DimensionType.register("loi", "_loi", Blab.dimensionId, WorldProviderLOI.class, false);
-		GameRegistry.registerWorldGenerator(new OreGeneratorLOI(), 0);
+		//GameRegistry.registerWorldGenerator(new OreGeneratorLOI(), 0);
 		DimensionManager.registerDimension(Blab.dimensionId, Blab.dimensionTypeLoi);
 		/******************************************/
 		Blab.modTabBlocks.setTabIconItem(new ItemStack(Resources.grass));
@@ -105,6 +107,10 @@ public class CommonProxy {
 
 		Recipes.registerOredict();
 		Recipes.registerRecipes();
+	}
+
+	public void registerBiomes(RegistryEvent.Register<Biome> event) {
+		LOIBiomes.registerBiomes(event);
 	}
 
 	public void registerBlockColors(ColorHandlerEvent.Block event) {

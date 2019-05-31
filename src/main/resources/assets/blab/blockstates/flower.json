@@ -2,8 +2,7 @@
 	"forge_marker": 1,
 	"defaults": {
 		"transform": "forge:default-block",
-		"model": "cross",
-		"uvlock": true,
+		"model": "poppy",
 		"textures": {
 			"cross": "blab:blocks/flower_white_chameomile",
 			"particle": "#cross"
