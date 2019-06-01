@@ -6,6 +6,8 @@ import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityAeternae;
 import com.axanthic.blab.entity.EntityForestHag;
 import com.axanthic.blab.entity.EntityRevenant;
+import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
+import com.axanthic.loi.worldgen.feature.WorldGenOliveTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
@@ -62,6 +64,8 @@ public class BiomeSteppe extends BiomeLOI {
 		biomeDecorator.extraTreeChance = 0.1F;
 		biomeDecorator.flowersPerChunk = 5;
 		biomeDecorator.grassPerChunk = 6;
+		biomeDecorator.treeGenerators.add(new WorldGenCypressTree(false).init());
+		biomeDecorator.treeGenerators.add(new WorldGenOliveTree(false).init());
 
 		return biomeDecorator;
 	}

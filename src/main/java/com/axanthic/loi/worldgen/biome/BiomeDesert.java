@@ -5,6 +5,7 @@ import java.util.Random;
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityForestHag;
 import com.axanthic.blab.entity.EntityRevenant;
+import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
@@ -63,6 +64,7 @@ public class BiomeDesert extends BiomeLOI {
 		biomeDecorator.flowersPerChunk = 4;
 		biomeDecorator.cactiPerChunk = 20;
 		biomeDecorator.grassPerChunk = 0;
+		biomeDecorator.treeGenerators.add(new WorldGenDroughtrootTree(false).init());
 
 		return biomeDecorator;
 	}

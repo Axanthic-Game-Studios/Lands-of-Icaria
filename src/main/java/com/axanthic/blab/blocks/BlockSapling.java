@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
+import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
 
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
@@ -20,13 +21,15 @@ import net.minecraft.world.World;
 public class BlockSapling extends BlockBush implements IGrowable, IBlockMaterial {
 
 	public BlockPlanks.WoodTypes type;
+	public WorldGenLOITree generator;
 	public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
 	protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
 
-	public BlockSapling(BlockPlanks.WoodTypes type) {
+	public BlockSapling(BlockPlanks.WoodTypes type, WorldGenLOITree generator) {
 		super();
 		this.setCreativeTab(Blab.modTabFlora);
 		this.type = type;
+		this.generator = generator;
 		this.setUnlocalizedName("sapling");
 		this.setRegistryName(ModInformation.ID, "sapling_" + type.unlocalizedName);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
@@ -59,7 +62,7 @@ public class BlockSapling extends BlockBush implements IGrowable, IBlockMaterial
 	}
 
 	public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-		//no tree growing code yet
+        generator.generate(worldIn, rand, pos);
 	}
 
 	@Override

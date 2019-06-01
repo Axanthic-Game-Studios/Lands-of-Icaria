@@ -63,6 +63,14 @@ import com.axanthic.blab.items.ToolScythe;
 import com.axanthic.blab.items.ToolShovel;
 import com.axanthic.blab.items.ToolSword;
 import com.axanthic.blab.proxy.ClientProxy;
+import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
+import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
+import com.axanthic.loi.worldgen.feature.WorldGenFirTree;
+import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
+import com.axanthic.loi.worldgen.feature.WorldGenLaurelTree;
+import com.axanthic.loi.worldgen.feature.WorldGenOliveTree;
+import com.axanthic.loi.worldgen.feature.WorldGenPlaneTree;
+import com.axanthic.loi.worldgen.feature.WorldGenPopulusTree;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -81,7 +89,7 @@ public class Resources {
 
 	public static final SoundType SILENCE = new SoundType(-10.0F, 1.0F, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL);
 	public static final SoundType SLICK = new SoundType(1.0F, 1.0F, SoundEvents.BLOCK_GLASS_BREAK, SoundEvents.BLOCK_SLIME_PLACE, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_SLIME_FALL);
-    public static final SoundType CERAMIC = new SoundType(1.0F, 1.0F, ClientProxy.CERAMIC_BREAK, SoundEvents.BLOCK_GLASS_STEP, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_GLASS_FALL);
+	public static final SoundType CERAMIC = new SoundType(1.0F, 1.0F, ClientProxy.CERAMIC_BREAK, SoundEvents.BLOCK_GLASS_STEP, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_GLASS_FALL);
 
 	public static List<Item> items = new ArrayList<Item>();
 	public static List<ItemBlock> blocks = new ArrayList<ItemBlock>();
@@ -168,13 +176,13 @@ public class Resources {
 	public static StairSlabPair grainiteBricks = new StairSlabPair(grainelStone, 1, "grainel_stone_bricks");
 	public static StairSlabPair loamBrick = new StairSlabPair(loamBricks, 0, "loam_bricks");
 
-	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE);
-	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS);
-	public static WoodSet cypress = new WoodSet(BlockPlanks.WoodTypes.CYPRESS);
-	public static WoodSet fir = new WoodSet(BlockPlanks.WoodTypes.FIR);
-	public static WoodSet olive = new WoodSet(BlockPlanks.WoodTypes.OLIVE);
-	public static WoodSet laurel = new WoodSet(BlockPlanks.WoodTypes.LAUREL);
-	public static WoodSet droughtroot = new WoodSet(BlockPlanks.WoodTypes.DROUGHTROOT);
+	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE, new WorldGenPlaneTree(true));
+	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS, new WorldGenPopulusTree(true));
+	public static WoodSet cypress = new WoodSet(BlockPlanks.WoodTypes.CYPRESS, new WorldGenCypressTree(true));
+	public static WoodSet fir = new WoodSet(BlockPlanks.WoodTypes.FIR, new WorldGenFirTree(true));
+	public static WoodSet olive = new WoodSet(BlockPlanks.WoodTypes.OLIVE, new WorldGenOliveTree(true));
+	public static WoodSet laurel = new WoodSet(BlockPlanks.WoodTypes.LAUREL, new WorldGenLaurelTree(true));
+	public static WoodSet droughtroot = new WoodSet(BlockPlanks.WoodTypes.DROUGHTROOT, new WorldGenDroughtrootTree(true));
 
 	public static void registerItems() {
 		Resources.items.add(Resources.dimensionTp);
@@ -341,7 +349,7 @@ public class Resources {
 	}
 
 	public static class StairSlabPair {
-		
+
 		public Item baseItem;
 		public int baseMeta;
 		public String name;
@@ -377,12 +385,14 @@ public class Resources {
 		public ItemBlockMaterialDoor door;
 		public ItemBlockMaterial trapdoor;
 
-		public WoodSet(final BlockPlanks.WoodTypes type) {
+		public WoodSet(final BlockPlanks.WoodTypes type, WorldGenLOITree generator) {
 			this.type = type;
 			this.strippedLog = new ItemBlockMaterial(new BlockLog(type, type.mapColor, null));
 			this.log = new ItemBlockMaterial(new BlockLog(type, type.logColor, strippedLog));
-			this.sapling = new ItemBlockMaterial(new BlockSapling(type));
 			this.leaf = new ItemBlockMaterial(new BlockLeaf(type, sapling));
+			generator.TRUNK = this.log.getBlock().getDefaultState();
+			generator.LEAF = this.leaf.getBlock().getDefaultState();
+			this.sapling = new ItemBlockMaterial(new BlockSapling(type, generator));
 			IBlockState plankState = Resources.planks.getBlock().getDefaultState().withProperty(BlockPlanks.TYPES, type);
 			String materialName = "material." + type.unlocalizedName + ".name";
 			this.fence = new ItemBlockMaterial(new BlockCustomFence(plankState, materialName));

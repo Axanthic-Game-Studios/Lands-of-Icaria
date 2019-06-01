@@ -20,6 +20,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -68,9 +69,9 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	}
 
 	@Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-        return this.getDefaultState().withProperty(DECAYABLE, false).withProperty(CHECK_DECAY, false);
-    }
+	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+		return this.getDefaultState().withProperty(DECAYABLE, false).withProperty(CHECK_DECAY, false);
+	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
@@ -124,6 +125,44 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		return !Minecraft.getMinecraft().gameSettings.fancyGraphics && blockAccess.getBlockState(pos.offset(side)).getBlock() == this ? false : super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+		return !Minecraft.getMinecraft().gameSettings.fancyGraphics && blockAccess.getBlockState(pos.offset(side)).getBlock() == this ? false : this.renderSide(blockState, blockAccess, pos, side);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public boolean renderSide(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+		AxisAlignedBB axisalignedbb = blockState.getBoundingBox(blockAccess, pos);
+
+		switch (side) {
+		case DOWN:
+			if (axisalignedbb.minY > 0.0D) {
+				return true;
+			}
+			break;
+		case UP:
+			if (axisalignedbb.maxY < 1.0D) {
+				return true;
+			}
+			break;
+		case NORTH:
+			if (axisalignedbb.minZ > 0.0D){
+				return true;
+			}
+			break;
+		case SOUTH:
+			if (axisalignedbb.maxZ < 1.0D){
+				return true;
+			}
+			break;
+		case WEST:
+			if (axisalignedbb.minX > 0.0D) {
+				return true;
+			}
+			break;
+		case EAST:
+			if (axisalignedbb.maxX < 1.0D) {
+				return true;
+			}
+		}
+		return !blockAccess.getBlockState(pos.offset(side)).doesSideBlockRendering(blockAccess, pos.offset(side), side.getOpposite());
 	}
 }

@@ -6,6 +6,8 @@ import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityAeternae;
 import com.axanthic.blab.entity.EntityForestHag;
 import com.axanthic.blab.entity.EntityRevenant;
+import com.axanthic.loi.worldgen.feature.WorldGenLaurelTree;
+import com.axanthic.loi.worldgen.feature.WorldGenPlaneTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
@@ -64,6 +66,8 @@ public class BiomeScrubland extends BiomeLOI {
 		biomeDecorator.flowersPerChunk = 5;
 		biomeDecorator.grassPerChunk = 8;
 		biomeDecorator.generateBoulders = true;
+		biomeDecorator.treeGenerators.add(new WorldGenPlaneTree(false).init());
+		biomeDecorator.treeGenerators.add(new WorldGenLaurelTree(false).init());
 
 		return biomeDecorator;
 	}

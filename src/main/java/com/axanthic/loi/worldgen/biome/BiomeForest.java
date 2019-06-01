@@ -6,6 +6,8 @@ import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityAeternae;
 import com.axanthic.blab.entity.EntityForestHag;
 import com.axanthic.blab.entity.EntityRevenant;
+import com.axanthic.loi.worldgen.feature.WorldGenFirTree;
+import com.axanthic.loi.worldgen.feature.WorldGenPopulusTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
@@ -73,6 +75,8 @@ public class BiomeForest extends BiomeLOI {
 		biomeDecorator.flowersPerChunk = 5;
 		biomeDecorator.grassPerChunk = 7;
 		biomeDecorator.generateFerns = true;
+		biomeDecorator.treeGenerators.add(new WorldGenFirTree(false).init());
+		biomeDecorator.treeGenerators.add(new WorldGenPopulusTree(false).init());
 
 		return biomeDecorator;
 	}
