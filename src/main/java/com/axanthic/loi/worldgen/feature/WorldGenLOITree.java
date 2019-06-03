@@ -2,8 +2,6 @@ package com.axanthic.loi.worldgen.feature;
 
 import java.util.Random;
 
-import com.axanthic.blab.Resources;
-
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
@@ -95,13 +93,6 @@ public abstract class WorldGenLOITree extends WorldGenAbstractTree {
 			}
 		} else {
 			return false;
-		}
-	}
-
-	@Override
-	protected void setDirtAt(World worldIn, BlockPos pos) {
-		if (worldIn.getBlockState(pos).getBlock() != Resources.soil.getBlock().getDefaultState()) {
-			this.setBlockAndNotifyAdequately(worldIn, pos, Resources.soil.getBlock().getDefaultState());
 		}
 	}
 

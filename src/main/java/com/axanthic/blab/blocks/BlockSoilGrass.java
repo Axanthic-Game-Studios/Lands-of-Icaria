@@ -83,6 +83,11 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 	}
 
 	@Override
+	public void onPlantGrow(IBlockState state, World world, BlockPos pos, BlockPos source) {
+		world.setBlockState(pos, Resources.soil.getBlock().getDefaultState(), 2);
+	}
+
+	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return Resources.soil;
 	}

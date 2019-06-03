@@ -32,11 +32,10 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	public BlockPlanks.WoodTypes type;
 	public Item sapling;
 
-	public BlockLeaf(BlockPlanks.WoodTypes type, Item sapling) {
+	public BlockLeaf(BlockPlanks.WoodTypes type) {
 		super();
 		this.setCreativeTab(Blab.modTabFlora);
 		this.type = type;
-		this.sapling = sapling;
 		this.setUnlocalizedName("leaf");
 		this.setRegistryName(ModInformation.ID, "leaf_" + type.unlocalizedName);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
@@ -51,6 +50,11 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return sapling;
+	}
+
+	@Override
+	protected int getSaplingDropChance(IBlockState state) {
+		return type.saplingChance;
 	}
 
 	@Override

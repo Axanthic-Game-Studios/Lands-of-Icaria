@@ -389,10 +389,11 @@ public class Resources {
 			this.type = type;
 			this.strippedLog = new ItemBlockMaterial(new BlockLog(type, type.mapColor, null));
 			this.log = new ItemBlockMaterial(new BlockLog(type, type.logColor, strippedLog));
-			this.leaf = new ItemBlockMaterial(new BlockLeaf(type, sapling));
+			this.leaf = new ItemBlockMaterial(new BlockLeaf(type));
 			generator.TRUNK = this.log.getBlock().getDefaultState();
 			generator.LEAF = this.leaf.getBlock().getDefaultState();
 			this.sapling = new ItemBlockMaterial(new BlockSapling(type, generator));
+			((BlockLeaf) this.leaf.getBlock()).sapling = this.sapling;
 			IBlockState plankState = Resources.planks.getBlock().getDefaultState().withProperty(BlockPlanks.TYPES, type);
 			String materialName = "material." + type.unlocalizedName + ".name";
 			this.fence = new ItemBlockMaterial(new BlockCustomFence(plankState, materialName));

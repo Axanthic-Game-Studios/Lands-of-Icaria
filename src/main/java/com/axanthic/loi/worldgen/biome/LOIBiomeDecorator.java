@@ -25,6 +25,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 	public boolean generateBoulders = false;
 	public boolean generateFerns = false;
+	public int extraTreeAmount = 1;
 	public List<WorldGenLOITree> treeGenerators = new ArrayList<WorldGenLOITree>();
 
 	public OreGeneratorLOI oreGen = new OreGeneratorLOI();
@@ -180,7 +181,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	public void generateTrees(World worldIn, Random random, Biome biome, BlockPos pos) {
 		int k1 = this.treesPerChunk;
 		if (random.nextFloat() < this.extraTreeChance) {
-			++k1;
+			k1 += extraTreeAmount;
 		}
 		for (int j2 = 0; j2 < k1; ++j2) {
 			int k6 = random.nextInt(16) + 8;
