@@ -141,8 +141,8 @@ public class BlockPlanks extends Block implements IBlockMeta {
 		}
 
 		static {
-			for (WoodTypes stoneType : values()) {
-				META_LOOKUP[stoneType.meta] = stoneType;
+			for (WoodTypes woodType : values()) {
+				META_LOOKUP[woodType.meta] = woodType;
 			}
 		}
 	}

@@ -1,0 +1,30 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "cube_all",
+		"textures": {
+			"all": "blab:blocks/wood_olive_leaves",
+			"particle": "#all"
+		}
+	},
+	"variants": {
+		"check_decay": {
+			"true": {},
+			"false": {}
+		},
+		"decayable": {
+			"true": {},
+			"false": {}
+		},
+		"type": {
+			"green": {
+				"textures": { "all": "blab:blocks/wood_olive_fruits_green" }
+			},
+			"black": {
+				"textures": { "all": "blab:blocks/wood_olive_fruits_black" }
+			}
+		}
+	}
+}
+

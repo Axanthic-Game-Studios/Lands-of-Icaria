@@ -21,6 +21,8 @@ public abstract class WorldGenLOITree extends WorldGenAbstractTree {
 		super(notify);
 	}
 
+	public abstract WorldGenLOITree init();
+
 	@Override
 	public boolean generate(World worldIn, Random rand, BlockPos position) {
 		int i = rand.nextInt(3) + 5;
@@ -122,8 +124,14 @@ public abstract class WorldGenLOITree extends WorldGenAbstractTree {
 
 	public void placeLeafAt(World worldIn, BlockPos pos) {
 		IBlockState state = worldIn.getBlockState(pos);
-		if (state.getBlock().isAir(state, worldIn, pos) || state.getBlock().isLeaves(state, worldIn, pos)) {
+		if (state.getBlock().isAir(state, worldIn, pos) || (state.getBlock().isLeaves(state, worldIn, pos) && worldIn.rand.nextInt(2) == 0)) {
 			this.setBlockAndNotifyAdequately(worldIn, pos, LEAF);
 		}
+	}
+
+	public void placeLeafAtChance(World worldIn, BlockPos pos, int chance) {
+		if (worldIn.rand.nextInt(chance) == 0)
+			return;
+		this.placeLeafAt(worldIn, pos);
 	}
 }

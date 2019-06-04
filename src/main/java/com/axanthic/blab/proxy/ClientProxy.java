@@ -11,6 +11,7 @@ import com.axanthic.blab.Resources;
 import com.axanthic.blab.blocks.BlockFlower;
 import com.axanthic.blab.blocks.BlockHerb;
 import com.axanthic.blab.blocks.BlockLeaf;
+import com.axanthic.blab.blocks.BlockLeafOlives;
 import com.axanthic.blab.blocks.BlockLog;
 import com.axanthic.blab.blocks.BlockSapling;
 import com.axanthic.blab.blocks.BlockTallGrass;
@@ -25,9 +26,9 @@ import com.axanthic.blab.entity.RenderBident;
 import com.axanthic.blab.entity.RenderForestHag;
 import com.axanthic.blab.entity.RenderRevenant;
 import com.axanthic.blab.items.IItemCustomReach;
+import com.axanthic.blab.items.IItemMeta;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemCustomArmor;
-import com.axanthic.blab.items.ItemMeta;
 import com.axanthic.blab.utils.MessageCustomReachAttack;
 import com.axanthic.blab.utils.TileEntityGrinder;
 import com.axanthic.blab.utils.TileEntitySpecialRendererGrinder;
@@ -113,7 +114,10 @@ public class ClientProxy extends CommonProxy {
 				for (int i = 0; i < ((IBlockMeta) block.getBlock()).getNames().length; i++) {
 					ModelLoader.setCustomModelResourceLocation(block, i, new ModelResourceLocation(block.getRegistryName() + "_inv", "type=" + ((IBlockMeta) block.getBlock()).getNames()[i]));
 				}
-			} else if (block instanceof ItemBlockMeta) {
+			} else if (block.getBlock() instanceof BlockLeafOlives) { //olive leaves are weird
+				ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation(block.getRegistryName(), "check_decay=false,decayable=false,type=" + ((IBlockMeta) block.getBlock()).getNameForMeta(0)));
+				ModelLoader.setCustomModelResourceLocation(block, 1, new ModelResourceLocation(block.getRegistryName(), "check_decay=false,decayable=false,type=" + ((IBlockMeta) block.getBlock()).getNameForMeta(1)));
+			}  else if (block instanceof ItemBlockMeta) {
 				ModelLoader.setCustomMeshDefinition(block, new ItemMeshDefinition() {
 					@Override
 					public ModelResourceLocation getModelLocation(ItemStack stack) {
@@ -153,9 +157,9 @@ public class ClientProxy extends CommonProxy {
 		}
 
 		for (Item item : Resources.items) {
-			if (item instanceof ItemMeta) {
-				for (int i = 0; i < ((ItemMeta) item).names.length; i++) {
-					ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(item.getRegistryName(), "type=" + ((ItemMeta) item).names[i]));
+			if (item instanceof IItemMeta) {
+				for (int i = 0; i < ((IItemMeta) item).getNames().length; i++) {
+					ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(item.getRegistryName(), "type=" + ((IItemMeta) item).getNames()[i]));
 				}
 			} else if (item instanceof ItemTool || item instanceof ItemSword || item instanceof ItemCustomArmor) {
 				String[] path = item.getRegistryName().getResourcePath().split("_");

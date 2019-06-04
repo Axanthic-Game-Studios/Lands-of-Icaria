@@ -25,6 +25,7 @@ import com.axanthic.blab.blocks.BlockGrinder;
 import com.axanthic.blab.blocks.BlockHerb;
 import com.axanthic.blab.blocks.BlockKiln;
 import com.axanthic.blab.blocks.BlockLeaf;
+import com.axanthic.blab.blocks.BlockLeafOlives;
 import com.axanthic.blab.blocks.BlockLog;
 import com.axanthic.blab.blocks.BlockLootVase;
 import com.axanthic.blab.blocks.BlockMoss;
@@ -49,6 +50,7 @@ import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemBlockMetaMaterial;
 import com.axanthic.blab.items.ItemCustomArmor;
 import com.axanthic.blab.items.ItemDimensionTeleporter;
+import com.axanthic.blab.items.ItemFoods;
 import com.axanthic.blab.items.ItemGear;
 import com.axanthic.blab.items.ItemLaurelWreath;
 import com.axanthic.blab.items.ItemMeta;
@@ -96,6 +98,7 @@ public class Resources {
 
 	public static Item dimensionTp = new ItemDimensionTeleporter().setUnlocalizedName("dimension_teleporter").setRegistryName("dimension_teleporter");
 	public static ItemMeta resource = new ItemResource();
+	public static ItemFoods food = new ItemFoods();
 	public static ItemMeta gear = new ItemGear();
 	public static Item sharpBone = new ItemSharpBone();
 	public static Item laurelWreath = new ItemLaurelWreath();
@@ -181,12 +184,14 @@ public class Resources {
 	public static WoodSet cypress = new WoodSet(BlockPlanks.WoodTypes.CYPRESS, new WorldGenCypressTree(true));
 	public static WoodSet fir = new WoodSet(BlockPlanks.WoodTypes.FIR, new WorldGenFirTree(true));
 	public static WoodSet olive = new WoodSet(BlockPlanks.WoodTypes.OLIVE, new WorldGenOliveTree(true));
+	public static ItemBlockMeta oliveLeaves = new ItemBlockMeta(new BlockLeafOlives(BlockPlanks.WoodTypes.OLIVE));
 	public static WoodSet laurel = new WoodSet(BlockPlanks.WoodTypes.LAUREL, new WorldGenLaurelTree(true));
 	public static WoodSet droughtroot = new WoodSet(BlockPlanks.WoodTypes.DROUGHTROOT, new WorldGenDroughtrootTree(true));
 
 	public static void registerItems() {
 		Resources.items.add(Resources.dimensionTp);
 		Resources.items.add(Resources.resource);
+		Resources.items.add(Resources.food);
 		Resources.items.add(Resources.gear);
 		Resources.items.add(Resources.sharpBone);
 		Resources.items.add(Resources.laurelWreath);
@@ -247,6 +252,8 @@ public class Resources {
 		Resources.cypress.register();
 		Resources.fir.register();
 		Resources.olive.register();
+		Resources.registerBlock(Resources.oliveLeaves);
+		((BlockSapling) Resources.olive.sapling.getBlock()).generator.init();
 		Resources.laurel.register();
 		Resources.droughtroot.register();
 

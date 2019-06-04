@@ -1,0 +1,15 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "blab:generated",
+		"textures": {
+			"layer0": "blab:items/food_fruit_olives_green"
+		}
+	},
+	"variants": {
+		"type": {
+			"olive_green": { "textures": { "layer0": "blab:items/food_fruit_olives_green" } },
+			"olive_black": { "textures": { "layer0": "blab:items/food_fruit_olives_black" } }
+		}
+	}
+}

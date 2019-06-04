@@ -33,11 +33,15 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	public Item sapling;
 
 	public BlockLeaf(BlockPlanks.WoodTypes type) {
+		this(type, "leaf");
+		this.setRegistryName(ModInformation.ID, "leaf_" + type.unlocalizedName);
+	}
+
+	public BlockLeaf(BlockPlanks.WoodTypes type, String name) {
 		super();
 		this.setCreativeTab(Blab.modTabFlora);
 		this.type = type;
-		this.setUnlocalizedName("leaf");
-		this.setRegistryName(ModInformation.ID, "leaf_" + type.unlocalizedName);
+		this.setUnlocalizedName(name);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
 		this.setSoundType(SoundType.PLANT);
 	}
