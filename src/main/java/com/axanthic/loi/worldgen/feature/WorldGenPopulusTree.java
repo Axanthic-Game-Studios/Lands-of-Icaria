@@ -24,7 +24,7 @@ public class WorldGenPopulusTree extends WorldGenLOITree {
 	@Override
 	public boolean generate(World worldIn, Random rand, BlockPos position) {
 		int heightTrunk = rand.nextInt(2) + 1;
-		int heightBottom = rand.nextInt(2) + 1;
+		int heightBottom = rand.nextInt(2) + 2;
 		int heightMiddle = rand.nextInt(2) + 1;
 		int heightTotal = heightTrunk + heightBottom + heightMiddle + 5;
 		boolean flag = true;

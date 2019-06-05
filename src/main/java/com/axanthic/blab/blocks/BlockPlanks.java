@@ -96,9 +96,9 @@ public class BlockPlanks extends Block implements IBlockMeta {
 
 	public enum WoodTypes implements IStringSerializable {
 		PLANE(0, "plane", MapColor.DIRT, MapColor.STONE, MapColor.GRASS, 10),
-		POPULUS(1, "populus", MapColor.SAND, MapColor.QUARTZ, MapColor.LIME_STAINED_HARDENED_CLAY, 20),
+		POPULUS(1, "populus", MapColor.SAND, MapColor.QUARTZ, MapColor.LIME_STAINED_HARDENED_CLAY, 25),
 		CYPRESS(2, "cypress", MapColor.BROWN, MapColor.STONE, MapColor.GREEN_STAINED_HARDENED_CLAY, 20),
-		FIR(3, "fir", MapColor.WHITE_STAINED_HARDENED_CLAY, MapColor.BROWN_STAINED_HARDENED_CLAY, MapColor.GREEN, 20),
+		FIR(3, "fir", MapColor.WHITE_STAINED_HARDENED_CLAY, MapColor.BROWN_STAINED_HARDENED_CLAY, MapColor.GREEN, 25),
 		OLIVE(4, "olive", MapColor.ADOBE, MapColor.STONE, MapColor.YELLOW, 30),
 		LAUREL(5, "laurel", MapColor.BROWN, MapColor.OBSIDIAN, MapColor.GREEN_STAINED_HARDENED_CLAY, 20),
 		DROUGHTROOT(6, "droughtroot", MapColor.GRAY, MapColor.OBSIDIAN, MapColor.GREEN_STAINED_HARDENED_CLAY, 10);

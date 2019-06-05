@@ -60,8 +60,8 @@ public class BiomeSteppe extends BiomeLOI {
 	public BiomeDecorator createBiomeDecorator() {
 		LOIBiomeDecorator biomeDecorator = new LOIBiomeDecorator();
 
-		biomeDecorator.treesPerChunk = 3;
-		biomeDecorator.extraTreeChance = 0.1F;
+		biomeDecorator.treesPerChunk = 1;
+		biomeDecorator.extraTreeChance = 0.2F;
 		biomeDecorator.flowersPerChunk = 5;
 		biomeDecorator.grassPerChunk = 6;
 		biomeDecorator.treeGenerators.add(new WorldGenCypressTree(false).init());
