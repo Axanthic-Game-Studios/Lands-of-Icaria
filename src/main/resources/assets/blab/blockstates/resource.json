@@ -20,7 +20,10 @@
 			"calcite_powder": { "textures": { "layer0": "blab:items/mineral_calcite_powder" } },
 			"loam_lump": { "textures": { "layer0": "blab:items/soil_loam_lump" } },
 			"raw_vase": { "textures": { "layer0": "blab:items/container_vase_raw" } },
-			"loam_brick": { "textures": { "layer0": "blab:items/soil_loam_brick_item" } }
+			"loam_brick": { "textures": { "layer0": "blab:items/soil_loam_brick_item" } },
+			"revenant_femur": { "textures": { "layer0": "blab:items/loot_revenant_femur" } },
+			"aeternae_fur": { "textures": { "layer0": "blab:items/loot_aeternae_fur" } },
+			"aeternae_leather": { "textures": { "layer0": "blab:items/loot_aeternae_tanned_leather" } }
 		}
 	}
 }

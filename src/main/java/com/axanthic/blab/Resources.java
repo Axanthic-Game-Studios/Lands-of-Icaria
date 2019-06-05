@@ -83,6 +83,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
@@ -92,6 +93,9 @@ public class Resources {
 	public static final SoundType SILENCE = new SoundType(-10.0F, 1.0F, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL, SoundEvents.ITEM_HOE_TILL);
 	public static final SoundType SLICK = new SoundType(1.0F, 1.0F, SoundEvents.BLOCK_GLASS_BREAK, SoundEvents.BLOCK_SLIME_PLACE, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_SLIME_FALL);
 	public static final SoundType CERAMIC = new SoundType(1.0F, 1.0F, ClientProxy.CERAMIC_BREAK, SoundEvents.BLOCK_GLASS_STEP, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_GLASS_FALL);
+
+	public static final ResourceLocation LOOT_AETERNAE = new ResourceLocation(ModInformation.ID, "entities/aeternae");
+	public static final ResourceLocation LOOT_REVENANT = new ResourceLocation(ModInformation.ID, "entities/revenant");
 
 	public static List<Item> items = new ArrayList<Item>();
 	public static List<ItemBlock> blocks = new ArrayList<ItemBlock>();

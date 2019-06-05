@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
+import com.axanthic.blab.Resources;
 
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.SoundType;
@@ -59,6 +60,12 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	@Override
 	protected int getSaplingDropChance(IBlockState state) {
 		return type.saplingChance;
+	}
+
+	@Override
+	protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance) {
+		if (state.getBlock().equals(Resources.laurel.leaf.getBlock()) && worldIn.rand.nextInt(chance) == 0)
+			spawnAsEntity(worldIn, pos, new ItemStack(Resources.food, 1, 2));
 	}
 
 	@Override

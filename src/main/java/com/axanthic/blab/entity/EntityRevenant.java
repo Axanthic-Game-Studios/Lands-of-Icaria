@@ -2,6 +2,9 @@ package com.axanthic.blab.entity;
 
 import java.util.Calendar;
 import javax.annotation.Nullable;
+
+import com.axanthic.blab.Resources;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -39,7 +42,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -167,7 +169,7 @@ public class EntityRevenant extends EntityMob {
 
 	@Nullable
 	protected ResourceLocation getLootTable() {
-		return LootTableList.ENTITIES_ZOMBIE;
+		return Resources.LOOT_REVENANT;
 	}
 
 	/**
