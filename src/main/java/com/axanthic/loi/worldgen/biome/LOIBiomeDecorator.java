@@ -6,6 +6,8 @@ import java.util.Random;
 
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.blocks.BlockCardonCactus;
+import com.axanthic.blab.blocks.BlockGem;
+import com.axanthic.blab.blocks.BlockRock;
 import com.axanthic.blab.blocks.BlockTallGrass;
 import com.axanthic.loi.worldgen.dimension.OreGeneratorLOI;
 import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
@@ -46,6 +48,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			this.generateBoulders(worldIn, random, biome, pos);
 			this.generateCactus(worldIn, random, biome, pos);
 			this.generateTrees(worldIn, random, biome, pos);
+			this.generateCrystals(worldIn, random, biome, pos);
 			oreGen.generate(random, forgeChunkPos.x, forgeChunkPos.z, worldIn, null, worldIn.getChunkProvider());
 
 			this.decorating = false;
@@ -193,9 +196,59 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 		}
 	}
 
+	public void generateCrystals(World worldIn, Random random, Biome biome, BlockPos pos) {
+		for (int j5 = 0; j5 < 40; ++j5) {
+			int l9 = random.nextInt(16) + 8;
+			int k13 = random.nextInt(16) + 8;
+			int l16 = worldIn.getHeight(this.chunkPos.add(l9, 0, k13)).getY() * 2;
+
+			if (l16 > 0) {
+				int j19 = random.nextInt(l16);
+
+				BlockPos position = this.chunkPos.add(l9, j19, k13);
+
+				for (int i = 0; i < 30; ++i) {
+					BlockPos blockpos = position.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
+
+					if (worldIn.getBlockState(blockpos).getBlock() instanceof BlockRock) {
+						EnumFacing direction = EnumFacing.getFront(random.nextInt(EnumFacing.VALUES.length));
+
+						if (!worldIn.isAirBlock(blockpos.offset(direction)))
+							continue;
+
+						if (Resources.rock.getBlock().getMetaFromState(worldIn.getBlockState(blockpos)) == 0)
+							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(random, 0).withProperty(BlockGem.FACING, direction), 2);
+						else if (Resources.rock.getBlock().getMetaFromState(worldIn.getBlockState(blockpos)) == 1)
+							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(random, 1).withProperty(BlockGem.FACING, direction), 2);
+						else if (Resources.rock.getBlock().getMetaFromState(worldIn.getBlockState(blockpos)) == 2)
+							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(random, 2).withProperty(BlockGem.FACING, direction), 2);
+						else if (Resources.rock.getBlock().getMetaFromState(worldIn.getBlockState(blockpos)) == 3)
+							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(random, 3).withProperty(BlockGem.FACING, direction), 2);
+						else if (Resources.rock.getBlock().getMetaFromState(worldIn.getBlockState(blockpos)) == 4)
+							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(random, 4).withProperty(BlockGem.FACING, direction), 2);
+
+						continue;
+					}
+				}
+			}
+		}
+	}
+
 	public static void growCactus(World worldIn, BlockPos blockpos) {
 		if (worldIn.isAirBlock(blockpos)) {
 			worldIn.setBlockState(blockpos, Resources.cardon.getBlock().getDefaultState(), 2);
 		}
+	}
+
+	static IBlockState[][] crystalTiers = new IBlockState[][] {
+		new IBlockState[] {Resources.calcite.getBlock().getDefaultState()},
+		new IBlockState[] {Resources.calcite.getBlock().getDefaultState()},
+		new IBlockState[] {Resources.calcite.getBlock().getDefaultState()},
+		new IBlockState[] {Resources.calcite.getBlock().getDefaultState(), Resources.jasper.getBlock().getDefaultState()},
+		new IBlockState[] {Resources.calcite.getBlock().getDefaultState(), Resources.jasper.getBlock().getDefaultState(), Resources.zircon.getBlock().getDefaultState()}
+	};
+
+	public static IBlockState getCrystalForTier(Random rand, int tier) {
+		return crystalTiers[tier][rand.nextInt(crystalTiers[tier].length)];
 	}
 }
