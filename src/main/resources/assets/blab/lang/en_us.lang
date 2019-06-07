@@ -165,6 +165,7 @@ attribute.name.generic.attackRange=Attack Range
 
 entity.fallingVase.name=Loot Vase
 entity.aeternae.name=Aeternae
+entity.catoblepas.name=Catoblepas
 entity.forestHag.name=Forest Hag
 entity.revenant.name=Revenant
 

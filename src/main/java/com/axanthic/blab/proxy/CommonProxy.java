@@ -6,6 +6,7 @@ import com.axanthic.blab.Recipes;
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityAeternae;
 import com.axanthic.blab.entity.EntityBident;
+import com.axanthic.blab.entity.EntityCatoblepas;
 import com.axanthic.blab.entity.EntityFallingVase;
 import com.axanthic.blab.entity.EntityForestHag;
 import com.axanthic.blab.entity.EntityRevenant;
@@ -31,7 +32,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.common.DimensionManager;
@@ -55,15 +55,13 @@ public class CommonProxy {
 		Resources.registerItems();
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "bident", 0, ModInformation.ID, 64, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "fallingVase"), EntityFallingVase.class, "fallingVase", 1, ModInformation.ID, 160, 20, true);
-		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "aeternae"), EntityAeternae.class, "aeternae", 2, ModInformation.ID, 80, 3, true, 0xE27E1E, 0xF9BC0B);
-		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forestHag"), EntityForestHag.class, "forestHag", 3, ModInformation.ID, 80, 3, true, 0x554937, 0x4D7F2F);
-		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant"), EntityRevenant.class, "revenant", 4, ModInformation.ID, 80, 3, true, 0x292929, 0xA3A3A3);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "aeternae"), EntityAeternae.class, "aeternae", 30, ModInformation.ID, 80, 3, true, 0xE27E1E, 0xF9BC0B);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "catoblepas"), EntityCatoblepas.class, "catoblepas", 31, ModInformation.ID, 80, 3, true, 0x615238, 0xDACCB7);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forestHag"), EntityForestHag.class, "forestHag", 60, ModInformation.ID, 80, 3, true, 0x554937, 0x4D7F2F);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant"), EntityRevenant.class, "revenant", 61, ModInformation.ID, 80, 3, true, 0x292929, 0xA3A3A3);
 
 		//EntityRegistry.addSpawn(EntityAeternae.class, 6, 1, 5, EnumCreatureType.CREATURE, Biomes.PLAINS);
 		//EntityRegistry.addSpawn(EntityRevenant.class, 6, 1, 5, EnumCreatureType.MONSTER, Biomes.PLAINS);
-
-		LootTableList.register(Resources.LOOT_AETERNAE);
-		LootTableList.register(Resources.LOOT_REVENANT);
 
 		GameRegistry.registerTileEntity(TileEntityVase.class, new ResourceLocation(ModInformation.ID, "storage_vase"));
 		GameRegistry.registerTileEntity(TileEntityKiln.class, new ResourceLocation(ModInformation.ID, "crafting_kiln"));

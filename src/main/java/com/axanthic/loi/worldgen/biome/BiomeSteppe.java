@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityAeternae;
-import com.axanthic.blab.entity.EntityForestHag;
+import com.axanthic.blab.entity.EntityCatoblepas;
 import com.axanthic.blab.entity.EntityRevenant;
 import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
 import com.axanthic.loi.worldgen.feature.WorldGenOliveTree;
@@ -33,7 +33,7 @@ public class BiomeSteppe extends BiomeLOI {
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityAeternae.class, 50, 2, 4));
-		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityForestHag.class, 50, 1, 2));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityCatoblepas.class, 50, 2, 4));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 1, 4));
 
 		flowers.clear();
