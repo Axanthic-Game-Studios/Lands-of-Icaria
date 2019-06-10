@@ -6,6 +6,7 @@ import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityAeternae;
 import com.axanthic.blab.entity.EntityCatoblepas;
 import com.axanthic.blab.entity.EntityRevenant;
+import com.axanthic.blab.entity.EntitySnull;
 import com.axanthic.loi.worldgen.feature.WorldGenFirTree;
 import com.axanthic.loi.worldgen.feature.WorldGenPopulusTree;
 
@@ -38,9 +39,10 @@ public class BiomeForest extends BiomeLOI {
 		spawnableMonsterList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
-		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityAeternae.class, 50, 2, 4));
-		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityCatoblepas.class, 50, 2, 4));
-		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 1, 4));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityAeternae.class, 50, 2, 6));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityCatoblepas.class, 50, 2, 6));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySnull.class, 50, 2, 6));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
 
 		flowers.clear();
 		addFlower(Resources.flower.getBlock().getStateFromMeta(3), 20);

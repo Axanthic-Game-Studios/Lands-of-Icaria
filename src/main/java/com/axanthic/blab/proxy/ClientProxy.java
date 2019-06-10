@@ -22,11 +22,13 @@ import com.axanthic.blab.entity.EntityCatoblepas;
 import com.axanthic.blab.entity.EntityFallingVase;
 import com.axanthic.blab.entity.EntityForestHag;
 import com.axanthic.blab.entity.EntityRevenant;
+import com.axanthic.blab.entity.EntitySnull;
 import com.axanthic.blab.entity.RenderAeternae;
 import com.axanthic.blab.entity.RenderBident;
 import com.axanthic.blab.entity.RenderCatoblepas;
 import com.axanthic.blab.entity.RenderForestHag;
 import com.axanthic.blab.entity.RenderRevenant;
+import com.axanthic.blab.entity.RenderSnull;
 import com.axanthic.blab.items.IItemCustomReach;
 import com.axanthic.blab.items.IItemMeta;
 import com.axanthic.blab.items.ItemBlockMeta;
@@ -88,6 +90,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityFallingVase.class, RenderFallingBlock::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityAeternae.class, RenderAeternae::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCatoblepas.class, RenderCatoblepas::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntitySnull.class, RenderSnull::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityForestHag.class, RenderForestHag::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenant.class, RenderRevenant::new);
 	}

@@ -34,7 +34,7 @@ public class BiomeDesert extends BiomeLOI {
 		spawnableMonsterList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
-		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 1, 4));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
 
 		flowers.clear();
 		addFlower(Resources.flower.getBlock().getStateFromMeta(15), 20);

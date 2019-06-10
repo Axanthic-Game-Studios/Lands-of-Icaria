@@ -169,7 +169,6 @@ public class ModelAeternae extends ModelBase {
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
 		this.head.rotateAngleX = headPitch * 0.017453292F;
 		this.head.rotateAngleY = netHeadYaw * 0.017453292F;
-		this.body.rotateAngleX = ((float) Math.PI / 2F);
 		this.leg_rear_left.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 		this.leg_front_left.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
 		this.leg_rear_right.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
