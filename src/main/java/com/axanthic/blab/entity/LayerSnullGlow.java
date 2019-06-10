@@ -35,7 +35,7 @@ public class LayerSnullGlow<T extends EntitySnull> implements LayerRenderer<T> {
 				this.snullRenderer.bindTexture(GLOW);
 				GlStateManager.depthMask(true);
 				GlStateManager.enableBlend();
-                GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+				GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
 				GlStateManager.alphaFunc(516, 0.003921569F);
 				int i = 15728864;
 				int j = i % 65536;

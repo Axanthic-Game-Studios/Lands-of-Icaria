@@ -4,6 +4,8 @@ import java.util.Random;
 
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityAeternae;
+import com.axanthic.blab.entity.EntityArachne;
+import com.axanthic.blab.entity.EntityArachneDrone;
 import com.axanthic.blab.entity.EntityCatoblepas;
 import com.axanthic.blab.entity.EntityRevenant;
 import com.axanthic.blab.entity.EntitySnull;
@@ -37,6 +39,8 @@ public class BiomeSteppe extends BiomeLOI {
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityCatoblepas.class, 50, 2, 6));
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySnull.class, 50, 2, 6));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
 
 		flowers.clear();
 		addFlower(Resources.flower.getBlock().getStateFromMeta(2), 20);

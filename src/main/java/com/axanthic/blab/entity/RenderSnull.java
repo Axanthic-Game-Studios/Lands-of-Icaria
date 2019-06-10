@@ -15,7 +15,7 @@ public class RenderSnull<T extends EntitySnull> extends RenderLiving<T> {
 
 	public RenderSnull(RenderManager manager) {
 		super(manager, new ModelSnull(), 0.4F);
-        this.addLayer(new LayerSnullGlow(this));
+		this.addLayer(new LayerSnullGlow(this));
 	}
 
 	protected ResourceLocation getEntityTexture(EntitySnull entity) {

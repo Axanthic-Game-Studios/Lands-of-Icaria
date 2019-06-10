@@ -169,5 +169,7 @@ entity.catoblepas.name=Catoblepas
 entity.snull.name=Snull
 entity.forestHag.name=Forest Hag
 entity.revenant.name=Revenant
+entity.arachne_drone.name=Arachne Drone
+entity.arachne.name=Arachne
 
 message.loot_vase.pickup=Sneak to throw vase

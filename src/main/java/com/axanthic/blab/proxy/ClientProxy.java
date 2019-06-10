@@ -17,6 +17,8 @@ import com.axanthic.blab.blocks.BlockSapling;
 import com.axanthic.blab.blocks.BlockTallGrass;
 import com.axanthic.blab.blocks.IBlockMeta;
 import com.axanthic.blab.entity.EntityAeternae;
+import com.axanthic.blab.entity.EntityArachne;
+import com.axanthic.blab.entity.EntityArachneDrone;
 import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.EntityCatoblepas;
 import com.axanthic.blab.entity.EntityFallingVase;
@@ -24,6 +26,8 @@ import com.axanthic.blab.entity.EntityForestHag;
 import com.axanthic.blab.entity.EntityRevenant;
 import com.axanthic.blab.entity.EntitySnull;
 import com.axanthic.blab.entity.RenderAeternae;
+import com.axanthic.blab.entity.RenderArachne;
+import com.axanthic.blab.entity.RenderArachneDrone;
 import com.axanthic.blab.entity.RenderBident;
 import com.axanthic.blab.entity.RenderCatoblepas;
 import com.axanthic.blab.entity.RenderForestHag;
@@ -93,6 +97,8 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntitySnull.class, RenderSnull::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityForestHag.class, RenderForestHag::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenant.class, RenderRevenant::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityArachneDrone.class, RenderArachneDrone::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityArachne.class, RenderArachne::new);
 	}
 
 	@Override

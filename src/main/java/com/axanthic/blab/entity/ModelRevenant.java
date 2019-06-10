@@ -6,10 +6,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.client.renderer.GlStateManager;
 
-/**
- * ModelZombie - Either Mojang or a mod author
- * Created using Tabula 7.0.0
- */
 public class ModelRevenant extends ModelBiped {
 	public ModelRenderer skull;
 	public ModelRenderer hood;
@@ -141,7 +137,7 @@ public class ModelRevenant extends ModelBiped {
 		this.bipedLeftArm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
 		this.bipedRightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
 		this.bipedLeftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
-		
+
 		this.bipedRightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount + 0.08726646259971647F;
 	}
 }

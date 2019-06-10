@@ -3,6 +3,8 @@ package com.axanthic.loi.worldgen.biome;
 import java.util.Random;
 
 import com.axanthic.blab.Resources;
+import com.axanthic.blab.entity.EntityArachne;
+import com.axanthic.blab.entity.EntityArachneDrone;
 import com.axanthic.blab.entity.EntityRevenant;
 import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
 
@@ -35,6 +37,8 @@ public class BiomeDesert extends BiomeLOI {
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
 
 		flowers.clear();
 		addFlower(Resources.flower.getBlock().getStateFromMeta(15), 20);
