@@ -40,6 +40,17 @@ public class BlockMoss extends BlockBasic {
 	}
 
 	@Override
+	@Nullable
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+		return NULL_AABB;
+	}
+
+	@Override
+	public boolean canSpawnInBlock() {
+		return true;
+	}
+
+	@Override
 	public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
 		return true;
 	}
