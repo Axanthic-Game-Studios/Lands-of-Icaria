@@ -58,15 +58,17 @@ public class BlockFlower2 extends BlockFlower implements IBlockMeta {
 	}
 
 	public enum FlowerTypes2 implements IStringSerializable {
-		SUNKETTLE(0, "sunkettle");
+		SUNKETTLE(0, "sunkettle", 11);
 
 		private static final FlowerTypes2[] META_LOOKUP = new FlowerTypes2[FlowerTypes2.values().length];
 		private final int meta;
 		private final String unlocalizedName;
+		public final int color;
 
-		FlowerTypes2(final int metaIn, final String unlocalizedNameIn) {
+		FlowerTypes2(final int metaIn, final String unlocalizedNameIn, int colorIn) {
 			this.meta = metaIn;
 			this.unlocalizedName = unlocalizedNameIn;
+			this.color = colorIn;
 		}
 
 		public static FlowerTypes2 byMetadata(int meta) {

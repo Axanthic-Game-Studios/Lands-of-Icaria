@@ -12,6 +12,8 @@ import com.axanthic.blab.Resources.ArmorSet;
 import com.axanthic.blab.Resources.StairSlabPair;
 import com.axanthic.blab.Resources.ToolSet;
 import com.axanthic.blab.Resources.WoodSet;
+import com.axanthic.blab.blocks.BlockFlower;
+import com.axanthic.blab.blocks.BlockFlower2;
 import com.axanthic.blab.blocks.BlockRock;
 import com.axanthic.blab.blocks.BlockStorageGem;
 import com.axanthic.blab.blocks.BlockStorageMetal;
@@ -95,6 +97,14 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 9), new ItemStack(Resources.ingot, 1, 8), 0.9F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 10), new ItemStack(Resources.ingot, 1, 10), 1.0F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 12), new ItemStack(Resources.resource, 1, 3), 0.5F);
+
+		for (int i = 0; i < BlockFlower.FlowerTypes.getNames().length; i++) {
+			addShapelessRecipe(new ItemStack(Items.DYE, 1, BlockFlower.FlowerTypes.byMetadata(i).color), "flower_dye_" + i, new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.flower, 1, i))});
+		}
+
+		for (int i = 0; i < BlockFlower2.FlowerTypes2.getNames().length; i++) {
+			addShapelessRecipe(new ItemStack(Items.DYE, 1, BlockFlower2.FlowerTypes2.byMetadata(i).color), "flower_2_dye_" + i, new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.flower2, 1, i))});
+		}
 
 		for (int i = 0; i < BlockRock.StoneTypes.getNames().length; i++) {
 			addRecipe(new ItemStack(Resources.brick, 4, i), BlockRock.StoneTypes.getNames()[i] + "_bricks", new Object[]{"RR", "RR", 'R', new ItemStack(Resources.rock, 1, i)});
