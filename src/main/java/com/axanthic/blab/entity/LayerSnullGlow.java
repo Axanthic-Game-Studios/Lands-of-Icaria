@@ -16,6 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerSnullGlow<T extends EntitySnull> implements LayerRenderer<T> {
 	private static final ResourceLocation GLOW = new ResourceLocation(ModInformation.ID, "textures/entity/mob_snull_glowing.png");
+	private static final ResourceLocation GLOW_SANS = new ResourceLocation(ModInformation.ID, "textures/entity/mob_snull_glowing_sans.png");
 	private static final ResourceLocation SKULL = new ResourceLocation(ModInformation.ID, "textures/entity/mob_snull_skull.png");
 	private final RenderSnull snullRenderer;
 
@@ -32,7 +33,10 @@ public class LayerSnullGlow<T extends EntitySnull> implements LayerRenderer<T> {
 			World world = entitylivingbaseIn.getEntityWorld();
 			float light = Math.max(world.getLightFor(EnumSkyBlock.SKY, pos) * world.getSunBrightness(partialTicks), world.getLightFor(EnumSkyBlock.BLOCK, pos));
 			if (light < 7.0F) {
-				this.snullRenderer.bindTexture(GLOW);
+				if (entitylivingbaseIn.hasCustomName() && entitylivingbaseIn.getCustomNameTag().toLowerCase().equals("sans"))
+					this.snullRenderer.bindTexture(GLOW_SANS);
+				else
+					this.snullRenderer.bindTexture(GLOW);
 				GlStateManager.depthMask(true);
 				GlStateManager.enableBlend();
 				GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
