@@ -20,6 +20,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraft.world.storage.loot.LootContext;
+import net.minecraft.world.storage.loot.LootTable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -63,7 +66,11 @@ public class BlockLootVase extends BlockGravity {
 
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-		//drop sweet loot
+		if (world instanceof WorldServer) {
+			LootTable loottable = ((World) world).getLootTableManager().getLootTableFromLocation(Resources.LOOT_VASE);
+			LootContext context = (new LootContext.Builder((WorldServer)world)).build();
+			drops.addAll(loottable.generateLootForPools(((WorldServer) world).rand, context));
+		}
 	}
 
 	@Override
