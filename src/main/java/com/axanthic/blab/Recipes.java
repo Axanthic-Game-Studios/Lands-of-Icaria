@@ -21,6 +21,7 @@ import com.axanthic.blab.blocks.BlockStorageMetal;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
@@ -167,6 +168,30 @@ public class Recipes {
 		registerArmorRecipe(Resources.kassiterosArmor);
 		registerArmorRecipe(Resources.orichalcumArmor);
 		registerArmorRecipe(Resources.vanadiumArmor);
+	}
+
+	public static void registerLateRecipes() {
+		NonNullList<ItemStack> copperIngots = OreDictionary.getOres("ingotCopper");
+		if (!copperIngots.isEmpty())
+			addShapelessRecipe(copperIngots.get(0), "chalkos_copper", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 0))});
+
+		NonNullList<ItemStack> tinIngots = OreDictionary.getOres("ingotTin");
+		if (!tinIngots.isEmpty())
+			addShapelessRecipe(tinIngots.get(0), "kassiteros_tin", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 1))});
+
+		NonNullList<ItemStack> leadIngots = OreDictionary.getOres("ingotLead");
+		if (!leadIngots.isEmpty())
+			addShapelessRecipe(leadIngots.get(0), "molibos_lead", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 2))});
+
+		NonNullList<ItemStack> bronzeIngots = OreDictionary.getOres("ingotBronze");
+		if (!bronzeIngots.isEmpty())
+			addShapelessRecipe(bronzeIngots.get(0), "orichalcum_bronze", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 3))});
+
+		NonNullList<ItemStack> silverIngots = OreDictionary.getOres("ingotSilver");
+		if (!silverIngots.isEmpty())
+			addShapelessRecipe(silverIngots.get(0), "sliver_silver", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 4))});
+
+		addShapelessRecipe(new ItemStack(Items.IRON_INGOT, 1, 0), "sideros_iron", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 7))});
 	}
 
 	public static void registerWoodRecipe(WoodSet set) {

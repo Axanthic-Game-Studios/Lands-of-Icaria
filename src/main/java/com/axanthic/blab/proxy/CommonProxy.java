@@ -82,6 +82,7 @@ public class CommonProxy {
 	public void init(FMLInitializationEvent event) {
 		/******** Dimension initialisation ********/
 		LOIBiomes.init();
+		Recipes.registerLateRecipes();
 		Blab.dimensionId = DimensionManager.getNextFreeDimId();
 		Blab.dimensionTypeLoi = DimensionType.register("loi", "_loi", Blab.dimensionId, WorldProviderLOI.class, false);
 		//GameRegistry.registerWorldGenerator(new OreGeneratorLOI(), 0);
