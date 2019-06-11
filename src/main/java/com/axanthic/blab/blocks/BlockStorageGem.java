@@ -36,6 +36,9 @@ public class BlockStorageGem extends Block implements IBlockMeta  {
 		this.setCreativeTab(Blab.modTabBlocks);
 		this.setHardness(1.2F);
 		this.setUnlocalizedName("block");
+		this.setLightOpacity(1);
+		this.translucent = true;
+		this.setLightLevel(1.0F);
 		this.setRegistryName(ModInformation.ID, "block_gem");
 		this.setDefaultState(this.getStateFromMeta(0));
 		this.setSoundType(SoundType.GLASS);
