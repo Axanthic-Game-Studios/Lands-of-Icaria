@@ -49,6 +49,7 @@ tile.generic.fence.name=%s Fence
 tile.generic.gate.name=%s Fence Gate
 tile.generic.stairs.name=%s Stairs
 tile.generic.slab.name=%s Slab
+tile.generic.wall.name=%s Wall
 tile.generic.door.name=%s Door
 tile.generic.trapdoor.name=%s Trapdoor
 

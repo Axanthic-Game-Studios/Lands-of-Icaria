@@ -216,6 +216,8 @@ public class Recipes {
 		ItemStack base = new ItemStack(set.baseItem, 1, set.baseMeta);
 		addRecipe(new ItemStack(set.slab, 6), set.name + "_slab", new Object[]{"BBB", 'B', base});
 		addRecipe(new ItemStack(set.stairs, 4), set.name + "_stairs", new Object[]{"B  ", "BB ", "BBB", 'B', base});
+		if (set.wall != null)
+			addRecipe(new ItemStack(set.wall, 6), set.name + "_wall", new Object[]{"BBB", "BBB", 'B', base});
 	}
 
 	public static void registerToolRecipe(ToolSet set) {
