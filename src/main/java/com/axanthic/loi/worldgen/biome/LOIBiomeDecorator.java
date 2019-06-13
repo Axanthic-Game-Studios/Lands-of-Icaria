@@ -12,6 +12,7 @@ import com.axanthic.blab.blocks.BlockTallGrass;
 import com.axanthic.loi.worldgen.dimension.OreGeneratorLOI;
 import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -113,7 +114,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				while (true) {
 					label50: {
 					if (position.getY() > 3) {
-						if (worldIn.isAirBlock(position.down())) {
+						if (worldIn.isAirBlock(position.down()) || (!worldIn.getBlockState(position.down()).getMaterial().equals(Material.GRASS) && !worldIn.getBlockState(position.down()).getMaterial().equals(Material.GROUND))) {
 							break label50;
 						}
 					}
@@ -124,13 +125,15 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 					for (int i = 0; i1 >= 0 && i < 3; ++i) {
 						int j = i1 + random.nextInt(4);
-						int k = i1 + random.nextInt(4);
-						int l = i1 + random.nextInt(4);
-						float f = (float)(j + k + l) * 0.333F + 0.5F;
+						float f = (float)j * 3 * 0.333F + 0.5F;
 
-						for (BlockPos blockpos : BlockPos.getAllInBox(position.add(-j, -k, -l), position.add(j, k, l))) {
-							if (blockpos.distanceSq(position) <= (double)(f * f)) {
-								worldIn.setBlockState(blockpos, Resources.rock.getBlock().getStateFromMeta(0), 4);
+						for (BlockPos blockpos : BlockPos.getAllInBox(position.add(-j, -j, -j), position.add(j, j, j))) {
+							if (blockpos.distanceSq(position) <= (double)(f * f) - 2) {
+								worldIn.setBlockState(blockpos, Resources.rock.getBlock().getDefaultState(), 4);
+							} else if (blockpos.distanceSq(position) <= (double)(f * f) - 1 && random.nextBoolean()) {
+								worldIn.setBlockState(blockpos, Resources.rock.getBlock().getDefaultState(), 4);
+							} else if (blockpos.distanceSq(position) <= (double)(f * f) && random.nextBoolean() && random.nextBoolean()) {
+								worldIn.setBlockState(blockpos, Resources.rock.getBlock().getDefaultState(), 4);
 							}
 						}
 						position = position.add(-(i1 + 1) + random.nextInt(2 + i1 * 2), 0 - random.nextInt(2), -(i1 + 1) + random.nextInt(2 + i1 * 2));
