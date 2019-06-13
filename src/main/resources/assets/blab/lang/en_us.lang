@@ -67,6 +67,7 @@ tile.soil.marl.name=Marl
 tile.soil.course_marl.name=Coarse Marl
 tile.soil.loam.name=Loam
 tile.soil_grass.name=Grassy Marl
+tile.farmland_fertilized.name=Fertilized Farmland
 tile.moss.name=Moss
 tile.silkstone_sand.name=Silkstone Sand
 tile.grainel_sand.name=Grainel

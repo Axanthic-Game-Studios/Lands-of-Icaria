@@ -42,7 +42,7 @@ public class Recipes {
 		addForgeRecipe(new ItemStack(Resources.ingot, 2, 6), new ItemStack(Resources.ingot, 1, 1), new ItemStack(Resources.ingot, 1, 5), new ItemStack(Resources.resource, 1, 0));
 		addForgeRecipe(new ItemStack(Resources.ingot, 2, 9), new ItemStack(Resources.ingot, 1, 7), new ItemStack(Resources.ingot, 1, 8), new ItemStack(Resources.resource, 1, 2));
 
-		addGrinderRecipe(new ItemStack(Resources.resource, 1, 8), new ItemStack(Resources.resource, 1, 5));
+		addGrinderRecipe(new ItemStack(Resources.resource, 2, 8), new ItemStack(Resources.resource, 1, 5));
 		addGrinderRecipe(new ItemStack(Resources.resource, 1, 9), new ItemStack(Resources.resource, 1, 7));
 
 		addGrinderFuel(new ItemStack(Items.BLAZE_POWDER), 1600);
@@ -192,6 +192,10 @@ public class Recipes {
 			addShapelessRecipe(silverIngots.get(0), "sliver_silver", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 4))});
 
 		addShapelessRecipe(new ItemStack(Items.IRON_INGOT, 1, 0), "sideros_iron", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 7))});
+
+		NonNullList<ItemStack> iridiumIngots = OreDictionary.getOres("ingotIridium");
+		if (!iridiumIngots.isEmpty())
+			addShapelessRecipe(iridiumIngots.get(0), "bluridium_iridium", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 10))});
 	}
 
 	public static void registerWoodRecipe(WoodSet set) {

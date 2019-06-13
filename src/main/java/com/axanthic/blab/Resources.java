@@ -14,6 +14,8 @@ import com.axanthic.blab.blocks.BlockCustomPane;
 import com.axanthic.blab.blocks.BlockCustomSlab;
 import com.axanthic.blab.blocks.BlockCustomStairs;
 import com.axanthic.blab.blocks.BlockCustomTrapdoor;
+import com.axanthic.blab.blocks.BlockFarmLand;
+import com.axanthic.blab.blocks.BlockFarmLandFertilized;
 import com.axanthic.blab.blocks.BlockFlower;
 import com.axanthic.blab.blocks.BlockFlower2;
 import com.axanthic.blab.blocks.BlockForge;
@@ -129,6 +131,8 @@ public class Resources {
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
+	public static ItemBlock farmLand = new ItemBlock(new BlockFarmLand());
+	public static ItemBlock fertilizedFarmLand = new ItemBlock(new BlockFarmLandFertilized());
 	public static ItemBlock moss = new ItemBlock(new BlockMoss());
 	public static ItemBlockMeta tallGrass = new ItemBlockMeta(new BlockTallGrass());
 	public static ItemBlockMeta flower = new ItemBlockMeta(new BlockFlower());
@@ -224,6 +228,8 @@ public class Resources {
 	public static void registerBlocks() {
 		Resources.registerBlock(Resources.soil);
 		Resources.registerBlock(Resources.grass);
+		Resources.registerBlock(Resources.farmLand);
+		Resources.registerBlock(Resources.fertilizedFarmLand);
 		Resources.registerBlock(Resources.moss);
 		Resources.registerBlock(Resources.tallGrass);
 		Resources.registerBlock(Resources.flower);

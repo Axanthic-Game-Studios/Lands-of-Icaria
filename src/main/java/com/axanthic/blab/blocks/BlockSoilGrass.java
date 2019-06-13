@@ -17,10 +17,16 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -48,6 +54,20 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 	@Nullable
 	public String getHarvestTool(IBlockState state) {
 		return "shovel";
+	}
+
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		ItemStack itemstack = playerIn.getHeldItem(hand);
+		if ((itemstack.getItem() instanceof ItemHoe || itemstack.getItem().getToolClasses(itemstack).contains("hoe")) && playerIn.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
+			worldIn.playSound(playerIn, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+			if (!worldIn.isRemote) {
+				worldIn.setBlockState(pos, Resources.farmLand.getBlock().getDefaultState());
+				itemstack.damageItem(1, playerIn);
+			}
+			return true;
+		}
+		return false;
 	}
 
 	@Override
