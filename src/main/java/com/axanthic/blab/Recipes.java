@@ -61,6 +61,12 @@ public class Recipes {
 		addRecipe(new ItemStack(Resources.loamBricks, 1, 0), "loam_bricks", new Object[]{"BB", "BB", 'B', new ItemStack(Resources.resource, 1, 12)});
 		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, 3), new ItemStack(Resources.food, 1, 4), 0.35F);
 
+		addShapelessRecipe(new ItemStack(Items.DYE, 1, 14), "bromelia_dye_orange", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 0))});
+		addShapelessRecipe(new ItemStack(Items.DYE, 1, 13), "bromelia_dye_pink", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 1))});
+		addShapelessRecipe(new ItemStack(Items.DYE, 1, 5), "bromelia_dye_purple", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 2))});
+		addShapelessRecipe(new ItemStack(Items.DYE, 1, 7), "bromelia_dye_white", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 3))});
+		GameRegistry.addSmelting(new ItemStack(Resources.cardon, 1, 0), new ItemStack(Items.DYE, 1, 2), 0.2F);
+
 		addRecipe(new ItemStack(Resources.kiln, 1, 0), "kiln_rock", new Object[]{"SSS", "S S", "SSS", 'S', new ItemStack(Resources.rock, 1, 0)});
 		addRecipe(new ItemStack(Resources.kiln, 1, 0), "kiln_brick", new Object[]{"BBB", "B B", "BBB", 'B', new ItemStack(Resources.brick, 1, 0)});
 		addRecipe(new ItemStack(Resources.grinder, 1, 0), "grinder_rock", new Object[]{"SSS", "SIS", "SSS", 'S', new ItemStack(Resources.rock, 1, 2), 'I', "ingotOrichalcum"});

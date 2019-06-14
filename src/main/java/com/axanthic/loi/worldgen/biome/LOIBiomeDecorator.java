@@ -128,7 +128,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					int j = i1 + random.nextInt(4);
 					float f = (float)j * 3 * 0.333F + 0.5F;
 
-					for (BlockPos blockpos : BlockPos.getAllInBox(position.add(-j, -2, -j), position.add(j, random.nextInt(2) - 2, j))) {
+					for (BlockPos blockpos : BlockPos.getAllInBox(position.add(-j, 2, -j), position.add(j, random.nextInt(2) + 2, j))) {
 						if (worldIn.isAirBlock(blockpos))
 							if (blockpos.distanceSq(position) <= (double)(f * f) - 2) {
 								worldIn.setBlockState(blockpos, Resources.aristone.getBlock().getDefaultState(), 4);
