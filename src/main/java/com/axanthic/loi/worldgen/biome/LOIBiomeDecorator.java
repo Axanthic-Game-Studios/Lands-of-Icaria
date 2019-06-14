@@ -44,9 +44,10 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			ChunkPos forgeChunkPos = new ChunkPos(chunkPos); // actual ChunkPos instead of BlockPos
 			MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Pre(worldIn, random, forgeChunkPos));
 
+			this.generateAristone(worldIn, random, biome, pos);
+			this.generateBoulders(worldIn, random, biome, pos);
 			this.generateFlowers(worldIn, random, biome, pos);
 			this.generateGrass(worldIn, random, biome, pos);
-			this.generateBoulders(worldIn, random, biome, pos);
 			this.generateCactus(worldIn, random, biome, pos);
 			this.generateTrees(worldIn, random, biome, pos);
 			this.generateCrystals(worldIn, random, biome, pos);
@@ -98,6 +99,50 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 						worldIn.setBlockState(blockpos, iblockstate2, 2);
 					}
 				}
+			}
+		}
+	}
+
+	public void generateAristone(World worldIn, Random random, Biome biome, BlockPos pos) {
+		int e = random.nextInt(5);
+
+		for (int a = 0; a < e; ++a) {
+			int g = random.nextInt(16) + 8;
+			int h = random.nextInt(16) + 8;
+			BlockPos position = worldIn.getHeight(pos.add(g, 0, h));
+			EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(random);
+
+			while (true) {
+				label50: {
+				if (position.getY() > 3) {
+					if (worldIn.isAirBlock(position.offset(facing)) || !worldIn.isAirBlock(position) || !worldIn.getBlockState(position.offset(facing)).getMaterial().equals(Material.ROCK)) {
+						break label50;
+					}
+				}
+				if (position.getY() <= 3) {
+					break;
+				}
+				int i1 = 4;
+
+				for (int i = 0; i1 >= 0 && i < 3; ++i) {
+					int j = i1 + random.nextInt(4);
+					float f = (float)j * 3 * 0.333F + 0.5F;
+
+					for (BlockPos blockpos : BlockPos.getAllInBox(position.add(-j, -2, -j), position.add(j, random.nextInt(2) - 2, j))) {
+						if (worldIn.isAirBlock(blockpos))
+							if (blockpos.distanceSq(position) <= (double)(f * f) - 2) {
+								worldIn.setBlockState(blockpos, Resources.aristone.getBlock().getDefaultState(), 4);
+							} else if (blockpos.distanceSq(position) <= (double)(f * f) - 1 && (random.nextBoolean() || random.nextBoolean())) {
+								worldIn.setBlockState(blockpos, Resources.aristone.getBlock().getDefaultState(), 4);
+							} else if (blockpos.distanceSq(position) <= (double)(f * f) && random.nextBoolean()) {
+								worldIn.setBlockState(blockpos, Resources.aristone.getBlock().getDefaultState(), 4);
+							}
+					}
+					position = position.add(-(i1 + 1) + random.nextInt(2 + i1 * 2), 0 - random.nextInt(2), -(i1 + 1) + random.nextInt(2 + i1 * 2));
+				}
+				break;
+			}
+			position = position.down();
 			}
 		}
 	}
