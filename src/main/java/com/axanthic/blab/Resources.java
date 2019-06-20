@@ -51,6 +51,7 @@ import com.axanthic.blab.items.ItemBottleOEpic;
 import com.axanthic.blab.items.ItemCustomArmor;
 import com.axanthic.blab.items.ItemDimensionTeleporter;
 import com.axanthic.blab.items.ItemDippedWreath;
+import com.axanthic.blab.items.ItemReinforcer;
 import com.axanthic.blab.items.ItemGear;
 import com.axanthic.blab.items.ItemLaurelWreath;
 import com.axanthic.blab.items.ItemMeta;
@@ -102,6 +103,7 @@ public class Resources {
 	public static Item trident = new ItemTrident();
 	public static Item laurelWreath = new ItemLaurelWreath();
 	public static Item dippedWreath = new ItemDippedWreath();
+	public static Item Reinforcer = new ItemReinforcer();
 	public static Item bottle = new ItemBottleOEpic("BottleOEpic");
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", BlockStorageMetal.MetalTypes.getNames());
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", BlockStorageMetal.MetalTypes.getNames());
@@ -222,6 +224,7 @@ public class Resources {
 		Resources.items.add(Resources.trident);
 		Resources.items.add(Resources.laurelWreath);
 		Resources.items.add(Resources.dippedWreath);
+		Resources.items.add(Resources.Reinforcer);
 		Resources.items.add(Resources.bottle);
 		Resources.items.add(Resources.ingot);
 		Resources.items.add(Resources.nugget);

@@ -40,10 +40,10 @@ public class ItemDippedWreath extends ItemArmor {
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack ItemStack){
 		if(player.inventory.armorItemInSlot(3).getItem().equals(this)) {
-			player.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 1, 1));
-			player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 1, 1));
-			player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 1, 0));
-			player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 1, 1));
+			player.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 20, 1));
+			player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20, 1));
+			player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 20, 0));
+			player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 20, 1));
 		}
 	}
 	@Override /**This gives it the enchantment effect*/
