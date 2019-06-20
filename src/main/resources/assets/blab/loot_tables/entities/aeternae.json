@@ -33,38 +33,6 @@
             ]
         },
         {
-			"name": "blab:aeternae_leather",
-            "rolls": 1,
-            "entries": [
-                {
-                    "type": "item",
-                    "name": "blab:resource",
-					"entryName": "fur",
-                    "weight": 1,
-                    "functions": [
-                        {
-                            "function": "minecraft:set_data",
-                            "data": 15
-                        },
-                        {
-                            "function": "set_count",
-                            "count": {
-                                "min": 0,
-                                "max": 2
-                            }
-                        },
-                        {
-                            "function": "looting_enchant",
-                            "count": {
-                                "min": 0,
-                                "max": 1
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
 			"name": "blab:aeternae_meat",
             "rolls": 1,
             "entries": [

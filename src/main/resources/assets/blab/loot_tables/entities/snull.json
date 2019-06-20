@@ -1,13 +1,13 @@
 {
     "pools": [
         {
-			"name": "blab:snull_slime",
+			"name": "blab:snull_mass",
             "rolls": 1,
             "entries": [
                 {
                     "type": "item",
-                    "name": "minecraft:slime_ball",
-					"entryName": "slime",
+                    "name": "blab:resource2",
+					"entryName": "slug_mass",
                     "weight": 1,
                     "functions": [
                         {

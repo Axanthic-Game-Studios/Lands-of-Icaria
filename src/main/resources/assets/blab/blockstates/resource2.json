@@ -1,0 +1,14 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "blab:generated",
+		"textures": {
+			"layer0": "blab:items/loot_slug_mass"
+		}
+	},
+	"variants": {
+		"type": {
+			"slug_mass": { "textures": { "layer0": "blab:items/loot_slug_mass" } }
+		}
+	}
+}

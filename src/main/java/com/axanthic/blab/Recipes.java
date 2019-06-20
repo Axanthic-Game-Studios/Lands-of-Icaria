@@ -59,6 +59,7 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.resource, 1, 11), new ItemStack(Resources.storageVase, 1, 0), 0.2F);
 		GameRegistry.addSmelting(new ItemStack(Resources.resource, 1, 10), new ItemStack(Resources.resource, 1, 12), 0.1F);
 		addRecipe(new ItemStack(Resources.loamBricks, 1, 0), "loam_bricks", new Object[]{"BB", "BB", 'B', new ItemStack(Resources.resource, 1, 12)});
+		addShapelessRecipe(new ItemStack(Resources.resource, 1, 15), "aeternae_leather", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 14))});
 		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, 3), new ItemStack(Resources.food, 1, 4), 0.35F);
 
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 14), "bromelia_dye_orange", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 0))});
@@ -170,6 +171,7 @@ public class Recipes {
 		registerToolRecipe(Resources.sideros);
 		registerToolRecipe(Resources.molybdenumsteel);
 
+		registerArmorRecipe(Resources.aeternaeLeatherArmor);
 		registerArmorRecipe(Resources.chalkosArmor);
 		registerArmorRecipe(Resources.kassiterosArmor);
 		registerArmorRecipe(Resources.orichalcumArmor);
