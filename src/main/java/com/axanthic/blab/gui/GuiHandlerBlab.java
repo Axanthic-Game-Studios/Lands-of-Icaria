@@ -1,5 +1,6 @@
 package com.axanthic.blab.gui;
 
+import com.axanthic.blab.blocks.BlockCustomWorkbench;
 import com.axanthic.blab.utils.TileEntityForge;
 import com.axanthic.blab.utils.TileEntityGrinder;
 import com.axanthic.blab.utils.TileEntityKiln;
@@ -39,6 +40,9 @@ public class GuiHandlerBlab implements IGuiHandler {
 			TileEntityForge tileEntityInventoryBasic = (TileEntityForge) tileEntity;
 			return new ContainerForge(player.inventory, tileEntityInventoryBasic);
 		}
+		if (world.getBlockState(xyz).getBlock() instanceof BlockCustomWorkbench) {
+			return new ContainerCustomWorkbench(player.inventory, world, xyz);
+		}
 		return null;
 	}
 
@@ -65,6 +69,9 @@ public class GuiHandlerBlab implements IGuiHandler {
 		if (tileEntity instanceof TileEntityForge) {
 			TileEntityForge tileEntityInventoryBasic = (TileEntityForge) tileEntity;
 			return new GuiInventoryForge(player.inventory, tileEntityInventoryBasic);
+		}
+		if (world.getBlockState(xyz).getBlock() instanceof BlockCustomWorkbench) {
+			return new GuiCustomCrafting(player.inventory, world, xyz);
 		}
 		return null;
 	}

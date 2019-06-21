@@ -18,6 +18,7 @@
 		"stripped_z": { "model": "cube_column", "textures": { "all": "blab:blocks/wood_fir_stripped_side", "end": "blab:blocks/wood_fir_stripped_top", "side": "blab:blocks/wood_fir_stripped_side" }, "x": 90 },
 		"stripped_x": { "model": "cube_column", "textures": { "all": "blab:blocks/wood_fir_stripped_side", "end": "blab:blocks/wood_fir_stripped_top", "side": "blab:blocks/wood_fir_stripped_side" }, "x": 90, "y": 90 },
 		"stripped_bark": { "model": "cube_all", "textures": { "all": "blab:blocks/wood_fir_stripped_side" } },
-		"leaf": { "model": "cube_all", "textures": { "all": "blab:blocks/wood_fir_leaves" } }
+		"leaf": { "model": "cube_all", "textures": { "all": "blab:blocks/wood_fir_leaves" } },
+		"workbench": { "model": "cube", "textures": { "particle": "blab:blocks/crafting_workbench_fir_front", "down": "blab:blocks/wood_fir_planks", "up": "blab:blocks/crafting_workbench_fir_top", "north": "blab:blocks/crafting_workbench_fir_front", "east": "blab:blocks/crafting_workbench_fir_side", "south": "blab:blocks/crafting_workbench_fir_front", "west": "blab:blocks/crafting_workbench_fir_side" } }
 	}
 }

@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
+import com.axanthic.blab.blocks.BlockCustomWorkbench;
 import com.axanthic.blab.blocks.BlockFlower;
 import com.axanthic.blab.blocks.BlockHerb;
 import com.axanthic.blab.blocks.BlockLeaf;
@@ -135,7 +136,7 @@ public class ClientProxy extends CommonProxy {
 					public ModelResourceLocation getModelLocation(ItemStack stack) {
 						return new ModelResourceLocation(block.getRegistryName(), "type=" + ((IBlockMeta) block.getBlock()).getNameForMeta(stack.getMetadata()));
 					}});
-			} else if (block.getBlock() instanceof BlockLeaf || block.getBlock() instanceof BlockSapling) {
+			} else if (block.getBlock() instanceof BlockLeaf || block.getBlock() instanceof BlockSapling || block.getBlock() instanceof BlockCustomWorkbench) {
 				String[] path = block.getRegistryName().getResourcePath().split("_");
 				if (block.getBlock() instanceof BlockSapling)
 					ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation(new ResourceLocation(block.getRegistryName().getResourceDomain(), "wood_" + path[1]), "inv_" + path[0]));

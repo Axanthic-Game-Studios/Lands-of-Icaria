@@ -15,6 +15,7 @@ import com.axanthic.blab.blocks.BlockCustomSlab;
 import com.axanthic.blab.blocks.BlockCustomStairs;
 import com.axanthic.blab.blocks.BlockCustomTrapdoor;
 import com.axanthic.blab.blocks.BlockCustomWall;
+import com.axanthic.blab.blocks.BlockCustomWorkbench;
 import com.axanthic.blab.blocks.BlockFarmLand;
 import com.axanthic.blab.blocks.BlockFarmLandFertilized;
 import com.axanthic.blab.blocks.BlockFlower;
@@ -127,7 +128,7 @@ public class Resources {
 	public static ToolSet sideros = new ToolSet(new CompleteToolMaterial("sideros", -1.1F, 4, 528, 7.0F, 2.5F, 14, new ItemStack(Resources.ingot, 1, 7)));
 	public static ToolSet molybdenumsteel = new ToolSet(new CompleteToolMaterial("molybdenumsteel", -1.2F, 4, 673, 7.5F, 2.0F, 12, new ItemStack(Resources.ingot, 1, 9)));
 
-	public static ArmorSet aeternaeLeatherArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "aeternae_leather", ModInformation.ID + ":" + "armor_aeternae_leather", 11, new int[]{1, 3, 4, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F).setRepairItem(new ItemStack(Resources.resource, 1, 15)));
+	public static ArmorSet aeternaeLeatherArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "aeternae_leather", ModInformation.ID + ":" + "armor_aeternae_leather", 11, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F).setRepairItem(new ItemStack(Resources.resource, 1, 15)));
 	public static ArmorSet chalkosArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "chalkos", ModInformation.ID + ":" + "armor_chalkos", 11, new int[]{1, 3, 4, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 0)));
 	public static ArmorSet kassiterosArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "kassiteros", ModInformation.ID + ":" + "armor_kassiteros", 15, new int[]{2, 3, 5, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 1)));
 	public static ArmorSet orichalcumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "orichalcum", ModInformation.ID + ":" + "armor_orichalcum", 24, new int[]{2, 4, 6, 2}, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 3)));
@@ -424,6 +425,7 @@ public class Resources {
 		public ItemBlockMaterial stairs;
 		public ItemBlockMaterialDoor door;
 		public ItemBlockMaterial trapdoor;
+		public ItemBlockMaterial workbench;
 
 		public WoodSet(final BlockPlanks.WoodTypes type, WorldGenLOITree generator) {
 			this.type = type;
@@ -442,6 +444,7 @@ public class Resources {
 			this.stairs = new ItemBlockMaterial(new BlockCustomStairs(plankState, materialName));
 			this.door = new ItemBlockMaterialDoor(new BlockCustomDoor(plankState, materialName));
 			this.trapdoor = new ItemBlockMaterial(new BlockCustomTrapdoor(plankState, materialName));
+			this.workbench = new ItemBlockMaterial(new BlockCustomWorkbench(plankState, materialName));
 		}
 
 		public void register() {
@@ -455,6 +458,7 @@ public class Resources {
 			Resources.registerBlock(stairs);
 			Resources.registerBlock(door);
 			Resources.registerBlock(trapdoor);
+			Resources.registerBlock(workbench);
 		}
 	}
 }

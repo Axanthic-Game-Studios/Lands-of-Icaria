@@ -13,7 +13,7 @@ item.resource.raw_vase.name=Unfired Storage Vase
 item.resource.loam_brick.name=Loam Brick
 item.resource.revenant_femur.name=Revenant Femur
 item.resource.aeternae_fur.name=Aeternae Fur
-item.resource2.slug_mass.name=Slug Mass
+item.resource2.slug_mass.name=Snull Cream
 item.food.olive_green.name=Green Olives
 item.food.olive_black.name=Black Olives
 item.food.laurel_cherry.name=Laurelcherry
@@ -52,6 +52,7 @@ tile.generic.slab.name=%s Slab
 tile.generic.wall.name=%s Wall
 tile.generic.door.name=%s Door
 tile.generic.trapdoor.name=%s Trapdoor
+tile.generic.workbench.name=%s Crafting Table
 
 tile.relicstone.smooth.name=Smooth Relicstone
 tile.relicstone.bricks_cracked.name=Cracked Relicstone Bricks

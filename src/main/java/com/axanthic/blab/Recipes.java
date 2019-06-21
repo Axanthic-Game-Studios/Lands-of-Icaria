@@ -20,12 +20,17 @@ import com.axanthic.blab.blocks.BlockStorageMetal;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.OreIngredient;
+import net.minecraftforge.registries.IForgeRegistryModifiable;
 
 public class Recipes {
 
@@ -142,6 +147,10 @@ public class Recipes {
 		registerWoodRecipe(Resources.laurel);
 		registerWoodRecipe(Resources.droughtroot);
 
+		//this needs to happen because they prioritize over our recipes
+		moveRecipe(new ResourceLocation("crafting_table"));
+		moveRecipe(new ResourceLocation("trapdoor"));
+
 		registerSlabStairRecipe(Resources.yellowstoneStone);
 		registerSlabStairRecipe(Resources.silkstoneStone);
 		registerSlabStairRecipe(Resources.sunstoneStone);
@@ -218,6 +227,7 @@ public class Recipes {
 		addRecipe(new ItemStack(set.stairs, 4), set.type.unlocalizedName + "_stairs", new Object[]{"P  ", "PP ", "PPP", 'P', new ItemStack(Resources.planks, 1, meta)});
 		addRecipe(new ItemStack(set.door, 3), set.type.unlocalizedName + "_door", new Object[]{"PP", "PP", "PP", 'P', new ItemStack(Resources.planks, 1, meta)});
 		addRecipe(new ItemStack(set.trapdoor, 2), set.type.unlocalizedName + "_trapdoor", new Object[]{"PPP", "PPP", 'P', new ItemStack(Resources.planks, 1, meta)});
+		addRecipe(new ItemStack(set.workbench, 1), set.type.unlocalizedName + "_workbench", new Object[]{"PP", "PP", 'P', new ItemStack(Resources.planks, 1, meta)});
 	}
 
 	public static void registerSlabStairRecipe(StairSlabPair set) {
@@ -268,6 +278,23 @@ public class Recipes {
 		Collection ingredients  = new ArrayList(Arrays.asList(input1.getItem().getRegistryName().toString() + ":" + input1.getMetadata(), input2.getItem().getRegistryName().toString() + ":" + input2.getMetadata(), input3.getItem().getRegistryName().toString() + ":" + input3.getMetadata()));
 		forgeIngredients.addAll(ingredients);
 		forgeRecipes.put(ingredients,  output);
+	}
+
+	public static void moveRecipe(ResourceLocation name) {
+		if (ForgeRegistries.RECIPES.containsKey(name)) {
+			IRecipe recipe = ForgeRegistries.RECIPES.getValue(name);
+			((IForgeRegistryModifiable) ForgeRegistries.RECIPES).remove(name);
+			//ForgeRegistries.RECIPES.register(recipe);
+			//GameRegistry.addShapedRecipe(name, group, recipe.getRecipeOutput(), recipe.getIngredients());
+			//GameData.register_impl(value)
+
+			if (recipe instanceof ShapedRecipes) {
+				ForgeRegistries.RECIPES.register(new ShapedRecipes("", ((ShapedRecipes) recipe).getWidth(), ((ShapedRecipes) recipe).getHeight(), recipe.getIngredients(), recipe.getRecipeOutput()).setRegistryName(name));
+			}
+			if (recipe instanceof ShapelessRecipes) {
+				ForgeRegistries.RECIPES.register(new ShapelessRecipes("", recipe.getRecipeOutput(), recipe.getIngredients()).setRegistryName(name));
+			}
+		}
 	}
 
 	public static String upCase(String string) {
@@ -370,5 +397,6 @@ public class Recipes {
 		OreDictionary.registerOre("fenceGateWood", new ItemStack(set.fenceGate, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("slabWood", new ItemStack(set.slab, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("stairWood", new ItemStack(set.stairs, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("workbench", new ItemStack(set.workbench, 1, OreDictionary.WILDCARD_VALUE));
 	}
 }
