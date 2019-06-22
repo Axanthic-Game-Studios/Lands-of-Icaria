@@ -136,19 +136,19 @@ public class EntityRevenant extends EntityMob {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.ENTITY_ZOMBIE_AMBIENT;
+		return SoundEvents.ENTITY_SKELETON_AMBIENT;
 	}
 
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-		return SoundEvents.ENTITY_ZOMBIE_HURT;
+		return SoundEvents.ENTITY_SKELETON_HURT;
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.ENTITY_ZOMBIE_DEATH;
+		return SoundEvents.ENTITY_SKELETON_HURT;
 	}
 
 	protected SoundEvent getStepSound() {
-		return SoundEvents.ENTITY_ZOMBIE_STEP;
+		return SoundEvents.ENTITY_SKELETON_STEP;
 	}
 
 	protected void playStepSound(BlockPos pos, Block blockIn) {

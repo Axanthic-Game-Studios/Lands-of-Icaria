@@ -37,6 +37,7 @@ import com.axanthic.blab.blocks.BlockOre;
 import com.axanthic.blab.blocks.BlockPillar;
 import com.axanthic.blab.blocks.BlockPillarHead;
 import com.axanthic.blab.blocks.BlockPlanks;
+import com.axanthic.blab.blocks.BlockPlanks.WoodTypes;
 import com.axanthic.blab.blocks.BlockRelicstone;
 import com.axanthic.blab.blocks.BlockRock;
 import com.axanthic.blab.blocks.BlockSapling;
@@ -106,6 +107,13 @@ public class Resources {
 	public static final ResourceLocation LOOT_REVENANT = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/revenant"));
 	public static final ResourceLocation LOOT_ARACHNE_DRONE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/arachne_drone"));
 	public static final ResourceLocation LOOT_ARACHNE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/arachne"));
+	public static final ResourceLocation LOOT_HAG_PLANE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/plane"));
+	public static final ResourceLocation LOOT_HAG_POPULUS = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/populus"));
+	public static final ResourceLocation LOOT_HAG_CYPRESS = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/cypress"));
+	public static final ResourceLocation LOOT_HAG_FIR = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/fir"));
+	public static final ResourceLocation LOOT_HAG_OLIVE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/olive"));
+	public static final ResourceLocation LOOT_HAG_LAUREL = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/laurel"));
+	public static final ResourceLocation LOOT_HAG_DROUGHTROOT = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/droughtroot"));
 	public static final ResourceLocation LOOT_VASE = LootTableList.register(new ResourceLocation(ModInformation.ID, "loot/loot_vase"));
 
 	public static List<Item> items = new ArrayList<Item>();
@@ -426,6 +434,7 @@ public class Resources {
 		public ItemBlockMaterialDoor door;
 		public ItemBlockMaterial trapdoor;
 		public ItemBlockMaterial workbench;
+		public ResourceLocation hagLoot;
 
 		public WoodSet(final BlockPlanks.WoodTypes type, WorldGenLOITree generator) {
 			this.type = type;
@@ -445,6 +454,7 @@ public class Resources {
 			this.door = new ItemBlockMaterialDoor(new BlockCustomDoor(plankState, materialName));
 			this.trapdoor = new ItemBlockMaterial(new BlockCustomTrapdoor(plankState, materialName));
 			this.workbench = new ItemBlockMaterial(new BlockCustomWorkbench(plankState, materialName));
+			this.hagLoot = new ResourceLocation(ModInformation.ID, "entities/forest_hag/" + type.unlocalizedName);
 		}
 
 		public void register() {
@@ -460,5 +470,23 @@ public class Resources {
 			Resources.registerBlock(trapdoor);
 			Resources.registerBlock(workbench);
 		}
+	}
+
+	public static WoodSet getWoodSetFromType(BlockPlanks.WoodTypes type) {
+		if (type == WoodTypes.PLANE)
+			return Resources.plane;
+		if (type == WoodTypes.POPULUS)
+			return Resources.populus;
+		if (type == WoodTypes.CYPRESS)
+			return Resources.cypress;
+		if (type == WoodTypes.FIR)
+			return Resources.fir;
+		if (type == WoodTypes.OLIVE)
+			return Resources.olive;
+		if (type == WoodTypes.LAUREL)
+			return Resources.laurel;
+		if (type == WoodTypes.DROUGHTROOT)
+			return Resources.droughtroot;
+		return Resources.plane;
 	}
 }
