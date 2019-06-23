@@ -84,6 +84,7 @@ tile.dolomite_smooth.name=Smooth Dolomite
 tile.dolomite_bricks.name=Dolomite Bricks
 tile.dolomite_pillar.name=Dolomite Pillar
 tile.dolomite_pillar_head.name=Dolomite Pillar Head
+tile.quartz_pillar_head.name=Quartz Pillar Head
 tile.tallgrass.small.name=Small Grass
 tile.tallgrass.medium.name=Grass
 tile.tallgrass.large.name=Large Grass
