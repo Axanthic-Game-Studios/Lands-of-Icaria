@@ -167,14 +167,18 @@ public class Resources {
 	public static ItemBlock grainelGlass = new ItemBlock(new BlockGlassy(Material.GLASS, 0.3F, "grainel_glass", MapColor.WOOD));
 	public static ItemBlock grainelGlassPane = new ItemBlock(new BlockCustomPane(Material.GLASS, 0.3F, "grainel_pane", false).setSoundType(SoundType.GLASS));
 	public static ItemBlock loamBricks = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "loam_bricks", MapColor.NETHERRACK).setSoundType(SoundType.STONE));
+	public static ItemBlock dolomiteSmooth = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "dolomite_smooth", MapColor.WHITE_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
+	public static ItemBlock dolomiteBricks = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "dolomite_bricks", MapColor.WHITE_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
+	public static ItemBlock dolomitePillar = new ItemBlock(new BlockPillar(Material.ROCK, 1.2F, "dolomite_pillar", MapColor.WHITE_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
+	public static ItemBlock dolomitePillarHead = new ItemBlock(new BlockPillarHead(Material.ROCK, 1.2F, "dolomite_pillar_head", MapColor.WHITE_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
 	public static ItemBlockMeta metalBlock = new ItemBlockMetaMaterial(new BlockStorageMetal());
 	public static ItemBlockMeta gemBlock = new ItemBlockMetaMaterial(new BlockStorageGem());
 	public static ItemBlockMeta relicstone = new ItemBlockMeta(new BlockRelicstone());
-	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
-	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead());
+	public static ItemBlock pillar = new ItemBlock(new BlockPillar(Material.ROCK, 1.2F, "pillar_relicstone", MapColor.WOOD).setSoundType(SoundType.STONE));
+	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead(Material.ROCK, 1.2F, "pillar_head_relicstone", MapColor.WOOD).setSoundType(SoundType.STONE));
 	public static ItemBlock mobHeadRevenant = new ItemBlockMobHead(new BlockMobHead("revenant"));
 	public static ItemBlock lootVase = new ItemBlock(new BlockLootVase());
 	public static ItemBlock storageVase = new ItemBlock(new BlockStorageVase());
@@ -208,6 +212,7 @@ public class Resources {
 	public static StairSlabPair grainiteStone = new StairSlabPair(grainelStone, 0, "grainel_stone", true);
 	public static StairSlabPair grainiteBricks = new StairSlabPair(grainelStone, 1, "grainel_stone_bricks", true);
 	public static StairSlabPair loamBrick = new StairSlabPair(loamBricks, 0, "loam_bricks", true);
+	public static StairSlabPair smoothDolomite = new StairSlabPair(dolomiteSmooth, 0, "dolomite_smooth");
 
 	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE, new WorldGenPlaneTree(true));
 	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS, new WorldGenPopulusTree(true));
@@ -267,6 +272,10 @@ public class Resources {
 		Resources.registerBlock(Resources.grainelGlass);
 		Resources.registerBlock(Resources.grainelGlassPane);
 		Resources.registerBlock(Resources.loamBricks);
+		Resources.registerBlock(Resources.dolomiteSmooth);
+		Resources.registerBlock(Resources.dolomiteBricks);
+		Resources.registerBlock(Resources.dolomitePillar);
+		Resources.registerBlock(Resources.dolomitePillarHead);
 		Resources.registerBlock(Resources.calcite);
 		Resources.registerBlock(Resources.jasper);
 		Resources.registerBlock(Resources.zircon);
@@ -318,6 +327,7 @@ public class Resources {
 		Resources.grainiteStone.register();
 		Resources.grainiteBricks.register();
 		Resources.loamBrick.register();
+		Resources.smoothDolomite.register();
 	}
 
 	public static void registerBlock(final ItemBlock block) {

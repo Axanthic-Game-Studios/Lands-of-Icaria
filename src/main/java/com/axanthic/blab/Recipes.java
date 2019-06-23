@@ -64,6 +64,11 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.resource, 1, 11), new ItemStack(Resources.storageVase, 1, 0), 0.2F);
 		GameRegistry.addSmelting(new ItemStack(Resources.resource, 1, 10), new ItemStack(Resources.resource, 1, 12), 0.1F);
 		addRecipe(new ItemStack(Resources.loamBricks, 1, 0), "loam_bricks", new Object[]{"BB", "BB", 'B', new ItemStack(Resources.resource, 1, 12)});
+		addRecipe(new ItemStack(Resources.dolomiteSmooth, 1, 0), "dolomite_smooth", new Object[]{"DD", "DD", 'D', new ItemStack(Resources.resource, 1, 1)});
+		addRecipe(new ItemStack(Resources.dolomiteBricks, 4, 0), "dolomite_bricks", new Object[]{"DD", "DD", 'D', new ItemStack(Resources.dolomiteSmooth, 1, 0)});
+		addRecipe(new ItemStack(Resources.dolomitePillar, 2, 0), "dolomite_pillar", new Object[]{"B", "B", 'B', new ItemStack(Resources.dolomiteBricks, 1, 0)});
+		addRecipe(new ItemStack(Resources.dolomitePillarHead, 2, 0), "dolomite_pillar_head", new Object[]{"B", "P", 'B', new ItemStack(Resources.dolomiteBricks, 1, 0), 'P', new ItemStack(Resources.dolomitePillar, 1, 0)});
+
 		addShapelessRecipe(new ItemStack(Resources.resource, 1, 15), "aeternae_leather", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 14))});
 		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, 3), new ItemStack(Resources.food, 1, 4), 0.35F);
 
@@ -172,6 +177,7 @@ public class Recipes {
 		registerSlabStairRecipe(Resources.grainiteStone);
 		registerSlabStairRecipe(Resources.grainiteBricks);
 		registerSlabStairRecipe(Resources.loamBrick);
+		registerSlabStairRecipe(Resources.smoothDolomite);
 
 		registerToolRecipe(Resources.chalkos);
 		registerToolRecipe(Resources.kassiteros);
@@ -374,6 +380,7 @@ public class Recipes {
 		OreDictionary.registerOre("stone", new ItemStack(Resources.relicstone, 1, 0));
 		OreDictionary.registerOre("blockStone", new ItemStack(Resources.relicstone, 1, 0));
 
+		OreDictionary.registerOre("blockDolomite", new ItemStack(Resources.dolomiteSmooth, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("blockCalcite", new ItemStack(Resources.gemBlock, 1, 0));
 		OreDictionary.registerOre("blockJasper", new ItemStack(Resources.gemBlock, 1, 1));
 		OreDictionary.registerOre("blockZircon", new ItemStack(Resources.gemBlock, 1, 2));
