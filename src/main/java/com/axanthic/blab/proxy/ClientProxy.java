@@ -38,13 +38,15 @@ import com.axanthic.blab.items.IItemCustomReach;
 import com.axanthic.blab.items.IItemMeta;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemCustomArmor;
+import com.axanthic.blab.utils.LOIItemStackRenderer;
 import com.axanthic.blab.utils.MessageCustomReachAttack;
 import com.axanthic.blab.utils.TileEntityGrinder;
+import com.axanthic.blab.utils.TileEntityMobHead;
 import com.axanthic.blab.utils.TileEntitySpecialRendererGrinder;
+import com.axanthic.blab.utils.TileEntitySpecialRendererMobHead;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -71,6 +73,7 @@ import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
@@ -100,12 +103,15 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenant.class, RenderRevenant::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityArachneDrone.class, RenderArachneDrone::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityArachne.class, RenderArachne::new);
+
+		LOIItemStackRenderer.LOIInstance = new LOIItemStackRenderer();
 	}
 
 	@Override
 	public void init(FMLInitializationEvent event) {
 		super.init(event);
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrinder.class, new TileEntitySpecialRendererGrinder());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMobHead.class, new TileEntitySpecialRendererMobHead());
 	}
 
 	@Override
@@ -114,14 +120,7 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void registerBlocks(RegistryEvent.Register<Block> event) {
-		super.registerBlocks(event);
-	}
-
-	@Override
-	public void registerItems(RegistryEvent.Register<Item> event) {
-		super.registerItems(event);
-
+	public void registerModels(ModelRegistryEvent event) {
 		for (ItemBlock block : Resources.blocks) {
 			if (block.getBlock() instanceof BlockFlower || block.getBlock() instanceof BlockTallGrass || block.getBlock() instanceof BlockHerb) {
 				for (int i = 0; i < ((IBlockMeta) block.getBlock()).getNames().length; i++) {
@@ -180,6 +179,9 @@ public class ClientProxy extends CommonProxy {
 			} else
 				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 		}
+
+		//register special item renderers here
+		Resources.mobHeadRevenant.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 	}
 
 	@Override

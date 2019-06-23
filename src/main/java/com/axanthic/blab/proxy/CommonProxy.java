@@ -21,6 +21,7 @@ import com.axanthic.blab.utils.TileEntityForge;
 import com.axanthic.blab.utils.TileEntityForgeRedirector;
 import com.axanthic.blab.utils.TileEntityGrinder;
 import com.axanthic.blab.utils.TileEntityKiln;
+import com.axanthic.blab.utils.TileEntityMobHead;
 import com.axanthic.blab.utils.TileEntityVase;
 import com.axanthic.loi.worldgen.biome.LOIBiomes;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
@@ -36,6 +37,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -74,6 +76,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityGrinder.class, new ResourceLocation(ModInformation.ID, "crafting_grinder"));
 		GameRegistry.registerTileEntity(TileEntityForge.class, new ResourceLocation(ModInformation.ID, "crafting_forge"));
 		GameRegistry.registerTileEntity(TileEntityForgeRedirector.class, new ResourceLocation(ModInformation.ID, "crafting_forge_redirector"));
+		GameRegistry.registerTileEntity(TileEntityMobHead.class, new ResourceLocation(ModInformation.ID, "mob_head"));
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(Blab.instance, GuiHandlerRegistry.getInstance());
 		GuiHandlerRegistry.getInstance().registerGuiHandler(new GuiHandlerBlab(), GuiHandlerBlab.getGuiID());
@@ -118,6 +121,10 @@ public class CommonProxy {
 
 	public void registerBiomes(RegistryEvent.Register<Biome> event) {
 		LOIBiomes.registerBiomes(event);
+	}
+
+	public void registerModels(ModelRegistryEvent event) {
+		
 	}
 
 	public void registerBlockColors(ColorHandlerEvent.Block event) {

@@ -65,6 +65,7 @@ tile.relicstone.tiles_draft.name=Structure Relicstone Tiles
 tile.relicstone.chiseled.name=Chiseled Relicstone
 tile.pillar_relicstone.name=Relicstone Pillar
 tile.pillar_head_relicstone.name=Relicstone Pillar Head
+tile.head_revenant.name=Revenant Skull
 tile.soil.marl.name=Marl
 tile.soil.course_marl.name=Coarse Marl
 tile.soil.loam.name=Loam

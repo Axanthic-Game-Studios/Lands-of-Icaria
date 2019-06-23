@@ -19,7 +19,7 @@ public class ModelRevenant extends ModelBiped {
 
 	public ModelRevenant() {
 		this.textureWidth = 64;
-		this.textureHeight = 94;
+		this.textureHeight = 128;
 		this.body = new ModelRenderer(this, 32, 0);
 		this.body.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.body.addBox(-4.0F, 0.0F, -2.0F, 8, 13, 4, 0.0F);
