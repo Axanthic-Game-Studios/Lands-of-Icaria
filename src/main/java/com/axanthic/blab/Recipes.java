@@ -387,6 +387,15 @@ public class Recipes {
 		OreDictionary.registerOre("blockJasper", new ItemStack(Resources.gemBlock, 1, 1));
 		OreDictionary.registerOre("blockZircon", new ItemStack(Resources.gemBlock, 1, 2));
 
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineBloomy, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineBranch, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineBrushy, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineDry, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineReedy, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("sugarcane", new ItemStack(Resources.vineReedy, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineSwirly, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineThorny, 1, OreDictionary.WILDCARD_VALUE));
+
 		OreDictionary.registerOre("plankWood", new ItemStack(Resources.planks, 1, OreDictionary.WILDCARD_VALUE));
 		registerWoodOredict(Resources.plane);
 		registerWoodOredict(Resources.populus);

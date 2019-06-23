@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.axanthic.blab.blocks.BlockAristone;
 import com.axanthic.blab.blocks.BlockBasic;
+import com.axanthic.blab.blocks.BlockBasicVine;
 import com.axanthic.blab.blocks.BlockBromelia;
 import com.axanthic.blab.blocks.BlockCardonCactus;
 import com.axanthic.blab.blocks.BlockCustomDoor;
@@ -155,6 +156,13 @@ public class Resources {
 	public static ItemBlockMeta herb = new ItemBlockMeta(new BlockHerb());
 	public static ItemBlockMeta bromelia = new ItemBlockMeta(new BlockBromelia());
 	public static ItemBlock cardon = new ItemBlock(new BlockCardonCactus());
+	public static ItemBlock vineBloomy = new ItemBlock(new BlockBasicVine("vine_bloomy"));
+	public static ItemBlock vineBranch = new ItemBlock(new BlockBasicVine("vine_branch"));
+	public static ItemBlock vineBrushy = new ItemBlock(new BlockBasicVine("vine_brushy"));
+	public static ItemBlock vineDry = new ItemBlock(new BlockBasicVine("vine_dry"));
+	public static ItemBlock vineReedy = new ItemBlock(new BlockBasicVine("vine_reedy"));
+	public static ItemBlock vineSwirly = new ItemBlock(new BlockBasicVine("vine_swirly"));
+	public static ItemBlock vineThorny = new ItemBlock(new BlockBasicVine("vine_thorny", true));
 	public static ItemBlockMeta planks = new ItemBlockMetaMaterial(new BlockPlanks());
 	public static ItemBlock aristone = new ItemBlock(new BlockAristone("aristone"));
 	public static ItemBlock aristonePacked = new ItemBlock(new BlockAristone("aristone_packed"));
@@ -261,6 +269,13 @@ public class Resources {
 		Resources.registerBlock(Resources.herb);
 		Resources.registerBlock(Resources.bromelia);
 		Resources.registerBlock(Resources.cardon);
+		Resources.registerBlock(Resources.vineBloomy);
+		Resources.registerBlock(Resources.vineBranch);
+		Resources.registerBlock(Resources.vineBrushy);
+		Resources.registerBlock(Resources.vineDry);
+		Resources.registerBlock(Resources.vineReedy);
+		Resources.registerBlock(Resources.vineSwirly);
+		Resources.registerBlock(Resources.vineThorny);
 		Resources.registerBlock(Resources.planks);
 		Resources.registerBlock(Resources.aristone);
 		Resources.registerBlock(Resources.aristonePacked);
