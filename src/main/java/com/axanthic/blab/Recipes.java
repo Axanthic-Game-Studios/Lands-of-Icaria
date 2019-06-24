@@ -12,6 +12,8 @@ import com.axanthic.blab.Resources.ArmorSet;
 import com.axanthic.blab.Resources.StairSlabPair;
 import com.axanthic.blab.Resources.ToolSet;
 import com.axanthic.blab.Resources.WoodSet;
+import com.axanthic.blab.blocks.BlockFlower;
+import com.axanthic.blab.blocks.BlockFlower2;
 import com.axanthic.blab.blocks.BlockRock;
 import com.axanthic.blab.blocks.BlockStorageGem;
 import com.axanthic.blab.blocks.BlockStorageMetal;
@@ -22,13 +24,25 @@ import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
+<<<<<<< HEAD
 import net.minecraft.potion.Potion;
+=======
+import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.item.crafting.ShapelessRecipes;
+import net.minecraft.util.NonNullList;
+>>>>>>> master
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.OreIngredient;
+<<<<<<< HEAD
 import net.minecraftforge.registries.GameData;
+=======
+import net.minecraftforge.registries.IForgeRegistryModifiable;
+>>>>>>> master
 
 public class Recipes {
 
@@ -48,11 +62,12 @@ public class Recipes {
 		addForgeRecipe(new ItemStack(Resources.ingot, 2, 9), new ItemStack(Resources.ingot, 1, 7),
 				new ItemStack(Resources.ingot, 1, 8), new ItemStack(Resources.resource, 1, 2));
 
-		addGrinderRecipe(new ItemStack(Resources.resource, 1, 8), new ItemStack(Resources.resource, 1, 5));
+		addGrinderRecipe(new ItemStack(Resources.resource, 2, 8), new ItemStack(Resources.resource, 1, 5));
 		addGrinderRecipe(new ItemStack(Resources.resource, 1, 9), new ItemStack(Resources.resource, 1, 7));
 
 		addGrinderFuel(new ItemStack(Items.BLAZE_POWDER), 1600);
 
+<<<<<<< HEAD
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath",
 				new Object[] { "LLL", "L L", 'L', Resources.laurel.leaf });
 		addShapelessRecipe(new ItemStack(Resources.bottle), "Bottle_O'_Epic",
@@ -115,6 +130,49 @@ public class Recipes {
 				new ItemStack(Resources.grainelGlass, 1, 0), 0.1F);
 		addRecipe(new ItemStack(Resources.grainelGlassPane, 16, 0), "grainel_glass_pane",
 				new Object[] { "GGG", "GGG", 'G', new ItemStack(Resources.grainelGlass, 1, 0) });
+=======
+		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath", new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
+
+		addRecipe(new ItemStack(Resources.aristonePacked), "packed_aristone", new Object[]{"AAA", "AAA", "AAA", 'A', Resources.aristone});
+
+		addRecipe(new ItemStack(Resources.soil, 1, 1), "course_marl", new Object[]{"GS", "SG", 'G', Resources.grainelSand, 'S', new ItemStack(Resources.soil, 1, 0)});
+
+		addRecipe(new ItemStack(Resources.soil, 1, 2), "loam_block", new Object[]{"LL", "LL", 'L', new ItemStack(Resources.resource, 1, 10)});
+		addRecipe(new ItemStack(Resources.resource, 4, 10), "loam_lump", new Object[]{"L", 'L', new ItemStack(Resources.soil, 1, 2)});
+		addRecipe(new ItemStack(Resources.resource, 1, 11), "loam_vase", new Object[]{"LLL", "L L", "LLL", 'L', new ItemStack(Resources.resource, 1, 10)});
+		GameRegistry.addSmelting(new ItemStack(Resources.resource, 1, 11), new ItemStack(Resources.storageVase, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.resource, 1, 10), new ItemStack(Resources.resource, 1, 12), 0.1F);
+		addRecipe(new ItemStack(Resources.loamBricks, 1, 0), "loam_bricks", new Object[]{"BB", "BB", 'B', new ItemStack(Resources.resource, 1, 12)});
+		addRecipe(new ItemStack(Resources.dolomiteSmooth, 1, 0), "dolomite_smooth", new Object[]{"DD", "DD", 'D', new ItemStack(Resources.resource, 1, 1)});
+		addRecipe(new ItemStack(Resources.dolomiteBricks, 4, 0), "dolomite_bricks", new Object[]{"DD", "DD", 'D', new ItemStack(Resources.dolomiteSmooth, 1, 0)});
+		addRecipe(new ItemStack(Resources.dolomitePillar, 2, 0), "dolomite_pillar", new Object[]{"B", "B", 'B', new ItemStack(Resources.dolomiteBricks, 1, 0)});
+		addRecipe(new ItemStack(Resources.dolomitePillarHead, 2, 0), "dolomite_pillar_head", new Object[]{"B", "P", 'B', new ItemStack(Resources.dolomiteBricks, 1, 0), 'P', new ItemStack(Resources.dolomitePillar, 1, 0)});
+		addRecipe(new ItemStack(Resources.quartzPillarHead, 2, 0), "quartz_pillar_head", new Object[]{"B", "P", 'B', new ItemStack(Blocks.QUARTZ_BLOCK, 1, 1), 'P', new ItemStack(Blocks.QUARTZ_BLOCK, 1, 2)});
+
+		addShapelessRecipe(new ItemStack(Resources.resource, 1, 15), "aeternae_leather", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 14))});
+		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, 3), new ItemStack(Resources.food, 1, 4), 0.35F);
+
+		addShapelessRecipe(new ItemStack(Items.DYE, 1, 14), "bromelia_dye_orange", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 0))});
+		addShapelessRecipe(new ItemStack(Items.DYE, 1, 13), "bromelia_dye_pink", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 1))});
+		addShapelessRecipe(new ItemStack(Items.DYE, 1, 5), "bromelia_dye_purple", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 2))});
+		addShapelessRecipe(new ItemStack(Items.DYE, 1, 7), "bromelia_dye_white", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 3))});
+		GameRegistry.addSmelting(new ItemStack(Resources.cardon, 1, 0), new ItemStack(Items.DYE, 1, 2), 0.2F);
+
+		addRecipe(new ItemStack(Resources.kiln, 1, 0), "kiln_rock", new Object[]{"SSS", "S S", "SSS", 'S', new ItemStack(Resources.rock, 1, 0)});
+		addRecipe(new ItemStack(Resources.kiln, 1, 0), "kiln_brick", new Object[]{"BBB", "B B", "BBB", 'B', new ItemStack(Resources.brick, 1, 0)});
+		addRecipe(new ItemStack(Resources.grinder, 1, 0), "grinder_rock", new Object[]{"SSS", "SIS", "SSS", 'S', new ItemStack(Resources.rock, 1, 2), 'I', "ingotOrichalcum"});
+		addRecipe(new ItemStack(Resources.grinder, 1, 0), "grinder_brick", new Object[]{"BBB", "BIB", "BBB", 'B', new ItemStack(Resources.brick, 1, 2), 'I', "ingotOrichalcum"});
+		addRecipe(new ItemStack(Resources.forge, 1, 0), "forge", new Object[]{"LGL", "L L", "LGL", 'L', new ItemStack(Resources.loamBricks, 1, 0), 'G', new ItemStack(Resources.grainelStone, 1, 1)});
+
+		addRecipe(new ItemStack(Resources.silkstoneSand, 1, 0), "silkstone_sand", new Object[]{"PP", "PP", 'P', new ItemStack(Resources.resource, 1, 4)});
+		GameRegistry.addSmelting(new ItemStack(Resources.silkstoneSand, 1, 0), new ItemStack(Resources.rock, 1, 1), 0.1F);
+
+		addRecipe(new ItemStack(Resources.grainelStone, 1, 0), "grainel_stone", new Object[]{"GG", "GG", 'G', new ItemStack(Resources.grainelSand, 1, 0)});
+		addRecipe(new ItemStack(Resources.grainelStone, 4, 1), "grainel_stone_bricks", new Object[]{"GG", "GG", 'G', new ItemStack(Resources.grainelStone, 1, 0)});
+		addRecipe(new ItemStack(Resources.grainelStone, 4, 2), "grainel_stone_bricks_chiseled", new Object[]{"S", "S", 'S', new ItemStack(Resources.grainiteBricks.slab, 1, 0)});
+		GameRegistry.addSmelting(new ItemStack(Resources.grainelSand, 1, 0), new ItemStack(Resources.grainelGlass, 1, 0), 0.1F);
+		addRecipe(new ItemStack(Resources.grainelGlassPane, 16, 0), "grainel_glass_pane", new Object[]{"GGG", "GGG", 'G', new ItemStack(Resources.grainelGlass, 1, 0)});
+>>>>>>> master
 
 		GameRegistry.addSmelting(new ItemStack(Resources.rock, 1, 5), new ItemStack(Resources.relicstone, 1, 0), 0.1F);
 		GameRegistry.addSmelting(new ItemStack(Resources.brick, 1, 5), new ItemStack(Resources.relicstone, 1, 1), 0.1F);
@@ -145,6 +203,14 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 9), new ItemStack(Resources.ingot, 1, 8), 0.9F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 10), new ItemStack(Resources.ingot, 1, 10), 1.0F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 12), new ItemStack(Resources.resource, 1, 3), 0.5F);
+
+		for (int i = 0; i < BlockFlower.FlowerTypes.getNames().length; i++) {
+			addShapelessRecipe(new ItemStack(Items.DYE, 1, BlockFlower.FlowerTypes.byMetadata(i).color), "flower_dye_" + i, new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.flower, 1, i))});
+		}
+
+		for (int i = 0; i < BlockFlower2.FlowerTypes2.getNames().length; i++) {
+			addShapelessRecipe(new ItemStack(Items.DYE, 1, BlockFlower2.FlowerTypes2.byMetadata(i).color), "flower_2_dye_" + i, new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.flower2, 1, i))});
+		}
 
 		for (int i = 0; i < BlockRock.StoneTypes.getNames().length; i++) {
 			addRecipe(new ItemStack(Resources.brick, 4, i), BlockRock.StoneTypes.getNames()[i] + "_bricks",
@@ -181,6 +247,10 @@ public class Recipes {
 		registerWoodRecipe(Resources.laurel);
 		registerWoodRecipe(Resources.droughtroot);
 
+		//this needs to happen because they prioritize over our recipes
+		moveRecipe(new ResourceLocation("crafting_table"));
+		moveRecipe(new ResourceLocation("trapdoor"));
+
 		registerSlabStairRecipe(Resources.yellowstoneStone);
 		registerSlabStairRecipe(Resources.silkstoneStone);
 		registerSlabStairRecipe(Resources.sunstoneStone);
@@ -202,6 +272,7 @@ public class Recipes {
 		registerSlabStairRecipe(Resources.grainiteStone);
 		registerSlabStairRecipe(Resources.grainiteBricks);
 		registerSlabStairRecipe(Resources.loamBrick);
+		registerSlabStairRecipe(Resources.smoothDolomite);
 
 		registerToolRecipe(Resources.chalkos);
 		registerToolRecipe(Resources.kassiteros);
@@ -210,10 +281,39 @@ public class Recipes {
 		registerToolRecipe(Resources.sideros);
 		registerToolRecipe(Resources.molybdenumsteel);
 
+		registerArmorRecipe(Resources.aeternaeLeatherArmor);
 		registerArmorRecipe(Resources.chalkosArmor);
 		registerArmorRecipe(Resources.kassiterosArmor);
 		registerArmorRecipe(Resources.orichalcumArmor);
 		registerArmorRecipe(Resources.vanadiumArmor);
+	}
+
+	public static void registerLateRecipes() {
+		NonNullList<ItemStack> copperIngots = OreDictionary.getOres("ingotCopper");
+		if (!copperIngots.isEmpty())
+			addShapelessRecipe(copperIngots.get(0), "chalkos_copper", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 0))});
+
+		NonNullList<ItemStack> tinIngots = OreDictionary.getOres("ingotTin");
+		if (!tinIngots.isEmpty())
+			addShapelessRecipe(tinIngots.get(0), "kassiteros_tin", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 1))});
+
+		NonNullList<ItemStack> leadIngots = OreDictionary.getOres("ingotLead");
+		if (!leadIngots.isEmpty())
+			addShapelessRecipe(leadIngots.get(0), "molibos_lead", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 2))});
+
+		NonNullList<ItemStack> bronzeIngots = OreDictionary.getOres("ingotBronze");
+		if (!bronzeIngots.isEmpty())
+			addShapelessRecipe(bronzeIngots.get(0), "orichalcum_bronze", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 3))});
+
+		NonNullList<ItemStack> silverIngots = OreDictionary.getOres("ingotSilver");
+		if (!silverIngots.isEmpty())
+			addShapelessRecipe(silverIngots.get(0), "sliver_silver", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 4))});
+
+		addShapelessRecipe(new ItemStack(Items.IRON_INGOT, 1, 0), "sideros_iron", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 7))});
+
+		NonNullList<ItemStack> iridiumIngots = OreDictionary.getOres("ingotIridium");
+		if (!iridiumIngots.isEmpty())
+			addShapelessRecipe(iridiumIngots.get(0), "bluridium_iridium", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 10))});
 	}
 
 	public static void registerWoodRecipe(WoodSet set) {
@@ -224,6 +324,7 @@ public class Recipes {
 				new Object[] { "L", 'L', set.strippedLog });
 		GameRegistry.addSmelting(set.log, new ItemStack(Items.COAL, 1, 1), 0.1F);
 		GameRegistry.addSmelting(set.strippedLog, new ItemStack(Items.COAL, 1, 1), 0.1F);
+<<<<<<< HEAD
 		addRecipe(new ItemStack(set.fence, 3), set.type.unlocalizedName + "_fence",
 				new Object[] { "PSP", "PSP", 'S', "stickWood", 'P', new ItemStack(Resources.planks, 1, meta) });
 		addRecipe(new ItemStack(set.fenceGate, 3), set.type.unlocalizedName + "_fence_gate",
@@ -236,12 +337,28 @@ public class Recipes {
 				new Object[] { "PP", "PP", "PP", 'P', new ItemStack(Resources.planks, 1, meta) });
 		addRecipe(new ItemStack(set.trapdoor, 2), set.type.unlocalizedName + "_trapdoor",
 				new Object[] { "PPP", "PPP", 'P', new ItemStack(Resources.planks, 1, meta) });
+=======
+		addRecipe(new ItemStack(set.fence, 3), set.type.unlocalizedName + "_fence", new Object[]{"PSP", "PSP", 'S', "stickWood", 'P', new ItemStack(Resources.planks, 1, meta)});
+		addRecipe(new ItemStack(set.fenceGate, 3), set.type.unlocalizedName + "_fence_gate", new Object[]{"SPS", "SPS", 'S', "stickWood", 'P', new ItemStack(Resources.planks, 1, meta)});
+		addRecipe(new ItemStack(set.slab, 6), set.type.unlocalizedName + "_slab", new Object[]{"PPP", 'P', new ItemStack(Resources.planks, 1, meta)});
+		addRecipe(new ItemStack(set.stairs, 4), set.type.unlocalizedName + "_stairs", new Object[]{"P  ", "PP ", "PPP", 'P', new ItemStack(Resources.planks, 1, meta)});
+		addRecipe(new ItemStack(set.door, 3), set.type.unlocalizedName + "_door", new Object[]{"PP", "PP", "PP", 'P', new ItemStack(Resources.planks, 1, meta)});
+		addRecipe(new ItemStack(set.trapdoor, 2), set.type.unlocalizedName + "_trapdoor", new Object[]{"PPP", "PPP", 'P', new ItemStack(Resources.planks, 1, meta)});
+		addRecipe(new ItemStack(set.workbench, 1), set.type.unlocalizedName + "_workbench", new Object[]{"PP", "PP", 'P', new ItemStack(Resources.planks, 1, meta)});
+>>>>>>> master
 	}
 
 	public static void registerSlabStairRecipe(StairSlabPair set) {
 		ItemStack base = new ItemStack(set.baseItem, 1, set.baseMeta);
+<<<<<<< HEAD
 		addRecipe(new ItemStack(set.slab, 6), set.name + "_slab", new Object[] { "BBB", 'B', base });
 		addRecipe(new ItemStack(set.stairs, 4), set.name + "_stairs", new Object[] { "B  ", "BB ", "BBB", 'B', base });
+=======
+		addRecipe(new ItemStack(set.slab, 6), set.name + "_slab", new Object[]{"BBB", 'B', base});
+		addRecipe(new ItemStack(set.stairs, 4), set.name + "_stairs", new Object[]{"B  ", "BB ", "BBB", 'B', base});
+		if (set.wall != null)
+			addRecipe(new ItemStack(set.wall, 6), set.name + "_wall", new Object[]{"BBB", "BBB", 'B', base});
+>>>>>>> master
 	}
 
 	public static void registerToolRecipe(ToolSet set) {
@@ -299,6 +416,23 @@ public class Recipes {
 						input3.getItem().getRegistryName().toString() + ":" + input3.getMetadata()));
 		forgeIngredients.addAll(ingredients);
 		forgeRecipes.put(ingredients, output);
+	}
+
+	public static void moveRecipe(ResourceLocation name) {
+		if (ForgeRegistries.RECIPES.containsKey(name)) {
+			IRecipe recipe = ForgeRegistries.RECIPES.getValue(name);
+			((IForgeRegistryModifiable) ForgeRegistries.RECIPES).remove(name);
+			//ForgeRegistries.RECIPES.register(recipe);
+			//GameRegistry.addShapedRecipe(name, group, recipe.getRecipeOutput(), recipe.getIngredients());
+			//GameData.register_impl(value)
+
+			if (recipe instanceof ShapedRecipes) {
+				ForgeRegistries.RECIPES.register(new ShapedRecipes("", ((ShapedRecipes) recipe).getWidth(), ((ShapedRecipes) recipe).getHeight(), recipe.getIngredients(), recipe.getRecipeOutput()).setRegistryName(name));
+			}
+			if (recipe instanceof ShapelessRecipes) {
+				ForgeRegistries.RECIPES.register(new ShapelessRecipes("", recipe.getRecipeOutput(), recipe.getIngredients()).setRegistryName(name));
+			}
+		}
 	}
 
 	public static String upCase(String string) {
@@ -380,9 +514,19 @@ public class Recipes {
 		OreDictionary.registerOre("stone", new ItemStack(Resources.relicstone, 1, 0));
 		OreDictionary.registerOre("blockStone", new ItemStack(Resources.relicstone, 1, 0));
 
+		OreDictionary.registerOre("blockDolomite", new ItemStack(Resources.dolomiteSmooth, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("blockCalcite", new ItemStack(Resources.gemBlock, 1, 0));
 		OreDictionary.registerOre("blockJasper", new ItemStack(Resources.gemBlock, 1, 1));
 		OreDictionary.registerOre("blockZircon", new ItemStack(Resources.gemBlock, 1, 2));
+
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineBloomy, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineBranch, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineBrushy, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineDry, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineReedy, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("sugarcane", new ItemStack(Resources.vineReedy, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineSwirly, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(Resources.vineThorny, 1, OreDictionary.WILDCARD_VALUE));
 
 		OreDictionary.registerOre("plankWood", new ItemStack(Resources.planks, 1, OreDictionary.WILDCARD_VALUE));
 		registerWoodOredict(Resources.plane);
@@ -403,5 +547,6 @@ public class Recipes {
 		OreDictionary.registerOre("fenceGateWood", new ItemStack(set.fenceGate, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("slabWood", new ItemStack(set.slab, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("stairWood", new ItemStack(set.stairs, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("workbench", new ItemStack(set.workbench, 1, OreDictionary.WILDCARD_VALUE));
 	}
 }

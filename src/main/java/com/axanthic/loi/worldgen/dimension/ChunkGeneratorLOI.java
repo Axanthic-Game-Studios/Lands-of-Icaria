@@ -274,7 +274,9 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 			for (int z = 0; z < sizeZ; ++z)
 			{
 				final float cell = this.cell.noise((wx + x) / 500d, (wz + z) / 500d, 1.0);
+				float cell2 = this.cell.noise((wx + x), (wz + z), 0.025F) * 15F;
 				final double d3 = 0.0D;
+<<<<<<< HEAD
 				// TRYING TO FIGURE OUT HOW THIS WORKS IS LIKE TRYING TO FIGURE OUT WHY MY CRUSH IS AVOIDING ME:
 				// ITS INFURIATING BECAUSE IT'S NEVER EXPLAINED PROPERLY
 				for (int y = 0; y < sizeY; ++y)
@@ -286,6 +288,32 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					final double d7 = ((this.pnr[index] / 10.0D) + 1.0D) / 2.0D;
 					double value;
 					//WHAT THE HELL IS UP WITH THIS CODE
+=======
+				
+				cell2 -= 4F;
+				if(cell2<0)
+					cell2 = 0;
+				
+				
+				for (int y = 0; y < sizeY; ++y)
+				{
+					// WHAT THE HELL IS UP WITH THESE VARIABLE NAMES
+					final double d4 = bufferY[y]; //Density value of the terrain
+					final double d5 = this.ar[index] / 512.0D;	//noise value
+					final double d6 = this.br[index] / 512.0D;	//noise value
+					final double d7 = ((this.pnr[index] / 10.0D) + 1.0D) / 2.0D;	//noise value
+					double value;	//terrain smoothing value
+					//maybe somehting like air propability value?!
+					//or thin ness
+					//thiness is best
+					//the larger the thiness the thinner they get, somehow...
+					//WHAT THE HELL IS UP WITH THIS CODE
+
+					float verticalShape = this.perlin.noise3((wx + x)/100F, ((float)y/(float)sizeY), (wz + z)/100F);//should create a random shape based on the height
+					float cell3 = verticalShape * 100F * cell2;
+					
+					
+>>>>>>> master
 					if (d7 < 0.0D)
 					{
 						value = d5;
@@ -307,8 +335,14 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 						final double topSmoothing = (y - (sizeY - 4)) / 3.0F;
 						value = (value * (1.0D - topSmoothing)) + (-5D * topSmoothing);
 					}
+<<<<<<< HEAD
 					//Someday, people will be looking at my petrified corpse in a museum, and they will wonder:
 					//"what horrible monster caused this man so much frustration?" 
+=======
+					
+					value += cell3;//the larger this value then it should no longer generate stone
+					
+>>>>>>> master
 					buffer[index] = cell < 0.2d ? value : value / 5;
 					++index;
 				}
