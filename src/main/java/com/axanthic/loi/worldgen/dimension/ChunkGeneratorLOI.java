@@ -268,10 +268,10 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 			for (int z = 0; z < sizeZ; ++z)
 			{
 				final float cell = this.cell.noise((wx + x) / 500d, (wz + z) / 500d, 1.0);
-				float cell2 = this.cell.noise((wx + x), (wz + z), 0.1F) * 10F;
+				float cell2 = this.cell.noise((wx + x), (wz + z), 0.025F) * 15F;
 				final double d3 = 0.0D;
 				
-				cell2 -= 3F;
+				cell2 -= 4F;
 				if(cell2<0)
 					cell2 = 0;
 				
@@ -290,8 +290,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					//the larger the thiness the thinner they get, somehow...
 					//WHAT THE HELL IS UP WITH THIS CODE
 
-					
-					float cell3 = ((float)y/(float)sizeY) * 100F * cell2;
+					float verticalShape = this.perlin.noise3((wx + x)/100F, ((float)y/(float)sizeY), (wz + z)/100F);//should create a random shape based on the height
+					float cell3 = verticalShape * 100F * cell2;
 					
 					
 					if (d7 < 0.0D)
@@ -317,7 +317,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 						value = (value * (1.0D - topSmoothing)) + (-5D * topSmoothing);
 					}
 					
-					value += cell3;//the larger this value then ot should no longer generate stone
+					value += cell3;//the larger this value then it should no longer generate stone
 					
 					buffer[index] = cell < 0.2d ? value : value / 5;
 					++index;
