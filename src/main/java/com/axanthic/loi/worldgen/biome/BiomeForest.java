@@ -4,8 +4,13 @@ import java.util.Random;
 
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityAeternae;
-import com.axanthic.blab.entity.EntityForestHag;
+import com.axanthic.blab.entity.EntityArachne;
+import com.axanthic.blab.entity.EntityArachneDrone;
+import com.axanthic.blab.entity.EntityCatoblepas;
 import com.axanthic.blab.entity.EntityRevenant;
+import com.axanthic.blab.entity.EntitySnull;
+import com.axanthic.loi.worldgen.feature.WorldGenFirTree;
+import com.axanthic.loi.worldgen.feature.WorldGenPopulusTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
@@ -17,6 +22,8 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BiomeForest extends BiomeLOI {
 
@@ -34,28 +41,30 @@ public class BiomeForest extends BiomeLOI {
 		spawnableMonsterList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
-		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityAeternae.class, 50, 2, 4));
-		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityForestHag.class, 100, 1, 2));
-		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 1, 4));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityAeternae.class, 50, 2, 6));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityCatoblepas.class, 50, 2, 6));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySnull.class, 50, 2, 6));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
 
 		flowers.clear();
 		addFlower(Resources.flower.getBlock().getStateFromMeta(3), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(6), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(9), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(10), 20);
-		addFlower(Resources.bromelia.getBlock().getStateFromMeta(0), 5);
-		addFlower(Resources.bromelia.getBlock().getStateFromMeta(1), 5);
-		addFlower(Resources.bromelia.getBlock().getStateFromMeta(2), 5);
-		addFlower(Resources.bromelia.getBlock().getStateFromMeta(3), 5);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(0), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(1), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(2), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(3), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(4), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(5), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(6), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(7), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(8), 1);
+		addFlower(Resources.bromelia.getBlock().getStateFromMeta(0), 10);
+		addFlower(Resources.bromelia.getBlock().getStateFromMeta(1), 10);
+		addFlower(Resources.bromelia.getBlock().getStateFromMeta(2), 10);
+		addFlower(Resources.bromelia.getBlock().getStateFromMeta(3), 10);
+		addFlower(Resources.herb.getBlock().getStateFromMeta(1), 10);
+		addFlower(Resources.herb.getBlock().getStateFromMeta(4), 10);
+		addFlower(Resources.herb.getBlock().getStateFromMeta(7), 10);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public int getGrassColorAtPos(BlockPos pos) {
+		return 0x728B4D;
 	}
 
 	@Override
@@ -70,7 +79,10 @@ public class BiomeForest extends BiomeLOI {
 		biomeDecorator.treesPerChunk = 4;
 		biomeDecorator.extraTreeChance = 0.1F;
 		biomeDecorator.flowersPerChunk = 5;
-		biomeDecorator.grassPerChunk = 7;
+		biomeDecorator.grassPerChunk = 8;
+		biomeDecorator.generateFerns = true;
+		biomeDecorator.treeGenerators.add(new WorldGenFirTree(false).init());
+		biomeDecorator.treeGenerators.add(new WorldGenPopulusTree(false).init());
 
 		return biomeDecorator;
 	}

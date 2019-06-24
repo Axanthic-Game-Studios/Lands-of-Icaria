@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemMeta extends Item {
+public class ItemMeta extends Item implements IItemMeta {
 
 	public String[] names;
 
@@ -38,5 +38,10 @@ public class ItemMeta extends Item {
 			for (int i = 0; i < names.length; i++) {
 				items.add(new ItemStack(this, 1, i));
 			}
+	}
+
+	@Override
+	public String[] getNames() {
+		return names;
 	}
 }

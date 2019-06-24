@@ -8,7 +8,8 @@ public class GenLayerLOI extends GenLayer {
     private Biome[] biomes = new Biome[]{
             LOIBiomes.desert,
             LOIBiomes.scrubland,
-            LOIBiomes.forest
+            LOIBiomes.forest,
+            LOIBiomes.steppe
     };
 
     public GenLayerLOI(long seed, GenLayer parent) {
@@ -29,8 +30,6 @@ public class GenLayerLOI extends GenLayer {
                 dest[dx + dz * depth] = Biome.getIdForBiome(biomes[nextInt(biomes.length)]);
 
             }
-
-
         }
         return dest;
     }

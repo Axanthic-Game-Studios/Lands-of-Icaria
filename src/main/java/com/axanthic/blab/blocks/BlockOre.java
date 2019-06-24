@@ -34,7 +34,7 @@ public class BlockOre extends Block implements IBlockMeta {
 	public BlockOre() {
 		super(Material.ROCK);
 		this.setCreativeTab(Blab.modTabBlocks);
-		this.setHardness(1.2F);
+		this.setHardness(1.7F);
 		this.setUnlocalizedName("ore");
 		this.setRegistryName(ModInformation.ID, "ore");
 		this.setDefaultState(getStateFromMeta(0));
@@ -101,6 +101,14 @@ public class BlockOre extends Block implements IBlockMeta {
 	@Override
 	public int getHarvestLevel(IBlockState state) {
 		return OreTypes.byMetadata(getMetaFromState(state)).mineLevel;
+	}
+
+	@Override
+	public float getPlayerRelativeBlockHardness(IBlockState state, EntityPlayer player, World worldIn, BlockPos pos) {
+		if (!canHarvestBlock(worldIn, pos, player)) {
+			return player.getDigSpeed(state, pos) / this.blockHardness / 100F;
+		}
+		return player.getDigSpeed(state, pos) / this.blockHardness / 30F;
 	}
 
 	@Override

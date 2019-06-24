@@ -4,8 +4,13 @@ import java.util.Random;
 
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityAeternae;
-import com.axanthic.blab.entity.EntityForestHag;
+import com.axanthic.blab.entity.EntityArachne;
+import com.axanthic.blab.entity.EntityArachneDrone;
+import com.axanthic.blab.entity.EntityCatoblepas;
 import com.axanthic.blab.entity.EntityRevenant;
+import com.axanthic.blab.entity.EntitySnull;
+import com.axanthic.loi.worldgen.feature.WorldGenLaurelTree;
+import com.axanthic.loi.worldgen.feature.WorldGenPlaneTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
@@ -17,6 +22,8 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BiomeScrubland extends BiomeLOI {
 
@@ -28,23 +35,27 @@ public class BiomeScrubland extends BiomeLOI {
 		spawnableMonsterList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
-		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityAeternae.class, 50, 2, 4));
-		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityForestHag.class, 50, 1, 2));
-		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 1, 4));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityAeternae.class, 50, 2, 6));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityCatoblepas.class, 50, 2, 6));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySnull.class, 50, 2, 6));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
 
 		flowers.clear();
 		addFlower(Resources.flower.getBlock().getStateFromMeta(0), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(1), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(5), 20);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(0), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(1), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(2), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(3), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(4), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(5), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(6), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(7), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(8), 1);
+		addFlower(Resources.flower.getBlock().getStateFromMeta(12), 20);
+		addFlower(Resources.flower.getBlock().getStateFromMeta(13), 20);
+		addFlower(Resources.flower.getBlock().getStateFromMeta(14), 20);
+		addFlower(Resources.herb.getBlock().getStateFromMeta(0), 10);
+		addFlower(Resources.herb.getBlock().getStateFromMeta(6), 10);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public int getGrassColorAtPos(BlockPos pos) {
+		return 0x70B263;
 	}
 
 	@Override
@@ -56,11 +67,13 @@ public class BiomeScrubland extends BiomeLOI {
 	public BiomeDecorator createBiomeDecorator() {
 		LOIBiomeDecorator biomeDecorator = new LOIBiomeDecorator();
 
-		biomeDecorator.treesPerChunk = 3;
-		biomeDecorator.extraTreeChance = 0.1F;
+		biomeDecorator.treesPerChunk = 2;
+		biomeDecorator.extraTreeChance = 0.2F;
 		biomeDecorator.flowersPerChunk = 5;
-		biomeDecorator.grassPerChunk = 8;
+		biomeDecorator.grassPerChunk = 7;
 		biomeDecorator.generateBoulders = true;
+		biomeDecorator.treeGenerators.add(new WorldGenPlaneTree(false).init());
+		biomeDecorator.treeGenerators.add(new WorldGenLaurelTree(false).init());
 
 		return biomeDecorator;
 	}

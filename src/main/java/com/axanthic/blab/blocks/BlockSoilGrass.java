@@ -5,6 +5,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.axanthic.blab.Resources;
+import com.axanthic.loi.worldgen.biome.BiomeForest;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -16,10 +17,16 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -47,6 +54,20 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 	@Nullable
 	public String getHarvestTool(IBlockState state) {
 		return "shovel";
+	}
+
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		ItemStack itemstack = playerIn.getHeldItem(hand);
+		if ((itemstack.getItem() instanceof ItemHoe || itemstack.getItem().getToolClasses(itemstack).contains("hoe")) && playerIn.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
+			worldIn.playSound(playerIn, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+			if (!worldIn.isRemote) {
+				worldIn.setBlockState(pos, Resources.farmLand.getBlock().getDefaultState());
+				itemstack.damageItem(1, playerIn);
+			}
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -82,6 +103,11 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 	}
 
 	@Override
+	public void onPlantGrow(IBlockState state, World world, BlockPos pos, BlockPos source) {
+		world.setBlockState(pos, Resources.soil.getBlock().getDefaultState(), 2);
+	}
+
+	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return Resources.soil;
 	}
@@ -105,22 +131,13 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 			while (true) {
 				if (j >= i / 16) {
 					if (worldIn.isAirBlock(blockpos1)) {
-						IBlockState iblockstate1 = Resources.tallGrass.getBlock().getStateFromMeta(rand.nextInt(BlockTallGrass.GrassTypes.values().length));
 						if (rand.nextInt(8) == 0) {
-							if (rand.nextInt(6) == 0) {
-								iblockstate1 = Resources.herb.getBlock().getStateFromMeta(rand.nextInt(BlockHerb.HerbTypes.values().length));
-							} else if (rand.nextInt(3) == 0) {
-								iblockstate1 = Resources.bromelia.getBlock().getStateFromMeta(rand.nextInt(BlockBromelia.BromeliaTypes.values().length));
-							} else {
-								int meta = rand.nextInt(BlockFlower.FlowerTypes.values().length + BlockFlower2.FlowerTypes2.values().length);
-								if (meta < 16)
-									iblockstate1 = Resources.flower.getBlock().getStateFromMeta(meta);
-								else
-									iblockstate1 = Resources.flower2.getBlock().getStateFromMeta(meta - 16);
+							worldIn.getBiome(blockpos1).plantFlower(worldIn, rand, blockpos1);
+						} else {
+							IBlockState iblockstate1 = Resources.tallGrass.getBlock().getStateFromMeta(rand.nextInt(BlockTallGrass.GrassTypes.values().length - (worldIn.getBiome(blockpos1) instanceof BiomeForest ? 0 : 1)));
+							if (((BlockBush) iblockstate1.getBlock()).canBlockStay(worldIn, blockpos1, iblockstate1)) {
+								worldIn.setBlockState(blockpos1, iblockstate1, 3);
 							}
-						}
-						if (((BlockBush) iblockstate1.getBlock()).canBlockStay(worldIn, blockpos1, iblockstate1)) {
-							worldIn.setBlockState(blockpos1, iblockstate1, 3);
 						}
 					}
 					break;

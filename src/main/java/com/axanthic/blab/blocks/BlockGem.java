@@ -36,6 +36,7 @@ public class BlockGem extends BlockSixDirectional {
 		this.setHardness(1.2F);
 		this.fullBlock = false;
 		this.setLightOpacity(0);
+		this.translucent = true;
 		this.setUnlocalizedName(name);
 		unlocalizedName = name;
 		this.setLightLevel(1.0F);

@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
+import com.axanthic.blab.Resources;
 
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.SoundType;
@@ -20,6 +21,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -31,13 +33,16 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	public BlockPlanks.WoodTypes type;
 	public Item sapling;
 
-	public BlockLeaf(BlockPlanks.WoodTypes type, Item sapling) {
+	public BlockLeaf(BlockPlanks.WoodTypes type) {
+		this(type, "leaf");
+		this.setRegistryName(ModInformation.ID, "leaf_" + type.unlocalizedName);
+	}
+
+	public BlockLeaf(BlockPlanks.WoodTypes type, String name) {
 		super();
 		this.setCreativeTab(Blab.modTabFlora);
 		this.type = type;
-		this.sapling = sapling;
-		this.setUnlocalizedName("leaf");
-		this.setRegistryName(ModInformation.ID, "leaf_" + type.unlocalizedName);
+		this.setUnlocalizedName(name);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
 		this.setSoundType(SoundType.PLANT);
 	}
@@ -50,6 +55,17 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return sapling;
+	}
+
+	@Override
+	protected int getSaplingDropChance(IBlockState state) {
+		return type.saplingChance;
+	}
+
+	@Override
+	protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance) {
+		if (state.getBlock().equals(Resources.laurel.leaf.getBlock()) && worldIn.rand.nextInt(chance) == 0)
+			spawnAsEntity(worldIn, pos, new ItemStack(Resources.food, 1, 2));
 	}
 
 	@Override
@@ -68,9 +84,9 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	}
 
 	@Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-        return this.getDefaultState().withProperty(DECAYABLE, false).withProperty(CHECK_DECAY, false);
-    }
+	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+		return this.getDefaultState().withProperty(DECAYABLE, false).withProperty(CHECK_DECAY, false);
+	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
@@ -124,6 +140,44 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		return !Minecraft.getMinecraft().gameSettings.fancyGraphics && blockAccess.getBlockState(pos.offset(side)).getBlock() == this ? false : super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+		return !Minecraft.getMinecraft().gameSettings.fancyGraphics && blockAccess.getBlockState(pos.offset(side)).getBlock() == this ? false : this.renderSide(blockState, blockAccess, pos, side);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public boolean renderSide(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+		AxisAlignedBB axisalignedbb = blockState.getBoundingBox(blockAccess, pos);
+
+		switch (side) {
+		case DOWN:
+			if (axisalignedbb.minY > 0.0D) {
+				return true;
+			}
+			break;
+		case UP:
+			if (axisalignedbb.maxY < 1.0D) {
+				return true;
+			}
+			break;
+		case NORTH:
+			if (axisalignedbb.minZ > 0.0D){
+				return true;
+			}
+			break;
+		case SOUTH:
+			if (axisalignedbb.maxZ < 1.0D){
+				return true;
+			}
+			break;
+		case WEST:
+			if (axisalignedbb.minX > 0.0D) {
+				return true;
+			}
+			break;
+		case EAST:
+			if (axisalignedbb.maxX < 1.0D) {
+				return true;
+			}
+		}
+		return !blockAccess.getBlockState(pos.offset(side)).doesSideBlockRendering(blockAccess, pos.offset(side), side.getOpposite());
 	}
 }

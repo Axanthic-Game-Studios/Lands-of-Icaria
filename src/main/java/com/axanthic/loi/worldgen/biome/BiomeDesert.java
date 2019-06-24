@@ -3,8 +3,10 @@ package com.axanthic.loi.worldgen.biome;
 import java.util.Random;
 
 import com.axanthic.blab.Resources;
-import com.axanthic.blab.entity.EntityForestHag;
+import com.axanthic.blab.entity.EntityArachne;
+import com.axanthic.blab.entity.EntityArachneDrone;
 import com.axanthic.blab.entity.EntityRevenant;
+import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
@@ -16,6 +18,8 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BiomeDesert extends BiomeLOI {
 
@@ -32,19 +36,20 @@ public class BiomeDesert extends BiomeLOI {
 		spawnableMonsterList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
-		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityForestHag.class, 50, 1, 2));
-		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 1, 4));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
 
 		flowers.clear();
-		addFlower(Resources.herb.getBlock().getStateFromMeta(0), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(1), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(2), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(3), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(4), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(5), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(6), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(7), 1);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(8), 1);
+		addFlower(Resources.flower.getBlock().getStateFromMeta(15), 20);
+		addFlower(Resources.flower2.getBlock().getStateFromMeta(0), 20);
+		addFlower(Resources.herb.getBlock().getStateFromMeta(5), 10);
+		addFlower(Resources.herb.getBlock().getStateFromMeta(8), 10);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public int getGrassColorAtPos(BlockPos pos) {
+		return 0xB2B755;
 	}
 
 	@Override
@@ -56,11 +61,13 @@ public class BiomeDesert extends BiomeLOI {
 	public BiomeDecorator createBiomeDecorator() {
 		LOIBiomeDecorator biomeDecorator = new LOIBiomeDecorator();
 
-		biomeDecorator.treesPerChunk = 3;
-		biomeDecorator.extraTreeChance = 0.1F;
-		biomeDecorator.flowersPerChunk = 1;
+		biomeDecorator.treesPerChunk = 0;
+		biomeDecorator.extraTreeChance = 0.2F;
+		biomeDecorator.extraTreeAmount = 6;
+		biomeDecorator.flowersPerChunk = 4;
 		biomeDecorator.cactiPerChunk = 20;
 		biomeDecorator.grassPerChunk = 0;
+		biomeDecorator.treeGenerators.add(new WorldGenDroughtrootTree(false).init());
 
 		return biomeDecorator;
 	}

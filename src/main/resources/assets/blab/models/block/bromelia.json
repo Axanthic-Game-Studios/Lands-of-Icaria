@@ -23,7 +23,7 @@
         }
     },
     "textures": {
-        "0": "nanpa:blocks/flora/bromelia_orange",
+        "0": "blab:blocks/bromelia_orange",
         "particle": "#0"
     },
     "elements": [

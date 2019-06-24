@@ -3,7 +3,10 @@ package com.axanthic.loi.worldgen.biome;
 import com.axanthic.blab.Resources;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BiomeLOI extends Biome {
 
@@ -19,5 +22,10 @@ public class BiomeLOI extends Biome {
 
 	public BiomeLOI(BiomeProperties properties) {
 		super(properties);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public int getFoliageColorAtPos(BlockPos pos) {
+		return getGrassColorAtPos(pos);
 	}
 }

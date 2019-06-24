@@ -9,6 +9,7 @@ public class LOIBiomes {
 	public static Biome scrubland = new BiomeScrubland();
 	public static Biome desert = new BiomeDesert();
 	public static Biome forest = new BiomeForest();
+	public static Biome steppe = new BiomeSteppe();
 
 	public static void init() {
 		//BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(scrubland, 10));
@@ -22,11 +23,16 @@ public class LOIBiomes {
 		//BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(forest, 10));
 		//BiomeManager.addSpawnBiome(forest);
 		BiomeDictionary.addTypes(forest, BiomeDictionary.Type.FOREST);
+
+		//BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(forest, 10));
+		//BiomeManager.addSpawnBiome(forest);
+		BiomeDictionary.addTypes(steppe, BiomeDictionary.Type.PLAINS);
 	}
 
 	public static void registerBiomes(RegistryEvent.Register<Biome> event) {
 		event.getRegistry().register(scrubland);
 		event.getRegistry().register(desert);
 		event.getRegistry().register(forest);
+		event.getRegistry().register(steppe);
 	}
 }

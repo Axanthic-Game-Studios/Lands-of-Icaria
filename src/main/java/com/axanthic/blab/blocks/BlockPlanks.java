@@ -95,13 +95,13 @@ public class BlockPlanks extends Block implements IBlockMeta {
 	}
 
 	public enum WoodTypes implements IStringSerializable {
-		PLANE(0, "plane", MapColor.DIRT, MapColor.STONE, MapColor.GRASS),
-		POPULUS(1, "populus", MapColor.SAND, MapColor.QUARTZ, MapColor.LIME_STAINED_HARDENED_CLAY),
-		CYPRESS(2, "cypress", MapColor.BROWN, MapColor.STONE, MapColor.GREEN_STAINED_HARDENED_CLAY),
-		FIR(3, "fir", MapColor.WHITE_STAINED_HARDENED_CLAY, MapColor.BROWN_STAINED_HARDENED_CLAY, MapColor.GREEN),
-		OLIVE(4, "olive", MapColor.ADOBE, MapColor.STONE, MapColor.YELLOW),
-		LAUREL(5, "laurel", MapColor.BROWN, MapColor.OBSIDIAN, MapColor.GREEN_STAINED_HARDENED_CLAY),
-		DROUGHTROOT(6, "droughtroot", MapColor.GRAY, MapColor.OBSIDIAN, MapColor.GREEN_STAINED_HARDENED_CLAY);
+		PLANE(0, "plane", MapColor.DIRT, MapColor.STONE, MapColor.GRASS, 10),
+		POPULUS(1, "populus", MapColor.SAND, MapColor.QUARTZ, MapColor.LIME_STAINED_HARDENED_CLAY, 25),
+		CYPRESS(2, "cypress", MapColor.BROWN, MapColor.STONE, MapColor.GREEN_STAINED_HARDENED_CLAY, 20),
+		FIR(3, "fir", MapColor.WHITE_STAINED_HARDENED_CLAY, MapColor.BROWN_STAINED_HARDENED_CLAY, MapColor.GREEN, 25),
+		OLIVE(4, "olive", MapColor.ADOBE, MapColor.STONE, MapColor.YELLOW, 30),
+		LAUREL(5, "laurel", MapColor.BROWN, MapColor.OBSIDIAN, MapColor.GREEN_STAINED_HARDENED_CLAY, 20),
+		DROUGHTROOT(6, "droughtroot", MapColor.GRAY, MapColor.OBSIDIAN, MapColor.GREEN_STAINED_HARDENED_CLAY, 10);
 
 		public static final WoodTypes[] META_LOOKUP = new WoodTypes[values().length];
 		public final int meta;
@@ -109,13 +109,15 @@ public class BlockPlanks extends Block implements IBlockMeta {
 		public final MapColor mapColor;
 		public final MapColor logColor;
 		public final MapColor leafColor;
+		public final int saplingChance;
 
-		WoodTypes(int metaIn, String unlocalizedNameIn, MapColor mapColorIn, MapColor logColorIn, MapColor leafColorIn) {
+		WoodTypes(int metaIn, String unlocalizedNameIn, MapColor mapColorIn, MapColor logColorIn, MapColor leafColorIn, int saplingChance) {
 			this.meta = metaIn;
 			this.unlocalizedName = unlocalizedNameIn;
 			this.mapColor = mapColorIn;
 			this.logColor = logColorIn;
 			this.leafColor = leafColorIn;
+			this.saplingChance = saplingChance;
 		}
 
 		public static WoodTypes byMetadata(int meta) {
@@ -139,8 +141,8 @@ public class BlockPlanks extends Block implements IBlockMeta {
 		}
 
 		static {
-			for (WoodTypes stoneType : values()) {
-				META_LOOKUP[stoneType.meta] = stoneType;
+			for (WoodTypes woodType : values()) {
+				META_LOOKUP[woodType.meta] = woodType;
 			}
 		}
 	}
