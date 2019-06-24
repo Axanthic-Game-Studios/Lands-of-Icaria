@@ -268,8 +268,14 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 			for (int z = 0; z < sizeZ; ++z)
 			{
 				final float cell = this.cell.noise((wx + x) / 500d, (wz + z) / 500d, 1.0);
+				float cell2 = this.cell.noise((wx + x), (wz + z), 0.1F) * 10F;
 				final double d3 = 0.0D;
-
+				
+				cell2 -= 3F;
+				if(cell2<0)
+					cell2 = 0;
+				
+				
 				for (int y = 0; y < sizeY; ++y)
 				{
 					// WHAT THE HELL IS UP WITH THESE VARIABLE NAMES
@@ -278,8 +284,16 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					final double d6 = this.br[index] / 512.0D;	//noise value
 					final double d7 = ((this.pnr[index] / 10.0D) + 1.0D) / 2.0D;	//noise value
 					double value;	//terrain smoothing value
+					//maybe somehting like air propability value?!
+					//or thin ness
+					//thiness is best
+					//the larger the thiness the thinner they get, somehow...
 					//WHAT THE HELL IS UP WITH THIS CODE
 
+					
+					float cell3 = ((float)y/(float)sizeY) * 100F * cell2;
+					
+					
 					if (d7 < 0.0D)
 					{
 						value = d5;
@@ -302,7 +316,9 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 						final double topSmoothing = (y - (sizeY - 4)) / 3.0F;
 						value = (value * (1.0D - topSmoothing)) + (-5D * topSmoothing);
 					}
-
+					
+					value += cell3;//the larger this value then ot should no longer generate stone
+					
 					buffer[index] = cell < 0.2d ? value : value / 5;
 					++index;
 				}
