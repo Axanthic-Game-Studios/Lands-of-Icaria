@@ -26,23 +26,20 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
-<<<<<<< HEAD
+
 import net.minecraft.potion.Potion;
-=======
+
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.util.NonNullList;
->>>>>>> master
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.OreIngredient;
-<<<<<<< HEAD
 import net.minecraftforge.registries.GameData;
-=======
 import net.minecraftforge.registries.IForgeRegistryModifiable;
->>>>>>> master
+
 
 public class Recipes {
 
@@ -67,7 +64,7 @@ public class Recipes {
 
 		addGrinderFuel(new ItemStack(Items.BLAZE_POWDER), 1600);
 
-<<<<<<< HEAD
+
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath",
 				new Object[] { "LLL", "L L", 'L', Resources.laurel.leaf });
 		addShapelessRecipe(new ItemStack(Resources.bottle), "Bottle_O'_Epic",
@@ -130,7 +127,7 @@ public class Recipes {
 				new ItemStack(Resources.grainelGlass, 1, 0), 0.1F);
 		addRecipe(new ItemStack(Resources.grainelGlassPane, 16, 0), "grainel_glass_pane",
 				new Object[] { "GGG", "GGG", 'G', new ItemStack(Resources.grainelGlass, 1, 0) });
-=======
+
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath", new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
 
 		addRecipe(new ItemStack(Resources.aristonePacked), "packed_aristone", new Object[]{"AAA", "AAA", "AAA", 'A', Resources.aristone});
@@ -172,7 +169,6 @@ public class Recipes {
 		addRecipe(new ItemStack(Resources.grainelStone, 4, 2), "grainel_stone_bricks_chiseled", new Object[]{"S", "S", 'S', new ItemStack(Resources.grainiteBricks.slab, 1, 0)});
 		GameRegistry.addSmelting(new ItemStack(Resources.grainelSand, 1, 0), new ItemStack(Resources.grainelGlass, 1, 0), 0.1F);
 		addRecipe(new ItemStack(Resources.grainelGlassPane, 16, 0), "grainel_glass_pane", new Object[]{"GGG", "GGG", 'G', new ItemStack(Resources.grainelGlass, 1, 0)});
->>>>>>> master
 
 		GameRegistry.addSmelting(new ItemStack(Resources.rock, 1, 5), new ItemStack(Resources.relicstone, 1, 0), 0.1F);
 		GameRegistry.addSmelting(new ItemStack(Resources.brick, 1, 5), new ItemStack(Resources.relicstone, 1, 1), 0.1F);
@@ -324,7 +320,6 @@ public class Recipes {
 				new Object[] { "L", 'L', set.strippedLog });
 		GameRegistry.addSmelting(set.log, new ItemStack(Items.COAL, 1, 1), 0.1F);
 		GameRegistry.addSmelting(set.strippedLog, new ItemStack(Items.COAL, 1, 1), 0.1F);
-<<<<<<< HEAD
 		addRecipe(new ItemStack(set.fence, 3), set.type.unlocalizedName + "_fence",
 				new Object[] { "PSP", "PSP", 'S', "stickWood", 'P', new ItemStack(Resources.planks, 1, meta) });
 		addRecipe(new ItemStack(set.fenceGate, 3), set.type.unlocalizedName + "_fence_gate",
@@ -337,7 +332,6 @@ public class Recipes {
 				new Object[] { "PP", "PP", "PP", 'P', new ItemStack(Resources.planks, 1, meta) });
 		addRecipe(new ItemStack(set.trapdoor, 2), set.type.unlocalizedName + "_trapdoor",
 				new Object[] { "PPP", "PPP", 'P', new ItemStack(Resources.planks, 1, meta) });
-=======
 		addRecipe(new ItemStack(set.fence, 3), set.type.unlocalizedName + "_fence", new Object[]{"PSP", "PSP", 'S', "stickWood", 'P', new ItemStack(Resources.planks, 1, meta)});
 		addRecipe(new ItemStack(set.fenceGate, 3), set.type.unlocalizedName + "_fence_gate", new Object[]{"SPS", "SPS", 'S', "stickWood", 'P', new ItemStack(Resources.planks, 1, meta)});
 		addRecipe(new ItemStack(set.slab, 6), set.type.unlocalizedName + "_slab", new Object[]{"PPP", 'P', new ItemStack(Resources.planks, 1, meta)});
@@ -345,20 +339,16 @@ public class Recipes {
 		addRecipe(new ItemStack(set.door, 3), set.type.unlocalizedName + "_door", new Object[]{"PP", "PP", "PP", 'P', new ItemStack(Resources.planks, 1, meta)});
 		addRecipe(new ItemStack(set.trapdoor, 2), set.type.unlocalizedName + "_trapdoor", new Object[]{"PPP", "PPP", 'P', new ItemStack(Resources.planks, 1, meta)});
 		addRecipe(new ItemStack(set.workbench, 1), set.type.unlocalizedName + "_workbench", new Object[]{"PP", "PP", 'P', new ItemStack(Resources.planks, 1, meta)});
->>>>>>> master
 	}
 
 	public static void registerSlabStairRecipe(StairSlabPair set) {
 		ItemStack base = new ItemStack(set.baseItem, 1, set.baseMeta);
-<<<<<<< HEAD
 		addRecipe(new ItemStack(set.slab, 6), set.name + "_slab", new Object[] { "BBB", 'B', base });
 		addRecipe(new ItemStack(set.stairs, 4), set.name + "_stairs", new Object[] { "B  ", "BB ", "BBB", 'B', base });
-=======
 		addRecipe(new ItemStack(set.slab, 6), set.name + "_slab", new Object[]{"BBB", 'B', base});
 		addRecipe(new ItemStack(set.stairs, 4), set.name + "_stairs", new Object[]{"B  ", "BB ", "BBB", 'B', base});
 		if (set.wall != null)
 			addRecipe(new ItemStack(set.wall, 6), set.name + "_wall", new Object[]{"BBB", "BBB", 'B', base});
->>>>>>> master
 	}
 
 	public static void registerToolRecipe(ToolSet set) {

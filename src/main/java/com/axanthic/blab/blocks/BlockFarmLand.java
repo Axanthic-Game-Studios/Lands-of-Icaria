@@ -75,10 +75,6 @@ public class BlockFarmLand extends BlockFarmland {
 
 	@Override
 	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
-		if (net.minecraftforge.common.ForgeHooks.onFarmlandTrample(worldIn, pos, Resources.soil.getBlock().getDefaultState(), fallDistance, entityIn)) { // Forge: Move logic to Entity#canTrample
-			turnToSoil(worldIn, pos);
-		}
-		entityIn.fall(fallDistance, 1.0F);
 	}
 
 	@Override
