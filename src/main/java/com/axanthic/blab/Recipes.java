@@ -330,10 +330,10 @@ public class Recipes {
 		OreDictionary.registerOre("ingotOrichalcum", new ItemStack(Resources.ingot, 1, 3));
 		OreDictionary.registerOre("ingotSliver", new ItemStack(Resources.ingot, 1, 4));
 		OreDictionary.registerOre("ingotVanadium", new ItemStack(Resources.ingot, 1, 5));
-		OreDictionary.registerOre("ingotVanadiumSteel", new ItemStack(Resources.ingot, 1, 6));
+		OreDictionary.registerOre("ingotVanadiumsteel", new ItemStack(Resources.ingot, 1, 6));
 		OreDictionary.registerOre("ingotSideros", new ItemStack(Resources.ingot, 1, 7));
 		OreDictionary.registerOre("ingotMolybdenum", new ItemStack(Resources.ingot, 1, 8));
-		OreDictionary.registerOre("ingotMolybdenumSteel", new ItemStack(Resources.ingot, 1, 9));
+		OreDictionary.registerOre("ingotMolybdenumsteel", new ItemStack(Resources.ingot, 1, 9));
 		OreDictionary.registerOre("ingotBluridium", new ItemStack(Resources.ingot, 1, 10));
 
 		OreDictionary.registerOre("nuggetChalkos", new ItemStack(Resources.nugget, 1, 0));
@@ -342,10 +342,10 @@ public class Recipes {
 		OreDictionary.registerOre("nuggetOrichalcum", new ItemStack(Resources.nugget, 1, 3));
 		OreDictionary.registerOre("nuggetSliver", new ItemStack(Resources.nugget, 1, 4));
 		OreDictionary.registerOre("nuggetVanadium", new ItemStack(Resources.nugget, 1, 5));
-		OreDictionary.registerOre("nuggetVanadiumSteel", new ItemStack(Resources.nugget, 1, 6));
+		OreDictionary.registerOre("nuggetVanadiumsteel", new ItemStack(Resources.nugget, 1, 6));
 		OreDictionary.registerOre("nuggetSideros", new ItemStack(Resources.nugget, 1, 7));
 		OreDictionary.registerOre("nuggetMolybdenum", new ItemStack(Resources.nugget, 1, 8));
-		OreDictionary.registerOre("nuggetMolybdenumSteel", new ItemStack(Resources.nugget, 1, 9));
+		OreDictionary.registerOre("nuggetMolybdenumsteel", new ItemStack(Resources.nugget, 1, 9));
 		OreDictionary.registerOre("nuggetBluridium", new ItemStack(Resources.nugget, 1, 10));
 
 		OreDictionary.registerOre("blockChalkos", new ItemStack(Resources.metalBlock, 1, 0));
@@ -354,10 +354,10 @@ public class Recipes {
 		OreDictionary.registerOre("blockOrichalcum", new ItemStack(Resources.metalBlock, 1, 3));
 		OreDictionary.registerOre("blockSliver", new ItemStack(Resources.metalBlock, 1, 4));
 		OreDictionary.registerOre("blockVanadium", new ItemStack(Resources.metalBlock, 1, 5));
-		OreDictionary.registerOre("blockVanadiumSteel", new ItemStack(Resources.metalBlock, 1, 6));
+		OreDictionary.registerOre("blockVanadiumsteel", new ItemStack(Resources.metalBlock, 1, 6));
 		OreDictionary.registerOre("blockSideros", new ItemStack(Resources.metalBlock, 1, 7));
 		OreDictionary.registerOre("blockMolybdenum", new ItemStack(Resources.metalBlock, 1, 8));
-		OreDictionary.registerOre("blockMolybdenumSteel", new ItemStack(Resources.metalBlock, 1, 9));
+		OreDictionary.registerOre("blockMolybdenumsteel", new ItemStack(Resources.metalBlock, 1, 9));
 		OreDictionary.registerOre("blockBluridium", new ItemStack(Resources.metalBlock, 1, 10));
 
 		OreDictionary.registerOre("gemLignite", new ItemStack(Resources.resource, 1, 0));
