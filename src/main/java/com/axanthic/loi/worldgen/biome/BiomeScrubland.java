@@ -14,6 +14,7 @@ import com.axanthic.loi.worldgen.feature.WorldGenPlaneTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -74,6 +75,10 @@ public class BiomeScrubland extends BiomeLOI {
 		biomeDecorator.generateBoulders = true;
 		biomeDecorator.treeGenerators.add(new WorldGenPlaneTree(false).init());
 		biomeDecorator.treeGenerators.add(new WorldGenLaurelTree(false).init());
+		biomeDecorator.vines = new IBlockState[] {
+				Resources.vineReedy.getBlock().getDefaultState(),
+				Resources.vineSwirly.getBlock().getDefaultState()
+		};
 
 		return biomeDecorator;
 	}

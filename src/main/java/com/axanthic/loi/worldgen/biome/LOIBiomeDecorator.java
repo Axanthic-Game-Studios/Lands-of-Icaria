@@ -12,6 +12,7 @@ import com.axanthic.blab.blocks.BlockTallGrass;
 import com.axanthic.loi.worldgen.dimension.OreGeneratorLOI;
 import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
 
+import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
@@ -30,6 +31,15 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	public boolean generateFerns = false;
 	public int extraTreeAmount = 1;
 	public List<WorldGenLOITree> treeGenerators = new ArrayList<WorldGenLOITree>();
+	public IBlockState[] vines = new IBlockState[] {
+			Resources.vineBloomy.getBlock().getDefaultState(),
+			Resources.vineBranch.getBlock().getDefaultState(),
+			Resources.vineBrushy.getBlock().getDefaultState(),
+			Resources.vineDry.getBlock().getDefaultState(),
+			Resources.vineReedy.getBlock().getDefaultState(),
+			Resources.vineSwirly.getBlock().getDefaultState(),
+			Resources.vineThorny.getBlock().getDefaultState()
+	};
 
 	public OreGeneratorLOI oreGen = new OreGeneratorLOI();
 
@@ -50,6 +60,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			this.generateGrass(worldIn, random, biome, pos);
 			this.generateCactus(worldIn, random, biome, pos);
 			this.generateTrees(worldIn, random, biome, pos);
+			this.generateVines(worldIn, random, biome, pos);
 			this.generateCrystals(worldIn, random, biome, pos);
 			oreGen.generate(random, forgeChunkPos.x, forgeChunkPos.z, worldIn, null, worldIn.getChunkProvider());
 
@@ -129,7 +140,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					float f = (float)j * 3 * 0.333F + 0.5F;
 
 					for (BlockPos blockpos : BlockPos.getAllInBox(position.add(-j, 2, -j), position.add(j, random.nextInt(2) + 2, j))) {
-						if (worldIn.isAirBlock(blockpos))
+						if (worldIn.isAirBlock(blockpos) || worldIn.getBlockState(blockpos).getBlock().isReplaceable(worldIn, blockpos))
 							if (blockpos.distanceSq(position) <= (double)(f * f) - 2) {
 								worldIn.setBlockState(blockpos, Resources.aristone.getBlock().getDefaultState(), 4);
 							} else if (blockpos.distanceSq(position) <= (double)(f * f) - 1 && (random.nextBoolean() || random.nextBoolean())) {
@@ -149,7 +160,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 	public void generateBoulders(World worldIn, Random random, Biome biome, BlockPos pos) {
 		if (generateBoulders) {
-			int e = random.nextInt(5) - 3;
+			int e = random.nextInt(6) - 3;
 
 			for (int a = 0; a < e; ++a) {
 				int g = random.nextInt(16) + 8;
@@ -163,9 +174,12 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 							break label50;
 						}
 					}
-					if (position.getY() <= 3) {
+					if (position.getY() <= 3)
 						break;
-					}
+
+					if (random.nextInt(3) != 0)
+						break label50;
+
 					int i1 = 2;
 
 					for (int i = 0; i1 >= 0 && i < 3; ++i) {
@@ -239,8 +253,53 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			int l = random.nextInt(16) + 8;
 			WorldGenLOITree generator = treeGenerators.get(random.nextInt(treeGenerators.size()));
 			generator.setDecorationDefaults();
-			BlockPos blockpos = worldIn.getHeight(this.chunkPos.add(k6, 0, l));
-			generator.generate(worldIn, random, blockpos);
+			BlockPos.MutableBlockPos mut = new BlockPos.MutableBlockPos(worldIn.getHeight(this.chunkPos.add(k6, 0, l)));
+			while (random.nextInt(3) != 0) {
+				if (mut.getY() <= 3)
+					return;
+				mut.move(EnumFacing.DOWN);
+				while (!(!worldIn.isBlockFullCube(mut.up()) && worldIn.isBlockFullCube(mut))) {
+					if (mut.getY() <= 0)
+						return;
+					mut.move(EnumFacing.DOWN);
+				}
+			}
+			generator.generate(worldIn, random, mut);
+		}
+	}
+
+	public void generateVines(World worldIn, Random random, Biome biome, BlockPos pos) {
+		for (int j5 = 0; j5 < 40; ++j5) {
+			int l9 = random.nextInt(16) + 8;
+			int k13 = random.nextInt(16) + 8;
+			int l16 = worldIn.getHeight(this.chunkPos.add(l9, 0, k13)).getY() * 2;
+
+			if (l16 > 0) {
+				int j19 = random.nextInt(l16);
+
+				BlockPos position = this.chunkPos.add(l9, j19, k13);
+
+				for (int i = 0; i < 30; ++i) {
+					BlockPos blockpos = position.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
+
+					if (worldIn.isBlockFullCube(blockpos) && (worldIn.getBlockState(blockpos).getMaterial().equals(Material.GROUND) || worldIn.getBlockState(blockpos).getMaterial().equals(Material.ROCK))) {
+						EnumFacing direction = EnumFacing.getHorizontal(random.nextInt(EnumFacing.HORIZONTALS.length));
+
+						if (!worldIn.isAirBlock(blockpos.offset(direction)))
+							continue;
+
+						IBlockState vineState = vines[random.nextInt(vines.length)].withProperty(BlockVine.ALL_FACES[direction.getOpposite().getIndex() - 1], true);
+
+						for (int l = 0; l < random.nextInt(20) + 5; ++l) {
+							if (!worldIn.isAirBlock(blockpos.offset(direction).down(l)))
+								break;
+
+							worldIn.setBlockState(blockpos.offset(direction).down(l), vineState, 2);
+						}
+						continue;
+					}
+				}
+			}
 		}
 	}
 
@@ -288,7 +347,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 		}
 	}
 
-	static IBlockState[][] crystalTiers = new IBlockState[][] {
+	public static IBlockState[][] crystalTiers = new IBlockState[][] {
 		new IBlockState[] {Resources.calcite.getBlock().getDefaultState()},
 		new IBlockState[] {Resources.calcite.getBlock().getDefaultState()},
 		new IBlockState[] {Resources.calcite.getBlock().getDefaultState()},

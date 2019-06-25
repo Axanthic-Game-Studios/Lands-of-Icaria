@@ -14,6 +14,7 @@ import com.axanthic.loi.worldgen.feature.WorldGenOliveTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -72,6 +73,10 @@ public class BiomeSteppe extends BiomeLOI {
 		biomeDecorator.grassPerChunk = 6;
 		biomeDecorator.treeGenerators.add(new WorldGenCypressTree(false).init());
 		biomeDecorator.treeGenerators.add(new WorldGenOliveTree(false).init());
+		biomeDecorator.vines = new IBlockState[] {
+				Resources.vineBranch.getBlock().getDefaultState(),
+				Resources.vineThorny.getBlock().getDefaultState()
+		};
 
 		return biomeDecorator;
 	}

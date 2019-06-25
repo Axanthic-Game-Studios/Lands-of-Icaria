@@ -14,6 +14,7 @@ import com.axanthic.loi.worldgen.feature.WorldGenPopulusTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -83,6 +84,10 @@ public class BiomeForest extends BiomeLOI {
 		biomeDecorator.generateFerns = true;
 		biomeDecorator.treeGenerators.add(new WorldGenFirTree(false).init());
 		biomeDecorator.treeGenerators.add(new WorldGenPopulusTree(false).init());
+		biomeDecorator.vines = new IBlockState[] {
+				Resources.vineBloomy.getBlock().getDefaultState(),
+				Resources.vineBrushy.getBlock().getDefaultState()
+		};
 
 		return biomeDecorator;
 	}

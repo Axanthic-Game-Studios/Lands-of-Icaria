@@ -10,6 +10,7 @@ import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -68,6 +69,9 @@ public class BiomeDesert extends BiomeLOI {
 		biomeDecorator.cactiPerChunk = 20;
 		biomeDecorator.grassPerChunk = 0;
 		biomeDecorator.treeGenerators.add(new WorldGenDroughtrootTree(false).init());
+		biomeDecorator.vines = new IBlockState[] {
+				Resources.vineDry.getBlock().getDefaultState()
+		};
 
 		return biomeDecorator;
 	}
