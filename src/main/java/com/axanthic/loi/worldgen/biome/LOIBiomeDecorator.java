@@ -72,11 +72,11 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 		for (int l2 = 0; l2 < this.flowersPerChunk; ++l2) {
 			int i7 = random.nextInt(16) + 8;
 			int l10 = random.nextInt(16) + 8;
-			int j14 = worldIn.getHeight(this.chunkPos.add(i7, 0, l10)).getY() + 32;
+			int j14 = worldIn.getHeight(pos.add(i7, 0, l10)).getY() + 32;
 
 			if (j14 > 0) {
 				int k17 = random.nextInt(j14);
-				BlockPos blockpos1 = this.chunkPos.add(i7, k17, l10);
+				BlockPos blockpos1 = pos.add(i7, k17, l10);
 
 				for (int i = 0; i < 64; ++i) {
 					BlockPos blockpos = blockpos1.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
@@ -91,12 +91,12 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 		for (int i3 = 0; i3 < this.grassPerChunk; ++i3) {
 			int j7 = random.nextInt(16) + 8;
 			int i11 = random.nextInt(16) + 8;
-			int k14 = worldIn.getHeight(this.chunkPos.add(j7, 0, i11)).getY() * 2;
+			int k14 = worldIn.getHeight(pos.add(j7, 0, i11)).getY() * 2;
 
 			if (k14 > 0) {
 				int l17 = random.nextInt(k14);
 
-				BlockPos position = this.chunkPos.add(j7, l17, i11);
+				BlockPos position = pos.add(j7, l17, i11);
 
 				for (IBlockState iblockstate = worldIn.getBlockState(position); (iblockstate.getBlock().isAir(iblockstate, worldIn, position) || iblockstate.getBlock().isLeaves(iblockstate, worldIn, position)) && position.getY() > 0; iblockstate = worldIn.getBlockState(position)) {
 					position = position.down();
@@ -118,9 +118,10 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 		int e = random.nextInt(5);
 
 		for (int a = 0; a < e; ++a) {
-			int g = random.nextInt(16) + 8;
-			int h = random.nextInt(16) + 8;
+			int g = random.nextInt(14) + 10;
+			int h = random.nextInt(14) + 10;
 			BlockPos position = worldIn.getHeight(pos.add(g, 0, h));
+			BlockPos positionBase = new BlockPos(position);
 			EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(random);
 
 			while (true) {
@@ -150,6 +151,8 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 							}
 					}
 					position = position.add(-(i1 + 1) + random.nextInt(2 + i1 * 2), 0 - random.nextInt(2), -(i1 + 1) + random.nextInt(2 + i1 * 2));
+					if (positionBase.getDistance(position.getX(), position.getY(), position.getZ()) > 6)
+						break;
 				}
 				break;
 			}
@@ -163,9 +166,10 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			int e = random.nextInt(6) - 3;
 
 			for (int a = 0; a < e; ++a) {
-				int g = random.nextInt(16) + 8;
-				int h = random.nextInt(16) + 8;
+				int g = random.nextInt(14) + 10;
+				int h = random.nextInt(14) + 10;
 				BlockPos position = worldIn.getHeight(pos.add(g, 0, h));
+				BlockPos positionBase = new BlockPos(position);
 
 				while (true) {
 					label50: {
@@ -196,6 +200,8 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 							}
 						}
 						position = position.add(-(i1 + 1) + random.nextInt(2 + i1 * 2), 0 - random.nextInt(2), -(i1 + 1) + random.nextInt(2 + i1 * 2));
+						if (positionBase.getDistance(position.getX(), position.getY(), position.getZ()) > 4)
+							break;
 					}
 					break;
 				}
@@ -209,12 +215,12 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 		for (int j5 = 0; j5 < this.cactiPerChunk; ++j5) {
 			int l9 = random.nextInt(16) + 8;
 			int k13 = random.nextInt(16) + 8;
-			int l16 = worldIn.getHeight(this.chunkPos.add(l9, 0, k13)).getY() * 2;
+			int l16 = worldIn.getHeight(pos.add(l9, 0, k13)).getY() * 2;
 
 			if (l16 > 0) {
 				int j19 = random.nextInt(l16);
 
-				BlockPos position = this.chunkPos.add(l9, j19, k13);
+				BlockPos position = pos.add(l9, j19, k13);
 
 				for (int i = 0; i < 10; ++i) {
 					BlockPos blockpos = position.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
@@ -249,11 +255,11 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			k1 += extraTreeAmount;
 		}
 		for (int j2 = 0; j2 < k1; ++j2) {
-			int k6 = random.nextInt(16) + 8;
-			int l = random.nextInt(16) + 8;
+			int k6 = random.nextInt(14) + 10;
+			int l = random.nextInt(14) + 10;
 			WorldGenLOITree generator = treeGenerators.get(random.nextInt(treeGenerators.size()));
 			generator.setDecorationDefaults();
-			BlockPos.MutableBlockPos mut = new BlockPos.MutableBlockPos(worldIn.getHeight(this.chunkPos.add(k6, 0, l)));
+			BlockPos.MutableBlockPos mut = new BlockPos.MutableBlockPos(worldIn.getHeight(pos.add(k6, 0, l)));
 			while (random.nextInt(3) != 0) {
 				if (mut.getY() <= 3)
 					return;
@@ -270,14 +276,14 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 	public void generateVines(World worldIn, Random random, Biome biome, BlockPos pos) {
 		for (int j5 = 0; j5 < 40; ++j5) {
-			int l9 = random.nextInt(16) + 8;
-			int k13 = random.nextInt(16) + 8;
-			int l16 = worldIn.getHeight(this.chunkPos.add(l9, 0, k13)).getY() * 2;
+			int l9 = random.nextInt(14) + 10;
+			int k13 = random.nextInt(14) + 10;
+			int l16 = worldIn.getHeight(pos.add(l9, 0, k13)).getY() * 2;
 
 			if (l16 > 0) {
 				int j19 = random.nextInt(l16);
 
-				BlockPos position = this.chunkPos.add(l9, j19, k13);
+				BlockPos position = pos.add(l9, j19, k13);
 
 				for (int i = 0; i < 30; ++i) {
 					BlockPos blockpos = position.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
@@ -307,12 +313,12 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 		for (int j5 = 0; j5 < 40; ++j5) {
 			int l9 = random.nextInt(16) + 8;
 			int k13 = random.nextInt(16) + 8;
-			int l16 = worldIn.getHeight(this.chunkPos.add(l9, 0, k13)).getY() * 2;
+			int l16 = worldIn.getHeight(pos.add(l9, 0, k13)).getY() * 2;
 
 			if (l16 > 0) {
 				int j19 = random.nextInt(l16);
 
-				BlockPos position = this.chunkPos.add(l9, j19, k13);
+				BlockPos position = pos.add(l9, j19, k13);
 
 				for (int i = 0; i < 30; ++i) {
 					BlockPos blockpos = position.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
