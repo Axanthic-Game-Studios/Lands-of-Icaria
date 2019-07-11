@@ -130,35 +130,35 @@ public class ModelMyrmeke extends ModelBase {
 		//this.antler_left.render(f5);
 	}
 
-	 public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
 	}
 
-		public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
-			this.head.rotateAngleY = netHeadYaw * 0.017453292F;
-			this.head.rotateAngleX = 0.39269908169872414F + headPitch * 0.017453292F;
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+		this.head.rotateAngleY = netHeadYaw * 0.017453292F;
+		this.head.rotateAngleX = 0.39269908169872414F + headPitch * 0.017453292F;
 
-			float f3 = -(MathHelper.cos(limbSwing * 0.6662F * 2.0F + 0.0F) * 0.4F) * limbSwingAmount;
-			float f4 = -(MathHelper.cos(limbSwing * 0.6662F * 2.0F + (float)Math.PI) * 0.4F) * limbSwingAmount;
-			float f5 = -(MathHelper.cos(limbSwing * 0.6662F * 2.0F + ((float)Math.PI / 2F)) * 0.4F) * limbSwingAmount;
-			float f6 = -(MathHelper.cos(limbSwing * 0.6662F * 2.0F + ((float)Math.PI * 3F / 2F)) * 0.4F) * limbSwingAmount;
-			float f7 = Math.abs(MathHelper.sin(limbSwing * 0.6662F + 0.0F) * 0.4F) * limbSwingAmount;
-			float f8 = Math.abs(MathHelper.sin(limbSwing * 0.6662F + (float)Math.PI) * 0.4F) * limbSwingAmount;
-			float f9 = Math.abs(MathHelper.sin(limbSwing * 0.6662F + ((float)Math.PI / 2F)) * 0.4F) * limbSwingAmount;
-			float f10 = Math.abs(MathHelper.sin(limbSwing * 0.6662F + ((float)Math.PI * 3F / 2F)) * 0.4F) * limbSwingAmount;
-			this.leg_right_back.rotateAngleY = -2.356194490192345F + f3 * 2;
-			this.leg_left_back.rotateAngleY = -0.7853981633974483F - f3 * 2;
-			this.leg_right_center_back.rotateAngleY = 3.141592653589793F + f4 * 2;
-			this.leg_left_center_back.rotateAngleY = -0.0F - f4 * 2;
-			this.leg_right_front.rotateAngleY = 2.1205750411731104F + f6 * 2;
-			this.leg_left_front.rotateAngleY = 1.0210176124166828F - f6 * 2;
-			this.leg_right_back.rotateAngleZ = 0.5811946409141118F + f7 * 2;
-			this.leg_left_back.rotateAngleZ = -0.5811946409141118F - f7 * 2;
-			this.leg_right_center_back.rotateAngleZ = 0.3141592653589793F + f8 * 2;
-			this.leg_left_center_back.rotateAngleZ = -0.3141592653589793F - f8 * 2;
-			this.leg_right_front.rotateAngleZ = 0.5811946409141118F + f10 * 2;
-			this.leg_left_front.rotateAngleZ = -0.5811946409141118F - f10 * 2;
-		}
+		float f3 = -(MathHelper.cos(limbSwing * 0.6662F * 2.0F + 0.0F) * 0.4F) * limbSwingAmount;
+		float f4 = -(MathHelper.cos(limbSwing * 0.6662F * 2.0F + (float)Math.PI) * 0.4F) * limbSwingAmount;
+		float f5 = -(MathHelper.cos(limbSwing * 0.6662F * 2.0F + ((float)Math.PI / 2F)) * 0.4F) * limbSwingAmount;
+		float f6 = -(MathHelper.cos(limbSwing * 0.6662F * 2.0F + ((float)Math.PI * 3F / 2F)) * 0.4F) * limbSwingAmount;
+		float f7 = Math.abs(MathHelper.sin(limbSwing * 0.6662F + 0.0F) * 0.4F) * limbSwingAmount;
+		float f8 = Math.abs(MathHelper.sin(limbSwing * 0.6662F + (float)Math.PI) * 0.4F) * limbSwingAmount;
+		float f9 = Math.abs(MathHelper.sin(limbSwing * 0.6662F + ((float)Math.PI / 2F)) * 0.4F) * limbSwingAmount;
+		float f10 = Math.abs(MathHelper.sin(limbSwing * 0.6662F + ((float)Math.PI * 3F / 2F)) * 0.4F) * limbSwingAmount;
+		this.leg_right_back.rotateAngleY = -2.356194490192345F + f3 * 2;
+		this.leg_left_back.rotateAngleY = -0.7853981633974483F - f3 * 2;
+		this.leg_right_center_back.rotateAngleY = 3.141592653589793F + f4 * 2;
+		this.leg_left_center_back.rotateAngleY = -0.0F - f4 * 2;
+		this.leg_right_front.rotateAngleY = 2.1205750411731104F + f6 * 2;
+		this.leg_left_front.rotateAngleY = 1.0210176124166828F - f6 * 2;
+		this.leg_right_back.rotateAngleZ = 0.5811946409141118F + f7 * 2;
+		this.leg_left_back.rotateAngleZ = -0.5811946409141118F - f7 * 2;
+		this.leg_right_center_back.rotateAngleZ = 0.3141592653589793F + f8 * 2;
+		this.leg_left_center_back.rotateAngleZ = -0.3141592653589793F - f8 * 2;
+		this.leg_right_front.rotateAngleZ = 0.5811946409141118F + f10 * 2;
+		this.leg_left_front.rotateAngleZ = -0.5811946409141118F - f10 * 2;
+	}
 }

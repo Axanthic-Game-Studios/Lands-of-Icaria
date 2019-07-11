@@ -107,6 +107,7 @@ public class Resources {
 	public static final ResourceLocation LOOT_AETERNAE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/aeternae"));
 	public static final ResourceLocation LOOT_CATOBLEPAS = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/catoblepas"));
 	public static final ResourceLocation LOOT_SNULL = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/snull"));
+	public static final ResourceLocation LOOT_SOW = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/sow"));
 	public static final ResourceLocation LOOT_REVENANT = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/revenant"));
 	public static final ResourceLocation LOOT_ARACHNE_DRONE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/arachne_drone"));
 	public static final ResourceLocation LOOT_ARACHNE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/arachne"));

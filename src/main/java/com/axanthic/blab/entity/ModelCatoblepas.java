@@ -83,10 +83,10 @@ public class ModelCatoblepas extends ModelBase {
 	}
 
 	@Override
-	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) { 
+	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (((EntityCatoblepas) entity).isChild()) {
-            GlStateManager.pushMatrix();
-            GlStateManager.translate(0.0F, 6.0F * scale, 5.0F * scale);
+			GlStateManager.pushMatrix();
+			GlStateManager.translate(0.0F, 6.0F * scale, 5.0F * scale);
 			this.head.render(scale);
 			GlStateManager.popMatrix();
 			GlStateManager.pushMatrix();
