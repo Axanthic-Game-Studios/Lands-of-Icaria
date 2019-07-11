@@ -11,6 +11,7 @@ import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.EntityCatoblepas;
 import com.axanthic.blab.entity.EntityFallingVase;
 import com.axanthic.blab.entity.EntityForestHag;
+import com.axanthic.blab.entity.EntityMyrmeke;
 import com.axanthic.blab.entity.EntityRevenant;
 import com.axanthic.blab.entity.EntitySnull;
 import com.axanthic.blab.gui.GuiHandlerBlab;
@@ -67,6 +68,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant"), EntityRevenant.class, "revenant", 61, ModInformation.ID, 80, 3, true, 0x292929, 0xA3A3A3);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "arachne_drone"), EntityArachneDrone.class, "arachne_drone", 62, ModInformation.ID, 80, 3, true, 0x56422A, 0x80AFBF);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "arachne"), EntityArachne.class, "arachne", 63, ModInformation.ID, 80, 3, true, 0x7B6147, 0x80AFBF);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "myrmeke"), EntityMyrmeke.class, "myrmeke", 64, ModInformation.ID, 80, 3, true, 0x472317, 0x26120C);
 
 		//EntityRegistry.addSpawn(EntityAeternae.class, 6, 1, 5, EnumCreatureType.CREATURE, Biomes.PLAINS);
 		//EntityRegistry.addSpawn(EntityRevenant.class, 6, 1, 5, EnumCreatureType.MONSTER, Biomes.PLAINS);

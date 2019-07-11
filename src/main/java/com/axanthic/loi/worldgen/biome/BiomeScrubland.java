@@ -7,6 +7,7 @@ import com.axanthic.blab.entity.EntityAeternae;
 import com.axanthic.blab.entity.EntityArachne;
 import com.axanthic.blab.entity.EntityArachneDrone;
 import com.axanthic.blab.entity.EntityCatoblepas;
+import com.axanthic.blab.entity.EntityMyrmeke;
 import com.axanthic.blab.entity.EntityRevenant;
 import com.axanthic.blab.entity.EntitySnull;
 import com.axanthic.loi.worldgen.feature.WorldGenLaurelTree;
@@ -42,6 +43,7 @@ public class BiomeScrubland extends BiomeLOI {
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityMyrmeke.class, 200, 2, 5));
 
 		flowers.clear();
 		addFlower(Resources.flower.getBlock().getStateFromMeta(0), 20);
