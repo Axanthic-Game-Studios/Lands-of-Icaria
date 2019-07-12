@@ -113,6 +113,7 @@ public class Resources {
 	public static final ResourceLocation LOOT_ARACHNE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/arachne"));
 	public static final ResourceLocation LOOT_MYRMEKE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/myrmeke"));
 	public static final ResourceLocation LOOT_CERVER = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/cerver"));
+	public static final ResourceLocation LOOT_ARGAN_HOUND = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/argan_hound"));
 	public static final ResourceLocation LOOT_HAG_PLANE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/plane"));
 	public static final ResourceLocation LOOT_HAG_POPULUS = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/populus"));
 	public static final ResourceLocation LOOT_HAG_CYPRESS = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/cypress"));

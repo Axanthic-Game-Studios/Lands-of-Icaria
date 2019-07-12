@@ -149,16 +149,16 @@ public class ModelMyrmeke extends ModelBase {
 		float f9 = Math.abs(MathHelper.sin(limbSwing * 0.6662F + ((float)Math.PI / 2F)) * 0.4F) * limbSwingAmount;
 		float f10 = Math.abs(MathHelper.sin(limbSwing * 0.6662F + ((float)Math.PI * 3F / 2F)) * 0.4F) * limbSwingAmount;
 		this.leg_right_back.rotateAngleY = -2.356194490192345F + f3 * 2;
-		this.leg_left_back.rotateAngleY = -0.7853981633974483F - f3 * 2;
+		this.leg_left_back.rotateAngleY = -0.7853981633974483F - f4 * 2;
 		this.leg_right_center_back.rotateAngleY = 3.141592653589793F + f4 * 2;
-		this.leg_left_center_back.rotateAngleY = -0.0F - f4 * 2;
+		this.leg_left_center_back.rotateAngleY = -0.0F - f5 * 2;
 		this.leg_right_front.rotateAngleY = 2.1205750411731104F + f6 * 2;
-		this.leg_left_front.rotateAngleY = 1.0210176124166828F - f6 * 2;
+		this.leg_left_front.rotateAngleY = 1.0210176124166828F - f7 * 2;
 		this.leg_right_back.rotateAngleZ = 0.5811946409141118F + f7 * 2;
-		this.leg_left_back.rotateAngleZ = -0.5811946409141118F - f7 * 2;
+		this.leg_left_back.rotateAngleZ = -0.5811946409141118F - f8 * 2;
 		this.leg_right_center_back.rotateAngleZ = 0.3141592653589793F + f8 * 2;
-		this.leg_left_center_back.rotateAngleZ = -0.3141592653589793F - f8 * 2;
+		this.leg_left_center_back.rotateAngleZ = -0.3141592653589793F - f9 * 2;
 		this.leg_right_front.rotateAngleZ = 0.5811946409141118F + f10 * 2;
-		this.leg_left_front.rotateAngleZ = -0.5811946409141118F - f10 * 2;
+		this.leg_left_front.rotateAngleZ = -0.5811946409141118F - f3 * 2;
 	}
 }

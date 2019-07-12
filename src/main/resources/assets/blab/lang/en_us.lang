@@ -190,5 +190,7 @@ entity.revenant.name=Revenant
 entity.arachne_drone.name=Arachne Drone
 entity.arachne.name=Arachne
 entity.myrmeke.name=Myrmeke
+entity.cerver.name=Cerver
+entity.argan_hound.name=Argan Hound
 
 message.loot_vase.pickup=Sneak to throw vase

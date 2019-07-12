@@ -38,11 +38,11 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityCerver extends EntityMob {
+public class EntityArganHound extends EntityMob {
 
-	public EntityCerver(World worldIn) {
+	public EntityArganHound(World worldIn) {
 		super(worldIn);
-		this.setSize(0.8F, 1.0F);
+		this.setSize(0.9F, 1.4F);
 	}
 
 	protected void initEntityAI() {
@@ -89,15 +89,15 @@ public class EntityCerver extends EntityMob {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.ENTITY_CAT_AMBIENT;
+		return SoundEvents.ENTITY_WOLF_AMBIENT;
 	}
 
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-		return SoundEvents.ENTITY_CAT_HURT;
+		return SoundEvents.ENTITY_WOLF_HURT;
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.ENTITY_CAT_DEATH;
+		return SoundEvents.ENTITY_WOLF_DEATH;
 	}
 
 	protected void playStepSound(BlockPos pos, Block blockIn) {
@@ -106,7 +106,7 @@ public class EntityCerver extends EntityMob {
 
 	@Nullable
 	protected ResourceLocation getLootTable() {
-		return Resources.LOOT_CERVER;
+		return Resources.LOOT_ARGAN_HOUND;
 	}
 
 	public float getEyeHeight() {

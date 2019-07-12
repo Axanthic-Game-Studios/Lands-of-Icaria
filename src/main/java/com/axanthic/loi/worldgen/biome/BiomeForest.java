@@ -6,7 +6,9 @@ import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityAeternae;
 import com.axanthic.blab.entity.EntityArachne;
 import com.axanthic.blab.entity.EntityArachneDrone;
+import com.axanthic.blab.entity.EntityArganHound;
 import com.axanthic.blab.entity.EntityCatoblepas;
+import com.axanthic.blab.entity.EntityCerver;
 import com.axanthic.blab.entity.EntityMyrmeke;
 import com.axanthic.blab.entity.EntityRevenant;
 import com.axanthic.blab.entity.EntitySnull;
@@ -52,6 +54,8 @@ public class BiomeForest extends BiomeLOI {
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityMyrmeke.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityCerver.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArganHound.class, 200, 2, 5));
 
 		flowers.clear();
 		addFlower(Resources.flower.getBlock().getStateFromMeta(3), 20);
