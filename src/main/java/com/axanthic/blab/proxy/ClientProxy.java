@@ -22,6 +22,7 @@ import com.axanthic.blab.entity.EntityArachne;
 import com.axanthic.blab.entity.EntityArachneDrone;
 import com.axanthic.blab.entity.EntityBident;
 import com.axanthic.blab.entity.EntityCatoblepas;
+import com.axanthic.blab.entity.EntityCerver;
 import com.axanthic.blab.entity.EntityFallingVase;
 import com.axanthic.blab.entity.EntityForestHag;
 import com.axanthic.blab.entity.EntityMyrmeke;
@@ -33,6 +34,7 @@ import com.axanthic.blab.entity.RenderArachne;
 import com.axanthic.blab.entity.RenderArachneDrone;
 import com.axanthic.blab.entity.RenderBident;
 import com.axanthic.blab.entity.RenderCatoblepas;
+import com.axanthic.blab.entity.RenderCerver;
 import com.axanthic.blab.entity.RenderForestHag;
 import com.axanthic.blab.entity.RenderMyrmeke;
 import com.axanthic.blab.entity.RenderRevenant;
@@ -109,6 +111,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityArachneDrone.class, RenderArachneDrone::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityArachne.class, RenderArachne::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityMyrmeke.class, RenderMyrmeke::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityCerver.class, RenderCerver::new);
 
 		LOIItemStackRenderer.LOIInstance = new LOIItemStackRenderer();
 	}
