@@ -9,6 +9,7 @@ import com.axanthic.blab.entity.EntityArachneDrone;
 import com.axanthic.blab.entity.EntityArganHound;
 import com.axanthic.blab.entity.EntityCatoblepas;
 import com.axanthic.blab.entity.EntityCerver;
+import com.axanthic.blab.entity.EntityJellyfish;
 import com.axanthic.blab.entity.EntityMyrmeke;
 import com.axanthic.blab.entity.EntityRevenant;
 import com.axanthic.blab.entity.EntitySnull;
@@ -50,6 +51,7 @@ public class BiomeForest extends BiomeLOI {
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityCatoblepas.class, 50, 2, 6));
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySnull.class, 50, 2, 6));
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySow.class, 50, 2, 6));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityJellyfish.class, 100, 1, 2));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));

@@ -2,6 +2,7 @@ package com.axanthic.blab.entity;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
@@ -116,6 +117,7 @@ public class ModelArachneDrone extends ModelBase {
 
 	@Override
 	public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) { 
+		GlStateManager.pushMatrix();
 		this.leg_right_front.render(scale);
 		this.head.render(scale);
 		this.leg_left_back.render(scale);
@@ -127,6 +129,7 @@ public class ModelArachneDrone extends ModelBase {
 		this.leg_right_center_back.render(scale);
 		this.leg_left_center_back.render(scale);
 		this.leg_left_center_front.render(scale);
+		GlStateManager.popMatrix();
 	}
 
 	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {

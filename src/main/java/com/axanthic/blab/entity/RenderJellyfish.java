@@ -5,7 +5,6 @@ import com.axanthic.blab.ModInformation;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -26,8 +25,8 @@ public class RenderJellyfish<T extends EntityJellyfish> extends RenderLiving<T> 
 
     protected void applyRotations(EntityJellyfish entityLiving, float p_77043_2_, float rotationYaw, float partialTicks)
     {
-        float f = entityLiving.prevSquidPitch + (entityLiving.squidPitch - entityLiving.prevSquidPitch) * partialTicks;
-        float f1 = entityLiving.prevSquidYaw + (entityLiving.squidYaw - entityLiving.prevSquidYaw) * partialTicks;
+        float f = entityLiving.prevJellyfishPitch + (entityLiving.jellyfishPitch - entityLiving.prevJellyfishPitch) * partialTicks;
+        float f1 = entityLiving.prevJellyfishYaw + (entityLiving.jellyfishYaw - entityLiving.prevJellyfishYaw) * partialTicks;
         GlStateManager.translate(0.0F, 0.5F, 0.0F);
         GlStateManager.rotate(180.0F - rotationYaw, 0.0F, 1.0F, 0.0F);
         GlStateManager.rotate(f, 1.0F, 0.0F, 0.0F);

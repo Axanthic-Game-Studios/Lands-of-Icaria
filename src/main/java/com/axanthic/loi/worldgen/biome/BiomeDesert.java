@@ -7,6 +7,7 @@ import com.axanthic.blab.entity.EntityArachne;
 import com.axanthic.blab.entity.EntityArachneDrone;
 import com.axanthic.blab.entity.EntityArganHound;
 import com.axanthic.blab.entity.EntityCerver;
+import com.axanthic.blab.entity.EntityJellyfish;
 import com.axanthic.blab.entity.EntityMyrmeke;
 import com.axanthic.blab.entity.EntityRevenant;
 import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
@@ -40,6 +41,7 @@ public class BiomeDesert extends BiomeLOI {
 		spawnableMonsterList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityJellyfish.class, 100, 1, 2));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
