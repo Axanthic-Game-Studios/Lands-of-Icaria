@@ -265,17 +265,11 @@ public class EntityRevenant extends EntityMob {
 	 */
 	public void onDeath(DamageSource cause) {
 		super.onDeath(cause);
-
 		if (cause.getTrueSource() instanceof EntityCreeper) {
-			EntityCreeper entitycreeper = (EntityCreeper) cause.getTrueSource();
-
+			EntityCreeper entitycreeper = (EntityCreeper)cause.getTrueSource();
 			if (entitycreeper.getPowered() && entitycreeper.ableToCauseSkullDrop()) {
 				entitycreeper.incrementDroppedSkulls();
-				ItemStack itemstack = ItemStack.EMPTY;// this.getSkullDrop();
-
-				if (!itemstack.isEmpty()) {
-					this.entityDropItem(itemstack, 0.0F);
-				}
+				this.entityDropItem(new ItemStack(Resources.mobHeadRevenant, 1, 0), 0.0F);
 			}
 		}
 	}
