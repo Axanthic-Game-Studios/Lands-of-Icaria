@@ -3,7 +3,6 @@ package com.axanthic.loi.worldgen.dimension;
 import java.util.List;
 import java.util.Random;
 
-import com.axanthic.blab.Resources;
 import com.axanthic.blab.blocks.BlocksLOI;
 import com.axanthic.blab.utils.CellNoise;
 import com.axanthic.blab.utils.PerlinNoise;
@@ -268,7 +267,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 			for (int z = 0; z < sizeZ; ++z)
 			{
 				final float cell = this.cell.noise((wx + x) / 500d, (wz + z) / 500d, 1.0);
-				float cell2 = this.cell.noise((wx + x), (wz + z), 0.025F) * 15F;
+				//float cell2 = this.cell.noise((wx + x), (wz + z), 0.07F) * 4F + this.perlin.noise2((wx + x) / 15f, (wz + z) / 15f) * 1F  - this.perlin.noise2((wx + x) / 5f, (wz + z) / 5f) * 1.7F;
+				float cell2 = this.perlin.noise2((wx + x) / 50f, (wz + z) / 50f) * 7F + this.perlin.noise2((wx + x) / 5f, (wz + z) / 5f) * 0.7F;
 				final double d3 = 0.0D;
 				
 				cell2 -= 4F;
@@ -438,14 +438,14 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 			{
 				Biome biome = biomesForGeneration[cx + cz * 16];
 				IBlockState upperBlockPrimary = null;
-				IBlockState topBlockPrimary = Resources.grass.getBlock().getDefaultState();
-				IBlockState fillerBlockPrimary = Resources.soil.getBlock().getDefaultState();
+				IBlockState topBlockPrimary = ChunkGeneratorLOI.GRASS;
+				IBlockState fillerBlockPrimary = ChunkGeneratorLOI.DIRT;
 				IBlockState upperBlockSecondary = null;
-				IBlockState topBlockSecondary = Resources.soil.getBlock().getStateFromMeta(1);
-				IBlockState fillerBlockSecondary = Resources.soil.getBlock().getStateFromMeta(1);
+				IBlockState topBlockSecondary = ChunkGeneratorLOI.MARLCOURSE;
+				IBlockState fillerBlockSecondary = ChunkGeneratorLOI.MARLCOURSE;
 				IBlockState upperBlockTertiary = null;
-				IBlockState topBlockTertiary = Resources.soil.getBlock().getStateFromMeta(2);
-				IBlockState fillerBlockTertiary = Resources.soil.getBlock().getDefaultState();
+				IBlockState topBlockTertiary = ChunkGeneratorLOI.LOAM;
+				IBlockState fillerBlockTertiary = ChunkGeneratorLOI.DIRT;
 
 				BiomeLOI biomeLOI = null;
 				if (biome instanceof BiomeLOI) {

@@ -23,14 +23,14 @@ public class BiomeProviderLOI extends BiomeProvider {
 	public BiomeProviderLOI (WorldInfo info) {
 		super(info);
 		
-		System.out.println("new biome provider was created");
-		
 		settings = ChunkGeneratorSettings.Factory.jsonToFactory(info.getGeneratorOptions()).build();
 		type = info.getTerrainType();
 
 		allowedBiomes.clear();
         allowedBiomes.add(LOIBiomes.scrubland);
         allowedBiomes.add(LOIBiomes.desert);
+        allowedBiomes.add(LOIBiomes.forest);
+        allowedBiomes.add(LOIBiomes.steppe);
 	}
 
 	@Override

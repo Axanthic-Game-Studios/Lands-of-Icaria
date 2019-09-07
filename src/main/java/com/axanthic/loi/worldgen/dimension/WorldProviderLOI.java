@@ -25,12 +25,18 @@ public class WorldProviderLOI extends WorldProvider {
 	{
 		return true;
 	}
-	
+
 	@Override
 	protected void init() {
-        this.hasSkyLight = true;
-        this.biomeProvider = Blab.LOI_WORLD_TYPE.getBiomeProvider(world);
-    }
+		this.hasSkyLight = true;
+		this.biomeProvider = Blab.LOI_WORLD_TYPE.getBiomeProvider(world);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public float getCloudHeight()
+	{
+		return 170.0f;
+	}
 
 	/**
 	 * Must point the chunk generator for this dimension.

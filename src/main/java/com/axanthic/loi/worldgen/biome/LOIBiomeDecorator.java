@@ -288,7 +288,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				for (int i = 0; i < 30; ++i) {
 					BlockPos blockpos = position.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
 
-					if (worldIn.isBlockFullCube(blockpos) && (worldIn.getBlockState(blockpos).getMaterial().equals(Material.GROUND) || worldIn.getBlockState(blockpos).getMaterial().equals(Material.ROCK))) {
+					if (worldIn.isBlockFullCube(blockpos) && (/*worldIn.getBlockState(blockpos).getMaterial().equals(Material.GROUND) ||*/ worldIn.getBlockState(blockpos).getMaterial().equals(Material.ROCK))) {
 						EnumFacing direction = EnumFacing.getHorizontal(random.nextInt(EnumFacing.HORIZONTALS.length));
 
 						if (!worldIn.isAirBlock(blockpos.offset(direction)))
