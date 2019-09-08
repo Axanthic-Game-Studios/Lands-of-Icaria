@@ -108,7 +108,7 @@ public class BlockFlower extends BlockBush implements IBlockMeta {
 	@Override
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
 		if (getMetaFromState(state) == 2 || getMetaFromState(state) == 7)
-			entityIn.attackEntityFrom(DamageSource.CACTUS, 0.1F);
+			entityIn.attackEntityFrom(DamageSource.CACTUS, -1.0F);
 	}
 
 	public enum FlowerTypes implements IStringSerializable {

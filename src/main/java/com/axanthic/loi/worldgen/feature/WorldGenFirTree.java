@@ -26,7 +26,7 @@ public class WorldGenFirTree extends WorldGenLOITree {
 		int heightTrunk = rand.nextInt(2) + 1;
 		int heightBottom = rand.nextInt(2) + 2;
 		int heightMiddle = rand.nextInt(2);
-		int heightTotal = heightTrunk + heightBottom + heightMiddle + 6;
+		int heightTotal = heightTrunk + heightBottom + heightMiddle + 5;
 		boolean flag = true;
 
 		if (position.getY() >= 1 && position.getY() + heightTotal + 1 <= 256) {

@@ -31,7 +31,7 @@ public class WorldGenOliveTree extends WorldGenLOITree {
 	@Override
 	public boolean generate(World worldIn, Random rand, BlockPos position) {
 		int heightTrunk = rand.nextInt(3) + 2;
-		int heightTotal = heightTrunk + 6;
+		int heightTotal = heightTrunk + 4;
 		boolean flag = true;
 		color = rand.nextBoolean();
 

@@ -259,18 +259,21 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			int l = random.nextInt(14) + 10;
 			WorldGenLOITree generator = treeGenerators.get(random.nextInt(treeGenerators.size()));
 			generator.setDecorationDefaults();
-			BlockPos.MutableBlockPos mut = new BlockPos.MutableBlockPos(worldIn.getHeight(pos.add(k6, 0, l)));
+			BlockPos.MutableBlockPos mut = new BlockPos.MutableBlockPos(pos.add(k6, 3, l));
 			while (random.nextInt(3) != 0) {
-				if (mut.getY() <= 3)
+				if (mut.getY() > 150)
 					return;
-				mut.move(EnumFacing.DOWN);
+				mut.move(EnumFacing.UP);
 				while (!(!worldIn.isBlockFullCube(mut.up()) && worldIn.isBlockFullCube(mut))) {
-					if (mut.getY() <= 0)
+					if (mut.getY() > 150)
 						return;
-					mut.move(EnumFacing.DOWN);
+					mut.move(EnumFacing.UP);
 				}
 			}
-			generator.generate(worldIn, random, mut);
+			if (!generator.generate(worldIn, random, mut))
+				if (!generator.generate(worldIn, random, mut))
+					if (!generator.generate(worldIn, random, mut))
+						generator.generate(worldIn, random, mut); //just keep trying lol
 		}
 	}
 

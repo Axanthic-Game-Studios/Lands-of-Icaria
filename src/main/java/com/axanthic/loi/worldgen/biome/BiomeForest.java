@@ -87,7 +87,7 @@ public class BiomeForest extends BiomeLOI {
 	public BiomeDecorator createBiomeDecorator() {
 		LOIBiomeDecorator biomeDecorator = new LOIBiomeDecorator();
 
-		biomeDecorator.treesPerChunk = 4;
+		biomeDecorator.treesPerChunk = 16;
 		biomeDecorator.extraTreeChance = 0.1F;
 		biomeDecorator.flowersPerChunk = 5;
 		biomeDecorator.grassPerChunk = 8;

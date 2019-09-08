@@ -78,7 +78,7 @@ public class BiomeScrubland extends BiomeLOI {
 	public BiomeDecorator createBiomeDecorator() {
 		LOIBiomeDecorator biomeDecorator = new LOIBiomeDecorator();
 
-		biomeDecorator.treesPerChunk = 2;
+		biomeDecorator.treesPerChunk = 8;
 		biomeDecorator.extraTreeChance = 0.2F;
 		biomeDecorator.flowersPerChunk = 5;
 		biomeDecorator.grassPerChunk = 7;

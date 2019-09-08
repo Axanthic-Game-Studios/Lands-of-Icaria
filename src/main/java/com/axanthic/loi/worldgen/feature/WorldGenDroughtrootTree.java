@@ -28,7 +28,7 @@ public class WorldGenDroughtrootTree extends WorldGenLOITree {
 		int heightLayer1 = rand.nextInt(3) + 1;
 		int heightLayer2 = rand.nextInt(3) + 1;
 		int heightLayer3 = rand.nextInt(3) + 1;
-		int heightTotal = heightTrunk + heightLayer1 + heightLayer2 + heightLayer3 + 1;
+		int heightTotal = heightTrunk + heightLayer1 + heightLayer2 + heightLayer3 - 2;
 		EnumFacing direction = EnumFacing.getHorizontal(rand.nextInt(EnumFacing.HORIZONTALS.length));
 		boolean flag = true;
 
@@ -82,7 +82,7 @@ public class WorldGenDroughtrootTree extends WorldGenLOITree {
 						this.placeLeafAt(worldIn, down.up(height));
 						this.placeLeafAt(worldIn, down.up(height).offset(direction));
 					}
-					this.placeLeafAt(worldIn, down.up(heightTotal));
+					this.placeLeafAt(worldIn, down.up(heightTotal + 3));
 
 					return true;
 				} else {
