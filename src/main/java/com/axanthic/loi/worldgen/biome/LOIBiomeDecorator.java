@@ -12,12 +12,15 @@ import com.axanthic.blab.blocks.BlockTallGrass;
 import com.axanthic.loi.worldgen.dimension.OreGeneratorLOI;
 import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeDecorator;
@@ -28,6 +31,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 public class LOIBiomeDecorator extends BiomeDecorator {
 
 	public boolean generateBoulders = false;
+	public boolean generateSpikes = false;
 	public boolean generateFerns = false;
 	public int extraTreeAmount = 1;
 	public List<WorldGenLOITree> treeGenerators = new ArrayList<WorldGenLOITree>();
@@ -56,6 +60,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 			this.generateAristone(worldIn, random, biome, pos);
 			this.generateBoulders(worldIn, random, biome, pos);
+			this.generateSpikes(worldIn, random, biome, pos);
 			this.generateFlowers(worldIn, random, biome, pos);
 			this.generateGrass(worldIn, random, biome, pos);
 			this.generateCactus(worldIn, random, biome, pos);
@@ -115,7 +120,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	}
 
 	public void generateAristone(World worldIn, Random random, Biome biome, BlockPos pos) {
-		int e = random.nextInt(5);
+		int e = random.nextInt(5) + 4;
 
 		for (int a = 0; a < e; ++a) {
 			int g = random.nextInt(14) + 10;
@@ -174,7 +179,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				while (true) {
 					label50: {
 					if (position.getY() > 3) {
-						if (worldIn.isAirBlock(position.down()) || (!worldIn.getBlockState(position.down()).getMaterial().equals(Material.GRASS) && !worldIn.getBlockState(position.down()).getMaterial().equals(Material.GROUND))) {
+						if (worldIn.isAirBlock(position.down()) || (!worldIn.getBlockState(position.down()).getMaterial().equals(Material.GRASS) && !worldIn.getBlockState(position.down()).getMaterial().equals(Material.GROUND)) || !worldIn.getBlockState(position.down(2)).getMaterial().equals(Material.GROUND) || !worldIn.getBlockState(position.down(3)).getMaterial().equals(Material.GROUND) || !worldIn.getBlockState(position.down(4)).getMaterial().equals(Material.GROUND)) {
 							break label50;
 						}
 					}
@@ -184,28 +189,81 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					if (random.nextInt(3) != 0)
 						break label50;
 
-					int i1 = 2;
+					int baseSize = 1;
 
-					for (int i = 0; i1 >= 0 && i < 3; ++i) {
-						int j = i1 + random.nextInt(4);
+					for (int i = 0; baseSize >= 0 && i < 16; ++i) {
+						int j = baseSize + random.nextInt(2);
 						float f = (float)j * 3 * 0.333F + 0.5F;
 
 						for (BlockPos blockpos : BlockPos.getAllInBox(position.add(-j, -j, -j), position.add(j, j, j))) {
-							if (blockpos.distanceSq(position) <= (double)(f * f) - 2) {
+							if (blockpos.getY() < positionBase.getY() - 2 || (blockpos.getY() < positionBase.getY() - 1 && !random.nextBoolean()))
+								continue;
+
+							if (blockpos.distanceSq(position) <= (double)(f * f) - 1) {
 								worldIn.setBlockState(blockpos, Resources.rock.getBlock().getDefaultState(), 4);
-							} else if (blockpos.distanceSq(position) <= (double)(f * f) - 1 && random.nextBoolean()) {
-								worldIn.setBlockState(blockpos, Resources.rock.getBlock().getDefaultState(), 4);
-							} else if (blockpos.distanceSq(position) <= (double)(f * f) && random.nextBoolean() && random.nextBoolean()) {
+							} else if (blockpos.distanceSq(position) <= (double)(f * f) && random.nextBoolean()) {
 								worldIn.setBlockState(blockpos, Resources.rock.getBlock().getDefaultState(), 4);
 							}
 						}
-						position = position.add(-(i1 + 1) + random.nextInt(2 + i1 * 2), 0 - random.nextInt(2), -(i1 + 1) + random.nextInt(2 + i1 * 2));
-						if (positionBase.getDistance(position.getX(), position.getY(), position.getZ()) > 4)
+						position = position.add(random.nextInt(3) - 1, 0, random.nextInt(3) - 1);
+						if (position.getY() <= positionBase.getY() && random.nextBoolean())
+							position = position.up();
+						if (position.getY() >= positionBase.getY() && random.nextBoolean())
+							position = position.down();
+
+						if (positionBase.getDistance(position.getX(), position.getY(), position.getZ()) > 6)
 							break;
 					}
 					break;
 				}
 				position = position.down();
+				}
+			}
+		}
+	}
+
+	public void generateSpikes(World worldIn, Random rand, Biome biome, BlockPos pos) {
+		if (generateSpikes) {
+			int e = rand.nextInt(4) - 2;
+
+			for (int a = 0; a < e; ++a) {
+				int g = rand.nextInt(14) + 10;
+				int h = rand.nextInt(14) + 10;
+				BlockPos position = worldIn.getHeight(pos.add(g, 0, h));
+				int minY = position.getY() - 1;
+
+				while (worldIn.isAirBlock(position) && position.getY() > 2) {
+					position = position.down();
+				}
+
+				if (!worldIn.getBlockState(position).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down()).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down(2)).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down(3)).getMaterial().equals(Material.SAND)) {
+					return;
+				} else {
+					position = position.up(rand.nextInt(4));
+					int i = rand.nextInt(4) + 7;
+					int j = i / 4 + rand.nextInt(2);
+
+					for (int k = 0; k < i; ++k) {
+						float f = (1.0F - (float)k / (float)i) * (float)j;
+						int l = MathHelper.ceil(f);
+
+						for (int i1 = -l; i1 <= l; ++i1) {
+							float f1 = (float)MathHelper.abs(i1) - 0.25F;
+
+							for (int j1 = -l; j1 <= l; ++j1) {
+								float f2 = (float)MathHelper.abs(j1) - 0.25F;
+
+								if ((i1 == 0 && j1 == 0 || f1 * f1 + f2 * f2 <= f * f) && (i1 != -l && i1 != l && j1 != -l && j1 != l || rand.nextFloat() <= 0.75F)) {
+									if (position.add(i1, k, j1).getY() >= minY)
+										worldIn.setBlockState(position.add(i1, k, j1), Resources.grainelStone.getBlock().getDefaultState(), 4);
+
+									if (k != 0 && l > 1 && position.add(i1, -k, j1).getY() >= minY) {
+										worldIn.setBlockState(position.add(i1, -k, j1), Resources.grainelStone.getBlock().getDefaultState(), 4);
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
