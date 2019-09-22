@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
+import com.axanthic.blab.proxy.CommonProxy;
 import com.axanthic.blab.utils.TileEntityColoredLight;
 
 import net.minecraft.block.Block;
@@ -42,10 +43,16 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 		this.translucent = true;
 		this.setUnlocalizedName(name);
 		unlocalizedName = name;
-		this.setLightLevel(0.7F);
+		if (!CommonProxy.albedo)
+			this.setLightLevel(1.0F);
 		this.setRegistryName(ModInformation.ID, name);
 		this.setSoundType(SoundType.GLASS);
-		this.hasTileEntity = true;
+		this.hasTileEntity = CommonProxy.albedo;
+	}
+
+	@Override
+	public boolean hasTileEntity(IBlockState state) {
+		return CommonProxy.albedo;
 	}
 
 	@Nullable
