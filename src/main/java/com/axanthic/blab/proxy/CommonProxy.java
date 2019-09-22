@@ -1,6 +1,7 @@
 package com.axanthic.blab.proxy;
 
 import com.axanthic.blab.Blab;
+import com.axanthic.blab.ConfigHandler;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Recipes;
 import com.axanthic.blab.Resources;
@@ -61,12 +62,10 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class CommonProxy {
 
-	public static Boolean albedo;
-
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(Blab.instance);
 
-		albedo = Loader.isModLoaded("albedo");
+		ConfigHandler.init(event.getSuggestedConfigurationFile());
 
 		Resources.registerBlocks();
 		Resources.registerItems();
@@ -94,7 +93,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityForge.class, new ResourceLocation(ModInformation.ID, "crafting_forge"));
 		GameRegistry.registerTileEntity(TileEntityForgeRedirector.class, new ResourceLocation(ModInformation.ID, "crafting_forge_redirector"));
 		GameRegistry.registerTileEntity(TileEntityMobHead.class, new ResourceLocation(ModInformation.ID, "mob_head"));
-		if (albedo)
+		if (ConfigHandler.albedo)
 			GameRegistry.registerTileEntity(TileEntityColoredLight.class, new ResourceLocation(ModInformation.ID, "colored_light"));
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(Blab.instance, GuiHandlerRegistry.getInstance());

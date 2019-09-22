@@ -5,6 +5,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.axanthic.blab.Blab;
+import com.axanthic.blab.ConfigHandler;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.proxy.CommonProxy;
@@ -43,26 +44,26 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 		this.translucent = true;
 		this.setUnlocalizedName(name);
 		unlocalizedName = name;
-		if (!CommonProxy.albedo)
+		if (!ConfigHandler.albedo)
 			this.setLightLevel(1.0F);
 		this.setRegistryName(ModInformation.ID, name);
 		this.setSoundType(SoundType.GLASS);
-		this.hasTileEntity = CommonProxy.albedo;
+		this.hasTileEntity = ConfigHandler.albedo;
 	}
 
 	@Override
 	public boolean hasTileEntity(IBlockState state) {
-		return CommonProxy.albedo;
+		return ConfigHandler.albedo;
 	}
 
 	@Nullable
 	public TileEntity createTileEntity(World world, IBlockState state) {
 		if (unlocalizedName.equals("calcite"))
-			return new TileEntityColoredLight(1.0F, 0.914F, 0.757F);
+			return new TileEntityColoredLight(1.0F, 0.714F, 0.557F);
 		if (unlocalizedName.equals("jasper"))
 			return new TileEntityColoredLight(1.0F, 0.318F, 0.396F);
 		if (unlocalizedName.equals("zircon"))
-			return new TileEntityColoredLight(0.561F, 0.667F, 1.0F);
+			return new TileEntityColoredLight(0.361F, 0.467F, 1.0F);
 		return new TileEntityColoredLight();
 	}
 
