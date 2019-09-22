@@ -22,6 +22,7 @@ import com.axanthic.blab.gui.GuiHandlerBlab;
 import com.axanthic.blab.gui.GuiHandlerRegistry;
 import com.axanthic.blab.items.IItemCustomReach;
 import com.axanthic.blab.utils.MessageCustomReachAttack;
+import com.axanthic.blab.utils.TileEntityColoredLight;
 import com.axanthic.blab.utils.TileEntityForge;
 import com.axanthic.blab.utils.TileEntityForgeRedirector;
 import com.axanthic.blab.utils.TileEntityGrinder;
@@ -48,6 +49,7 @@ import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -59,8 +61,13 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class CommonProxy {
 
+	public static Boolean albedo;
+
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(Blab.instance);
+
+		albedo = Loader.isModLoaded("albedo");
+
 		Resources.registerBlocks();
 		Resources.registerItems();
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "bident", 0, ModInformation.ID, 64, 20, true);
@@ -87,6 +94,8 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityForge.class, new ResourceLocation(ModInformation.ID, "crafting_forge"));
 		GameRegistry.registerTileEntity(TileEntityForgeRedirector.class, new ResourceLocation(ModInformation.ID, "crafting_forge_redirector"));
 		GameRegistry.registerTileEntity(TileEntityMobHead.class, new ResourceLocation(ModInformation.ID, "mob_head"));
+		if (albedo)
+			GameRegistry.registerTileEntity(TileEntityColoredLight.class, new ResourceLocation(ModInformation.ID, "colored_light"));
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(Blab.instance, GuiHandlerRegistry.getInstance());
 		GuiHandlerRegistry.getInstance().registerGuiHandler(new GuiHandlerBlab(), GuiHandlerBlab.getGuiID());

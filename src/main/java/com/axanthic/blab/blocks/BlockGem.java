@@ -7,14 +7,18 @@ import javax.annotation.Nullable;
 import com.axanthic.blab.Blab;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
+import com.axanthic.blab.proxy.CommonProxy;
+import com.axanthic.blab.utils.TileEntityColoredLight;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -24,7 +28,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockGem extends BlockSixDirectional {
+public class BlockGem extends BlockSixDirectional implements ITileEntityProvider {
 
 	private String unlocalizedName;
 	public static final AxisAlignedBB GEM_AABB = new AxisAlignedBB(0.49D, 0.51D, 0.49D, 0.51D, 0.49D, 0.51D);
@@ -39,9 +43,27 @@ public class BlockGem extends BlockSixDirectional {
 		this.translucent = true;
 		this.setUnlocalizedName(name);
 		unlocalizedName = name;
-		this.setLightLevel(1.0F);
+		if (!CommonProxy.albedo)
+			this.setLightLevel(1.0F);
 		this.setRegistryName(ModInformation.ID, name);
 		this.setSoundType(SoundType.GLASS);
+		this.hasTileEntity = CommonProxy.albedo;
+	}
+
+	@Override
+	public boolean hasTileEntity(IBlockState state) {
+		return CommonProxy.albedo;
+	}
+
+	@Nullable
+	public TileEntity createTileEntity(World world, IBlockState state) {
+		if (unlocalizedName.equals("calcite"))
+			return new TileEntityColoredLight(1.0F, 0.914F, 0.757F);
+		if (unlocalizedName.equals("jasper"))
+			return new TileEntityColoredLight(1.0F, 0.318F, 0.396F);
+		if (unlocalizedName.equals("zircon"))
+			return new TileEntityColoredLight(0.561F, 0.667F, 1.0F);
+		return new TileEntityColoredLight();
 	}
 
 	@Override
@@ -134,5 +156,10 @@ public class BlockGem extends BlockSixDirectional {
 			worldIn.destroyBlock(pos, true);
 		}
 		return false;
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		return this.createTileEntity(worldIn, null);
 	}
 }
