@@ -5,10 +5,9 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.axanthic.blab.Blab;
-import com.axanthic.blab.ConfigHandler;
+import com.axanthic.blab.LOIConfig;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Resources;
-import com.axanthic.blab.proxy.CommonProxy;
 import com.axanthic.blab.utils.TileEntityColoredLight;
 
 import net.minecraft.block.Block;
@@ -26,6 +25,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -44,16 +44,16 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 		this.translucent = true;
 		this.setUnlocalizedName(name);
 		unlocalizedName = name;
-		if (!ConfigHandler.albedo)
+		if (!LOIConfig.compat.albedo && Loader.isModLoaded("albedo"))
 			this.setLightLevel(1.0F);
 		this.setRegistryName(ModInformation.ID, name);
 		this.setSoundType(SoundType.GLASS);
-		this.hasTileEntity = ConfigHandler.albedo;
+		this.hasTileEntity = LOIConfig.compat.albedo && Loader.isModLoaded("albedo");
 	}
 
 	@Override
 	public boolean hasTileEntity(IBlockState state) {
-		return ConfigHandler.albedo;
+		return this.hasTileEntity;
 	}
 
 	@Nullable

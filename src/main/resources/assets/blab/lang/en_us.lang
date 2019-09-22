@@ -195,3 +195,7 @@ entity.cerver.name=Cerver
 entity.argan_hound.name=Argan Hound
 
 message.loot_vase.pickup=Sneak to throw vase
+
+loi.config.compat=Compatibility
+loi.config.compat.tooltip=Cross mod compatibility settings
+loi.config.compat.albedo=Albedo compatibility

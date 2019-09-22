@@ -1,7 +1,7 @@
 package com.axanthic.blab.proxy;
 
 import com.axanthic.blab.Blab;
-import com.axanthic.blab.ConfigHandler;
+import com.axanthic.blab.LOIConfig;
 import com.axanthic.blab.ModInformation;
 import com.axanthic.blab.Recipes;
 import com.axanthic.blab.Resources;
@@ -48,8 +48,11 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.ConfigManager;
+import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -65,7 +68,7 @@ public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(Blab.instance);
 
-		ConfigHandler.init(event.getSuggestedConfigurationFile());
+		Blab.logger = event.getModLog();
 
 		Resources.registerBlocks();
 		Resources.registerItems();
@@ -93,7 +96,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityForge.class, new ResourceLocation(ModInformation.ID, "crafting_forge"));
 		GameRegistry.registerTileEntity(TileEntityForgeRedirector.class, new ResourceLocation(ModInformation.ID, "crafting_forge_redirector"));
 		GameRegistry.registerTileEntity(TileEntityMobHead.class, new ResourceLocation(ModInformation.ID, "mob_head"));
-		if (ConfigHandler.albedo)
+		if (LOIConfig.compat.albedo && Loader.isModLoaded("albedo"))
 			GameRegistry.registerTileEntity(TileEntityColoredLight.class, new ResourceLocation(ModInformation.ID, "colored_light"));
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(Blab.instance, GuiHandlerRegistry.getInstance());
@@ -120,6 +123,12 @@ public class CommonProxy {
 
 	public void postInit(FMLPostInitializationEvent event) {
 		
+	}
+	
+	public void ConfigChanged(OnConfigChangedEvent event) {
+		if (event.getModID().equals(ModInformation.ID)) {
+			ConfigManager.sync(ModInformation.ID, Type.INSTANCE);
+		}
 	}
 
 	public void registerBlocks(RegistryEvent.Register<Block> event) {

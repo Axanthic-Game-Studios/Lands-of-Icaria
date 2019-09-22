@@ -2,6 +2,8 @@ package com.axanthic.blab;
 
 import java.util.UUID;
 
+import org.apache.logging.log4j.Logger;
+
 import com.axanthic.blab.proxy.CommonProxy;
 import com.axanthic.blab.utils.CreativeTab;
 import com.axanthic.loi.worldgen.dimension.WorldTypeLOI;
@@ -19,6 +21,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -35,6 +38,7 @@ public class Blab {
 
 	@SidedProxy(clientSide = ModInformation.CLIENTPROXY, serverSide = ModInformation.COMMONPROXY)
 	public static CommonProxy proxy;
+	public static Logger logger;
 
 	public static CreativeTab modTabBlocks = new CreativeTab(ModInformation.ID + ".blocks.creativeTab");
 	public static CreativeTab modTabFlora = new CreativeTab(ModInformation.ID + ".flora.creativeTab");
@@ -51,7 +55,7 @@ public class Blab {
 	public static SimpleNetworkWrapper network;
 
 	public static final IAttribute ATTACK_RANGE = new RangedAttribute((IAttribute)null, "generic.attackRange", 5.0D, 0.0D, 2048.0D);
-    public static final UUID ATTACK_RANGE_MODIFIER = UUID.fromString("971104f5-17b7-48d9-b16c-1109f0536884");
+	public static final UUID ATTACK_RANGE_MODIFIER = UUID.fromString("971104f5-17b7-48d9-b16c-1109f0536884");
 
 	@EventHandler
 	public void preInit(final FMLPreInitializationEvent event) {
@@ -66,6 +70,11 @@ public class Blab {
 	@EventHandler
 	public void postInit(final FMLPostInitializationEvent event) {
 		Blab.proxy.postInit(event);
+	}
+
+	@SubscribeEvent
+	public void onConfigChangedEvent(OnConfigChangedEvent event) {
+		Blab.proxy.ConfigChanged(event);
 	}
 
 	@SubscribeEvent
@@ -97,7 +106,7 @@ public class Blab {
 	public void ItemColorRegistry(final ColorHandlerEvent.Item event) {
 		Blab.proxy.registerItemColors(event);
 	}
-	
+
 	@SubscribeEvent
 	public static void registerSoundEvents(RegistryEvent.Register<SoundEvent> event) {	
 		Blab.proxy.registerSounds(event);	
@@ -107,7 +116,7 @@ public class Blab {
 	public void onMouseEvent(MouseEvent event) {
 		Blab.proxy.onMouseEvent(event);
 	}
-	
+
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onAttackEntity(AttackEntityEvent event) {
 		Blab.proxy.onAttackEntityEvent(event);

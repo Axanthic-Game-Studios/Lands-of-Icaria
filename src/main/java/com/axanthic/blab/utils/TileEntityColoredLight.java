@@ -30,7 +30,6 @@ public class TileEntityColoredLight extends TileEntity implements ILightProvider
 
 	@Override
 	public void gatherLights(GatherLightsEvent arg0, Entity arg1) {
-		// TODO Auto-generated method stub
 		
 	}
 }
