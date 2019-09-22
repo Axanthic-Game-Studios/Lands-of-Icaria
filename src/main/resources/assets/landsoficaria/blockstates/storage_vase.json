@@ -1,0 +1,15 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "landsoficaria:container_vase",
+		"uvlock": true,
+		"textures": {
+			"layer0": "landsoficaria:items/container_vase_baked_af",
+			"particle": "#layer0"
+		}
+	},
+	"variants": {
+		"normal": { "model": "landsoficaria:container_vase" },
+		"inventory": { "model": "landsoficaria:generated" }
+	}
+}

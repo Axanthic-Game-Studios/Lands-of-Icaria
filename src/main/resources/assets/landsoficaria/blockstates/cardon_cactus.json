@@ -1,0 +1,58 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "landsoficaria:cactus_center",
+		"uvlock": true,
+		"textures": {
+			"particle": "landsoficaria:blocks/flora_cactus_side"
+		}
+	},
+	"variants": {
+        "inventory":  {
+			"model": "landsoficaria:cactus_center",
+			"submodel": "landsoficaria:cactus_stem"
+		},
+		"north": {
+			"true": { "submodel": "landsoficaria:cactus_stem", "x": 270 },
+			"false": {}
+		},
+		"east": {
+			"true": { "submodel": "landsoficaria:cactus_stem", "x": 270, "y": 90 },
+			"false": {}
+		},
+		"south": {
+			"true": { "submodel": "landsoficaria:cactus_stem", "x": 90 },
+			"false": {}
+		},
+		"west": {
+			"true": { "submodel": "landsoficaria:cactus_stem", "x": 90, "y": 90 },
+			"false": {}
+		},
+		"up": {
+			"true": { "submodel": "landsoficaria:cactus_stem", "x": 180 },
+			"false": {}
+		},
+		"down": {
+			"true": { "submodel": "landsoficaria:cactus_stem" },
+			"false": {}
+		},
+		"age": {
+			"0": {},
+			"1": {},
+			"2": {},
+			"3": {},
+			"4": {},
+			"5": {},
+			"6": {},
+			"7": {},
+			"8": {},
+			"9": {},
+			"10": {},
+			"11": {},
+			"12": {},
+			"13": {},
+			"14": {},
+			"15": {}
+		}
+	}
+}

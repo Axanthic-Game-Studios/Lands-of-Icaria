@@ -10,7 +10,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import org.apache.commons.lang3.Validate;
 
-import com.axanthic.blab.Resources;
+import com.axanthic.loi.Resources;
 import com.google.common.base.Predicate;
 
 import java.util.Random;

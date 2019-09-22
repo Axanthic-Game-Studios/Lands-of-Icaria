@@ -1,6 +1,6 @@
 package com.axanthic.loi.worldgen.dimension;
 
-import com.axanthic.blab.Blab;
+import com.axanthic.loi.LandsOfIcaria;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -17,7 +17,7 @@ public class WorldProviderLOI extends WorldProvider {
 	@Override
 	public DimensionType getDimensionType()
 	{
-		return Blab.dimensionTypeLoi;
+		return LandsOfIcaria.dimensionTypeLoi;
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class WorldProviderLOI extends WorldProvider {
 	@Override
 	protected void init() {
 		this.hasSkyLight = true;
-		this.biomeProvider = Blab.LOI_WORLD_TYPE.getBiomeProvider(world);
+		this.biomeProvider = LandsOfIcaria.LOI_WORLD_TYPE.getBiomeProvider(world);
 	}
 
 	@SideOnly(Side.CLIENT)

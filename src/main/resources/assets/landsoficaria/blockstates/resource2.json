@@ -1,0 +1,14 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "landsoficaria:generated",
+		"textures": {
+			"layer0": "landsoficaria:items/loot_slug_mass"
+		}
+	},
+	"variants": {
+		"type": {
+			"slug_mass": { "textures": { "layer0": "landsoficaria:items/loot_slug_mass" } }
+		}
+	}
+}

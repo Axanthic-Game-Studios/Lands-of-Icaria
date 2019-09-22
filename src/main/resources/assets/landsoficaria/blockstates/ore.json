@@ -1,0 +1,29 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "cube_all",
+		"uvlock": true,
+		"textures": {
+			"all": "landsoficaria:blocks/rock_yellowstone_ore_lignite",
+			"particle": "#all"
+		}
+	},
+	"variants": {
+		"type": {
+			"lignite": { "textures": { "all": "landsoficaria:blocks/rock_yellowstone_ore_lignite" } },
+			"chalkos": { "textures": { "all": "landsoficaria:blocks/rock_yellowstone_ore_chalkos" } },
+			"kassiteros": { "textures": { "all": "landsoficaria:blocks/rock_silkstone_ore_kassiteros" } },
+			"dolomite": { "textures": { "all": "landsoficaria:blocks/rock_silkstone_ore_dolomite" } },
+			"molibos": { "textures": { "all": "landsoficaria:blocks/rock_silkstone_ore_molibos" } },
+			"vanadium": { "textures": { "all": "landsoficaria:blocks/rock_sunstone_ore_vanadium" } },
+			"sliver": { "textures": { "all": "landsoficaria:blocks/rock_sunstone_ore_sliver" } },
+			"sideros": { "textures": { "all": "landsoficaria:blocks/rock_voidshale_ore_sideros" } },
+			"anthracite": { "textures": { "all": "landsoficaria:blocks/rock_voidshale_ore_anthracite" } },
+			"molybdenum": { "textures": { "all": "landsoficaria:blocks/rock_voidshale_ore_molybdenum" } },
+			"bluridium": { "textures": { "all": "landsoficaria:blocks/rock_baetyl_ore_bluridium" } },
+			"hyliastrum": { "textures": { "all": "landsoficaria:blocks/rock_baetyl_ore_hyliastrum" } },
+			"abyssal_essence": { "textures": { "all": "landsoficaria:blocks/rock_baetyl_ore_abyssal_essence" } }
+		}
+	}
+}

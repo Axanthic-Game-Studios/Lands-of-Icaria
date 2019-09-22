@@ -2,7 +2,7 @@ package com.axanthic.loi.worldgen.feature;
 
 import java.util.Random;
 
-import com.axanthic.blab.blocks.BlocksLOI;
+import com.axanthic.loi.blocks.BlocksLOI;
 
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;

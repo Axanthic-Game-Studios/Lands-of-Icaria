@@ -1,0 +1,23 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "landsoficaria:crafting_grinder"
+	},
+	"variants": {
+		"inventory": {
+			"model": "landsoficaria:crafting_grinder_inv"
+		},
+		"facing": {
+			"north": {},
+			"east": { "y": 90 },
+			"south": { "y": 180 },
+			"west": { "y": 270 }
+		},
+		"burning": {
+			"true": {
+			},
+			"false": {
+			}
+		}
+	}
+}

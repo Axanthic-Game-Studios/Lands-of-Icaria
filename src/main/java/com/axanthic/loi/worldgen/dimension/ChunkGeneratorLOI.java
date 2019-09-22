@@ -3,9 +3,9 @@ package com.axanthic.loi.worldgen.dimension;
 import java.util.List;
 import java.util.Random;
 
-import com.axanthic.blab.blocks.BlocksLOI;
-import com.axanthic.blab.utils.CellNoise;
-import com.axanthic.blab.utils.PerlinNoise;
+import com.axanthic.loi.blocks.BlocksLOI;
+import com.axanthic.loi.utils.CellNoise;
+import com.axanthic.loi.utils.PerlinNoise;
 import com.axanthic.loi.worldgen.biome.BiomeLOI;
 
 import net.minecraft.block.BlockFalling;

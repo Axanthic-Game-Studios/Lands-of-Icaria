@@ -2,7 +2,7 @@ package com.axanthic.loi.worldgen.feature;
 
 import java.util.Random;
 
-import com.axanthic.blab.Resources;
+import com.axanthic.loi.Resources;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;

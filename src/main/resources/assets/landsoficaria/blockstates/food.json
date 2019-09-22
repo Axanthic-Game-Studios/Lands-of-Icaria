@@ -1,0 +1,18 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "landsoficaria:generated",
+		"textures": {
+			"layer0": "landsoficaria:items/food_fruit_olives_green"
+		}
+	},
+	"variants": {
+		"type": {
+			"olive_green": { "textures": { "layer0": "landsoficaria:items/food_fruit_olives_green" } },
+			"olive_black": { "textures": { "layer0": "landsoficaria:items/food_fruit_olives_black" } },
+			"laurel_cherry": { "textures": { "layer0": "landsoficaria:items/food_fruit_laurelcherry" } },
+			"aeternae_meat": { "textures": { "layer0": "landsoficaria:items/food_meat_aeternae_raw" } },
+			"aeternae_meat_cooked": { "textures": { "layer0": "landsoficaria:items/food_meat_aeternae_cooked" } }
+		}
+	}
+}

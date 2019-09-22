@@ -2,18 +2,19 @@ package com.axanthic.loi.worldgen.biome;
 
 import java.util.Random;
 
-import com.axanthic.blab.Resources;
-import com.axanthic.blab.entity.EntityAeternae;
-import com.axanthic.blab.entity.EntityArachne;
-import com.axanthic.blab.entity.EntityArachneDrone;
-import com.axanthic.blab.entity.EntityArganHound;
-import com.axanthic.blab.entity.EntityCatoblepas;
-import com.axanthic.blab.entity.EntityCerver;
-import com.axanthic.blab.entity.EntityJellyfish;
-import com.axanthic.blab.entity.EntityMyrmeke;
-import com.axanthic.blab.entity.EntityRevenant;
-import com.axanthic.blab.entity.EntitySnull;
-import com.axanthic.blab.entity.EntitySow;
+import com.axanthic.loi.ModInformation;
+import com.axanthic.loi.Resources;
+import com.axanthic.loi.entity.EntityAeternae;
+import com.axanthic.loi.entity.EntityArachne;
+import com.axanthic.loi.entity.EntityArachneDrone;
+import com.axanthic.loi.entity.EntityArganHound;
+import com.axanthic.loi.entity.EntityCatoblepas;
+import com.axanthic.loi.entity.EntityCerver;
+import com.axanthic.loi.entity.EntityJellyfish;
+import com.axanthic.loi.entity.EntityMyrmeke;
+import com.axanthic.loi.entity.EntityRevenant;
+import com.axanthic.loi.entity.EntitySnull;
+import com.axanthic.loi.entity.EntitySow;
 import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
 import com.axanthic.loi.worldgen.feature.WorldGenOliveTree;
 
@@ -34,8 +35,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BiomeSteppe extends BiomeLOI {
 
 	public BiomeSteppe() {
-		super(new BiomeProperties("blab:steppe").setRainDisabled().setTemperature(1.6F));
-		this.setRegistryName("blab:steppe");
+		super(new BiomeProperties(ModInformation.ID + ":steppe").setRainDisabled().setTemperature(1.6F));
+		this.setRegistryName(ModInformation.ID + ":steppe");
 
 		spawnableCreatureList.clear();
 		spawnableMonsterList.clear();

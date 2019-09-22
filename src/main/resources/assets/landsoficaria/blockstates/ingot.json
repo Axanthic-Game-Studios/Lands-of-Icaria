@@ -1,0 +1,24 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "landsoficaria:generated",
+		"textures": {
+			"layer0": "landsoficaria:items/metal_chalkos_ingot"
+		}
+	},
+	"variants": {
+		"type": {
+			"chalkos": { "textures": { "layer0": "landsoficaria:items/metal_chalkos_ingot" } },
+			"kassiteros": { "textures": { "layer0": "landsoficaria:items/metal_kassiteros_ingot" } },
+			"molibos": { "textures": { "layer0": "landsoficaria:items/metal_molibos_ingot" } },
+			"vanadium": { "textures": { "layer0": "landsoficaria:items/metal_vanadium_ingot" } },
+			"vanadiumsteel": { "textures": { "layer0": "landsoficaria:items/metal_vanadiumsteel_ingot" } },
+			"sliver": { "textures": { "layer0": "landsoficaria:items/metal_sliver_ingot" } },
+			"orichalcum": { "textures": { "layer0": "landsoficaria:items/metal_orichalcum_ingot" } },
+			"sideros": { "textures": { "layer0": "landsoficaria:items/metal_sideros_ingot" } },
+			"molybdenum": { "textures": { "layer0": "landsoficaria:items/metal_molybdenum_ingot" } },
+			"molybdenumsteel": { "textures": { "layer0": "landsoficaria:items/metal_molybdenumsteel_ingot" } },
+			"bluridium": { "textures": { "layer0": "landsoficaria:items/metal_bluridium_ingot" } }
+		}
+	}
+}

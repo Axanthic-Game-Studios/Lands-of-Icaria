@@ -1,0 +1,72 @@
+{
+    "pools": [
+        {
+			"name": "landsoficaria:hag_sapling",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "landsoficaria:sapling_populus",
+					"entryName": "sapling",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 2
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"name": "landsoficaria:hag_log",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "landsoficaria:log_populus",
+					"entryName": "log",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 2,
+                                "max": 4
+                            }
+                        },
+                        {
+                            "function": "furnace_smelt",
+                            "conditions": [
+                                {
+                                    "condition": "entity_properties",
+                                    "entity": "this",
+                                    "properties": {
+                                        "on_fire": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "landsoficaria:handheld",
+		"textures": {
+			"layer0": "landsoficaria:items/metal_chalkos_tool_axe"
+		}
+	},
+	"variants": {
+		"axe": { "model": "landsoficaria:handheld", "textures": { "layer0": "landsoficaria:items/metal_chalkos_tool_axe" } },
+		"pickaxe": { "model": "landsoficaria:handheld", "textures": { "layer0": "landsoficaria:items/metal_chalkos_tool_pickaxe" } },
+		"shovel": { "model": "landsoficaria:handheld", "textures": { "layer0": "landsoficaria:items/metal_chalkos_tool_shovel" } },
+		"sword": { "model": "landsoficaria:handheld", "textures": { "layer0": "landsoficaria:items/metal_chalkos_tool_sword" } },
+		"dagger": { "model": "landsoficaria:handheld", "textures": { "layer0": "landsoficaria:items/metal_chalkos_tool_dagger" } },
+		"bident": { "model": "landsoficaria:bident", "textures": { "layer0": "landsoficaria:items/metal_chalkos_tool_bident" } },
+		"scythe": { "model": "landsoficaria:handheld", "textures": { "layer0": "landsoficaria:items/metal_chalkos_tool_scythe" } },
+		"helmet": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/armor_chalkos_helmet" } },
+		"chestplate": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/armor_chalkos_chestplate" } },
+		"legs": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/armor_chalkos_legs" } },
+		"boots": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/armor_chalkos_boots" } }
+	}
+}

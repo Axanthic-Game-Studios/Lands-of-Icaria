@@ -1,0 +1,55 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "cube_all",
+		"textures": {
+			"all": "landsoficaria:blocks/soil_marl",
+			"particle": "#all"
+		}
+	},
+	"variants": {
+		"type=marl": [
+			{ "textures": { "all": "landsoficaria:blocks/soil_marl" } },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "x": 90 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "x": 180 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "x": 270 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "y": 90 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "y": 90, "x": 90 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "y": 90, "x": 180 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "y": 90, "x": 270 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "y": 180 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "y": 180, "x": 90 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "y": 180, "x": 180 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "y": 180, "x": 270 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "y": 270 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "y": 270, "x": 90 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "y": 270, "x": 180 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl" }, "y": 270, "x": 270 }
+        ],
+		"type=course_marl": [
+			{ "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" } },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "x": 90 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "x": 180 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "x": 270 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "y": 90 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "y": 90, "x": 90 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "y": 90, "x": 180 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "y": 90, "x": 270 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "y": 180 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "y": 180, "x": 90 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "y": 180, "x": 180 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "y": 180, "x": 270 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "y": 270 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "y": 270, "x": 90 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "y": 270, "x": 180 },
+            { "textures": { "all": "landsoficaria:blocks/soil_marl_coarse" }, "y": 270, "x": 270 }
+        ],
+		"type=loam": [
+            { "textures": { "all": "landsoficaria:blocks/soil_loam" } },
+            { "textures": { "all": "landsoficaria:blocks/soil_loam" }, "x": 180 },
+            { "textures": { "all": "landsoficaria:blocks/soil_loam" }, "y": 180 },
+            { "textures": { "all": "landsoficaria:blocks/soil_loam" }, "y": 180, "x": 180 }
+        ]
+	}
+}

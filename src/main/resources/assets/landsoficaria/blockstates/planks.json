@@ -1,0 +1,23 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "cube_all",
+		"uvlock": true,
+		"textures": {
+			"all": "landsoficaria:blocks/wood_plane_planks",
+			"particle": "#all"
+		}
+	},
+	"variants": {
+		"type": {
+			"plane": { "textures": { "all": "landsoficaria:blocks/wood_plane_planks" } },
+			"populus": { "textures": { "all": "landsoficaria:blocks/wood_populus_planks" } },
+			"cypress": { "textures": { "all": "landsoficaria:blocks/wood_cypress_planks" } },
+			"fir": { "textures": { "all": "landsoficaria:blocks/wood_fir_planks" } },
+			"olive": { "textures": { "all": "landsoficaria:blocks/wood_olive_planks" } },
+			"laurel": { "textures": { "all": "landsoficaria:blocks/wood_laurel_planks" } },
+			"droughtroot": { "textures": { "all": "landsoficaria:blocks/wood_droughtroot_planks" } }
+		}
+	}
+}

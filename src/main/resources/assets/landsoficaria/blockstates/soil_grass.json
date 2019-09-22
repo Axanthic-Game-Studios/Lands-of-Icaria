@@ -1,0 +1,24 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "grass",
+		"textures": {
+			"particle": "landsoficaria:blocks/soil_marl",
+			"bottom": "landsoficaria:blocks/soil_marl",
+			"top": "landsoficaria:blocks/soil_grass_top",
+			"side": "landsoficaria:blocks/soil_marl",
+			"overlay": "landsoficaria:blocks/soil_grass_side_overlay"
+		}
+	},
+    "variants": {
+		"mossy=false": [
+            { "model": "grass", "textures": { "side": "landsoficaria:blocks/soil_marl" } },
+            { "model": "grass", "textures": { "side": "landsoficaria:blocks/soil_marl" }, "y": 90 },
+            { "model": "grass", "textures": { "side": "landsoficaria:blocks/soil_marl" }, "y": 180 },
+            { "model": "grass", "textures": { "side": "landsoficaria:blocks/soil_marl" }, "y": 270 }
+        ],
+		"mossy=true": { "model": "cube_bottom_top", "textures": { "side": "landsoficaria:blocks/soil_moss_side" } },
+		"inventory":  { "model": "grass" }
+    }
+}

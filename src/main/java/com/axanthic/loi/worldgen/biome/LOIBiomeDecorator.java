@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.axanthic.blab.Resources;
-import com.axanthic.blab.blocks.BlockCardonCactus;
-import com.axanthic.blab.blocks.BlockGem;
-import com.axanthic.blab.blocks.BlockRock;
-import com.axanthic.blab.blocks.BlockTallGrass;
+import com.axanthic.loi.Resources;
+import com.axanthic.loi.blocks.BlockCardonCactus;
+import com.axanthic.loi.blocks.BlockGem;
+import com.axanthic.loi.blocks.BlockRock;
+import com.axanthic.loi.blocks.BlockTallGrass;
 import com.axanthic.loi.worldgen.dimension.OreGeneratorLOI;
 import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
 

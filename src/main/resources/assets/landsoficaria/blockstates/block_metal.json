@@ -1,0 +1,27 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "cube_all",
+		"uvlock": true,
+		"textures": {
+			"all": "landsoficaria:blocks/metal_chalkos_block",
+			"particle": "#all"
+		}
+	},
+	"variants": {
+		"type": {
+			"chalkos": { "textures": { "all": "landsoficaria:blocks/metal_chalkos_block" } },
+			"kassiteros": { "textures": { "all": "landsoficaria:blocks/metal_kassiteros_block" } },
+			"molibos": { "textures": { "all": "landsoficaria:blocks/metal_molibos_block" } },
+			"orichalcum": { "textures": { "all": "landsoficaria:blocks/metal_orichalcum_block" } },
+			"sliver": { "textures": { "all": "landsoficaria:blocks/metal_sliver_block" } },
+			"vanadium": { "textures": { "all": "landsoficaria:blocks/metal_vanadium_block" } },
+			"vanadiumsteel": { "textures": { "all": "landsoficaria:blocks/metal_vanadiumsteel_block" } },
+			"sideros": { "textures": { "all": "landsoficaria:blocks/metal_sideros_block" } },
+			"molybdenum": { "textures": { "all": "landsoficaria:blocks/metal_molybdenum_block" } },
+			"molybdenumsteel": { "textures": { "all": "landsoficaria:blocks/metal_molybdenumsteel_block" } },
+			"bluridium": { "textures": { "all": "landsoficaria:blocks/metal_bluridium_block" } }
+		}
+	}
+}

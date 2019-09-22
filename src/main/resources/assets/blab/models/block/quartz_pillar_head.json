@@ -1,8 +1,0 @@
-{
-    "parent": "block/cube_bottom_top",
-    "textures": {
-        "bottom": "blocks/quartz_block_lines_top",
-        "side": "blab:blocks/rock_quartz_pillar_head_side",
-        "top": "blocks/quartz_block_chiseled_top"
-    }
-}

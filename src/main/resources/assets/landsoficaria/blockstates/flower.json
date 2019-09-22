@@ -1,0 +1,31 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "poppy",
+		"textures": {
+			"cross": "landsoficaria:blocks/flower_white_chameomile",
+			"particle": "#cross"
+		}
+	},
+	"variants": {
+		"type": {
+			"chameomile": { "textures": { "cross": "landsoficaria:blocks/flower_white_chameomile" } },
+			"clover": { "textures": { "cross": "landsoficaria:blocks/flower_white_clover" } },
+			"yellow_staghorn": { "textures": { "cross": "landsoficaria:blocks/flower_yellow_staghorn" } },
+			"speardrops": { "textures": { "cross": "landsoficaria:blocks/flower_green_speardrops" } },
+			"blindweed": { "textures": { "cross": "landsoficaria:blocks/flower_pink_blindweed" } },
+			"purple_hydracinth": { "textures": { "cross": "landsoficaria:blocks/flower_purple_hydracinth" } },
+			"lionfangs": { "textures": { "cross": "landsoficaria:blocks/flower_purple_lionfangs" } },
+			"purple_staghorn": { "textures": { "cross": "landsoficaria:blocks/flower_purple_staghorn" } },
+			"blue_hydracinth": { "textures": { "cross": "landsoficaria:blocks/flower_blue_hydracinth" } },
+			"firehilt": { "textures": { "cross": "landsoficaria:blocks/flower_red_firehilt" } },
+			"voidlily": { "textures": { "cross": "landsoficaria:blocks/flower_black_voidlily" } },
+			"charmonder": { "textures": { "cross": "landsoficaria:blocks/flower_blue_charmonder" } },
+			"blue_stormcotton": { "textures": { "cross": "landsoficaria:blocks/flower_blue_stormcotton" } },
+			"pink_stormcotton": { "textures": { "cross": "landsoficaria:blocks/flower_pink_stormcotton" } },
+			"purple_stormcotton": { "textures": { "cross": "landsoficaria:blocks/flower_purple_stormcotton" } },
+			"sunsponge": { "textures": { "cross": "landsoficaria:blocks/flower_red_sunsponge" } }
+		}
+	}
+}

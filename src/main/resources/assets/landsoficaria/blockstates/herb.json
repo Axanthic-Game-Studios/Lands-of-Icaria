@@ -1,0 +1,24 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "poppy",
+		"textures": {
+			"cross": "landsoficaria:blocks/flora_herb_belladena",
+			"particle": "#cross"
+		}
+	},
+	"variants": {
+		"type": {
+			"belladena": { "textures": { "cross": "landsoficaria:blocks/flora_herb_belladena" } },
+			"bolbos": { "textures": { "cross": "landsoficaria:blocks/flora_herb_bolbos" } },
+			"dathulla": { "textures": { "cross": "landsoficaria:blocks/flora_herb_dathulla" } },
+			"mondanos": { "textures": { "cross": "landsoficaria:blocks/flora_herb_mondanos" } },
+			"moth_agaric": { "textures": { "cross": "landsoficaria:blocks/flora_herb_moth_agaric" } },
+			"namdrake": { "textures": { "cross": "landsoficaria:blocks/flora_herb_namdrake" } },
+			"psilocybos": { "textures": { "cross": "landsoficaria:blocks/flora_herb_psilocybos" } },
+			"rowan": { "textures": { "cross": "landsoficaria:blocks/flora_herb_rowan" } },
+			"wilted_elm": { "textures": { "cross": "landsoficaria:blocks/flora_herb_wilted_elm" } }
+		}
+	}
+}

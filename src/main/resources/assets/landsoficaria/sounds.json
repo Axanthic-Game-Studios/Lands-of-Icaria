@@ -1,0 +1,20 @@
+{
+    "block.grinder.grind":
+    {
+        "category": "block",
+        "sounds":
+        [
+            "landsoficaria:block/crafting_grinder_loop"
+        ]
+    },
+    "block.ceramic.break":
+    {
+        "category": "block",
+        "sounds":
+        [
+            "landsoficaria:block/ceramic_break1",
+            "landsoficaria:block/ceramic_break2",
+            "landsoficaria:block/ceramic_break3"
+        ]
+    }
+}

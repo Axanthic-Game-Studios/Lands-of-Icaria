@@ -2,14 +2,15 @@ package com.axanthic.loi.worldgen.biome;
 
 import java.util.Random;
 
-import com.axanthic.blab.Resources;
-import com.axanthic.blab.entity.EntityArachne;
-import com.axanthic.blab.entity.EntityArachneDrone;
-import com.axanthic.blab.entity.EntityArganHound;
-import com.axanthic.blab.entity.EntityCerver;
-import com.axanthic.blab.entity.EntityJellyfish;
-import com.axanthic.blab.entity.EntityMyrmeke;
-import com.axanthic.blab.entity.EntityRevenant;
+import com.axanthic.loi.ModInformation;
+import com.axanthic.loi.Resources;
+import com.axanthic.loi.entity.EntityArachne;
+import com.axanthic.loi.entity.EntityArachneDrone;
+import com.axanthic.loi.entity.EntityArganHound;
+import com.axanthic.loi.entity.EntityCerver;
+import com.axanthic.loi.entity.EntityJellyfish;
+import com.axanthic.loi.entity.EntityMyrmeke;
+import com.axanthic.loi.entity.EntityRevenant;
 import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
 
 import net.minecraft.block.BlockFlower;
@@ -29,8 +30,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BiomeDesert extends BiomeLOI {
 
 	public BiomeDesert() {
-		super(new BiomeProperties("blab:desert").setRainDisabled().setTemperature(2.0F));
-		this.setRegistryName("blab:desert");
+		super(new BiomeProperties(ModInformation.ID + ":desert").setRainDisabled().setTemperature(2.0F));
+		this.setRegistryName(ModInformation.ID + ":desert");
 
 		topBlockPrimary = Resources.grainelSand.getBlock().getDefaultState();
 		fillerBlockPrimary = Resources.grainelSand.getBlock().getDefaultState();

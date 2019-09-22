@@ -1,0 +1,23 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "farmland",
+		"textures": {
+			"particle": "landsoficaria:blocks/soil_marl",
+			"dirt": "landsoficaria:blocks/soil_marl",
+			"top": "landsoficaria:blocks/soil_farmland_dry"
+		}
+	},
+	"variants": {
+		"inventory": { "model": "farmland", "textures": { "top": "landsoficaria:blocks/soil_farmland_dry" } },
+		"moisture=0": { "model": "farmland", "textures": { "top": "landsoficaria:blocks/soil_farmland_dry" } },
+		"moisture=1": { "model": "farmland", "textures": { "top": "landsoficaria:blocks/soil_farmland_dry" } },
+		"moisture=2": { "model": "farmland", "textures": { "top": "landsoficaria:blocks/soil_farmland_dry" } },
+		"moisture=3": { "model": "farmland", "textures": { "top": "landsoficaria:blocks/soil_farmland_dry" } },
+		"moisture=4": { "model": "farmland", "textures": { "top": "landsoficaria:blocks/soil_farmland_dry" } },
+		"moisture=5": { "model": "farmland", "textures": { "top": "landsoficaria:blocks/soil_farmland_dry" } },
+		"moisture=6": { "model": "farmland", "textures": { "top": "landsoficaria:blocks/soil_farmland_dry" } },
+		"moisture=7": { "model": "farmland", "textures": { "top": "landsoficaria:blocks/soil_farmland_wet" } }
+	}
+}

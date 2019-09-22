@@ -1,0 +1,19 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "cube_all",
+		"uvlock": true,
+		"textures": {
+			"all": "landsoficaria:blocks/rock_grainel_stone",
+			"particle": "#all"
+		}
+	},
+	"variants": {
+		"type": {
+			"cobble": { "textures": { "all": "landsoficaria:blocks/rock_grainel_stone" } },
+			"bricks": { "textures": { "all": "landsoficaria:blocks/rock_grainel_bricks" } },
+			"bricks_chiseled": { "textures": { "all": "landsoficaria:blocks/rock_grainel_bricks_chiseled" } }
+		}
+	}
+}
