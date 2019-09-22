@@ -108,34 +108,36 @@ public class BlockFlower extends BlockBush implements IBlockMeta {
 	@Override
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
 		if (getMetaFromState(state) == 2 || getMetaFromState(state) == 7)
-			entityIn.attackEntityFrom(DamageSource.CACTUS, 0.1F);
+			entityIn.attackEntityFrom(DamageSource.CACTUS, -1.0F);
 	}
 
 	public enum FlowerTypes implements IStringSerializable {
-		CHAMEOMILE(0, "chameomile"),
-		CLOVER(1, "clover"),
-		YELLOWSTAGHORN(2, "yellow_staghorn"),
-		SPEARDROPS(3, "speardrops"),
-		BLINDWEED(4, "blindweed"),
-		PURPLEHYDRACINTH(5, "purple_hydracinth"),
-		LIONFANGS(6, "lionfangs"),
-		PURPLESTAGHORN(7, "purple_staghorn"),
-		BLUEHYDRACINTH(8, "blue_hydracinth"),
-		FIREHILT(9, "firehilt"),
-		VOIDLILY(10, "voidlily"),
-		CHARMONDER(11, "charmonder"),
-		BLUESTORMCOTTON(12, "blue_stormcotton"),
-		PINKSTORMCOTTON(13, "pink_stormcotton"),
-		PURPLESTORMCOTTON(14, "purple_stormcotton"),
-		SUNSPONGE(15, "sunsponge");
+		CHAMEOMILE(0, "chameomile", 7),
+		CLOVER(1, "clover", 7),
+		YELLOWSTAGHORN(2, "yellow_staghorn", 11),
+		SPEARDROPS(3, "speardrops", 10),
+		BLINDWEED(4, "blindweed", 9),
+		PURPLEHYDRACINTH(5, "purple_hydracinth", 13),
+		LIONFANGS(6, "lionfangs", 5),
+		PURPLESTAGHORN(7, "purple_staghorn", 13),
+		BLUEHYDRACINTH(8, "blue_hydracinth", 12),
+		FIREHILT(9, "firehilt", 1),
+		VOIDLILY(10, "voidlily", 8),
+		CHARMONDER(11, "charmonder", 12),
+		BLUESTORMCOTTON(12, "blue_stormcotton", 6),
+		PINKSTORMCOTTON(13, "pink_stormcotton", 13),
+		PURPLESTORMCOTTON(14, "purple_stormcotton", 5),
+		SUNSPONGE(15, "sunsponge", 14);
 
 		private static final FlowerTypes[] META_LOOKUP = new FlowerTypes[FlowerTypes.values().length];
 		private final int meta;
 		private final String unlocalizedName;
+		public final int color;
 
-		FlowerTypes(final int metaIn, final String unlocalizedNameIn) {
+		FlowerTypes(final int metaIn, final String unlocalizedNameIn, int colorIn) {
 			this.meta = metaIn;
 			this.unlocalizedName = unlocalizedNameIn;
+			this.color = colorIn;
 		}
 
 		public static FlowerTypes byMetadata(int meta) {

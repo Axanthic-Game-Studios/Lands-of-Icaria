@@ -4,13 +4,22 @@ import java.util.Random;
 
 import com.axanthic.blab.Resources;
 import com.axanthic.blab.entity.EntityAeternae;
-import com.axanthic.blab.entity.EntityForestHag;
+import com.axanthic.blab.entity.EntityArachne;
+import com.axanthic.blab.entity.EntityArachneDrone;
+import com.axanthic.blab.entity.EntityArganHound;
+import com.axanthic.blab.entity.EntityCatoblepas;
+import com.axanthic.blab.entity.EntityCerver;
+import com.axanthic.blab.entity.EntityJellyfish;
+import com.axanthic.blab.entity.EntityMyrmeke;
 import com.axanthic.blab.entity.EntityRevenant;
+import com.axanthic.blab.entity.EntitySnull;
+import com.axanthic.blab.entity.EntitySow;
 import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
 import com.axanthic.loi.worldgen.feature.WorldGenOliveTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -32,9 +41,17 @@ public class BiomeSteppe extends BiomeLOI {
 		spawnableMonsterList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
-		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityAeternae.class, 50, 2, 4));
-		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityForestHag.class, 50, 1, 2));
-		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 1, 4));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityAeternae.class, 50, 2, 6));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityCatoblepas.class, 50, 2, 6));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySnull.class, 50, 2, 6));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySow.class, 50, 2, 6));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityJellyfish.class, 100, 1, 2));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityMyrmeke.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityCerver.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArganHound.class, 200, 2, 5));
 
 		flowers.clear();
 		addFlower(Resources.flower.getBlock().getStateFromMeta(2), 20);
@@ -60,12 +77,16 @@ public class BiomeSteppe extends BiomeLOI {
 	public BiomeDecorator createBiomeDecorator() {
 		LOIBiomeDecorator biomeDecorator = new LOIBiomeDecorator();
 
-		biomeDecorator.treesPerChunk = 1;
+		biomeDecorator.treesPerChunk = 4;
 		biomeDecorator.extraTreeChance = 0.2F;
 		biomeDecorator.flowersPerChunk = 5;
 		biomeDecorator.grassPerChunk = 6;
 		biomeDecorator.treeGenerators.add(new WorldGenCypressTree(false).init());
 		biomeDecorator.treeGenerators.add(new WorldGenOliveTree(false).init());
+		biomeDecorator.vines = new IBlockState[] {
+				Resources.vineBranch.getBlock().getDefaultState(),
+				Resources.vineThorny.getBlock().getDefaultState()
+		};
 
 		return biomeDecorator;
 	}

@@ -1,7 +1,9 @@
 package com.axanthic.blab.utils;
 
 import elucent.albedo.lighting.Light;
+import elucent.albedo.event.GatherLightsEvent;
 import elucent.albedo.lighting.ILightProvider;
+import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityColoredLight extends TileEntity implements ILightProvider {
@@ -24,5 +26,11 @@ public class TileEntityColoredLight extends TileEntity implements ILightProvider
 	@Override
 	public Light provideLight() {
 		return new Light.Builder().pos(pos).color(r, g, b, 1F).radius(15).build();
+	}
+
+	@Override
+	public void gatherLights(GatherLightsEvent arg0, Entity arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 }

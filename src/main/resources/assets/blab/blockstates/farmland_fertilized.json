@@ -1,0 +1,24 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "farmland",
+		"textures": {
+			"particle": "blab:blocks/soil_marl",
+			"dirt": "blab:blocks/soil_marl",
+			"top": "blab:blocks/soil_farmland_fertilized"
+		}
+	},
+    "variants": {
+		"inventory": { "model": "farmland" },
+		"moisture=0": { "model": "farmland" },
+		"moisture=1": { "model": "farmland" },
+		"moisture=2": { "model": "farmland" },
+		"moisture=3": { "model": "farmland" },
+		"moisture=4": { "model": "farmland" },
+		"moisture=5": { "model": "farmland" },
+		"moisture=6": { "model": "farmland" },
+		"moisture=7": { "model": "farmland" }
+	}
+}
+

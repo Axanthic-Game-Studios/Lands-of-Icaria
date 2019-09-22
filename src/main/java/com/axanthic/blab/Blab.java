@@ -15,6 +15,7 @@ import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -80,6 +81,11 @@ public class Blab {
 	@SubscribeEvent
 	public void biomeRegistry(final RegistryEvent.Register<Biome> event) {
 		Blab.proxy.registerBiomes(event);
+	}
+
+	@SubscribeEvent
+	public void modelRegistry(ModelRegistryEvent event) {
+		Blab.proxy.registerModels(event);
 	}
 
 	@SubscribeEvent

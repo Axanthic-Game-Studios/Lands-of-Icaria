@@ -1,0 +1,54 @@
+{
+    "pools": [
+        {
+			"name": "blab:snull_mass",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "blab:resource2",
+					"entryName": "slug_mass",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 3
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"name": "blab:snull_skull",
+            "conditions": [
+                {
+                    "condition": "killed_by_player"
+                },
+                {
+                    "condition": "random_chance_with_looting",
+                    "chance": 0.025,
+                    "looting_multiplier": 0.01
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "blab:head_revenant",
+					"entryName": "skull",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

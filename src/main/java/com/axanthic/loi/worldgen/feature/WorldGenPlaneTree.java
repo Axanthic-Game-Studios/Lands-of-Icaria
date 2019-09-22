@@ -28,7 +28,7 @@ public class WorldGenPlaneTree extends WorldGenLOITree {
 	public boolean generate(World worldIn, Random rand, BlockPos position) {
 		int heightTrunk = rand.nextInt(3) + 3;
 		int branches = rand.nextInt(2) + 3;
-		int heightTotal = heightTrunk + 3;
+		int heightTotal = heightTrunk + 1;
 		boolean flag = true;
 
 		if (position.getY() >= 1 && position.getY() + heightTotal + 1 <= 256) {

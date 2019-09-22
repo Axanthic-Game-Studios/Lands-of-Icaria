@@ -26,7 +26,7 @@ public class WorldGenPopulusTree extends WorldGenLOITree {
 		int heightTrunk = rand.nextInt(2) + 1;
 		int heightBottom = rand.nextInt(2) + 2;
 		int heightMiddle = rand.nextInt(2) + 1;
-		int heightTotal = heightTrunk + heightBottom + heightMiddle + 5;
+		int heightTotal = heightTrunk + heightBottom + heightMiddle + 4;
 		boolean flag = true;
 
 		if (position.getY() >= 1 && position.getY() + heightTotal + 1 <= 256) {

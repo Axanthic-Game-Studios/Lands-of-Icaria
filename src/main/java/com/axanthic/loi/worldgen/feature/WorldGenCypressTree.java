@@ -25,7 +25,7 @@ public class WorldGenCypressTree extends WorldGenLOITree {
 	public boolean generate(World worldIn, Random rand, BlockPos position) {
 		int heightTrunk = rand.nextInt(2) + 1;
 		int heightMiddle = rand.nextInt(4);
-		int heightTotal = heightTrunk + heightMiddle + 7;
+		int heightTotal = heightTrunk + heightMiddle + 4;
 		boolean flag = true;
 
 		if (position.getY() >= 1 && position.getY() + heightTotal + 1 <= 256) {

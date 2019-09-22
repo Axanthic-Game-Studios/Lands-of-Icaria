@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.axanthic.blab.blocks.BlockAristone;
 import com.axanthic.blab.blocks.BlockBasic;
+import com.axanthic.blab.blocks.BlockBasicVine;
 import com.axanthic.blab.blocks.BlockBromelia;
 import com.axanthic.blab.blocks.BlockCardonCactus;
 import com.axanthic.blab.blocks.BlockCustomDoor;
@@ -14,6 +15,10 @@ import com.axanthic.blab.blocks.BlockCustomPane;
 import com.axanthic.blab.blocks.BlockCustomSlab;
 import com.axanthic.blab.blocks.BlockCustomStairs;
 import com.axanthic.blab.blocks.BlockCustomTrapdoor;
+import com.axanthic.blab.blocks.BlockCustomWall;
+import com.axanthic.blab.blocks.BlockCustomWorkbench;
+import com.axanthic.blab.blocks.BlockFarmLand;
+import com.axanthic.blab.blocks.BlockFarmLandFertilized;
 import com.axanthic.blab.blocks.BlockFlower;
 import com.axanthic.blab.blocks.BlockFlower2;
 import com.axanthic.blab.blocks.BlockForge;
@@ -28,11 +33,13 @@ import com.axanthic.blab.blocks.BlockLeaf;
 import com.axanthic.blab.blocks.BlockLeafOlives;
 import com.axanthic.blab.blocks.BlockLog;
 import com.axanthic.blab.blocks.BlockLootVase;
+import com.axanthic.blab.blocks.BlockMobHead;
 import com.axanthic.blab.blocks.BlockMoss;
 import com.axanthic.blab.blocks.BlockOre;
 import com.axanthic.blab.blocks.BlockPillar;
 import com.axanthic.blab.blocks.BlockPillarHead;
 import com.axanthic.blab.blocks.BlockPlanks;
+import com.axanthic.blab.blocks.BlockPlanks.WoodTypes;
 import com.axanthic.blab.blocks.BlockRelicstone;
 import com.axanthic.blab.blocks.BlockRock;
 import com.axanthic.blab.blocks.BlockSapling;
@@ -48,6 +55,7 @@ import com.axanthic.blab.items.ItemBlockMaterialDoor;
 import com.axanthic.blab.items.ItemBlockMaterialSlab;
 import com.axanthic.blab.items.ItemBlockMeta;
 import com.axanthic.blab.items.ItemBlockMetaMaterial;
+import com.axanthic.blab.items.ItemBlockMobHead;
 import com.axanthic.blab.items.ItemCustomArmor;
 import com.axanthic.blab.items.ItemDimensionTeleporter;
 import com.axanthic.blab.items.ItemFoods;
@@ -56,6 +64,7 @@ import com.axanthic.blab.items.ItemLaurelWreath;
 import com.axanthic.blab.items.ItemMeta;
 import com.axanthic.blab.items.ItemMetaMaterial;
 import com.axanthic.blab.items.ItemResource;
+import com.axanthic.blab.items.ItemResource2;
 import com.axanthic.blab.items.ItemSharpBone;
 import com.axanthic.blab.items.ToolAxe;
 import com.axanthic.blab.items.ToolBident;
@@ -84,6 +93,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
@@ -94,14 +104,32 @@ public class Resources {
 	public static final SoundType SLICK = new SoundType(1.0F, 1.0F, SoundEvents.BLOCK_GLASS_BREAK, SoundEvents.BLOCK_SLIME_PLACE, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_SLIME_FALL);
 	public static final SoundType CERAMIC = new SoundType(1.0F, 1.0F, ClientProxy.CERAMIC_BREAK, SoundEvents.BLOCK_GLASS_STEP, SoundEvents.BLOCK_GLASS_PLACE, SoundEvents.BLOCK_GLASS_HIT, SoundEvents.BLOCK_GLASS_FALL);
 
-	public static final ResourceLocation LOOT_AETERNAE = new ResourceLocation(ModInformation.ID, "entities/aeternae");
-	public static final ResourceLocation LOOT_REVENANT = new ResourceLocation(ModInformation.ID, "entities/revenant");
+	public static final ResourceLocation LOOT_AETERNAE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/aeternae"));
+	public static final ResourceLocation LOOT_CATOBLEPAS = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/catoblepas"));
+	public static final ResourceLocation LOOT_SNULL = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/snull"));
+	public static final ResourceLocation LOOT_SOW = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/sow"));
+	public static final ResourceLocation LOOT_JELLYFISH = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/jellyfish"));
+	public static final ResourceLocation LOOT_REVENANT = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/revenant"));
+	public static final ResourceLocation LOOT_ARACHNE_DRONE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/arachne_drone"));
+	public static final ResourceLocation LOOT_ARACHNE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/arachne"));
+	public static final ResourceLocation LOOT_MYRMEKE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/myrmeke"));
+	public static final ResourceLocation LOOT_CERVER = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/cerver"));
+	public static final ResourceLocation LOOT_ARGAN_HOUND = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/argan_hound"));
+	public static final ResourceLocation LOOT_HAG_PLANE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/plane"));
+	public static final ResourceLocation LOOT_HAG_POPULUS = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/populus"));
+	public static final ResourceLocation LOOT_HAG_CYPRESS = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/cypress"));
+	public static final ResourceLocation LOOT_HAG_FIR = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/fir"));
+	public static final ResourceLocation LOOT_HAG_OLIVE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/olive"));
+	public static final ResourceLocation LOOT_HAG_LAUREL = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/laurel"));
+	public static final ResourceLocation LOOT_HAG_DROUGHTROOT = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/droughtroot"));
+	public static final ResourceLocation LOOT_VASE = LootTableList.register(new ResourceLocation(ModInformation.ID, "loot/loot_vase"));
 
 	public static List<Item> items = new ArrayList<Item>();
 	public static List<ItemBlock> blocks = new ArrayList<ItemBlock>();
 
 	public static Item dimensionTp = new ItemDimensionTeleporter().setUnlocalizedName("dimension_teleporter").setRegistryName("dimension_teleporter");
 	public static ItemMeta resource = new ItemResource();
+	public static ItemMeta resource2 = new ItemResource2();
 	public static ItemFoods food = new ItemFoods();
 	public static ItemMeta gear = new ItemGear();
 	public static Item sharpBone = new ItemSharpBone();
@@ -116,6 +144,7 @@ public class Resources {
 	public static ToolSet sideros = new ToolSet(new CompleteToolMaterial("sideros", -1.1F, 4, 528, 7.0F, 2.5F, 14, new ItemStack(Resources.ingot, 1, 7)));
 	public static ToolSet molybdenumsteel = new ToolSet(new CompleteToolMaterial("molybdenumsteel", -1.2F, 4, 673, 7.5F, 2.0F, 12, new ItemStack(Resources.ingot, 1, 9)));
 
+	public static ArmorSet aeternaeLeatherArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "aeternae_leather", ModInformation.ID + ":" + "armor_aeternae_leather", 11, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F).setRepairItem(new ItemStack(Resources.resource, 1, 15)));
 	public static ArmorSet chalkosArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "chalkos", ModInformation.ID + ":" + "armor_chalkos", 11, new int[]{1, 3, 4, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 0)));
 	public static ArmorSet kassiterosArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "kassiteros", ModInformation.ID + ":" + "armor_kassiteros", 15, new int[]{2, 3, 5, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 1)));
 	public static ArmorSet orichalcumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "orichalcum", ModInformation.ID + ":" + "armor_orichalcum", 24, new int[]{2, 4, 6, 2}, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 3)));
@@ -123,6 +152,8 @@ public class Resources {
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
+	public static ItemBlock farmLand = new ItemBlock(new BlockFarmLand());
+	public static ItemBlock fertilizedFarmLand = new ItemBlock(new BlockFarmLandFertilized());
 	public static ItemBlock moss = new ItemBlock(new BlockMoss());
 	public static ItemBlockMeta tallGrass = new ItemBlockMeta(new BlockTallGrass());
 	public static ItemBlockMeta flower = new ItemBlockMeta(new BlockFlower());
@@ -130,6 +161,13 @@ public class Resources {
 	public static ItemBlockMeta herb = new ItemBlockMeta(new BlockHerb());
 	public static ItemBlockMeta bromelia = new ItemBlockMeta(new BlockBromelia());
 	public static ItemBlock cardon = new ItemBlock(new BlockCardonCactus());
+	public static ItemBlock vineBloomy = new ItemBlock(new BlockBasicVine("vine_bloomy"));
+	public static ItemBlock vineBranch = new ItemBlock(new BlockBasicVine("vine_branch"));
+	public static ItemBlock vineBrushy = new ItemBlock(new BlockBasicVine("vine_brushy"));
+	public static ItemBlock vineDry = new ItemBlock(new BlockBasicVine("vine_dry"));
+	public static ItemBlock vineReedy = new ItemBlock(new BlockBasicVine("vine_reedy"));
+	public static ItemBlock vineSwirly = new ItemBlock(new BlockBasicVine("vine_swirly"));
+	public static ItemBlock vineThorny = new ItemBlock(new BlockBasicVine("vine_thorny", true));
 	public static ItemBlockMeta planks = new ItemBlockMetaMaterial(new BlockPlanks());
 	public static ItemBlock aristone = new ItemBlock(new BlockAristone("aristone"));
 	public static ItemBlock aristonePacked = new ItemBlock(new BlockAristone("aristone_packed"));
@@ -142,46 +180,53 @@ public class Resources {
 	public static ItemBlock grainelGlass = new ItemBlock(new BlockGlassy(Material.GLASS, 0.3F, "grainel_glass", MapColor.WOOD));
 	public static ItemBlock grainelGlassPane = new ItemBlock(new BlockCustomPane(Material.GLASS, 0.3F, "grainel_pane", false).setSoundType(SoundType.GLASS));
 	public static ItemBlock loamBricks = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "loam_bricks", MapColor.NETHERRACK).setSoundType(SoundType.STONE));
+	public static ItemBlock dolomiteSmooth = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "dolomite_smooth", MapColor.WHITE_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
+	public static ItemBlock dolomiteBricks = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "dolomite_bricks", MapColor.WHITE_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
+	public static ItemBlock dolomitePillar = new ItemBlock(new BlockPillar(Material.ROCK, 1.2F, "dolomite_pillar", MapColor.WHITE_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
+	public static ItemBlock dolomitePillarHead = new ItemBlock(new BlockPillarHead(Material.ROCK, 1.2F, "dolomite_pillar_head", MapColor.WHITE_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
+	public static ItemBlock quartzPillarHead = new ItemBlock(new BlockPillarHead(Material.ROCK, 0.8F, "quartz_pillar_head", MapColor.QUARTZ).setSoundType(SoundType.STONE));
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
 	public static ItemBlockMeta metalBlock = new ItemBlockMetaMaterial(new BlockStorageMetal());
 	public static ItemBlockMeta gemBlock = new ItemBlockMetaMaterial(new BlockStorageGem());
 	public static ItemBlockMeta relicstone = new ItemBlockMeta(new BlockRelicstone());
-	public static ItemBlock pillar = new ItemBlock(new BlockPillar());
-	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead());
+	public static ItemBlock pillar = new ItemBlock(new BlockPillar(Material.ROCK, 1.2F, "pillar_relicstone", MapColor.WOOD).setSoundType(SoundType.STONE));
+	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead(Material.ROCK, 1.2F, "pillar_head_relicstone", MapColor.WOOD).setSoundType(SoundType.STONE));
+	public static ItemBlock mobHeadRevenant = new ItemBlockMobHead(new BlockMobHead("revenant"));
 	public static ItemBlock lootVase = new ItemBlock(new BlockLootVase());
 	public static ItemBlock storageVase = new ItemBlock(new BlockStorageVase());
 	public static ItemBlock kiln = new ItemBlock(new BlockKiln());
 	public static ItemBlock grinder = new ItemBlock(new BlockGrinder());
 	public static ItemBlock forge = new ItemBlockForge(new BlockForge());
 
-	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0, "yellowstone");
-	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1, "silkstone");
-	public static StairSlabPair sunstoneStone = new StairSlabPair(rock, 2, "sunstone");
-	public static StairSlabPair voidshaleStone = new StairSlabPair(rock, 3, "voidshale");
-	public static StairSlabPair baetylStone = new StairSlabPair(rock, 4, "baetyl");
-	public static StairSlabPair relicstoneStone = new StairSlabPair(rock, 5, "relicstone");
+	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0, "yellowstone", true);
+	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1, "silkstone", true);
+	public static StairSlabPair sunstoneStone = new StairSlabPair(rock, 2, "sunstone", true);
+	public static StairSlabPair voidshaleStone = new StairSlabPair(rock, 3, "voidshale", true);
+	public static StairSlabPair baetylStone = new StairSlabPair(rock, 4, "baetyl", true);
+	public static StairSlabPair relicstoneStone = new StairSlabPair(rock, 5, "relicstone", true);
 
-	public static StairSlabPair yellowstoneBrick = new StairSlabPair(brick, 0, "yellowstone_bricks");
-	public static StairSlabPair silkstoneBrick = new StairSlabPair(brick, 1, "silkstone_bricks");
-	public static StairSlabPair sunstoneBrick = new StairSlabPair(brick, 2, "sunstone_bricks");
-	public static StairSlabPair voidshaleBrick = new StairSlabPair(brick, 3, "voidshale_bricks");
-	public static StairSlabPair baetylBrick = new StairSlabPair(brick, 4, "baetyl_bricks");
-	public static StairSlabPair relicstoneBrick = new StairSlabPair(brick, 5, "relicstone_bricks");
+	public static StairSlabPair yellowstoneBrick = new StairSlabPair(brick, 0, "yellowstone_bricks", true);
+	public static StairSlabPair silkstoneBrick = new StairSlabPair(brick, 1, "silkstone_bricks", true);
+	public static StairSlabPair sunstoneBrick = new StairSlabPair(brick, 2, "sunstone_bricks", true);
+	public static StairSlabPair voidshaleBrick = new StairSlabPair(brick, 3, "voidshale_bricks", true);
+	public static StairSlabPair baetylBrick = new StairSlabPair(brick, 4, "baetyl_bricks", true);
+	public static StairSlabPair relicstoneBrick = new StairSlabPair(brick, 5, "relicstone_bricks", true);
 
-	public static StairSlabPair relicstoneSmooth = new StairSlabPair(relicstone, 0, "relicstone_smooth");
-	public static StairSlabPair relicstoneCrackBrick = new StairSlabPair(relicstone, 1, "relicstone_bricks_cracked");
-	public static StairSlabPair relicstoneMossBrick = new StairSlabPair(relicstone, 2, "relicstone_bricks_mossy");
-	public static StairSlabPair relicstoneDraftBrick = new StairSlabPair(relicstone, 3, "relicstone_bricks_draft");
+	public static StairSlabPair relicstoneSmooth = new StairSlabPair(relicstone, 0, "relicstone_smooth", true);
+	public static StairSlabPair relicstoneCrackBrick = new StairSlabPair(relicstone, 1, "relicstone_bricks_cracked", true);
+	public static StairSlabPair relicstoneMossBrick = new StairSlabPair(relicstone, 2, "relicstone_bricks_mossy", true);
+	public static StairSlabPair relicstoneDraftBrick = new StairSlabPair(relicstone, 3, "relicstone_bricks_draft", true);
 	public static StairSlabPair relicstoneTile = new StairSlabPair(relicstone, 4, "relicstone_tile");
 	public static StairSlabPair relicstoneCrackTile = new StairSlabPair(relicstone, 5, "relicstone_tile_cracked");
 	public static StairSlabPair relicstoneMossTile = new StairSlabPair(relicstone, 6, "relicstone_tile_mossy");
 	public static StairSlabPair relicstoneDraftTile = new StairSlabPair(relicstone, 7, "relicstone_tile_draft");
 
-	public static StairSlabPair grainiteStone = new StairSlabPair(grainelStone, 0, "grainel_stone");
-	public static StairSlabPair grainiteBricks = new StairSlabPair(grainelStone, 1, "grainel_stone_bricks");
-	public static StairSlabPair loamBrick = new StairSlabPair(loamBricks, 0, "loam_bricks");
+	public static StairSlabPair grainiteStone = new StairSlabPair(grainelStone, 0, "grainel_stone", true);
+	public static StairSlabPair grainiteBricks = new StairSlabPair(grainelStone, 1, "grainel_stone_bricks", true);
+	public static StairSlabPair loamBrick = new StairSlabPair(loamBricks, 0, "loam_bricks", true);
+	public static StairSlabPair smoothDolomite = new StairSlabPair(dolomiteSmooth, 0, "dolomite_smooth");
 
 	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE, new WorldGenPlaneTree(true));
 	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS, new WorldGenPopulusTree(true));
@@ -195,6 +240,7 @@ public class Resources {
 	public static void registerItems() {
 		Resources.items.add(Resources.dimensionTp);
 		Resources.items.add(Resources.resource);
+		Resources.items.add(Resources.resource2);
 		Resources.items.add(Resources.food);
 		Resources.items.add(Resources.gear);
 		Resources.items.add(Resources.sharpBone);
@@ -209,6 +255,7 @@ public class Resources {
 		Resources.sideros.register();
 		Resources.molybdenumsteel.register();
 
+		Resources.aeternaeLeatherArmor.register();
 		Resources.chalkosArmor.register();
 		Resources.kassiterosArmor.register();
 		Resources.orichalcumArmor.register();
@@ -218,6 +265,8 @@ public class Resources {
 	public static void registerBlocks() {
 		Resources.registerBlock(Resources.soil);
 		Resources.registerBlock(Resources.grass);
+		Resources.registerBlock(Resources.farmLand);
+		Resources.registerBlock(Resources.fertilizedFarmLand);
 		Resources.registerBlock(Resources.moss);
 		Resources.registerBlock(Resources.tallGrass);
 		Resources.registerBlock(Resources.flower);
@@ -225,6 +274,13 @@ public class Resources {
 		Resources.registerBlock(Resources.herb);
 		Resources.registerBlock(Resources.bromelia);
 		Resources.registerBlock(Resources.cardon);
+		Resources.registerBlock(Resources.vineBloomy);
+		Resources.registerBlock(Resources.vineBranch);
+		Resources.registerBlock(Resources.vineBrushy);
+		Resources.registerBlock(Resources.vineDry);
+		Resources.registerBlock(Resources.vineReedy);
+		Resources.registerBlock(Resources.vineSwirly);
+		Resources.registerBlock(Resources.vineThorny);
 		Resources.registerBlock(Resources.planks);
 		Resources.registerBlock(Resources.aristone);
 		Resources.registerBlock(Resources.aristonePacked);
@@ -237,6 +293,11 @@ public class Resources {
 		Resources.registerBlock(Resources.grainelGlass);
 		Resources.registerBlock(Resources.grainelGlassPane);
 		Resources.registerBlock(Resources.loamBricks);
+		Resources.registerBlock(Resources.dolomiteSmooth);
+		Resources.registerBlock(Resources.dolomiteBricks);
+		Resources.registerBlock(Resources.dolomitePillar);
+		Resources.registerBlock(Resources.dolomitePillarHead);
+		Resources.registerBlock(Resources.quartzPillarHead);
 		Resources.registerBlock(Resources.calcite);
 		Resources.registerBlock(Resources.jasper);
 		Resources.registerBlock(Resources.zircon);
@@ -245,6 +306,7 @@ public class Resources {
 		Resources.registerBlock(Resources.relicstone);
 		Resources.registerBlock(Resources.pillar);
 		Resources.registerBlock(Resources.pillarHead);
+		Resources.registerBlock(Resources.mobHeadRevenant);
 		Resources.registerBlock(Resources.lootVase);
 		Resources.registerBlock(Resources.storageVase);
 		Resources.registerBlock(Resources.kiln);
@@ -287,6 +349,7 @@ public class Resources {
 		Resources.grainiteStone.register();
 		Resources.grainiteBricks.register();
 		Resources.loamBrick.register();
+		Resources.smoothDolomite.register();
 	}
 
 	public static void registerBlock(final ItemBlock block) {
@@ -366,6 +429,7 @@ public class Resources {
 		public String name;
 		public ItemBlockMaterialSlab slab;
 		public ItemBlockMaterial stairs;
+		public ItemBlockMaterial wall = null;
 
 		public StairSlabPair(ItemBlock baseBlock, int meta, String name) {
 			this.baseItem = baseBlock;
@@ -376,9 +440,19 @@ public class Resources {
 			this.stairs = new ItemBlockMaterial(new BlockCustomStairs(baseState, null));
 		}
 
+		public StairSlabPair(ItemBlock baseBlock, int meta, String name, boolean wall) {
+			this(baseBlock, meta, name);
+			if(wall) {
+				IBlockState baseState = baseBlock.getBlock().getStateFromMeta(meta);
+				this.wall = new ItemBlockMaterial(new BlockCustomWall(baseState, null));
+			}
+		}
+
 		public void register() {
 			Resources.registerBlock(slab);
 			Resources.registerBlock(stairs);
+			if (wall != null)
+				Resources.registerBlock(wall);
 		}
 	}
 
@@ -395,6 +469,8 @@ public class Resources {
 		public ItemBlockMaterial stairs;
 		public ItemBlockMaterialDoor door;
 		public ItemBlockMaterial trapdoor;
+		public ItemBlockMaterial workbench;
+		public ResourceLocation hagLoot;
 
 		public WoodSet(final BlockPlanks.WoodTypes type, WorldGenLOITree generator) {
 			this.type = type;
@@ -413,6 +489,8 @@ public class Resources {
 			this.stairs = new ItemBlockMaterial(new BlockCustomStairs(plankState, materialName));
 			this.door = new ItemBlockMaterialDoor(new BlockCustomDoor(plankState, materialName));
 			this.trapdoor = new ItemBlockMaterial(new BlockCustomTrapdoor(plankState, materialName));
+			this.workbench = new ItemBlockMaterial(new BlockCustomWorkbench(plankState, materialName));
+			this.hagLoot = new ResourceLocation(ModInformation.ID, "entities/forest_hag/" + type.unlocalizedName);
 		}
 
 		public void register() {
@@ -426,6 +504,25 @@ public class Resources {
 			Resources.registerBlock(stairs);
 			Resources.registerBlock(door);
 			Resources.registerBlock(trapdoor);
+			Resources.registerBlock(workbench);
 		}
+	}
+
+	public static WoodSet getWoodSetFromType(BlockPlanks.WoodTypes type) {
+		if (type == WoodTypes.PLANE)
+			return Resources.plane;
+		if (type == WoodTypes.POPULUS)
+			return Resources.populus;
+		if (type == WoodTypes.CYPRESS)
+			return Resources.cypress;
+		if (type == WoodTypes.FIR)
+			return Resources.fir;
+		if (type == WoodTypes.OLIVE)
+			return Resources.olive;
+		if (type == WoodTypes.LAUREL)
+			return Resources.laurel;
+		if (type == WoodTypes.DROUGHTROOT)
+			return Resources.droughtroot;
+		return Resources.plane;
 	}
 }

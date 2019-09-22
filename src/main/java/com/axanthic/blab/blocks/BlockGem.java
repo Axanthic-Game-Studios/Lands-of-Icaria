@@ -39,6 +39,7 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 		this.setHardness(1.2F);
 		this.fullBlock = false;
 		this.setLightOpacity(0);
+		this.translucent = true;
 		this.setUnlocalizedName(name);
 		unlocalizedName = name;
 		this.setLightLevel(0.7F);

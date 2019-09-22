@@ -3,12 +3,18 @@ package com.axanthic.loi.worldgen.biome;
 import java.util.Random;
 
 import com.axanthic.blab.Resources;
-import com.axanthic.blab.entity.EntityForestHag;
+import com.axanthic.blab.entity.EntityArachne;
+import com.axanthic.blab.entity.EntityArachneDrone;
+import com.axanthic.blab.entity.EntityArganHound;
+import com.axanthic.blab.entity.EntityCerver;
+import com.axanthic.blab.entity.EntityJellyfish;
+import com.axanthic.blab.entity.EntityMyrmeke;
 import com.axanthic.blab.entity.EntityRevenant;
 import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -35,8 +41,13 @@ public class BiomeDesert extends BiomeLOI {
 		spawnableMonsterList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
-		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityForestHag.class, 50, 1, 2));
-		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 1, 4));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityJellyfish.class, 100, 1, 2));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityMyrmeke.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityCerver.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArganHound.class, 200, 2, 5));
 
 		flowers.clear();
 		addFlower(Resources.flower.getBlock().getStateFromMeta(15), 20);
@@ -60,12 +71,16 @@ public class BiomeDesert extends BiomeLOI {
 		LOIBiomeDecorator biomeDecorator = new LOIBiomeDecorator();
 
 		biomeDecorator.treesPerChunk = 0;
-		biomeDecorator.extraTreeChance = 0.2F;
-		biomeDecorator.extraTreeAmount = 6;
+		biomeDecorator.extraTreeChance = 0.4F;
+		biomeDecorator.extraTreeAmount = 24;
 		biomeDecorator.flowersPerChunk = 4;
 		biomeDecorator.cactiPerChunk = 20;
 		biomeDecorator.grassPerChunk = 0;
+		biomeDecorator.generateSpikes = true;
 		biomeDecorator.treeGenerators.add(new WorldGenDroughtrootTree(false).init());
+		biomeDecorator.vines = new IBlockState[] {
+				Resources.vineDry.getBlock().getDefaultState()
+		};
 
 		return biomeDecorator;
 	}

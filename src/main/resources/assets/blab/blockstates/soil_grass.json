@@ -18,12 +18,7 @@
             { "model": "grass", "textures": { "side": "blab:blocks/soil_marl" }, "y": 180 },
             { "model": "grass", "textures": { "side": "blab:blocks/soil_marl" }, "y": 270 }
         ],
-		"mossy=true": [
-            { "model": "cube_bottom_top", "textures": { "side": "blab:blocks/soil_moss_side" } },
-            { "model": "cube_bottom_top", "textures": { "side": "blab:blocks/soil_moss_side" }, "y": 90 },
-            { "model": "cube_bottom_top", "textures": { "side": "blab:blocks/soil_moss_side" }, "y": 180 },
-            { "model": "cube_bottom_top", "textures": { "side": "blab:blocks/soil_moss_side" }, "y": 270 }
-        ],
+		"mossy=true": { "model": "cube_bottom_top", "textures": { "side": "blab:blocks/soil_moss_side" } },
 		"inventory":  { "model": "grass" }
     }
 }

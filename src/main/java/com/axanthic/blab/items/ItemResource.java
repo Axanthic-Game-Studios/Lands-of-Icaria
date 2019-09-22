@@ -11,7 +11,7 @@ public class ItemResource extends ItemMeta {
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 		int meta = stack.getMetadata();
-		if (meta == 0 || meta == 1 || meta == 2 || meta == 3 || meta == 5 || meta == 6 || meta == 7) {
+		if (meta == 0 || meta == 1 || meta == 2 || meta == 3 || meta == 5 || meta == 6 || meta == 7 || meta == 15) {
 			return "material." + names[meta];
 		}
 		return super.getUnlocalizedName() + "." + names[meta];

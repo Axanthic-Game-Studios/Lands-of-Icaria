@@ -33,7 +33,7 @@ public class BlockRock extends Block implements IBlockMeta {
 	public BlockRock(final String name) {
 		super(Material.ROCK);
 		this.setCreativeTab(Blab.modTabBlocks);
-		this.setHardness(1.2F);
+		this.setHardness(1.5F);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);
 		this.setDefaultState(this.getStateFromMeta(0));
@@ -120,6 +120,14 @@ public class BlockRock extends Block implements IBlockMeta {
 	@Override
 	public int getHarvestLevel(final IBlockState state) {
 		return StoneTypes.byMetadata(this.getMetaFromState(state)).mineLevel;
+	}
+
+	@Override
+	public float getPlayerRelativeBlockHardness(IBlockState state, EntityPlayer player, World worldIn, BlockPos pos) {
+		if (!canHarvestBlock(worldIn, pos, player)) {
+			return player.getDigSpeed(state, pos) / this.blockHardness / 100F;
+		}
+		return player.getDigSpeed(state, pos) / this.blockHardness / 30F;
 	}
 
 	@Override

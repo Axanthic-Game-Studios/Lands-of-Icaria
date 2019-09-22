@@ -117,6 +117,6 @@ public class WorldTypeLOI extends WorldType
 	@Override
 	public float getCloudHeight()
 	{
-		return 128.0F;
+		return 170.0F;
 	}
 }

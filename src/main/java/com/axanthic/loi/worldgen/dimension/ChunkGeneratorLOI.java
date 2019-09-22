@@ -3,7 +3,6 @@ package com.axanthic.loi.worldgen.dimension;
 import java.util.List;
 import java.util.Random;
 
-import com.axanthic.blab.Resources;
 import com.axanthic.blab.blocks.BlocksLOI;
 import com.axanthic.blab.utils.CellNoise;
 import com.axanthic.blab.utils.PerlinNoise;
@@ -268,8 +267,15 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 			for (int z = 0; z < sizeZ; ++z)
 			{
 				final float cell = this.cell.noise((wx + x) / 500d, (wz + z) / 500d, 1.0);
+				//float cell2 = this.cell.noise((wx + x), (wz + z), 0.07F) * 4F + this.perlin.noise2((wx + x) / 15f, (wz + z) / 15f) * 1F  - this.perlin.noise2((wx + x) / 5f, (wz + z) / 5f) * 1.7F;
+				float cell2 = this.perlin.noise2((wx + x) / 50f, (wz + z) / 50f) * 7F + this.perlin.noise2((wx + x) / 5f, (wz + z) / 5f) * 0.7F;
 				final double d3 = 0.0D;
-
+				
+				cell2 -= 4F;
+				if(cell2<0)
+					cell2 = 0;
+				
+				
 				for (int y = 0; y < sizeY; ++y)
 				{
 					// WHAT THE HELL IS UP WITH THESE VARIABLE NAMES
@@ -278,8 +284,16 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					final double d6 = this.br[index] / 512.0D;	//noise value
 					final double d7 = ((this.pnr[index] / 10.0D) + 1.0D) / 2.0D;	//noise value
 					double value;	//terrain smoothing value
+					//maybe somehting like air propability value?!
+					//or thin ness
+					//thiness is best
+					//the larger the thiness the thinner they get, somehow...
 					//WHAT THE HELL IS UP WITH THIS CODE
 
+					float verticalShape = this.perlin.noise3((wx + x)/100F, ((float)y/(float)sizeY), (wz + z)/100F);//should create a random shape based on the height
+					float cell3 = verticalShape * 100F * cell2;
+					
+					
 					if (d7 < 0.0D)
 					{
 						value = d5;
@@ -302,7 +316,9 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 						final double topSmoothing = (y - (sizeY - 4)) / 3.0F;
 						value = (value * (1.0D - topSmoothing)) + (-5D * topSmoothing);
 					}
-
+					
+					value += cell3;//the larger this value then it should no longer generate stone
+					
 					buffer[index] = cell < 0.2d ? value : value / 5;
 					++index;
 				}
@@ -422,14 +438,14 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 			{
 				Biome biome = biomesForGeneration[cx + cz * 16];
 				IBlockState upperBlockPrimary = null;
-				IBlockState topBlockPrimary = Resources.grass.getBlock().getDefaultState();
-				IBlockState fillerBlockPrimary = Resources.soil.getBlock().getDefaultState();
+				IBlockState topBlockPrimary = ChunkGeneratorLOI.GRASS;
+				IBlockState fillerBlockPrimary = ChunkGeneratorLOI.DIRT;
 				IBlockState upperBlockSecondary = null;
-				IBlockState topBlockSecondary = Resources.soil.getBlock().getStateFromMeta(1);
-				IBlockState fillerBlockSecondary = Resources.soil.getBlock().getStateFromMeta(1);
+				IBlockState topBlockSecondary = ChunkGeneratorLOI.MARLCOURSE;
+				IBlockState fillerBlockSecondary = ChunkGeneratorLOI.MARLCOURSE;
 				IBlockState upperBlockTertiary = null;
-				IBlockState topBlockTertiary = Resources.soil.getBlock().getStateFromMeta(2);
-				IBlockState fillerBlockTertiary = Resources.soil.getBlock().getDefaultState();
+				IBlockState topBlockTertiary = ChunkGeneratorLOI.LOAM;
+				IBlockState fillerBlockTertiary = ChunkGeneratorLOI.DIRT;
 
 				BiomeLOI biomeLOI = null;
 				if (biome instanceof BiomeLOI) {
