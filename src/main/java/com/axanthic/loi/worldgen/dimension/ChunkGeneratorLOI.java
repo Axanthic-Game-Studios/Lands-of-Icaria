@@ -9,7 +9,6 @@ import com.axanthic.loi.utils.PerlinNoise;
 import com.axanthic.loi.worldgen.biome.BiomeLOI;
 
 import net.minecraft.block.BlockFalling;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
@@ -51,7 +50,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	private final IBlockState oceanBlock = Blocks.WATER.getDefaultState();
 
 	private static final int CHUNK_WIDTH = 16;
-	private static final int CHUNK_HEIGHT = 256;
+	public static final int CHUNK_HEIGHT = 256;
 
 	/*****************************************************************/
 	/// REFERENCES
@@ -67,6 +66,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	public NoiseGeneratorOctaves scaleNoise;
 	public NoiseGeneratorOctaves depthNoise;
 	private final NoiseGeneratorPerlin surfaceNoise;
+	private final OreGeneratorLOI oreGen;
 
 	/** Determines whether something other than rock can be generated at a location */
 	private final NoiseGeneratorOctaves exculsivityNoiseGen;
@@ -97,6 +97,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		this.cell = new CellNoise(seed, (short) 0);
 		this.cell.setUseDistance(true);
 		this.perlin = new PerlinNoise(seed);
+		this.oreGen = new OreGeneratorLOI(perlin);
+
 
 		this.heightMap = new double[825];
 		this.biomeWeights = new float[25];
@@ -270,12 +272,12 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 				//float cell2 = this.cell.noise((wx + x), (wz + z), 0.07F) * 4F + this.perlin.noise2((wx + x) / 15f, (wz + z) / 15f) * 1F  - this.perlin.noise2((wx + x) / 5f, (wz + z) / 5f) * 1.7F;
 				float cell2 = this.perlin.noise2((wx + x) / 50f, (wz + z) / 50f) * 7F + this.perlin.noise2((wx + x) / 5f, (wz + z) / 5f) * 0.7F;
 				final double d3 = 0.0D;
-				
+
 				cell2 -= 4F;
 				if(cell2<0)
 					cell2 = 0;
-				
-				
+
+
 				for (int y = 0; y < sizeY; ++y)
 				{
 					// WHAT THE HELL IS UP WITH THESE VARIABLE NAMES
@@ -292,8 +294,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 					float verticalShape = this.perlin.noise3((wx + x)/100F, ((float)y/(float)sizeY), (wz + z)/100F);//should create a random shape based on the height
 					float cell3 = verticalShape * 100F * cell2;
-					
-					
+
+
 					if (d7 < 0.0D)
 					{
 						value = d5;
@@ -316,9 +318,9 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 						final double topSmoothing = (y - (sizeY - 4)) / 3.0F;
 						value = (value * (1.0D - topSmoothing)) + (-5D * topSmoothing);
 					}
-					
+
 					value += cell3;//the larger this value then it should no longer generate stone
-					
+
 					buffer[index] = cell < 0.2d ? value : value / 5;
 					++index;
 				}
@@ -328,9 +330,11 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		return buffer;
 	}
 
+	//commented this method out because it seemed useless
+
 	//Someday, people will be looking at my petrified corpse in a museum, and they will wonder:
 	//"what horrible monster caused this man so much frustration?" 
-	public void buildSurfaces(final int wcx, final int wcz, final ChunkPrimer primer)
+	/*public void buildSurfaces(final int wcx, final int wcz, final ChunkPrimer primer)
 	{
 		final int sea_level = this._world.getSeaLevel() + 1;
 		final double impact = 0.03125D;
@@ -414,7 +418,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		}
 		//Therapist: On a scale of 1-10, how much do you want to smash something?
 		//Me: [profusely sweating] Is 10 a limit or a guideline?
-	}
+	}*/
 
 	/**
 	 * This is what places the blocks INTO the surfaces generated above
@@ -526,6 +530,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 						}
 					}
 				}
+				this.oreGen.generate(cx, cz, wx, wz, primer);
 			}
 		}
 	}

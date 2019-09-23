@@ -1,64 +1,68 @@
 package com.axanthic.loi.worldgen.dimension;
 
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.fml.common.IWorldGenerator;
-import org.apache.commons.lang3.Validate;
-
+import net.minecraft.init.Blocks;
+import net.minecraft.world.chunk.ChunkPrimer;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.utils.PerlinNoise;
 import com.google.common.base.Predicate;
 
-import java.util.Random;
+public class OreGeneratorLOI {
+	private static final LOIOregen ligniteGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(0), new RockPredicate(0), -0.1F, 0.1F, 0.5F);
+	private static final LOIOregen chalkosGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(1), new RockPredicate(0), -0.2F, 0.2F, 1.0F);
+	private static final LOIOregen kassiterosGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(2), new RockPredicate(1), -0.2F, 0.2F, 0.5F);
+	private static final LOIOregen dolomiteGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(3), new RockPredicate(1), -0.2F, 0.2F, 0.75F);
+	private static final LOIOregen molibosGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(4), new RockPredicate(1), -0.2F, 0.2F, 1.0F);
+	private static final LOIOregen vanadiumGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(5), new RockPredicate(2), -0.2F, 0.2F, 0.5F);
+	private static final LOIOregen sliverGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(6), new RockPredicate(2), -0.2F, 0.2F, 1.0F);
+	private static final LOIOregen siderosGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(7), new RockPredicate(3), -0.2F, 0.2F, 0.5F);
+	private static final LOIOregen anthraciteGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(8), new RockPredicate(3), -0.2F, 0.2F, 0.75F);
+	private static final LOIOregen molybdenumGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(9), new RockPredicate(3), -0.2F, 0.2F, 1.0F);
+	private static final LOIOregen bluridiumGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(10), new RockPredicate(4), -0.2F, 0.2F, 0.5F);
+	private static final LOIOregen hyliastrumGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(11), new RockPredicate(4), -0.2F, 0.2F, 0.75F);
+	private static final LOIOregen abyssalEssenceGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(12), new RockPredicate(4), -0.2F, 0.2F, 1.0F);
 
-public class OreGeneratorLOI implements IWorldGenerator {
-	private final WorldGenMinable ligniteGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(0), 19, new RockPredicate(0));
-	private final WorldGenMinable chalkosGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(1), 11, new RockPredicate(0));
-	private final WorldGenMinable kassiterosGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(2), 11, new RockPredicate(1));
-	private final WorldGenMinable dolomiteGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(3), 16, new RockPredicate(1));
-	//private final WorldGenMinable molibosGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(4), 6, new RockPredicate(1));
-	private final WorldGenMinable vanadiumGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(5), 11, new RockPredicate(2));
-	//private final WorldGenMinable sliverGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(6), 6, new RockPredicate(2));
-	private final WorldGenMinable siderosGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(7), 11, new RockPredicate(3));
-	private final WorldGenMinable anthraciteGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(8), 10, new RockPredicate(3));
-	private final WorldGenMinable molybdenumGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(9), 10, new RockPredicate(3));
-	//private final WorldGenMinable bluridiumGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(10), 6, new RockPredicate(4));
-	//private final WorldGenMinable hyliastrumGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(11), 6, new RockPredicate(4));
-	//private final WorldGenMinable abyssalEssenceGenerator = new WorldGenMinable(Resources.ore.getBlock().getStateFromMeta(12), 6, new RockPredicate(4));
+	private final PerlinNoise oreNoise;
 
-	public OreGeneratorLOI() {
+	public OreGeneratorLOI(PerlinNoise noise) {
+		this.oreNoise = noise;
 	}
 
-	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator generator, IChunkProvider provider) {
-		generate(ligniteGenerator, random, chunkX, chunkZ, world, 20, 0, 120);
-		generate(chalkosGenerator, random, chunkX, chunkZ, world, 20, 0, 120);
-		generate(kassiterosGenerator, random, chunkX, chunkZ, world, 20, 0, 120);
-		generate(dolomiteGenerator, random, chunkX, chunkZ, world, 20, 0, 120);
-		//generate(molibosGenerator, random, chunkX, chunkZ, world, 20, 0, 120);
-		generate(vanadiumGenerator, random, chunkX, chunkZ, world, 2, 0, 120);
-		//generate(sliverGenerator, random, chunkX, chunkZ, world, 20, 0, 120);
-		generate(siderosGenerator, random, chunkX, chunkZ, world, 2, 0, 120);
-		generate(anthraciteGenerator, random, chunkX, chunkZ, world, 8, 0, 120);
-		generate(molybdenumGenerator, random, chunkX, chunkZ, world, 1, 0, 120);
-		//generate(bluridiumGenerator, random, chunkX, chunkZ, world, 20, 0, 120);
-		//generate(hyliastrumGenerator, random, chunkX, chunkZ, world, 20, 0, 120);
-		//generate(abyssalEssenceGenerator, random, chunkX, chunkZ, world, 20, 0, 120);
+	public void generate(final int x, final int z, final int wx, final int wz, final ChunkPrimer primer) {
+		generateOre(ligniteGenerator, x, z, wx, wz, primer);
+		generateOre(chalkosGenerator, x, z, wx, wz, primer);
+		generateOre(kassiterosGenerator, x, z, wx, wz, primer);
+		generateOre(dolomiteGenerator, x, z, wx, wz, primer);
+		generateOre(molibosGenerator, x, z, wx, wz, primer);
+		generateOre(vanadiumGenerator, x, z, wx, wz, primer);
+		generateOre(sliverGenerator, x, z, wx, wz, primer);
+		generateOre(anthraciteGenerator, x, z, wx, wz, primer);
+		generateOre(siderosGenerator, x, z, wx, wz, primer);
+		generateOre(molybdenumGenerator, x, z, wx, wz, primer);
+		generateOre(bluridiumGenerator, x, z, wx, wz, primer);
+		generateOre(hyliastrumGenerator, x, z, wx, wz, primer);
+		generateOre(abyssalEssenceGenerator, x, z, wx, wz, primer);
 	}
 
-	private void generate(WorldGenerator generator, Random random, int chunkX, int chunkZ, World world, int spawnTries, int minHeight, int maxHeight) {
-		Validate.isTrue(minHeight >= 0 && maxHeight <= 256);
-
-		for (int i = 0; i < spawnTries; i++) {
-			int x = chunkX * 16 + random.nextInt(16);
-			int y = minHeight + random.nextInt(maxHeight - minHeight + 1);
-			int z = chunkZ * 16 + random.nextInt(16);
-
-			generator.generate(world, random, new BlockPos(x, y, z));
+	private void generateOre(LOIOregen oreGen, final int x, final int z, final int wx, final int wz, final ChunkPrimer primer) {
+		double value = this.oreNoise.noise((wx + 2221D) / (100D * oreGen.noiseSize), (wz + 2221D) / (100D * oreGen.noiseSize));
+		System.out.println("value is: " + value);
+		if (value > oreGen.indexBegin && value < oreGen.indexEnd) {
+			for(int y = ChunkGeneratorLOI.CHUNK_HEIGHT; y > 1; y--) {
+				IBlockState b = primer.getBlockState(x, y, z);
+				final IBlockState upper = primer.getBlockState(x, y + 1, z);
+				if(b.getBlock() != Blocks.AIR && upper.getBlock() == Blocks.AIR) {
+					for(int gy = 1; gy < y; gy++) {
+						b = primer.getBlockState(x, y - gy, z);
+						if(b.getBlock() == Blocks.AIR) {
+							break;
+						}
+						if (oreGen.rock.apply(primer.getBlockState(x, y - gy, z))) {
+							primer.setBlockState(x, y - gy, z, oreGen.ore);
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -75,6 +79,23 @@ public class OreGeneratorLOI implements IWorldGenerator {
 			} else {
 				return false;
 			}
+		}
+	}
+
+	public static class LOIOregen {
+
+		public IBlockState ore;
+		public RockPredicate rock;
+		public Float indexBegin;
+		public Float indexEnd;
+		public Float noiseSize;
+
+		public LOIOregen (IBlockState ore, RockPredicate rock, Float indexBegin, Float indexEnd, Float noiseSize) {
+			this.ore = ore;
+			this.rock = rock;
+			this.indexBegin = indexBegin;
+			this.indexEnd = indexEnd;
+			this.noiseSize = noiseSize;
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package com.axanthic.loi.worldgen.feature;
+/*package com.axanthic.loi.worldgen.feature;
 
 import java.util.Random;
 
@@ -75,4 +75,4 @@ public class WorldGenBlockBlobLOI extends WorldGenerator
 		position = position.down();
 		}
 	}
-}
+}*/

@@ -9,7 +9,6 @@ import com.axanthic.loi.blocks.BlockCardonCactus;
 import com.axanthic.loi.blocks.BlockGem;
 import com.axanthic.loi.blocks.BlockRock;
 import com.axanthic.loi.blocks.BlockTallGrass;
-import com.axanthic.loi.worldgen.dimension.OreGeneratorLOI;
 import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
 
 import net.minecraft.block.BlockVine;
@@ -43,8 +42,6 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			Resources.vineThorny.getBlock().getDefaultState()
 	};
 
-	public OreGeneratorLOI oreGen = new OreGeneratorLOI();
-
 	@Override
 	public void decorate(World worldIn, Random random, Biome biome, BlockPos pos) {
 		if (this.decorating) {
@@ -65,7 +62,6 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			this.generateTrees(worldIn, random, biome, pos);
 			this.generateVines(worldIn, random, biome, pos);
 			this.generateCrystals(worldIn, random, biome, pos);
-			oreGen.generate(random, forgeChunkPos.x, forgeChunkPos.z, worldIn, null, worldIn.getChunkProvider());
 
 			this.decorating = false;
 		}
