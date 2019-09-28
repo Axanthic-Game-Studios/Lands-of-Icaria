@@ -4,6 +4,7 @@ import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
 import net.minecraftforge.common.config.Config.LangKey;
 import net.minecraftforge.common.config.Config.Name;
+import net.minecraftforge.common.config.Config.RangeDouble;
 import net.minecraftforge.common.config.Config.RequiresMcRestart;
 
 @Config(modid = ModInformation.ID, name = ModInformation.ID, category = "")
@@ -31,76 +32,83 @@ public class LOIConfig {
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.lignite")
-		public OreSettings lignite = new OreSettings(-0.02F, -0.0F, 1.0F, 0000);
+		public OreSettings lignite = new OreSettings(true, -0.02D, -0.0D, 1.0D, 0000);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.chalkos")
-		public OreSettings chalkos = new OreSettings(-0.115F, -0.1F, 0.75F, 2000);
+		public OreSettings chalkos = new OreSettings(true, -0.115D, -0.1D, 0.75D, 2000);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.dolomite")
-		public OreSettings dolomite = new OreSettings(0.0F, 0.02F, 1.0F, 4000);
+		public OreSettings dolomite = new OreSettings(true, 0.0D, 0.02D, 1.0D, 4000);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.kassiteros")
-		public OreSettings kassiteros = new OreSettings(0.1F, 0.115F, 0.75F, 6000);
+		public OreSettings kassiteros = new OreSettings(true, 0.1D, 0.115D, 0.75D, 6000);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.molibos")
-		public OreSettings molibos = new OreSettings(0.2F, 0.21F, 0.5F, 8000);
+		public OreSettings molibos = new OreSettings(false, 0.2D, 0.21D, 0.5D, 8000);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.sliver")
-		public OreSettings sliver = new OreSettings(-0.22F, -0.2F, 1.0F, 1000);
+		public OreSettings sliver = new OreSettings(false, -0.22D, -0.2D, 1.0D, 1000);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.vanadium")
-		public OreSettings vanadium = new OreSettings(-0.31F, -0.3F, 0.5F, 3000);
+		public OreSettings vanadium = new OreSettings(true, -0.31D, -0.3D, 0.5D, 3000);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.anthracite")
-		public OreSettings anthracite = new OreSettings(0.3F, 0.32F, 1.0F, 5000);
+		public OreSettings anthracite = new OreSettings(true, 0.3D, 0.32D, 1.0D, 5000);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.sideros")
-		public OreSettings sideros = new OreSettings(0.4F, 0.415F, 0.75F, 7000);
+		public OreSettings sideros = new OreSettings(true, 0.4D, 0.415D, 0.75D, 7000);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.molybdenum")
-		public OreSettings molybdenum = new OreSettings(0.5F, 0.51F, 0.5F, 9000);
+		public OreSettings molybdenum = new OreSettings(true, 0.5D, 0.51D, 0.5D, 9000);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.hyliastrum")
-		public OreSettings hyliastrum = new OreSettings(-0.62F, -0.6F, 1.0F, 0000);
+		public OreSettings hyliastrum = new OreSettings(false, -0.62D, -0.6D, 1.0D, 0000);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.abyssalessence")
-		public OreSettings abyssalEssence = new OreSettings(-0.615F, -0.6F, 0.75F, 2000);
+		public OreSettings abyssalEssence = new OreSettings(false, -0.615D, -0.6D, 0.75D, 2000);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.bluridium")
-		public OreSettings bluridium = new OreSettings(-0.71F, -0.7F, 0.5F, 4000);
+		public OreSettings bluridium = new OreSettings(false, -0.71D, -0.7D, 0.5D, 4000);
 
 		public static class OreSettings {
 
 			@RequiresMcRestart
+			@Name("enabled")
+			@LangKey("loi.config.worldgen.ore.enabled")
+			public boolean enabled;
+			@RequiresMcRestart
 			@Name("veinbegin")
 			@LangKey("loi.config.worldgen.ore.indexbegin")
-			public Float indexBegin;
+			@RangeDouble(min = -1.0D, max = 1.0D)
+			public Double indexBegin;
 			@RequiresMcRestart
 			@Name("veinend")
 			@LangKey("loi.config.worldgen.ore.indexend")
-			public Float indexEnd;
+			@RangeDouble(min = -1.0D, max = 1.0D)
+			public Double indexEnd;
 			@RequiresMcRestart
 			@Name("veinscale")
 			@LangKey("loi.config.worldgen.ore.noisesize")
-			public Float noiseSize;
+			public Double noiseSize;
 			@RequiresMcRestart
 			@Name("generationoffset")
 			@LangKey("loi.config.worldgen.ore.offset")
 			public int offset;
 
-			public OreSettings (Float indexBegin, Float indexEnd, Float noiseSize, int offset) {
+			public OreSettings (boolean enabled, Double indexBegin, Double indexEnd, Double noiseSize, int offset) {
+				this.enabled = enabled;
 				this.indexBegin = indexBegin;
 				this.indexEnd = indexEnd;
 				this.noiseSize = noiseSize;

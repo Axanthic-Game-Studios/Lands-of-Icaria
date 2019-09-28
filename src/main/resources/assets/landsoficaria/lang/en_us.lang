@@ -215,6 +215,7 @@ loi.config.worldgen.molybdenum=Molybdenum
 loi.config.worldgen.hyliastrum=Hyliastrum
 loi.config.worldgen.abyssalessence=Abyssalessence
 loi.config.worldgen.bluridium=Bluridium
+loi.config.worldgen.ore.enabled=Enabled
 loi.config.worldgen.ore.indexbegin=Vein begin
 loi.config.worldgen.ore.indexend=Vein end
 loi.config.worldgen.ore.noisesize=Vein scale

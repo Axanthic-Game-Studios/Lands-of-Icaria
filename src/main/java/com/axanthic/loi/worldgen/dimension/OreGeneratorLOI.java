@@ -49,6 +49,8 @@ public class OreGeneratorLOI {
 	}
 
 	private void generateOre(LOIOregen oreGen, final int x, final int z, final int wx, final int wz, final ChunkPrimer primer) {
+		if (!oreGen.enabled)
+			return;
 		float offset = this.oreNoise.noise2((wx + oreGen.offset) / (70F * oreGen.noiseSize), (wz + oreGen.offset) / (70F * oreGen.noiseSize)) * 0.25F;
 		float thinnness = Math.max(0.0F, this.oreNoise.noise2((wx + oreGen.offset) / (40F * oreGen.noiseSize), (wz + oreGen.offset) / (40F * oreGen.noiseSize)) * (oreGen.indexBegin - oreGen.indexEnd) * 1.5F);
 		for(int y = ChunkGeneratorLOI.CHUNK_HEIGHT; y > 1; y--) {
@@ -91,18 +93,20 @@ public class OreGeneratorLOI {
 
 		public IBlockState ore;
 		public RockPredicate rock;
+		public boolean enabled;
 		public Float indexBegin;
 		public Float indexEnd;
 		public Float noiseSize;
 		public int offset;
 
 		public LOIOregen (IBlockState ore, RockPredicate rock, OreSettings settings) {
-			this(ore, rock, settings.indexBegin, settings.indexEnd, settings.noiseSize, settings.offset);
+			this(ore, rock, settings.enabled, settings.indexBegin.floatValue(), settings.indexEnd.floatValue(), settings.noiseSize.floatValue(), settings.offset);
 		}
 
-		public LOIOregen (IBlockState ore, RockPredicate rock, Float indexBegin, Float indexEnd, Float noiseSize, int offset) {
+		public LOIOregen (IBlockState ore, RockPredicate rock, boolean enabled, Float indexBegin, Float indexEnd, Float noiseSize, int offset) {
 			this.ore = ore;
 			this.rock = rock;
+			this.enabled = enabled;
 			this.indexBegin = indexBegin;
 			this.indexEnd = indexEnd;
 			this.noiseSize = noiseSize;
