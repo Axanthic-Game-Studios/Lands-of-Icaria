@@ -7,7 +7,6 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
-import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
@@ -95,7 +94,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -126,11 +124,9 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityCerver.class, RenderCerver::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityArganHound.class, RenderArganHound::new);
 
-		if (LOIConfig.compat.albedo && Loader.isModLoaded("albedo")) {
-			emissiveTextures.put("calcite", new String[]{ ModInformation.ID + ":blocks/gem_calcite_model" });
-			emissiveTextures.put("jasper", new String[]{ ModInformation.ID + ":blocks/gem_jasper_model" });
-			emissiveTextures.put("zircon", new String[]{ ModInformation.ID + ":blocks/gem_zircon_model" });
-		}
+		emissiveTextures.put("calcite", new String[]{ ModInformation.ID + ":blocks/gem_calcite_model" });
+		emissiveTextures.put("jasper", new String[]{ ModInformation.ID + ":blocks/gem_jasper_model" });
+		emissiveTextures.put("zircon", new String[]{ ModInformation.ID + ":blocks/gem_zircon_model" });
 		emissiveTextures.put("block_metal", new String[]{ ModInformation.ID + ":blocks/metal_bluridium_block" });
 		emissiveTextures.put("ore", new String[]{ ModInformation.ID + ":blocks/rock_baetyl_ore_bluridium_overlay" });
 		//emissiveTextures.put("crafting_forge", new String[]{ ModInformation.ID + ":blocks/crafting_forge_fire" });

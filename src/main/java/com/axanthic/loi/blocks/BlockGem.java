@@ -45,7 +45,7 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 		this.setUnlocalizedName(name);
 		unlocalizedName = name;
 		if (!LOIConfig.compat.albedo && Loader.isModLoaded("albedo"))
-			this.setLightLevel(1.0F);
+			this.setLightLevel(0.4F);
 		this.setRegistryName(ModInformation.ID, name);
 		this.setSoundType(SoundType.GLASS);
 		this.hasTileEntity = LOIConfig.compat.albedo && Loader.isModLoaded("albedo");
@@ -59,11 +59,11 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 	@Nullable
 	public TileEntity createTileEntity(World world, IBlockState state) {
 		if (unlocalizedName.equals("calcite"))
-			return new TileEntityColoredLight(1.0F, 0.714F, 0.557F);
+			return new TileEntityColoredLight(1.0F * 0.5F, 0.714F * 0.5F, 0.557F * 0.5F);
 		if (unlocalizedName.equals("jasper"))
-			return new TileEntityColoredLight(1.0F, 0.318F, 0.396F);
+			return new TileEntityColoredLight(1.0F * 0.5F, 0.318F * 0.5F, 0.396F * 0.5F);
 		if (unlocalizedName.equals("zircon"))
-			return new TileEntityColoredLight(0.361F, 0.467F, 1.0F);
+			return new TileEntityColoredLight(0.361F * 0.5F, 0.467F * 0.5F, 1.0F * 0.5F);
 		return new TileEntityColoredLight();
 	}
 
