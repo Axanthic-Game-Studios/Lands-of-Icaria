@@ -1,10 +1,13 @@
 package com.axanthic.loi.proxy;
 
 import java.awt.Color;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Nullable;
 
+import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
@@ -52,6 +55,7 @@ import com.axanthic.loi.tileentity.TileEntityGrinder;
 import com.axanthic.loi.tileentity.TileEntityMobHead;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererGrinder;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererMobHead;
+import com.axanthic.loi.utils.BakedModelEmissive;
 import com.axanthic.loi.utils.LOIItemStackRenderer;
 import com.axanthic.loi.utils.MessageCustomReachAttack;
 import com.google.common.base.Predicate;
@@ -83,6 +87,7 @@ import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -90,6 +95,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -100,6 +106,7 @@ public class ClientProxy extends CommonProxy {
 	public static final SoundEvent GRIND = new SoundEvent(SOUND_GRIND).setRegistryName(SOUND_GRIND);
 	public static final ResourceLocation SOUND_CERAMIC_BREAK = new ResourceLocation(ModInformation.ID, "block.ceramic.break");
 	public static final SoundEvent CERAMIC_BREAK = new SoundEvent(SOUND_CERAMIC_BREAK).setRegistryName(SOUND_CERAMIC_BREAK);
+	public static Map<String, String[]> emissiveTextures = new HashMap<String, String[]>();
 
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
@@ -118,6 +125,16 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMyrmeke.class, RenderMyrmeke::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCerver.class, RenderCerver::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityArganHound.class, RenderArganHound::new);
+
+		if (LOIConfig.compat.albedo && Loader.isModLoaded("albedo")) {
+			emissiveTextures.put("calcite", new String[]{ ModInformation.ID + ":blocks/gem_calcite_model" });
+			emissiveTextures.put("jasper", new String[]{ ModInformation.ID + ":blocks/gem_jasper_model" });
+			emissiveTextures.put("zircon", new String[]{ ModInformation.ID + ":blocks/gem_zircon_model" });
+		}
+		emissiveTextures.put("block_metal", new String[]{ ModInformation.ID + ":blocks/metal_bluridium_block" });
+		emissiveTextures.put("ore", new String[]{ ModInformation.ID + ":blocks/rock_baetyl_ore_bluridium_overlay" });
+		//emissiveTextures.put("crafting_forge", new String[]{ ModInformation.ID + ":blocks/crafting_forge_fire" });
+		//emissiveTextures.put("crafting_kiln", new String[]{ ModInformation.ID + ":blocks/crafting_kiln_fire" });
 
 		LOIItemStackRenderer.LOIInstance = new LOIItemStackRenderer();
 	}
@@ -197,6 +214,15 @@ public class ClientProxy extends CommonProxy {
 
 		//register special item renderers here
 		Resources.mobHeadRevenant.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+	}
+
+	@Override
+	public void onModelBake(ModelBakeEvent event) {
+		for (ModelResourceLocation resource : event.getModelRegistry().getKeys()) {
+			if (resource.getResourceDomain().equals(ModInformation.ID) && emissiveTextures.containsKey(resource.getResourcePath())) {
+				event.getModelRegistry().putObject(resource, new BakedModelEmissive(event.getModelRegistry().getObject(resource), emissiveTextures.get(resource.getResourcePath())));
+			}
+		}
 	}
 
 	@Override

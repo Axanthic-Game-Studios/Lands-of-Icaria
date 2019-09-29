@@ -17,6 +17,7 @@ import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -95,6 +96,11 @@ public class LandsOfIcaria {
 	@SubscribeEvent
 	public void modelRegistry(ModelRegistryEvent event) {
 		LandsOfIcaria.proxy.registerModels(event);
+	}
+
+	@SubscribeEvent
+	public void modelBake(ModelBakeEvent event) {
+		LandsOfIcaria.proxy.onModelBake(event);
 	}
 
 	@SubscribeEvent

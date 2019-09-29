@@ -44,6 +44,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.common.DimensionManager;
@@ -122,9 +123,9 @@ public class CommonProxy {
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
-		
+
 	}
-	
+
 	public void ConfigChanged(OnConfigChangedEvent event) {
 		if (event.getModID().equals(ModInformation.ID)) {
 			ConfigManager.sync(ModInformation.ID, Type.INSTANCE);
@@ -151,23 +152,27 @@ public class CommonProxy {
 	}
 
 	public void registerModels(ModelRegistryEvent event) {
-		
+
+	}
+
+	public void onModelBake(ModelBakeEvent event) {
+
 	}
 
 	public void registerBlockColors(ColorHandlerEvent.Block event) {
-		
+
 	}
 
 	public void registerItemColors(ColorHandlerEvent.Item event) {
-		
+
 	}
 
 	public void registerSounds(RegistryEvent.Register<SoundEvent> event) {
-		
+
 	}
 
 	public void onMouseEvent(MouseEvent event) {
-		
+
 	}
 
 	public void onAttackEntityEvent(AttackEntityEvent event) {
