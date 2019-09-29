@@ -127,6 +127,7 @@ public class ClientProxy extends CommonProxy {
 		emissiveTextures.put("calcite", new String[]{ ModInformation.ID + ":blocks/gem_calcite_model" });
 		emissiveTextures.put("jasper", new String[]{ ModInformation.ID + ":blocks/gem_jasper_model" });
 		emissiveTextures.put("zircon", new String[]{ ModInformation.ID + ":blocks/gem_zircon_model" });
+		emissiveTextures.put("block_gem", new String[]{ ModInformation.ID + ":blocks/mineral_calcite_block", ModInformation.ID + ":blocks/mineral_jasper_block", ModInformation.ID + ":blocks/mineral_zircon_block" });
 		emissiveTextures.put("block_metal", new String[]{ ModInformation.ID + ":blocks/metal_bluridium_block" });
 		emissiveTextures.put("ore", new String[]{ ModInformation.ID + ":blocks/rock_baetyl_ore_bluridium_overlay" });
 		//emissiveTextures.put("crafting_forge", new String[]{ ModInformation.ID + ":blocks/crafting_forge_fire" });
