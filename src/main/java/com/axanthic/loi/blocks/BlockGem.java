@@ -8,7 +8,7 @@ import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
-import com.axanthic.loi.utils.TileEntityColoredLight;
+import com.axanthic.loi.tileentity.TileEntityColoredLight;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;

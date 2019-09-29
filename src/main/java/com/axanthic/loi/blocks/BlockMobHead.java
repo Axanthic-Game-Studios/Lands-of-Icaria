@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.utils.TileEntityMobHead;
+import com.axanthic.loi.tileentity.TileEntityMobHead;
 
 import net.minecraft.block.BlockSkull;
 import net.minecraft.block.SoundType;

@@ -3,7 +3,7 @@ package com.axanthic.loi.blocks;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.gui.GuiHandlerLOI;
-import com.axanthic.loi.utils.TileEntityGrinder;
+import com.axanthic.loi.tileentity.TileEntityGrinder;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;

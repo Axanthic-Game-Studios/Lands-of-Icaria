@@ -1,6 +1,6 @@
 package com.axanthic.loi.gui;
 
-import com.axanthic.loi.utils.TileEntityForge;
+import com.axanthic.loi.tileentity.TileEntityForge;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

@@ -1,7 +1,7 @@
 package com.axanthic.loi.items;
 
 import com.axanthic.loi.blocks.BlockMobHead;
-import com.axanthic.loi.utils.TileEntityMobHead;
+import com.axanthic.loi.tileentity.TileEntityMobHead;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;

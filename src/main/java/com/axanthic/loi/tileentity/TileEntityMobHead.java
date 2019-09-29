@@ -1,4 +1,4 @@
-package com.axanthic.loi.utils;
+package com.axanthic.loi.tileentity;
 
 import net.minecraft.block.BlockSkull;
 import net.minecraft.nbt.NBTTagCompound;

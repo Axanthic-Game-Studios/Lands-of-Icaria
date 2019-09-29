@@ -1,11 +1,11 @@
-package com.axanthic.loi.utils;
+package com.axanthic.loi.tileentity;
 
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.Recipes;
-import com.axanthic.loi.blocks.BlockGrinder;
+import com.axanthic.loi.blocks.BlockKiln;
 import com.axanthic.loi.gui.ContainerKiln;
-import com.axanthic.loi.proxy.ClientProxy;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
@@ -14,27 +14,29 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.inventory.SlotFurnaceFuel;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBoat;
+import net.minecraft.item.ItemDoor;
+import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemTool;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.datafix.FixTypes;
 import net.minecraft.util.datafix.walkers.ItemStackDataLists;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class TileEntityGrinder extends TileEntityLockable implements ITickable, ISidedInventory {
+public class TileEntityKiln extends TileEntityLockable implements ITickable, ISidedInventory {
 	private static final int[] SLOTS_TOP = new int[] { 0 };
 	private static final int[] SLOTS_BOTTOM = new int[] { 2, 1 };
 	private static final int[] SLOTS_SIDES = new int[] { 1 };
@@ -43,7 +45,6 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 	private int currentItemBurnTime;
 	private int cookTime;
 	private int totalCookTime;
-	private int lastSound = 285;
 	private String customName;
 
 	/**
@@ -109,7 +110,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 	 * Get the name of this object. For players this returns their username
 	 */
 	public String getName() {
-		return this.hasCustomName() ? this.customName : "container.grinder";
+		return this.hasCustomName() ? this.customName : "container.kiln";
 	}
 
 	/**
@@ -125,7 +126,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 
 	public static void registerFixesFurnace(DataFixer fixer) {
 		fixer.registerWalker(FixTypes.BLOCK_ENTITY,
-				new ItemStackDataLists(TileEntityGrinder.class, new String[] { "Items" }));
+				new ItemStackDataLists(TileEntityKiln.class, new String[] { "Items" }));
 	}
 
 	public void readFromNBT(NBTTagCompound compound) {
@@ -156,27 +157,6 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 		return compound;
 	}
 
-	@Override
-	public NBTTagCompound getUpdateTag() {
-		return this.writeToNBT(new NBTTagCompound());
-	}
-
-	@Override
-	public void handleUpdateTag(NBTTagCompound nbt) {
-		this.readFromNBT(nbt);
-	}
-
-	@Override
-	public SPacketUpdateTileEntity getUpdatePacket(){
-		NBTTagCompound nbtTag = this.getUpdateTag();
-		return new SPacketUpdateTileEntity(getPos(), 1, nbtTag);
-	}
-
-	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt){
-		this.handleUpdateTag(pkt.getNbtCompound());
-	}
-
 	/**
 	 * Returns the maximum stack size for a inventory slot. Seems to always be 64,
 	 * possibly will be extended.
@@ -189,10 +169,6 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 		return this.burnTime > 0;
 	}
 
-	public boolean isGrinding() {
-		return this.cookTime > 0;
-	}
-
 	@SideOnly(Side.CLIENT)
 	public static boolean isBurning(IInventory inventory) {
 		return inventory.getField(0) > 0;
@@ -202,8 +178,12 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 	 * Like the old updateEntity(), except more generic.
 	 */
 	public void update() {
-		boolean flag = this.isGrinding();
+		boolean flag = this.isBurning();
 		boolean flag1 = false;
+
+		if (this.isBurning()) {
+			--this.burnTime;
+		}
 
 		if (!this.world.isRemote) {
 			ItemStack itemstack = this.inventoryItems.get(1);
@@ -230,7 +210,6 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 
 				if (this.isBurning() && this.canSmelt()) {
 					++this.cookTime;
-					--this.burnTime;
 
 					if (this.cookTime == this.totalCookTime) {
 						this.cookTime = 0;
@@ -245,36 +224,14 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 				this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
 			}
 
-			if (flag != this.isGrinding()) {
+			if (flag != this.isBurning()) {
 				flag1 = true;
-				((BlockGrinder) this.world.getBlockState(this.pos).getBlock()).setState(this.world.getBlockState(this.pos).withProperty(BlockGrinder.BURNING, this.canSmelt()), this.world, pos);
+				((BlockKiln) this.world.getBlockState(this.pos).getBlock()).setState(this.world.getBlockState(this.pos).withProperty(BlockKiln.BURNING, this.isBurning()), this.world, pos);
 			}
-		} else {
-			if (this.isGrinding()) {
-				if (this.lastSound > 285) {
-					this.world.playSound((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, ClientProxy.GRIND, SoundCategory.BLOCKS, 0.7F, 1.0F, false);
-					this.lastSound = 0;
-				} else
-					this.lastSound++;
-			} else
-				this.lastSound++;
 		}
 
 		if (flag1) {
 			this.markDirty();
-		}
-
-		if (this.isGrinding()) {
-			double d0 = (double) pos.getX() + 8.0D / 16.0D;
-			double d1 = (double) pos.getY() + 8.0D / 16.0D;
-			double d2 = (double) pos.getZ() + 8.0D / 16.0D;
-			ItemStack stack = this.getStackInSlot(0);
-			if (!stack.isEmpty()) {
-				if (this.world instanceof WorldServer)
-					((WorldServer)this.world).spawnParticle(EnumParticleTypes.ITEM_CRACK, d0, d1 + 7.0D / 16.0D, d2, 0.0D, 0.3D, 0.0D, Item.getIdFromItem(stack.getItem()), stack.getMetadata());
-				else
-					this.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, d0, d1 + 7.0D / 16.0D, d2, 0.0D, 0.3D, 0.0D, Item.getIdFromItem(stack.getItem()), stack.getMetadata());
-			}
 		}
 	}
 
@@ -286,10 +243,19 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 		if (((ItemStack) this.inventoryItems.get(0)).isEmpty()) {
 			return false;
 		} else {
-			ItemStack itemstack = getGrindingResult(this.inventoryItems.get(0));
+			ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.inventoryItems.get(0));
 
-			if (itemstack.isEmpty())
+			if (itemstack.isEmpty()) 
 				return false;
+
+			for (int id : OreDictionary.getOreIDs(itemstack)) {
+				if (OreDictionary.getOreName(id).startsWith("ingot"))
+					return false;
+			}
+			for (int id : OreDictionary.getOreIDs(this.inventoryItems.get(0))) {
+				if (OreDictionary.getOreName(id).startsWith("ore"))
+					return false;
+			}
 			ItemStack itemstack1 = this.inventoryItems.get(2);
 
 			if (itemstack1.isEmpty()) {
@@ -306,33 +272,10 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 		}
 	}
 
-	public static ItemStack getGrindingResult(ItemStack stack) {
-		ItemStack returnstack = ItemStack.EMPTY;
-		String key = stack.getItem().getRegistryName().toString() + ":" + stack.getMetadata();
-		if (Recipes.grindingRecipes.containsKey(key))
-			return Recipes.grindingRecipes.get(key).copy();
-
-		for (int id : OreDictionary.getOreIDs(stack)) {
-			String name = OreDictionary.getOreName(id);
-
-			if (name.startsWith("ingot"))
-				if (OreDictionary.doesOreNameExist(name.replace("ingot", "dust")))
-					return OreDictionary.getOres(name.replace("ingot", "dust")).get(0);
-
-			if (name.startsWith("ore"))
-				if (OreDictionary.doesOreNameExist(name.replace("ore", "dust"))) {
-					returnstack = OreDictionary.getOres(name.replace("ore", "dust")).get(0);
-					returnstack.setCount(2);
-					return returnstack;
-				}
-		}
-		return returnstack;
-	}
-
 	public void smeltItem() {
 		if (this.canSmelt()) {
 			ItemStack itemstack = this.inventoryItems.get(0);
-			ItemStack itemstack1 = getGrindingResult(itemstack);
+			ItemStack itemstack1 = FurnaceRecipes.instance().getSmeltingResult(itemstack);
 			ItemStack itemstack2 = this.inventoryItems.get(2);
 
 			if (itemstack2.isEmpty()) {
@@ -352,11 +295,58 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 	}
 
 	public static int getItemBurnTime(ItemStack stack) {
-		String key = stack.getItem().getRegistryName().toString() + ":" + stack.getMetadata();
-		if (Recipes.grinderFuel.containsKey(key))
-			return Recipes.grinderFuel.get(key);
+		if (stack.isEmpty()) {
+			return 0;
+		} else {
+			int burnTime = net.minecraftforge.event.ForgeEventFactory.getItemBurnTime(stack);
+			if (burnTime >= 0)
+				return burnTime;
+			Item item = stack.getItem();
 
-		return 0;
+			if (item == Item.getItemFromBlock(Blocks.WOODEN_SLAB)) {
+				return 150;
+			} else if (item == Item.getItemFromBlock(Blocks.WOOL)) {
+				return 100;
+			} else if (item == Item.getItemFromBlock(Blocks.CARPET)) {
+				return 67;
+			} else if (item == Item.getItemFromBlock(Blocks.LADDER)) {
+				return 300;
+			} else if (item == Item.getItemFromBlock(Blocks.WOODEN_BUTTON)) {
+				return 100;
+			} else if (Block.getBlockFromItem(item).getDefaultState().getMaterial() == Material.WOOD) {
+				return 300;
+			} else if (item == Item.getItemFromBlock(Blocks.COAL_BLOCK)) {
+				return 16000;
+			} else if (item instanceof ItemTool && "WOOD".equals(((ItemTool) item).getToolMaterialName())) {
+				return 200;
+			} else if (item instanceof ItemSword && "WOOD".equals(((ItemSword) item).getToolMaterialName())) {
+				return 200;
+			} else if (item instanceof ItemHoe && "WOOD".equals(((ItemHoe) item).getMaterialName())) {
+				return 200;
+			} else if (item == Items.STICK) {
+				return 100;
+			} else if (item != Items.BOW && item != Items.FISHING_ROD) {
+				if (item == Items.SIGN) {
+					return 200;
+				} else if (item == Items.COAL) {
+					return 1600;
+				} else if (item == Items.LAVA_BUCKET) {
+					return 20000;
+				} else if (item != Item.getItemFromBlock(Blocks.SAPLING) && item != Items.BOWL) {
+					if (item == Items.BLAZE_ROD) {
+						return 2400;
+					} else if (item instanceof ItemDoor && item != Items.IRON_DOOR) {
+						return 200;
+					} else {
+						return item instanceof ItemBoat ? 400 : 0;
+					}
+				} else {
+					return 100;
+				}
+			} else {
+				return 300;
+			}
+		}
 	}
 
 	public static boolean isItemFuel(ItemStack stack) {
@@ -392,7 +382,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 			return true;
 		} else {
 			ItemStack itemstack = this.inventoryItems.get(1);
-			return isItemFuel(stack);
+			return isItemFuel(stack) || SlotFurnaceFuel.isBucket(stack) && itemstack.getItem() != Items.BUCKET;
 		}
 	}
 
@@ -429,7 +419,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 	}
 
 	public String getGuiID() {
-		return ModInformation.ID + ":grinder";
+		return ModInformation.ID + ":kiln";
 	}
 
 	public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {

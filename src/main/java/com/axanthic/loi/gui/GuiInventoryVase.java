@@ -1,7 +1,7 @@
 package com.axanthic.loi.gui;
 
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.utils.TileEntityVase;
+import com.axanthic.loi.tileentity.TileEntityVase;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;

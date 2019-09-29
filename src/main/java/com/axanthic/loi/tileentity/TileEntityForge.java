@@ -1,4 +1,4 @@
-package com.axanthic.loi.utils;
+package com.axanthic.loi.tileentity;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -5,7 +5,7 @@ import java.util.Random;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.gui.GuiHandlerLOI;
-import com.axanthic.loi.utils.TileEntityKiln;
+import com.axanthic.loi.tileentity.TileEntityKiln;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;

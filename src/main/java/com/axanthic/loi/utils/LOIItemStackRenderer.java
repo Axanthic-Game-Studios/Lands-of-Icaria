@@ -2,6 +2,7 @@ package com.axanthic.loi.utils;
 
 import com.axanthic.loi.blocks.BlockMobHead;
 import com.axanthic.loi.items.ItemBlockMobHead;
+import com.axanthic.loi.tileentity.TileEntitySpecialRendererMobHead;
 
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;

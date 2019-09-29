@@ -48,12 +48,12 @@ import com.axanthic.loi.items.IItemCustomReach;
 import com.axanthic.loi.items.IItemMeta;
 import com.axanthic.loi.items.ItemBlockMeta;
 import com.axanthic.loi.items.ItemCustomArmor;
+import com.axanthic.loi.tileentity.TileEntityGrinder;
+import com.axanthic.loi.tileentity.TileEntityMobHead;
+import com.axanthic.loi.tileentity.TileEntitySpecialRendererGrinder;
+import com.axanthic.loi.tileentity.TileEntitySpecialRendererMobHead;
 import com.axanthic.loi.utils.LOIItemStackRenderer;
 import com.axanthic.loi.utils.MessageCustomReachAttack;
-import com.axanthic.loi.utils.TileEntityGrinder;
-import com.axanthic.loi.utils.TileEntityMobHead;
-import com.axanthic.loi.utils.TileEntitySpecialRendererGrinder;
-import com.axanthic.loi.utils.TileEntitySpecialRendererMobHead;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 

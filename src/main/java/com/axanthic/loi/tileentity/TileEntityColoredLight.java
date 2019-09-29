@@ -1,4 +1,4 @@
-package com.axanthic.loi.utils;
+package com.axanthic.loi.tileentity;
 
 import elucent.albedo.lighting.Light;
 import elucent.albedo.event.GatherLightsEvent;

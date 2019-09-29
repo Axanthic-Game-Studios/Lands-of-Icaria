@@ -1,7 +1,7 @@
 package com.axanthic.loi.gui;
 
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.utils.TileEntityKiln;
+import com.axanthic.loi.tileentity.TileEntityKiln;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;

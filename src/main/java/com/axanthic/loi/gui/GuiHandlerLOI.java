@@ -1,10 +1,10 @@
 package com.axanthic.loi.gui;
 
 import com.axanthic.loi.blocks.BlockCustomWorkbench;
-import com.axanthic.loi.utils.TileEntityForge;
-import com.axanthic.loi.utils.TileEntityGrinder;
-import com.axanthic.loi.utils.TileEntityKiln;
-import com.axanthic.loi.utils.TileEntityVase;
+import com.axanthic.loi.tileentity.TileEntityForge;
+import com.axanthic.loi.tileentity.TileEntityGrinder;
+import com.axanthic.loi.tileentity.TileEntityKiln;
+import com.axanthic.loi.tileentity.TileEntityVase;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;

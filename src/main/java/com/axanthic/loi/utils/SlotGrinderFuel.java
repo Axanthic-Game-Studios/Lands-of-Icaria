@@ -1,5 +1,7 @@
 package com.axanthic.loi.utils;
 
+import com.axanthic.loi.tileentity.TileEntityGrinder;
+
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;

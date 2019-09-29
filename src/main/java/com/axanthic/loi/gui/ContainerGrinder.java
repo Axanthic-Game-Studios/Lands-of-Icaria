@@ -1,7 +1,7 @@
 package com.axanthic.loi.gui;
 
+import com.axanthic.loi.tileentity.TileEntityGrinder;
 import com.axanthic.loi.utils.SlotGrinderFuel;
-import com.axanthic.loi.utils.TileEntityGrinder;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

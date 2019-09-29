@@ -6,7 +6,7 @@ import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.gui.GuiHandlerLOI;
-import com.axanthic.loi.utils.TileEntityVase;
+import com.axanthic.loi.tileentity.TileEntityVase;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.MapColor;
