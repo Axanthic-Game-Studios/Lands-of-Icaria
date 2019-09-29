@@ -4,6 +4,7 @@ import com.axanthic.loi.LandsOfIcaria;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
@@ -130,7 +131,15 @@ public class WorldProviderLOI extends WorldProvider {
 	@SideOnly(Side.CLIENT)
 	public Vec3d getFogColor(final float p_76562_1_, final float p_76562_2_)
 	{
-		return new Vec3d(0.929411D, 0.828125D, 0.3529411D);
+		float f = MathHelper.cos(p_76562_1_ * ((float)Math.PI * 2F)) * 2.0F + 0.5F;
+		f = MathHelper.clamp(f, 0.0F, 1.0F);
+		float f1 = 0.929411F;
+		float f2 = 0.828125F;
+		float f3 = 0.3529411F;
+		f1 = f1 * (f * 0.91F + 0.09F);
+		f2 = f2 * (f * 0.94F + 0.06F);
+		f3 = f3 * (f * 0.94F + 0.06F);
+		return new Vec3d((double)f1, (double)f2, (double)f3);
 	}
 
 	@Override
