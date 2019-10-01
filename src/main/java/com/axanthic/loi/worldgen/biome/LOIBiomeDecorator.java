@@ -216,13 +216,13 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 		}
 	}
 
-	public void generateSpikes(World worldIn, Random rand, Biome biome, BlockPos pos) {
+	public void generateSpikes(World worldIn, Random random, Biome biome, BlockPos pos) {
 		if (generateSpikes) {
-			int e = rand.nextInt(4) - 2;
+			int e = random.nextInt(4) - 2;
 
 			for (int a = 0; a < e; ++a) {
-				int g = rand.nextInt(14) + 10;
-				int h = rand.nextInt(14) + 10;
+				int g = random.nextInt(14) + 10;
+				int h = random.nextInt(14) + 10;
 				BlockPos position = worldIn.getHeight(pos.add(g, 0, h));
 				int minY = position.getY() - 1;
 
@@ -233,29 +233,34 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				if (!worldIn.getBlockState(position).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down()).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down(2)).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down(3)).getMaterial().equals(Material.SAND)) {
 					return;
 				} else {
-					position = position.up(rand.nextInt(4));
-					int i = rand.nextInt(4) + 7;
-					int j = i / 4 + rand.nextInt(2);
+					int baseSize = 4;
+					EnumFacing direction = EnumFacing.getHorizontal(random.nextInt(EnumFacing.HORIZONTALS.length));
+					int shiftIndex = 0;
+					float j = baseSize + random.nextInt(5);
+					int height = (int) (j * 2);
+					position = position.down();
+					for (int l = 0; l < height; ++l) {
+						for (BlockPos blockpos : BlockPos.getAllInBox(position.add(-height + l, 0, -height + l), position.add(height - l, 0, height - l))) {
+							if (l == 0 && !random.nextBoolean())
+								continue;
 
-					for (int k = 0; k < i; ++k) {
-						float f = (1.0F - (float)k / (float)i) * (float)j;
-						int l = MathHelper.ceil(f);
-
-						for (int i1 = -l; i1 <= l; ++i1) {
-							float f1 = (float)MathHelper.abs(i1) - 0.25F;
-
-							for (int j1 = -l; j1 <= l; ++j1) {
-								float f2 = (float)MathHelper.abs(j1) - 0.25F;
-
-								if ((i1 == 0 && j1 == 0 || f1 * f1 + f2 * f2 <= f * f) && (i1 != -l && i1 != l && j1 != -l && j1 != l || rand.nextFloat() <= 0.75F)) {
-									if (position.add(i1, k, j1).getY() >= minY)
-										worldIn.setBlockState(position.add(i1, k, j1), Resources.grainelStone.getBlock().getDefaultState(), 4);
-
-									if (k != 0 && l > 1 && position.add(i1, -k, j1).getY() >= minY) {
-										worldIn.setBlockState(position.add(i1, -k, j1), Resources.grainelStone.getBlock().getDefaultState(), 4);
-									}
-								}
+							if (blockpos.distanceSq(position) <= (double)(j) - 0.5D) {
+								worldIn.setBlockState(blockpos, Resources.grainelStone.getBlock().getDefaultState(), 4);
+							} else if (blockpos.distanceSq(position) <= (double)(j) && random.nextBoolean()) {
+								worldIn.setBlockState(blockpos, Resources.grainelStone.getBlock().getDefaultState(), 4);
 							}
+						}
+						if (random.nextBoolean() && random.nextBoolean() && random.nextBoolean())
+							--l;
+						else {
+							j = j - 0.5F;
+							++shiftIndex;
+						}
+						position = position.up();
+						if (shiftIndex == 2) {
+							position = position.offset(direction);
+							position = position.offset(direction.rotateY());
+							shiftIndex = 0;
 						}
 					}
 				}
