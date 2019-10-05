@@ -135,6 +135,7 @@ tile.storage_vase.name=Baked Storage Vase
 tile.crafting_kiln.name=Kiln
 tile.crafting_grinder.name=Grinder
 tile.crafting_forge.name=Forge
+tile.icaria_portal.name=Lands of Icaria Portal
 
 material.yellowstone.name=Yellowstone
 material.silkstone.name=Silkstone
