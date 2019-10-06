@@ -155,7 +155,7 @@ public class TeleporterLOI extends Teleporter {
 			} else {
 				entity.motionX = entity.motionY = entity.motionZ = 0.0D;
 			}
-			entity.setLocationAndAngles(tpX, tpY, tpZ, entity.rotationYaw, entity.rotationPitch);
+			entity.setLocationAndAngles(tpX, tpY - 0.5F, tpZ, entity.rotationYaw, entity.rotationPitch);
 			return true;
 		} else {
 			return false;

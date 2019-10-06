@@ -35,7 +35,7 @@ import com.axanthic.loi.blocks.BlockLog;
 import com.axanthic.loi.blocks.BlockLootVase;
 import com.axanthic.loi.blocks.BlockMobHead;
 import com.axanthic.loi.blocks.BlockMoss;
-import com.axanthic.loi.blocks.IcariaPortal;
+import com.axanthic.loi.blocks.BlockIcariaPortal;
 import com.axanthic.loi.blocks.BlockOre;
 import com.axanthic.loi.blocks.BlockPillar;
 import com.axanthic.loi.blocks.BlockPillarHead;
@@ -200,7 +200,7 @@ public class Resources {
 	public static ItemBlock kiln = new ItemBlock(new BlockKiln());
 	public static ItemBlock grinder = new ItemBlock(new BlockGrinder());
 	public static ItemBlock forge = new ItemBlockForge(new BlockForge());
-	public static ItemBlock portal = new ItemBlock(new IcariaPortal());
+	public static ItemBlock portal = new ItemBlock(new BlockIcariaPortal());
 
 	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0, "yellowstone", true);
 	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1, "silkstone", true);

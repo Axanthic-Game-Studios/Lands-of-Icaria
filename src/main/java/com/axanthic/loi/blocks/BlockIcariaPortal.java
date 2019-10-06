@@ -27,9 +27,9 @@ import com.axanthic.loi.worldgen.dimension.TeleporterLOI;
 
 import java.util.Random;
 
-public class IcariaPortal extends BlockBreakable {
+public class BlockIcariaPortal extends BlockBreakable {
 
-	public IcariaPortal() {
+	public BlockIcariaPortal() {
 		super(Material.PORTAL, false);
 		this.setTickRandomly(true);
 		this.setHardness(-1.0F);
@@ -52,13 +52,7 @@ public class IcariaPortal extends BlockBreakable {
 
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block neighborBlock, BlockPos neighborPos) {
-		/*Size size = new Size(world, pos);
-
-		if (neighborBlock == this || size.isSandBlock(neighborBlock.getDefaultState())) {
-			if (!size.isValid()) {
-				world.setBlockState(pos, Blocks.AIR.getDefaultState());
-			}
-		}*/
+		
 	}
 
 	@Override

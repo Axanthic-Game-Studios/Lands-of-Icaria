@@ -21,7 +21,7 @@
 			"sideros": { "textures": { "all": "landsoficaria:blocks/rock_voidshale_ore_sideros" } },
 			"anthracite": { "textures": { "all": "landsoficaria:blocks/rock_voidshale_ore_anthracite" } },
 			"molybdenum": { "textures": { "all": "landsoficaria:blocks/rock_voidshale_ore_molybdenum" } },
-			"bluridium": { "model": "landsoficaria:cube_all_overlay", "textures": { "all": "landsoficaria:blocks/rock_baetyl_ore_bluridium", "overlay": "landsoficaria:blocks/rock_baetyl_ore_bluridium_overlay" } },
+			"bluridium": { "model": "landsoficaria:cube_all_overlay_bright", "textures": { "all": "landsoficaria:blocks/rock_baetyl_ore_bluridium", "overlay": "landsoficaria:blocks/rock_baetyl_ore_bluridium_overlay" } },
 			"hyliastrum": { "textures": { "all": "landsoficaria:blocks/rock_baetyl_ore_hyliastrum" } },
 			"abyssal_essence": { "textures": { "all": "landsoficaria:blocks/rock_baetyl_ore_abyssal_essence" } }
 		}

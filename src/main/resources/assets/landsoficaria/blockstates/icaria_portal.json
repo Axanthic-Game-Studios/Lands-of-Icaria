@@ -2,7 +2,7 @@
 	"forge_marker": 1,
 	"defaults": {
 		"transform": "forge:default-block",
-		"model": "cube_all",
+		"model": "landsoficaria:cube_all_bright",
 		"uvlock": true,
 		"textures": {
 			"all": "landsoficaria:blocks/icaria_portal",
@@ -10,7 +10,7 @@
 		}
 	},
     "variants": {
-		"normal":  { "model": "cube_all" },
-		"inventory":  { "model": "cube_all" }
+		"normal":  { "model": "landsoficaria:cube_all_bright" },
+		"inventory":  { "model": "landsoficaria:cube_all_bright" }
     }
 }
