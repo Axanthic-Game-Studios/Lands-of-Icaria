@@ -230,7 +230,14 @@ public class ClientProxy extends CommonProxy {
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
 				return reduceGreen(worldIn != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(worldIn, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D));
 			}
-		}, Resources.grass.getBlock(), Resources.tallGrass.getBlock());
+		}, Resources.grass.getBlock(), Resources.tallGrass.getBlock(), Resources.herb.getBlock(), Resources.vineDry.getBlock(), Resources.vineThorny.getBlock());
+
+		event.getBlockColors().registerBlockColorHandler(new IBlockColor() {
+			@Override
+			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
+				return worldIn != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(worldIn, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D);
+			}
+		}, Resources.flower.getBlock(), Resources.flower2.getBlock(), Resources.vineBloomy.getBlock(), Resources.vineBranch.getBlock(), Resources.vineBrushy.getBlock(), Resources.vineReedy.getBlock(), Resources.vineSwirly.getBlock());
 	}
 
 	@Override
@@ -241,6 +248,20 @@ public class ClientProxy extends CommonProxy {
 				return reduceGreen(ColorizerGrass.getGrassColor(0.5D, 1.0D));
 			}
 		}, Resources.grass, Resources.tallGrass);
+
+		event.getItemColors().registerItemColorHandler(new IItemColor() {
+			@Override
+			public int colorMultiplier(ItemStack stack, int tintIndex) {
+				return tintIndex > 0 ? -1 : reduceGreen(ColorizerGrass.getGrassColor(0.5D, 1.0D));
+			}
+		}, Resources.herb, Resources.vineDry, Resources.vineThorny);
+
+		event.getItemColors().registerItemColorHandler(new IItemColor() {
+			@Override
+			public int colorMultiplier(ItemStack stack, int tintIndex) {
+				return tintIndex > 0 ? -1 : ColorizerGrass.getGrassColor(0.5D, 1.0D);
+			}
+		}, Resources.flower, Resources.flower2, Resources.vineBloomy, Resources.vineBranch, Resources.vineBrushy, Resources.vineReedy, Resources.vineSwirly);
 	}
 
 	public int reduceGreen(int color) {

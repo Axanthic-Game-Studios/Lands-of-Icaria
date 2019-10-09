@@ -28,7 +28,7 @@ public class BlockHerb extends BlockBush implements IBlockMeta {
 
 	public static PropertyEnum TYPES = PropertyEnum.create("type", HerbTypes.class);
 	protected static final AxisAlignedBB LARGE_GRASS_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
-	
+
 	public BlockHerb() {
 		super(Material.PLANTS, MapColor.AIR);
 		this.setCreativeTab(LandsOfIcaria.modTabFlora);

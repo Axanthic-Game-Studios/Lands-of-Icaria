@@ -4,12 +4,13 @@
 		"model": "landsoficaria:generated",
 		"uvlock": true,
 		"textures": {
-			"layer0": "landsoficaria:blocks/flower_yellow_sunkettle"
+			"layer0": "landsoficaria:blocks/flower_yellow_sunkettle_stem",
+			"layer1": "landsoficaria:blocks/flower_yellow_sunkettle"
 		}
 	},
 	"variants": {
 		"type": {
-			"sunkettle": { "textures": { "layer0": "landsoficaria:blocks/flower_yellow_sunkettle" } }
+			"sunkettle": { "textures": { "layer0": "landsoficaria:blocks/flower_yellow_sunkettle_stem", "layer1": "landsoficaria:blocks/flower_yellow_sunkettle" } }
 		}
 	}
 }

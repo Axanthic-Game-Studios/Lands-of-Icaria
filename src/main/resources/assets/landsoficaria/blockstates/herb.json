@@ -2,23 +2,24 @@
 	"forge_marker": 1,
 	"defaults": {
 		"transform": "forge:default-block",
-		"model": "poppy",
+		"model": "landsoficaria:flower",
+		"uvlock": true,
 		"textures": {
-			"cross": "landsoficaria:blocks/flora_herb_belladena",
-			"particle": "#cross"
+			"stem": "landsoficaria:blocks/flora_herb_belladena_stem",
+			"flower": "landsoficaria:blocks/flora_herb_belladena"
 		}
 	},
 	"variants": {
 		"type": {
-			"belladena": { "textures": { "cross": "landsoficaria:blocks/flora_herb_belladena" } },
-			"bolbos": { "textures": { "cross": "landsoficaria:blocks/flora_herb_bolbos" } },
-			"dathulla": { "textures": { "cross": "landsoficaria:blocks/flora_herb_dathulla" } },
-			"mondanos": { "textures": { "cross": "landsoficaria:blocks/flora_herb_mondanos" } },
-			"moth_agaric": { "textures": { "cross": "landsoficaria:blocks/flora_herb_moth_agaric" } },
-			"namdrake": { "textures": { "cross": "landsoficaria:blocks/flora_herb_namdrake" } },
-			"psilocybos": { "textures": { "cross": "landsoficaria:blocks/flora_herb_psilocybos" } },
-			"rowan": { "textures": { "cross": "landsoficaria:blocks/flora_herb_rowan" } },
-			"wilted_elm": { "textures": { "cross": "landsoficaria:blocks/flora_herb_wilted_elm" } }
+			"belladena": { "textures": { "stem": "landsoficaria:blocks/flora_herb_belladena_stem", "flower": "landsoficaria:blocks/flora_herb_belladena" } },
+			"bolbos": { "textures": { "stem": "landsoficaria:blocks/flora_herb_bolbos_stem", "flower": "landsoficaria:blocks/flora_herb_bolbos" } },
+			"dathulla": { "textures": { "stem": "landsoficaria:blocks/flora_herb_dathulla_stem", "flower": "landsoficaria:blocks/flora_herb_dathulla" } },
+			"mondanos": { "textures": { "stem": "landsoficaria:blocks/flora_herb_mondanos_stem", "flower": "landsoficaria:blocks/flora_herb_mondanos" } },
+			"moth_agaric": { "textures": { "stem": "landsoficaria:blocks/flora_herb_moth_agaric_stem", "flower": "landsoficaria:blocks/flora_herb_moth_agaric" } },
+			"namdrake": { "textures": { "stem": "landsoficaria:blocks/flora_herb_namdrake_stem", "flower": "landsoficaria:blocks/flora_herb_namdrake" } },
+			"psilocybos": { "textures": { "stem": "landsoficaria:blocks/flora_herb_psilocybos_stem", "flower": "landsoficaria:blocks/flora_herb_psilocybos" } },
+			"rowan": { "textures": { "stem": "landsoficaria:blocks/flora_herb_rowan_stem", "flower": "landsoficaria:blocks/flora_herb_rowan" } },
+			"wilted_elm": { "textures": { "stem": "landsoficaria:blocks/flora_herb_wilted_elm_stem", "flower": "landsoficaria:blocks/flora_herb_wilted_elm" } }
 		}
 	}
 }

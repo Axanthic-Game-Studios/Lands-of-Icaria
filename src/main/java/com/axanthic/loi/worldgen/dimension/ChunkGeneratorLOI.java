@@ -158,6 +158,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	public void prepareHeights(final int x, final int z, final ChunkPrimer primer)
 	{
 		final int seaLevel = (this._world.getSeaLevel() / 2) + 1;
+		
+		//primer.
 
 		final int subChunkWidth = 4;
 
