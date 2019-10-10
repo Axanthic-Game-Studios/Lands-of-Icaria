@@ -11,7 +11,7 @@
     "variants": {
 		"inventory": { "model": "landsoficaria:generated", "textures": { "layer0": "#leaf", "layer1": "#vine" } },
         "east=false,north=false,south=false,up=false,west=false": { "model": "landsoficaria:vine_1" },
-        "east=false,north=false,south=true,up=false,west=false": [{ "model": "landsoficaria:landsoficaria:vine_1" }, { "model": "landsoficaria:vine_1", "x": 180, "y": 180 }],
+        "east=false,north=false,south=true,up=false,west=false": [{ "model": "landsoficaria:vine_1" }, { "model": "landsoficaria:vine_1", "x": 180, "y": 180 }],
         "east=false,north=false,south=false,up=false,west=true": [{ "model": "landsoficaria:vine_1", "y": 90 }, { "model": "landsoficaria:vine_1", "x": 180, "y": 270 }],
         "east=false,north=true,south=false,up=false,west=false": [{ "model": "landsoficaria:vine_1", "y": 180 }, { "model": "landsoficaria:vine_1", "x": 180 }],
         "east=true,north=false,south=false,up=false,west=false": [{ "model": "landsoficaria:vine_1", "y": 270 }, { "model": "landsoficaria:vine_1", "x": 180, "y": 90 }],
