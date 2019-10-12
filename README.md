@@ -1,4 +1,4 @@
-# Lands of Icarus/ia Minecraft Mod.
+# Lands of Icaria Minecraft Mod.
 #
 Floating Dimension with several core elements to its gameplay:
 #
