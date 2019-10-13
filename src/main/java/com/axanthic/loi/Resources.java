@@ -37,6 +37,7 @@ import com.axanthic.loi.blocks.BlockMobHead;
 import com.axanthic.loi.blocks.BlockMoss;
 import com.axanthic.loi.blocks.BlockMushroomGround;
 import com.axanthic.loi.blocks.BlockIcariaPortal;
+import com.axanthic.loi.blocks.BlockKettle;
 import com.axanthic.loi.blocks.BlockOre;
 import com.axanthic.loi.blocks.BlockPillar;
 import com.axanthic.loi.blocks.BlockPillarHead;
@@ -219,6 +220,7 @@ public class Resources {
 	public static ItemBlock kiln = new ItemBlock(new BlockKiln());
 	public static ItemBlock grinder = new ItemBlock(new BlockGrinder());
 	public static ItemBlock forge = new ItemBlockForge(new BlockForge());
+	public static ItemBlock kettle = new ItemBlock(new BlockKettle());
 	public static ItemBlock portal = new ItemBlock(new BlockIcariaPortal());
 
 	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0, "yellowstone", true);
@@ -351,6 +353,7 @@ public class Resources {
 		Resources.registerBlock(Resources.kiln);
 		Resources.registerBlock(Resources.grinder);
 		Resources.registerBlock(Resources.forge);
+		Resources.registerBlock(Resources.kettle);
 		Resources.registerBlock(Resources.portal);
 
 		Resources.plane.register();

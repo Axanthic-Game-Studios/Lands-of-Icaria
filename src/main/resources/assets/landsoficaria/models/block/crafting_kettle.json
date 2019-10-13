@@ -1,8 +1,9 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "parent": "block/cube_all",
     "textures": {
-        "0": "blocks/crafting_kettle_concoction",
-        "1": "blocks/crafting_kettle_model"
+        "concoction": "landsoficaria:blocks/crafting_kettle_concoction",
+        "1": "landsoficaria:blocks/crafting_kettle_model",
+		"particle": "landsoficaria:blocks/crafting_kettle_model"
     },
     "elements": [
         {
@@ -14,8 +15,8 @@
                 "east": { "texture": "#-1", "uv": [ 0.0, 0.0, 12.0, 0.0 ] },
                 "south": { "texture": "#-1", "uv": [ 0.0, 0.0, 12.0, 0.0 ] },
                 "west": { "texture": "#-1", "uv": [ 0.0, 0.0, 12.0, 0.0 ] },
-                "up": { "texture": "#0", "uv": [ 2.0, 2.0, 14.0, 14.0 ] },
-                "down": { "texture": "#0", "uv": [ 2.0, 14.0, 14.0, 2.0 ] }
+                "up": { "texture": "#concoction", "uv": [ 2.0, 2.0, 14.0, 14.0 ] },
+                "down": { "texture": "#concoction", "uv": [ 2.0, 14.0, 14.0, 2.0 ] }
             }
         },
         {

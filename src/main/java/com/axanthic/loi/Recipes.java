@@ -83,6 +83,7 @@ public class Recipes {
 		addRecipe(new ItemStack(Resources.grinder, 1, 0), "grinder_rock", "grinder", new Object[]{"SSS", "SIS", "SSS", 'S', new ItemStack(Resources.rock, 1, 2), 'I', "ingotOrichalcum"});
 		addRecipe(new ItemStack(Resources.grinder, 1, 0), "grinder_brick", "grinder", new Object[]{"BBB", "BIB", "BBB", 'B', new ItemStack(Resources.brick, 1, 2), 'I', "ingotOrichalcum"});
 		addRecipe(new ItemStack(Resources.forge, 1, 0), "forge", new Object[]{"LGL", "L L", "LGL", 'L', new ItemStack(Resources.loamBricks, 1, 0), 'G', new ItemStack(Resources.grainelStone, 1, 1)});
+		addRecipe(new ItemStack(Resources.kettle, 1, 0), "kettle", new Object[]{"O O", "V V", "OVO", 'O', "ingotOrichalcum", 'V', "blockVanadiumsteel"});
 
 		addRecipe(new ItemStack(Resources.silkstoneSand, 1, 0), "silkstone_sand", new Object[]{"PP", "PP", 'P', new ItemStack(Resources.resource, 1, 4)});
 		GameRegistry.addSmelting(new ItemStack(Resources.silkstoneSand, 1, 0), new ItemStack(Resources.rock, 1, 1), 0.1F);
