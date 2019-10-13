@@ -1,7 +1,9 @@
 {
+	"parent": "block/cube_all",
     "textures": {
-        "0": "blocks/flora_shroom_ground_stem",
-        "1": "blocks/flora_shroom_ground_2"
+        "0": "landsoficaria:blocks/flora_shroom_ground_stem",
+        "1": "landsoficaria:blocks/flora_shroom_ground_2",
+		"particle": "landsoficaria:blocks/flora_shroom_ground_2"
     },
     "elements": [
         {
