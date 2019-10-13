@@ -14,10 +14,12 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.pathfinding.PathNavigateClimber;
 import net.minecraft.util.DamageSource;
@@ -90,6 +92,20 @@ public class EntityCerver extends EntityMob {
 
 	protected void playStepSound(BlockPos pos, Block blockIn) {
 		this.playSound(SoundEvents.ENTITY_WOLF_STEP, 0.15F, 1.0F);
+	}
+
+	/**
+	 * Called when the mob's health reaches 0.
+	 */
+	public void onDeath(DamageSource cause) {
+		super.onDeath(cause);
+		if (cause.getTrueSource() instanceof EntityCreeper) {
+			EntityCreeper entitycreeper = (EntityCreeper)cause.getTrueSource();
+			if (entitycreeper.getPowered() && entitycreeper.ableToCauseSkullDrop()) {
+				entitycreeper.incrementDroppedSkulls();
+				this.entityDropItem(new ItemStack(Resources.mobHeadCerver, 1, 0), 0.0F);
+			}
+		}
 	}
 
 	@Nullable

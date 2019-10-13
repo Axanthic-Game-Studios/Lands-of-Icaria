@@ -20,6 +20,7 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -176,6 +177,33 @@ public class EntityForestHag extends EntityMob {
 
 	protected SoundEvent getDeathSound() {
 		return SoundEvents.ENTITY_ENDERMEN_DEATH;
+	}
+
+	/**
+	 * Called when the mob's health reaches 0.
+	 */
+	public void onDeath(DamageSource cause) {
+		super.onDeath(cause);
+		if (cause.getTrueSource() instanceof EntityCreeper) {
+			EntityCreeper entitycreeper = (EntityCreeper)cause.getTrueSource();
+			if (entitycreeper.getPowered() && entitycreeper.ableToCauseSkullDrop()) {
+				entitycreeper.incrementDroppedSkulls();
+				if (this.getType() == 0)
+					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagPlane, 1, 0), 0.0F);
+				else if (this.getType() == 1)
+					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagPopulus, 1, 0), 0.0F);
+				else if (this.getType() == 2)
+					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagCypress, 1, 0), 0.0F);
+				else if (this.getType() == 3)
+					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagFir, 1, 0), 0.0F);
+				else if (this.getType() == 4)
+					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagOlive, 1, 0), 0.0F);
+				else if (this.getType() == 5)
+					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagLaurel, 1, 0), 0.0F);
+				else
+					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagDroughtroot, 1, 0), 0.0F);
+			}
+		}
 	}
 
 	@Nullable

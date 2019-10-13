@@ -1,6 +1,12 @@
 package com.axanthic.loi.tileentity;
 
 import com.axanthic.loi.ModInformation;
+import com.axanthic.loi.entity.ModelAeternaeHead;
+import com.axanthic.loi.entity.ModelArganHoundHead;
+import com.axanthic.loi.entity.ModelCatoblepasHead;
+import com.axanthic.loi.entity.ModelCerverHead;
+import com.axanthic.loi.entity.ModelMyrmekeHead;
+import com.axanthic.loi.entity.ModelSowHead;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelSkeletonHead;
@@ -14,8 +20,32 @@ import net.minecraft.util.ResourceLocation;
 public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<TileEntityMobHead> {
 
 	private static final ResourceLocation REVENANT_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/revenant.png");
+	private static final ResourceLocation ARACHNE_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_arachne.png");
+	private static final ResourceLocation ARACHNE_DRONE_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_arachne_drone.png");
+	private static final ResourceLocation MYRMEKE_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_myrmeke.png");
+	private static final ResourceLocation CERVER_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_cerver.png");
+	private static final ResourceLocation ARGAN_HOUND_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_argan_hound.png");
+	private static final ResourceLocation FORESTHAG_PLANE_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_foresthag_plane.png");
+	private static final ResourceLocation FORESTHAG_POPULUS_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_foresthag_populus.png");
+	private static final ResourceLocation FORESTHAG_CYPRESS_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_foresthag_cypress.png");
+	private static final ResourceLocation FORESTHAG_FIR_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_foresthag_fir.png");
+	private static final ResourceLocation FORESTHAG_OLIVE_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_foresthag_olive.png");
+	private static final ResourceLocation FORESTHAG_LAUREL_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_foresthag_laurel.png");
+	private static final ResourceLocation FORESTHAG_DROUGHTROOT_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_foresthag_droughtroot.png");
+	private static final ResourceLocation AETERNAE_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_aeternae.png");
+	private static final ResourceLocation CATOBLEPAS_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_catoblepas.png");
+	private static final ResourceLocation SOW_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_sow.png");
 	public static TileEntitySpecialRendererMobHead instance;
 	private final ModelSkeletonHead revenantHead = new ModelSkeletonHead(0, 0, 64, 128);
+	private final ModelSkeletonHead arachneHead = new ModelSkeletonHead(0, 0, 64, 64);
+	private final ModelSkeletonHead arachneDroneHead = new ModelSkeletonHead(0, 16, 64, 32);
+	private final ModelMyrmekeHead myrmekeHead = new ModelMyrmekeHead();
+	private final ModelCerverHead cerverHead = new ModelCerverHead();
+	private final ModelArganHoundHead arganHoundHead = new ModelArganHoundHead();
+	private final ModelSkeletonHead forestHagHead = new ModelSkeletonHead(0, 0, 64, 32);
+	private final ModelAeternaeHead aeternaeHead = new ModelAeternaeHead();
+	private final ModelCatoblepasHead catoblepasHead = new ModelCatoblepasHead();
+	private final ModelSowHead sowHead = new ModelSowHead();
 
 	@Override
 	public void render(TileEntityMobHead te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
@@ -42,7 +72,52 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 		} else {
 			if (skullType.equals("revenant"))
 				this.bindTexture(REVENANT_TEXTURES);
-			else
+			else if (skullType.equals("arachne")) {
+				this.bindTexture(ARACHNE_TEXTURES);
+				modelbase = this.arachneHead;
+			} else if (skullType.equals("arachne_drone")) {
+				this.bindTexture(ARACHNE_DRONE_TEXTURES);
+				modelbase = this.arachneDroneHead;
+			} else if (skullType.equals("myrmeke")) {
+				this.bindTexture(MYRMEKE_TEXTURES);
+				modelbase = this.myrmekeHead;
+			} else if (skullType.equals("cerver")) {
+				this.bindTexture(CERVER_TEXTURES);
+				modelbase = this.cerverHead;
+			} else if (skullType.equals("argan_hound")) {
+				this.bindTexture(ARGAN_HOUND_TEXTURES);
+				modelbase = this.arganHoundHead;
+			} else if (skullType.equals("foresthag_plane")) {
+				this.bindTexture(FORESTHAG_PLANE_TEXTURES);
+				modelbase = this.forestHagHead;
+			} else if (skullType.equals("foresthag_populus")) {
+				this.bindTexture(FORESTHAG_POPULUS_TEXTURES);
+				modelbase = this.forestHagHead;
+			} else if (skullType.equals("foresthag_cypress")) {
+				this.bindTexture(FORESTHAG_CYPRESS_TEXTURES);
+				modelbase = this.forestHagHead;
+			} else if (skullType.equals("foresthag_fir")) {
+				this.bindTexture(FORESTHAG_FIR_TEXTURES);
+				modelbase = this.forestHagHead;
+			} else if (skullType.equals("foresthag_olive")) {
+				this.bindTexture(FORESTHAG_OLIVE_TEXTURES);
+				modelbase = this.forestHagHead;
+			} else if (skullType.equals("foresthag_laurel")) {
+				this.bindTexture(FORESTHAG_LAUREL_TEXTURES);
+				modelbase = this.forestHagHead;
+			} else if (skullType.equals("foresthag_droughtroot")) {
+				this.bindTexture(FORESTHAG_DROUGHTROOT_TEXTURES);
+				modelbase = this.forestHagHead;
+			} else if (skullType.equals("aeternae")) {
+				this.bindTexture(AETERNAE_TEXTURES);
+				modelbase = this.aeternaeHead;
+			} else if (skullType.equals("catoblepas")) {
+				this.bindTexture(CATOBLEPAS_TEXTURES);
+				modelbase = this.catoblepasHead;
+			} else if (skullType.equals("sow")) {
+				this.bindTexture(SOW_TEXTURES);
+				modelbase = this.sowHead;
+			} else
 				this.bindTexture(REVENANT_TEXTURES);
 		}
 

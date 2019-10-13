@@ -212,6 +212,21 @@ public class ClientProxy extends CommonProxy {
 
 		//register special item renderers here
 		Resources.mobHeadRevenant.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadArachne.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadArachneDrone.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadMyrmeke.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadCerver.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadArganHound.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadForesthagPlane.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadForesthagPopulus.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadForesthagCypress.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadForesthagFir.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadForesthagOlive.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadForesthagLaurel.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadForesthagDroughtroot.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadAeternae.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadCatoblepas.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.mobHeadSow.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 	}
 
 	@Override
@@ -245,16 +260,9 @@ public class ClientProxy extends CommonProxy {
 		event.getItemColors().registerItemColorHandler(new IItemColor() {
 			@Override
 			public int colorMultiplier(ItemStack stack, int tintIndex) {
-				return reduceGreen(ColorizerGrass.getGrassColor(0.5D, 1.0D));
-			}
-		}, Resources.grass, Resources.tallGrass);
-
-		event.getItemColors().registerItemColorHandler(new IItemColor() {
-			@Override
-			public int colorMultiplier(ItemStack stack, int tintIndex) {
 				return tintIndex > 0 ? -1 : reduceGreen(ColorizerGrass.getGrassColor(0.5D, 1.0D));
 			}
-		}, Resources.herb, Resources.vineDry, Resources.vineThorny);
+		}, Resources.grass, Resources.tallGrass, Resources.herb, Resources.vineDry, Resources.vineThorny);
 
 		event.getItemColors().registerItemColorHandler(new IItemColor() {
 			@Override

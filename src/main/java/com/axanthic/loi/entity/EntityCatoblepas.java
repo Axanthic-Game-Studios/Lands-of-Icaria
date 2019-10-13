@@ -15,10 +15,12 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -64,6 +66,20 @@ public class EntityCatoblepas extends EntityAnimal {
 
 	protected void playStepSound(BlockPos pos, Block blockIn) {
 		this.playSound(SoundEvents.ENTITY_COW_STEP, 0.15F, 1.0F);
+	}
+
+	/**
+	 * Called when the mob's health reaches 0.
+	 */
+	public void onDeath(DamageSource cause) {
+		super.onDeath(cause);
+		if (cause.getTrueSource() instanceof EntityCreeper) {
+			EntityCreeper entitycreeper = (EntityCreeper)cause.getTrueSource();
+			if (entitycreeper.getPowered() && entitycreeper.ableToCauseSkullDrop()) {
+				entitycreeper.incrementDroppedSkulls();
+				this.entityDropItem(new ItemStack(Resources.mobHeadCatoblepas, 1, 0), 0.0F);
+			}
+		}
 	}
 
 	/**

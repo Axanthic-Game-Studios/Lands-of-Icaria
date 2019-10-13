@@ -1,7 +1,7 @@
 {
     "pools": [
         {
-			"name": "landsoficaria:cerver_mass",
+			"name": "landsoficaria:jellyfish_mass",
             "rolls": 1,
             "entries": [
                 {
@@ -25,28 +25,6 @@
                             }
                         }
                     ]
-                }
-            ]
-        },
-        {
-			"name": "landsoficaria:cerver_head",
-            "conditions": [
-                {
-                    "condition": "killed_by_player"
-                },
-                {
-                    "condition": "random_chance_with_looting",
-                    "chance": 0.025,
-                    "looting_multiplier": 0.01
-                }
-            ],
-            "rolls": 1,
-            "entries": [
-                {
-                    "type": "item",
-                    "name": "landsoficaria:head_cerver",
-					"entryName": "skull",
-                    "weight": 1
                 }
             ]
         }

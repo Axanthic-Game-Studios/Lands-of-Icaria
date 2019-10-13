@@ -144,6 +144,14 @@ public class Recipes {
 			addRecipe(new ItemStack(Resources.resource, 9, i + 5), name + "_unblock", new Object[]{"B", 'B', "block" + gem});
 		}
 
+		addShapelessRecipe(new ItemStack(Resources.planks, 2, 0), "head_planks_plane", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.mobHeadForesthagPlane, 1, 0))});
+		addShapelessRecipe(new ItemStack(Resources.planks, 2, 1), "head_planks_populus", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.mobHeadForesthagPopulus, 1, 0))});
+		addShapelessRecipe(new ItemStack(Resources.planks, 2, 2), "head_planks_cypress", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.mobHeadForesthagCypress, 1, 0))});
+		addShapelessRecipe(new ItemStack(Resources.planks, 2, 3), "head_planks_fir", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.mobHeadForesthagFir, 1, 0))});
+		addShapelessRecipe(new ItemStack(Resources.planks, 2, 4), "head_planks_olive", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.mobHeadForesthagOlive, 1, 0))});
+		addShapelessRecipe(new ItemStack(Resources.planks, 2, 5), "head_planks_laurel", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.mobHeadForesthagLaurel, 1, 0))});
+		addShapelessRecipe(new ItemStack(Resources.planks, 2, 6), "head_planks_droughtroot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.mobHeadForesthagDroughtroot, 1, 0))});
+
 		registerWoodRecipe(Resources.plane);
 		registerWoodRecipe(Resources.populus);
 		registerWoodRecipe(Resources.cypress);
