@@ -1,8 +1,5 @@
 package com.axanthic.loi;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +14,10 @@ import com.axanthic.loi.blocks.BlockFlower2;
 import com.axanthic.loi.blocks.BlockRock;
 import com.axanthic.loi.blocks.BlockStorageGem;
 import com.axanthic.loi.blocks.BlockStorageMetal;
+import com.axanthic.loi.proxy.CommonProxy;
+import com.axanthic.loi.utils.ForgeRecipe;
+import com.axanthic.loi.utils.GrinderRecipe;
+import com.axanthic.loi.utils.GrinderRecipeDust;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -35,19 +36,16 @@ import net.minecraftforge.registries.IForgeRegistryModifiable;
 
 public class Recipes {
 
-	public static Map<String, ItemStack> grindingRecipes = new HashMap<String, ItemStack>();
 	public static Map<String, Integer> grinderFuel = new HashMap<String, Integer>();
 
-	public static Map<Collection<String>, ItemStack> forgeRecipes = new HashMap<Collection<String>, ItemStack>();
-	public static Collection<String> forgeIngredients = new ArrayList<String>();
-
 	public static void registerRecipes() {
-		addForgeRecipe(new ItemStack(Resources.ingot, 3, 3), new ItemStack(Resources.ingot, 1, 1), new ItemStack(Resources.ingot, 1, 0), new ItemStack(Resources.ingot, 1, 0));
-		addForgeRecipe(new ItemStack(Resources.ingot, 2, 6), new ItemStack(Resources.ingot, 1, 1), new ItemStack(Resources.ingot, 1, 5), new ItemStack(Resources.resource, 1, 0));
-		addForgeRecipe(new ItemStack(Resources.ingot, 2, 9), new ItemStack(Resources.ingot, 1, 7), new ItemStack(Resources.ingot, 1, 8), new ItemStack(Resources.resource, 1, 2));
+		addForgeRecipe("orichalcum", new ItemStack(Resources.ingot, 3, 3), new ItemStack(Resources.ingot, 1, 1), new ItemStack(Resources.ingot, 1, 0), new ItemStack(Resources.ingot, 1, 0));
+		addForgeRecipe("vanadiumsteel", new ItemStack(Resources.ingot, 2, 6), new ItemStack(Resources.ingot, 1, 1), new ItemStack(Resources.ingot, 1, 5), new ItemStack(Resources.resource, 1, 0));
+		addForgeRecipe("molybdenumsteel", new ItemStack(Resources.ingot, 2, 9), new ItemStack(Resources.ingot, 1, 7), new ItemStack(Resources.ingot, 1, 8), new ItemStack(Resources.resource, 1, 2));
 
-		addGrinderRecipe(new ItemStack(Resources.resource, 2, 8), new ItemStack(Resources.resource, 1, 5));
-		addGrinderRecipe(new ItemStack(Resources.resource, 1, 9), new ItemStack(Resources.resource, 1, 7));
+		addGrinderRecipe("calcite_powder", new ItemStack(Resources.resource, 2, 8), new ItemStack(Resources.resource, 1, 5));
+		addGrinderRecipe("polished_zircon", new ItemStack(Resources.resource, 1, 9), new ItemStack(Resources.resource, 1, 7));
+		CommonProxy.grinderRecipeRegistry.register(new GrinderRecipeDust());
 
 		addGrinderFuel(new ItemStack(Items.BLAZE_POWDER), 1600);
 
@@ -289,18 +287,28 @@ public class Recipes {
 		GameRegistry.addShapelessRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), new ResourceLocation(group), output, params);
 	}
 
-	public static void addGrinderRecipe(ItemStack output, ItemStack input) {
-		grindingRecipes.put(input.getItem().getRegistryName().toString() + ":" + input.getMetadata(), output);
+	public static void addGrinderRecipe(String name, ItemStack output, Ingredient input) {
+		CommonProxy.grinderRecipeRegistry.register(new GrinderRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), input, output));
+	}
+
+	public static void addGrinderRecipe(String name, ItemStack output, ItemStack input) {
+		addGrinderRecipe(name, output, Ingredient.fromStacks(input));
 	}
 
 	public static void addGrinderFuel(ItemStack fuel, int burnTime) {
 		grinderFuel.put(fuel.getItem().getRegistryName().toString() + ":" + fuel.getMetadata(), burnTime);
 	}
 
-	public static void addForgeRecipe(ItemStack output, ItemStack input1, ItemStack input2, ItemStack input3) {
-		Collection ingredients  = new ArrayList(Arrays.asList(input1.getItem().getRegistryName().toString() + ":" + input1.getMetadata(), input2.getItem().getRegistryName().toString() + ":" + input2.getMetadata(), input3.getItem().getRegistryName().toString() + ":" + input3.getMetadata()));
-		forgeIngredients.addAll(ingredients);
-		forgeRecipes.put(ingredients,  output);
+	public static void addForgeRecipe(String name, ItemStack output, Ingredient... inputs) {
+		CommonProxy.forgeRecipeRegistry.register(new ForgeRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), output, inputs));
+	}
+
+	public static void addForgeRecipe(String name, ItemStack output, ItemStack... inputs) {
+		Ingredient[] ingredients = new Ingredient[inputs.length];
+		for (int i = 0; i < inputs.length; ++i) {
+			ingredients[i] = Ingredient.fromStacks(inputs[i]);
+		}
+		addForgeRecipe(name, output, ingredients);
 	}
 
 	public static void moveRecipe(ResourceLocation name) {

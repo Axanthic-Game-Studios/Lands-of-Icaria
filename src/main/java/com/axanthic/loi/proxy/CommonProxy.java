@@ -29,6 +29,8 @@ import com.axanthic.loi.tileentity.TileEntityGrinder;
 import com.axanthic.loi.tileentity.TileEntityKiln;
 import com.axanthic.loi.tileentity.TileEntityMobHead;
 import com.axanthic.loi.tileentity.TileEntityVase;
+import com.axanthic.loi.utils.ForgeRecipe;
+import com.axanthic.loi.utils.GrinderRecipe;
 import com.axanthic.loi.utils.MessageCustomReachAttack;
 import com.axanthic.loi.worldgen.biome.LOIBiomes;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
@@ -63,8 +65,13 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.RegistryBuilder;
 
 public class CommonProxy {
+
+	public static IForgeRegistry grinderRecipeRegistry;
+	public static IForgeRegistry forgeRecipeRegistry;
 
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(LandsOfIcaria.instance);
@@ -169,6 +176,20 @@ public class CommonProxy {
 
 	public void registerSounds(RegistryEvent.Register<SoundEvent> event) {
 
+	}
+
+	public void registerRegistry(RegistryEvent.NewRegistry event) {
+		RegistryBuilder grinderRegistryBuilder = new RegistryBuilder();
+		grinderRegistryBuilder.setName(new ResourceLocation(ModInformation.ID, "grinder_recipes"));
+		grinderRegistryBuilder.setType(GrinderRecipe.class);
+		grinderRegistryBuilder.allowModification();
+		grinderRecipeRegistry = grinderRegistryBuilder.create();
+
+		RegistryBuilder forgeRegistryBuilder = new RegistryBuilder();
+		forgeRegistryBuilder.setName(new ResourceLocation(ModInformation.ID, "forge_recipes"));
+		forgeRegistryBuilder.setType(ForgeRecipe.class);
+		forgeRegistryBuilder.allowModification();
+		forgeRecipeRegistry = forgeRegistryBuilder.create();
 	}
 
 	public void onMouseEvent(MouseEvent event) {

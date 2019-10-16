@@ -1,10 +1,14 @@
 package com.axanthic.loi.tileentity;
 
+import java.util.Collection;
+
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Recipes;
 import com.axanthic.loi.blocks.BlockGrinder;
 import com.axanthic.loi.gui.ContainerKiln;
 import com.axanthic.loi.proxy.ClientProxy;
+import com.axanthic.loi.proxy.CommonProxy;
+import com.axanthic.loi.utils.GrinderRecipe;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -32,7 +36,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class TileEntityGrinder extends TileEntityLockable implements ITickable, ISidedInventory {
 	private static final int[] SLOTS_TOP = new int[] { 0 };
@@ -209,7 +212,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 			ItemStack itemstack = this.inventoryItems.get(1);
 
 			if (this.isBurning() || !itemstack.isEmpty() && !((ItemStack) this.inventoryItems.get(0)).isEmpty()) {
-				if (!this.isBurning() && this.canSmelt()) {
+				if (!this.isBurning() && this.canGrind()) {
 					this.burnTime = getItemBurnTime(itemstack);
 					this.currentItemBurnTime = this.burnTime;
 
@@ -228,14 +231,14 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 					}
 				}
 
-				if (this.isBurning() && this.canSmelt()) {
+				if (this.isBurning() && this.canGrind()) {
 					++this.cookTime;
 					--this.burnTime;
 
 					if (this.cookTime == this.totalCookTime) {
 						this.cookTime = 0;
 						this.totalCookTime = this.getCookTime(this.inventoryItems.get(0));
-						this.smeltItem();
+						this.grindItem();
 						flag1 = true;
 					}
 				} else {
@@ -247,7 +250,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 
 			if (flag != this.isGrinding()) {
 				flag1 = true;
-				((BlockGrinder) this.world.getBlockState(this.pos).getBlock()).setState(this.world.getBlockState(this.pos).withProperty(BlockGrinder.BURNING, this.canSmelt()), this.world, pos);
+				((BlockGrinder) this.world.getBlockState(this.pos).getBlock()).setState(this.world.getBlockState(this.pos).withProperty(BlockGrinder.BURNING, this.canGrind()), this.world, pos);
 			}
 		} else {
 			if (this.isGrinding()) {
@@ -282,7 +285,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 		return 200;
 	}
 
-	private boolean canSmelt() {
+	private boolean canGrind() {
 		if (((ItemStack) this.inventoryItems.get(0)).isEmpty()) {
 			return false;
 		} else {
@@ -307,30 +310,16 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 	}
 
 	public static ItemStack getGrindingResult(ItemStack stack) {
-		ItemStack returnstack = ItemStack.EMPTY;
-		String key = stack.getItem().getRegistryName().toString() + ":" + stack.getMetadata();
-		if (Recipes.grindingRecipes.containsKey(key))
-			return Recipes.grindingRecipes.get(key).copy();
-
-		for (int id : OreDictionary.getOreIDs(stack)) {
-			String name = OreDictionary.getOreName(id);
-
-			if (name.startsWith("ingot"))
-				if (OreDictionary.doesOreNameExist(name.replace("ingot", "dust")))
-					return OreDictionary.getOres(name.replace("ingot", "dust")).get(0);
-
-			if (name.startsWith("ore"))
-				if (OreDictionary.doesOreNameExist(name.replace("ore", "dust"))) {
-					returnstack = OreDictionary.getOres(name.replace("ore", "dust")).get(0);
-					returnstack.setCount(2);
-					return returnstack;
-				}
+		for (GrinderRecipe recipe : (Collection<GrinderRecipe>) CommonProxy.grinderRecipeRegistry.getValuesCollection()) {
+			if (recipe.matches(stack)) {
+				return recipe.getOutput(stack);
+			}
 		}
-		return returnstack;
+		return ItemStack.EMPTY;
 	}
 
-	public void smeltItem() {
-		if (this.canSmelt()) {
+	public void grindItem() {
+		if (this.canGrind()) {
 			ItemStack itemstack = this.inventoryItems.get(0);
 			ItemStack itemstack1 = getGrindingResult(itemstack);
 			ItemStack itemstack2 = this.inventoryItems.get(2);

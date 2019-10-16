@@ -1,16 +1,14 @@
 package com.axanthic.loi.tileentity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.Recipes;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.blocks.BlockForge;
 import com.axanthic.loi.blocks.BlockForge.EnumCorner;
 import com.axanthic.loi.gui.ContainerForge;
-
+import com.axanthic.loi.proxy.CommonProxy;
+import com.axanthic.loi.utils.ForgeRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
@@ -32,6 +30,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
@@ -316,20 +315,20 @@ public class TileEntityForge extends TileEntityLockable implements ITickable, IS
 	}
 
 	public static ItemStack getAlloyResult(ItemStack input1, ItemStack input2, ItemStack input3) {
-		Collection<String> ingredients = new ArrayList(Arrays.asList(input1.getItem().getRegistryName().toString() + ":" + input1.getMetadata(), input2.getItem().getRegistryName().toString() + ":" + input2.getMetadata(), input3.getItem().getRegistryName().toString() + ":" + input3.getMetadata()));
-
-		if (Recipes.forgeRecipes.containsKey(ingredients))
-			return Recipes.forgeRecipes.get(ingredients).copy();
-
-		for (Collection<String> recipe : Recipes.forgeRecipes.keySet()) {
-			if (ingredients.containsAll(recipe) && recipe.containsAll(ingredients) && ingredients.size() == recipe.size())
-				return Recipes.forgeRecipes.get(recipe).copy();
+		for (ForgeRecipe recipe : (Collection<ForgeRecipe>) CommonProxy.forgeRecipeRegistry.getValuesCollection()) {
+			if (recipe.matches(input1, input2, input3)) {
+				return recipe.getOutput(input1, input2, input3);
+			}
 		}
 		return ItemStack.EMPTY;
 	}
 
 	public static boolean hasAlloyResult(ItemStack input) {
-		return Recipes.forgeIngredients.contains(input.getItem().getRegistryName().toString() + ":" + input.getMetadata());
+		for (Ingredient ingredient : ForgeRecipe.allInputs) {
+			if (ingredient.apply(input))
+				return true;
+		}
+		return false;
 	}
 
 	public void smeltItem() {

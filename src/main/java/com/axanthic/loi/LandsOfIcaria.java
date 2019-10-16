@@ -115,7 +115,12 @@ public class LandsOfIcaria {
 
 	@SubscribeEvent
 	public static void registerSoundEvents(RegistryEvent.Register<SoundEvent> event) {	
-		LandsOfIcaria.proxy.registerSounds(event);	
+		LandsOfIcaria.proxy.registerSounds(event);
+	}
+
+	@SubscribeEvent
+	public static void registerRegistry(RegistryEvent.NewRegistry event) {	
+		LandsOfIcaria.proxy.registerRegistry(event);
 	}
 
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
