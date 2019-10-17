@@ -198,6 +198,13 @@ container.kiln=Kiln
 container.grinder=Grinder
 container.forge=Forge
 
+gui.jei.category.landsoficaria.grinding=Grinding
+gui.jei.category.landsoficaria.grindfuel=Grinder Fuel
+gui.jei.category.landsoficaria.alloying=Alloying
+
+gui.jei.category.grindfuel.grindCount.single=Grinds 1 item
+gui.jei.category.grindfuel.grindCount=Grinds %s items
+
 attribute.name.generic.attackRange=Attack Range
 
 entity.fallingVase.name=Loot Vase

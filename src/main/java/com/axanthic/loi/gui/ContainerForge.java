@@ -9,7 +9,6 @@ import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnaceFuel;
-import net.minecraft.inventory.SlotFurnaceOutput;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.tileentity.TileEntityFurnace;
@@ -29,8 +28,8 @@ public class ContainerForge extends Container {
 		this.addSlotToContainer(new Slot(furnaceInventory, 1, 56, 17));
 		this.addSlotToContainer(new Slot(furnaceInventory, 2, 74, 17));
 		this.addSlotToContainer(new SlotFurnaceFuel(furnaceInventory, 3, 56, 53));
-		this.addSlotToContainer(new SlotFurnaceOutput(playerInventory.player, furnaceInventory, 4, 116, 21));
-		this.addSlotToContainer(new SlotFurnaceOutput(playerInventory.player, furnaceInventory, 5, 116, 49));
+		this.addSlotToContainer(new SlotForgeOutput(playerInventory.player, furnaceInventory, 4, 116, 21));
+		this.addSlotToContainer(new SlotForgeOutput(playerInventory.player, furnaceInventory, 5, 116, 49));
 
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {

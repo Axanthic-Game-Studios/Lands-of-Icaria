@@ -3,11 +3,11 @@ package com.axanthic.loi.tileentity;
 import java.util.Collection;
 
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.Recipes;
 import com.axanthic.loi.blocks.BlockGrinder;
 import com.axanthic.loi.gui.ContainerKiln;
 import com.axanthic.loi.proxy.ClientProxy;
 import com.axanthic.loi.proxy.CommonProxy;
+import com.axanthic.loi.utils.GrinderFuel;
 import com.axanthic.loi.utils.GrinderRecipe;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -138,7 +138,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 		this.burnTime = compound.getInteger("BurnTime");
 		this.cookTime = compound.getInteger("CookTime");
 		this.totalCookTime = compound.getInteger("CookTimeTotal");
-		this.currentItemBurnTime = getItemBurnTime(this.inventoryItems.get(1));
+		this.currentItemBurnTime = GrinderFuel.getItemBurnTime(this.inventoryItems.get(1));
 
 		if (compound.hasKey("CustomName", 8)) {
 			this.customName = compound.getString("CustomName");
@@ -213,7 +213,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 
 			if (this.isBurning() || !itemstack.isEmpty() && !((ItemStack) this.inventoryItems.get(0)).isEmpty()) {
 				if (!this.isBurning() && this.canGrind()) {
-					this.burnTime = getItemBurnTime(itemstack);
+					this.burnTime = GrinderFuel.getItemBurnTime(itemstack);
 					this.currentItemBurnTime = this.burnTime;
 
 					if (this.isBurning()) {
@@ -340,16 +340,8 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 		}
 	}
 
-	public static int getItemBurnTime(ItemStack stack) {
-		String key = stack.getItem().getRegistryName().toString() + ":" + stack.getMetadata();
-		if (Recipes.grinderFuel.containsKey(key))
-			return Recipes.grinderFuel.get(key);
-
-		return 0;
-	}
-
 	public static boolean isItemFuel(ItemStack stack) {
-		return getItemBurnTime(stack) > 0;
+		return GrinderFuel.getItemBurnTime(stack) > 0;
 	}
 
 	/**

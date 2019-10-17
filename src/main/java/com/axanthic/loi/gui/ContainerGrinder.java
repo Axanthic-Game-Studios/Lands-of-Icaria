@@ -9,7 +9,6 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnaceOutput;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -25,7 +24,7 @@ public class ContainerGrinder extends Container {
 		this.tileFurnace = furnaceInventory;
 		this.addSlotToContainer(new Slot(furnaceInventory, 0, 34, 17));
 		this.addSlotToContainer(new SlotGrinderFuel(furnaceInventory, 1, 116, 53));
-		this.addSlotToContainer(new SlotFurnaceOutput(playerInventory.player, furnaceInventory, 2, 94, 21));
+		this.addSlotToContainer(new SlotGrinderOutput(playerInventory.player, furnaceInventory, 2, 94, 21));
 
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {

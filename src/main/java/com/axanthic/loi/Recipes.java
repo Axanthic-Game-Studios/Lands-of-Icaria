@@ -1,8 +1,5 @@
 package com.axanthic.loi;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.annotation.Nonnull;
 
 import com.axanthic.loi.Resources.ArmorSet;
@@ -16,8 +13,8 @@ import com.axanthic.loi.blocks.BlockStorageGem;
 import com.axanthic.loi.blocks.BlockStorageMetal;
 import com.axanthic.loi.proxy.CommonProxy;
 import com.axanthic.loi.utils.ForgeRecipe;
+import com.axanthic.loi.utils.GrinderFuel;
 import com.axanthic.loi.utils.GrinderRecipe;
-import com.axanthic.loi.utils.GrinderRecipeDust;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -36,18 +33,15 @@ import net.minecraftforge.registries.IForgeRegistryModifiable;
 
 public class Recipes {
 
-	public static Map<String, Integer> grinderFuel = new HashMap<String, Integer>();
-
 	public static void registerRecipes() {
-		addForgeRecipe("orichalcum", new ItemStack(Resources.ingot, 3, 3), new ItemStack(Resources.ingot, 1, 1), new ItemStack(Resources.ingot, 1, 0), new ItemStack(Resources.ingot, 1, 0));
-		addForgeRecipe("vanadiumsteel", new ItemStack(Resources.ingot, 2, 6), new ItemStack(Resources.ingot, 1, 1), new ItemStack(Resources.ingot, 1, 5), new ItemStack(Resources.resource, 1, 0));
-		addForgeRecipe("molybdenumsteel", new ItemStack(Resources.ingot, 2, 9), new ItemStack(Resources.ingot, 1, 7), new ItemStack(Resources.ingot, 1, 8), new ItemStack(Resources.resource, 1, 2));
+		addForgeRecipe("orichalcum", new ItemStack(Resources.ingot, 3, 3), 0.3F, new OreIngredient("ingotKassiteros"), new OreIngredient("ingotChalkos"), new OreIngredient("ingotChalkos"));
+		addForgeRecipe("vanadiumsteel", new ItemStack(Resources.ingot, 2, 6), 0.3F, new OreIngredient("ingotKassiteros"), new OreIngredient("ingotVanadium"), new OreIngredient("gemLignite"));
+		addForgeRecipe("molybdenumsteel", new ItemStack(Resources.ingot, 2, 9), 0.3F, new OreIngredient("ingotSideros"), new OreIngredient("ingotMolybdenum"), new OreIngredient("gemAnthracite"));
 
-		addGrinderRecipe("calcite_powder", new ItemStack(Resources.resource, 2, 8), new ItemStack(Resources.resource, 1, 5));
-		addGrinderRecipe("polished_zircon", new ItemStack(Resources.resource, 1, 9), new ItemStack(Resources.resource, 1, 7));
-		CommonProxy.grinderRecipeRegistry.register(new GrinderRecipeDust());
+		addGrinderRecipe("calcite_powder", new ItemStack(Resources.resource, 2, 8), 0.1F, new OreIngredient("gemCalcite"));
+		addGrinderRecipe("polished_zircon", new ItemStack(Resources.resource, 1, 9), 0.3F, new OreIngredient("gemZircon"));
 
-		addGrinderFuel(new ItemStack(Items.BLAZE_POWDER), 1600);
+		addGrinderFuel("blaze_rod", new ItemStack(Items.BLAZE_POWDER), 1600);
 
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath", new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
 
@@ -226,6 +220,20 @@ public class Recipes {
 		NonNullList<ItemStack> iridiumIngots = OreDictionary.getOres("ingotIridium");
 		if (!iridiumIngots.isEmpty())
 			addShapelessRecipe(iridiumIngots.get(0), "bluridium_iridium", "iridium_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 10))});
+
+		for (String name : OreDictionary.getOreNames()) {
+			if (name.startsWith("ingot"))
+				if (OreDictionary.doesOreNameExist(name.replace("ingot", "dust"))) {
+					addGrinderRecipe(name.toLowerCase() + "_dust", OreDictionary.getOres(name.replace("ingot", "dust")).get(0).copy(), 0.1F, new OreIngredient(name));
+					continue;
+				}
+			if (name.startsWith("ore"))
+				if (OreDictionary.doesOreNameExist(name.replace("ore", "dust"))) {
+					ItemStack returnstack = OreDictionary.getOres(name.replace("ore", "dust")).get(0).copy();
+					returnstack.setCount(2);
+					addGrinderRecipe(name.toLowerCase() + "_dust", returnstack, 0.2F, new OreIngredient(name));
+				}
+		}
 	}
 
 	public static void registerWoodRecipe(WoodSet set) {
@@ -253,7 +261,7 @@ public class Recipes {
 
 	public static void registerToolRecipe(ToolSet set) {
 		ItemStack material = set.bident.material.material.getRepairItemStack();
-		String name = set.bident.material.material.name();
+		String name = set.bident.material.material.name().substring(ModInformation.ID.length() + 1);
 		addRecipe(new ItemStack(set.axe), name + "_axe", new Object[]{"MM", "MB", " B", 'M', material, 'B', Items.BONE});
 		addRecipe(new ItemStack(set.pickaxe), name + "_pickaxe", new Object[]{"MMM", " B ", " B ", 'M', material, 'B', Items.BONE});
 		addRecipe(new ItemStack(set.shovel), name + "_shovel", new Object[]{"M", "B", "B", 'M', material, 'B', Items.BONE});
@@ -265,10 +273,11 @@ public class Recipes {
 
 	public static void registerArmorRecipe(ArmorSet set) {
 		ItemStack material = set.material.getRepairItemStack();
-		addRecipe(new ItemStack(set.helmet), set.material.getName() + "_helmet", new Object[]{"MMM", "M M", 'M', material});
-		addRecipe(new ItemStack(set.chestplate), set.material.getName() + "_chestplate", new Object[]{"M M", "MMM", "MMM", 'M', material});
-		addRecipe(new ItemStack(set.leggings), set.material.getName() + "_leggings", new Object[]{"MMM", "M M", "M M", 'M', material});
-		addRecipe(new ItemStack(set.boots), set.material.getName() + "_boots", new Object[]{"M M", "M M", 'M', material});
+		String name = set.material.getName().substring(ModInformation.ID.length() + 1);
+		addRecipe(new ItemStack(set.helmet), name + "_helmet", new Object[]{"MMM", "M M", 'M', material});
+		addRecipe(new ItemStack(set.chestplate), name + "_chestplate", new Object[]{"M M", "MMM", "MMM", 'M', material});
+		addRecipe(new ItemStack(set.leggings), name + "_leggings", new Object[]{"MMM", "M M", "M M", 'M', material});
+		addRecipe(new ItemStack(set.boots), name + "_boots", new Object[]{"M M", "M M", 'M', material});
 	}
 
 	public static void addRecipe(@Nonnull ItemStack output, String name, Object... params) {
@@ -287,28 +296,28 @@ public class Recipes {
 		GameRegistry.addShapelessRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), new ResourceLocation(group), output, params);
 	}
 
-	public static void addGrinderRecipe(String name, ItemStack output, Ingredient input) {
-		CommonProxy.grinderRecipeRegistry.register(new GrinderRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), input, output));
+	public static void addGrinderRecipe(String name, ItemStack output, Float xp, Ingredient input) {
+		CommonProxy.grinderRecipeRegistry.register(new GrinderRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), input, xp, output));
 	}
 
-	public static void addGrinderRecipe(String name, ItemStack output, ItemStack input) {
-		addGrinderRecipe(name, output, Ingredient.fromStacks(input));
+	public static void addGrinderRecipe(String name, ItemStack output, Float xp, ItemStack input) {
+		addGrinderRecipe(name, output, xp, Ingredient.fromStacks(input));
 	}
 
-	public static void addGrinderFuel(ItemStack fuel, int burnTime) {
-		grinderFuel.put(fuel.getItem().getRegistryName().toString() + ":" + fuel.getMetadata(), burnTime);
+	public static void addGrinderFuel(String name, ItemStack fuel, int burnTime) {
+		CommonProxy.grinderFuelRegistry.register(new GrinderFuel(new ResourceLocation(ModInformation.ID, "recipe_" + name), fuel, burnTime));
 	}
 
-	public static void addForgeRecipe(String name, ItemStack output, Ingredient... inputs) {
-		CommonProxy.forgeRecipeRegistry.register(new ForgeRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), output, inputs));
+	public static void addForgeRecipe(String name, ItemStack output, float xp, Ingredient... inputs) {
+		CommonProxy.forgeRecipeRegistry.register(new ForgeRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), output, xp, inputs));
 	}
 
-	public static void addForgeRecipe(String name, ItemStack output, ItemStack... inputs) {
+	public static void addForgeRecipe(String name, ItemStack output, float xp, ItemStack... inputs) {
 		Ingredient[] ingredients = new Ingredient[inputs.length];
 		for (int i = 0; i < inputs.length; ++i) {
 			ingredients[i] = Ingredient.fromStacks(inputs[i]);
 		}
-		addForgeRecipe(name, output, ingredients);
+		addForgeRecipe(name, output, xp, ingredients);
 	}
 
 	public static void moveRecipe(ResourceLocation name) {

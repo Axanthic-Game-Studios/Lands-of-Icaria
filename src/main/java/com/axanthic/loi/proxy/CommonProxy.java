@@ -30,6 +30,7 @@ import com.axanthic.loi.tileentity.TileEntityKiln;
 import com.axanthic.loi.tileentity.TileEntityMobHead;
 import com.axanthic.loi.tileentity.TileEntityVase;
 import com.axanthic.loi.utils.ForgeRecipe;
+import com.axanthic.loi.utils.GrinderFuel;
 import com.axanthic.loi.utils.GrinderRecipe;
 import com.axanthic.loi.utils.MessageCustomReachAttack;
 import com.axanthic.loi.worldgen.biome.LOIBiomes;
@@ -71,6 +72,7 @@ import net.minecraftforge.registries.RegistryBuilder;
 public class CommonProxy {
 
 	public static IForgeRegistry grinderRecipeRegistry;
+	public static IForgeRegistry grinderFuelRegistry;
 	public static IForgeRegistry forgeRecipeRegistry;
 
 	public void preInit(FMLPreInitializationEvent event) {
@@ -184,6 +186,12 @@ public class CommonProxy {
 		grinderRegistryBuilder.setType(GrinderRecipe.class);
 		grinderRegistryBuilder.allowModification();
 		grinderRecipeRegistry = grinderRegistryBuilder.create();
+
+		RegistryBuilder grinderFuelRegistryBuilder = new RegistryBuilder();
+		grinderFuelRegistryBuilder.setName(new ResourceLocation(ModInformation.ID, "grinder_fuel"));
+		grinderFuelRegistryBuilder.setType(GrinderFuel.class);
+		grinderFuelRegistryBuilder.allowModification();
+		grinderFuelRegistry = grinderFuelRegistryBuilder.create();
 
 		RegistryBuilder forgeRegistryBuilder = new RegistryBuilder();
 		forgeRegistryBuilder.setName(new ResourceLocation(ModInformation.ID, "forge_recipes"));
