@@ -53,7 +53,7 @@ public class IcariaPlugin implements IModPlugin {
 		registry.addRecipeClickArea(GuiInventoryKiln.class, 56, 35, 16, 16, VanillaRecipeCategoryUid.FUEL);
 		registry.addRecipeClickArea(GuiInventoryGrinder.class, 53, 16, 33, 18, "landsoficaria.grinding");
 		registry.addRecipeClickArea(GuiInventoryGrinder.class, 116, 17, 21, 34, "landsoficaria.grindfuel");
-		registry.addRecipeClickArea(GuiInventoryForge.class, 73, 34, 35, 37, "landsoficaria.alloying", VanillaRecipeCategoryUid.SMELTING);
+		registry.addRecipeClickArea(GuiInventoryForge.class, 73, 34, 34, 21, "landsoficaria.alloying", VanillaRecipeCategoryUid.SMELTING);
 		registry.addRecipeClickArea(GuiInventoryForge.class, 56, 35, 16, 16, VanillaRecipeCategoryUid.FUEL);
 	}
 

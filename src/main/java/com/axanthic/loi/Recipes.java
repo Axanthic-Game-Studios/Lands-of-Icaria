@@ -35,13 +35,32 @@ public class Recipes {
 
 	public static void registerRecipes() {
 		addForgeRecipe("orichalcum", new ItemStack(Resources.ingot, 3, 3), 0.3F, new OreIngredient("ingotKassiteros"), new OreIngredient("ingotChalkos"), new OreIngredient("ingotChalkos"));
-		addForgeRecipe("vanadiumsteel", new ItemStack(Resources.ingot, 2, 6), 0.3F, new OreIngredient("ingotKassiteros"), new OreIngredient("ingotVanadium"), new OreIngredient("gemLignite"));
-		addForgeRecipe("molybdenumsteel", new ItemStack(Resources.ingot, 2, 9), 0.3F, new OreIngredient("ingotSideros"), new OreIngredient("ingotMolybdenum"), new OreIngredient("gemAnthracite"));
+		addForgeRecipe("vanadiumsteel", new ItemStack(Resources.ingot, 2, 6), 0.5F, new OreIngredient("ingotKassiteros"), new OreIngredient("ingotVanadium"), new OreIngredient("gemLignite"));
+		addForgeRecipe("molybdenumsteel", new ItemStack(Resources.ingot, 2, 9), 0.6F, new OreIngredient("ingotSideros"), new OreIngredient("ingotMolybdenum"), new OreIngredient("gemAnthracite"));
 
 		addGrinderRecipe("calcite_powder", new ItemStack(Resources.resource, 2, 8), 0.1F, new OreIngredient("gemCalcite"));
 		addGrinderRecipe("polished_zircon", new ItemStack(Resources.resource, 1, 9), 0.3F, new OreIngredient("gemZircon"));
+		addGrinderRecipe("grainel_stone", new ItemStack(Resources.grainelStone, 1, 0), 0.1F, Ingredient.fromStacks(new ItemStack(Resources.grainelStone, 1, 1), new ItemStack(Resources.grainelStone, 1, 2)));
+		addGrinderRecipe("grainel", new ItemStack(Resources.grainelSand, 1, 0), 0.1F, new ItemStack(Resources.grainelStone, 1, 0));
+		addGrinderRecipe("grainel_glass", new ItemStack(Resources.grainelSand, 1, 0), 0.1F, new ItemStack(Resources.grainelGlass, 1, 0));
+		addGrinderRecipe("silkstone_dust", new ItemStack(Resources.resource, 4, 4), 0.1F, new ItemStack(Resources.rock, 1, 1));
+		addGrinderRecipe("relicstone", new ItemStack(Resources.rock, 1, 5), 0.1F, new ItemStack(Resources.relicstone, 1, 0));
+		addGrinderRecipe("cobblestone", new ItemStack(Blocks.COBBLESTONE, 1, 0), 0.1F, new ItemStack(Blocks.STONE, 1, 0));
+		addGrinderRecipe("gravel", new ItemStack(Blocks.GRAVEL, 1, 0), 0.1F, new ItemStack(Blocks.COBBLESTONE, 1, 0));
+		addGrinderRecipe("gravel_sand", new ItemStack(Blocks.SAND, 1, 0), 0.1F, new ItemStack(Blocks.GRAVEL, 1, 0));
+		addGrinderRecipe("glass_sand", new ItemStack(Blocks.SAND, 1, 0), 0.1F, Ingredient.fromStacks(new ItemStack(Blocks.GLASS, 1, 0), new ItemStack(Blocks.STAINED_GLASS, 1, OreDictionary.WILDCARD_VALUE)));
+		addGrinderRecipe("sandstone_sand", new ItemStack(Blocks.SAND, 4, 0), 0.1F, new ItemStack(Blocks.SANDSTONE, 1, OreDictionary.WILDCARD_VALUE));
+		addGrinderRecipe("sandstone_sand_red", new ItemStack(Blocks.SAND, 4, 1), 0.1F, new ItemStack(Blocks.RED_SANDSTONE, 1, OreDictionary.WILDCARD_VALUE));
+		addGrinderRecipe("cracked_bricks", new ItemStack(Blocks.STONEBRICK, 1, 2), 0.1F, new ItemStack(Blocks.STONEBRICK, 1, 0));
+		addGrinderRecipe("dirt", new ItemStack(Blocks.DIRT, 1, 0), 0.1F, new ItemStack(Blocks.DIRT, 1, 1));
+		addGrinderRecipe("snow", new ItemStack(Blocks.SNOW, 1, 0), 0.1F, new OreIngredient("blockIce"));
+		addGrinderRecipe("string", new ItemStack(Items.STRING, 4, 0), 0.1F, new OreIngredient("blockWool"));
+		addGrinderRecipe("bonemeal", new ItemStack(Items.DYE, 5, 15), 0.1F, new OreIngredient("bone"));
+		addGrinderRecipe("blaze_powder", new ItemStack(Items.BLAZE_POWDER, 4, 0), 0.2F, new OreIngredient("rodBlaze"));
+		for (int i = 0; i < 16; ++i)
+			addGrinderRecipe("concrete_" + i, new ItemStack(Blocks.CONCRETE_POWDER, 1, i), 0.1F, new ItemStack(Blocks.CONCRETE, 1, i));
 
-		addGrinderFuel("blaze_rod", new ItemStack(Items.BLAZE_POWDER), 1600);
+		addGrinderFuel("blaze_powder", new ItemStack(Items.BLAZE_POWDER), 1600);
 
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath", new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
 
@@ -153,10 +172,6 @@ public class Recipes {
 		registerWoodRecipe(Resources.laurel);
 		registerWoodRecipe(Resources.droughtroot);
 
-		//this needs to happen because they prioritize over our recipes
-		moveRecipe(new ResourceLocation("crafting_table"));
-		moveRecipe(new ResourceLocation("trapdoor"));
-
 		registerSlabStairRecipe(Resources.yellowstoneStone);
 		registerSlabStairRecipe(Resources.silkstoneStone);
 		registerSlabStairRecipe(Resources.sunstoneStone);
@@ -192,35 +207,69 @@ public class Recipes {
 		registerArmorRecipe(Resources.kassiterosArmor);
 		registerArmorRecipe(Resources.orichalcumArmor);
 		registerArmorRecipe(Resources.vanadiumArmor);
+
+		//this needs to happen because they prioritize over our recipes
+		moveRecipe(new ResourceLocation("crafting_table"));
+		moveRecipe(new ResourceLocation("trapdoor"));
+		moveRecipe(new ResourceLocation("leather_helmet"));
+		moveRecipe(new ResourceLocation("leather_chestplate"));
+		moveRecipe(new ResourceLocation("leather_leggings"));
+		moveRecipe(new ResourceLocation("leather_boots"));
 	}
 
 	public static void registerLateRecipes() {
 		NonNullList<ItemStack> copperIngots = OreDictionary.getOres("ingotCopper");
+		NonNullList<ItemStack> tinIngots = OreDictionary.getOres("ingotTin");
+		NonNullList<ItemStack> leadIngots = OreDictionary.getOres("ingotLead");
+		NonNullList<ItemStack> bronzeIngots = OreDictionary.getOres("ingotBronze");
+		NonNullList<ItemStack> silverIngots = OreDictionary.getOres("ingotSilver");
+		NonNullList<ItemStack> iridiumIngots = OreDictionary.getOres("ingotIridium");
+		NonNullList<ItemStack> electrumIngots = OreDictionary.getOres("ingotElectrum");
+		NonNullList<ItemStack> nickelIngots = OreDictionary.getOres("ingotNickel");
+		NonNullList<ItemStack> invarIngots = OreDictionary.getOres("ingotInvar");
+		NonNullList<ItemStack> constantanIngots = OreDictionary.getOres("ingotConstantan");
+		NonNullList<ItemStack> cobaltIngots = OreDictionary.getOres("ingotCobalt");
+		NonNullList<ItemStack> arditeIngots = OreDictionary.getOres("ingotArdite");
+		NonNullList<ItemStack> manyullynIngots = OreDictionary.getOres("ingotManyullyn");
+
+		//metal conversion recipes
 		if (!copperIngots.isEmpty())
 			addShapelessRecipe(copperIngots.get(0), "chalkos_copper", "copper_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 0))});
 
-		NonNullList<ItemStack> tinIngots = OreDictionary.getOres("ingotTin");
 		if (!tinIngots.isEmpty())
 			addShapelessRecipe(tinIngots.get(0), "kassiteros_tin", "tin_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 1))});
 
-		NonNullList<ItemStack> leadIngots = OreDictionary.getOres("ingotLead");
 		if (!leadIngots.isEmpty())
 			addShapelessRecipe(leadIngots.get(0), "molibos_lead", "lead_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 2))});
 
-		NonNullList<ItemStack> bronzeIngots = OreDictionary.getOres("ingotBronze");
 		if (!bronzeIngots.isEmpty())
 			addShapelessRecipe(bronzeIngots.get(0), "orichalcum_bronze", "bronze_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 3))});
 
-		NonNullList<ItemStack> silverIngots = OreDictionary.getOres("ingotSilver");
 		if (!silverIngots.isEmpty())
 			addShapelessRecipe(silverIngots.get(0), "sliver_silver", "silver_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 4))});
 
-		addShapelessRecipe(new ItemStack(Items.IRON_INGOT, 1, 0), "sideros_iron", "iron_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 7))});
+		addShapelessRecipe(new ItemStack(Items.IRON_INGOT, 5, 0), "sideros_iron", "iron_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 7))});
 
-		NonNullList<ItemStack> iridiumIngots = OreDictionary.getOres("ingotIridium");
 		if (!iridiumIngots.isEmpty())
 			addShapelessRecipe(iridiumIngots.get(0), "bluridium_iridium", "iridium_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 10))});
 
+		//compatibility alloying recipes
+		if (!copperIngots.isEmpty() && !tinIngots.isEmpty() && !bronzeIngots.isEmpty())
+			addForgeRecipe("bronze", new ItemStack(bronzeIngots.get(0).getItem(), 3, bronzeIngots.get(0).getMetadata()), 0.2F, new OreIngredient("ingotTin"), new OreIngredient("ingotCopper"), new OreIngredient("ingotCopper"));
+
+		if (!silverIngots.isEmpty() && !electrumIngots.isEmpty())
+			addForgeRecipe("electrum", new ItemStack(electrumIngots.get(0).getItem(), 2, electrumIngots.get(0).getMetadata()), 0.3F, new OreIngredient("ingotSilver"), new OreIngredient("ingotGold"));
+
+		if (!nickelIngots.isEmpty() && !invarIngots.isEmpty())
+			addForgeRecipe("invar", new ItemStack(invarIngots.get(0).getItem(), 3, invarIngots.get(0).getMetadata()), 0.2F, new OreIngredient("ingotNickel"), new OreIngredient("ingotIron"), new OreIngredient("ingotIron"));
+
+		if (!copperIngots.isEmpty() && !nickelIngots.isEmpty() && !constantanIngots.isEmpty())
+			addForgeRecipe("constantan", new ItemStack(constantanIngots.get(0).getItem(), 2, constantanIngots.get(0).getMetadata()), 0.2F, new OreIngredient("ingotCopper"), new OreIngredient("ingotNickel"));
+
+		if (!cobaltIngots.isEmpty() && !arditeIngots.isEmpty() && !manyullynIngots.isEmpty())
+			addForgeRecipe("manyullyn", new ItemStack(manyullynIngots.get(0).getItem(), 2, manyullynIngots.get(0).getMetadata()), 0.4F, new OreIngredient("ingotCobalt"), new OreIngredient("ingotArdite"));
+
+		//automatic grinder recipes
 		for (String name : OreDictionary.getOreNames()) {
 			if (name.startsWith("ingot"))
 				if (OreDictionary.doesOreNameExist(name.replace("ingot", "dust"))) {
@@ -271,13 +320,14 @@ public class Recipes {
 		addRecipe(new ItemStack(set.scythe), name + "_scythe", new Object[]{" MM", "M B", "  B", 'M', material, 'B', Items.BONE});
 	}
 
-	public static void registerArmorRecipe(ArmorSet set) {
+	public static boolean registerArmorRecipe(ArmorSet set) {
 		ItemStack material = set.material.getRepairItemStack();
 		String name = set.material.getName().substring(ModInformation.ID.length() + 1);
 		addRecipe(new ItemStack(set.helmet), name + "_helmet", new Object[]{"MMM", "M M", 'M', material});
 		addRecipe(new ItemStack(set.chestplate), name + "_chestplate", new Object[]{"M M", "MMM", "MMM", 'M', material});
 		addRecipe(new ItemStack(set.leggings), name + "_leggings", new Object[]{"MMM", "M M", "M M", 'M', material});
 		addRecipe(new ItemStack(set.boots), name + "_boots", new Object[]{"M M", "M M", 'M', material});
+		return true;
 	}
 
 	public static void addRecipe(@Nonnull ItemStack output, String name, Object... params) {
@@ -402,6 +452,9 @@ public class Recipes {
 		OreDictionary.registerOre("gemZircon", new ItemStack(Resources.resource, 1, 7));
 		OreDictionary.registerOre("dustCalcite", new ItemStack(Resources.resource, 1, 8));
 		OreDictionary.registerOre("gemPolishedZircon", new ItemStack(Resources.resource, 1, 9));
+
+		OreDictionary.registerOre("itemLeather", new ItemStack(Resources.resource, 1, 15));
+		OreDictionary.registerOre("leather", new ItemStack(Resources.resource, 1, 15));
 
 		OreDictionary.registerOre("sand", new ItemStack(Resources.silkstoneSand, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("blockSand", new ItemStack(Resources.silkstoneSand, 1, OreDictionary.WILDCARD_VALUE));

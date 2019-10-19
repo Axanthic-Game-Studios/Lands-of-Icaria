@@ -3,23 +3,17 @@ package com.axanthic.loi.compatibility.jei;
 import java.awt.Color;
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import com.axanthic.loi.utils.GrinderFuel;
-import com.axanthic.loi.utils.GrinderRecipe;
 import com.google.common.base.Preconditions;
 
-import mezz.jei.api.IGuiHelper;
-import mezz.jei.api.gui.IDrawableAnimated;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
-import mezz.jei.config.Constants;
 import mezz.jei.util.Translator;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.item.ItemStack;
 
 public class GrinderFuelWrapper implements IRecipeWrapper {
