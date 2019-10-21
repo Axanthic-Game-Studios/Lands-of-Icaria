@@ -45,6 +45,8 @@ public class Recipes {
 		addGrinderRecipe("grainel_glass", new ItemStack(Resources.grainelSand, 1, 0), 0.1F, new ItemStack(Resources.grainelGlass, 1, 0));
 		addGrinderRecipe("silkstone_dust", new ItemStack(Resources.resource, 4, 4), 0.1F, new ItemStack(Resources.rock, 1, 1));
 		addGrinderRecipe("relicstone", new ItemStack(Resources.rock, 1, 5), 0.1F, new ItemStack(Resources.relicstone, 1, 0));
+		addGrinderRecipe("cracked_relicstone_bricks", new ItemStack(Resources.relicstone, 1, 1), 0.1F, new ItemStack(Resources.brick, 1, 5));
+		addGrinderRecipe("cracked_relicstone_tiles", new ItemStack(Resources.relicstone, 1, 5), 0.1F, new ItemStack(Resources.relicstone, 1, 4));
 		addGrinderRecipe("cobblestone", new ItemStack(Blocks.COBBLESTONE, 1, 0), 0.1F, new ItemStack(Blocks.STONE, 1, 0));
 		addGrinderRecipe("gravel", new ItemStack(Blocks.GRAVEL, 1, 0), 0.1F, new ItemStack(Blocks.COBBLESTONE, 1, 0));
 		addGrinderRecipe("gravel_sand", new ItemStack(Blocks.SAND, 1, 0), 0.1F, new ItemStack(Blocks.GRAVEL, 1, 0));
@@ -443,8 +445,10 @@ public class Recipes {
 		OreDictionary.registerOre("blockBluridium", new ItemStack(Resources.metalBlock, 1, 10));
 
 		OreDictionary.registerOre("gemLignite", new ItemStack(Resources.resource, 1, 0));
+		OreDictionary.registerOre("fuelLignite", new ItemStack(Resources.resource, 1, 0));
 		OreDictionary.registerOre("gemDolomite", new ItemStack(Resources.resource, 1, 1));
 		OreDictionary.registerOre("gemAnthracite", new ItemStack(Resources.resource, 1, 2));
+		OreDictionary.registerOre("fuelAnthracite", new ItemStack(Resources.resource, 1, 2));
 		OreDictionary.registerOre("dustAbyssalEssence", new ItemStack(Resources.resource, 1, 3));
 		OreDictionary.registerOre("dustSilkstone", new ItemStack(Resources.resource, 1, 4));
 		OreDictionary.registerOre("gemCalcite", new ItemStack(Resources.resource, 1, 5));
@@ -452,10 +456,15 @@ public class Recipes {
 		OreDictionary.registerOre("gemZircon", new ItemStack(Resources.resource, 1, 7));
 		OreDictionary.registerOre("dustCalcite", new ItemStack(Resources.resource, 1, 8));
 		OreDictionary.registerOre("gemPolishedZircon", new ItemStack(Resources.resource, 1, 9));
-
+		OreDictionary.registerOre("clay", new ItemStack(Resources.resource, 1, 10));
+		OreDictionary.registerOre("itemClay", new ItemStack(Resources.resource, 1, 10));
+		OreDictionary.registerOre("ingotLoamBrick", new ItemStack(Resources.resource, 1, 12));
 		OreDictionary.registerOre("itemLeather", new ItemStack(Resources.resource, 1, 15));
 		OreDictionary.registerOre("leather", new ItemStack(Resources.resource, 1, 15));
 
+		OreDictionary.registerOre("dirt", new ItemStack(Resources.soil, 1, 0));
+		OreDictionary.registerOre("dirt", new ItemStack(Resources.soil, 1, 1));
+		OreDictionary.registerOre("blockClay", new ItemStack(Resources.soil, 1, 2));
 		OreDictionary.registerOre("sand", new ItemStack(Resources.silkstoneSand, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("blockSand", new ItemStack(Resources.silkstoneSand, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("sand", new ItemStack(Resources.grainelSand, 1, OreDictionary.WILDCARD_VALUE));

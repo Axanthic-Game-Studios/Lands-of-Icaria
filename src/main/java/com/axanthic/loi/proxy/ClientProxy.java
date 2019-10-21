@@ -63,6 +63,7 @@ import com.google.common.base.Predicates;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.client.renderer.block.model.ModelManager;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -105,6 +106,7 @@ public class ClientProxy extends CommonProxy {
 	public static final ResourceLocation SOUND_CERAMIC_BREAK = new ResourceLocation(ModInformation.ID, "block.ceramic.break");
 	public static final SoundEvent CERAMIC_BREAK = new SoundEvent(SOUND_CERAMIC_BREAK).setRegistryName(SOUND_CERAMIC_BREAK);
 	public static Map<String, String[]> emissiveTextures = new HashMap<String, String[]>();
+	public static ModelManager modelManager;
 
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
@@ -211,6 +213,7 @@ public class ClientProxy extends CommonProxy {
 		}
 
 		//register special item renderers here
+		Resources.grinder.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadRevenant.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadArachne.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadArachneDrone.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
@@ -236,6 +239,7 @@ public class ClientProxy extends CommonProxy {
 				event.getModelRegistry().putObject(resource, new BakedModelEmissive(event.getModelRegistry().getObject(resource), emissiveTextures.get(resource.getResourcePath())));
 			}
 		}
+		modelManager = event.getModelManager();
 	}
 
 	@Override

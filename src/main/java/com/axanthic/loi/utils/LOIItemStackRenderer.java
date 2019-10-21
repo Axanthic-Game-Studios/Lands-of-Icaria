@@ -1,7 +1,9 @@
 package com.axanthic.loi.utils;
 
+import com.axanthic.loi.blocks.BlockGrinder;
 import com.axanthic.loi.blocks.BlockMobHead;
 import com.axanthic.loi.items.ItemBlockMobHead;
+import com.axanthic.loi.tileentity.TileEntitySpecialRendererGrinder;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererMobHead;
 
 import net.minecraft.client.renderer.GlStateManager;
@@ -26,6 +28,16 @@ public class LOIItemStackRenderer extends TileEntityItemStackRenderer {
 				GlStateManager.pushMatrix();
 				GlStateManager.disableCull();
 				TileEntitySpecialRendererMobHead.instance.renderSkull(0.0F, 0.0F, 0.0F, EnumFacing.UP, 180.0F, ((BlockMobHead) ((ItemBlock) item).getBlock()).name, -1);
+				GlStateManager.enableCull();
+				GlStateManager.popMatrix();
+			}
+		}
+
+		if (item instanceof ItemBlock && ((ItemBlock) item).getBlock() instanceof BlockGrinder) {
+			if (TileEntitySpecialRendererGrinder.instance != null) {
+				GlStateManager.pushMatrix();
+				GlStateManager.disableCull();
+				TileEntitySpecialRendererGrinder.instance.renderInventory();
 				GlStateManager.enableCull();
 				GlStateManager.popMatrix();
 			}

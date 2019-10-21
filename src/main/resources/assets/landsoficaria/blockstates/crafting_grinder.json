@@ -5,7 +5,7 @@
 	},
 	"variants": {
 		"inventory": {
-			"model": "landsoficaria:crafting_grinder_inv"
+			"model": "landsoficaria:teisr_inv"
 		},
 		"facing": {
 			"north": {},
