@@ -55,10 +55,10 @@ public class Recipes {
 		addGrinderRecipe("sandstone_sand_red", new ItemStack(Blocks.SAND, 4, 1), 0.1F, new ItemStack(Blocks.RED_SANDSTONE, 1, OreDictionary.WILDCARD_VALUE));
 		addGrinderRecipe("cracked_bricks", new ItemStack(Blocks.STONEBRICK, 1, 2), 0.1F, new ItemStack(Blocks.STONEBRICK, 1, 0));
 		addGrinderRecipe("dirt", new ItemStack(Blocks.DIRT, 1, 0), 0.1F, new ItemStack(Blocks.DIRT, 1, 1));
-		addGrinderRecipe("snow", new ItemStack(Blocks.SNOW, 1, 0), 0.1F, new OreIngredient("blockIce"));
-		addGrinderRecipe("string", new ItemStack(Items.STRING, 4, 0), 0.1F, new OreIngredient("blockWool"));
+		addGrinderRecipe("snow", new ItemStack(Blocks.SNOW, 1, 0), 0.1F, new ItemStack(Blocks.ICE, 1, 0));
+		addGrinderRecipe("string", new ItemStack(Items.STRING, 4, 0), 0.1F, new OreIngredient("wool"));
 		addGrinderRecipe("bonemeal", new ItemStack(Items.DYE, 5, 15), 0.1F, new OreIngredient("bone"));
-		addGrinderRecipe("blaze_powder", new ItemStack(Items.BLAZE_POWDER, 4, 0), 0.2F, new OreIngredient("rodBlaze"));
+		addGrinderRecipe("blaze_powder", new ItemStack(Items.BLAZE_POWDER, 4, 0), 0.2F, new ItemStack(Items.BLAZE_ROD, 1, 0));
 		for (int i = 0; i < 16; ++i)
 			addGrinderRecipe("concrete_" + i, new ItemStack(Blocks.CONCRETE_POWDER, 1, i), 0.1F, new ItemStack(Blocks.CONCRETE, 1, i));
 

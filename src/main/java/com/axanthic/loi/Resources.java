@@ -36,6 +36,7 @@ import com.axanthic.loi.blocks.BlockLootVase;
 import com.axanthic.loi.blocks.BlockMobHead;
 import com.axanthic.loi.blocks.BlockMoss;
 import com.axanthic.loi.blocks.BlockMushroomGround;
+import com.axanthic.loi.blocks.BlockMushroomTree;
 import com.axanthic.loi.blocks.BlockIcariaPortal;
 import com.axanthic.loi.blocks.BlockKettle;
 import com.axanthic.loi.blocks.BlockOre;
@@ -166,6 +167,9 @@ public class Resources {
 	public static ItemBlock groundMushroom0 = new ItemBlock(new BlockMushroomGround("0"));
 	public static ItemBlock groundMushroom1 = new ItemBlock(new BlockMushroomGround("1"));
 	public static ItemBlock groundMushroom2 = new ItemBlock(new BlockMushroomGround("2"));
+	public static ItemBlock treeMushroom0 = new ItemBlock(new BlockMushroomTree("0"));
+	public static ItemBlock treeMushroom1 = new ItemBlock(new BlockMushroomTree("1"));
+	public static ItemBlock treeMushroom2 = new ItemBlock(new BlockMushroomTree("2"));
 	public static ItemBlock cardon = new ItemBlock(new BlockCardonCactus());
 	public static ItemBlock vineBloomy = new ItemBlock(new BlockBasicVine("vine_bloomy"));
 	public static ItemBlock vineBranch = new ItemBlock(new BlockBasicVine("vine_branch"));
@@ -299,6 +303,9 @@ public class Resources {
 		Resources.registerBlock(Resources.groundMushroom0);
 		Resources.registerBlock(Resources.groundMushroom1);
 		Resources.registerBlock(Resources.groundMushroom2);
+		Resources.registerBlock(Resources.treeMushroom0);
+		Resources.registerBlock(Resources.treeMushroom1);
+		Resources.registerBlock(Resources.treeMushroom2);
 		Resources.registerBlock(Resources.cardon);
 		Resources.registerBlock(Resources.vineBloomy);
 		Resources.registerBlock(Resources.vineBranch);
