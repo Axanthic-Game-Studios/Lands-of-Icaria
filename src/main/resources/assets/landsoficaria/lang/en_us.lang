@@ -158,6 +158,11 @@ tile.crafting_grinder.name=Grinder
 tile.crafting_forge.name=Forge
 tile.crafting_kettle.name=Kettle
 tile.icaria_portal.name=Lands of Icaria Portal
+tile.mediterranean_water.name=Mediterranian Water
+tile.gas.name=Upwards Liquid
+
+fluid.mediterranean_water=Mediterranian Water
+fluid.gas=Upwards Liquid
 
 material.yellowstone.name=Yellowstone
 material.silkstone.name=Silkstone

@@ -81,7 +81,7 @@ public class BlockMoss extends BlockBasic {
 	}
 
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-		if (!this.canPlaceBlockAt(worldIn, fromPos)) {
+		if (!this.canPlaceBlockAt(worldIn, pos)) {
 			worldIn.setBlockToAir(pos);
 		}
 	}

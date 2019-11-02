@@ -92,6 +92,7 @@ public class BiomeForest extends BiomeLOI {
 		biomeDecorator.extraTreeChance = 0.1F;
 		biomeDecorator.flowersPerChunk = 5;
 		biomeDecorator.grassPerChunk = 8;
+		biomeDecorator.lakeChance = 3;
 		biomeDecorator.generateFerns = true;
 		biomeDecorator.treeGenerators.add(new WorldGenFirTree(false).init());
 		biomeDecorator.treeGenerators.add(new WorldGenPopulusTree(false).init());

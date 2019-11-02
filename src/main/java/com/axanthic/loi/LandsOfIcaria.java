@@ -22,6 +22,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -57,6 +58,10 @@ public class LandsOfIcaria {
 
 	public static final IAttribute ATTACK_RANGE = new RangedAttribute((IAttribute)null, "generic.attackRange", 5.0D, 0.0D, 2048.0D);
 	public static final UUID ATTACK_RANGE_MODIFIER = UUID.fromString("971104f5-17b7-48d9-b16c-1109f0536884");
+
+	static { //static calls
+		FluidRegistry.enableUniversalBucket();
+	}
 
 	@EventHandler
 	public void preInit(final FMLPreInitializationEvent event) {

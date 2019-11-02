@@ -77,6 +77,7 @@ public class BiomeDesert extends BiomeLOI {
 		biomeDecorator.flowersPerChunk = 4;
 		biomeDecorator.cactiPerChunk = 20;
 		biomeDecorator.grassPerChunk = 0;
+		biomeDecorator.lakeChance = 10;
 		biomeDecorator.generateSpikes = true;
 		biomeDecorator.treeGenerators.add(new WorldGenDroughtrootTree(false).init());
 		biomeDecorator.vines = new IBlockState[] {

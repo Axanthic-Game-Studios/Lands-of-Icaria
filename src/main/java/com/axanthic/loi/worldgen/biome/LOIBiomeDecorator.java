@@ -10,6 +10,8 @@ import com.axanthic.loi.blocks.BlockGem;
 import com.axanthic.loi.blocks.BlockRock;
 import com.axanthic.loi.blocks.BlockTallGrass;
 import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
+import com.axanthic.loi.worldgen.feature.WorldGenLakeFlipped;
+import com.axanthic.loi.worldgen.feature.WorldGenLakeNormal;
 
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
@@ -30,7 +32,11 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	public boolean generateSpikes = false;
 	public boolean generateFerns = false;
 	public int extraTreeAmount = 1;
+	public int lakeChance = 1;
+	public int flippedLakeChance = 1;
 	public List<WorldGenLOITree> treeGenerators = new ArrayList<WorldGenLOITree>();
+	public WorldGenLakeFlipped flippedLakeGenerator = new WorldGenLakeFlipped(Resources.gasFluidBlock.getBlock());
+	public WorldGenLakeNormal lakeGenerator = new WorldGenLakeNormal(Resources.waterFluidBlock.getBlock());
 	public IBlockState[] vines = new IBlockState[] {
 			Resources.vineBloomy.getBlock().getDefaultState(),
 			Resources.vineBranch.getBlock().getDefaultState(),
@@ -52,21 +58,22 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			ChunkPos forgeChunkPos = new ChunkPos(chunkPos); // actual ChunkPos instead of BlockPos
 			MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Pre(worldIn, random, forgeChunkPos));
 
-			this.generateAristone(worldIn, random, biome, pos);
-			this.generateBoulders(worldIn, random, biome, pos);
-			this.generateSpikes(worldIn, random, biome, pos);
-			this.generateFlowers(worldIn, random, biome, pos);
-			this.generateGrass(worldIn, random, biome, pos);
-			this.generateCactus(worldIn, random, biome, pos);
-			this.generateTrees(worldIn, random, biome, pos);
-			this.generateVines(worldIn, random, biome, pos);
-			this.generateCrystals(worldIn, random, biome, pos);
+			if(this.generateAristone(worldIn, random, biome, pos))
+			if(this.generateLakes(worldIn, random, biome, pos))
+			if(this.generateBoulders(worldIn, random, biome, pos))
+			if(this.generateSpikes(worldIn, random, biome, pos))
+			if(this.generateFlowers(worldIn, random, biome, pos))
+			if(this.generateGrass(worldIn, random, biome, pos))
+			if(this.generateCactus(worldIn, random, biome, pos))
+			if(this.generateTrees(worldIn, random, biome, pos))
+			if(this.generateVines(worldIn, random, biome, pos))
+			if(this.generateCrystals(worldIn, random, biome, pos))
 
 			this.decorating = false;
 		}
 	}
 
-	public void generateFlowers(World worldIn, Random random, Biome biome, BlockPos pos) {
+	public boolean generateFlowers(World worldIn, Random random, Biome biome, BlockPos pos) {
 		for (int l2 = 0; l2 < this.flowersPerChunk; ++l2) {
 			int i7 = random.nextInt(16) + 8;
 			int l10 = random.nextInt(16) + 8;
@@ -83,9 +90,10 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				}
 			}
 		}
+		return true;
 	}
 
-	public void generateGrass(World worldIn, Random random, Biome biome, BlockPos pos) {
+	public boolean generateGrass(World worldIn, Random random, Biome biome, BlockPos pos) {
 		for (int i3 = 0; i3 < this.grassPerChunk; ++i3) {
 			int j7 = random.nextInt(16) + 8;
 			int i11 = random.nextInt(16) + 8;
@@ -110,9 +118,26 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				}
 			}
 		}
+		return true;
 	}
 
-	public void generateAristone(World worldIn, Random random, Biome biome, BlockPos pos) {
+	public boolean generateLakes(World worldIn, Random random, Biome biome, BlockPos pos) {
+		if (random.nextInt(lakeChance) == 0) {
+			int i1 = random.nextInt(16) + 8;
+			int j1 = random.nextInt(256);
+			int k1 = random.nextInt(16) + 8;
+			this.lakeGenerator.generate(worldIn, random, pos.add(i1, j1, k1));
+		}
+		if (random.nextInt(flippedLakeChance) == 0) {
+			int l1 = random.nextInt(16) + 8;
+			int m1 = random.nextInt(256);
+			int n1 = random.nextInt(16) + 8;
+			this.flippedLakeGenerator.generate(worldIn, random, pos.add(l1, m1, n1));
+		}
+		return true;
+	}
+
+	public boolean generateAristone(World worldIn, Random random, Biome biome, BlockPos pos) {
 		int e = random.nextInt(5) + 4;
 
 		for (int a = 0; a < e; ++a) {
@@ -157,9 +182,10 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			position = position.down();
 			}
 		}
+		return true;
 	}
 
-	public void generateBoulders(World worldIn, Random random, Biome biome, BlockPos pos) {
+	public boolean generateBoulders(World worldIn, Random random, Biome biome, BlockPos pos) {
 		if (generateBoulders) {
 			int e = random.nextInt(6) - 3;
 
@@ -213,9 +239,10 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				}
 			}
 		}
+		return true;
 	}
 
-	public void generateSpikes(World worldIn, Random random, Biome biome, BlockPos pos) {
+	public boolean generateSpikes(World worldIn, Random random, Biome biome, BlockPos pos) {
 		if (generateSpikes) {
 			int e = random.nextInt(4) - 2;
 
@@ -230,7 +257,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				}
 
 				if (!worldIn.getBlockState(position).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down()).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down(2)).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down(3)).getMaterial().equals(Material.SAND)) {
-					return;
+					return true;
 				} else {
 					int baseSize = 4;
 					EnumFacing direction = EnumFacing.getHorizontal(random.nextInt(EnumFacing.HORIZONTALS.length));
@@ -265,9 +292,10 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				}
 			}
 		}
+		return true;
 	}
 
-	public void generateCactus(World worldIn, Random random, Biome biome, BlockPos pos) {
+	public boolean generateCactus(World worldIn, Random random, Biome biome, BlockPos pos) {
 		for (int j5 = 0; j5 < this.cactiPerChunk; ++j5) {
 			int l9 = random.nextInt(16) + 8;
 			int k13 = random.nextInt(16) + 8;
@@ -303,9 +331,10 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				}
 			}
 		}
+		return true;
 	}
 
-	public void generateTrees(World worldIn, Random random, Biome biome, BlockPos pos) {
+	public boolean generateTrees(World worldIn, Random random, Biome biome, BlockPos pos) {
 		int k1 = this.treesPerChunk;
 		if (random.nextFloat() < this.extraTreeChance) {
 			k1 += extraTreeAmount;
@@ -318,11 +347,11 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			BlockPos.MutableBlockPos mut = new BlockPos.MutableBlockPos(pos.add(k6, 3, l));
 			while (random.nextInt(3) != 0) {
 				if (mut.getY() > 150)
-					return;
+					return true;
 				mut.move(EnumFacing.UP);
 				while (!(!worldIn.isBlockFullCube(mut.up()) && worldIn.isBlockFullCube(mut))) {
 					if (mut.getY() > 150)
-						return;
+						return true;
 					mut.move(EnumFacing.UP);
 				}
 			}
@@ -331,9 +360,10 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					if (!generator.generate(worldIn, random, mut))
 						generator.generate(worldIn, random, mut); //just keep trying lol
 		}
+		return true;
 	}
 
-	public void generateVines(World worldIn, Random random, Biome biome, BlockPos pos) {
+	public boolean generateVines(World worldIn, Random random, Biome biome, BlockPos pos) {
 		for (int j5 = 0; j5 < 40; ++j5) {
 			int l9 = random.nextInt(14) + 10;
 			int k13 = random.nextInt(14) + 10;
@@ -366,9 +396,10 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				}
 			}
 		}
+		return true;
 	}
 
-	public void generateCrystals(World worldIn, Random random, Biome biome, BlockPos pos) {
+	public boolean generateCrystals(World worldIn, Random random, Biome biome, BlockPos pos) {
 		for (int j5 = 0; j5 < 40; ++j5) {
 			int l9 = random.nextInt(16) + 8;
 			int k13 = random.nextInt(16) + 8;
@@ -404,6 +435,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				}
 			}
 		}
+		return true;
 	}
 
 	public static void growCactus(World worldIn, BlockPos blockpos) {

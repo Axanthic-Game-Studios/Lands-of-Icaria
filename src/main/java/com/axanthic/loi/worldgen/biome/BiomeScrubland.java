@@ -83,6 +83,7 @@ public class BiomeScrubland extends BiomeLOI {
 		biomeDecorator.extraTreeChance = 0.2F;
 		biomeDecorator.flowersPerChunk = 5;
 		biomeDecorator.grassPerChunk = 7;
+		biomeDecorator.lakeChance = 5;
 		biomeDecorator.generateBoulders = true;
 		biomeDecorator.treeGenerators.add(new WorldGenPlaneTree(false).init());
 		biomeDecorator.treeGenerators.add(new WorldGenLaurelTree(false).init());

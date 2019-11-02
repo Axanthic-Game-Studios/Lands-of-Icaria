@@ -196,6 +196,13 @@ public class ClientProxy extends CommonProxy {
 						}
 						return new ModelResourceLocation(loc, path[0] + "_" + axis);
 					}});
+			}  else if (block.getBlock() instanceof BlockFluidCustom) {
+				ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation(block.getRegistryName(), "normal"));
+				ModelLoader.setCustomStateMapper(block.getBlock(), new StateMapperBase() {
+					@Override
+					public ModelResourceLocation getModelResourceLocation(IBlockState state) {
+						return new ModelResourceLocation(block.getRegistryName(), "normal");
+					}});
 			} else
 				ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
 		}

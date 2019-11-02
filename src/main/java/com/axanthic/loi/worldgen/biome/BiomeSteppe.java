@@ -82,6 +82,7 @@ public class BiomeSteppe extends BiomeLOI {
 		biomeDecorator.extraTreeChance = 0.2F;
 		biomeDecorator.flowersPerChunk = 5;
 		biomeDecorator.grassPerChunk = 6;
+		biomeDecorator.lakeChance = 7;
 		biomeDecorator.treeGenerators.add(new WorldGenCypressTree(false).init());
 		biomeDecorator.treeGenerators.add(new WorldGenOliveTree(false).init());
 		biomeDecorator.vines = new IBlockState[] {

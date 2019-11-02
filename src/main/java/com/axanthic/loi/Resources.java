@@ -21,6 +21,8 @@ import com.axanthic.loi.blocks.BlockFarmLand;
 import com.axanthic.loi.blocks.BlockFarmLandFertilized;
 import com.axanthic.loi.blocks.BlockFlower;
 import com.axanthic.loi.blocks.BlockFlower2;
+import com.axanthic.loi.blocks.BlockFluidCustom;
+import com.axanthic.loi.blocks.BlockFluidUpwards;
 import com.axanthic.loi.blocks.BlockForge;
 import com.axanthic.loi.blocks.BlockGem;
 import com.axanthic.loi.blocks.BlockGlassy;
@@ -52,6 +54,7 @@ import com.axanthic.loi.blocks.BlockStorageGem;
 import com.axanthic.loi.blocks.BlockStorageMetal;
 import com.axanthic.loi.blocks.BlockStorageVase;
 import com.axanthic.loi.blocks.BlockTallGrass;
+import com.axanthic.loi.blocks.FluidCustom;
 import com.axanthic.loi.blocks.BlockPlanks.WoodTypes;
 import com.axanthic.loi.items.ItemBlockForge;
 import com.axanthic.loi.items.ItemBlockMaterial;
@@ -101,6 +104,7 @@ import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fluids.FluidRegistry;
 
 public class Resources {
 
@@ -226,6 +230,12 @@ public class Resources {
 	public static ItemBlock forge = new ItemBlockForge(new BlockForge());
 	public static ItemBlock kettle = new ItemBlock(new BlockKettle());
 	public static ItemBlock portal = new ItemBlock(new BlockIcariaPortal());
+
+	public static final FluidCustom waterFluid = (FluidCustom) new FluidCustom("mediterranean_water", new ResourceLocation(ModInformation.ID,"blocks/fluid_mediterranean_water_still"), new ResourceLocation(ModInformation.ID, "blocks/fluid_mediterranean_water_flow")).setMaterial(Material.WATER).setDensity(1100).setGaseous(false).setViscosity(1000).setTemperature(300).setColor(0xFF51A18B);
+	public static ItemBlock waterFluidBlock;
+
+	public static final FluidCustom gasFluid = (FluidCustom) new FluidCustom("gas", new ResourceLocation(ModInformation.ID,"blocks/fluid_upwards_still"), new ResourceLocation(ModInformation.ID, "blocks/fluid_upwards_flow")).setMaterial(Material.WATER).setDensity(-1000).setGaseous(false).setLuminosity(15).setViscosity(1000).setTemperature(1300).setColor(0xFFF3BF61);
+	public static ItemBlock gasFluidBlock;
 
 	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0, "yellowstone", true);
 	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1, "silkstone", true);
@@ -362,6 +372,18 @@ public class Resources {
 		Resources.registerBlock(Resources.forge);
 		Resources.registerBlock(Resources.kettle);
 		Resources.registerBlock(Resources.portal);
+
+		FluidRegistry.registerFluid(waterFluid);
+		FluidRegistry.addBucketForFluid(waterFluid);
+		waterFluidBlock = new ItemBlock(new BlockFluidCustom(waterFluid, Material.WATER).canCreateSources(true));
+		waterFluid.setBlock(waterFluidBlock.getBlock());
+		Resources.registerBlock(waterFluidBlock);
+
+		FluidRegistry.registerFluid(gasFluid);
+		FluidRegistry.addBucketForFluid(gasFluid);
+		gasFluidBlock = new ItemBlock(new BlockFluidUpwards(gasFluid, Material.WATER));
+		gasFluid.setBlock(gasFluidBlock.getBlock());
+		Resources.registerBlock(gasFluidBlock);
 
 		Resources.plane.register();
 		Resources.populus.register();
