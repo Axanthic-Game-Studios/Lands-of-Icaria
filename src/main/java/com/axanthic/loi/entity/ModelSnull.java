@@ -41,22 +41,22 @@ public class ModelSnull extends ModelBase {
 		this.setRotateAngle(head_rear, 0.7853981633974483F, 0.0F, 0.0F);
 		this.eye_right = new ModelRenderer(this, 0, 0);
 		this.eye_right.setRotationPoint(-1.5F, -1.8F, -0.5F);
-		this.eye_right.addBox(0.0F, 0.0F, 0.0F, 2, 2, 2, 0.0F);
+		this.eye_right.addBox(0.5F, -6.0F, -0.5F, 2, 2, 2, 0.0F);
 		this.skull = new ModelRenderer(this, 0, 0);
 		this.skull.setRotationPoint(-1.0F, 15.0F, -6.4F);
 		this.skull.addBox(-3.0F, 0.0F, 0.0F, 8, 8, 8, 0.2F);
 		this.setRotateAngle(skull, 0.39269908169872414F, 0.0F, 0.0F);
 		this.eye_stalk_right = new ModelRenderer(this, 42, 0);
-		this.eye_stalk_right.setRotationPoint(4.0F, 10.7F, 13.5F);
-		this.eye_stalk_right.addBox(-1.0F, 0.0F, 0.0F, 1, 6, 1, -0.2F);
+		this.eye_stalk_right.setRotationPoint(1.9F, 16.1F, 12.3F);
+		this.eye_stalk_right.addBox(-0.5F, -6.0F, -0.5F, 1, 6, 1, -0.2F);
 		this.setRotateAngle(eye_stalk_right, -0.39269908169872414F, 0.5811946409141118F, 0.13962634015954636F);
 		this.eye_stalk_left = new ModelRenderer(this, 42, 0);
-		this.eye_stalk_left.setRotationPoint(-4.0F, 10.7F, 13.5F);
-		this.eye_stalk_left.addBox(0.0F, 0.0F, 0.0F, 1, 6, 1, -0.2F);
+		this.eye_stalk_left.setRotationPoint(-1.9F, 16.1F, 12.3F);
+		this.eye_stalk_left.addBox(-0.5F, -6.0F, -0.5F, 1, 6, 1, -0.2F);
 		this.setRotateAngle(eye_stalk_left, -0.39269908169872414F, -0.5811946409141118F, -0.13962634015954636F);
 		this.eye_left = new ModelRenderer(this, 0, 0);
 		this.eye_left.setRotationPoint(-0.5F, -1.8F, -0.5F);
-		this.eye_left.addBox(0.0F, 0.0F, 0.0F, 2, 2, 2, 0.0F);
+		this.eye_left.addBox(-0.4F, -6.0F, -0.5F, 2, 2, 2, 0.0F);
 		this.head = new ModelRenderer(this, 24, 16);
 		this.head.setRotationPoint(0.5F, 15.7F, 9.0F);
 		this.head.addBox(-3.0F, 0.0F, 0.0F, 5, 4, 4, 0.0F);
@@ -78,8 +78,23 @@ public class ModelSnull extends ModelBase {
 		this.tail.render(scale);
 		this.head_rear.render(scale);
 		this.skull.render(scale);
+		Double eyescale = 1.0D - entity.hurtResistantTime / 25.0D;
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.eye_stalk_right.offsetX, this.eye_stalk_right.offsetY, this.eye_stalk_right.offsetZ);
+		GlStateManager.translate(this.eye_stalk_right.rotationPointX * scale, this.eye_stalk_right.rotationPointY * scale, this.eye_stalk_right.rotationPointZ * scale);
+		GlStateManager.scale(eyescale, eyescale, eyescale);
+		GlStateManager.translate(-this.eye_stalk_right.offsetX, -this.eye_stalk_right.offsetY, -this.eye_stalk_right.offsetZ);
+		GlStateManager.translate(-this.eye_stalk_right.rotationPointX * scale, -this.eye_stalk_right.rotationPointY * scale, -this.eye_stalk_right.rotationPointZ * scale);
 		this.eye_stalk_right.render(scale);
+		GlStateManager.popMatrix();
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.eye_stalk_left.offsetX, this.eye_stalk_left.offsetY, this.eye_stalk_left.offsetZ);
+		GlStateManager.translate(this.eye_stalk_left.rotationPointX * scale, this.eye_stalk_left.rotationPointY * scale, this.eye_stalk_left.rotationPointZ * scale);
+		GlStateManager.scale(eyescale, eyescale, eyescale);
+		GlStateManager.translate(-this.eye_stalk_left.offsetX, -this.eye_stalk_left.offsetY, -this.eye_stalk_left.offsetZ);
+		GlStateManager.translate(-this.eye_stalk_left.rotationPointX * scale, -this.eye_stalk_left.rotationPointY * scale, -this.eye_stalk_left.rotationPointZ * scale);
 		this.eye_stalk_left.render(scale);
+		GlStateManager.popMatrix();
 		this.head.render(scale);
 		GlStateManager.popMatrix();
 	}
@@ -96,8 +111,13 @@ public class ModelSnull extends ModelBase {
 		this.body_head_rear.rotationPointZ = 4.8F - getStretch(limbSwing);
 		this.head_rear.rotationPointZ = 7.2F - getStretch(limbSwing);
 		this.head.rotationPointZ = 9.0F - getStretch(limbSwing);
-		this.eye_stalk_left.rotationPointZ = 13.5F - getStretch(limbSwing);
-		this.eye_stalk_right.rotationPointZ = 13.5F - getStretch(limbSwing);
+		this.eye_stalk_left.rotationPointZ = 12.3F - getStretch(limbSwing);
+		this.eye_stalk_right.rotationPointZ = 12.3F - getStretch(limbSwing);
+
+		this.eye_stalk_left.rotateAngleZ = MathHelper.cos(ageInTicks * 0.09F + 1.0F) * 0.08F - 0.13962634015954636F;
+		this.eye_stalk_right.rotateAngleZ = -MathHelper.cos(ageInTicks * 0.09F + 2.0F) * 0.08F + 0.13962634015954636F;
+		this.eye_stalk_left.rotateAngleX = MathHelper.sin(ageInTicks * 0.067F + 3.0F) * 0.08F - 0.39269908169872414F;
+		this.eye_stalk_right.rotateAngleX = -MathHelper.sin(ageInTicks * 0.067F + 4.0F) * 0.08F - 0.39269908169872414F;
 	}
 
 	public float getStretch(float limbSwing) {
