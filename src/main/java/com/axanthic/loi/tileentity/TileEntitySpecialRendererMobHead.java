@@ -19,7 +19,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<TileEntityMobHead> {
 
-	private static final ResourceLocation REVENANT_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/revenant.png");
+	private static final ResourceLocation REVENANT_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_revenant.png");
 	private static final ResourceLocation ARACHNE_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_arachne.png");
 	private static final ResourceLocation ARACHNE_DRONE_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_arachne_drone.png");
 	private static final ResourceLocation MYRMEKE_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_myrmeke.png");

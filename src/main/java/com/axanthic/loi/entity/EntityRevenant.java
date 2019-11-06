@@ -52,7 +52,7 @@ public class EntityRevenant extends EntityMob {
 
 	public EntityRevenant(World worldIn) {
 		super(worldIn);
-		this.setSize(0.6F, 1.95F);
+		this.setSize(0.7F, 2.25F);
 	}
 
 	protected void initEntityAI() {
@@ -185,7 +185,7 @@ public class EntityRevenant extends EntityMob {
 	}
 
 	public float getEyeHeight() {
-		float f = 1.74F;
+		float f = 1.95F;
 
 		if (this.isChild()) {
 			f = (float) ((double) f - 0.81D);

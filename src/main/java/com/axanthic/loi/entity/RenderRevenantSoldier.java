@@ -9,12 +9,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderRevenant extends RenderLiving<EntityRevenant> {
+public class RenderRevenantSoldier extends RenderLiving<EntityRevenant> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(ModInformation.ID, "textures/entity/revenant.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(ModInformation.ID, "textures/entity/mob_revenant_soldier.png");
 
-	public RenderRevenant(RenderManager manager) {
-		super(manager, new ModelRevenant(), 0.7F);
+	public RenderRevenantSoldier(RenderManager manager) {
+		super(manager, new ModelRevenantSoldier(), 0.7F);
 	}
 
 	protected ResourceLocation getEntityTexture(EntityRevenant entity) {
