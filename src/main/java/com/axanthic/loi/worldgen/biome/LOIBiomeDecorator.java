@@ -12,6 +12,7 @@ import com.axanthic.loi.blocks.BlockTallGrass;
 import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
 import com.axanthic.loi.worldgen.feature.WorldGenLakeFlipped;
 import com.axanthic.loi.worldgen.feature.WorldGenLakeNormal;
+import com.axanthic.loi.worldgen.feature.WorldGenRuins;
 
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
@@ -37,6 +38,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	public List<WorldGenLOITree> treeGenerators = new ArrayList<WorldGenLOITree>();
 	public WorldGenLakeFlipped flippedLakeGenerator = new WorldGenLakeFlipped(Resources.gasFluidBlock.getBlock());
 	public WorldGenLakeNormal lakeGenerator = new WorldGenLakeNormal(Resources.waterFluidBlock.getBlock());
+	public WorldGenRuins ruinGenerator = new WorldGenRuins(1.0F);
 	public IBlockState[] vines = new IBlockState[] {
 			Resources.vineBloomy.getBlock().getDefaultState(),
 			Resources.vineBranch.getBlock().getDefaultState(),
@@ -60,6 +62,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 			if(this.generateAristone(worldIn, random, biome, pos))
 			if(this.generateLakes(worldIn, random, biome, pos))
+			if(this.generateRuins(worldIn, random, biome, pos))
 			if(this.generateBoulders(worldIn, random, biome, pos))
 			if(this.generateSpikes(worldIn, random, biome, pos))
 			if(this.generateFlowers(worldIn, random, biome, pos))
@@ -133,6 +136,22 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			int m1 = random.nextInt(256);
 			int n1 = random.nextInt(16) + 8;
 			this.flippedLakeGenerator.generate(worldIn, random, pos.add(l1, m1, n1));
+		}
+		return true;
+	}
+
+	public boolean generateRuins(World worldIn, Random random, Biome biome, BlockPos pos) {
+		if (random.nextInt(5) == 0) {
+			int i1 = random.nextInt(16) + 8;
+			int j1 = random.nextInt(256);
+			int k1 = random.nextInt(16) + 8;
+			pos = pos.add(i1, j1, k1);
+			while (!worldIn.isBlockFullCube(pos)) {
+				pos = pos.down();
+				if (pos.getY() < 5)
+					return true;
+			}
+			this.ruinGenerator.generate(worldIn, random, pos);
 		}
 		return true;
 	}
