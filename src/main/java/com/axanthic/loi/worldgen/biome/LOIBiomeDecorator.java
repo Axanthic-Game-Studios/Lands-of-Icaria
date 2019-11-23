@@ -12,6 +12,7 @@ import com.axanthic.loi.blocks.BlockTallGrass;
 import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
 import com.axanthic.loi.worldgen.feature.WorldGenLakeFlipped;
 import com.axanthic.loi.worldgen.feature.WorldGenLakeNormal;
+import com.axanthic.loi.worldgen.feature.WorldGenPillars;
 import com.axanthic.loi.worldgen.feature.WorldGenRuins;
 
 import net.minecraft.block.BlockVine;
@@ -38,6 +39,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	public List<WorldGenLOITree> treeGenerators = new ArrayList<WorldGenLOITree>();
 	public WorldGenLakeFlipped flippedLakeGenerator = new WorldGenLakeFlipped(Resources.gasFluidBlock.getBlock());
 	public WorldGenLakeNormal lakeGenerator = new WorldGenLakeNormal(Resources.waterFluidBlock.getBlock());
+	public WorldGenPillars pillarGenerator = new WorldGenPillars(1.0F);
 	public WorldGenRuins ruinGenerator = new WorldGenRuins(1.0F);
 	public IBlockState[] vines = new IBlockState[] {
 			Resources.vineBloomy.getBlock().getDefaultState(),
@@ -142,6 +144,17 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 	public boolean generateRuins(World worldIn, Random random, Biome biome, BlockPos pos) {
 		if (random.nextInt(5) == 0) {
+			int i1 = random.nextInt(16) + 8;
+			int j1 = random.nextInt(256);
+			int k1 = random.nextInt(16) + 8;
+			pos = pos.add(i1, j1, k1);
+			while (!worldIn.isBlockFullCube(pos)) {
+				pos = pos.down();
+				if (pos.getY() < 5)
+					return true;
+			}
+			this.pillarGenerator.generate(worldIn, random, pos);
+		} else if (random.nextInt(5) == 0) {
 			int i1 = random.nextInt(16) + 8;
 			int j1 = random.nextInt(256);
 			int k1 = random.nextInt(16) + 8;
