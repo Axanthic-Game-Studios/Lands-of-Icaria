@@ -263,14 +263,14 @@ public class ClientProxy extends CommonProxy {
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
 				return reduceGreen(worldIn != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(worldIn, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D));
 			}
-		}, Resources.grass.getBlock(), Resources.tallGrass.getBlock(), Resources.herb.getBlock(), Resources.vineDry.getBlock(), Resources.vineThorny.getBlock());
+		}, Resources.grass.getBlock(), Resources.tallGrass.getBlock(), Resources.herb.getBlock(), Resources.vineDry.getBlock(), Resources.vineThorny.getBlock(), Resources.vineDryDead.getBlock(), Resources.vineThornyDead.getBlock());
 
 		event.getBlockColors().registerBlockColorHandler(new IBlockColor() {
 			@Override
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
 				return worldIn != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(worldIn, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D);
 			}
-		}, Resources.flower.getBlock(), Resources.flower2.getBlock(), Resources.vineBloomy.getBlock(), Resources.vineBranch.getBlock(), Resources.vineBrushy.getBlock(), Resources.vineReedy.getBlock(), Resources.vineSwirly.getBlock());
+		}, Resources.flower.getBlock(), Resources.flower2.getBlock(), Resources.vineBloomy.getBlock(), Resources.vineBranch.getBlock(), Resources.vineBrushy.getBlock(), Resources.vineReedy.getBlock(), Resources.vineSwirly.getBlock(), Resources.vineBloomyDead.getBlock(), Resources.vineBranchDead.getBlock(), Resources.vineBrushyDead.getBlock(), Resources.vineReedyDead.getBlock(), Resources.vineSwirlyDead.getBlock());
 	}
 
 	@Override

@@ -12,7 +12,7 @@ import com.axanthic.loi.entity.EntityCatoblepas;
 import com.axanthic.loi.entity.EntityCerver;
 import com.axanthic.loi.entity.EntityJellyfish;
 import com.axanthic.loi.entity.EntityMyrmeke;
-import com.axanthic.loi.entity.EntityRevenant;
+import com.axanthic.loi.entity.EntityRevenantCivilian;
 import com.axanthic.loi.entity.EntitySnull;
 import com.axanthic.loi.entity.EntitySow;
 import com.axanthic.loi.worldgen.feature.WorldGenLaurelTree;
@@ -47,7 +47,7 @@ public class BiomeScrubland extends BiomeLOI {
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySnull.class, 50, 2, 6));
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySow.class, 50, 2, 6));
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityJellyfish.class, 100, 1, 2));
-		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenantCivilian.class, 200, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityMyrmeke.class, 200, 2, 5));
@@ -88,8 +88,8 @@ public class BiomeScrubland extends BiomeLOI {
 		biomeDecorator.treeGenerators.add(new WorldGenPlaneTree(false).init());
 		biomeDecorator.treeGenerators.add(new WorldGenLaurelTree(false).init());
 		biomeDecorator.vines = new IBlockState[] {
-				Resources.vineReedy.getBlock().getDefaultState(),
-				Resources.vineSwirly.getBlock().getDefaultState()
+				Resources.vineReedyDead.getBlock().getDefaultState(),
+				Resources.vineSwirlyDead.getBlock().getDefaultState()
 		};
 
 		return biomeDecorator;

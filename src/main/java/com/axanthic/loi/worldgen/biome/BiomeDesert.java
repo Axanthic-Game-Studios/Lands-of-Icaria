@@ -10,7 +10,7 @@ import com.axanthic.loi.entity.EntityArganHound;
 import com.axanthic.loi.entity.EntityCerver;
 import com.axanthic.loi.entity.EntityJellyfish;
 import com.axanthic.loi.entity.EntityMyrmeke;
-import com.axanthic.loi.entity.EntityRevenant;
+import com.axanthic.loi.entity.EntityRevenantCivilian;
 import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
 
 import net.minecraft.block.BlockFlower;
@@ -43,7 +43,7 @@ public class BiomeDesert extends BiomeLOI {
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityJellyfish.class, 100, 1, 2));
-		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenant.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenantCivilian.class, 200, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityMyrmeke.class, 200, 2, 5));
@@ -81,7 +81,7 @@ public class BiomeDesert extends BiomeLOI {
 		biomeDecorator.generateSpikes = true;
 		biomeDecorator.treeGenerators.add(new WorldGenDroughtrootTree(false).init());
 		biomeDecorator.vines = new IBlockState[] {
-				Resources.vineDry.getBlock().getDefaultState()
+				Resources.vineDryDead.getBlock().getDefaultState()
 		};
 
 		return biomeDecorator;

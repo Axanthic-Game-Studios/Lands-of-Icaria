@@ -42,13 +42,13 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	public WorldGenPillars pillarGenerator = new WorldGenPillars(1.0F);
 	public WorldGenRuins ruinGenerator = new WorldGenRuins(1.0F);
 	public IBlockState[] vines = new IBlockState[] {
-			Resources.vineBloomy.getBlock().getDefaultState(),
-			Resources.vineBranch.getBlock().getDefaultState(),
-			Resources.vineBrushy.getBlock().getDefaultState(),
-			Resources.vineDry.getBlock().getDefaultState(),
-			Resources.vineReedy.getBlock().getDefaultState(),
-			Resources.vineSwirly.getBlock().getDefaultState(),
-			Resources.vineThorny.getBlock().getDefaultState()
+			Resources.vineBloomyDead.getBlock().getDefaultState(),
+			Resources.vineBranchDead.getBlock().getDefaultState(),
+			Resources.vineBrushyDead.getBlock().getDefaultState(),
+			Resources.vineDryDead.getBlock().getDefaultState(),
+			Resources.vineReedyDead.getBlock().getDefaultState(),
+			Resources.vineSwirlyDead.getBlock().getDefaultState(),
+			Resources.vineThornyDead.getBlock().getDefaultState()
 	};
 
 	@Override
@@ -64,9 +64,9 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 			if(this.generateAristone(worldIn, random, biome, pos))
 			if(this.generateLakes(worldIn, random, biome, pos))
-			if(this.generateRuins(worldIn, random, biome, pos))
 			if(this.generateBoulders(worldIn, random, biome, pos))
 			if(this.generateSpikes(worldIn, random, biome, pos))
+			if(this.generateRuins(worldIn, random, biome, pos))
 			if(this.generateFlowers(worldIn, random, biome, pos))
 			if(this.generateGrass(worldIn, random, biome, pos))
 			if(this.generateCactus(worldIn, random, biome, pos))
@@ -154,7 +154,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					return true;
 			}
 			this.pillarGenerator.generate(worldIn, random, pos);
-		} else if (random.nextInt(5) == 0) {
+		} else if (random.nextInt(15) == 0) {
 			int i1 = random.nextInt(16) + 8;
 			int j1 = random.nextInt(256);
 			int k1 = random.nextInt(16) + 8;
