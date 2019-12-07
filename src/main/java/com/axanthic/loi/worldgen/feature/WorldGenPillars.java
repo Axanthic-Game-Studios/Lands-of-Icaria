@@ -22,6 +22,10 @@ public class WorldGenPillars extends WorldGenStructureBase {
 			"pillar/pillar4",
 			"pillar/pillar5",
 			"pillar/pillar6",
+			"pillar/pillar3",
+			"pillar/pillar4",
+			"pillar/pillar5",
+			"pillar/pillar6",
 			"pillar/pillarv2",
 			"pillar/pillarv3",
 			"pillar/pillarv4"

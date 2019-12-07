@@ -97,9 +97,9 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "myrmeke"), EntityMyrmeke.class, "myrmeke", 64, ModInformation.ID, 80, 3, true, 0x472317, 0x26120C);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "cerver"), EntityCerver.class, "cerver", 65, ModInformation.ID, 80, 3, true, 0x362923, 0x211916);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "argan_hound"), EntityArganHound.class, "argan_hound", 66, ModInformation.ID, 80, 3, true, 0x4A3721, 0x211406);
-		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_civilian"), EntityRevenantCivilian.class, "revenant_civilian", 67, ModInformation.ID, 80, 3, true, 0x292929, 0xA3A3A3);
-		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_soldier"), EntityRevenantSoldier.class, "revenant_soldier", 68, ModInformation.ID, 80, 3, true, 0x292929, 0xA3A3A3);
-		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_captain"), EntityRevenantCaptain.class, "revenant_captain", 69, ModInformation.ID, 80, 3, true, 0x292929, 0xA3A3A3);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_civilian"), EntityRevenantCivilian.class, "revenant_civilian", 67, ModInformation.ID, 80, 3, true, 0xB6B6B6, 0x868686);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_soldier"), EntityRevenantSoldier.class, "revenant_soldier", 68, ModInformation.ID, 80, 3, true, 0x836A6A, 0x868686);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_captain"), EntityRevenantCaptain.class, "revenant_captain", 69, ModInformation.ID, 80, 3, true, 0xFFDC39, 0x868686);
 
 		//EntityRegistry.addSpawn(EntityAeternae.class, 6, 1, 5, EnumCreatureType.CREATURE, Biomes.PLAINS);
 		//EntityRegistry.addSpawn(EntityRevenant.class, 6, 1, 5, EnumCreatureType.MONSTER, Biomes.PLAINS);

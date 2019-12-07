@@ -1,7 +1,5 @@
 package com.axanthic.loi.blocks;
 
-import java.util.Random;
-
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import net.minecraft.block.Block;
