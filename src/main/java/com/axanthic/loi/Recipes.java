@@ -62,7 +62,9 @@ public class Recipes {
 		for (int i = 0; i < 16; ++i)
 			addGrinderRecipe("concrete_" + i, new ItemStack(Blocks.CONCRETE_POWDER, 1, i), 0.1F, new ItemStack(Blocks.CONCRETE, 1, i));
 
-		addGrinderFuel("blaze_powder", new ItemStack(Items.BLAZE_POWDER), 1600);
+		addGrinderFuel("sliver_nugget", new ItemStack(Resources.nugget, 1, 4), 800);
+		addGrinderFuel("sliver_ingot", new ItemStack(Resources.ingot, 1, 4), 7200);
+		addGrinderFuel("sliver_block", new ItemStack(Resources.metalBlock, 1, 4), 64800);
 
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath", new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
 
