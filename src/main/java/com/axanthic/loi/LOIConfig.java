@@ -17,9 +17,9 @@ public class LOIConfig {
 
 	public static class CategoryCompatibility {
 
-		@RequiresMcRestart
+		/*@RequiresMcRestart
 		@LangKey("loi.config.compat.albedo")
-		public Boolean albedo = true;
+		public Boolean albedo = true;*/
 
 	}
 

@@ -4,7 +4,6 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
@@ -25,7 +24,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -44,11 +42,10 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 		this.translucent = true;
 		this.setUnlocalizedName(name);
 		unlocalizedName = name;
-		if (!LOIConfig.compat.albedo && Loader.isModLoaded("albedo"))
-			this.setLightLevel(0.4F);
+		this.setLightLevel(0.3F);
 		this.setRegistryName(ModInformation.ID, name);
 		this.setSoundType(SoundType.GLASS);
-		this.hasTileEntity = LOIConfig.compat.albedo && Loader.isModLoaded("albedo");
+		this.hasTileEntity = true;//LOIConfig.compat.albedo && Loader.isModLoaded("albedo");
 	}
 
 	@Override
@@ -58,13 +55,14 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 
 	@Nullable
 	public TileEntity createTileEntity(World world, IBlockState state) {
+		EnumFacing offset = (EnumFacing) state.getValue(FACING);
 		if (unlocalizedName.equals("calcite"))
-			return new TileEntityColoredLight(1.0F * 0.5F, 0.714F * 0.5F, 0.557F * 0.5F);
+			return new TileEntityColoredLight(1.0F * 0.5F, 0.714F * 0.5F, 0.557F * 0.5F).setOffset(offset);
 		if (unlocalizedName.equals("jasper"))
-			return new TileEntityColoredLight(1.0F * 0.5F, 0.318F * 0.5F, 0.396F * 0.5F);
+			return new TileEntityColoredLight(1.0F * 0.5F, 0.318F * 0.5F, 0.396F * 0.5F).setOffset(offset);
 		if (unlocalizedName.equals("zircon"))
-			return new TileEntityColoredLight(0.361F * 0.5F, 0.467F * 0.5F, 1.0F * 0.5F);
-		return new TileEntityColoredLight();
+			return new TileEntityColoredLight(0.361F * 0.5F, 0.467F * 0.5F, 1.0F * 0.5F).setOffset(offset);
+		return new TileEntityColoredLight().setOffset(offset);
 	}
 
 	@Override

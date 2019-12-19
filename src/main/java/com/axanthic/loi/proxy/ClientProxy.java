@@ -55,8 +55,10 @@ import com.axanthic.loi.items.IItemCustomReach;
 import com.axanthic.loi.items.IItemMeta;
 import com.axanthic.loi.items.ItemBlockMeta;
 import com.axanthic.loi.items.ItemCustomArmor;
+import com.axanthic.loi.tileentity.TileEntityColoredLight;
 import com.axanthic.loi.tileentity.TileEntityGrinder;
 import com.axanthic.loi.tileentity.TileEntityMobHead;
+import com.axanthic.loi.tileentity.TileEntitySpecialRendererColoredLight;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererGrinder;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererMobHead;
 import com.axanthic.loi.utils.BakedModelEmissive;
@@ -151,6 +153,7 @@ public class ClientProxy extends CommonProxy {
 		super.init(event);
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrinder.class, new TileEntitySpecialRendererGrinder());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMobHead.class, new TileEntitySpecialRendererMobHead());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityColoredLight.class, new TileEntitySpecialRendererColoredLight());
 	}
 
 	@Override

@@ -2,13 +2,9 @@ package com.axanthic.loi.blocks;
 
 import javax.annotation.Nullable;
 
-import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.tileentity.TileEntityColoredLight;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -19,7 +15,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
@@ -28,11 +23,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockStorageGem extends Block implements IBlockMeta, ITileEntityProvider  {
+public class BlockStorageGem extends Block implements IBlockMeta {
 
 	public static PropertyEnum TYPES = PropertyEnum.create("type", GemTypes.class);
 
@@ -43,29 +37,9 @@ public class BlockStorageGem extends Block implements IBlockMeta, ITileEntityPro
 		this.setUnlocalizedName("block");
 		this.setLightOpacity(1);
 		this.translucent = true;
-		if (!LOIConfig.compat.albedo && Loader.isModLoaded("albedo"))
-			this.setLightLevel(0.4F);
 		this.setRegistryName(ModInformation.ID, "block_gem");
 		this.setDefaultState(this.getStateFromMeta(0));
 		this.setSoundType(SoundType.GLASS);
-		this.hasTileEntity = LOIConfig.compat.albedo && Loader.isModLoaded("albedo");
-	}
-
-	@Override
-	public boolean hasTileEntity(IBlockState state) {
-		return this.hasTileEntity;
-	}
-
-	@Nullable
-	public TileEntity createTileEntity(World world, IBlockState state) {
-		int meta = this.getMetaFromState(state);
-		if (meta == 0)
-			return new TileEntityColoredLight(1.0F * 0.5F, 0.714F * 0.5F, 0.557F * 0.5F);
-		if (meta == 1)
-			return new TileEntityColoredLight(1.0F * 0.5F, 0.318F * 0.5F, 0.396F * 0.5F);
-		if (meta == 2)
-			return new TileEntityColoredLight(0.361F * 0.5F, 0.467F * 0.5F, 1.0F * 0.5F);
-		return new TileEntityColoredLight();
 	}
 
 	@Override
@@ -184,10 +158,5 @@ public class BlockStorageGem extends Block implements IBlockMeta, ITileEntityPro
 				GemTypes.META_LOOKUP[gemType.meta] = gemType;
 			}
 		}
-	}
-
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return this.createTileEntity(worldIn, null);
 	}
 }
