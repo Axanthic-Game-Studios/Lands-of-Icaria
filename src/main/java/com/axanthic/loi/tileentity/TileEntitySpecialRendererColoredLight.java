@@ -13,8 +13,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.util.math.Vec3d;
 
 public class TileEntitySpecialRendererColoredLight extends TileEntitySpecialRenderer<TileEntityColoredLight> {
+
+	private static final Tessellator tessellator = Tessellator.getInstance();
+	private static final BufferBuilder bufferbuilder = tessellator.getBuffer();
 
 	@Override
 	public void setRendererDispatcher(TileEntityRendererDispatcher rendererDispatcherIn) {
@@ -28,9 +32,6 @@ public class TileEntitySpecialRendererColoredLight extends TileEntitySpecialRend
 		Float r = tileEntity.r/div;
 		Float g = tileEntity.g/div;
 		Float b = tileEntity.b/div;
-
-		Tessellator tessellator = Tessellator.getInstance();
-		BufferBuilder bufferbuilder = tessellator.getBuffer();
 
 		RenderManager manager = Minecraft.getMinecraft().getRenderManager();
 		Float dist = (float) tileEntity.getPos().distanceSq(manager.viewerPosX, manager.viewerPosY, manager.viewerPosZ);
@@ -89,30 +90,35 @@ public class TileEntitySpecialRendererColoredLight extends TileEntitySpecialRend
 			GlStateManager.translate(tileEntity.offset.getFrontOffsetX() * -0.3, tileEntity.offset.getFrontOffsetY() * -0.3, tileEntity.offset.getFrontOffsetZ() * -0.3);
 
 		Float rayWidth = 2.5F;
-		Float rayLength = 0.8F;//soft rays
-		float f = 5.0F;
-		float f1 = 0.03F;
+		Float rayLength = 0.8F;
 
-		for (int i = 0; i < 25; ++i) {
-			GlStateManager.rotate(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
-			GlStateManager.rotate(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
-			GlStateManager.rotate(random.nextFloat() * 360.0F, 0.0F, 0.0F, 1.0F);
-			GlStateManager.rotate(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
-			GlStateManager.rotate(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
-			GlStateManager.rotate(random.nextFloat() * 360.0F + f * 90.0F * random.nextInt(500000), 0.0F, 0.0F, 1.0F);
-			float f2 = random.nextFloat() * rayLength + rayLength / 2 + f1 * 5.0F;
-			float f3 = random.nextFloat() * rayWidth + rayWidth / 2 + f1 * 1.0F;
-			bufferbuilder.begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION_COLOR);
+		bufferbuilder.begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION_COLOR);
+		bufferbuilder.pos(0.0D, 0.0D, 0.0D).color(r, g, b, fade).endVertex();
+		/*for (int i = 0; i < 25; ++i) {//scattered cones (but not really, the cones are all weirdly distorted because I did something wrong)
+			float f2 = random.nextFloat() * rayLength + rayLength / 2 + 0.03F * 5.0F;
+			float f3 = random.nextFloat() * rayWidth + rayWidth / 2 + 0.03F * 1.0F;
+
+			Vec3d[] positions = new Vec3d[]{
+					new Vec3d(-0.866D * (double)f3, (double)f2, (double)(-0.5F * f3)),
+					new Vec3d(0.866D * (double)f3, (double)f2, (double)(-0.5F * f3)),
+					new Vec3d(0.0D, (double)f2, (double)(1.0F * f3))
+			};
+			for (int p = 0; p < positions.length; ++p) {
+				positions[p] = positions[p].rotatePitch(random.nextFloat() * 360.0F).rotateYaw(random.nextFloat() * 360.0F);
+			}
 			bufferbuilder.pos(0.0D, 0.0D, 0.0D).color(r, g, b, fade).endVertex();
-			bufferbuilder.pos(-0.866D * (double)f3, (double)f2, (double)(-0.5F * f3)).color(0, 0, 0, 0).endVertex();
-
-			bufferbuilder.pos(0.866D * (double)f3, (double)f2, (double)(-0.5F * f3)).color(0, 0, 0, 0).endVertex();
-
-			bufferbuilder.pos(0.0D, (double)f2, (double)(1.0F * f3)).color(0, 0, 0, 0).endVertex();
-
-			bufferbuilder.pos(-0.866D * (double)f3, (double)f2, (double)(-0.5F * f3)).color(0, 0, 0, 0).endVertex();
-			tessellator.draw();
+			bufferbuilder.pos(positions[0].x, positions[0].y, positions[0].z).color(0, 0, 0, 0).endVertex();
+			bufferbuilder.pos(positions[1].x, positions[1].y, positions[1].z).color(0, 0, 0, 0).endVertex();
+			bufferbuilder.pos(positions[2].x, positions[2].y, positions[2].z).color(0, 0, 0, 0).endVertex();
+			bufferbuilder.pos(positions[0].x, positions[0].y, positions[0].z).color(0, 0, 0, 0).endVertex();
+		}*/
+		for (int i = 0; i < 75; ++i) {//triangle spaghetti
+			float f2 = random.nextFloat() * rayLength + rayLength / 2F + 0.15F;
+			float f3 = random.nextFloat() * rayWidth + rayWidth / 2F + 0.03F;
+			Vec3d position = new Vec3d(0.0D, (double)f2, (double)f3).rotatePitch(random.nextFloat() * 360.0F).rotateYaw(random.nextFloat() * 360.0F);
+			bufferbuilder.pos(position.x, position.y, position.z).color(0, 0, 0, 0).endVertex();
 		}
+		tessellator.draw();
 		GlStateManager.enableTexture2D();
 		GlStateManager.shadeModel(7424);
 		GlStateManager.enableCull();

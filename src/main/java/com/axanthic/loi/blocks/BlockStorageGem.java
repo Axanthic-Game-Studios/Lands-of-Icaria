@@ -37,6 +37,7 @@ public class BlockStorageGem extends Block implements IBlockMeta {
 		this.setUnlocalizedName("block");
 		this.setLightOpacity(1);
 		this.translucent = true;
+		this.setLightLevel(0.4F);
 		this.setRegistryName(ModInformation.ID, "block_gem");
 		this.setDefaultState(this.getStateFromMeta(0));
 		this.setSoundType(SoundType.GLASS);
