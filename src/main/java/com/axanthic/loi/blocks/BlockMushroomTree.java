@@ -1,5 +1,7 @@
 package com.axanthic.loi.blocks;
 
+import java.util.Random;
+
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import net.minecraft.block.Block;
@@ -56,9 +58,9 @@ public class BlockMushroomTree extends BlockBush {
 		}
 	}
 
-	/*@Override
+	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-		if (rand.nextInt(25) == 0) {
+		/*if (rand.nextInt(25) == 0) {
 			int i = 5;
 			int j = 4;
 
@@ -82,8 +84,8 @@ public class BlockMushroomTree extends BlockBush {
 			if (worldIn.isAirBlock(blockpos1) && this.canBlockStay(worldIn, blockpos1, this.getDefaultState())) {
 				worldIn.setBlockState(blockpos1, this.getDefaultState(), 2);
 			}
-		}
-	}*/
+		}*/
+	}
 
 	/**
 	 * Checks if this block can be placed exactly at the given position.

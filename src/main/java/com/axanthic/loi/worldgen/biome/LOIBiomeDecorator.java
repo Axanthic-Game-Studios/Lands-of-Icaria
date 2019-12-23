@@ -7,6 +7,7 @@ import java.util.Random;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.blocks.BlockCardonCactus;
 import com.axanthic.loi.blocks.BlockGem;
+import com.axanthic.loi.blocks.BlockMushroomGround;
 import com.axanthic.loi.blocks.BlockRock;
 import com.axanthic.loi.blocks.BlockTallGrass;
 import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
@@ -15,6 +16,7 @@ import com.axanthic.loi.worldgen.feature.WorldGenLakeNormal;
 import com.axanthic.loi.worldgen.feature.WorldGenPillars;
 import com.axanthic.loi.worldgen.feature.WorldGenRuins;
 
+import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -50,6 +52,16 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			Resources.vineSwirlyDead.getBlock().getDefaultState(),
 			Resources.vineThornyDead.getBlock().getDefaultState()
 	};
+	public IBlockState[] groundMushrooms = new IBlockState[] {
+			Resources.groundMushroom0.getBlock().getDefaultState(),
+			Resources.groundMushroom1.getBlock().getDefaultState(),
+			Resources.groundMushroom2.getBlock().getDefaultState()
+	};
+	public IBlockState[] treeMushrooms = new IBlockState[] {
+			Resources.treeMushroom0.getBlock().getDefaultState(),
+			Resources.treeMushroom1.getBlock().getDefaultState(),
+			Resources.treeMushroom2.getBlock().getDefaultState()
+	};
 
 	@Override
 	public void decorate(World worldIn, Random random, Biome biome, BlockPos pos) {
@@ -62,17 +74,18 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			ChunkPos forgeChunkPos = new ChunkPos(chunkPos); // actual ChunkPos instead of BlockPos
 			MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Pre(worldIn, random, forgeChunkPos));
 
-			if(this.generateAristone(worldIn, random, biome, pos))
-			if(this.generateLakes(worldIn, random, biome, pos))
-			if(this.generateBoulders(worldIn, random, biome, pos))
-			if(this.generateSpikes(worldIn, random, biome, pos))
-			if(this.generateRuins(worldIn, random, biome, pos))
-			if(this.generateFlowers(worldIn, random, biome, pos))
-			if(this.generateGrass(worldIn, random, biome, pos))
-			if(this.generateCactus(worldIn, random, biome, pos))
-			if(this.generateTrees(worldIn, random, biome, pos))
-			if(this.generateVines(worldIn, random, biome, pos))
-			if(this.generateCrystals(worldIn, random, biome, pos))
+			this.generateAristone(worldIn, random, biome, pos);
+			this.generateLakes(worldIn, random, biome, pos);
+			this.generateBoulders(worldIn, random, biome, pos);
+			this.generateSpikes(worldIn, random, biome, pos);
+			this.generateRuins(worldIn, random, biome, pos);
+			this.generateFlowers(worldIn, random, biome, pos);
+			this.generateMushrooms(worldIn, random, biome, pos);
+			this.generateGrass(worldIn, random, biome, pos);
+			this.generateCactus(worldIn, random, biome, pos);
+			this.generateTrees(worldIn, random, biome, pos);
+			this.generateVines(worldIn, random, biome, pos);
+			this.generateCrystals(worldIn, random, biome, pos);
 
 			this.decorating = false;
 		}
@@ -92,6 +105,30 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					BlockPos blockpos = blockpos1.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
 					if (worldIn.isAirBlock(blockpos) && (!worldIn.provider.isNether() || blockpos.getY() < 255))
 						biome.plantFlower(worldIn, random, blockpos);
+				}
+			}
+		}
+		return true;
+	}
+
+	public boolean generateMushrooms(World worldIn, Random random, Biome biome, BlockPos pos) {
+		//ground mushrooms
+		for (int l2 = 0; l2 < this.flowersPerChunk; ++l2) {
+			int i7 = random.nextInt(16) + 8;
+			int l10 = random.nextInt(16) + 8;
+			int j14 = worldIn.getHeight(pos.add(i7, 0, l10)).getY() + 32;
+
+			if (j14 > 0) {
+				int k17 = random.nextInt(j14);
+				BlockPos blockpos1 = pos.add(i7, k17, l10);
+
+				IBlockState iblockstate2 = groundMushrooms[random.nextInt(groundMushrooms.length)];
+				for (int i = 0; i < 50; ++i) {
+					BlockPos blockpos = blockpos1.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
+
+					if (worldIn.isAirBlock(blockpos) && ((BlockMushroomGround) Resources.groundMushroom0.getBlock()).canBlockStay(worldIn, blockpos, iblockstate2)) {
+						worldIn.setBlockState(blockpos, iblockstate2, 2);
+					}
 				}
 			}
 		}
@@ -387,10 +424,21 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					mut.move(EnumFacing.UP);
 				}
 			}
-			if (!generator.generate(worldIn, random, mut))
-				if (!generator.generate(worldIn, random, mut))
-					if (!generator.generate(worldIn, random, mut))
-						generator.generate(worldIn, random, mut); //just keep trying lol
+			if (generator.generate(worldIn, random, mut) || generator.generate(worldIn, random, mut) || generator.generate(worldIn, random, mut) || generator.generate(worldIn, random, mut)) { //just keep trying lol
+				if (random.nextInt(7) != 0)
+					continue;
+				//tree mushrooms
+				IBlockState iblockstate = treeMushrooms[random.nextInt(treeMushrooms.length)];
+				for (int i = 0; i < 90; ++i) {
+					BlockPos blockpos = mut.add(random.nextInt(3) - random.nextInt(3), random.nextInt(6) - random.nextInt(4), random.nextInt(3) - random.nextInt(3));
+					if (worldIn.getBlockState(blockpos).getMaterial().equals(Material.WOOD)) {
+						EnumFacing direction = EnumFacing.HORIZONTALS[random.nextInt(EnumFacing.HORIZONTALS.length)];
+						if (worldIn.isAirBlock(blockpos.offset(direction))) {
+							worldIn.setBlockState(blockpos.offset(direction), iblockstate.withProperty(BlockHorizontal.FACING, direction), 2);
+						}
+					}
+				}
+			}
 		}
 		return true;
 	}

@@ -14,6 +14,7 @@ public class BlockFluidCustom extends BlockFluidClassic {
 		//this.setCreativeTab(LandsOfIcaria.modTabBlocks);
 		this.setUnlocalizedName(fluid.getName());
 		this.setRegistryName(ModInformation.ID, fluid.getName());
+		this.setLightOpacity(3);
 	}
 
 	public BlockFluidCustom(Fluid fluid, Material material, MapColor mapColor) {
@@ -21,6 +22,7 @@ public class BlockFluidCustom extends BlockFluidClassic {
 		//this.setCreativeTab(LandsOfIcaria.modTabBlocks);
 		this.setUnlocalizedName(fluid.getName());
 		this.setRegistryName(ModInformation.ID, fluid.getName());
+		this.setLightOpacity(3);
 	}
 
 	public BlockFluidCustom canCreateSources(boolean canIt) {

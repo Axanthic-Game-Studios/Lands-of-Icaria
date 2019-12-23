@@ -28,14 +28,14 @@ public class TileEntitySpecialRendererColoredLight extends TileEntitySpecialRend
 	@Override
 	public void render(TileEntityColoredLight tileEntity, double relativeX, double relativeY, double relativeZ, float partialTicks, int blockDamageProgress, float alpha) {
 		Random random = new Random(tileEntity.getPos().toLong());
-		Float div = 5.0F;
-		Float r = tileEntity.r/div;
-		Float g = tileEntity.g/div;
-		Float b = tileEntity.b/div;
+		float div = 5.0F;
+		float r = tileEntity.r/div;
+		float g = tileEntity.g/div;
+		float b = tileEntity.b/div;
 
 		RenderManager manager = Minecraft.getMinecraft().getRenderManager();
-		Float dist = (float) tileEntity.getPos().distanceSq(manager.viewerPosX, manager.viewerPosY, manager.viewerPosZ);
-		Float fade = Math.max((4036F-dist)/4036F, 0F);
+		float dist = (float) tileEntity.getPos().distanceSq(manager.viewerPosX, manager.viewerPosY, manager.viewerPosZ);
+		float fade = Math.max((4036F-dist)/4036F, 0F);
 
 		GlStateManager.disableLighting();
 		GlStateManager.enableBlend();
@@ -89,8 +89,8 @@ public class TileEntitySpecialRendererColoredLight extends TileEntitySpecialRend
 		if (tileEntity.offset != null)
 			GlStateManager.translate(tileEntity.offset.getFrontOffsetX() * -0.3, tileEntity.offset.getFrontOffsetY() * -0.3, tileEntity.offset.getFrontOffsetZ() * -0.3);
 
-		Float rayWidth = 2.5F;
-		Float rayLength = 0.8F;
+		float rayWidth = 2.5F;
+		float rayLength = 0.8F;
 
 		bufferbuilder.begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION_COLOR);
 		bufferbuilder.pos(0.0D, 0.0D, 0.0D).color(r, g, b, fade).endVertex();
@@ -115,18 +115,18 @@ public class TileEntitySpecialRendererColoredLight extends TileEntitySpecialRend
 		for (int i = 0; i < 75; ++i) {//triangle spaghetti
 			float f2 = random.nextFloat() * rayLength + rayLength / 2F + 0.15F;
 			float f3 = random.nextFloat() * rayWidth + rayWidth / 2F + 0.03F;
-			Vec3d position = new Vec3d(0.0D, (double)f2, (double)f3).rotatePitch(random.nextFloat() * 360.0F).rotateYaw(random.nextFloat() * 360.0F);
+			Vec3d position = new Vec3d((double)f2, 0.0D, (double)f3).rotatePitch(random.nextFloat() * 360.0F).rotateYaw(random.nextFloat() * 360.0F);
 			bufferbuilder.pos(position.x, position.y, position.z).color(0, 0, 0, 0).endVertex();
 		}
 		tessellator.draw();
-		GlStateManager.enableTexture2D();
 		GlStateManager.shadeModel(7424);
+		GlStateManager.enableTexture2D();
 		GlStateManager.enableCull();
 
 		GlStateManager.popMatrix();
 		GlStateManager.depthMask(true);
-		GlStateManager.enableLighting();
 		GlStateManager.disableBlend();
+		GlStateManager.enableLighting();
 	}
 
 	@Override
