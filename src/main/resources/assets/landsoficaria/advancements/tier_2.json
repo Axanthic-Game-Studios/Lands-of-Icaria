@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "landsoficaria:pickaxe_kassiteros"
+        },
+        "title": {
+            "translate": "advancements.loi.tier_2.title"
+        },
+        "description": {
+            "translate": "advancements.loi.tier_2.description"
+        }
+    },
+    "parent": "landsoficaria:tier_1",
+    "criteria": {
+        "get_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "landsoficaria:pickaxe_kassiteros"
+                    }
+                ]
+            }
+        }
+    }
+}

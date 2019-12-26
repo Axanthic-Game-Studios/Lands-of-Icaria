@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "landsoficaria:soil_grass"
+        },
+        "title": {
+            "translate": "advancements.loi.root.title"
+        },
+        "description": {
+            "translate": "advancements.loi.root.description"
+        },
+        "background": "landsoficaria:textures/gui/advancement_background.png"
+    },
+    "criteria": {
+        "entered_loi": {
+            "trigger": "minecraft:changed_dimension",
+            "conditions": {
+                "to": "loi"
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "landsoficaria:crafting_forge"
+        },
+        "title": {
+            "translate": "advancements.loi.forge.title"
+        },
+        "description": {
+            "translate": "advancements.loi.forge.description"
+        }
+    },
+    "parent": "landsoficaria:kiln",
+    "criteria": {
+        "get_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "landsoficaria:crafting_forge"
+                    }
+                ]
+            }
+        }
+    }
+}

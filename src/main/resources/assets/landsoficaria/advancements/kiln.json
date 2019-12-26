@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "landsoficaria:crafting_kiln"
+        },
+        "title": {
+            "translate": "advancements.loi.kiln.title"
+        },
+        "description": {
+            "translate": "advancements.loi.kiln.description"
+        }
+    },
+    "parent": "landsoficaria:tier_0",
+    "criteria": {
+        "get_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "landsoficaria:crafting_kiln"
+                    }
+                ]
+            }
+        }
+    }
+}

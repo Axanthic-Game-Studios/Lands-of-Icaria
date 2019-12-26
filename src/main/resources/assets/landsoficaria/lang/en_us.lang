@@ -238,6 +238,31 @@ entity.argan_hound.name=Argan Hound
 
 message.loot_vase.pickup=Sneak to throw vase
 
+advancements.loi.root.title=Lands of Icaria
+advancements.loi.root.description=Travel to the Lands of Icaria
+advancements.loi.tier_0.title=Tier 0
+advancements.loi.tier_0.description=Craft basic tools
+advancements.loi.tier_1.title=Tier 1
+advancements.loi.tier_1.description=Craft a chalkos pickaxe
+advancements.loi.tier_2.title=Tier 2
+advancements.loi.tier_2.description=Craft a kassiteros pickaxe
+advancements.loi.tier_3.title=Tier 3
+advancements.loi.tier_3.description=Craft an orichalcum pickaxe
+advancements.loi.tier_4.title=Tier 4
+advancements.loi.tier_4.description=Craft a sideros pickaxe
+advancements.loi.tier_5.title=End of the line
+advancements.loi.tier_5.description=Craft a molybdenum steel pickaxe
+advancements.loi.kiln.title=Get kiln
+advancements.loi.kiln.description=Craft a kiln
+advancements.loi.vase.title=Bigger than a chest
+advancements.loi.vase.description=Bake a storage vase
+advancements.loi.forge.title=It works with metal
+advancements.loi.forge.description=Craft a forge
+advancements.loi.grinder.title=I had to grind for this
+advancements.loi.grinder.description=Craft a grinder
+advancements.loi.unfair_plane.title=Unfair Plane
+advancements.loi.unfair_plane.description=He kemp tree!
+
 loi.config.compat=Compatibility
 loi.config.compat.tooltip=Cross mod compatibility settings
 loi.config.compat.albedo=Albedo compatibility

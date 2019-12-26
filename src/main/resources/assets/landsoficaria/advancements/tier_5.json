@@ -1,0 +1,27 @@
+{
+    "display": {
+        "icon": {
+            "item": "landsoficaria:pickaxe_molybdenumsteel"
+        },
+        "title": {
+            "translate": "advancements.loi.tier_5.title"
+        },
+        "description": {
+            "translate": "advancements.loi.tier_5.description"
+        },
+        "frame": "goal"
+    },
+    "parent": "landsoficaria:tier_4",
+    "criteria": {
+        "get_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "landsoficaria:pickaxe_molybdenumsteel"
+                    }
+                ]
+            }
+        }
+    }
+}

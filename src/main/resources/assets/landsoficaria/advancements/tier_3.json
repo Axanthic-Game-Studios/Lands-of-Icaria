@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "landsoficaria:pickaxe_orichalcum"
+        },
+        "title": {
+            "translate": "advancements.loi.tier_3.title"
+        },
+        "description": {
+            "translate": "advancements.loi.tier_3.description"
+        }
+    },
+    "parent": "landsoficaria:tier_2",
+    "criteria": {
+        "get_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "landsoficaria:pickaxe_orichalcum"
+                    }
+                ]
+            }
+        }
+    }
+}

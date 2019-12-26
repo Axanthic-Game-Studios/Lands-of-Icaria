@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:stone_pickaxe"
+        },
+        "title": {
+            "translate": "advancements.loi.tier_0.title"
+        },
+        "description": {
+            "translate": "advancements.loi.tier_0.description"
+        }
+    },
+    "parent": "landsoficaria:root",
+    "criteria": {
+        "get_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:stone_pickaxe"
+                    }
+                ]
+            }
+        }
+    }
+}
