@@ -216,25 +216,26 @@ container.forge=Forge
 gui.jei.category.landsoficaria.grinding=Grinding
 gui.jei.category.landsoficaria.grindfuel=Grinder Fuel
 gui.jei.category.landsoficaria.alloying=Alloying
-
 gui.jei.category.grindfuel.grindCount.single=Grinds 1 item
 gui.jei.category.grindfuel.grindCount=Grinds %s items
 
 attribute.name.generic.attackRange=Attack Range
 
-entity.fallingVase.name=Loot Vase
+entity.falling_vase.name=Loot Vase
 entity.aeternae.name=Aeternae
 entity.catoblepas.name=Catoblepas
 entity.snull.name=Snull
 entity.sow.name=Sow
 entity.jellyfish.name=Jellyfish
-entity.forestHag.name=Forest Hag
-entity.revenant.name=Revenant
+entity.forest_hag.name=Forest Hag
 entity.arachne_drone.name=Arachne Drone
 entity.arachne.name=Arachne
 entity.myrmeke.name=Myrmeke
 entity.cerver.name=Cerver
 entity.argan_hound.name=Argan Hound
+entity.revenant_civilian.name=Revenant Civilian
+entity.revenant_soldier.name=Revenant Soldier
+entity.revenant_captain.name=Revenant Captain
 
 message.loot_vase.pickup=Sneak to throw vase
 
@@ -250,16 +251,20 @@ advancements.loi.tier_3.title=Tier 3
 advancements.loi.tier_3.description=Craft an orichalcum pickaxe
 advancements.loi.tier_4.title=Tier 4
 advancements.loi.tier_4.description=Craft a sideros pickaxe
-advancements.loi.tier_5.title=End of the line
-advancements.loi.tier_5.description=Craft a molybdenum steel pickaxe
-advancements.loi.kiln.title=Get kiln
+advancements.loi.tier_5.title=End of the Line
+advancements.loi.tier_5.description=Alloy molybdenum steel
+advancements.loi.kiln.title=Get Kiln
 advancements.loi.kiln.description=Craft a kiln
-advancements.loi.vase.title=Bigger than a chest
+advancements.loi.vase.title=Bigger Than a Chest
 advancements.loi.vase.description=Bake a storage vase
-advancements.loi.forge.title=It works with metal
+advancements.loi.forge.title=It Works With Metal
 advancements.loi.forge.description=Craft a forge
-advancements.loi.grinder.title=I had to grind for this
+advancements.loi.grinder.title=I Had to Grind for This
 advancements.loi.grinder.description=Craft a grinder
+advancements.loi.kettle.title=Not a Teapot
+advancements.loi.kettle.description=Craft a kettle
+advancements.loi.fertilize.title=Food for Plants
+advancements.loi.fertilize.description=Fertilize some farmland with calcite dust
 advancements.loi.unfair_plane.title=Unfair Plane
 advancements.loi.unfair_plane.description=He kemp tree!
 

@@ -15,6 +15,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -51,6 +52,8 @@ public class BlockFarmLand extends BlockFarmland {
 		ItemStack itemstack = playerIn.getHeldItem(hand);
 		if (itemstack.getItem() instanceof ItemResource && itemstack.getMetadata() == 8 && playerIn.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
 			worldIn.setBlockState(pos, Resources.fertilizedFarmLand.getBlock().getDefaultState());
+			if(playerIn instanceof EntityPlayerMP)
+				Resources.FERTILIZE_TRIGGER.trigger((EntityPlayerMP) playerIn);
 			if(!playerIn.isCreative())
 				itemstack.shrink(1);
 			return true;

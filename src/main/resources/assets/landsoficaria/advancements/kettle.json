@@ -1,26 +1,23 @@
 {
     "display": {
         "icon": {
-            "item": "landsoficaria:ingot",
-            "data": 9
+            "item": "landsoficaria:crafting_kettle"
         },
         "title": {
-            "translate": "advancements.loi.tier_5.title"
+            "translate": "advancements.loi.kettle.title"
         },
         "description": {
-            "translate": "advancements.loi.tier_5.description"
-        },
-        "frame": "goal"
+            "translate": "advancements.loi.kettle.description"
+        }
     },
-    "parent": "landsoficaria:tier_4",
+    "parent": "landsoficaria:tier_2",
     "criteria": {
         "get_item": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "item": "landsoficaria:ingot",
-                        "data": 9
+                        "item": "landsoficaria:crafting_kettle"
                     }
                 ]
             }

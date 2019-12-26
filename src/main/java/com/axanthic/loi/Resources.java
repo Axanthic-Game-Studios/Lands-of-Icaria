@@ -1,5 +1,7 @@
 package com.axanthic.loi;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,6 +84,7 @@ import com.axanthic.loi.items.ToolScythe;
 import com.axanthic.loi.items.ToolShovel;
 import com.axanthic.loi.items.ToolSword;
 import com.axanthic.loi.proxy.ClientProxy;
+import com.axanthic.loi.utils.CustomTrigger;
 import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
 import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
 import com.axanthic.loi.worldgen.feature.WorldGenFirTree;
@@ -91,6 +94,8 @@ import com.axanthic.loi.worldgen.feature.WorldGenOliveTree;
 import com.axanthic.loi.worldgen.feature.WorldGenPlaneTree;
 import com.axanthic.loi.worldgen.feature.WorldGenPopulusTree;
 
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.ICriterionTrigger;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -106,6 +111,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 public class Resources {
 
@@ -132,6 +138,12 @@ public class Resources {
 	public static final ResourceLocation LOOT_HAG_LAUREL = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/laurel"));
 	public static final ResourceLocation LOOT_HAG_DROUGHTROOT = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/droughtroot"));
 	public static final ResourceLocation LOOT_VASE = LootTableList.register(new ResourceLocation(ModInformation.ID, "loot/loot_vase"));
+
+	public static final CustomTrigger FERTILIZE_TRIGGER = new CustomTrigger("fertilize");
+
+	public static final CustomTrigger[] TRIGGER_ARRAY = new CustomTrigger[] {
+			FERTILIZE_TRIGGER
+	};
 
 	public static List<Item> items = new ArrayList<Item>();
 	public static List<ItemBlock> blocks = new ArrayList<ItemBlock>();
@@ -437,6 +449,19 @@ public class Resources {
 		Resources.grainiteBricks.register();
 		Resources.loamBrick.register();
 		Resources.smoothDolomite.register();
+	}
+
+	public static void init() {
+		Method method;
+		method = ReflectionHelper.findMethod(CriteriaTriggers.class, "register", "func_192118_a", ICriterionTrigger.class);
+		method.setAccessible(true);
+		for (int i=0; i < TRIGGER_ARRAY.length; i++) {
+			try {
+				method.invoke(null, TRIGGER_ARRAY[i]);
+			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+				e.printStackTrace();
+			}
+		} 
 	}
 
 	public static void registerBlock(final ItemBlock block) {
