@@ -4,6 +4,8 @@ import java.util.Random;
 
 import org.lwjgl.opengl.GL11;
 
+import com.axanthic.loi.LOIConfig;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -19,6 +21,9 @@ public class TileEntitySpecialRendererColoredLight extends TileEntitySpecialRend
 
 	private static final Tessellator tessellator = Tessellator.getInstance();
 	private static final BufferBuilder bufferbuilder = tessellator.getBuffer();
+	
+	private static final int resolution = LOIConfig.render.rays;
+	private static final float div = Math.max(resolution / 15F, 1.0F);
 
 	@Override
 	public void setRendererDispatcher(TileEntityRendererDispatcher rendererDispatcherIn) {
@@ -28,7 +33,6 @@ public class TileEntitySpecialRendererColoredLight extends TileEntitySpecialRend
 	@Override
 	public void render(TileEntityColoredLight tileEntity, double relativeX, double relativeY, double relativeZ, float partialTicks, int blockDamageProgress, float alpha) {
 		Random random = new Random(tileEntity.getPos().toLong());
-		float div = 5.0F;
 		float r = tileEntity.r/div;
 		float g = tileEntity.g/div;
 		float b = tileEntity.b/div;
@@ -112,7 +116,7 @@ public class TileEntitySpecialRendererColoredLight extends TileEntitySpecialRend
 			bufferbuilder.pos(positions[2].x, positions[2].y, positions[2].z).color(0, 0, 0, 0).endVertex();
 			bufferbuilder.pos(positions[0].x, positions[0].y, positions[0].z).color(0, 0, 0, 0).endVertex();
 		}*/
-		for (int i = 0; i < 75; ++i) {//triangle spaghetti
+		for (int i = 0; i < resolution; ++i) {//triangle spaghetti
 			float f2 = random.nextFloat() * rayLength + rayLength / 2F + 0.15F;
 			float f3 = random.nextFloat() * rayWidth + rayWidth / 2F + 0.03F;
 			Vec3d position = new Vec3d((double)f2, 0.0D, (double)f3).rotatePitch(random.nextFloat() * 360.0F).rotateYaw(random.nextFloat() * 360.0F);

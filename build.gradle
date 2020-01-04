@@ -70,6 +70,7 @@ dependencies {
 
     // compile against the JEI API but do not include it at runtime
     deobfProvided "mezz.jei:jei_${mc_version}:${jeiversion}:api"
+    compile "mezz.jei:jei_${mc_version}:${jeiversion}"
     // at runtime, use the full JEI jar
     runtime "mezz.jei:jei_${mc_version}:${jeiversion}"
 	

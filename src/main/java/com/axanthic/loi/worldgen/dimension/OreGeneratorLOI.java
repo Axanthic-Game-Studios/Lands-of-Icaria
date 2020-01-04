@@ -1,8 +1,13 @@
 package com.axanthic.loi.worldgen.dimension;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.chunk.ChunkPrimer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.Resources;
@@ -26,10 +31,27 @@ public class OreGeneratorLOI {
 	private static final LOIOregen abyssalEssenceGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(12), new RockPredicate(4), LOIConfig.world.abyssalEssence);
 	private static final LOIOregen bluridiumGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(10), new RockPredicate(4), LOIConfig.world.bluridium);
 
+	private static final List<LOIOregen> customGenerators = new ArrayList<LOIOregen>();
+
 	private final PerlinNoise oreNoise;
 
 	public OreGeneratorLOI(PerlinNoise noise) {
 		this.oreNoise = noise;
+
+		for (String ore : LOIConfig.world.custom) {
+			String[] entries = ore.split(":");
+
+			String modID = entries[0];
+			String blockID = entries[1];
+			int meta = Integer.parseInt(entries[2]);
+			RockPredicate rock = new RockPredicate(Integer.parseInt(entries[3]));
+			Float indexBegin = Float.parseFloat(entries[4]);
+			Float indexEnd = Float.parseFloat(entries[5]);
+			Float noiseSize = Float.parseFloat(entries[6]);
+			int offset = Integer.parseInt(entries[7]);
+
+			customGenerators.add(new LOIOregen(Block.REGISTRY.getObject(new ResourceLocation(modID, blockID)).getStateFromMeta(meta), rock, true, indexBegin, indexEnd, noiseSize, offset));
+		}
 	}
 
 	public void generate(final int x, final int z, final int wx, final int wz, final ChunkPrimer primer) {
@@ -46,6 +68,8 @@ public class OreGeneratorLOI {
 		generateOre(bluridiumGenerator, x, z, wx, wz, primer);
 		generateOre(abyssalEssenceGenerator, x, z, wx, wz, primer);
 		generateOre(hyliastrumGenerator, x, z, wx, wz, primer);
+		for (LOIOregen generator : customGenerators)
+			generateOre(generator, x, z, wx, wz, primer);
 	}
 
 	private void generateOre(LOIOregen oreGen, final int x, final int z, final int wx, final int wz, final ChunkPrimer primer) {

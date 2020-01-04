@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
+import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
@@ -153,7 +154,8 @@ public class ClientProxy extends CommonProxy {
 		super.init(event);
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrinder.class, new TileEntitySpecialRendererGrinder());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMobHead.class, new TileEntitySpecialRendererMobHead());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityColoredLight.class, new TileEntitySpecialRendererColoredLight());
+		if (LOIConfig.render.lights)
+			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityColoredLight.class, new TileEntitySpecialRendererColoredLight());
 	}
 
 	@Override
@@ -251,11 +253,12 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onModelBake(ModelBakeEvent event) {
-		for (ModelResourceLocation resource : event.getModelRegistry().getKeys()) {
-			if (resource.getResourceDomain().equals(ModInformation.ID) && emissiveTextures.containsKey(resource.getResourcePath())) {
-				event.getModelRegistry().putObject(resource, new BakedModelEmissive(event.getModelRegistry().getObject(resource), emissiveTextures.get(resource.getResourcePath())));
+		if (LOIConfig.render.emissiveTextures)
+			for (ModelResourceLocation resource : event.getModelRegistry().getKeys()) {
+				if (resource.getResourceDomain().equals(ModInformation.ID) && emissiveTextures.containsKey(resource.getResourcePath())) {
+					event.getModelRegistry().putObject(resource, new BakedModelEmissive(event.getModelRegistry().getObject(resource), emissiveTextures.get(resource.getResourcePath())));
+				}
 			}
-		}
 		modelManager = event.getModelManager();
 	}
 

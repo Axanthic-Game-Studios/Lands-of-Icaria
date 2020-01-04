@@ -2,6 +2,7 @@ package com.axanthic.loi.compatibility.jei;
 
 import java.util.Collection;
 
+import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.gui.GuiCustomCrafting;
 import com.axanthic.loi.gui.GuiInventoryForge;
@@ -24,6 +25,9 @@ public class IcariaPlugin implements IModPlugin {
 
 	@Override
 	public void register(IModRegistry registry) {
+		if (!LOIConfig.compat.jei)
+			return;
+
 		registry.handleRecipes(GrinderRecipe.class, GrinderRecipeWrapper::new, "landsoficaria.grinding");
 		registry.handleRecipes(GrinderFuel.class, GrinderFuelWrapper::new, "landsoficaria.grindfuel");
 		registry.handleRecipes(ForgeRecipe.class, ForgeRecipeWrapper::new, "landsoficaria.alloying");
@@ -59,10 +63,11 @@ public class IcariaPlugin implements IModPlugin {
 
 	@Override
 	public void registerCategories(IRecipeCategoryRegistration registry) {
-		registry.addRecipeCategories(
-				new GrinderRecipeCategory(registry.getJeiHelpers().getGuiHelper()),
-				new GrinderFuelCategory(registry.getJeiHelpers().getGuiHelper()),
-				new ForgeAlloyingCategory(registry.getJeiHelpers().getGuiHelper())
-				);
+		if (LOIConfig.compat.jei)
+			registry.addRecipeCategories(
+					new GrinderRecipeCategory(registry.getJeiHelpers().getGuiHelper()),
+					new GrinderFuelCategory(registry.getJeiHelpers().getGuiHelper()),
+					new ForgeAlloyingCategory(registry.getJeiHelpers().getGuiHelper())
+					);
 	}
 }

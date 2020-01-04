@@ -17,9 +17,9 @@ public class LOIConfig {
 
 	public static class CategoryCompatibility {
 
-		/*@RequiresMcRestart
-		@LangKey("loi.config.compat.albedo")
-		public Boolean albedo = true;*/
+		@RequiresMcRestart
+		@LangKey("loi.config.compat.jei")
+		public Boolean jei = true;
 
 	}
 
@@ -82,6 +82,22 @@ public class LOIConfig {
 		@LangKey("loi.config.worldgen.bluridium")
 		public OreSettings bluridium = new OreSettings(false, -0.71D, -0.7D, 0.5D, 4000);
 
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.ore.custom")
+		@Comment("Here you can add custom blocks to ore generation"
+				+ "\nSyntax is:"
+				+ "\nmodID:itemID:metadata:rockLayer:indexBegin:indexEnd:noiseSize:offset"
+				+ "\nmodID: The mod ID of the block."
+				+ "\nitemID: The ID of the block."
+				+ "\nmetadata: The metadata value of the block, usually 0."
+				+ "\nrockLayer: The stone layer to generate in, yellowstone is 0, baetyl is 4."
+				+ "\nindexBegin: Lower vein thickness value."
+				+ "\nindexEnd: Upper vein thickness value."
+				+ "\nnoiseSize: Scale of the generation noise."
+				+ "\noffset: Offset that veins will be generated at in blocks."
+				+ "\nExample: landsoficaria:soil:2:0:-0.06:-0.0:1.0:2000")
+		public String[] custom = new String[] {};
+
 		public static class OreSettings {
 
 			@RequiresMcRestart
@@ -115,5 +131,26 @@ public class LOIConfig {
 				this.offset = offset;
 			}
 		}
+	}
+
+	@Name("rendering")
+	@LangKey("loi.config.render")
+	@Comment("Cross mod compatibility settings")
+	public static CategoryRender render = new CategoryRender();
+
+	public static class CategoryRender {
+
+		@RequiresMcRestart
+		@LangKey("loi.config.render.lights")
+		public Boolean lights = true;
+
+		@RequiresMcRestart
+		@LangKey("loi.config.render.rays")
+		public Integer rays = 75;
+
+		@RequiresMcRestart
+		@LangKey("loi.config.render.emissive")
+		public Boolean emissiveTextures = true;
+
 	}
 }

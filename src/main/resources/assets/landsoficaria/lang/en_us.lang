@@ -265,12 +265,14 @@ advancements.loi.kettle.title=Not a Teapot
 advancements.loi.kettle.description=Craft a kettle
 advancements.loi.fertilize.title=Food for Plants
 advancements.loi.fertilize.description=Fertilize some farmland with calcite dust
+advancements.loi.vanadium.title=Good for Weapons
+advancements.loi.vanadium.description=Alloy vanadium steel
 advancements.loi.unfair_plane.title=Unfair Plane
 advancements.loi.unfair_plane.description=He kemp tree!
 
 loi.config.compat=Compatibility
 loi.config.compat.tooltip=Cross mod compatibility settings
-loi.config.compat.albedo=Albedo compatibility
+loi.config.compat.jei=JEI compatibility
 
 loi.config.worldgen=World Generation
 loi.config.worldgen.tooltip=World generation settings
@@ -292,3 +294,10 @@ loi.config.worldgen.ore.indexbegin=Vein begin
 loi.config.worldgen.ore.indexend=Vein end
 loi.config.worldgen.ore.noisesize=Vein scale
 loi.config.worldgen.ore.offset=Generation offset
+loi.config.worldgen.ore.custom=Custom ore generation
+
+loi.config.render=Rendering
+loi.config.render.tooltip=Cross mod compatibility settings
+loi.config.render.lights=Fancy Light sources
+loi.config.render.rays=Amount of rays for lights
+loi.config.render.emissive=Emissive block textures
