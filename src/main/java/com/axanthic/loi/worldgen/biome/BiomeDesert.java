@@ -10,7 +10,9 @@ import com.axanthic.loi.entity.EntityArganHound;
 import com.axanthic.loi.entity.EntityCerver;
 import com.axanthic.loi.entity.EntityJellyfish;
 import com.axanthic.loi.entity.EntityMyrmeke;
+import com.axanthic.loi.entity.EntityRevenantCaptain;
 import com.axanthic.loi.entity.EntityRevenantCivilian;
+import com.axanthic.loi.entity.EntityRevenantSoldier;
 import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
 
 import net.minecraft.block.BlockFlower;
@@ -43,7 +45,9 @@ public class BiomeDesert extends BiomeLOI {
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityJellyfish.class, 100, 1, 2));
-		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenantCivilian.class, 200, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenantCivilian.class, 75, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenantSoldier.class, 75, 2, 5));
+		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenantCaptain.class, 75, 1, 1));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachneDrone.class, 200, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityArachne.class, 50, 1, 1));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityMyrmeke.class, 200, 2, 5));
