@@ -18,11 +18,10 @@ import net.minecraft.util.ResourceLocation;
 
 public class TileEntitySpecialRendererGrinder extends TileEntitySpecialRenderer<TileEntityGrinder> {
 
-	ItemStack grinder = new ItemStack(Resources.grinder, 1, 0);
-	ItemStack gearLarge = new ItemStack(Resources.gear, 1, 0);
-	ItemStack gearLargeActive = new ItemStack(Resources.gear, 1, 1);
-	ItemStack gearSmall = new ItemStack(Resources.gear, 1, 2);
-	ItemStack gearSmallActive = new ItemStack(Resources.gear, 1, 3);
+	ItemStack gearLarge = new ItemStack(Resources.renderAddon, 1, 0);
+	ItemStack gearLargeActive = new ItemStack(Resources.renderAddon, 1, 1);
+	ItemStack gearSmall = new ItemStack(Resources.renderAddon, 1, 2);
+	ItemStack gearSmallActive = new ItemStack(Resources.renderAddon, 1, 3);
 	public static TileEntitySpecialRendererGrinder instance;
 	IBakedModel grinderModel;
 

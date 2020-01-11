@@ -11,7 +11,8 @@
 			"large": { "textures": { "layer0": "landsoficaria:items/crafting_grinder_gear_big" } },
 			"large_active": { "textures": { "layer0": "landsoficaria:items/crafting_grinder_gear_big_active" } },
 			"small": { "textures": { "layer0": "landsoficaria:items/crafting_grinder_gear_small" } },
-			"small_active": { "textures": { "layer0": "landsoficaria:items/crafting_grinder_gear_small_active" } }
+			"small_active": { "textures": { "layer0": "landsoficaria:items/crafting_grinder_gear_small_active" } },
+			"concoction": { "textures": { "layer0": "landsoficaria:blocks/crafting_kettle_concoction" } }
 		}
 	}
 }

@@ -42,15 +42,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TileEntityForge extends TileEntityLockable implements ITickable, ISidedInventory {
-	private static final int[] SLOTS_TOP = new int[] { 0, 1, 2 };
-	private static final int[] SLOTS_BOTTOM = new int[] { 4, 5 };
-	private static final int[] SLOTS_SIDES = new int[] { 3 };
-	private NonNullList<ItemStack> inventoryItems = NonNullList.<ItemStack>withSize(6, ItemStack.EMPTY);
-	private int burnTime;
-	private int currentItemBurnTime;
-	private int cookTime;
-	private int totalCookTime;
-	private String customName;
+	protected static final int[] SLOTS_TOP = new int[] { 0, 1, 2 };
+	protected static final int[] SLOTS_BOTTOM = new int[] { 4, 5 };
+	protected static final int[] SLOTS_SIDES = new int[] { 3 };
+	protected NonNullList<ItemStack> inventoryItems = NonNullList.<ItemStack>withSize(6, ItemStack.EMPTY);
+	protected int burnTime;
+	protected int currentItemBurnTime;
+	protected int cookTime;
+	protected int totalCookTime;
+	protected String customName;
 
 	public void setNeighbours(BlockPos posIn) {
 		if (posIn == null || this.world == null || !this.world.isValid(posIn) || !this.world.isBlockLoaded(posIn))

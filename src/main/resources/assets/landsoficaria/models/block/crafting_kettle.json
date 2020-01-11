@@ -1,24 +1,10 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "concoction": "landsoficaria:blocks/crafting_kettle_concoction",
         "1": "landsoficaria:blocks/crafting_kettle_model",
 		"particle": "landsoficaria:blocks/crafting_kettle_model"
     },
     "elements": [
-        {
-            "name": "Concoction",
-            "from": [ 2.0, 12.999999985098839, 2.0 ], 
-            "to": [ 14.0, 12.999999985098839, 14.0 ], 
-            "faces": {
-                "north": { "texture": "#-1", "uv": [ 0.0, 0.0, 12.0, 0.0 ] },
-                "east": { "texture": "#-1", "uv": [ 0.0, 0.0, 12.0, 0.0 ] },
-                "south": { "texture": "#-1", "uv": [ 0.0, 0.0, 12.0, 0.0 ] },
-                "west": { "texture": "#-1", "uv": [ 0.0, 0.0, 12.0, 0.0 ] },
-                "up": { "texture": "#concoction", "uv": [ 2.0, 2.0, 14.0, 14.0 ] },
-                "down": { "texture": "#concoction", "uv": [ 2.0, 14.0, 14.0, 2.0 ] }
-            }
-        },
         {
             "name": "FootSouth",
             "from": [ 7.0, -3.3000000044703484, 5.899999998509884 ], 

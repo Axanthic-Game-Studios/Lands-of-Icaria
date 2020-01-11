@@ -58,9 +58,11 @@ import com.axanthic.loi.items.ItemBlockMeta;
 import com.axanthic.loi.items.ItemCustomArmor;
 import com.axanthic.loi.tileentity.TileEntityColoredLight;
 import com.axanthic.loi.tileentity.TileEntityGrinder;
+import com.axanthic.loi.tileentity.TileEntityKettle;
 import com.axanthic.loi.tileentity.TileEntityMobHead;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererColoredLight;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererGrinder;
+import com.axanthic.loi.tileentity.TileEntitySpecialRendererKettle;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererMobHead;
 import com.axanthic.loi.utils.BakedModelEmissive;
 import com.axanthic.loi.utils.LOIItemStackRenderer;
@@ -153,6 +155,7 @@ public class ClientProxy extends CommonProxy {
 	public void init(FMLInitializationEvent event) {
 		super.init(event);
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrinder.class, new TileEntitySpecialRendererGrinder());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityKettle.class, new TileEntitySpecialRendererKettle());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMobHead.class, new TileEntitySpecialRendererMobHead());
 		if (LOIConfig.render.lights)
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityColoredLight.class, new TileEntitySpecialRendererColoredLight());

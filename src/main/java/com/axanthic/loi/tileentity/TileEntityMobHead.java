@@ -11,8 +11,8 @@ import net.minecraft.util.Rotation;
 
 public class TileEntityMobHead extends TileEntity {
 
-	private String skullType = "";
-	private int skullRotation = 0;
+	protected String skullType = "";
+	protected int skullRotation = 0;
 
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {

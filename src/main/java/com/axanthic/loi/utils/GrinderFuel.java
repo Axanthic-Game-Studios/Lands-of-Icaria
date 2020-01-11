@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.axanthic.loi.ModInformation;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistryEntry;
@@ -23,10 +25,7 @@ public class GrinderFuel extends IForgeRegistryEntry.Impl<GrinderFuel> {
 	}
 
 	public GrinderFuel(String name, ItemStack fuel, int time) {
-		this.setRegistryName(name);
-		this.fuelItem = fuel;
-		this.burnTime = time;
-		burnTimeList.put(fuel, time);
+		this(new ResourceLocation(ModInformation.ID, name), fuel, time);
 	}
 
 	public ItemStack getFuel() {

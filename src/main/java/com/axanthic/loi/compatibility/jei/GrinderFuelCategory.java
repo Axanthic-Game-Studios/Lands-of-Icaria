@@ -26,7 +26,7 @@ public class GrinderFuelCategory implements IRecipeCategory<GrinderFuelWrapper> 
 
 	public GrinderFuelCategory(IGuiHelper guiHelper) {
 		background = guiHelper.drawableBuilder(Constants.RECIPE_GUI_VANILLA, 0, 134, 18, 34) .addPadding(0, 0, 0, 88).build();
-		icon = guiHelper.createDrawableIngredient(new ItemStack(Resources.gear));
+		icon = guiHelper.createDrawableIngredient(new ItemStack(Resources.renderAddon));
 		localizedName = Translator.translateToLocal("gui.jei.category.landsoficaria.grindfuel");
 	}
 

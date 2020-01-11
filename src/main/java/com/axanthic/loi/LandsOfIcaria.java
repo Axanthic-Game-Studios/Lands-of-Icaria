@@ -22,6 +22,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -126,6 +127,11 @@ public class LandsOfIcaria {
 	@SubscribeEvent
 	public static void registerRegistry(RegistryEvent.NewRegistry event) {	
 		LandsOfIcaria.proxy.registerRegistry(event);
+	}
+
+	@SubscribeEvent
+	public static void worldLoad(WorldEvent.Load event) {	
+		LandsOfIcaria.proxy.onWorldLoad(event);
 	}
 
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)

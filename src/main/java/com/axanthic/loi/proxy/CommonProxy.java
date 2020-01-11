@@ -1,5 +1,7 @@
 package com.axanthic.loi.proxy;
 
+import java.util.Collection;
+
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Recipes;
@@ -27,12 +29,14 @@ import com.axanthic.loi.tileentity.TileEntityColoredLight;
 import com.axanthic.loi.tileentity.TileEntityForge;
 import com.axanthic.loi.tileentity.TileEntityForgeRedirector;
 import com.axanthic.loi.tileentity.TileEntityGrinder;
+import com.axanthic.loi.tileentity.TileEntityKettle;
 import com.axanthic.loi.tileentity.TileEntityKiln;
 import com.axanthic.loi.tileentity.TileEntityMobHead;
 import com.axanthic.loi.tileentity.TileEntityVase;
 import com.axanthic.loi.utils.ForgeRecipe;
 import com.axanthic.loi.utils.GrinderFuel;
 import com.axanthic.loi.utils.GrinderRecipe;
+import com.axanthic.loi.utils.KettleRecipe;
 import com.axanthic.loi.utils.MessageCustomReachAttack;
 import com.axanthic.loi.worldgen.biome.LOIBiomes;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
@@ -56,6 +60,7 @@ import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -73,6 +78,7 @@ public class CommonProxy {
 	public static IForgeRegistry grinderRecipeRegistry;
 	public static IForgeRegistry grinderFuelRegistry;
 	public static IForgeRegistry forgeRecipeRegistry;
+	public static IForgeRegistry kettleRecipeRegistry;
 
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(LandsOfIcaria.instance);
@@ -106,6 +112,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityGrinder.class, new ResourceLocation(ModInformation.ID, "crafting_grinder"));
 		GameRegistry.registerTileEntity(TileEntityForge.class, new ResourceLocation(ModInformation.ID, "crafting_forge"));
 		GameRegistry.registerTileEntity(TileEntityForgeRedirector.class, new ResourceLocation(ModInformation.ID, "crafting_forge_redirector"));
+		GameRegistry.registerTileEntity(TileEntityKettle.class, new ResourceLocation(ModInformation.ID, "crafting_kettle"));
 		GameRegistry.registerTileEntity(TileEntityMobHead.class, new ResourceLocation(ModInformation.ID, "mob_head"));
 		//if (LOIConfig.compat.albedo && Loader.isModLoaded("albedo"))
 		GameRegistry.registerTileEntity(TileEntityColoredLight.class, new ResourceLocation(ModInformation.ID, "colored_light"));
@@ -187,19 +194,38 @@ public class CommonProxy {
 		grinderRegistryBuilder.setName(new ResourceLocation(ModInformation.ID, "grinder_recipes"));
 		grinderRegistryBuilder.setType(GrinderRecipe.class);
 		grinderRegistryBuilder.allowModification();
+		grinderRegistryBuilder.disableSaving();
 		grinderRecipeRegistry = grinderRegistryBuilder.create();
 
 		RegistryBuilder grinderFuelRegistryBuilder = new RegistryBuilder();
 		grinderFuelRegistryBuilder.setName(new ResourceLocation(ModInformation.ID, "grinder_fuel"));
 		grinderFuelRegistryBuilder.setType(GrinderFuel.class);
 		grinderFuelRegistryBuilder.allowModification();
+		grinderFuelRegistryBuilder.disableSaving();
 		grinderFuelRegistry = grinderFuelRegistryBuilder.create();
 
 		RegistryBuilder forgeRegistryBuilder = new RegistryBuilder();
 		forgeRegistryBuilder.setName(new ResourceLocation(ModInformation.ID, "forge_recipes"));
 		forgeRegistryBuilder.setType(ForgeRecipe.class);
 		forgeRegistryBuilder.allowModification();
+		forgeRegistryBuilder.disableSaving();
 		forgeRecipeRegistry = forgeRegistryBuilder.create();
+
+		RegistryBuilder kettleRegistryBuilder = new RegistryBuilder();
+		kettleRegistryBuilder.setName(new ResourceLocation(ModInformation.ID, "kettle_recipes"));
+		kettleRegistryBuilder.setType(KettleRecipe.class);
+		kettleRegistryBuilder.allowModification();
+		kettleRegistryBuilder.disableSaving();
+		kettleRecipeRegistry = kettleRegistryBuilder.create();
+	}
+
+	public void onWorldLoad(WorldEvent.Load event) {
+		if (event.getWorld().provider.getDimension() == 2) {
+			long seed = event.getWorld().getSeed();
+			for (KettleRecipe recipe : (Collection<KettleRecipe>) CommonProxy.kettleRecipeRegistry.getValuesCollection()) {
+				recipe.generateOrder(seed);
+			}
+		}
 	}
 
 	public void onMouseEvent(MouseEvent event) {

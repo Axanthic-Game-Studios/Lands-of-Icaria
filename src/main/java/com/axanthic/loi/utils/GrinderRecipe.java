@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.axanthic.loi.ModInformation;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
@@ -26,11 +28,7 @@ public class GrinderRecipe extends IForgeRegistryEntry.Impl<GrinderRecipe> {
 	}
 
 	public GrinderRecipe(String name, Ingredient input, float xp, ItemStack output) {
-		this.setRegistryName(name);
-		this.recipeInput = input;
-		this.recipeOutput = output;
-		this.experience = xp;
-		experienceList.put(output, xp);
+		this(new ResourceLocation(ModInformation.ID, name), input, xp, output);
 	}
 
 	public ItemStack getOutput(ItemStack input) {

@@ -38,16 +38,16 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TileEntityGrinder extends TileEntityLockable implements ITickable, ISidedInventory {
-	private static final int[] SLOTS_TOP = new int[] { 0 };
-	private static final int[] SLOTS_BOTTOM = new int[] { 2, 1 };
-	private static final int[] SLOTS_SIDES = new int[] { 1 };
-	private NonNullList<ItemStack> inventoryItems = NonNullList.<ItemStack>withSize(3, ItemStack.EMPTY);
-	private int burnTime;
-	private int currentItemBurnTime;
-	private int cookTime;
-	private int totalCookTime;
-	private int lastSound = 285;
-	private String customName;
+	protected static final int[] SLOTS_TOP = new int[] { 0 };
+	protected static final int[] SLOTS_BOTTOM = new int[] { 2, 1 };
+	protected static final int[] SLOTS_SIDES = new int[] { 1 };
+	protected NonNullList<ItemStack> inventoryItems = NonNullList.<ItemStack>withSize(3, ItemStack.EMPTY);
+	protected int burnTime;
+	protected int currentItemBurnTime;
+	protected int cookTime;
+	protected int totalCookTime;
+	protected int lastSound = 285;
+	protected String customName;
 
 	/**
 	 * Returns the number of slots in the inventory.

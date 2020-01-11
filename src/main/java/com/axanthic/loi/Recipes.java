@@ -15,6 +15,7 @@ import com.axanthic.loi.proxy.CommonProxy;
 import com.axanthic.loi.utils.ForgeRecipe;
 import com.axanthic.loi.utils.GrinderFuel;
 import com.axanthic.loi.utils.GrinderRecipe;
+import com.axanthic.loi.utils.KettleRecipe;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -65,6 +66,8 @@ public class Recipes {
 		addGrinderFuel("sliver_nugget", new ItemStack(Resources.nugget, 1, 4), 800);
 		addGrinderFuel("sliver_ingot", new ItemStack(Resources.ingot, 1, 4), 7200);
 		addGrinderFuel("sliver_block", new ItemStack(Resources.metalBlock, 1, 4), 64800);
+
+		addKettleRecipe("molybdenumsteel", new ItemStack(Resources.ingot, 2, 9), 0xFFFFFF, new OreIngredient("ingotSideros"), new OreIngredient("ingotMolybdenum"), new OreIngredient("gemAnthracite"));
 
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath", new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
 
@@ -372,6 +375,18 @@ public class Recipes {
 			ingredients[i] = Ingredient.fromStacks(inputs[i]);
 		}
 		addForgeRecipe(name, output, xp, ingredients);
+	}
+
+	public static void addKettleRecipe(String name, ItemStack output, int color, Ingredient... inputs) {
+		CommonProxy.kettleRecipeRegistry.register(new KettleRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), output, color, inputs));
+	}
+
+	public static void addKettleRecipe(String name, ItemStack output, int color, ItemStack... inputs) {
+		Ingredient[] ingredients = new Ingredient[inputs.length];
+		for (int i = 0; i < inputs.length; ++i) {
+			ingredients[i] = Ingredient.fromStacks(inputs[i]);
+		}
+		addKettleRecipe(name, output, color, ingredients);
 	}
 
 	public static void moveRecipe(ResourceLocation name) {

@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.axanthic.loi.ModInformation;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.NonNullList;
@@ -32,14 +34,7 @@ public class ForgeRecipe extends IForgeRegistryEntry.Impl<ForgeRecipe> {
 	}
 
 	public ForgeRecipe(String name, ItemStack output, float xp, Ingredient... inputs) {
-		this.setRegistryName(name);
-		this.recipeOutput = output;
-		this.recipeInputs = NonNullList.from(Ingredient.EMPTY, inputs);
-		this.experience = xp;
-		experienceList.put(output, xp);
-		for (Ingredient input : inputs)
-			if (!allInputs.contains(input))
-				allInputs.add(input);
+		this(new ResourceLocation(ModInformation.ID, name), output, xp, inputs);
 	}
 
 	public ItemStack getOutput(ItemStack... input) {

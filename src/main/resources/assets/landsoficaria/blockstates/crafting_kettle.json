@@ -2,16 +2,10 @@
 	"forge_marker": 1,
 	"defaults": {
 		"transform": "forge:default-block",
-		"model": "landsoficaria:crafting_kettle",
-		"textures": {
-			"concoction": "landsoficaria:blocks/empty"
-		}
+		"model": "landsoficaria:crafting_kettle"
 	},
 	"variants": {
 		"inventory": { "model": "landsoficaria:crafting_kettle" },
-		"full": {
-			"true": { "textures": { "concoction": "landsoficaria:blocks/crafting_kettle_concoction" } },
-			"false": {}
-		}
+		"normal": { "model": "landsoficaria:crafting_kettle" }
 	}
 }

@@ -69,7 +69,7 @@ import com.axanthic.loi.items.ItemBlockMobHead;
 import com.axanthic.loi.items.ItemCustomArmor;
 import com.axanthic.loi.items.ItemDimensionTeleporter;
 import com.axanthic.loi.items.ItemFoods;
-import com.axanthic.loi.items.ItemGear;
+import com.axanthic.loi.items.ItemRenderAddon;
 import com.axanthic.loi.items.ItemLaurelWreath;
 import com.axanthic.loi.items.ItemMeta;
 import com.axanthic.loi.items.ItemMetaMaterial;
@@ -152,7 +152,7 @@ public class Resources {
 	public static ItemMeta resource = new ItemResource();
 	public static ItemMeta resource2 = new ItemResource2();
 	public static ItemFoods food = new ItemFoods();
-	public static ItemMeta gear = new ItemGear();
+	public static ItemMeta renderAddon = new ItemRenderAddon();
 	public static Item sharpBone = new ItemSharpBone();
 	public static Item laurelWreath = new ItemLaurelWreath();
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", BlockStorageMetal.MetalTypes.getNames());
@@ -299,7 +299,7 @@ public class Resources {
 		Resources.items.add(Resources.resource);
 		Resources.items.add(Resources.resource2);
 		Resources.items.add(Resources.food);
-		Resources.items.add(Resources.gear);
+		Resources.items.add(Resources.renderAddon);
 		Resources.items.add(Resources.sharpBone);
 		Resources.items.add(Resources.laurelWreath);
 		Resources.items.add(Resources.ingot);
