@@ -26,6 +26,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidEvent;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.capability.TileFluidHandler;
@@ -36,6 +37,8 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 	protected Deque<ItemStack> ingredientStack = new ArrayDeque<ItemStack>();
 	protected KettleRecipe currentRecipe = null;
 	protected boolean empty = true;
+	protected int lastUpdate = 0;
+	protected int ingredientStrength = 1000;
 
 	public TileEntityKettle() {
 		super();
@@ -44,8 +47,60 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 				return canFill() && fluid.getFluid().equals(Resources.waterFluid);
 			}
 
+			public int fillInternal(FluidStack resource, boolean doFill) {
+				if (resource == null || resource.amount <= 0) {
+					return 0;
+				}
+
+				if (!doFill) {
+					if (fluid == null) {
+						return Math.min(capacity, resource.amount);
+					}
+
+					if (!fluid.isFluidEqual(resource)) {
+						return 0;
+					}
+
+					return Math.min(capacity - fluid.amount, resource.amount);
+				}
+
+				if (fluid == null) {
+					fluid = new FluidStack(resource, Math.min(capacity, resource.amount));
+
+					onContentsChanged();
+
+					TileEntityKettle.this.onFluidAdded(fluid.amount);
+
+					if (tile != null) {
+						FluidEvent.fireEvent(new FluidEvent.FluidFillingEvent(fluid, tile.getWorld(), tile.getPos(), this, fluid.amount));
+					}
+					return fluid.amount;
+				}
+
+				if (!fluid.isFluidEqual(resource)) {
+					return 0;
+				}
+				int filled = capacity - fluid.amount;
+
+				if (resource.amount < filled) {
+					fluid.amount += resource.amount;
+					filled = resource.amount;
+				} else {
+					fluid.amount = capacity;
+				}
+
+				onContentsChanged();
+
+				TileEntityKettle.this.onFluidAdded(filled);
+
+				if (tile != null) {
+					FluidEvent.fireEvent(new FluidEvent.FluidFillingEvent(fluid, tile.getWorld(), tile.getPos(), this, filled));
+				}
+				return filled;
+			}
+
 			protected void onContentsChanged() {
-				TileEntityKettle.this.syncToClient();
+				TileEntityKettle.this.syncToClient(false);
 			}
 		};
 		this.tank.setTileEntity(this);
@@ -60,6 +115,7 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 		ItemStackHelper.loadAllItems(compound, inventoryItems);
 		ingredientStack.clear();
 		ingredientStack.addAll(inventoryItems);
+		ingredientStrength = compound.getInteger("Ingredient_strength");
 		updateRecipe();
 		empty = true;
 		for (ItemStack stack : ingredientStack) {
@@ -70,6 +126,7 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
 		ItemStackHelper.saveAllItems(compound, NonNullList.<ItemStack>from(ItemStack.EMPTY, ingredientStack.toArray(new ItemStack[5])));
+		compound.setInteger("Ingredient_strength", ingredientStrength);
 
 		return compound;
 	}
@@ -97,6 +154,7 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 
 	@Override
 	public void update() {
+		lastUpdate++;
 		if (!this.world.isRemote)
 			for (EntityItem entityItem : getCaptureItems(this.getWorld(), this.getPos())) {
 				ItemStack itemstack = entityItem.getItem().copy();
@@ -116,11 +174,13 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 					entityItem.setItem(itemstack);
 				}
 
+				ingredientStrength = Math.min(1000, ingredientStrength + 300);
+
 				updateRecipe();
 
 				this.markDirty();
 
-				this.syncToClient();
+				this.syncToClient(false);
 
 				break;
 			}
@@ -152,17 +212,22 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 
 		ItemHandlerHelper.giveItemToPlayer(player, currentRecipe.getOutput(ingredientStack.toArray(new ItemStack[5])));
 
-		ingredientStack.clear();
-		for (int i = 0; i < 5; ++i)
-			ingredientStack.offer(ItemStack.EMPTY);
-
-		currentRecipe = null;
-
 		this.tank.drainInternal(200, true);
+		
+		if (this.tank.getFluidAmount() == 0) {
+			ingredientStack.clear();
+			for (int i = 0; i < 5; ++i)
+				ingredientStack.offer(ItemStack.EMPTY);
+
+			currentRecipe = null;
+			ingredientStrength = 100;
+
+			this.syncToClient(true);
+		}
 
 		this.markDirty();
 
-		this.syncToClient();
+		this.syncToClient(true);
 
 		return true;
 	}
@@ -170,27 +235,42 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 	public int getColor() {
 		if (currentRecipe == null) {
 			if (empty)
-				return 0x326356;
+				return 0x22473A;
 			return 0x443630;
 		}
 		return currentRecipe.getColor();
+	}
+
+	public void onFluidAdded(int amount) {
+		ingredientStrength = Math.max(0, ingredientStrength - amount * 2);
+		if (ingredientStrength == 0) {
+			ingredientStack.clear();
+			for (int i = 0; i < 5; ++i)
+				ingredientStack.offer(ItemStack.EMPTY);
+
+			currentRecipe = null;
+			ingredientStrength = 1000;
+
+			this.syncToClient(true);
+		}
 	}
 
 	public int getFluidLevel() {
 		return this.tank.getFluidAmount();
 	}
 
-	protected void syncToClient() {
-		if(world instanceof WorldServer) {
+	protected void syncToClient(boolean forceUpdate) {
+		if(world instanceof WorldServer && (forceUpdate || lastUpdate > 10)) {
+			lastUpdate = 0;
 			SPacketUpdateTileEntity packet = this.getUpdatePacket();
 			if (packet != null) {
 				PlayerChunkMap chunkMap = ((WorldServer) world).getPlayerChunkMap();
 				int i = this.getPos().getX() >> 4;
 		int j = this.getPos().getZ() >> 4;
-		PlayerChunkMapEntry entry = chunkMap.getEntry(i, j);
-		if(entry != null) {
-			entry.sendPacket(packet);
-		}
+				PlayerChunkMapEntry entry = chunkMap.getEntry(i, j);
+				if(entry != null) {
+					entry.sendPacket(packet);
+				}
 			}
 		}
 	}
