@@ -36,7 +36,7 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 
 	protected Deque<ItemStack> ingredientStack = new ArrayDeque<ItemStack>();
 	protected KettleRecipe currentRecipe = null;
-	protected boolean empty = true;
+	protected boolean ingredientEmpty = true;
 	protected int lastUpdate = 0;
 	protected int ingredientStrength = 1000;
 
@@ -117,9 +117,9 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 		ingredientStack.addAll(inventoryItems);
 		ingredientStrength = compound.getInteger("Ingredient_strength");
 		updateRecipe();
-		empty = true;
+		ingredientEmpty = true;
 		for (ItemStack stack : ingredientStack) {
-			empty = empty && stack.isEmpty();
+			ingredientEmpty = ingredientEmpty && stack.isEmpty();
 		}
 	}
 
@@ -154,8 +154,9 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 
 	@Override
 	public void update() {
-		lastUpdate++;
-		if (!this.world.isRemote)
+		if (!this.world.isRemote) {
+			lastUpdate++;
+			System.out.println(ingredientStrength);
 			for (EntityItem entityItem : getCaptureItems(this.getWorld(), this.getPos())) {
 				ItemStack itemstack = entityItem.getItem().copy();
 
@@ -176,6 +177,8 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 
 				ingredientStrength = Math.min(1000, ingredientStrength + 300);
 
+				ingredientEmpty = false;
+
 				updateRecipe();
 
 				this.markDirty();
@@ -184,6 +187,7 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 
 				break;
 			}
+		}
 	}
 
 	@Override
@@ -213,14 +217,15 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 		ItemHandlerHelper.giveItemToPlayer(player, currentRecipe.getOutput(ingredientStack.toArray(new ItemStack[5])));
 
 		this.tank.drainInternal(200, true);
-		
+
 		if (this.tank.getFluidAmount() == 0) {
 			ingredientStack.clear();
 			for (int i = 0; i < 5; ++i)
 				ingredientStack.offer(ItemStack.EMPTY);
 
 			currentRecipe = null;
-			ingredientStrength = 100;
+			ingredientStrength = 1000;
+			ingredientEmpty = true;
 
 			this.syncToClient(true);
 		}
@@ -234,7 +239,7 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 
 	public int getColor() {
 		if (currentRecipe == null) {
-			if (empty)
+			if (ingredientEmpty)
 				return 0x22473A;
 			return 0x443630;
 		}
@@ -242,16 +247,19 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 	}
 
 	public void onFluidAdded(int amount) {
-		ingredientStrength = Math.max(0, ingredientStrength - amount * 2);
-		if (ingredientStrength == 0) {
-			ingredientStack.clear();
-			for (int i = 0; i < 5; ++i)
-				ingredientStack.offer(ItemStack.EMPTY);
+		if (!ingredientEmpty) {
+			ingredientStrength = Math.max(0, ingredientStrength - amount * 2);
+			if (ingredientStrength == 0) {
+				ingredientStack.clear();
+				for (int i = 0; i < 5; ++i)
+					ingredientStack.offer(ItemStack.EMPTY);
 
-			currentRecipe = null;
-			ingredientStrength = 1000;
+				currentRecipe = null;
+				ingredientStrength = 1000;
+				ingredientEmpty = true;
 
-			this.syncToClient(true);
+				this.syncToClient(true);
+			}
 		}
 	}
 
@@ -266,7 +274,7 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 			if (packet != null) {
 				PlayerChunkMap chunkMap = ((WorldServer) world).getPlayerChunkMap();
 				int i = this.getPos().getX() >> 4;
-		int j = this.getPos().getZ() >> 4;
+			int j = this.getPos().getZ() >> 4;
 				PlayerChunkMapEntry entry = chunkMap.getEntry(i, j);
 				if(entry != null) {
 					entry.sendPacket(packet);
