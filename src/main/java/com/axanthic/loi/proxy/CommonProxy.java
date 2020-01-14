@@ -220,7 +220,7 @@ public class CommonProxy {
 	}
 
 	public void onWorldLoad(WorldEvent.Load event) {
-		if (event.getWorld().provider.getDimension() == 2) {
+		if (!event.getWorld().isRemote && event.getWorld().provider.getDimension() == 0) {
 			long seed = event.getWorld().getSeed();
 			for (KettleRecipe recipe : (Collection<KettleRecipe>) CommonProxy.kettleRecipeRegistry.getValuesCollection()) {
 				recipe.generateOrder(seed);

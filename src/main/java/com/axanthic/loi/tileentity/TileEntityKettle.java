@@ -37,7 +37,7 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 	protected Deque<ItemStack> ingredientStack = new ArrayDeque<ItemStack>();
 	protected KettleRecipe currentRecipe = null;
 	protected boolean ingredientEmpty = true;
-	protected int lastUpdate = 0;
+	protected int lastUpdate = 0;//only updated server side
 	protected int ingredientStrength = 1000;
 
 	public TileEntityKettle() {
@@ -156,7 +156,6 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 	public void update() {
 		if (!this.world.isRemote) {
 			lastUpdate++;
-			System.out.println(ingredientStrength);
 			for (EntityItem entityItem : getCaptureItems(this.getWorld(), this.getPos())) {
 				ItemStack itemstack = entityItem.getItem().copy();
 
