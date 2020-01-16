@@ -46,10 +46,12 @@ public class ToolScythe extends ItemSword implements IItemCustomReach {
 
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
+		if (I18n.canTranslate("item.scythe_" + material.material.name().substring(ModInformation.ID.length() + 1) + ".name"))
+			return I18n.translateToLocal("item.scythe_" + material.material.name().substring(ModInformation.ID.length() + 1) + ".name");
 		try {
 			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal("material." + material.material.name().substring(ModInformation.ID.length() + 1) + ".name"));
 		} catch (Exception e) {
-			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), "");
+			return I18n.translateToLocal(this.getUnlocalizedName() + ".name");
 		}
 	}
 

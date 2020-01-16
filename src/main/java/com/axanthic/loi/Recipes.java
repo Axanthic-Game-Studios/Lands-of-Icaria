@@ -202,6 +202,7 @@ public class Recipes {
 		registerSlabStairRecipe(Resources.loamBrick);
 		registerSlabStairRecipe(Resources.smoothDolomite);
 
+		registerToolRecipe(Resources.laurelTools);
 		registerToolRecipe(Resources.chalkos);
 		registerToolRecipe(Resources.kassiteros);
 		registerToolRecipe(Resources.orichalcum);
