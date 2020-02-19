@@ -39,7 +39,7 @@ public class Recipes {
 		addForgeRecipe("vanadiumsteel", new ItemStack(Resources.ingot, 2, 6), 0.5F, new OreIngredient("ingotKassiteros"), new OreIngredient("ingotVanadium"), new OreIngredient("gemLignite"));
 		addForgeRecipe("molybdenumsteel", new ItemStack(Resources.ingot, 2, 9), 0.6F, new OreIngredient("ingotSideros"), new OreIngredient("ingotMolybdenum"), new OreIngredient("gemAnthracite"));
 
-		addGrinderRecipe("calcite_powder", new ItemStack(Resources.resource, 2, 8), 0.1F, new OreIngredient("gemCalcite"));
+		addGrinderRecipe("calcite_powder", new ItemStack(Resources.resource, 4, 8), 0.1F, new OreIngredient("gemCalcite"));
 		addGrinderRecipe("polished_zircon", new ItemStack(Resources.resource, 1, 9), 0.3F, new OreIngredient("gemZircon"));
 		addGrinderRecipe("grainel_stone", new ItemStack(Resources.grainelStone, 1, 0), 0.1F, Ingredient.fromStacks(new ItemStack(Resources.grainelStone, 1, 1), new ItemStack(Resources.grainelStone, 1, 2)));
 		addGrinderRecipe("grainel", new ItemStack(Resources.grainelSand, 1, 0), 0.1F, new ItemStack(Resources.grainelStone, 1, 0));
@@ -284,6 +284,11 @@ public class Recipes {
 					addGrinderRecipe(name.toLowerCase() + "_dust", OreDictionary.getOres(name.replace("ingot", "dust")).get(0).copy(), 0.1F, new OreIngredient(name));
 					continue;
 				}
+			if (name.startsWith("gem") && !(name.equals("gemCalcite") || name.equals("gemZircon")))
+				if (OreDictionary.doesOreNameExist(name.replace("gem", "dust"))) {
+					addGrinderRecipe(name.toLowerCase() + "_dust", OreDictionary.getOres(name.replace("gem", "dust")).get(0).copy(), 0.1F, new OreIngredient(name));
+					continue;
+				}
 			if (name.startsWith("ore"))
 				if (OreDictionary.doesOreNameExist(name.replace("ore", "dust"))) {
 					ItemStack returnstack = OreDictionary.getOres(name.replace("ore", "dust")).get(0).copy();
@@ -472,7 +477,7 @@ public class Recipes {
 		OreDictionary.registerOre("gemCalcite", new ItemStack(Resources.resource, 1, 5));
 		OreDictionary.registerOre("gemJasper", new ItemStack(Resources.resource, 1, 6));
 		OreDictionary.registerOre("gemZircon", new ItemStack(Resources.resource, 1, 7));
-		OreDictionary.registerOre("dustCalcite", new ItemStack(Resources.resource, 1, 8));
+		OreDictionary.registerOre("dustSmallCalcite", new ItemStack(Resources.resource, 1, 8));
 		OreDictionary.registerOre("gemPolishedZircon", new ItemStack(Resources.resource, 1, 9));
 		OreDictionary.registerOre("clay", new ItemStack(Resources.resource, 1, 10));
 		OreDictionary.registerOre("itemClay", new ItemStack(Resources.resource, 1, 10));
