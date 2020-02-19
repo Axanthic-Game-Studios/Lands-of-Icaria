@@ -16,6 +16,7 @@ import com.axanthic.loi.entity.EntityCerver;
 import com.axanthic.loi.entity.EntityFallingVase;
 import com.axanthic.loi.entity.EntityForestHag;
 import com.axanthic.loi.entity.EntityJellyfish;
+import com.axanthic.loi.entity.EntityLight;
 import com.axanthic.loi.entity.EntityMyrmeke;
 import com.axanthic.loi.entity.EntityRevenantCaptain;
 import com.axanthic.loi.entity.EntityRevenantCivilian;
@@ -94,6 +95,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "snull"), EntitySnull.class, "snull", 32, ModInformation.ID, 80, 3, true, 0x654E3F, 0x747673);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "sow"), EntitySow.class, "sow", 33, ModInformation.ID, 80, 3, true, 0x625242, 0x27201A);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "jellyfish"), EntityJellyfish.class, "jellyfish", 34, ModInformation.ID, 80, 6, true, 0x750800, 0xB6897D);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "light"), EntityLight.class, "light", 35, ModInformation.ID, 80, 6, true, 0xABFFED, 0xFFABAB);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag"), EntityForestHag.class, "forest_hag", 60, ModInformation.ID, 80, 3, true, 0x554937, 0x4D7F2F);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "arachne_drone"), EntityArachneDrone.class, "arachne_drone", 62, ModInformation.ID, 80, 3, true, 0x56422A, 0x80AFBF);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "arachne"), EntityArachne.class, "arachne", 63, ModInformation.ID, 80, 3, true, 0x7B6147, 0x80AFBF);
