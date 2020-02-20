@@ -31,35 +31,40 @@ public class ModelLight extends ModelBase {
 		random.nextInt(40);//this increases the randomness for some reason
 		random.nextInt(40);
 		random.nextInt(40);
-		
+
 		if (random.nextInt(100) == 0)
 			random = new Random();//chaotic
 
-		int num = random.nextInt(4);
+		int num = random.nextInt(11);
+		int num2 = random.nextInt(4);
 
-		if (num == 0)
-			this.renderStandard(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, random);
-		else if (num == 1)
-			this.renderWisp(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, random);
-		else if (num == 2)
-			this.renderStar(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, random);
-		else if (num == 3)
-			this.renderCube(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, random);
-	}
-
-	public void renderWisp(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale, Random random) {
-
-		Tessellator tessellator = Tessellator.getInstance();
-		BufferBuilder bufferbuilder = tessellator.getBuffer();
+		while (num == 10 && num2 == 3)
+			num2 = random.nextInt(4);
 
 		GlStateManager.shadeModel(7425);
 
 		GlStateManager.depthMask(false);
 
+		GlStateManager.disableAlpha();
 		GlStateManager.disableTexture2D();
 		GlStateManager.disableLighting();
 		GlStateManager.enableBlend();
-		GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);
+		if (num == 0 || num == 1 || num == 2 || num == 3)
+			GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);//regular glow
+		else if (num == 4 || num == 5 || num == 6)
+			GlStateManager.blendFunc(GlStateManager.SourceFactor.DST_COLOR, GlStateManager.DestFactor.ONE);//brightness increase
+		else if (num == 7 || num == 8 || num == 9)
+			GlStateManager.blendFunc(GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE_MINUS_SRC_COLOR);//black glow
+		else if (num == 10)
+			GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);//transparency
+
+		//GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);//regular glow
+		//GlStateManager.blendFunc(GlStateManager.SourceFactor.DST_COLOR, GlStateManager.DestFactor.ONE);//brightness increase
+		//GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE_MINUS_DST_COLOR, GlStateManager.DestFactor.ONE_MINUS_SRC_COLOR);//inverted colors
+		//GlStateManager.blendFunc(GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE_MINUS_SRC_COLOR);//black glow
+		//GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);//transparency
+		//GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_COLOR);//transparency = color???
+		//GlStateManager.blendFunc(GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);//oops all black
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0.0F, 0.75F, 0.0F);
 
@@ -67,6 +72,29 @@ public class ModelLight extends ModelBase {
 		int j = u % 65536;
 		int k = u / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
+
+		if (num2 == 0)
+			this.renderStandard(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, random);
+		else if (num2 == 1)
+			this.renderWisp(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, random);
+		else if (num2 == 2)
+			this.renderStar(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, random);
+		else if (num2 == 3)
+			this.renderCube(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, random);
+
+		GlStateManager.popMatrix();
+		GlStateManager.disableBlend();
+		GlStateManager.enableLighting();
+		GlStateManager.enableAlpha();
+		GlStateManager.enableTexture2D();
+		GlStateManager.depthMask(true);
+		GlStateManager.shadeModel(7424);
+	}
+
+	public void renderWisp(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale, Random random) {
+
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder bufferbuilder = tessellator.getBuffer();
 
 
 
@@ -312,13 +340,6 @@ public class ModelLight extends ModelBase {
 
 
 		//GlStateManager.popMatrix();
-
-		GlStateManager.popMatrix();
-		GlStateManager.disableBlend();
-		GlStateManager.enableLighting();
-		GlStateManager.enableTexture2D();
-		GlStateManager.depthMask(true);
-		GlStateManager.shadeModel(7424);
 	}
 
 	float getX(float i, float age, float speed) {
@@ -335,20 +356,20 @@ public class ModelLight extends ModelBase {
 
 	public void renderStar(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale, Random random) {
 
-		int r = random.nextInt(256);
-		int g = random.nextInt(256);
-		int b = random.nextInt(256);
+		int ro = random.nextInt(256);
+		int go = random.nextInt(256);
+		int bo = random.nextInt(256);
 
-		int ro = 255;
-		int go = 255;
-		int bo = 255;
+		int r = 0;
+		int g = 0;
+		int b = 0;
 
 		double size = random.nextFloat() * 2.0;
 		double corner = random.nextFloat() * 0.5;
 
 		Tessellator tessellator = Tessellator.getInstance();
 		BufferBuilder bufferbuilder = tessellator.getBuffer();
-		RenderHelper.disableStandardItemLighting();
+		//RenderHelper.disableStandardItemLighting();
 		float f = ageInTicks / 1000.0F;//((float)0.5F + ageInTicks) / 200.0F;
 		float f1 = 0.03F;
 
@@ -357,7 +378,7 @@ public class ModelLight extends ModelBase {
 			f1 = (f - 0.8F) / 0.2F;
 		}*/
 
-		GlStateManager.disableTexture2D();
+		/*GlStateManager.disableTexture2D();
 		GlStateManager.shadeModel(7425);
 		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);//regular glow
@@ -376,7 +397,7 @@ public class ModelLight extends ModelBase {
 		int u = 15728864;
 		int j = u % 65536;
 		int k = u / 65536;
-		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
+		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);*/
 
 		for (int i = 0; i < 1/*(f + f * f) / 2.0F * 60.0F*/; ++i) {
 			//GlStateManager.blendFunc(GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE_MINUS_SRC_COLOR);//black glow
@@ -435,7 +456,7 @@ public class ModelLight extends ModelBase {
 			tessellator.draw();
 		}
 
-		GlStateManager.popMatrix();
+		/*GlStateManager.popMatrix();
 		GlStateManager.depthMask(true);
 		GlStateManager.enableLighting();
 		//GlStateManager.disableCull();
@@ -444,18 +465,18 @@ public class ModelLight extends ModelBase {
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		GlStateManager.enableTexture2D();
 		GlStateManager.enableAlpha();
-		RenderHelper.enableStandardItemLighting();
+		RenderHelper.enableStandardItemLighting();*/
 	}
 
 	public void renderStandard(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale, Random random) {
 
-		int r = random.nextInt(256);
-		int g = random.nextInt(256);
-		int b = random.nextInt(256);
+		int ro = random.nextInt(256);
+		int go = random.nextInt(256);
+		int bo = random.nextInt(256);
 
-		int ro = 255;
-		int go = 255;
-		int bo = 255;
+		int r = 0;
+		int g = 0;
+		int b = 0;
 
 		int rayAmount = random.nextInt(70);
 
@@ -470,11 +491,11 @@ public class ModelLight extends ModelBase {
 		//Float rayWidth = 2.0F;
 		//Float rayLength = 8.0F;//sharp rays
 
-		GlStateManager.depthMask(true);
+		//GlStateManager.depthMask(true);
 
 		Tessellator tessellator = Tessellator.getInstance();
 		BufferBuilder bufferbuilder = tessellator.getBuffer();
-		RenderHelper.disableStandardItemLighting();
+		//RenderHelper.disableStandardItemLighting();
 		float f = ageInTicks / 100000000.0F;//((float)0.5F + ageInTicks) / 200.0F;
 		float f1 = 0.03F;
 
@@ -483,7 +504,7 @@ public class ModelLight extends ModelBase {
 			f1 = (f - 0.8F) / 0.2F;
 		}*/
 
-		GlStateManager.disableTexture2D();
+		/*GlStateManager.disableTexture2D();
 		GlStateManager.shadeModel(7425);
 		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);//regular glow
@@ -495,7 +516,7 @@ public class ModelLight extends ModelBase {
 		//GlStateManager.enableCull();
 		GlStateManager.depthMask(false);
 		GlStateManager.pushMatrix();
-		GlStateManager.translate(0.0F, 0.75F, 0.0F);
+		GlStateManager.translate(0.0F, 0.75F, 0.0F);*/
 
 		for (int i = 0; i < rayAmount/*(f + f * f) / 2.0F * 60.0F*/; ++i) {
 			//GlStateManager.blendFunc(GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE_MINUS_SRC_COLOR);//black glow
@@ -503,9 +524,9 @@ public class ModelLight extends ModelBase {
 				ro = random.nextInt(256);
 				go = random.nextInt(256);
 				bo = random.nextInt(256);
-				r = random.nextInt(256);
-				g = random.nextInt(256);
-				b = random.nextInt(256);
+				//r = random.nextInt(256);
+				//g = random.nextInt(256);
+				//b = random.nextInt(256);
 			}
 			GlStateManager.rotate(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
 			GlStateManager.rotate(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
@@ -519,25 +540,25 @@ public class ModelLight extends ModelBase {
 			bufferbuilder.pos(0.0D, 0.0D, 0.0D).color(ro, go, bo, 255).endVertex();
 			bufferbuilder.pos(-0.866D * (double)f3, (double)f2, (double)(-0.5F * f3)).color(r, g, b, 0).endVertex();
 
-			if (rainbow) {
+			/*if (rainbow) {
 				r = random.nextInt(256);
 				g = random.nextInt(256);
 				b = random.nextInt(256);
-			}
+			}*/
 			bufferbuilder.pos(0.866D * (double)f3, (double)f2, (double)(-0.5F * f3)).color(r, g, b, 0).endVertex();
 
-			if (rainbow) {
+			/*if (rainbow) {
 				r = random.nextInt(256);
 				g = random.nextInt(256);
 				b = random.nextInt(256);
-			}
+			}*/
 			bufferbuilder.pos(0.0D, (double)f2, (double)(1.0F * f3)).color(r, g, b, 0).endVertex();
 
-			if (rainbow) {
+			/*if (rainbow) {
 				r = random.nextInt(256);
 				g = random.nextInt(256);
 				b = random.nextInt(256);
-			}
+			}*/
 			bufferbuilder.pos(-0.866D * (double)f3, (double)f2, (double)(-0.5F * f3)).color(r, g, b, 0).endVertex();
 			tessellator.draw();
 
@@ -553,7 +574,7 @@ public class ModelLight extends ModelBase {
 			tessellator.draw();
 		}
 
-		GlStateManager.popMatrix();
+		/*GlStateManager.popMatrix();
 		GlStateManager.depthMask(true);
 		//GlStateManager.disableCull();
 		GlStateManager.disableBlend();
@@ -561,14 +582,14 @@ public class ModelLight extends ModelBase {
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		GlStateManager.enableTexture2D();
 		GlStateManager.enableAlpha();
-		RenderHelper.enableStandardItemLighting();
+		RenderHelper.enableStandardItemLighting();*/
 	}
 
 	public void renderCube(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale, Random random) {
 
-		int r = random.nextInt(150);
-		int g = random.nextInt(150);
-		int b = random.nextInt(150);
+		int r = random.nextInt(25);
+		int g = random.nextInt(25);
+		int b = random.nextInt(25);
 		int r0 = r;
 		int g0 = g;
 		int b0 = b;
@@ -598,11 +619,11 @@ public class ModelLight extends ModelBase {
 
 		int cubeAmount = random.nextInt(15);
 
-		GlStateManager.depthMask(true);
+		//GlStateManager.depthMask(true);
 
 		Tessellator tessellator = Tessellator.getInstance();
 		BufferBuilder bufferbuilder = tessellator.getBuffer();
-		RenderHelper.disableStandardItemLighting();
+		//RenderHelper.disableStandardItemLighting();
 		float f = ageInTicks / 100000000.0F;//((float)0.5F + ageInTicks) / 200.0F;
 		float f1 = 0.03F;
 
@@ -611,7 +632,7 @@ public class ModelLight extends ModelBase {
 			f1 = (f - 0.8F) / 0.2F;
 		}*/
 
-		GlStateManager.disableTexture2D();
+		/*GlStateManager.disableTexture2D();
 		GlStateManager.shadeModel(7425);
 		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);//regular glow
@@ -623,7 +644,7 @@ public class ModelLight extends ModelBase {
 		//GlStateManager.enableCull();
 		GlStateManager.depthMask(false);
 		GlStateManager.pushMatrix();
-		GlStateManager.translate(0.0F, 0.75F, 0.0F);
+		GlStateManager.translate(0.0F, 0.75F, 0.0F);*/
 
 		for (int i = 0; i < cubeAmount/*(f + f * f) / 2.0F * 60.0F*/; ++i) {
 			//GlStateManager.blendFunc(GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE_MINUS_SRC_COLOR);//black glow
@@ -699,7 +720,7 @@ public class ModelLight extends ModelBase {
 			tessellator.draw();
 		}
 
-		GlStateManager.popMatrix();
+		/*GlStateManager.popMatrix();
 		GlStateManager.depthMask(true);
 		//GlStateManager.disableCull();
 		GlStateManager.disableBlend();
@@ -707,6 +728,6 @@ public class ModelLight extends ModelBase {
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		GlStateManager.enableTexture2D();
 		GlStateManager.enableAlpha();
-		RenderHelper.enableStandardItemLighting();
+		RenderHelper.enableStandardItemLighting();*/
 	}
 }
