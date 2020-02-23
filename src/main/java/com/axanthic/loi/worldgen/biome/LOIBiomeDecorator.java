@@ -17,6 +17,7 @@ import com.axanthic.loi.worldgen.feature.WorldGenPillars;
 import com.axanthic.loi.worldgen.feature.WorldGenRuins;
 
 import net.minecraft.block.BlockHorizontal;
+import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -433,6 +434,8 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					BlockPos blockpos = mut.add(random.nextInt(3) - random.nextInt(3), random.nextInt(6) - random.nextInt(4), random.nextInt(3) - random.nextInt(3));
 					if (worldIn.getBlockState(blockpos).getMaterial().equals(Material.WOOD)) {
 						EnumFacing direction = EnumFacing.HORIZONTALS[random.nextInt(EnumFacing.HORIZONTALS.length)];
+						if (worldIn.getBlockState(blockpos).getValue(BlockRotatedPillar.AXIS) != null && worldIn.getBlockState(blockpos).getValue(BlockRotatedPillar.AXIS).equals(direction.getAxis()))
+							continue;
 						if (worldIn.isAirBlock(blockpos.offset(direction))) {
 							worldIn.setBlockState(blockpos.offset(direction), iblockstate.withProperty(BlockHorizontal.FACING, direction), 2);
 						}
