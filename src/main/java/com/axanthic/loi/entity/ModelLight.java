@@ -66,7 +66,7 @@ public class ModelLight extends ModelBase {
 		//GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_COLOR);//transparency = color???
 		//GlStateManager.blendFunc(GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);//oops all black
 		GlStateManager.pushMatrix();
-		GlStateManager.translate(0.0F, 0.75F, 0.0F);
+		//GlStateManager.translate(0.0F, 0.75F, 0.0F);
 
 		int u = 15728864;
 		int j = u % 65536;
@@ -343,15 +343,15 @@ public class ModelLight extends ModelBase {
 	}
 
 	float getX(float i, float age, float speed) {
-		return (float) Math.cos(i / 3.0F - speed * age / 2.0F) * i / 100.0F + (float) Math.cos(i / 2.0F - speed * age / 3.0F + 3) * i / 200.0F + (float) Math.sin(i / 7.0F - speed * age / 6.0F + 2) * i / 300.0F + (float) Math.sin(-speed * age / 5.0F + 2) * i / 200.0F;
+		return (float) Math.cos(i / 3.5F - speed * age / 2.0F) * i / 100.0F + (float) Math.cos(i / 2.0F - speed * age / 3.5F + 3) * i / 200.0F + (float) Math.sin(i / 7.5F - speed * age / 6.0F + 2) * i / 300.0F + (float) Math.sin(-speed * age / 5.0F + 2) * i / 300.0F;
 	}
 
 	float getY(float i, float age, float speed) {
-		return (float) Math.sin(i / 2.0F - speed * age / 3.0F) * i / 100.0F + (float) Math.sin(i / 3.0F - speed * age / 2.0F + 2) * i / 200.0F + (float) Math.cos(i / 7.0F - speed * age / 6.0F + 3) * i / 300.0F + (float) Math.cos(-speed * age / 4.0F + 3) * i / 200.0F;
+		return (float) Math.sin(i / 2.5F - speed * age / 3.0F) * i / 100.0F + (float) Math.sin(i / 3.0F - speed * age / 2.5F + 2) * i / 200.0F + (float) Math.cos(i / 7.0F - speed * age / 6.5F + 3) * i / 300.0F + (float) Math.cos(-speed * age / 4.0F + 3) * i / 300.0F;
 	}
 
 	float getZ(float i, float age, float speed) {
-		return i / 10.0F + (float) Math.cos(i / 4.0F - speed * age / 4.0F) * i / 50.0F;
+		return i / 10.0F + (float) Math.cos(i / 4.0F - speed * age / 4.0F) * (float) Math.sin(i / 5.0F - speed * age / 2.0F) * i / 150.0F - (float) Math.sin(i / 6.0F - speed * age / 3.0F) * i / 100.0F;
 	}
 
 	public void renderStar(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale, Random random) {
@@ -473,6 +473,10 @@ public class ModelLight extends ModelBase {
 		int ro = random.nextInt(256);
 		int go = random.nextInt(256);
 		int bo = random.nextInt(256);
+		
+		int ro2 = random.nextInt(256);
+		int go2 = random.nextInt(256);
+		int bo2 = random.nextInt(256);
 
 		int r = 0;
 		int g = 0;
@@ -566,7 +570,7 @@ public class ModelLight extends ModelBase {
 			float f4 = random.nextFloat() * rayLength / 2 + rayLength / 4 + f1 * 5.0F;
 			float f5 = random.nextFloat() * rayWidth / 2 + rayWidth / 4 + f1 * 1.0F;
 			bufferbuilder.begin(6, DefaultVertexFormats.POSITION_COLOR);
-			bufferbuilder.pos(0.0D, 0.0D, 0.0D).color(255, 255, 255, 10).endVertex();
+			bufferbuilder.pos(0.0D, 0.0D, 0.0D).color(ro2, go2, bo2, 10).endVertex();
 			bufferbuilder.pos(-0.866D * (double)f5, (double)f4, (double)(-0.5F * f5)).color(r, g, b, 0).endVertex();
 			bufferbuilder.pos(0.866D * (double)f5, (double)f4, (double)(-0.5F * f5)).color(r, g, b, 0).endVertex();
 			bufferbuilder.pos(0.0D, (double)f4, (double)(1.0F * f5)).color(r, g, b, 0).endVertex();
