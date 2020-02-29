@@ -59,6 +59,13 @@ import com.axanthic.loi.blocks.BlockStorageVase;
 import com.axanthic.loi.blocks.BlockTallGrass;
 import com.axanthic.loi.blocks.FluidCustom;
 import com.axanthic.loi.blocks.BlockPlanks.WoodTypes;
+import com.axanthic.loi.entity.EntityForestHagCypress;
+import com.axanthic.loi.entity.EntityForestHagDroughtroot;
+import com.axanthic.loi.entity.EntityForestHagFir;
+import com.axanthic.loi.entity.EntityForestHagLaurel;
+import com.axanthic.loi.entity.EntityForestHagOlive;
+import com.axanthic.loi.entity.EntityForestHagPlane;
+import com.axanthic.loi.entity.EntityForestHagPopulus;
 import com.axanthic.loi.items.ItemBlockForge;
 import com.axanthic.loi.items.ItemBlockMaterial;
 import com.axanthic.loi.items.ItemBlockMaterialDoor;
@@ -286,14 +293,14 @@ public class Resources {
 	public static StairSlabPair loamBrick = new StairSlabPair(loamBricks, 0, "loam_bricks", true);
 	public static StairSlabPair smoothDolomite = new StairSlabPair(dolomiteSmooth, 0, "dolomite_smooth");
 
-	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE, new WorldGenPlaneTree(true));
-	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS, new WorldGenPopulusTree(true));
-	public static WoodSet cypress = new WoodSet(BlockPlanks.WoodTypes.CYPRESS, new WorldGenCypressTree(true));
-	public static WoodSet fir = new WoodSet(BlockPlanks.WoodTypes.FIR, new WorldGenFirTree(true));
-	public static WoodSet olive = new WoodSet(BlockPlanks.WoodTypes.OLIVE, new WorldGenOliveTree(true));
+	public static WoodSet plane = new WoodSet(BlockPlanks.WoodTypes.PLANE, new WorldGenPlaneTree(true), EntityForestHagPlane.class);
+	public static WoodSet populus = new WoodSet(BlockPlanks.WoodTypes.POPULUS, new WorldGenPopulusTree(true), EntityForestHagPopulus.class);
+	public static WoodSet cypress = new WoodSet(BlockPlanks.WoodTypes.CYPRESS, new WorldGenCypressTree(true), EntityForestHagCypress.class);
+	public static WoodSet fir = new WoodSet(BlockPlanks.WoodTypes.FIR, new WorldGenFirTree(true), EntityForestHagFir.class);
+	public static WoodSet olive = new WoodSet(BlockPlanks.WoodTypes.OLIVE, new WorldGenOliveTree(true), EntityForestHagOlive.class);
 	public static ItemBlockMeta oliveLeaves = new ItemBlockMeta(new BlockLeafOlives(BlockPlanks.WoodTypes.OLIVE));
-	public static WoodSet laurel = new WoodSet(BlockPlanks.WoodTypes.LAUREL, new WorldGenLaurelTree(true));
-	public static WoodSet droughtroot = new WoodSet(BlockPlanks.WoodTypes.DROUGHTROOT, new WorldGenDroughtrootTree(true));
+	public static WoodSet laurel = new WoodSet(BlockPlanks.WoodTypes.LAUREL, new WorldGenLaurelTree(true), EntityForestHagLaurel.class);
+	public static WoodSet droughtroot = new WoodSet(BlockPlanks.WoodTypes.DROUGHTROOT, new WorldGenDroughtrootTree(true), EntityForestHagDroughtroot.class);
 
 	public static void registerItems() {
 		Resources.items.add(Resources.dimensionTp);
@@ -585,8 +592,9 @@ public class Resources {
 		public ItemBlockMaterial trapdoor;
 		public ItemBlockMaterial workbench;
 		public ResourceLocation hagLoot;
+		public Class hag;
 
-		public WoodSet(final BlockPlanks.WoodTypes type, WorldGenLOITree generator) {
+		public WoodSet(final BlockPlanks.WoodTypes type, WorldGenLOITree generator, Class forestHag) {
 			this.type = type;
 			this.strippedLog = new ItemBlockMaterial(new BlockLog(type, type.mapColor, null));
 			this.log = new ItemBlockMaterial(new BlockLog(type, type.logColor, strippedLog));
@@ -605,6 +613,7 @@ public class Resources {
 			this.trapdoor = new ItemBlockMaterial(new BlockCustomTrapdoor(plankState, materialName));
 			this.workbench = new ItemBlockMaterial(new BlockCustomWorkbench(plankState, materialName));
 			this.hagLoot = new ResourceLocation(ModInformation.ID, "entities/forest_hag/" + type.unlocalizedName);
+			this.hag = forestHag;
 		}
 
 		public void register() {

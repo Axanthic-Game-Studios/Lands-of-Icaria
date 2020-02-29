@@ -15,6 +15,13 @@ import com.axanthic.loi.entity.EntityCatoblepas;
 import com.axanthic.loi.entity.EntityCerver;
 import com.axanthic.loi.entity.EntityFallingVase;
 import com.axanthic.loi.entity.EntityForestHag;
+import com.axanthic.loi.entity.EntityForestHagCypress;
+import com.axanthic.loi.entity.EntityForestHagDroughtroot;
+import com.axanthic.loi.entity.EntityForestHagFir;
+import com.axanthic.loi.entity.EntityForestHagLaurel;
+import com.axanthic.loi.entity.EntityForestHagOlive;
+import com.axanthic.loi.entity.EntityForestHagPlane;
+import com.axanthic.loi.entity.EntityForestHagPopulus;
 import com.axanthic.loi.entity.EntityJellyfish;
 import com.axanthic.loi.entity.EntityLight;
 import com.axanthic.loi.entity.EntityMyrmeke;
@@ -96,7 +103,6 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "sow"), EntitySow.class, "sow", 33, ModInformation.ID, 80, 3, true, 0x625242, 0x27201A);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "jellyfish"), EntityJellyfish.class, "jellyfish", 34, ModInformation.ID, 80, 6, true, 0x750800, 0xB6897D);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "light"), EntityLight.class, "light", 35, ModInformation.ID, 80, 6, true, 0xABFFED, 0xFFABAB);
-		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag"), EntityForestHag.class, "forest_hag", 60, ModInformation.ID, 80, 3, true, 0x554937, 0x4D7F2F);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "arachne_drone"), EntityArachneDrone.class, "arachne_drone", 62, ModInformation.ID, 80, 3, true, 0x56422A, 0x80AFBF);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "arachne"), EntityArachne.class, "arachne", 63, ModInformation.ID, 80, 3, true, 0x7B6147, 0x80AFBF);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "myrmeke"), EntityMyrmeke.class, "myrmeke", 64, ModInformation.ID, 80, 3, true, 0x472317, 0x26120C);
@@ -105,6 +111,13 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_civilian"), EntityRevenantCivilian.class, "revenant_civilian", 67, ModInformation.ID, 80, 3, true, 0xB6B6B6, 0x868686);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_soldier"), EntityRevenantSoldier.class, "revenant_soldier", 68, ModInformation.ID, 80, 3, true, 0x836A6A, 0x868686);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_captain"), EntityRevenantCaptain.class, "revenant_captain", 69, ModInformation.ID, 80, 3, true, 0xFFDC39, 0x868686);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_plane"), EntityForestHagPlane.class, "forest_hag_plane", 75, ModInformation.ID, 80, 3, true, 0x7A7B77, 0x8DC270);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_populus"), EntityForestHagPopulus.class, "forest_hag_populus", 76, ModInformation.ID, 80, 3, true, 0xD9D5D4, 0x7ABC96);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_cypress"), EntityForestHagCypress.class, "forest_hag_cypress", 77, ModInformation.ID, 80, 3, true, 0x7C6F66, 0x667715);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_fir"), EntityForestHagFir.class, "forest_hag_fir", 78, ModInformation.ID, 80, 3, true, 0x887558, 0x40774F);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_olive"), EntityForestHagOlive.class, "forest_hag_olive", 79, ModInformation.ID, 80, 3, true, 0x969E8F, 0xAFA731);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_laurel"), EntityForestHagLaurel.class, "forest_hag_laurel", 80, ModInformation.ID, 80, 3, true, 0x523A2A, 0x55661A);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_droughtroot"), EntityForestHagDroughtroot.class, "forest_hag_droughtroot", 81, ModInformation.ID, 80, 3, true, 0x524A4B, 0x879117);
 
 		//EntityRegistry.addSpawn(EntityAeternae.class, 6, 1, 5, EnumCreatureType.CREATURE, Biomes.PLAINS);
 		//EntityRegistry.addSpawn(EntityRevenant.class, 6, 1, 5, EnumCreatureType.MONSTER, Biomes.PLAINS);

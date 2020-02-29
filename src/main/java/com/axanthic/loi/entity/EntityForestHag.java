@@ -40,23 +40,24 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
-public class EntityForestHag extends EntityMob {
+public abstract class EntityForestHag extends EntityMob {
 	private static final UUID ATTACKING_SPEED_BOOST_ID = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291A0");
 	private static final DataParameter<Boolean> SCREAMING = EntityDataManager.<Boolean>createKey(EntityForestHag.class, DataSerializers.BOOLEAN);
-	private static final DataParameter<Integer> TYPE = EntityDataManager.<Integer>createKey(EntityForestHag.class, DataSerializers.VARINT);
 	private int lastCreepySound;
 	private int targetChangeTime;
+	public final int type;
 
-	public EntityForestHag(World worldIn) {
+	public EntityForestHag(World worldIn, int woodType) {
 		super(worldIn);
-		this.setSize(0.6F, 2.9F);
+		this.setSize(0.8F, 2.9F);
 		this.stepHeight = 1.0F;
+		this.type = woodType;
 	}
 
 	protected void initEntityAI() {
 		this.tasks.addTask(0, new EntityAISwimming(this));
-		this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
-		this.tasks.addTask(2, new EntityAIWanderAvoidWater(this, 1.0D));
+		this.tasks.addTask(1, new EntityAIAttackMelee(this, 0.8D, false));
+		this.tasks.addTask(2, new EntityAIWanderAvoidWater(this, 0.8D));
 		this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		this.tasks.addTask(4, new EntityAILookIdle(this));
 		this.tasks.addTask(5, new EntityAIPlantSapling(this));
@@ -90,7 +91,6 @@ public class EntityForestHag extends EntityMob {
 	protected void entityInit() {
 		super.entityInit();
 		this.dataManager.register(SCREAMING, Boolean.valueOf(false));
-		this.dataManager.register(TYPE, new Random().nextInt(7));
 	}
 
 	public void playEndermanSound() {
@@ -108,27 +108,6 @@ public class EntityForestHag extends EntityMob {
 			this.playEndermanSound();
 		}
 		super.notifyDataManagerChange(key);
-	}
-
-	public static void registerFixesEnderman(DataFixer fixer) {
-		EntityLiving.registerFixesMob(fixer, EntityForestHag.class);
-	}
-
-	/**
-	 * (abstract) Protected helper method to write subclass entity data to NBT.
-	 */
-	public void writeEntityToNBT(NBTTagCompound compound) {
-		super.writeEntityToNBT(compound);
-		compound.setInteger("type", this.getType());
-	}
-
-	/**
-	 * (abstract) Protected helper method to read subclass entity data from NBT.
-	 */
-	public void readEntityFromNBT(NBTTagCompound compound) {
-		super.readEntityFromNBT(compound);
-		if (compound.hasKey("type"))
-			this.dataManager.set(TYPE, compound.getInteger("type"));
 	}
 
 	public float getEyeHeight() {
@@ -188,17 +167,17 @@ public class EntityForestHag extends EntityMob {
 			EntityCreeper entitycreeper = (EntityCreeper)cause.getTrueSource();
 			if (entitycreeper.getPowered() && entitycreeper.ableToCauseSkullDrop()) {
 				entitycreeper.incrementDroppedSkulls();
-				if (this.getType() == 0)
+				if (type == 0)
 					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagPlane, 1, 0), 0.0F);
-				else if (this.getType() == 1)
+				else if (type == 1)
 					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagPopulus, 1, 0), 0.0F);
-				else if (this.getType() == 2)
+				else if (type == 2)
 					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagCypress, 1, 0), 0.0F);
-				else if (this.getType() == 3)
+				else if (type == 3)
 					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagFir, 1, 0), 0.0F);
-				else if (this.getType() == 4)
+				else if (type == 4)
 					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagOlive, 1, 0), 0.0F);
-				else if (this.getType() == 5)
+				else if (type == 5)
 					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagLaurel, 1, 0), 0.0F);
 				else
 					this.entityDropItem(new ItemStack(Resources.mobHeadForesthagDroughtroot, 1, 0), 0.0F);
@@ -208,19 +187,11 @@ public class EntityForestHag extends EntityMob {
 
 	@Nullable
 	protected ResourceLocation getLootTable() {
-		return Resources.getWoodSetFromType(WoodTypes.byMetadata(this.getType())).hagLoot;
+		return Resources.getWoodSetFromType(WoodTypes.byMetadata(type)).hagLoot;
 	}
 
 	public boolean isScreaming() {
 		return ((Boolean) this.dataManager.get(SCREAMING)).booleanValue();
-	}
-
-	public int getType() {
-		return this.dataManager.get(TYPE);
-	}
-
-	public void setType(int type) {
-		this.dataManager.set(TYPE, type);
 	}
 
 	public void despawnEntity() {
@@ -251,7 +222,7 @@ public class EntityForestHag extends EntityMob {
 			IBlockState state = this.entityWorld.getBlockState(pos.down());
 
 			if (this.entityWorld.isAirBlock(pos) && state.getBlock().canSustainPlant(state, this.entityWorld, pos.down(), net.minecraft.util.EnumFacing.UP, (IPlantable) Blocks.SAPLING) && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.entityWorld, this.entity)) {
-				this.entityWorld.setBlockState(pos, Resources.getWoodSetFromType(WoodTypes.byMetadata(getType())).sapling.getBlock().getDefaultState(), 2);
+				this.entityWorld.setBlockState(pos, Resources.getWoodSetFromType(WoodTypes.byMetadata(type)).sapling.getBlock().getDefaultState(), 2);
 			}
 		}
 	}

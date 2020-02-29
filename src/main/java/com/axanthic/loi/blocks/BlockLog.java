@@ -1,12 +1,15 @@
 package com.axanthic.loi.blocks;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Random;
 
 import javax.annotation.Nullable;
 
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
+import com.axanthic.loi.Resources;
 import com.axanthic.loi.entity.EntityForestHag;
+import com.axanthic.loi.entity.EntityForestHagPlane;
 import com.axanthic.loi.items.ItemBlockMaterial;
 
 import net.minecraft.block.BlockRotatedPillar;
@@ -14,6 +17,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -71,15 +75,20 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 		if (stripped || player == null)
 			return;
 		for(EntityForestHag forestHag : worldIn.getEntitiesWithinAABB(EntityForestHag.class, new AxisAlignedBB(pos).grow(32))) {
-			if (forestHag.getType() == this.type.meta)
+			if (forestHag.type == this.type.meta)
 				forestHag.setAttackTarget(player);
 		}
 
 		Random rand = new Random();
 		if (rand.nextInt(100) != 0)
 			return;
-		EntityForestHag forestHag = new EntityForestHag(worldIn);
-		forestHag.setType(type.meta);
+
+		EntityForestHag forestHag;
+		try {
+			forestHag = (EntityForestHag) Resources.getWoodSetFromType(this.type).hag.getConstructors()[0].newInstance(worldIn);
+		} catch (Exception e) {
+			return;
+		}
 
 		int i = MathHelper.floor(pos.getX());
 		int j = MathHelper.floor(pos.getY());
@@ -88,13 +97,12 @@ public class BlockLog extends BlockRotatedPillar implements IBlockMaterial {
 			int i1 = i + MathHelper.getInt(rand, 7, 40) * MathHelper.getInt(rand, -1, 1);
 			int j1 = j + MathHelper.getInt(rand, 7, 40) * MathHelper.getInt(rand, -1, 1);
 			int k1 = k + MathHelper.getInt(rand, 7, 40) * MathHelper.getInt(rand, -1, 1);
-
 			if (worldIn.getBlockState(new BlockPos(i1, j1 - 1, k1)).isSideSolid(worldIn, new BlockPos(i1, j1 - 1, k1), net.minecraft.util.EnumFacing.UP)) {
 				forestHag.setPosition((double)i1, (double)j1, (double)k1);
 				if (!worldIn.isAnyPlayerWithinRangeAt((double)i1, (double)j1, (double)k1, 7.0D) && worldIn.checkNoEntityCollision(forestHag.getEntityBoundingBox(), forestHag) && worldIn.getCollisionBoxes(forestHag, forestHag.getEntityBoundingBox()).isEmpty() && !worldIn.containsAnyLiquid(forestHag.getEntityBoundingBox())) {
 					worldIn.spawnEntity(forestHag);
 					forestHag.onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(forestHag)), (IEntityLivingData)null);
-					worldIn.playSound(player, pos, SoundEvents.ENTITY_WITHER_BREAK_BLOCK, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					//player.playSound(SoundEvents.ENTITY_WITHER_BREAK_BLOCK, 2.0F, (rand.nextFloat() - rand.nextFloat()) * 0.2F + 1.0F);
 					break;
 				}
 			}
