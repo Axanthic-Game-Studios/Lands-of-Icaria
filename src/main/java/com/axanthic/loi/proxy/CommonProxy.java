@@ -14,7 +14,6 @@ import com.axanthic.loi.entity.EntityBident;
 import com.axanthic.loi.entity.EntityCatoblepas;
 import com.axanthic.loi.entity.EntityCerver;
 import com.axanthic.loi.entity.EntityFallingVase;
-import com.axanthic.loi.entity.EntityForestHag;
 import com.axanthic.loi.entity.EntityForestHagCypress;
 import com.axanthic.loi.entity.EntityForestHagDroughtroot;
 import com.axanthic.loi.entity.EntityForestHagFir;

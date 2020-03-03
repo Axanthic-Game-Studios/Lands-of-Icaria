@@ -17,7 +17,7 @@
             "trigger": "minecraft:entity_killed_player",
             "conditions": {
                 "entity": {
-                    "type": "landsoficaria:forest_hag"
+                    "type": "landsoficaria:forest_hag_plane"
                 }
             }
         }

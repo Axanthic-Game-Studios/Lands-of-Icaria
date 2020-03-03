@@ -29,7 +29,6 @@ import com.axanthic.loi.entity.EntityBident;
 import com.axanthic.loi.entity.EntityCatoblepas;
 import com.axanthic.loi.entity.EntityCerver;
 import com.axanthic.loi.entity.EntityFallingVase;
-import com.axanthic.loi.entity.EntityForestHag;
 import com.axanthic.loi.entity.EntityForestHagCypress;
 import com.axanthic.loi.entity.EntityForestHagDroughtroot;
 import com.axanthic.loi.entity.EntityForestHagFir;
@@ -301,7 +300,7 @@ public class ClientProxy extends CommonProxy {
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
 				return worldIn != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(worldIn, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D);
 			}
-		}, Resources.flower.getBlock(), Resources.flower2.getBlock(), Resources.vineBloomy.getBlock(), Resources.vineBranch.getBlock(), Resources.vineBrushy.getBlock(), Resources.vineReedy.getBlock(), Resources.vineSwirly.getBlock(), Resources.vineBloomyDead.getBlock(), Resources.vineBranchDead.getBlock(), Resources.vineBrushyDead.getBlock(), Resources.vineReedyDead.getBlock(), Resources.vineSwirlyDead.getBlock());
+		}, Resources.flower.getBlock(), Resources.flower2.getBlock(), Resources.bromelia.getBlock(), Resources.vineBloomy.getBlock(), Resources.vineBranch.getBlock(), Resources.vineBrushy.getBlock(), Resources.vineReedy.getBlock(), Resources.vineSwirly.getBlock(), Resources.vineBloomyDead.getBlock(), Resources.vineBranchDead.getBlock(), Resources.vineBrushyDead.getBlock(), Resources.vineReedyDead.getBlock(), Resources.vineSwirlyDead.getBlock());
 	}
 
 	@Override
@@ -318,7 +317,7 @@ public class ClientProxy extends CommonProxy {
 			public int colorMultiplier(ItemStack stack, int tintIndex) {
 				return tintIndex > 0 ? -1 : ColorizerGrass.getGrassColor(0.5D, 1.0D);
 			}
-		}, Resources.flower, Resources.flower2, Resources.vineBloomy, Resources.vineBranch, Resources.vineBrushy, Resources.vineReedy, Resources.vineSwirly);
+		}, Resources.flower, Resources.flower2, Resources.bromelia, Resources.vineBloomy, Resources.vineBranch, Resources.vineBrushy, Resources.vineReedy, Resources.vineSwirly);
 	}
 
 	public int reduceGreen(int color) {

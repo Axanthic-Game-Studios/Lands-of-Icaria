@@ -1,6 +1,5 @@
 package com.axanthic.loi.blocks;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Random;
 
 import javax.annotation.Nullable;
@@ -9,7 +8,6 @@ import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.entity.EntityForestHag;
-import com.axanthic.loi.entity.EntityForestHagPlane;
 import com.axanthic.loi.items.ItemBlockMaterial;
 
 import net.minecraft.block.BlockRotatedPillar;
@@ -17,7 +15,6 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
