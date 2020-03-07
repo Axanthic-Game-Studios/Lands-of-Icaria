@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
@@ -278,13 +279,16 @@ public class ModelRevenantCivilian extends ModelBase {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
-		this.leg_right.render(f5);
-		this.arm_left.render(f5);
-		this.skull.render(f5);
-		this.arm_right.render(f5);
-		this.spine.render(f5);
-		this.leg_left.render(f5);
+	public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(0.0F, -MathHelper.cos(limbSwing * 0.6662F * 2.0f + 2.7f) * limbSwingAmount / 16.0f + limbSwingAmount / 31.05f, 0.0F);
+		this.leg_right.render(scale);
+		this.arm_left.render(scale);
+		this.skull.render(scale);
+		this.arm_right.render(scale);
+		this.spine.render(scale);
+		this.leg_left.render(scale);
+		GlStateManager.popMatrix();
 	}
 
 	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {

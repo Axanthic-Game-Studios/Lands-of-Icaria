@@ -1,7 +1,9 @@
 package com.axanthic.loi.entity;
 
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 public class ModelRevenantSoldier extends ModelRevenantCivilian {
 	public ModelRenderer skirt_center;
@@ -321,9 +323,17 @@ public class ModelRevenantSoldier extends ModelRevenantCivilian {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
-		super.render(entity, f, f1, f2, f3, f4, f5);
-		this.skirt_center.render(f5);
+	public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) { 
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(0.0F, -MathHelper.cos(limbSwing * 0.6662F * 2.0f + 2.7f) * limbSwingAmount / 16.0f + limbSwingAmount / 31.05f, 0.0F);
+		this.leg_right.render(scale);
+		this.arm_left.render(scale);
+		this.skull.render(scale);
+		this.arm_right.render(scale);
+		this.spine.render(scale);
+		this.leg_left.render(scale);
+		this.skirt_center.render(scale);
+		GlStateManager.popMatrix();
 	}
 }
 
