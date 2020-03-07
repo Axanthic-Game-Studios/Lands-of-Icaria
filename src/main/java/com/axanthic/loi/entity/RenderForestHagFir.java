@@ -14,7 +14,7 @@ public class RenderForestHagFir extends RenderLiving<EntityForestHagFir> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(ModInformation.ID, "textures/entity/mob_foresthag_fir.png");
 
 	public RenderForestHagFir(RenderManager manager) {
-		super(manager, new ModelForestHag(), 0.7F);
+		super(manager, new ModelForestHagFir(), 0.7F);
 	}
 
 	protected ResourceLocation getEntityTexture(EntityForestHagFir entity) {

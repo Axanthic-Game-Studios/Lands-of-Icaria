@@ -2,6 +2,7 @@ package com.axanthic.loi.entity;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
@@ -184,10 +185,13 @@ public class ModelForestHagDroughtroot extends ModelBase {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
-		this.pelvis.render(f5);
-		this.right_leg_top.render(f5);
-		this.left_leg_top.render(f5);
+	public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(0.0F, -MathHelper.cos(limbSwing * 0.6662F * 2.0f + 2.7f) * limbSwingAmount / 8.0f + limbSwingAmount / 15.05f, 0.0F);
+		this.pelvis.render(scale);
+		this.right_leg_top.render(scale);
+		this.left_leg_top.render(scale);
+		GlStateManager.popMatrix();
 	}
 
 	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
@@ -233,7 +237,6 @@ public class ModelForestHagDroughtroot extends ModelBase {
 
 		this.right_arm.rotateAngleZ = 0.39269908169872414F;
 		this.left_arm.rotateAngleZ = -0.08726646259971647F;
-		//this.left_arm.rotateAngleX = -0.39269908169872414F;
 		this.right_arm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F;
 		this.left_arm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F;
 		this.right_arm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;

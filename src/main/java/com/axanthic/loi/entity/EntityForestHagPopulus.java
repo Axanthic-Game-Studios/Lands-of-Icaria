@@ -6,5 +6,7 @@ public class EntityForestHagPopulus extends EntityForestHag {
 
 	public EntityForestHagPopulus(World worldIn) {
 		super(worldIn, 1);
+		this.setSize(0.8f, 2.9f);
+		this.eyeHeight = 2.55f;
 	}
 }

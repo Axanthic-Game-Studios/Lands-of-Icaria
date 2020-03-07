@@ -43,10 +43,10 @@ public abstract class EntityForestHag extends EntityMob {
 	private int lastCreepySound;
 	private int targetChangeTime;
 	public final int type;
+	public float eyeHeight;
 
 	public EntityForestHag(World worldIn, int woodType) {
 		super(worldIn);
-		this.setSize(0.8F, 2.9F);
 		this.stepHeight = 1.0F;
 		this.type = woodType;
 	}
@@ -90,6 +90,10 @@ public abstract class EntityForestHag extends EntityMob {
 		this.dataManager.register(SCREAMING, Boolean.valueOf(false));
 	}
 
+	protected boolean canDespawn() {
+		return false;
+	}
+
 	public void playEndermanSound() {
 		if (this.ticksExisted >= this.lastCreepySound + 400) {
 			this.lastCreepySound = this.ticksExisted;
@@ -108,7 +112,7 @@ public abstract class EntityForestHag extends EntityMob {
 	}
 
 	public float getEyeHeight() {
-		return 2.55F;
+		return eyeHeight;
 	}
 
 	/**
