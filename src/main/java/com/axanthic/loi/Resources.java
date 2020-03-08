@@ -84,6 +84,7 @@ import com.axanthic.loi.items.ItemMetaMaterial;
 import com.axanthic.loi.items.ItemResource;
 import com.axanthic.loi.items.ItemResource2;
 import com.axanthic.loi.items.ItemSharpBone;
+import com.axanthic.loi.items.ItemSpell;
 import com.axanthic.loi.items.ToolAxe;
 import com.axanthic.loi.items.ToolBident;
 import com.axanthic.loi.items.ToolDagger;
@@ -92,6 +93,7 @@ import com.axanthic.loi.items.ToolScythe;
 import com.axanthic.loi.items.ToolShovel;
 import com.axanthic.loi.items.ToolSword;
 import com.axanthic.loi.proxy.ClientProxy;
+import com.axanthic.loi.spells.SpellHeal;
 import com.axanthic.loi.utils.CustomTrigger;
 import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
 import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
@@ -165,6 +167,7 @@ public class Resources {
 	public static Item laurelWreath = new ItemLaurelWreath();
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", BlockStorageMetal.MetalTypes.getNames());
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", BlockStorageMetal.MetalTypes.getNames());
+	public static Item healSpell = new ItemSpell("heal", new SpellHeal());
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
@@ -313,6 +316,7 @@ public class Resources {
 		Resources.items.add(Resources.laurelWreath);
 		Resources.items.add(Resources.ingot);
 		Resources.items.add(Resources.nugget);
+		Resources.items.add(Resources.healSpell);
 
 		Resources.laurelTools.register();
 		Resources.chalkos.register();
