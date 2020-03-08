@@ -5,6 +5,7 @@ import com.axanthic.loi.entity.ModelAeternaeHead;
 import com.axanthic.loi.entity.ModelArganHoundHead;
 import com.axanthic.loi.entity.ModelCatoblepasHead;
 import com.axanthic.loi.entity.ModelCerverHead;
+import com.axanthic.loi.entity.ModelHagHead;
 import com.axanthic.loi.entity.ModelMyrmekeHead;
 import com.axanthic.loi.entity.ModelSowHead;
 
@@ -43,6 +44,9 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 	private final ModelCerverHead cerverHead = new ModelCerverHead();
 	private final ModelArganHoundHead arganHoundHead = new ModelArganHoundHead();
 	private final ModelSkeletonHead forestHagHead = new ModelSkeletonHead(0, 0, 64, 32);
+	private final ModelHagHead forestHagCypressHead = new ModelHagHead(22, 24, 128, 128);
+	private final ModelHagHead forestHagDroughtrootHead = new ModelHagHead(66, 30, 128, 128);
+	private final ModelHagHead forestHagFirHead = new ModelHagHead(58, 49, 128, 128);
 	private final ModelAeternaeHead aeternaeHead = new ModelAeternaeHead();
 	private final ModelCatoblepasHead catoblepasHead = new ModelCatoblepasHead();
 	private final ModelSowHead sowHead = new ModelSowHead();
@@ -61,6 +65,8 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 
 	public void renderSkull(float x, float y, float z, EnumFacing facing, float rotationIn, String skullType, int destroyStage) {
 		ModelBase modelbase = this.revenantHead;
+		
+		float wallOffset = 0.0f;
 
 		if (destroyStage >= 0) {
 			this.bindTexture(DESTROY_STAGES[destroyStage]);
@@ -95,10 +101,12 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 				modelbase = this.forestHagHead;
 			} else if (skullType.equals("foresthag_cypress")) {
 				this.bindTexture(FORESTHAG_CYPRESS_TEXTURES);
-				modelbase = this.forestHagHead;
+				modelbase = this.forestHagCypressHead;
+				wallOffset = 0.0625f;
 			} else if (skullType.equals("foresthag_fir")) {
 				this.bindTexture(FORESTHAG_FIR_TEXTURES);
-				modelbase = this.forestHagHead;
+				modelbase = this.forestHagFirHead;
+				wallOffset = 0.0625f;
 			} else if (skullType.equals("foresthag_olive")) {
 				this.bindTexture(FORESTHAG_OLIVE_TEXTURES);
 				modelbase = this.forestHagHead;
@@ -107,7 +115,8 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 				modelbase = this.forestHagHead;
 			} else if (skullType.equals("foresthag_droughtroot")) {
 				this.bindTexture(FORESTHAG_DROUGHTROOT_TEXTURES);
-				modelbase = this.forestHagHead;
+				modelbase = this.forestHagDroughtrootHead;
+				wallOffset = 0.0625f;
 			} else if (skullType.equals("aeternae")) {
 				this.bindTexture(AETERNAE_TEXTURES);
 				modelbase = this.aeternaeHead;
@@ -129,19 +138,19 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 		} else {
 			switch (facing) {
 			case NORTH:
-				GlStateManager.translate(x + 0.5F, y + 0.25F, z + 0.74F);
+				GlStateManager.translate(x + 0.5F, y + 0.25F, z + 0.74F + wallOffset);
 				break;
 			case SOUTH:
-				GlStateManager.translate(x + 0.5F, y + 0.25F, z + 0.26F);
+				GlStateManager.translate(x + 0.5F, y + 0.25F, z + 0.26F - wallOffset);
 				rotationIn = 180.0F;
 				break;
 			case WEST:
-				GlStateManager.translate(x + 0.74F, y + 0.25F, z + 0.5F);
+				GlStateManager.translate(x + 0.74F + wallOffset, y + 0.25F, z + 0.5F);
 				rotationIn = 270.0F;
 				break;
 			case EAST:
 			default:
-				GlStateManager.translate(x + 0.26F, y + 0.25F, z + 0.5F);
+				GlStateManager.translate(x + 0.26F - wallOffset, y + 0.25F, z + 0.5F);
 				rotationIn = 90.0F;
 			}
 		}

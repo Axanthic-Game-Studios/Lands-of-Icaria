@@ -378,8 +378,6 @@ public class ModelRevenantCaptain extends ModelRevenantCivilian {
 		this.leg_left.render(scale);
 		this.skirt_front_center.render(scale);
 
-		GlStateManager.pushMatrix();
-
 		GlStateManager.translate(this.arm_right.rotationPointX/16.0D, this.arm_right.rotationPointY/16.0D, this.arm_right.rotationPointZ/16.0D);
 		GlStateManager.rotate(this.arm_right.rotateAngleX * (180F / (float)Math.PI), 1.0F, 0.0F, 0.0F);
 		GlStateManager.rotate(this.arm_right.rotateAngleY * (180F / (float)Math.PI), 0.0F, 1.0F, 0.0F);
@@ -397,7 +395,6 @@ public class ModelRevenantCaptain extends ModelRevenantCivilian {
 		GlStateManager.translate(0.05F, 0.02F, -0.4F);
 
 		Minecraft.getMinecraft().getItemRenderer().renderItem((EntityLivingBase) entityIn, new ItemStack(Resources.orichalcum.sword), TransformType.THIRD_PERSON_RIGHT_HAND);
-		GlStateManager.popMatrix();
 		GlStateManager.popMatrix();
 	}
 }

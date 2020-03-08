@@ -8,6 +8,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.math.AxisAlignedBB;
 
 public class TileEntityMobHead extends TileEntity {
 
@@ -21,6 +22,11 @@ public class TileEntityMobHead extends TileEntity {
 		compound.setByte("Rot", (byte)(this.skullRotation & 255));
 
 		return compound;
+	}
+
+	@Override
+	public AxisAlignedBB getRenderBoundingBox() {
+		return new AxisAlignedBB(getPos(), getPos().add(1, 1, 1));
 	}
 
 	@Override
