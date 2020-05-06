@@ -56,6 +56,7 @@ tile.generic.slab.name=%s Slab
 tile.generic.wall.name=%s Wall
 tile.generic.door.name=%s Door
 tile.generic.trapdoor.name=%s Trapdoor
+tile.generic.ladder.name=%s Ladder
 tile.generic.workbench.name=%s Crafting Table
 
 tile.relicstone.smooth.name=Smooth Relicstone

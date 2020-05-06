@@ -14,6 +14,7 @@ import com.axanthic.loi.blocks.BlockCardonCactus;
 import com.axanthic.loi.blocks.BlockCustomDoor;
 import com.axanthic.loi.blocks.BlockCustomFence;
 import com.axanthic.loi.blocks.BlockCustomFenceGate;
+import com.axanthic.loi.blocks.BlockCustomLadder;
 import com.axanthic.loi.blocks.BlockCustomPane;
 import com.axanthic.loi.blocks.BlockCustomSlab;
 import com.axanthic.loi.blocks.BlockCustomStairs;
@@ -595,6 +596,7 @@ public class Resources {
 		public ItemBlockMaterial stairs;
 		public ItemBlockMaterialDoor door;
 		public ItemBlockMaterial trapdoor;
+		public ItemBlockMaterial ladder;
 		public ItemBlockMaterial workbench;
 		public ResourceLocation hagLoot;
 		public Class hag;
@@ -616,6 +618,7 @@ public class Resources {
 			this.stairs = new ItemBlockMaterial(new BlockCustomStairs(plankState, materialName));
 			this.door = new ItemBlockMaterialDoor(new BlockCustomDoor(plankState, materialName));
 			this.trapdoor = new ItemBlockMaterial(new BlockCustomTrapdoor(plankState, materialName));
+			this.ladder = new ItemBlockMaterial(new BlockCustomLadder(plankState, materialName));
 			this.workbench = new ItemBlockMaterial(new BlockCustomWorkbench(plankState, materialName));
 			this.hagLoot = new ResourceLocation(ModInformation.ID, "entities/forest_hag/" + type.unlocalizedName);
 			this.hag = forestHag;
@@ -632,6 +635,7 @@ public class Resources {
 			Resources.registerBlock(stairs);
 			Resources.registerBlock(door);
 			Resources.registerBlock(trapdoor);
+			Resources.registerBlock(ladder);
 			Resources.registerBlock(workbench);
 		}
 	}

@@ -155,7 +155,6 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 			}
 		}
 
-		float f = 0.0625F;
 		GlStateManager.enableRescaleNormal();
 		GlStateManager.scale(-1.0F, -1.0F, 1.0F);
 		GlStateManager.enableAlpha();

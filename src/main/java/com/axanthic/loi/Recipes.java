@@ -310,6 +310,7 @@ public class Recipes {
 		addRecipe(new ItemStack(set.stairs, 4), set.type.unlocalizedName + "_stairs", "wooden_stairs", new Object[]{"P  ", "PP ", "PPP", 'P', new ItemStack(Resources.planks, 1, meta)});
 		addRecipe(new ItemStack(set.door, 3), set.type.unlocalizedName + "_door", "wooden_door", new Object[]{"PP", "PP", "PP", 'P', new ItemStack(Resources.planks, 1, meta)});
 		addRecipe(new ItemStack(set.trapdoor, 2), set.type.unlocalizedName + "_trapdoor", "wooden_trapdoor", new Object[]{"PPP", "PPP", 'P', new ItemStack(Resources.planks, 1, meta)});
+		addRecipe(new ItemStack(set.ladder, 6), set.type.unlocalizedName + "_ladder", "wooden_ladder", new Object[]{"P P", "PPP", "P P", 'P', new ItemStack(Resources.planks, 1, meta)});
 		addRecipe(new ItemStack(set.workbench, 1), set.type.unlocalizedName + "_workbench", "crafting_table", new Object[]{"PP", "PP", 'P', new ItemStack(Resources.planks, 1, meta)});
 	}
 
