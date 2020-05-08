@@ -6,7 +6,6 @@ import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFalling;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -15,14 +14,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockGravity extends BlockFalling {
+public class BlockSandy extends Block {
 	
 	MapColor color;
 
-	public BlockGravity(Material material, float hardness, String name, MapColor color) {
+	public BlockSandy(Material material, float hardness, String name, MapColor color) {
 		super(material);
 		this.setCreativeTab(LandsOfIcaria.modTabBlocks);
 		this.setHardness(hardness);
@@ -52,11 +49,5 @@ public class BlockGravity extends BlockFalling {
 	@Override
 	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
 		return color;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getDustColor(IBlockState state) {
-		return color.colorValue;
 	}
 }

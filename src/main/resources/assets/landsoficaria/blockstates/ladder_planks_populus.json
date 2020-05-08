@@ -4,6 +4,7 @@
 		"model": "ladder",
 		"textures": {
 			"texture": "landsoficaria:blocks/wood_populus_ladder",
+        	"particle": "#texture",
 			"layer0": "#texture"
 		}
 	},

@@ -2,9 +2,12 @@ package com.axanthic.loi.blocks;
 
 import java.util.Random;
 
+import com.axanthic.loi.LandsOfIcaria;
+import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.entity.EntityFallingVase;
 
+import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -26,11 +29,28 @@ import net.minecraft.world.storage.loot.LootTable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockLootVase extends BlockGravity {
+public class BlockLootVase extends BlockFalling {
+	
+	MapColor color = MapColor.GRAY;
 
 	public BlockLootVase() {
-		super(Material.ROCK, 0.0F, "loot_vase", MapColor.GRAY);
+		super(Material.ROCK);
+		this.setCreativeTab(LandsOfIcaria.modTabBlocks);
+		this.setHardness(0.0F);
+		this.setUnlocalizedName("loot_vase");
+		this.setRegistryName(ModInformation.ID, "loot_vase");
 		this.setSoundType(Resources.CERAMIC);
+	}
+
+	@Override
+	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+		return color;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getDustColor(IBlockState state) {
+		return color.colorValue;
 	}
 
 	@Override
