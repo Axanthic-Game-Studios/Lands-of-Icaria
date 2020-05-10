@@ -99,6 +99,7 @@ tile.grainite.bricks.name=Grainite Bricks
 tile.grainite.bricks_chiseled.name=Chiseled Grainite Bricks
 tile.grainel_glass.name=Grainglass
 tile.grainel_pane.name=Grainglass Pane
+tile.grainel_pane_straight.name=Straight Grainglass Pane
 tile.loam_bricks.name=Loam Bricks
 tile.dolomite_smooth.name=Smooth Dolomite
 tile.dolomite_bricks.name=Dolomite Bricks
