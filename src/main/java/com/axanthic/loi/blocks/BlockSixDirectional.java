@@ -30,7 +30,7 @@ public class BlockSixDirectional extends Block {
 
 	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 		EnumFacing direction = facing;
-		if (placer.isSneaking())
+		if (!placer.isSneaking())
 			direction = direction.getOpposite();
 		return this.getDefaultState().withProperty(FACING, direction);
 	}
