@@ -112,19 +112,19 @@ public class BlockFlower extends BlockBush implements IBlockMeta {
 	}
 
 	public enum FlowerTypes implements IStringSerializable {
-		CHAMEOMILE(0, "chameomile", 7),
-		CLOVER(1, "clover", 7),
+		CHAMEOMILE(0, "chameomile", 15),
+		CLOVER(1, "clover", 15),
 		YELLOWSTAGHORN(2, "yellow_staghorn", 11),
 		SPEARDROPS(3, "speardrops", 10),
 		BLINDWEED(4, "blindweed", 9),
 		PURPLEHYDRACINTH(5, "purple_hydracinth", 13),
 		LIONFANGS(6, "lionfangs", 5),
 		PURPLESTAGHORN(7, "purple_staghorn", 13),
-		BLUEHYDRACINTH(8, "blue_hydracinth", 12),
+		BLUEHYDRACINTH(8, "blue_hydracinth", 4),
 		FIREHILT(9, "firehilt", 1),
-		VOIDLILY(10, "voidlily", 8),
+		VOIDLILY(10, "voidlily", 0),
 		CHARMONDER(11, "charmonder", 12),
-		BLUESTORMCOTTON(12, "blue_stormcotton", 6),
+		BLUESTORMCOTTON(12, "blue_stormcotton", 4),
 		PINKSTORMCOTTON(13, "pink_stormcotton", 13),
 		PURPLESTORMCOTTON(14, "purple_stormcotton", 5),
 		SUNSPONGE(15, "sunsponge", 14);

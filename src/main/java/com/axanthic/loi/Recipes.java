@@ -93,8 +93,9 @@ public class Recipes {
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 14), "bromelia_dye_orange", "bromelia_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 0))});
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 13), "bromelia_dye_pink", "bromelia_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 1))});
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 5), "bromelia_dye_purple", "bromelia_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 2))});
-		addShapelessRecipe(new ItemStack(Items.DYE, 1, 7), "bromelia_dye_white", "bromelia_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 3))});
+		addShapelessRecipe(new ItemStack(Resources.resource2, 1, 4), "bromelia_dye_white", "bromelia_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 3))});
 		GameRegistry.addSmelting(new ItemStack(Resources.cardon, 1, 0), new ItemStack(Items.DYE, 1, 2), 0.2F);
+		addShapelessRecipe(new ItemStack(Resources.resource2, 1, 2), "brown_dye", "dye", new Ingredient[]{new OreIngredient("dyeRed"), new OreIngredient("dyeBlack")});
 
 		addRecipe(new ItemStack(Resources.kiln, 1, 0), "kiln_rock", "kiln", new Object[]{"SSS", "S S", "SSS", 'S', new ItemStack(Resources.rock, 1, 0)});
 		addRecipe(new ItemStack(Resources.kiln, 1, 0), "kiln_brick", "kiln", new Object[]{"BBB", "B B", "BBB", 'B', new ItemStack(Resources.brick, 1, 0)});
@@ -137,11 +138,11 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 12), new ItemStack(Resources.resource, 1, 3), 0.5F);
 
 		for (int i = 0; i < BlockFlower.FlowerTypes.getNames().length; i++) {
-			addShapelessRecipe(new ItemStack(Items.DYE, 1, BlockFlower.FlowerTypes.byMetadata(i).color), "flower_dye_" + i, "flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.flower, 1, i))});
+			addShapelessRecipe(getDye(BlockFlower.FlowerTypes.byMetadata(i).color), "flower_dye_" + i, "flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.flower, 1, i))});
 		}
 
 		for (int i = 0; i < BlockFlower2.FlowerTypes2.getNames().length; i++) {
-			addShapelessRecipe(new ItemStack(Items.DYE, 1, BlockFlower2.FlowerTypes2.byMetadata(i).color), "flower_2_dye_" + i, "flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.flower2, 1, i))});
+			addShapelessRecipe(getDye(BlockFlower2.FlowerTypes2.byMetadata(i).color), "flower_2_dye_" + i, "flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.flower2, 1, i))});
 		}
 
 		for (int i = 0; i < BlockRock.StoneTypes.getNames().length; i++) {
@@ -418,6 +419,18 @@ public class Recipes {
 		return string.substring(0, 1).toUpperCase() + string.substring(1);
 	}
 
+	public static ItemStack getDye(int color) {
+		if (color == 0)
+			return new ItemStack(Resources.resource2, 1, 1);
+		if (color == 3)
+			return new ItemStack(Resources.resource2, 1, 2);
+		if (color == 4)
+			return new ItemStack(Resources.resource2, 1, 3);
+		if (color == 15)
+			return new ItemStack(Resources.resource2, 1, 4);
+		return new ItemStack(Items.DYE, 1, color);
+	}
+
 	public static void registerOredict() {
 		OreDictionary.registerOre("oreLignite", new ItemStack(Resources.ore, 1, 0));
 		OreDictionary.registerOre("oreChalkos", new ItemStack(Resources.ore, 1, 1));
@@ -486,6 +499,14 @@ public class Recipes {
 		OreDictionary.registerOre("ingotLoamBrick", new ItemStack(Resources.resource, 1, 12));
 		OreDictionary.registerOre("itemLeather", new ItemStack(Resources.resource, 1, 15));
 		OreDictionary.registerOre("leather", new ItemStack(Resources.resource, 1, 15));
+		OreDictionary.registerOre("dye", new ItemStack(Resources.resource2, 1, 1));
+		OreDictionary.registerOre("dyeBlack", new ItemStack(Resources.resource2, 1, 1));
+		OreDictionary.registerOre("dye", new ItemStack(Resources.resource2, 1, 2));
+		OreDictionary.registerOre("dyeBrown", new ItemStack(Resources.resource2, 1, 2));
+		OreDictionary.registerOre("dye", new ItemStack(Resources.resource2, 1, 3));
+		OreDictionary.registerOre("dyeBlue", new ItemStack(Resources.resource2, 1, 3));
+		OreDictionary.registerOre("dye", new ItemStack(Resources.resource2, 1, 4));
+		OreDictionary.registerOre("dyeWhite", new ItemStack(Resources.resource2, 1, 4));
 
 		OreDictionary.registerOre("dirt", new ItemStack(Resources.soil, 1, 0));
 		OreDictionary.registerOre("dirt", new ItemStack(Resources.soil, 1, 1));
