@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Random;
 
 import com.axanthic.loi.blocks.BlocksLOI;
-import com.axanthic.loi.utils.CellNoise;
 import com.axanthic.loi.utils.PerlinNoise;
 import com.axanthic.loi.worldgen.biome.BiomeLOI;
 
@@ -58,19 +57,10 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 	private final World _world;
 	private final Random _rand;
-	private final CellNoise cell;
 	private final PerlinNoise perlin;
-	private final NoiseGeneratorOctaves lperlinNoise1;
-	private final NoiseGeneratorOctaves lperlinNoise2;
-	private final NoiseGeneratorOctaves perlinNoise1;
-	public NoiseGeneratorOctaves scaleNoise;
-	public NoiseGeneratorOctaves depthNoise;
+	private final NoiseGeneratorOctaves octaveNoise;
 	private final NoiseGeneratorPerlin surfaceNoise;
 	private final OreGeneratorLOI oreGen;
-
-	/** Determines whether something other than rock can be generated at a location */
-	private final NoiseGeneratorOctaves exculsivityNoiseGen;
-	private final NoiseGeneratorOctaves loamMarlNoiseGen;
 
 	/*****************************************************************/
 	/// PRIVATE VARIABLES
@@ -84,18 +74,14 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	private double[] loamNoise = new double[256];
 	private double[] marlNoise = new double[256];
 
-	double[] pnr;
-	double[] ar;
-	double[] br;
-	double[] noiseData4;
-	double[] dr;
+	double[] mainNoise;
 
 	public ChunkGeneratorLOI(final World worldIn, final long seed, final boolean mapFeaturesEnabledIn)
 	{
 		this._world = worldIn;
 		this._rand = new Random(seed);
-		this.cell = new CellNoise(seed, (short) 0);
-		this.cell.setUseDistance(true);
+		//this.cell = new CellNoise(seed, (short) 0);
+		//this.cell.setUseDistance(true);
 		this.perlin = new PerlinNoise(seed);
 		this.oreGen = new OreGeneratorLOI(perlin);
 
@@ -103,13 +89,13 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		this.heightMap = new double[825];
 		this.biomeWeights = new float[25];
 
-		this.lperlinNoise1 = new NoiseGeneratorOctaves(this._rand, 16);
-		this.lperlinNoise2 = new NoiseGeneratorOctaves(this._rand, 16);
-		this.perlinNoise1 = new NoiseGeneratorOctaves(this._rand, 8);
-		this.exculsivityNoiseGen = new NoiseGeneratorOctaves(this._rand, 4);
-		this.loamMarlNoiseGen = new NoiseGeneratorOctaves(this._rand, 4);
-		this.scaleNoise = new NoiseGeneratorOctaves(this._rand, 10);
-		this.depthNoise = new NoiseGeneratorOctaves(this._rand, 16);
+		//this.lperlinNoise1 = new NoiseGeneratorOctaves(this._rand, 16);
+		this.octaveNoise = new NoiseGeneratorOctaves(this._rand, 16);
+		//this.perlinNoise1 = new NoiseGeneratorOctaves(this._rand, 8);
+		//this.exculsivityNoiseGen = new NoiseGeneratorOctaves(this._rand, 4);
+		//this.loamMarlNoiseGen = new NoiseGeneratorOctaves(this._rand, 4);
+		//this.scaleNoise = new NoiseGeneratorOctaves(this._rand, 10);
+		//this.depthNoise = new NoiseGeneratorOctaves(this._rand, 16);
 		this.surfaceNoise = new NoiseGeneratorPerlin(this._rand, 4);
 		worldIn.setSeaLevel(63);
 	}
@@ -158,7 +144,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	public void prepareHeights(final int x, final int z, final ChunkPrimer primer)
 	{
 		final int seaLevel = (this._world.getSeaLevel() / 2) + 1;
-		
+
 		//primer.
 
 		final int subChunkWidth = 4;
@@ -231,104 +217,53 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 	private double[] getHeights(double[] buffer, final int wx, final int wy, final int wz, final int sizeX, final int sizeY, final int sizeZ)
 	{
-		//BOY DO I LOVE THE LACK OF DOCUMENTATION IN THIS CODE
 		if (buffer == null)
 		{
 			buffer = new double[sizeX * sizeY * sizeZ];
 		}
 
-		final double noiseWidth = 81.412D; //324.412D
-		final double noiseY = 236D; //153.236D
-		this.pnr = this.perlinNoise1.generateNoiseOctaves(this.pnr, wx, wy, wz, sizeX, sizeY, sizeZ, 5d, 115d, 5d);
-		this.ar = this.lperlinNoise1.generateNoiseOctaves(this.ar, wx, wy, wz, sizeX, sizeY, sizeZ, noiseWidth, noiseY, noiseWidth);
-		this.br = this.lperlinNoise2.generateNoiseOctaves(this.br, wx, wy, wz, sizeX, sizeY, sizeZ, noiseWidth, noiseY, noiseWidth);
+		//bigger scale value = smaller scale :S
+		int horizontalScale = 800;
+		int verticalScale = 1500;
+
+		this.mainNoise = this.octaveNoise.generateNoiseOctaves(this.mainNoise, wx, wy, wz, sizeX, sizeY, sizeZ, horizontalScale, verticalScale, horizontalScale);
 
 		int index = 0;
-		final double[] bufferY = new double[sizeY];
-
-		//					*Inhales*
-		final int numberOfLayers = 3;
-		final double cosinusCoeff = sizeY / (numberOfLayers + 1);
-		for (int y = 0; y < sizeY; ++y)
-		{
-			bufferY[y] = Math.cos((y * Math.PI * cosinusCoeff) / sizeY) * 2.0D;
-			int distanceFromTop = y;
-
-			if (y > (sizeY / 2))
-			{
-				distanceFromTop = sizeY - 1 - y;
-			}
-
-			if (distanceFromTop < 4)
-			{
-				distanceFromTop = 4 - distanceFromTop;
-				bufferY[y] -= Math.pow(distanceFromTop, 3) * 10.0D;
-			}
-		}
-		//			   [Chaotic Screaming]
+		int horIndex = 0;
 		for (int x = 0; x < sizeX; ++x)
 		{
 			for (int z = 0; z < sizeZ; ++z)
 			{
-				final float cell = this.cell.noise((wx + x) / 500d, (wz + z) / 500d, 1.0);
-				//float cell2 = this.cell.noise((wx + x), (wz + z), 0.07F) * 4F + this.perlin.noise2((wx + x) / 15f, (wz + z) / 15f) * 1F  - this.perlin.noise2((wx + x) / 5f, (wz + z) / 5f) * 1.7F;
-				float cell2 = this.perlin.noise2((wx + x) / 50f, (wz + z) / 50f) * 7F + this.perlin.noise2((wx + x) / 5f, (wz + z) / 5f) * 0.7F;
-				final double d3 = 0.0D;
-
-				cell2 -= 4F;
-				if(cell2<0)
-					cell2 = 0;
-
-
+				float layerOffset = this.perlin.noise2((wx + x) / 20F, (wz + z) / 20F) * 4.0F;
 				for (int y = 0; y < sizeY; ++y)
 				{
-					// WHAT THE HELL IS UP WITH THESE VARIABLE NAMES
-					final double d4 = bufferY[y]; //Density value of the terrain
-					final double d5 = this.ar[index] / 512.0D;	//noise value
-					final double d6 = this.br[index] / 512.0D;	//noise value
-					final double d7 = ((this.pnr[index] / 10.0D) + 1.0D) / 2.0D;	//noise value
-					double value;	//terrain smoothing value
-					//maybe somehting like air propability value?!
-					//or thin ness
-					//thiness is best
-					//the larger the thiness the thinner they get, somehow...
-					//WHAT THE HELL IS UP WITH THIS CODE
+					//thinness value, less than 0 = terrain, greater than 0 = air
+					double value = this.mainNoise[index] / 1000.0D;
 
-					float verticalShape = this.perlin.noise3((wx + x)/100F, ((float)y/(float)sizeY), (wz + z)/100F);//should create a random shape based on the height
-					float cell3 = verticalShape * 100F * cell2;
+					//value for smooth top and bottom of terrain
+					double smoothing = 1;
 
+					int topSmooth = 5;
+					int bottomSmooth = 3;
 
-					if (d7 < 0.0D)
-					{
-						value = d5;
-					}
-					else if (d7 > 1.0D)
-					{
-						value = d6;
-					}
-					else
-					{
-						value = d5 + ((d6 - d5) * d7);
-						// WHAT THE HELL IS UP WITH MINECRAFT'S CODE AS A WHOLE!?
-						// WHY THE HELL DOES THIS MAKE EVERYTHING A SKYLANDS-TYPE WORLD?!
+					if (y > sizeY - topSmooth) {
+						smoothing = (sizeY - topSmooth - y) * 12;
+					} else if (y < bottomSmooth) {
+						smoothing = (y - bottomSmooth) * 9;
 					}
 
-					value = value - d4;
+					//decrease the amount of terrain
+					value += 20.0D;
 
-					if (y > (sizeY - 4))
-					{
-						final double topSmoothing = (y - (sizeY - 4)) / 3.0F;
-						value = (value * (1.0D - topSmoothing)) + (-5D * topSmoothing);
-					}
+					//sinewave for layered terrain
+					value -= smoothing + Math.sin(layerOffset + y * Math.PI / 1.2D) * 12.0D * Math.max(smoothing, 0);
 
-					value += cell3;//the larger this value then it should no longer generate stone
-
-					buffer[index] = cell < 0.2d ? value : value / 5;
+					buffer[index] = value;
 					++index;
 				}
+				++horIndex;
 			}
 		}
-
 		return buffer;
 	}
 
