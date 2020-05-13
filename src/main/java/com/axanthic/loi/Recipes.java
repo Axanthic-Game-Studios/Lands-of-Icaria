@@ -113,6 +113,7 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.grainelSand, 1, 0), new ItemStack(Resources.grainelGlass, 1, 0), 0.1F);
 		addRecipe(new ItemStack(Resources.grainelGlassPane, 16, 0), "grainel_glass_pane", new Object[]{"GGG", "GGG", 'G', new ItemStack(Resources.grainelGlass, 1, 0)});
 		addRecipe(new ItemStack(Resources.grainelGlassStraightPane, 4, 0), "grainel_glass_pane_straight", new Object[]{"GG", "GG", 'G', new ItemStack(Resources.grainelGlassPane, 1, 0)});
+		addRecipe(new ItemStack(Resources.grainelGlassHorizontalPane, 3, 0), "grainel_glass_pane_horizontal", new Object[]{"GGG", 'G', new ItemStack(Resources.grainelGlassPane, 1, 0)});
 
 		GameRegistry.addSmelting(new ItemStack(Resources.rock, 1, 5), new ItemStack(Resources.relicstone, 1, 0), 0.1F);
 		GameRegistry.addSmelting(new ItemStack(Resources.brick, 1, 5), new ItemStack(Resources.relicstone, 1, 1), 0.1F);
@@ -520,6 +521,7 @@ public class Recipes {
 		OreDictionary.registerOre("blockGlass", new ItemStack(Resources.grainelGlass, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("paneGlass", new ItemStack(Resources.grainelGlassPane, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("paneGlass", new ItemStack(Resources.grainelGlassStraightPane, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("paneGlass", new ItemStack(Resources.grainelGlassHorizontalPane, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("stone", new ItemStack(Resources.relicstone, 1, 0));
 		OreDictionary.registerOre("blockStone", new ItemStack(Resources.relicstone, 1, 0));
 

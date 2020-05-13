@@ -35,6 +35,7 @@ import com.axanthic.loi.blocks.BlockGrainelStone;
 import com.axanthic.loi.blocks.BlockSandy;
 import com.axanthic.loi.blocks.BlockGrinder;
 import com.axanthic.loi.blocks.BlockHerb;
+import com.axanthic.loi.blocks.BlockHorizontalPane;
 import com.axanthic.loi.blocks.BlockKiln;
 import com.axanthic.loi.blocks.BlockLeaf;
 import com.axanthic.loi.blocks.BlockLeafOlives;
@@ -214,6 +215,7 @@ public class Resources {
 	public static ItemBlock grainelGlass = new ItemBlock(new BlockGlassy(Material.GLASS, 0.3F, "grainel_glass", MapColor.WOOD));
 	public static ItemBlock grainelGlassPane = new ItemBlock(new BlockCustomPane(Material.GLASS, 0.3F, "grainel_pane", false).setSoundType(SoundType.GLASS));
 	public static ItemBlock grainelGlassStraightPane = new ItemBlock(new BlockCustomStraightPane(Material.GLASS, 0.3F, "grainel_pane_straight", false).setSoundType(SoundType.GLASS));
+	public static ItemBlock grainelGlassHorizontalPane = new ItemBlock(new BlockHorizontalPane(Material.GLASS, 0.3F, "grainel_pane_horizontal", false).setSoundType(SoundType.GLASS));
 	public static ItemBlock loamBricks = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "loam_bricks", MapColor.NETHERRACK).setSoundType(SoundType.STONE));
 	public static ItemBlock dolomiteSmooth = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "dolomite_smooth", MapColor.WHITE_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
 	public static ItemBlock dolomiteBricks = new ItemBlock(new BlockBasic(Material.ROCK, 1.2F, "dolomite_bricks", MapColor.WHITE_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
@@ -380,6 +382,7 @@ public class Resources {
 		Resources.registerBlock(Resources.grainelGlass);
 		Resources.registerBlock(Resources.grainelGlassPane);
 		Resources.registerBlock(Resources.grainelGlassStraightPane);
+		Resources.registerBlock(Resources.grainelGlassHorizontalPane);
 		Resources.registerBlock(Resources.loamBricks);
 		Resources.registerBlock(Resources.dolomiteSmooth);
 		Resources.registerBlock(Resources.dolomiteBricks);

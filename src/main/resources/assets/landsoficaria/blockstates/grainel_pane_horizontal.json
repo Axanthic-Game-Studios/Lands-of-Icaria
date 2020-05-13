@@ -1,0 +1,16 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "landsoficaria:horizontal_pane",
+		"textures": {
+			"edge": "landsoficaria:blocks/rock_grainel_glass_pane_top",
+			"pane": "landsoficaria:blocks/rock_grainel_glass",
+			"layer0": "#pane"
+		}
+	},
+    "variants": {
+        "inventory":  { "model": "landsoficaria:generated" },
+		"normal":  { "model": "landsoficaria:horizontal_pane" }
+    }
+}
+
