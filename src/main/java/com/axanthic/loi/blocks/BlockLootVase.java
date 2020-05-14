@@ -19,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
@@ -31,26 +32,23 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockLootVase extends BlockFalling {
 	
-	MapColor color = MapColor.GRAY;
+	public ResourceLocation loot;
+	public MapColor color;
 
-	public BlockLootVase() {
+	public BlockLootVase(String name, ResourceLocation lootTable, MapColor mapColor) {
 		super(Material.ROCK);
 		this.setCreativeTab(LandsOfIcaria.modTabBlocks);
 		this.setHardness(0.0F);
-		this.setUnlocalizedName("loot_vase");
-		this.setRegistryName(ModInformation.ID, "loot_vase");
+		this.setUnlocalizedName(name);
+		this.setRegistryName(ModInformation.ID, name);
 		this.setSoundType(Resources.CERAMIC);
+		loot = lootTable;
+		color = mapColor;
 	}
 
 	@Override
 	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
 		return color;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getDustColor(IBlockState state) {
-		return color.colorValue;
 	}
 
 	@Override
@@ -87,7 +85,7 @@ public class BlockLootVase extends BlockFalling {
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 		if (world instanceof WorldServer) {
-			LootTable loottable = ((World) world).getLootTableManager().getLootTableFromLocation(Resources.LOOT_VASE);
+			LootTable loottable = ((World) world).getLootTableManager().getLootTableFromLocation(loot);
 			LootContext context = (new LootContext.Builder((WorldServer)world)).build();
 			drops.addAll(loottable.generateLootForPools(((WorldServer) world).rand, context));
 		}

@@ -151,6 +151,7 @@ public class Resources {
 	public static final ResourceLocation LOOT_HAG_LAUREL = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/laurel"));
 	public static final ResourceLocation LOOT_HAG_DROUGHTROOT = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/droughtroot"));
 	public static final ResourceLocation LOOT_VASE = LootTableList.register(new ResourceLocation(ModInformation.ID, "loot/loot_vase"));
+	public static final ResourceLocation LOOT_VASE_2 = LootTableList.register(new ResourceLocation(ModInformation.ID, "loot/loot_vase_2"));
 
 	public static final CustomTrigger FERTILIZE_TRIGGER = new CustomTrigger("fertilize");
 
@@ -246,7 +247,8 @@ public class Resources {
 	public static ItemBlock mobHeadAeternae = new ItemBlockMobHead(new BlockMobHead("aeternae"));
 	public static ItemBlock mobHeadCatoblepas = new ItemBlockMobHead(new BlockMobHead("catoblepas"));
 	public static ItemBlock mobHeadSow = new ItemBlockMobHead(new BlockMobHead("sow"));
-	public static ItemBlock lootVase = new ItemBlock(new BlockLootVase());
+	public static ItemBlock lootVase = new ItemBlock(new BlockLootVase("loot_vase", LOOT_VASE, MapColor.GRAY));
+	public static ItemBlock lootVase2 = new ItemBlock(new BlockLootVase("loot_vase_2", LOOT_VASE_2, MapColor.SILVER_STAINED_HARDENED_CLAY));
 	public static ItemBlock storageVase = new ItemBlock(new BlockStorageVase());
 	public static ItemBlock kiln = new ItemBlock(new BlockKiln());
 	public static ItemBlock grinder = new ItemBlock(new BlockGrinder());
@@ -414,6 +416,7 @@ public class Resources {
 		Resources.registerBlock(Resources.mobHeadCatoblepas);
 		Resources.registerBlock(Resources.mobHeadSow);
 		Resources.registerBlock(Resources.lootVase);
+		Resources.registerBlock(Resources.lootVase2);
 		Resources.registerBlock(Resources.storageVase);
 		Resources.registerBlock(Resources.kiln);
 		Resources.registerBlock(Resources.grinder);

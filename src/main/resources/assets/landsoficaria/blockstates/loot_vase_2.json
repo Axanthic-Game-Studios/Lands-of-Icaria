@@ -1,0 +1,27 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "landsoficaria:vase_cyan_carved",
+    	"textures": {
+        	"all": "landsoficaria:blocks/loot_vases_2",
+			"particle": "landsoficaria:blocks/loot_vase_2_particle"
+    	},
+		"uvlock": true
+	},
+	"variants": {
+		"normal": [
+            { "model": "landsoficaria:vase_cyan_carved" },
+            { "model": "landsoficaria:vase_cyan_checkered" },
+            { "model": "landsoficaria:vase_cyan_striped" },
+            { "model": "landsoficaria:vase_cyan_symbols" },
+            { "model": "landsoficaria:vase_cyan_whiteband" },
+            { "model": "landsoficaria:vase_grey_checkered" },
+            { "model": "landsoficaria:vase_grey_golden" },
+            { "model": "landsoficaria:vase_grey_lined" },
+            { "model": "landsoficaria:vase_grey_obsidian" },
+            { "model": "landsoficaria:vase_grey_striped" }
+        ],
+		"inventory": { "model": "landsoficaria:vase_cyan_carved" }
+	}
+}

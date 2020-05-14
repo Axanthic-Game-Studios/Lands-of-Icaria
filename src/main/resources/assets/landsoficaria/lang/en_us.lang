@@ -170,6 +170,7 @@ tile.olive_leaf.black.name=Black Olive Leaves
 tile.aristone.name=Aristone
 tile.aristone_packed.name=Packed Aristone
 tile.loot_vase.name=Loot Vase
+tile.loot_vase_2.name=Loot Vase
 tile.storage_vase.name=Baked Storage Vase
 tile.crafting_kiln.name=Kiln
 tile.crafting_grinder.name=Grinder
