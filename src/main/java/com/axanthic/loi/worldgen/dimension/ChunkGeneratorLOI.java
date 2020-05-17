@@ -263,7 +263,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					value = value * 6.0D;
 
 					//sinewave for layered terrain
-					value -= Math.sin(layerOffset + y * Math.PI / 1.7D) * layerWidth * Math.max(smoothing, 0);
+					value -= Math.sin(layerOffset + y * Math.PI / 1.4D) * layerWidth * Math.max(smoothing, 0);
 
 					buffer[index] = value;
 					++index;

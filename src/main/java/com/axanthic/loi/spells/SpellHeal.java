@@ -23,7 +23,8 @@ public class SpellHeal implements ISpell {
 	@Override
 	public ActionResult<ItemStack> castSpell(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 		playerIn.heal(3.0f);
-		playerIn.getHeldItem(handIn).shrink(1);
+		if (!playerIn.isCreative())
+			playerIn.getHeldItem(handIn).shrink(1);
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 	}
 
