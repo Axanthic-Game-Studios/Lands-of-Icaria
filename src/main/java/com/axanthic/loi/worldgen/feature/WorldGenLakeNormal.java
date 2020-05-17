@@ -19,14 +19,14 @@ public class WorldGenLakeNormal extends WorldGenerator {
 	}
 
 	public boolean generate(World worldIn, Random rand, BlockPos position) {
-		for (position = position.add(-8, 0, -8); position.getY() > 5 && worldIn.isAirBlock(position); position = position.down()) {
+		for (position = position.add(-8, 0, -8); position.getY() > 5 && !worldIn.isBlockFullCube(position); position = position.down()) {
 			;
 		}
 
 		if (position.getY() <= 4) {
 			return false;
 		} else {
-			position = position.down(4);
+			position = position.down(3);
 			boolean[] aboolean = new boolean[2048];
 			int i = rand.nextInt(4) + 4;
 
@@ -78,7 +78,7 @@ public class WorldGenLakeNormal extends WorldGenerator {
 				for (int i3 = 0; i3 < 16; ++i3) {
 					for (int i4 = 0; i4 < 8; ++i4) {
 						if (aboolean[(l1 * 16 + i3) * 8 + i4]) {
-							worldIn.setBlockState(position.add(l1, i4, i3), i4 >= 4 ? Blocks.AIR.getDefaultState() : this.block.getDefaultState(), 2);
+							worldIn.setBlockState(position.add(l1, i4, i3), i4 >= 4 ? Blocks.AIR.getDefaultState() : this.block.getDefaultState(), 3);
 						}
 					}
 				}
