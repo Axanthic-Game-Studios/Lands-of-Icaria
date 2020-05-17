@@ -38,7 +38,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	public boolean generateFerns = false;
 	public int extraTreeAmount = 1;
 	public int lakeChance = 1;
-	public int flippedLakeChance = 1;
+	public int flippedLakeChance = 2;
 	public List<WorldGenLOITree> treeGenerators = new ArrayList<WorldGenLOITree>();
 	public WorldGenLakeFlipped flippedLakeGenerator = new WorldGenLakeFlipped(Resources.gasFluidBlock.getBlock());
 	public WorldGenLakeNormal lakeGenerator = new WorldGenLakeNormal(Resources.waterFluidBlock.getBlock());

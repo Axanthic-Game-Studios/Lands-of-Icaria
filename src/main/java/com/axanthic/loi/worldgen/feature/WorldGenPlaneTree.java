@@ -87,15 +87,15 @@ public class WorldGenPlaneTree extends WorldGenLOITree {
 						EnumFacing left = front.rotateYCCW();
 						EnumFacing back = front.getOpposite();
 
-						this.placeLeafAt(worldIn, pos.up().offset(front));
-						this.placeLeafAt(worldIn, pos.up().offset(right));
-						this.placeLeafAt(worldIn, pos.offset(front).offset(right));
-						this.placeLeafAt(worldIn, pos.up().offset(front).offset(right));
+						this.placeLeafAtChance(worldIn, pos.up().offset(front), 2);
+						this.placeLeafAtChance(worldIn, pos.up().offset(right), 2);
+						this.placeLeafAtChance(worldIn, pos.offset(front).offset(right), 2);
+						this.placeLeafAtChance(worldIn, pos.up().offset(front).offset(right), 4);
 
-						this.placeLeafAt(worldIn, pos.down().offset(back));
-						this.placeLeafAt(worldIn, pos.down().offset(left));
-						this.placeLeafAt(worldIn, pos.offset(back).offset(left));
-						this.placeLeafAt(worldIn, pos.down().offset(back).offset(left));
+						this.placeLeafAtChance(worldIn, pos.down().offset(back), 2);
+						this.placeLeafAtChance(worldIn, pos.down().offset(left), 2);
+						this.placeLeafAtChance(worldIn, pos.offset(back).offset(left), 2);
+						this.placeLeafAtChance(worldIn, pos.down().offset(back).offset(left), 4);
 					}
 
 					return true;

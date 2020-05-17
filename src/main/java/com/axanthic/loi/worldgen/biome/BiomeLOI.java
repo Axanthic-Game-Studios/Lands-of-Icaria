@@ -18,7 +18,7 @@ public class BiomeLOI extends Biome {
 	public IBlockState fillerBlockSecondary = Resources.soil.getBlock().getStateFromMeta(1);
 	public IBlockState upperBlockTertiary = null;
 	public IBlockState topBlockTertiary = Resources.soil.getBlock().getStateFromMeta(2);
-	public IBlockState fillerBlockTertiary = Resources.soil.getBlock().getDefaultState();
+	public IBlockState fillerBlockTertiary = Resources.soil.getBlock().getStateFromMeta(2);
 
 	public BiomeLOI(BiomeProperties properties) {
 		super(properties);

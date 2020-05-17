@@ -223,18 +223,22 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		}
 
 		//bigger scale value = smaller scale :S
-		int horizontalScale = 800;
-		int verticalScale = 1500;
+		int horizontalScale = 300;
+		int verticalScale = 500;
 
 		this.mainNoise = this.octaveNoise.generateNoiseOctaves(this.mainNoise, wx, wy, wz, sizeX, sizeY, sizeZ, horizontalScale, verticalScale, horizontalScale);
 
+		int topSmooth = 5;
+		int bottomSmooth = 3;
+		float offsetStrength = 3.0F;
+		float layerWidth = 60.0F;
+
 		int index = 0;
-		int horIndex = 0;
 		for (int x = 0; x < sizeX; ++x)
 		{
 			for (int z = 0; z < sizeZ; ++z)
 			{
-				float layerOffset = this.perlin.noise2((wx + x) / 20F, (wz + z) / 20F) * 4.0F;
+				float layerOffset = this.perlin.noise2((wx + x) / 20F, (wz + z) / 20F) * offsetStrength;
 				for (int y = 0; y < sizeY; ++y)
 				{
 					//thinness value, less than 0 = terrain, greater than 0 = air
@@ -243,9 +247,6 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					//value for smooth top and bottom of terrain
 					double smoothing = 1;
 
-					int topSmooth = 5;
-					int bottomSmooth = 3;
-
 					if (y > sizeY - topSmooth) {
 						smoothing = (sizeY - topSmooth - y) * 12;
 					} else if (y < bottomSmooth) {
@@ -253,15 +254,20 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					}
 
 					//decrease the amount of terrain
-					value += 20.0D;
+					value += 17.0D;
+
+					//smooth off top and bottom of terrain
+					value -= smoothing;
+					
+					//amplify terrain contrast
+					value = value * 6.0D;
 
 					//sinewave for layered terrain
-					value -= smoothing + Math.sin(layerOffset + y * Math.PI / 1.2D) * 12.0D * Math.max(smoothing, 0);
+					value -= Math.sin(layerOffset + y * Math.PI / 1.7D) * layerWidth * Math.max(smoothing, 0);
 
 					buffer[index] = value;
 					++index;
 				}
-				++horIndex;
 			}
 		}
 		return buffer;
@@ -386,7 +392,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 				IBlockState fillerBlockSecondary = ChunkGeneratorLOI.MARLCOURSE;
 				IBlockState upperBlockTertiary = null;
 				IBlockState topBlockTertiary = ChunkGeneratorLOI.LOAM;
-				IBlockState fillerBlockTertiary = ChunkGeneratorLOI.DIRT;
+				IBlockState fillerBlockTertiary = ChunkGeneratorLOI.LOAM;
 
 				BiomeLOI biomeLOI = null;
 				if (biome instanceof BiomeLOI) {
