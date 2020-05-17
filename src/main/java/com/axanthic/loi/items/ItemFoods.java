@@ -11,12 +11,13 @@ import net.minecraft.util.NonNullList;
 public class ItemFoods extends ItemFood implements IItemMeta {
 
 	public foodStats[] foods = new foodStats[] {
-		new foodStats("strawberry", 2, 0.3F),
 		new foodStats("olive_green", 2, 0.3F),
 		new foodStats("olive_black", 2, 0.3F),
 		new foodStats("laurel_cherry", 4, 0.3F),
 		new foodStats("aeternae_meat", 3, 0.3F),
-		new foodStats("aeternae_meat_cooked", 8, 0.8F)
+		new foodStats("aeternae_meat_cooked", 8, 0.8F),
+		new foodStats("strawberry", 2, 0.3F),
+		new foodStats("physalis", 2, 0.3F)
 	};
 
 	public ItemFoods() {

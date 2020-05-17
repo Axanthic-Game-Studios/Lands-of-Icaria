@@ -10,10 +10,11 @@
 		"type": {
 			"olive_green": { "textures": { "layer0": "landsoficaria:items/food_fruit_olives_green" } },
 			"olive_black": { "textures": { "layer0": "landsoficaria:items/food_fruit_olives_black" } },
-			"strawberry": { "textures": { "layer0": "landsoficaria:items/food_fruit_strawberry" } },
 			"laurel_cherry": { "textures": { "layer0": "landsoficaria:items/food_fruit_laurelcherry" } },
 			"aeternae_meat": { "textures": { "layer0": "landsoficaria:items/food_meat_aeternae_raw" } },
-			"aeternae_meat_cooked": { "textures": { "layer0": "landsoficaria:items/food_meat_aeternae_cooked" } }
+			"aeternae_meat_cooked": { "textures": { "layer0": "landsoficaria:items/food_meat_aeternae_cooked" } },
+			"strawberry": { "textures": { "layer0": "landsoficaria:items/food_fruit_strawberry" } },
+			"physalis": { "textures": { "layer0": "landsoficaria:items/food_fruit_physalis" } }
 		}
 	}
 }
