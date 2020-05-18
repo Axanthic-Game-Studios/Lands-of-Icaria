@@ -42,8 +42,7 @@ public class BlockStrawberryCrop extends BlockCustomCrop {
 	
 	@Override
 	protected int getNumCropsWhenGrown(Random rand, int fortune) {
-		int numDrops = 2 + rand.nextInt(3);
-		numDrops += rand.nextInt(fortune + 1);
+		int numDrops = 2 + rand.nextInt(3) + rand.nextInt(fortune + 1);
 		
 		return numDrops;
 	}

@@ -37,17 +37,14 @@ public class BlockPhysalisCrop extends BlockCustomCrop {
 	
 	@Override
 	protected int getNumSeedsWhenGrown(Random rand, int fortune) {
-		int numDrops = 1 + rand.nextInt(2);
-		if (fortune > 0)
-			numDrops += rand.nextInt(fortune);
+		int numDrops = 1 + rand.nextInt(2) + rand.nextInt(fortune + 1);
 		
 		return numDrops;
 	}
 	
 	@Override
 	protected int getNumCropsWhenGrown(Random rand, int fortune) {
-		int numDrops = 1 + rand.nextInt(3);
-		numDrops += rand.nextInt(fortune + 1);
+		int numDrops = 1 + rand.nextInt(3) + rand.nextInt(fortune + 1);
 		
 		return numDrops;
 	}
