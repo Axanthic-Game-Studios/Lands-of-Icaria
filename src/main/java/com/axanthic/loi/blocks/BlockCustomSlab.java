@@ -150,13 +150,11 @@ public class BlockCustomSlab extends BlockSlab implements IBlockMaterial{
 	}
 
 	@Override
-	public int getMetaFromState(IBlockState state){
-
+	public int getMetaFromState(IBlockState state) {
 		if (state.getValue(DOUBLE))
 			return 2;
 		else if (state.getValue(HALF) == BlockSlab.EnumBlockHalf.BOTTOM)
 			return 1;
-
 		return 0;
 	}
 

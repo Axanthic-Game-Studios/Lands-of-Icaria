@@ -436,6 +436,7 @@ public class Resources {
 		Resources.registerBlock(Resources.forge);
 		Resources.registerBlock(Resources.kettle);
 		Resources.registerBlock(Resources.portal);
+		BlockIcariaPortal.init();
 
 		FluidRegistry.registerFluid(waterFluid);
 		FluidRegistry.addBucketForFluid(waterFluid);
@@ -489,6 +490,7 @@ public class Resources {
 	}
 
 	public static void init() {
+		//register custom advancement triggers
 		Method method;
 		method = ReflectionHelper.findMethod(CriteriaTriggers.class, "register", "func_192118_a", ICriterionTrigger.class);
 		method.setAccessible(true);

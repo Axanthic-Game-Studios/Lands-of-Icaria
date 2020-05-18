@@ -1,22 +1,34 @@
 package com.axanthic.loi.worldgen.dimension;
 
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraft.world.gen.structure.template.BlockRotationProcessor;
+import net.minecraft.world.gen.structure.template.PlacementSettings;
+import net.minecraft.world.gen.structure.template.Template;
+import net.minecraft.world.gen.structure.template.TemplateManager;
+
+import java.util.Random;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.axanthic.loi.LandsOfIcaria;
+import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.worldgen.feature.WorldGenStructureBase;
 
 public class TeleporterLOI extends Teleporter {
+
+	public static final PlacementSettings placementsettings = new PlacementSettings().setChunk((ChunkPos)null).setReplacedBlock((Block)null);
 
 	public TeleporterLOI(WorldServer worldServer) {
 		super(worldServer);
@@ -172,26 +184,68 @@ public class TeleporterLOI extends Teleporter {
 	}
 
 	public static boolean createPortal(World world, BlockPos pos, @Nullable Entity entity) {
-		IBlockState portalState = Resources.portal.getBlock().getDefaultState();
-		IBlockState vaseState = Resources.grainelStone.getBlock().getStateFromMeta(1);
-
-		while (pos.getY() > 1 && world.isAirBlock(pos)) {
-			pos = pos.down();
-		}
-
-		while (!world.isAirBlock(pos.up()) && (world.getBlockState(pos).getBlock() != Resources.grass.getBlock() || world.getBlockState(pos).getBlock() != Blocks.GRASS)) {
-			pos = pos.up();
-		}
-
-		for (BlockPos.MutableBlockPos basePos : BlockPos.MutableBlockPos.getAllInBoxMutable(pos.add(-1, 0, -1), pos.add(1, 2, 1))) {
-			world.setBlockState(basePos, vaseState, 2);
-		}
-
-		world.setBlockState(pos.up(2), portalState, 2);
-
-		world.setBlockState(pos.up(3), Blocks.AIR.getDefaultState(), 2);
-		world.setBlockState(pos.up(4), Blocks.AIR.getDefaultState(), 2);
-
+		TemplateManager templatemanager = ((WorldServer) world).getStructureTemplateManager();
+		Template template = templatemanager.get(world.getMinecraftServer(), new ResourceLocation(ModInformation.ID, getPortalForDimension(entity.dimension)));
+		if (entity.getHorizontalFacing().getAxis().equals(EnumFacing.Axis.Z))
+			placementsettings.setRotation(Rotation.CLOCKWISE_90);
+		BlockPos newPos = findPosition(world, pos, template);
+		WorldGenStructureBase.addBlocksToWorldSilently(template, world, newPos, new BlockRotationProcessor(newPos, placementsettings), placementsettings, new Random(), 2);
 		return true;
+	}
+
+	public static String getPortalForDimension(int dim) {
+		if (dim == LandsOfIcaria.dimensionId)
+			return "portal/portal_dolomite";
+		return "portal/portal_quartz";
+	}
+
+	public static BlockPos findPosition(World world, BlockPos position, Template template) {
+		BlockPos bestPos = position;
+		double distance = -1.0D;
+		boolean closeEnough = false;
+		for (int offsetX = -125; offsetX <= 125; ++offsetX) {
+			BlockPos positionCache;
+			for (int offsetZ = -125; offsetZ <= 125; ++offsetZ) {
+				for (BlockPos currentPos = position.add(offsetX, world.getActualHeight() - 1 - position.getY(), offsetZ); currentPos.getY() >= 0; currentPos = positionCache) {
+					positionCache = currentPos.down();
+					boolean valid = true;
+					for (BlockPos basePos : BlockPos.getAllInBox(BlockPos.ORIGIN, BlockPos.ORIGIN.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) {
+						BlockPos pos = template.transformedBlockPos(placementsettings, basePos).add(currentPos);
+						if (!world.isSideSolid(pos, EnumFacing.UP, false)) {
+							valid = false;
+							break;
+						}
+					}
+					if (!valid)
+						continue;
+
+					for (BlockPos basePos : BlockPos.getAllInBox(BlockPos.ORIGIN.up(), BlockPos.ORIGIN.add(template.getSize().getX() - 1, template.getSize().getY(), template.getSize().getZ() - 1))) {
+						BlockPos pos = template.transformedBlockPos(placementsettings, basePos).add(currentPos);
+						if (world.isBlockFullCube(pos)) {
+							valid = false;
+							break;
+						}
+					}
+
+					if (!valid)
+						continue;
+
+					final double distanceToEntity = currentPos.distanceSq(position);
+					if (distance < 0.0D || distanceToEntity < distance) {
+						distance = distanceToEntity;
+						bestPos = currentPos;
+						if (distanceToEntity < 20.0D) {
+							closeEnough = true;
+							break;
+						}
+					}
+				}
+				if (closeEnough)
+					break;
+			}
+			if (closeEnough)
+				break;
+		}
+		return bestPos.up();
 	}
 }

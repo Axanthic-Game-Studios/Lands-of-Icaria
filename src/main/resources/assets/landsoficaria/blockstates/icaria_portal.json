@@ -2,15 +2,15 @@
 	"forge_marker": 1,
 	"defaults": {
 		"transform": "forge:default-block",
-		"model": "landsoficaria:cube_all_bright",
-		"uvlock": true,
+		"model": "landsoficaria:portal",
 		"textures": {
-			"all": "landsoficaria:blocks/icaria_portal",
-			"particle": "#all"
-		}
+        	"all": "landsoficaria:blocks/icaria_portal",
+        	"particle": "#all"
+    	}
 	},
     "variants": {
-		"normal":  { "model": "landsoficaria:cube_all_bright" },
-		"inventory":  { "model": "landsoficaria:cube_all_bright" }
+		"inventory":  { "model": "landsoficaria:portal" },
+		"axis=z":  { "model": "landsoficaria:portal" },
+		"axis=x":  { "model": "landsoficaria:portal", "y": 90 }
     }
 }
