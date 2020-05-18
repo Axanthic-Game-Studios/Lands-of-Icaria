@@ -202,7 +202,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				if (pos.getY() < 5)
 					return true;
 			}
-			this.ruinGenerator.generate(worldIn, random, pos);
+			//this.ruinGenerator.generate(worldIn, random, pos);
 		}
 		return true;
 	}
