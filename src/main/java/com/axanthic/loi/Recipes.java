@@ -137,6 +137,8 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 9), new ItemStack(Resources.ingot, 1, 8), 0.9F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 10), new ItemStack(Resources.ingot, 1, 10), 1.0F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 12), new ItemStack(Resources.resource, 1, 3), 0.5F);
+		
+		addShapelessRecipe(new ItemStack(Resources.seedsStrawberry, 1), "seed_strawberry", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, 5))});
 
 		for (int i = 0; i < BlockFlower.FlowerTypes.getNames().length; i++) {
 			addShapelessRecipe(getDye(BlockFlower.FlowerTypes.byMetadata(i).color), "flower_dye_" + i, "flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.flower, 1, i))});

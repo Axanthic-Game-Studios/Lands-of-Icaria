@@ -60,6 +60,7 @@ import com.axanthic.loi.blocks.BlockSoilGrass;
 import com.axanthic.loi.blocks.BlockStorageGem;
 import com.axanthic.loi.blocks.BlockStorageMetal;
 import com.axanthic.loi.blocks.BlockStorageVase;
+import com.axanthic.loi.blocks.BlockStrawberryCrop;
 import com.axanthic.loi.blocks.BlockTallGrass;
 import com.axanthic.loi.blocks.FluidCustom;
 import com.axanthic.loi.blocks.BlockPlanks.WoodTypes;
@@ -88,6 +89,7 @@ import com.axanthic.loi.items.ItemResource;
 import com.axanthic.loi.items.ItemResource2;
 import com.axanthic.loi.items.ItemSharpBone;
 import com.axanthic.loi.items.ItemSpell;
+import com.axanthic.loi.items.ItemStrawberrySeeds;
 import com.axanthic.loi.items.ToolAxe;
 import com.axanthic.loi.items.ToolBident;
 import com.axanthic.loi.items.ToolDagger;
@@ -121,6 +123,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -177,6 +180,7 @@ public class Resources {
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
 	public static ItemBlock farmLand = new ItemBlock(new BlockFarmLand());
 	public static ItemBlock fertilizedFarmLand = new ItemBlock(new BlockFarmLandFertilized());
+	public static ItemBlock cropStrawberry = new ItemBlock(new BlockStrawberryCrop("crop_strawberry"));
 	public static ItemBlock moss = new ItemBlock(new BlockMoss());
 	public static ItemBlockMeta tallGrass = new ItemBlockMeta(new BlockTallGrass());
 	public static ItemBlockMeta flower = new ItemBlockMeta(new BlockFlower());
@@ -256,6 +260,12 @@ public class Resources {
 	public static ItemBlock kettle = new ItemBlock(new BlockKettle());
 	public static ItemBlock portal = new ItemBlock(new BlockIcariaPortal());
 
+	public static ItemSeeds seedsStrawberry = new ItemStrawberrySeeds(
+			"seed_strawberry",
+			cropStrawberry.getBlock(),
+			farmLand.getBlock()
+	);
+
 	public static ToolSet laurelTools = new ToolSet(new CompleteToolMaterial("laurel", -1.0F, 0, 59, 2.0F, 0.0F, 15, new ItemStack(Resources.planks, 1, 5)));
 	public static ToolSet chalkos = new ToolSet(new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(Resources.ingot, 1, 0)));
 	public static ToolSet kassiteros = new ToolSet(new CompleteToolMaterial("kassiteros", -1.1F, 2, 234, 5.0F, 1.5F, 15, new ItemStack(Resources.ingot, 1, 1)));
@@ -314,6 +324,7 @@ public class Resources {
 	public static WoodSet droughtroot = new WoodSet(BlockPlanks.WoodTypes.DROUGHTROOT, new WorldGenDroughtrootTree(true), EntityForestHagDroughtroot.class);
 
 	public static void registerItems() {
+		Resources.items.add(Resources.seedsStrawberry);
 		Resources.items.add(Resources.dimensionTp);
 		Resources.items.add(Resources.resource);
 		Resources.items.add(Resources.resource2);
@@ -345,6 +356,7 @@ public class Resources {
 		Resources.registerBlock(Resources.grass);
 		Resources.registerBlock(Resources.farmLand);
 		Resources.registerBlock(Resources.fertilizedFarmLand);
+		Resources.registerBlock(Resources.cropStrawberry);
 		Resources.registerBlock(Resources.moss);
 		Resources.registerBlock(Resources.tallGrass);
 		Resources.registerBlock(Resources.flower);

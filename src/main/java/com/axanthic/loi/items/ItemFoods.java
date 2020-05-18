@@ -16,8 +16,8 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 		new foodStats("laurel_cherry", 4, 0.3F),
 		new foodStats("aeternae_meat", 3, 0.3F),
 		new foodStats("aeternae_meat_cooked", 8, 0.8F),
-		new foodStats("strawberry", 2, 0.3F),
-		new foodStats("physalis", 2, 0.3F)
+		new foodStats("strawberry", 1, 0.3F),
+		new foodStats("physalis", 2, 0.5F)
 	};
 
 	public ItemFoods() {

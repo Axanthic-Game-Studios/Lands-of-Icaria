@@ -1,9 +1,9 @@
 {
     "__comment": "Model by Shadocobra",
     "textures": {
-        "particle": "nanpa:blocks/flora/strawberry_2",
-        "0": "nanpa:blocks/flora/strawberry_2",
-        "1": "nanpa:blocks/flora/strawberry_2_horizontal"
+        "particle": "landsoficaria:blocks/flora_strawberry_0",
+        "0": "landsoficaria:blocks/flora_strawberry_0",
+        "1": "landsoficaria:blocks/flora_strawberry_0_horizontal"
     },
     "elements": [
         {
