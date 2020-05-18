@@ -1,0 +1,13 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "landsoficaria:crop_physalis_stage4"
+	},
+	"variants": {
+		"age=0": { "model": "landsoficaria:crop_physalis_stage0" },
+		"age=1": { "model": "landsoficaria:crop_physalis_stage1" },
+		"age=2": { "model": "landsoficaria:crop_physalis_stage2" },
+		"age=3": { "model": "landsoficaria:crop_physalis_stage3" },
+		"age=4": { "model": "landsoficaria:crop_physalis_stage4" }
+	}
+}

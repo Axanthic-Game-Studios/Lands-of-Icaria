@@ -1,8 +1,8 @@
 {
     "__comment": "Model by Shadocobra",
     "textures": {
-        "particle": "nanpa:blocks/flora/physalis_stage0",
-        "0": "nanpa:blocks/flora/physalis_stage0"
+        "particle": "landsoficaria:blocks/flora_physalis_0",
+        "0": "landsoficaria:blocks/flora_physalis_0"
 
     },
     "elements": [

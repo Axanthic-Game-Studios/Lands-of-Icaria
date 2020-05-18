@@ -1,8 +1,8 @@
 {
     "__comment": "Model by Shadocobra",
     "textures": {
-        "particle": "nanpa:blocks/flora/physalis_stage1",
-        "0": "nanpa:blocks/flora/physalis_stage1"
+        "particle": "landsoficaria:blocks/flora_physalis_3",
+        "0": "landsoficaria:blocks/flora_physalis_3"
 
     },
     "elements": [
@@ -35,9 +35,9 @@
             }
         },
         {
-            "name": "Blatt Y4",
-            "from": [ 4.0, 4.0, 4.0 ], 
-            "to": [ 8.0, 4.0, 8.0 ], 
+            "name": "Blatt Y6",
+            "from": [ 4.0, 6.0, 4.0 ], 
+            "to": [ 8.0, 6.0, 8.0 ], 
             "faces": {
                 "north": { "texture": "#-1", "uv": [ 0.0, 0.0, 4.0, 0.0 ] },
                 "east": { "texture": "#-1", "uv": [ 0.0, 0.0, 4.0, 0.0 ] },
@@ -48,9 +48,9 @@
             }
         },
         {
-            "name": "Blatt Y3",
-            "from": [ 8.0, 3.0, 4.0 ], 
-            "to": [ 12.0, 3.0, 8.0 ], 
+            "name": "Blatt Y4",
+            "from": [ 8.0, 4.0, 4.0 ], 
+            "to": [ 12.0, 4.0, 8.0 ], 
             "faces": {
                 "north": { "texture": "#-1", "uv": [ 0.0, 0.0, 4.0, 0.0 ] },
                 "east": { "texture": "#-1", "uv": [ 0.0, 0.0, 4.0, 0.0 ] },
@@ -61,9 +61,9 @@
             }
         },
         {
-            "name": "Blatt Y7",
-            "from": [ 8.0, 7.0, 8.0 ], 
-            "to": [ 12.0, 7.0, 12.0 ], 
+            "name": "Blatt Y8",
+            "from": [ 9.0, 8.0, 9.0 ], 
+            "to": [ 13.0, 8.0, 13.0 ], 
             "faces": {
                 "north": { "texture": "#-1", "uv": [ 0.0, 0.0, 4.0, 0.0 ] },
                 "east": { "texture": "#-1", "uv": [ 0.0, 0.0, 4.0, 0.0 ] },
@@ -72,7 +72,60 @@
                 "up": { "texture": "#0", "uv": [ 6.0, 2.0, 8.0, 4.0 ] },
                 "down": { "texture": "#0", "uv": [ 6.0, 0.0, 8.0, 2.0 ] }
             }
+        },
+        {
+            "name": "Blatt Y8",
+            "from": [ 9.0, 8.0, 5.0 ], 
+            "to": [ 11.0, 8.0, 7.0 ], 
+            "faces": {
+                "north": { "texture": "#-1", "uv": [ 0.0, 0.0, 4.0, 0.0 ] },
+                "east": { "texture": "#-1", "uv": [ 0.0, 0.0, 4.0, 0.0 ] },
+                "south": { "texture": "#-1", "uv": [ 0.0, 0.0, 4.0, 0.0 ] },
+                "west": { "texture": "#-1", "uv": [ 0.0, 0.0, 4.0, 0.0 ] },
+                "up": { "texture": "#0", "uv": [ 7.0, 0.0, 8.0, 1.0 ] },
+                "down": { "texture": "#0", "uv": [ 7.0, 3.0, 8.0, 4.0 ] }
+            }
+        },
+        {
+            "name": "fruit",
+            "from": [ 5.0, 3.0, 9.0 ], 
+            "to": [ 7.0, 5.0, 11.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 6.0, 14.0, 7.0, 15.0 ] },
+                "east": { "texture": "#0", "uv": [ 7.0, 14.0, 8.0, 15.0 ] },
+                "south": { "texture": "#0", "uv": [ 6.0, 15.0, 7.0, 16.0 ] },
+                "west": { "texture": "#0", "uv": [ 6.0, 14.0, 7.0, 15.0 ] },
+                "up": { "texture": "#0", "uv": [ 6.0, 15.0, 7.0, 16.0 ] },
+                "down": { "texture": "#0", "uv": [ 6.0, 7.0, 7.0, 8.0 ] }
+            }
+        },
+        {
+            "name": "fruit",
+            "from": [ 9.0, 5.0, 5.0 ], 
+            "to": [ 11.0, 7.0, 7.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 6.0, 14.0, 7.0, 15.0 ] },
+                "east": { "texture": "#0", "uv": [ 7.0, 14.0, 8.0, 15.0 ] },
+                "south": { "texture": "#0", "uv": [ 6.0, 15.0, 7.0, 16.0 ] },
+                "west": { "texture": "#0", "uv": [ 6.0, 14.0, 7.0, 15.0 ] },
+                "up": { "texture": "#0", "uv": [ 6.0, 15.0, 7.0, 16.0 ] },
+                "down": { "texture": "#0", "uv": [ 6.0, 7.0, 7.0, 8.0 ] }
+            }
+        },
+        {
+            "name": "fruit",
+            "from": [ 5.33, 10.0, 5.33], 
+            "to": [ 7.33, 12.0, 7.33 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 6.0, 14.0, 7.0, 15.0 ] },
+                "east": { "texture": "#0", "uv": [ 7.0, 14.0, 8.0, 15.0 ] },
+                "south": { "texture": "#0", "uv": [ 6.0, 15.0, 7.0, 16.0 ] },
+                "west": { "texture": "#0", "uv": [ 6.0, 14.0, 7.0, 15.0 ] },
+                "up": { "texture": "#0", "uv": [ 6.0, 15.0, 7.0, 16.0 ] },
+                "down": { "texture": "#0", "uv": [ 6.0, 7.0, 7.0, 8.0 ] }
+            }
         }
+
 
     ]
 }
