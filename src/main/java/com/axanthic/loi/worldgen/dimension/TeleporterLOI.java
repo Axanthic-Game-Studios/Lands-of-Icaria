@@ -188,7 +188,12 @@ public class TeleporterLOI extends Teleporter {
 		Template template = templatemanager.get(world.getMinecraftServer(), new ResourceLocation(ModInformation.ID, getPortalForDimension(entity.dimension)));
 		if (entity.getHorizontalFacing().getAxis().equals(EnumFacing.Axis.Z))
 			placementsettings.setRotation(Rotation.CLOCKWISE_90);
-		BlockPos newPos = findPosition(world, pos, template);
+		BlockPos newPos = findPosition(world, pos, template).up();
+
+		if (newPos == null) {
+			newPos = pos;
+			template = templatemanager.get(world.getMinecraftServer(), new ResourceLocation(ModInformation.ID, getPortalForDimension(entity.dimension) + "_platform"));
+		}
 		WorldGenStructureBase.addBlocksToWorldSilently(template, world, newPos, new BlockRotationProcessor(newPos, placementsettings), placementsettings, new Random(), 2);
 		return true;
 	}
@@ -200,7 +205,7 @@ public class TeleporterLOI extends Teleporter {
 	}
 
 	public static BlockPos findPosition(World world, BlockPos position, Template template) {
-		BlockPos bestPos = position;
+		BlockPos bestPos = null;
 		double distance = -1.0D;
 		boolean closeEnough = false;
 		for (int offsetX = -125; offsetX <= 125; ++offsetX) {
@@ -246,6 +251,6 @@ public class TeleporterLOI extends Teleporter {
 			if (closeEnough)
 				break;
 		}
-		return bestPos.up();
+		return bestPos;
 	}
 }
