@@ -4,9 +4,12 @@ import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.NonNullList;
+import net.minecraft.world.World;
 
 public class ItemFoods extends ItemFood implements IItemMeta {
 
@@ -64,16 +67,37 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 		}
 		return names;
 	}
+	
+	@Override
+	protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
+		foodStats item = foods[stack.getMetadata()];
+		
+		if (!worldIn.isRemote && item.effect != null && worldIn.rand.nextFloat() < item.effectProb) {
+			player.addPotionEffect(new PotionEffect(item.effect));
+		}
+	}
 
 	public class foodStats {
 		String name;
 		int food;
 		float saturation;
+		PotionEffect effect;
+		float effectProb;
 
 		public foodStats(String name, int food, float saturation) {
 			this.name = name;
 			this.food = food;
 			this.saturation = saturation;
+			this.effect = null;
+			this.effectProb = 0.0F;
+		}
+		
+		public foodStats(String name, int food, float saturation, PotionEffect effect, float effectProb) {
+			this.name = name;
+			this.food = food;
+			this.saturation = saturation;
+			this.effect = effect;
+			this.effectProb = effectProb;
 		}
 	}
 }
