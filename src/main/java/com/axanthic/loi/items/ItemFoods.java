@@ -27,7 +27,9 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 		new foodStats("sow_meat", 2, 0.3F,
 				// 100% chance of 400 ticks (20 seconds) of hunger.
 				new PotionEffect(Potion.getPotionFromResourceLocation("hunger"), 400), 1.0F),
-		new foodStats("sow_meat_cooked", 5, 0.8F)
+		new foodStats("sow_meat_cooked", 5, 0.8F),
+		new foodStats("catoblepas_meat", 2, 0.3F),
+		new foodStats("catoblepas_meat_cooked", 6, 0.8F)
 	};
 
 	public ItemFoods() {
