@@ -18,11 +18,13 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 		new foodStats("olive_green", 2, 0.3F),
 		new foodStats("olive_black", 2, 0.3F),
 		new foodStats("laurel_cherry", 4, 0.3F),
-		new foodStats("aeternae_meat", 3, 0.3F),
+		new foodStats("aeternae_meat", 3, 0.3F,
+				// 100% chance of 100 ticks (5 seconds) of hunger.
+				new PotionEffect(Potion.getPotionFromResourceLocation("hunger"), 100), 1.0F),
 		new foodStats("aeternae_meat_cooked", 8, 0.8F),
 		new foodStats("strawberry", 1, 0.3F),
 		new foodStats("physalis", 2, 0.5F),
-		new foodStats("sow_meat", 2, 0.0F,
+		new foodStats("sow_meat", 2, 0.3F,
 				// 100% chance of 400 ticks (20 seconds) of hunger.
 				new PotionEffect(Potion.getPotionFromResourceLocation("hunger"), 400), 1.0F),
 		new foodStats("sow_meat_cooked", 5, 0.8F)
