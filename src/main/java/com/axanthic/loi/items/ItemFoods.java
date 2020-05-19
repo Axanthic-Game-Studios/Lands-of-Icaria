@@ -7,6 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
@@ -20,7 +21,11 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 		new foodStats("aeternae_meat", 3, 0.3F),
 		new foodStats("aeternae_meat_cooked", 8, 0.8F),
 		new foodStats("strawberry", 1, 0.3F),
-		new foodStats("physalis", 2, 0.5F)
+		new foodStats("physalis", 2, 0.5F),
+		new foodStats("sow_meat", 2, 0.0F,
+				// 100% chance of 400 ticks (20 seconds) of hunger.
+				new PotionEffect(Potion.getPotionFromResourceLocation("hunger"), 400), 1.0F),
+		new foodStats("sow_meat_cooked", 5, 0.8F)
 	};
 
 	public ItemFoods() {

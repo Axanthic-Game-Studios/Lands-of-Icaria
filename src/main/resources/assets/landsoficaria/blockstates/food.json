@@ -14,7 +14,9 @@
 			"aeternae_meat": { "textures": { "layer0": "landsoficaria:items/food_meat_aeternae_raw" } },
 			"aeternae_meat_cooked": { "textures": { "layer0": "landsoficaria:items/food_meat_aeternae_cooked" } },
 			"strawberry": { "textures": { "layer0": "landsoficaria:items/food_fruit_strawberry" } },
-			"physalis": { "textures": { "layer0": "landsoficaria:items/food_fruit_physalis" } }
+			"physalis": { "textures": { "layer0": "landsoficaria:items/food_fruit_physalis" } },
+			"sow_meat": { "textures": { "layer0": "landsoficaria:items/food_meat_sow_raw" } },
+			"sow_meat_cooked": { "textures": { "layer0": "landsoficaria:items/food_meat_sow_cooked" } }
 		}
 	}
 }
