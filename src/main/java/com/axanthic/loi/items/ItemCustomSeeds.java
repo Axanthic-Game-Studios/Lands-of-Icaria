@@ -9,7 +9,7 @@ import net.minecraft.item.ItemSeeds;
 public class ItemCustomSeeds extends ItemSeeds {
 	public ItemCustomSeeds(String name, Block crops) {
 		super(crops, Blocks.FARMLAND);
-		this.setCreativeTab(LandsOfIcaria.modTabFlora);
+		this.setCreativeTab(LandsOfIcaria.modTabItems);
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 	}
