@@ -47,10 +47,10 @@ public class EntityAeternae extends EntityAnimal {
 
 	private int eatTimer;
 	private EntityAIEatMarlGrass entityAIEatGrass;
-    private static final UUID ATTACK_SPEED_BOOST_MODIFIER_UUID = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23B1718");
+	private static final UUID ATTACK_SPEED_BOOST_MODIFIER_UUID = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23B1718");
 	private static final AttributeModifier ATTACK_SPEED_BOOST_MODIFIER = (new AttributeModifier(ATTACK_SPEED_BOOST_MODIFIER_UUID, "Attacking speed boost", 0.5D, 1)).setSaved(false);
-    private int angerLevel;
-    private UUID angerTargetUUID;
+	private int angerLevel;
+	private UUID angerTargetUUID;
 
 	public EntityAeternae(World worldIn) {
 		super(worldIn);
@@ -58,14 +58,10 @@ public class EntityAeternae extends EntityAnimal {
 		this.spawnableBlock = Resources.grass.getBlock();
 	}
 
-	public static void registerFixesCow(DataFixer fixer) {
-		EntityLiving.registerFixesMob(fixer, EntityAeternae.class);
-	}
-
 	protected void initEntityAI() {
 		entityAIEatGrass = new EntityAIEatMarlGrass(this);
 		this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, true));
+		this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, true));
 		this.tasks.addTask(2, new EntityAIMate(this, 1.0D));
 		this.tasks.addTask(3, new EntityAITempt(this, 1.25D, Items.WHEAT, false));
 		this.tasks.addTask(4, new EntityAIFollowParent(this, 1.25D));
@@ -134,11 +130,11 @@ public class EntityAeternae extends EntityAnimal {
 			iattributeinstance.removeModifier(ATTACK_SPEED_BOOST_MODIFIER);
 		}
 		if (this.angerLevel > 0 && this.angerTargetUUID != null && this.getRevengeTarget() == null) {
-            EntityPlayer entityplayer = this.world.getPlayerEntityByUUID(this.angerTargetUUID);
-            this.setRevengeTarget(entityplayer);
-            this.attackingPlayer = entityplayer;
-            this.recentlyHit = this.getRevengeTimer();
-        }
+			EntityPlayer entityplayer = this.world.getPlayerEntityByUUID(this.angerTargetUUID);
+			this.setRevengeTarget(entityplayer);
+			this.attackingPlayer = entityplayer;
+			this.recentlyHit = this.getRevengeTimer();
+		}
 		super.updateAITasks();
 	}
 
@@ -249,8 +245,8 @@ public class EntityAeternae extends EntityAnimal {
 	}
 
 	static class AIHurtByAggressor extends EntityAIHurtByTarget {
-		public AIHurtByAggressor(EntityAeternae p_i45828_1_) {
-			super(p_i45828_1_, true);
+		public AIHurtByAggressor(EntityAeternae entity) {
+			super(entity, false);
 		}
 
 		protected void setEntityAttackTarget(EntityCreature creatureIn, EntityLivingBase entityLivingBaseIn) {
@@ -263,8 +259,8 @@ public class EntityAeternae extends EntityAnimal {
 	}
 
 	static class AITargetAggressor extends EntityAINearestAttackableTarget<EntityPlayer> {
-		public AITargetAggressor(EntityAeternae p_i45829_1_) {
-			super(p_i45829_1_, EntityPlayer.class, true);
+		public AITargetAggressor(EntityAeternae entity) {
+			super(entity, EntityPlayer.class, true);
 		}
 
 		/**
