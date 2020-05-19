@@ -89,6 +89,7 @@ public class Recipes {
 
 		addShapelessRecipe(new ItemStack(Resources.resource, 1, 15), "aeternae_leather", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 14))});
 		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, 3), new ItemStack(Resources.food, 1, 4), 0.35F);
+		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, 7), new ItemStack(Resources.food, 1, 8), 0.35F);
 
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 14), "bromelia_dye_orange", "bromelia_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 0))});
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 13), "bromelia_dye_pink", "bromelia_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 1))});
