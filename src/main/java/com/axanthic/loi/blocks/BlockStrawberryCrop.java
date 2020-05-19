@@ -14,11 +14,16 @@ import net.minecraft.world.IBlockAccess;
 public class BlockStrawberryCrop extends BlockCustomCrop {
 	private static final AxisAlignedBB[] CROP_AABB = new AxisAlignedBB[] {
 			new AxisAlignedBB(0.35D, -0.0625D, 0.35D, 0.65D, 0.25D, 0.65D),
+			
 			new AxisAlignedBB(0.3D, -0.0625D, 0.3D, 0.7D, 0.3D, 0.7D),
+			new AxisAlignedBB(0.3D, -0.0625D, 0.3D, 0.7D, 0.3D, 0.7D),
+			
 			new AxisAlignedBB(0.25D, -0.0625D, 0.25D, 0.75D, 0.35D, 0.75D),
 			new AxisAlignedBB(0.25D, -0.0625D, 0.25D, 0.75D, 0.35D, 0.75D),
+			
 			new AxisAlignedBB(0.2D, -0.0625D, 0.2D, 0.8D, 0.4D, 0.8D),
 			new AxisAlignedBB(0.2D, -0.0625D, 0.2D, 0.8D, 0.4D, 0.8D),
+			
 			new AxisAlignedBB(0.2D, -0.0625D, 0.2D, 0.8D, 0.4D, 0.8D),
 	};
 	

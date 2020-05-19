@@ -6,10 +6,11 @@
 	"variants": {
 		"age=0": { "model": "landsoficaria:crop_strawberry_stage0" },
 		"age=1": { "model": "landsoficaria:crop_strawberry_stage1" },
-		"age=2": { "model": "landsoficaria:crop_strawberry_stage2" },
+		"age=2": { "model": "landsoficaria:crop_strawberry_stage1" },
 		"age=3": { "model": "landsoficaria:crop_strawberry_stage2" },
-		"age=4": { "model": "landsoficaria:crop_strawberry_stage3" },
+		"age=4": { "model": "landsoficaria:crop_strawberry_stage2" },
 		"age=5": { "model": "landsoficaria:crop_strawberry_stage3" },
-		"age=6": { "model": "landsoficaria:crop_strawberry_stage4" }
+		"age=6": { "model": "landsoficaria:crop_strawberry_stage3" },
+		"age=7": { "model": "landsoficaria:crop_strawberry_stage4" }
 	}
 }

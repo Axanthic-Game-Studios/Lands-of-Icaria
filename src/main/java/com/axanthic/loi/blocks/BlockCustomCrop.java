@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
 public abstract class BlockCustomCrop extends BlockCrops {
-	public static final PropertyInteger CROP_AGE = PropertyInteger.create("age", 0, 6);
+	public static final PropertyInteger CROP_AGE = PropertyInteger.create("age", 0, 7);
 	
 	public BlockCustomCrop(String name) {
 		super();
@@ -74,7 +74,7 @@ public abstract class BlockCustomCrop extends BlockCrops {
 	
 	@Override
 	public int getMaxAge() {
-		return 6;
+		return 7;
 	}
 	
 	@Override
