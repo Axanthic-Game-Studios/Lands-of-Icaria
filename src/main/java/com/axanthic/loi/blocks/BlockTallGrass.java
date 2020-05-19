@@ -97,7 +97,7 @@ public class BlockTallGrass extends BlockBush implements net.minecraftforge.comm
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		if (getMetaFromState(state) == 0)
-			return SMALL_GRASS_AABB;
+			return SMALL_GRASS_AABB.offset(state.getOffset(source, pos));
 		if (getMetaFromState(state) == 1)
 			return MEDIUM_GRASS_AABB;
 
