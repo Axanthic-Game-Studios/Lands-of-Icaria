@@ -3,6 +3,7 @@ package com.axanthic.loi.blocks;
 import java.util.Random;
 
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.utils.EnumFood;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -31,8 +32,8 @@ public class BlockStrawberryCrop extends BlockCustomCrop {
 	}
 	
 	@Override
-	protected int getCropMeta( ) {
-		return 5; // Strawberry.
+	protected EnumFood getFood( ) {
+		return EnumFood.STRAWBERRY;
 	}
 	
 	@Override

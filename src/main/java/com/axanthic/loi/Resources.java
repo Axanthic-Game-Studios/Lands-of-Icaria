@@ -261,9 +261,9 @@ public class Resources {
 	public static ItemBlock forge = new ItemBlockForge(new BlockForge());
 	public static ItemBlock kettle = new ItemBlock(new BlockKettle());
 	public static ItemBlock portal = new ItemBlock(new BlockIcariaPortal());
-
-	public static ItemSeeds seedsStrawberry = new ItemCustomSeeds("seed_strawberry", cropStrawberry.getBlock());
-	public static ItemSeeds seedsPhysalis = new ItemCustomSeeds("seed_physalis", cropPhysalis.getBlock());
+	
+	public static Item seedsStrawberry = new ItemCustomSeeds("seed_strawberry", cropStrawberry.getBlock());
+	public static Item seedsPhysalis = new ItemCustomSeeds("seed_physalis", cropPhysalis.getBlock());
 
 	public static ToolSet laurelTools = new ToolSet(new CompleteToolMaterial("laurel", -1.0F, 0, 59, 2.0F, 0.0F, 15, new ItemStack(Resources.planks, 1, 5)));
 	public static ToolSet chalkos = new ToolSet(new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(Resources.ingot, 1, 0)));
@@ -326,6 +326,8 @@ public class Resources {
 		Resources.items.add(Resources.dimensionTp);
 		Resources.items.add(Resources.resource);
 		Resources.items.add(Resources.resource2);
+		Resources.items.add(Resources.seedsStrawberry);
+		Resources.items.add(Resources.seedsPhysalis);
 		Resources.items.add(Resources.food);
 		Resources.items.add(Resources.renderAddon);
 		Resources.items.add(Resources.sharpBone);
@@ -333,8 +335,6 @@ public class Resources {
 		Resources.items.add(Resources.ingot);
 		Resources.items.add(Resources.nugget);
 		Resources.items.add(Resources.healSpell);
-		Resources.items.add(Resources.seedsStrawberry);
-		Resources.items.add(Resources.seedsPhysalis);
 
 		Resources.laurelTools.register();
 		Resources.chalkos.register();
