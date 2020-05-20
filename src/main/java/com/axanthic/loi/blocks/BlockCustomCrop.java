@@ -3,7 +3,7 @@ package com.axanthic.loi.blocks;
 import java.util.Random;
 
 import com.axanthic.loi.Resources;
-import com.axanthic.loi.utils.EnumFood;
+import com.axanthic.loi.items.ItemFoods;
 
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.properties.IProperty;
@@ -30,7 +30,7 @@ public abstract class BlockCustomCrop extends BlockCrops {
 	/*
 	 * Return the EnumFood to use for this crop's food item.
 	 */
-	protected abstract EnumFood getFood();
+	protected abstract ItemFoods.FoodType getFood();
 	
 	/*
 	 * Return the number of seeds to drop when fully grown.

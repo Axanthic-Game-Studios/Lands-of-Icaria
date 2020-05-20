@@ -11,8 +11,8 @@ import com.axanthic.loi.blocks.BlockFlower2;
 import com.axanthic.loi.blocks.BlockRock;
 import com.axanthic.loi.blocks.BlockStorageGem;
 import com.axanthic.loi.blocks.BlockStorageMetal;
+import com.axanthic.loi.items.ItemFoods;
 import com.axanthic.loi.proxy.CommonProxy;
-import com.axanthic.loi.utils.EnumFood;
 import com.axanthic.loi.utils.ForgeRecipe;
 import com.axanthic.loi.utils.GrinderFuel;
 import com.axanthic.loi.utils.GrinderRecipe;
@@ -89,9 +89,9 @@ public class Recipes {
 		addRecipe(new ItemStack(Resources.quartzPillarHead, 2, 0), "quartz_pillar_head", new Object[]{"B", "P", 'B', new ItemStack(Blocks.QUARTZ_BLOCK, 1, 1), 'P', new ItemStack(Blocks.QUARTZ_BLOCK, 1, 2)});
 
 		addShapelessRecipe(new ItemStack(Resources.resource, 1, 15), "aeternae_leather", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, 14))});
-		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, EnumFood.AETERNAE_MEAT.ordinal()), new ItemStack(Resources.food, 1, EnumFood.AETERNAE_MEAT_COOKED.ordinal()), 0.35F);
-		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, EnumFood.SOW_MEAT.ordinal()), new ItemStack(Resources.food, 1, EnumFood.SOW_MEAT_COOKED.ordinal()), 0.35F);
-		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, EnumFood.CATOBLEPAS_MEAT.ordinal()), new ItemStack(Resources.food, 1, EnumFood.CATOBLEPAS_MEAT_COOKED.ordinal()), 0.35F);
+		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, ItemFoods.FoodType.AETERNAE_MEAT.toMeta()), new ItemStack(Resources.food, 1, ItemFoods.FoodType.AETERNAE_MEAT_COOKED.toMeta()), 0.35F);
+		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, ItemFoods.FoodType.SOW_MEAT.toMeta()), new ItemStack(Resources.food, 1, ItemFoods.FoodType.SOW_MEAT_COOKED.toMeta()), 0.35F);
+		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, ItemFoods.FoodType.CATOBLEPAS_MEAT.toMeta()), new ItemStack(Resources.food, 1, ItemFoods.FoodType.CATOBLEPAS_MEAT_COOKED.toMeta()), 0.35F);
 
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 14), "bromelia_dye_orange", "bromelia_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 0))});
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 13), "bromelia_dye_pink", "bromelia_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 1))});
@@ -141,7 +141,7 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 10), new ItemStack(Resources.ingot, 1, 10), 1.0F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 12), new ItemStack(Resources.resource, 1, 3), 0.5F);
 		
-		addShapelessRecipe(new ItemStack(Resources.seedsStrawberry, 1), "seed_strawberry", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, EnumFood.STRAWBERRY.ordinal()))});
+		addShapelessRecipe(new ItemStack(Resources.seedsStrawberry, 1), "seed_strawberry", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.STRAWBERRY.toMeta()))});
 
 		for (int i = 0; i < BlockFlower.FlowerTypes.getNames().length; i++) {
 			addShapelessRecipe(getDye(BlockFlower.FlowerTypes.byMetadata(i).color), "flower_dye_" + i, "flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.flower, 1, i))});

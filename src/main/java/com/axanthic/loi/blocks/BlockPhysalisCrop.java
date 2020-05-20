@@ -3,7 +3,7 @@ package com.axanthic.loi.blocks;
 import java.util.Random;
 
 import com.axanthic.loi.Resources;
-import com.axanthic.loi.utils.EnumFood;
+import com.axanthic.loi.items.ItemFoods;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -37,8 +37,8 @@ public class BlockPhysalisCrop extends BlockCustomCrop {
 	}
 	
 	@Override
-	protected EnumFood getFood( ) {
-		return EnumFood.PHYSALIS;
+	protected ItemFoods.FoodType getFood( ) {
+		return ItemFoods.FoodType.PHYSALIS;
 	}
 	
 	@Override

@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.Resources;
-import com.axanthic.loi.utils.EnumFood;
+import com.axanthic.loi.items.ItemFoods;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -32,7 +32,7 @@ public class BlockStrawberryBush extends BlockBush {
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 		Random rand = world instanceof World ? ((World)world).rand : new Random();
-		drops.add(new ItemStack(Resources.food, 2 + rand.nextInt(3) + rand.nextInt(fortune + 1), EnumFood.STRAWBERRY.ordinal()));
+		drops.add(new ItemStack(Resources.food, 2 + rand.nextInt(3) + rand.nextInt(fortune + 1), ItemFoods.FoodType.STRAWBERRY.toMeta()));
 	}
 	
 	@Override

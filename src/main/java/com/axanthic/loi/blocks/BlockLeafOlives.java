@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.items.ItemFoods;
 
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -39,8 +40,8 @@ public class BlockLeafOlives extends BlockLeaf implements IBlockMeta {
 
 	public int damageDropped(IBlockState state) {
 		if (((OliveTypes) state.getValue(TYPES)).meta == 1)
-			return 1;
-		return 0;
+			return ItemFoods.FoodType.OLIVE_BLACK.toMeta();
+		return ItemFoods.FoodType.OLIVE_GREEN.toMeta();
 	}
 
 	@Override

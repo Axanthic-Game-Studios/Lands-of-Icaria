@@ -7,10 +7,11 @@ import java.util.Random;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.items.ItemFoods;
 
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.BlockPlanks.EnumType;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
@@ -65,7 +66,7 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	@Override
 	protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance) {
 		if (state.getBlock().equals(Resources.laurel.leaf.getBlock()) && worldIn.rand.nextInt(chance) == 0)
-			spawnAsEntity(worldIn, pos, new ItemStack(Resources.food, 1, 2));
+			spawnAsEntity(worldIn, pos, new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
 	}
 
 	@Override
