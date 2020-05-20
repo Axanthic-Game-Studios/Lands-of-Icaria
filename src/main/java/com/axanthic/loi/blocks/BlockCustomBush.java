@@ -1,6 +1,7 @@
 package com.axanthic.loi.blocks;
 
 import com.axanthic.loi.LandsOfIcaria;
+import com.axanthic.loi.ModInformation;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -17,7 +18,7 @@ public class BlockCustomBush extends BlockBush {
 	public BlockCustomBush(String name) {
 		super();
 		this.setCreativeTab(LandsOfIcaria.modTabFlora);
-		this.setRegistryName(name);
+		this.setRegistryName(ModInformation.ID, name);
 		this.setUnlocalizedName(name);
 		this.setSoundType(SoundType.PLANT);
 	}

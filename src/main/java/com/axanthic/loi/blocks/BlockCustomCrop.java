@@ -2,6 +2,7 @@ package com.axanthic.loi.blocks;
 
 import java.util.Random;
 
+import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.items.ItemFoods;
 
@@ -23,7 +24,7 @@ public abstract class BlockCustomCrop extends BlockCrops {
 	
 	public BlockCustomCrop(String name) {
 		super();
-		this.setRegistryName(name);
+		this.setRegistryName(ModInformation.ID, name);
 		this.setUnlocalizedName(name);
 	}
 	
