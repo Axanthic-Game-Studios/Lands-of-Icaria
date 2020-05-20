@@ -1,0 +1,11 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "landsoficaria:palm_fern"
+	},
+	"variants": {
+		"normal": { "model": "landsoficaria:palm_fern" },
+		"inventory": { "model": "landsoficaria:palm_fern" }
+	}
+}

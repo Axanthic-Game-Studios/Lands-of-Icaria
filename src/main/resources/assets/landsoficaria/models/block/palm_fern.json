@@ -2,9 +2,9 @@
     "__comment": "Model by Shadocobra",
     "parent": "block/cube_all",
     "textures": {
-        "particle": "nanpa:blocks/flora/palm_fern_leaves",
-        "0": "nanpa:blocks/flora/palm_fern_leaves",
-        "1": "nanpa:blocks/flora/palm_fern_stump"
+        "particle": "landsoficaria:blocks/flora_palm_fern_leaves",
+        "0": "landsoficaria:blocks/flora_palm_fern_leaves",
+        "1": "landsoficaria:blocks/flora_palm_fern_stump"
     },
     "elements": [
         {

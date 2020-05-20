@@ -49,6 +49,7 @@ import com.axanthic.loi.blocks.BlockMushroomTree;
 import com.axanthic.loi.blocks.BlockIcariaPortal;
 import com.axanthic.loi.blocks.BlockKettle;
 import com.axanthic.loi.blocks.BlockOre;
+import com.axanthic.loi.blocks.BlockPalmFern;
 import com.axanthic.loi.blocks.BlockPhysalisCrop;
 import com.axanthic.loi.blocks.BlockPillar;
 import com.axanthic.loi.blocks.BlockPillarHead;
@@ -190,6 +191,7 @@ public class Resources {
 	public static ItemBlockMeta flower2 = new ItemBlockMeta(new BlockFlower2());
 	public static ItemBlockMeta herb = new ItemBlockMeta(new BlockHerb());
 	public static ItemBlock bushStrawberry = new ItemBlock(new BlockStrawberryBush("bush_strawberry"));
+	public static ItemBlock palmFern = new ItemBlock(new BlockPalmFern("palm_fern"));
 	public static ItemBlockMeta bromelia = new ItemBlockMeta(new BlockBromelia());
 	public static ItemBlock groundMushroom0 = new ItemBlock(new BlockMushroomGround("0"));
 	public static ItemBlock groundMushroom1 = new ItemBlock(new BlockMushroomGround("1"));
@@ -366,6 +368,7 @@ public class Resources {
 		Resources.registerBlock(Resources.flower2);
 		Resources.registerBlock(Resources.herb);
 		Resources.registerBlock(Resources.bushStrawberry);
+		Resources.registerBlock(Resources.palmFern);
 		Resources.registerBlock(Resources.bromelia);
 		Resources.registerBlock(Resources.groundMushroom0);
 		Resources.registerBlock(Resources.groundMushroom1);
