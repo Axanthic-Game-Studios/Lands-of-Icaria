@@ -2,6 +2,8 @@ package com.axanthic.loi.blocks;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
@@ -16,7 +18,10 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
@@ -42,7 +47,14 @@ public class BlockOre extends Block implements IBlockMeta {
 		this.setUnlocalizedName("ore");
 		this.setRegistryName(ModInformation.ID, "ore");
 		this.setDefaultState(getStateFromMeta(0));
-		this.setSoundType(SoundType.STONE);
+	}
+	
+	@Override
+	public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
+		switch (OreTypes.byMetadata(getMetaFromState(state))) {
+			case ROTTEN_BONES: return SoundType.GROUND;
+			default: return SoundType.STONE;
+		}
 	}
 
 	@Override
@@ -69,20 +81,54 @@ public class BlockOre extends Block implements IBlockMeta {
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[]{TYPES});
 	}
+	
+	@Override
+	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+		Random rand = world instanceof World ? ((World)world).rand : RANDOM;
+
+		switch(OreTypes.byMetadata(getMetaFromState(state))) {
+		
+			case ROTTEN_BONES:
+				ItemStack rottenBonesStack = new ItemStack(Resources.resource, 1 + rand.nextInt(3), ItemResources.ResourceType.ROTTEN_BONES.toMeta());
+				ItemStack boneStack = new ItemStack(Items.BONE, 1);
+				ItemStack boneMealStack = new ItemStack(Items.DYE, 1 + rand.nextInt(3), EnumDyeColor.WHITE.getDyeDamage());
+				ItemStack revenantFemurStack = new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REVENANT_FEMUR.toMeta());
+				for (int i = 0; i < 2; i++) {
+					double roll = rand.nextDouble() * 1.4D;
+					if (roll <= 0.9D) {
+						if (!drops.contains(rottenBonesStack)) drops.add(rottenBonesStack);
+					} else if (roll <= 1.1D) {
+						if (!drops.contains(boneStack)) drops.add(boneStack);
+					} else if (roll <= 1.3D) {
+						if (!drops.contains(boneMealStack)) drops.add(boneMealStack);
+					} else {
+						if (!drops.contains(revenantFemurStack)) drops.add(revenantFemurStack);
+					}
+				}
+				break;
+		
+			default:
+				int count = quantityDropped(state, fortune, rand);
+				for (int i = 0; i < count; i++) {
+					Item item = this.getItemDropped(state, rand, fortune);
+					if (item != Items.AIR) {
+						drops.add(new ItemStack(item, 1, this.damageDropped(state)));
+					}
+				}
+
+		}
+	}
 
 	@Override
 	public int damageDropped(IBlockState state) {
 		int meta = getMetaFromState(state);
-		if (meta == 0) {
-			return ItemResources.ResourceType.LIGNITE.toMeta();
-		} else if (meta == 3) {
-			return ItemResources.ResourceType.DOLOMITE.toMeta();
-		} else if (meta == 8) {
-			return ItemResources.ResourceType.ANTHRACITE.toMeta();
-		} else if (meta == 12) {
-			return ItemResources.ResourceType.ABYSSAL_ESSENCE.toMeta();
+		switch (OreTypes.byMetadata(meta)) {
+			case LIGNITE: return ItemResources.ResourceType.LIGNITE.toMeta();
+			case DOLOMITE: return ItemResources.ResourceType.DOLOMITE.toMeta();
+			case ANTHRACITE: return ItemResources.ResourceType.ANTHRACITE.toMeta();
+			case ABYSSAL: return ItemResources.ResourceType.ABYSSAL_ESSENCE.toMeta();
+			default: return meta;
 		}
-		return meta;
 	}
 
 	@Override
@@ -119,7 +165,13 @@ public class BlockOre extends Block implements IBlockMeta {
 	public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player) {
 		ItemStack stack = player.getHeldItemMainhand();
 		IBlockState state = world.getBlockState(pos);
-		int toolLevel = stack.getItem().getHarvestLevel(stack, "pickaxe", player, state);
+		int toolLevel;
+		switch (OreTypes.byMetadata(getMetaFromState(state))) {
+			case ROTTEN_BONES:
+				toolLevel = stack.getItem().getHarvestLevel(stack, "shovel", player, state);
+				break;
+			default: toolLevel = stack.getItem().getHarvestLevel(stack, "pickaxe", player, state);
+		}
 		if (stack.getItem().getRegistryName().getResourceDomain().equals(ModInformation.ID)) {
 			toolLevel += 2;
 		}
@@ -129,38 +181,40 @@ public class BlockOre extends Block implements IBlockMeta {
 	@Override
 	public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
 		Random rand = world instanceof World ? ((World)world).rand : new Random();
-		int meta = getMetaFromState(state);
-		if (meta == 0) {
-			return MathHelper.getInt(rand, 0, 2);
-		} else if (meta == 3 || meta == 12) {
-			return MathHelper.getInt(rand, 2, 5);
-		} else if (meta == 8) {
-			return MathHelper.getInt(rand, 1, 3);
+		switch (OreTypes.byMetadata(getMetaFromState(state))) {
+			case LIGNITE: return MathHelper.getInt(rand, 0, 2);
+			case ANTHRACITE: return MathHelper.getInt(rand, 1, 3);
+			case DOLOMITE:
+			case ABYSSAL: return MathHelper.getInt(rand, 2, 5);
+			default: return 0;
 		}
-		return 0;
 	}
 
 	@Override
 	public int quantityDropped(IBlockState state, int fortune, Random random) {
-		int meta = getMetaFromState(state);
-		if (meta == 0 || meta == 3 || meta == 12 || meta == 8) {
-			int i = random.nextInt(fortune + 2) - 1;
-			if (i < 0) {
-				i = 0;
-			}
-			return this.quantityDropped(random) * (i + 1);
-		} else {
-			return this.quantityDropped(random);
+		switch (OreTypes.byMetadata(getMetaFromState(state))) {
+			case LIGNITE:
+			case DOLOMITE:
+			case ANTHRACITE:
+			case ABYSSAL:
+				int i = random.nextInt(fortune + 2) - 1;
+				if (i < 0) {
+					i = 0;
+				}
+				return this.quantityDropped(random) * (i + 1);
+			default: return this.quantityDropped(random);
 		}
 	}
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		int meta = getMetaFromState(state);
-		if (meta == 0 || meta == 3 || meta == 12 || meta == 8) {
-			return Resources.resource;
+		switch (OreTypes.byMetadata(getMetaFromState(state))) {
+			case LIGNITE:
+			case DOLOMITE:
+			case ANTHRACITE:
+			case ABYSSAL: return Resources.resource;
+			default: return super.getItemDropped(state, rand, fortune);
 		}
-		return super.getItemDropped(state, rand, fortune);
 	}
 
 	@Override
@@ -182,7 +236,8 @@ public class BlockOre extends Block implements IBlockMeta {
 		MOLYBDENUM(9, "molybdenum", MapColor.GRAY, 5),
 		BLURIDIUM(10, "bluridium", MapColor.STONE, 6),
 		HYLIASTRUM(11, "hyliastrum", MapColor.STONE, 6),
-		ABYSSAL(12, "abyssal_essence", MapColor.STONE, 6);
+		ABYSSAL(12, "abyssal_essence", MapColor.STONE, 6),
+		ROTTEN_BONES(13, "rotten_bones", MapColor.DIRT, 2);
 
 		private static final OreTypes[] META_LOOKUP = new OreTypes[values().length];
 		private final int meta;

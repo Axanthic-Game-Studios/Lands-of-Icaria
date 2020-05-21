@@ -11,7 +11,6 @@ item.resource.calcite_powder.name=Calcite Powder
 item.resource.loam_lump.name=Lump of Loam
 item.resource.raw_vase.name=Unfired Storage Vase
 item.resource.loam_brick.name=Loam Brick
-item.resource.rotten_bones.name=Rotten Bones
 item.resource.revenant_femur.name=Revenant Femur
 item.resource.aeternae_fur.name=Aeternae Fur
 item.resource.black_dye.name=Black Dye
@@ -222,6 +221,7 @@ material.anthracite.name=Anthracite
 material.jasper.name=Jasper
 material.zircon.name=Raw Zircon
 material.abyssal_essence.name=Abyssal Essence
+material.rotten_bones.name=Rotten Bones
 
 material.plane.name=Plane
 material.populus.name=Populus

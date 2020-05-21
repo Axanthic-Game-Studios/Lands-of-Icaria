@@ -42,7 +42,7 @@ public class ItemResources extends ItemMeta {
 		LOAM_LUMP("loam_lump"),
 		RAW_VASE("raw_vase"),
 		LOAM_BRICK("loam_brick"),
-		ROTTEN_BONES("rotten_bones"),
+		ROTTEN_BONES("rotten_bones", true),
 		REVENANT_FEMUR("revenant_femur"),
 		AETERNAE_FUR("aeternae_fur"),
 		AETERNAE_LEATHER("aeternae_leather", true),
