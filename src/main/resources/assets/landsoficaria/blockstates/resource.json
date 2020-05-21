@@ -23,7 +23,12 @@
 			"loam_brick": { "textures": { "layer0": "landsoficaria:items/soil_loam_brick_item" } },
 			"revenant_femur": { "textures": { "layer0": "landsoficaria:items/loot_revenant_femur" } },
 			"aeternae_fur": { "textures": { "layer0": "landsoficaria:items/loot_aeternae_fur" } },
-			"aeternae_leather": { "textures": { "layer0": "landsoficaria:items/loot_aeternae_tanned_leather" } }
+			"aeternae_leather": { "textures": { "layer0": "landsoficaria:items/loot_aeternae_tanned_leather" } },
+			"slug_mass": { "textures": { "layer0": "landsoficaria:items/loot_slug_mass" } },
+			"black_dye": { "textures": { "layer0": "landsoficaria:items/dye_black" } },
+			"brown_dye": { "textures": { "layer0": "landsoficaria:items/dye_brown" } },
+			"blue_dye": { "textures": { "layer0": "landsoficaria:items/dye_blue" } },
+			"white_dye": { "textures": { "layer0": "landsoficaria:items/dye_white" } }
 		}
 	}
 }

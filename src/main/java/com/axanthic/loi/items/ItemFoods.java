@@ -112,8 +112,6 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 		}
 		
 		public static FoodType byMeta(int meta) {
-			if (meta < 0 || meta >= length) meta = 0;
-			
 			return values[meta];
 		}
 		

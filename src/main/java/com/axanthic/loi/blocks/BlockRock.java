@@ -5,6 +5,7 @@ import java.util.Random;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.items.ItemResources;
 import com.google.common.base.Predicate;
 
 import net.minecraft.block.Block;
@@ -74,7 +75,7 @@ public class BlockRock extends Block implements IBlockMeta {
 	public int damageDropped(final IBlockState state) {
 		final int meta = this.getMetaFromState(state);
 		if ((meta == 1) && this.getUnlocalizedName().equals("tile.rock")) {
-			return 4;
+			return ItemResources.ResourceType.SILKSTONE_POWDER.toMeta();
 		}
 		return meta;
 	}

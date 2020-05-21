@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.items.ItemResources;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -110,7 +111,7 @@ public class BlockSoil extends Block implements IBlockMeta {
 	public int damageDropped(final IBlockState state) {
 		final int meta = this.getMetaFromState(state);
 		if ((meta == 2) && this.getUnlocalizedName().equals("tile.soil")) {
-			return 10;
+			return ItemResources.ResourceType.LOAM_LUMP.toMeta();
 		}
 		return meta;
 	}

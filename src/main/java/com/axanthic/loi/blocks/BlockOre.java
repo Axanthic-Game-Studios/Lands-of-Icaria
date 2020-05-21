@@ -5,6 +5,7 @@ import java.util.Random;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.items.ItemResources;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -73,13 +74,13 @@ public class BlockOre extends Block implements IBlockMeta {
 	public int damageDropped(IBlockState state) {
 		int meta = getMetaFromState(state);
 		if (meta == 0) {
-			return 0;
+			return ItemResources.ResourceType.LIGNITE.toMeta();
 		} else if (meta == 3) {
-			return 1;
+			return ItemResources.ResourceType.DOLOMITE.toMeta();
 		} else if (meta == 8) {
-			return 2;
+			return ItemResources.ResourceType.ANTHRACITE.toMeta();
 		} else if (meta == 12) {
-			return 3;
+			return ItemResources.ResourceType.ABYSSAL_ESSENCE.toMeta();
 		}
 		return meta;
 	}

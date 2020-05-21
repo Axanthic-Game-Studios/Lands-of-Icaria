@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.items.ItemResources;
 import com.axanthic.loi.tileentity.TileEntityColoredLight;
 
 import net.minecraft.block.Block;
@@ -109,13 +110,7 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 
 	@Override
 	public int damageDropped(IBlockState state) {
-		if (unlocalizedName.equals("jasper")) {
-			return 6;
-		} else if (unlocalizedName.equals("zircon")) {
-			return 7;
-		} else {
-			return 5;
-		}
+		return ItemResources.ResourceType.byName(unlocalizedName).toMeta();
 	}
 
 	@Override
