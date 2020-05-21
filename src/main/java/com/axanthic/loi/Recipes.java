@@ -8,6 +8,7 @@ import com.axanthic.loi.Resources.ToolSet;
 import com.axanthic.loi.Resources.WoodSet;
 import com.axanthic.loi.blocks.BlockFlower;
 import com.axanthic.loi.blocks.BlockFlower2;
+import com.axanthic.loi.blocks.BlockOre;
 import com.axanthic.loi.blocks.BlockRock;
 import com.axanthic.loi.blocks.BlockStorageGem;
 import com.axanthic.loi.blocks.BlockStorageMetal;
@@ -452,6 +453,7 @@ public class Recipes {
 		OreDictionary.registerOre("oreBluridium", new ItemStack(Resources.ore, 1, 10));
 		OreDictionary.registerOre("oreHyliastrum", new ItemStack(Resources.ore, 1, 11));
 		OreDictionary.registerOre("oreAbyssalEssence", new ItemStack(Resources.ore, 1, 12));
+		OreDictionary.registerOre("oreRottenBones", new ItemStack(Resources.ore, 1, BlockOre.OreTypes.ROTTEN_BONES.getMeta()));
 
 		OreDictionary.registerOre("ingotChalkos", new ItemStack(Resources.ingot, 1, 0));
 		OreDictionary.registerOre("ingotKassiteros", new ItemStack(Resources.ingot, 1, 1));

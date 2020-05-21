@@ -12,6 +12,8 @@ import java.util.List;
 import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.LOIConfig.CategoryWorldgen.OreSettings;
+import com.axanthic.loi.blocks.BlockOre;
+import com.axanthic.loi.blocks.BlockSoil;
 import com.axanthic.loi.utils.PerlinNoise;
 import com.google.common.base.Predicate;
 
@@ -30,6 +32,7 @@ public class OreGeneratorLOI {
 	private static final LOIOregen hyliastrumGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(11), new RockPredicate(4), LOIConfig.world.hyliastrum);
 	private static final LOIOregen abyssalEssenceGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(12), new RockPredicate(4), LOIConfig.world.abyssalEssence);
 	private static final LOIOregen bluridiumGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(10), new RockPredicate(4), LOIConfig.world.bluridium);
+	private static final LOIOregen rottenBonesGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(BlockOre.OreTypes.ROTTEN_BONES.getMeta()), new MarlPredicate(), LOIConfig.world.rottenBones);
 
 	private static final List<LOIOregen> customGenerators = new ArrayList<LOIOregen>();
 
@@ -68,6 +71,7 @@ public class OreGeneratorLOI {
 		generateOre(bluridiumGenerator, x, z, wx, wz, primer);
 		generateOre(abyssalEssenceGenerator, x, z, wx, wz, primer);
 		generateOre(hyliastrumGenerator, x, z, wx, wz, primer);
+		generateOre(rottenBonesGenerator, x, z, wx, wz, primer);
 		for (LOIOregen generator : customGenerators)
 			generateOre(generator, x, z, wx, wz, primer);
 	}
@@ -96,11 +100,16 @@ public class OreGeneratorLOI {
 			}
 		}
 	}
+	
+	static abstract class CustomPredicate implements Predicate<IBlockState> {
+		public abstract boolean apply(IBlockState state);
+	}
 
-	static class RockPredicate implements Predicate<IBlockState> {
+	static class RockPredicate extends CustomPredicate {
 		int variant;
 
 		private RockPredicate(int variant) {
+			super();
 			this.variant = variant;
 		}
 
@@ -112,22 +121,43 @@ public class OreGeneratorLOI {
 			}
 		}
 	}
+	
+	static class MarlPredicate extends CustomPredicate {
+		private MarlPredicate() {
+			super();
+		}
+
+		public boolean apply(IBlockState state) {
+			if (state != null) {
+				Block block = state.getBlock();
+				if (block == Resources.soil.getBlock()) {
+					int meta = block.getMetaFromState(state);
+					return meta == BlockSoil.SoilTypes.MARL.getMeta()
+							|| meta == BlockSoil.SoilTypes.MARLCOURSE.getMeta();
+				} else if (block == Resources.grass.getBlock()) {
+					return true;
+				}
+			}
+			
+			return false;
+		}
+	}
 
 	public static class LOIOregen {
 
 		public IBlockState ore;
-		public RockPredicate rock;
+		public CustomPredicate rock;
 		public boolean enabled;
 		public Float indexBegin;
 		public Float indexEnd;
 		public Float noiseSize;
 		public int offset;
 
-		public LOIOregen (IBlockState ore, RockPredicate rock, OreSettings settings) {
+		public LOIOregen (IBlockState ore, CustomPredicate rock, OreSettings settings) {
 			this(ore, rock, settings.enabled, settings.indexBegin.floatValue(), settings.indexEnd.floatValue(), settings.noiseSize.floatValue(), settings.offset);
 		}
 
-		public LOIOregen (IBlockState ore, RockPredicate rock, boolean enabled, Float indexBegin, Float indexEnd, Float noiseSize, int offset) {
+		public LOIOregen (IBlockState ore, CustomPredicate rock, boolean enabled, Float indexBegin, Float indexEnd, Float noiseSize, int offset) {
 			this.ore = ore;
 			this.rock = rock;
 			this.enabled = enabled;

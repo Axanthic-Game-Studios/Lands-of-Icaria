@@ -259,6 +259,10 @@ public class BlockOre extends Block implements IBlockMeta {
 
 			return META_LOOKUP[meta];
 		}
+		
+		public int getMeta() {
+			return meta;
+		}
 
 		public String getName() {
 			return this.unlocalizedName;

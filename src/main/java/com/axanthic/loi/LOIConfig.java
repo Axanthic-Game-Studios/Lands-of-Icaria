@@ -81,6 +81,10 @@ public class LOIConfig {
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.bluridium")
 		public OreSettings bluridium = new OreSettings(false, -0.71D, -0.7D, 0.5D, 4000);
+		
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.rottenbones")
+		public OreSettings rottenBones = new OreSettings(true, -0.71D, -0.7D, 0.5D, 0500);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.ore.custom")
