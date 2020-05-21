@@ -1,14 +1,14 @@
 {
     "display": {
         "icon": {
-            "item": "landsoficaria:bromelia",
-            "data": 1
+            "item": "landsoficaria:food",
+            "data": 4
         },
         "title": {
-            "translate": "advancements.loi.bromelia.title"
+            "translate": "advancements.loi.physalis.title"
         },
         "description": {
-            "translate": "advancements.loi.bromelia.description"
+            "translate": "advancements.loi.physalis.description"
         },
         "hidden": true
     },
@@ -19,7 +19,8 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "landsoficaria:bromelia"
+                        "item": "landsoficaria:food",
+            			"data": 4
                     }
                 ]
             }
