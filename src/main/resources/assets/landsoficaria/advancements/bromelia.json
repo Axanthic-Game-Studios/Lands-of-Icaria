@@ -1,14 +1,16 @@
 {
     "display": {
         "icon": {
-            "item": "landsoficaria:pickaxe_laurel"
+            "item": "landsoficaria:bromelia",
+            "data": 1
         },
         "title": {
-            "translate": "advancements.loi.tier_0.title"
+            "translate": "advancements.loi.bromelia.title"
         },
         "description": {
-            "translate": "advancements.loi.tier_0.description"
-        }
+            "translate": "advancements.loi.bromelia.description"
+        },
+        "hidden": true
     },
     "parent": "landsoficaria:root",
     "criteria": {
@@ -17,7 +19,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "landsoficaria:pickaxe_laurel"
+                        "item": "landsoficaria:bromelia"
                     }
                 ]
             }
