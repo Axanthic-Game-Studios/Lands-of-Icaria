@@ -5,11 +5,17 @@ import java.util.Random;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.items.ItemFoods;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 public class BlockStrawberryBush extends BlockCustomBush {
 	private static final AxisAlignedBB BUSH_AABB = new AxisAlignedBB(0.2D, -0.0625D, 0.2D, 0.8D, 0.4D, 0.8D);
@@ -31,6 +37,11 @@ public class BlockStrawberryBush extends BlockCustomBush {
 	@Override
 	public int quantityDropped(IBlockState state, int fortune, Random rand) {
 		return 2 + rand.nextInt(3) + rand.nextInt(fortune + 1);
+	}
+	
+	@Override
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+		return new ItemStack(Resources.bushStrawberry, 1);
 	}
 	
 	@Override
