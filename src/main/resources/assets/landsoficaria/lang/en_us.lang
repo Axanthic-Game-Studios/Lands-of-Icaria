@@ -264,6 +264,7 @@ entity.argan_hound.name=Argan Hound
 entity.revenant_civilian.name=Revenant Civilian
 entity.revenant_soldier.name=Revenant Soldier
 entity.revenant_captain.name=Revenant Captain
+entity.revenant_pyromancer.name=Revenant Pyromancer
 
 message.loot_vase.pickup=Sneak to throw vase
 
