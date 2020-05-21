@@ -6,13 +6,13 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "landsoficaria:resource",
+                    "name": "landsoficaria:food",
 					"entryName": "slug_mass",
                     "weight": 1,
                     "functions": [
                         {
                             "function": "minecraft:set_data",
-                            "data": 16
+                            "data": 11
                         },
                         {
                             "function": "set_count",

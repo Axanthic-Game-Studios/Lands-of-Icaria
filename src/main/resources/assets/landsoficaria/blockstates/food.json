@@ -18,7 +18,8 @@
 			"sow_meat": { "textures": { "layer0": "landsoficaria:items/food_meat_sow_raw" } },
 			"sow_meat_cooked": { "textures": { "layer0": "landsoficaria:items/food_meat_sow_cooked" } },
 			"catoblepas_meat": { "textures": { "layer0": "landsoficaria:items/food_meat_catoblepas_raw" } },
-			"catoblepas_meat_cooked": { "textures": { "layer0": "landsoficaria:items/food_meat_catoblepas_cooked" } }
+			"catoblepas_meat_cooked": { "textures": { "layer0": "landsoficaria:items/food_meat_catoblepas_cooked" } },
+			"slug_mass": { "textures": { "layer0": "landsoficaria:items/loot_slug_mass" } }
 		}
 	}
 }

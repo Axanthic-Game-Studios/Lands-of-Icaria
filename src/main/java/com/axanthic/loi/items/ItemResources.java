@@ -45,7 +45,6 @@ public class ItemResources extends ItemMeta {
 		REVENANT_FEMUR("revenant_femur"),
 		AETERNAE_FUR("aeternae_fur"),
 		AETERNAE_LEATHER("aeternae_leather", true),
-		SLUG_MASS("slug_mass"),
 		BLACK_DYE("black_dye"),
 		BROWN_DYE("brown_dye"),
 		BLUE_DYE("blue_dye"),

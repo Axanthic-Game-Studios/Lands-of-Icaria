@@ -84,7 +84,10 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 				new PotionEffect(MobEffects.HUNGER, 400)),
 		SOW_MEAT_COOKED("sow_meat_cooked", 5, 0.8F),
 		CATOBLEPAS_MEAT("catoblepas_meat", 2, 0.3F),
-		CATOBLEPAS_MEAT_COOKED("catoblepas_meat_cooked", 6, 0.8F);
+		CATOBLEPAS_MEAT_COOKED("catoblepas_meat_cooked", 6, 0.8F),
+		SLUG_MASS("slug_mass", 3, 0.1F, 0.5F,
+				new PotionEffect(MobEffects.HUNGER, 100),
+				new PotionEffect(MobEffects.NAUSEA, 200));
 		
 		public static final FoodType[] values = FoodType.values();
 		public static final int length = values.length;
