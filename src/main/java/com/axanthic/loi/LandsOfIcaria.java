@@ -143,4 +143,31 @@ public class LandsOfIcaria {
 	public void onAttackEntity(AttackEntityEvent event) {
 		LandsOfIcaria.proxy.onAttackEntityEvent(event);
 	}
+
+	/*private static final ResourceLocation motionblur = new ResourceLocation("shaders/post/phosphor.json");
+
+	@SubscribeEvent
+	public void onHUDrender(RenderGameOverlayEvent.Post render) {
+		Minecraft.getMinecraft().addScheduledTask(new Runnable() {
+			@Override
+			public void run() {
+				if (Minecraft.getMinecraft().player != null) {
+					EntityPlayerSP player = Minecraft.getMinecraft().player;
+					if (Minecraft.getMinecraft().entityRenderer.isShaderActive()) {
+						if (TempStorage.instance.getMyScreen()) {
+							Minecraft.getMinecraft().entityRenderer.stopUseShader();
+							TempStorage.instance.setMyScreen(false);
+						}
+					} else if (TempStorage.instance.getFreezeKeyBoard()) {
+						if (TempStorage.instance.getFreezeKeyBoard()) {
+							Minecraft.getMinecraft().entityRenderer.loadShader(motionblur);
+							TempStorage.instance.setMyScreen(true);
+						}
+					}
+				}
+			}
+		});
+
+		//Minecraft.getMinecraft().entityRenderer.loadShader(motionblur);
+	}*/
 }

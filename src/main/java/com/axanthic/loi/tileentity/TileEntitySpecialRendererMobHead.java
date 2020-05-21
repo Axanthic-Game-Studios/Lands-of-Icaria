@@ -1,13 +1,13 @@
 package com.axanthic.loi.tileentity;
 
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.entity.ModelAeternaeHead;
-import com.axanthic.loi.entity.ModelArganHoundHead;
-import com.axanthic.loi.entity.ModelCatoblepasHead;
-import com.axanthic.loi.entity.ModelCerverHead;
-import com.axanthic.loi.entity.ModelHagHead;
-import com.axanthic.loi.entity.ModelMyrmekeHead;
-import com.axanthic.loi.entity.ModelSowHead;
+import com.axanthic.loi.render.ModelAeternaeHead;
+import com.axanthic.loi.render.ModelArganHoundHead;
+import com.axanthic.loi.render.ModelCatoblepasHead;
+import com.axanthic.loi.render.ModelCerverHead;
+import com.axanthic.loi.render.ModelHagHead;
+import com.axanthic.loi.render.ModelMyrmekeHead;
+import com.axanthic.loi.render.ModelSowHead;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelSkeletonHead;

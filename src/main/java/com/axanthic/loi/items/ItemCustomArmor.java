@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.entity.ModelArmorOrichalcum;
+import com.axanthic.loi.render.ModelArmorOrichalcum;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
