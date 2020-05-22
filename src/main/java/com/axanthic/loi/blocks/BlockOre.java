@@ -8,6 +8,7 @@ import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.items.ItemResources;
+import com.axanthic.loi.utils.DropPool;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -89,22 +90,12 @@ public class BlockOre extends Block implements IBlockMeta {
 		switch(OreTypes.byMetadata(getMetaFromState(state))) {
 		
 			case ROTTEN_BONES:
-				ItemStack rottenBonesStack = new ItemStack(Resources.resource, 1 + rand.nextInt(3), ItemResources.ResourceType.ROTTEN_BONES.toMeta());
-				ItemStack boneStack = new ItemStack(Items.BONE, 1);
-				ItemStack boneMealStack = new ItemStack(Items.DYE, 1 + rand.nextInt(3), EnumDyeColor.WHITE.getDyeDamage());
-				ItemStack revenantFemurStack = new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REVENANT_FEMUR.toMeta());
-				for (int i = 0; i < 2; i++) {
-					double roll = rand.nextDouble() * 1.4D;
-					if (roll <= 0.9D) {
-						if (!drops.contains(rottenBonesStack)) drops.add(rottenBonesStack);
-					} else if (roll <= 1.1D) {
-						if (!drops.contains(boneStack)) drops.add(boneStack);
-					} else if (roll <= 1.3D) {
-						if (!drops.contains(boneMealStack)) drops.add(boneMealStack);
-					} else {
-						if (!drops.contains(revenantFemurStack)) drops.add(revenantFemurStack);
-					}
-				}
+				DropPool pool = new DropPool(rand, 2, fortune);
+				pool.addEntry(90, Resources.resource, ItemResources.ResourceType.ROTTEN_BONES.toMeta(), 1, 3);
+				pool.addEntry(20, Items.BONE, 0, 1, 1);
+				pool.addEntry(20, Items.DYE, EnumDyeColor.WHITE.getDyeDamage(), 1, 3);
+				pool.addEntry(10, Resources.resource, ItemResources.ResourceType.REVENANT_FEMUR.toMeta(), 1, 1);
+				pool.getDrops(drops);
 				break;
 		
 			default:
