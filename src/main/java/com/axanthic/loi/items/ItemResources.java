@@ -44,6 +44,7 @@ public class ItemResources extends ItemMeta {
 		LOAM_BRICK("loam_brick"),
 		ROTTEN_BONES("rotten_bones", true),
 		REVENANT_FEMUR("revenant_femur"),
+		REMAINS("remains"),
 		AETERNAE_FUR("aeternae_fur"),
 		AETERNAE_LEATHER("aeternae_leather", true),
 		BLACK_DYE("black_dye"),

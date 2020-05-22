@@ -28,7 +28,8 @@
 			"black_dye": { "textures": { "layer0": "landsoficaria:items/dye_black" } },
 			"brown_dye": { "textures": { "layer0": "landsoficaria:items/dye_brown" } },
 			"blue_dye": { "textures": { "layer0": "landsoficaria:items/dye_blue" } },
-			"white_dye": { "textures": { "layer0": "landsoficaria:items/dye_white" } }
+			"white_dye": { "textures": { "layer0": "landsoficaria:items/dye_white" } },
+			"remains": { "textures": { "layer0": "landsoficaria:items/flora_herb_remains" } }
 		}
 	}
 }
