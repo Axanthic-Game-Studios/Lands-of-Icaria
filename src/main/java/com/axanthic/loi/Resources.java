@@ -32,6 +32,7 @@ import com.axanthic.loi.blocks.BlockForge;
 import com.axanthic.loi.blocks.BlockGem;
 import com.axanthic.loi.blocks.BlockGlassy;
 import com.axanthic.loi.blocks.BlockGrainelStone;
+import com.axanthic.loi.blocks.BlockGreekFire;
 import com.axanthic.loi.blocks.BlockGrinder;
 import com.axanthic.loi.blocks.BlockHerb;
 import com.axanthic.loi.blocks.BlockHorizontalPane;
@@ -262,6 +263,7 @@ public class Resources {
 	public static ItemBlock forge = new ItemBlockForge(new BlockForge());
 	public static ItemBlock kettle = new ItemBlock(new BlockKettle());
 	public static ItemBlock portal = new ItemBlock(new BlockIcariaPortal());
+	public static ItemBlock greekFire = new ItemBlock(new BlockGreekFire());
 	
 	public static Item seedsStrawberry = new ItemCustomSeeds("seed_strawberry", cropStrawberry.getBlock());
 	public static Item seedsPhysalis = new ItemCustomSeeds("seed_physalis", cropPhysalis.getBlock());
@@ -438,6 +440,7 @@ public class Resources {
 		Resources.registerBlock(Resources.forge);
 		Resources.registerBlock(Resources.kettle);
 		Resources.registerBlock(Resources.portal);
+		Resources.registerBlock(Resources.greekFire);
 		BlockIcariaPortal.init();
 
 		FluidRegistry.registerFluid(waterFluid);
