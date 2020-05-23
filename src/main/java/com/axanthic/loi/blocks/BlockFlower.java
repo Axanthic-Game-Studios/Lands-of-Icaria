@@ -33,7 +33,7 @@ public class BlockFlower extends BlockBush implements IBlockMeta {
 	public BlockFlower() {
 		this("");
 	}
-	
+
 	public BlockFlower(String number) {
 		super(Material.PLANTS, MapColor.AIR);
 		this.setCreativeTab(LandsOfIcaria.modTabFlora);
@@ -109,6 +109,13 @@ public class BlockFlower extends BlockBush implements IBlockMeta {
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
 		if (getMetaFromState(state) == 2 || getMetaFromState(state) == 7)
 			entityIn.attackEntityFrom(DamageSource.CACTUS, -1.0F);
+	}
+
+	@Override
+	public net.minecraft.pathfinding.PathNodeType getAiPathNodeType(IBlockState state, IBlockAccess world, BlockPos pos) {
+		if (getMetaFromState(state) == 2 || getMetaFromState(state) == 7)
+			return net.minecraft.pathfinding.PathNodeType.DAMAGE_CACTUS;
+		return null;
 	}
 
 	public enum FlowerTypes implements IStringSerializable {

@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockFlower2 extends BlockFlower implements IBlockMeta {
@@ -55,6 +56,11 @@ public class BlockFlower2 extends BlockFlower implements IBlockMeta {
 	@Override
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
 
+	}
+
+	@Override
+	public net.minecraft.pathfinding.PathNodeType getAiPathNodeType(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return null;
 	}
 
 	public enum FlowerTypes2 implements IStringSerializable {

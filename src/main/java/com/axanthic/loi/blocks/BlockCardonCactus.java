@@ -226,6 +226,11 @@ public class BlockCardonCactus extends BlockBasic implements net.minecraftforge.
 	}
 
 	@Override
+	public net.minecraft.pathfinding.PathNodeType getAiPathNodeType(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return net.minecraft.pathfinding.PathNodeType.DAMAGE_CACTUS;
+	}
+
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(AGE, Integer.valueOf(meta));
 	}
