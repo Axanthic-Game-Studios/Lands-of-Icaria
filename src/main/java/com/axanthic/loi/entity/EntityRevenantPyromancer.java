@@ -3,8 +3,10 @@ package com.axanthic.loi.entity;
 import javax.annotation.Nullable;
 
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.blocks.BlockGreekFire;
 import com.axanthic.loi.items.ItemGrenade;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.ai.EntityAIAttackRangedBow;
@@ -21,9 +23,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -55,6 +60,20 @@ public class EntityRevenantPyromancer extends EntityRevenant implements IRangedA
 	@Nullable
 	protected ResourceLocation getLootTable() {
 		return Resources.LOOT_REVENANT_PYROMANCER;
+	}
+
+	public void onDeath(DamageSource cause) {
+		super.onDeath(cause);
+		if (cause.getImmediateSource() != null && !(cause.getImmediateSource() instanceof EntityPlayer) && cause.getImmediateSource().isBurning()) {
+			Explosion explosion = world.createExplosion(this, posX, posY, posZ, 2.5f, false);
+			BlockPos thisPos = new BlockPos(this);
+
+			for (BlockPos blockpos : BlockPos.getAllInBox(thisPos.add(-3, -3, -3), thisPos.add(3, 3, 3))) {
+				if (world.getBlockState(blockpos).getMaterial() == Material.AIR && (this.world.getBlockState(blockpos.down()).isFullBlock() || BlockGreekFire.canNeighborCatchFire(world, blockpos)) && rand.nextInt(3) == 0) {
+					world.setBlockState(blockpos, Resources.greekFire.getBlock().getDefaultState());
+				}
+			}
+		}
 	}
 
 	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
