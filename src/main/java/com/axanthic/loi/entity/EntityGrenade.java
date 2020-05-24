@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EntityGrenade extends EntityThrowable {
 	
-	public static int radius = 2;
+	public static int radius = 1;
 
 	public EntityGrenade(World worldIn) {
 		super(worldIn);
