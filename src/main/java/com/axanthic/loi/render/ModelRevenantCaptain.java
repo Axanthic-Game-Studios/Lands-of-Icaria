@@ -1,14 +1,8 @@
 package com.axanthic.loi.render;
 
-import com.axanthic.loi.Resources;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 
 public class ModelRevenantCaptain extends ModelRevenantCivilian {
@@ -377,24 +371,7 @@ public class ModelRevenantCaptain extends ModelRevenantCivilian {
 		this.spine.render(scale);
 		this.leg_left.render(scale);
 		this.skirt_front_center.render(scale);
-
-		GlStateManager.translate(this.arm_right.rotationPointX/16.0D, this.arm_right.rotationPointY/16.0D, this.arm_right.rotationPointZ/16.0D);
-		GlStateManager.rotate(this.arm_right.rotateAngleX * (180F / (float)Math.PI), 1.0F, 0.0F, 0.0F);
-		GlStateManager.rotate(this.arm_right.rotateAngleY * (180F / (float)Math.PI), 0.0F, 1.0F, 0.0F);
-		GlStateManager.rotate(this.arm_right.rotateAngleZ * (180F / (float)Math.PI), 0.0F, 0.0F, 1.0F);
-		GlStateManager.translate(this.arm_right.offsetX/16.0D, this.arm_right.offsetY/16.0D, this.arm_right.offsetZ/16.0D);
-
-		GlStateManager.translate(this.arm_right_lower.rotationPointX/16.0D, this.arm_right_lower.rotationPointY/16.0D, this.arm_right_lower.rotationPointZ/16.0D);
-		GlStateManager.rotate(this.arm_right_lower.rotateAngleX * (180F / (float)Math.PI), 1.0F, 0.0F, 0.0F);
-		GlStateManager.rotate(this.arm_right_lower.rotateAngleY * (180F / (float)Math.PI), 0.0F, 1.0F, 0.0F);
-		GlStateManager.rotate(this.arm_right_lower.rotateAngleZ * (180F / (float)Math.PI), 0.0F, 0.0F, 1.0F);
-		GlStateManager.translate(this.arm_right_lower.offsetX/16.0D, this.arm_right_lower.offsetY/16.0D, this.arm_right_lower.offsetZ/16.0D);
-
-		GlStateManager.rotate(-90.0F, 1.0F, 0.0F, 0.0F);
-		GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
-		GlStateManager.translate(0.05F, 0.02F, -0.4F);
-
-		Minecraft.getMinecraft().getItemRenderer().renderItem((EntityLivingBase) entityIn, new ItemStack(Resources.orichalcum.sword), TransformType.THIRD_PERSON_RIGHT_HAND);
+		this.renderHeldItems(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		GlStateManager.popMatrix();
 	}
 }

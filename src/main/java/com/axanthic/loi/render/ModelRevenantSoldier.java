@@ -333,6 +333,7 @@ public class ModelRevenantSoldier extends ModelRevenantCivilian {
 		this.spine.render(scale);
 		this.leg_left.render(scale);
 		this.skirt_center.render(scale);
+		this.renderHeldItems(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		GlStateManager.popMatrix();
 	}
 }

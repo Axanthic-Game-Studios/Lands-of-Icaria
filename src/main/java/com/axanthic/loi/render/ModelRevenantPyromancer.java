@@ -241,6 +241,7 @@ public class ModelRevenantPyromancer extends ModelRevenantCivilian {
 		this.arm_right.render(scale);
 		this.spine.render(scale);
 		this.arm_left.render(scale);
+		this.renderHeldItems(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		GlStateManager.popMatrix();
 	}
 }

@@ -36,7 +36,7 @@ public class EntityGrenade extends EntityThrowable {
 		BlockPos thisPos = new BlockPos(this);
 
 		for (BlockPos blockpos : BlockPos.getAllInBox(thisPos.add(-radius, -radius, -radius), thisPos.add(radius, radius, radius))) {
-			if (world.getBlockState(blockpos).getMaterial() == Material.AIR && BlockGreekFire.canNeighborCatchFire(world, blockpos) && rand.nextInt(3) == 0) {
+			if (world.getBlockState(blockpos).getMaterial() == Material.AIR && (this.world.getBlockState(blockpos.down()).isFullBlock() || BlockGreekFire.canNeighborCatchFire(world, blockpos)) && rand.nextInt(3) == 0) {
 				world.setBlockState(blockpos, Resources.greekFire.getBlock().getDefaultState());
 			}
 		}
