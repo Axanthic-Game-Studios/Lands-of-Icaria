@@ -36,6 +36,7 @@ import com.axanthic.loi.entity.EntityForestHagLaurel;
 import com.axanthic.loi.entity.EntityForestHagOlive;
 import com.axanthic.loi.entity.EntityForestHagPlane;
 import com.axanthic.loi.entity.EntityForestHagPopulus;
+import com.axanthic.loi.entity.EntityGrenade;
 import com.axanthic.loi.entity.EntityJellyfish;
 import com.axanthic.loi.entity.EntityLight;
 import com.axanthic.loi.entity.EntityMyrmeke;
@@ -64,6 +65,7 @@ import com.axanthic.loi.render.RenderForestHagLaurel;
 import com.axanthic.loi.render.RenderForestHagOlive;
 import com.axanthic.loi.render.RenderForestHagPlane;
 import com.axanthic.loi.render.RenderForestHagPopulus;
+import com.axanthic.loi.render.RenderGrenade;
 import com.axanthic.loi.render.RenderJellyfish;
 import com.axanthic.loi.render.RenderLight;
 import com.axanthic.loi.render.RenderMyrmeke;
@@ -138,6 +140,7 @@ public class ClientProxy extends CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBident.class, RenderBident::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, RenderGrenade::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFallingVase.class, RenderFallingBlock::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityAeternae.class, RenderAeternae::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCatoblepas.class, RenderCatoblepas::new);

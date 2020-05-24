@@ -21,6 +21,7 @@ import com.axanthic.loi.entity.EntityForestHagLaurel;
 import com.axanthic.loi.entity.EntityForestHagOlive;
 import com.axanthic.loi.entity.EntityForestHagPlane;
 import com.axanthic.loi.entity.EntityForestHagPopulus;
+import com.axanthic.loi.entity.EntityGrenade;
 import com.axanthic.loi.entity.EntityJellyfish;
 import com.axanthic.loi.entity.EntityLight;
 import com.axanthic.loi.entity.EntityMyrmeke;
@@ -96,6 +97,7 @@ public class CommonProxy {
 		Resources.registerBlocks();
 		Resources.registerItems();
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "bident", 0, ModInformation.ID, 64, 20, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "greek_fire_grenade"), EntityGrenade.class, "greek_fire_grenade", 2, ModInformation.ID, 64, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "falling_vase"), EntityFallingVase.class, "falling_vase", 1, ModInformation.ID, 160, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "aeternae"), EntityAeternae.class, "aeternae", 30, ModInformation.ID, 80, 3, true, 0xE27E1E, 0xF9BC0B);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "catoblepas"), EntityCatoblepas.class, "catoblepas", 31, ModInformation.ID, 80, 3, true, 0x615238, 0xDACCB7);

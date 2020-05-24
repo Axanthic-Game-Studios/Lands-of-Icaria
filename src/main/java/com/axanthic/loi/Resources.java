@@ -86,6 +86,7 @@ import com.axanthic.loi.items.ItemCustomArmor;
 import com.axanthic.loi.items.ItemCustomSeeds;
 import com.axanthic.loi.items.ItemDimensionTeleporter;
 import com.axanthic.loi.items.ItemFoods;
+import com.axanthic.loi.items.ItemGrenade;
 import com.axanthic.loi.items.ItemLaurelWreath;
 import com.axanthic.loi.items.ItemMeta;
 import com.axanthic.loi.items.ItemMetaMaterial;
@@ -175,6 +176,7 @@ public class Resources {
 	public static Item laurelWreath = new ItemLaurelWreath();
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", BlockStorageMetal.MetalTypes.getNames());
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", BlockStorageMetal.MetalTypes.getNames());
+	public static Item grenade = new ItemGrenade();
 	public static Item healSpell = new ItemSpell("heal", new SpellHeal());
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
@@ -336,6 +338,7 @@ public class Resources {
 		Resources.items.add(Resources.laurelWreath);
 		Resources.items.add(Resources.ingot);
 		Resources.items.add(Resources.nugget);
+		Resources.items.add(Resources.grenade);
 		Resources.items.add(Resources.healSpell);
 
 		Resources.laurelTools.register();
