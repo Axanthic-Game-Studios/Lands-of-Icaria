@@ -51,7 +51,9 @@ import com.axanthic.loi.worldgen.biome.LOIBiomes;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Biomes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -122,8 +124,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_laurel"), EntityForestHagLaurel.class, "forest_hag_laurel", 80, ModInformation.ID, 80, 3, true, 0x523A2A, 0x55661A);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_droughtroot"), EntityForestHagDroughtroot.class, "forest_hag_droughtroot", 81, ModInformation.ID, 80, 3, true, 0x524A4B, 0x879117);
 
-		//EntityRegistry.addSpawn(EntityAeternae.class, 6, 1, 5, EnumCreatureType.CREATURE, Biomes.PLAINS);
-		//EntityRegistry.addSpawn(EntityRevenant.class, 6, 1, 5, EnumCreatureType.MONSTER, Biomes.PLAINS);
+		EntityRegistry.addSpawn(EntityRevenantPyromancer.class, 6, 1, 5, EnumCreatureType.MONSTER, Biomes.HELL);
 
 		GameRegistry.registerTileEntity(TileEntityVase.class, new ResourceLocation(ModInformation.ID, "storage_vase"));
 		GameRegistry.registerTileEntity(TileEntityKiln.class, new ResourceLocation(ModInformation.ID, "crafting_kiln"));

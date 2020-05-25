@@ -65,7 +65,7 @@ public class EntityRevenantPyromancer extends EntityRevenant implements IRangedA
 	public void onDeath(DamageSource cause) {
 		super.onDeath(cause);
 		if (cause.getImmediateSource() != null && !(cause.getImmediateSource() instanceof EntityPlayer) && cause.getImmediateSource().isBurning()) {
-			Explosion explosion = world.createExplosion(this, posX, posY, posZ, 2.5f, false);
+			Explosion explosion = world.createExplosion(this, posX, posY, posZ, 2.5f, true);
 			BlockPos thisPos = new BlockPos(this);
 
 			for (BlockPos blockpos : BlockPos.getAllInBox(thisPos.add(-3, -3, -3), thisPos.add(3, 3, 3))) {
