@@ -39,6 +39,11 @@ import java.util.Random;
 
 public class BlockIcariaPortal extends BlockBreakable {
 
+	//actual max width is double this plus 1
+	public static int maxWidth = 20;
+	public static int maxHeight = 40;
+	public static int minHeight = 3;
+
 	public static final PropertyEnum<EnumFacing.Axis> AXIS = BlockPortal.AXIS;
 	public static final AxisAlignedBB X_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D);
 	public static final AxisAlignedBB Z_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D);
@@ -152,6 +157,86 @@ public class BlockIcariaPortal extends BlockBreakable {
 		if (leftState == state && validPillarTops.contains(rightState) && validTopSlabs.contains(upState) && downState == state)
 			return true;
 		return false;
+	}
+
+	public static boolean tryMakePortal(World world, BlockPos pos) {
+		BlockPos[] basePillars = new BlockPos[4];
+
+		//find ground
+		if (!world.isSideSolid(pos.down(), EnumFacing.UP)) {
+			for (int i = 1; i < maxHeight; ++i) {
+				pos = pos.down();
+				if (world.isSideSolid(pos.down(), EnumFacing.UP))
+					break;
+			}
+		}
+		if (world.getBlockState(pos).getMaterial() == Material.AIR && world.isSideSolid(pos.down(), EnumFacing.UP)) {
+			//find pillar bases
+			for (EnumFacing dir : EnumFacing.HORIZONTALS) {
+				for (int i = 1; i < maxWidth; ++i) {
+					if (!(world.getBlockState(pos.offset(dir, i)).getMaterial() == Material.AIR && world.isSideSolid(pos.offset(dir, i).down(), EnumFacing.UP))) {
+						if (validPillars.contains(world.getBlockState(pos.offset(dir, i)))) {
+							basePillars[dir.getHorizontalIndex()] = pos.offset(dir, i);
+						}
+						break;
+					}
+				}
+			}
+			if (basePillars[EnumFacing.NORTH.getHorizontalIndex()] != null && basePillars[EnumFacing.SOUTH.getHorizontalIndex()] != null) {
+				int heightNorth = getPillarHeight(world, basePillars[EnumFacing.NORTH.getHorizontalIndex()], EnumFacing.NORTH);
+				int heightSouth = getPillarHeight(world, basePillars[EnumFacing.SOUTH.getHorizontalIndex()], EnumFacing.SOUTH);
+				if (heightNorth >= minHeight - 1 && heightSouth == heightNorth) {
+					boolean isObstructed = false;
+					for (BlockPos currentPos : BlockPos.getAllInBox(basePillars[EnumFacing.NORTH.getHorizontalIndex()].south(), basePillars[EnumFacing.SOUTH.getHorizontalIndex()].north().up(heightSouth))) {
+						if (!world.isAirBlock(currentPos)) {
+							isObstructed = true;
+							break;
+						}
+					}
+					if (!isObstructed) {
+						for (BlockPos currentPos : BlockPos.getAllInBox(basePillars[EnumFacing.NORTH.getHorizontalIndex()].south(), basePillars[EnumFacing.SOUTH.getHorizontalIndex()].north().up(heightSouth))) {
+							world.setBlockState(currentPos, Resources.portal.getBlock().getDefaultState().withProperty(AXIS, EnumFacing.Axis.Z), 2);
+						}
+						return true;
+					}
+				}
+			}
+			if (basePillars[EnumFacing.WEST.getHorizontalIndex()] != null && basePillars[EnumFacing.EAST.getHorizontalIndex()] != null) {
+				int heightWest = getPillarHeight(world, basePillars[EnumFacing.WEST.getHorizontalIndex()], EnumFacing.WEST);
+				int heightEast = getPillarHeight(world, basePillars[EnumFacing.EAST.getHorizontalIndex()], EnumFacing.EAST);
+				if (heightWest >= minHeight - 1 && heightEast == heightWest) {
+					boolean isObstructed = false;
+					for (BlockPos currentPos : BlockPos.getAllInBox(basePillars[EnumFacing.WEST.getHorizontalIndex()].east(), basePillars[EnumFacing.EAST.getHorizontalIndex()].west().up(heightEast))) {
+						if (!world.isAirBlock(currentPos)) {
+							isObstructed = true;
+							break;
+						}
+					}
+					if (!isObstructed) {
+						for (BlockPos currentPos : BlockPos.getAllInBox(basePillars[EnumFacing.WEST.getHorizontalIndex()].east(), basePillars[EnumFacing.EAST.getHorizontalIndex()].west().up(heightEast))) {
+							world.setBlockState(currentPos, Resources.portal.getBlock().getDefaultState().withProperty(AXIS, EnumFacing.Axis.X), 2);
+						}
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	public static int getPillarHeight(World world, BlockPos pillarPos, EnumFacing face) {
+		for (int i = 1; i < maxHeight; ++i) {
+			if (!validPillars.contains(world.getBlockState(pillarPos.up(i)))) {
+				if (validPillarTops.contains(world.getBlockState(pillarPos.up(i))) &&
+						validTopSlabs.contains(world.getBlockState(pillarPos.up(i + 1))) &&
+						validTopSlabs.contains(world.getBlockState(pillarPos.up(i + 1).offset(face.getOpposite()))) &&
+						validSideSlabs.contains(world.getBlockState(pillarPos.up(i).offset(face)))) {
+					return i;
+				}
+				return 0;
+			}
+		}
+		return 0;
 	}
 
 	public static EnumFacing.Axis otherAxis(EnumFacing.Axis axis) {

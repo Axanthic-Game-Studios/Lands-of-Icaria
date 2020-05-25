@@ -2,6 +2,7 @@ package com.axanthic.loi.entity;
 
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.blocks.BlockGreekFire;
+import com.axanthic.loi.blocks.BlockIcariaPortal;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,7 +13,7 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 public class EntityGrenade extends EntityThrowable {
-	
+
 	public static int radius = 1;
 
 	public EntityGrenade(World worldIn) {
@@ -31,9 +32,13 @@ public class EntityGrenade extends EntityThrowable {
 		if (this.world.isRemote || (result.entityHit != null && result.entityHit.equals(thrower)))
 			return;
 
-		Explosion explosion = world.createExplosion(thrower, posX, posY, posZ, 1.0f, false);
-		
 		BlockPos thisPos = new BlockPos(this);
+		if (BlockIcariaPortal.tryMakePortal(world, thisPos)) {
+			this.setDead();
+			return;
+		}
+
+		Explosion explosion = world.createExplosion(thrower, posX, posY, posZ, 1.0f, false);
 
 		for (BlockPos blockpos : BlockPos.getAllInBox(thisPos.add(-radius, -radius, -radius), thisPos.add(radius, radius, radius))) {
 			if (world.getBlockState(blockpos).getMaterial() == Material.AIR && (this.world.getBlockState(blockpos.down()).isFullBlock() || BlockGreekFire.canNeighborCatchFire(world, blockpos)) && rand.nextInt(3) == 0) {
