@@ -27,6 +27,7 @@ import com.axanthic.loi.entity.EntityLight;
 import com.axanthic.loi.entity.EntityMyrmeke;
 import com.axanthic.loi.entity.EntityRevenantCaptain;
 import com.axanthic.loi.entity.EntityRevenantCivilian;
+import com.axanthic.loi.entity.EntityRevenantCrawler;
 import com.axanthic.loi.entity.EntityRevenantPyromancer;
 import com.axanthic.loi.entity.EntityRevenantSoldier;
 import com.axanthic.loi.entity.EntitySnull;
@@ -116,6 +117,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_soldier"), EntityRevenantSoldier.class, "revenant_soldier", 68, ModInformation.ID, 80, 3, true, 0x836A6A, 0x868686);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_captain"), EntityRevenantCaptain.class, "revenant_captain", 69, ModInformation.ID, 80, 3, true, 0xFFDC39, 0x868686);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_pyromancer"), EntityRevenantPyromancer.class, "revenant_pyromancer", 70, ModInformation.ID, 80, 3, true, 0x7DB544, 0x868686);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_crawler"), EntityRevenantCrawler.class, "revenant_crawler", 71, ModInformation.ID, 80, 3, true, 0x74782F, 0x868686);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_plane"), EntityForestHagPlane.class, "forest_hag_plane", 75, ModInformation.ID, 80, 3, true, 0x7A7B77, 0x8DC270);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_populus"), EntityForestHagPopulus.class, "forest_hag_populus", 76, ModInformation.ID, 80, 3, true, 0xD9D5D4, 0x7ABC96);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_cypress"), EntityForestHagCypress.class, "forest_hag_cypress", 77, ModInformation.ID, 80, 3, true, 0x7C6F66, 0x667715);
@@ -124,7 +126,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_laurel"), EntityForestHagLaurel.class, "forest_hag_laurel", 80, ModInformation.ID, 80, 3, true, 0x523A2A, 0x55661A);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_droughtroot"), EntityForestHagDroughtroot.class, "forest_hag_droughtroot", 81, ModInformation.ID, 80, 3, true, 0x524A4B, 0x879117);
 
-		EntityRegistry.addSpawn(EntityRevenantPyromancer.class, 6, 1, 5, EnumCreatureType.MONSTER, Biomes.HELL);
+		EntityRegistry.addSpawn(EntityRevenantPyromancer.class, 6, 2, 5, EnumCreatureType.MONSTER, Biomes.HELL);
 
 		GameRegistry.registerTileEntity(TileEntityVase.class, new ResourceLocation(ModInformation.ID, "storage_vase"));
 		GameRegistry.registerTileEntity(TileEntityKiln.class, new ResourceLocation(ModInformation.ID, "crafting_kiln"));

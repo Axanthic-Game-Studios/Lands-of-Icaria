@@ -45,10 +45,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityRevenant extends EntityMob {
 	private static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.<Boolean>createKey(EntityRevenant.class, DataSerializers.BOOLEAN);
-	/** The width of the entity */
-	private float revenantWidth = -1.0F;
-	/** The height of the the entity. */
-	private float revenantHeight;
 
 	public EntityRevenant(World worldIn) {
 		super(worldIn);
@@ -74,9 +70,6 @@ public class EntityRevenant extends EntityMob {
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
 	}
 
 	protected void entityInit() {
@@ -224,33 +217,6 @@ public class EntityRevenant extends EntityMob {
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).applyModifier(new AttributeModifier("Random spawn bonus", this.rand.nextDouble() * 0.05000000074505806D, 0));
 
 		return livingdata;
-	}
-
-	/**
-	 * sets the size of the entity to be half of its current size if true.
-	 */
-	public void setChildSize(boolean isChild) {
-		this.multiplySize(isChild ? 0.5F : 1.0F);
-	}
-
-	/**
-	 * Sets the width and height of the entity.
-	 */
-	protected final void setSize(float width, float height) {
-		boolean flag = this.revenantWidth > 0.0F && this.revenantHeight > 0.0F;
-		this.revenantWidth = width;
-		this.revenantHeight = height;
-
-		if (!flag) {
-			this.multiplySize(1.0F);
-		}
-	}
-
-	/**
-	 * Multiplies the height and width by the provided float.
-	 */
-	protected final void multiplySize(float size) {
-		super.setSize(this.revenantWidth * size, this.revenantHeight * size);
 	}
 
 	/**

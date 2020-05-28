@@ -9,6 +9,7 @@ import com.axanthic.loi.items.ItemGrenade;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRangedBow;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -55,6 +56,11 @@ public class EntityRevenantPyromancer extends EntityRevenant implements IRangedA
 	protected void entityInit() {
 		super.entityInit();
 		this.dataManager.register(SWINGING_ARMS, Boolean.valueOf(false));
+	}
+
+	protected void applyEntityAttributes() {
+		super.applyEntityAttributes();
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
 	}
 
 	@Nullable

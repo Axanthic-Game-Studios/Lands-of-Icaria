@@ -42,6 +42,7 @@ import com.axanthic.loi.entity.EntityLight;
 import com.axanthic.loi.entity.EntityMyrmeke;
 import com.axanthic.loi.entity.EntityRevenantCaptain;
 import com.axanthic.loi.entity.EntityRevenantCivilian;
+import com.axanthic.loi.entity.EntityRevenantCrawler;
 import com.axanthic.loi.entity.EntityRevenantPyromancer;
 import com.axanthic.loi.entity.EntityRevenantSoldier;
 import com.axanthic.loi.entity.EntitySnull;
@@ -71,6 +72,7 @@ import com.axanthic.loi.render.RenderLight;
 import com.axanthic.loi.render.RenderMyrmeke;
 import com.axanthic.loi.render.RenderRevenantCaptain;
 import com.axanthic.loi.render.RenderRevenantCivilian;
+import com.axanthic.loi.render.RenderRevenantCrawler;
 import com.axanthic.loi.render.RenderRevenantPyromancer;
 import com.axanthic.loi.render.RenderRevenantSoldier;
 import com.axanthic.loi.render.RenderSnull;
@@ -164,6 +166,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenantSoldier.class, RenderRevenantSoldier::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenantCaptain.class, RenderRevenantCaptain::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenantPyromancer.class, RenderRevenantPyromancer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityRevenantCrawler.class, RenderRevenantCrawler::new);
 
 		emissiveTextures.put("calcite", new String[]{ ModInformation.ID + ":blocks/gem_calcite_model" });
 		emissiveTextures.put("jasper", new String[]{ ModInformation.ID + ":blocks/gem_jasper_model" });

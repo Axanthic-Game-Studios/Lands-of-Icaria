@@ -302,15 +302,15 @@ public class ModelRevenantCivilian extends ModelBase {
 			return;
 
 		GlStateManager.translate(this.arm_right.rotationPointX/16.0D, this.arm_right.rotationPointY/16.0D, this.arm_right.rotationPointZ/16.0D);
-		GlStateManager.rotate(this.arm_right.rotateAngleX * (180F / (float)Math.PI), 1.0F, 0.0F, 0.0F);
-		GlStateManager.rotate(this.arm_right.rotateAngleY * (180F / (float)Math.PI), 0.0F, 1.0F, 0.0F);
 		GlStateManager.rotate(this.arm_right.rotateAngleZ * (180F / (float)Math.PI), 0.0F, 0.0F, 1.0F);
+		GlStateManager.rotate(this.arm_right.rotateAngleY * (180F / (float)Math.PI), 0.0F, 1.0F, 0.0F);
+		GlStateManager.rotate(this.arm_right.rotateAngleX * (180F / (float)Math.PI), 1.0F, 0.0F, 0.0F);
 		GlStateManager.translate(this.arm_right.offsetX/16.0D, this.arm_right.offsetY/16.0D, this.arm_right.offsetZ/16.0D);
 
 		GlStateManager.translate(this.arm_right_lower.rotationPointX/16.0D, this.arm_right_lower.rotationPointY/16.0D, this.arm_right_lower.rotationPointZ/16.0D);
-		GlStateManager.rotate(this.arm_right_lower.rotateAngleX * (180F / (float)Math.PI), 1.0F, 0.0F, 0.0F);
-		GlStateManager.rotate(this.arm_right_lower.rotateAngleY * (180F / (float)Math.PI), 0.0F, 1.0F, 0.0F);
 		GlStateManager.rotate(this.arm_right_lower.rotateAngleZ * (180F / (float)Math.PI), 0.0F, 0.0F, 1.0F);
+		GlStateManager.rotate(this.arm_right_lower.rotateAngleY * (180F / (float)Math.PI), 0.0F, 1.0F, 0.0F);
+		GlStateManager.rotate(this.arm_right_lower.rotateAngleX * (180F / (float)Math.PI), 1.0F, 0.0F, 0.0F);
 		GlStateManager.translate(this.arm_right_lower.offsetX/16.0D, this.arm_right_lower.offsetY/16.0D, this.arm_right_lower.offsetZ/16.0D);
 
 		GlStateManager.rotate(-90.0F, 1.0F, 0.0F, 0.0F);
