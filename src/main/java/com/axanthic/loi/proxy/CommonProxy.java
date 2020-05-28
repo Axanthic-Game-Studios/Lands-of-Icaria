@@ -28,6 +28,7 @@ import com.axanthic.loi.entity.EntityMyrmeke;
 import com.axanthic.loi.entity.EntityRevenantCaptain;
 import com.axanthic.loi.entity.EntityRevenantCivilian;
 import com.axanthic.loi.entity.EntityRevenantCrawler;
+import com.axanthic.loi.entity.EntityRevenantOvergrown;
 import com.axanthic.loi.entity.EntityRevenantPyromancer;
 import com.axanthic.loi.entity.EntityRevenantSoldier;
 import com.axanthic.loi.entity.EntitySnull;
@@ -118,6 +119,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_captain"), EntityRevenantCaptain.class, "revenant_captain", 69, ModInformation.ID, 80, 3, true, 0xFFDC39, 0x868686);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_pyromancer"), EntityRevenantPyromancer.class, "revenant_pyromancer", 70, ModInformation.ID, 80, 3, true, 0x7DB544, 0x868686);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_crawler"), EntityRevenantCrawler.class, "revenant_crawler", 71, ModInformation.ID, 80, 3, true, 0x74782F, 0x868686);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_overgrown"), EntityRevenantOvergrown.class, "revenant_overgrown", 72, ModInformation.ID, 80, 3, true, 0x67731B, 0x868686);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_plane"), EntityForestHagPlane.class, "forest_hag_plane", 75, ModInformation.ID, 80, 3, true, 0x7A7B77, 0x8DC270);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_populus"), EntityForestHagPopulus.class, "forest_hag_populus", 76, ModInformation.ID, 80, 3, true, 0xD9D5D4, 0x7ABC96);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_cypress"), EntityForestHagCypress.class, "forest_hag_cypress", 77, ModInformation.ID, 80, 3, true, 0x7C6F66, 0x667715);

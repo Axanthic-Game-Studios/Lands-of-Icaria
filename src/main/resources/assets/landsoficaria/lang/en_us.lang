@@ -270,6 +270,7 @@ entity.revenant_soldier.name=Revenant Soldier
 entity.revenant_captain.name=Revenant Captain
 entity.revenant_pyromancer.name=Revenant Pyromancer
 entity.revenant_crawler.name=Revenant Crawler
+entity.revenant_overgrown.name=Overgrown Revenant
 
 message.loot_vase.pickup=Sneak to throw vase
 
