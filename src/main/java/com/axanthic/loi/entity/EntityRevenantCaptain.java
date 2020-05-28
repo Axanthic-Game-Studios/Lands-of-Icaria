@@ -21,7 +21,11 @@ public class EntityRevenantCaptain extends EntityRevenant {
 	}
 
 	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
-		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Resources.orichalcum.sword));
+		if (this.rand.nextInt(6) == 0) {
+			this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Resources.orichalcum.bident));
+		} else {
+			this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Resources.orichalcum.sword));
+		}
 		this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Resources.orichalcumArmor.helmet));
 		this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Resources.orichalcumArmor.chestplate));
 	}
