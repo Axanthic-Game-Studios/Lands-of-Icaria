@@ -31,6 +31,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -49,7 +50,7 @@ public class BlockOre extends Block implements IBlockMeta {
 		this.setRegistryName(ModInformation.ID, "ore");
 		this.setDefaultState(getStateFromMeta(0));
 	}
-	
+
 	@Override
 	public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
 		switch (OreTypes.byMetadata(getMetaFromState(state))) {
@@ -82,7 +83,12 @@ public class BlockOre extends Block implements IBlockMeta {
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[]{TYPES});
 	}
-	
+
+	@Override
+	public boolean canDropFromExplosion(Explosion explosionIn) {
+		return false;
+	}
+
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 		Random rand = world instanceof World ? ((World)world).rand : RANDOM;
