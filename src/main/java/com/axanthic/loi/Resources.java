@@ -145,6 +145,7 @@ public class Resources {
 	public static final ResourceLocation LOOT_JELLYFISH = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/jellyfish"));
 	public static final ResourceLocation LOOT_REVENANT = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/revenant"));
 	public static final ResourceLocation LOOT_REVENANT_PYROMANCER = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/revenant_pyromancer"));
+	public static final ResourceLocation LOOT_REVENANT_OVERGROWN = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/revenant_overgrown"));
 	public static final ResourceLocation LOOT_ARACHNE_DRONE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/arachne_drone"));
 	public static final ResourceLocation LOOT_ARACHNE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/arachne"));
 	public static final ResourceLocation LOOT_MYRMEKE = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/myrmeke"));

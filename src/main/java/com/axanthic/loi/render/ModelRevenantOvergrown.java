@@ -193,7 +193,7 @@ public class ModelRevenantOvergrown extends ModelRevenantCivilian {
 		this.arm_right.setRotationPoint(-6.0F, -2.0F, -2.5F);
 		this.arm_right.addBox(-1.8F, 0.0F, -0.5F, 2, 7, 2, 0.0F);
 		this.setRotateAngle(arm_right, -0.08726646259971647F, 0.0F, 0.12391837689159739F);
-		this.spine = new ModelRenderer(this, 30, 0);
+		this.spine = new ModelRenderer(this, 30, 10);
 		this.spine.setRotationPoint(0.0F, -4.2F, -3.0F);
 		this.spine.addBox(-1.0F, -2.0F, 0.4F, 2, 10, 2, 0.0F);
 		this.setRotateAngle(spine, 0.27314402793711257F, 0.0F, 0.0F);
