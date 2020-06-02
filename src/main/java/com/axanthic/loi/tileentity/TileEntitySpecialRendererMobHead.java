@@ -47,6 +47,7 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 	private final ModelHagHead forestHagCypressHead = new ModelHagHead(22, 24, 128, 128);
 	private final ModelHagHead forestHagDroughtrootHead = new ModelHagHead(66, 30, 128, 128);
 	private final ModelHagHead forestHagFirHead = new ModelHagHead(58, 49, 128, 128);
+	private final ModelHagHead forestHagOliveHead = new ModelHagHead(104, 0, 128, 128);
 	private final ModelAeternaeHead aeternaeHead = new ModelAeternaeHead();
 	private final ModelCatoblepasHead catoblepasHead = new ModelCatoblepasHead();
 	private final ModelSowHead sowHead = new ModelSowHead();
@@ -109,7 +110,8 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 				wallOffset = 0.0625f;
 			} else if (skullType.equals("foresthag_olive")) {
 				this.bindTexture(FORESTHAG_OLIVE_TEXTURES);
-				modelbase = this.forestHagHead;
+				modelbase = this.forestHagOliveHead;
+				wallOffset = 0.0625f;
 			} else if (skullType.equals("foresthag_laurel")) {
 				this.bindTexture(FORESTHAG_LAUREL_TEXTURES);
 				modelbase = this.forestHagHead;

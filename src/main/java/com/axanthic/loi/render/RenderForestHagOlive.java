@@ -15,7 +15,7 @@ public class RenderForestHagOlive extends RenderLiving<EntityForestHagOlive> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(ModInformation.ID, "textures/entity/mob_foresthag_olive.png");
 
 	public RenderForestHagOlive(RenderManager manager) {
-		super(manager, new ModelForestHag(), 0.7F);
+		super(manager, new ModelForestHagOlive(), 0.7F);
 	}
 
 	protected ResourceLocation getEntityTexture(EntityForestHagOlive entity) {

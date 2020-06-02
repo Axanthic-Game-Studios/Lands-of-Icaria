@@ -1,15 +1,18 @@
-package icaria;
+package com.axanthic.loi.render;
+
+import java.util.Random;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-/**
- * icaria_forest_hag_olive - Shado47
- * Created using Tabula 7.0.0
- */
-public class icaria_forest_hag_olive extends ModelBase {
-    public ModelRenderer leg_right_top;
+@SideOnly(Side.CLIENT)
+public class ModelForestHagOlive extends ModelBase {
+	public ModelRenderer leg_right_top;
     public ModelRenderer leg_left_top;
     public ModelRenderer pelvis;
     public ModelRenderer leg_right_middle;
@@ -34,7 +37,7 @@ public class icaria_forest_hag_olive extends ModelBase {
     public ModelRenderer head;
     public ModelRenderer leaves_sidecut;
 
-    public icaria_forest_hag_olive() {
+    public ModelForestHagOlive() {
         this.textureWidth = 128;
         this.textureHeight = 128;
         this.leg_right_middle = new ModelRenderer(this, 64, 64);
@@ -155,19 +158,79 @@ public class icaria_forest_hag_olive extends ModelBase {
         this.head.addChild(this.leaves_sidecut);
     }
 
-    @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
-        this.leg_left_top.render(f5);
-        this.pelvis.render(f5);
-        this.leg_right_top.render(f5);
-    }
+	@Override
+	public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(0.0F, -MathHelper.cos(limbSwing * 0.6662F * 2.0f + 2.7f) * limbSwingAmount / 8.0f + limbSwingAmount / 15.05f, 0.0F);
+		this.leg_left_top.render(scale);
+        this.pelvis.render(scale);
+        this.leg_right_top.render(scale);
+		GlStateManager.popMatrix();
+	}
 
-    /**
-     * This is a helper function from Tabula to set the rotation of model parts
-     */
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-        modelRenderer.rotateAngleX = x;
-        modelRenderer.rotateAngleY = y;
-        modelRenderer.rotateAngleZ = z;
-    }
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+		modelRenderer.rotateAngleX = x;
+		modelRenderer.rotateAngleY = y;
+		modelRenderer.rotateAngleZ = z;
+	}
+
+	public void wiggleRotateAngle(ModelRenderer modelRenderer, float x, float y, float z, float ageInTicks) {
+		modelRenderer.rotateAngleX = MathHelper.cos(ageInTicks * 0.045F) * 0.015F + x;
+		modelRenderer.rotateAngleY = MathHelper.sin(ageInTicks * 0.034F) * 0.015F + y;
+		modelRenderer.rotateAngleZ = -MathHelper.cos(ageInTicks * 0.04F) * 0.015F + z;
+	}
+
+	float armBend = 1.0f;
+	float elbowBend = 1.0f;
+	float legBend = 1.5f;
+	float kneeBend = 1.3f;
+
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+		Random random = new Random(entityIn.getEntityId());
+		this.head.rotateAngleX = headPitch * 0.017453292F - 0.8726646259971648F;
+		this.head.rotateAngleY = netHeadYaw * 0.017453292F;
+
+		//limbSwing = ageInTicks / 10.0f;
+		//limbSwingAmount = 0.5f;
+		//limbSwing *= 1.1f;
+
+		this.leg_left_top.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * legBend * limbSwingAmount - 0.091106186954104F;
+		this.leg_right_top.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * legBend * limbSwingAmount - 0.091106186954104F;
+
+		this.arm_right.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * armBend * limbSwingAmount - 0.5918411493512771F;
+		this.arm_left.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * armBend * limbSwingAmount - 0.091106186954104F;
+
+		this.arm_right_bottom.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * elbowBend * limbSwingAmount - elbowBend * limbSwingAmount - 0.18203784098300857F;
+		this.arm_left_bottom.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * elbowBend * limbSwingAmount - elbowBend * limbSwingAmount - 0.18203784098300857F;
+
+		this.leg_right_middle.rotateAngleX = MathHelper.sin(limbSwing * 0.6662F + (float)Math.PI) * kneeBend * limbSwingAmount + kneeBend * limbSwingAmount + 0.091106186954104F;
+		this.leg_left_bottom.rotateAngleX = MathHelper.sin(limbSwing * 0.6662F) * kneeBend * limbSwingAmount + kneeBend * limbSwingAmount + 0.091106186954104F;
+
+		this.arm_right.rotateAngleZ = 0.39269908169872414F;
+		this.arm_left.rotateAngleZ = -0.18203784098300857F;
+
+		if (this.swingProgress > 0.0F)  {
+			float f2 = MathHelper.sin(this.swingProgress * (float)Math.PI) * 2.0F;
+			this.arm_left.rotateAngleZ += f2;
+			this.arm_right.rotateAngleX -= f2;
+		}
+
+		this.arm_right.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F;
+		this.arm_left.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F;
+		this.arm_right.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+		this.arm_left.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+
+        this.wiggleRotateAngle(shoulder_right, 0.39269908169872414F, 0.0F, -0.39269908169872414F, ageInTicks);
+        this.wiggleRotateAngle(leaves_left_sleeve, -0.091106186954104F, 0.0F, -0.31869712141416456F, ageInTicks);
+        this.wiggleRotateAngle(pelvis, -0.18203784098300857F, 0.0F, -0.091106186954104F, ageInTicks);
+        this.wiggleRotateAngle(fern, 0.0F, -0.39269908169872414F, 0.0F, ageInTicks);
+        this.wiggleRotateAngle(neck, 0.7853981633974483F, 0.0F, 0.0F, ageInTicks);
+        this.wiggleRotateAngle(hip, -0.18203784098300857F, 0.0F, -0.091106186954104F, ageInTicks);
+        this.wiggleRotateAngle(shoulders, 0.18203784098300857F, 0.0F, 0.091106186954104F, ageInTicks);
+        this.wiggleRotateAngle(chest, 0.18203784098300857F, 0.0F, 0.091106186954104F, ageInTicks);
+        this.wiggleRotateAngle(fern_1, 0.0F, 1.1780972450961724F, 0.0F, ageInTicks);
+        this.wiggleRotateAngle(belly, 0.091106186954104F, 0.0F, 0.091106186954104F, ageInTicks);
+        this.wiggleRotateAngle(leaves_coat, 0.0F, 0.0F, 0.0F, ageInTicks);
+        this.wiggleRotateAngle(leaves_sidecut, 0.0F, 0.0F, 0.18203784098300857F, ageInTicks);
+	}
 }
