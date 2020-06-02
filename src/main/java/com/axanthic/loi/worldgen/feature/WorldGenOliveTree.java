@@ -32,6 +32,7 @@ public class WorldGenOliveTree extends WorldGenLOITree {
 	public boolean generate(World worldIn, Random rand, BlockPos position) {
 		int heightTrunk = rand.nextInt(3) + 2;
 		int heightTotal = heightTrunk + 4;
+		EnumFacing offset = EnumFacing.getHorizontal(rand.nextInt(EnumFacing.HORIZONTALS.length));
 		boolean flag = true;
 		color = rand.nextBoolean();
 
@@ -121,7 +122,7 @@ public class WorldGenOliveTree extends WorldGenLOITree {
 					this.placeLeafAtChance(worldIn, down.up(height).south(2).east(2), 2);
 					this.placeLeafAtChance(worldIn, down.up(height).west(2).south(2), 2);
 
-					BlockPos offPos = down.offset(EnumFacing.getHorizontal(rand.nextInt(EnumFacing.HORIZONTALS.length)));
+					BlockPos offPos = down.offset(offset);
 
 					++height;
 					this.placeLogAt(worldIn, offPos.up(height));

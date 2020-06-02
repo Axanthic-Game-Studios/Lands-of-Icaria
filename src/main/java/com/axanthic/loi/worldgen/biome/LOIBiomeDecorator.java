@@ -165,26 +165,26 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	}
 
 	public boolean generateLakes(World worldIn, Random random, Biome biome, BlockPos pos) {
+		int i1 = random.nextInt(16) + 8;
+		int j1 = random.nextInt(256);
+		int k1 = random.nextInt(16) + 8;
 		if (random.nextInt(lakeChance) == 0) {
-			int i1 = random.nextInt(16) + 8;
-			int j1 = random.nextInt(256);
-			int k1 = random.nextInt(16) + 8;
-			this.lakeGenerator.generate(worldIn, random, pos.add(i1, j1, k1));
+			this.lakeGenerator.generate(worldIn, new Random(random.nextLong()), pos.add(i1, j1, k1));
 		}
+		int l1 = random.nextInt(16) + 8;
+		int m1 = random.nextInt(256);
+		int n1 = random.nextInt(16) + 8;
 		if (random.nextInt(flippedLakeChance) == 0) {
-			int l1 = random.nextInt(16) + 8;
-			int m1 = random.nextInt(256);
-			int n1 = random.nextInt(16) + 8;
-			this.flippedLakeGenerator.generate(worldIn, random, pos.add(l1, m1, n1));
+			this.flippedLakeGenerator.generate(worldIn, new Random(random.nextLong()), pos.add(l1, m1, n1));
 		}
 		return true;
 	}
 
 	public boolean generateRuins(World worldIn, Random random, Biome biome, BlockPos pos) {
+		int i1 = random.nextInt(16) + 8;
+		int j1 = random.nextInt(256);
+		int k1 = random.nextInt(16) + 8;
 		if (random.nextInt(5) == 0) {
-			int i1 = random.nextInt(16) + 8;
-			int j1 = random.nextInt(256);
-			int k1 = random.nextInt(16) + 8;
 			pos = pos.add(i1, j1, k1);
 			while (!worldIn.isBlockFullCube(pos)) {
 				pos = pos.down();
@@ -192,23 +192,21 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					return true;
 			}
 			this.pillarGenerator.generate(worldIn, random, pos);
-		} else if (random.nextInt(15) == 0) {
-			int i1 = random.nextInt(16) + 8;
-			int j1 = random.nextInt(256);
-			int k1 = random.nextInt(16) + 8;
+		}
+		/*if (random.nextInt(15) == 0) {
 			pos = pos.add(i1, j1, k1);
 			while (!worldIn.isBlockFullCube(pos)) {
 				pos = pos.down();
 				if (pos.getY() < 5)
 					return true;
 			}
-			//this.ruinGenerator.generate(worldIn, random, pos);
-		}
+			this.ruinGenerator.generate(worldIn, random, pos);
+		}*/
 		return true;
 	}
 
 	public boolean generateAristone(World worldIn, Random random, Biome biome, BlockPos pos) {
-		int e = random.nextInt(5) + 4;
+		int e = 8;
 
 		for (int a = 0; a < e; ++a) {
 			int g = random.nextInt(14) + 10;
@@ -232,7 +230,10 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				for (int i = 0; i1 >= 0 && i < 3; ++i) {
 					int j = i1 + random.nextInt(4);
 					float f = (float)j * 3 * 0.333F + 0.5F;
+					if (random.nextBoolean() && random.nextBoolean())
+						break;
 
+					random = new Random(random.nextLong());
 					for (BlockPos blockpos : BlockPos.getAllInBox(position.add(-j, 2, -j), position.add(j, random.nextInt(2) + 2, j))) {
 						if (worldIn.isAirBlock(blockpos) || worldIn.getBlockState(blockpos).getBlock().isReplaceable(worldIn, blockpos))
 							if (blockpos.distanceSq(position) <= (double)(f * f) - 2) {
@@ -257,7 +258,8 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 	public boolean generateBoulders(World worldIn, Random random, Biome biome, BlockPos pos) {
 		if (generateBoulders) {
-			int e = random.nextInt(6) - 3;
+			int e = 1;
+			Random newRandom = new Random(random.nextLong());
 
 			for (int a = 0; a < e; ++a) {
 				int g = random.nextInt(14) + 10;
@@ -275,29 +277,29 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					if (position.getY() <= 3)
 						break;
 
-					if (random.nextInt(3) != 0)
+					if (random.nextInt(8) != 0)
 						break label50;
 
 					int baseSize = 1;
 
 					for (int i = 0; baseSize >= 0 && i < 16; ++i) {
-						int j = baseSize + random.nextInt(2);
+						int j = baseSize + newRandom.nextInt(2);
 						float f = (float)j * 3 * 0.333F + 0.5F;
 
 						for (BlockPos blockpos : BlockPos.getAllInBox(position.add(-j, -j, -j), position.add(j, j, j))) {
-							if (blockpos.getY() < positionBase.getY() - 2 || (blockpos.getY() < positionBase.getY() - 1 && !random.nextBoolean()))
+							if (blockpos.getY() < positionBase.getY() - 2 || (blockpos.getY() < positionBase.getY() - 1 && !newRandom.nextBoolean()))
 								continue;
 
 							if (blockpos.distanceSq(position) <= (double)(f * f) - 1) {
 								worldIn.setBlockState(blockpos, Resources.rock.getBlock().getDefaultState(), 4);
-							} else if (blockpos.distanceSq(position) <= (double)(f * f) && random.nextBoolean()) {
+							} else if (blockpos.distanceSq(position) <= (double)(f * f) && newRandom.nextBoolean()) {
 								worldIn.setBlockState(blockpos, Resources.rock.getBlock().getDefaultState(), 4);
 							}
 						}
-						position = position.add(random.nextInt(3) - 1, 0, random.nextInt(3) - 1);
-						if (position.getY() <= positionBase.getY() && random.nextBoolean())
+						position = position.add(newRandom.nextInt(3) - 1, 0, newRandom.nextInt(3) - 1);
+						if (position.getY() <= positionBase.getY() && newRandom.nextBoolean())
 							position = position.up();
-						if (position.getY() >= positionBase.getY() && random.nextBoolean())
+						if (position.getY() >= positionBase.getY() && newRandom.nextBoolean())
 							position = position.down();
 
 						if (positionBase.getDistance(position.getX(), position.getY(), position.getZ()) > 6)
@@ -314,7 +316,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 	public boolean generateSpikes(World worldIn, Random random, Biome biome, BlockPos pos) {
 		if (generateSpikes) {
-			int e = random.nextInt(4) - 2;
+			int e = 1;
 
 			for (int a = 0; a < e; ++a) {
 				int g = random.nextInt(14) + 10;
@@ -326,13 +328,13 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					position = position.down();
 				}
 
-				if (!worldIn.getBlockState(position).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down()).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down(2)).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down(3)).getMaterial().equals(Material.SAND)) {
+				int baseSize = 4;
+				float j = baseSize + random.nextInt(5);
+				EnumFacing direction = EnumFacing.getHorizontal(random.nextInt(EnumFacing.HORIZONTALS.length));
+				if (random.nextInt(4) != 0 || !worldIn.getBlockState(position).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down()).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down(2)).getMaterial().equals(Material.SAND) || !worldIn.getBlockState(position.down(3)).getMaterial().equals(Material.SAND)) {
 					return true;
 				} else {
-					int baseSize = 4;
-					EnumFacing direction = EnumFacing.getHorizontal(random.nextInt(EnumFacing.HORIZONTALS.length));
 					int shiftIndex = 0;
-					float j = baseSize + random.nextInt(5);
 					int height = (int) (j * 2);
 					position = position.down();
 					for (int l = 0; l < height; ++l) {
@@ -483,6 +485,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	}
 
 	public boolean generateCrystals(World worldIn, Random random, Biome biome, BlockPos pos) {
+		Random newRandom = new Random(random.nextLong());
 		for (int j5 = 0; j5 < 40; ++j5) {
 			int l9 = random.nextInt(16) + 8;
 			int k13 = random.nextInt(16) + 8;
@@ -503,15 +506,15 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 							continue;
 
 						if (Resources.rock.getBlock().getMetaFromState(worldIn.getBlockState(blockpos)) == 0)
-							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(random, 0).withProperty(BlockGem.FACING, direction), 2);
+							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(newRandom, 0).withProperty(BlockGem.FACING, direction), 2);
 						else if (Resources.rock.getBlock().getMetaFromState(worldIn.getBlockState(blockpos)) == 1)
-							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(random, 1).withProperty(BlockGem.FACING, direction), 2);
+							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(newRandom, 1).withProperty(BlockGem.FACING, direction), 2);
 						else if (Resources.rock.getBlock().getMetaFromState(worldIn.getBlockState(blockpos)) == 2)
-							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(random, 2).withProperty(BlockGem.FACING, direction), 2);
+							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(newRandom, 2).withProperty(BlockGem.FACING, direction), 2);
 						else if (Resources.rock.getBlock().getMetaFromState(worldIn.getBlockState(blockpos)) == 3)
-							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(random, 3).withProperty(BlockGem.FACING, direction), 2);
+							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(newRandom, 3).withProperty(BlockGem.FACING, direction), 2);
 						else if (Resources.rock.getBlock().getMetaFromState(worldIn.getBlockState(blockpos)) == 4)
-							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(random, 4).withProperty(BlockGem.FACING, direction), 2);
+							worldIn.setBlockState(blockpos.offset(direction), getCrystalForTier(newRandom, 4).withProperty(BlockGem.FACING, direction), 2);
 
 						continue;
 					}

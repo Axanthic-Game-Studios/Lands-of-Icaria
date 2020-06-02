@@ -28,6 +28,7 @@ public class WorldGenLaurelTree extends WorldGenLOITree {
 	public boolean generate(World worldIn, Random rand, BlockPos position) {
 		int heightTrunk = rand.nextInt(3) + 1;
 		int branches = rand.nextInt(2) + 3;
+		rand = new Random(rand.nextLong());
 		int heightTotal = heightTrunk + 4;
 		boolean flag = true;
 

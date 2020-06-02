@@ -51,6 +51,7 @@ public class WorldGenPillars extends WorldGenStructureBase {
 			if (worldIn.isBlockFullCube(pos))
 				return false;
 		}
+		rand = new Random(rand.nextLong());
 		addBlocksToWorldSilently(template, worldIn, position.up(), new BlockRotationProcessor(position.up(), placementsettings), placementsettings, rand, 2);
 		return true;
 	}
