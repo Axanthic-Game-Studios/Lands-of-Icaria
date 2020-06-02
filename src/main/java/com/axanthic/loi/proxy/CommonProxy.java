@@ -31,6 +31,7 @@ import com.axanthic.loi.entity.EntityRevenantCrawler;
 import com.axanthic.loi.entity.EntityRevenantOvergrown;
 import com.axanthic.loi.entity.EntityRevenantPyromancer;
 import com.axanthic.loi.entity.EntityRevenantSoldier;
+import com.axanthic.loi.entity.EntitySiren;
 import com.axanthic.loi.entity.EntitySnull;
 import com.axanthic.loi.entity.EntitySow;
 import com.axanthic.loi.gui.GuiHandlerLOI;
@@ -127,6 +128,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_olive"), EntityForestHagOlive.class, "forest_hag_olive", 79, ModInformation.ID, 80, 3, true, 0x969E8F, 0xAFA731);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_laurel"), EntityForestHagLaurel.class, "forest_hag_laurel", 80, ModInformation.ID, 80, 3, true, 0x523A2A, 0x55661A);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_droughtroot"), EntityForestHagDroughtroot.class, "forest_hag_droughtroot", 81, ModInformation.ID, 80, 3, true, 0x524A4B, 0x879117);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "siren"), EntitySiren.class, "siren", 85, ModInformation.ID, 80, 3, true, 0x5C463B, 0xBB8E85);
 
 		EntityRegistry.addSpawn(EntityRevenantPyromancer.class, 30, 1, 2, EnumCreatureType.MONSTER, Biomes.HELL);
 

@@ -1,18 +1,16 @@
 package com.axanthic.loi.entity;
 
-import java.util.Calendar;
-
 import javax.annotation.Nullable;
 
 import com.axanthic.loi.Resources;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
+import net.minecraft.entity.ai.EntityAIAttackRangedBow;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
@@ -24,34 +22,25 @@ import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityRevenant extends EntityMob {
-	private static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.<Boolean>createKey(EntityRevenant.class, DataSerializers.BOOLEAN);
+public class EntitySiren extends EntityMob implements IRangedAttackMob {
 
-	public EntityRevenant(World worldIn) {
+	public EntitySiren(World worldIn) {
 		super(worldIn);
-		this.setSize(0.7F, 2.25F);
+		this.setSize(0.6F, 1.95F);
 	}
 
 	protected void initEntityAI() {
 		this.tasks.addTask(0, new EntityAISwimming(this));
-		this.tasks.addTask(2, new EntityAIRevenantAttack(this, 1.0D, false));
+		this.tasks.addTask(2, new EntityAISirenAttackRangedScream(this, 1.0D, 10, 15.0F));
 		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
 		this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
 		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -67,32 +56,11 @@ public class EntityRevenant extends EntityMob {
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
 	}
 
-	protected void entityInit() {
-		super.entityInit();
-		this.getDataManager().register(ARMS_RAISED, Boolean.valueOf(false));
-	}
-
-	public void setArmsRaised(boolean armsRaised) {
-		this.getDataManager().set(ARMS_RAISED, Boolean.valueOf(armsRaised));
-	}
-
-	@SideOnly(Side.CLIENT)
-	public boolean isArmsRaised() {
-		return ((Boolean) this.getDataManager().get(ARMS_RAISED)).booleanValue();
-	}
-
-	/**
-	 * Get the experience points the entity currently has.
-	 */
-	protected int getExperiencePoints(EntityPlayer player) {
-		if (this.isChild()) {
-			this.experienceValue = (int) ((float) this.experienceValue * 2.5F);
-		}
-
-		return super.getExperiencePoints(player);
-	}
+	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {}
 
 	/**
 	 * Called when the entity is attacked.
@@ -109,20 +77,6 @@ public class EntityRevenant extends EntityMob {
 		} else {
 			return false;
 		}
-	}
-
-	public boolean attackEntityAsMob(Entity entityIn) {
-		boolean flag = super.attackEntityAsMob(entityIn);
-
-		if (flag) {
-			float f = this.world.getDifficultyForLocation(new BlockPos(this)).getAdditionalDifficulty();
-
-			if (this.getHeldItemMainhand().isEmpty() && this.isBurning() && this.rand.nextFloat() < f * 0.3F) {
-				entityIn.setFire(2 * (int) f);
-			}
-		}
-
-		return flag;
 	}
 
 	protected SoundEvent getAmbientSound() {
@@ -158,17 +112,11 @@ public class EntityRevenant extends EntityMob {
 	}
 
 	public float getEyeHeight() {
-		float f = 1.95F;
-
-		if (this.isChild()) {
-			f = (float) ((double) f - 0.81D);
-		}
-
-		return f;
+		return 1.8F;
 	}
 
 	protected boolean canEquipItem(ItemStack stack) {
-		return stack.getItem() == Items.EGG && this.isChild() && this.isRiding() ? false : super.canEquipItem(stack);
+		return false;
 	}
 
 	/**
@@ -179,31 +127,8 @@ public class EntityRevenant extends EntityMob {
 	@Nullable
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
 		livingdata = super.onInitialSpawn(difficulty, livingdata);
-		float f = difficulty.getClampedAdditionalDifficulty();
-		this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * f);
-
-		this.setEquipmentBasedOnDifficulty(difficulty);
-		this.setEnchantmentBasedOnDifficulty(difficulty);
-
-		if (this.getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty()) {
-			Calendar calendar = this.world.getCurrentDate();
-
-			if (calendar.get(2) + 1 == 10 && calendar.get(5) == 31 && this.rand.nextFloat() < 0.25F) {
-				this.setItemStackToSlot(EntityEquipmentSlot.HEAD,
-						new ItemStack(this.rand.nextFloat() < 0.1F ? Blocks.LIT_PUMPKIN : Blocks.PUMPKIN));
-				this.inventoryArmorDropChances[EntityEquipmentSlot.HEAD.getIndex()] = 0.0F;
-			}
-		}
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).applyModifier(new AttributeModifier("Random spawn bonus", this.rand.nextDouble() * 0.05000000074505806D, 0));
-
 		return livingdata;
-	}
-
-	/**
-	 * Returns the Y Offset of this entity.
-	 */
-	public double getYOffset() {
-		return this.isChild() ? 0.0D : -0.45D;
 	}
 
 	/**
@@ -220,52 +145,21 @@ public class EntityRevenant extends EntityMob {
 		}
 	}
 
-	class GroupData implements IEntityLivingData {
-		public boolean isChild;
+	public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
+		// TODO Auto-generated method stub
 
-		private GroupData(boolean p_i47328_2_) {
-			this.isChild = p_i47328_2_;
-		}
 	}
 
-	static public class EntityAIRevenantAttack extends EntityAIAttackMelee {
-		private final EntityRevenant revenant;
-		private int raiseArmTicks;
+	public void setSwingingArms(boolean swingingArms) {}
 
-		public EntityAIRevenantAttack(EntityRevenant zombieIn, double speedIn, boolean longMemoryIn) {
-			super(zombieIn, speedIn, longMemoryIn);
-			this.revenant = zombieIn;
+	static public class EntityAISirenAttackRangedScream extends EntityAIAttackRangedBow<EntitySiren> {
+
+		public EntityAISirenAttackRangedScream(EntitySiren entity, double moveSpeedAmp, int attackCooldown, float attackDistance) {
+			super(entity, moveSpeedAmp, attackCooldown, attackDistance);
 		}
 
-		/**
-		 * Execute a one shot task or start executing a continuous task
-		 */
-		public void startExecuting() {
-			super.startExecuting();
-			this.raiseArmTicks = 0;
-		}
-
-		/**
-		 * Reset the task's internal state. Called when this task is interrupted by
-		 * another one
-		 */
-		public void resetTask() {
-			super.resetTask();
-			this.revenant.setArmsRaised(false);
-		}
-
-		/**
-		 * Keep ticking a continuous task that has already been started
-		 */
-		public void updateTask() {
-			super.updateTask();
-			++this.raiseArmTicks;
-
-			if (this.raiseArmTicks >= 5 && this.attackTick < 10) {
-				this.revenant.setArmsRaised(true);
-			} else {
-				this.revenant.setArmsRaised(false);
-			}
+		protected boolean isBowInMainhand() {
+			return true;
 		}
 	}
 }
