@@ -1,7 +1,5 @@
 package com.axanthic.loi.render;
 
-import java.util.Random;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -186,7 +184,6 @@ public class ModelForestHagOlive extends ModelBase {
 	float kneeBend = 1.3f;
 
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
-		Random random = new Random(entityIn.getEntityId());
 		this.head.rotateAngleX = headPitch * 0.017453292F - 0.8726646259971648F;
 		this.head.rotateAngleY = netHeadYaw * 0.017453292F;
 

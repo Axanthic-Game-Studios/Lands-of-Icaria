@@ -54,6 +54,7 @@ import com.axanthic.loi.items.IItemMeta;
 import com.axanthic.loi.items.ItemBlockMeta;
 import com.axanthic.loi.items.ItemCustomArmor;
 import com.axanthic.loi.render.BakedModelEmissive;
+import com.axanthic.loi.render.BakedModelScroll;
 import com.axanthic.loi.render.RenderAeternae;
 import com.axanthic.loi.render.RenderArachne;
 import com.axanthic.loi.render.RenderArachneDrone;
@@ -272,6 +273,7 @@ public class ClientProxy extends CommonProxy {
 
 		//register special item renderers here
 		Resources.grinder.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		Resources.healSpell.scroll.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadRevenant.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadArachne.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadArachneDrone.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
@@ -292,12 +294,14 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onModelBake(ModelBakeEvent event) {
-		if (LOIConfig.render.emissiveTextures)
-			for (ModelResourceLocation resource : event.getModelRegistry().getKeys()) {
-				if (resource.getResourceDomain().equals(ModInformation.ID) && emissiveTextures.containsKey(resource.getResourcePath())) {
-					event.getModelRegistry().putObject(resource, new BakedModelEmissive(event.getModelRegistry().getObject(resource), emissiveTextures.get(resource.getResourcePath())));
-				}
+		for (ModelResourceLocation resource : event.getModelRegistry().getKeys()) {
+			if (LOIConfig.render.emissiveTextures && resource.getResourceDomain().equals(ModInformation.ID) && emissiveTextures.containsKey(resource.getResourcePath())) {
+				event.getModelRegistry().putObject(resource, new BakedModelEmissive(event.getModelRegistry().getObject(resource), emissiveTextures.get(resource.getResourcePath())));
 			}
+			if (resource.getResourceDomain().equals(ModInformation.ID) && resource.getResourcePath().contains("spell_scroll")) {
+				event.getModelRegistry().putObject(resource, new BakedModelScroll(event.getModelRegistry().getObject(resource)));
+			}
+		}
 		modelManager = event.getModelManager();
 	}
 

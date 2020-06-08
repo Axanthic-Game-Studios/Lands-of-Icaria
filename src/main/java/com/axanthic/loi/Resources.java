@@ -92,6 +92,7 @@ import com.axanthic.loi.items.ItemMeta;
 import com.axanthic.loi.items.ItemMetaMaterial;
 import com.axanthic.loi.items.ItemRenderAddon;
 import com.axanthic.loi.items.ItemResources;
+import com.axanthic.loi.items.ItemScroll;
 import com.axanthic.loi.items.ItemSharpBone;
 import com.axanthic.loi.items.ItemSpell;
 import com.axanthic.loi.items.ToolAxe;
@@ -102,6 +103,7 @@ import com.axanthic.loi.items.ToolScythe;
 import com.axanthic.loi.items.ToolShovel;
 import com.axanthic.loi.items.ToolSword;
 import com.axanthic.loi.proxy.ClientProxy;
+import com.axanthic.loi.spells.ISpell;
 import com.axanthic.loi.spells.SpellHeal;
 import com.axanthic.loi.utils.CustomTrigger;
 import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
@@ -179,7 +181,6 @@ public class Resources {
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", BlockStorageMetal.MetalTypes.getNames());
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", BlockStorageMetal.MetalTypes.getNames());
 	public static Item grenade = new ItemGrenade();
-	public static Item healSpell = new ItemSpell("heal", new SpellHeal());
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
@@ -268,7 +269,7 @@ public class Resources {
 	public static ItemBlock kettle = new ItemBlock(new BlockKettle());
 	public static ItemBlock portal = new ItemBlock(new BlockIcariaPortal());
 	public static ItemBlock greekFire = new ItemBlock(new BlockGreekFire());
-	
+
 	public static Item seedsStrawberry = new ItemCustomSeeds("seed_strawberry", cropStrawberry.getBlock());
 	public static Item seedsPhysalis = new ItemCustomSeeds("seed_physalis", cropPhysalis.getBlock());
 
@@ -285,6 +286,8 @@ public class Resources {
 	public static ArmorSet kassiterosArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "kassiteros", ModInformation.ID + ":" + "armor_kassiteros", 15, new int[]{2, 3, 5, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 1)));
 	public static ArmorSet orichalcumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "orichalcum", ModInformation.ID + ":" + "armor_orichalcum", 24, new int[]{2, 4, 6, 2}, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 3)));
 	public static ArmorSet vanadiumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "vanadiumsteel", ModInformation.ID + ":" + "armor_vanadiumsteel", 27, new int[]{3, 5, 7, 3}, 11, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.5F).setRepairItem(new ItemStack(Resources.ingot, 1, 6)));
+
+	public static SpellSet healSpell = new SpellSet("heal", new SpellHeal());
 
 	public static final FluidCustom waterFluid = (FluidCustom) new FluidCustom("mediterranean_water", new ResourceLocation(ModInformation.ID,"blocks/fluid_mediterranean_water_still"), new ResourceLocation(ModInformation.ID, "blocks/fluid_mediterranean_water_flow")).setMaterial(Material.WATER).setDensity(1100).setGaseous(false).setViscosity(1000).setTemperature(300).setColor(0xFF51A18B);
 	public static ItemBlock waterFluidBlock;
@@ -341,7 +344,6 @@ public class Resources {
 		Resources.items.add(Resources.ingot);
 		Resources.items.add(Resources.nugget);
 		Resources.items.add(Resources.grenade);
-		Resources.items.add(Resources.healSpell);
 
 		Resources.laurelTools.register();
 		Resources.chalkos.register();
@@ -356,6 +358,7 @@ public class Resources {
 		Resources.kassiterosArmor.register();
 		Resources.orichalcumArmor.register();
 		Resources.vanadiumArmor.register();
+		Resources.healSpell.register();
 	}
 
 	public static void registerBlocks() {
@@ -580,6 +583,26 @@ public class Resources {
 			Resources.items.add(this.chestplate);
 			Resources.items.add(this.leggings);
 			Resources.items.add(this.boots);
+		}
+	}
+
+	public static class SpellSet {
+
+		public String name;
+		public ISpell spell;
+		public ItemSpell spellItem;
+		public ItemScroll scroll;
+
+		public SpellSet(String name, ISpell spell) {
+			this.name = name;
+			this.spell = spell;
+			this.spellItem = new ItemSpell(name, spell);
+			this.scroll = new ItemScroll(name, spell);
+		}
+
+		public void register() {
+			Resources.items.add(this.spellItem);
+			Resources.items.add(this.scroll);
 		}
 	}
 

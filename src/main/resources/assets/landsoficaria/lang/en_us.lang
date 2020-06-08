@@ -53,6 +53,8 @@ item.generic.helmet.name=%s Helmet
 item.generic.chestplate.name=%s Chestplate
 item.generic.legs.name=%s Leggings
 item.generic.boots.name=%s Boots
+item.generic.spell.name=%s
+item.generic.scroll.name=%s Scroll
 
 tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Bricks
@@ -233,6 +235,8 @@ material.fir.name=Fir
 material.olive.name=Olive
 material.laurel.name=Laurel
 material.droughtroot.name=Droughtroot
+
+spell.heal.name=Healing
 
 container.vase=Storage Vase
 container.kiln=Kiln

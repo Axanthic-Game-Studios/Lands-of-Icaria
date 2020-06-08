@@ -1,24 +1,21 @@
 package com.axanthic.loi.items;
 
 import com.axanthic.loi.spells.ISpell;
+import com.axanthic.loi.utils.KettleRecipe;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.translation.I18n;
-import net.minecraft.world.World;
 
-public class ItemSpell extends ItemBasic {
+public class ItemScroll extends ItemBasic {
 
 	public String name;
 	public ISpell spell;
 
-	public ItemSpell(String name, ISpell spell) {
-		super("spell_" + name);
+	public ItemScroll(String name, ISpell spell) {
+		super("spell_scroll_" + name);
 		this.name = name;
 		this.spell = spell;
-		this.setUnlocalizedName("generic.spell");
+		this.setUnlocalizedName("generic.scroll");
 	}
 
 	@Override
@@ -30,8 +27,15 @@ public class ItemSpell extends ItemBasic {
 		}
 	}
 
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-		return spell.castSpell(worldIn, playerIn, handIn);
+	public KettleRecipe getRecipe() {
+		return spell.getRecipe();
+	}
+
+	public ISpell getSpell() {
+		return spell;
+	}
+
+	public String getName() {
+		return name;
 	}
 }
