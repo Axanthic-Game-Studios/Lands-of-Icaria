@@ -92,11 +92,13 @@ public class BlockKettle extends Block implements ITileEntityProvider {
 			return true;
 		} else {
 			ItemStack heldItem = playerIn.getHeldItem(hand);
-			boolean didFill = false;
-			if (!heldItem.isEmpty())
-				didFill = FluidUtil.interactWithFluidHandler(playerIn, hand, worldIn, pos, facing);
+			if (!heldItem.isEmpty() && FluidUtil.interactWithFluidHandler(playerIn, hand, worldIn, pos, facing))
+				return true;
 
-			return didFill || ((TileEntityKettle) worldIn.getTileEntity(pos)).craft(playerIn);
+			if (((TileEntityKettle) worldIn.getTileEntity(pos)).getFluidLevel() == 0)
+				return false;
+
+			return ((TileEntityKettle) worldIn.getTileEntity(pos)).addIngredient(playerIn.getHeldItem(hand)) || ((TileEntityKettle) worldIn.getTileEntity(pos)).craft(playerIn);
 		}
 	}
 

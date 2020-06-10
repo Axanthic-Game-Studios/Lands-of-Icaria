@@ -13,13 +13,13 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.server.management.PlayerChunkMap;
 import net.minecraft.server.management.PlayerChunkMapEntry;
 import net.minecraft.util.EntitySelectors;
-import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -32,12 +32,11 @@ import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.capability.TileFluidHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 
-public class TileEntityKettle extends TileFluidHandler implements ITickable {
+public class TileEntityKettle extends TileFluidHandler {
 
 	protected Deque<ItemStack> ingredientStack = new ArrayDeque<ItemStack>();
 	protected KettleRecipe currentRecipe = null;
 	protected boolean ingredientEmpty = true;
-	protected int lastUpdate = 0;//only updated server side
 	protected int ingredientStrength = 1000;
 
 	public TileEntityKettle() {
@@ -100,7 +99,7 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 			}
 
 			protected void onContentsChanged() {
-				TileEntityKettle.this.syncToClient(false);
+				TileEntityKettle.this.syncToClient();
 			}
 		};
 		this.tank.setTileEntity(this);
@@ -152,41 +151,33 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 		this.handleUpdateTag(pkt.getNbtCompound());
 	}
 
-	@Override
-	public void update() {
-		if (!this.world.isRemote) {
-			lastUpdate++;
-			for (EntityItem entityItem : getCaptureItems(this.getWorld(), this.getPos())) {
-				ItemStack itemstack = entityItem.getItem().copy();
-
-				ItemStack copystack = itemstack.copy();
-				copystack.setCount(1);
-
-				if (ingredientStack.size() >= 5)
-					ingredientStack.poll();
-				ingredientStack.offer(copystack);
-
-				itemstack.shrink(1);
-
-				if (itemstack.isEmpty()) {
-					entityItem.setDead();
-				} else {
-					entityItem.setItem(itemstack);
-				}
-
-				ingredientStrength = Math.min(1000, ingredientStrength + 300);
-
-				ingredientEmpty = false;
-
-				updateRecipe();
-
-				this.markDirty();
-
-				this.syncToClient(false);
-
+	public boolean addIngredient(ItemStack itemstack) {
+		if (itemstack.isEmpty())
+			return false;
+		boolean matched = false;
+		for (Ingredient ingredient : KettleRecipe.allInputs) {
+			if (ingredient.apply(itemstack)) {
+				matched = true;
 				break;
 			}
 		}
+		if (!matched)
+			return false;
+
+		ItemStack copystack = itemstack.copy();
+		copystack.setCount(1);
+
+		if (ingredientStack.size() >= 5)
+			ingredientStack.poll();
+		ingredientStack.offer(copystack);
+
+		itemstack.shrink(1);
+		ingredientStrength = Math.min(1000, ingredientStrength + 300);
+		ingredientEmpty = false;
+		updateRecipe();
+		this.markDirty();
+		this.syncToClient();
+		return true;
 	}
 
 	@Override
@@ -226,12 +217,12 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 			ingredientStrength = 1000;
 			ingredientEmpty = true;
 
-			this.syncToClient(true);
+			this.syncToClient();
 		}
 
 		this.markDirty();
 
-		this.syncToClient(true);
+		this.syncToClient();
 
 		return true;
 	}
@@ -257,7 +248,7 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 				ingredientStrength = 1000;
 				ingredientEmpty = true;
 
-				this.syncToClient(true);
+				this.syncToClient();
 			}
 		}
 	}
@@ -266,18 +257,17 @@ public class TileEntityKettle extends TileFluidHandler implements ITickable {
 		return this.tank.getFluidAmount();
 	}
 
-	protected void syncToClient(boolean forceUpdate) {
-		if(world instanceof WorldServer && (forceUpdate || lastUpdate > 10)) {
-			lastUpdate = 0;
+	protected void syncToClient() {
+		if(world instanceof WorldServer) {
 			SPacketUpdateTileEntity packet = this.getUpdatePacket();
 			if (packet != null) {
 				PlayerChunkMap chunkMap = ((WorldServer) world).getPlayerChunkMap();
 				int i = this.getPos().getX() >> 4;
-			int j = this.getPos().getZ() >> 4;
-				PlayerChunkMapEntry entry = chunkMap.getEntry(i, j);
-				if(entry != null) {
-					entry.sendPacket(packet);
-				}
+				int j = this.getPos().getZ() >> 4;
+		PlayerChunkMapEntry entry = chunkMap.getEntry(i, j);
+		if(entry != null) {
+			entry.sendPacket(packet);
+		}
 			}
 		}
 	}

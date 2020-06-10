@@ -14,6 +14,7 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 
+	public static NonNullList<Ingredient> allInputs = NonNullList.create();
 	public NonNullList<Ingredient> recipeInputs;
 	public ItemStack recipeOutput;
 	public int color;
@@ -24,6 +25,10 @@ public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 		this.recipeOutput = output;
 		this.color = color;
 		this.recipeInputs = NonNullList.from(Ingredient.EMPTY, inputs);
+		for (Ingredient input : inputs) {
+			if (!allInputs.contains(input))
+				allInputs.add(input);
+		}
 		for (int i = 0; i < recipeInputs.size(); ++i) {
 			this.order.add(i);
 		}
