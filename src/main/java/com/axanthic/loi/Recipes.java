@@ -12,6 +12,7 @@ import com.axanthic.loi.blocks.BlockOre;
 import com.axanthic.loi.blocks.BlockRock;
 import com.axanthic.loi.blocks.BlockStorageGem;
 import com.axanthic.loi.blocks.BlockStorageMetal;
+import com.axanthic.loi.entity.EntitySow;
 import com.axanthic.loi.items.ItemFoods;
 import com.axanthic.loi.items.ItemResources;
 import com.axanthic.loi.proxy.CommonProxy;
@@ -19,6 +20,8 @@ import com.axanthic.loi.utils.ForgeRecipe;
 import com.axanthic.loi.utils.GrinderFuel;
 import com.axanthic.loi.utils.GrinderRecipe;
 import com.axanthic.loi.utils.KettleRecipe;
+import com.axanthic.loi.utils.KettleRecipeExplosion;
+import com.axanthic.loi.utils.KettleRecipeSpawnMob;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -71,6 +74,8 @@ public class Recipes {
 		addGrinderFuel("sliver_block", new ItemStack(Resources.metalBlock, 1, 4), 64800);
 
 		addKettleRecipe("molybdenumsteel", new ItemStack(Resources.ingot, 2, 9), 0xFFFFFF, new OreIngredient("ingotSideros"), new OreIngredient("ingotMolybdenum"), new OreIngredient("gemAnthracite"));
+		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeSpawnMob(new ResourceLocation(ModInformation.ID, "recipe_sow"), EntitySow.class, 0xCE4A4A, new OreIngredient("vine"), new OreIngredient("vine")));
+		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeExplosion(new ResourceLocation(ModInformation.ID, "recipe_explosion"), 0xEE6D11, new OreIngredient("sand"), new OreIngredient("sand"), new OreIngredient("sand")));
 
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath", new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
 
@@ -142,7 +147,7 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 9), new ItemStack(Resources.ingot, 1, 8), 0.9F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 10), new ItemStack(Resources.ingot, 1, 10), 1.0F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 12), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ABYSSAL_ESSENCE.toMeta()), 0.5F);
-		
+
 		addShapelessRecipe(new ItemStack(Resources.seedsStrawberry, 1), "seed_strawberry", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.STRAWBERRY.toMeta()))});
 
 		for (int i = 0; i < BlockFlower.FlowerTypes.getNames().length; i++) {

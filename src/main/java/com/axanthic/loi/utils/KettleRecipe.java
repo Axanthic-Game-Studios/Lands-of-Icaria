@@ -6,10 +6,13 @@ import java.util.Random;
 
 import com.axanthic.loi.ModInformation;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
@@ -19,6 +22,8 @@ public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 	public ItemStack recipeOutput;
 	public int color;
 	public ArrayList<Integer> order = new ArrayList<Integer>();
+
+	public KettleRecipe() {}
 
 	public KettleRecipe(ResourceLocation name, ItemStack output, int color, Ingredient... inputs) {
 		this.setRegistryName(name);
@@ -56,6 +61,8 @@ public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 	public ItemStack getOutput(ItemStack... input) {
 		return this.recipeOutput;
 	}
+
+	public void performRecipe(World worldIn, BlockPos pos, EntityPlayer playerIn) {}
 
 	public int getColor() {
 		return this.color;

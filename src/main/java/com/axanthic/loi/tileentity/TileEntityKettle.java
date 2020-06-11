@@ -38,6 +38,7 @@ public class TileEntityKettle extends TileFluidHandler {
 	protected KettleRecipe currentRecipe = null;
 	protected boolean ingredientEmpty = true;
 	protected int ingredientStrength = 1000;
+	protected int randomColor = 0xFFFFFF;
 
 	public TileEntityKettle() {
 		super();
@@ -115,6 +116,7 @@ public class TileEntityKettle extends TileFluidHandler {
 		ingredientStack.clear();
 		ingredientStack.addAll(inventoryItems);
 		ingredientStrength = compound.getInteger("Ingredient_strength");
+		randomColor = compound.getInteger("Concoction_color");
 		updateRecipe();
 		ingredientEmpty = true;
 		for (ItemStack stack : ingredientStack) {
@@ -126,6 +128,7 @@ public class TileEntityKettle extends TileFluidHandler {
 		super.writeToNBT(compound);
 		ItemStackHelper.saveAllItems(compound, NonNullList.<ItemStack>from(ItemStack.EMPTY, ingredientStack.toArray(new ItemStack[5])));
 		compound.setInteger("Ingredient_strength", ingredientStrength);
+		compound.setInteger("Concoction_color", randomColor);
 
 		return compound;
 	}
@@ -174,6 +177,7 @@ public class TileEntityKettle extends TileFluidHandler {
 		itemstack.shrink(1);
 		ingredientStrength = Math.min(1000, ingredientStrength + 300);
 		ingredientEmpty = false;
+		randomColor = this.world.rand.nextInt(0xFFFFFF + 1);
 		updateRecipe();
 		this.markDirty();
 		this.syncToClient();
@@ -205,6 +209,7 @@ public class TileEntityKettle extends TileFluidHandler {
 			return false;
 
 		ItemHandlerHelper.giveItemToPlayer(player, currentRecipe.getOutput(ingredientStack.toArray(new ItemStack[5])));
+		currentRecipe.performRecipe(world, pos, player);
 
 		this.tank.drainInternal(200, true);
 
@@ -231,7 +236,7 @@ public class TileEntityKettle extends TileFluidHandler {
 		if (currentRecipe == null) {
 			if (ingredientEmpty)
 				return 0x22473A;
-			return 0x443630;
+			return randomColor;
 		}
 		return currentRecipe.getColor();
 	}
