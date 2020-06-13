@@ -206,7 +206,7 @@ public class TileEntityKettle extends TileFluidHandler {
 	}
 
 	public boolean craft(EntityPlayer player, EnumHand hand) {
-		if (currentRecipe == null || this.tank.getFluidAmount() < 200)
+		if (currentRecipe == null || this.tank.getFluidAmount() < currentRecipe.fluidcost)
 			return false;
 
 		if (player.getHeldItem(hand).getItem() == Resources.emptyVial && currentRecipe.getConcoctionOutput(ingredientStack.toArray(new ItemStack[5])) != null) {
@@ -219,7 +219,7 @@ public class TileEntityKettle extends TileFluidHandler {
 			currentRecipe.performRecipe(world, pos, player);
 		}
 
-		this.tank.drainInternal(200, true);
+		this.tank.drainInternal(currentRecipe.fluidcost, true);
 
 		if (this.tank.getFluidAmount() == 0) {
 			ingredientStack.clear();

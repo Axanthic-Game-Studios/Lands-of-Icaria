@@ -79,7 +79,7 @@ public class Recipes {
 
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath", new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
 
-		addRecipe(new ItemStack(Resources.emptyVial), "empty_vial", new Object[]{"G G", " G ", 'G', Resources.grainelGlass});
+		addRecipe(new ItemStack(Resources.emptyVial, 3), "empty_vial", new Object[]{"G G", " G ", 'G', Resources.grainelGlass});
 
 		addRecipe(new ItemStack(Resources.aristonePacked), "packed_aristone", new Object[]{"AAA", "AAA", "AAA", 'A', Resources.aristone});
 

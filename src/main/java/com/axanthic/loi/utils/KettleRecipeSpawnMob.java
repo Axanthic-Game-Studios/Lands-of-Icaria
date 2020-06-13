@@ -18,6 +18,7 @@ public class KettleRecipeSpawnMob extends KettleRecipe {
 
 	public KettleRecipeSpawnMob(ResourceLocation name, Class mob, int color, Ingredient... inputs) {
 		this.setRegistryName(name);
+		this.fluidcost = 1000;
 		this.color = color;
 		this.entitySpawn = mob;
 		this.recipeInputs = NonNullList.from(Ingredient.EMPTY, inputs);

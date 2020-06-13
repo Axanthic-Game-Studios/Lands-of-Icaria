@@ -21,6 +21,7 @@ public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 	public NonNullList<Ingredient> recipeInputs;
 	public ItemStack recipeOutput;
 	public ItemStack concoctionOutput = null;
+	public int fluidcost = 200;
 	public int color;
 	public ArrayList<Integer> order = new ArrayList<Integer>();
 
