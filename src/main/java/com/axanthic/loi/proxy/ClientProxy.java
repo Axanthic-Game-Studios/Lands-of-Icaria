@@ -52,7 +52,10 @@ import com.axanthic.loi.entity.EntitySow;
 import com.axanthic.loi.items.IItemCustomReach;
 import com.axanthic.loi.items.IItemMeta;
 import com.axanthic.loi.items.ItemBlockMeta;
+import com.axanthic.loi.items.ItemConcoctionVial;
 import com.axanthic.loi.items.ItemCustomArmor;
+import com.axanthic.loi.items.ItemScroll;
+import com.axanthic.loi.items.ItemSpell;
 import com.axanthic.loi.render.BakedModelEmissive;
 import com.axanthic.loi.render.BakedModelScroll;
 import com.axanthic.loi.render.RenderAeternae;
@@ -267,6 +270,12 @@ public class ClientProxy extends CommonProxy {
 			} else if (item instanceof ItemTool || item instanceof ItemSword || item instanceof ItemCustomArmor) {
 				String[] path = item.getRegistryName().getResourcePath().split("_");
 				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), "tool_" + path[1]), path[0]));
+			} else if (item instanceof ItemSpell) {
+				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), "spell"), ((ItemSpell) item).getName()));
+			} else if (item instanceof ItemScroll) {
+				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), "spell_scroll"), ((ItemScroll) item).getName()));
+			} else if (item instanceof ItemConcoctionVial) {
+				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), "concoction_vial_filled"), "inventory"));
 			} else
 				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 		}
@@ -337,6 +346,13 @@ public class ClientProxy extends CommonProxy {
 				return tintIndex > 0 ? -1 : ColorizerGrass.getGrassColor(0.5D, 1.0D);
 			}
 		}, Resources.flower, Resources.flower2, Resources.bromelia, Resources.vineBloomy, Resources.vineBranch, Resources.vineBrushy, Resources.vineReedy, Resources.vineSwirly);
+
+		event.getItemColors().registerItemColorHandler(new IItemColor() {
+			@Override
+			public int colorMultiplier(ItemStack stack, int tintIndex) {
+				return tintIndex > 0 ? -1 : ((ItemConcoctionVial) stack.getItem()).getColor();
+			}
+		}, Resources.concoctions.toArray(new Item[Resources.concoctions.size()]));
 	}
 
 	public int reduceGreen(int color) {

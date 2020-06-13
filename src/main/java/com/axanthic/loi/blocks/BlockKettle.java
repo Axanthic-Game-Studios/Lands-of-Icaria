@@ -98,7 +98,7 @@ public class BlockKettle extends Block implements ITileEntityProvider {
 			if (((TileEntityKettle) worldIn.getTileEntity(pos)).getFluidLevel() == 0)
 				return false;
 
-			return ((TileEntityKettle) worldIn.getTileEntity(pos)).addIngredient(playerIn.getHeldItem(hand)) || ((TileEntityKettle) worldIn.getTileEntity(pos)).craft(playerIn);
+			return ((TileEntityKettle) worldIn.getTileEntity(pos)).addIngredient(playerIn.getHeldItem(hand)) || ((TileEntityKettle) worldIn.getTileEntity(pos)).craft(playerIn, hand);
 		}
 	}
 

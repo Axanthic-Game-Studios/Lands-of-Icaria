@@ -1,6 +1,6 @@
 package com.axanthic.loi.items;
 
-import com.axanthic.loi.spells.ISpell;
+import com.axanthic.loi.spells.AbstractSpell;
 import com.axanthic.loi.utils.KettleRecipe;
 
 import net.minecraft.item.ItemStack;
@@ -9,9 +9,9 @@ import net.minecraft.util.text.translation.I18n;
 public class ItemScroll extends ItemBasic {
 
 	public String name;
-	public ISpell spell;
+	public AbstractSpell spell;
 
-	public ItemScroll(String name, ISpell spell) {
+	public ItemScroll(String name, AbstractSpell spell) {
 		super("spell_scroll_" + name);
 		this.name = name;
 		this.spell = spell;
@@ -31,7 +31,7 @@ public class ItemScroll extends ItemBasic {
 		return spell.getRecipe();
 	}
 
-	public ISpell getSpell() {
+	public AbstractSpell getSpell() {
 		return spell;
 	}
 

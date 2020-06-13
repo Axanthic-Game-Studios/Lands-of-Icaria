@@ -20,6 +20,7 @@ public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 	public static NonNullList<Ingredient> allInputs = NonNullList.create();
 	public NonNullList<Ingredient> recipeInputs;
 	public ItemStack recipeOutput;
+	public ItemStack concoctionOutput = null;
 	public int color;
 	public ArrayList<Integer> order = new ArrayList<Integer>();
 
@@ -37,6 +38,11 @@ public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 		for (int i = 0; i < recipeInputs.size(); ++i) {
 			this.order.add(i);
 		}
+	}
+
+	public KettleRecipe(ResourceLocation name, ItemStack output, ItemStack concoction, int color, Ingredient... inputs) {
+		this(name, output, color, inputs);
+		this.concoctionOutput = concoction;
 	}
 
 	public void generateOrder(long seed) {
@@ -60,6 +66,10 @@ public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 
 	public ItemStack getOutput(ItemStack... input) {
 		return this.recipeOutput;
+	}
+
+	public ItemStack getConcoctionOutput(ItemStack... input) {
+		return this.concoctionOutput;
 	}
 
 	public void performRecipe(World worldIn, BlockPos pos, EntityPlayer playerIn) {}

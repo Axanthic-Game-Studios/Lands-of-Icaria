@@ -35,6 +35,7 @@ item.seed_physalis.name=Physalis Seeds
 item.bone_sharp.name=Sharpened Bone
 item.laurel_wreath.name=Laurel Wreath
 item.greek_fire_grenade.name=Greek Fire Grenade
+item.concoction_vial_empty.name=Empty Vial
 item.bident_laurel.name=Laurel Spear
 item.dagger_laurel.name=Laurel Shiv
 item.scythe_laurel.name=Laurel Hoe
@@ -55,6 +56,7 @@ item.generic.legs.name=%s Leggings
 item.generic.boots.name=%s Boots
 item.generic.spell.name=%s
 item.generic.scroll.name=%s Scroll
+item.generic.vial.name=Vial of %s
 
 tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Bricks

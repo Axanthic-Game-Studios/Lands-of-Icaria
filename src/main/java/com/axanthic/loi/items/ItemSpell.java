@@ -1,6 +1,6 @@
 package com.axanthic.loi.items;
 
-import com.axanthic.loi.spells.ISpell;
+import com.axanthic.loi.spells.AbstractSpell;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -12,9 +12,9 @@ import net.minecraft.world.World;
 public class ItemSpell extends ItemBasic {
 
 	public String name;
-	public ISpell spell;
+	public AbstractSpell spell;
 
-	public ItemSpell(String name, ISpell spell) {
+	public ItemSpell(String name, AbstractSpell spell) {
 		super("spell_" + name);
 		this.name = name;
 		this.spell = spell;
@@ -33,5 +33,9 @@ public class ItemSpell extends ItemBasic {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 		return spell.castSpell(worldIn, playerIn, handIn);
+	}
+
+	public String getName() {
+		return name;
 	}
 }

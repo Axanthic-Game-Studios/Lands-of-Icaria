@@ -1,0 +1,12 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "landsoficaria:generated",
+		"textures": {
+			"layer0": "landsoficaria:items/spell_heart_scroll"
+		}
+	},
+	"variants": {
+		"heal": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/spell_heart_scroll" } }
+	}
+}

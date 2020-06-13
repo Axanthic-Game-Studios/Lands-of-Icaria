@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "landsoficaria:items/spell_heart_scroll"
+        "layer0": "landsoficaria:items/brews_vial_default"
     }
 }
 

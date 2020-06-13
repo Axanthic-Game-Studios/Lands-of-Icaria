@@ -13,7 +13,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class SpellHeal implements ISpell {
+public class SpellHeal extends AbstractSpell {
 
 	@Override
 	public KettleRecipe getRecipe() {

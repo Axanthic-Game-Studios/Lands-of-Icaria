@@ -20,6 +20,7 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.server.management.PlayerChunkMap;
 import net.minecraft.server.management.PlayerChunkMapEntry;
 import net.minecraft.util.EntitySelectors;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -204,12 +205,19 @@ public class TileEntityKettle extends TileFluidHandler {
 		}
 	}
 
-	public boolean craft(EntityPlayer player) {
+	public boolean craft(EntityPlayer player, EnumHand hand) {
 		if (currentRecipe == null || this.tank.getFluidAmount() < 200)
 			return false;
 
-		ItemHandlerHelper.giveItemToPlayer(player, currentRecipe.getOutput(ingredientStack.toArray(new ItemStack[5])));
-		currentRecipe.performRecipe(world, pos, player);
+		if (player.getHeldItem(hand).getItem() == Resources.emptyVial && currentRecipe.getConcoctionOutput(ingredientStack.toArray(new ItemStack[5])) != null) {
+			if (!player.isCreative())
+				player.getHeldItem(hand).shrink(1);
+			ItemHandlerHelper.giveItemToPlayer(player, currentRecipe.getConcoctionOutput(ingredientStack.toArray(new ItemStack[5])));
+			currentRecipe.performRecipe(world, pos, player);
+		} else {
+			ItemHandlerHelper.giveItemToPlayer(player, currentRecipe.getOutput(ingredientStack.toArray(new ItemStack[5])));
+			currentRecipe.performRecipe(world, pos, player);
+		}
 
 		this.tank.drainInternal(200, true);
 
@@ -226,9 +234,7 @@ public class TileEntityKettle extends TileFluidHandler {
 		}
 
 		this.markDirty();
-
 		this.syncToClient();
-
 		return true;
 	}
 

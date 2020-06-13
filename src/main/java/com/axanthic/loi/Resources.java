@@ -75,6 +75,7 @@ import com.axanthic.loi.entity.EntityForestHagLaurel;
 import com.axanthic.loi.entity.EntityForestHagOlive;
 import com.axanthic.loi.entity.EntityForestHagPlane;
 import com.axanthic.loi.entity.EntityForestHagPopulus;
+import com.axanthic.loi.items.ItemBasic;
 import com.axanthic.loi.items.ItemBlockForge;
 import com.axanthic.loi.items.ItemBlockMaterial;
 import com.axanthic.loi.items.ItemBlockMaterialDoor;
@@ -82,6 +83,7 @@ import com.axanthic.loi.items.ItemBlockMaterialSlab;
 import com.axanthic.loi.items.ItemBlockMeta;
 import com.axanthic.loi.items.ItemBlockMetaMaterial;
 import com.axanthic.loi.items.ItemBlockMobHead;
+import com.axanthic.loi.items.ItemConcoctionVial;
 import com.axanthic.loi.items.ItemCustomArmor;
 import com.axanthic.loi.items.ItemCustomSeeds;
 import com.axanthic.loi.items.ItemDimensionTeleporter;
@@ -103,7 +105,7 @@ import com.axanthic.loi.items.ToolScythe;
 import com.axanthic.loi.items.ToolShovel;
 import com.axanthic.loi.items.ToolSword;
 import com.axanthic.loi.proxy.ClientProxy;
-import com.axanthic.loi.spells.ISpell;
+import com.axanthic.loi.spells.AbstractSpell;
 import com.axanthic.loi.spells.SpellHeal;
 import com.axanthic.loi.utils.CustomTrigger;
 import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
@@ -181,6 +183,7 @@ public class Resources {
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", BlockStorageMetal.MetalTypes.getNames());
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", BlockStorageMetal.MetalTypes.getNames());
 	public static Item grenade = new ItemGrenade();
+	public static Item emptyVial = new ItemBasic("concoction_vial_empty");
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
@@ -287,7 +290,8 @@ public class Resources {
 	public static ArmorSet orichalcumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "orichalcum", ModInformation.ID + ":" + "armor_orichalcum", 24, new int[]{2, 4, 6, 2}, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 3)));
 	public static ArmorSet vanadiumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "vanadiumsteel", ModInformation.ID + ":" + "armor_vanadiumsteel", 27, new int[]{3, 5, 7, 3}, 11, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.5F).setRepairItem(new ItemStack(Resources.ingot, 1, 6)));
 
-	public static SpellSet healSpell = new SpellSet("heal", new SpellHeal());
+	public static List<ItemConcoctionVial> concoctions = new ArrayList<ItemConcoctionVial>();
+	public static SpellSet healSpell = new SpellSet("heal", new SpellHeal(), true);
 
 	public static final FluidCustom waterFluid = (FluidCustom) new FluidCustom("mediterranean_water", new ResourceLocation(ModInformation.ID,"blocks/fluid_mediterranean_water_still"), new ResourceLocation(ModInformation.ID, "blocks/fluid_mediterranean_water_flow")).setMaterial(Material.WATER).setDensity(1100).setGaseous(false).setViscosity(1000).setTemperature(300).setColor(0xFF51A18B);
 	public static ItemBlock waterFluidBlock;
@@ -344,6 +348,7 @@ public class Resources {
 		Resources.items.add(Resources.ingot);
 		Resources.items.add(Resources.nugget);
 		Resources.items.add(Resources.grenade);
+		Resources.items.add(Resources.emptyVial);
 
 		Resources.laurelTools.register();
 		Resources.chalkos.register();
@@ -589,19 +594,28 @@ public class Resources {
 	public static class SpellSet {
 
 		public String name;
-		public ISpell spell;
+		public AbstractSpell spell;
+		public boolean hasConcoction;
 		public ItemSpell spellItem;
+		public ItemConcoctionVial concoction;
 		public ItemScroll scroll;
 
-		public SpellSet(String name, ISpell spell) {
+		public SpellSet(String name, AbstractSpell spell, boolean hasConcoction) {
 			this.name = name;
 			this.spell = spell;
 			this.spellItem = new ItemSpell(name, spell);
+			this.hasConcoction = hasConcoction;
+			if (hasConcoction)
+				this.concoction = new ItemConcoctionVial(name, spell);
 			this.scroll = new ItemScroll(name, spell);
 		}
 
 		public void register() {
 			Resources.items.add(this.spellItem);
+			if (hasConcoction) {
+				Resources.items.add(this.concoction);
+				Resources.concoctions.add(this.concoction);
+			}
 			Resources.items.add(this.scroll);
 		}
 	}
