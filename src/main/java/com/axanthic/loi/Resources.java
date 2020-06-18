@@ -298,6 +298,9 @@ public class Resources {
 
 	public static final FluidCustom gasFluid = (FluidCustom) new FluidCustom("gas", new ResourceLocation(ModInformation.ID,"blocks/fluid_upwards_still"), new ResourceLocation(ModInformation.ID, "blocks/fluid_upwards_flow")).setMaterial(Material.WATER).setDensity(-1000).setGaseous(false).setLuminosity(15).setViscosity(1000).setTemperature(1300).setColor(0xFFF3BF61);
 	public static ItemBlock gasFluidBlock;
+	
+	public static final FluidCustom voidFluid = (FluidCustom) new FluidCustom("hyliastrum_fluid", new ResourceLocation(ModInformation.ID,"blocks/fluid_hyliastrum_still"), new ResourceLocation(ModInformation.ID, "blocks/fluid_hyliastrum_flow")).setMaterial(Material.WATER).setDensity(500).setGaseous(false).setViscosity(3000).setTemperature(300).setColor(0xFF51A18B);
+	public static ItemBlock voidFluidBlock;
 
 	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0, "yellowstone", true);
 	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1, "silkstone", true);
@@ -460,14 +463,21 @@ public class Resources {
 		FluidRegistry.addBucketForFluid(waterFluid);
 		waterFluidBlock = new ItemBlock(new BlockFluidCustom(waterFluid, Material.WATER).canCreateSources(true));
 		waterFluid.setBlock(waterFluidBlock.getBlock());
-		Resources.registerBlock(waterFluidBlock);
+		Resources.registerBlock(waterFluidBlock);	
 
 		FluidRegistry.registerFluid(gasFluid);
 		FluidRegistry.addBucketForFluid(gasFluid);
 		gasFluidBlock = new ItemBlock(new BlockFluidUpwards(gasFluid, Material.WATER));
 		gasFluid.setBlock(gasFluidBlock.getBlock());
 		Resources.registerBlock(gasFluidBlock);
-
+		
+		//I of black liquid void
+		FluidRegistry.registerFluid(voidFluid);
+		FluidRegistry.addBucketForFluid(voidFluid);
+		voidFluidBlock = new ItemBlock(new BlockFluidCustom(voidFluid, Material.WATER).canCreateSources(false));
+		voidFluid.setBlock(voidFluidBlock.getBlock());
+		Resources.registerBlock(voidFluidBlock);
+				
 		Resources.plane.register();
 		Resources.populus.register();
 		Resources.cypress.register();
