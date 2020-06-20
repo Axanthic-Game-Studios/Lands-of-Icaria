@@ -6,6 +6,7 @@ import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Recipes;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.LOIFluids;
 import com.axanthic.loi.entity.EntityAeternae;
 import com.axanthic.loi.entity.EntityArachne;
 import com.axanthic.loi.entity.EntityArachneDrone;
@@ -101,6 +102,8 @@ public class CommonProxy {
 
 		Resources.registerBlocks();
 		Resources.registerItems();
+		LOIFluids.registerFluids();
+		
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "bident", 0, ModInformation.ID, 64, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "greek_fire_grenade"), EntityGrenade.class, "greek_fire_grenade", 2, ModInformation.ID, 64, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "falling_vase"), EntityFallingVase.class, "falling_vase", 1, ModInformation.ID, 160, 20, true);

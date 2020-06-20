@@ -293,6 +293,8 @@ public class Resources {
 	public static List<ItemConcoctionVial> concoctions = new ArrayList<ItemConcoctionVial>();
 	public static SpellSet healSpell = new SpellSet("heal", new SpellHeal(), true);
 
+	//DEPRECATED-REFACTORED TO LOIFluids.java
+	/*
 	public static final FluidCustom waterFluid = (FluidCustom) new FluidCustom("mediterranean_water", new ResourceLocation(ModInformation.ID,"blocks/fluid_mediterranean_water_still"), new ResourceLocation(ModInformation.ID, "blocks/fluid_mediterranean_water_flow")).setMaterial(Material.WATER).setDensity(1100).setGaseous(false).setViscosity(1000).setTemperature(300).setColor(0xFF51A18B);
 	public static ItemBlock waterFluidBlock;
 
@@ -300,7 +302,7 @@ public class Resources {
 	public static ItemBlock gasFluidBlock;
 	
 	public static final FluidCustom voidFluid = (FluidCustom) new FluidCustom("hyliastrum_fluid", new ResourceLocation(ModInformation.ID,"blocks/fluid_hyliastrum_still"), new ResourceLocation(ModInformation.ID, "blocks/fluid_hyliastrum_flow")).setMaterial(Material.WATER).setDensity(500).setGaseous(false).setViscosity(3000).setTemperature(300).setColor(0xFF51A18B);
-	public static ItemBlock voidFluidBlock;
+	public static ItemBlock voidFluidBlock;*/
 
 	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0, "yellowstone", true);
 	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1, "silkstone", true);
@@ -459,6 +461,8 @@ public class Resources {
 		Resources.registerBlock(Resources.greekFire);
 		BlockIcariaPortal.init();
 
+		//DEPRECATED
+		/*
 		FluidRegistry.registerFluid(waterFluid);
 		FluidRegistry.addBucketForFluid(waterFluid);
 		waterFluidBlock = new ItemBlock(new BlockFluidCustom(waterFluid, Material.WATER).canCreateSources(true));
@@ -476,7 +480,7 @@ public class Resources {
 		FluidRegistry.addBucketForFluid(voidFluid);
 		voidFluidBlock = new ItemBlock(new BlockFluidCustom(voidFluid, Material.WATER).canCreateSources(false));
 		voidFluid.setBlock(voidFluidBlock.getBlock());
-		Resources.registerBlock(voidFluidBlock);
+		Resources.registerBlock(voidFluidBlock);*/
 				
 		Resources.plane.register();
 		Resources.populus.register();

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.axanthic.loi.LOIFluids;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.blocks.BlockCardonCactus;
 import com.axanthic.loi.blocks.BlockGem;
@@ -40,8 +41,8 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	public int lakeChance = 1;
 	public int flippedLakeChance = 2;
 	public List<WorldGenLOITree> treeGenerators = new ArrayList<WorldGenLOITree>();
-	public WorldGenLakeFlipped flippedLakeGenerator = new WorldGenLakeFlipped(Resources.gasFluidBlock.getBlock());
-	public WorldGenLakeNormal lakeGenerator = new WorldGenLakeNormal(Resources.waterFluidBlock.getBlock());
+	public WorldGenLakeFlipped flippedLakeGenerator = new WorldGenLakeFlipped(LOIFluids.gasFluidBlock.getBlock());
+	public WorldGenLakeNormal lakeGenerator = new WorldGenLakeNormal(LOIFluids.waterFluidBlock.getBlock());
 	public WorldGenPillars pillarGenerator = new WorldGenPillars(1.0F);
 	public WorldGenRuins ruinGenerator = new WorldGenRuins(1.0F);
 	public IBlockState[] vines = new IBlockState[] {

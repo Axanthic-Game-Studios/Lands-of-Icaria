@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Deque;
 import java.util.List;
 
+import com.axanthic.loi.LOIFluids;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.proxy.CommonProxy;
 import com.axanthic.loi.utils.KettleRecipe;
@@ -43,9 +44,9 @@ public class TileEntityKettle extends TileFluidHandler {
 
 	public TileEntityKettle() {
 		super();
-		this.tank = new FluidTank(new FluidStack(Resources.waterFluid, 0), Fluid.BUCKET_VOLUME) {
+		this.tank = new FluidTank(new FluidStack(LOIFluids.waterFluid, 0), Fluid.BUCKET_VOLUME) {
 			public boolean canFillFluidType(FluidStack fluid) {
-				return canFill() && fluid.getFluid().equals(Resources.waterFluid);
+				return canFill() && fluid.getFluid().equals(LOIFluids.waterFluid);
 			}
 
 			public int fillInternal(FluidStack resource, boolean doFill) {

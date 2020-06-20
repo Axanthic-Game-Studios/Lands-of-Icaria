@@ -196,9 +196,11 @@ tile.icaria_portal.name=Lands of Icaria Portal
 tile.greek_fire.name=Greek Fire
 tile.mediterranean_water.name=Mediterranian Water
 tile.gas.name=Upwards Liquid
+tile.hyliastrum_fluid.name=Liquid Hyliastrum
 
 fluid.mediterranean_water=Mediterranian Water
 fluid.gas=Upwards Liquid
+fluid.hyliastrum_fluid=Liquid Hyliastrum
 
 material.yellowstone.name=Yellowstone
 material.silkstone.name=Silkstone

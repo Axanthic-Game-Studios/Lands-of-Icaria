@@ -11,6 +11,7 @@ import com.axanthic.loi.items.ItemResources;
 import com.axanthic.loi.utils.DropPool;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -203,6 +204,33 @@ public class BlockOre extends Block implements IBlockMeta {
 			default: return this.quantityDropped(random);
 		}
 	}
+	
+
+	/* BLOCK METHODS */
+	@Override
+	public void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
+		BlockPos north = pos.add(0, 0, -1);
+		BlockPos south = pos.add(0, 0, 1);
+		BlockPos west = pos.add(-1, 0, 0);
+		BlockPos east = pos.add(1, 0, 0);
+	}
+	
+	@Override
+	public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player,
+			boolean willHarvest) {
+		System.out.println("THIS IS CALLED PLEASE");
+		switch (OreTypes.byMetadata(getMetaFromState(state))) {
+			case HYLIASTRUM:
+				this.onBlockHarvested(world, pos, state, player);
+				break;
+			default:
+				System.out.println("this is called instead");
+				return false;
+		}
+		return world.setBlockState(new BlockPos(pos), getDefaultState());
+	}
+	
+	
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
@@ -214,7 +242,8 @@ public class BlockOre extends Block implements IBlockMeta {
 			default: return super.getItemDropped(state, rand, fortune);
 		}
 	}
-
+	
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer() {
@@ -257,7 +286,7 @@ public class BlockOre extends Block implements IBlockMeta {
 
 			return META_LOOKUP[meta];
 		}
-		
+
 		public int getMeta() {
 			return meta;
 		}
