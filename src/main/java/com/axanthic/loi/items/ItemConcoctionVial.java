@@ -81,7 +81,7 @@ public class ItemConcoctionVial extends ItemBasic {
 	}
 
 	public int getColor() {
-		return spell.getRecipe().getColor();
+		return spell.getColor();
 	}
 
 	public AbstractSpell getSpell() {

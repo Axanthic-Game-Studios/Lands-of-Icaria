@@ -15,6 +15,7 @@ import com.axanthic.loi.entity.EntityBident;
 import com.axanthic.loi.entity.EntityCatoblepas;
 import com.axanthic.loi.entity.EntityCerver;
 import com.axanthic.loi.entity.EntityFallingVase;
+import com.axanthic.loi.entity.EntityFloatingBlock;
 import com.axanthic.loi.entity.EntityForestHagCypress;
 import com.axanthic.loi.entity.EntityForestHagDroughtroot;
 import com.axanthic.loi.entity.EntityForestHagFir;
@@ -35,6 +36,7 @@ import com.axanthic.loi.entity.EntityRevenantSoldier;
 import com.axanthic.loi.entity.EntitySiren;
 import com.axanthic.loi.entity.EntitySnull;
 import com.axanthic.loi.entity.EntitySow;
+import com.axanthic.loi.entity.EntitySpellWisp;
 import com.axanthic.loi.gui.GuiHandlerLOI;
 import com.axanthic.loi.gui.GuiHandlerRegistry;
 import com.axanthic.loi.items.IItemCustomReach;
@@ -105,8 +107,10 @@ public class CommonProxy {
 		LOIFluids.registerFluids();
 		
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "bident", 0, ModInformation.ID, 64, 20, true);
-		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "greek_fire_grenade"), EntityGrenade.class, "greek_fire_grenade", 2, ModInformation.ID, 64, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "falling_vase"), EntityFallingVase.class, "falling_vase", 1, ModInformation.ID, 160, 20, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "greek_fire_grenade"), EntityGrenade.class, "greek_fire_grenade", 2, ModInformation.ID, 64, 20, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "spell_wisp"), EntitySpellWisp.class, "spell_wisp", 3, ModInformation.ID, 64, 20, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "floating_block"), EntityFloatingBlock.class, "floating_block", 4, ModInformation.ID, 160, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "aeternae"), EntityAeternae.class, "aeternae", 30, ModInformation.ID, 80, 3, true, 0xE27E1E, 0xF9BC0B);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "catoblepas"), EntityCatoblepas.class, "catoblepas", 31, ModInformation.ID, 80, 3, true, 0x615238, 0xDACCB7);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "snull"), EntitySnull.class, "snull", 32, ModInformation.ID, 80, 3, true, 0x654E3F, 0x747673);

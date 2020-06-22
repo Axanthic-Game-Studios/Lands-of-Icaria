@@ -240,7 +240,8 @@ material.olive.name=Olive
 material.laurel.name=Laurel
 material.droughtroot.name=Droughtroot
 
-spell.heal.name=Healing
+spell.healing.name=Healing
+spell.anti_gravity.name=Anti Gravity
 
 container.vase=Storage Vase
 container.kiln=Kiln

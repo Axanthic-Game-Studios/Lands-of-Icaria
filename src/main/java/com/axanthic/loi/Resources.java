@@ -3,7 +3,9 @@ package com.axanthic.loi;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.axanthic.loi.blocks.BlockAristone;
 import com.axanthic.loi.blocks.BlockBasic;
@@ -106,6 +108,7 @@ import com.axanthic.loi.items.ToolShovel;
 import com.axanthic.loi.items.ToolSword;
 import com.axanthic.loi.proxy.ClientProxy;
 import com.axanthic.loi.spells.AbstractSpell;
+import com.axanthic.loi.spells.SpellAntiGravity;
 import com.axanthic.loi.spells.SpellHeal;
 import com.axanthic.loi.utils.CustomTrigger;
 import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
@@ -291,7 +294,10 @@ public class Resources {
 	public static ArmorSet vanadiumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "vanadiumsteel", ModInformation.ID + ":" + "armor_vanadiumsteel", 27, new int[]{3, 5, 7, 3}, 11, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.5F).setRepairItem(new ItemStack(Resources.ingot, 1, 6)));
 
 	public static List<ItemConcoctionVial> concoctions = new ArrayList<ItemConcoctionVial>();
-	public static SpellSet healSpell = new SpellSet("heal", new SpellHeal(), true);
+	public static List<ItemScroll> scrolls = new ArrayList<ItemScroll>();
+	public static Map<String, AbstractSpell> spells = new HashMap<String, AbstractSpell>();
+	public static SpellSet healSpell = new SpellSet("healing", new SpellHeal(), true);
+	public static SpellSet antiGravitySpell = new SpellSet("anti_gravity", new SpellAntiGravity(), true);
 
 	//DEPRECATED-REFACTORED TO LOIFluids.java
 	/*
@@ -368,7 +374,9 @@ public class Resources {
 		Resources.kassiterosArmor.register();
 		Resources.orichalcumArmor.register();
 		Resources.vanadiumArmor.register();
+
 		Resources.healSpell.register();
+		Resources.antiGravitySpell.register();
 	}
 
 	public static void registerBlocks() {
@@ -615,8 +623,10 @@ public class Resources {
 		public ItemScroll scroll;
 
 		public SpellSet(String name, AbstractSpell spell, boolean hasConcoction) {
+			Resources.spells.put(name, spell);
 			this.name = name;
 			this.spell = spell;
+			this.spell.setName(name);
 			this.spellItem = new ItemSpell(name, spell);
 			this.hasConcoction = hasConcoction;
 			if (hasConcoction)
@@ -631,6 +641,7 @@ public class Resources {
 				Resources.concoctions.add(this.concoction);
 			}
 			Resources.items.add(this.scroll);
+			Resources.scrolls.add(this.scroll);
 		}
 	}
 

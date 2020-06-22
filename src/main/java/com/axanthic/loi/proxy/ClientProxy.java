@@ -29,6 +29,7 @@ import com.axanthic.loi.entity.EntityBident;
 import com.axanthic.loi.entity.EntityCatoblepas;
 import com.axanthic.loi.entity.EntityCerver;
 import com.axanthic.loi.entity.EntityFallingVase;
+import com.axanthic.loi.entity.EntityFloatingBlock;
 import com.axanthic.loi.entity.EntityForestHagCypress;
 import com.axanthic.loi.entity.EntityForestHagDroughtroot;
 import com.axanthic.loi.entity.EntityForestHagFir;
@@ -49,6 +50,7 @@ import com.axanthic.loi.entity.EntityRevenantSoldier;
 import com.axanthic.loi.entity.EntitySiren;
 import com.axanthic.loi.entity.EntitySnull;
 import com.axanthic.loi.entity.EntitySow;
+import com.axanthic.loi.entity.EntitySpellWisp;
 import com.axanthic.loi.items.IItemCustomReach;
 import com.axanthic.loi.items.IItemMeta;
 import com.axanthic.loi.items.ItemBlockMeta;
@@ -85,6 +87,7 @@ import com.axanthic.loi.render.RenderRevenantSoldier;
 import com.axanthic.loi.render.RenderSiren;
 import com.axanthic.loi.render.RenderSnull;
 import com.axanthic.loi.render.RenderSow;
+import com.axanthic.loi.render.RenderSpellWisp;
 import com.axanthic.loi.tileentity.TileEntityColoredLight;
 import com.axanthic.loi.tileentity.TileEntityGrinder;
 import com.axanthic.loi.tileentity.TileEntityKettle;
@@ -150,8 +153,10 @@ public class ClientProxy extends CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBident.class, RenderBident::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, RenderGrenade::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFallingVase.class, RenderFallingBlock::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, RenderGrenade::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntitySpellWisp.class, RenderSpellWisp::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityFloatingBlock.class, RenderFallingBlock::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityAeternae.class, RenderAeternae::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCatoblepas.class, RenderCatoblepas::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySnull.class, RenderSnull::new);
@@ -282,7 +287,6 @@ public class ClientProxy extends CommonProxy {
 
 		//register special item renderers here
 		Resources.grinder.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
-		Resources.healSpell.scroll.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadRevenant.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadArachne.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadArachneDrone.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
@@ -299,6 +303,8 @@ public class ClientProxy extends CommonProxy {
 		Resources.mobHeadAeternae.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadCatoblepas.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadSow.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		for (ItemScroll scroll : Resources.scrolls)
+			scroll.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 	}
 
 	@Override
