@@ -1,6 +1,7 @@
 package com.axanthic.loi.render;
 
 import java.awt.Color;
+import java.util.Random;
 
 import org.lwjgl.opengl.GL11;
 
@@ -64,7 +65,7 @@ public class RenderSpellWisp extends Render<EntitySpellWisp> {
 		int go = color2.getGreen();
 		int bo = color2.getBlue();
 
-		float ageInTicks = entity.ticksExisted + partialTicks;
+		float ageInTicks = entity.ticksExisted + partialTicks + new Random(entity.getEntityId()).nextInt(100);
 
 		bufferbuilder.begin(GL11.GL_TRIANGLE_STRIP, DefaultVertexFormats.POSITION_COLOR);
 		bufferbuilder.pos(getX(-fade, ageInTicks, speed), getY(-fade, ageInTicks, speed), getZ(-fade, ageInTicks, speed)).color(r, g, b, 0).endVertex();
