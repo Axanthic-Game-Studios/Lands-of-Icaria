@@ -22,7 +22,7 @@ public class BlockFluidUpwards extends BlockFluidCustom {
 	protected void flowIntoBlock(World world, BlockPos pos, int meta) {
 		if (meta < 0) return;
 		if (displaceIfPossible(world, pos)) {
-			if (world.canSeeSky(pos))
+			if (world.getBlockState(pos.down()).getBlock() == this && world.canSeeSky(pos))
 				world.setBlockState(pos, Resources.aristone.getBlock().getDefaultState());
 			else
 				world.setBlockState(pos, this.getDefaultState().withProperty(LEVEL, meta));
