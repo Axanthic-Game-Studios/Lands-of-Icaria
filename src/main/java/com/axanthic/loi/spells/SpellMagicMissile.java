@@ -21,8 +21,10 @@ public class SpellMagicMissile extends AbstractSpell {
 
 	@Override
 	public ActionResult<ItemStack> castSpell(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-		if (!playerIn.isCreative())
+		if (!playerIn.isCreative()) {
 			playerIn.getHeldItem(handIn).shrink(1);
+			playerIn.getCooldownTracker().setCooldown(playerIn.getHeldItem(handIn).getItem(), 20);
+		}
 		if (!worldIn.isRemote) {
 			EntitySpellWisp entityWisp = new EntitySpellWisp(worldIn, playerIn, this);
 			entityWisp.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 3.0F, 0.0F);
@@ -34,7 +36,7 @@ public class SpellMagicMissile extends AbstractSpell {
 	@Override
 	public void spellHit(RayTraceResult result, EntitySpellWisp entity) {
 		if (result.typeOfHit.equals(RayTraceResult.Type.ENTITY) && result.entityHit instanceof EntityLivingBase) {
-			((EntityLivingBase) result.entityHit).attackEntityFrom(DamageSource.causeIndirectMagicDamage(entity, entity.shootingEntity), 3.0F);
+			((EntityLivingBase) result.entityHit).attackEntityFrom(DamageSource.causeIndirectMagicDamage(entity, entity.shootingEntity), 7.0F);
 		} else if (result.typeOfHit.equals(RayTraceResult.Type.BLOCK) && entity.world.getBlockState(result.getBlockPos()).getBlockHardness(entity.world, result.getBlockPos()) < 10 && entity.world.getBlockState(result.getBlockPos()).getBlock().canEntityDestroy(entity.world.getBlockState(result.getBlockPos()), entity.world, result.getBlockPos(), entity.shootingEntity)) {
 			entity.world.destroyBlock(result.getBlockPos(), false);
 		}

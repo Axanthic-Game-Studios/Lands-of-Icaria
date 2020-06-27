@@ -25,8 +25,10 @@ public class SpellAntiGravity extends AbstractSpell {
 
 	@Override
 	public ActionResult<ItemStack> castSpell(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-		if (!playerIn.isCreative())
+		if (!playerIn.isCreative()) {
 			playerIn.getHeldItem(handIn).shrink(1);
+			playerIn.getCooldownTracker().setCooldown(playerIn.getHeldItem(handIn).getItem(), 10);
+		}
 		if (!worldIn.isRemote) {
 			EntitySpellWisp entityWisp = new EntitySpellWisp(worldIn, playerIn, this);
 			entityWisp.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.0F, 1.0F);
