@@ -35,6 +35,8 @@ public class SpellMagicMissile extends AbstractSpell {
 	public void spellHit(RayTraceResult result, EntitySpellWisp entity) {
 		if (result.typeOfHit.equals(RayTraceResult.Type.ENTITY) && result.entityHit instanceof EntityLivingBase) {
 			((EntityLivingBase) result.entityHit).attackEntityFrom(DamageSource.causeIndirectMagicDamage(entity, entity.shootingEntity), 3.0F);
+		} else if (result.typeOfHit.equals(RayTraceResult.Type.BLOCK) && entity.world.getBlockState(result.getBlockPos()).getBlockHardness(entity.world, result.getBlockPos()) < 10 && entity.world.getBlockState(result.getBlockPos()).getBlock().canEntityDestroy(entity.world.getBlockState(result.getBlockPos()), entity.world, result.getBlockPos(), entity.shootingEntity)) {
+			entity.world.destroyBlock(result.getBlockPos(), false);
 		}
 	}
 }
