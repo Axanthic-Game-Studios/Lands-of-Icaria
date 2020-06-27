@@ -1,25 +1,22 @@
 package com.axanthic.loi.spells;
 
-import com.axanthic.loi.Resources;
 import com.axanthic.loi.entity.EntitySpellWisp;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class SpellFreezing extends AbstractSpell {
+public class SpellMagicMissile extends AbstractSpell {
 
 	@Override
 	public int getColor() {
-		return 0xD7D7D7;
+		return 0x8F50D9;
 	}
 
 	@Override
@@ -28,7 +25,7 @@ public class SpellFreezing extends AbstractSpell {
 			playerIn.getHeldItem(handIn).shrink(1);
 		if (!worldIn.isRemote) {
 			EntitySpellWisp entityWisp = new EntitySpellWisp(worldIn, playerIn, this);
-			entityWisp.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.0F, 1.0F);
+			entityWisp.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 3.0F, 0.0F);
 			worldIn.spawnEntity(entityWisp);
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
@@ -37,9 +34,7 @@ public class SpellFreezing extends AbstractSpell {
 	@Override
 	public void spellHit(RayTraceResult result, EntitySpellWisp entity) {
 		if (result.typeOfHit.equals(RayTraceResult.Type.ENTITY) && result.entityHit instanceof EntityLivingBase) {
-			((EntityLivingBase) result.entityHit).addPotionEffect(new PotionEffect(Resources.frozenEffect, 100));
-		} else if (result.typeOfHit.equals(RayTraceResult.Type.BLOCK) && entity.world.isSideSolid(result.getBlockPos(), EnumFacing.UP) && entity.world.isAirBlock(result.getBlockPos().up())) {
-			entity.world.setBlockState(result.getBlockPos().up(), Blocks.SNOW_LAYER.getDefaultState());
+			((EntityLivingBase) result.entityHit).attackEntityFrom(DamageSource.causeIndirectMagicDamage(entity, entity.shootingEntity), 3.0F);
 		}
 	}
 }

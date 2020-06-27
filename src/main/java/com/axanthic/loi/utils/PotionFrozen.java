@@ -2,18 +2,14 @@ package com.axanthic.loi.utils;
 
 import com.axanthic.loi.ModInformation;
 
-import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AbstractAttributeMap;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -53,9 +49,6 @@ public class PotionFrozen extends Potion {
 	@Override
 	public void performEffect(EntityLivingBase entityLivingBaseIn, int amplifier) {
 		entityLivingBaseIn.motionY = -0.7;
-		
-
-		entityLivingBaseIn.world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, entityLivingBaseIn.posX, entityLivingBaseIn.posY, entityLivingBaseIn.posZ, 0.0D, 1.0D, 0.0D);
 	}
 
 	@Override

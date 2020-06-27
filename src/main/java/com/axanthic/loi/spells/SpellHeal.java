@@ -38,7 +38,7 @@ public class SpellHeal extends AbstractSpell {
 	}
 
 	@Override
-	public void spellHit(RayTraceResult result, World worldIn) {
+	public void spellHit(RayTraceResult result, EntitySpellWisp entity) {
 		if (result.typeOfHit.equals(RayTraceResult.Type.ENTITY) && result.entityHit instanceof EntityLivingBase) {
 			((EntityLivingBase) result.entityHit).addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1));
 		}

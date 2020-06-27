@@ -111,6 +111,7 @@ import com.axanthic.loi.spells.AbstractSpell;
 import com.axanthic.loi.spells.SpellAntiGravity;
 import com.axanthic.loi.spells.SpellFreezing;
 import com.axanthic.loi.spells.SpellHeal;
+import com.axanthic.loi.spells.SpellMagicMissile;
 import com.axanthic.loi.utils.CustomTrigger;
 import com.axanthic.loi.utils.PotionFrozen;
 import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
@@ -302,6 +303,7 @@ public class Resources {
 	public static SpellSet healSpell = new SpellSet("healing", new SpellHeal(), true);
 	public static SpellSet antiGravitySpell = new SpellSet("anti_gravity", new SpellAntiGravity(), true);
 	public static SpellSet freezingSpell = new SpellSet("freezing", new SpellFreezing(), false);
+	public static SpellSet magicMissileSpell = new SpellSet("magic_missile", new SpellMagicMissile(), false);
 
 	public static Potion frozenEffect = new PotionFrozen();
 
@@ -384,6 +386,7 @@ public class Resources {
 		Resources.healSpell.register();
 		Resources.antiGravitySpell.register();
 		Resources.freezingSpell.register();
+		Resources.magicMissileSpell.register();
 	}
 
 	public static void registerBlocks() {

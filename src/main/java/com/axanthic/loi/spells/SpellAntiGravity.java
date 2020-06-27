@@ -41,14 +41,14 @@ public class SpellAntiGravity extends AbstractSpell {
 	}
 
 	@Override
-	public void spellHit(RayTraceResult result, World worldIn) {
+	public void spellHit(RayTraceResult result, EntitySpellWisp entity) {
 		if (result.typeOfHit.equals(RayTraceResult.Type.ENTITY) && result.entityHit instanceof EntityLivingBase) {
 			((EntityLivingBase) result.entityHit).addPotionEffect(new PotionEffect(MobEffects.LEVITATION, 100));
-		} else if (result.typeOfHit.equals(RayTraceResult.Type.BLOCK) && BlockPistonBase.canPush(worldIn.getBlockState(result.getBlockPos()), worldIn, result.getBlockPos(), EnumFacing.UP, false, EnumFacing.UP)) {
-			EntityFloatingBlock block = new EntityFloatingBlock(worldIn, (double)result.getBlockPos().getX() + 0.5D, (double)result.getBlockPos().getY(), (double)result.getBlockPos().getZ() + 0.5D, worldIn.getBlockState(result.getBlockPos()));
+		} else if (result.typeOfHit.equals(RayTraceResult.Type.BLOCK) && BlockPistonBase.canPush(entity.world.getBlockState(result.getBlockPos()), entity.world, result.getBlockPos(), EnumFacing.UP, false, EnumFacing.UP)) {
+			EntityFloatingBlock block = new EntityFloatingBlock(entity.world, (double)result.getBlockPos().getX() + 0.5D, (double)result.getBlockPos().getY(), (double)result.getBlockPos().getZ() + 0.5D, entity.world.getBlockState(result.getBlockPos()));
 			block.setNoGravity(true);
-			block.setVelocity(0, 0.05 + 0.025 * worldIn.rand.nextFloat(), 0);
-			worldIn.spawnEntity(block);
+			block.setVelocity(0, 0.05 + 0.025 * entity.world.rand.nextFloat(), 0);
+			entity.world.spawnEntity(block);
 		}
 	}
 }

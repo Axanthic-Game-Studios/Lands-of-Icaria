@@ -216,7 +216,7 @@ public class EntitySpellWisp extends Entity implements IProjectile {
 
 	protected void onImpact(RayTraceResult result) {
 		if (!this.world.isRemote) {
-			this.spell.spellHit(result, this.world);
+			this.spell.spellHit(result, this);
 			this.setDead();
 		}
 	}

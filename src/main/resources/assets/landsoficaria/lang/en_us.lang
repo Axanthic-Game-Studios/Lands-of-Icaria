@@ -243,6 +243,7 @@ material.droughtroot.name=Droughtroot
 spell.healing.name=Healing
 spell.anti_gravity.name=Anti Gravity
 spell.freezing.name=Freezing
+spell.magic_missile.name=Magic Missile
 
 effect.frozen.name=Frozen
 

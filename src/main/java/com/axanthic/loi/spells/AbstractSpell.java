@@ -1,6 +1,7 @@
 package com.axanthic.loi.spells;
 
 import com.axanthic.loi.ModInformation;
+import com.axanthic.loi.entity.EntitySpellWisp;
 import com.axanthic.loi.proxy.CommonProxy;
 import com.axanthic.loi.utils.KettleRecipe;
 
@@ -39,5 +40,5 @@ public abstract class AbstractSpell {
 
 	public void drinkConcoction(ItemStack stack, World worldIn, EntityLivingBase entityLiving) { }
 
-	public void spellHit(RayTraceResult result, World worldIn) { }
+	public void spellHit(RayTraceResult result, EntitySpellWisp wisp) { }
 }
