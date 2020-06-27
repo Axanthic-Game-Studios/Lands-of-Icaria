@@ -75,6 +75,7 @@ public class Recipes {
 
 		addKettleRecipe("healing", new ItemStack(Resources.healSpell.spellItem), new ItemStack(Resources.healSpell.concoction), 0xCE4A4A, new OreIngredient("ingotSideros"), new OreIngredient("ingotMolybdenum"), new OreIngredient("gemAnthracite"));
 		addKettleRecipe("anti_gravity", new ItemStack(Resources.antiGravitySpell.spellItem), new ItemStack(Resources.antiGravitySpell.concoction), 0x1062A7, new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.herb, 1, 7), new ItemStack(Resources.herb, 1, 3), new ItemStack(Resources.herb, 1, 4));
+		addKettleRecipe("freezing", new ItemStack(Resources.freezingSpell.spellItem), new ItemStack(Resources.freezingSpell.concoction), 0xD7D7D7, new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.herb, 1, 6), new ItemStack(Resources.herb, 1, 3), new ItemStack(Resources.herb, 1, 4));
 		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeSpawnMob(new ResourceLocation(ModInformation.ID, "recipe_sow"), EntitySow.class, 0xFFFFFF, new OreIngredient("vine"), new OreIngredient("vine")));
 		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeExplosion(new ResourceLocation(ModInformation.ID, "recipe_explosion"), 0xEE6D11, new OreIngredient("sand"), new OreIngredient("sand"), new OreIngredient("sand")));
 

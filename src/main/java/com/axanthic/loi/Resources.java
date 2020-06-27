@@ -109,8 +109,10 @@ import com.axanthic.loi.items.ToolSword;
 import com.axanthic.loi.proxy.ClientProxy;
 import com.axanthic.loi.spells.AbstractSpell;
 import com.axanthic.loi.spells.SpellAntiGravity;
+import com.axanthic.loi.spells.SpellFreezing;
 import com.axanthic.loi.spells.SpellHeal;
 import com.axanthic.loi.utils.CustomTrigger;
+import com.axanthic.loi.utils.PotionFrozen;
 import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
 import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
 import com.axanthic.loi.worldgen.feature.WorldGenFirTree;
@@ -133,6 +135,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.util.EnumHelper;
@@ -298,6 +301,9 @@ public class Resources {
 	public static Map<String, AbstractSpell> spells = new HashMap<String, AbstractSpell>();
 	public static SpellSet healSpell = new SpellSet("healing", new SpellHeal(), true);
 	public static SpellSet antiGravitySpell = new SpellSet("anti_gravity", new SpellAntiGravity(), true);
+	public static SpellSet freezingSpell = new SpellSet("freezing", new SpellFreezing(), false);
+
+	public static Potion frozenEffect = new PotionFrozen();
 
 	//DEPRECATED-REFACTORED TO LOIFluids.java
 	/*
@@ -377,6 +383,7 @@ public class Resources {
 
 		Resources.healSpell.register();
 		Resources.antiGravitySpell.register();
+		Resources.freezingSpell.register();
 	}
 
 	public static void registerBlocks() {

@@ -12,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldType;
@@ -97,6 +98,11 @@ public class LandsOfIcaria {
 	@SubscribeEvent
 	public void biomeRegistry(final RegistryEvent.Register<Biome> event) {
 		LandsOfIcaria.proxy.registerBiomes(event);
+	}
+
+	@SubscribeEvent
+	public void potionRegistry(final RegistryEvent.Register<Potion> event) {
+		LandsOfIcaria.proxy.registerPotions(event);
 	}
 
 	@SubscribeEvent

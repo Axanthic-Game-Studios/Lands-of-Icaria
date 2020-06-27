@@ -2,11 +2,11 @@ package com.axanthic.loi.proxy;
 
 import java.util.Collection;
 
+import com.axanthic.loi.LOIFluids;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Recipes;
 import com.axanthic.loi.Resources;
-import com.axanthic.loi.LOIFluids;
 import com.axanthic.loi.entity.EntityAeternae;
 import com.axanthic.loi.entity.EntityArachne;
 import com.axanthic.loi.entity.EntityArachneDrone;
@@ -55,6 +55,7 @@ import com.axanthic.loi.utils.KettleRecipe;
 import com.axanthic.loi.utils.MessageCustomReachAttack;
 import com.axanthic.loi.worldgen.biome.LOIBiomes;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
@@ -63,6 +64,7 @@ import net.minecraft.init.Biomes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
@@ -73,8 +75,8 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.common.config.Config.Type;
+import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.world.WorldEvent;
@@ -105,7 +107,7 @@ public class CommonProxy {
 		Resources.registerBlocks();
 		Resources.registerItems();
 		LOIFluids.registerFluids();
-		
+
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "bident", 0, ModInformation.ID, 64, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "falling_vase"), EntityFallingVase.class, "falling_vase", 1, ModInformation.ID, 160, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "greek_fire_grenade"), EntityGrenade.class, "greek_fire_grenade", 2, ModInformation.ID, 64, 20, true);
@@ -199,6 +201,10 @@ public class CommonProxy {
 
 	public void registerBiomes(RegistryEvent.Register<Biome> event) {
 		LOIBiomes.registerBiomes(event);
+	}
+
+	public void registerPotions(RegistryEvent.Register<Potion> event) {
+		event.getRegistry().register(Resources.frozenEffect);
 	}
 
 	public void registerModels(ModelRegistryEvent event) {

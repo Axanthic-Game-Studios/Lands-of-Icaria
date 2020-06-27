@@ -242,6 +242,9 @@ material.droughtroot.name=Droughtroot
 
 spell.healing.name=Healing
 spell.anti_gravity.name=Anti Gravity
+spell.freezing.name=Freezing
+
+effect.frozen.name=Frozen
 
 container.vase=Storage Vase
 container.kiln=Kiln

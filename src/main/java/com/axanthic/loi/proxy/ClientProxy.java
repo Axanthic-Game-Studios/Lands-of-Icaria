@@ -103,6 +103,7 @@ import com.google.common.base.Predicates;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelManager;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -111,6 +112,8 @@ import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.entity.RenderFallingBlock;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -131,7 +134,9 @@ import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
+import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -139,6 +144,7 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ClientProxy extends CommonProxy {
 
@@ -152,6 +158,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
+		MinecraftForge.EVENT_BUS.register(this);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBident.class, RenderBident::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFallingVase.class, RenderFallingBlock::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, RenderGrenade::new);
@@ -435,5 +442,21 @@ public class ClientProxy extends CommonProxy {
 			}
 		}
 		return returnRTR;
+	}
+
+	public AttributeModifier frozenModifier = Resources.frozenEffect.getAttributeModifierMap().get(SharedMonsterAttributes.MOVEMENT_SPEED);
+
+	@SubscribeEvent
+	public void entityRenderPre(RenderLivingEvent.Pre event) {
+		if (event.getEntity().getAttributeMap().getAttributeInstance(SharedMonsterAttributes.MOVEMENT_SPEED).hasModifier(frozenModifier)) {
+			GlStateManager.color(0.5686F, 0.8862F, 1.0F);
+		}
+	}
+
+	@SubscribeEvent
+	public void entityRenderPost(RenderLivingEvent.Post event) {
+		if (event.getEntity().getAttributeMap().getAttributeInstance(SharedMonsterAttributes.MOVEMENT_SPEED).hasModifier(frozenModifier)) {
+			GlStateManager.color(1, 1, 1);
+		}
 	}
 }
