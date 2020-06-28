@@ -2,6 +2,7 @@ package com.axanthic.loi.spells;
 
 import com.axanthic.loi.entity.EntitySpellWisp;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -37,8 +38,11 @@ public class SpellMagicMissile extends AbstractSpell {
 	public void spellHit(RayTraceResult result, EntitySpellWisp entity) {
 		if (result.typeOfHit.equals(RayTraceResult.Type.ENTITY) && result.entityHit instanceof EntityLivingBase) {
 			((EntityLivingBase) result.entityHit).attackEntityFrom(DamageSource.causeIndirectMagicDamage(entity, entity.shootingEntity), 7.0F);
-		} else if (result.typeOfHit.equals(RayTraceResult.Type.BLOCK) && entity.world.getBlockState(result.getBlockPos()).getBlockHardness(entity.world, result.getBlockPos()) < 10 && entity.world.getBlockState(result.getBlockPos()).getBlock().canEntityDestroy(entity.world.getBlockState(result.getBlockPos()), entity.world, result.getBlockPos(), entity.shootingEntity)) {
-			entity.world.destroyBlock(result.getBlockPos(), false);
+		} else if (result.typeOfHit.equals(RayTraceResult.Type.BLOCK)) {
+			IBlockState blockstate = entity.world.getBlockState(result.getBlockPos());
+			if (blockstate.getBlockHardness(entity.world, result.getBlockPos()) < 10 && blockstate.getBlockHardness(entity.world, result.getBlockPos()) > 0 && blockstate.getBlock().canEntityDestroy(blockstate, entity.world, result.getBlockPos(), entity.shootingEntity)) {
+				entity.world.destroyBlock(result.getBlockPos(), false);
+			}
 		}
 	}
 }
