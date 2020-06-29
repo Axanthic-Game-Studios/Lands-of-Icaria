@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.axanthic.loi.ModInformation;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -73,7 +75,7 @@ public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 		return this.concoctionOutput;
 	}
 
-	public void performRecipe(World worldIn, BlockPos pos, EntityPlayer playerIn) {}
+	public void performRecipe(World worldIn, BlockPos pos, @Nullable EntityPlayer playerIn) {}
 
 	public int getColor() {
 		return this.color;

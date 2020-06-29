@@ -1,5 +1,7 @@
 package com.axanthic.loi.utils;
 
+import javax.annotation.Nullable;
+
 import com.axanthic.loi.ModInformation;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,7 +35,7 @@ public class KettleRecipeExplosion extends KettleRecipe {
 		return ItemStack.EMPTY;
 	}
 
-	public void performRecipe(World worldIn, BlockPos pos, EntityPlayer playerIn) {
+	public void performRecipe(World worldIn, BlockPos pos, @Nullable EntityPlayer playerIn) {
 		worldIn.createExplosion(playerIn, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, 5.0f, true);
 	}
 }

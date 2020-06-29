@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.Deque;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import com.axanthic.loi.LOIFluids;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.proxy.CommonProxy;
@@ -21,17 +23,21 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.server.management.PlayerChunkMap;
 import net.minecraft.server.management.PlayerChunkMapEntry;
 import net.minecraft.util.EntitySelectors;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidEvent;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.capability.TileFluidHandler;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 
 public class TileEntityKettle extends TileFluidHandler {
@@ -186,12 +192,6 @@ public class TileEntityKettle extends TileFluidHandler {
 		return true;
 	}
 
-	@Override
-	@javax.annotation.Nullable
-	public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T> capability, @javax.annotation.Nullable net.minecraft.util.EnumFacing facing) {
-		return super.getCapability(capability, facing);
-	}
-
 	public static List<EntityItem> getCaptureItems(World worldIn, BlockPos pos) {
 		return worldIn.<EntityItem>getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(pos.getX(), pos.getY() + 0.5D, pos.getZ(), pos.getX() + 1.0D, pos.getY() + 1.0D, pos.getZ() + 1.0D), EntitySelectors.IS_ALIVE);
 	}
@@ -281,6 +281,107 @@ public class TileEntityKettle extends TileFluidHandler {
 			entry.sendPacket(packet);
 		}
 			}
+		}
+	}
+
+	private IItemHandler itemHandler = new KettleHandler();
+
+	@Override
+	@Nullable
+	public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
+		if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+			return (T) itemHandler;
+		return super.getCapability(capability, facing);
+	}
+
+	@Override
+	public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing) {
+		return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || super.hasCapability(capability, facing);
+	}
+
+	public class KettleHandler implements IItemHandler {
+
+		@Override
+		public int getSlots() {
+			return 2;
+		}
+
+		@Override
+		public ItemStack getStackInSlot(int slot) {
+			if (slot == 1 && currentRecipe != null) {
+				ItemStack output = currentRecipe.getOutput(ingredientStack.toArray(new ItemStack[5])).copy();
+				output.setCount(tank.getFluidAmount() / currentRecipe.fluidcost);
+				return output;
+			}
+			return ItemStack.EMPTY;
+		}
+
+		@Override
+		public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+			if (slot != 0 || stack.isEmpty())
+				return stack;
+			boolean matched = false;
+			for (Ingredient ingredient : KettleRecipe.allInputs) {
+				if (ingredient.apply(stack)) {
+					matched = true;
+					break;
+				}
+			}
+			if (!matched)
+				return stack;
+			ItemStack stackCopy = stack.copy();
+			stackCopy.shrink(1);
+			if (simulate)
+				return stackCopy;
+
+			ItemStack inputStack = stack.copy();
+			inputStack.setCount(1);
+
+			if (ingredientStack.size() >= 5)
+				ingredientStack.poll();
+			ingredientStack.offer(inputStack);
+
+			ingredientStrength = Math.min(1000, ingredientStrength + 300);
+			ingredientEmpty = false;
+			randomColor = world.rand.nextInt(0xFFFFFF + 1);
+			updateRecipe();
+			markDirty();
+			syncToClient();
+			return stackCopy;
+		}
+
+		@Override
+		public ItemStack extractItem(int slot, int amount, boolean simulate) {
+			if (slot != 1 || currentRecipe == null || tank.getFluidAmount() < currentRecipe.fluidcost)
+				return ItemStack.EMPTY;
+
+			ItemStack output = currentRecipe.getOutput(ingredientStack.toArray(new ItemStack[5]));
+			if (simulate)
+				return output;
+
+			currentRecipe.performRecipe(world, pos, null);
+			tank.drainInternal(currentRecipe.fluidcost, true);
+
+			if (tank.getFluidAmount() == 0) {
+				ingredientStack.clear();
+				for (int i = 0; i < 5; ++i)
+					ingredientStack.offer(ItemStack.EMPTY);
+
+				currentRecipe = null;
+				ingredientStrength = 1000;
+				ingredientEmpty = true;
+
+				syncToClient();
+			}
+
+			markDirty();
+			syncToClient();
+			return output;
+		}
+
+		@Override
+		public int getSlotLimit(int slot) {
+			return 1;
 		}
 	}
 }
