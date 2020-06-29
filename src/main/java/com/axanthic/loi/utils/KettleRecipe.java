@@ -71,6 +71,10 @@ public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 		return this.recipeOutput;
 	}
 
+	public ItemStack getFakeOutput() {
+		return ItemStack.EMPTY;
+	}
+
 	public ItemStack getConcoctionOutput(ItemStack... input) {
 		return this.concoctionOutput;
 	}

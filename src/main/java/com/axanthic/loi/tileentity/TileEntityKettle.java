@@ -309,16 +309,14 @@ public class TileEntityKettle extends TileFluidHandler {
 		@Override
 		public ItemStack getStackInSlot(int slot) {
 			if (slot == 1 && currentRecipe != null) {
-				ItemStack output = currentRecipe.getOutput(ingredientStack.toArray(new ItemStack[5])).copy();
-				output.setCount(tank.getFluidAmount() / currentRecipe.fluidcost);
-				return output;
+				return currentRecipe.getOutput(ingredientStack.toArray(new ItemStack[5]));
 			}
 			return ItemStack.EMPTY;
 		}
 
 		@Override
 		public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
-			if (slot != 0 || stack.isEmpty())
+			if (slot != 0 || stack.isEmpty() || getFluidLevel() == 0)
 				return stack;
 			boolean matched = false;
 			for (Ingredient ingredient : KettleRecipe.allInputs) {
@@ -356,8 +354,11 @@ public class TileEntityKettle extends TileFluidHandler {
 				return ItemStack.EMPTY;
 
 			ItemStack output = currentRecipe.getOutput(ingredientStack.toArray(new ItemStack[5]));
-			if (simulate)
+			if (simulate) {
+				if (output == ItemStack.EMPTY)
+					return currentRecipe.getFakeOutput();
 				return output;
+			}
 
 			currentRecipe.performRecipe(world, pos, null);
 			tank.drainInternal(currentRecipe.fluidcost, true);
