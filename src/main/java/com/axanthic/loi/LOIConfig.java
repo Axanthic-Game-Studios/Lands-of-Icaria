@@ -157,4 +157,27 @@ public class LOIConfig {
 		public Boolean emissiveTextures = true;
 
 	}
+
+	@Name("hud")
+	@LangKey("loi.config.hud")
+	@Comment("Heads-Up Display Settings")
+	public static CategoryHUD hud = new CategoryHUD();
+
+	public static class CategoryHUD {
+
+		@LangKey("loi.config.hud.indicator.enabled")
+		public Boolean indicatorEnabled = true;
+
+		@LangKey("loi.config.hud.indicator.posx")
+		public int indicatorPosX = 0;
+
+		@LangKey("loi.config.hud.indicator.posy")
+		public int indicatorPosY = 0;
+
+		@LangKey("loi.config.hud.indicator.targetingrange")
+		public double indicatorTargetingRange = 50.0D;
+
+		@LangKey("loi.config.hud.indicator.lockonduration")
+		public int indicatorLockOnDuration = 100;
+	}
 }

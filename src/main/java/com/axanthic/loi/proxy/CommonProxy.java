@@ -8,6 +8,7 @@ import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Recipes;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.entity.*;
+import com.axanthic.loi.gui.GuiStatIndicator;
 import com.axanthic.loi.gui.GuiHandlerLOI;
 import com.axanthic.loi.gui.GuiHandlerRegistry;
 import com.axanthic.loi.items.IItemCustomReach;
@@ -125,6 +126,7 @@ public class CommonProxy {
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(LandsOfIcaria.instance, GuiHandlerRegistry.getInstance());
 		GuiHandlerRegistry.getInstance().registerGuiHandler(new GuiHandlerLOI(), GuiHandlerLOI.getGuiID());
+		MinecraftForge.EVENT_BUS.register(new GuiStatIndicator());
 	}
 
 	public void init(FMLInitializationEvent event) {
