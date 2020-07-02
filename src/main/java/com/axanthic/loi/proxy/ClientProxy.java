@@ -21,36 +21,7 @@ import com.axanthic.loi.blocks.BlockLog;
 import com.axanthic.loi.blocks.BlockSapling;
 import com.axanthic.loi.blocks.BlockTallGrass;
 import com.axanthic.loi.blocks.IBlockMeta;
-import com.axanthic.loi.entity.EntityAeternae;
-import com.axanthic.loi.entity.EntityArachne;
-import com.axanthic.loi.entity.EntityArachneDrone;
-import com.axanthic.loi.entity.EntityArganHound;
-import com.axanthic.loi.entity.EntityBident;
-import com.axanthic.loi.entity.EntityCatoblepas;
-import com.axanthic.loi.entity.EntityCerver;
-import com.axanthic.loi.entity.EntityFallingVase;
-import com.axanthic.loi.entity.EntityFloatingBlock;
-import com.axanthic.loi.entity.EntityForestHagCypress;
-import com.axanthic.loi.entity.EntityForestHagDroughtroot;
-import com.axanthic.loi.entity.EntityForestHagFir;
-import com.axanthic.loi.entity.EntityForestHagLaurel;
-import com.axanthic.loi.entity.EntityForestHagOlive;
-import com.axanthic.loi.entity.EntityForestHagPlane;
-import com.axanthic.loi.entity.EntityForestHagPopulus;
-import com.axanthic.loi.entity.EntityGrenade;
-import com.axanthic.loi.entity.EntityJellyfish;
-import com.axanthic.loi.entity.EntityLight;
-import com.axanthic.loi.entity.EntityMyrmeke;
-import com.axanthic.loi.entity.EntityRevenantCaptain;
-import com.axanthic.loi.entity.EntityRevenantCivilian;
-import com.axanthic.loi.entity.EntityRevenantCrawler;
-import com.axanthic.loi.entity.EntityRevenantOvergrown;
-import com.axanthic.loi.entity.EntityRevenantPyromancer;
-import com.axanthic.loi.entity.EntityRevenantSoldier;
-import com.axanthic.loi.entity.EntitySiren;
-import com.axanthic.loi.entity.EntitySnull;
-import com.axanthic.loi.entity.EntitySow;
-import com.axanthic.loi.entity.EntitySpellWisp;
+import com.axanthic.loi.entity.*;
 import com.axanthic.loi.items.IItemCustomReach;
 import com.axanthic.loi.items.IItemMeta;
 import com.axanthic.loi.items.ItemBlockMeta;
@@ -58,36 +29,7 @@ import com.axanthic.loi.items.ItemConcoctionVial;
 import com.axanthic.loi.items.ItemCustomArmor;
 import com.axanthic.loi.items.ItemScroll;
 import com.axanthic.loi.items.ItemSpell;
-import com.axanthic.loi.render.BakedModelEmissive;
-import com.axanthic.loi.render.BakedModelScroll;
-import com.axanthic.loi.render.RenderAeternae;
-import com.axanthic.loi.render.RenderArachne;
-import com.axanthic.loi.render.RenderArachneDrone;
-import com.axanthic.loi.render.RenderArganHound;
-import com.axanthic.loi.render.RenderBident;
-import com.axanthic.loi.render.RenderCatoblepas;
-import com.axanthic.loi.render.RenderCerver;
-import com.axanthic.loi.render.RenderForestHagCypress;
-import com.axanthic.loi.render.RenderForestHagDroughtroot;
-import com.axanthic.loi.render.RenderForestHagFir;
-import com.axanthic.loi.render.RenderForestHagLaurel;
-import com.axanthic.loi.render.RenderForestHagOlive;
-import com.axanthic.loi.render.RenderForestHagPlane;
-import com.axanthic.loi.render.RenderForestHagPopulus;
-import com.axanthic.loi.render.RenderGrenade;
-import com.axanthic.loi.render.RenderJellyfish;
-import com.axanthic.loi.render.RenderLight;
-import com.axanthic.loi.render.RenderMyrmeke;
-import com.axanthic.loi.render.RenderRevenantCaptain;
-import com.axanthic.loi.render.RenderRevenantCivilian;
-import com.axanthic.loi.render.RenderRevenantCrawler;
-import com.axanthic.loi.render.RenderRevenantOvergrown;
-import com.axanthic.loi.render.RenderRevenantPyromancer;
-import com.axanthic.loi.render.RenderRevenantSoldier;
-import com.axanthic.loi.render.RenderSiren;
-import com.axanthic.loi.render.RenderSnull;
-import com.axanthic.loi.render.RenderSow;
-import com.axanthic.loi.render.RenderSpellWisp;
+import com.axanthic.loi.render.*;
 import com.axanthic.loi.tileentity.TileEntityColoredLight;
 import com.axanthic.loi.tileentity.TileEntityGrinder;
 import com.axanthic.loi.tileentity.TileEntityKettle;
@@ -148,6 +90,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ClientProxy extends CommonProxy {
 
+	public static final ResourceLocation SOUND_SCORPION_IDLE = new ResourceLocation(ModInformation.ID, "entity.scorpion.idle");
+	public static final SoundEvent SCORPION_IDLE = new SoundEvent(SOUND_SCORPION_IDLE).setRegistryName(SOUND_SCORPION_IDLE);
+	public static final ResourceLocation SOUND_SCORPION_HURT = new ResourceLocation(ModInformation.ID, "entity.scorpion.hurt");
+	public static final SoundEvent SCORPION_HURT = new SoundEvent(SOUND_SCORPION_HURT).setRegistryName(SOUND_SCORPION_HURT);
+	public static final ResourceLocation SOUND_SCORPION_DEATH = new ResourceLocation(ModInformation.ID, "entity.scorpion.death");
+	public static final SoundEvent SCORPION_DEATH = new SoundEvent(SOUND_SCORPION_DEATH).setRegistryName(SOUND_SCORPION_DEATH);
 	public static final ResourceLocation SOUND_GRIND = new ResourceLocation(ModInformation.ID, "block.grinder.grind");
 	public static final SoundEvent GRIND = new SoundEvent(SOUND_GRIND).setRegistryName(SOUND_GRIND);
 	public static final ResourceLocation SOUND_CERAMIC_BREAK = new ResourceLocation(ModInformation.ID, "block.ceramic.break");
@@ -189,6 +137,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenantCrawler.class, RenderRevenantCrawler::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenantOvergrown.class, RenderRevenantOvergrown::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySiren.class, RenderSiren::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityScorpion.class, RenderScorpion::new);
 
 		emissiveTextures.put("calcite", new String[]{ ModInformation.ID + ":blocks/gem_calcite_model" });
 		emissiveTextures.put("jasper", new String[]{ ModInformation.ID + ":blocks/gem_jasper_model" });
@@ -375,6 +324,9 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void registerSounds(RegistryEvent.Register<SoundEvent> event) {
+		event.getRegistry().register(SCORPION_IDLE);
+		event.getRegistry().register(SCORPION_HURT);
+		event.getRegistry().register(SCORPION_DEATH);
 		event.getRegistry().register(GRIND);
 		event.getRegistry().register(CERAMIC_BREAK);
 	}

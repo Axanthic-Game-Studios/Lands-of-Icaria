@@ -1,5 +1,7 @@
 package com.axanthic.loi.render;
 
+import com.axanthic.loi.entity.EntityScorpion;
+import com.axanthic.loi.entity.EntitySnull;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -106,14 +108,27 @@ public class ModelSnull extends ModelBase {
 	}
 
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
-		this.tail.rotationPointZ = -12.7F + getStretch(limbSwing);
+		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
 
-		this.body_head_rear.rotationPointZ = 4.8F - getStretch(limbSwing);
-		this.head_rear.rotationPointZ = 7.2F - getStretch(limbSwing);
-		this.head.rotationPointZ = 9.0F - getStretch(limbSwing);
-		this.eye_stalk_left.rotationPointZ = 12.3F - getStretch(limbSwing);
-		this.eye_stalk_right.rotationPointZ = 12.3F - getStretch(limbSwing);
+		EntitySnull snull = (EntitySnull) entityIn;
+		if (snull.isBesideClimbableBlock() && snull.posY > snull.prevPosY) {
+			final float climbSwing = ageInTicks * 0.4f;
+			this.tail.rotationPointZ = -12.7F + getStretch(climbSwing);
+			this.body_head_rear.rotationPointZ = 4.8F - getStretch(climbSwing);
+			this.head_rear.rotationPointZ = 7.2F - getStretch(climbSwing);
+			this.head.rotationPointZ = 9.0F - getStretch(climbSwing);
+			this.eye_stalk_left.rotationPointZ = 12.3F - getStretch(climbSwing);
+			this.eye_stalk_right.rotationPointZ = 12.3F - getStretch(climbSwing);
 
+		} else {
+			this.tail.rotationPointZ = -12.7F + getStretch(limbSwing);
+			this.body_head_rear.rotationPointZ = 4.8F - getStretch(limbSwing);
+			this.head_rear.rotationPointZ = 7.2F - getStretch(limbSwing);
+			this.head.rotationPointZ = 9.0F - getStretch(limbSwing);
+			this.eye_stalk_left.rotationPointZ = 12.3F - getStretch(limbSwing);
+			this.eye_stalk_right.rotationPointZ = 12.3F - getStretch(limbSwing);
+
+		}
 		this.eye_stalk_left.rotateAngleZ = MathHelper.cos(ageInTicks * 0.09F + 1.0F) * 0.08F - 0.13962634015954636F;
 		this.eye_stalk_right.rotateAngleZ = -MathHelper.cos(ageInTicks * 0.09F + 2.0F) * 0.08F + 0.13962634015954636F;
 		this.eye_stalk_left.rotateAngleX = MathHelper.sin(ageInTicks * 0.067F + 3.0F) * 0.08F - 0.39269908169872414F;

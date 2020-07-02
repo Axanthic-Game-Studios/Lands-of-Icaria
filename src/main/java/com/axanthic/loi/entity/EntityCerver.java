@@ -94,6 +94,14 @@ public class EntityCerver extends EntityMob {
 		this.playSound(SoundEvents.ENTITY_WOLF_STEP, 0.15F, 1.0F);
 	}
 
+	protected float getSoundVolume() {
+		return 1.5F;
+	}
+
+	protected float getSoundPitch() {
+		return 0.85F;
+	}
+
 	/**
 	 * Called when the mob's health reaches 0.
 	 */
