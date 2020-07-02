@@ -31,7 +31,7 @@ import net.minecraft.world.World;
 public class EntitySnull extends EntityCreature {
 
 	private static final DataParameter<Float> SNULL_SIZE = EntityDataManager.createKey(EntitySnull.class, DataSerializers.FLOAT);
-	private static final float hitboxSize = 0.18F;
+	private static final float hitboxSize = 0.25F;
 	private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntitySnull.class,
 			DataSerializers.BYTE);
 
@@ -207,7 +207,7 @@ public class EntitySnull extends EntityCreature {
 	}
 
 	public float getEyeHeight() {
-		return 1.2F * this.height;
+		return 0.9F * this.height;
 	}
 
 	protected int decreaseAirSupply(int air) {

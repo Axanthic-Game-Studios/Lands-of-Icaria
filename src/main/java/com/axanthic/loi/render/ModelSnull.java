@@ -72,7 +72,15 @@ public class ModelSnull extends ModelBase {
 		GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0.0F, 0.0F, 0.02F);
-		GlStateManager.scale(1.0F, 1.0F, MathHelper.sin(limbSwing * 0.6662F) * -0.3F + 1.05F);
+
+		EntitySnull snull = (EntitySnull) entity;
+		if (snull.isBesideClimbableBlock() && snull.posY > snull.prevPosY) {
+			final float climbSwing = ageInTicks * 0.4f;
+			GlStateManager.scale(1.0F, 1.0F, MathHelper.sin(climbSwing * 0.6662F) * -0.3F + 1.05F);
+		} else {
+			GlStateManager.scale(1.0F, 1.0F, MathHelper.sin(limbSwing * 0.6662F) * -0.3F + 1.05F);
+		}
+
 		this.body_rear.render(scale);
 		this.body_front.render(scale);
 		GlStateManager.popMatrix();
@@ -135,7 +143,7 @@ public class ModelSnull extends ModelBase {
 		this.eye_stalk_right.rotateAngleX = -MathHelper.sin(ageInTicks * 0.067F + 4.0F) * 0.08F - 0.39269908169872414F;
 	}
 
-	public float getStretch(float limbSwing) {
-		return MathHelper.sin(limbSwing * 0.6662F) * 2.5F;
+	public float getStretch(float ticks) {
+		return MathHelper.sin(ticks * 0.6662F) * 2.5F;
 	}
 }
