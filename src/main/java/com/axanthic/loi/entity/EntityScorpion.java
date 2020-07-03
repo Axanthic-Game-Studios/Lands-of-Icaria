@@ -159,9 +159,9 @@ public class EntityScorpion extends EntityMob {
 				(float) this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
 		if (flag) {
 			if (entityIn instanceof EntityLivingBase) {
-				((EntityLivingBase) entityIn).knockBack(this, (float) 0.44F,
-						(double) MathHelper.sin(this.rotationYaw * 0.017453292F),
-						(double) (-MathHelper.cos(this.rotationYaw * 0.017453292F)));
+				((EntityLivingBase) entityIn).knockBack(this, 0.44F,
+						MathHelper.sin(this.rotationYaw * 0.017453292F),
+						-MathHelper.cos(this.rotationYaw * 0.017453292F));
 				this.motionX *= 0.6D;
 				this.motionZ *= 0.6D;
 			}
