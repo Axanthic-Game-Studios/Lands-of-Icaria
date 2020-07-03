@@ -4,22 +4,7 @@ import java.util.Random;
 
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
-import com.axanthic.loi.entity.EntityAeternae;
-import com.axanthic.loi.entity.EntityArachne;
-import com.axanthic.loi.entity.EntityArachneDrone;
-import com.axanthic.loi.entity.EntityArganHound;
-import com.axanthic.loi.entity.EntityCatoblepas;
-import com.axanthic.loi.entity.EntityCerver;
-import com.axanthic.loi.entity.EntityJellyfish;
-import com.axanthic.loi.entity.EntityMyrmeke;
-import com.axanthic.loi.entity.EntityRevenantCaptain;
-import com.axanthic.loi.entity.EntityRevenantCivilian;
-import com.axanthic.loi.entity.EntityRevenantCrawler;
-import com.axanthic.loi.entity.EntityRevenantOvergrown;
-import com.axanthic.loi.entity.EntityRevenantPyromancer;
-import com.axanthic.loi.entity.EntityRevenantSoldier;
-import com.axanthic.loi.entity.EntitySnull;
-import com.axanthic.loi.entity.EntitySow;
+import com.axanthic.loi.entity.*;
 import com.axanthic.loi.worldgen.feature.WorldGenLaurelTree;
 import com.axanthic.loi.worldgen.feature.WorldGenPlaneTree;
 
@@ -47,6 +32,7 @@ public class BiomeScrubland extends BiomeLOI {
 		spawnableMonsterList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySolifugae.class, 50, 1, 2));
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityAeternae.class, 50, 2, 6));
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityCatoblepas.class, 50, 2, 6));
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySnull.class, 50, 2, 6));
