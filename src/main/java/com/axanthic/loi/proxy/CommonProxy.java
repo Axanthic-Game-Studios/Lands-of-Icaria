@@ -114,6 +114,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "solifugae"), EntitySolifugae.class, "solifugae", 87, ModInformation.ID, 80, 3, true, 0xD3C1B1, 0xAF7D4D);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "vinegaroon"), EntityVinegaroon.class, "vinegaroon", 88, ModInformation.ID, 80, 3, true, 0x4C3722, 0xC99559);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "vinegar"), EntityVinegar.class, "vinegar", 89, ModInformation.ID, 64, 20, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "whip_spider"), EntityWhipSpider.class, "whip_spider", 90, ModInformation.ID, 80, 3, true, 0xC18743, 0x7F5E39);
 
 		EntityRegistry.addSpawn(EntityRevenantPyromancer.class, 30, 1, 2, EnumCreatureType.MONSTER, Biomes.HELL);
 

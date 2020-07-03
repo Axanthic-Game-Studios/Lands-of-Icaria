@@ -1,4 +1,4 @@
-package com.axanthic.loi.entity.ai;
+package com.axanthic.loi.entity;
 
 public interface ICharger
 {

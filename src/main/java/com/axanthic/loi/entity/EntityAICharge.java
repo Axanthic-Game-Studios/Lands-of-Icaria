@@ -1,4 +1,4 @@
-package com.axanthic.loi.entity.ai;
+package com.axanthic.loi.entity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;

@@ -141,6 +141,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntitySolifugae.class, RenderSolifugae::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityVinegaroon.class, RenderVinegaroon::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityVinegar.class, RenderVinegar::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityWhipSpider.class, RenderWhipSpider::new);
 
 		emissiveTextures.put("calcite", new String[]{ ModInformation.ID + ":blocks/gem_calcite_model" });
 		emissiveTextures.put("jasper", new String[]{ ModInformation.ID + ":blocks/gem_jasper_model" });

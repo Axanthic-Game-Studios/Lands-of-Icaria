@@ -1,5 +1,6 @@
 package com.axanthic.loi.entity;
 
+import com.axanthic.loi.proxy.ClientProxy;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -21,43 +22,42 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntitySolifugae extends EntityMob implements ICharger {
+public class EntityWhipSpider extends EntityMob {
 
-	private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntitySolifugae.class,
+	private int attackTimer;
+	private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityWhipSpider.class,
 			DataSerializers.BYTE);
-	private static final DataParameter<Boolean> CHARGING = EntityDataManager.createKey(EntitySolifugae.class,
-			DataSerializers.BOOLEAN);
 
-	public EntitySolifugae(World worldIn) {
+	public EntityWhipSpider(World worldIn) {
 		super(worldIn);
 		this.experienceValue = 5;
-		setSize(0.9F, 0.55F);
+		setSize(4.2F, 1.7F);
 	}
 
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(22D);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5D);
-	}
-	
-	protected void initEntityAI() {
-		this.tasks.addTask(6, new EntityAIWanderAvoidWater(this, 1.0D));
-		this.tasks.addTask(7, new EntityAILookIdle(this));
-		this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(4, new EntityAICharge(this, 2.5f));
-		this.tasks.addTask(3, new EntityAIAttackMelee(this, 1.0D, false));
-		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, false));
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(72D);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(8D);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8D);
 	}
 
 	@Override
+	protected void initEntityAI() {
+		this.tasks.addTask(3, new EntityAIRestrictSun(this));
+		this.tasks.addTask(4, new EntityAIFleeSun(this, 1.0D));
+		this.tasks.addTask(6, new EntityAIWanderAvoidWater(this, 0.8D));
+		this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.2F, false));
+		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
+	}
+
 	protected void entityInit() {
 		super.entityInit();
 		this.dataManager.register(CLIMBING, (byte) 0);
-		this.dataManager.register(CHARGING, false);
 	}
 
 	protected PathNavigate createNavigator(World worldIn) {
@@ -72,22 +72,6 @@ public class EntitySolifugae extends EntityMob implements ICharger {
 		}
 	}
 
-	public boolean attackEntityAsMob(Entity entityIn) {
-		super.attackEntityAsMob(entityIn);
-		boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this),
-				(float) this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
-		if (flag) {
-			if (entityIn instanceof EntityLivingBase) {
-				((EntityLivingBase) entityIn).knockBack(this, 0.22F,
-						MathHelper.sin(this.rotationYaw * 0.017453292F),
-						-MathHelper.cos(this.rotationYaw * 0.017453292F));
-				this.motionX *= 0.6D;
-				this.motionZ *= 0.6D;
-			}
-		}
-		return flag;
-	}
-
 	public boolean IsJumpingUp() {
 		return this.isJumping;
 	}
@@ -97,10 +81,6 @@ public class EntitySolifugae extends EntityMob implements ICharger {
 	}
 
 	public void setInWeb() {
-	}
-
-	public boolean isPotionApplicable(PotionEffect potioneffectIn) {
-		return potioneffectIn.getPotion() != MobEffects.POISON && super.isPotionApplicable(potioneffectIn);
 	}
 
 	public boolean isBesideClimbableBlock() {
@@ -120,19 +100,15 @@ public class EntitySolifugae extends EntityMob implements ICharger {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.ENTITY_SPIDER_AMBIENT;
+		return ClientProxy.SCORPION_IDLE;
 	}
 
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-		return SoundEvents.ENTITY_SPIDER_HURT;
+		return ClientProxy.SCORPION_HURT;
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.ENTITY_SPIDER_DEATH;
-	}
-
-	protected float getSoundVolume() {
-		return this.getAttackTarget() != null ? 3.5F : 1.0F;
+		return ClientProxy.SCORPION_DEATH;
 	}
 
 	protected void playStepSound(BlockPos pos, Block blockIn) {
@@ -144,32 +120,60 @@ public class EntitySolifugae extends EntityMob implements ICharger {
 	}
 
 	public float getEyeHeight() {
-		return 0.45F;
+		return 0.6F;
 	}
 
 	protected int decreaseAirSupply(int air) {
 		return air - 10;
 	}
 
-	public int getMaxSpawnedInChunk() {
-		return 1;
-	}
-
 	protected boolean canTriggerWalking() {
 		return false;
+	}
+
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+
+		if (this.attackTimer > 0) {
+			--this.attackTimer;
+		}
+	}
+
+	public boolean attackEntityAsMob(Entity entityIn) {
+		super.attackEntityAsMob(entityIn);
+		this.attackTimer = 10;
+		this.world.setEntityState(this, (byte) 4);
+		boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this),
+				(float) this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
+		if (flag) {
+			if (entityIn instanceof EntityLivingBase) {
+				((EntityLivingBase) entityIn).knockBack(this, 0.44F,
+						MathHelper.sin(this.rotationYaw * 0.017453292F),
+						-MathHelper.cos(this.rotationYaw * 0.017453292F));
+				this.motionX *= 0.6D;
+				this.motionZ *= 0.6D;
+			}
+		}
+		this.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.3F);
+		return flag;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void handleStatusUpdate(byte id) {
+		if (id == 4) {
+			this.attackTimer = 10;
+			this.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.3F);
+		} else {
+			super.handleStatusUpdate(id);
+		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	public int getAttackTimer() {
+		return this.attackTimer;
 	}
 
 	@Override
 	public void fall(float distance, float damageMultiplier) {
 	}
-	
-	@Override
-    public boolean isCharging() {
-        return this.dataManager.get(CHARGING);
-    }
-    
-	@Override
-    public void setCharging(final boolean flag) {
-        this.dataManager.set(CHARGING, flag);
-    }
 }
