@@ -8,6 +8,7 @@ import com.axanthic.loi.entity.EntitySpellBubble;
 
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -42,6 +43,11 @@ public class RenderSpellBubble extends Render<EntitySpellBubble> {
 			GlStateManager.enableColorMaterial();
 			GlStateManager.enableOutlineMode(this.getTeamColor(entity));
 		}
+
+		int u = 15728864;
+		int j = u % 65536;
+		int k = u / 65536;
+		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
 
 		GlStateManager.disableCull();
 		GlStateManager.shadeModel(7425);
