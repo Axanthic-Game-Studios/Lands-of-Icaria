@@ -28,7 +28,7 @@ public class SpellMagicMissile extends AbstractSpell {
 		}
 		if (!worldIn.isRemote) {
 			EntitySpellWisp entityWisp = new EntitySpellWisp(worldIn, playerIn, this);
-			entityWisp.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 3.0F, 0.0F);
+			entityWisp.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 3.0F, 0.0F);
 			worldIn.spawnEntity(entityWisp);
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));

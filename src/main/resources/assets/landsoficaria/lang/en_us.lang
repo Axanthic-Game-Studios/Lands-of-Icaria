@@ -244,6 +244,7 @@ spell.healing.name=Healing
 spell.anti_gravity.name=Anti Gravity
 spell.freezing.name=Freezing
 spell.magic_missile.name=Magic Missile
+spell.bubble.name=Bubble
 
 effect.frozen.name=Frozen
 

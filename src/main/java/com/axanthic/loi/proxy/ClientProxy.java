@@ -111,6 +111,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityFallingVase.class, RenderFallingBlock::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, RenderGrenade::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySpellWisp.class, RenderSpellWisp::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntitySpellBubble.class, RenderSpellBubble::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFloatingBlock.class, RenderFallingBlock::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityAeternae.class, RenderAeternae::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCatoblepas.class, RenderCatoblepas::new);

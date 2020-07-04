@@ -84,6 +84,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "falling_vase"), EntityFallingVase.class, "falling_vase", 1, ModInformation.ID, 160, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "greek_fire_grenade"), EntityGrenade.class, "greek_fire_grenade", 2, ModInformation.ID, 64, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "spell_wisp"), EntitySpellWisp.class, "spell_wisp", 3, ModInformation.ID, 64, 20, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "spell_bubble"), EntitySpellBubble.class, "spell_bubble", 4, ModInformation.ID, 64, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "floating_block"), EntityFloatingBlock.class, "floating_block", 4, ModInformation.ID, 160, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "aeternae"), EntityAeternae.class, "aeternae", 30, ModInformation.ID, 80, 3, true, 0xE27E1E, 0xF9BC0B);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "catoblepas"), EntityCatoblepas.class, "catoblepas", 31, ModInformation.ID, 80, 3, true, 0x615238, 0xDACCB7);
