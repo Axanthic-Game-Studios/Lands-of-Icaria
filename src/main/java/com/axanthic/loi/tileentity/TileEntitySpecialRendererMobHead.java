@@ -66,8 +66,9 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 
 	public void renderSkull(float x, float y, float z, EnumFacing facing, float rotationIn, String skullType, int destroyStage) {
 		ModelBase modelbase = this.revenantHead;
-		
+
 		float wallOffset = 0.0f;
+		float pitch = 0.0f;
 
 		if (destroyStage >= 0) {
 			this.bindTexture(DESTROY_STAGES[destroyStage]);
@@ -122,6 +123,8 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 			} else if (skullType.equals("aeternae")) {
 				this.bindTexture(AETERNAE_TEXTURES);
 				modelbase = this.aeternaeHead;
+				if (facing != EnumFacing.UP)
+					pitch = 35.0F;
 			} else if (skullType.equals("catoblepas")) {
 				this.bindTexture(CATOBLEPAS_TEXTURES);
 				modelbase = this.catoblepasHead;
@@ -161,7 +164,7 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 		GlStateManager.scale(-1.0F, -1.0F, 1.0F);
 		GlStateManager.enableAlpha();
 
-		modelbase.render((Entity)null, 0.0F, 0.0F, 0.0F, rotationIn, 0.0F, 0.0625F);
+		modelbase.render((Entity)null, 0.0F, 0.0F, 0.0F, rotationIn, pitch, 0.0625F);
 		GlStateManager.popMatrix();
 
 		if (destroyStage >= 0) {

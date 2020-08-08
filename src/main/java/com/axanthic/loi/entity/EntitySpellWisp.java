@@ -147,7 +147,7 @@ public class EntitySpellWisp extends Entity implements IProjectile {
 	/**
 	 * Called to update the entity's position/logic.
 	 */
-	public void onUpdate(){
+	public void onUpdate() {
 		super.onUpdate();
 		if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F){
 			float f = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
