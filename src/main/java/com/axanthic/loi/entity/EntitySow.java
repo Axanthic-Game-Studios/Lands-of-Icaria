@@ -47,7 +47,7 @@ public class EntitySow extends EntityAnimal {
 
 	public EntitySow(World worldIn) {
 		super(worldIn);
-		this.setSize(0.9F, 1.0F);
+		this.setSize(0.8F, 0.9F);
 		this.spawnableBlock = Resources.grass.getBlock();
 	}
 

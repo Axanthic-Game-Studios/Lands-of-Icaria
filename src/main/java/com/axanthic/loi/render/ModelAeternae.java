@@ -205,14 +205,10 @@ public class ModelAeternae extends ModelBase {
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) { 
 		if (((EntityAeternae) entity).isChild()) {
-			GlStateManager.pushMatrix();
 			GlStateManager.scale(0.5F, 0.5F, 0.5F);
 			GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
-			this.body_main.render(scale);
-			GlStateManager.popMatrix();
-		} else {
-			this.body_main.render(scale);
 		}
+		this.body_main.render(scale);
 	}
 
 	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {

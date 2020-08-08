@@ -128,6 +128,9 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 			} else if (skullType.equals("catoblepas")) {
 				this.bindTexture(CATOBLEPAS_TEXTURES);
 				modelbase = this.catoblepasHead;
+				wallOffset = 0.0625f;
+				if (facing == EnumFacing.UP)
+					pitch = -5.0F;
 			} else if (skullType.equals("sow")) {
 				this.bindTexture(SOW_TEXTURES);
 				modelbase = this.sowHead;
