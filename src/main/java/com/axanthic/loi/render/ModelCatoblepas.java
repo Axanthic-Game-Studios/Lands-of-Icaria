@@ -229,7 +229,11 @@ public class ModelCatoblepas extends ModelBase {
 		if (((EntityCatoblepas) entity).isChild()) {
 			GlStateManager.scale(0.5F, 0.5F, 0.5F);
 			GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
-			this.body_center.render(scale);
+			this.horn_right.isHidden = true;
+			this.horn_left.isHidden = true;
+		} else {
+			this.horn_right.isHidden = false;
+			this.horn_left.isHidden = false;
 		}
 		this.body_center.render(scale);
 	}

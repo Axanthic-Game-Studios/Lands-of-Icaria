@@ -44,6 +44,10 @@ public class ModelAeternae extends ModelBase {
 	public ModelRenderer horn_2_1;
 	public ModelRenderer horn_3_1;
 	public ModelRenderer horn_4_1;
+	public ModelRenderer small_horn_3;
+	public ModelRenderer small_horn_4;
+	public ModelRenderer small_horn_3_1;
+	public ModelRenderer small_horn_4_1;
 
 	public ModelAeternae() {
 		this.textureWidth = 128;
@@ -98,6 +102,10 @@ public class ModelAeternae extends ModelBase {
 		this.horn_4_1.setRotationPoint(0.1F, -3.0F, 0.7F);
 		this.horn_4_1.addBox(0.0F, -3.0F, 0.0F, 1, 3, 1, 0.0F);
 		this.setRotateAngle(horn_4_1, -0.5462880558742251F, 0.0F, 0.045553093477052F);
+		this.small_horn_4_1 = new ModelRenderer(this, 49, 0);
+		this.small_horn_4_1.setRotationPoint(0.1F, -3.0F, 0.7F);
+		this.small_horn_4_1.addBox(0.0F, -3.0F, 0.0F, 1, 3, 1, 0.0F);
+		this.setRotateAngle(small_horn_4_1, -0.5462880558742251F, 0.0F, 0.045553093477052F);
 		this.neck_root = new ModelRenderer(this, 96, 10);
 		this.neck_root.setRotationPoint(0.0F, 5.5F, -3.0F);
 		this.neck_root.addBox(-3.5F, -6.0F, -5.5F, 7, 5, 6, 0.0F);
@@ -118,6 +126,10 @@ public class ModelAeternae extends ModelBase {
 		this.horn_3_1.setRotationPoint(0.1F, -3.0F, 0.7F);
 		this.horn_3_1.addBox(0.0F, -3.0F, 0.0F, 1, 3, 2, 0.0F);
 		this.setRotateAngle(horn_3_1, -0.4553564018453205F, 0.0F, 0.045553093477052F);
+		this.small_horn_3_1 = new ModelRenderer(this, 61, 0);
+		this.small_horn_3_1.setRotationPoint(1.8F, -2.5F, -2.6F);
+		this.small_horn_3_1.addBox(0.0F, -3.0F, 0.0F, 1, 3, 2, 0.0F);
+		this.setRotateAngle(small_horn_3_1, -0.4553564018453205F, 0.0F, 0.045553093477052F);
 		this.leg_front_upper_left = new ModelRenderer(this, 52, 13);
 		this.leg_front_upper_left.setRotationPoint(0.0F, 7.0F, 0.0F);
 		this.leg_front_upper_left.addBox(-1.5F, 0.0F, -1.5F, 3, 5, 3, 0.0F);
@@ -126,6 +138,10 @@ public class ModelAeternae extends ModelBase {
 		this.horn_3.setRotationPoint(-0.1F, -3.0F, 0.7F);
 		this.horn_3.addBox(-1.0F, -3.0F, 0.0F, 1, 3, 2, 0.0F);
 		this.setRotateAngle(horn_3, -0.4553564018453205F, 0.0F, -0.045553093477052F);
+		this.small_horn_3 = new ModelRenderer(this, 43, 0);
+		this.small_horn_3.setRotationPoint(-1.8F, -2.5F, -2.6F);
+		this.small_horn_3.addBox(-1.0F, -3.0F, 0.0F, 1, 3, 2, 0.0F);
+		this.setRotateAngle(small_horn_3, -0.4553564018453205F, 0.0F, -0.045553093477052F);
 		this.head = new ModelRenderer(this, 0, 22);
 		this.head.setRotationPoint(0.0F, -5.8F, -0.4F);
 		this.head.addBox(-3.0F, -2.5F, -7.0F, 6, 4, 7, 0.0F);
@@ -170,6 +186,10 @@ public class ModelAeternae extends ModelBase {
 		this.horn_4.setRotationPoint(-0.1F, -3.0F, 0.7F);
 		this.horn_4.addBox(-1.0F, -3.0F, 0.0F, 1, 3, 1, 0.0F);
 		this.setRotateAngle(horn_4, -0.5462880558742251F, 0.0F, -0.045553093477052F);
+		this.small_horn_4 = new ModelRenderer(this, 30, 0);
+		this.small_horn_4.setRotationPoint(-0.1F, -3.0F, 0.7F);
+		this.small_horn_4.addBox(-1.0F, -3.0F, 0.0F, 1, 3, 1, 0.0F);
+		this.setRotateAngle(small_horn_4, -0.5462880558742251F, 0.0F, -0.045553093477052F);
 		this.right_horn.addChild(this.horn_2);
 		this.body_main.addChild(this.leg_front_muscle_right_1);
 		this.leg_front_upper_right_1.addChild(this.leg_front_lower_right_1);
@@ -200,6 +220,10 @@ public class ModelAeternae extends ModelBase {
 		this.leg_front_muscle_right_1.addChild(this.leg_front_upper_right_1);
 		this.body_main.addChild(this.leg_front_muscle_left);
 		this.horn_3.addChild(this.horn_4);
+		this.head.addChild(this.small_horn_3);
+		this.head.addChild(this.small_horn_3_1);
+		this.small_horn_3.addChild(this.small_horn_4);
+		this.small_horn_3_1.addChild(this.small_horn_4_1);
 	}
 
 	@Override
@@ -207,6 +231,15 @@ public class ModelAeternae extends ModelBase {
 		if (((EntityAeternae) entity).isChild()) {
 			GlStateManager.scale(0.5F, 0.5F, 0.5F);
 			GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
+			this.right_horn.isHidden = true;
+			this.left_horn.isHidden = true;
+			this.small_horn_3.isHidden = false;
+			this.small_horn_3_1.isHidden = false;
+		} else {
+			this.right_horn.isHidden = false;
+			this.left_horn.isHidden = false;
+			this.small_horn_3.isHidden = true;
+			this.small_horn_3_1.isHidden = true;
 		}
 		this.body_main.render(scale);
 	}

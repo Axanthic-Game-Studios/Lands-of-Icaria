@@ -122,6 +122,11 @@ public class ModelSow extends ModelBase {
 		if (((EntitySow) entity).isChild()) {
 			GlStateManager.scale(0.5F, 0.5F, 0.5F);
 			GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
+			this.tusk_r.isHidden = true;
+			this.tusk_l.isHidden = true;
+		} else {
+			this.tusk_r.isHidden = false;
+			this.tusk_l.isHidden = false;
 		}
 		this.body.render(scale);
 	}
