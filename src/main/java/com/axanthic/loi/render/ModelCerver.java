@@ -182,9 +182,9 @@ public class ModelCerver extends ModelBase {
 		this.leg_right_back_bottom.rotateAngleX = MathHelper.sin((limbSwing + MathHelper.sin(limbSwing + (float) Math.PI * 0.75F)) * 0.5F + (float) Math.PI * 1.5F) * kneebend * limbSwingAmount + kneebend * limbSwingAmount + 0.5918411493512771F;
 		this.leg_left_back_bottom.rotateAngleX = MathHelper.sin((limbSwing + MathHelper.sin(limbSwing + (float) Math.PI * 0.25F)) * 0.5F + (float) Math.PI * 0.5F) * kneebend * limbSwingAmount + kneebend * limbSwingAmount + 0.5918411493512771F;
 
-		this.paw_right_back.rotateAngleX = -MathHelper.sin((limbSwing + MathHelper.sin(limbSwing)) * 0.5F) * kneebend * limbSwingAmount + kneebend * limbSwingAmount + 0.136659280431156F;
-		this.paw_left_back.rotateAngleX = -MathHelper.sin((limbSwing + MathHelper.sin(limbSwing + (float) Math.PI * 0.5F)) * 0.5F + (float) Math.PI) * kneebend * limbSwingAmount + kneebend * limbSwingAmount + 0.136659280431156F;
-		this.paw_right_back_1.rotateAngleX = -MathHelper.sin((limbSwing + MathHelper.sin(limbSwing + (float) Math.PI * 0.75F)) * 0.5F + (float) Math.PI * 1.5F) * kneebend * limbSwingAmount - kneebend * limbSwingAmount - 0.136659280431156F;
-		this.paw_left_back_1.rotateAngleX = -MathHelper.sin((limbSwing + MathHelper.sin(limbSwing + (float) Math.PI * 0.25F)) * 0.5F + (float) Math.PI * 0.5F) * kneebend * limbSwingAmount - kneebend * limbSwingAmount - 0.136659280431156F;
+		this.paw_right_back.rotateAngleX = -MathHelper.sin((limbSwing + MathHelper.sin(limbSwing)) * 0.5F) * kneebend * 1.7F * limbSwingAmount + kneebend * 1.7F * limbSwingAmount + 0.136659280431156F;
+		this.paw_left_back.rotateAngleX = -MathHelper.sin((limbSwing + MathHelper.sin(limbSwing + (float) Math.PI * 0.5F)) * 0.5F + (float) Math.PI) * kneebend * 1.7F * limbSwingAmount + kneebend * 1.7F * limbSwingAmount + 0.136659280431156F;
+		this.paw_right_back_1.rotateAngleX = MathHelper.sin((limbSwing + MathHelper.sin(limbSwing + (float) Math.PI * 0.75F)) * 0.5F + (float) Math.PI * 1.5F) * kneebend * 1.7F * limbSwingAmount + kneebend * 1.0F * limbSwingAmount - 0.136659280431156F;
+		this.paw_left_back_1.rotateAngleX = MathHelper.sin((limbSwing + MathHelper.sin(limbSwing + (float) Math.PI * 0.25F)) * 0.5F + (float) Math.PI * 0.5F) * kneebend * 1.7F * limbSwingAmount + kneebend * 1.0F * limbSwingAmount - 0.136659280431156F;
 	}
 }
