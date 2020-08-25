@@ -25,6 +25,7 @@ import com.axanthic.loi.entity.*;
 import com.axanthic.loi.items.IItemCustomReach;
 import com.axanthic.loi.items.IItemMeta;
 import com.axanthic.loi.items.ItemBlockMeta;
+import com.axanthic.loi.items.ItemBlockMobHead;
 import com.axanthic.loi.items.ItemConcoctionVial;
 import com.axanthic.loi.items.ItemCustomArmor;
 import com.axanthic.loi.items.ItemScroll;
@@ -45,6 +46,7 @@ import com.google.common.base.Predicates;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelManager;
@@ -408,6 +410,15 @@ public class ClientProxy extends CommonProxy {
 		if (event.getEntity().getAttributeMap().getAttributeInstance(SharedMonsterAttributes.MOVEMENT_SPEED).hasModifier(frozenModifier)) {
 			GlStateManager.color(0.5686F, 0.8862F, 1.0F);
 		}
+		if (event.getRenderer().getMainModel() instanceof ModelBiped) {
+			for (ItemStack stack : event.getEntity().getArmorInventoryList()) {
+				if (stack.getItem() instanceof ItemBlockMobHead) {
+					((ModelBiped) event.getRenderer().getMainModel()).bipedHead.isHidden = true;
+					return;
+				}
+			}
+			((ModelBiped) event.getRenderer().getMainModel()).bipedHead.isHidden = false;
+		}
 	}
 
 	@SubscribeEvent
@@ -415,5 +426,21 @@ public class ClientProxy extends CommonProxy {
 		if (event.getEntity().getAttributeMap().getAttributeInstance(SharedMonsterAttributes.MOVEMENT_SPEED).hasModifier(frozenModifier)) {
 			GlStateManager.color(1, 1, 1);
 		}
+		//maybe I can make this work someday
+		/*if (event.getRenderer().getMainModel() instanceof ModelBiped) {
+			ModelBiped model = (ModelBiped) event.getRenderer().getMainModel();
+			model.bipedHead.isHidden = false;
+			for (ItemStack stack : event.getEntity().getArmorInventoryList()) {
+				if (stack.getItem() instanceof ItemBlockMobHead) {
+					GlStateManager.pushMatrix();
+					GlStateManager.disableCull();
+					GlStateManager.color(1.0F, 1.0F, 1.0F);
+					model.bipedHead.postRender(0.0625F);
+					TileEntitySpecialRendererMobHead.instance.renderSkull(0.0F, 0.1F, 0.0F, EnumFacing.DOWN, 0.0F, ((BlockMobHead) ((ItemBlock) stack.getItem()).getBlock()).name, -1, 1.6F);
+					GlStateManager.enableCull();
+					GlStateManager.popMatrix();
+				}
+			}
+		}*/
 	}
 }

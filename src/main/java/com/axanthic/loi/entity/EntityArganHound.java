@@ -32,7 +32,7 @@ public class EntityArganHound extends EntityMob {
 
 	public EntityArganHound(World worldIn) {
 		super(worldIn);
-		this.setSize(0.9F, 1.4F);
+		this.setSize(0.9F, 1.0F);
 	}
 
 	protected void initEntityAI() {
@@ -122,6 +122,6 @@ public class EntityArganHound extends EntityMob {
 	}
 
 	public float getEyeHeight() {
-		return 1.0F;
+		return 0.8F;
 	}
 }
