@@ -122,6 +122,6 @@ public class EntityCerver extends EntityMob {
 	}
 
 	public float getEyeHeight() {
-		return 1.0F;
+		return 0.8F;
 	}
 }

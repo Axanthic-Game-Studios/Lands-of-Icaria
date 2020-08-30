@@ -163,20 +163,28 @@ public class EntityAeternae extends EntityAnimal {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public float getHeadRotationAngleX(float partialTick) {
-		if (this.eatTimer > 4 && this.eatTimer <= 36) {
-			float f = ((float) (this.eatTimer - 4) - partialTick) /64.0F;
-			return ((float) Math.PI / 5F) + ((float) Math.PI * 7F / 100F) * MathHelper.sin(f * 28.7F);
-		} else if (this.eatTimer > 0) {
-			return ((float) Math.PI / 5F);
-		}
+	public float getNeckRotationAngleX(float partialTick) {
+		if (this.eatTimer > 0 && (this.eatTimer < 10 || this.eatTimer > 30)) {
+			float tick = this.eatTimer - partialTick;
+			return MathHelper.cos((float) (tick * Math.PI / 10)) - 1;
+		} else if (this.eatTimer > 0)
+			return -2;
 		float swing = this.getSwingProgress(partialTick);
 		if (swing > 0 && swing != 1) {
 			if (swing < 0.5F)
-				return swing * 4;
-			return (swing - 0.5F) * -4 + 2;
+				return -swing * 4;
+			return (swing - 0.5F) * 4 - 2;
 		}
-		return this.rotationPitch * 0.017453292F;
+		return 0.0F;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public float getMouthRotationAngleX(float partialTick) {
+		if (this.eatTimer > 10 && this.eatTimer <= 30) {
+			float tick = this.eatTimer - partialTick;
+			return -MathHelper.cos((float) (tick * Math.PI / 5 + Math.PI)) - 1;
+		}
+		return 0;
 	}
 
 	@Nullable
@@ -196,7 +204,7 @@ public class EntityAeternae extends EntityAnimal {
 	}
 
 	public float getEyeHeight() {
-		return this.isChild() ? this.height : 1.9F;
+		return this.isChild() ? this.height : 1.55F;
 	}
 
 	public void writeEntityToNBT(NBTTagCompound compound) {

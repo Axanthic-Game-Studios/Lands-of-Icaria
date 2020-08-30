@@ -10,6 +10,7 @@
 		"healing": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/spell_heart" } },
 		"anti_gravity": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/spell_gas" } },
 		"freezing": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/spell_snowflake" } },
-		"magic_missile": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/spell_crosshair" } }
+		"magic_missile": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/spell_crosshair" } },
+		"bubble": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/spell_bubble" } }
 	}
 }

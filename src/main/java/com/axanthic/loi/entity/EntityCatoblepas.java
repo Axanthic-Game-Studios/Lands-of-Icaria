@@ -146,7 +146,7 @@ public class EntityCatoblepas extends EntityAnimal {
 	}
 
 	public float getEyeHeight() {
-		return this.isChild() ? 0.5F : 1.1F;
+		return this.isChild() ? 0.6F : 1.2F;
 	}
 
 	public void writeEntityToNBT(NBTTagCompound compound) {

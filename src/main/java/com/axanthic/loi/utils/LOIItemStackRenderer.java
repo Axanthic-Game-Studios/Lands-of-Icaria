@@ -46,7 +46,7 @@ public class LOIItemStackRenderer extends TileEntityItemStackRenderer {
 			if (TileEntitySpecialRendererMobHead.instance != null) {
 				GlStateManager.pushMatrix();
 				GlStateManager.disableCull();
-				TileEntitySpecialRendererMobHead.instance.renderSkull(0.0F, 0.0F, 0.0F, EnumFacing.UP, 180.0F, ((BlockMobHead) ((ItemBlock) item).getBlock()).name, -1);
+				TileEntitySpecialRendererMobHead.instance.renderSkull(0.0F, 0.1F, 0.0F, EnumFacing.DOWN, 0.0F, ((BlockMobHead) ((ItemBlock) item).getBlock()).name, -1, 1.6F);
 				GlStateManager.enableCull();
 				GlStateManager.popMatrix();
 			}
@@ -63,7 +63,6 @@ public class LOIItemStackRenderer extends TileEntityItemStackRenderer {
 		}
 
 		if (item instanceof ItemScroll) {
-			//if (BakedModelScroll.transform == TransformType.FIRST_PERSON_LEFT_HAND || BakedModelScroll.transform == TransformType.FIRST_PERSON_RIGHT_HAND) {
 			ItemScroll scroll = ((ItemScroll) item);
 			if (!Minecraft.getMinecraft().player.isInvisible()) {
 				EnumHand rightHand = EnumHand.MAIN_HAND;

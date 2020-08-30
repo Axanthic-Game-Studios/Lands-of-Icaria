@@ -2,12 +2,13 @@ package com.axanthic.loi.items;
 
 import com.axanthic.loi.blocks.BlockMobHead;
 import com.axanthic.loi.tileentity.TileEntityMobHead;
-
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -73,5 +74,10 @@ public class ItemBlockMobHead extends ItemBlock {
 				return EnumActionResult.FAIL;
 			}
 		}
+	}
+
+	@Override
+	public boolean isValidArmor(ItemStack stack, EntityEquipmentSlot armorType, Entity entity) {
+		return armorType == EntityEquipmentSlot.HEAD;
 	}
 }

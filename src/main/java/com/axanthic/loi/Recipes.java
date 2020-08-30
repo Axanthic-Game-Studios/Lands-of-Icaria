@@ -3,6 +3,7 @@ package com.axanthic.loi;
 import javax.annotation.Nonnull;
 
 import com.axanthic.loi.Resources.ArmorSet;
+import com.axanthic.loi.Resources.SpellSet;
 import com.axanthic.loi.Resources.StairSlabPair;
 import com.axanthic.loi.Resources.ToolSet;
 import com.axanthic.loi.Resources.WoodSet;
@@ -73,10 +74,11 @@ public class Recipes {
 		addGrinderFuel("sliver_ingot", new ItemStack(Resources.ingot, 1, 4), 7200);
 		addGrinderFuel("sliver_block", new ItemStack(Resources.metalBlock, 1, 4), 64800);
 
-		addKettleRecipe("healing", new ItemStack(Resources.healSpell.spellItem), new ItemStack(Resources.healSpell.concoction), 0xCE4A4A, new OreIngredient("ingotSideros"), new OreIngredient("ingotMolybdenum"), new OreIngredient("gemAnthracite"));
-		addKettleRecipe("anti_gravity", new ItemStack(Resources.antiGravitySpell.spellItem), new ItemStack(Resources.antiGravitySpell.concoction), 0x1062A7, new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.herb, 1, 7), new ItemStack(Resources.herb, 1, 3), new ItemStack(Resources.herb, 1, 4));
-		addKettleRecipe("freezing", new ItemStack(Resources.freezingSpell.spellItem), new ItemStack(Resources.freezingSpell.concoction), 0xD7D7D7, new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.herb, 1, 6), new ItemStack(Resources.herb, 1, 3), new ItemStack(Resources.herb, 1, 4));
-		addKettleRecipe("magic_missile", new ItemStack(Resources.magicMissileSpell.spellItem), new ItemStack(Resources.magicMissileSpell.concoction), 0x8F50D9, new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.herb, 1, 6), new ItemStack(Resources.herb, 1, 3), new ItemStack(Resources.herb, 1, 5));
+		addKettleRecipe(Resources.healSpell, new ItemStack(Resources.herb, 1, 1), new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
+		addKettleRecipe(Resources.antiGravitySpell, new ItemStack(Resources.ingot, 1, 2), new ItemStack(Resources.herb, 1, 5), new ItemStack(Resources.herb, 1, 1), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
+		addKettleRecipe(Resources.freezingSpell, new ItemStack(Resources.herb, 1, 7), new ItemStack(Resources.herb, 1, 7), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()));
+		addKettleRecipe(Resources.magicMissileSpell, new ItemStack(Resources.ingot, 1, 2), new ItemStack(Resources.herb, 1, 5), new ItemStack(Resources.herb, 1, 4), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()));
+		addKettleRecipe(Resources.bubbleSpell, new ItemStack(Resources.herb, 1, 5), new ItemStack(Resources.herb, 1, 3), new ItemStack(Resources.herb, 1, 6), new ItemStack(Resources.herb, 1, 8));
 		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeSpawnMob(new ResourceLocation(ModInformation.ID, "recipe_sow"), EntitySow.class, 0xFFFFFF, new OreIngredient("vine"), new OreIngredient("vine")));
 		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeExplosion(new ResourceLocation(ModInformation.ID, "recipe_explosion"), 0xEE6D11, new OreIngredient("sand"), new OreIngredient("sand"), new OreIngredient("sand")));
 
@@ -426,6 +428,14 @@ public class Recipes {
 			ingredients[i] = Ingredient.fromStacks(inputs[i]);
 		}
 		addKettleRecipe(name, output, concoction, color, ingredients);
+	}
+
+	public static void addKettleRecipe(SpellSet spell, Ingredient... inputs) {
+		addKettleRecipe(spell.name, new ItemStack(spell.spellItem), spell.hasConcoction ? new ItemStack(spell.concoction) : null, spell.spell.getColor(), inputs);
+	}
+
+	public static void addKettleRecipe(SpellSet spell, ItemStack... inputs) {
+		addKettleRecipe(spell.name, new ItemStack(spell.spellItem), spell.hasConcoction ? new ItemStack(spell.concoction) : null, spell.spell.getColor(), inputs);
 	}
 
 	public static void moveRecipe(ResourceLocation name) {

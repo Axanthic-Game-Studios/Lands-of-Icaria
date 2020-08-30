@@ -30,7 +30,7 @@ public class SpellFreezing extends AbstractSpell {
 		}
 		if (!worldIn.isRemote) {
 			EntitySpellWisp entityWisp = new EntitySpellWisp(worldIn, playerIn, this);
-			entityWisp.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.0F, 1.0F);
+			entityWisp.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 1.0F, 1.0F);
 			worldIn.spawnEntity(entityWisp);
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));

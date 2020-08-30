@@ -9,27 +9,37 @@ public class ModelCerverHead extends ModelBase {
 	public ModelRenderer mouth;
 	public ModelRenderer ear_right;
 	public ModelRenderer ear_left;
+	public ModelRenderer jaw;
+	public ModelRenderer mouth_1;
 
 	public ModelCerverHead() {
 		this.textureWidth = 96;
 		this.textureHeight = 64;
-		this.ear_left = new ModelRenderer(this, 0, 60);
-		this.ear_left.setRotationPoint(3.5F, -6.5F, 12.0F);
-		this.ear_left.addBox(-2.0F, 0.0F, -10.0F, 2, 2, 1, 0.0F);
-		this.setRotateAngle(ear_left, 0.0F, 0.0F, 0.7853981633974483F);
-		this.ear_right = new ModelRenderer(this, 0, 60);
-		this.ear_right.setRotationPoint(-0.5F, -6.5F, 12.0F);
-		this.ear_right.addBox(-2.0F, 0.0F, -10.0F, 2, 2, 1, 0.0F);
-		this.setRotateAngle(ear_right, 0.0F, 0.0F, 0.7853981633974483F);
-		this.head = new ModelRenderer(this, 44, 0);
-		this.head.setRotationPoint(0.0F, 0.0F, 0.0F);
-		this.head.addBox(-3.0F, -6.0F, -2.0F, 6, 6, 6, 0.0F);
-		this.setRotateAngle(head, 0.21380283336930533F, 0.0F, 0.0F);
-		this.mouth = new ModelRenderer(this, 80, 0);
-		this.mouth.setRotationPoint(0.5F, -3.5F, 4.0F);
-		this.mouth.addBox(-2.0F, 0.0F, -10.0F, 3, 3, 4, 0.0F);
-		this.head.addChild(this.ear_left);
+		this.head = new ModelRenderer(this, 66, 21);
+		this.head.setRotationPoint(0.0F, -4.0F, 0.0F);
+		this.head.addBox(-3.0F, -2.0F, -3.0F, 6, 6, 6, 0.0F);
+		this.setRotateAngle(head, 0.045553093477052F, 0.0F, 0.0F);
+		this.jaw = new ModelRenderer(this, 24, 18);
+		this.jaw.setRotationPoint(0.0F, 2.0F, -0.6F);
+		this.jaw.addBox(-1.5F, 0.0F, -3.0F, 3, 1, 4, 0.0F);
+		this.ear_right = new ModelRenderer(this, 0, 0);
+		this.ear_right.setRotationPoint(-2.2F, -3.8F, 0.0F);
+		this.ear_right.addBox(0.0F, 0.0F, -0.5F, 3, 4, 1, 0.0F);
+		this.setRotateAngle(ear_right, 0.0F, -0.5235987755982988F, 0.7853981633974483F);
+		this.ear_left = new ModelRenderer(this, 30, 0);
+		this.ear_left.setRotationPoint(2.2F, -3.8F, 0.0F);
+		this.ear_left.addBox(0.0F, 0.0F, -0.5F, 4, 3, 1, 0.0F);
+		this.setRotateAngle(ear_left, 0.5235987755982988F, 0.0F, 0.7853981633974483F);
+		this.mouth_1 = new ModelRenderer(this, 12, 44);
+		this.mouth_1.setRotationPoint(0.0F, 2.0F, 0.3F);
+		this.mouth_1.addBox(-2.0F, 0.0F, -4.0F, 4, 2, 4, 0.0F);
+		this.mouth = new ModelRenderer(this, 12, 20);
+		this.mouth.setRotationPoint(0.0F, 1.0F, -3.0F);
+		this.mouth.addBox(-2.0F, 0.0F, -4.0F, 4, 2, 4, 0.0F);
+		this.mouth.addChild(this.jaw);
 		this.head.addChild(this.ear_right);
+		this.head.addChild(this.ear_left);
+		this.mouth.addChild(this.mouth_1);
 		this.head.addChild(this.mouth);
 	}
 

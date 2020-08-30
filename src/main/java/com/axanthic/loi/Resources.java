@@ -109,6 +109,7 @@ import com.axanthic.loi.items.ToolSword;
 import com.axanthic.loi.proxy.ClientProxy;
 import com.axanthic.loi.spells.AbstractSpell;
 import com.axanthic.loi.spells.SpellAntiGravity;
+import com.axanthic.loi.spells.SpellBubble;
 import com.axanthic.loi.spells.SpellFreezing;
 import com.axanthic.loi.spells.SpellHeal;
 import com.axanthic.loi.spells.SpellMagicMissile;
@@ -304,6 +305,7 @@ public class Resources {
 	public static SpellSet antiGravitySpell = new SpellSet("anti_gravity", new SpellAntiGravity(), true);
 	public static SpellSet freezingSpell = new SpellSet("freezing", new SpellFreezing(), false);
 	public static SpellSet magicMissileSpell = new SpellSet("magic_missile", new SpellMagicMissile(), false);
+	public static SpellSet bubbleSpell = new SpellSet("bubble", new SpellBubble(), false);
 
 	public static Potion frozenEffect = new PotionFrozen();
 
@@ -387,6 +389,7 @@ public class Resources {
 		Resources.antiGravitySpell.register();
 		Resources.freezingSpell.register();
 		Resources.magicMissileSpell.register();
+		Resources.bubbleSpell.register();
 	}
 
 	public static void registerBlocks() {

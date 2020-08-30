@@ -29,15 +29,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntitySpellWisp extends Entity implements IProjectile {
 
-	private static final Predicate<Entity> SPELL_TARGETS = Predicates.and(EntitySelectors.NOT_SPECTATING, EntitySelectors.IS_ALIVE, new Predicate<Entity>() {
+	public static final Predicate<Entity> SPELL_TARGETS = Predicates.and(EntitySelectors.NOT_SPECTATING, EntitySelectors.IS_ALIVE, new Predicate<Entity>() {
 		public boolean apply(@Nullable Entity p_apply_1_) {
 			return p_apply_1_.canBeCollidedWith();
 		}
 	});
-	private static final DataParameter<String> SPELL = EntityDataManager.<String>createKey(EntitySpellWisp.class, DataSerializers.STRING);
+	public static final DataParameter<String> SPELL = EntityDataManager.<String>createKey(EntitySpellWisp.class, DataSerializers.STRING);
 	/** The owner of this projectile. */
 	public Entity shootingEntity;
-	private int ticksInAir;
+	public int ticksInAir;
 	public AbstractSpell spell;
 
 	public EntitySpellWisp(World worldIn) {
@@ -81,7 +81,7 @@ public class EntitySpellWisp extends Entity implements IProjectile {
 		super.notifyDataManagerChange(key);
 	}
 
-	public void shoot(Entity shooter, float pitch, float yaw, float nothing, float velocity, float inaccuracy) {
+	public void shoot(Entity shooter, float pitch, float yaw, float velocity, float inaccuracy) {
 		float f = -MathHelper.sin(yaw * 0.017453292F) * MathHelper.cos(pitch * 0.017453292F);
 		float f1 = -MathHelper.sin(pitch * 0.017453292F);
 		float f2 = MathHelper.cos(yaw * 0.017453292F) * MathHelper.cos(pitch * 0.017453292F);
@@ -147,7 +147,7 @@ public class EntitySpellWisp extends Entity implements IProjectile {
 	/**
 	 * Called to update the entity's position/logic.
 	 */
-	public void onUpdate(){
+	public void onUpdate() {
 		super.onUpdate();
 		if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F){
 			float f = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
