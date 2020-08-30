@@ -14,11 +14,11 @@ import javax.annotation.Nonnull;
 
 public class RenderWhipSpider extends RenderLiving<EntityWhipSpider> {
 
-	private ResourceLocation TEXTURE = new ResourceLocation(ModInformation.ID, "textures/entity/mob_scorpion.png");
+	private ResourceLocation TEXTURE = new ResourceLocation(ModInformation.ID, "textures/entity/mob_whip_spider.png");
 	public static final Factory FACTORY = new Factory();
 
 	public RenderWhipSpider(RenderManager rendermanagerIn) {
-		super(rendermanagerIn, new ModelScorpion(), 2.8F);
+		super(rendermanagerIn, new ModelWhipSpider(), 1.1F);
 	}
 
 	@Override
@@ -27,7 +27,6 @@ public class RenderWhipSpider extends RenderLiving<EntityWhipSpider> {
 		return TEXTURE;
 	}
 
-	// Scorpion is 6.3 cm
 	@Override
 	public void doRender(EntityWhipSpider entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);

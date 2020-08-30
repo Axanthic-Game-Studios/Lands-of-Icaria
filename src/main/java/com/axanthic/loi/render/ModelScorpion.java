@@ -3,6 +3,7 @@ package com.axanthic.loi.render;
 import com.axanthic.loi.entity.EntityScorpion;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
@@ -246,6 +247,7 @@ public class ModelScorpion extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+		GlStateManager.pushMatrix();
 		this.LfarthestLeg.render(f5);
 		this.RmiddleLeg.render(f5);
 		this.RfarthestLeg.render(f5);
@@ -255,6 +257,7 @@ public class ModelScorpion extends ModelBase {
 		this.LmiddleLeg.render(f5);
 		this.RfrontLeg.render(f5);
 		this.LbackLeg.render(f5);
+		GlStateManager.popMatrix();
 	}
 
 	/**
