@@ -8,6 +8,7 @@
 	},
 	"variants": {
 		"healing": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/spell_heart" } },
+		"fortifying": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/spell_armor" } },
 		"anti_gravity": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/spell_gas" } },
 		"freezing": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/spell_snowflake" } },
 		"magic_missile": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/spell_crosshair" } },

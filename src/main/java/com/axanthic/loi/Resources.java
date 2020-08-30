@@ -28,8 +28,6 @@ import com.axanthic.loi.blocks.BlockFarmLand;
 import com.axanthic.loi.blocks.BlockFarmLandFertilized;
 import com.axanthic.loi.blocks.BlockFlower;
 import com.axanthic.loi.blocks.BlockFlower2;
-import com.axanthic.loi.blocks.BlockFluidCustom;
-import com.axanthic.loi.blocks.BlockFluidUpwards;
 import com.axanthic.loi.blocks.BlockForge;
 import com.axanthic.loi.blocks.BlockGem;
 import com.axanthic.loi.blocks.BlockGlassy;
@@ -69,7 +67,6 @@ import com.axanthic.loi.blocks.BlockStorageVase;
 import com.axanthic.loi.blocks.BlockStrawberryBush;
 import com.axanthic.loi.blocks.BlockStrawberryCrop;
 import com.axanthic.loi.blocks.BlockTallGrass;
-import com.axanthic.loi.blocks.FluidCustom;
 import com.axanthic.loi.entity.EntityForestHagCypress;
 import com.axanthic.loi.entity.EntityForestHagDroughtroot;
 import com.axanthic.loi.entity.EntityForestHagFir;
@@ -107,12 +104,7 @@ import com.axanthic.loi.items.ToolScythe;
 import com.axanthic.loi.items.ToolShovel;
 import com.axanthic.loi.items.ToolSword;
 import com.axanthic.loi.proxy.ClientProxy;
-import com.axanthic.loi.spells.AbstractSpell;
-import com.axanthic.loi.spells.SpellAntiGravity;
-import com.axanthic.loi.spells.SpellBubble;
-import com.axanthic.loi.spells.SpellFreezing;
-import com.axanthic.loi.spells.SpellHeal;
-import com.axanthic.loi.spells.SpellMagicMissile;
+import com.axanthic.loi.spells.*;
 import com.axanthic.loi.utils.CustomTrigger;
 import com.axanthic.loi.utils.PotionFrozen;
 import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
@@ -141,7 +133,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 public class Resources {
@@ -302,6 +293,7 @@ public class Resources {
 	public static List<ItemScroll> scrolls = new ArrayList<ItemScroll>();
 	public static Map<String, AbstractSpell> spells = new HashMap<String, AbstractSpell>();
 	public static SpellSet healSpell = new SpellSet("healing", new SpellHeal(), true);
+	public static SpellSet fortifySpell = new SpellSet("fortifying", new SpellFortify(), true);
 	public static SpellSet antiGravitySpell = new SpellSet("anti_gravity", new SpellAntiGravity(), true);
 	public static SpellSet freezingSpell = new SpellSet("freezing", new SpellFreezing(), false);
 	public static SpellSet magicMissileSpell = new SpellSet("magic_missile", new SpellMagicMissile(), false);
@@ -386,6 +378,7 @@ public class Resources {
 		Resources.vanadiumArmor.register();
 
 		Resources.healSpell.register();
+		Resources.fortifySpell.register();
 		Resources.antiGravitySpell.register();
 		Resources.freezingSpell.register();
 		Resources.magicMissileSpell.register();

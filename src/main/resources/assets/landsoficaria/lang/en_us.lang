@@ -241,10 +241,11 @@ material.laurel.name=Laurel
 material.droughtroot.name=Droughtroot
 
 spell.healing.name=Healing
+spell.fortifying.name=Fortifying
 spell.anti_gravity.name=Anti Gravity
 spell.freezing.name=Freezing
-spell.magic_missile.name=Magic Missile
 spell.bubble.name=Bubble
+spell.magic_missile.name=Magic Missile
 
 effect.frozen.name=Frozen
 

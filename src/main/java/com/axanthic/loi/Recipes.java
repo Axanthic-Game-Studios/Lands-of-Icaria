@@ -75,6 +75,7 @@ public class Recipes {
 		addGrinderFuel("sliver_block", new ItemStack(Resources.metalBlock, 1, 4), 64800);
 
 		addKettleRecipe(Resources.healSpell, new ItemStack(Resources.herb, 1, 1), new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
+		addKettleRecipe(Resources.fortifySpell, new ItemStack(Resources.herb, 1, 3), new ItemStack(Resources.herb, 1, 4), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
 		addKettleRecipe(Resources.antiGravitySpell, new ItemStack(Resources.ingot, 1, 2), new ItemStack(Resources.herb, 1, 5), new ItemStack(Resources.herb, 1, 1), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
 		addKettleRecipe(Resources.freezingSpell, new ItemStack(Resources.herb, 1, 7), new ItemStack(Resources.herb, 1, 7), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()));
 		addKettleRecipe(Resources.magicMissileSpell, new ItemStack(Resources.ingot, 1, 2), new ItemStack(Resources.herb, 1, 5), new ItemStack(Resources.herb, 1, 4), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()));
