@@ -2,10 +2,7 @@ package com.axanthic.loi.entity;
 
 import com.axanthic.loi.proxy.ClientProxy;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,6 +27,7 @@ public class EntityWhipSpider extends EntityMob {
 	private int attackTimer;
 	private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityWhipSpider.class,
 			DataSerializers.BYTE);
+	private static final DataParameter<Float> SPIDER_SIZE = EntityDataManager.createKey(EntityWhipSpider.class, DataSerializers.FLOAT);
 
 	public EntityWhipSpider(World worldIn) {
 		super(worldIn);
@@ -57,6 +55,7 @@ public class EntityWhipSpider extends EntityMob {
 
 	protected void entityInit() {
 		super.entityInit();
+		this.dataManager.register(SPIDER_SIZE, 1F);
 		this.dataManager.register(CLIMBING, (byte) 0);
 	}
 
@@ -175,5 +174,9 @@ public class EntityWhipSpider extends EntityMob {
 
 	@Override
 	public void fall(float distance, float damageMultiplier) {
+	}
+
+	public EntityWhipSpider createChild(EntityAgeable ageable) {
+		return new EntityWhipSpider(this.world);
 	}
 }
