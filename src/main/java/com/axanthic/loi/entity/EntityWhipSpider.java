@@ -1,11 +1,12 @@
 package com.axanthic.loi.entity;
 
-import com.axanthic.loi.proxy.ClientProxy;
 import net.minecraft.block.Block;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.network.datasync.DataParameter;
@@ -19,19 +20,15 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityWhipSpider extends EntityMob {
 
-	private int attackTimer;
 	private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityWhipSpider.class,
 			DataSerializers.BYTE);
-	private static final DataParameter<Float> SPIDER_SIZE = EntityDataManager.createKey(EntityWhipSpider.class, DataSerializers.FLOAT);
 
 	public EntityWhipSpider(World worldIn) {
 		super(worldIn);
-		this.experienceValue = 5;
+		this.experienceValue = 20;
 		setSize(4.2F, 1.7F);
 	}
 
@@ -55,128 +52,108 @@ public class EntityWhipSpider extends EntityMob {
 
 	protected void entityInit() {
 		super.entityInit();
-		this.dataManager.register(SPIDER_SIZE, 1F);
 		this.dataManager.register(CLIMBING, (byte) 0);
 	}
 
-	protected PathNavigate createNavigator(World worldIn) {
-		return new PathNavigateClimber(this, worldIn);
-	}
+    protected PathNavigate createNavigator(World worldIn) {
+        return new PathNavigateClimber(this, worldIn);
+    }
 
-	public void onUpdate() {
-		super.onUpdate();
+    public void onUpdate() {
+        super.onUpdate();
+        if (!this.world.isRemote && !this.IsJumpingUp()) {
+            this.setBesideClimbableBlock(this.collidedHorizontally);
+        }
+    }
 
-		if (!this.world.isRemote && !this.IsJumpingUp()) {
-			this.setBesideClimbableBlock(this.collidedHorizontally);
-		}
-	}
+    public boolean attackEntityAsMob(Entity entityIn) {
+        super.attackEntityAsMob(entityIn);
+        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this),
+                (float) this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
+        if (flag) {
+            if (entityIn instanceof EntityLivingBase) {
+                ((EntityLivingBase) entityIn).knockBack(this, 0.22F,
+                        MathHelper.sin(this.rotationYaw * 0.017453292F),
+                        -MathHelper.cos(this.rotationYaw * 0.017453292F));
+                this.motionX *= 0.6D;
+                this.motionZ *= 0.6D;
+            }
+        }
+        return flag;
+    }
 
-	public boolean IsJumpingUp() {
-		return this.isJumping;
-	}
+    public boolean IsJumpingUp() {
+        return this.isJumping;
+    }
 
-	public boolean isOnLadder() {
-		return this.isBesideClimbableBlock();
-	}
+    public boolean isOnLadder() {
+        return this.isBesideClimbableBlock();
+    }
 
-	public void setInWeb() {
-	}
+    public void setInWeb() {
+    }
 
-	public boolean isBesideClimbableBlock() {
-		return (this.dataManager.get(CLIMBING) & 1) != 0;
-	}
+    public boolean isPotionApplicable(PotionEffect potioneffectIn) {
+        return potioneffectIn.getPotion() != MobEffects.POISON && super.isPotionApplicable(potioneffectIn);
+    }
 
-	public void setBesideClimbableBlock(boolean climbing) {
-		byte b0 = this.dataManager.get(CLIMBING);
+    public boolean isBesideClimbableBlock() {
+        return (this.dataManager.get(CLIMBING) & 1) != 0;
+    }
 
-		if (climbing) {
-			b0 = (byte) (b0 | 1);
-		} else {
-			b0 = (byte) (b0 & -2);
-		}
+    public void setBesideClimbableBlock(boolean climbing) {
+        byte b0 = this.dataManager.get(CLIMBING);
 
-		this.dataManager.set(CLIMBING, b0);
-	}
+        if (climbing) {
+            b0 = (byte) (b0 | 1);
+        } else {
+            b0 = (byte) (b0 & -2);
+        }
 
-	protected SoundEvent getAmbientSound() {
-		return ClientProxy.SCORPION_IDLE;
-	}
+        this.dataManager.set(CLIMBING, b0);
+    }
 
-	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-		return ClientProxy.SCORPION_HURT;
-	}
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_SPIDER_AMBIENT;
+    }
 
-	protected SoundEvent getDeathSound() {
-		return ClientProxy.SCORPION_DEATH;
-	}
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
+        return SoundEvents.ENTITY_SPIDER_HURT;
+    }
 
-	protected void playStepSound(BlockPos pos, Block blockIn) {
-		this.playSound(SoundEvents.ENTITY_SPIDER_STEP, 0.15F, 0.75F);
-	}
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_SPIDER_DEATH;
+    }
 
-	public EnumCreatureAttribute getCreatureAttribute() {
-		return EnumCreatureAttribute.ARTHROPOD;
-	}
+    protected float getSoundVolume() {
+        return this.getAttackTarget() != null ? 3.5F : 1.0F;
+    }
 
-	public float getEyeHeight() {
-		return 0.6F;
-	}
+    protected void playStepSound(BlockPos pos, Block blockIn) {
+        this.playSound(SoundEvents.ENTITY_SPIDER_STEP, 0.15F, 0.75F);
+    }
 
-	protected int decreaseAirSupply(int air) {
-		return air - 10;
-	}
+    public EnumCreatureAttribute getCreatureAttribute() {
+        return EnumCreatureAttribute.ARTHROPOD;
+    }
 
-	protected boolean canTriggerWalking() {
-		return false;
-	}
+    public float getEyeHeight() {
+        return 0.45F;
+    }
 
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
+    protected int decreaseAirSupply(int air) {
+        return air - 10;
+    }
 
-		if (this.attackTimer > 0) {
-			--this.attackTimer;
-		}
-	}
+    public int getMaxSpawnedInChunk() {
+        return 1;
+    }
 
-	public boolean attackEntityAsMob(Entity entityIn) {
-		super.attackEntityAsMob(entityIn);
-		this.attackTimer = 10;
-		this.world.setEntityState(this, (byte) 4);
-		boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this),
-				(float) this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
-		if (flag) {
-			if (entityIn instanceof EntityLivingBase) {
-				((EntityLivingBase) entityIn).knockBack(this, 0.44F,
-						MathHelper.sin(this.rotationYaw * 0.017453292F),
-						-MathHelper.cos(this.rotationYaw * 0.017453292F));
-				this.motionX *= 0.6D;
-				this.motionZ *= 0.6D;
-			}
-		}
-		this.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.3F);
-		return flag;
-	}
+    protected boolean canTriggerWalking() {
+        return false;
+    }
 
-	@SideOnly(Side.CLIENT)
-	public void handleStatusUpdate(byte id) {
-		if (id == 4) {
-			this.attackTimer = 10;
-			this.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.3F);
-		} else {
-			super.handleStatusUpdate(id);
-		}
-	}
-
-	@SideOnly(Side.CLIENT)
-	public int getAttackTimer() {
-		return this.attackTimer;
-	}
-
-	@Override
-	public void fall(float distance, float damageMultiplier) {
-	}
-
-	public EntityWhipSpider createChild(EntityAgeable ageable) {
-		return new EntityWhipSpider(this.world);
-	}
+    @Override
+    public void fall(float distance, float damageMultiplier) {
+    }
 }
