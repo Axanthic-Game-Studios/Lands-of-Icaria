@@ -1,7 +1,8 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "parent": "block/cube_all",
     "textures": {
-        "0": "blocks/flora_herbs_wiltedelm"
+        "0": "landsoficaria:blocks/flora_herbs_wiltedelm",
+        "particle": "landsoficaria:blocks/flora_herbs_wiltedelm"
     },
     "elements": [
         {
