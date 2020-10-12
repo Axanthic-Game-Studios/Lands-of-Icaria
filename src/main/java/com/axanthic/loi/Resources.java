@@ -67,6 +67,7 @@ import com.axanthic.loi.blocks.BlockStorageVase;
 import com.axanthic.loi.blocks.BlockStrawberryBush;
 import com.axanthic.loi.blocks.BlockStrawberryCrop;
 import com.axanthic.loi.blocks.BlockTallGrass;
+import com.axanthic.loi.blocks.BlockTwigs;
 import com.axanthic.loi.entity.EntityForestHagCypress;
 import com.axanthic.loi.entity.EntityForestHagDroughtroot;
 import com.axanthic.loi.entity.EntityForestHagFir;
@@ -692,6 +693,7 @@ public class Resources {
 		public ItemBlockMaterial strippedLog;
 		public ItemBlockMaterial sapling;
 		public ItemBlockMaterial leaf;
+		public ItemBlockMaterial twigs;
 		public ItemBlockMaterial fence;
 		public ItemBlockMaterial fenceGate;
 		public ItemBlockMaterialSlab slab;
@@ -712,6 +714,7 @@ public class Resources {
 			generator.LEAF = this.leaf.getBlock().getDefaultState();
 			this.sapling = new ItemBlockMaterial(new BlockSapling(type, generator));
 			((BlockLeaf) this.leaf.getBlock()).sapling = this.sapling;
+			this.twigs = new ItemBlockMaterial(new BlockTwigs(type));
 			IBlockState plankState = Resources.planks.getBlock().getDefaultState().withProperty(BlockPlanks.TYPES, type);
 			String materialName = "material." + type.unlocalizedName + ".name";
 			this.fence = new ItemBlockMaterial(new BlockCustomFence(plankState, materialName));
@@ -731,6 +734,7 @@ public class Resources {
 			Resources.registerBlock(strippedLog);
 			Resources.registerBlock(sapling);
 			Resources.registerBlock(leaf);
+			Resources.registerBlock(twigs);
 			Resources.registerBlock(fence);
 			Resources.registerBlock(fenceGate);
 			Resources.registerBlock(slab);

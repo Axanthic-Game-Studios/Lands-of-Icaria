@@ -1,7 +1,7 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "parent": "block/cube_all",
     "textures": {
-        "0": "blocks/decorations_wood_cypress"
+        "0": "landsoficaria:blocks/decorations_wood_cypress"
     },
     "elements": [
         {

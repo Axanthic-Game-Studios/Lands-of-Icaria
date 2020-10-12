@@ -139,7 +139,8 @@ public class BlockTallGrass extends BlockBush implements net.minecraftforge.comm
 		return Block.EnumOffsetType.XYZ;
 	}
 
-	@Override public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos) {
+	@Override
+	public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos) {
 		return true;
 	}
 
