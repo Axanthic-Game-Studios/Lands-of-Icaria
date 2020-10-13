@@ -55,8 +55,10 @@ import com.axanthic.loi.blocks.BlockPillar;
 import com.axanthic.loi.blocks.BlockPillarHead;
 import com.axanthic.loi.blocks.BlockPlanks;
 import com.axanthic.loi.blocks.BlockPlanks.WoodTypes;
+import com.axanthic.loi.blocks.BlockRock.StoneTypes;
 import com.axanthic.loi.blocks.BlockRelicstone;
 import com.axanthic.loi.blocks.BlockRock;
+import com.axanthic.loi.blocks.BlockRockDecoration;
 import com.axanthic.loi.blocks.BlockSandy;
 import com.axanthic.loi.blocks.BlockSapling;
 import com.axanthic.loi.blocks.BlockSoil;
@@ -226,6 +228,12 @@ public class Resources {
 	public static ItemBlockMeta rock = new ItemBlockMetaMaterial(new BlockRock("rock"));
 	public static ItemBlockMeta brick = new ItemBlockMetaMaterial(new BlockRock("bricks"));
 	public static ItemBlockMeta ore = new ItemBlockMetaMaterial(new BlockOre());
+	public static ItemBlock yellowstoneRubble = new ItemBlockMaterial(new BlockRockDecoration(StoneTypes.YELLOWSTONE.getName()));
+	public static ItemBlock silkstoneRubble = new ItemBlockMaterial(new BlockRockDecoration(StoneTypes.SILKSTONE.getName()));
+	public static ItemBlock sunstoneRubble = new ItemBlockMaterial(new BlockRockDecoration(StoneTypes.SUNSTONE.getName()));
+	public static ItemBlock voidshaleRubble = new ItemBlockMaterial(new BlockRockDecoration(StoneTypes.VOIDSHALE.getName()));
+	public static ItemBlock baetylRubble = new ItemBlockMaterial(new BlockRockDecoration(StoneTypes.BAETYL.getName()));
+	public static ItemBlock relicstoneRubble = new ItemBlockMaterial(new BlockRockDecoration(StoneTypes.RELICSTONE.getName()));
 	public static ItemBlock silkstoneSand = new ItemBlock(new BlockSandy(Material.SAND, 1.2F, "silkstone_sand", MapColor.PINK_STAINED_HARDENED_CLAY).setSoundType(SoundType.SAND));
 	public static ItemBlock grainelSand = new ItemBlock(new BlockSandy(Material.SAND, 1.2F, "grainel_sand", MapColor.WOOD).setSoundType(SoundType.SAND));
 	public static ItemBlockMeta grainelStone = new ItemBlockMeta(new BlockGrainelStone());
@@ -309,7 +317,7 @@ public class Resources {
 
 	public static final FluidCustom gasFluid = (FluidCustom) new FluidCustom("gas", new ResourceLocation(ModInformation.ID,"blocks/fluid_upwards_still"), new ResourceLocation(ModInformation.ID, "blocks/fluid_upwards_flow")).setMaterial(Material.WATER).setDensity(-1000).setGaseous(false).setLuminosity(15).setViscosity(1000).setTemperature(1300).setColor(0xFFF3BF61);
 	public static ItemBlock gasFluidBlock;
-	
+
 	public static final FluidCustom voidFluid = (FluidCustom) new FluidCustom("hyliastrum_fluid", new ResourceLocation(ModInformation.ID,"blocks/fluid_hyliastrum_still"), new ResourceLocation(ModInformation.ID, "blocks/fluid_hyliastrum_flow")).setMaterial(Material.WATER).setDensity(500).setGaseous(false).setViscosity(3000).setTemperature(300).setColor(0xFF51A18B);
 	public static ItemBlock voidFluidBlock;*/
 
@@ -428,6 +436,14 @@ public class Resources {
 		Resources.registerBlock(Resources.rock);
 		Resources.registerBlock(Resources.brick);
 		Resources.registerBlock(Resources.ore);
+
+		Resources.registerBlock(Resources.yellowstoneRubble);
+		Resources.registerBlock(Resources.silkstoneRubble);
+		Resources.registerBlock(Resources.sunstoneRubble);
+		Resources.registerBlock(Resources.voidshaleRubble);
+		Resources.registerBlock(Resources.baetylRubble);
+		Resources.registerBlock(Resources.relicstoneRubble);
+
 		Resources.registerBlock(Resources.silkstoneSand);
 		Resources.registerBlock(Resources.grainelSand);
 		Resources.registerBlock(Resources.grainelStone);
@@ -489,14 +505,14 @@ public class Resources {
 		gasFluidBlock = new ItemBlock(new BlockFluidUpwards(gasFluid, Material.WATER));
 		gasFluid.setBlock(gasFluidBlock.getBlock());
 		Resources.registerBlock(gasFluidBlock);
-		
+
 		//I of black liquid void
 		FluidRegistry.registerFluid(voidFluid);
 		FluidRegistry.addBucketForFluid(voidFluid);
 		voidFluidBlock = new ItemBlock(new BlockFluidCustom(voidFluid, Material.WATER).canCreateSources(false));
 		voidFluid.setBlock(voidFluidBlock.getBlock());
 		Resources.registerBlock(voidFluidBlock);*/
-				
+
 		Resources.plane.register();
 		Resources.populus.register();
 		Resources.cypress.register();

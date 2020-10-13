@@ -24,26 +24,25 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockTwigs extends BlockBasic implements IShearable, IBlockMaterial {
+public class BlockRockDecoration extends BlockBasic implements IBlockMaterial {
 
-	public BlockPlanks.WoodTypes woodType;
-	protected static final AxisAlignedBB TWIGS_AABB = new AxisAlignedBB(0.1875D, 0.0, 0.1875D, 0.8125D, 0.12D, 0.8125D);
+	public String rockName;
+	protected static final AxisAlignedBB ROCKS_AABB = new AxisAlignedBB(0.0625D, 0.0, 0.0625D, 0.9375D, 0.12D, 0.9375D);
 
-	public BlockTwigs(BlockPlanks.WoodTypes type) {
-		super(Material.WOOD, 0.0F, "twigs_" + type.unlocalizedName, MapColor.AIR);
-		this.setCreativeTab(LandsOfIcaria.modTabFlora);
-		this.setSoundType(SoundType.WOOD);
-		this.setUnlocalizedName("twigs");
-		this.woodType = type;
+	public BlockRockDecoration(String name) {
+		super(Material.ROCK, 0.0F, "rock_decoration_" + name, MapColor.AIR);
+		this.setCreativeTab(LandsOfIcaria.modTabBlocks);
+		this.setSoundType(SoundType.STONE);
+		this.setUnlocalizedName("rock_decoration");
+		this.rockName = name;
 	}
 
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return TWIGS_AABB;
+		return ROCKS_AABB;
 	}
 
 	@Override
@@ -88,18 +87,8 @@ public class BlockTwigs extends BlockBasic implements IShearable, IBlockMaterial
 	}
 
 	@Override
-	public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack) {
-		if (!worldIn.isRemote && stack.getItem() == Items.SHEARS) {
-			player.addStat(StatList.getBlockStats(this));
-			spawnAsEntity(worldIn, pos, new ItemStack(this, 1, 0));
-		} else {
-			super.harvestBlock(worldIn, player, pos, state, te, stack);
-		}
-	}
-
-	@Override
 	public String getName() {
-		return "material." + woodType.unlocalizedName + ".name";
+		return "material." + rockName + ".name";
 	}
 
 	@Override
@@ -113,20 +102,10 @@ public class BlockTwigs extends BlockBasic implements IShearable, IBlockMaterial
 	}
 
 	@Override
-	public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos) {
-		return true;
-	}
-
-	@Override
-	public NonNullList<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
-		return NonNullList.withSize(1, new ItemStack(this, 1, this.getMetaFromState(world.getBlockState(pos))));
-	}
-
-	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-		if (RANDOM.nextInt(4) != 0)
-			return;
-		drops.add(new ItemStack(Items.STICK));
+		//if (RANDOM.nextInt(4) != 0)
+		//	return;
+		//drops.add(new ItemStack(Items.STICK));
 	}
 
 	@Override

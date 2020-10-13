@@ -61,6 +61,7 @@ item.generic.vial.name=Vial of %s
 tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Bricks
 tile.generic.ore.name=%s Ore
+tile.generic.rock_decoration.name=%s Rubble
 tile.generic.block.name=%s Block
 tile.generic.sapling.name=%s Sapling
 tile.generic.leaf.name=%s Leaves
