@@ -38,7 +38,6 @@ public class ItemResources extends ItemMeta {
 		JASPER("jasper", true),
 		ZIRCON("zircon", true),
 		CALCITE_POWDER("calcite_powder"),
-		POLISHED_ZIRCON("polished_zircon"),
 		LOAM_LUMP("loam_lump"),
 		RAW_VASE("raw_vase"),
 		LOAM_BRICK("loam_brick"),

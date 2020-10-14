@@ -6,7 +6,6 @@ generator.loi=Lands of Icaria
 generator.loi.info=Replaces the overworld with an additional Lands of Icaria dimension.
 
 item.resource.silkstone_powder.name=Silkstone Powder
-item.resource.polished_zircon.name=Polished Zircon
 item.resource.calcite_powder.name=Calcite Powder
 item.resource.loam_lump.name=Lump of Loam
 item.resource.raw_vase.name=Unfired Storage Vase
@@ -238,7 +237,7 @@ material.calcite.name=Calcite
 material.dolomite.name=Dolomite
 material.anthracite.name=Anthracite
 material.jasper.name=Jasper
-material.zircon.name=Raw Zircon
+material.zircon.name=Zircon
 material.abyssal_essence.name=Abyssal Essence
 material.rotten_bones.name=Rotten Bones
 

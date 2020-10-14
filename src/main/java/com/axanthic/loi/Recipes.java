@@ -47,7 +47,6 @@ public class Recipes {
 		addForgeRecipe("molybdenumsteel", new ItemStack(Resources.ingot, 2, 9), 0.6F, new OreIngredient("ingotSideros"), new OreIngredient("ingotMolybdenum"), new OreIngredient("gemAnthracite"));
 
 		addGrinderRecipe("calcite_powder", new ItemStack(Resources.resource, 4, ItemResources.ResourceType.CALCITE_POWDER.toMeta()), 0.1F, new OreIngredient("gemCalcite"));
-		addGrinderRecipe("polished_zircon", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.POLISHED_ZIRCON.toMeta()), 0.3F, new OreIngredient("gemZircon"));
 		addGrinderRecipe("grainel_stone", new ItemStack(Resources.grainelStone, 1, 0), 0.1F, Ingredient.fromStacks(new ItemStack(Resources.grainelStone, 1, 1), new ItemStack(Resources.grainelStone, 1, 2)));
 		addGrinderRecipe("grainel", new ItemStack(Resources.grainelSand, 1, 0), 0.1F, new ItemStack(Resources.grainelStone, 1, 0));
 		addGrinderRecipe("grainel_glass", new ItemStack(Resources.grainelSand, 1, 0), 0.1F, new ItemStack(Resources.grainelGlass, 1, 0));
@@ -541,7 +540,6 @@ public class Recipes {
 		OreDictionary.registerOre("gemJasper", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.JASPER.toMeta()));
 		OreDictionary.registerOre("gemZircon", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ZIRCON.toMeta()));
 		OreDictionary.registerOre("dustSmallCalcite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE_POWDER.toMeta()));
-		OreDictionary.registerOre("gemPolishedZircon", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.POLISHED_ZIRCON.toMeta()));
 		OreDictionary.registerOre("clay", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_LUMP.toMeta()));
 		OreDictionary.registerOre("itemClay", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_LUMP.toMeta()));
 		OreDictionary.registerOre("ingotLoamBrick", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_BRICK.toMeta()));
