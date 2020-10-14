@@ -4,6 +4,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -44,12 +45,20 @@ public class BlockBasicVineDead extends BlockBasicVineGrowing {
 	}
 
 	@Override
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+		if (!worldIn.isRemote && !this.recheckGrownSides(worldIn, pos, state)) {
+			baseVine.dropBlockAsItem(worldIn, pos, state, 0);
+			worldIn.setBlockToAir(pos);
+		}
+	}
+
+	@Override
 	public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack) {
 		if (!worldIn.isRemote && stack.getItem() == Items.SHEARS) {
 			player.addStat(StatList.getBlockStats(baseVine));
 			spawnAsEntity(worldIn, pos, new ItemStack(baseVine, 1, 0));
 		} else {
-			super.harvestBlock(worldIn, player, pos, state, te, stack);
+			baseVine.harvestBlock(worldIn, player, pos, state, te, stack);
 		}
 	}
 

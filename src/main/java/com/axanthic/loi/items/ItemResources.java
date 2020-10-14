@@ -50,7 +50,8 @@ public class ItemResources extends ItemMeta {
 		BLACK_DYE("black_dye"),
 		BROWN_DYE("brown_dye"),
 		BLUE_DYE("blue_dye"),
-		WHITE_DYE("white_dye");
+		WHITE_DYE("white_dye"),
+		VINEREEDS("vinereeds");
 		
 		public static final ResourceType[] values = ResourceType.values();
 		public static final int length = values.length;

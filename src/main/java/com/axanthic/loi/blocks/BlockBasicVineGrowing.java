@@ -57,9 +57,30 @@ public class BlockBasicVineGrowing extends BlockVine {
 		return this.isAcceptableNeighbor(p_193395_1_, p_193395_2_.offset(p_193395_3_.getOpposite()), p_193395_3_) && (block == Blocks.AIR || block == this || this.isAcceptableNeighbor(p_193395_1_, p_193395_2_.up(), EnumFacing.UP));
 	}
 
-	private boolean isAcceptableNeighbor(World p_193396_1_, BlockPos p_193396_2_, EnumFacing p_193396_3_) {
+	public boolean isAcceptableNeighbor(World p_193396_1_, BlockPos p_193396_2_, EnumFacing p_193396_3_) {
 		IBlockState iblockstate = p_193396_1_.getBlockState(p_193396_2_);
 		return iblockstate.getBlockFaceShape(p_193396_1_, p_193396_2_, p_193396_3_) == BlockFaceShape.SOLID && !isExceptBlockForAttaching(iblockstate.getBlock());
+	}
+
+	public boolean recheckGrownSides(World worldIn, BlockPos pos, IBlockState state) {
+		IBlockState iblockstate = state;
+		for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL) {
+			PropertyBool propertybool = getPropertyFor(enumfacing);
+			if (((Boolean)state.getValue(propertybool)).booleanValue() && !this.canAttachTo(worldIn, pos, enumfacing.getOpposite())) {
+				IBlockState iblockstate1 = worldIn.getBlockState(pos.up());
+				if (iblockstate1.getBlock() != this || !((Boolean)iblockstate1.getValue(propertybool)).booleanValue()) {
+					state = state.withProperty(propertybool, Boolean.valueOf(false));
+				}
+			}
+		}
+		if (getNumGrownFaces(state) == 0) {
+			return false;
+		} else {
+			if (iblockstate != state) {
+				worldIn.setBlockState(pos, state, 2);
+			}
+			return true;
+		}
 	}
 
 	@Override

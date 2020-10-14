@@ -555,6 +555,7 @@ public class Recipes {
 		OreDictionary.registerOre("dyeBlue", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.BLUE_DYE.toMeta()));
 		OreDictionary.registerOre("dye", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.WHITE_DYE.toMeta()));
 		OreDictionary.registerOre("dyeWhite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.WHITE_DYE.toMeta()));
+		OreDictionary.registerOre("sugarcane", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.VINEREEDS.toMeta()));
 
 		OreDictionary.registerOre("dirt", new ItemStack(Resources.soil, 1, 0));
 		OreDictionary.registerOre("dirt", new ItemStack(Resources.soil, 1, 1));
@@ -582,7 +583,6 @@ public class Recipes {
 		OreDictionary.registerOre("vine", new ItemStack(Resources.vineBrushy, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("vine", new ItemStack(Resources.vineDry, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("vine", new ItemStack(Resources.vineReedy, 1, OreDictionary.WILDCARD_VALUE));
-		OreDictionary.registerOre("sugarcane", new ItemStack(Resources.vineReedy, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("vine", new ItemStack(Resources.vineSwirly, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("vine", new ItemStack(Resources.vineThorny, 1, OreDictionary.WILDCARD_VALUE));
 

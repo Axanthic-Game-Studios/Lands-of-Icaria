@@ -11,6 +11,7 @@ import com.axanthic.loi.blocks.BlockAristone;
 import com.axanthic.loi.blocks.BlockBasic;
 import com.axanthic.loi.blocks.BlockBasicVineDead;
 import com.axanthic.loi.blocks.BlockBasicVineGrowing;
+import com.axanthic.loi.blocks.BlockBasicVineGrowingReeds;
 import com.axanthic.loi.blocks.BlockBromelia;
 import com.axanthic.loi.blocks.BlockCardonCactus;
 import com.axanthic.loi.blocks.BlockCustomDoor;
@@ -219,7 +220,7 @@ public class Resources {
 	public static ItemBlock vineBranch = new ItemBlock(new BlockBasicVineGrowing("vine_branch"));
 	public static ItemBlock vineBrushy = new ItemBlock(new BlockBasicVineGrowing("vine_brushy"));
 	public static ItemBlock vineDry = new ItemBlock(new BlockBasicVineGrowing("vine_dry"));
-	public static ItemBlock vineReedy = new ItemBlock(new BlockBasicVineGrowing("vine_reedy"));
+	public static ItemBlock vineReedy = new ItemBlock(new BlockBasicVineGrowingReeds("vine_reedy"));
 	public static ItemBlock vineSwirly = new ItemBlock(new BlockBasicVineGrowing("vine_swirly"));
 	public static ItemBlock vineThorny = new ItemBlock(new BlockBasicVineGrowing("vine_thorny", true));
 	public static ItemBlock vineBloomyDead = new ItemBlock(new BlockBasicVineDead("vine_bloomy").setGrowingVine(vineBloomy));
