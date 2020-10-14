@@ -31,8 +31,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
 
-public class BlockTallGrass extends BlockBush implements net.minecraftforge.common.IShearable, IBlockMeta {
+public class BlockTallGrass extends BlockBush implements IShearable, IBlockMeta {
 
 	public static PropertyEnum TYPES = PropertyEnum.create("type", GrassTypes.class);
 	protected static final AxisAlignedBB LARGE_GRASS_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);

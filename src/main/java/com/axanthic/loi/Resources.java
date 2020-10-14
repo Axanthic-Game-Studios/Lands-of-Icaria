@@ -34,6 +34,7 @@ import com.axanthic.loi.blocks.BlockGlassy;
 import com.axanthic.loi.blocks.BlockGrainelStone;
 import com.axanthic.loi.blocks.BlockGreekFire;
 import com.axanthic.loi.blocks.BlockGrinder;
+import com.axanthic.loi.blocks.BlockGroundFlower;
 import com.axanthic.loi.blocks.BlockHerb;
 import com.axanthic.loi.blocks.BlockHorizontalPane;
 import com.axanthic.loi.blocks.BlockIcariaPortal;
@@ -199,6 +200,12 @@ public class Resources {
 	public static ItemBlockMeta flower2 = new ItemBlockMeta(new BlockFlower2());
 	public static ItemBlockMeta herb = new ItemBlockMeta(new BlockHerb());
 	public static ItemBlock bushStrawberry = new ItemBlock(new BlockStrawberryBush("bush_strawberry"));
+	public static ItemBlock blueGroundFlowers = new ItemBlock(new BlockGroundFlower("blue"));
+	public static ItemBlock cyanGroundFlowers = new ItemBlock(new BlockGroundFlower("cyan"));
+	public static ItemBlock pinkGroundFlowers = new ItemBlock(new BlockGroundFlower("pink"));
+	public static ItemBlock purpleGroundFlowers = new ItemBlock(new BlockGroundFlower("purple"));
+	public static ItemBlock redGroundFlowers = new ItemBlock(new BlockGroundFlower("red"));
+	public static ItemBlock whiteGroundFlowers = new ItemBlock(new BlockGroundFlower("white"));
 	public static ItemBlock palmFern = new ItemBlock(new BlockPalmFern("palm_fern"));
 	public static ItemBlockMeta bromelia = new ItemBlockMeta(new BlockBromelia());
 	public static ItemBlock groundMushroom0 = new ItemBlock(new BlockMushroomGround("0"));
@@ -234,6 +241,7 @@ public class Resources {
 	public static ItemBlock voidshaleRubble = new ItemBlockMaterial(new BlockRockDecoration(StoneTypes.VOIDSHALE.getName()));
 	public static ItemBlock baetylRubble = new ItemBlockMaterial(new BlockRockDecoration(StoneTypes.BAETYL.getName()));
 	public static ItemBlock relicstoneRubble = new ItemBlockMaterial(new BlockRockDecoration(StoneTypes.RELICSTONE.getName()));
+	public static ItemBlock grainelRubble = new ItemBlockMaterial(new BlockRockDecoration("grainite"));
 	public static ItemBlock silkstoneSand = new ItemBlock(new BlockSandy(Material.SAND, 1.2F, "silkstone_sand", MapColor.PINK_STAINED_HARDENED_CLAY).setSoundType(SoundType.SAND));
 	public static ItemBlock grainelSand = new ItemBlock(new BlockSandy(Material.SAND, 1.2F, "grainel_sand", MapColor.WOOD).setSoundType(SoundType.SAND));
 	public static ItemBlockMeta grainelStone = new ItemBlockMeta(new BlockGrainelStone());
@@ -407,6 +415,12 @@ public class Resources {
 		Resources.registerBlock(Resources.flower2);
 		Resources.registerBlock(Resources.herb);
 		Resources.registerBlock(Resources.bushStrawberry);
+		Resources.registerBlock(Resources.blueGroundFlowers);
+		Resources.registerBlock(Resources.cyanGroundFlowers);
+		Resources.registerBlock(Resources.pinkGroundFlowers);
+		Resources.registerBlock(Resources.purpleGroundFlowers);
+		Resources.registerBlock(Resources.redGroundFlowers);
+		Resources.registerBlock(Resources.whiteGroundFlowers);
 		Resources.registerBlock(Resources.palmFern);
 		Resources.registerBlock(Resources.bromelia);
 		Resources.registerBlock(Resources.groundMushroom0);
@@ -436,14 +450,13 @@ public class Resources {
 		Resources.registerBlock(Resources.rock);
 		Resources.registerBlock(Resources.brick);
 		Resources.registerBlock(Resources.ore);
-
 		Resources.registerBlock(Resources.yellowstoneRubble);
 		Resources.registerBlock(Resources.silkstoneRubble);
 		Resources.registerBlock(Resources.sunstoneRubble);
 		Resources.registerBlock(Resources.voidshaleRubble);
 		Resources.registerBlock(Resources.baetylRubble);
 		Resources.registerBlock(Resources.relicstoneRubble);
-
+		Resources.registerBlock(Resources.grainelRubble);
 		Resources.registerBlock(Resources.silkstoneSand);
 		Resources.registerBlock(Resources.grainelSand);
 		Resources.registerBlock(Resources.grainelStone);

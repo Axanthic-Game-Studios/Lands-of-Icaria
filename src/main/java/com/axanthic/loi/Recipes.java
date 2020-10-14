@@ -108,6 +108,12 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, ItemFoods.FoodType.SOW_MEAT.toMeta()), new ItemStack(Resources.food, 1, ItemFoods.FoodType.SOW_MEAT_COOKED.toMeta()), 0.35F);
 		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, ItemFoods.FoodType.CATOBLEPAS_MEAT.toMeta()), new ItemStack(Resources.food, 1, ItemFoods.FoodType.CATOBLEPAS_MEAT_COOKED.toMeta()), 0.35F);
 
+		addShapelessRecipe(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.BLUE_DYE.toMeta()), "ground_flower_dye_blue", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.blueGroundFlowers, 1, 0))});
+		addShapelessRecipe(new ItemStack(Items.DYE, 1, 12), "ground_flower_dye_cyan", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.cyanGroundFlowers, 1, 0))});
+		addShapelessRecipe(new ItemStack(Items.DYE, 1, 9), "ground_flower_dye_pink", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.pinkGroundFlowers, 1, 0))});
+		addShapelessRecipe(new ItemStack(Items.DYE, 1, 5), "ground_flower_dye_purple", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.purpleGroundFlowers, 1, 0))});
+		addShapelessRecipe(new ItemStack(Items.DYE, 1, 1), "ground_flower_dye_red", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.redGroundFlowers, 1, 0))});
+		addShapelessRecipe(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.WHITE_DYE.toMeta()), "ground_flower_dye_white", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.whiteGroundFlowers, 1, 0))});
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 14), "bromelia_dye_orange", "bromelia_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 0))});
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 13), "bromelia_dye_pink", "bromelia_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 1))});
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 5), "bromelia_dye_purple", "bromelia_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.bromelia, 1, 2))});

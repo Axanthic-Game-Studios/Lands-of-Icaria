@@ -30,7 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockRockDecoration extends BlockBasic implements IBlockMaterial {
 
 	public String rockName;
-	protected static final AxisAlignedBB ROCKS_AABB = new AxisAlignedBB(0.0625D, 0.0, 0.0625D, 0.9375D, 0.12D, 0.9375D);
+	protected static final AxisAlignedBB ROCKS_AABB = new AxisAlignedBB(0.0625D, 0.0, 0.0625D, 0.9375D, 0.125D, 0.9375D);
 
 	public BlockRockDecoration(String name) {
 		super(Material.ROCK, 0.0F, "rock_decoration_" + name, MapColor.AIR);
