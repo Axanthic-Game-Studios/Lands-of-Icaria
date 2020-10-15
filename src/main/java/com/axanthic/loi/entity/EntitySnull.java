@@ -194,10 +194,6 @@ public class EntitySnull extends EntityCreature {
 		return 120;
 	}
 
-	protected boolean canDespawn() {
-		return false;
-	}
-
 	protected int getExperiencePoints(EntityPlayer player) {
 		return 1 + this.world.rand.nextInt(3);
 	}
