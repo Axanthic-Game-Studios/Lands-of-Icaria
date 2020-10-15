@@ -2,15 +2,27 @@ package com.axanthic.loi.items;
 
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
+import com.axanthic.loi.Resources;
 
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
 
 public class ItemFoods extends ItemFood implements IItemMeta {
 	public ItemFoods() {
@@ -56,21 +68,21 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 		for (FoodType type : FoodType.values) {
 			names[type.toMeta()] = type.name;
 		}
-		
+
 		return names;
 	}
-	
+
 	@Override
 	protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
 		FoodType type = FoodType.byMeta(stack.getMetadata());
-		
+
 		if (!worldIn.isRemote && type.effects != null && worldIn.rand.nextFloat() < type.effectProb) {
 			for (PotionEffect effect : type.effects) {
 				player.addPotionEffect(new PotionEffect(effect));
 			}
 		}
 	}
-	
+
 	public enum FoodType {
 		OLIVE_GREEN("olive_green", 2, 0.3F),
 		OLIVE_BLACK("olive_black", 2, 0.3F),
@@ -87,17 +99,19 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 		CATOBLEPAS_MEAT_COOKED("catoblepas_meat_cooked", 6, 0.8F),
 		SLUG_MASS("slug_mass", 3, 0.1F, 0.5F,
 				new PotionEffect(MobEffects.HUNGER, 100),
-				new PotionEffect(MobEffects.NAUSEA, 200));
-		
+				new PotionEffect(MobEffects.NAUSEA, 200)),
+		SPELT_BREAD("spelt_bread", 6, 0.8F),
+		GARLIC("garlic", 6, 0.8F);
+
 		public static final FoodType[] values = FoodType.values();
 		public static final int length = values.length;
-		
+
 		public final String name;
 		public final int food;
 		public final float saturation;
 		public final float effectProb;
 		public final PotionEffect[] effects;
-		
+
 		FoodType(String name, int food, float saturation) {
 			this.name = name;
 			this.food = food;
@@ -105,7 +119,7 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 			this.effectProb = 0.0F;
 			this.effects = null;
 		}
-		
+
 		FoodType(String name, int food, float saturation, float effectProb, PotionEffect... effects) {
 			this.name = name;
 			this.food = food;
@@ -113,11 +127,11 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 			this.effectProb = effectProb;
 			this.effects = effects;
 		}
-		
+
 		public static FoodType byMeta(int meta) {
 			return values[meta];
 		}
-		
+
 		public int toMeta() {
 			return ordinal();
 		}

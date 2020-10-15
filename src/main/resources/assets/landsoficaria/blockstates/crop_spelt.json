@@ -1,0 +1,20 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "crop",
+		"textures": {
+			"crop": "landsoficaria:blocks/flora_spelt_8"
+		}
+	},
+	"variants": {
+		"inventory": { "model": "landsoficaria:generated", "textures": { "layer0": "#crop" } },
+		"age=0": { "model": "crop", "textures": { "crop": "landsoficaria:blocks/flora_spelt_1" } },
+		"age=1": { "model": "crop", "textures": { "crop": "landsoficaria:blocks/flora_spelt_2" } },
+		"age=2": { "model": "crop", "textures": { "crop": "landsoficaria:blocks/flora_spelt_3" } },
+		"age=3": { "model": "crop", "textures": { "crop": "landsoficaria:blocks/flora_spelt_4" } },
+		"age=4": { "model": "crop", "textures": { "crop": "landsoficaria:blocks/flora_spelt_5" } },
+		"age=5": { "model": "crop", "textures": { "crop": "landsoficaria:blocks/flora_spelt_6" } },
+		"age=6": { "model": "crop", "textures": { "crop": "landsoficaria:blocks/flora_spelt_7" } },
+		"age=7": { "model": "crop", "textures": { "crop": "landsoficaria:blocks/flora_spelt_8" } }
+	}
+}

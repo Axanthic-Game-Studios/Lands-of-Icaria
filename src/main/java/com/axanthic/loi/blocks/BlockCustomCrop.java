@@ -29,9 +29,16 @@ public abstract class BlockCustomCrop extends BlockCrops {
 	}
 	
 	/*
-	 * Return the EnumFood to use for this crop's food item.
+	 * Return the metadata to use for this crop's seed item.
 	 */
-	protected abstract ItemFoods.FoodType getFood();
+	protected int getSeedMeta() {
+		return 0;
+	}
+	
+	/*
+	 * Return the metadata to use for this crop's crop item.
+	 */
+	protected abstract int getCropMeta();
 	
 	/*
 	 * Return the number of seeds to drop when fully grown.
@@ -59,12 +66,12 @@ public abstract class BlockCustomCrop extends BlockCrops {
 			// Fully grown drops.
 			Random rand = world instanceof World ? ((World)world).rand : new Random();
 			int numSeedDrops = this.getNumSeedsWhenGrown(rand, fortune);
-			drops.add(new ItemStack(this.getSeed(), numSeedDrops));
+			drops.add(new ItemStack(this.getSeed(), numSeedDrops, this.getSeedMeta()));
 			int numCropDrops = this.getNumCropsWhenGrown(rand, fortune);
-			drops.add(new ItemStack(this.getCrop(), numCropDrops, this.getFood().ordinal()));
+			drops.add(new ItemStack(this.getCrop(), numCropDrops, this.getCropMeta()));
 		} else {
 			// Non-fully grown drops.
-			drops.add(new ItemStack(this.getSeed(), 1));
+			drops.add(new ItemStack(this.getSeed(), 1, this.getSeedMeta()));
 		}
 	}
 	

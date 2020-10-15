@@ -50,6 +50,7 @@ import com.axanthic.loi.blocks.BlockMobHeadHag;
 import com.axanthic.loi.blocks.BlockMoss;
 import com.axanthic.loi.blocks.BlockMushroomGround;
 import com.axanthic.loi.blocks.BlockMushroomTree;
+import com.axanthic.loi.blocks.BlockOnionCrop;
 import com.axanthic.loi.blocks.BlockOre;
 import com.axanthic.loi.blocks.BlockPalmFern;
 import com.axanthic.loi.blocks.BlockPhysalisCrop;
@@ -65,6 +66,7 @@ import com.axanthic.loi.blocks.BlockSandy;
 import com.axanthic.loi.blocks.BlockSapling;
 import com.axanthic.loi.blocks.BlockSoil;
 import com.axanthic.loi.blocks.BlockSoilGrass;
+import com.axanthic.loi.blocks.BlockSpeltCrop;
 import com.axanthic.loi.blocks.BlockStorageGem;
 import com.axanthic.loi.blocks.BlockStorageMetal;
 import com.axanthic.loi.blocks.BlockStorageVase;
@@ -91,6 +93,7 @@ import com.axanthic.loi.items.ItemConcoctionVial;
 import com.axanthic.loi.items.ItemCustomArmor;
 import com.axanthic.loi.items.ItemCustomSeeds;
 import com.axanthic.loi.items.ItemDimensionTeleporter;
+import com.axanthic.loi.items.ItemFoodPlantable;
 import com.axanthic.loi.items.ItemFoods;
 import com.axanthic.loi.items.ItemGrenade;
 import com.axanthic.loi.items.ItemLaurelWreath;
@@ -137,6 +140,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
+import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
@@ -195,6 +199,8 @@ public class Resources {
 	public static ItemBlock fertilizedFarmLand = new ItemBlock(new BlockFarmLandFertilized());
 	public static ItemBlock cropStrawberry = new ItemBlock(new BlockStrawberryCrop("crop_strawberry"));
 	public static ItemBlock cropPhysalis = new ItemBlock(new BlockPhysalisCrop("crop_physalis"));
+	public static ItemBlock cropSpelt = new ItemBlock(new BlockSpeltCrop("crop_spelt"));
+	public static ItemBlock cropOnion = new ItemBlock(new BlockOnionCrop("crop_onion"));
 	public static ItemBlock moss = new ItemBlock(new BlockMoss());
 	public static ItemBlockMeta tallGrass = new ItemBlockMeta(new BlockTallGrass());
 	public static ItemBlockMeta flower = new ItemBlockMeta(new BlockFlower());
@@ -292,6 +298,8 @@ public class Resources {
 
 	public static Item seedsStrawberry = new ItemCustomSeeds("seed_strawberry", cropStrawberry.getBlock());
 	public static Item seedsPhysalis = new ItemCustomSeeds("seed_physalis", cropPhysalis.getBlock());
+	public static Item seedsSpelt = new ItemCustomSeeds("seed_spelt", cropSpelt.getBlock());
+	public static Item onion = new ItemFoodPlantable("onion", cropOnion.getBlock(), EnumPlantType.Crop, 6, 0.8F);
 
 	public static ToolSet laurelTools = new ToolSet(new CompleteToolMaterial("laurel", -1.0F, 0, 59, 2.0F, 0.0F, 15, new ItemStack(Resources.planks, 1, 5)));
 	public static ToolSet chalkos = new ToolSet(new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(Resources.ingot, 1, 0)));
@@ -372,6 +380,8 @@ public class Resources {
 		Resources.items.add(Resources.resource);
 		Resources.items.add(Resources.seedsStrawberry);
 		Resources.items.add(Resources.seedsPhysalis);
+		Resources.items.add(Resources.seedsSpelt);
+		Resources.items.add(Resources.onion);
 		Resources.items.add(Resources.food);
 		Resources.items.add(Resources.renderAddon);
 		Resources.items.add(Resources.sharpBone);
@@ -410,6 +420,8 @@ public class Resources {
 		Resources.registerBlock(Resources.fertilizedFarmLand);
 		Resources.registerBlock(Resources.cropStrawberry);
 		Resources.registerBlock(Resources.cropPhysalis);
+		Resources.registerBlock(Resources.cropSpelt);
+		Resources.registerBlock(Resources.cropOnion);
 		Resources.registerBlock(Resources.moss);
 		Resources.registerBlock(Resources.tallGrass);
 		Resources.registerBlock(Resources.flower);
