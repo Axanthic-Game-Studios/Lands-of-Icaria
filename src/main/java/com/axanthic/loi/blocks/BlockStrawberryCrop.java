@@ -41,8 +41,8 @@ public class BlockStrawberryCrop extends BlockCustomCrop {
 	}
 	
 	@Override
-	protected ItemFoods.FoodType getFood( ) {
-		return ItemFoods.FoodType.STRAWBERRY;
+	protected int getCropMeta( ) {
+		return ItemFoods.FoodType.STRAWBERRY.ordinal();
 	}
 	
 	@Override

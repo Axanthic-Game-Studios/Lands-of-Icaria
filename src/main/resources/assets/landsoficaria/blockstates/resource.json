@@ -29,7 +29,9 @@
 			"brown_dye": { "textures": { "layer0": "landsoficaria:items/dye_brown" } },
 			"blue_dye": { "textures": { "layer0": "landsoficaria:items/dye_blue" } },
 			"white_dye": { "textures": { "layer0": "landsoficaria:items/dye_white" } },
-			"vinereeds": { "textures": { "layer0": "landsoficaria:items/loot_vinereeds" } }
+			"vinereeds": { "textures": { "layer0": "landsoficaria:items/loot_vinereeds" } },
+			"spelt": { "textures": { "layer0": "landsoficaria:items/food_grain_spelt" } },
+			"flour": { "textures": { "layer0": "landsoficaria:items/food_grain_spelt_flour" } }
 		}
 	}
 }

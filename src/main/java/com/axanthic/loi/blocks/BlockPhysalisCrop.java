@@ -37,8 +37,8 @@ public class BlockPhysalisCrop extends BlockCustomCrop {
 	}
 	
 	@Override
-	protected ItemFoods.FoodType getFood( ) {
-		return ItemFoods.FoodType.PHYSALIS;
+	protected int getCropMeta( ) {
+		return ItemFoods.FoodType.PHYSALIS.ordinal();
 	}
 	
 	@Override

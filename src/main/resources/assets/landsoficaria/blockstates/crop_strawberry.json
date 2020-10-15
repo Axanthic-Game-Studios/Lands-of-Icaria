@@ -4,6 +4,7 @@
 		"model": "landsoficaria:crop_strawberry_stage4"
 	},
 	"variants": {
+		"inventory": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:blocks/flora_strawberry_4" } },
 		"age=0": { "model": "landsoficaria:crop_strawberry_stage0" },
 		"age=1": { "model": "landsoficaria:crop_strawberry_stage1" },
 		"age=2": { "model": "landsoficaria:crop_strawberry_stage1" },
