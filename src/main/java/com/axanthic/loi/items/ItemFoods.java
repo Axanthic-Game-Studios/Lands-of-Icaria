@@ -101,7 +101,10 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 				new PotionEffect(MobEffects.HUNGER, 100),
 				new PotionEffect(MobEffects.NAUSEA, 200)),
 		SPELT_BREAD("spelt_bread", 5, 0.6F),
-		GARLIC("garlic", 1, 0.3F);
+		GARLIC("garlic", 1, 0.3F),
+		CERVER_MEAT("cerver_meat", 2, 0.3F, 0.4F,
+				new PotionEffect(MobEffects.WEAKNESS, 800)),
+		CERVER_MEAT_COOKED("cerver_meat_cooked", 5, 0.8F);
 
 		public static final FoodType[] values = FoodType.values();
 		public static final int length = values.length;

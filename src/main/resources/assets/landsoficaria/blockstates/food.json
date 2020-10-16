@@ -21,7 +21,9 @@
 			"catoblepas_meat_cooked": { "textures": { "layer0": "landsoficaria:items/food_meat_catoblepas_cooked" } },
 			"slug_mass": { "textures": { "layer0": "landsoficaria:items/loot_slug_mass" } },
 			"spelt_bread": { "textures": { "layer0": "landsoficaria:items/food_bread_spelt" } },
-			"garlic": { "textures": { "layer0": "landsoficaria:items/food_garlic" } }
+			"garlic": { "textures": { "layer0": "landsoficaria:items/food_garlic" } },
+			"cerver_meat": { "textures": { "layer0": "landsoficaria:items/food_meat_cerver_raw" } },
+			"cerver_meat_cooked": { "textures": { "layer0": "landsoficaria:items/food_meat_cerver_cooked" } }
 		}
 	}
 }

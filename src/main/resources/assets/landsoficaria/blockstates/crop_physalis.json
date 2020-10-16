@@ -4,7 +4,7 @@
 		"model": "landsoficaria:crop_physalis_stage4"
 	},
 	"variants": {
-		"inventory": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:blocks/flora_physalis_4" } },
+		"inventory": { "model": "landsoficaria:generated", "textures": { "layer0": "landsoficaria:items/food_fruit_physalis_seed" } },
 		"age=0": { "model": "landsoficaria:crop_physalis_stage0" },
 		"age=1": { "model": "landsoficaria:crop_physalis_stage1" },
 		"age=2": { "model": "landsoficaria:crop_physalis_stage1" },
