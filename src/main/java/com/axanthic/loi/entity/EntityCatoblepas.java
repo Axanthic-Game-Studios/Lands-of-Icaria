@@ -141,6 +141,21 @@ public class EntityCatoblepas extends EntityAnimal {
 		return Resources.LOOT_CATOBLEPAS;
 	}
 
+	public boolean processInteract(EntityPlayer player, EnumHand hand) {
+		ItemStack itemstack = player.getHeldItem(hand);
+		if (itemstack.getItem() == Items.BUCKET && !player.capabilities.isCreativeMode && !this.isChild()) {
+			player.playSound(SoundEvents.ENTITY_COW_MILK, 1.0F, 1.0F);
+			itemstack.shrink(1);
+			if (itemstack.isEmpty()) {
+				player.setHeldItem(hand, new ItemStack(Items.MILK_BUCKET));
+			} else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.MILK_BUCKET))) {
+				player.dropItem(new ItemStack(Items.MILK_BUCKET), false);
+			}
+			return true;
+		}
+		return super.processInteract(player, hand);
+	}
+
 	public EntityCatoblepas createChild(EntityAgeable ageable) {
 		return new EntityCatoblepas(this.world);
 	}
