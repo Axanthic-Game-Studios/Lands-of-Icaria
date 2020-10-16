@@ -52,7 +52,9 @@ public class ItemResources extends ItemMeta {
 		WHITE_DYE("white_dye"),
 		VINEREEDS("vinereeds"),
 		SPELT("spelt"),
-		FLOUR("flour");
+		FLOUR("flour"),
+		ARACHNE_STRING("arachne_string"),
+		PLANT_FIBER("plant_fiber");
 		
 		public static final ResourceType[] values = ResourceType.values();
 		public static final int length = values.length;

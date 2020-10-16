@@ -31,7 +31,9 @@
 			"white_dye": { "textures": { "layer0": "landsoficaria:items/dye_white" } },
 			"vinereeds": { "textures": { "layer0": "landsoficaria:items/loot_vinereeds" } },
 			"spelt": { "textures": { "layer0": "landsoficaria:items/food_grain_spelt" } },
-			"flour": { "textures": { "layer0": "landsoficaria:items/food_grain_spelt_flour" } }
+			"flour": { "textures": { "layer0": "landsoficaria:items/food_grain_spelt_flour" } },
+			"arachne_string": { "textures": { "layer0": "landsoficaria:items/loot_arachne_string" } },
+			"plant_fiber": { "textures": { "layer0": "landsoficaria:items/loot_plant_fiber" } }
 		}
 	}
 }
