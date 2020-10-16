@@ -6,6 +6,7 @@ import com.axanthic.loi.render.ModelArganHoundHead;
 import com.axanthic.loi.render.ModelCatoblepasHead;
 import com.axanthic.loi.render.ModelCerverHead;
 import com.axanthic.loi.render.ModelHagHead;
+import com.axanthic.loi.render.ModelHagHeadLaurel;
 import com.axanthic.loi.render.ModelMyrmekeHead;
 import com.axanthic.loi.render.ModelSowHead;
 
@@ -49,6 +50,7 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 	public static final ModelHagHead forestHagDroughtrootHead = new ModelHagHead(66, 30, 128, 128);
 	public static final ModelHagHead forestHagFirHead = new ModelHagHead(58, 49, 128, 128);
 	public static final ModelHagHead forestHagOliveHead = new ModelHagHead(104, 0, 128, 128);
+	public static final ModelHagHeadLaurel forestHagLaurelHead = new ModelHagHeadLaurel();
 	public static final ModelAeternaeHead aeternaeHead = new ModelAeternaeHead();
 	public static final ModelCatoblepasHead catoblepasHead = new ModelCatoblepasHead();
 	public static final ModelSowHead sowHead = new ModelSowHead();
@@ -111,7 +113,8 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 			wallOffset = 0.0625f;
 		} else if (skullType.equals("foresthag_laurel")) {
 			this.bindTexture(FORESTHAG_LAUREL_TEXTURES);
-			modelbase = this.forestHagHead;
+			modelbase = this.forestHagLaurelHead;
+			wallOffset = 0.0625f;
 		} else if (skullType.equals("foresthag_droughtroot")) {
 			this.bindTexture(FORESTHAG_DROUGHTROOT_TEXTURES);
 			modelbase = this.forestHagDroughtrootHead;

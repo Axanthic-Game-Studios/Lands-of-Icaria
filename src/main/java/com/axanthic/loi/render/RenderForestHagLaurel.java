@@ -15,7 +15,7 @@ public class RenderForestHagLaurel extends RenderLiving<EntityForestHagLaurel> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(ModInformation.ID, "textures/entity/mob_foresthag_laurel.png");
 
 	public RenderForestHagLaurel(RenderManager manager) {
-		super(manager, new ModelForestHag(), 0.7F);
+		super(manager, new ModelForestHagLaurel(), 0.7F);
 	}
 
 	protected ResourceLocation getEntityTexture(EntityForestHagLaurel entity) {
