@@ -109,6 +109,7 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, ItemFoods.FoodType.CATOBLEPAS_MEAT.toMeta()), new ItemStack(Resources.food, 1, ItemFoods.FoodType.CATOBLEPAS_MEAT_COOKED.toMeta()), 0.35F);
 		GameRegistry.addSmelting(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.FLOUR.toMeta()), new ItemStack(Resources.food, 1, ItemFoods.FoodType.SPELT_BREAD.toMeta()), 0.35F);
 		addRecipe(new ItemStack(Resources.food, 1, ItemFoods.FoodType.SPELT_BREAD.toMeta()), "spelt_bread", new Object[]{"SSS", 'S', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.SPELT.toMeta())});
+		addRecipe(new ItemStack(Resources.strawberryCake), "strawberry_cake", new Object[]{"SMS", "UEU", "FFF", 'S', new ItemStack(Resources.food, 1, ItemFoods.FoodType.STRAWBERRY.toMeta()), 'M', new ItemStack(Items.MILK_BUCKET), 'U', new ItemStack(Items.SUGAR), 'E', new ItemStack(Items.EGG), 'F', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.FLOUR.toMeta())});
 
 		addShapelessRecipe(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.BLUE_DYE.toMeta()), "ground_flower_dye_blue", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.blueGroundFlowers, 1, 0))});
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 12), "ground_flower_dye_cyan", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.cyanGroundFlowers, 1, 0))});

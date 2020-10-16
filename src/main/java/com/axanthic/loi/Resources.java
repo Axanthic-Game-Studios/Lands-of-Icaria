@@ -14,6 +14,7 @@ import com.axanthic.loi.blocks.BlockBasicVineGrowing;
 import com.axanthic.loi.blocks.BlockBasicVineGrowingReeds;
 import com.axanthic.loi.blocks.BlockBromelia;
 import com.axanthic.loi.blocks.BlockCardonCactus;
+import com.axanthic.loi.blocks.BlockCustomCake;
 import com.axanthic.loi.blocks.BlockCustomDoor;
 import com.axanthic.loi.blocks.BlockCustomFence;
 import com.axanthic.loi.blocks.BlockCustomFenceGate;
@@ -295,11 +296,12 @@ public class Resources {
 	public static ItemBlock kettle = new ItemBlock(new BlockKettle());
 	public static ItemBlock portal = new ItemBlock(new BlockIcariaPortal());
 	public static ItemBlock greekFire = new ItemBlock(new BlockGreekFire());
+	public static ItemBlock strawberryCake = new ItemBlock(new BlockCustomCake("strawberry_cake"));
 
 	public static Item seedsStrawberry = new ItemCustomSeeds("seed_strawberry", cropStrawberry.getBlock());
 	public static Item seedsPhysalis = new ItemCustomSeeds("seed_physalis", cropPhysalis.getBlock());
 	public static Item seedsSpelt = new ItemCustomSeeds("seed_spelt", cropSpelt.getBlock());
-	public static Item onion = new ItemFoodPlantable("onion", cropOnion.getBlock(), EnumPlantType.Crop, 6, 0.8F);
+	public static Item onion = new ItemFoodPlantable("onion", cropOnion.getBlock(), EnumPlantType.Crop, 1, 0.3F);
 
 	public static ToolSet laurelTools = new ToolSet(new CompleteToolMaterial("laurel", -1.0F, 0, 59, 2.0F, 0.0F, 15, new ItemStack(Resources.planks, 1, 5)));
 	public static ToolSet chalkos = new ToolSet(new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(Resources.ingot, 1, 0)));
@@ -516,6 +518,7 @@ public class Resources {
 		Resources.registerBlock(Resources.kettle);
 		Resources.registerBlock(Resources.portal);
 		Resources.registerBlock(Resources.greekFire);
+		Resources.registerBlock(Resources.strawberryCake);
 		BlockIcariaPortal.init();
 
 		//DEPRECATED

@@ -100,8 +100,8 @@ public class ItemFoods extends ItemFood implements IItemMeta {
 		SLUG_MASS("slug_mass", 3, 0.1F, 0.5F,
 				new PotionEffect(MobEffects.HUNGER, 100),
 				new PotionEffect(MobEffects.NAUSEA, 200)),
-		SPELT_BREAD("spelt_bread", 6, 0.8F),
-		GARLIC("garlic", 6, 0.8F);
+		SPELT_BREAD("spelt_bread", 5, 0.6F),
+		GARLIC("garlic", 1, 0.3F);
 
 		public static final FoodType[] values = FoodType.values();
 		public static final int length = values.length;
