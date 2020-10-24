@@ -110,7 +110,7 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.food, 1, ItemFoods.FoodType.CERVER_MEAT.toMeta()), new ItemStack(Resources.food, 1, ItemFoods.FoodType.CERVER_MEAT_COOKED.toMeta()), 0.35F);
 		GameRegistry.addSmelting(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.FLOUR.toMeta()), new ItemStack(Resources.food, 1, ItemFoods.FoodType.SPELT_BREAD.toMeta()), 0.35F);
 		addRecipe(new ItemStack(Resources.food, 1, ItemFoods.FoodType.SPELT_BREAD.toMeta()), "spelt_bread", new Object[]{"SSS", 'S', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.SPELT.toMeta())});
-		addRecipe(new ItemStack(Resources.strawberryCake), "strawberry_cake", new Object[]{"SMS", "UEU", "FFF", 'S', new ItemStack(Resources.food, 1, ItemFoods.FoodType.STRAWBERRY.toMeta()), 'M', new ItemStack(Items.MILK_BUCKET), 'U', new ItemStack(Items.SUGAR), 'E', new ItemStack(Items.EGG), 'F', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.FLOUR.toMeta())});
+		addRecipe(new ItemStack(Resources.strawberryCake), "strawberry_cake", new Object[]{"SMS", "UJU", "FFF", 'S', new ItemStack(Resources.food, 1, ItemFoods.FoodType.STRAWBERRY.toMeta()), 'M', new ItemStack(Items.MILK_BUCKET), 'U', new ItemStack(Items.SUGAR), 'J', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.JELLYFISH_JELLY.toMeta()), 'F', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.FLOUR.toMeta())});
 
 		addShapelessRecipe(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.BLUE_DYE.toMeta()), "ground_flower_dye_blue", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.blueGroundFlowers, 1, 0))});
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 12), "ground_flower_dye_cyan", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.cyanGroundFlowers, 1, 0))});
@@ -195,6 +195,15 @@ public class Recipes {
 			addRecipe(new ItemStack(Resources.gemBlock, 1, i), name + "_block", new Object[]{"III", "III", "III", 'I', "gem" + gem});
 			addRecipe(new ItemStack(Resources.resource, 9, ItemResources.ResourceType.byName(name).toMeta()), name + "_unblock", new Object[]{"B", 'B', "block" + gem});
 		}
+
+		addRecipe(new ItemStack(Resources.plantFiberBlock, 1), "plant_fiber_block", new Object[]{"III", "III", "III", 'I', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.PLANT_FIBER.toMeta())});
+		addRecipe(new ItemStack(Resources.resource, 9, ItemResources.ResourceType.PLANT_FIBER.toMeta()), "plant_fiber_unblock", new Object[]{"B", 'B', new ItemStack(Resources.plantFiberBlock)});
+		addRecipe(new ItemStack(Resources.speltBale, 1), "spelt_bale_block", new Object[]{"III", "III", "III", 'I', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.SPELT.toMeta())});
+		addRecipe(new ItemStack(Resources.resource, 9, ItemResources.ResourceType.SPELT.toMeta()), "spelt_bale_unblock", new Object[]{"B", 'B', new ItemStack(Resources.speltBale)});
+		addRecipe(new ItemStack(Resources.arachneStringBlock, 1), "arachne_string_block", new Object[]{"III", "III", "III", 'I', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ARACHNE_STRING.toMeta())});
+		addRecipe(new ItemStack(Resources.resource, 9, ItemResources.ResourceType.ARACHNE_STRING.toMeta()), "arachne_string_unblock", new Object[]{"B", 'B', new ItemStack(Resources.arachneStringBlock)});
+		addRecipe(new ItemStack(Resources.jellyfishJellyBlock, 1), "jellyfish_jelly_block", new Object[]{"III", "III", "III", 'I', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.JELLYFISH_JELLY.toMeta())});
+		addRecipe(new ItemStack(Resources.resource, 9, ItemResources.ResourceType.JELLYFISH_JELLY.toMeta()), "jellyfish_jelly_unblock", new Object[]{"B", 'B', new ItemStack(Resources.jellyfishJellyBlock)});
 
 		addShapelessRecipe(new ItemStack(Resources.planks, 2, 0), "head_planks_plane", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.mobHeadForesthagPlane, 1, 0))});
 		addShapelessRecipe(new ItemStack(Resources.planks, 2, 1), "head_planks_populus", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.mobHeadForesthagPopulus, 1, 0))});

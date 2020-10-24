@@ -1,18 +1,18 @@
 {
     "pools": [
         {
-			"name": "landsoficaria:jellyfish_mass",
+			"name": "landsoficaria:jellyfish_jelly",
             "rolls": 1,
             "entries": [
                 {
                     "type": "item",
-                    "name": "landsoficaria:food",
-					"entryName": "slug_mass",
+                    "name": "landsoficaria:resource",
+					"entryName": "jellyfish_jelly",
                     "weight": 1,
                     "functions": [
                         {
                             "function": "minecraft:set_data",
-                            "data": 11
+                            "data": 26
                         },
                         {
                             "function": "set_count",
