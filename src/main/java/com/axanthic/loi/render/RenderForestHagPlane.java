@@ -15,7 +15,7 @@ public class RenderForestHagPlane extends RenderLiving<EntityForestHagPlane> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(ModInformation.ID, "textures/entity/mob_foresthag_plane.png");
 
 	public RenderForestHagPlane(RenderManager manager) {
-		super(manager, new ModelForestHag(), 0.7F);
+		super(manager, new ModelForestHagPlane(), 0.7F);
 	}
 
 	protected ResourceLocation getEntityTexture(EntityForestHagPlane entity) {

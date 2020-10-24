@@ -6,7 +6,6 @@ import com.axanthic.loi.render.ModelArganHoundHead;
 import com.axanthic.loi.render.ModelCatoblepasHead;
 import com.axanthic.loi.render.ModelCerverHead;
 import com.axanthic.loi.render.ModelHagHead;
-import com.axanthic.loi.render.ModelHagHeadLaurel;
 import com.axanthic.loi.render.ModelMyrmekeHead;
 import com.axanthic.loi.render.ModelSowHead;
 
@@ -45,12 +44,13 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 	public static final ModelMyrmekeHead myrmekeHead = new ModelMyrmekeHead();
 	public static final ModelCerverHead cerverHead = new ModelCerverHead();
 	public static final ModelArganHoundHead arganHoundHead = new ModelArganHoundHead();
-	public static final ModelSkeletonHead forestHagHead = new ModelSkeletonHead(0, 0, 64, 32);
 	public static final ModelHagHead forestHagCypressHead = new ModelHagHead(22, 24, 128, 128);
 	public static final ModelHagHead forestHagDroughtrootHead = new ModelHagHead(66, 30, 128, 128);
 	public static final ModelHagHead forestHagFirHead = new ModelHagHead(58, 49, 128, 128);
 	public static final ModelHagHead forestHagOliveHead = new ModelHagHead(104, 0, 128, 128);
-	public static final ModelHagHeadLaurel forestHagLaurelHead = new ModelHagHeadLaurel();
+	public static final ModelHagHead forestHagLaurelHead = new ModelHagHead(62, 36, 128, 128);
+	public static final ModelHagHead forestHagPlaneHead = new ModelHagHead(99, 25, 128, 64);
+	public static final ModelHagHead forestHagPopulusHead = new ModelHagHead(102, 36, 128, 96);
 	public static final ModelAeternaeHead aeternaeHead = new ModelAeternaeHead();
 	public static final ModelCatoblepasHead catoblepasHead = new ModelCatoblepasHead();
 	public static final ModelSowHead sowHead = new ModelSowHead();
@@ -95,10 +95,12 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 			wallOffset = 0.0625f;
 		} else if (skullType.equals("foresthag_plane")) {
 			this.bindTexture(FORESTHAG_PLANE_TEXTURES);
-			modelbase = this.forestHagHead;
+			modelbase = this.forestHagPlaneHead;
+			wallOffset = 0.0625f;
 		} else if (skullType.equals("foresthag_populus")) {
 			this.bindTexture(FORESTHAG_POPULUS_TEXTURES);
-			modelbase = this.forestHagHead;
+			modelbase = this.forestHagPopulusHead;
+			wallOffset = 0.0625f;
 		} else if (skullType.equals("foresthag_cypress")) {
 			this.bindTexture(FORESTHAG_CYPRESS_TEXTURES);
 			modelbase = this.forestHagCypressHead;

@@ -15,7 +15,7 @@ public class RenderForestHagPopulus extends RenderLiving<EntityForestHagPopulus>
 	private static final ResourceLocation TEXTURE = new ResourceLocation(ModInformation.ID, "textures/entity/mob_foresthag_populus.png");
 
 	public RenderForestHagPopulus(RenderManager manager) {
-		super(manager, new ModelForestHag(), 0.7F);
+		super(manager, new ModelForestHagPopulus(), 0.7F);
 	}
 
 	protected ResourceLocation getEntityTexture(EntityForestHagPopulus entity) {
