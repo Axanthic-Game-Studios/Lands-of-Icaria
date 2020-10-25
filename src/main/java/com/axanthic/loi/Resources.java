@@ -21,6 +21,7 @@ import com.axanthic.loi.blocks.BlockCustomFenceGate;
 import com.axanthic.loi.blocks.BlockCustomLadder;
 import com.axanthic.loi.blocks.BlockCustomPane;
 import com.axanthic.loi.blocks.BlockCustomSlab;
+import com.axanthic.loi.blocks.BlockCustomSpawner;
 import com.axanthic.loi.blocks.BlockCustomStairs;
 import com.axanthic.loi.blocks.BlockCustomStraightPane;
 import com.axanthic.loi.blocks.BlockCustomTrapdoor;
@@ -301,6 +302,10 @@ public class Resources {
 	public static ItemBlock kettle = new ItemBlock(new BlockKettle());
 	public static ItemBlock portal = new ItemBlock(new BlockIcariaPortal());
 	public static ItemBlock greekFire = new ItemBlock(new BlockGreekFire());
+	public static ItemBlock dungeonSpawner = new ItemBlock(new BlockCustomSpawner(5.0F, "dungeon_spawner").setSoundType(SoundType.METAL));
+	public static ItemBlock ruinsSpawner = new ItemBlock(new BlockCustomSpawner(5.0F, "ruins_spawner").setSoundType(SoundType.METAL));
+	public static ItemBlock villageSpawner = new ItemBlock(new BlockCustomSpawner(5.0F, "village_spawner").setSoundType(SoundType.METAL));
+	public static ItemBlock myrmekeSpawner = new ItemBlock(new BlockCustomSpawner(5.0F, "myrmeke_spawner").setSoundType(SoundType.WOOD));
 	public static ItemBlock strawberryCake = new ItemBlock(new BlockCustomCake("strawberry_cake"));
 
 	public static Item seedsStrawberry = new ItemCustomSeeds("seed_strawberry", cropStrawberry.getBlock());
@@ -527,6 +532,10 @@ public class Resources {
 		Resources.registerBlock(Resources.kettle);
 		Resources.registerBlock(Resources.portal);
 		Resources.registerBlock(Resources.greekFire);
+		Resources.registerBlock(Resources.dungeonSpawner);
+		Resources.registerBlock(Resources.ruinsSpawner);
+		Resources.registerBlock(Resources.villageSpawner);
+		Resources.registerBlock(Resources.myrmekeSpawner);
 		Resources.registerBlock(Resources.strawberryCake);
 		BlockIcariaPortal.init();
 
