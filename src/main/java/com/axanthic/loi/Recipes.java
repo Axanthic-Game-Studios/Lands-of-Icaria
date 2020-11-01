@@ -16,6 +16,7 @@ import com.axanthic.loi.blocks.BlockStorageMetal;
 import com.axanthic.loi.entity.EntitySow;
 import com.axanthic.loi.items.ItemFoods;
 import com.axanthic.loi.items.ItemResources;
+import com.axanthic.loi.items.ItemStews;
 import com.axanthic.loi.proxy.CommonProxy;
 import com.axanthic.loi.utils.ForgeRecipe;
 import com.axanthic.loi.utils.GrinderFuel;
@@ -111,6 +112,12 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.FLOUR.toMeta()), new ItemStack(Resources.food, 1, ItemFoods.FoodType.SPELT_BREAD.toMeta()), 0.35F);
 		addRecipe(new ItemStack(Resources.food, 1, ItemFoods.FoodType.SPELT_BREAD.toMeta()), "spelt_bread", new Object[]{"SSS", 'S', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.SPELT.toMeta())});
 		addRecipe(new ItemStack(Resources.strawberryCake), "strawberry_cake", new Object[]{"SMS", "UJU", "FFF", 'S', new ItemStack(Resources.food, 1, ItemFoods.FoodType.STRAWBERRY.toMeta()), 'M', new ItemStack(Items.MILK_BUCKET), 'U', new ItemStack(Items.SUGAR), 'J', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.JELLYFISH_JELLY.toMeta()), 'F', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.FLOUR.toMeta())});
+		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.FRUIT_SALAD.toMeta()), "fruit_salad", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.STRAWBERRY.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.PHYSALIS.toMeta())), Ingredient.fromStacks(new ItemStack(Items.DYE, 1, 3)), Ingredient.fromStacks(new ItemStack(Items.MELON)), Ingredient.fromStacks(new ItemStack(Items.GOLDEN_APPLE)), Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta())), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
+		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.AETERNAE.toMeta()), "aeternae_stew", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.AETERNAE_MEAT_COOKED.toMeta())), Ingredient.fromStacks(new ItemStack(Items.BEETROOT)), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
+		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.CERVER.toMeta()), "cerver_stew", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.CERVER_MEAT_COOKED.toMeta())), Ingredient.fromStacks(new ItemStack(Items.CARROT)), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
+		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.SOW.toMeta()), "sow_stew", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.SOW_MEAT_COOKED.toMeta())), new OreIngredient("mushroom"), new OreIngredient("mushroom"), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
+		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.ONION.toMeta()), "onion_soup", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.onion)), Ingredient.fromStacks(new ItemStack(Resources.onion)), Ingredient.fromStacks(new ItemStack(Resources.onion)), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
+		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.CATOBLEPAS.toMeta()), "catoblepas_stew", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.CATOBLEPAS_MEAT_COOKED.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.onion)), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
 
 		addShapelessRecipe(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.BLUE_DYE.toMeta()), "ground_flower_dye_blue", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.blueGroundFlowers, 1, 0))});
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 12), "ground_flower_dye_cyan", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.cyanGroundFlowers, 1, 0))});
@@ -606,6 +613,15 @@ public class Recipes {
 		OreDictionary.registerOre("vine", new ItemStack(Resources.vineReedy, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("vine", new ItemStack(Resources.vineSwirly, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("vine", new ItemStack(Resources.vineThorny, 1, OreDictionary.WILDCARD_VALUE));
+
+		OreDictionary.registerOre("mushroom", new ItemStack(Blocks.BROWN_MUSHROOM, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("mushroom", new ItemStack(Blocks.RED_MUSHROOM, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("mushroom", new ItemStack(Resources.groundMushroom0, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("mushroom", new ItemStack(Resources.groundMushroom1, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("mushroom", new ItemStack(Resources.groundMushroom2, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("mushroom", new ItemStack(Resources.treeMushroom0, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("mushroom", new ItemStack(Resources.treeMushroom1, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("mushroom", new ItemStack(Resources.treeMushroom2, 1, OreDictionary.WILDCARD_VALUE));
 
 		OreDictionary.registerOre("plankWood", new ItemStack(Resources.planks, 1, OreDictionary.WILDCARD_VALUE));
 		registerWoodOredict(Resources.plane);

@@ -106,6 +106,7 @@ import com.axanthic.loi.items.ItemResources;
 import com.axanthic.loi.items.ItemScroll;
 import com.axanthic.loi.items.ItemSharpBone;
 import com.axanthic.loi.items.ItemSpell;
+import com.axanthic.loi.items.ItemStews;
 import com.axanthic.loi.items.ToolAxe;
 import com.axanthic.loi.items.ToolBident;
 import com.axanthic.loi.items.ToolDagger;
@@ -187,7 +188,8 @@ public class Resources {
 
 	public static Item dimensionTp = new ItemDimensionTeleporter().setUnlocalizedName("dimension_teleporter").setRegistryName("dimension_teleporter");
 	public static ItemMeta resource = new ItemResources();
-	public static ItemFoods food = new ItemFoods();
+	public static Item food = new ItemFoods();
+	public static Item stew = new ItemStews();
 	public static ItemMeta renderAddon = new ItemRenderAddon();
 	public static Item sharpBone = new ItemSharpBone();
 	public static Item laurelWreath = new ItemLaurelWreath();
@@ -395,6 +397,7 @@ public class Resources {
 		Resources.items.add(Resources.seedsSpelt);
 		Resources.items.add(Resources.onion);
 		Resources.items.add(Resources.food);
+		Resources.items.add(Resources.stew);
 		Resources.items.add(Resources.renderAddon);
 		Resources.items.add(Resources.sharpBone);
 		Resources.items.add(Resources.laurelWreath);

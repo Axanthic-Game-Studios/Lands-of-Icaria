@@ -1,0 +1,19 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "landsoficaria:generated",
+		"textures": {
+			"layer0": "landsoficaria:items/food_fruit_salad_bowl"
+		}
+	},
+	"variants": {
+		"type": {
+			"fruit_salad": { "textures": { "layer0": "landsoficaria:items/food_fruit_salad_bowl" } },
+			"aeternae": { "textures": { "layer0": "landsoficaria:items/food_stew_beetroot_and_aeternae" } },
+			"cerver": { "textures": { "layer0": "landsoficaria:items/food_stew_carrot_and_cerver" } },
+			"sow": { "textures": { "layer0": "landsoficaria:items/food_stew_mushroom_and_sow" } },
+			"onion": { "textures": { "layer0": "landsoficaria:items/food_stew_onion" } },
+			"catoblepas": { "textures": { "layer0": "landsoficaria:items/food_stew_onion_and_catoblepas" } }
+		}
+	}
+}
