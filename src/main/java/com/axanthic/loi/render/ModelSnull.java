@@ -1,6 +1,5 @@
 package com.axanthic.loi.render;
 
-import com.axanthic.loi.entity.EntityScorpion;
 import com.axanthic.loi.entity.EntitySnull;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

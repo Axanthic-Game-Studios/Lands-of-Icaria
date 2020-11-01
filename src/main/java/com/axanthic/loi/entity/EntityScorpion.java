@@ -1,6 +1,5 @@
 package com.axanthic.loi.entity;
 
-import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.proxy.ClientProxy;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -9,8 +8,6 @@ import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntitySpider;
-import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;

@@ -4,17 +4,11 @@ import java.util.Random;
 
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.items.ItemFoods;
-import com.axanthic.loi.items.ItemResources;
-
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 public class BlockOnionCrop extends BlockCustomCrop {
 	private static final AxisAlignedBB[] CROP_AABB = new AxisAlignedBB[] {

@@ -11,7 +11,6 @@ import com.axanthic.loi.items.ItemResources;
 import com.axanthic.loi.utils.DropPool;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;

@@ -1,7 +1,6 @@
 package com.axanthic.loi.render;
 
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.entity.EntitySnull;
 import com.axanthic.loi.entity.EntitySolifugae;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

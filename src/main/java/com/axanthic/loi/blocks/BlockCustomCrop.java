@@ -4,8 +4,6 @@ import java.util.Random;
 
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
-import com.axanthic.loi.items.ItemFoods;
-
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
