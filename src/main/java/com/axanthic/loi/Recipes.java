@@ -88,6 +88,8 @@ public class Recipes {
 
 		addRecipe(new ItemStack(Resources.emptyVial, 3), "empty_vial", new Object[]{"G G", " G ", 'G', Resources.grainelGlass});
 
+		addRecipe(new ItemStack(Resources.grenade, 1), "grenade", new Object[]{" S ", "NPN", " N ", 'S', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ARACHNE_STRING.toMeta()), 'P', "dustSmallCalcite", 'N', "nuggetKassiteros"});
+
 		addRecipe(new ItemStack(Resources.aristonePacked), "packed_aristone", new Object[]{"AAA", "AAA", "AAA", 'A', Resources.aristone});
 
 		addRecipe(new ItemStack(Resources.soil, 1, 1), "course_marl", new Object[]{"GS", "SG", 'G', Resources.grainelSand, 'S', new ItemStack(Resources.soil, 1, 0)});
