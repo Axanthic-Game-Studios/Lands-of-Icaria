@@ -316,7 +316,7 @@ public class ModelRevenantCrawler extends ModelBase {
 			float f3 = MathHelper.sin(this.swingProgress * (float)Math.PI) * 0.7F * 0.75F;
 			this.arm_right.rotateAngleX += (float)((double)this.arm_right.rotateAngleX - ((double)f2 * 1.2D + (double)f3));
 			//modelrenderer.rotateAngleY += this.bipedBody.rotateAngleY * 2.0F;
-			this.arm_right.rotateAngleZ += MathHelper.sin(this.swingProgress * (float)Math.PI) * -0.4F;
+			this.arm_right.rotateAngleZ = MathHelper.sin(this.swingProgress * (float)Math.PI) * -0.4F + 0.20472712125893486F;
 		}
 
 		//this.arm_right.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
