@@ -276,6 +276,7 @@ public class Resources {
 	public static ItemBlock speltBale = new ItemBlock(new BlockPillar(Material.PLANTS, 0.9F, "spelt_bale", MapColor.YELLOW).setSoundType(SoundType.PLANT));
 	public static ItemBlock arachneStringBlock = new ItemBlock(new BlockBasic(Material.CLOTH, 0.9F, "arachne_string_block", MapColor.SILVER_STAINED_HARDENED_CLAY).setSoundType(SoundType.CLOTH));
 	public static ItemBlock jellyfishJellyBlock = new ItemBlock(new BlockBasic(Material.CLAY, 0.9F, "jellyfish_jelly_block", MapColor.RED_STAINED_HARDENED_CLAY).setTranslucent(BlockRenderLayer.TRANSLUCENT).setSoundType(SoundType.SLIME).setLightOpacity(1));
+	public static ItemBlock rottenBonesBlock = new ItemBlock(new BlockBasic(Material.ROCK, 0.9F, "rotten_bones_block", MapColor.LIME_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
 	public static ItemBlockMeta relicstone = new ItemBlockMeta(new BlockRelicstone());
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar(Material.ROCK, 1.2F, "pillar_relicstone", MapColor.WOOD).setSoundType(SoundType.STONE));
 	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead(Material.ROCK, 1.2F, "pillar_head_relicstone", MapColor.WOOD).setSoundType(SoundType.STONE));
@@ -507,6 +508,7 @@ public class Resources {
 		Resources.registerBlock(Resources.speltBale);
 		Resources.registerBlock(Resources.arachneStringBlock);
 		Resources.registerBlock(Resources.jellyfishJellyBlock);
+		Resources.registerBlock(Resources.rottenBonesBlock);
 		Resources.registerBlock(Resources.relicstone);
 		Resources.registerBlock(Resources.pillar);
 		Resources.registerBlock(Resources.pillarHead);

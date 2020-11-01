@@ -213,6 +213,8 @@ public class Recipes {
 		addRecipe(new ItemStack(Resources.resource, 9, ItemResources.ResourceType.ARACHNE_STRING.toMeta()), "arachne_string_unblock", new Object[]{"B", 'B', new ItemStack(Resources.arachneStringBlock)});
 		addRecipe(new ItemStack(Resources.jellyfishJellyBlock, 1), "jellyfish_jelly_block", new Object[]{"III", "III", "III", 'I', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.JELLYFISH_JELLY.toMeta())});
 		addRecipe(new ItemStack(Resources.resource, 9, ItemResources.ResourceType.JELLYFISH_JELLY.toMeta()), "jellyfish_jelly_unblock", new Object[]{"B", 'B', new ItemStack(Resources.jellyfishJellyBlock)});
+		addRecipe(new ItemStack(Resources.rottenBonesBlock, 1), "rotten_bones_block", new Object[]{"III", "III", "III", 'I', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ROTTEN_BONES.toMeta())});
+		addRecipe(new ItemStack(Resources.resource, 9, ItemResources.ResourceType.ROTTEN_BONES.toMeta()), "rotten_bones_unblock", new Object[]{"B", 'B', new ItemStack(Resources.rottenBonesBlock)});
 
 		addShapelessRecipe(new ItemStack(Resources.planks, 2, 0), "head_planks_plane", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.mobHeadForesthagPlane, 1, 0))});
 		addShapelessRecipe(new ItemStack(Resources.planks, 2, 1), "head_planks_populus", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.mobHeadForesthagPopulus, 1, 0))});

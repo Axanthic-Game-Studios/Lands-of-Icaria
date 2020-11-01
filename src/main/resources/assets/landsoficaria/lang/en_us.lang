@@ -152,6 +152,7 @@ tile.plant_fiber_block.name=Plant Fiber Block
 tile.spelt_bale.name=Speltbale
 tile.arachne_string_block.name=Arachne String Block
 tile.jellyfish_jelly_block.name=Jelly Block
+tile.rotten_bones_block.name=Rotten Bones Block
 tile.tallgrass.small.name=Small Grass
 tile.tallgrass.medium.name=Grass
 tile.tallgrass.large.name=Large Grass
