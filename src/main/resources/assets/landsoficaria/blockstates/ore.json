@@ -24,7 +24,7 @@
 			"bluridium": { "model": "landsoficaria:cube_all_overlay_bright", "textures": { "all": "landsoficaria:blocks/rock_baetyl_ore_bluridium", "overlay": "landsoficaria:blocks/rock_baetyl_ore_bluridium_overlay" } },
 			"hyliastrum": { "textures": { "all": "landsoficaria:blocks/rock_baetyl_ore_hyliastrum" } },
 			"abyssal_essence": { "textures": { "all": "landsoficaria:blocks/rock_baetyl_ore_abyssal_essence" } },
-			"rotten_bones": { "textures": { "all": "landsoficaria:blocks/loot_rotten_bones_block" } }
+			"rotten_bones": { "textures": { "all": "landsoficaria:blocks/soil_marl_ore_bones" } }
 		}
 	}
 }
