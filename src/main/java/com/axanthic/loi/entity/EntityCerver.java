@@ -95,11 +95,11 @@ public class EntityCerver extends EntityMob {
 	}
 
 	protected float getSoundVolume() {
-		return 1.5F;
+		return 1.2F;
 	}
 
 	protected float getSoundPitch() {
-		return 0.85F;
+		return 0.2F;
 	}
 
 	/**
