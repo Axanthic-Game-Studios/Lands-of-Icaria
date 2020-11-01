@@ -4,6 +4,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.axanthic.loi.LOIFluids;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
@@ -34,6 +35,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -92,9 +94,7 @@ public class BlockOre extends Block implements IBlockMeta {
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 		Random rand = world instanceof World ? ((World)world).rand : RANDOM;
-
 		switch(OreTypes.byMetadata(getMetaFromState(state))) {
-		
 			case ROTTEN_BONES:
 				DropPool pool = new DropPool(rand, 2, fortune);
 				pool.addEntry(90, Resources.resource, ItemResources.ResourceType.ROTTEN_BONES.toMeta(), 1, 3);
@@ -104,7 +104,6 @@ public class BlockOre extends Block implements IBlockMeta {
 				pool.addEntry(2, Resources.resource, ItemResources.ResourceType.REMAINS.toMeta(), 1, 1);
 				pool.getDrops(drops);
 				break;
-		
 			default:
 				int count = quantityDropped(state, fortune, rand);
 				for (int i = 0; i < count; i++) {
@@ -113,7 +112,6 @@ public class BlockOre extends Block implements IBlockMeta {
 						drops.add(new ItemStack(item, 1, this.damageDropped(state)));
 					}
 				}
-
 		}
 	}
 
@@ -203,33 +201,13 @@ public class BlockOre extends Block implements IBlockMeta {
 			default: return this.quantityDropped(random);
 		}
 	}
-	
 
-	/* BLOCK METHODS */
 	@Override
-	public void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
-		BlockPos north = pos.add(0, 0, -1);
-		BlockPos south = pos.add(0, 0, 1);
-		BlockPos west = pos.add(-1, 0, 0);
-		BlockPos east = pos.add(1, 0, 0);
-	}
-	
-	@Override
-	public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player,
-			boolean willHarvest) {
-		System.out.println("THIS IS CALLED PLEASE");
-		switch (OreTypes.byMetadata(getMetaFromState(state))) {
-			case HYLIASTRUM:
-				this.onBlockHarvested(world, pos, state, player);
-				break;
-			default:
-				System.out.println("this is called instead");
-				return false;
-		}
-		return world.setBlockState(new BlockPos(pos), getDefaultState());
-	}
-	
-	
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+		super.breakBlock(worldIn, pos, state);
+		if (getMetaFromState(state) == OreTypes.HYLIASTRUM.getMeta() && worldIn.isAirBlock(pos))
+			worldIn.setBlockState(new BlockPos(pos), LOIFluids.voidFluidBlock.getBlock().getDefaultState().withProperty(BlockFluidBase.LEVEL, 1));
+    }
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
@@ -241,8 +219,7 @@ public class BlockOre extends Block implements IBlockMeta {
 			default: return super.getItemDropped(state, rand, fortune);
 		}
 	}
-	
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer() {
