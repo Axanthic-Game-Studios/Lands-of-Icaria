@@ -102,11 +102,12 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			if (j14 > 0) {
 				int k17 = random.nextInt(j14);
 				BlockPos blockpos1 = pos.add(i7, k17, l10);
+				Long flowerType = random.nextLong();
 
 				for (int i = 0; i < 64; ++i) {
 					BlockPos blockpos = blockpos1.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
 					if (worldIn.isAirBlock(blockpos) && (!worldIn.provider.isNether() || blockpos.getY() < 255))
-						biome.plantFlower(worldIn, random, blockpos);
+						biome.plantFlower(worldIn, new Random(flowerType), blockpos);
 				}
 			}
 		}
