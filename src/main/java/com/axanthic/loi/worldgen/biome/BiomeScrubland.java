@@ -57,8 +57,10 @@ public class BiomeScrubland extends BiomeLOI {
 		addFlower(Resources.flower.getBlock().getStateFromMeta(12), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(13), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(14), 20);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(0), 10);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(6), 10);
+		addFlower(Resources.blueGroundFlowers.getBlock().getDefaultState(), 20);
+		addFlower(Resources.purpleGroundFlowers.getBlock().getDefaultState(), 20);
+		//addFlower(Resources.herb.getBlock().getStateFromMeta(0), 10);
+		//addFlower(Resources.herb.getBlock().getStateFromMeta(6), 10);
 		addFlower(Resources.palmFern.getBlock().getDefaultState(), 20);
 	}
 

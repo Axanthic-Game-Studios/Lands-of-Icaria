@@ -56,8 +56,10 @@ public class BiomeSteppe extends BiomeLOI {
 		addFlower(Resources.flower.getBlock().getStateFromMeta(7), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(8), 20);
 		addFlower(Resources.flower.getBlock().getStateFromMeta(11), 20);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(2), 10);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(3), 10);
+		addFlower(Resources.cyanGroundFlowers.getBlock().getDefaultState(), 20);
+		addFlower(Resources.pinkGroundFlowers.getBlock().getDefaultState(), 20);
+		//addFlower(Resources.herb.getBlock().getStateFromMeta(2), 10);
+		//addFlower(Resources.herb.getBlock().getStateFromMeta(3), 10);
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -65,9 +65,9 @@ public class BiomeForest extends BiomeLOI {
 		addFlower(Resources.bromelia.getBlock().getStateFromMeta(1), 10);
 		addFlower(Resources.bromelia.getBlock().getStateFromMeta(2), 10);
 		addFlower(Resources.bromelia.getBlock().getStateFromMeta(3), 10);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(1), 10);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(4), 10);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(7), 10);
+		//addFlower(Resources.herb.getBlock().getStateFromMeta(1), 10);
+		//addFlower(Resources.herb.getBlock().getStateFromMeta(4), 10);
+		//addFlower(Resources.herb.getBlock().getStateFromMeta(7), 10);
 		addFlower(Resources.bushStrawberry.getBlock().getDefaultState(), 10);
 	}
 

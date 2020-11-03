@@ -54,8 +54,10 @@ public class BiomeDesert extends BiomeLOI {
 		flowers.clear();
 		addFlower(Resources.flower.getBlock().getStateFromMeta(15), 20);
 		addFlower(Resources.flower2.getBlock().getStateFromMeta(0), 20);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(5), 10);
-		addFlower(Resources.herb.getBlock().getStateFromMeta(8), 10);
+		addFlower(Resources.redGroundFlowers.getBlock().getDefaultState(), 20);
+		addFlower(Resources.whiteGroundFlowers.getBlock().getDefaultState(), 20);
+		//addFlower(Resources.herb.getBlock().getStateFromMeta(5), 10);
+		//addFlower(Resources.herb.getBlock().getStateFromMeta(8), 10);
 	}
 
 	@SideOnly(Side.CLIENT)
