@@ -21,6 +21,7 @@ public class WorldGenPlaneTree extends WorldGenLOITree {
 	public WorldGenPlaneTree init() {
 		this.TRUNK = Resources.plane.log.getBlock().getDefaultState();
 		this.LEAF = Resources.plane.leaf.getBlock().getDefaultState();
+		this.WOODTYPE = Resources.plane;
 		return this;
 	}
 

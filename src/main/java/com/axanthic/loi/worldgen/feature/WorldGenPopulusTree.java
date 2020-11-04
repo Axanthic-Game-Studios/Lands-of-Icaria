@@ -18,6 +18,7 @@ public class WorldGenPopulusTree extends WorldGenLOITree {
 	public WorldGenPopulusTree init() {
 		this.TRUNK = Resources.populus.log.getBlock().getDefaultState();
 		this.LEAF = Resources.populus.leaf.getBlock().getDefaultState();
+		this.WOODTYPE = Resources.populus;
 		return this;
 	}
 

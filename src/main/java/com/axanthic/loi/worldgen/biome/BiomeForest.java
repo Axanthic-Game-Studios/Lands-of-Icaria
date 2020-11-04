@@ -93,6 +93,8 @@ public class BiomeForest extends BiomeLOI {
 		biomeDecorator.generateFerns = true;
 		biomeDecorator.treeGenerators.add(new WorldGenFirTree(false).init());
 		biomeDecorator.treeGenerators.add(new WorldGenPopulusTree(false).init());
+		biomeDecorator.woodTypes.add(Resources.fir);
+		biomeDecorator.woodTypes.add(Resources.populus);
 		biomeDecorator.vines = new IBlockState[] {
 				Resources.vineBloomyDead.getBlock().getDefaultState(),
 				Resources.vineBrushyDead.getBlock().getDefaultState()

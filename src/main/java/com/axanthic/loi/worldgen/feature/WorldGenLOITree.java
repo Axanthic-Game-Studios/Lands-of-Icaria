@@ -1,5 +1,7 @@
 package com.axanthic.loi.worldgen.feature;
 
+import com.axanthic.loi.Resources.WoodSet;
+
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
@@ -13,6 +15,7 @@ public abstract class WorldGenLOITree extends WorldGenAbstractTree {
 
 	public IBlockState TRUNK;
 	public IBlockState LEAF;
+	public WoodSet WOODTYPE;
 
 	public WorldGenLOITree(boolean notify) {
 		super(notify);

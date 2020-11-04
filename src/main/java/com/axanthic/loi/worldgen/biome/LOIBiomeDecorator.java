@@ -6,11 +6,14 @@ import java.util.Random;
 
 import com.axanthic.loi.LOIFluids;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.Resources.WoodSet;
 import com.axanthic.loi.blocks.BlockCardonCactus;
 import com.axanthic.loi.blocks.BlockGem;
 import com.axanthic.loi.blocks.BlockMushroomGround;
 import com.axanthic.loi.blocks.BlockRock;
+import com.axanthic.loi.blocks.BlockRockDecoration;
 import com.axanthic.loi.blocks.BlockTallGrass;
+import com.axanthic.loi.blocks.BlockTwigs;
 import com.axanthic.loi.worldgen.feature.WorldGenLOITree;
 import com.axanthic.loi.worldgen.feature.WorldGenLakeFlipped;
 import com.axanthic.loi.worldgen.feature.WorldGenLakeNormal;
@@ -41,6 +44,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	public int lakeChance = 1;
 	public int flippedLakeChance = 2;
 	public List<WorldGenLOITree> treeGenerators = new ArrayList<WorldGenLOITree>();
+	public List<WoodSet> woodTypes = new ArrayList<WoodSet>();
 	public WorldGenLakeFlipped flippedLakeGenerator = new WorldGenLakeFlipped(LOIFluids.gasFluidBlock.getBlock());
 	public WorldGenLakeNormal lakeGenerator = new WorldGenLakeNormal(LOIFluids.waterFluidBlock.getBlock());
 	public WorldGenPillars pillarGenerator = new WorldGenPillars(1.0F);
@@ -64,6 +68,16 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			Resources.treeMushroom1.getBlock().getDefaultState(),
 			Resources.treeMushroom2.getBlock().getDefaultState()
 	};
+	public IBlockState[] rubble = new IBlockState[] {
+			Resources.yellowstoneRubble.getBlock().getDefaultState(),
+			Resources.silkstoneRubble.getBlock().getDefaultState(),
+			Resources.sunstoneRubble.getBlock().getDefaultState(),
+			Resources.voidshaleRubble.getBlock().getDefaultState(),
+			Resources.baetylRubble.getBlock().getDefaultState()
+	};
+	public IBlockState[] extraRubble = new IBlockState[] {
+			Resources.relicstoneRubble.getBlock().getDefaultState()
+	};
 
 	@Override
 	public void decorate(World worldIn, Random random, Biome biome, BlockPos pos) {
@@ -83,6 +97,9 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			this.generateRuins(worldIn, random, biome, pos);
 			this.generateFlowers(worldIn, random, biome, pos);
 			this.generateMushrooms(worldIn, random, biome, pos);
+			this.generateTwigs(worldIn, random, biome, pos);
+			this.generateRubble(worldIn, random, biome, pos);
+			this.generateExtraRubble(worldIn, random, biome, pos);
 			this.generateGrass(worldIn, random, biome, pos);
 			this.generateCactus(worldIn, random, biome, pos);
 			this.generateTrees(worldIn, random, biome, pos);
@@ -130,6 +147,87 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					BlockPos blockpos = blockpos1.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
 
 					if (worldIn.isAirBlock(blockpos) && ((BlockMushroomGround) Resources.groundMushroom0.getBlock()).canBlockStay(worldIn, blockpos, iblockstate2)) {
+						worldIn.setBlockState(blockpos, iblockstate2, 2);
+					}
+				}
+			}
+		}
+		return true;
+	}
+
+	public boolean generateTwigs(World worldIn, Random random, Biome biome, BlockPos pos) {
+		for (int l2 = 0; l2 < this.treesPerChunk / 3 + 1; ++l2) {
+			int i7 = random.nextInt(16) + 8;
+			int l10 = random.nextInt(16) + 8;
+			int j14 = worldIn.getHeight(pos.add(i7, 0, l10)).getY() + 32;
+
+			if (j14 > 0) {
+				int k17 = random.nextInt(j14);
+				BlockPos blockpos1 = pos.add(i7, k17, l10);
+
+				IBlockState iblockstate2 = woodTypes.get(random.nextInt(woodTypes.size())).twigs.getBlock().getDefaultState();
+				for (int i = 0; i < 50; ++i) {
+					BlockPos blockpos = blockpos1.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
+
+					if (worldIn.isAirBlock(blockpos) && ((BlockTwigs) iblockstate2.getBlock()).canPlaceBlockAt(worldIn, blockpos)) {
+						worldIn.setBlockState(blockpos, iblockstate2, 2);
+					}
+				}
+			}
+		}
+		return true;
+	}
+
+	public boolean generateRubble(World worldIn, Random random, Biome biome, BlockPos pos) {
+		for (int l2 = 0; l2 < 4; ++l2) {
+			int i7 = random.nextInt(16) + 8;
+			int l10 = random.nextInt(16) + 8;
+			int j14 = worldIn.getHeight(pos.add(i7, 0, l10)).getY() + 32;
+
+			if (j14 > 0) {
+				int k17 = random.nextInt(j14);
+				BlockPos blockpos1 = pos.add(i7, k17, l10);
+				int stoneLayer = 1;
+				if (blockpos1.getY() < 80) {
+					stoneLayer++;
+					if (blockpos1.getY() < 60) {
+						stoneLayer++;
+						if (blockpos1.getY() < 45) {
+							stoneLayer++;
+							if (blockpos1.getY() < 33) {
+								stoneLayer++;
+							}
+						}
+					}
+				}
+				IBlockState iblockstate2 = rubble[random.nextInt(stoneLayer)];
+				for (int i = 0; i < 50; ++i) {
+					BlockPos blockpos = blockpos1.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
+
+					if (worldIn.isAirBlock(blockpos) && ((BlockRockDecoration) iblockstate2.getBlock()).canPlaceBlockAt(worldIn, blockpos)) {
+						worldIn.setBlockState(blockpos, iblockstate2, 2);
+					}
+				}
+			}
+		}
+		return true;
+	}
+
+	public boolean generateExtraRubble(World worldIn, Random random, Biome biome, BlockPos pos) {
+		for (int l2 = 0; l2 < 1; ++l2) {
+			int i7 = random.nextInt(16) + 8;
+			int l10 = random.nextInt(16) + 8;
+			int j14 = worldIn.getHeight(pos.add(i7, 0, l10)).getY() + 32;
+
+			if (j14 > 0) {
+				int k17 = random.nextInt(j14);
+				BlockPos blockpos1 = pos.add(i7, k17, l10);
+
+				IBlockState iblockstate2 = extraRubble[random.nextInt(extraRubble.length)];
+				for (int i = 0; i < 50; ++i) {
+					BlockPos blockpos = blockpos1.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
+
+					if (worldIn.isAirBlock(blockpos) && ((BlockRockDecoration) iblockstate2.getBlock()).canPlaceBlockAt(worldIn, blockpos)) {
 						worldIn.setBlockState(blockpos, iblockstate2, 2);
 					}
 				}
@@ -220,7 +318,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			while (true) {
 				label50: {
 				if (position.getY() > 3) {
-					if (worldIn.isAirBlock(position.offset(facing)) || !worldIn.isAirBlock(position) || !worldIn.getBlockState(position.offset(facing)).getMaterial().equals(Material.ROCK)) {
+					if (worldIn.isAirBlock(position.offset(facing)) || !worldIn.isAirBlock(position) || !worldIn.isSideSolid(position, EnumFacing.UP) || !worldIn.getBlockState(position.offset(facing)).getMaterial().equals(Material.ROCK)) {
 						break label50;
 					}
 				}
@@ -430,6 +528,16 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				}
 			}
 			if (generator.generate(worldIn, random, mut) || generator.generate(worldIn, random, mut) || generator.generate(worldIn, random, mut) || generator.generate(worldIn, random, mut)) { //just keep trying lol
+				//twigs
+				if (random.nextInt(5) == 0) {
+					IBlockState iblockstate2 = generator.WOODTYPE.twigs.getBlock().getDefaultState();
+					for (int i = 0; i < 50; ++i) {
+						BlockPos blockpos = mut.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
+						if (worldIn.isAirBlock(blockpos) && ((BlockTwigs) iblockstate2.getBlock()).canPlaceBlockAt(worldIn, blockpos)) {
+							worldIn.setBlockState(blockpos, iblockstate2, 2);
+						}
+					}
+				}
 				if (random.nextInt(7) != 0)
 					continue;
 				//tree mushrooms
@@ -438,7 +546,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					BlockPos blockpos = mut.add(random.nextInt(3) - random.nextInt(3), random.nextInt(6) - random.nextInt(4), random.nextInt(3) - random.nextInt(3));
 					if (worldIn.getBlockState(blockpos).getMaterial().equals(Material.WOOD)) {
 						EnumFacing direction = EnumFacing.HORIZONTALS[random.nextInt(EnumFacing.HORIZONTALS.length)];
-						if (worldIn.getBlockState(blockpos).getValue(BlockRotatedPillar.AXIS) != null && worldIn.getBlockState(blockpos).getValue(BlockRotatedPillar.AXIS).equals(direction.getAxis()))
+						if (worldIn.getBlockState(blockpos).getPropertyKeys().contains(BlockRotatedPillar.AXIS) && worldIn.getBlockState(blockpos).getValue(BlockRotatedPillar.AXIS).equals(direction.getAxis()))
 							continue;
 						if (worldIn.isAirBlock(blockpos.offset(direction))) {
 							worldIn.setBlockState(blockpos.offset(direction), iblockstate.withProperty(BlockHorizontal.FACING, direction), 2);

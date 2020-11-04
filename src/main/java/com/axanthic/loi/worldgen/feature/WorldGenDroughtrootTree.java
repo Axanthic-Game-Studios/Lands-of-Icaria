@@ -19,6 +19,7 @@ public class WorldGenDroughtrootTree extends WorldGenLOITree {
 	public WorldGenDroughtrootTree init() {
 		this.TRUNK = Resources.droughtroot.log.getBlock().getDefaultState();
 		this.LEAF = Resources.droughtroot.leaf.getBlock().getDefaultState();
+		this.WOODTYPE = Resources.droughtroot;
 		return this;
 	}
 

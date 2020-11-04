@@ -83,8 +83,13 @@ public class BiomeDesert extends BiomeLOI {
 		biomeDecorator.lakeChance = 10;
 		biomeDecorator.generateSpikes = true;
 		biomeDecorator.treeGenerators.add(new WorldGenDroughtrootTree(false).init());
+		biomeDecorator.woodTypes.add(Resources.droughtroot);
 		biomeDecorator.vines = new IBlockState[] {
 				Resources.vineDryDead.getBlock().getDefaultState()
+		};
+		biomeDecorator.extraRubble = new IBlockState[] {
+				Resources.relicstoneRubble.getBlock().getDefaultState(),
+				Resources.grainelRubble.getBlock().getDefaultState()
 		};
 
 		return biomeDecorator;

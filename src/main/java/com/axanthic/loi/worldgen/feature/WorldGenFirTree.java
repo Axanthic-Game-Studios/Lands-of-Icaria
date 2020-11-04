@@ -18,6 +18,7 @@ public class WorldGenFirTree extends WorldGenLOITree {
 	public WorldGenFirTree init() {
 		this.TRUNK = Resources.fir.log.getBlock().getDefaultState();
 		this.LEAF = Resources.fir.leaf.getBlock().getDefaultState();
+		this.WOODTYPE = Resources.fir;
 		return this;
 	}
 

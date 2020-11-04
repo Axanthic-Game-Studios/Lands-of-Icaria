@@ -21,6 +21,7 @@ public class WorldGenLaurelTree extends WorldGenLOITree {
 	public WorldGenLaurelTree init() {
 		this.TRUNK = Resources.laurel.log.getBlock().getDefaultState();
 		this.LEAF = Resources.laurel.leaf.getBlock().getDefaultState();
+		this.WOODTYPE = Resources.laurel;
 		return this;
 	}
 

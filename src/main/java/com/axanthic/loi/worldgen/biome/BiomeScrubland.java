@@ -86,9 +86,15 @@ public class BiomeScrubland extends BiomeLOI {
 		biomeDecorator.generateBoulders = true;
 		biomeDecorator.treeGenerators.add(new WorldGenPlaneTree(false).init());
 		biomeDecorator.treeGenerators.add(new WorldGenLaurelTree(false).init());
+		biomeDecorator.woodTypes.add(Resources.plane);
+		biomeDecorator.woodTypes.add(Resources.laurel);
 		biomeDecorator.vines = new IBlockState[] {
 				Resources.vineReedyDead.getBlock().getDefaultState(),
 				Resources.vineSwirlyDead.getBlock().getDefaultState()
+		};
+		biomeDecorator.extraRubble = new IBlockState[] {
+				Resources.relicstoneRubble.getBlock().getDefaultState(),
+				Resources.yellowstoneRubble.getBlock().getDefaultState()
 		};
 
 		return biomeDecorator;

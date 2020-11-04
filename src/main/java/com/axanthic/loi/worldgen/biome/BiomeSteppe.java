@@ -83,6 +83,8 @@ public class BiomeSteppe extends BiomeLOI {
 		biomeDecorator.lakeChance = 7;
 		biomeDecorator.treeGenerators.add(new WorldGenCypressTree(false).init());
 		biomeDecorator.treeGenerators.add(new WorldGenOliveTree(false).init());
+		biomeDecorator.woodTypes.add(Resources.cypress);
+		biomeDecorator.woodTypes.add(Resources.olive);
 		biomeDecorator.vines = new IBlockState[] {
 				Resources.vineBranchDead.getBlock().getDefaultState(),
 				Resources.vineThornyDead.getBlock().getDefaultState()

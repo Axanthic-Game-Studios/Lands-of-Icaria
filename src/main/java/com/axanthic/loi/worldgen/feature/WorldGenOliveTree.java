@@ -25,6 +25,7 @@ public class WorldGenOliveTree extends WorldGenLOITree {
 		this.LEAF = Resources.olive.leaf.getBlock().getDefaultState();
 		this.LEAF_GREEN = Resources.oliveLeaves.getBlock().getDefaultState();
 		this.LEAF_BLACK = Resources.oliveLeaves.getBlock().getStateFromMeta(1);
+		this.WOODTYPE = Resources.olive;
 		return this;
 	}
 

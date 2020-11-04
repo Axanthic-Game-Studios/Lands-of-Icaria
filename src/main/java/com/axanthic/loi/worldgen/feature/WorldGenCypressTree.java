@@ -18,6 +18,7 @@ public class WorldGenCypressTree extends WorldGenLOITree {
 	public WorldGenCypressTree init() {
 		this.TRUNK = Resources.cypress.log.getBlock().getDefaultState();
 		this.LEAF = Resources.cypress.leaf.getBlock().getDefaultState();
+		this.WOODTYPE = Resources.cypress;
 		return this;
 	}
 
