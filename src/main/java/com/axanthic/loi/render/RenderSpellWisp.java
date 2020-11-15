@@ -55,7 +55,7 @@ public class RenderSpellWisp extends Render<EntitySpellWisp> {
 		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);//regular glow
 
-		float resolution = 1.0f;
+		float resolution = 0.5f;
 		float length = 40.0f;
 		float width = 0.2f;
 		float fade = 1.0f;
@@ -72,6 +72,25 @@ public class RenderSpellWisp extends Render<EntitySpellWisp> {
 		int bo = color2.getBlue();
 
 		float ageInTicks = entity.ticksExisted + partialTicks + new Random(entity.getEntityId()).nextInt(100);
+		
+		for (float i = 0.0F; i < length; i += resolution) {
+			bufferbuilder.begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION_COLOR);
+			float coreX = getX(i, ageInTicks, speed);
+			float coreY = getY(i, ageInTicks, speed);
+			float coreZ = getZ(i, ageInTicks, speed);
+
+			bufferbuilder.pos(coreX, coreY, coreZ).color(ro, go, bo, (int)(255 * (length - i) / length)).endVertex();
+			bufferbuilder.pos(coreX, coreY + width, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX + width/1.5F, coreY + width/1.5F, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX + width, coreY, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX + width/1.5F, coreY - width/1.5F, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX, coreY - width, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX - width/1.5F, coreY - width/1.5F, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX - width, coreY, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX - width/1.5F, coreY + width/1.5F, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX, coreY + width, coreZ).color(r, g, b, 0).endVertex();
+			tessellator.draw();
+		}
 
 		bufferbuilder.begin(GL11.GL_TRIANGLE_STRIP, DefaultVertexFormats.POSITION_COLOR);
 		bufferbuilder.pos(getX(-fade, ageInTicks, speed), getY(-fade, ageInTicks, speed), getZ(-fade, ageInTicks, speed)).color(r, g, b, 0).endVertex();

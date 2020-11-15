@@ -103,7 +103,7 @@ public class ModelLight extends ModelBase {
 		//GlStateManager.rotate((float)(this.renderManager.options.thirdPersonView == 2 ? -1 : 1) * -this.renderManager.playerViewX, 0.0F, 0.0F, 1.0F);
 
 
-		float resolution = random.nextFloat() * 0.5f;//0.5f;
+		float resolution = 0.1f;//0.5f;
 		float length = random.nextFloat() * 120.0f;//70.0f;
 		float width = random.nextFloat() * 0.4f;//0.2f;
 		float fade = 1.0f;
@@ -125,6 +125,31 @@ public class ModelLight extends ModelBase {
 		int go = random.nextInt(256);//255;//color2.getGreen();
 		int bo = random.nextInt(256);//255;//color2.getBlue();
 
+		for (float i = 0.0F; i < length; i += resolution) {
+			bufferbuilder.begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION_COLOR);
+			float coreX = getX(i, ageInTicks, speed);
+			float coreY = getY(i, ageInTicks, speed);
+			float coreZ = getZ(i, ageInTicks, speed);
+
+			if (rainbow) {
+				Color color2 = Color.getHSBColor(-ageInTicks * rainbowSpeed + i * 0.02F - 0.2F, 1F, 1F * (length - i) / length);
+				ro = color2.getRed();
+				go = color2.getGreen();
+				bo = color2.getBlue();
+			}
+
+			bufferbuilder.pos(coreX, coreY, coreZ).color(ro, go, bo, (int)(50 * (length - i) / length)).endVertex();
+			bufferbuilder.pos(coreX, coreY + width, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX + width/1.5F, coreY + width/1.5F, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX + width, coreY, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX + width/1.5F, coreY - width/1.5F, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX, coreY - width, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX - width/1.5F, coreY - width/1.5F, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX - width, coreY, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX - width/1.5F, coreY + width/1.5F, coreZ).color(r, g, b, 0).endVertex();
+			bufferbuilder.pos(coreX, coreY + width, coreZ).color(r, g, b, 0).endVertex();
+			tessellator.draw();
+		}
 
 		bufferbuilder.begin(GL11.GL_TRIANGLE_STRIP, DefaultVertexFormats.POSITION_COLOR);
 		bufferbuilder.pos(getX(-fade, ageInTicks, speed), getY(-fade, ageInTicks, speed), getZ(-fade, ageInTicks, speed)).color(r, g, b, 0).endVertex();
@@ -472,7 +497,7 @@ public class ModelLight extends ModelBase {
 		int ro = random.nextInt(256);
 		int go = random.nextInt(256);
 		int bo = random.nextInt(256);
-		
+
 		int ro2 = random.nextInt(256);
 		int go2 = random.nextInt(256);
 		int bo2 = random.nextInt(256);
