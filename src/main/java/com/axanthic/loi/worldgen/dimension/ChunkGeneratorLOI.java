@@ -18,6 +18,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
@@ -73,6 +74,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	private double[] depthBuffer = new double[256];
 	private double[] loamNoise = new double[256];
 	private double[] marlNoise = new double[256];
+    private MapGenBase roadGenerator = new MapGenRoads();
 
 	double[] mainNoise;
 
@@ -126,6 +128,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		//        {
 		//            this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
 		//        }
+		this.roadGenerator.generate(this._world, x, z, chunkprimer);
 
 		final Chunk chunk = new Chunk(this._world, chunkprimer, x, z);
 		//final Biome[] abiome = _world.getBiomeProvider().getBiomes((Biome[])null, x * 16, z * 16, 16, 16);
