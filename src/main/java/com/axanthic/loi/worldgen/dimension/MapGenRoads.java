@@ -22,10 +22,10 @@ public class MapGenRoads extends MapGenBase {
 	}
 
 	protected void addRoom(long seed, int x, int z, ChunkPrimer chunkPrimer, double placeX, double placeZ, float size) {
-		this.addTunnel(seed, x, z, chunkPrimer, placeX, placeZ, size, 0.0F, 0.0F, -1, -1, 0.5D);
+		this.addTunnel(seed, x, z, chunkPrimer, placeX, placeZ, size, 0.0F, 0.0F, -1, -1);
 	}
 
-	protected void addTunnel(long seed, int x, int z, ChunkPrimer chunkPrimer, double placeX, double placeZ, float width, float direction, float p_180702_14_, int length, int p_180702_16_, double height) {
+	protected void addTunnel(long seed, int x, int z, ChunkPrimer chunkPrimer, double placeX, double placeZ, float width, float direction, float p_180702_14_, int length, int p_180702_16_) {
 		double d0 = (double)(x * 16 + 8);
 		double d1 = (double)(z * 16 + 8);
 		float f = 0.0F;
@@ -37,18 +37,17 @@ public class MapGenRoads extends MapGenBase {
 			p_180702_16_ = i - random.nextInt(i / 4);
 		}
 
-		/*boolean flag2 = false;
+		boolean flag2 = false;
 
 		if (length == -1) {
 			length = p_180702_16_ / 2;
 			flag2 = true;
-		}*/
+		}
 
-		int j = -random.nextInt(Math.abs(length)) - length / 4;
+		int j = -random.nextInt(Math.abs(length) + 2) - length / 4;
 
 		for (boolean flag = random.nextInt(6) == 0; length < p_180702_16_; ++length) {
 			double d2 = 1.5D + (double)(MathHelper.sin((float)length * (float)Math.PI / (float)p_180702_16_) * width);
-			double d3 = d2 * height;
 			float f2 = MathHelper.cos(p_180702_14_);
 			float f3 = MathHelper.sin(p_180702_14_);
 			placeX += (double)(MathHelper.cos(direction / 3.0F) * f2);
@@ -68,13 +67,13 @@ public class MapGenRoads extends MapGenBase {
 			f1 = f1 + (random.nextFloat() - random.nextFloat()) * random.nextFloat() * 2.0F;
 			f = f + (random.nextFloat() - random.nextFloat()) * random.nextFloat() * 4.0F;
 
-			if (length == j && width > 1.0F && p_180702_16_ > 0 && random.nextInt(3) == 0) {
-				this.addTunnel(random.nextLong(), x, z, chunkPrimer, placeX, placeZ, random.nextFloat() * 0.5F + 0.5F, direction - ((float)Math.PI / 2F), p_180702_14_ / 3.0F, length, p_180702_16_, 1.0D);
-				this.addTunnel(random.nextLong(), x, z, chunkPrimer, placeX, placeZ, random.nextFloat() * 0.5F + 0.5F, direction + ((float)Math.PI / 2F), p_180702_14_ / 3.0F, length, p_180702_16_, 1.0D);
+			if (!flag2 && length == j && width > 1.0F && p_180702_16_ > 0 && random.nextInt(3) == 0) {
+				this.addTunnel(random.nextLong(), x, z, chunkPrimer, placeX, placeZ, width, direction - ((float)Math.PI / 2F), p_180702_14_ / 3.0F, length, p_180702_16_);
+				this.addTunnel(random.nextLong(), x, z, chunkPrimer, placeX, placeZ, width, direction + ((float)Math.PI / 2F), p_180702_14_ / 3.0F, length, p_180702_16_);
 				return;
 			}
 
-			if (random.nextInt(4) != 0) {
+			if (flag2 || random.nextInt(4) != 0) {
 				double d4 = placeX - d0;
 				double d5 = placeZ - d1;
 				double d6 = (double)(p_180702_16_ - length);
@@ -151,6 +150,9 @@ public class MapGenRoads extends MapGenBase {
 							}
 						}
 					}
+					if (flag2) {
+						break;
+					}
 				}
 			}
 		}
@@ -188,7 +190,7 @@ public class MapGenRoads extends MapGenBase {
 					width *= this.rand.nextFloat() * this.rand.nextFloat() * 3.0F + 1.0F;
 				}*/
 
-				this.addTunnel(this.rand.nextLong(), originalX, originalZ, chunkPrimerIn, startX, startZ, width, direction, f1, -200, 1, 1.0D);
+				this.addTunnel(this.rand.nextLong(), originalX, originalZ, chunkPrimerIn, startX, startZ, width, direction, f1, -200, 1);
 			}
 		}
 	}
