@@ -226,7 +226,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		}
 
 		//bigger scale value = smaller scale :S
-		int horizontalScale = 300;
+		int horizontalScale = 250;
 		int verticalScale = 500;
 
 		this.mainNoise = this.octaveNoise.generateNoiseOctaves(this.mainNoise, wx, wy, wz, sizeX, sizeY, sizeZ, horizontalScale, verticalScale, horizontalScale);
@@ -251,13 +251,13 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					double smoothing = 1;
 
 					if (y > sizeY - topSmooth) {
-						smoothing = (sizeY - topSmooth - y) * 12;
+						smoothing = (sizeY - topSmooth - y) * 16;
 					} else if (y < bottomSmooth) {
 						smoothing = (y - bottomSmooth) * 9;
 					}
 
 					//decrease the amount of terrain
-					value += 17.0D;
+					value += 15.0D;
 
 					//smooth off top and bottom of terrain
 					value -= smoothing;
@@ -266,7 +266,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 					value = value * 6.0D;
 
 					//sinewave for layered terrain
-					value -= Math.sin(layerOffset + y * Math.PI / 1.4D) * layerWidth * Math.max(smoothing, 0);
+					value -= Math.sin(layerOffset / (y / 2.0D + 1.0D) + y * Math.PI / 1.4D) * layerWidth * Math.max(smoothing, 0);
 
 					buffer[index] = value;
 					++index;

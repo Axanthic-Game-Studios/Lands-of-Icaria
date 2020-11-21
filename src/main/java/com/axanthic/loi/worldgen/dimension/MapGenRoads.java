@@ -164,7 +164,7 @@ public class MapGenRoads extends MapGenBase {
 	protected void recursiveGenerate(World worldIn, int chunkX, int chunkZ, int originalX, int originalZ, ChunkPrimer chunkPrimerIn) {
 		int i = 0;//this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(5) + 1) + 1);
 
-		if (chunkX % 5 == 0 && chunkZ % 5 == 0 && this.rand.nextInt(32) == 0) {
+		if (chunkX % 3 == 0 && chunkZ % 3 == 0 && this.rand.nextInt(47) == 0) {
 			i = 1;
 		}
 
