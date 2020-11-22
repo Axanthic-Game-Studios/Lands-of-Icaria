@@ -60,7 +60,7 @@ public class BlockForge extends BlockContainer {
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false).withProperty(CORNER, EnumCorner.BOTTOM_FRONT_LEFT));
 		this.setSoundType(SoundType.STONE);
 	}
-	
+
 	public void onNeighborChange(IBlockAccess world, BlockPos pos, BlockPos neighbor){
 		if (world.getTileEntity(pos) instanceof TileEntityForge) {
 			((TileEntityForge) world.getTileEntity(pos)).setNeighbours(pos);
@@ -376,7 +376,11 @@ public class BlockForge extends BlockContainer {
 
 	@Override
 	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
-		return state.withRotation(mirrorIn.toRotation((EnumFacing)state.getValue(FACING)));
+		if (mirrorIn == Mirror.LEFT_RIGHT)
+			return state.withProperty(CORNER, ((EnumCorner) state.getValue(CORNER)).getMirror(mirrorIn));
+		if (mirrorIn == Mirror.FRONT_BACK)
+			return this.withRotation(state.withProperty(CORNER, ((EnumCorner) state.getValue(CORNER)).getMirror(mirrorIn)), Rotation.CLOCKWISE_180);
+		return state;
 	}
 
 	@Override
@@ -415,6 +419,33 @@ public class BlockForge extends BlockContainer {
 
 		public int getIndex() {
 			return this.index;
+		}
+
+		public EnumCorner getMirror(Mirror mirror) {
+			if (mirror == Mirror.LEFT_RIGHT) {
+				switch (this) {
+				case TOP_BACK_LEFT: return TOP_BACK_RIGHT;
+				case TOP_BACK_RIGHT: return TOP_BACK_LEFT;
+				case TOP_FRONT_LEFT: return TOP_FRONT_RIGHT;
+				case TOP_FRONT_RIGHT: return TOP_FRONT_LEFT;
+				case BOTTOM_BACK_LEFT: return BOTTOM_BACK_RIGHT;
+				case BOTTOM_BACK_RIGHT: return BOTTOM_BACK_LEFT;
+				case BOTTOM_FRONT_LEFT: return BOTTOM_FRONT_RIGHT;
+				case BOTTOM_FRONT_RIGHT: return BOTTOM_FRONT_LEFT;
+				}
+			} else if (mirror == Mirror.FRONT_BACK) {
+				switch (this) {
+				case TOP_BACK_LEFT: return TOP_FRONT_LEFT;
+				case TOP_BACK_RIGHT: return TOP_FRONT_RIGHT;
+				case TOP_FRONT_LEFT: return TOP_BACK_LEFT;
+				case TOP_FRONT_RIGHT: return TOP_BACK_RIGHT;
+				case BOTTOM_BACK_LEFT: return BOTTOM_FRONT_LEFT;
+				case BOTTOM_BACK_RIGHT: return BOTTOM_FRONT_RIGHT;
+				case BOTTOM_FRONT_LEFT: return BOTTOM_BACK_LEFT;
+				case BOTTOM_FRONT_RIGHT: return BOTTOM_BACK_RIGHT;
+				}
+			}
+			return this;
 		}
 
 		public static String[] getNames() {
