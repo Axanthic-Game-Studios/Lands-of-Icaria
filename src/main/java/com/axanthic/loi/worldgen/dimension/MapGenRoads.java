@@ -196,7 +196,7 @@ public class MapGenRoads extends MapGenBase {
 	}
 
 	protected void placeBlock(ChunkPrimer data, int x, int z, int chunkX, int chunkZ) {
-		for (int y = 108; y >= 88; --y) {
+		for (int y = 111; y >= 88; --y) {
 			if (data.getBlockState(x, y, z).isTopSolid()) {
 				if(data.getBlockState(x, y, z).getBlock() != Resources.rock.getBlock()) {
 					data.setBlockState(x, y, z, BLK_ROAD);

@@ -188,11 +188,13 @@ public class TeleporterLOI extends Teleporter {
 		Template template = templatemanager.get(world.getMinecraftServer(), new ResourceLocation(ModInformation.ID, getPortalForDimension(entity.dimension)));
 		if (entity.getHorizontalFacing().getAxis().equals(EnumFacing.Axis.Z))
 			placementsettings.setRotation(Rotation.CLOCKWISE_90);
-		BlockPos newPos = findPosition(world, pos, template).up();
+		BlockPos newPos = findPosition(world, pos, template);
 
 		if (newPos == null) {
 			newPos = pos;
 			template = templatemanager.get(world.getMinecraftServer(), new ResourceLocation(ModInformation.ID, getPortalForDimension(entity.dimension) + "_platform"));
+		} else {
+			newPos = newPos.up();
 		}
 		WorldGenStructureBase.addBlocksToWorldSilently(template, world, newPos, new BlockRotationProcessor(newPos, placementsettings), placementsettings, new Random(), 2);
 		return true;

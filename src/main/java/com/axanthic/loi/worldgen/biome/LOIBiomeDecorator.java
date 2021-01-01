@@ -19,6 +19,7 @@ import com.axanthic.loi.worldgen.feature.WorldGenLakeFlipped;
 import com.axanthic.loi.worldgen.feature.WorldGenLakeNormal;
 import com.axanthic.loi.worldgen.feature.WorldGenPillars;
 import com.axanthic.loi.worldgen.feature.WorldGenRuins;
+import com.axanthic.loi.worldgen.feature.WorldGenVillage;
 
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockRotatedPillar;
@@ -49,6 +50,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	public WorldGenLakeNormal lakeGenerator = new WorldGenLakeNormal(LOIFluids.waterFluidBlock.getBlock());
 	public WorldGenPillars pillarGenerator = new WorldGenPillars(1.0F);
 	public WorldGenRuins ruinGenerator = new WorldGenRuins(1.0F);
+	public WorldGenVillage villageGenerator = new WorldGenVillage(1.0F);
 	public IBlockState[] vines = new IBlockState[] {
 			Resources.vineBloomyDead.getBlock().getDefaultState(),
 			Resources.vineBranchDead.getBlock().getDefaultState(),
@@ -95,6 +97,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			this.generateBoulders(worldIn, random, biome, pos);
 			this.generateSpikes(worldIn, random, biome, pos);
 			this.generateRuins(worldIn, random, biome, pos);
+			this.generateVillages(worldIn, random, biome, forgeChunkPos);
 			this.generateFlowers(worldIn, random, biome, pos);
 			this.generateMushrooms(worldIn, random, biome, pos);
 			this.generateTwigs(worldIn, random, biome, pos);
@@ -302,6 +305,11 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			}
 			this.ruinGenerator.generate(worldIn, random, pos);
 		}*/
+		return true;
+	}
+	
+	public boolean generateVillages(World worldIn, Random random, Biome biome, ChunkPos pos) {
+		this.villageGenerator.generate(worldIn, pos);
 		return true;
 	}
 
