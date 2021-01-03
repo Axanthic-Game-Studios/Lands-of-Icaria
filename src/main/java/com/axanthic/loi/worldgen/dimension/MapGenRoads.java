@@ -14,7 +14,7 @@ import net.minecraft.world.gen.MapGenBase;
 
 public class MapGenRoads extends MapGenBase {
 
-	protected static final IBlockState BLK_ROAD = Resources.rock.getBlock().getStateFromMeta(5);
+	protected static final IBlockState BLK_ROAD = Resources.relicstoneRoad.getBlock().getDefaultState();
 	protected static final IBlockState BLK_AIR = Blocks.AIR.getDefaultState();
 
 	MapGenRoads() {

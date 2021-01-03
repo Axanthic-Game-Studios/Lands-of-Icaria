@@ -48,7 +48,8 @@ public abstract class WorldGenStructureBase extends WorldGenerator {
 			StructureBoundingBox structureboundingbox = placementIn.getBoundingBox();
 
 			for (Template.BlockInfo template$blockinfo : blocks) {
-				BlockPos blockpos = template.transformedBlockPos(placementIn, template$blockinfo.pos).add(pos);
+				BlockPos relativePos = template.transformedBlockPos(placementIn, template$blockinfo.pos);
+				BlockPos blockpos = relativePos.add(pos);
 				// Forge: skip processing blocks outside BB to prevent cascading worldgen issues
 				if (structureboundingbox != null && !structureboundingbox.isVecInside(blockpos)) continue;
 				Template.BlockInfo template$blockinfo1 = templateProcessor != null ? templateProcessor.processBlock(worldIn, blockpos, template$blockinfo) : template$blockinfo;
@@ -57,7 +58,7 @@ public abstract class WorldGenStructureBase extends WorldGenerator {
 					Block block1 = template$blockinfo1.blockState.getBlock();
 
 					if ((block == null || block != block1) && (!placementIn.getIgnoreStructureBlock() || block1 != Blocks.STRUCTURE_BLOCK) && (structureboundingbox == null || structureboundingbox.isVecInside(blockpos))) {
-						IBlockState iblockstate = replaceBlock(template$blockinfo1.blockState.withMirror(placementIn.getMirror()), rand);
+						IBlockState iblockstate = replaceBlock(template$blockinfo1.blockState.withMirror(placementIn.getMirror()), relativePos.getY(), rand);
 						IBlockState iblockstate1 = iblockstate.withRotation(placementIn.getRotation());
 
 						if (template$blockinfo1.tileentityData != null) {
@@ -98,25 +99,33 @@ public abstract class WorldGenStructureBase extends WorldGenerator {
 	private final static Block[] tileSlabs = new Block[] {Resources.relicstoneTile.slab.getBlock(), Resources.relicstoneCrackTile.slab.getBlock(), Resources.relicstoneMossTile.slab.getBlock()};
 	private final static Block[] tileStairs = new Block[] {Resources.relicstoneTile.stairs.getBlock(), Resources.relicstoneCrackTile.stairs.getBlock(), Resources.relicstoneMossTile.stairs.getBlock()};
 
-	public static IBlockState replaceBlock(IBlockState state, Random rand) {
-		int type = rand.nextInt(3);
+	public static IBlockState replaceBlock(IBlockState state, int height, Random rand) {
+		int type;
+		height *=2;
+		if (height < -2)
+			height = -2;
+		if (rand.nextInt(height + 3) == 0 || (height < 7 && rand.nextInt(height + 3) == 0)) {
+			type = 2;
+		} else {
+			type = rand.nextInt(2);
+		}
 		Block block = state.getBlock();
+		int meta = block.getMetaFromState(state);
 		if (block instanceof BlockRelicstone) {
-			int meta = block.getMetaFromState(state);
 			if (meta == 3)
 				return bricks[type];
 			if (meta == 7)
 				return tiles[type];
 		} else if (block.equals(Resources.relicstoneDraftBrick.slab.getBlock())) {
-			return brickSlabs[type].getStateFromMeta(block.getMetaFromState(state));
+			return brickSlabs[type].getStateFromMeta(meta);
 		} else if (block.equals(Resources.relicstoneDraftBrick.stairs.getBlock())) {
-			return brickStairs[type].getStateFromMeta(block.getMetaFromState(state));
+			return brickStairs[type].getStateFromMeta(meta);
 		} else if (block.equals(Resources.relicstoneDraftBrick.wall.getBlock())) {
 			return brickWalls[type];
 		} else if (block.equals(Resources.relicstoneDraftTile.slab.getBlock())) {
-			return tileSlabs[type].getStateFromMeta(block.getMetaFromState(state));
+			return tileSlabs[type].getStateFromMeta(meta);
 		} else if (block.equals(Resources.relicstoneDraftTile.stairs.getBlock())) {
-			return tileStairs[type].getStateFromMeta(block.getMetaFromState(state));
+			return tileStairs[type].getStateFromMeta(meta);
 		}
 		return state;
 	}

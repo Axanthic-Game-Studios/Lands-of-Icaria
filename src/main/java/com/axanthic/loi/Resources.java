@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import com.axanthic.loi.blocks.BlockAristone;
 import com.axanthic.loi.blocks.BlockBasic;
@@ -133,6 +134,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -143,6 +145,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.EnumHelper;
@@ -278,6 +282,20 @@ public class Resources {
 	public static ItemBlock jellyfishJellyBlock = new ItemBlock(new BlockBasic(Material.CLAY, 0.9F, "jellyfish_jelly_block", MapColor.RED_STAINED_HARDENED_CLAY).setTranslucent(BlockRenderLayer.TRANSLUCENT).setSoundType(SoundType.SLIME).setLightOpacity(1));
 	public static ItemBlock rottenBonesBlock = new ItemBlock(new BlockBasic(Material.ROCK, 0.9F, "rotten_bones_block", MapColor.LIME_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
 	public static ItemBlockMeta relicstone = new ItemBlockMeta(new BlockRelicstone());
+	public static ItemBlock relicstoneRoad = new ItemBlock(new BlockBasic(Material.ROCK, 1.5F, "relicstone_road", MapColor.WOOD) {
+		public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
+			return false;
+		}
+		public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+			return Resources.rock;
+		}
+		public int damageDropped(IBlockState state) {
+			return BlockRock.StoneTypes.RELICSTONE.getMeta();
+		}
+		public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
+			return new ItemStack(Resources.rock, 1, BlockRock.StoneTypes.RELICSTONE.getMeta());
+		}
+	}.setSoundType(SoundType.STONE));
 	public static ItemBlock pillar = new ItemBlock(new BlockPillar(Material.ROCK, 1.2F, "pillar_relicstone", MapColor.WOOD).setSoundType(SoundType.STONE));
 	public static ItemBlock pillarHead = new ItemBlock(new BlockPillarHead(Material.ROCK, 1.2F, "pillar_head_relicstone", MapColor.WOOD).setSoundType(SoundType.STONE));
 	public static ItemBlock mobHeadRevenant = new ItemBlockMobHead(new BlockMobHead("revenant"));
@@ -510,6 +528,7 @@ public class Resources {
 		Resources.registerBlock(Resources.jellyfishJellyBlock);
 		Resources.registerBlock(Resources.rottenBonesBlock);
 		Resources.registerBlock(Resources.relicstone);
+		Resources.registerBlock(Resources.relicstoneRoad);
 		Resources.registerBlock(Resources.pillar);
 		Resources.registerBlock(Resources.pillarHead);
 		Resources.registerBlock(Resources.mobHeadRevenant);

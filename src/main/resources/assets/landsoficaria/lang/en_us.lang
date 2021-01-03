@@ -105,6 +105,7 @@ tile.relicstone.tiles_cracked.name=Cracked Relicstone Tiles
 tile.relicstone.tiles_mossy.name=Mossy Relicstone Tiles
 tile.relicstone.tiles_draft.name=Structure Relicstone Tiles
 tile.relicstone.chiseled.name=Chiseled Relicstone
+tile.relicstone_road.name=Relicstone
 tile.pillar_relicstone.name=Relicstone Pillar
 tile.pillar_head_relicstone.name=Relicstone Pillar Head
 tile.head_revenant.name=Revenant Skull

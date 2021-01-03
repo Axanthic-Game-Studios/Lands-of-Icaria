@@ -8,8 +8,10 @@ import javax.annotation.Nullable;
 
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.blocks.BlockRock;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
@@ -31,8 +33,11 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 public class WorldGenVillage extends WorldGenStructureBase {
 
 	public static BlockPos zero = new BlockPos(0, 0, 0);
-	int range = 5;
-	public static IBlockState roadState = Resources.rock.getBlock().getStateFromMeta(5);
+	public static IBlockState roadState = Resources.rock.getBlock().getStateFromMeta(BlockRock.StoneTypes.RELICSTONE.getMeta());
+	public static IBlockState oldRoadState = Resources.relicstoneRoad.getBlock().getDefaultState();
+	public static int range = 5;
+	public static int maxVases = 2;
+	public static int vaseChance = 6;
 
 	public final String[] ruins = new String[] {
 			"village/house_0",
@@ -138,15 +143,9 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		placementsettings.setMirror(Mirror.values()[rand.nextInt(Mirror.values().length)]);
 		placementsettings.setRotation(Rotation.values()[rand.nextInt(Rotation.values().length)]);
 
-		int margin = 0;
-
-		if (position.getX() > chunk.getXEnd() + margin || position.getX() < chunk.getXStart() - margin || position.getZ() > chunk.getZEnd() + margin || position.getZ() < chunk.getZStart() - margin) {
-			return false;
-		}
-
 		BlockPos outerPos = template.transformedBlockPos(placementsettings, new BlockPos(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1)).add(position);
 
-		if (outerPos.getX() > chunk.getXEnd() + margin || outerPos.getX() < chunk.getXStart() - margin || outerPos.getZ() > chunk.getZEnd() + margin || outerPos.getZ() < chunk.getZStart() - margin) {
+		if (isOutsideChunkBounds(position, chunk, 0) || isOutsideChunkBounds(outerPos, chunk, 4)) {
 			return false;
 		}
 
@@ -164,35 +163,41 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			return false;
 
 		rand = new Random(rand.nextLong());
-		addBlocksToWorldSilently(template, worldIn, position, new BlockRotationProcessor(position.up(), placementsettings), placementsettings, rand, 2);
+		addBlocksToWorldSilently(template, worldIn, position, new BlockRotationProcessor(position.up(), placementsettings), placementsettings, rand, chunk, 2);
 		return true;
 	}
 
+	public static boolean isOutsideChunkBounds(BlockPos position, ChunkPos chunk, int margin) {
+		return position.getX() > chunk.getXEnd() + margin || position.getX() < chunk.getXStart() - margin || position.getZ() > chunk.getZEnd() + margin || position.getZ() < chunk.getZStart() - margin;
+	}
+
 	public boolean canPlaceHouseHere(World worldIn, Random rand, BlockPos position, ChunkPos chunk, Template template) {
-		for (BlockPos basePos : BlockPos.getAllInBox(zero, zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) {
+		for (BlockPos basePos : BlockPos.getAllInBox(zero, zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) { //check the ground under the house
 			BlockPos pos = template.transformedBlockPos(placementsettings, basePos).add(position);
 			boolean flag = !worldIn.isBlockFullCube(pos.down());
 			if (!worldIn.isBlockFullCube(pos) && flag)
 				return false;
 			if (flag)
 				return false;
-			if (worldIn.getBlockState(pos).equals(roadState) || worldIn.getBlockState(pos.down()).equals(roadState))
+			if (worldIn.getBlockState(pos).equals(oldRoadState) || worldIn.getBlockState(pos.down()).equals(oldRoadState) || worldIn.getBlockState(pos).equals(roadState) || worldIn.getBlockState(pos.down()).equals(roadState))
 				return false;
 		}
-		for (BlockPos basePos : BlockPos.getAllInBox(zero.add(0, 0, template.getSize().getZ() - 1), zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) {
+		for (BlockPos basePos : BlockPos.getAllInBox(zero.add(0, 0, template.getSize().getZ() - 1), zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) { //check the ground at the front of the house
 			BlockPos pos = template.transformedBlockPos(placementsettings, basePos).add(position);
 			if (!worldIn.isBlockFullCube(pos))
 				return false;
 		}
-		for (BlockPos basePos : BlockPos.getAllInBox(zero.up(), zero.add(template.getSize().getX() - 1, template.getSize().getY(), template.getSize().getZ() - 1))) {
+		for (BlockPos basePos : BlockPos.getAllInBox(zero.up(), zero.add(template.getSize().getX() - 1, template.getSize().getY(), template.getSize().getZ() - 1))) { //check if the house isn't obstructed by solid blocks
 			BlockPos pos = template.transformedBlockPos(placementsettings, basePos).add(position);
 			if (worldIn.isBlockFullCube(pos))
 				return false;
 		}
 		boolean hasRoad = false;
-		for (BlockPos basePos : BlockPos.getAllInBox(zero.add(0, 0, template.getSize().getZ()), zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() + 4))) {
+		for (BlockPos basePos : BlockPos.getAllInBox(zero.add(0, 0, template.getSize().getZ()), zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() + 4))) { //check if the house has a road to connect to
 			BlockPos pos = template.transformedBlockPos(placementsettings, basePos).add(position);
-			if (worldIn.getBlockState(pos).equals(roadState)) {
+			if (isOutsideChunkBounds(pos.add(-8, 0, -8), chunk, 4))
+				continue;
+			if (worldIn.getBlockState(pos).equals(oldRoadState)) {
 				hasRoad = true;
 				break;
 			}
@@ -202,7 +207,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		return true;
 	}
 
-	public static void addBlocksToWorldSilently(Template template, World worldIn, BlockPos position, @Nullable ITemplateProcessor templateProcessor, PlacementSettings placementIn, Random rand, int flags) {
+	public static void addBlocksToWorldSilently(Template template, World worldIn, BlockPos position, @Nullable ITemplateProcessor templateProcessor, PlacementSettings placementIn, Random rand, ChunkPos chunk, int flags) {
 		List<Template.BlockInfo> blocks = null;
 		try {
 			Field privateStringField;
@@ -221,8 +226,12 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			Block block = placementIn.getReplacedBlock();
 			StructureBoundingBox structureboundingbox = placementIn.getBoundingBox();
 
+			int vasesPlaced = 0;
+			Long seed = rand.nextLong();
+
 			for (Template.BlockInfo template$blockinfo : blocks) {
-				BlockPos blockpos = template.transformedBlockPos(placementIn, template$blockinfo.pos).add(position);
+				BlockPos relativePos = template.transformedBlockPos(placementIn, template$blockinfo.pos);
+				BlockPos blockpos = relativePos.add(position);
 				// Forge: skip processing blocks outside BB to prevent cascading worldgen issues
 				if (structureboundingbox != null && !structureboundingbox.isVecInside(blockpos)) continue;
 				Template.BlockInfo template$blockinfo1 = templateProcessor != null ? templateProcessor.processBlock(worldIn, blockpos, template$blockinfo) : template$blockinfo;
@@ -231,7 +240,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 					Block block1 = template$blockinfo1.blockState.getBlock();
 
 					if ((block == null || block != block1) && (!placementIn.getIgnoreStructureBlock() || block1 != Blocks.STRUCTURE_BLOCK) && (structureboundingbox == null || structureboundingbox.isVecInside(blockpos))) {
-						IBlockState iblockstate = replaceBlock(template$blockinfo1.blockState.withMirror(placementIn.getMirror()), rand);
+						IBlockState iblockstate = replaceBlock(template$blockinfo1.blockState.withMirror(placementIn.getMirror()), relativePos.getY() - 1, rand, seed);
 						IBlockState iblockstate1 = iblockstate.withRotation(placementIn.getRotation());
 
 						if (template$blockinfo1.tileentityData != null) {
@@ -247,6 +256,14 @@ public class WorldGenVillage extends WorldGenStructureBase {
 						}
 						if (iblockstate1.equals(roadState))
 							doorLocation = blockpos;
+
+						if (iblockstate1.equals(Resources.lootVase.getBlock().getDefaultState()) || iblockstate1.equals(Resources.lootVase2.getBlock().getDefaultState())) {
+							if (vasesPlaced < maxVases && rand.nextInt(vaseChance) == 0) {
+								vasesPlaced++;
+							} else {
+								continue;
+							}
+						}
 
 						if (worldIn.setBlockState(blockpos, iblockstate1, flags) && template$blockinfo1.tileentityData != null) {
 							TileEntity tileentity2 = worldIn.getTileEntity(blockpos);
@@ -281,7 +298,9 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		double closestRoadDist = 100;
 		for (BlockPos basePos : BlockPos.getAllInBox(zero.add(0, 0, template.getSize().getZ()), zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() + 4))) {
 			BlockPos pos = template.transformedBlockPos(placementIn, basePos).add(position);
-			if (worldIn.getBlockState(pos).equals(roadState)) {
+			if (isOutsideChunkBounds(pos.add(-8, 0, -8), chunk, 4))
+				continue;
+			if (worldIn.getBlockState(pos).equals(oldRoadState)) {
 				double distance = pos.distanceSq(doorLocation);
 				if (distance < closestRoadDist) {
 					closestRoadDist = distance;
@@ -296,35 +315,107 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		BlockPos difference = doorLocation.subtract(closestRoad);
 		int distX = difference.getX();
 		int distZ = difference.getZ();
+		boolean randBool = false;
+		boolean tryTheOtherOne = false;
+		boolean triedThatAlready = false;
 		while (distX != 0 || distZ != 0) {
-			if (rand.nextBoolean() || distZ == 0) {
+			if ((distX == 1 && distZ == 0) || (distX == 0 && distZ == 1) || (distX == -1 && distZ == 0) || (distX == 0 && distZ == -1))
+				break;
+
+			if (tryTheOtherOne) {
+				if (triedThatAlready) {
+					break; //well then I give up
+				}
+				randBool = !randBool;
+				tryTheOtherOne = false;
+				triedThatAlready = true;
+			} else {
+				randBool = rand.nextBoolean();
+			}
+
+			if (randBool || distZ == 0) {
 				if (distX > 0) {
+					if (worldIn.getBlockState(doorLocation.add(-1, 0, 0)).getMaterial().equals(Material.ROCK)) {
+						tryTheOtherOne = true;
+						continue;
+					}
 					doorLocation = doorLocation.add(-1, 0, 0);
 					worldIn.setBlockState(doorLocation, roadState, flags);
-					if (worldIn.getBlockState(doorLocation.up()).getBlock().equals(Resources.moss.getBlock()))
+					if (!worldIn.getBlockState(doorLocation.up()).getBlock().equals(Blocks.AIR) && !worldIn.getBlockState(doorLocation.up()).getMaterial().equals(Material.ROCK))
 						worldIn.setBlockState(doorLocation.up(), Blocks.AIR.getDefaultState(), flags);
 					distX--;
 				} else if (distX < 0) {
+					if (worldIn.getBlockState(doorLocation.add(1, 0, 0)).getMaterial().equals(Material.ROCK)) {
+						tryTheOtherOne = true;
+						continue;
+					}
 					doorLocation = doorLocation.add(1, 0, 0);
 					worldIn.setBlockState(doorLocation, roadState, flags);
-					if (worldIn.getBlockState(doorLocation.up()).getBlock().equals(Resources.moss.getBlock()))
+					if (!worldIn.getBlockState(doorLocation.up()).getBlock().equals(Blocks.AIR) && !worldIn.getBlockState(doorLocation.up()).getMaterial().equals(Material.ROCK))
 						worldIn.setBlockState(doorLocation.up(), Blocks.AIR.getDefaultState(), flags);
 					distX++;
 				}
 			} else if (distZ > 0) {
+				if (worldIn.getBlockState(doorLocation.add(0, 0, -1)).getMaterial().equals(Material.ROCK)) {
+					tryTheOtherOne = true;
+					continue;
+				}
 				doorLocation = doorLocation.add(0, 0, -1);
 				worldIn.setBlockState(doorLocation, roadState, flags);
-				if (worldIn.getBlockState(doorLocation.up()).getBlock().equals(Resources.moss.getBlock()))
+				if (!worldIn.getBlockState(doorLocation.up()).getBlock().equals(Blocks.AIR) && !worldIn.getBlockState(doorLocation.up()).getMaterial().equals(Material.ROCK))
 					worldIn.setBlockState(doorLocation.up(), Blocks.AIR.getDefaultState(), flags);
 				distZ--;
 			} else if (distZ < 0) {
+				if (worldIn.getBlockState(doorLocation.add(0, 0, 1)).getMaterial().equals(Material.ROCK)) {
+					tryTheOtherOne = true;
+					continue;
+				}
 				doorLocation = doorLocation.add(0, 0, 1);
 				worldIn.setBlockState(doorLocation, roadState, flags);
-				if (worldIn.getBlockState(doorLocation.up()).getBlock().equals(Resources.moss.getBlock()))
+				if (!worldIn.getBlockState(doorLocation.up()).getBlock().equals(Blocks.AIR) && !worldIn.getBlockState(doorLocation.up()).getMaterial().equals(Material.ROCK))
 					worldIn.setBlockState(doorLocation.up(), Blocks.AIR.getDefaultState(), flags);
 				distZ++;
 			}
+			triedThatAlready = false;
 		}
+	}
+
+	private final static Block[] stoneSlabs = new Block[] {Resources.yellowstoneStone.slab.getBlock(), Resources.silkstoneStone.slab.getBlock(), Resources.sunstoneStone.slab.getBlock(), Resources.voidshaleStone.slab.getBlock(), Resources.baetylStone.slab.getBlock()};
+	private final static Block[] stoneStairs = new Block[] {Resources.yellowstoneStone.stairs.getBlock(), Resources.silkstoneStone.stairs.getBlock(), Resources.sunstoneStone.stairs.getBlock(), Resources.voidshaleStone.stairs.getBlock(), Resources.baetylStone.stairs.getBlock()};
+	private final static IBlockState[] stoneWalls = new IBlockState[] {Resources.yellowstoneStone.wall.getBlock().getDefaultState(), Resources.silkstoneStone.wall.getBlock().getDefaultState(), Resources.sunstoneStone.wall.getBlock().getDefaultState(), Resources.voidshaleStone.wall.getBlock().getDefaultState(), Resources.baetylStone.wall.getBlock().getDefaultState()};
+	private final static Block[] brickSlabs = new Block[] {Resources.yellowstoneBrick.slab.getBlock(), Resources.silkstoneBrick.slab.getBlock(), Resources.sunstoneBrick.slab.getBlock(), Resources.voidshaleBrick.slab.getBlock(), Resources.baetylBrick.slab.getBlock()};
+	private final static Block[] brickStairs = new Block[] {Resources.yellowstoneBrick.stairs.getBlock(), Resources.silkstoneBrick.stairs.getBlock(), Resources.sunstoneBrick.stairs.getBlock(), Resources.voidshaleBrick.stairs.getBlock(), Resources.baetylBrick.stairs.getBlock()};
+	private final static IBlockState[] brickWalls = new IBlockState[] {Resources.yellowstoneBrick.wall.getBlock().getDefaultState(), Resources.silkstoneBrick.wall.getBlock().getDefaultState(), Resources.sunstoneBrick.wall.getBlock().getDefaultState(), Resources.voidshaleBrick.wall.getBlock().getDefaultState(), Resources.baetylBrick.wall.getBlock().getDefaultState()};
+	private final static IBlockState[] plants = new IBlockState[] {Resources.flower.getBlock().getStateFromMeta(0), Resources.flower.getBlock().getStateFromMeta(1), Resources.flower.getBlock().getStateFromMeta(2), Resources.flower.getBlock().getStateFromMeta(3), Resources.flower.getBlock().getStateFromMeta(4), Resources.flower.getBlock().getStateFromMeta(5), Resources.flower.getBlock().getStateFromMeta(6), Resources.flower.getBlock().getStateFromMeta(7), Resources.flower.getBlock().getStateFromMeta(8), Resources.flower.getBlock().getStateFromMeta(9), Resources.flower.getBlock().getStateFromMeta(10), Resources.flower.getBlock().getStateFromMeta(11), Resources.flower.getBlock().getStateFromMeta(12), Resources.flower.getBlock().getStateFromMeta(13), Resources.flower.getBlock().getStateFromMeta(14), Resources.flower.getBlock().getStateFromMeta(15), Resources.flower2.getBlock().getStateFromMeta(0),
+			Resources.bromelia.getBlock().getStateFromMeta(0), Resources.bromelia.getBlock().getStateFromMeta(1), Resources.bromelia.getBlock().getStateFromMeta(2), Resources.bromelia.getBlock().getStateFromMeta(3),
+			Resources.bushStrawberry.getBlock().getDefaultState(), Resources.palmFern.getBlock().getDefaultState()};
+	
+	public static IBlockState replaceBlock(IBlockState state, int height, Random rand, Long seed) {
+		state = WorldGenStructureBase.replaceBlock(state, height, rand);
+		rand = new Random(seed);
+		int type = rand.nextInt(5);
+		Block block = state.getBlock();
+		int meta = block.getMetaFromState(state);
+		if (block.equals(Resources.rock.getBlock()) && meta != BlockRock.StoneTypes.RELICSTONE.getMeta()) {
+			return Resources.rock.getBlock().getStateFromMeta(type);
+		} else if (block.equals(Resources.brick.getBlock()) && meta != BlockRock.StoneTypes.RELICSTONE.getMeta()) {
+			return Resources.brick.getBlock().getStateFromMeta(type);
+		} else if (block.equals(Resources.sunstoneStone.slab.getBlock())) {
+			return stoneSlabs[type].getStateFromMeta(meta);
+		} else if (block.equals(Resources.sunstoneStone.stairs.getBlock())) {
+			return stoneStairs[type].getStateFromMeta(meta);
+		} else if (block.equals(Resources.sunstoneStone.wall.getBlock())) {
+			return stoneWalls[type];
+		} else if (block.equals(Resources.sunstoneBrick.slab.getBlock())) {
+			return brickSlabs[type].getStateFromMeta(meta);
+		} else if (block.equals(Resources.sunstoneBrick.stairs.getBlock())) {
+			return brickStairs[type].getStateFromMeta(meta);
+		} else if (block.equals(Resources.sunstoneBrick.wall.getBlock())) {
+			return brickWalls[type];
+		} else if (block.equals(Resources.palmFern.getBlock())) {
+			return plants[rand.nextInt(plants.length)];
+		}
+		return state;
 	}
 
 	@Override
