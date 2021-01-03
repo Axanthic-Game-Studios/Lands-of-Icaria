@@ -52,7 +52,7 @@ public class TileEntityForge extends TileEntityLockable implements ITickable, IS
 	protected int totalCookTime;
 	protected String customName;
 
-	public void setNeighbours(BlockPos posIn) {
+	/*public void setNeighbours(BlockPos posIn) {
 		if (posIn == null || this.world == null || !this.world.isValid(posIn) || !this.world.isBlockLoaded(posIn))
 			return;
 
@@ -71,16 +71,16 @@ public class TileEntityForge extends TileEntityLockable implements ITickable, IS
 		} catch (Exception e) {
 			System.out.println("blegh");
 		}
-	}
+	}*/
 
 	public void setPos(BlockPos posIn) {
 		super.setPos(posIn);
-		setNeighbours(posIn);
+		//setNeighbours(posIn);
 	}
 
 	public void onLoad() {
 		super.onLoad();
-		setNeighbours(this.pos);
+		//setNeighbours(this.pos);
 	}
 
 	/**

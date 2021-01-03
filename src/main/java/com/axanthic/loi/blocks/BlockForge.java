@@ -249,7 +249,7 @@ public class BlockForge extends BlockContainer {
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
 		if (meta == 6 || meta == 14)
 			return new TileEntityForge();
-		return null;
+		return new TileEntityForgeRedirector();
 	}
 
 	@Override

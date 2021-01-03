@@ -9,7 +9,6 @@ import javax.annotation.Nullable;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.blocks.BlockRock;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -63,8 +62,8 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			"village/house_20",
 			"village/bakery_0",
 			"village/bakery_1",
-			/*"village/blacksmith_0",
-			"village/blacksmith_1",*/
+			"village/blacksmith_0",
+			"village/blacksmith_1",
 			"village/greenhouse_0",
 			"village/greenhouse_1",
 			"village/greenhouse_2",
@@ -174,10 +173,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 	public boolean canPlaceHouseHere(World worldIn, Random rand, BlockPos position, ChunkPos chunk, Template template) {
 		for (BlockPos basePos : BlockPos.getAllInBox(zero, zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) { //check the ground under the house
 			BlockPos pos = template.transformedBlockPos(placementsettings, basePos).add(position);
-			boolean flag = !worldIn.isBlockFullCube(pos.down());
-			if (!worldIn.isBlockFullCube(pos) && flag)
-				return false;
-			if (flag)
+			if (!worldIn.isBlockFullCube(pos.down()))
 				return false;
 			if (worldIn.getBlockState(pos).equals(oldRoadState) || worldIn.getBlockState(pos.down()).equals(oldRoadState) || worldIn.getBlockState(pos).equals(roadState) || worldIn.getBlockState(pos.down()).equals(roadState))
 				return false;
@@ -187,7 +183,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			if (!worldIn.isBlockFullCube(pos))
 				return false;
 		}
-		for (BlockPos basePos : BlockPos.getAllInBox(zero.up(), zero.add(template.getSize().getX() - 1, template.getSize().getY(), template.getSize().getZ() - 1))) { //check if the house isn't obstructed by solid blocks
+		for (BlockPos basePos : BlockPos.getAllInBox(zero.up().add(-1, 0, -1), zero.add(template.getSize().getX(), template.getSize().getY(), template.getSize().getZ()))) { //check if the house isn't obstructed by solid blocks
 			BlockPos pos = template.transformedBlockPos(placementsettings, basePos).add(position);
 			if (worldIn.isBlockFullCube(pos))
 				return false;
@@ -227,6 +223,8 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			StructureBoundingBox structureboundingbox = placementIn.getBoundingBox();
 
 			int vasesPlaced = 0;
+			int grindersPlaced = 0;
+			int grindersNotPlaced = 0;
 			Long seed = rand.nextLong();
 
 			for (Template.BlockInfo template$blockinfo : blocks) {
@@ -261,6 +259,14 @@ public class WorldGenVillage extends WorldGenStructureBase {
 							if (vasesPlaced < maxVases && rand.nextInt(vaseChance) == 0) {
 								vasesPlaced++;
 							} else {
+								continue;
+							}
+						}
+						if (iblockstate1.equals(Resources.grinder.getBlock().getDefaultState())) {
+							if (grindersNotPlaced > 0 || (grindersPlaced < 1 && rand.nextInt(2) == 0)) {
+								grindersPlaced++;
+							} else {
+								grindersNotPlaced++;
 								continue;
 							}
 						}

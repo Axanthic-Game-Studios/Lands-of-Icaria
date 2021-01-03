@@ -2,11 +2,14 @@ package com.axanthic.loi.tileentity;
 
 import javax.annotation.Nullable;
 
+import com.axanthic.loi.blocks.BlockForge;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 
@@ -20,6 +23,13 @@ public class TileEntityForgeRedirector extends TileEntityLockable implements ISi
 	}
 	public TileEntityForgeRedirector () {
 		super();
+	}
+
+	public void onLoad() {
+		super.onLoad();
+		TileEntity hopefullyAForge = this.world.getTileEntity(BlockForge.getTileLocation(this.pos, this.world.getBlockState(this.pos)));
+		if (hopefullyAForge instanceof TileEntityForge)
+			this.original = (TileEntityForge) hopefullyAForge;
 	}
 
 	public int getSizeInventory() {
