@@ -3,16 +3,12 @@ package com.axanthic.loi.tileentity;
 import java.util.Collection;
 
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.Resources;
 import com.axanthic.loi.blocks.BlockForge;
-import com.axanthic.loi.blocks.BlockForge.EnumCorner;
 import com.axanthic.loi.gui.ContainerForge;
 import com.axanthic.loi.proxy.CommonProxy;
 import com.axanthic.loi.utils.ForgeRecipe;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
@@ -36,7 +32,6 @@ import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -71,17 +66,17 @@ public class TileEntityForge extends TileEntityLockable implements ITickable, IS
 		} catch (Exception e) {
 			System.out.println("blegh");
 		}
-	}*/
+	}
 
 	public void setPos(BlockPos posIn) {
 		super.setPos(posIn);
-		//setNeighbours(posIn);
+		setNeighbours(posIn);
 	}
 
 	public void onLoad() {
 		super.onLoad();
-		//setNeighbours(this.pos);
-	}
+		setNeighbours(this.pos);
+	}*/
 
 	/**
 	 * Returns the number of slots in the inventory.

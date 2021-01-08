@@ -326,7 +326,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			while (true) {
 				label50: {
 				if (position.getY() > 3) {
-					if (worldIn.isAirBlock(position.offset(facing)) || !worldIn.isAirBlock(position) || !worldIn.isSideSolid(position, EnumFacing.UP) || !worldIn.getBlockState(position.offset(facing)).getMaterial().equals(Material.ROCK)) {
+					if (worldIn.isAirBlock(position.offset(facing)) || !worldIn.isAirBlock(position) || !worldIn.isSideSolid(position.offset(facing), EnumFacing.UP) || !worldIn.getBlockState(position.offset(facing)).getMaterial().equals(Material.ROCK)) {
 						break label50;
 					}
 				}

@@ -61,11 +61,11 @@ public class BlockForge extends BlockContainer {
 		this.setSoundType(SoundType.STONE);
 	}
 
-	public void onNeighborChange(IBlockAccess world, BlockPos pos, BlockPos neighbor){
+	/*public void onNeighborChange(IBlockAccess world, BlockPos pos, BlockPos neighbor){
 		if (world.getTileEntity(pos) instanceof TileEntityForge) {
 			((TileEntityForge) world.getTileEntity(pos)).setNeighbours(pos);
 		}
-	}
+	}*/
 
 	public void setState(IBlockState state, World worldIn, BlockPos pos) {
 		state = getActualState(state, worldIn, pos);
