@@ -1,6 +1,7 @@
 package com.axanthic.loi.worldgen.feature;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -9,12 +10,16 @@ import javax.annotation.Nullable;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.blocks.BlockRock;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.tileentity.MobSpawnerBaseLogic;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityMobSpawner;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
@@ -35,8 +40,8 @@ public class WorldGenVillage extends WorldGenStructureBase {
 	public static IBlockState roadState = Resources.rock.getBlock().getStateFromMeta(BlockRock.StoneTypes.RELICSTONE.getMeta());
 	public static IBlockState oldRoadState = Resources.relicstoneRoad.getBlock().getDefaultState();
 	public static int range = 5;
-	public static int maxVases = 2;
-	public static int vaseChance = 6;
+	public static int spawnerChance = 9;
+	public static int breakingChance = 20;
 
 	public final String[] ruins = new String[] {
 			"village/house_0",
@@ -116,12 +121,20 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			int startX = chunkX * 16 + rand.nextInt(16);
 			int startZ = chunkZ * 16 + rand.nextInt(16);
 			int k = 1500;
+			boolean damaged = false;
+			boolean ruined = false;
+			int state = rand.nextInt(2);
+			if (state == 0) {
+				damaged = true;
+			} else if (state == 1) {
+				ruined = true;
+			}
 
 			for (int l = 0; l < k / 2; ++l) {
 				int addX = rand.nextInt(128) - 64;
 				int addZ = rand.nextInt(128) - 64;
 				for (int attempt = 0; attempt < attempts; ++attempt) {
-					if (this.placeHouse(worldIn, rand, new BlockPos(startX + addX, 111, startZ + addZ), chunk))
+					if (this.placeHouse(worldIn, rand, new BlockPos(startX + addX, 111, startZ + addZ), chunk, damaged, ruined))
 						break;
 				}
 			}
@@ -129,14 +142,14 @@ public class WorldGenVillage extends WorldGenStructureBase {
 				int addX = rand.nextInt(64) - 32;
 				int addZ = rand.nextInt(64) - 32;
 				for (int attempt = 0; attempt < attempts; ++attempt) {
-					if (this.placeHouse(worldIn, rand, new BlockPos(startX + addX, 111, startZ + addZ), chunk))
+					if (this.placeHouse(worldIn, rand, new BlockPos(startX + addX, 111, startZ + addZ), chunk, damaged, ruined))
 						break;
 				}
 			}
 		}
 	}
 
-	public boolean placeHouse(World worldIn, Random rand, BlockPos position, ChunkPos chunk) {
+	public boolean placeHouse(World worldIn, Random rand, BlockPos position, ChunkPos chunk, boolean damaged, boolean ruined) {
 		TemplateManager templatemanager = ((WorldServer) worldIn).getStructureTemplateManager();
 		Template template = templatemanager.get(worldIn.getMinecraftServer(), new ResourceLocation(ModInformation.ID, ruins[rand.nextInt(ruins.length)]));
 		placementsettings.setMirror(Mirror.values()[rand.nextInt(Mirror.values().length)]);
@@ -162,7 +175,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			return false;
 
 		rand = new Random(rand.nextLong());
-		addBlocksToWorldSilently(template, worldIn, position, new BlockRotationProcessor(position.up(), placementsettings), placementsettings, rand, chunk, 2);
+		addBlocksToWorldSilently(template, worldIn, position, new BlockRotationProcessor(position.up(), placementsettings), placementsettings, rand, chunk, 2, damaged, ruined);
 		return true;
 	}
 
@@ -203,7 +216,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		return true;
 	}
 
-	public static void addBlocksToWorldSilently(Template template, World worldIn, BlockPos position, @Nullable ITemplateProcessor templateProcessor, PlacementSettings placementIn, Random rand, ChunkPos chunk, int flags) {
+	public static void addBlocksToWorldSilently(Template template, World worldIn, BlockPos position, @Nullable ITemplateProcessor templateProcessor, PlacementSettings placementIn, Random rand, ChunkPos chunk, int flags, boolean damaged, boolean ruined) {
 		List<Template.BlockInfo> blocks = null;
 		try {
 			Field privateStringField;
@@ -218,18 +231,26 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		//this is for later
 		BlockPos doorLocation = null;
 
+		List brokenCoords = new ArrayList<String>();
+
 		if (!blocks.isEmpty() && template.getSize().getX() >= 1 && template.getSize().getY() >= 1 && template.getSize().getZ() >= 1) {
 			Block block = placementIn.getReplacedBlock();
 			StructureBoundingBox structureboundingbox = placementIn.getBoundingBox();
 
-			int vasesPlaced = 0;
+			int spawnersPlaced = 0;
 			int grindersPlaced = 0;
 			int grindersNotPlaced = 0;
+			int maxSpawners = 0;
+			if (damaged)
+				maxSpawners = 2;
+			if (ruined)
+				maxSpawners = 1;
 			Long seed = rand.nextLong();
 
 			for (Template.BlockInfo template$blockinfo : blocks) {
 				BlockPos relativePos = template.transformedBlockPos(placementIn, template$blockinfo.pos);
 				BlockPos blockpos = relativePos.add(position);
+
 				// Forge: skip processing blocks outside BB to prevent cascading worldgen issues
 				if (structureboundingbox != null && !structureboundingbox.isVecInside(blockpos)) continue;
 				Template.BlockInfo template$blockinfo1 = templateProcessor != null ? templateProcessor.processBlock(worldIn, blockpos, template$blockinfo) : template$blockinfo;
@@ -240,6 +261,21 @@ public class WorldGenVillage extends WorldGenStructureBase {
 					if ((block == null || block != block1) && (!placementIn.getIgnoreStructureBlock() || block1 != Blocks.STRUCTURE_BLOCK) && (structureboundingbox == null || structureboundingbox.isVecInside(blockpos))) {
 						IBlockState iblockstate = replaceBlock(template$blockinfo1.blockState.withMirror(placementIn.getMirror()), relativePos.getY() - 1, rand, seed);
 						IBlockState iblockstate1 = iblockstate.withRotation(placementIn.getRotation());
+
+						if (ruined) {
+							if (worldIn.isAirBlock(blockpos.down()))
+								continue;
+							if (iblockstate1.getMaterial() != Material.AIR) {
+								if (rand.nextInt(breakingChance / (relativePos.getY() + 1) + 1) == 0) {
+									brokenCoords.add(blockpos.getX() + "," + blockpos.getZ());
+									continue;
+								}
+								if (brokenCoords.contains(blockpos.getX() + "," + blockpos.getZ()))
+									continue;
+								if (!iblockstate1.isFullCube() && !iblockstate1.equals(Resources.lootVase.getBlock().getDefaultState()) && !iblockstate1.equals(Resources.lootVase2.getBlock().getDefaultState()))
+									continue;
+							}
+						}
 
 						if (template$blockinfo1.tileentityData != null) {
 							TileEntity tileentity = worldIn.getTileEntity(blockpos);
@@ -256,10 +292,19 @@ public class WorldGenVillage extends WorldGenStructureBase {
 							doorLocation = blockpos;
 
 						if (iblockstate1.equals(Resources.lootVase.getBlock().getDefaultState()) || iblockstate1.equals(Resources.lootVase2.getBlock().getDefaultState())) {
-							if (vasesPlaced < maxVases && rand.nextInt(vaseChance) == 0) {
-								vasesPlaced++;
-							} else {
-								continue;
+							int chance = 2;
+							if (damaged)
+								chance = 5;
+							if (ruined)
+								chance = 10;
+
+							if (rand.nextInt(chance) != 0) {
+								if (spawnersPlaced < maxSpawners && rand.nextInt(spawnerChance) == 0) {
+									iblockstate1 = Resources.villageSpawner.getBlock().getDefaultState();
+									spawnersPlaced++;
+								} else {
+									continue;
+								}
 							}
 						}
 						if (iblockstate1.equals(Resources.grinder.getBlock().getDefaultState())) {
@@ -271,10 +316,10 @@ public class WorldGenVillage extends WorldGenStructureBase {
 							}
 						}
 
-						if (worldIn.setBlockState(blockpos, iblockstate1, flags) && template$blockinfo1.tileentityData != null) {
+						if (worldIn.setBlockState(blockpos, iblockstate1, flags)) {
 							TileEntity tileentity2 = worldIn.getTileEntity(blockpos);
 
-							if (tileentity2 != null) {
+							if (tileentity2 != null && template$blockinfo1.tileentityData != null) {
 								template$blockinfo1.tileentityData.setInteger("x", blockpos.getX());
 								template$blockinfo1.tileentityData.setInteger("y", blockpos.getY());
 								template$blockinfo1.tileentityData.setInteger("z", blockpos.getZ());
@@ -282,10 +327,50 @@ public class WorldGenVillage extends WorldGenStructureBase {
 								tileentity2.mirror(placementIn.getMirror());
 								tileentity2.rotate(placementIn.getRotation());
 							}
+							if (tileentity2 instanceof TileEntityMobSpawner) {
+								MobSpawnerBaseLogic mobspawnerbaselogic = ((TileEntityMobSpawner)tileentity2).getSpawnerBaseLogic();
+								mobspawnerbaselogic.setEntityId(new ResourceLocation(ModInformation.ID, "revenant_civilian"));
+								tileentity2.markDirty();
+							}
 						}
 					}
 				}
 			}
+			if (damaged)
+				for (Template.BlockInfo template$blockinfo : blocks) {
+					BlockPos relativePos = template.transformedBlockPos(placementIn, template$blockinfo.pos);
+					BlockPos blockpos = relativePos.add(position);
+					boolean safe = true;
+					int airblocks = 0;
+					for (EnumFacing face : EnumFacing.VALUES) {
+						if (isOutsideChunkBounds(blockpos.offset(face).add(-8, 0, -8), chunk, 4))
+							continue;
+						IBlockState state = worldIn.getBlockState(blockpos.offset(face));
+						if (!state.isFullCube()) {
+							if (state.getBlock().isAir(state, worldIn, blockpos.offset(face))) {
+								airblocks++;
+								continue;
+							}
+							safe = false;
+							break;
+						}
+					}
+					if (safe && rand.nextInt(14 - airblocks * 2) == 0)
+						worldIn.setBlockToAir(blockpos);
+				}
+			if (ruined)
+				for (Template.BlockInfo template$blockinfo : blocks) {
+					BlockPos relativePos = template.transformedBlockPos(placementIn, template$blockinfo.pos);
+					BlockPos blockpos = relativePos.add(position);
+					if (worldIn.getBlockState(blockpos).isFullCube())
+						for (EnumFacing face : EnumFacing.VALUES) {
+							if (isOutsideChunkBounds(blockpos.offset(face).add(-8, 0, -8), chunk, 4))
+								continue;
+							if (worldIn.isAirBlock(blockpos.offset(face)) && rand.nextInt(6) == 0) {
+								worldIn.setBlockState(blockpos.offset(face), Blocks.WEB.getDefaultState());
+							}
+						}
+				}
 		}
 		//place a path to the door of the the house
 		if (doorLocation == null)
@@ -395,7 +480,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 	private final static IBlockState[] plants = new IBlockState[] {Resources.flower.getBlock().getStateFromMeta(0), Resources.flower.getBlock().getStateFromMeta(1), Resources.flower.getBlock().getStateFromMeta(2), Resources.flower.getBlock().getStateFromMeta(3), Resources.flower.getBlock().getStateFromMeta(4), Resources.flower.getBlock().getStateFromMeta(5), Resources.flower.getBlock().getStateFromMeta(6), Resources.flower.getBlock().getStateFromMeta(7), Resources.flower.getBlock().getStateFromMeta(8), Resources.flower.getBlock().getStateFromMeta(9), Resources.flower.getBlock().getStateFromMeta(10), Resources.flower.getBlock().getStateFromMeta(11), Resources.flower.getBlock().getStateFromMeta(12), Resources.flower.getBlock().getStateFromMeta(13), Resources.flower.getBlock().getStateFromMeta(14), Resources.flower.getBlock().getStateFromMeta(15), Resources.flower2.getBlock().getStateFromMeta(0),
 			Resources.bromelia.getBlock().getStateFromMeta(0), Resources.bromelia.getBlock().getStateFromMeta(1), Resources.bromelia.getBlock().getStateFromMeta(2), Resources.bromelia.getBlock().getStateFromMeta(3),
 			Resources.bushStrawberry.getBlock().getDefaultState(), Resources.palmFern.getBlock().getDefaultState()};
-	
+
 	public static IBlockState replaceBlock(IBlockState state, int height, Random rand, Long seed) {
 		state = WorldGenStructureBase.replaceBlock(state, height, rand);
 		rand = new Random(seed);
