@@ -83,6 +83,13 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			"village/pottery_1"
 	};
 
+	public final static String[] spawners = new String[] {
+			"revenant_civilian",
+			"revenant_soldier",
+			"revenant_captain",
+			"revenant_pyromancer"
+	};
+
 	public WorldGenVillage(float integrity) {
 		super(integrity);
 	}
@@ -364,7 +371,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 							}
 							if (tileentity2 instanceof TileEntityMobSpawner) {
 								MobSpawnerBaseLogic mobspawnerbaselogic = ((TileEntityMobSpawner)tileentity2).getSpawnerBaseLogic();
-								mobspawnerbaselogic.setEntityId(new ResourceLocation(ModInformation.ID, "revenant_civilian"));
+								mobspawnerbaselogic.setEntityId(new ResourceLocation(ModInformation.ID, spawners[rand.nextInt(spawners.length)]));
 								tileentity2.markDirty();
 							}
 						}
