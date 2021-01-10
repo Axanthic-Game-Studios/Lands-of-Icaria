@@ -176,7 +176,8 @@ public class MapGenRoads extends MapGenBase {
 
 			//if (this.rand.nextInt(1) == 0) {
 			int k = this.rand.nextInt(2) + this.rand.nextInt(2) + 3;
-			this.addRoom(this.rand.nextLong(), originalX, originalZ, chunkPrimerIn, startX, startZ, 1.0F + k);
+			double offset = k > 4 ? 0.5 : 0;
+			this.addRoom(this.rand.nextLong(), originalX, originalZ, chunkPrimerIn, startX - offset, startZ + offset, k > 4 ? 4.5F : 3);
 			//}
 
 			float directionBase = (float) Math.PI * 6.0F * this.rand.nextFloat();

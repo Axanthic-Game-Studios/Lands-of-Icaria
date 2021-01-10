@@ -37,6 +37,7 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 public class WorldGenVillage extends WorldGenStructureBase {
 
 	public static BlockPos zero = new BlockPos(0, 0, 0);
+	public static PlacementSettings defaultPlacementSettings = new PlacementSettings().setIntegrity(1).setChunk((ChunkPos)null).setReplacedBlock((Block)null);
 	public static IBlockState roadState = Resources.rock.getBlock().getStateFromMeta(BlockRock.StoneTypes.RELICSTONE.getMeta());
 	public static IBlockState oldRoadState = Resources.relicstoneRoad.getBlock().getDefaultState();
 	public static int range = 5;
@@ -120,6 +121,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		for (int j = 0; j < i; ++j) {
 			int startX = chunkX * 16 + rand.nextInt(16);
 			int startZ = chunkZ * 16 + rand.nextInt(16);
+			int size = rand.nextInt(2) + rand.nextInt(2) + 3;
 			int k = 1500;
 			boolean damaged = false;
 			boolean ruined = false;
@@ -129,6 +131,8 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			} else if (state == 1) {
 				ruined = true;
 			}
+
+			this.placeWell(worldIn, rand, new BlockPos(startX, 111, startZ), chunk, size > 4 ? 1 : 0);
 
 			for (int l = 0; l < k / 2; ++l) {
 				int addX = rand.nextInt(128) - 64;
@@ -147,6 +151,37 @@ public class WorldGenVillage extends WorldGenStructureBase {
 				}
 			}
 		}
+	}
+
+	public boolean placeWell(World worldIn, Random rand, BlockPos position, ChunkPos chunk, int type) {
+		TemplateManager templatemanager = ((WorldServer) worldIn).getStructureTemplateManager();
+		Template template = templatemanager.get(worldIn.getMinecraftServer(), new ResourceLocation(ModInformation.ID, "village/well_" + type));
+		//placementsettings.setMirror(Mirror.values()[rand.nextInt(Mirror.values().length)]);
+		//placementsettings.setRotation(Rotation.values()[rand.nextInt(Rotation.values().length)]);
+
+		BlockPos offsetPos = position.add(new BlockPos(-(template.getSize().getX() - 1) / 2, 0, -template.getSize().getZ() / 2));
+
+		if (isOutsideChunkBounds(offsetPos.add(-8, 0, -8), chunk, 0)) {
+			return false;
+		}
+
+		//offsetPos = offsetPos.add(8, 0, 8);
+
+		while (!worldIn.isBlockFullCube(offsetPos)) {
+			offsetPos = offsetPos.down();
+			if (offsetPos.getY() < 88)
+				return false;
+		}
+
+		if (type == 0) {
+			offsetPos = offsetPos.add(0, -8, 0);
+		} else if (type == 1) {
+			offsetPos = offsetPos.add(0, -10, 0);
+		}
+
+		rand = new Random(rand.nextLong());
+		addBlocksToWorldSilently(template, worldIn, offsetPos, new BlockRotationProcessor(offsetPos, defaultPlacementSettings), defaultPlacementSettings, rand, chunk, 2, false, false);
+		return true;
 	}
 
 	public boolean placeHouse(World worldIn, Random rand, BlockPos position, ChunkPos chunk, boolean damaged, boolean ruined) {
@@ -303,7 +338,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 									iblockstate1 = Resources.villageSpawner.getBlock().getDefaultState();
 									spawnersPlaced++;
 								} else {
-									continue;
+									iblockstate1 = Blocks.AIR.getDefaultState();
 								}
 							}
 						}
@@ -312,7 +347,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 								grindersPlaced++;
 							} else {
 								grindersNotPlaced++;
-								continue;
+								iblockstate1 = Blocks.AIR.getDefaultState();
 							}
 						}
 
