@@ -102,8 +102,8 @@ public abstract class WorldGenStructureBase extends WorldGenerator {
 	public static IBlockState replaceBlock(IBlockState state, int height, Random rand) {
 		int type;
 		height *=2;
-		if (height < -2)
-			height = -2;
+		if (height < -1)
+			height = -1;
 		if (rand.nextInt(height + 3) == 0 || (height < 7 && rand.nextInt(height + 3) == 0)) {
 			type = 2;
 		} else {

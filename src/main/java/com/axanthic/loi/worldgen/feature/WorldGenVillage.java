@@ -85,8 +85,12 @@ public class WorldGenVillage extends WorldGenStructureBase {
 
 	public final static String[] spawners = new String[] {
 			"revenant_civilian",
+			"revenant_civilian",
+			"revenant_civilian",
+			"revenant_soldier",
 			"revenant_soldier",
 			"revenant_captain",
+			"revenant_pyromancer",
 			"revenant_pyromancer"
 	};
 
@@ -139,7 +143,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 				ruined = true;
 			}
 
-			this.placeWell(worldIn, rand, new BlockPos(startX, 111, startZ), chunk, size > 4 ? 1 : 0);
+			this.placeWell(worldIn, rand, new BlockPos(startX, 111, startZ), chunk, size > 4 ? 1 : 0, damaged, ruined);
 
 			for (int l = 0; l < k / 2; ++l) {
 				int addX = rand.nextInt(128) - 64;
@@ -160,7 +164,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		}
 	}
 
-	public boolean placeWell(World worldIn, Random rand, BlockPos position, ChunkPos chunk, int type) {
+	public boolean placeWell(World worldIn, Random rand, BlockPos position, ChunkPos chunk, int type, boolean damaged, boolean ruined) {
 		TemplateManager templatemanager = ((WorldServer) worldIn).getStructureTemplateManager();
 		Template template = templatemanager.get(worldIn.getMinecraftServer(), new ResourceLocation(ModInformation.ID, "village/well_" + type));
 		//placementsettings.setMirror(Mirror.values()[rand.nextInt(Mirror.values().length)]);
@@ -180,14 +184,16 @@ public class WorldGenVillage extends WorldGenStructureBase {
 				return false;
 		}
 
+		int YOffset = 0;
 		if (type == 0) {
-			offsetPos = offsetPos.add(0, -8, 0);
+			YOffset = -8;
 		} else if (type == 1) {
-			offsetPos = offsetPos.add(0, -10, 0);
+			YOffset = -10;
 		}
+		offsetPos = offsetPos.add(0, YOffset, 0);
 
 		rand = new Random(rand.nextLong());
-		addBlocksToWorldSilently(template, worldIn, offsetPos, new BlockRotationProcessor(offsetPos, defaultPlacementSettings), defaultPlacementSettings, rand, chunk, 2, false, false);
+		addBlocksToWorldSilently(template, worldIn, offsetPos, new BlockRotationProcessor(offsetPos, defaultPlacementSettings), defaultPlacementSettings, rand, chunk, 2, YOffset, false, false, ruined);
 		return true;
 	}
 
@@ -217,7 +223,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			return false;
 
 		rand = new Random(rand.nextLong());
-		addBlocksToWorldSilently(template, worldIn, position, new BlockRotationProcessor(position.up(), placementsettings), placementsettings, rand, chunk, 2, damaged, ruined);
+		addBlocksToWorldSilently(template, worldIn, position, new BlockRotationProcessor(position.up(), placementsettings), placementsettings, rand, chunk, 2, -2, damaged, ruined, ruined);
 		return true;
 	}
 
@@ -258,7 +264,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		return true;
 	}
 
-	public static void addBlocksToWorldSilently(Template template, World worldIn, BlockPos position, @Nullable ITemplateProcessor templateProcessor, PlacementSettings placementIn, Random rand, ChunkPos chunk, int flags, boolean damaged, boolean ruined) {
+	public static void addBlocksToWorldSilently(Template template, World worldIn, BlockPos position, @Nullable ITemplateProcessor templateProcessor, PlacementSettings placementIn, Random rand, ChunkPos chunk, int flags, int YOffset, boolean damaged, boolean ruined, boolean webbed) {
 		List<Template.BlockInfo> blocks = null;
 		try {
 			Field privateStringField;
@@ -301,7 +307,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 					Block block1 = template$blockinfo1.blockState.getBlock();
 
 					if ((block == null || block != block1) && (!placementIn.getIgnoreStructureBlock() || block1 != Blocks.STRUCTURE_BLOCK) && (structureboundingbox == null || structureboundingbox.isVecInside(blockpos))) {
-						IBlockState iblockstate = replaceBlock(template$blockinfo1.blockState.withMirror(placementIn.getMirror()), relativePos.getY() - 1, rand, seed);
+						IBlockState iblockstate = replaceBlock(template$blockinfo1.blockState.withMirror(placementIn.getMirror()), relativePos.getY() + YOffset, rand, seed);
 						IBlockState iblockstate1 = iblockstate.withRotation(placementIn.getRotation());
 
 						if (ruined) {
@@ -400,7 +406,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 					if (safe && rand.nextInt(14 - airblocks * 2) == 0)
 						worldIn.setBlockToAir(blockpos);
 				}
-			if (ruined)
+			if (webbed)
 				for (Template.BlockInfo template$blockinfo : blocks) {
 					BlockPos relativePos = template.transformedBlockPos(placementIn, template$blockinfo.pos);
 					BlockPos blockpos = relativePos.add(position);
