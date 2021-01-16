@@ -67,6 +67,7 @@ import com.axanthic.loi.blocks.BlockRock;
 import com.axanthic.loi.blocks.BlockRockDecoration;
 import com.axanthic.loi.blocks.BlockSandy;
 import com.axanthic.loi.blocks.BlockSapling;
+import com.axanthic.loi.blocks.BlockSlimy;
 import com.axanthic.loi.blocks.BlockSoil;
 import com.axanthic.loi.blocks.BlockSoilGrass;
 import com.axanthic.loi.blocks.BlockSpeltCrop;
@@ -279,7 +280,7 @@ public class Resources {
 	public static ItemBlock plantFiberBlock = new ItemBlock(new BlockBasic(Material.PLANTS, 0.9F, "plant_fiber_block", MapColor.LIME_STAINED_HARDENED_CLAY).setSoundType(SoundType.PLANT));
 	public static ItemBlock speltBale = new ItemBlock(new BlockPillar(Material.PLANTS, 0.9F, "spelt_bale", MapColor.YELLOW).setSoundType(SoundType.PLANT));
 	public static ItemBlock arachneStringBlock = new ItemBlock(new BlockBasic(Material.CLOTH, 0.9F, "arachne_string_block", MapColor.SILVER_STAINED_HARDENED_CLAY).setSoundType(SoundType.CLOTH));
-	public static ItemBlock jellyfishJellyBlock = new ItemBlock(new BlockBasic(Material.CLAY, 0.9F, "jellyfish_jelly_block", MapColor.RED_STAINED_HARDENED_CLAY).setTranslucent(BlockRenderLayer.TRANSLUCENT).setSoundType(SoundType.SLIME).setLightOpacity(1));
+	public static ItemBlock jellyfishJellyBlock = new ItemBlock(new BlockSlimy(Material.CLAY, 0.9F, "jellyfish_jelly_block", MapColor.RED_STAINED_HARDENED_CLAY).setTranslucent(BlockRenderLayer.TRANSLUCENT).setSoundType(SoundType.SLIME).setLightOpacity(1));
 	public static ItemBlock rottenBonesBlock = new ItemBlock(new BlockBasic(Material.ROCK, 0.9F, "rotten_bones_block", MapColor.LIME_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
 	public static ItemBlockMeta relicstone = new ItemBlockMeta(new BlockRelicstone());
 	public static ItemBlock relicstoneRoad = new ItemBlock(new BlockBasic(Material.ROCK, 1.5F, "relicstone_road", MapColor.WOOD) {

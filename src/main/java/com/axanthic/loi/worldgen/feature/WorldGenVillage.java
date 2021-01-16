@@ -250,12 +250,13 @@ public class WorldGenVillage extends WorldGenStructureBase {
 				int x = rand.nextInt(8) - 4;
 				int y = rand.nextInt(5);
 				int z = rand.nextInt(8) - 4;
-				entity.setPosition(position.getX() + x, position.getY() + y, position.getZ() + z);
-				if (entity.isNotColliding() && worldIn.getBlockState((new BlockPos(entity)).down()).canEntitySpawn(entity))
+				entity.setPosition(position.getX() + x - 0.5, position.getY() + y, position.getZ() + z - 0.5);
+				if (entity.isNotColliding() && !worldIn.isSideSolid(new BlockPos(entity).down(), EnumFacing.UP))
 					break;
 				else if (i > 30)
 					return true;
 			}
+			entity.onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(entity)), null);
 			entity.enablePersistence();
 			worldIn.spawnEntity(entity);
 		}
