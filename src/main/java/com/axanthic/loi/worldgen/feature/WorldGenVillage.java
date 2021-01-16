@@ -10,10 +10,16 @@ import javax.annotation.Nullable;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.blocks.BlockRock;
+import com.axanthic.loi.entity.EntityRevenantCaptain;
+import com.axanthic.loi.entity.EntityRevenantCivilian;
+import com.axanthic.loi.entity.EntityRevenantCrawler;
+import com.axanthic.loi.entity.EntityRevenantPyromancer;
+import com.axanthic.loi.entity.EntityRevenantSoldier;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.MobSpawnerBaseLogic;
@@ -25,6 +31,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
@@ -170,7 +177,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		//placementsettings.setMirror(Mirror.values()[rand.nextInt(Mirror.values().length)]);
 		//placementsettings.setRotation(Rotation.values()[rand.nextInt(Rotation.values().length)]);
 
-		BlockPos offsetPos = position.add(new BlockPos(-(template.getSize().getX() - 1) / 2, 0, -template.getSize().getZ() / 2));
+		BlockPos offsetPos = position.add(-(template.getSize().getX() - 1) / 2, 0, -template.getSize().getZ() / 2);
 
 		if (isOutsideChunkBounds(offsetPos.add(-8, 0, -8), chunk, 0)) {
 			return false;
@@ -224,6 +231,34 @@ public class WorldGenVillage extends WorldGenStructureBase {
 
 		rand = new Random(rand.nextLong());
 		addBlocksToWorldSilently(template, worldIn, position, new BlockRotationProcessor(position.up(), placementsettings), placementsettings, rand, chunk, 2, -2, damaged, ruined, ruined);
+
+		if (worldIn.getDifficulty() != EnumDifficulty.PEACEFUL) {
+			EntityLiving entity;
+			int type = rand.nextInt(6);
+			if (type == 1)
+				entity = new EntityRevenantSoldier(worldIn);
+			else if (type == 2)
+				entity = new EntityRevenantCaptain(worldIn);
+			else if (type == 3)
+				entity = new EntityRevenantPyromancer(worldIn);
+			else if (type == 4)
+				entity = new EntityRevenantCrawler(worldIn);
+			else
+				entity = new EntityRevenantCivilian(worldIn);
+			position = position.add(template.transformedBlockPos(placementsettings, new BlockPos((template.getSize().getX() - 1) / 2, 1, template.getSize().getZ() / 2)));
+			for (int i = 0; true; ++i) {
+				int x = rand.nextInt(8) - 4;
+				int y = rand.nextInt(5);
+				int z = rand.nextInt(8) - 4;
+				entity.setPosition(position.getX() + x, position.getY() + y, position.getZ() + z);
+				if (entity.isNotColliding() && worldIn.getBlockState((new BlockPos(entity)).down()).canEntitySpawn(entity))
+					break;
+				else if (i > 30)
+					return true;
+			}
+			entity.enablePersistence();
+			worldIn.spawnEntity(entity);
+		}
 		return true;
 	}
 
