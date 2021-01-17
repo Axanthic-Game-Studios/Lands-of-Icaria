@@ -47,6 +47,7 @@ public class EntityRevenant extends EntityMob {
 	public EntityRevenant(World worldIn) {
 		super(worldIn);
 		this.setSize(0.7F, 2.25F);
+		this.setCanPickUpLoot(true);
 	}
 
 	protected void initEntityAI() {

@@ -74,7 +74,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	private double[] depthBuffer = new double[256];
 	private double[] loamNoise = new double[256];
 	private double[] marlNoise = new double[256];
-    private MapGenBase roadGenerator = new MapGenRoads();
+	private MapGenBase roadGenerator = new MapGenRoads();
 
 	double[] mainNoise;
 
@@ -261,7 +261,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 
 					//smooth off top and bottom of terrain
 					value -= smoothing;
-					
+
 					//amplify terrain contrast
 					value = value * 6.0D;
 
@@ -462,23 +462,83 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 							if(gy < (3 + fillerBlockDensity)) {
 								primer.setBlockState(cx, cy - gy, cz, fillerBlock);
 							} else if((cy - gy) > (84 - yellowstone_density)) {
-								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.YELLOWSTONE);
+								if (!this.placeExtraRock(cx, cz, wx, wz, cy - gy, primer, extraRocks0))
+									primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.YELLOWSTONE);
 							} else if((cy - gy) > (64 - silkstone_density)) {
-								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.SILKSTONE);
+								if (!this.placeExtraRock(cx, cz, wx, wz, cy - gy, primer, extraRocks1))
+									primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.SILKSTONE);
 							} else if((cy - gy) > (52 - sunstone_density)) {
-								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.SUNSTONE);
+								if (!this.placeExtraRock(cx, cz, wx, wz, cy - gy, primer, extraRocks2))
+									primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.SUNSTONE);
 							} else if((cy - gy) > (38 - voidshale_density)) {
-								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.VOIDSHALE);
+								if (!this.placeExtraRock(cx, cz, wx, wz, cy - gy, primer, extraRocks3))
+									primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.VOIDSHALE);
 							} else {
-								primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.BAETYL);
+								if (!this.placeExtraRock(cx, cz, wx, wz, cy - gy, primer, extraRocks4))
+									primer.setBlockState(cx, cy - gy, cz, ChunkGeneratorLOI.BAETYL);
 							}
 							// /.\ End warning /.\
 						}
 					}
 				}
-				this.oreGen.generate(cx, cz, wx, wz, primer);
+				//this.oreGen.generate(cx, cz, wx, wz, primer);
 			}
 		}
+	}
+
+	float extraRockDesity = 0.5f;
+	float extraRockWidth = 50.0f;
+	float extraRockHeight = 10.0f;
+
+	public IBlockState[] extraRocks0 = new IBlockState[] {
+			ChunkGeneratorLOI.SILKSTONE,
+			ChunkGeneratorLOI.SILKSTONE,
+			ChunkGeneratorLOI.SILKSTONE,
+			ChunkGeneratorLOI.SILKSTONE
+	};
+	public IBlockState[] extraRocks1 = new IBlockState[] {
+			ChunkGeneratorLOI.SUNSTONE,
+			ChunkGeneratorLOI.SUNSTONE,
+			ChunkGeneratorLOI.YELLOWSTONE,
+			ChunkGeneratorLOI.YELLOWSTONE
+	};
+	public IBlockState[] extraRocks2 = new IBlockState[] {
+			ChunkGeneratorLOI.VOIDSHALE,
+			ChunkGeneratorLOI.SILKSTONE,
+			ChunkGeneratorLOI.SILKSTONE,
+			ChunkGeneratorLOI.YELLOWSTONE
+	};
+	public IBlockState[] extraRocks3 = new IBlockState[] {
+			ChunkGeneratorLOI.BAETYL,
+			ChunkGeneratorLOI.SUNSTONE,
+			ChunkGeneratorLOI.SILKSTONE,
+			ChunkGeneratorLOI.YELLOWSTONE
+	};
+	public IBlockState[] extraRocks4 = new IBlockState[] {
+			ChunkGeneratorLOI.VOIDSHALE,
+			ChunkGeneratorLOI.SUNSTONE,
+			ChunkGeneratorLOI.SILKSTONE,
+			ChunkGeneratorLOI.YELLOWSTONE
+	};
+
+	public boolean placeExtraRock(final int x, final int z, final int wx, final int wz, final int y, final ChunkPrimer primer, IBlockState[] extraRocks) {
+		if (this.perlin.noise3((wx+3000)/extraRockWidth, (y+3000)/extraRockHeight, (wz+3000)/extraRockWidth) > extraRockDesity) {
+			primer.setBlockState(x, y, z, extraRocks[0]);
+			return true;
+		}
+		if (this.perlin.noise3((wx+2000)/extraRockWidth, (y+2000)/extraRockHeight, (wz+2000)/extraRockWidth) > extraRockDesity) {
+			primer.setBlockState(x, y, z, extraRocks[1]);
+			return true;
+		}
+		if (this.perlin.noise3((wx+1000)/extraRockWidth, (y+1000)/extraRockHeight, (wz+1000)/extraRockWidth) > extraRockDesity) {
+			primer.setBlockState(x, y, z, extraRocks[2]);
+			return true;
+		}
+		if (this.perlin.noise3(wx/extraRockWidth, y/extraRockHeight, wz/extraRockWidth) > extraRockDesity) {
+			primer.setBlockState(x, y, z, extraRocks[3]);
+			return true;
+		}
+		return false;
 	}
 
 	/**
