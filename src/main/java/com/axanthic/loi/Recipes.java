@@ -49,25 +49,26 @@ public class Recipes {
 
 		addGrinderRecipe("calcite_powder", new ItemStack(Resources.resource, 4, ItemResources.ResourceType.CALCITE_POWDER.toMeta()), 0.1F, new OreIngredient("gemCalcite"));
 		addGrinderRecipe("spelt_flour", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.FLOUR.toMeta()), 0.1F, new OreIngredient("cropSpelt"));
-		addGrinderRecipe("grainel_stone", new ItemStack(Resources.grainelStone, 1, 0), 0.1F, Ingredient.fromStacks(new ItemStack(Resources.grainelStone, 1, 1), new ItemStack(Resources.grainelStone, 1, 2)));
-		addGrinderRecipe("grainel", new ItemStack(Resources.grainelSand, 1, 0), 0.1F, new ItemStack(Resources.grainelStone, 1, 0));
-		addGrinderRecipe("grainel_glass", new ItemStack(Resources.grainelSand, 1, 0), 0.1F, new ItemStack(Resources.grainelGlass, 1, 0));
-		addGrinderRecipe("silkstone_dust", new ItemStack(Resources.silkstoneSand), 0.1F, new ItemStack(Resources.rock, 1, 1));
-		addGrinderRecipe("relicstone", new ItemStack(Resources.rock, 1, 5), 0.1F, new ItemStack(Resources.relicstone, 1, 0));
+		addGrinderRecipe("grainel_stone", new ItemStack(Resources.grainelStone), 0.1F, Ingredient.fromStacks(new ItemStack(Resources.grainelStone, 1, 1), new ItemStack(Resources.grainelStone, 1, 2)));
+		addGrinderRecipe("grainel", new ItemStack(Resources.grainelSand), 0.1F, new ItemStack(Resources.grainelStone));
+		addGrinderRecipe("grainel_glass", new ItemStack(Resources.grainelSand), 0.1F, new ItemStack(Resources.grainelGlass));
+		addGrinderRecipe("silkstone_sand", new ItemStack(Resources.silkstoneSand), 0.1F, new ItemStack(Resources.rock, 1, 1));
+		addGrinderRecipe("silkstone_glass", new ItemStack(Resources.silkstoneSand), 0.1F, new ItemStack(Resources.silkstoneGlass));
+		addGrinderRecipe("relicstone", new ItemStack(Resources.rock, 1, 5), 0.1F, new ItemStack(Resources.relicstone));
 		addGrinderRecipe("cracked_relicstone_bricks", new ItemStack(Resources.relicstone, 1, 1), 0.1F, new ItemStack(Resources.brick, 1, 5));
 		addGrinderRecipe("cracked_relicstone_tiles", new ItemStack(Resources.relicstone, 1, 5), 0.1F, new ItemStack(Resources.relicstone, 1, 4));
-		addGrinderRecipe("cobblestone", new ItemStack(Blocks.COBBLESTONE, 1, 0), 0.1F, new ItemStack(Blocks.STONE, 1, 0));
-		addGrinderRecipe("gravel", new ItemStack(Blocks.GRAVEL, 1, 0), 0.1F, new ItemStack(Blocks.COBBLESTONE, 1, 0));
-		addGrinderRecipe("gravel_sand", new ItemStack(Blocks.SAND, 1, 0), 0.1F, new ItemStack(Blocks.GRAVEL, 1, 0));
-		addGrinderRecipe("glass_sand", new ItemStack(Blocks.SAND, 1, 0), 0.1F, Ingredient.fromStacks(new ItemStack(Blocks.GLASS, 1, 0), new ItemStack(Blocks.STAINED_GLASS, 1, OreDictionary.WILDCARD_VALUE)));
+		addGrinderRecipe("cobblestone", new ItemStack(Blocks.COBBLESTONE), 0.1F, new ItemStack(Blocks.STONE));
+		addGrinderRecipe("gravel", new ItemStack(Blocks.GRAVEL), 0.1F, new ItemStack(Blocks.COBBLESTONE));
+		addGrinderRecipe("gravel_sand", new ItemStack(Blocks.SAND), 0.1F, new ItemStack(Blocks.GRAVEL));
+		addGrinderRecipe("glass_sand", new ItemStack(Blocks.SAND), 0.1F, Ingredient.fromStacks(new ItemStack(Blocks.GLASS), new ItemStack(Blocks.STAINED_GLASS, 1, OreDictionary.WILDCARD_VALUE)));
 		addGrinderRecipe("sandstone_sand", new ItemStack(Blocks.SAND, 4, 0), 0.1F, new ItemStack(Blocks.SANDSTONE, 1, OreDictionary.WILDCARD_VALUE));
 		addGrinderRecipe("sandstone_sand_red", new ItemStack(Blocks.SAND, 4, 1), 0.1F, new ItemStack(Blocks.RED_SANDSTONE, 1, OreDictionary.WILDCARD_VALUE));
-		addGrinderRecipe("cracked_bricks", new ItemStack(Blocks.STONEBRICK, 1, 2), 0.1F, new ItemStack(Blocks.STONEBRICK, 1, 0));
-		addGrinderRecipe("dirt", new ItemStack(Blocks.DIRT, 1, 0), 0.1F, new ItemStack(Blocks.DIRT, 1, 1));
-		addGrinderRecipe("snow", new ItemStack(Blocks.SNOW, 1, 0), 0.1F, new ItemStack(Blocks.ICE, 1, 0));
+		addGrinderRecipe("cracked_bricks", new ItemStack(Blocks.STONEBRICK, 1, 2), 0.1F, new ItemStack(Blocks.STONEBRICK));
+		addGrinderRecipe("dirt", new ItemStack(Blocks.DIRT), 0.1F, new ItemStack(Blocks.DIRT, 1, 1));
+		addGrinderRecipe("snow", new ItemStack(Blocks.SNOW), 0.1F, new ItemStack(Blocks.ICE));
 		addGrinderRecipe("string", new ItemStack(Items.STRING, 4, 0), 0.1F, new OreIngredient("wool"));
 		addGrinderRecipe("bonemeal", new ItemStack(Items.DYE, 5, 15), 0.1F, new OreIngredient("bone"));
-		addGrinderRecipe("blaze_powder", new ItemStack(Items.BLAZE_POWDER, 4, 0), 0.2F, new ItemStack(Items.BLAZE_ROD, 1, 0));
+		addGrinderRecipe("blaze_powder", new ItemStack(Items.BLAZE_POWDER, 4, 0), 0.2F, new ItemStack(Items.BLAZE_ROD));
 		for (int i = 0; i < 16; ++i)
 			addGrinderRecipe("concrete_" + i, new ItemStack(Blocks.CONCRETE_POWDER, 1, i), 0.1F, new ItemStack(Blocks.CONCRETE, 1, i));
 
@@ -142,7 +143,10 @@ public class Recipes {
 		addRecipe(new ItemStack(Resources.kettle, 1, 0), "kettle", new Object[]{"O O", "V V", "OVO", 'O', "ingotOrichalcum", 'V', "blockVanadiumsteel"});
 
 		addRecipe(new ItemStack(Resources.rock, 4, 1), "silkstone_from_sand", new Object[]{"PP", "PP", 'P', new ItemStack(Resources.silkstoneSand)});
-		//GameRegistry.addSmelting(new ItemStack(Resources.silkstoneSand, 1, 0), new ItemStack(Resources.rock, 1, 1), 0.1F);
+		GameRegistry.addSmelting(new ItemStack(Resources.silkstoneSand, 1, 0), new ItemStack(Resources.silkstoneGlass), 0.1F);
+		addRecipe(new ItemStack(Resources.silkstoneGlassPane, 16, 0), "silkstone_glass_pane", new Object[]{"GGG", "GGG", 'G', new ItemStack(Resources.silkstoneGlass, 1, 0)});
+		addRecipe(new ItemStack(Resources.silkstoneGlassStraightPane, 4, 0), "silkstone_glass_pane_straight", new Object[]{"GG", "GG", 'G', new ItemStack(Resources.silkstoneGlassPane, 1, 0)});
+		addRecipe(new ItemStack(Resources.silkstoneGlassHorizontalPane, 3, 0), "silkstone_glass_pane_horizontal", new Object[]{"GGG", 'G', new ItemStack(Resources.silkstoneGlassPane, 1, 0)});
 
 		addRecipe(new ItemStack(Resources.grainelStone, 1, 0), "grainel_stone", new Object[]{"GG", "GG", 'G', new ItemStack(Resources.grainelSand, 1, 0)});
 		addRecipe(new ItemStack(Resources.grainelStone, 4, 1), "grainel_stone_bricks", new Object[]{"GG", "GG", 'G', new ItemStack(Resources.grainelStone, 1, 0)});

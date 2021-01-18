@@ -260,6 +260,10 @@ public class Resources {
 	public static ItemBlock relicstoneRubble = new ItemBlockMaterial(new BlockRockDecoration(StoneTypes.RELICSTONE.getName()));
 	public static ItemBlock grainelRubble = new ItemBlockMaterial(new BlockRockDecoration("grainite"));
 	public static ItemBlock silkstoneSand = new ItemBlock(new BlockSandy(Material.SAND, 1.2F, "silkstone_sand", MapColor.PINK_STAINED_HARDENED_CLAY).setSoundType(SoundType.SAND));
+	public static ItemBlock silkstoneGlass = new ItemBlock(new BlockGlassy(Material.GLASS, 0.3F, "silkstone_glass", MapColor.PINK_STAINED_HARDENED_CLAY));
+	public static ItemBlock silkstoneGlassPane = new ItemBlock(new BlockCustomPane(Material.GLASS, 0.3F, "silkstone_pane", false).setSoundType(SoundType.GLASS));
+	public static ItemBlock silkstoneGlassStraightPane = new ItemBlock(new BlockCustomStraightPane(Material.GLASS, 0.3F, "silkstone_pane_straight", false).setSoundType(SoundType.GLASS));
+	public static ItemBlock silkstoneGlassHorizontalPane = new ItemBlock(new BlockHorizontalPane(Material.GLASS, 0.3F, "silkstone_pane_horizontal", false).setSoundType(SoundType.GLASS));
 	public static ItemBlock grainelSand = new ItemBlock(new BlockSandy(Material.SAND, 1.2F, "grainel_sand", MapColor.WOOD).setSoundType(SoundType.SAND));
 	public static ItemBlockMeta grainelStone = new ItemBlockMeta(new BlockGrainelStone());
 	public static ItemBlock grainelGlass = new ItemBlock(new BlockGlassy(Material.GLASS, 0.3F, "grainel_glass", MapColor.WOOD));
@@ -506,6 +510,10 @@ public class Resources {
 		Resources.registerBlock(Resources.relicstoneRubble);
 		Resources.registerBlock(Resources.grainelRubble);
 		Resources.registerBlock(Resources.silkstoneSand);
+		Resources.registerBlock(Resources.silkstoneGlass);
+		Resources.registerBlock(Resources.silkstoneGlassPane);
+		Resources.registerBlock(Resources.silkstoneGlassStraightPane);
+		Resources.registerBlock(Resources.silkstoneGlassHorizontalPane);
 		Resources.registerBlock(Resources.grainelSand);
 		Resources.registerBlock(Resources.grainelStone);
 		Resources.registerBlock(Resources.grainelGlass);
