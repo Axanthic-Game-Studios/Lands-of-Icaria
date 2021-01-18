@@ -5,7 +5,6 @@ import java.util.Random;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
-import com.axanthic.loi.items.ItemResources;
 import com.google.common.base.Predicate;
 
 import net.minecraft.block.Block;
@@ -75,7 +74,7 @@ public class BlockRock extends Block implements IBlockMeta {
 	public int damageDropped(final IBlockState state) {
 		final int meta = this.getMetaFromState(state);
 		if ((meta == 1) && this.getUnlocalizedName().equals("tile.rock")) {
-			return ItemResources.ResourceType.SILKSTONE_POWDER.toMeta();
+			return 0;
 		}
 		return meta;
 	}
@@ -83,12 +82,12 @@ public class BlockRock extends Block implements IBlockMeta {
 	@Override
 	public Item getItemDropped(final IBlockState state, final Random rand, final int fortune) {
 		if ((this.getMetaFromState(state) == 1) && this.getUnlocalizedName().equals("tile.rock")) {
-			return Resources.resource;
+			return Resources.silkstoneSand;
 		}
 		return super.getItemDropped(state, rand, fortune);
 	}
 
-	@Override
+	/*@Override
 	public int quantityDropped(final IBlockState state, final int fortune, final Random random) {
 		if ((this.getMetaFromState(state) == 1) && this.getUnlocalizedName().equals("tile.rock")) {
 			int i = random.nextInt(fortune + 2) - 1;
@@ -99,7 +98,7 @@ public class BlockRock extends Block implements IBlockMeta {
 		} else {
 			return this.quantityDropped(random);
 		}
-	}
+	}*/
 
 	@Override
 	public ItemStack getPickBlock(final IBlockState state, final RayTraceResult target, final World world, final BlockPos pos, final EntityPlayer player) {

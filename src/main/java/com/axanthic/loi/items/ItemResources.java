@@ -33,7 +33,7 @@ public class ItemResources extends ItemMeta {
 		DOLOMITE("dolomite", true),
 		ANTHRACITE("anthracite", true, 3200),
 		ABYSSAL_ESSENCE("abyssal_essence", true),
-		SILKSTONE_POWDER("silkstone_powder"),
+		HALITE_POWDER("halite_powder"),
 		CALCITE("calcite", true),
 		JASPER("jasper", true),
 		ZIRCON("zircon", true),

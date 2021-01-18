@@ -12,7 +12,7 @@
 			"dolomite": { "textures": { "layer0": "landsoficaria:items/mineral_dolomite" } },
 			"anthracite": { "textures": { "layer0": "landsoficaria:items/mineral_anthracite" } },
 			"abyssal_essence": { "textures": { "layer0": "landsoficaria:items/mineral_abyssalessence" } },
-			"silkstone_powder": { "textures": { "layer0": "landsoficaria:items/rock_silkstone_powder" } },
+			"halite_powder": { "textures": { "layer0": "landsoficaria:items/mineral_halite_powder" } },
 			"calcite": { "textures": { "layer0": "landsoficaria:items/mineral_calcite" } },
 			"jasper": { "textures": { "layer0": "landsoficaria:items/mineral_jasper" } },
 			"zircon": { "textures": { "layer0": "landsoficaria:items/mineral_zircon_gem" } },

@@ -52,7 +52,7 @@ public class Recipes {
 		addGrinderRecipe("grainel_stone", new ItemStack(Resources.grainelStone, 1, 0), 0.1F, Ingredient.fromStacks(new ItemStack(Resources.grainelStone, 1, 1), new ItemStack(Resources.grainelStone, 1, 2)));
 		addGrinderRecipe("grainel", new ItemStack(Resources.grainelSand, 1, 0), 0.1F, new ItemStack(Resources.grainelStone, 1, 0));
 		addGrinderRecipe("grainel_glass", new ItemStack(Resources.grainelSand, 1, 0), 0.1F, new ItemStack(Resources.grainelGlass, 1, 0));
-		addGrinderRecipe("silkstone_dust", new ItemStack(Resources.resource, 4, ItemResources.ResourceType.SILKSTONE_POWDER.toMeta()), 0.1F, new ItemStack(Resources.rock, 1, 1));
+		addGrinderRecipe("silkstone_dust", new ItemStack(Resources.silkstoneSand), 0.1F, new ItemStack(Resources.rock, 1, 1));
 		addGrinderRecipe("relicstone", new ItemStack(Resources.rock, 1, 5), 0.1F, new ItemStack(Resources.relicstone, 1, 0));
 		addGrinderRecipe("cracked_relicstone_bricks", new ItemStack(Resources.relicstone, 1, 1), 0.1F, new ItemStack(Resources.brick, 1, 5));
 		addGrinderRecipe("cracked_relicstone_tiles", new ItemStack(Resources.relicstone, 1, 5), 0.1F, new ItemStack(Resources.relicstone, 1, 4));
@@ -141,8 +141,8 @@ public class Recipes {
 		addRecipe(new ItemStack(Resources.forge, 1, 0), "forge", new Object[]{"LGL", "L L", "LGL", 'L', new ItemStack(Resources.loamBricks, 1, 0), 'G', new ItemStack(Resources.grainelStone, 1, 1)});
 		addRecipe(new ItemStack(Resources.kettle, 1, 0), "kettle", new Object[]{"O O", "V V", "OVO", 'O', "ingotOrichalcum", 'V', "blockVanadiumsteel"});
 
-		addRecipe(new ItemStack(Resources.silkstoneSand, 1, 0), "silkstone_sand", new Object[]{"PP", "PP", 'P', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.SILKSTONE_POWDER.toMeta())});
-		GameRegistry.addSmelting(new ItemStack(Resources.silkstoneSand, 1, 0), new ItemStack(Resources.rock, 1, 1), 0.1F);
+		addRecipe(new ItemStack(Resources.rock, 4, 1), "silkstone_from_sand", new Object[]{"PP", "PP", 'P', new ItemStack(Resources.silkstoneSand)});
+		//GameRegistry.addSmelting(new ItemStack(Resources.silkstoneSand, 1, 0), new ItemStack(Resources.rock, 1, 1), 0.1F);
 
 		addRecipe(new ItemStack(Resources.grainelStone, 1, 0), "grainel_stone", new Object[]{"GG", "GG", 'G', new ItemStack(Resources.grainelSand, 1, 0)});
 		addRecipe(new ItemStack(Resources.grainelStone, 4, 1), "grainel_stone_bricks", new Object[]{"GG", "GG", 'G', new ItemStack(Resources.grainelStone, 1, 0)});
@@ -560,7 +560,7 @@ public class Recipes {
 		OreDictionary.registerOre("gemAnthracite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ANTHRACITE.toMeta()));
 		OreDictionary.registerOre("fuelAnthracite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ANTHRACITE.toMeta()));
 		OreDictionary.registerOre("dustAbyssalEssence", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ABYSSAL_ESSENCE.toMeta()));
-		OreDictionary.registerOre("dustSilkstone", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.SILKSTONE_POWDER.toMeta()));
+		OreDictionary.registerOre("dustSmallSalt", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.HALITE_POWDER.toMeta()));
 		OreDictionary.registerOre("gemCalcite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE.toMeta()));
 		OreDictionary.registerOre("gemJasper", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.JASPER.toMeta()));
 		OreDictionary.registerOre("gemZircon", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ZIRCON.toMeta()));
