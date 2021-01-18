@@ -57,7 +57,9 @@ public class TeleporterLOI extends Teleporter {
 			portalPosition.lastUpdateTime = this.world.getTotalWorldTime();
 			doesPortalExist = false;
 		} else {
-			final BlockPos entityPos = new BlockPos(entity);
+			BlockPos entityPos = new BlockPos(entity);
+			if (entity.dimension == LandsOfIcaria.dimensionId)
+				entityPos = entityPos.add(0, 40, 0);
 			for (int offsetX = -128; offsetX <= 128; ++offsetX) {
 				BlockPos positionCache;
 
@@ -180,10 +182,12 @@ public class TeleporterLOI extends Teleporter {
 
 	@Override
 	public boolean makePortal(Entity entity) {
-		return createPortal(this.world, new BlockPos(MathHelper.floor(entity.posX), MathHelper.floor(entity.posY), MathHelper.floor(entity.posZ)), entity);
+		return createPortal(this.world, new BlockPos(entity), entity);
 	}
 
 	public static boolean createPortal(World world, BlockPos pos, @Nullable Entity entity) {
+		if (entity.dimension == LandsOfIcaria.dimensionId)
+			pos = pos.add(0, 40, 0);
 		TemplateManager templatemanager = ((WorldServer) world).getStructureTemplateManager();
 		Template template = templatemanager.get(world.getMinecraftServer(), new ResourceLocation(ModInformation.ID, getPortalForDimension(entity.dimension)));
 		if (entity.getHorizontalFacing().getAxis().equals(EnumFacing.Axis.Z))

@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class EntityGrenade extends EntityThrowable {
 
-	public static int radius = 1;
+	public static int radius = 2;
 
 	public EntityGrenade(World worldIn) {
 		super(worldIn);
@@ -38,10 +38,10 @@ public class EntityGrenade extends EntityThrowable {
 			return;
 		}
 
-		Explosion explosion = world.createExplosion(thrower, posX, posY, posZ, 1.0f, false);
+		Explosion explosion = world.createExplosion(thrower, posX, posY, posZ, 1.5f, false);
 
 		for (BlockPos blockpos : BlockPos.getAllInBox(thisPos.add(-radius, -radius, -radius), thisPos.add(radius, radius, radius))) {
-			if (world.getBlockState(blockpos).getMaterial() == Material.AIR && (this.world.getBlockState(blockpos.down()).isFullBlock() || BlockGreekFire.canNeighborCatchFire(world, blockpos)) && rand.nextInt(3) == 0) {
+			if (world.getBlockState(blockpos).getMaterial() == Material.AIR && (this.world.getBlockState(blockpos.down()).isFullBlock() || BlockGreekFire.canNeighborCatchFire(world, blockpos)) && rand.nextInt(5) == 0) {
 				world.setBlockState(blockpos, Resources.greekFire.getBlock().getDefaultState());
 			}
 		}
