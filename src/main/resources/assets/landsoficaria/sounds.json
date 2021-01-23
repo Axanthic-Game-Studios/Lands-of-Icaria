@@ -61,7 +61,8 @@
         [
             "landsoficaria:block/ceramic_break1",
             "landsoficaria:block/ceramic_break2",
-            "landsoficaria:block/ceramic_break3"
+            "landsoficaria:block/ceramic_break3",
+            "landsoficaria:block/ceramic_break4"
         ]
     }
 }
