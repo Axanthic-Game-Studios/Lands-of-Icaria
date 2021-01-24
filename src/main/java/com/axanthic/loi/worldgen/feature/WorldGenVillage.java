@@ -417,6 +417,8 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			if (damaged)
 				for (Template.BlockInfo template$blockinfo : template.blocks) {
 					BlockPos relativePos = template.transformedBlockPos(placementIn, template$blockinfo.pos);
+					if (relativePos.getY() == 0)
+						continue;
 					BlockPos blockpos = relativePos.add(position);
 					boolean safe = true;
 					int airblocks = 0;
