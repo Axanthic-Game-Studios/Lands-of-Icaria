@@ -51,7 +51,7 @@ public class BlockFarmLand extends BlockFarmland {
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		ItemStack itemstack = playerIn.getHeldItem(hand);
 		if (itemstack.getItem() instanceof ItemResources
-				&& itemstack.getMetadata() == 8
+				&& itemstack.getMetadata() == ItemResources.ResourceType.CALCITE_POWDER.toMeta()
 				&& playerIn.canPlayerEdit(pos.offset(facing), facing, itemstack)
 				&& ((Integer)state.getValue(MOISTURE)).intValue() == 7) {
 			worldIn.setBlockState(pos, Resources.fertilizedFarmLand.getBlock().getDefaultState());

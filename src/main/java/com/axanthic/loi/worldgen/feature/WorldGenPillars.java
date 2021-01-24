@@ -3,32 +3,33 @@ package com.axanthic.loi.worldgen.feature;
 import java.util.Random;
 
 import com.axanthic.loi.ModInformation;
+
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.structure.template.BlockRotationProcessor;
-import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
+import net.minecraft.world.gen.structure.template.TemplatePublic;
 
 public class WorldGenPillars extends WorldGenStructureBase {
 
 	BlockPos zero = new BlockPos(0, 0, 0);
 
-	public final String[] pillars = new String[] {
-			//"pillar/pillar2",
-			"pillar/pillar3",
-			"pillar/pillar4",
-			"pillar/pillar5",
-			"pillar/pillar6",
-			"pillar/pillar3",
-			"pillar/pillar4",
-			"pillar/pillar5",
-			"pillar/pillar6",
-			"pillar/pillarv2",
-			"pillar/pillarv3",
-			"pillar/pillarv4"
+	public final TemplatePublic[] pillars = new TemplatePublic[] {
+			//readTemplateFromJar(new ResourceLocation(ModInformation.ID, "pillar/pillar2")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "pillar/pillar3")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "pillar/pillar4")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "pillar/pillar5")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "pillar/pillar6")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "pillar/pillar3")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "pillar/pillar4")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "pillar/pillar5")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "pillar/pillar6")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "pillar/pillarv2")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "pillar/pillarv3")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "pillar/pillarv4"))
 	};
 
 	public WorldGenPillars(float integrity) {
@@ -37,7 +38,7 @@ public class WorldGenPillars extends WorldGenStructureBase {
 
 	public boolean generate(World worldIn, Random rand, BlockPos position) {
 		TemplateManager templatemanager = ((WorldServer) worldIn).getStructureTemplateManager();
-		Template template = templatemanager.get(worldIn.getMinecraftServer(), new ResourceLocation(ModInformation.ID, pillars[rand.nextInt(pillars.length)]));
+		TemplatePublic template = pillars[rand.nextInt(pillars.length)];//templatemanager.get(worldIn.getMinecraftServer(), new ResourceLocation(ModInformation.ID, pillars[rand.nextInt(pillars.length)]));
 		//placementsettings.setMirror(Mirror.values()[rand.nextInt(Mirror.values().length)]);
 		placementsettings.setRotation(Rotation.values()[rand.nextInt(Rotation.values().length)]);
 

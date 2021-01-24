@@ -3,21 +3,22 @@ package com.axanthic.loi.worldgen.feature;
 import java.util.Random;
 
 import com.axanthic.loi.ModInformation;
+
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.structure.template.BlockRotationProcessor;
-import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
+import net.minecraft.world.gen.structure.template.TemplatePublic;
 
 public class WorldGenRuins extends WorldGenStructureBase {
 
 	BlockPos zero = new BlockPos(0, 0, 0);
 
-	public final String[] ruins = new String[] {
-			"temple"
+	public final TemplatePublic[] ruins = new TemplatePublic[] {
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "temple"))
 	};
 
 	public WorldGenRuins(float integrity) {
@@ -26,7 +27,7 @@ public class WorldGenRuins extends WorldGenStructureBase {
 
 	public boolean generate(World worldIn, Random rand, BlockPos position) {
 		TemplateManager templatemanager = ((WorldServer) worldIn).getStructureTemplateManager();
-		Template template = templatemanager.get(worldIn.getMinecraftServer(), new ResourceLocation(ModInformation.ID, ruins[rand.nextInt(ruins.length)]));
+		TemplatePublic template = ruins[rand.nextInt(ruins.length)];
 		//placementsettings.setMirror(Mirror.values()[rand.nextInt(Mirror.values().length)]);
 		placementsettings.setRotation(Rotation.values()[rand.nextInt(Rotation.values().length)]);
 

@@ -13,8 +13,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.structure.template.BlockRotationProcessor;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
-import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
+import net.minecraft.world.gen.structure.template.TemplatePublic;
 
 import java.util.Random;
 
@@ -189,14 +189,14 @@ public class TeleporterLOI extends Teleporter {
 		if (entity.dimension == LandsOfIcaria.dimensionId)
 			pos = pos.add(0, 40, 0);
 		TemplateManager templatemanager = ((WorldServer) world).getStructureTemplateManager();
-		Template template = templatemanager.get(world.getMinecraftServer(), new ResourceLocation(ModInformation.ID, getPortalForDimension(entity.dimension)));
+		TemplatePublic template = getPortalForDimension(entity.dimension, false);
 		if (entity.getHorizontalFacing().getAxis().equals(EnumFacing.Axis.Z))
 			placementsettings.setRotation(Rotation.CLOCKWISE_90);
 		BlockPos newPos = findPosition(world, pos, template);
 
 		if (newPos == null) {
 			newPos = pos;
-			template = templatemanager.get(world.getMinecraftServer(), new ResourceLocation(ModInformation.ID, getPortalForDimension(entity.dimension) + "_platform"));
+			template = getPortalForDimension(entity.dimension, true);
 		} else {
 			newPos = newPos.up();
 		}
@@ -204,13 +204,26 @@ public class TeleporterLOI extends Teleporter {
 		return true;
 	}
 
-	public static String getPortalForDimension(int dim) {
+	public static TemplatePublic[] portals = new TemplatePublic[] {
+			WorldGenStructureBase.readTemplateFromJar(new ResourceLocation(ModInformation.ID, "portal/portal_quartz")),
+			WorldGenStructureBase.readTemplateFromJar(new ResourceLocation(ModInformation.ID, "portal/portal_dolomite"))
+	};
+
+	public static TemplatePublic[] portalsPlatform = new TemplatePublic[] {
+			WorldGenStructureBase.readTemplateFromJar(new ResourceLocation(ModInformation.ID, "portal/portal_quartz_platform")),
+			WorldGenStructureBase.readTemplateFromJar(new ResourceLocation(ModInformation.ID, "portal/portal_dolomite_platform"))
+	};
+
+	public static TemplatePublic getPortalForDimension(int dim, boolean platform) {
+		TemplatePublic[] templates = portals;
+		if (platform)
+			templates = portalsPlatform;
 		if (dim == LandsOfIcaria.dimensionId)
-			return "portal/portal_dolomite";
-		return "portal/portal_quartz";
+			return templates[1];
+		return templates[1];
 	}
 
-	public static BlockPos findPosition(World world, BlockPos position, Template template) {
+	public static BlockPos findPosition(World world, BlockPos position, TemplatePublic template) {
 		BlockPos bestPos = null;
 		double distance = -1.0D;
 		boolean closeEnough = false;

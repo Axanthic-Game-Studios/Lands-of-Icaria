@@ -1,7 +1,7 @@
 package com.axanthic.loi.worldgen.feature;
 
-import java.lang.reflect.Field;
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Random;
 
 import javax.annotation.Nullable;
@@ -13,7 +13,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.nbt.CompressedStreamTools;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
@@ -22,6 +26,7 @@ import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraft.world.gen.structure.template.ITemplateProcessor;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
+import net.minecraft.world.gen.structure.template.TemplatePublic;
 
 public abstract class WorldGenStructureBase extends WorldGenerator {
 
@@ -31,23 +36,12 @@ public abstract class WorldGenStructureBase extends WorldGenerator {
 		placementsettings = new PlacementSettings().setIntegrity(integrity).setChunk((ChunkPos)null).setReplacedBlock((Block)null);
 	}
 
-	public static void addBlocksToWorldSilently(Template template, World worldIn, BlockPos pos, @Nullable ITemplateProcessor templateProcessor, PlacementSettings placementIn, Random rand, int flags) {
-		List<Template.BlockInfo> blocks = null;
-		try {
-			Field privateStringField;
-			privateStringField = Template.class.getDeclaredField("blocks");
-			privateStringField.setAccessible(true);
-			blocks = (List<Template.BlockInfo>) privateStringField.get(template);
-		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
-			e.printStackTrace();
-			return;
-		}
-
-		if (!blocks.isEmpty() && template.getSize().getX() >= 1 && template.getSize().getY() >= 1 && template.getSize().getZ() >= 1) {
+	public static void addBlocksToWorldSilently(TemplatePublic template, World worldIn, BlockPos pos, @Nullable ITemplateProcessor templateProcessor, PlacementSettings placementIn, Random rand, int flags) {
+		if (!template.blocks.isEmpty() && template.getSize().getX() >= 1 && template.getSize().getY() >= 1 && template.getSize().getZ() >= 1) {
 			Block block = placementIn.getReplacedBlock();
 			StructureBoundingBox structureboundingbox = placementIn.getBoundingBox();
 
-			for (Template.BlockInfo template$blockinfo : blocks) {
+			for (Template.BlockInfo template$blockinfo : template.blocks) {
 				BlockPos relativePos = template.transformedBlockPos(placementIn, template$blockinfo.pos);
 				BlockPos blockpos = relativePos.add(pos);
 				// Forge: skip processing blocks outside BB to prevent cascading worldgen issues
@@ -128,5 +122,26 @@ public abstract class WorldGenStructureBase extends WorldGenerator {
 			return tileStairs[type].getStateFromMeta(meta);
 		}
 		return state;
+	}
+
+	public static TemplatePublic readTemplateFromJar(ResourceLocation resource) {
+		try {
+			InputStream inputstream = MinecraftServer.class.getResourceAsStream("/assets/" + resource.getResourceDomain() + "/structures/" + resource.getResourcePath() + ".nbt");
+			return readTemplateFromStream(inputstream);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static TemplatePublic readTemplateFromStream(InputStream stream) throws IOException {
+		NBTTagCompound nbttagcompound = CompressedStreamTools.readCompressed(stream);
+
+		if (!nbttagcompound.hasKey("DataVersion", 99)) {
+			nbttagcompound.setInteger("DataVersion", 500);
+		}
+		TemplatePublic template = new TemplatePublic();
+		template.read(nbttagcompound);
+		return template;
 	}
 }

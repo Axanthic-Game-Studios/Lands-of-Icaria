@@ -1,6 +1,5 @@
 package com.axanthic.loi.worldgen.feature;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -40,6 +39,7 @@ import net.minecraft.world.gen.structure.template.ITemplateProcessor;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
+import net.minecraft.world.gen.structure.template.TemplatePublic;
 
 public class WorldGenVillage extends WorldGenStructureBase {
 
@@ -51,43 +51,48 @@ public class WorldGenVillage extends WorldGenStructureBase {
 	public static int spawnerChance = 9;
 	public static int breakingChance = 20;
 
-	public final String[] ruins = new String[] {
-			"village/house_0",
-			"village/house_1",
-			"village/house_2",
-			"village/house_3",
-			"village/house_4",
-			"village/house_5",
-			"village/house_6",
-			"village/house_7",
-			"village/house_8",
-			"village/house_9",
-			"village/house_10",
-			"village/house_11",
-			"village/house_12",
-			"village/house_13",
-			"village/house_14",
-			"village/house_15",
-			"village/house_16",
-			"village/house_17",
-			"village/house_18",
-			"village/house_19",
-			"village/house_20",
-			"village/bakery_0",
-			"village/bakery_1",
-			"village/blacksmith_0",
-			"village/blacksmith_1",
-			"village/greenhouse_0",
-			"village/greenhouse_1",
-			"village/greenhouse_2",
-			"village/lumberjack_0",
-			"village/lumberjack_1",
-			"village/lumberjack_2",
-			"village/lumberjack_3",
-			"village/mason_0",
-			"village/mason_1",
-			"village/pottery_0",
-			"village/pottery_1"
+	public final TemplatePublic[] ruins = new TemplatePublic[] {
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_0")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_1")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_2")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_3")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_4")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_5")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_6")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_7")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_8")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_9")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_10")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_11")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_12")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_13")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_14")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_15")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_16")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_17")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_18")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_19")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_20")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/bakery_0")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/bakery_1")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/blacksmith_0")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/blacksmith_1")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/greenhouse_0")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/greenhouse_1")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/greenhouse_2")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/lumberjack_0")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/lumberjack_1")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/lumberjack_2")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/lumberjack_3")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/mason_0")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/mason_1")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/pottery_0")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/pottery_1"))
+	};
+
+	public final TemplatePublic[] wells = new TemplatePublic[] {
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/well_0")),
+			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/well_1"))
 	};
 
 	public final static String[] spawners = new String[] {
@@ -173,7 +178,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 
 	public boolean placeWell(World worldIn, Random rand, BlockPos position, ChunkPos chunk, int type, boolean damaged, boolean ruined) {
 		TemplateManager templatemanager = ((WorldServer) worldIn).getStructureTemplateManager();
-		Template template = templatemanager.get(worldIn.getMinecraftServer(), new ResourceLocation(ModInformation.ID, "village/well_" + type));
+		TemplatePublic template = wells[type];
 		//placementsettings.setMirror(Mirror.values()[rand.nextInt(Mirror.values().length)]);
 		//placementsettings.setRotation(Rotation.values()[rand.nextInt(Rotation.values().length)]);
 
@@ -206,7 +211,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 
 	public boolean placeHouse(World worldIn, Random rand, BlockPos position, ChunkPos chunk, boolean damaged, boolean ruined) {
 		TemplateManager templatemanager = ((WorldServer) worldIn).getStructureTemplateManager();
-		Template template = templatemanager.get(worldIn.getMinecraftServer(), new ResourceLocation(ModInformation.ID, ruins[rand.nextInt(ruins.length)]));
+		TemplatePublic template = ruins[rand.nextInt(ruins.length)];
 		placementsettings.setMirror(Mirror.values()[rand.nextInt(Mirror.values().length)]);
 		placementsettings.setRotation(Rotation.values()[rand.nextInt(Rotation.values().length)]);
 
@@ -267,7 +272,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		return position.getX() > chunk.getXEnd() + margin || position.getX() < chunk.getXStart() - margin || position.getZ() > chunk.getZEnd() + margin || position.getZ() < chunk.getZStart() - margin;
 	}
 
-	public boolean canPlaceHouseHere(World worldIn, Random rand, BlockPos position, ChunkPos chunk, Template template) {
+	public boolean canPlaceHouseHere(World worldIn, Random rand, BlockPos position, ChunkPos chunk, TemplatePublic template) {
 		for (BlockPos basePos : BlockPos.getAllInBox(zero, zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) { //check the ground under the house
 			BlockPos pos = template.transformedBlockPos(placementsettings, basePos).add(position);
 			if (!worldIn.isBlockFullCube(pos.down()))
@@ -300,24 +305,13 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		return true;
 	}
 
-	public static void addBlocksToWorldSilently(Template template, World worldIn, BlockPos position, @Nullable ITemplateProcessor templateProcessor, PlacementSettings placementIn, Random rand, ChunkPos chunk, int flags, int YOffset, boolean damaged, boolean ruined, boolean webbed) {
-		List<Template.BlockInfo> blocks = null;
-		try {
-			Field privateStringField;
-			privateStringField = Template.class.getDeclaredField("blocks");
-			privateStringField.setAccessible(true);
-			blocks = (List<Template.BlockInfo>) privateStringField.get(template);
-		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
-			e.printStackTrace();
-			return;
-		}
-
+	public static void addBlocksToWorldSilently(TemplatePublic template, World worldIn, BlockPos position, @Nullable ITemplateProcessor templateProcessor, PlacementSettings placementIn, Random rand, ChunkPos chunk, int flags, int YOffset, boolean damaged, boolean ruined, boolean webbed) {
 		//this is for later
 		BlockPos doorLocation = null;
 
 		List brokenCoords = new ArrayList<String>();
 
-		if (!blocks.isEmpty() && template.getSize().getX() >= 1 && template.getSize().getY() >= 1 && template.getSize().getZ() >= 1) {
+		if (!template.blocks.isEmpty() && template.getSize().getX() >= 1 && template.getSize().getY() >= 1 && template.getSize().getZ() >= 1) {
 			Block block = placementIn.getReplacedBlock();
 			StructureBoundingBox structureboundingbox = placementIn.getBoundingBox();
 
@@ -331,7 +325,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 				maxSpawners = 1;
 			Long seed = rand.nextLong();
 
-			for (Template.BlockInfo template$blockinfo : blocks) {
+			for (Template.BlockInfo template$blockinfo : template.blocks) {
 				BlockPos relativePos = template.transformedBlockPos(placementIn, template$blockinfo.pos);
 				BlockPos blockpos = relativePos.add(position);
 
@@ -421,7 +415,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 				}
 			}
 			if (damaged)
-				for (Template.BlockInfo template$blockinfo : blocks) {
+				for (Template.BlockInfo template$blockinfo : template.blocks) {
 					BlockPos relativePos = template.transformedBlockPos(placementIn, template$blockinfo.pos);
 					BlockPos blockpos = relativePos.add(position);
 					boolean safe = true;
@@ -443,7 +437,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 						worldIn.setBlockToAir(blockpos);
 				}
 			if (webbed)
-				for (Template.BlockInfo template$blockinfo : blocks) {
+				for (Template.BlockInfo template$blockinfo : template.blocks) {
 					BlockPos relativePos = template.transformedBlockPos(placementIn, template$blockinfo.pos);
 					BlockPos blockpos = relativePos.add(position);
 					if (worldIn.getBlockState(blockpos).isFullCube())
