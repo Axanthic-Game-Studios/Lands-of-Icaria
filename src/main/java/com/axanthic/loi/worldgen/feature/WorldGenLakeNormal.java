@@ -62,6 +62,10 @@ public class WorldGenLakeNormal extends WorldGenerator {
 						if (flag) {
 							Material material = worldIn.getBlockState(position.add(k1, k, l2)).getMaterial();
 
+							if (material.equals(Material.ROCK)) {
+								return false;
+							}
+
 							if (k >= 4 && material.isLiquid()) {
 								return false;
 							}
