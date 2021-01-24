@@ -453,7 +453,14 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		//place a foundation where needed
 		for (BlockPos basePos : BlockPos.getAllInBox(zero, zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) { //check the ground under the house
 			BlockPos pos = template.transformedBlockPos(placementIn, basePos).add(position);
-			
+			if (worldIn.isAirBlock(pos)) {
+				for (BlockPos heightPos : BlockPos.getAllInBox(pos, pos.up(template.getSize().getY() - 1))) {
+					if (worldIn.getBlockState(heightPos).getMaterial().equals(Material.ROCK)) {
+						worldIn.setBlockState(pos, Resources.grainelStone.getBlock().getDefaultState(), flags);
+						break;
+					}
+				}
+			}
 		}
 		//place a path to the door of the the house
 		if (doorLocation == null)
