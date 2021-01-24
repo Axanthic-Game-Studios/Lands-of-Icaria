@@ -456,8 +456,8 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		for (BlockPos basePos : BlockPos.getAllInBox(zero, zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) { //check the ground under the house
 			BlockPos pos = template.transformedBlockPos(placementIn, basePos).add(position);
 			if (worldIn.isAirBlock(pos)) {
-				for (BlockPos heightPos : BlockPos.getAllInBox(pos, pos.up(template.getSize().getY() - 1))) {
-					if (worldIn.getBlockState(heightPos).getMaterial().equals(Material.ROCK)) {
+				for (BlockPos heightPos : BlockPos.getAllInBox(pos.up(), pos.up(template.getSize().getY() - 1))) {
+					if (!worldIn.isAirBlock(pos)) {
 						worldIn.setBlockState(pos, Resources.grainelStone.getBlock().getDefaultState(), flags);
 						break;
 					}

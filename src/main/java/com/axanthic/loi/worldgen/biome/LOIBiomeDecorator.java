@@ -93,11 +93,13 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Pre(worldIn, random, forgeChunkPos));
 
 			this.generateAristone(worldIn, random, biome, pos);
-			this.generateLakes(worldIn, random, biome, pos);
+			this.generateCrystals(worldIn, random, biome, pos);
+			this.generateVillages(worldIn, random, biome, forgeChunkPos);
+			this.generateRuins(worldIn, random, biome, pos);
 			this.generateBoulders(worldIn, random, biome, pos);
 			this.generateSpikes(worldIn, random, biome, pos);
-			this.generateRuins(worldIn, random, biome, pos);
-			this.generateVillages(worldIn, random, biome, forgeChunkPos);
+			this.generateLakes(worldIn, random, biome, pos);
+			this.generateTrees(worldIn, random, biome, pos);
 			this.generateFlowers(worldIn, random, biome, pos);
 			this.generateMushrooms(worldIn, random, biome, pos);
 			this.generateTwigs(worldIn, random, biome, pos);
@@ -105,9 +107,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			this.generateExtraRubble(worldIn, random, biome, pos);
 			this.generateGrass(worldIn, random, biome, pos);
 			this.generateCactus(worldIn, random, biome, pos);
-			this.generateTrees(worldIn, random, biome, pos);
 			this.generateVines(worldIn, random, biome, pos);
-			this.generateCrystals(worldIn, random, biome, pos);
 
 			this.decorating = false;
 		}
