@@ -17,6 +17,7 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
@@ -59,6 +60,8 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 		EnumFacing offset = (EnumFacing) state.getValue(FACING);
 		if (unlocalizedName.equals("calcite"))
 			return new TileEntityColoredLight(1.0F * 0.5F, 0.714F * 0.5F, 0.557F * 0.5F).setOffset(offset);
+		if (unlocalizedName.equals("halite"))
+			return new TileEntityColoredLight(0.565F * 0.5F, 1.0F * 0.5F, 0.757F * 0.5F).setOffset(offset);
 		if (unlocalizedName.equals("jasper"))
 			return new TileEntityColoredLight(1.0F * 0.5F, 0.318F * 0.5F, 0.396F * 0.5F).setOffset(offset);
 		if (unlocalizedName.equals("zircon"))
@@ -113,17 +116,22 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 		return ItemResources.ResourceType.byName(unlocalizedName).toMeta();
 	}
 
+	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+		return this.getDefaultState().withProperty(FACING, facing);
+	}
+
 	@Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
 		for (EnumFacing enumfacing : FACING.getAllowedValues()) {
-			if (this.canPlaceAt(worldIn, pos, enumfacing)) {
+			if (this.canPlaceBlockOnSide(worldIn, pos, enumfacing)) {
 				return true;
 			}
 		}
 		return false;
 	}
 
-	public boolean canPlaceAt(World worldIn, BlockPos pos, EnumFacing facing) {
+	@Override
+	public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing facing) {
 		BlockPos blockpos = pos.offset(facing.getOpposite());
 		IBlockState iblockstate = worldIn.getBlockState(blockpos);
 		Block block = iblockstate.getBlock();
@@ -143,7 +151,7 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 	}
 
 	public boolean checkForDrop(World worldIn, BlockPos pos, IBlockState state) {
-		if (state.getBlock() == this && this.canPlaceAt(worldIn, pos, (EnumFacing)state.getValue(FACING))) {
+		if (state.getBlock() == this && this.canPlaceBlockOnSide(worldIn, pos, (EnumFacing)state.getValue(FACING))) {
 			return true;
 		}
 		if (worldIn.getBlockState(pos).getBlock() == this) {

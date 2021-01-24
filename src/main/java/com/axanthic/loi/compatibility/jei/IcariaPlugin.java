@@ -1,6 +1,8 @@
 package com.axanthic.loi.compatibility.jei;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.Resources;
@@ -17,8 +19,10 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 @JEIPlugin
 public class IcariaPlugin implements IModPlugin {
@@ -27,6 +31,13 @@ public class IcariaPlugin implements IModPlugin {
 	public void register(IModRegistry registry) {
 		if (!LOIConfig.compat.jei)
 			return;
+
+		registry.getJeiHelpers().getIngredientBlacklist().addIngredientToBlacklist(new ItemStack(Resources.renderAddon, 1, OreDictionary.WILDCARD_VALUE));
+		registry.getJeiHelpers().getIngredientBlacklist().addIngredientToBlacklist(new ItemStack(Resources.saltedFood, 1, OreDictionary.WILDCARD_VALUE));
+
+		List<IRecipeWrapper> saltRecipe = new ArrayList<IRecipeWrapper>();
+		saltRecipe.add(new SaltRecipeWrapper());
+		registry.addRecipes(saltRecipe, VanillaRecipeCategoryUid.CRAFTING);
 
 		registry.handleRecipes(GrinderRecipe.class, GrinderRecipeWrapper::new, "landsoficaria.grinding");
 		registry.handleRecipes(GrinderFuel.class, GrinderFuelWrapper::new, "landsoficaria.grindfuel");

@@ -147,9 +147,10 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityWhipSpider.class, RenderWhipSpider::new);
 
 		emissiveTextures.put("calcite", new String[]{ ModInformation.ID + ":blocks/gem_calcite_model" });
+		emissiveTextures.put("halite", new String[]{ ModInformation.ID + ":blocks/gem_halite_model" });
 		emissiveTextures.put("jasper", new String[]{ ModInformation.ID + ":blocks/gem_jasper_model" });
 		emissiveTextures.put("zircon", new String[]{ ModInformation.ID + ":blocks/gem_zircon_model" });
-		emissiveTextures.put("block_gem", new String[]{ ModInformation.ID + ":blocks/mineral_calcite_block", ModInformation.ID + ":blocks/mineral_jasper_block", ModInformation.ID + ":blocks/mineral_zircon_block" });
+		emissiveTextures.put("block_gem", new String[]{ ModInformation.ID + ":blocks/mineral_calcite_block", ModInformation.ID + ":blocks/mineral_halite_block", ModInformation.ID + ":blocks/mineral_jasper_block", ModInformation.ID + ":blocks/mineral_zircon_block" });
 		emissiveTextures.put("block_metal", new String[]{ ModInformation.ID + ":blocks/metal_bluridium_block" });
 		emissiveTextures.put("ore", new String[]{ ModInformation.ID + ":blocks/rock_baetyl_ore_bluridium_overlay" });
 		emissiveTextures.put("icaria_portal", new String[]{ ModInformation.ID + ":blocks/icaria_portal" });
@@ -249,6 +250,7 @@ public class ClientProxy extends CommonProxy {
 		}
 
 		//register special item renderers here
+		Resources.saltedFood.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.grinder.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadRevenant.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadArachne.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
@@ -278,6 +280,9 @@ public class ClientProxy extends CommonProxy {
 			}
 			if (resource.getResourceDomain().equals(ModInformation.ID) && resource.getResourcePath().contains("spell_scroll")) {
 				event.getModelRegistry().putObject(resource, new BakedModelScroll(event.getModelRegistry().getObject(resource)));
+			}
+			if (resource.getResourceDomain().equals(ModInformation.ID) && resource.getResourcePath().contains("salted_food")) {
+				event.getModelRegistry().putObject(resource, new BakedModelBuiltInParticle(event.getModelRegistry().getObject(resource), Minecraft.getMinecraft().getTextureMapBlocks().registerSprite(new ResourceLocation(ModInformation.ID, "items/mineral_halite_powder"))));
 			}
 		}
 		modelManager = event.getModelManager();

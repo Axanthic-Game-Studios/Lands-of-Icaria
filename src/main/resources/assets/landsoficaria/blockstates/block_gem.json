@@ -12,6 +12,7 @@
 	"variants": {
 		"type": {
 			"calcite": { "textures": { "all": "landsoficaria:blocks/mineral_calcite_block" } },
+			"halite": { "textures": { "all": "landsoficaria:blocks/mineral_halite_block" } },
 			"jasper": { "textures": { "all": "landsoficaria:blocks/mineral_jasper_block" } },
 			"zircon": { "textures": { "all": "landsoficaria:blocks/mineral_zircon_block" } }
 		}

@@ -33,7 +33,7 @@ public class ItemResources extends ItemMeta {
 		DOLOMITE("dolomite", true),
 		ANTHRACITE("anthracite", true, 3200),
 		ABYSSAL_ESSENCE("abyssal_essence", true),
-		HALITE_POWDER("halite_powder"),
+		HALITE("halite", true),
 		CALCITE("calcite", true),
 		JASPER("jasper", true),
 		ZIRCON("zircon", true),
@@ -55,7 +55,8 @@ public class ItemResources extends ItemMeta {
 		FLOUR("flour"),
 		ARACHNE_STRING("arachne_string"),
 		PLANT_FIBER("plant_fiber"),
-		JELLYFISH_JELLY("jellyfish_jelly");
+		JELLYFISH_JELLY("jellyfish_jelly"),
+		HALITE_POWDER("halite_powder");
 		
 		public static final ResourceType[] values = ResourceType.values();
 		public static final int length = values.length;

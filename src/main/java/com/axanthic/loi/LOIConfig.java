@@ -81,7 +81,7 @@ public class LOIConfig {
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.bluridium")
 		public OreSettings bluridium = new OreSettings(false, -0.71D, -0.7D, 0.5D, 4000);
-		
+
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.rottenbones")
 		public OreSettings rottenBones = new OreSettings(true, -0.71D, -0.7D, 0.5D, 0500);
@@ -179,5 +179,36 @@ public class LOIConfig {
 
 		@LangKey("loi.config.hud.indicator.lockonduration")
 		public int indicatorLockOnDuration = 100;
+	}
+
+	@Name("misc")
+	@LangKey("loi.config.misc")
+	@Comment("Miscellaneous Settings")
+	public static CategoryMisc misc = new CategoryMisc();
+
+	public static class CategoryMisc {
+
+		@RequiresMcRestart
+		@LangKey("loi.config.misc.salt.iswhitelist")
+		public Boolean saltListIsWhite = false;
+
+		@RequiresMcRestart
+		@LangKey("loi.config.misc.salt.blacklist")
+		public String[] saltBlacklist = new String[] {
+				"minecraft:apple:0",
+				"minecraft:golden_apple:0",
+				"minecraft:golden_apple:1",
+				"minecraft:cookie:0",
+				"minecraft:melon:0",
+				"landsoficaria:food:2",
+				"landsoficaria:food:3",
+				"landsoficaria:food:4",
+				"landsoficaria:stew:0",
+				"landsoficaria:stew:1",
+				"landsoficaria:stew:2",
+				"landsoficaria:stew:3",
+				"landsoficaria:stew:4",
+				"landsoficaria:stew:5"
+		};
 	}
 }

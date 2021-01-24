@@ -39,6 +39,7 @@ item.food.spelt_bread.name=Spelt Bread
 item.food.garlic.name=Garlic
 item.food.cerver_meat.name=Raw Cerver Meat
 item.food.cerver_meat_cooked.name=Cooked Cerver Meat
+item.salted_food.name=Salted %s
 item.stew.fruit_salad.name=Fruit Salad
 item.stew.aeternae.name=Aeternae Stew
 item.stew.cerver.name=Cerver Stew
@@ -270,6 +271,7 @@ material.hyliastrum.name=Hyliastrum
 
 material.lignite.name=Lignite
 material.calcite.name=Calcite
+material.halite.name=Halite
 material.dolomite.name=Dolomite
 material.anthracite.name=Anthracite
 material.jasper.name=Jasper

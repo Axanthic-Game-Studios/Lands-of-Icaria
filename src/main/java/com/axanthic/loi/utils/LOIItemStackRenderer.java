@@ -1,9 +1,11 @@
 package com.axanthic.loi.utils;
 
 import com.axanthic.loi.ModInformation;
+import com.axanthic.loi.Resources;
 import com.axanthic.loi.blocks.BlockGrinder;
 import com.axanthic.loi.blocks.BlockMobHead;
 import com.axanthic.loi.items.ItemBlockMobHead;
+import com.axanthic.loi.items.ItemSaltedFood;
 import com.axanthic.loi.items.ItemScroll;
 import com.axanthic.loi.render.BakedModelScroll;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererGrinder;
@@ -38,6 +40,7 @@ public class LOIItemStackRenderer extends TileEntityItemStackRenderer {
 
 	public static LOIItemStackRenderer LOIInstance;
 	private static final ResourceLocation RES_SCROLL_BACKGROUND = new ResourceLocation(ModInformation.ID, "textures/gui/scroll_background.png");
+	public static ItemStack saltOverlay = new ItemStack(Resources.renderAddon, 1, 5);
 
 	public void renderByItem(ItemStack stack, float partialTicks) {
 		Item item = stack.getItem();
@@ -50,6 +53,18 @@ public class LOIItemStackRenderer extends TileEntityItemStackRenderer {
 				GlStateManager.enableCull();
 				GlStateManager.popMatrix();
 			}
+		}
+
+		if (item instanceof ItemSaltedFood) {
+			GlStateManager.pushMatrix();
+            GlStateManager.translate(0.5F, 0.5F, 0.5F);
+			if (stack.hasTagCompound()) {
+				ItemStack foodStack = ItemSaltedFood.getContainedItem(stack.getTagCompound());
+				if (!foodStack.isEmpty())
+					Minecraft.getMinecraft().getRenderItem().renderItem(foodStack, ItemCameraTransforms.TransformType.NONE);
+			}
+			Minecraft.getMinecraft().getRenderItem().renderItem(saltOverlay, ItemCameraTransforms.TransformType.NONE);
+			GlStateManager.popMatrix();
 		}
 
 		if (item instanceof ItemBlock && ((ItemBlock) item).getBlock() instanceof BlockGrinder) {

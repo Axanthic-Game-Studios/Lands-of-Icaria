@@ -12,9 +12,9 @@
 			"dolomite": { "textures": { "layer0": "landsoficaria:items/mineral_dolomite" } },
 			"anthracite": { "textures": { "layer0": "landsoficaria:items/mineral_anthracite" } },
 			"abyssal_essence": { "textures": { "layer0": "landsoficaria:items/mineral_abyssalessence" } },
-			"halite_powder": { "textures": { "layer0": "landsoficaria:items/mineral_halite_powder" } },
-			"calcite": { "textures": { "layer0": "landsoficaria:items/mineral_calcite" } },
-			"jasper": { "textures": { "layer0": "landsoficaria:items/mineral_jasper" } },
+			"halite": { "textures": { "layer0": "landsoficaria:items/mineral_halite_gem" } },
+			"calcite": { "textures": { "layer0": "landsoficaria:items/mineral_calcite_gem" } },
+			"jasper": { "textures": { "layer0": "landsoficaria:items/mineral_jasper_gem" } },
 			"zircon": { "textures": { "layer0": "landsoficaria:items/mineral_zircon_gem" } },
 			"calcite_powder": { "textures": { "layer0": "landsoficaria:items/mineral_calcite_powder" } },
 			"loam_lump": { "textures": { "layer0": "landsoficaria:items/soil_loam_lump" } },
@@ -34,7 +34,8 @@
 			"flour": { "textures": { "layer0": "landsoficaria:items/food_grain_spelt_flour" } },
 			"arachne_string": { "textures": { "layer0": "landsoficaria:items/loot_arachne_string" } },
 			"plant_fiber": { "textures": { "layer0": "landsoficaria:items/loot_plant_fiber" } },
-			"jellyfish_jelly": { "textures": { "layer0": "landsoficaria:items/loot_jelly" } }
+			"jellyfish_jelly": { "textures": { "layer0": "landsoficaria:items/loot_jelly" } },
+			"halite_powder": { "textures": { "layer0": "landsoficaria:items/mineral_halite_powder" } }
 		}
 	}
 }

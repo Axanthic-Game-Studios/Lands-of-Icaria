@@ -24,6 +24,7 @@ import com.axanthic.loi.utils.GrinderRecipe;
 import com.axanthic.loi.utils.KettleRecipe;
 import com.axanthic.loi.utils.KettleRecipeExplosion;
 import com.axanthic.loi.utils.KettleRecipeSpawnMob;
+import com.axanthic.loi.utils.RecipeSalt;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -38,6 +39,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.OreIngredient;
+import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.registries.IForgeRegistryModifiable;
 
 public class Recipes {
@@ -48,6 +50,7 @@ public class Recipes {
 		addForgeRecipe("molybdenumsteel", new ItemStack(Resources.ingot, 2, 9), 0.6F, new OreIngredient("ingotSideros"), new OreIngredient("ingotMolybdenum"), new OreIngredient("gemAnthracite"));
 
 		addGrinderRecipe("calcite_powder", new ItemStack(Resources.resource, 4, ItemResources.ResourceType.CALCITE_POWDER.toMeta()), 0.1F, new OreIngredient("gemCalcite"));
+		addGrinderRecipe("rock_salt", new ItemStack(Resources.resource, 4, ItemResources.ResourceType.HALITE_POWDER.toMeta()), 0.1F, new OreIngredient("gemHalite"));
 		addGrinderRecipe("spelt_flour", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.FLOUR.toMeta()), 0.1F, new OreIngredient("cropSpelt"));
 		addGrinderRecipe("grainel_stone", new ItemStack(Resources.grainelStone), 0.1F, Ingredient.fromStacks(new ItemStack(Resources.grainelStone, 1, 1), new ItemStack(Resources.grainelStone, 1, 2)));
 		addGrinderRecipe("grainel", new ItemStack(Resources.grainelSand), 0.1F, new ItemStack(Resources.grainelStone));
@@ -116,11 +119,15 @@ public class Recipes {
 		addRecipe(new ItemStack(Resources.food, 1, ItemFoods.FoodType.SPELT_BREAD.toMeta()), "spelt_bread", new Object[]{"SSS", 'S', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.SPELT.toMeta())});
 		addRecipe(new ItemStack(Resources.strawberryCake), "strawberry_cake", new Object[]{"SMS", "UJU", "FFF", 'S', new ItemStack(Resources.food, 1, ItemFoods.FoodType.STRAWBERRY.toMeta()), 'M', new ItemStack(Items.MILK_BUCKET), 'U', new ItemStack(Items.SUGAR), 'J', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.JELLYFISH_JELLY.toMeta()), 'F', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.FLOUR.toMeta())});
 		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.FRUIT_SALAD.toMeta()), "fruit_salad", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.STRAWBERRY.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.PHYSALIS.toMeta())), Ingredient.fromStacks(new ItemStack(Items.DYE, 1, 3)), Ingredient.fromStacks(new ItemStack(Items.MELON)), Ingredient.fromStacks(new ItemStack(Items.GOLDEN_APPLE)), Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta())), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
-		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.AETERNAE.toMeta()), "aeternae_stew", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.AETERNAE_MEAT_COOKED.toMeta())), Ingredient.fromStacks(new ItemStack(Items.BEETROOT)), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
-		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.CERVER.toMeta()), "cerver_stew", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.CERVER_MEAT_COOKED.toMeta())), Ingredient.fromStacks(new ItemStack(Items.CARROT)), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
-		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.SOW.toMeta()), "sow_stew", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.SOW_MEAT_COOKED.toMeta())), new OreIngredient("mushroom"), new OreIngredient("mushroom"), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
-		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.ONION.toMeta()), "onion_soup", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.onion)), Ingredient.fromStacks(new ItemStack(Resources.onion)), Ingredient.fromStacks(new ItemStack(Resources.onion)), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
-		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.CATOBLEPAS.toMeta()), "catoblepas_stew", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.CATOBLEPAS_MEAT_COOKED.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.onion)), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
+		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.AETERNAE.toMeta()), "aeternae_stew", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.AETERNAE_MEAT_COOKED.toMeta())), Ingredient.fromStacks(new ItemStack(Items.BEETROOT)), new OreIngredient("dustSalt"), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
+		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.CERVER.toMeta()), "cerver_stew", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.CERVER_MEAT_COOKED.toMeta())), Ingredient.fromStacks(new ItemStack(Items.CARROT)), new OreIngredient("dustSalt"), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
+		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.SOW.toMeta()), "sow_stew", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.SOW_MEAT_COOKED.toMeta())), new OreIngredient("mushroom"), new OreIngredient("mushroom"), new OreIngredient("dustSalt"), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
+		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.ONION.toMeta()), "onion_soup", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.onion)), Ingredient.fromStacks(new ItemStack(Resources.onion)), Ingredient.fromStacks(new ItemStack(Resources.onion)), new OreIngredient("dustSalt"), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
+		addShapelessRecipe(new ItemStack(Resources.stew, 1, ItemStews.StewType.CATOBLEPAS.toMeta()), "catoblepas_stew", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.CATOBLEPAS_MEAT_COOKED.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.onion)), new OreIngredient("dustSalt"), Ingredient.fromStacks(new ItemStack(Items.BOWL))});
+
+		RecipeSalt.initBlacklist();
+		RecipeSorter.register(ModInformation.ID + ":recipe_food_salting", RecipeSalt.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
+		GameRegistry.findRegistry(IRecipe.class).register(new RecipeSalt().setRegistryName(new ResourceLocation(ModInformation.ID, "recipe_food_salting")));
 
 		addShapelessRecipe(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.BLUE_DYE.toMeta()), "ground_flower_dye_blue", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.blueGroundFlowers, 1, 0))});
 		addShapelessRecipe(new ItemStack(Items.DYE, 1, 12), "ground_flower_dye_cyan", "ground_flower_dye", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.cyanGroundFlowers, 1, 0))});
@@ -337,17 +344,17 @@ public class Recipes {
 		//automatic grinder recipes
 		for (String name : OreDictionary.getOreNames()) {
 			if (name.startsWith("ingot"))
-				if (OreDictionary.doesOreNameExist(name.replace("ingot", "dust"))) {
+				if (OreDictionary.getOres(name.replace("ingot", "dust")).size() > 0 && OreDictionary.getOres(name).size() > 0) {
 					addGrinderRecipe(name.toLowerCase() + "_dust", OreDictionary.getOres(name.replace("ingot", "dust")).get(0).copy(), 0.1F, new OreIngredient(name));
 					continue;
 				}
-			if (name.startsWith("gem") && !(name.equals("gemCalcite") || name.equals("gemZircon")))
-				if (OreDictionary.doesOreNameExist(name.replace("gem", "dust"))) {
+			if (name.startsWith("gem") && !(name.equals("gemCalcite") || name.equals("gemHalite")))
+				if (OreDictionary.getOres(name.replace("gem", "dust")).size() > 0 && OreDictionary.getOres(name).size() > 0) {
 					addGrinderRecipe(name.toLowerCase() + "_dust", OreDictionary.getOres(name.replace("gem", "dust")).get(0).copy(), 0.1F, new OreIngredient(name));
 					continue;
 				}
 			if (name.startsWith("ore"))
-				if (OreDictionary.doesOreNameExist(name.replace("ore", "dust"))) {
+				if (OreDictionary.getOres(name.replace("ore", "dust")).size() > 0 && OreDictionary.getOres(name).size() > 0) {
 					ItemStack returnstack = OreDictionary.getOres(name.replace("ore", "dust")).get(0).copy();
 					returnstack.setCount(2);
 					addGrinderRecipe(name.toLowerCase() + "_dust", returnstack, 0.2F, new OreIngredient(name));
@@ -564,7 +571,7 @@ public class Recipes {
 		OreDictionary.registerOre("gemAnthracite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ANTHRACITE.toMeta()));
 		OreDictionary.registerOre("fuelAnthracite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ANTHRACITE.toMeta()));
 		OreDictionary.registerOre("dustAbyssalEssence", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ABYSSAL_ESSENCE.toMeta()));
-		OreDictionary.registerOre("dustSmallSalt", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.HALITE_POWDER.toMeta()));
+		OreDictionary.registerOre("gemHalite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.HALITE.toMeta()));
 		OreDictionary.registerOre("gemCalcite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE.toMeta()));
 		OreDictionary.registerOre("gemJasper", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.JASPER.toMeta()));
 		OreDictionary.registerOre("gemZircon", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ZIRCON.toMeta()));
@@ -584,6 +591,8 @@ public class Recipes {
 		OreDictionary.registerOre("dyeWhite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.WHITE_DYE.toMeta()));
 		OreDictionary.registerOre("sugarcane", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.VINEREEDS.toMeta()));
 		OreDictionary.registerOre("cropSpelt", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.SPELT.toMeta()));
+		OreDictionary.registerOre("dustSmallHalite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.HALITE_POWDER.toMeta()));
+		OreDictionary.registerOre("dustSalt", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.HALITE_POWDER.toMeta()));
 
 		OreDictionary.registerOre("cropOlive", new ItemStack(Resources.food, 1, ItemFoods.FoodType.OLIVE_GREEN.toMeta()));
 		OreDictionary.registerOre("cropOlive", new ItemStack(Resources.food, 1, ItemFoods.FoodType.OLIVE_BLACK.toMeta()));
@@ -598,6 +607,10 @@ public class Recipes {
 		OreDictionary.registerOre("blockClay", new ItemStack(Resources.soil, 1, 2));
 		OreDictionary.registerOre("sand", new ItemStack(Resources.silkstoneSand, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("blockSand", new ItemStack(Resources.silkstoneSand, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("blockGlass", new ItemStack(Resources.silkstoneGlass, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("paneGlass", new ItemStack(Resources.silkstoneGlassPane, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("paneGlass", new ItemStack(Resources.silkstoneGlassStraightPane, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("paneGlass", new ItemStack(Resources.silkstoneGlassHorizontalPane, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("sand", new ItemStack(Resources.grainelSand, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("blockSand", new ItemStack(Resources.grainelSand, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("sandstone", new ItemStack(Resources.grainelStone, 1, OreDictionary.WILDCARD_VALUE));
@@ -610,9 +623,10 @@ public class Recipes {
 		OreDictionary.registerOre("blockStone", new ItemStack(Resources.relicstone, 1, 0));
 
 		OreDictionary.registerOre("blockDolomite", new ItemStack(Resources.dolomiteSmooth, 1, OreDictionary.WILDCARD_VALUE));
-		OreDictionary.registerOre("blockCalcite", new ItemStack(Resources.gemBlock, 1, 0));
-		OreDictionary.registerOre("blockJasper", new ItemStack(Resources.gemBlock, 1, 1));
-		OreDictionary.registerOre("blockZircon", new ItemStack(Resources.gemBlock, 1, 2));
+		OreDictionary.registerOre("blockCalcite", new ItemStack(Resources.gemBlock, 1, BlockStorageGem.GemTypes.CALCITE.getMeta()));
+		OreDictionary.registerOre("blockHalite", new ItemStack(Resources.gemBlock, 1, BlockStorageGem.GemTypes.HALITE.getMeta()));
+		OreDictionary.registerOre("blockJasper", new ItemStack(Resources.gemBlock, 1, BlockStorageGem.GemTypes.JASPER.getMeta()));
+		OreDictionary.registerOre("blockZircon", new ItemStack(Resources.gemBlock, 1, BlockStorageGem.GemTypes.ZIRCON.getMeta()));
 
 		OreDictionary.registerOre("vine", new ItemStack(Resources.vineBloomy, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("vine", new ItemStack(Resources.vineBranch, 1, OreDictionary.WILDCARD_VALUE));

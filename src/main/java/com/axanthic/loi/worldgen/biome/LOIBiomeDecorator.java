@@ -650,10 +650,10 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 
 	public static IBlockState[][] crystalTiers = new IBlockState[][] {
 		new IBlockState[] {Resources.calcite.getBlock().getDefaultState()},
-		new IBlockState[] {Resources.calcite.getBlock().getDefaultState()},
-		new IBlockState[] {Resources.calcite.getBlock().getDefaultState()},
-		new IBlockState[] {Resources.calcite.getBlock().getDefaultState(), Resources.jasper.getBlock().getDefaultState()},
-		new IBlockState[] {Resources.calcite.getBlock().getDefaultState(), Resources.jasper.getBlock().getDefaultState(), Resources.zircon.getBlock().getDefaultState()}
+		new IBlockState[] {Resources.calcite.getBlock().getDefaultState(), Resources.halite.getBlock().getDefaultState()},
+		new IBlockState[] {Resources.calcite.getBlock().getDefaultState(), Resources.halite.getBlock().getDefaultState()},
+		new IBlockState[] {Resources.calcite.getBlock().getDefaultState(), Resources.halite.getBlock().getDefaultState(), Resources.jasper.getBlock().getDefaultState()},
+		new IBlockState[] {Resources.calcite.getBlock().getDefaultState(), Resources.halite.getBlock().getDefaultState(), Resources.jasper.getBlock().getDefaultState(), Resources.zircon.getBlock().getDefaultState()}
 	};
 
 	public static IBlockState getCrystalForTier(Random rand, int tier) {

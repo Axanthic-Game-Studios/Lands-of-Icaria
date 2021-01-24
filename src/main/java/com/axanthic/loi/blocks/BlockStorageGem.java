@@ -115,8 +115,9 @@ public class BlockStorageGem extends Block implements IBlockMeta {
 
 	public enum GemTypes implements IStringSerializable {
 		CALCITE(0, "calcite", MapColor.QUARTZ),
-		JASPER(1, "jasper", MapColor.RED_STAINED_HARDENED_CLAY),
-		ZIRCON(2, "zircon", MapColor.LAPIS);
+		HALITE(1, "halite", MapColor.LIME_STAINED_HARDENED_CLAY),
+		JASPER(2, "jasper", MapColor.RED_STAINED_HARDENED_CLAY),
+		ZIRCON(3, "zircon", MapColor.LAPIS);
 
 		private static final GemTypes[] META_LOOKUP = new GemTypes[GemTypes.values().length];
 		private final int meta;

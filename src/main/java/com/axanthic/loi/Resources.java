@@ -105,6 +105,7 @@ import com.axanthic.loi.items.ItemMeta;
 import com.axanthic.loi.items.ItemMetaMaterial;
 import com.axanthic.loi.items.ItemRenderAddon;
 import com.axanthic.loi.items.ItemResources;
+import com.axanthic.loi.items.ItemSaltedFood;
 import com.axanthic.loi.items.ItemScroll;
 import com.axanthic.loi.items.ItemSharpBone;
 import com.axanthic.loi.items.ItemSpell;
@@ -194,6 +195,7 @@ public class Resources {
 	public static Item dimensionTp = new ItemDimensionTeleporter().setUnlocalizedName("dimension_teleporter").setRegistryName("dimension_teleporter");
 	public static ItemMeta resource = new ItemResources();
 	public static Item food = new ItemFoods();
+	public static Item saltedFood = new ItemSaltedFood();
 	public static Item stew = new ItemStews();
 	public static ItemMeta renderAddon = new ItemRenderAddon();
 	public static Item sharpBone = new ItemSharpBone();
@@ -277,6 +279,7 @@ public class Resources {
 	public static ItemBlock dolomitePillarHead = new ItemBlock(new BlockPillarHead(Material.ROCK, 1.2F, "dolomite_pillar_head", MapColor.WHITE_STAINED_HARDENED_CLAY).setSoundType(SoundType.STONE));
 	public static ItemBlock quartzPillarHead = new ItemBlock(new BlockPillarHead(Material.ROCK, 0.8F, "quartz_pillar_head", MapColor.QUARTZ).setSoundType(SoundType.STONE));
 	public static ItemBlock calcite = new ItemBlock(new BlockGem("calcite"));
+	public static ItemBlock halite = new ItemBlock(new BlockGem("halite"));
 	public static ItemBlock jasper = new ItemBlock(new BlockGem("jasper"));
 	public static ItemBlock zircon = new ItemBlock(new BlockGem("zircon"));
 	public static ItemBlockMeta metalBlock = new ItemBlockMetaMaterial(new BlockStorageMetal());
@@ -421,6 +424,7 @@ public class Resources {
 		Resources.items.add(Resources.seedsSpelt);
 		Resources.items.add(Resources.onion);
 		Resources.items.add(Resources.food);
+		Resources.items.add(Resources.saltedFood);
 		Resources.items.add(Resources.stew);
 		Resources.items.add(Resources.renderAddon);
 		Resources.items.add(Resources.sharpBone);
@@ -527,6 +531,7 @@ public class Resources {
 		Resources.registerBlock(Resources.dolomitePillarHead);
 		Resources.registerBlock(Resources.quartzPillarHead);
 		Resources.registerBlock(Resources.calcite);
+		Resources.registerBlock(Resources.halite);
 		Resources.registerBlock(Resources.jasper);
 		Resources.registerBlock(Resources.zircon);
 		Resources.registerBlock(Resources.metalBlock);
