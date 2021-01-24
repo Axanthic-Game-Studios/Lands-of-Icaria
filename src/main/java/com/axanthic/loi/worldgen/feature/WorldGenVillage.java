@@ -14,6 +14,9 @@ import com.axanthic.loi.entity.EntityRevenantCivilian;
 import com.axanthic.loi.entity.EntityRevenantCrawler;
 import com.axanthic.loi.entity.EntityRevenantPyromancer;
 import com.axanthic.loi.entity.EntityRevenantSoldier;
+import com.axanthic.loi.items.ItemResources;
+import com.axanthic.loi.tileentity.TileEntityForge;
+import com.axanthic.loi.tileentity.TileEntityKiln;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -21,6 +24,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.MobSpawnerBaseLogic;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityMobSpawner;
@@ -306,7 +310,6 @@ public class WorldGenVillage extends WorldGenStructureBase {
 	}
 
 	public static void addBlocksToWorldSilently(TemplatePublic template, World worldIn, BlockPos position, @Nullable ITemplateProcessor templateProcessor, PlacementSettings placementIn, Random rand, ChunkPos chunk, int flags, int YOffset, boolean damaged, boolean ruined, boolean webbed) {
-		//this is for later
 		BlockPos doorLocation = null;
 
 		List brokenCoords = new ArrayList<String>();
@@ -453,7 +456,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 				}
 		}
 		//place a foundation where needed
-		for (BlockPos basePos : BlockPos.getAllInBox(zero, zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) { //check the ground under the house
+		for (BlockPos basePos : BlockPos.getAllInBox(zero, zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) {
 			BlockPos pos = template.transformedBlockPos(placementIn, basePos).add(position);
 			if (worldIn.isAirBlock(pos)) {
 				for (BlockPos heightPos : BlockPos.getAllInBox(pos.up(), pos.up(template.getSize().getY() - 1))) {
@@ -462,6 +465,18 @@ public class WorldGenVillage extends WorldGenStructureBase {
 						break;
 					}
 				}
+			}
+		}
+		//fill forges and kilns with fuel
+		for (BlockPos basePos : BlockPos.getAllInBox(zero.up().add(-1, 0, -1), zero.add(template.getSize().getX(), template.getSize().getY(), template.getSize().getZ()))) {
+			BlockPos pos = template.transformedBlockPos(placementIn, basePos).add(position);
+			TileEntity tile = worldIn.getTileEntity(pos);
+			if (tile instanceof TileEntityKiln) {
+				TileEntityKiln kiln = (TileEntityKiln) tile;
+				kiln.setInventorySlotContents(1, new ItemStack(Resources.resource, rand.nextInt(5), ItemResources.ResourceType.LIGNITE.toMeta()));
+			} else if (tile instanceof TileEntityForge) {
+				TileEntityForge forge = (TileEntityForge) tile;
+				forge.setInventorySlotContents(3, new ItemStack(Resources.resource, rand.nextInt(4), ItemResources.ResourceType.ANTHRACITE.toMeta()));
 			}
 		}
 		//place a path to the door of the the house
