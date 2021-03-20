@@ -61,7 +61,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 	private final PerlinNoise perlin;
 	private final NoiseGeneratorOctaves octaveNoise;
 	private final NoiseGeneratorPerlin surfaceNoise;
-	private final OreGeneratorLOI oreGen;
+	//private final BigVeinOreGeneratorLOI oreGen;
 
 	/*****************************************************************/
 	/// PRIVATE VARIABLES
@@ -85,7 +85,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		//this.cell = new CellNoise(seed, (short) 0);
 		//this.cell.setUseDistance(true);
 		this.perlin = new PerlinNoise(seed);
-		this.oreGen = new OreGeneratorLOI(perlin);
+		//this.oreGen = new BigVeinOreGeneratorLOI(perlin);
 
 
 		this.heightMap = new double[825];

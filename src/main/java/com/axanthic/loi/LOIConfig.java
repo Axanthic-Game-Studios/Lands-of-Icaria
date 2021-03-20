@@ -4,7 +4,6 @@ import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
 import net.minecraftforge.common.config.Config.LangKey;
 import net.minecraftforge.common.config.Config.Name;
-import net.minecraftforge.common.config.Config.RangeDouble;
 import net.minecraftforge.common.config.Config.RequiresMcRestart;
 
 @Config(modid = ModInformation.ID, name = ModInformation.ID, category = "")
@@ -30,7 +29,7 @@ public class LOIConfig {
 
 	public static class CategoryWorldgen {
 
-		@RequiresMcRestart
+		/*@RequiresMcRestart
 		@LangKey("loi.config.worldgen.lignite")
 		public OreSettings lignite = new OreSettings(true, -0.02D, -0.0D, 1.0D, 0000);
 
@@ -134,6 +133,84 @@ public class LOIConfig {
 				this.noiseSize = noiseSize;
 				this.offset = offset;
 			}
+		}*/
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.rottenbones")
+		public OreSettings rottenBones = new OreSettings(true, 17, 20);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.lignite")
+		public OreSettings lignite = new OreSettings(true, 17, 20);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.chalkos")
+		public OreSettings chalkos = new OreSettings(true, 9, 17);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.kassiteros")
+		public OreSettings kassiteros = new OreSettings(true, 9, 16);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.dolomite")
+		public OreSettings dolomite = new OreSettings(true, 14, 18);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.molibos")
+		public OreSettings molibos = new OreSettings(false, 4, 12);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.vanadium")
+		public OreSettings vanadium = new OreSettings(true, 4, 9);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.sliver")
+		public OreSettings sliver = new OreSettings(false, 7, 12);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.sideros")
+		public OreSettings sideros = new OreSettings(true, 5, 4);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.anthracite")
+		public OreSettings anthracite = new OreSettings(true, 8, 8);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.molybdenum")
+		public OreSettings molybdenum = new OreSettings(true, 3, 5);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.bluridium")
+		public OreSettings bluridium = new OreSettings(false, 4, 2);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.hyliastrum")
+		public OreSettings hyliastrum = new OreSettings(false, 4, 4);
+
+		@RequiresMcRestart
+		@LangKey("loi.config.worldgen.abyssalessence")
+		public OreSettings abyssalEssence = new OreSettings(false, 4, 4);
+
+		public static class OreSettings {
+
+			@RequiresMcRestart
+			@Name("enabled")
+			@LangKey("loi.config.worldgen.ore.enabled")
+			public boolean enabled;
+			@RequiresMcRestart
+			@Name("generationoffset")
+			@LangKey("loi.config.worldgen.ore.blocks")
+			public int blocksPerVein;
+			@RequiresMcRestart
+			@Name("generationoffset")
+			@LangKey("loi.config.worldgen.ore.veins")
+			public int veinsPerChunk;
+
+			public OreSettings (boolean enabled, int blocksPerVein, int veinsPerChunk) {
+				this.enabled = enabled;
+				this.blocksPerVein = blocksPerVein;
+				this.veinsPerChunk = veinsPerChunk;
+			}
 		}
 	}
 
@@ -166,7 +243,7 @@ public class LOIConfig {
 	public static class CategoryHUD {
 
 		@LangKey("loi.config.hud.indicator.enabled")
-		public Boolean indicatorEnabled = true;
+		public Boolean indicatorEnabled = false;
 
 		@LangKey("loi.config.hud.indicator.posx")
 		public int indicatorPosX = 0;

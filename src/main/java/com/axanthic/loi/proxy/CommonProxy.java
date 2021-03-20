@@ -26,6 +26,7 @@ import com.axanthic.loi.utils.GrinderRecipe;
 import com.axanthic.loi.utils.KettleRecipe;
 import com.axanthic.loi.utils.MessageCustomReachAttack;
 import com.axanthic.loi.worldgen.biome.LOIBiomes;
+import com.axanthic.loi.worldgen.dimension.OreGeneratorLOI;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
 
 import net.minecraft.block.Block;
@@ -141,7 +142,7 @@ public class CommonProxy {
 		Recipes.registerLateRecipes();
 		LandsOfIcaria.dimensionId = DimensionManager.getNextFreeDimId();
 		LandsOfIcaria.dimensionTypeLoi = DimensionType.register("loi", "_loi", LandsOfIcaria.dimensionId, WorldProviderLOI.class, false);
-		//GameRegistry.registerWorldGenerator(new OreGeneratorLOI(), 0);
+		GameRegistry.registerWorldGenerator(new OreGeneratorLOI(), 0);
 		DimensionManager.registerDimension(LandsOfIcaria.dimensionId, LandsOfIcaria.dimensionTypeLoi);
 		/******************************************/
 		LandsOfIcaria.modTabBlocks.setTabIconItem(new ItemStack(Resources.grass));
