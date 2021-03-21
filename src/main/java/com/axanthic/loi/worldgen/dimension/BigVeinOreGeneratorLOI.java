@@ -19,7 +19,7 @@ import com.google.common.base.Predicate;
 
 public class BigVeinOreGeneratorLOI {
 
-	private static final LOIOregen ligniteGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(0), new RockPredicate(0), LOIConfig.world.lignite);
+	/*private static final LOIOregen ligniteGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(0), new RockPredicate(0), LOIConfig.world.lignite);
 	private static final LOIOregen chalkosGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(1), new RockPredicate(0), LOIConfig.world.chalkos);
 	private static final LOIOregen dolomiteGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(3), new RockPredicate(1), LOIConfig.world.dolomite);
 	private static final LOIOregen kassiterosGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(2), new RockPredicate(1), LOIConfig.world.kassiteros);
@@ -33,7 +33,7 @@ public class BigVeinOreGeneratorLOI {
 	private static final LOIOregen abyssalEssenceGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(12), new RockPredicate(4), LOIConfig.world.abyssalEssence);
 	private static final LOIOregen bluridiumGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(10), new RockPredicate(4), LOIConfig.world.bluridium);
 	private static final LOIOregen rottenBonesGenerator = new LOIOregen(Resources.ore.getBlock().getStateFromMeta(BlockOre.OreTypes.ROTTEN_BONES.getMeta()), new MarlPredicate(), LOIConfig.world.rottenBones);
-
+*/
 	private static final List<LOIOregen> customGenerators = new ArrayList<LOIOregen>();
 
 	private final PerlinNoise oreNoise;
@@ -41,7 +41,7 @@ public class BigVeinOreGeneratorLOI {
 	public BigVeinOreGeneratorLOI(PerlinNoise noise) {
 		this.oreNoise = noise;
 
-		for (String ore : LOIConfig.world.custom) {
+		/*for (String ore : LOIConfig.world.custom) {
 			String[] entries = ore.split(":");
 
 			String modID = entries[0];
@@ -54,7 +54,7 @@ public class BigVeinOreGeneratorLOI {
 			int offset = Integer.parseInt(entries[7]);
 
 			customGenerators.add(new LOIOregen(Block.REGISTRY.getObject(new ResourceLocation(modID, blockID)).getStateFromMeta(meta), rock, true, indexBegin, indexEnd, noiseSize, offset));
-		}
+		}*/
 	}
 
 	public void generate(final int x, final int z, final int wx, final int wz, final ChunkPrimer primer) {
@@ -153,9 +153,9 @@ public class BigVeinOreGeneratorLOI {
 		public Float noiseSize;
 		public int offset;
 
-		public LOIOregen (IBlockState ore, CustomPredicate rock, OreSettings settings) {
+		/*public LOIOregen (IBlockState ore, CustomPredicate rock, OreSettings settings) {
 			this(ore, rock, settings.enabled, settings.indexBegin.floatValue(), settings.indexEnd.floatValue(), settings.noiseSize.floatValue(), settings.offset);
-		}
+		}*/
 
 		public LOIOregen (IBlockState ore, CustomPredicate rock, boolean enabled, Float indexBegin, Float indexEnd, Float noiseSize, int offset) {
 			this.ore = ore;

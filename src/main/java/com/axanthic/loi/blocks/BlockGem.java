@@ -18,7 +18,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -32,13 +34,18 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockGem extends BlockSixDirectional implements ITileEntityProvider {
 
 	private String unlocalizedName;
-	public static final AxisAlignedBB GEM_AABB = new AxisAlignedBB(0.49D, 0.51D, 0.49D, 0.51D, 0.49D, 0.51D);
-	public static final AxisAlignedBB NOTHING_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
+	public static final AxisAlignedBB GEM_AABB = new AxisAlignedBB(0.25D, 0.75D, 0.25D, 0.75D, 0.25D, 0.75D);
+	public static final AxisAlignedBB GEM_AABB_UP = GEM_AABB.offset(0.0D, -0.25D, 0.0D);
+	public static final AxisAlignedBB GEM_AABB_DOWN = GEM_AABB.offset(0.0D, 0.25D, 0.0D);
+	public static final AxisAlignedBB GEM_AABB_NORTH = GEM_AABB.offset(0.0D, 0.0D, 0.25D);
+	public static final AxisAlignedBB GEM_AABB_SOUTH = GEM_AABB.offset(0.0D, 0.0D, -0.25D);
+	public static final AxisAlignedBB GEM_AABB_WEST = GEM_AABB.offset(0.25D, 0.0D, 0.0D);
+	public static final AxisAlignedBB GEM_AABB_EAST = GEM_AABB.offset(-0.25D, 0.0D, 0.0D);
 
 	public BlockGem(String name) {
 		super(Material.GLASS, MapColor.AIR);
 		this.setCreativeTab(LandsOfIcaria.modTabBlocks);
-		this.setHardness(1.2F);
+		this.setHardness(0.0F);
 		this.fullBlock = false;
 		this.setLightOpacity(0);
 		this.translucent = true;
@@ -96,14 +103,50 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 	}
 
 	@Override
-	@Nullable
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		EnumFacing offset = (EnumFacing) state.getValue(FACING);
+		if (offset == EnumFacing.UP)
+			return GEM_AABB_UP;
+		if (offset == EnumFacing.DOWN)
+			return GEM_AABB_DOWN;
+		if (offset == EnumFacing.NORTH)
+			return GEM_AABB_NORTH;
+		if (offset == EnumFacing.SOUTH)
+			return GEM_AABB_SOUTH;
+		if (offset == EnumFacing.WEST)
+			return GEM_AABB_WEST;
+		if (offset == EnumFacing.EAST)
+			return GEM_AABB_EAST;
 		return GEM_AABB;
 	}
 
 	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return NOTHING_AABB;
+	public int getHarvestLevel(IBlockState state) {
+		if (unlocalizedName.equals("calcite"))
+			return 2;
+		if (unlocalizedName.equals("halite"))
+			return 3;
+		if (unlocalizedName.equals("jasper"))
+			return 5;
+		if (unlocalizedName.equals("zircon"))
+			return 6;
+		return 0;
+	}
+
+	@Override
+	public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player) {
+		ItemStack stack = player.getHeldItemMainhand();
+		IBlockState state = world.getBlockState(pos);
+		int toolLevel = stack.getItem().getHarvestLevel(stack, "pickaxe", player, state);
+		if (stack.getItem().getRegistryName().getResourceDomain().equals(ModInformation.ID)) {
+			toolLevel += 2;
+		}
+		return toolLevel >= this.getHarvestLevel(state);
+	}
+
+	@Deprecated
+	public float getPlayerRelativeBlockHardness(IBlockState state, EntityPlayer player, World worldIn, BlockPos pos) {
+		return this.canHarvestBlock(worldIn, pos, player) ? super.getPlayerRelativeBlockHardness(state, player, worldIn, pos) : -1.0F;
 	}
 
 	@Override
