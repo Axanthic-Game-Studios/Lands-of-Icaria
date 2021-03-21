@@ -17,6 +17,8 @@ public class ModelSnull extends ModelBase {
 	public ModelRenderer tail;
 	public ModelRenderer eye_stalk_right;
 	public ModelRenderer eye_stalk_left;
+    public ModelRenderer jaw_upper;
+    public ModelRenderer jaw_lower;
 	public ModelRenderer eye_right;
 	public ModelRenderer eye_left;
 
@@ -43,10 +45,17 @@ public class ModelSnull extends ModelBase {
 		this.eye_right = new ModelRenderer(this, 0, 0);
 		this.eye_right.setRotationPoint(-1.5F, -1.8F, -0.5F);
 		this.eye_right.addBox(0.5F, -6.0F, -0.5F, 2, 2, 2, 0.0F);
-		this.skull = new ModelRenderer(this, 0, 0);
-		this.skull.setRotationPoint(-1.0F, 15.0F, -6.4F);
-		this.skull.addBox(-3.0F, 0.0F, 0.0F, 8, 8, 8, 0.2F);
-		this.setRotateAngle(skull, 0.39269908169872414F, 0.0F, 0.0F);
+        this.skull = new ModelRenderer(this, 0, 0);
+        this.skull.setRotationPoint(0.0F, 22.0F, -3.0F);
+        this.skull.addBox(-3.5F, -6.0F, 0.0F, 7, 6, 8, 0.2F);
+        this.setRotateAngle(skull, 0.5817182396897099F, 0.0F, 0.0F);
+        this.jaw_upper = new ModelRenderer(this, 0, 8);
+        this.jaw_upper.setRotationPoint(0.0F, 0.0F, 1.7F);
+        this.jaw_upper.addBox(-2.5F, 0.2F, 0.0F, 5, 1, 6, 0.0F);
+        this.jaw_lower = new ModelRenderer(this, 0, 9);
+        this.jaw_lower.setRotationPoint(0.0F, 1.0F, 0.0F);
+        this.jaw_lower.addBox(-2.5F, 0.0F, 0.0F, 5, 1, 6, 0.0F);
+        this.setRotateAngle(jaw_lower, -0.091106186954104F, 0.0F, 0.0F);
 		this.eye_stalk_right = new ModelRenderer(this, 42, 0);
 		this.eye_stalk_right.setRotationPoint(1.9F, 16.1F, 12.3F);
 		this.eye_stalk_right.addBox(-0.5F, -6.0F, -0.5F, 1, 6, 1, -0.2F);
@@ -63,6 +72,8 @@ public class ModelSnull extends ModelBase {
 		this.head.addBox(-3.0F, 0.0F, 0.0F, 5, 4, 4, 0.0F);
 		this.eye_stalk_right.addChild(this.eye_right);
 		this.eye_stalk_left.addChild(this.eye_left);
+        this.skull.addChild(this.jaw_upper);
+        this.jaw_upper.addChild(this.jaw_lower);
 	}
 
 	@Override
@@ -73,6 +84,7 @@ public class ModelSnull extends ModelBase {
 		GlStateManager.translate(0.0F, 0.0F, 0.02F);
 
 		EntitySnull snull = (EntitySnull) entity;
+		Float partialTicks = ageInTicks - snull.ticksExisted;
 		if (snull.isBesideClimbableBlock() && snull.posY > snull.prevPosY) {
 			final float climbSwing = ageInTicks * 0.4f;
 			GlStateManager.scale(1.0F, 1.0F, MathHelper.sin(climbSwing * 0.6662F) * -0.3F + 1.05F);
@@ -88,6 +100,9 @@ public class ModelSnull extends ModelBase {
 		this.head_rear.render(scale);
 		this.skull.render(scale);
 		Double eyescale = 1.0D - entity.hurtResistantTime / 25.0D;
+		if (entity.hurtResistantTime > 0.0D) {
+			eyescale += partialTicks / 25.0D;
+		}
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(this.eye_stalk_right.offsetX, this.eye_stalk_right.offsetY, this.eye_stalk_right.offsetZ);
 		GlStateManager.translate(this.eye_stalk_right.rotationPointX * scale, this.eye_stalk_right.rotationPointY * scale, this.eye_stalk_right.rotationPointZ * scale);

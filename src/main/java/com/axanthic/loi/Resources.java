@@ -417,7 +417,7 @@ public class Resources {
 	public static WoodSet droughtroot = new WoodSet(BlockPlanks.WoodTypes.DROUGHTROOT, new WorldGenDroughtrootTree(true), EntityForestHagDroughtroot.class);
 
 	public static void registerItems() {
-		Resources.items.add(Resources.dimensionTp);
+		//Resources.items.add(Resources.dimensionTp);
 		Resources.items.add(Resources.resource);
 		Resources.items.add(Resources.seedsStrawberry);
 		Resources.items.add(Resources.seedsPhysalis);

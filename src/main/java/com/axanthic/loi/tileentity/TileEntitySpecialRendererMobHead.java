@@ -7,6 +7,7 @@ import com.axanthic.loi.render.ModelCatoblepasHead;
 import com.axanthic.loi.render.ModelCerverHead;
 import com.axanthic.loi.render.ModelHagHead;
 import com.axanthic.loi.render.ModelMyrmekeHead;
+import com.axanthic.loi.render.ModelRevenantSkull;
 import com.axanthic.loi.render.ModelSowHead;
 
 import net.minecraft.client.model.ModelBase;
@@ -19,7 +20,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<TileEntityMobHead> {
 
-	public static final ResourceLocation REVENANT_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_revenant.png");
+	public static final ResourceLocation REVENANT_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_revenant_civilian.png");
 	public static final ResourceLocation ARACHNE_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_arachne.png");
 	public static final ResourceLocation ARACHNE_DRONE_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_arachne_drone.png");
 	public static final ResourceLocation MYRMEKE_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_myrmeke.png");
@@ -38,7 +39,7 @@ public class TileEntitySpecialRendererMobHead extends TileEntitySpecialRenderer<
 
 	public static TileEntitySpecialRendererMobHead instance;
 
-	public static final ModelSkeletonHead revenantHead = new ModelSkeletonHead(0, 0, 64, 128);
+	public static final ModelRevenantSkull revenantHead = new ModelRevenantSkull();
 	public static final ModelSkeletonHead arachneHead = new ModelSkeletonHead(0, 0, 64, 64);
 	public static final ModelSkeletonHead arachneDroneHead = new ModelSkeletonHead(0, 16, 64, 32);
 	public static final ModelMyrmekeHead myrmekeHead = new ModelMyrmekeHead();

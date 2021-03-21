@@ -1,5 +1,7 @@
 package com.axanthic.loi.render;
 
+import java.awt.Color;
+
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.entity.EntitySnull;
 
@@ -18,6 +20,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class LayerSnullGlow<T extends EntitySnull> implements LayerRenderer<T> {
 	private static final ResourceLocation GLOW = new ResourceLocation(ModInformation.ID, "textures/entity/mob_snull_glowing.png");
 	private static final ResourceLocation GLOW_SANS = new ResourceLocation(ModInformation.ID, "textures/entity/mob_snull_glowing_sans.png");
+	private static final ResourceLocation GLOW_PRO = new ResourceLocation(ModInformation.ID, "textures/entity/mob_snull_glowing_pro.png");
+	private static final ResourceLocation GLOW_PRO_EYES = new ResourceLocation(ModInformation.ID, "textures/entity/mob_snull_glowing_pro_eyes.png");
 	private static final ResourceLocation SKULL = new ResourceLocation(ModInformation.ID, "textures/entity/mob_snull_skull.png");
 	private final RenderSnull snullRenderer;
 
@@ -34,9 +38,13 @@ public class LayerSnullGlow<T extends EntitySnull> implements LayerRenderer<T> {
 			World world = entitylivingbaseIn.getEntityWorld();
 			float light = Math.max(world.getLightFor(EnumSkyBlock.SKY, pos) * world.getSunBrightness(partialTicks), world.getLightFor(EnumSkyBlock.BLOCK, pos));
 			if (light < 7.0F) {
+				boolean isPro = false;
 				if (entitylivingbaseIn.hasCustomName() && entitylivingbaseIn.getCustomNameTag().toLowerCase().equals("sans"))
 					this.snullRenderer.bindTexture(GLOW_SANS);
-				else
+				else if (entitylivingbaseIn.hasCustomName() && entitylivingbaseIn.getCustomNameTag().toLowerCase().equals("pro")) {
+					this.snullRenderer.bindTexture(GLOW_PRO);
+					isPro = true;
+				} else
 					this.snullRenderer.bindTexture(GLOW);
 				GlStateManager.depthMask(true);
 				GlStateManager.enableBlend();
@@ -49,6 +57,14 @@ public class LayerSnullGlow<T extends EntitySnull> implements LayerRenderer<T> {
 				GlStateManager.color(1.0F, 1.0F, 1.0F, ((Math.max(3.0F, light) - 3.0F) / -4.0F) + 1.0F);
 				Minecraft.getMinecraft().entityRenderer.setupFogColor(true);
 				this.snullRenderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+				if (isPro) {
+					Color color = Color.getHSBColor(ageInTicks * 0.15F, 1.0F, 1.0F);
+					GlStateManager.color(color.getRed() / 225F, color.getGreen() / 225F, color.getBlue() / 225F, ((Math.max(3.0F, light) - 3.0F) / -4.0F) + 1.0F);
+					GlStateManager.disableLighting();
+					this.snullRenderer.bindTexture(GLOW_PRO_EYES);
+					this.snullRenderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+					GlStateManager.enableLighting();
+				}
 				Minecraft.getMinecraft().entityRenderer.setupFogColor(false);
 				i = entitylivingbaseIn.getBrightnessForRender();
 				j = i % 65536;

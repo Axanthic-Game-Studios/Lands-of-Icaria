@@ -3,16 +3,12 @@ package com.axanthic.loi.worldgen.dimension;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.chunk.ChunkPrimer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.Resources;
-import com.axanthic.loi.LOIConfig.CategoryWorldgen.OreSettings;
-import com.axanthic.loi.blocks.BlockOre;
 import com.axanthic.loi.blocks.BlockSoil;
 import com.axanthic.loi.utils.PerlinNoise;
 import com.google.common.base.Predicate;
