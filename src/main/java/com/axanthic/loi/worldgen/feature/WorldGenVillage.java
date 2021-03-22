@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.blocks.BlockHerb.HerbTypes;
 import com.axanthic.loi.blocks.BlockRock;
 import com.axanthic.loi.entity.EntityRevenantCaptain;
 import com.axanthic.loi.entity.EntityRevenantCivilian;
@@ -19,6 +20,7 @@ import com.axanthic.loi.tileentity.TileEntityForge;
 import com.axanthic.loi.tileentity.TileEntityKiln;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
@@ -477,6 +479,15 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			} else if (tile instanceof TileEntityForge) {
 				TileEntityForge forge = (TileEntityForge) tile;
 				forge.setInventorySlotContents(3, new ItemStack(Resources.resource, rand.nextInt(4), ItemResources.ResourceType.ANTHRACITE.toMeta()));
+			}
+		}
+		//place herbs around the house
+		for (int i = 0; i < 32; ++i) {
+			BlockPos blockpos = position.add(rand.nextInt(20) - 10 + template.getSize().getX() / 2, rand.nextInt(4) - 2, rand.nextInt(20) - 10 + template.getSize().getZ() / 2);
+			if ((!isOutsideChunkBounds(blockpos.add(-8, 0, -8), chunk, 4)) && blockpos.getY() < 255 && (worldIn.isAirBlock(blockpos) || worldIn.getBlockState(blockpos).getBlock().isReplaceable(worldIn, blockpos))) {
+				IBlockState herbState = Resources.herb.getBlock().getStateFromMeta(rand.nextInt(HerbTypes.values().length));
+				if (((BlockBush)herbState.getBlock()).canBlockStay(worldIn, blockpos, herbState))
+					worldIn.setBlockState(blockpos, herbState, 3);
 			}
 		}
 		//place a path to the door of the the house
