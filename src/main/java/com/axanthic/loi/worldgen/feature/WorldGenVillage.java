@@ -9,6 +9,7 @@ import javax.annotation.Nullable;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.blocks.BlockHerb.HerbTypes;
+import com.axanthic.loi.blocks.BlockStorageMetal.MetalTypes;
 import com.axanthic.loi.blocks.BlockRock;
 import com.axanthic.loi.entity.EntityRevenantCaptain;
 import com.axanthic.loi.entity.EntityRevenantCivilian;
@@ -17,7 +18,9 @@ import com.axanthic.loi.entity.EntityRevenantPyromancer;
 import com.axanthic.loi.entity.EntityRevenantSoldier;
 import com.axanthic.loi.items.ItemResources;
 import com.axanthic.loi.tileentity.TileEntityForge;
+import com.axanthic.loi.tileentity.TileEntityGrinder;
 import com.axanthic.loi.tileentity.TileEntityKiln;
+import com.axanthic.loi.tileentity.TileEntityVase;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -321,7 +324,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			StructureBoundingBox structureboundingbox = placementIn.getBoundingBox();
 
 			int spawnersPlaced = 0;
-			int grindersPlaced = 0;
+			boolean grinderPlaced = false;
 			int grindersNotPlaced = 0;
 			int maxSpawners = 0;
 			if (damaged)
@@ -390,12 +393,12 @@ public class WorldGenVillage extends WorldGenStructureBase {
 								}
 							}
 						}
-						if (iblockstate1.equals(Resources.grinder.getBlock().getDefaultState())) {
-							if (grindersNotPlaced > 0 || (grindersPlaced < 1 && rand.nextInt(2) == 0)) {
-								grindersPlaced++;
-							} else {
-								grindersNotPlaced++;
+						if (iblockstate1.getBlock().equals(Resources.grinder.getBlock())) {
+							if (grindersNotPlaced > 0) {
+								grinderPlaced = true;
+							} else if (grinderPlaced || rand.nextInt(2) == 0) {
 								iblockstate1 = Blocks.AIR.getDefaultState();
+								grindersNotPlaced++;
 							}
 						}
 
@@ -469,7 +472,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 				}
 			}
 		}
-		//fill forges and kilns with fuel
+		//fill forges, kilns and grinders with fuel and vases with loot
 		for (BlockPos basePos : BlockPos.getAllInBox(zero.up().add(-1, 0, -1), zero.add(template.getSize().getX(), template.getSize().getY(), template.getSize().getZ()))) {
 			BlockPos pos = template.transformedBlockPos(placementIn, basePos).add(position);
 			TileEntity tile = worldIn.getTileEntity(pos);
@@ -479,6 +482,12 @@ public class WorldGenVillage extends WorldGenStructureBase {
 			} else if (tile instanceof TileEntityForge) {
 				TileEntityForge forge = (TileEntityForge) tile;
 				forge.setInventorySlotContents(3, new ItemStack(Resources.resource, rand.nextInt(4), ItemResources.ResourceType.ANTHRACITE.toMeta()));
+			} else if (tile instanceof TileEntityGrinder) {
+				TileEntityGrinder grinder = (TileEntityGrinder) tile;
+				grinder.setInventorySlotContents(1, new ItemStack(Resources.nugget, rand.nextInt(3), MetalTypes.SLIVER.getMeta()));
+			} else if (tile instanceof TileEntityVase) {
+				TileEntityVase vase = (TileEntityVase) tile;
+				vase.setLootTable(Resources.POTTERY_VASE, rand.nextLong());
 			}
 		}
 		//place herbs around the house
@@ -499,9 +508,8 @@ public class WorldGenVillage extends WorldGenStructureBase {
 					break;
 				}
 			}
-		if (doorLocation == null) {
+		if (doorLocation == null)
 			return;
-		}
 
 		BlockPos closestRoad = null;
 		double closestRoadDist = 100;

@@ -182,6 +182,7 @@ public class Resources {
 	public static final ResourceLocation LOOT_HAG_DROUGHTROOT = LootTableList.register(new ResourceLocation(ModInformation.ID, "entities/forest_hag/droughtroot"));
 	public static final ResourceLocation LOOT_VASE = LootTableList.register(new ResourceLocation(ModInformation.ID, "loot/loot_vase"));
 	public static final ResourceLocation LOOT_VASE_2 = LootTableList.register(new ResourceLocation(ModInformation.ID, "loot/loot_vase_2"));
+	public static final ResourceLocation POTTERY_VASE = LootTableList.register(new ResourceLocation(ModInformation.ID, "loot/pottery_vase"));
 
 	public static final CustomTrigger FERTILIZE_TRIGGER = new CustomTrigger("fertilize");
 
