@@ -4,17 +4,40 @@
 			"name": "landsoficaria:loot_vase_common",
             "rolls": {
                 "min": 2,
-                "max": 8
+                "max": 5
             },
             "entries": [
                 {
                     "type": "item",
-                    "name": "minecraft:apple",
-					"entryName": "apple",
-                    "weight": 15,
+                    "name": "landsoficaria:resource",
+					"entryName": "lignite",
+                    "weight": 5,
                     "functions": [
                         {
-                            "function": "minecraft:set_count",
+                            "function": "minecraft:set_data",
+                            "data": 0
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:resource",
+					"entryName": "dolomite",
+                    "weight": 5,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 1
+                        },
+                        {
+                            "function": "set_count",
                             "count": {
                                 "min": 1,
                                 "max": 3
@@ -24,12 +47,69 @@
                 },
                 {
                     "type": "item",
-                    "name": "minecraft:coal",
-					"entryName": "coal",
-                    "weight": 15,
+                    "name": "landsoficaria:resource",
+					"entryName": "loam_brick",
+                    "weight": 10,
                     "functions": [
                         {
-                            "function": "minecraft:set_count",
+                            "function": "minecraft:set_data",
+                            "data": 11
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 2,
+                                "max": 7
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:resource",
+					"entryName": "rotten_bones",
+                    "weight": 10,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 12
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:resource",
+					"entryName": "arachne_string",
+                    "weight": 10,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 24
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:onion",
+					"entryName": "onion",
+                    "weight": 10,
+                    "functions": [
+                        {
+                            "function": "set_count",
                             "count": {
                                 "min": 1,
                                 "max": 4
@@ -39,43 +119,127 @@
                 },
                 {
                     "type": "item",
-                    "name": "minecraft:gold_nugget",
-					"entryName": "gold_nugget",
-                    "weight": 10,
+                    "name": "landsoficaria:nugget",
+					"entryName": "chalkos_nugget",
+                    "weight": 15,
                     "functions": [
                         {
-                            "function": "minecraft:set_count",
+                            "function": "minecraft:set_data",
+                            "data": 0
+                        },
+                        {
+                            "function": "set_count",
                             "count": {
-                                "min": 1,
-                                "max": 3
+                                "min": 3,
+                                "max": 9
                             }
                         }
                     ]
                 },
                 {
                     "type": "item",
-                    "name": "minecraft:stone_axe",
-					"entryName": "stone_axe",
-                    "weight": 2
-                },
-                {
-                    "type": "item",
-                    "name": "minecraft:rotten_flesh",
-					"entryName": "rotten_flesh",
-                    "weight": 10
-                },
-                {
-                    "type": "item",
-                    "name": "minecraft:emerald",
-					"entryName": "emerald",
-                    "weight": 1
-                },
-                {
-                    "type": "item",
-                    "name": "minecraft:wheat",
-					"entryName": "wheat",
+                    "name": "landsoficaria:resource",
+					"entryName": "sideros_nugget",
                     "weight": 10,
                     "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 7
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 2,
+                                "max": 6
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:ingot",
+					"entryName": "chalkos_ingot",
+                    "weight": 5,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 0
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:ingot",
+					"entryName": "kassiteros_ingot",
+                    "weight": 5,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 1
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:nugget",
+					"entryName": "sliver_nugget",
+                    "weight": 5,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 4
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 4
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:axe_orichalcum",
+					"entryName": "orichalcum_axe",
+                    "weight": 5,
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:bident_kassiteros",
+					"entryName": "kassiteros_bident",
+                    "weight": 5,
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:boots_aeternae_leather",
+					"entryName": "aeternae_leather_boots",
+                    "weight": 8,
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:resource",
+					"entryName": "spelt",
+                    "weight": 10,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 22
+                        },
                         {
                             "function": "minecraft:set_count",
                             "count": {
@@ -93,9 +257,56 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "minecraft:golden_apple",
-					"entryName": "golden_apple",
-                    "weight": 1
+                    "name": "landsoficaria:laurel_wreath",
+					"entryName": "laurel_wreath",
+                    "weight": 1,
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:resource",
+					"entryName": "calcite",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 5
+                        }
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:spell_scroll_healing",
+					"entryName": "healing_scroll",
+                    "weight": 1,
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:spell_scroll_anti_gravity",
+					"entryName": "antigrav_scroll",
+                    "weight": 1,
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:spell_scroll_freezing",
+					"entryName": "freezing_scroll",
+                    "weight": 1,
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:spell_scroll_magic_missile",
+					"entryName": "magicshot_scroll",
+                    "weight": 1,
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:spell_scroll_fortifying",
+					"entryName": "fortifying_scroll",
+                    "weight": 1,
+                },
+                {
+                    "type": "item",
+                    "name": "landsoficaria:spell_scroll_bubble",
+					"entryName": "bubble_scroll",
+                    "weight": 1,
                 }
             ]
         }
