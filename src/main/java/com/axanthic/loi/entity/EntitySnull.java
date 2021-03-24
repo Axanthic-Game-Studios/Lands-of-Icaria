@@ -58,7 +58,7 @@ public class EntitySnull extends EntityCreature {
 		this.setSize(hitboxSize * size, hitboxSize * size);
 		this.setPosition(this.posX, this.posY, this.posZ);
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(5.0D * (size / 2));
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.04F * size);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.1F + 0.01F * (size - 2.5F));
 
 		if (resetHealth)
 		{
