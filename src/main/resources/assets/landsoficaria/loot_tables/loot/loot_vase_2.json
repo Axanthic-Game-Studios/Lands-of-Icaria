@@ -253,6 +253,12 @@
         },
         {
 			"name": "landsoficaria:loot_vase_rare",
+            "conditions": [
+                {
+                    "condition": "random_chance",
+                    "chance": 0.1,
+                }
+            ],
             "rolls": 1,
             "entries": [
                 {
@@ -265,7 +271,7 @@
                     "type": "item",
                     "name": "landsoficaria:resource",
 					"entryName": "calcite",
-                    "weight": 1,
+                    "weight": 2,
                     "functions": [
                         {
                             "function": "minecraft:set_data",
