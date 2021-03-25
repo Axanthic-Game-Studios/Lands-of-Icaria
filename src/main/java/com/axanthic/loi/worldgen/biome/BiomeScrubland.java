@@ -37,6 +37,8 @@ public class BiomeScrubland extends BiomeLOI {
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySow.class, 50, 2, 6));
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySnull.class, 50, 2, 6));
 		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityJellyfish.class, 100, 1, 2));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityForestHagPlane.class, 5, 1, 1));
+		spawnableCreatureList.add(new Biome.SpawnListEntry(EntityForestHagLaurel.class, 5, 1, 1));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenantCivilian.class, 75, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenantSoldier.class, 75, 2, 5));
 		spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenantCaptain.class, 75, 1, 1));
