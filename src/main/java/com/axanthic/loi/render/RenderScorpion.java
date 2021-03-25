@@ -19,6 +19,7 @@ public class RenderScorpion extends RenderLiving<EntityScorpion> {
 
 	public RenderScorpion(RenderManager rendermanagerIn) {
 		super(rendermanagerIn, new ModelScorpion(), 1.05F);
+		this.addLayer(new LayerScorpionGlow(this));
 	}
 
 	@Override

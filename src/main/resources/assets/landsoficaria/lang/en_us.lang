@@ -333,6 +333,10 @@ entity.revenant_captain.name=Revenant Captain
 entity.revenant_pyromancer.name=Revenant Pyromancer
 entity.revenant_crawler.name=Revenant Crawler
 entity.revenant_overgrown.name=Overgrown Revenant
+entity.scorpion.name=Scorpion
+entity.solifugae.name=Solifugae
+entity.vinegaroon.name=Vinegaroon
+entity.whip_spider.name=Whip Spider
 
 message.loot_vase.pickup=Sneak to throw vase
 
