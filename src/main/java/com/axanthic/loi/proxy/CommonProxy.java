@@ -102,8 +102,9 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_soldier"), EntityRevenantSoldier.class, "revenant_soldier", 68, ModInformation.ID, 80, 3, true, 0x836A6A, 0x868686);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_captain"), EntityRevenantCaptain.class, "revenant_captain", 69, ModInformation.ID, 80, 3, true, 0xFFDC39, 0x868686);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_pyromancer"), EntityRevenantPyromancer.class, "revenant_pyromancer", 70, ModInformation.ID, 80, 3, true, 0x7DB544, 0x868686);
-		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_crawler"), EntityRevenantCrawler.class, "revenant_crawler", 71, ModInformation.ID, 80, 3, true, 0x2C2E12, 0x868686);
-		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_overgrown"), EntityRevenantOvergrown.class, "revenant_overgrown", 72, ModInformation.ID, 80, 3, true, 0x5B6905, 0x868686);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_pyromancer_nether"), EntityRevenantPyromancerNether.class, "revenant_pyromancer_nether", 71, ModInformation.ID, 80, 3, true, 0xB55D44, 0x868686);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_crawler"), EntityRevenantCrawler.class, "revenant_crawler", 72, ModInformation.ID, 80, 3, true, 0x2C2E12, 0x868686);
+		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "revenant_overgrown"), EntityRevenantOvergrown.class, "revenant_overgrown", 73, ModInformation.ID, 80, 3, true, 0x5B6905, 0x868686);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_plane"), EntityForestHagPlane.class, "forest_hag_plane", 75, ModInformation.ID, 80, 3, true, 0x7A7B77, 0x8DC270);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_populus"), EntityForestHagPopulus.class, "forest_hag_populus", 76, ModInformation.ID, 80, 3, true, 0xD9D5D4, 0x7ABC96);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "forest_hag_cypress"), EntityForestHagCypress.class, "forest_hag_cypress", 77, ModInformation.ID, 80, 3, true, 0x7C6F66, 0x667715);
@@ -118,7 +119,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "vinegar"), EntityVinegar.class, "vinegar", 89, ModInformation.ID, 64, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "whip_spider"), EntityWhipSpider.class, "whip_spider", 90, ModInformation.ID, 80, 3, true, 0xC18743, 0x7F5E39);
 
-		EntityRegistry.addSpawn(EntityRevenantPyromancer.class, 30, 1, 2, EnumCreatureType.MONSTER, Biomes.HELL);
+		EntityRegistry.addSpawn(EntityRevenantPyromancerNether.class, 30, 1, 2, EnumCreatureType.MONSTER, Biomes.HELL);
 
 		GameRegistry.registerTileEntity(TileEntityVase.class, new ResourceLocation(ModInformation.ID, "storage_vase"));
 		GameRegistry.registerTileEntity(TileEntityKiln.class, new ResourceLocation(ModInformation.ID, "crafting_kiln"));

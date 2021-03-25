@@ -244,5 +244,19 @@ public class ModelRevenantPyromancer extends ModelRevenantCivilian {
 		this.renderHeldItems(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		GlStateManager.popMatrix();
 	}
+
+	@Override
+	public void renderWithoutEquipment(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) { 
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(0.0F, -MathHelper.cos(limbSwing * 0.6662F * 2.0f + 2.7f) * limbSwingAmount / 16.0f + limbSwingAmount / 31.05f, 0.0F);
+		this.skull.render(scale);
+		this.leg_right.render(scale);
+		this.leg_left.render(scale);
+		this.robe_shoulder.render(scale);
+		this.arm_right.render(scale);
+		this.spine.render(scale);
+		this.arm_left.render(scale);
+		GlStateManager.popMatrix();
+	}
 }
 

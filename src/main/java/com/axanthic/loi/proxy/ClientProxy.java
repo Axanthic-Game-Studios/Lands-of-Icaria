@@ -137,6 +137,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenantSoldier.class, RenderRevenantSoldier::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenantCaptain.class, RenderRevenantCaptain::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenantPyromancer.class, RenderRevenantPyromancer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityRevenantPyromancerNether.class, RenderRevenantPyromancerNether::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenantCrawler.class, RenderRevenantCrawler::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRevenantOvergrown.class, RenderRevenantOvergrown::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySiren.class, RenderSiren::new);

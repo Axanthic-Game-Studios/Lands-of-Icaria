@@ -331,6 +331,7 @@ entity.revenant_civilian.name=Revenant Civilian
 entity.revenant_soldier.name=Revenant Soldier
 entity.revenant_captain.name=Revenant Captain
 entity.revenant_pyromancer.name=Revenant Pyromancer
+entity.revenant_pyromancer_nether.name=Nether Revenant Pyromancer
 entity.revenant_crawler.name=Revenant Crawler
 entity.revenant_overgrown.name=Overgrown Revenant
 entity.scorpion.name=Scorpion
