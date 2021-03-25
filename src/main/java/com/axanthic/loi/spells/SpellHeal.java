@@ -37,6 +37,7 @@ public class SpellHeal extends AbstractSpell {
 	@Override
 	public void drinkConcoction(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
 		entityLiving.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 600));
+		entityLiving.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 600));
 	}
 
 	@Override
