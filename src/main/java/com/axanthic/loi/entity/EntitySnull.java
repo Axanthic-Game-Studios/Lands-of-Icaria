@@ -158,6 +158,10 @@ public class EntitySnull extends EntityCreature {
 	public void fall(float distance, float damageMultiplier) {
 	}
 
+	public boolean canDespawn() {
+		return false;
+	}
+
 	/**
 	 * Returns the volume for the sounds this mob makes.
 	 */

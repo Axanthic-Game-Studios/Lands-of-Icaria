@@ -79,7 +79,7 @@ public class EntityJellyfish extends EntityFlying {
 	}
 
 	public boolean canDespawn() {
-		return true;
+		return false;
 	}
 
 	/**

@@ -14,6 +14,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldEntitySpawner;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
@@ -559,6 +560,8 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 		biome.decorate(this._world, this._rand, new BlockPos(i, 0, j));
 
 		net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.terraingen.DecorateBiomeEvent.Post(this._world, this._rand, blockpos));
+
+		WorldEntitySpawner.performWorldGenSpawning(this._world, biome, i + 8, j + 8, 16, 16, this._rand);
 
 		BlockFalling.fallInstantly = false;
 	}
