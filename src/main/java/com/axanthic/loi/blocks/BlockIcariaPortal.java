@@ -170,11 +170,11 @@ public class BlockIcariaPortal extends BlockBreakable {
 					break;
 			}
 		}
-		if (world.getBlockState(pos).getMaterial() == Material.AIR && world.isSideSolid(pos.down(), EnumFacing.UP)) {
+		if (canReplace(world, pos) && world.isSideSolid(pos.down(), EnumFacing.UP)) {
 			//find pillar bases
 			for (EnumFacing dir : EnumFacing.HORIZONTALS) {
 				for (int i = 1; i < maxWidth; ++i) {
-					if (!(world.getBlockState(pos.offset(dir, i)).getMaterial() == Material.AIR && world.isSideSolid(pos.offset(dir, i).down(), EnumFacing.UP))) {
+					if (!(canReplace(world, pos.offset(dir, i)) && world.isSideSolid(pos.offset(dir, i).down(), EnumFacing.UP))) {
 						if (validPillars.contains(world.getBlockState(pos.offset(dir, i)))) {
 							basePillars[dir.getHorizontalIndex()] = pos.offset(dir, i);
 						}
@@ -188,7 +188,7 @@ public class BlockIcariaPortal extends BlockBreakable {
 				if (heightNorth >= minHeight - 1 && heightSouth == heightNorth) {
 					boolean isObstructed = false;
 					for (BlockPos currentPos : BlockPos.getAllInBox(basePillars[EnumFacing.NORTH.getHorizontalIndex()].south(), basePillars[EnumFacing.SOUTH.getHorizontalIndex()].north().up(heightSouth))) {
-						if (!world.isAirBlock(currentPos)) {
+						if (!canReplace(world, currentPos)) {
 							isObstructed = true;
 							break;
 						}
@@ -207,7 +207,7 @@ public class BlockIcariaPortal extends BlockBreakable {
 				if (heightWest >= minHeight - 1 && heightEast == heightWest) {
 					boolean isObstructed = false;
 					for (BlockPos currentPos : BlockPos.getAllInBox(basePillars[EnumFacing.WEST.getHorizontalIndex()].east(), basePillars[EnumFacing.EAST.getHorizontalIndex()].west().up(heightEast))) {
-						if (!world.isAirBlock(currentPos)) {
+						if (!canReplace(world, currentPos)) {
 							isObstructed = true;
 							break;
 						}
@@ -222,6 +222,10 @@ public class BlockIcariaPortal extends BlockBreakable {
 			}
 		}
 		return false;
+	}
+
+	public static boolean canReplace(World world, BlockPos pos) {
+		return world.getBlockState(pos).getBlock().isReplaceable(world, pos);
 	}
 
 	public static int getPillarHeight(World world, BlockPos pillarPos, EnumFacing face) {
