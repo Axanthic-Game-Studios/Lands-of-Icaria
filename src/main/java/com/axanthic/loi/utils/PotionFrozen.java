@@ -5,6 +5,8 @@ import com.axanthic.loi.ModInformation;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AbstractAttributeMap;
@@ -36,6 +38,7 @@ public class PotionFrozen extends Potion {
 		ScaledResolution resolution = new ScaledResolution(mc);
 		int width = resolution.getScaledWidth();
 		int height = resolution.getScaledHeight();
+		//GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, width, height, width, height);
 	}
 
@@ -63,10 +66,16 @@ public class PotionFrozen extends Potion {
 		//double d4 = (double)((float)entityLivingBaseIn.posY + entityLivingBaseIn.world.rand.nextFloat());
 		//double d5 = (double)((float)entityLivingBaseIn.posZ + entityLivingBaseIn.world.rand.nextFloat());
 		//entityLivingBaseIn.world.spawnParticle(EnumParticleTypes.BLOCK_CRACK, d3, d4, d5, 0.0D, 0.0D, 0.0D, Block.getStateId(Blocks.ICE.getDefaultState()));
+		if (entityLivingBaseIn instanceof EntityLiving) {
+			((EntityLiving) entityLivingBaseIn).setNoAI(false);
+		}
 	}
 
 	@Override
 	public void applyAttributesModifiersToEntity(EntityLivingBase entityLivingBaseIn, AbstractAttributeMap attributeMapIn, int amplifier) {
 		super.applyAttributesModifiersToEntity(entityLivingBaseIn, attributeMapIn, amplifier);
+		if (entityLivingBaseIn instanceof EntityLiving) {
+			((EntityLiving) entityLivingBaseIn).setNoAI(true);
+		}
 	}
 }
