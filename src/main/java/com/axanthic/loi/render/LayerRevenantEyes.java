@@ -24,6 +24,7 @@ public class LayerRevenantEyes<T extends EntityRevenant> implements LayerRendere
 		this.revenantRenderer.bindTexture(GLOW);
 		GlStateManager.depthMask(true);
 		GlStateManager.enableBlend();
+		GlStateManager.disableLighting();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
 		GlStateManager.alphaFunc(516, 0.003921569F);
 		int i = 15728864;
@@ -38,8 +39,8 @@ public class LayerRevenantEyes<T extends EntityRevenant> implements LayerRendere
 		k = i / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
 		this.revenantRenderer.setLightmap(entitylivingbaseIn);
+		GlStateManager.enableLighting();
 		GlStateManager.disableBlend();
-
 	}
 
 	public boolean shouldCombineTextures() {
