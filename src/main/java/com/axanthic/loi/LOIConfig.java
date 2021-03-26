@@ -266,6 +266,10 @@ public class LOIConfig {
 	public static class CategoryMisc {
 
 		@RequiresMcRestart
+		@LangKey("loi.config.misc.dimensionid")
+		public int dimensionID = -9;
+
+		@RequiresMcRestart
 		@LangKey("loi.config.misc.salt.iswhitelist")
 		public Boolean saltListIsWhite = false;
 

@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldTypeLOI extends WorldType
 {
-	
+
 	public BiomeProvider biomeProvider = null;
 
 	public WorldTypeLOI()
@@ -62,10 +62,13 @@ public class WorldTypeLOI extends WorldType
 	}
 
 	/**
-	 * Called when 'Create New World' button is pressed before starting game
+	 * Gets whether this WorldType can be used to generate a new world.
 	 */
-	@Override
-	public void onGUICreateWorldPress() { }
+	@SideOnly(Side.CLIENT)
+	public boolean canBeCreated()
+	{
+		return false;
+	}
 
 	/**
 	 * Gets the spawn fuzz for players who join the world.

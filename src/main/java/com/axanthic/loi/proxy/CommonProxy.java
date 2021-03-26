@@ -2,6 +2,7 @@ package com.axanthic.loi.proxy;
 
 import java.util.Collection;
 
+import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.LOIFluids;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
@@ -141,7 +142,7 @@ public class CommonProxy {
 		LOIBiomes.init();
 		Resources.init();
 		Recipes.registerLateRecipes();
-		LandsOfIcaria.dimensionId = DimensionManager.getNextFreeDimId();
+		LandsOfIcaria.dimensionId = LOIConfig.misc.dimensionID;
 		LandsOfIcaria.dimensionTypeLoi = DimensionType.register("loi", "_loi", LandsOfIcaria.dimensionId, WorldProviderLOI.class, false);
 		GameRegistry.registerWorldGenerator(new OreGeneratorLOI(), 0);
 		DimensionManager.registerDimension(LandsOfIcaria.dimensionId, LandsOfIcaria.dimensionTypeLoi);
