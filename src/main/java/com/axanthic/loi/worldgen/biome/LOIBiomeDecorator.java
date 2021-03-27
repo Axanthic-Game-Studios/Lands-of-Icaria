@@ -295,8 +295,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					return true;
 			}
 			this.pillarGenerator.generate(worldIn, random, pos);
-		}
-		/*if (random.nextInt(15) == 0) {
+		} else if (random.nextInt(60) == 0) {
 			pos = pos.add(i1, j1, k1);
 			while (!worldIn.isBlockFullCube(pos)) {
 				pos = pos.down();
@@ -304,7 +303,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					return true;
 			}
 			this.ruinGenerator.generate(worldIn, random, pos);
-		}*/
+		}
 		return true;
 	}
 	
