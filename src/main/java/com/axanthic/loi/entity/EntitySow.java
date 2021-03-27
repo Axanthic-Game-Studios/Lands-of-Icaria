@@ -13,6 +13,7 @@ import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
+import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.entity.ai.EntityAIFollowParent;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -22,20 +23,26 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.pathfinding.Path;
+import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class EntitySow extends EntityAnimal {
@@ -44,6 +51,10 @@ public class EntitySow extends EntityAnimal {
 	private static final AttributeModifier ATTACK_SPEED_BOOST_MODIFIER = (new AttributeModifier(ATTACK_SPEED_BOOST_MODIFIER_UUID, "Attacking speed boost", 0.5D, 1)).setSaved(false);
 	private int angerLevel;
 	private UUID angerTargetUUID;
+	private int scaredLevel;
+	private UUID scaredTargetUUID;
+	private EntityPlayer scaredTarget;
+	private int scaredTimer;
 
 	public EntitySow(World worldIn) {
 		super(worldIn);
@@ -62,6 +73,7 @@ public class EntitySow extends EntityAnimal {
 		this.tasks.addTask(8, new EntityAILookIdle(this));
 		this.targetTasks.addTask(1, new AIHurtByAggressor(this));
 		this.targetTasks.addTask(2, new AITargetAggressor(this));
+		this.targetTasks.addTask(3, new AIFleeAggressor(this));
 	}
 
 	protected void applyEntityAttributes() {
@@ -125,6 +137,13 @@ public class EntitySow extends EntityAnimal {
 			this.attackingPlayer = entityplayer;
 			this.recentlyHit = this.getRevengeTimer();
 		}
+
+		if (this.isScared())
+			--this.scaredLevel;
+		if (this.scaredLevel > 0 && this.scaredTargetUUID != null && this.scaredTarget == null) {
+			EntityPlayer entityplayer = this.world.getPlayerEntityByUUID(this.scaredTargetUUID);
+			this.setScaredTarget(entityplayer);
+		}
 		super.updateAITasks();
 	}
 
@@ -159,6 +178,14 @@ public class EntitySow extends EntityAnimal {
 		} else {
 			compound.setString("HurtBy", "");
 		}
+
+		compound.setShort("Fear", (short) this.scaredLevel);
+
+		if (this.angerTargetUUID != null) {
+			compound.setString("ScaredOf", this.scaredTargetUUID.toString());
+		} else {
+			compound.setString("ScaredOf", "");
+		}
 	}
 
 	/**
@@ -179,6 +206,15 @@ public class EntitySow extends EntityAnimal {
 				this.recentlyHit = this.getRevengeTimer();
 			}
 		}
+
+		this.scaredLevel = compound.getShort("Fear");
+		String b = compound.getString("ScaredOf");
+
+		if (!b.isEmpty()) {
+			this.scaredTargetUUID = UUID.fromString(b);
+			EntityPlayer entityplayer = this.world.getPlayerEntityByUUID(this.scaredTargetUUID);
+			this.setScaredTarget(entityplayer);
+		}
 	}
 
 	private void becomeAngryAt(Entity p_70835_1_) {
@@ -189,13 +225,35 @@ public class EntitySow extends EntityAnimal {
 		}
 	}
 
+	public void becomeScaredOf(Entity p_70835_1_) {
+		this.scaredLevel = 100 + this.rand.nextInt(100);
+
+		if (p_70835_1_ instanceof EntityPlayer) {
+			this.setScaredTarget((EntityPlayer) p_70835_1_);
+		}
+	}
+
+	public void setScaredTarget(@Nullable EntityPlayer livingBase)
+	{
+		this.scaredTarget = livingBase;
+		if (livingBase == null)
+			this.scaredTargetUUID = null;
+		else
+			this.scaredTargetUUID = livingBase.getUniqueID();
+		this.scaredTimer = this.ticksExisted;
+	}
+
 	public boolean isAngry() {
 		return this.angerLevel > 0;
 	}
 
+	public boolean isScared() {
+		return this.scaredLevel > 0;
+	}
+
 	static class AIHurtByAggressor extends EntityAIHurtByTarget {
 		public AIHurtByAggressor(EntitySow entity) {
-			super(entity, false);
+			super(entity, true);
 		}
 
 		protected void setEntityAttackTarget(EntityCreature creatureIn, EntityLivingBase entityLivingBaseIn) {
@@ -203,6 +261,18 @@ public class EntitySow extends EntityAnimal {
 
 			if (creatureIn instanceof EntitySow) {
 				((EntitySow) creatureIn).becomeAngryAt(entityLivingBaseIn);
+			}
+		}
+
+		protected void alertOthers() {
+			double d0 = this.getTargetDistance();
+
+			for (EntityCreature entitycreature : this.taskOwner.world.getEntitiesWithinAABB(this.taskOwner.getClass(), (new AxisAlignedBB(this.taskOwner.posX, this.taskOwner.posY, this.taskOwner.posZ, this.taskOwner.posX + 1.0D, this.taskOwner.posY + 1.0D, this.taskOwner.posZ + 1.0D)).grow(d0, 10.0D, d0))) {
+				if (this.taskOwner != entitycreature && (!(this.taskOwner instanceof EntityTameable) || ((EntityTameable)this.taskOwner).getOwner() == ((EntityTameable)entitycreature).getOwner()) && !entitycreature.isOnSameTeam(this.taskOwner.getRevengeTarget())) {
+					if (entitycreature instanceof EntitySow) {
+						((EntitySow) entitycreature).becomeScaredOf(this.taskOwner.getRevengeTarget());
+					}
+				}
 			}
 		}
 	}
@@ -217,6 +287,49 @@ public class EntitySow extends EntityAnimal {
 		 */
 		public boolean shouldExecute() {
 			return ((EntitySow) this.taskOwner).isAngry() && super.shouldExecute();
+		}
+	}
+
+	static class AIFleeAggressor extends EntityAIAvoidEntity<EntityPlayer> {
+
+		/** The PathEntity of our entity */
+		private Path path;
+		/** The PathNavigate of our entity */
+		private final PathNavigate navigation;
+		private final double farSpeed = 1.2D;
+		private final double nearSpeed = 1.8D;
+
+		public AIFleeAggressor(EntitySow entity) {
+			super(entity, EntityPlayer.class, 8.0F, 1.2D, 1.8D);
+			this.navigation = entity.getNavigator();
+		}
+
+		/**
+		 * Returns whether the EntityAIBase should begin execution.
+		 */
+		public boolean shouldExecute() {
+			if (!((EntitySow) this.entity).isScared() || ((EntitySow) this.entity).scaredTarget == null)
+				return false;
+
+			this.closestLivingEntity = ((EntitySow) this.entity).scaredTarget;
+			Vec3d vec3d = RandomPositionGenerator.findRandomTargetBlockAwayFrom(this.entity, 16, 7, new Vec3d(this.closestLivingEntity.posX, this.closestLivingEntity.posY, this.closestLivingEntity.posZ));
+
+			if (vec3d == null) {
+				return false;
+			} else if (this.closestLivingEntity.getDistanceSq(vec3d.x, vec3d.y, vec3d.z) < this.closestLivingEntity.getDistanceSq(this.entity)) {
+				return false;
+			} else {
+				this.path = this.navigation.getPathToXYZ(vec3d.x, vec3d.y, vec3d.z);
+				return this.path != null;
+			}
+		}
+
+		public boolean shouldContinueExecuting() {
+			return !this.navigation.noPath();
+		}
+
+		public void startExecuting() {
+			this.navigation.setPath(this.path, this.farSpeed);
 		}
 	}
 }
