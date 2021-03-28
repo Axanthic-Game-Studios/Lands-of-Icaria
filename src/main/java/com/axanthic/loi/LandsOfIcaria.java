@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import com.axanthic.loi.proxy.CommonProxy;
 import com.axanthic.loi.utils.CreativeTab;
 import com.axanthic.loi.worldgen.dimension.WorldTypeLOI;
+import com.axanthic.loi.worldgen.dimension.WorldTypeSpawnLOI;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.ai.attributes.IAttribute;
@@ -52,6 +53,7 @@ public class LandsOfIcaria {
 	public static int dimensionId;
 	public static DimensionType dimensionTypeLoi;
 	public static final WorldType LOI_WORLD_TYPE = new WorldTypeLOI(); // although instance isn't used, must create the instance to register the WorldType
+	public static final WorldType LOI_SPAWN_WORLD_TYPE = new WorldTypeSpawnLOI();
 
 	@Mod.Instance
 	public static LandsOfIcaria instance;

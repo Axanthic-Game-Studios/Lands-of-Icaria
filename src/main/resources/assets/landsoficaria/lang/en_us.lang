@@ -4,6 +4,8 @@ itemGroup.landsoficaria.items.creativeTab=Lands of Icaria Items
 
 generator.loi=Lands of Icaria
 generator.loi.info=Replaces the overworld with an additional Lands of Icaria dimension.
+generator.loi_spawn=Lands of Icaria
+generator.loi_spawn.info=Spawns players in the Lands of Icaria instead of the overworld.
 
 item.resource.halite_powder.name=Rock Salt
 item.resource.calcite_powder.name=Calcite Powder

@@ -12,6 +12,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockRenderLayer;
@@ -258,7 +259,7 @@ public class BlockIcariaPortal extends BlockBreakable {
 		}
 	}
 
-	public static void changeDimension(World world, EntityPlayerMP player, int dimension, ITeleporter teleporter) {
+	public static void changeDimension(World world, EntityPlayer player, int dimension, ITeleporter teleporter) {
 		if (!world.isRemote) {
 			player.changeDimension(dimension, teleporter);
 			player.timeUntilPortal = 300;
