@@ -256,7 +256,7 @@
             "conditions": [
                 {
                     "condition": "random_chance",
-                    "chance": 0.1,
+                    "chance": 0.1
                 }
             ],
             "rolls": 1,
@@ -271,7 +271,7 @@
                     "type": "item",
                     "name": "landsoficaria:resource",
 					"entryName": "calcite",
-                    "weight": 2,
+                    "weight": 1,
                     "functions": [
                         {
                             "function": "minecraft:set_data",
