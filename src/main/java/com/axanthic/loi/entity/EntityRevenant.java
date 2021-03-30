@@ -63,6 +63,7 @@ public class EntityRevenant extends EntityMob {
 	protected void applyEntityAI() {
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 		this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityIronGolem.class, true));
+		this.targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, EntityArganHound.class, true));
 	}
 
 	protected void applyEntityAttributes() {
