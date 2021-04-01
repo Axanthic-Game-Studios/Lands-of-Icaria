@@ -1,5 +1,7 @@
 package com.axanthic.loi.render;
 
+import com.axanthic.loi.ModInformation;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -20,6 +22,7 @@ public class IcariaSkyRenderer extends IRenderHandler {
 
 	private static final ResourceLocation MOON_PHASES_TEXTURES = new ResourceLocation("textures/environment/moon_phases.png");
 	private static final ResourceLocation SUN_TEXTURES = new ResourceLocation("textures/environment/sun.png");
+	private static final ResourceLocation EXTRA_MOON_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/environment/moon.png");
 
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
@@ -112,8 +115,24 @@ public class IcariaSkyRenderer extends IRenderHandler {
 		float f16 = 1.0F - world.getRainStrength(partialTicks);
 		GlStateManager.color(1.0F, 1.0F, 1.0F, f16);
 		GlStateManager.rotate(-90.0F, 0.0F, 1.0F, 0.0F);
+		
+		//extra moon
+		GlStateManager.pushMatrix();
+		GlStateManager.rotate(45.0F, 0.0F, 0.0F, 1.0F);
+		GlStateManager.rotate(world.getCelestialAngle(partialTicks) * 360.0F * 2 + 90, 1.0F, 0.0F, 0.0F);
+		float f17 = 20.0F;
+		mc.renderEngine.bindTexture(EXTRA_MOON_TEXTURES);
+		bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
+		bufferbuilder.pos((double)(-f17), -100.0D, (double)f17).tex(0.0D, 0.0D).endVertex();
+		bufferbuilder.pos((double)f17, -100.0D, (double)f17).tex(1.0D, 0.0D).endVertex();
+		bufferbuilder.pos((double)f17, -100.0D, (double)(-f17)).tex(1.0D, 1.0D).endVertex();
+		bufferbuilder.pos((double)(-f17), -100.0D, (double)(-f17)).tex(0.0D, 1.0D).endVertex();
+		tessellator.draw();
+		GlStateManager.popMatrix();
+		
 		GlStateManager.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-		float f17 = 30.0F;
+		
+		f17 = 30.0F;
 		mc.renderEngine.bindTexture(SUN_TEXTURES);
 		bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
 		bufferbuilder.pos((double)(-f17), 100.0D, (double)(-f17)).tex(0.0D, 0.0D).endVertex();
@@ -121,6 +140,7 @@ public class IcariaSkyRenderer extends IRenderHandler {
 		bufferbuilder.pos((double)f17, 100.0D, (double)f17).tex(1.0D, 1.0D).endVertex();
 		bufferbuilder.pos((double)(-f17), 100.0D, (double)f17).tex(0.0D, 1.0D).endVertex();
 		tessellator.draw();
+		
 		f17 = 20.0F;
 		mc.renderEngine.bindTexture(MOON_PHASES_TEXTURES);
 		int k1 = world.getMoonPhase();
@@ -136,6 +156,7 @@ public class IcariaSkyRenderer extends IRenderHandler {
 		bufferbuilder.pos((double)f17, -100.0D, (double)(-f17)).tex((double)f22, (double)f23).endVertex();
 		bufferbuilder.pos((double)(-f17), -100.0D, (double)(-f17)).tex((double)f24, (double)f23).endVertex();
 		tessellator.draw();
+		
 		GlStateManager.disableTexture2D();
 		float f15 = world.getStarBrightness(partialTicks) * f16;
 
