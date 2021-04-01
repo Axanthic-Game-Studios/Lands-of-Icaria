@@ -1,6 +1,7 @@
 package com.axanthic.loi.worldgen.dimension;
 
 import com.axanthic.loi.LandsOfIcaria;
+import com.axanthic.loi.render.IcariaSkyRenderer;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -10,10 +11,24 @@ import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderLOI extends WorldProvider {
+
+    @SideOnly(Side.CLIENT)
+	public IRenderHandler skyRenderer = new IcariaSkyRenderer();
+
+	public WorldProviderLOI() {
+		this.setDimension(LandsOfIcaria.dimensionId);
+	}
+
+	@Override
+	public IRenderHandler getSkyRenderer()
+	{
+		return this.skyRenderer;
+	}
 
 	@Override
 	public DimensionType getDimensionType()
@@ -78,6 +93,10 @@ public class WorldProviderLOI extends WorldProvider {
 	/**********************************************************************/
 	// LIGHTNING
 	/**********************************************************************/
+	public boolean shouldClientCheckLighting()
+	{
+		return true;
+	}
 
 	/**
 	 * Creates the light to brightness table
@@ -159,6 +178,11 @@ public class WorldProviderLOI extends WorldProvider {
 	/**********************************************************************/
 	// FORGE
 	/**********************************************************************/
+
+	public boolean shouldMapSpin(String entity, double x, double z, double rotation)
+	{
+		return false;
+	}
 
 	@Override
 	public boolean canDoLightning(final net.minecraft.world.chunk.Chunk chunk)
