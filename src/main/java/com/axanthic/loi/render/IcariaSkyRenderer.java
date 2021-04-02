@@ -119,7 +119,7 @@ public class IcariaSkyRenderer extends IRenderHandler {
 		//extra moon
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(45.0F, 0.0F, 0.0F, 1.0F);
-		GlStateManager.rotate(world.getCelestialAngle(partialTicks) * 360.0F * 2 + 90, 1.0F, 0.0F, 0.0F);
+		GlStateManager.rotate(world.getCelestialAngle(partialTicks) * 360.0F * 2 + 45, 1.0F, 0.0F, 0.0F);
 		float f17 = 20.0F;
 		mc.renderEngine.bindTexture(EXTRA_MOON_TEXTURES);
 		bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);

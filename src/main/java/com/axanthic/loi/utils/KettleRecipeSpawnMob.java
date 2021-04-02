@@ -19,9 +19,9 @@ public class KettleRecipeSpawnMob extends KettleRecipe {
 
 	public Class entitySpawn;
 
-	public KettleRecipeSpawnMob(ResourceLocation name, Class mob, int color, Ingredient... inputs) {
+	public KettleRecipeSpawnMob(ResourceLocation name, Class mob, int color, int cost, Ingredient... inputs) {
 		this.setRegistryName(name);
-		this.fluidcost = 1000;
+		this.fluidcost = cost;
 		this.color = color;
 		this.entitySpawn = mob;
 		this.recipeInputs = NonNullList.from(Ingredient.EMPTY, inputs);
@@ -34,8 +34,8 @@ public class KettleRecipeSpawnMob extends KettleRecipe {
 		}
 	}
 
-	public KettleRecipeSpawnMob(String name, Class mob, int color, Ingredient... inputs) {
-		this(new ResourceLocation(ModInformation.ID, name), mob, color, inputs);
+	public KettleRecipeSpawnMob(String name, Class mob, int color, int cost, Ingredient... inputs) {
+		this(new ResourceLocation(ModInformation.ID, name), mob, color, cost, inputs);
 	}
 
 	public ItemStack getOutput(ItemStack... input) {

@@ -29,9 +29,10 @@ public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 
 	public KettleRecipe() {}
 
-	public KettleRecipe(ResourceLocation name, ItemStack output, int color, Ingredient... inputs) {
+	public KettleRecipe(ResourceLocation name, ItemStack output, int color, int cost, Ingredient... inputs) {
 		this.setRegistryName(name);
 		this.recipeOutput = output;
+		this.fluidcost = cost;
 		this.color = color;
 		this.recipeInputs = NonNullList.from(Ingredient.EMPTY, inputs);
 		for (Ingredient input : inputs) {
@@ -43,8 +44,8 @@ public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 		}
 	}
 
-	public KettleRecipe(ResourceLocation name, ItemStack output, ItemStack concoction, int color, Ingredient... inputs) {
-		this(name, output, color, inputs);
+	public KettleRecipe(ResourceLocation name, ItemStack output, ItemStack concoction, int color, int cost, Ingredient... inputs) {
+		this(name, output, color, cost, inputs);
 		this.concoctionOutput = concoction;
 	}
 
@@ -63,8 +64,8 @@ public class KettleRecipe extends IForgeRegistryEntry.Impl<KettleRecipe> {
 		}*/
 	}
 
-	public KettleRecipe(String name, ItemStack output, int color, Ingredient... inputs) {
-		this(new ResourceLocation(ModInformation.ID, name), output, color, inputs);
+	public KettleRecipe(String name, ItemStack output, int color, int cost, Ingredient... inputs) {
+		this(new ResourceLocation(ModInformation.ID, name), output, color, cost, inputs);
 	}
 
 	public ItemStack getOutput(ItemStack... input) {

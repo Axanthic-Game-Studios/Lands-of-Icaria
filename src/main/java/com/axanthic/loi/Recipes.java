@@ -13,7 +13,10 @@ import com.axanthic.loi.blocks.BlockOre;
 import com.axanthic.loi.blocks.BlockRock;
 import com.axanthic.loi.blocks.BlockStorageGem;
 import com.axanthic.loi.blocks.BlockStorageMetal;
-import com.axanthic.loi.entity.EntitySow;
+import com.axanthic.loi.entity.EntityArachneDrone;
+import com.axanthic.loi.entity.EntityRevenantCaptain;
+import com.axanthic.loi.entity.EntityRevenantPyromancer;
+import com.axanthic.loi.entity.EntityScorpion;
 import com.axanthic.loi.items.ItemFoods;
 import com.axanthic.loi.items.ItemResources;
 import com.axanthic.loi.items.ItemStews;
@@ -26,6 +29,7 @@ import com.axanthic.loi.utils.KettleRecipeExplosion;
 import com.axanthic.loi.utils.KettleRecipeSpawnMob;
 import com.axanthic.loi.utils.RecipeSalt;
 
+import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -79,14 +83,19 @@ public class Recipes {
 		addGrinderFuel("sliver_ingot", new ItemStack(Resources.ingot, 1, 4), 7200);
 		addGrinderFuel("sliver_block", new ItemStack(Resources.metalBlock, 1, 4), 64800);
 
-		addKettleRecipe(Resources.healSpell, new ItemStack(Resources.herb, 1, 1), new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
-		addKettleRecipe(Resources.fortifySpell, new ItemStack(Resources.herb, 1, 3), new ItemStack(Resources.herb, 1, 4), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
-		addKettleRecipe(Resources.antiGravitySpell, new ItemStack(Resources.ingot, 1, 2), new ItemStack(Resources.herb, 1, 5), new ItemStack(Resources.herb, 1, 1), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
-		addKettleRecipe(Resources.freezingSpell, new ItemStack(Resources.herb, 1, 7), new ItemStack(Resources.herb, 1, 7), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()));
-		addKettleRecipe(Resources.magicMissileSpell, new ItemStack(Resources.ingot, 1, 2), new ItemStack(Resources.herb, 1, 5), new ItemStack(Resources.herb, 1, 4), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()));
-		addKettleRecipe(Resources.bubbleSpell, new ItemStack(Resources.herb, 1, 5), new ItemStack(Resources.herb, 1, 3), new ItemStack(Resources.herb, 1, 6), new ItemStack(Resources.herb, 1, 8));
-		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeSpawnMob(new ResourceLocation(ModInformation.ID, "recipe_sow"), EntitySow.class, 0xFFFFFF, new OreIngredient("vine"), new OreIngredient("vine")));
-		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeExplosion(new ResourceLocation(ModInformation.ID, "recipe_explosion"), 0xEE6D11, new OreIngredient("sand"), new OreIngredient("sand"), new OreIngredient("sand")));
+		addKettleRecipe(Resources.healSpell, 200, new ItemStack(Resources.herb, 1, 1), new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
+		addKettleRecipe(Resources.fortifySpell, 200, new ItemStack(Resources.herb, 1, 3), new ItemStack(Resources.herb, 1, 4), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
+		addKettleRecipe(Resources.antiGravitySpell, 200, new ItemStack(Resources.ingot, 1, 2), new ItemStack(Resources.herb, 1, 5), new ItemStack(Resources.herb, 1, 1), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
+		addKettleRecipe(Resources.freezingSpell, 200, new ItemStack(Resources.herb, 1, 7), new ItemStack(Resources.herb, 1, 7), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()));
+		addKettleRecipe(Resources.magicMissileSpell, 200, new ItemStack(Resources.ingot, 1, 2), new ItemStack(Resources.herb, 1, 5), new ItemStack(Resources.herb, 1, 4), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()));
+		addKettleRecipe(Resources.bubbleSpell, 200, new ItemStack(Resources.herb, 1, 1), new ItemStack(Resources.herb, 1, 3), new ItemStack(Resources.herb, 1, 6), new ItemStack(Resources.herb, 1, 8));
+		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeSpawnMob(new ResourceLocation(ModInformation.ID, "recipe_pyro"), EntityRevenantPyromancer.class, 0x7DB544, 1000, Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 4)), Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 7))));
+		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeSpawnMob(new ResourceLocation(ModInformation.ID, "recipe_scorpion"), EntityScorpion.class, 0xC18743, 1000, Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 6)), Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 8)), Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 5))));
+		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeSpawnMob(new ResourceLocation(ModInformation.ID, "recipe_drone"), EntityArachneDrone.class, 0x56422A, 1000, Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 2)), Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 2))));
+		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeSpawnMob(new ResourceLocation(ModInformation.ID, "recipe_captain"), EntityRevenantCaptain.class, 0xFFDC39, 1000, Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.REMAINS.toMeta()))));
+		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeSpawnMob(new ResourceLocation(ModInformation.ID, "recipe_blaze"), EntityBlaze.class, 0xF7AC37, 1000, Ingredient.fromStacks(new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 2))));
+		//CommonProxy.kettleRecipeRegistry.register(new KettleRecipeSpawnMob(new ResourceLocation(ModInformation.ID, "recipe_siren"), EntitySiren.class, 0xFFFFFF, 1000, Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 3)), Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 1)), Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 1))));
+		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeExplosion(new ResourceLocation(ModInformation.ID, "recipe_explosion"), 0xEE6D11, Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 3)), Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 1)), Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 1))));
 
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath", new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
 
@@ -448,36 +457,36 @@ public class Recipes {
 		addForgeRecipe(name, output, xp, ingredients);
 	}
 
-	public static void addKettleRecipe(String name, ItemStack output, int color, Ingredient... inputs) {
-		CommonProxy.kettleRecipeRegistry.register(new KettleRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), output, color, inputs));
+	public static void addKettleRecipe(String name, ItemStack output, int color, int cost, Ingredient... inputs) {
+		CommonProxy.kettleRecipeRegistry.register(new KettleRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), output, color, cost, inputs));
 	}
 
-	public static void addKettleRecipe(String name, ItemStack output, int color, ItemStack... inputs) {
+	public static void addKettleRecipe(String name, ItemStack output, int color, int cost, ItemStack... inputs) {
 		Ingredient[] ingredients = new Ingredient[inputs.length];
 		for (int i = 0; i < inputs.length; ++i) {
 			ingredients[i] = Ingredient.fromStacks(inputs[i]);
 		}
-		addKettleRecipe(name, output, color, ingredients);
+		addKettleRecipe(name, output, color, cost, ingredients);
 	}
 
-	public static void addKettleRecipe(String name, ItemStack output, ItemStack concoction, int color, Ingredient... inputs) {
-		CommonProxy.kettleRecipeRegistry.register(new KettleRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), output, concoction, color, inputs));
+	public static void addKettleRecipe(String name, ItemStack output, ItemStack concoction, int color, int cost, Ingredient... inputs) {
+		CommonProxy.kettleRecipeRegistry.register(new KettleRecipe(new ResourceLocation(ModInformation.ID, "recipe_" + name), output, concoction, color, cost, inputs));
 	}
 
-	public static void addKettleRecipe(String name, ItemStack output, ItemStack concoction, int color, ItemStack... inputs) {
+	public static void addKettleRecipe(String name, ItemStack output, ItemStack concoction, int color, int cost, ItemStack... inputs) {
 		Ingredient[] ingredients = new Ingredient[inputs.length];
 		for (int i = 0; i < inputs.length; ++i) {
 			ingredients[i] = Ingredient.fromStacks(inputs[i]);
 		}
-		addKettleRecipe(name, output, concoction, color, ingredients);
+		addKettleRecipe(name, output, concoction, color, cost, ingredients);
 	}
 
-	public static void addKettleRecipe(SpellSet spell, Ingredient... inputs) {
-		addKettleRecipe(spell.name, new ItemStack(spell.spellItem), spell.hasConcoction ? new ItemStack(spell.concoction) : null, spell.spell.getColor(), inputs);
+	public static void addKettleRecipe(SpellSet spell, int cost, Ingredient... inputs) {
+		addKettleRecipe(spell.name, new ItemStack(spell.spellItem), spell.hasConcoction ? new ItemStack(spell.concoction) : null, spell.spell.getColor(), cost, inputs);
 	}
 
-	public static void addKettleRecipe(SpellSet spell, ItemStack... inputs) {
-		addKettleRecipe(spell.name, new ItemStack(spell.spellItem), spell.hasConcoction ? new ItemStack(spell.concoction) : null, spell.spell.getColor(), inputs);
+	public static void addKettleRecipe(SpellSet spell, int cost, ItemStack... inputs) {
+		addKettleRecipe(spell.name, new ItemStack(spell.spellItem), spell.hasConcoction ? new ItemStack(spell.concoction) : null, spell.spell.getColor(), cost, inputs);
 	}
 
 	public static void moveRecipe(ResourceLocation name) {
