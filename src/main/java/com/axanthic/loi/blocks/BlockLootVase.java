@@ -4,8 +4,8 @@ import java.util.Random;
 
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.Resources;
 import com.axanthic.loi.entity.EntityFallingVase;
+import com.axanthic.loi.utils.IcariaSounds;
 
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.MapColor;
@@ -41,7 +41,7 @@ public class BlockLootVase extends BlockFalling {
 		this.setHardness(0.0F);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);
-		this.setSoundType(Resources.CERAMIC);
+		this.setSoundType(IcariaSounds.CERAMIC);
 		loot = lootTable;
 		color = mapColor;
 	}

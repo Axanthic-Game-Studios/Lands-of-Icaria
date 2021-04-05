@@ -409,7 +409,7 @@ public class Recipes {
 
 	public static boolean registerArmorRecipe(ArmorSet set) {
 		ItemStack material = set.material.getRepairItemStack();
-		String name = set.material.getName().substring(ModInformation.ID.length() + 1);
+		String name = set.material.name().substring(ModInformation.ID.length() + 1);
 		addRecipe(new ItemStack(set.helmet), name + "_helmet", new Object[]{"MMM", "M M", 'M', material});
 		addRecipe(new ItemStack(set.chestplate), name + "_chestplate", new Object[]{"M M", "MMM", "MMM", 'M', material});
 		addRecipe(new ItemStack(set.leggings), name + "_leggings", new Object[]{"MMM", "M M", "M M", 'M', material});

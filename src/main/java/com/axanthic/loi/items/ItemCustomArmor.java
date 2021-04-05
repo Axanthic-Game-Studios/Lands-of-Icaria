@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.render.ModelArmorOrichalcum;
+import com.axanthic.loi.proxy.ClientProxy;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,9 +16,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemCustomArmor extends ItemArmor {
-
-	@SideOnly(Side.CLIENT)
-	public static ModelBiped orichalcumModel = new ModelArmorOrichalcum();
 
 	String materialName;
 
@@ -52,7 +49,7 @@ public class ItemCustomArmor extends ItemArmor {
 	public ModelBiped getArmorModel(EntityLivingBase living, ItemStack stack, EntityEquipmentSlot slot, ModelBiped defaultModel) {
 		if(!stack.isEmpty() && stack.getItem() instanceof ItemArmor) {
 			if (((ItemArmor) stack.getItem()).getArmorMaterial().name().equals(ModInformation.ID + ":orichalcum") && slot != EntityEquipmentSlot.LEGS)
-				return orichalcumModel;
+				return ClientProxy.orichalcumModel;
 		}
 		return defaultModel;
 	}

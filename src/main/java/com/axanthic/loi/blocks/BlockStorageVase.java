@@ -4,9 +4,9 @@ import javax.annotation.Nullable;
 
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.Resources;
 import com.axanthic.loi.gui.GuiHandlerLOI;
 import com.axanthic.loi.tileentity.TileEntityVase;
+import com.axanthic.loi.utils.IcariaSounds;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.MapColor;
@@ -39,7 +39,7 @@ public class BlockStorageVase extends BlockContainer {
 		this.setHardness(1.3F);
 		this.setUnlocalizedName("storage_vase");
 		this.setRegistryName(ModInformation.ID, "storage_vase");
-		this.setSoundType(Resources.CERAMIC);
+		this.setSoundType(IcariaSounds.CERAMIC);
 	}
 
 	@Override

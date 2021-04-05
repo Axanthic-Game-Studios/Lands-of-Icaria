@@ -128,6 +128,7 @@ public class BlockLeaf extends BlockLeaves implements IBlockMaterial {
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public boolean isOpaqueCube(IBlockState state) {
 		return !Minecraft.getMinecraft().gameSettings.fancyGraphics;
 	}

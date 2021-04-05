@@ -1,6 +1,7 @@
 package com.axanthic.loi.worldgen.dimension;
 
 import com.axanthic.loi.LandsOfIcaria;
+import com.axanthic.loi.proxy.ClientProxy;
 import com.axanthic.loi.render.IcariaSkyRenderer;
 
 import net.minecraft.init.Blocks;
@@ -17,9 +18,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderLOI extends WorldProvider {
 
-    @SideOnly(Side.CLIENT)
-	public IRenderHandler skyRenderer = new IcariaSkyRenderer();
-
 	public WorldProviderLOI() {
 		this.setDimension(LandsOfIcaria.dimensionId);
 	}
@@ -27,7 +25,7 @@ public class WorldProviderLOI extends WorldProvider {
 	@Override
 	public IRenderHandler getSkyRenderer()
 	{
-		return this.skyRenderer;
+		return ClientProxy.skyRenderer;
 	}
 
 	@Override

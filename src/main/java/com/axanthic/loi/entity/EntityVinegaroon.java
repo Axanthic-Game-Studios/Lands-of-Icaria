@@ -1,6 +1,7 @@
 package com.axanthic.loi.entity;
 
-import com.axanthic.loi.proxy.ClientProxy;
+import com.axanthic.loi.utils.IcariaSounds;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -98,15 +99,15 @@ public class EntityVinegaroon extends EntityMob {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return ClientProxy.SCORPION_IDLE;
+		return IcariaSounds.SCORPION_IDLE;
 	}
 
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-		return ClientProxy.SCORPION_HURT;
+		return IcariaSounds.SCORPION_HURT;
 	}
 
 	protected SoundEvent getDeathSound() {
-		return ClientProxy.SCORPION_DEATH;
+		return IcariaSounds.SCORPION_DEATH;
 	}
 
 	protected void playStepSound(BlockPos pos, Block blockIn) {

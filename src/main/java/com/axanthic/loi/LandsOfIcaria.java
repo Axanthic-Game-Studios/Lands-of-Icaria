@@ -14,13 +14,9 @@ import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.client.event.ModelBakeEvent;
-import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -105,31 +101,6 @@ public class LandsOfIcaria {
 	@SubscribeEvent
 	public void potionRegistry(final RegistryEvent.Register<Potion> event) {
 		LandsOfIcaria.proxy.registerPotions(event);
-	}
-
-	@SubscribeEvent
-	public void modelRegistry(ModelRegistryEvent event) {
-		LandsOfIcaria.proxy.registerModels(event);
-	}
-
-	@SubscribeEvent
-	public void modelBake(ModelBakeEvent event) {
-		LandsOfIcaria.proxy.onModelBake(event);
-	}
-
-	@SubscribeEvent
-	public void blockColorRegistry(final ColorHandlerEvent.Block event) {
-		LandsOfIcaria.proxy.registerBlockColors(event);
-	}
-
-	@SubscribeEvent
-	public void ItemColorRegistry(final ColorHandlerEvent.Item event) {
-		LandsOfIcaria.proxy.registerItemColors(event);
-	}
-
-	@SubscribeEvent
-	public static void registerSoundEvents(RegistryEvent.Register<SoundEvent> event) {	
-		LandsOfIcaria.proxy.registerSounds(event);
 	}
 
 	@SubscribeEvent

@@ -11,7 +11,6 @@ import com.axanthic.loi.Resources;
 import com.axanthic.loi.entity.*;
 import com.axanthic.loi.gui.GuiHandlerLOI;
 import com.axanthic.loi.gui.GuiHandlerRegistry;
-import com.axanthic.loi.gui.GuiStatIndicator;
 import com.axanthic.loi.items.IItemCustomReach;
 import com.axanthic.loi.tileentity.TileEntityColoredLight;
 import com.axanthic.loi.tileentity.TileEntityForge;
@@ -40,12 +39,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.client.event.ModelBakeEvent;
-import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -134,7 +129,6 @@ public class CommonProxy {
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(LandsOfIcaria.instance, GuiHandlerRegistry.getInstance());
 		GuiHandlerRegistry.getInstance().registerGuiHandler(new GuiHandlerLOI(), GuiHandlerLOI.getGuiID());
-		MinecraftForge.EVENT_BUS.register(new GuiStatIndicator());
 	}
 
 	public void init(FMLInitializationEvent event) {
@@ -187,26 +181,6 @@ public class CommonProxy {
 
 	public void registerPotions(RegistryEvent.Register<Potion> event) {
 		event.getRegistry().register(Resources.frozenEffect);
-	}
-
-	public void registerModels(ModelRegistryEvent event) {
-
-	}
-
-	public void onModelBake(ModelBakeEvent event) {
-
-	}
-
-	public void registerBlockColors(ColorHandlerEvent.Block event) {
-
-	}
-
-	public void registerItemColors(ColorHandlerEvent.Item event) {
-
-	}
-
-	public void registerSounds(RegistryEvent.Register<SoundEvent> event) {
-
 	}
 
 	public void registerRegistry(RegistryEvent.NewRegistry event) {

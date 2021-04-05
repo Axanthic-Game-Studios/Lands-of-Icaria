@@ -5,10 +5,10 @@ import java.util.Collection;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.blocks.BlockGrinder;
 import com.axanthic.loi.gui.ContainerKiln;
-import com.axanthic.loi.proxy.ClientProxy;
 import com.axanthic.loi.proxy.CommonProxy;
 import com.axanthic.loi.utils.GrinderFuel;
 import com.axanthic.loi.utils.GrinderRecipe;
+import com.axanthic.loi.utils.IcariaSounds;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -255,7 +255,7 @@ public class TileEntityGrinder extends TileEntityLockable implements ITickable, 
 		} else {
 			if (this.isGrinding()) {
 				if (this.lastSound > 285) {
-					this.world.playSound((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, ClientProxy.GRIND, SoundCategory.BLOCKS, 0.7F, 1.0F, false);
+					this.world.playSound((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, IcariaSounds.GRIND, SoundCategory.BLOCKS, 0.7F, 1.0F, false);
 					this.lastSound = 0;
 				} else
 					this.lastSound++;

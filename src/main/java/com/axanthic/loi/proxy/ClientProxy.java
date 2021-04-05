@@ -22,6 +22,7 @@ import com.axanthic.loi.blocks.BlockSapling;
 import com.axanthic.loi.blocks.BlockTallGrass;
 import com.axanthic.loi.blocks.IBlockMeta;
 import com.axanthic.loi.entity.*;
+import com.axanthic.loi.gui.GuiStatIndicator;
 import com.axanthic.loi.items.IItemCustomReach;
 import com.axanthic.loi.items.IItemMeta;
 import com.axanthic.loi.items.ItemBlockMeta;
@@ -39,6 +40,7 @@ import com.axanthic.loi.tileentity.TileEntitySpecialRendererColoredLight;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererGrinder;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererKettle;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererMobHead;
+import com.axanthic.loi.utils.IcariaSounds;
 import com.axanthic.loi.utils.LOIItemStackRenderer;
 import com.axanthic.loi.utils.MessageCustomReachAttack;
 import com.google.common.base.Predicate;
@@ -74,6 +76,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeColorHelper;
+import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -92,18 +95,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ClientProxy extends CommonProxy {
 
-	public static final ResourceLocation SOUND_SCORPION_IDLE = new ResourceLocation(ModInformation.ID, "entity.scorpion.idle");
-	public static final SoundEvent SCORPION_IDLE = new SoundEvent(SOUND_SCORPION_IDLE).setRegistryName(SOUND_SCORPION_IDLE);
-	public static final ResourceLocation SOUND_SCORPION_HURT = new ResourceLocation(ModInformation.ID, "entity.scorpion.hurt");
-	public static final SoundEvent SCORPION_HURT = new SoundEvent(SOUND_SCORPION_HURT).setRegistryName(SOUND_SCORPION_HURT);
-	public static final ResourceLocation SOUND_SCORPION_DEATH = new ResourceLocation(ModInformation.ID, "entity.scorpion.death");
-	public static final SoundEvent SCORPION_DEATH = new SoundEvent(SOUND_SCORPION_DEATH).setRegistryName(SOUND_SCORPION_DEATH);
-	public static final ResourceLocation SOUND_GRIND = new ResourceLocation(ModInformation.ID, "block.grinder.grind");
-	public static final SoundEvent GRIND = new SoundEvent(SOUND_GRIND).setRegistryName(SOUND_GRIND);
-	public static final ResourceLocation SOUND_CERAMIC_BREAK = new ResourceLocation(ModInformation.ID, "block.ceramic.break");
-	public static final SoundEvent CERAMIC_BREAK = new SoundEvent(SOUND_CERAMIC_BREAK).setRegistryName(SOUND_CERAMIC_BREAK);
 	public static Map<String, String[]> emissiveTextures = new HashMap<String, String[]>();
 	public static ModelManager modelManager;
+	public static ModelBiped orichalcumModel = new ModelArmorOrichalcum();
+	public static IRenderHandler skyRenderer = new IcariaSkyRenderer();
 
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
@@ -159,6 +154,8 @@ public class ClientProxy extends CommonProxy {
 		//emissiveTextures.put("crafting_kiln", new String[]{ ModInformation.ID + ":blocks/crafting_kiln_fire" });
 
 		LOIItemStackRenderer.LOIInstance = new LOIItemStackRenderer();
+		if (LOIConfig.hud.indicatorEnabled)
+			MinecraftForge.EVENT_BUS.register(new GuiStatIndicator());
 	}
 
 	@Override
@@ -176,7 +173,7 @@ public class ClientProxy extends CommonProxy {
 		super.postInit(event);
 	}
 
-	@Override
+	@SubscribeEvent
 	public void registerModels(ModelRegistryEvent event) {
 		for (ItemBlock block : Resources.blocks) {
 			if (block.getBlock() instanceof BlockFlower || block.getBlock() instanceof BlockTallGrass || block.getBlock() instanceof BlockHerb) {
@@ -273,7 +270,7 @@ public class ClientProxy extends CommonProxy {
 			scroll.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 	}
 
-	@Override
+	@SubscribeEvent
 	public void onModelBake(ModelBakeEvent event) {
 		for (ModelResourceLocation resource : event.getModelRegistry().getKeys()) {
 			if (LOIConfig.render.emissiveTextures && resource.getResourceDomain().equals(ModInformation.ID) && emissiveTextures.containsKey(resource.getResourcePath())) {
@@ -289,7 +286,7 @@ public class ClientProxy extends CommonProxy {
 		modelManager = event.getModelManager();
 	}
 
-	@Override
+	@SubscribeEvent
 	public void registerBlockColors(ColorHandlerEvent.Block event) {
 		event.getBlockColors().registerBlockColorHandler(new IBlockColor() {
 			@Override
@@ -306,7 +303,7 @@ public class ClientProxy extends CommonProxy {
 		}, Resources.flower.getBlock(), Resources.flower2.getBlock(), Resources.bromelia.getBlock(), Resources.vineBloomy.getBlock(), Resources.vineBranch.getBlock(), Resources.vineBrushy.getBlock(), Resources.vineReedy.getBlock(), Resources.vineSwirly.getBlock(), Resources.vineBloomyDead.getBlock(), Resources.vineBranchDead.getBlock(), Resources.vineBrushyDead.getBlock(), Resources.vineReedyDead.getBlock(), Resources.vineSwirlyDead.getBlock());
 	}
 
-	@Override
+	@SubscribeEvent
 	public void registerItemColors(ColorHandlerEvent.Item event) {
 		event.getItemColors().registerItemColorHandler(new IItemColor() {
 			@Override
@@ -335,13 +332,13 @@ public class ClientProxy extends CommonProxy {
 		return new Color(Math.min(col.getRed() + 30, 255), Math.max(col.getGreen() - 10, 0), col.getBlue()).getRGB();
 	}
 
-	@Override
+	@SubscribeEvent
 	public void registerSounds(RegistryEvent.Register<SoundEvent> event) {
-		event.getRegistry().register(SCORPION_IDLE);
-		event.getRegistry().register(SCORPION_HURT);
-		event.getRegistry().register(SCORPION_DEATH);
-		event.getRegistry().register(GRIND);
-		event.getRegistry().register(CERAMIC_BREAK);
+		event.getRegistry().register(IcariaSounds.SCORPION_IDLE);
+		event.getRegistry().register(IcariaSounds.SCORPION_HURT);
+		event.getRegistry().register(IcariaSounds.SCORPION_DEATH);
+		event.getRegistry().register(IcariaSounds.GRIND);
+		event.getRegistry().register(IcariaSounds.CERAMIC_BREAK);
 	}
 
 	@Override
