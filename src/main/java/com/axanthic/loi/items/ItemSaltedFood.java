@@ -56,10 +56,12 @@ public class ItemSaltedFood extends ItemFood {
 		foodStack.setCount(stack.getCount());
 		if (foodStack.isEmpty())
 			return stack;
-		foodStack.getItem().onItemUseFinish(foodStack, worldIn, entityLiving);
-
-		stack.setCount(foodStack.getCount());
-		return stack;
+		ItemStack returnStack = foodStack.getItem().onItemUseFinish(foodStack, worldIn, entityLiving);
+		if (returnStack.isItemEqual(foodStack)) {
+			stack.setCount(foodStack.getCount());
+			return stack;
+		}
+		return returnStack;
 	}
 
 	/**
