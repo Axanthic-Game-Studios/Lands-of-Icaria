@@ -8,6 +8,7 @@ import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.items.ItemResources;
+import com.axanthic.loi.utils.DropPool;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -154,9 +155,17 @@ public class BlockTallGrass extends BlockBush implements IShearable, IBlockMeta 
 
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-		if (RANDOM.nextInt(4) != 0)
+		if (RANDOM.nextInt(8) != 0) {
+			if (RANDOM.nextInt(4) != 0)
+				return;
+			drops.add(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.PLANT_FIBER.ordinal()));
 			return;
-		drops.add(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.PLANT_FIBER.ordinal()));
+		}
+		DropPool pool = new DropPool(RANDOM, 1, fortune);
+		pool.addEntry(20, Resources.seedsStrawberry, 0, 1, 1);
+		pool.addEntry(20, Resources.seedsPhysalis, 0, 1, 1);
+		pool.addEntry(20, Resources.seedsSpelt, 0, 1, 1);
+		pool.getDrops(drops);
 	}
 
 	public enum GrassTypes implements IStringSerializable {
