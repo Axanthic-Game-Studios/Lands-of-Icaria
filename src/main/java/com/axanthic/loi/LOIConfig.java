@@ -137,23 +137,23 @@ public class LOIConfig {
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.rottenbones")
-		public OreSettings rottenBones = new OreSettings(true, 17, 20);
+		public OreSettings rottenBones = new OreSettings(true, 17, 30);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.lignite")
-		public OreSettings lignite = new OreSettings(true, 17, 20);
+		public OreSettings lignite = new OreSettings(true, 17, 30);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.chalkos")
-		public OreSettings chalkos = new OreSettings(true, 9, 17);
+		public OreSettings chalkos = new OreSettings(true, 9, 24);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.kassiteros")
-		public OreSettings kassiteros = new OreSettings(true, 9, 16);
+		public OreSettings kassiteros = new OreSettings(true, 9, 22);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.dolomite")
-		public OreSettings dolomite = new OreSettings(true, 14, 18);
+		public OreSettings dolomite = new OreSettings(true, 14, 24);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.molibos")
@@ -161,35 +161,35 @@ public class LOIConfig {
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.vanadium")
-		public OreSettings vanadium = new OreSettings(true, 4, 9);
+		public OreSettings vanadium = new OreSettings(true, 7, 15);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.sliver")
-		public OreSettings sliver = new OreSettings(false, 7, 12);
+		public OreSettings sliver = new OreSettings(false, 8, 18);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.sideros")
-		public OreSettings sideros = new OreSettings(true, 5, 4);
+		public OreSettings sideros = new OreSettings(true, 6, 12);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.anthracite")
-		public OreSettings anthracite = new OreSettings(true, 8, 8);
+		public OreSettings anthracite = new OreSettings(true, 10, 15);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.molybdenum")
-		public OreSettings molybdenum = new OreSettings(true, 3, 5);
+		public OreSettings molybdenum = new OreSettings(true, 3, 9);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.bluridium")
-		public OreSettings bluridium = new OreSettings(false, 4, 2);
+		public OreSettings bluridium = new OreSettings(false, 4, 4);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.hyliastrum")
-		public OreSettings hyliastrum = new OreSettings(false, 4, 4);
+		public OreSettings hyliastrum = new OreSettings(false, 4, 7);
 
 		@RequiresMcRestart
 		@LangKey("loi.config.worldgen.abyssalessence")
-		public OreSettings abyssalEssence = new OreSettings(false, 4, 4);
+		public OreSettings abyssalEssence = new OreSettings(false, 4, 7);
 
 		public static class OreSettings {
 
