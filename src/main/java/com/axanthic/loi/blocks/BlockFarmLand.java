@@ -35,6 +35,7 @@ public class BlockFarmLand extends BlockFarmland {
 		this.setSoundType(SoundType.GROUND);
 		this.setUnlocalizedName("farmland");
 		this.setRegistryName(ModInformation.ID, "farmland");
+        this.useNeighborBrightness = true;
 	}
 
 	@Override
@@ -113,6 +114,11 @@ public class BlockFarmLand extends BlockFarmland {
 	@Override
 	public boolean isFertile(World world, BlockPos pos) {
 		return ((Integer)world.getBlockState(pos).getValue(BlockFarmland.MOISTURE)) > 0;
+	}
+
+	@Override
+	public boolean isSideSolid(IBlockState base_state, IBlockAccess world, BlockPos pos, EnumFacing side) {
+		return side == EnumFacing.DOWN;
 	}
 
 	public boolean hasCrops(World worldIn, BlockPos pos) {

@@ -29,6 +29,7 @@ public class BlockFarmLandFertilized extends BlockFarmland {
 		this.setDefaultState(this.blockState.getBaseState());
 		this.setUnlocalizedName("farmland_fertilized");
 		this.setRegistryName(ModInformation.ID, "farmland_fertilized");
+        this.useNeighborBrightness = true;
 	}
 
 	@Override

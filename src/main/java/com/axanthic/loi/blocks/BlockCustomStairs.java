@@ -29,6 +29,7 @@ public class BlockCustomStairs extends BlockStairs implements IBlockMaterial{
 			this.setRegistryName(ModInformation.ID, "stairs_" + modelState.getBlock().getRegistryName().getResourcePath() + "_" + ((IBlockMeta) modelBlock).getNameForMeta(modelBlock.getMetaFromState(modelState)));
 		else
 			this.setRegistryName(ModInformation.ID, "stairs_" + modelState.getBlock().getRegistryName().getResourcePath());
+        this.useNeighborBrightness = true;
 	}
 
 	@Override
