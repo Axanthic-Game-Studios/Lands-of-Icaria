@@ -600,6 +600,7 @@ public class Recipes {
 		OreDictionary.registerOre("dyeWhite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.WHITE_DYE.toMeta()));
 		OreDictionary.registerOre("sugarcane", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.VINEREEDS.toMeta()));
 		OreDictionary.registerOre("cropSpelt", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.SPELT.toMeta()));
+		OreDictionary.registerOre("string", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ARACHNE_STRING.toMeta()));
 		OreDictionary.registerOre("dustSmallHalite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.HALITE_POWDER.toMeta()));
 		OreDictionary.registerOre("dustSalt", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.HALITE_POWDER.toMeta()));
 
