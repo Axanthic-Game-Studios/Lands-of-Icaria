@@ -49,11 +49,11 @@ import net.minecraftforge.registries.IForgeRegistryModifiable;
 public class Recipes {
 
 	public static void registerRecipes() {
-		addForgeRecipe("orichalcum", new ItemStack(Resources.ingot, 3, 3), 0.3F, new OreIngredient("ingotKassiteros"), new OreIngredient("ingotChalkos"), new OreIngredient("ingotChalkos"));
-		addForgeRecipe("vanadiumsteel", new ItemStack(Resources.ingot, 2, 6), 0.5F, new OreIngredient("ingotKassiteros"), new OreIngredient("ingotVanadium"), new OreIngredient("gemLignite"));
-		addForgeRecipe("molybdenumsteel", new ItemStack(Resources.ingot, 2, 9), 0.6F, new OreIngredient("ingotSideros"), new OreIngredient("ingotMolybdenum"), new OreIngredient("gemAnthracite"));
+		addForgeRecipe("orichalcum", new ItemStack(Resources.ingot, 1, 3), 0.3F, new OreIngredient("ingotKassiteros"), new OreIngredient("ingotChalkos"), new OreIngredient("ingotChalkos"));
+		addForgeRecipe("vanadiumsteel", new ItemStack(Resources.ingot, 1, 6), 0.5F, new OreIngredient("ingotKassiteros"), new OreIngredient("ingotVanadium"), new OreIngredient("gemLignite"));
+		addForgeRecipe("molybdenumsteel", new ItemStack(Resources.ingot, 1, 9), 0.6F, new OreIngredient("ingotSideros"), new OreIngredient("ingotMolybdenum"), new OreIngredient("gemAnthracite"));
 
-		addGrinderRecipe("calcite_powder", new ItemStack(Resources.resource, 4, ItemResources.ResourceType.CALCITE_POWDER.toMeta()), 0.1F, new OreIngredient("gemCalcite"));
+		addGrinderRecipe("calcite_powder", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE_POWDER.toMeta()), 0.1F, new OreIngredient("gemCalcite"));
 		addGrinderRecipe("rock_salt", new ItemStack(Resources.resource, 4, ItemResources.ResourceType.HALITE_POWDER.toMeta()), 0.1F, new OreIngredient("gemHalite"));
 		addGrinderRecipe("spelt_flour", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.FLOUR.toMeta()), 0.1F, new OreIngredient("cropSpelt"));
 		addGrinderRecipe("grainel_stone", new ItemStack(Resources.grainelStone), 0.1F, Ingredient.fromStacks(new ItemStack(Resources.grainelStone, 1, 1), new ItemStack(Resources.grainelStone, 1, 2)));
@@ -101,7 +101,7 @@ public class Recipes {
 
 		addRecipe(new ItemStack(Resources.emptyVial, 3), "empty_vial", new Object[]{"G G", " G ", 'G', Resources.grainelGlass});
 
-		addRecipe(new ItemStack(Resources.grenade, 1), "grenade", new Object[]{" S ", "NPN", " N ", 'S', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ARACHNE_STRING.toMeta()), 'P', "dustSmallCalcite", 'N', "nuggetKassiteros"});
+		addRecipe(new ItemStack(Resources.grenade, 1), "grenade", new Object[]{" S ", "NPN", " N ", 'S', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ARACHNE_STRING.toMeta()), 'P', "dustCalcite", 'N', "nuggetKassiteros"});
 
 		addRecipe(new ItemStack(Resources.aristonePacked), "packed_aristone", new Object[]{"AAA", "AAA", "AAA", 'A', Resources.aristone});
 
@@ -584,7 +584,7 @@ public class Recipes {
 		OreDictionary.registerOre("gemCalcite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE.toMeta()));
 		OreDictionary.registerOre("gemJasper", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.JASPER.toMeta()));
 		OreDictionary.registerOre("gemZircon", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ZIRCON.toMeta()));
-		OreDictionary.registerOre("dustSmallCalcite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE_POWDER.toMeta()));
+		OreDictionary.registerOre("dustCalcite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE_POWDER.toMeta()));
 		OreDictionary.registerOre("clay", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_LUMP.toMeta()));
 		OreDictionary.registerOre("itemClay", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_LUMP.toMeta()));
 		OreDictionary.registerOre("ingotLoamBrick", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_BRICK.toMeta()));
