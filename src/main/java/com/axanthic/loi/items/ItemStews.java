@@ -86,13 +86,12 @@ public class ItemStews extends ItemFood implements IItemMeta {
 	}
 
 	public enum StewType {
-		FRUIT_SALAD("fruit_salad", 7, 1.2F, 1.0F,
-				new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 1)),
-		AETERNAE("aeternae", 8, 1.0F),
-		CERVER("cerver", 5, 1.0F),
-		SOW("sow", 5, 1.0F),
-		ONION("onion", 2, 0.5F),
-		CATOBLEPAS("catoblepas", 6, 1.0F);
+		FRUIT_SALAD("fruit_salad", 7, 1.2F, 1.0F, new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 1)),
+		AETERNAE("aeternae", 9, 1.0F),
+		CERVER("cerver", 9, 1.0F),
+		SOW("sow", 8, 1.0F),
+		ONION("onion", 4, 1.0F),
+		CATOBLEPAS("catoblepas", 8, 1.0F);
 
 		public static final StewType[] values = StewType.values();
 		public static final int length = values.length;
