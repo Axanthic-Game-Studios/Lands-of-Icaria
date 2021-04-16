@@ -163,8 +163,14 @@ public class EntityVinegaroon extends EntityMob {
 
 	public void onLivingUpdate() {
 		if (!this.getPassengers().isEmpty()) {
-			if (this.getPassengers().get(0).isSneaking()) {
-				this.getPassengers().get(0).setSneaking(false);
+			Entity passenger = this.getPassengers().get(0);
+			boolean creativeMode = false;
+			if (passenger instanceof EntityPlayer)
+				creativeMode = ((EntityPlayer)passenger).isCreative();
+
+			// workaround to make fangs non-ejectable
+			if (!creativeMode && passenger.isSneaking()) {
+				passenger.setSneaking(false);
 			}
 		}
 		super.onLivingUpdate();
