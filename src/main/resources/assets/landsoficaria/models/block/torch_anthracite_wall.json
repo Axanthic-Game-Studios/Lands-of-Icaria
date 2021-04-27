@@ -1,9 +1,9 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "blocks/torch_metal",
-        "1": "blocks/torch_bone",
-        "2": "blocks/torch_coal"
+        "0": "landsoficaria:blocks/torch_metal",
+        "1": "landsoficaria:blocks/torch_bone",
+        "2": "landsoficaria:blocks/torch_coal",
+        "particle": "landsoficaria:blocks/torch_bone"
     },
     "elements": [
         {

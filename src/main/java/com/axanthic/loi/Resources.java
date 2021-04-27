@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import com.axanthic.loi.blocks.BlockAnthraciteTorch;
 import com.axanthic.loi.blocks.BlockAristone;
 import com.axanthic.loi.blocks.BlockBasic;
 import com.axanthic.loi.blocks.BlockBasicVineDead;
@@ -46,6 +47,7 @@ import com.axanthic.loi.blocks.BlockKettle;
 import com.axanthic.loi.blocks.BlockKiln;
 import com.axanthic.loi.blocks.BlockLeaf;
 import com.axanthic.loi.blocks.BlockLeafOlives;
+import com.axanthic.loi.blocks.BlockLigniteTorch;
 import com.axanthic.loi.blocks.BlockLog;
 import com.axanthic.loi.blocks.BlockLootVase;
 import com.axanthic.loi.blocks.BlockMobHead;
@@ -333,6 +335,10 @@ public class Resources {
 	public static ItemBlock myrmekeSpawner = new ItemBlock(new BlockCustomSpawner(5.0F, "myrmeke_spawner").setSoundType(SoundType.WOOD));
 	public static ItemBlock strawberryCake = new ItemBlock(new BlockCustomCake("strawberry_cake"));
 
+	//torches
+	public static ItemBlock anthraciteTorch = new ItemBlock(new BlockAnthraciteTorch());
+	public static ItemBlock ligniteTorch = new ItemBlock(new BlockLigniteTorch());
+
 	public static Item seedsStrawberry = new ItemCustomSeeds("seed_strawberry", cropStrawberry.getBlock());
 	public static Item seedsPhysalis = new ItemCustomSeeds("seed_physalis", cropPhysalis.getBlock());
 	public static Item seedsSpelt = new ItemCustomSeeds("seed_spelt", cropSpelt.getBlock());
@@ -572,6 +578,10 @@ public class Resources {
 		Resources.registerBlock(Resources.myrmekeSpawner);
 		Resources.registerBlock(Resources.strawberryCake);
 		BlockIcariaPortal.init();
+
+		//torches
+		Resources.registerBlock(Resources.anthraciteTorch);
+		Resources.registerBlock(Resources.ligniteTorch);
 
 		//DEPRECATED
 		/*

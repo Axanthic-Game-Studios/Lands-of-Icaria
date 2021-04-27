@@ -97,6 +97,10 @@ public class Recipes {
 		//CommonProxy.kettleRecipeRegistry.register(new KettleRecipeSpawnMob(new ResourceLocation(ModInformation.ID, "recipe_siren"), EntitySiren.class, 0xFFFFFF, 1000, Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 3)), Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 1)), Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 1))));
 		CommonProxy.kettleRecipeRegistry.register(new KettleRecipeExplosion(new ResourceLocation(ModInformation.ID, "recipe_explosion"), 0xEE6D11, Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 3)), Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 1)), Ingredient.fromStacks(new ItemStack(Resources.herb, 1, 1))));
 
+		//torches
+		addRecipe(new ItemStack(Resources.anthraciteTorch, 2), "torch_anthracite", new Object[]{"C", "B", 'C', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ANTHRACITE.toMeta()), 'B', Items.BONE});
+		addRecipe(new ItemStack(Resources.ligniteTorch, 2), "torch_lignite", new Object[]{"C", "B", 'C', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LIGNITE.toMeta()), 'B', Items.BONE});
+
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath", new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
 
 		addRecipe(new ItemStack(Resources.emptyVial, 3), "empty_vial", new Object[]{"G G", " G ", 'G', Resources.grainelGlass});

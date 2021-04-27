@@ -245,6 +245,10 @@ tile.mediterranean_water.name=Mediterranes Wasser
 tile.gas.name=Antigravitations Flüssigkeit
 tile.hyliastrum_fluid.name=Fließende Leere
 
+#torches
+tile.torch_anthracite.name=Anthrazit Fackel
+tile.torch_lignite.name=Turff Fackel
+
 fluid.mediterranean_water=Mediterranes Wasser
 fluid.gas=Antigravitations Flüssigkeit
 fluid.hyliastrum_fluid=Fließende Leere
