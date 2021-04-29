@@ -8,6 +8,7 @@ import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Recipes;
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.utils.TorchNerfs;
 import com.axanthic.loi.entity.*;
 import com.axanthic.loi.gui.GuiHandlerLOI;
 import com.axanthic.loi.gui.GuiHandlerRegistry;
@@ -70,6 +71,7 @@ public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(LandsOfIcaria.instance);
+		MinecraftForge.EVENT_BUS.register(new TorchNerfs());
 
 		LandsOfIcaria.logger = event.getModLog();
 

@@ -43,6 +43,7 @@ import com.axanthic.loi.tileentity.TileEntitySpecialRendererMobHead;
 import com.axanthic.loi.utils.IcariaSounds;
 import com.axanthic.loi.utils.LOIItemStackRenderer;
 import com.axanthic.loi.utils.MessageCustomReachAttack;
+import com.axanthic.loi.utils.TorchNerfs;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
@@ -104,6 +105,8 @@ public class ClientProxy extends CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
 		MinecraftForge.EVENT_BUS.register(this);
+		MinecraftForge.EVENT_BUS.register(new TorchNerfs());
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityBident.class, RenderBident::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFallingVase.class, RenderFallingBlock::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, RenderGrenade::new);
