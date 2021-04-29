@@ -216,7 +216,7 @@ public class LOIConfig {
 
 	@Name("rendering")
 	@LangKey("loi.config.render")
-	@Comment("Cross mod compatibility settings")
+	@Comment("Rendering Settings")
 	public static CategoryRender render = new CategoryRender();
 
 	public static class CategoryRender {
