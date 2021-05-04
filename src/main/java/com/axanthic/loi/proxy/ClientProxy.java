@@ -32,6 +32,20 @@ import com.axanthic.loi.items.ItemCustomArmor;
 import com.axanthic.loi.items.ItemScroll;
 import com.axanthic.loi.items.ItemSpell;
 import com.axanthic.loi.render.*;
+import com.axanthic.loi.tileentity.TESignCypress;
+import com.axanthic.loi.tileentity.TESignDroughtroot;
+import com.axanthic.loi.tileentity.TESignFir;
+import com.axanthic.loi.tileentity.TESignLaurel;
+import com.axanthic.loi.tileentity.TESignOlive;
+import com.axanthic.loi.tileentity.TESignPlane;
+import com.axanthic.loi.tileentity.TESignPopulus;
+import com.axanthic.loi.tileentity.TESRSignCypress;
+import com.axanthic.loi.tileentity.TESRSignDroughtroot;
+import com.axanthic.loi.tileentity.TESRSignFir;
+import com.axanthic.loi.tileentity.TESRSignLaurel;
+import com.axanthic.loi.tileentity.TESRSignOlive;
+import com.axanthic.loi.tileentity.TESRSignPlane;
+import com.axanthic.loi.tileentity.TESRSignPopulus;
 import com.axanthic.loi.tileentity.TileEntityColoredLight;
 import com.axanthic.loi.tileentity.TileEntityGrinder;
 import com.axanthic.loi.tileentity.TileEntityKettle;
@@ -167,6 +181,16 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrinder.class, new TileEntitySpecialRendererGrinder());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityKettle.class, new TileEntitySpecialRendererKettle());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMobHead.class, new TileEntitySpecialRendererMobHead());
+
+		//signs
+		ClientRegistry.bindTileEntitySpecialRenderer(TESignPlane.class, new TESRSignPlane());
+		ClientRegistry.bindTileEntitySpecialRenderer(TESignPopulus.class, new TESRSignPopulus());
+		ClientRegistry.bindTileEntitySpecialRenderer(TESignCypress.class, new TESRSignCypress());
+		ClientRegistry.bindTileEntitySpecialRenderer(TESignFir.class, new TESRSignFir());
+		ClientRegistry.bindTileEntitySpecialRenderer(TESignOlive.class, new TESRSignOlive());
+		ClientRegistry.bindTileEntitySpecialRenderer(TESignLaurel.class, new TESRSignLaurel());
+		ClientRegistry.bindTileEntitySpecialRenderer(TESignDroughtroot.class, new TESRSignDroughtroot());
+
 		if (LOIConfig.render.lights)
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityColoredLight.class, new TileEntitySpecialRendererColoredLight());
 	}

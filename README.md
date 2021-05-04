@@ -21,6 +21,7 @@ Team:
 - Poiuytrezay - Senior Developer
 - RCXcrafter - Developer, Resource Artist
 - Shado47 - Junior Developer, Resource Artist
+- luxtracon - Developer
 - James87 - Structure Designer
 - JAB - Recruit
 - gottsch - Recruit

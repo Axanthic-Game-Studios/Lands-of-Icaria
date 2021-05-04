@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.LOIFluids;
+import com.axanthic.loi.LOISigns;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Recipes;
@@ -13,6 +14,13 @@ import com.axanthic.loi.entity.*;
 import com.axanthic.loi.gui.GuiHandlerLOI;
 import com.axanthic.loi.gui.GuiHandlerRegistry;
 import com.axanthic.loi.items.IItemCustomReach;
+import com.axanthic.loi.tileentity.TESignCypress;
+import com.axanthic.loi.tileentity.TESignDroughtroot;
+import com.axanthic.loi.tileentity.TESignFir;
+import com.axanthic.loi.tileentity.TESignLaurel;
+import com.axanthic.loi.tileentity.TESignOlive;
+import com.axanthic.loi.tileentity.TESignPlane;
+import com.axanthic.loi.tileentity.TESignPopulus;
 import com.axanthic.loi.tileentity.TileEntityColoredLight;
 import com.axanthic.loi.tileentity.TileEntityForge;
 import com.axanthic.loi.tileentity.TileEntityForgeRedirector;
@@ -78,6 +86,7 @@ public class CommonProxy {
 		Resources.registerBlocks();
 		Resources.registerItems();
 		LOIFluids.registerFluids();
+		LOISigns.registerSigns();
 
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "icaria.bident", 0, ModInformation.ID, 64, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "falling_vase"), EntityFallingVase.class, "icaria.falling_vase", 1, ModInformation.ID, 160, 20, true);
@@ -128,6 +137,15 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityMobHead.class, new ResourceLocation(ModInformation.ID, "mob_head"));
 		//if (LOIConfig.compat.albedo && Loader.isModLoaded("albedo"))
 		GameRegistry.registerTileEntity(TileEntityColoredLight.class, new ResourceLocation(ModInformation.ID, "colored_light"));
+
+		//signs
+		GameRegistry.registerTileEntity(TESignPlane.class, new ResourceLocation(ModInformation.ID, "sign_plane"));
+		GameRegistry.registerTileEntity(TESignPopulus.class, new ResourceLocation(ModInformation.ID, "sign_populus"));
+		GameRegistry.registerTileEntity(TESignCypress.class, new ResourceLocation(ModInformation.ID, "sign_cypress"));
+		GameRegistry.registerTileEntity(TESignFir.class, new ResourceLocation(ModInformation.ID, "sign_fir"));
+		GameRegistry.registerTileEntity(TESignOlive.class, new ResourceLocation(ModInformation.ID, "sign_olive"));
+		GameRegistry.registerTileEntity(TESignLaurel.class, new ResourceLocation(ModInformation.ID, "sign_laurel"));
+		GameRegistry.registerTileEntity(TESignDroughtroot.class, new ResourceLocation(ModInformation.ID, "sign_droughtroot"));
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(LandsOfIcaria.instance, GuiHandlerRegistry.getInstance());
 		GuiHandlerRegistry.getInstance().registerGuiHandler(new GuiHandlerLOI(), GuiHandlerLOI.getGuiID());

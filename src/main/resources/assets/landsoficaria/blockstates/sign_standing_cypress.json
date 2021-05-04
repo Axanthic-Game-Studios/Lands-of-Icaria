@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "rotation=0": { "model": "landsoficaria:sign_cypress" },
+    "rotation=1": { "model": "landsoficaria:sign_cypress" },
+    "rotation=2": { "model": "landsoficaria:sign_cypress" },
+    "rotation=3": { "model": "landsoficaria:sign_cypress" },
+    "rotation=4": { "model": "landsoficaria:sign_cypress" },
+    "rotation=5": { "model": "landsoficaria:sign_cypress" },
+    "rotation=6": { "model": "landsoficaria:sign_cypress" },
+    "rotation=7": { "model": "landsoficaria:sign_cypress" },
+    "rotation=8": { "model": "landsoficaria:sign_cypress" },
+    "rotation=9": { "model": "landsoficaria:sign_cypress" },
+    "rotation=10": { "model": "landsoficaria:sign_cypress" },
+    "rotation=11": { "model": "landsoficaria:sign_cypress" },
+    "rotation=12": { "model": "landsoficaria:sign_cypress" },
+    "rotation=13": { "model": "landsoficaria:sign_cypress" },
+    "rotation=14": { "model": "landsoficaria:sign_cypress" },
+    "rotation=15": { "model": "landsoficaria:sign_cypress" }
+  }
+}

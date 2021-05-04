@@ -10,6 +10,7 @@ import com.axanthic.loi.Resources.WoodSet;
 import com.axanthic.loi.blocks.BlockFlower;
 import com.axanthic.loi.blocks.BlockFlower2;
 import com.axanthic.loi.blocks.BlockOre;
+import com.axanthic.loi.blocks.BlockPlanks;
 import com.axanthic.loi.blocks.BlockRock;
 import com.axanthic.loi.blocks.BlockStorageGem;
 import com.axanthic.loi.blocks.BlockStorageMetal;
@@ -100,6 +101,15 @@ public class Recipes {
 		//torches
 		addRecipe(new ItemStack(Resources.torchAnthracite, 2), "torch_anthracite", new Object[]{"C", "B", 'C', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ANTHRACITE.toMeta()), 'B', Items.BONE});
 		addRecipe(new ItemStack(Resources.torchLignite, 2), "torch_lignite", new Object[]{"C", "B", 'C', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LIGNITE.toMeta()), 'B', Items.BONE});
+
+		//signs
+		addRecipe(new ItemStack(Resources.signPlane, 3), "sign_plane", new Object[]{"PPP", "PPP", " S ", 'P', new ItemStack(Resources.planks, 1, BlockPlanks.WoodTypes.PLANE.meta), 'S', Items.STICK});
+		addRecipe(new ItemStack(Resources.signPopulus, 3), "sign_populus", new Object[]{"PPP", "PPP", " S ", 'P', new ItemStack(Resources.planks, 1, BlockPlanks.WoodTypes.POPULUS.meta), 'S', Items.STICK});
+		addRecipe(new ItemStack(Resources.signCypress, 3), "sign_cypress", new Object[]{"PPP", "PPP", " S ", 'P', new ItemStack(Resources.planks, 1, BlockPlanks.WoodTypes.CYPRESS.meta), 'S', Items.STICK});
+		addRecipe(new ItemStack(Resources.signFir, 3), "sign_fir", new Object[]{"PPP", "PPP", " S ", 'P', new ItemStack(Resources.planks, 1, BlockPlanks.WoodTypes.FIR.meta), 'S', Items.STICK});
+		addRecipe(new ItemStack(Resources.signOlive, 3), "sign_populus", new Object[]{"PPP", "PPP", " S ", 'P', new ItemStack(Resources.planks, 1, BlockPlanks.WoodTypes.OLIVE.meta), 'S', Items.STICK});
+		addRecipe(new ItemStack(Resources.signLaurel, 3), "sign_laurel", new Object[]{"PPP", "PPP", " S ", 'P', new ItemStack(Resources.planks, 1, BlockPlanks.WoodTypes.LAUREL.meta), 'S', Items.STICK});
+		addRecipe(new ItemStack(Resources.signDroughtroot, 3), "sign_droughtroot", new Object[]{"PPP", "PPP", " S ", 'P', new ItemStack(Resources.planks, 1, BlockPlanks.WoodTypes.DROUGHTROOT.meta), 'S', Items.STICK});
 
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath", new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
 

@@ -78,6 +78,15 @@ item.generic.spell.name=%s
 item.generic.scroll.name=%s Scroll
 item.generic.vial.name=Vial of %s
 
+#signs
+item.sign_cypress.name=Cypress Sign
+item.sign_droughtroot.name=Droughtroot Sign
+item.sign_fir.name=Fir Sign
+item.sign_laurel.name=Laurel Sign
+item.sign_olive.name=Olive Sign
+item.sign_plane.name=Plane Sign
+item.sign_populus.name=Populus Sign
+
 tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Bricks
 tile.generic.ore.name=%s Ore

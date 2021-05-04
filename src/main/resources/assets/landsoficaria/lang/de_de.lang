@@ -78,6 +78,15 @@ item.generic.spell.name=%s
 item.generic.scroll.name=%s Schriftrolle
 item.generic.vial.name=Phiole mit %s
 
+#signs
+item.sign_cypress.name=Zypressen Schild
+item.sign_droughtroot.name=Dürrewurzel Schild
+item.sign_fir.name=Tannen Schild
+item.sign_laurel.name=Lorbeer Schild
+item.sign_olive.name=Oliven Schild
+item.sign_plane.name=Platanen Schild
+item.sign_populus.name=Pappel Schild
+
 tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Ziegel
 tile.generic.ore.name=%s Erz

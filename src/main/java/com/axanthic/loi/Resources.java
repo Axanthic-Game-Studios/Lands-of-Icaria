@@ -110,6 +110,13 @@ import com.axanthic.loi.items.ItemResources;
 import com.axanthic.loi.items.ItemSaltedFood;
 import com.axanthic.loi.items.ItemScroll;
 import com.axanthic.loi.items.ItemSharpBone;
+import com.axanthic.loi.items.ItemSignCypress;
+import com.axanthic.loi.items.ItemSignDroughtroot;
+import com.axanthic.loi.items.ItemSignFir;
+import com.axanthic.loi.items.ItemSignLaurel;
+import com.axanthic.loi.items.ItemSignOlive;
+import com.axanthic.loi.items.ItemSignPlane;
+import com.axanthic.loi.items.ItemSignPopulus;
 import com.axanthic.loi.items.ItemSpell;
 import com.axanthic.loi.items.ItemStews;
 import com.axanthic.loi.items.ToolAxe;
@@ -344,6 +351,15 @@ public class Resources {
 	public static Item seedsSpelt = new ItemCustomSeeds("seed_spelt", cropSpelt.getBlock());
 	public static Item onion = new ItemFoodPlantable("onion", cropOnion.getBlock(), EnumPlantType.Crop, 1, 0.3F);
 
+	//signs
+	public static Item signPlane = new ItemSignPlane();
+	public static Item signPopulus = new ItemSignPopulus();
+	public static Item signCypress = new ItemSignCypress();
+	public static Item signFir = new ItemSignFir();
+	public static Item signOlive = new ItemSignOlive();
+	public static Item signLaurel = new ItemSignLaurel();
+	public static Item signDroughtroot = new ItemSignDroughtroot();
+
 	public static ToolSet laurelTools = new ToolSet(new CompleteToolMaterial("laurel", -1.0F, 0, 59, 2.0F, 0.0F, 15, new ItemStack(Resources.planks, 1, 5)));
 	public static ToolSet chalkos = new ToolSet(new CompleteToolMaterial("chalkos", -1.0F, 1, 174, 5.0F, 1.0F, 15, new ItemStack(Resources.ingot, 1, 0)));
 	public static ToolSet kassiteros = new ToolSet(new CompleteToolMaterial("kassiteros", -1.1F, 2, 234, 5.0F, 1.5F, 15, new ItemStack(Resources.ingot, 1, 1)));
@@ -435,6 +451,15 @@ public class Resources {
 		Resources.items.add(Resources.nugget);
 		Resources.items.add(Resources.grenade);
 		Resources.items.add(Resources.emptyVial);
+
+		//signs
+		Resources.items.add(Resources.signPlane);
+		Resources.items.add(Resources.signPopulus);
+		Resources.items.add(Resources.signCypress);
+		Resources.items.add(Resources.signFir);
+		Resources.items.add(Resources.signOlive);
+		Resources.items.add(Resources.signLaurel);
+		Resources.items.add(Resources.signDroughtroot);
 
 		Resources.laurelTools.register();
 		Resources.chalkos.register();
