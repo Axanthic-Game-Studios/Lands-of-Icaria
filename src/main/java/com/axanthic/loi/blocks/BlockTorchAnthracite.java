@@ -5,15 +5,15 @@ import com.axanthic.loi.LandsOfIcaria;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.SoundType;
 
-public class BlockLigniteTorch extends BlockTorch
+public class BlockTorchAnthracite extends BlockTorch
 {
-    public BlockLigniteTorch()
+    public BlockTorchAnthracite()
     {
-        this.setRegistryName("torch_lignite");
-        this.setUnlocalizedName("torch_lignite");
+        this.setRegistryName("torch_anthracite");
+        this.setUnlocalizedName("torch_anthracite");
         this.setHardness(0.0F);
         this.setResistance(0.0F);
-        this.setLightLevel(0.625F);
+        this.setLightLevel(0.9375F);
         this.setSoundType(SoundType.STONE);
         this.setCreativeTab(LandsOfIcaria.modTabBlocks);
     }

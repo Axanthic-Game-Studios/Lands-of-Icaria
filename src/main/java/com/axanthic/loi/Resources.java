@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import com.axanthic.loi.blocks.BlockAnthraciteTorch;
+import com.axanthic.loi.blocks.BlockTorchAnthracite;
 import com.axanthic.loi.blocks.BlockAristone;
 import com.axanthic.loi.blocks.BlockBasic;
 import com.axanthic.loi.blocks.BlockBasicVineDead;
@@ -47,7 +47,7 @@ import com.axanthic.loi.blocks.BlockKettle;
 import com.axanthic.loi.blocks.BlockKiln;
 import com.axanthic.loi.blocks.BlockLeaf;
 import com.axanthic.loi.blocks.BlockLeafOlives;
-import com.axanthic.loi.blocks.BlockLigniteTorch;
+import com.axanthic.loi.blocks.BlockTorchLignite;
 import com.axanthic.loi.blocks.BlockLog;
 import com.axanthic.loi.blocks.BlockLootVase;
 import com.axanthic.loi.blocks.BlockMobHead;
@@ -336,8 +336,8 @@ public class Resources {
 	public static ItemBlock strawberryCake = new ItemBlock(new BlockCustomCake("strawberry_cake"));
 
 	//torches
-	public static ItemBlock anthraciteTorch = new ItemBlock(new BlockAnthraciteTorch());
-	public static ItemBlock ligniteTorch = new ItemBlock(new BlockLigniteTorch());
+	public static ItemBlock torchAnthracite = new ItemBlock(new BlockTorchAnthracite());
+	public static ItemBlock torchLignite = new ItemBlock(new BlockTorchLignite());
 
 	public static Item seedsStrawberry = new ItemCustomSeeds("seed_strawberry", cropStrawberry.getBlock());
 	public static Item seedsPhysalis = new ItemCustomSeeds("seed_physalis", cropPhysalis.getBlock());
@@ -580,8 +580,8 @@ public class Resources {
 		BlockIcariaPortal.init();
 
 		//torches
-		Resources.registerBlock(Resources.anthraciteTorch);
-		Resources.registerBlock(Resources.ligniteTorch);
+		Resources.registerBlock(Resources.torchAnthracite);
+		Resources.registerBlock(Resources.torchLignite);
 
 		//DEPRECATED
 		/*
