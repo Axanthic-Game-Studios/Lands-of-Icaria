@@ -210,7 +210,7 @@ public class TileEntityKettle extends TileFluidHandler {
 		if (currentRecipe == null || this.tank.getFluidAmount() < currentRecipe.fluidcost)
 			return false;
 
-		if (player.getHeldItem(hand).getItem() == Resources.emptyVial && currentRecipe.getConcoctionOutput(ingredientStack.toArray(new ItemStack[5])) != null) {
+		if (player.getHeldItem(hand).getItem() == Resources.emptyFlask && currentRecipe.getConcoctionOutput(ingredientStack.toArray(new ItemStack[5])) != null) {
 			if (!player.isCreative())
 				player.getHeldItem(hand).shrink(1);
 			ItemHandlerHelper.giveItemToPlayer(player, currentRecipe.getConcoctionOutput(ingredientStack.toArray(new ItemStack[5])));

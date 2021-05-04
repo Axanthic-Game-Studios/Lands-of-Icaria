@@ -113,7 +113,7 @@ public class Recipes {
 
 		addRecipe(new ItemStack(Resources.laurelWreath), "laurel_wreath", new Object[]{"LLL", "L L", 'L', Resources.laurel.leaf});
 
-		addRecipe(new ItemStack(Resources.emptyVial, 3), "empty_vial", new Object[]{"G G", " G ", 'G', Resources.grainelGlass});
+		addRecipe(new ItemStack(Resources.emptyFlask, 3), "empty_flask", new Object[]{"G G", " G ", 'G', Resources.silkstoneGlass});
 
 		addRecipe(new ItemStack(Resources.grenade, 1), "grenade", new Object[]{" S ", "NPN", " N ", 'S', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ARACHNE_STRING.toMeta()), 'P', "dustCalcite", 'N', "nuggetKassiteros"});
 

@@ -16,16 +16,16 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
-public class ItemConcoctionVial extends ItemBasic {
+public class ItemConcoctionFlask extends ItemBasic {
 
 	public String name;
 	public AbstractSpell spell;
 
-	public ItemConcoctionVial(String name, AbstractSpell spell) {
-		super("concoction_vial_" + name);
+	public ItemConcoctionFlask(String name, AbstractSpell spell) {
+		super("concoction_flask_" + name);
 		this.name = name;
 		this.spell = spell;
-		this.setUnlocalizedName("generic.vial");
+		this.setUnlocalizedName("generic.flask");
 	}
 
 	@Override
@@ -55,10 +55,10 @@ public class ItemConcoctionVial extends ItemBasic {
 		}
 		if (entityplayer == null || !entityplayer.capabilities.isCreativeMode) {
 			if (stack.isEmpty()) {
-				return new ItemStack(Resources.emptyVial);
+				return new ItemStack(Resources.emptyFlask);
 			}
 			if (entityplayer != null) {
-				entityplayer.inventory.addItemStackToInventory(new ItemStack(Resources.emptyVial));
+				entityplayer.inventory.addItemStackToInventory(new ItemStack(Resources.emptyFlask));
 			}
 		}
 		return stack;

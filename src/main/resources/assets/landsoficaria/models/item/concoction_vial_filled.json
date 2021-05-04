@@ -1,8 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "landsoficaria:items/brews_vial_default_liquid",
-        "layer1": "landsoficaria:items/brews_vial_default"
-    }
-}
-

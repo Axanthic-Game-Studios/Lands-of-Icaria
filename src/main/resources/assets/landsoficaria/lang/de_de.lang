@@ -55,7 +55,7 @@ item.onion.name=Zwiebel
 item.bone_sharp.name=Knochenmesser
 item.laurel_wreath.name=Lorbeerzweig
 item.greek_fire_grenade.name=Granate mit griechischem Feuer
-item.concoction_vial_empty.name=Leere Phiole
+item.concoction_flask_empty.name=Leeres Fläschchen
 item.bident_laurel.name=Lorbeerholz Speer
 item.dagger_laurel.name=Lorbeerholz Dolch
 item.scythe_laurel.name=Lorbeerholz Harke
@@ -76,7 +76,7 @@ item.generic.legs.name=%s Beinschutz
 item.generic.boots.name=%s Stiefel
 item.generic.spell.name=%s
 item.generic.scroll.name=%s Schriftrolle
-item.generic.vial.name=Phiole mit %s
+item.generic.flask.name=Fläschchen mit %s
 
 #signs
 item.sign_cypress.name=Zypressen Schild

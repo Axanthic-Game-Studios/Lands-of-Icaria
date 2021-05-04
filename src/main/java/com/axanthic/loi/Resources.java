@@ -95,7 +95,6 @@ import com.axanthic.loi.items.ItemBlockMaterialSlab;
 import com.axanthic.loi.items.ItemBlockMeta;
 import com.axanthic.loi.items.ItemBlockMetaMaterial;
 import com.axanthic.loi.items.ItemBlockMobHead;
-import com.axanthic.loi.items.ItemConcoctionVial;
 import com.axanthic.loi.items.ItemCustomArmor;
 import com.axanthic.loi.items.ItemCustomSeeds;
 import com.axanthic.loi.items.ItemDimensionTeleporter;
@@ -126,6 +125,7 @@ import com.axanthic.loi.items.ToolPickaxe;
 import com.axanthic.loi.items.ToolScythe;
 import com.axanthic.loi.items.ToolShovel;
 import com.axanthic.loi.items.ToolSword;
+import com.axanthic.loi.items.ItemConcoctionFlask;
 import com.axanthic.loi.spells.*;
 import com.axanthic.loi.utils.CustomTrigger;
 import com.axanthic.loi.utils.PotionFrozen;
@@ -208,7 +208,7 @@ public class Resources {
 	public static ItemMeta ingot = new ItemMetaMaterial("ingot", BlockStorageMetal.MetalTypes.getNames());
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", BlockStorageMetal.MetalTypes.getNames());
 	public static Item grenade = new ItemGrenade();
-	public static Item emptyVial = new ItemBasic("concoction_vial_empty");
+	public static Item emptyFlask = new ItemBasic("concoction_flask_empty");
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
@@ -374,7 +374,7 @@ public class Resources {
 	public static ArmorSet orichalcumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "orichalcum", ModInformation.ID + ":" + "armor_orichalcum", 24, new int[]{2, 4, 6, 2}, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F).setRepairItem(new ItemStack(Resources.ingot, 1, 3)));
 	public static ArmorSet vanadiumArmor = new ArmorSet(EnumHelper.addArmorMaterial(ModInformation.ID + ":" + "vanadiumsteel", ModInformation.ID + ":" + "armor_vanadiumsteel", 27, new int[]{3, 5, 7, 3}, 11, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.5F).setRepairItem(new ItemStack(Resources.ingot, 1, 6)));
 
-	public static List<ItemConcoctionVial> concoctions = new ArrayList<ItemConcoctionVial>();
+	public static List<ItemConcoctionFlask> concoctions = new ArrayList<ItemConcoctionFlask>();
 	public static List<ItemScroll> scrolls = new ArrayList<ItemScroll>();
 	public static Map<String, AbstractSpell> spells = new HashMap<String, AbstractSpell>();
 	public static SpellSet healSpell = new SpellSet("healing", new SpellHeal(), true);
@@ -450,7 +450,7 @@ public class Resources {
 		Resources.items.add(Resources.ingot);
 		Resources.items.add(Resources.nugget);
 		Resources.items.add(Resources.grenade);
-		Resources.items.add(Resources.emptyVial);
+		Resources.items.add(Resources.emptyFlask);
 
 		//signs
 		Resources.items.add(Resources.signPlane);
@@ -758,7 +758,7 @@ public class Resources {
 		public AbstractSpell spell;
 		public boolean hasConcoction;
 		public ItemSpell spellItem;
-		public ItemConcoctionVial concoction;
+		public ItemConcoctionFlask concoction;
 		public ItemScroll scroll;
 
 		public SpellSet(String name, AbstractSpell spell, boolean hasConcoction) {
@@ -769,7 +769,7 @@ public class Resources {
 			this.spellItem = new ItemSpell(name, spell);
 			this.hasConcoction = hasConcoction;
 			if (hasConcoction)
-				this.concoction = new ItemConcoctionVial(name, spell);
+				this.concoction = new ItemConcoctionFlask(name, spell);
 			this.scroll = new ItemScroll(name, spell);
 		}
 

@@ -27,7 +27,7 @@ import com.axanthic.loi.items.IItemCustomReach;
 import com.axanthic.loi.items.IItemMeta;
 import com.axanthic.loi.items.ItemBlockMeta;
 import com.axanthic.loi.items.ItemBlockMobHead;
-import com.axanthic.loi.items.ItemConcoctionVial;
+import com.axanthic.loi.items.ItemConcoctionFlask;
 import com.axanthic.loi.items.ItemCustomArmor;
 import com.axanthic.loi.items.ItemScroll;
 import com.axanthic.loi.items.ItemSpell;
@@ -268,8 +268,8 @@ public class ClientProxy extends CommonProxy {
 				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), "spell"), ((ItemSpell) item).getName()));
 			} else if (item instanceof ItemScroll) {
 				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), "spell_scroll"), ((ItemScroll) item).getName()));
-			} else if (item instanceof ItemConcoctionVial) {
-				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), "concoction_vial_filled"), "inventory"));
+			} else if (item instanceof ItemConcoctionFlask) {
+				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), "concoction_flask_filled"), "inventory"));
 			} else
 				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 		}
@@ -349,7 +349,7 @@ public class ClientProxy extends CommonProxy {
 		event.getItemColors().registerItemColorHandler(new IItemColor() {
 			@Override
 			public int colorMultiplier(ItemStack stack, int tintIndex) {
-				return tintIndex > 0 ? -1 : ((ItemConcoctionVial) stack.getItem()).getColor();
+				return tintIndex > 0 ? -1 : ((ItemConcoctionFlask) stack.getItem()).getColor();
 			}
 		}, Resources.concoctions.toArray(new Item[Resources.concoctions.size()]));
 	}
