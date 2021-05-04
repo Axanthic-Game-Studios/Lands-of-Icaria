@@ -14,20 +14,40 @@ Other stuff:
 - Underground made of different stone layers that form a progression
 - Herbs for advanced sequence-based brewing system
 - TBA
-
-
 #
-Team:
-- Poiuytrezay - Senior Developer
-- RCXcrafter - Developer, Resource Artist
-- Shado47 - Junior Developer, Resource Artist
-- luxtracon - Developer
-- James87 - Structure Designer
-- JAB - Recruit
-- gottsch - Recruit
-- 30t_Trovage_DRAX - Recruit
-- Joey41114 - Recruit
-#
-Additional contributions:
-- Concinus: Some 3D models for mushrooms and types of crops
-- The old Eternal Frost and Nanpa teams: Some textures (altered for this project)
+**Project Manager**
+- Shado47
+
+**Lead Programmer**
+- RCXcrafter
+
+**Programming**
+- Xenoform55
+- Foxbud
+- luxtracon
+
+**Textures**
+- Shado47
+- RCXcrafter
+- additional assets from old Team Melanistic and unreleased Axanthic Game Studios projects
+
+**Models**
+- Shado47
+- Concinus
+- Xenoform55
+
+**Animations**
+- RCXcrafter
+- Xenoform55
+
+**Additional Programming**
+- Akye (LilithTheSuccubus)
+- Poiuytrezay
+- MCenderdragon
+- X30thTrovageDRAX
+- ChowChowSonic
+
+**Community Manager**
+- SellswordMike
+
+Special thanks go to ByteBit for his advice and consulting, and WebFreak for his advice
