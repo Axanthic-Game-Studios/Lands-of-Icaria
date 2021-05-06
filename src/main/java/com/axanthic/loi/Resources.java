@@ -118,6 +118,7 @@ import com.axanthic.loi.items.ItemSignPlane;
 import com.axanthic.loi.items.ItemSignPopulus;
 import com.axanthic.loi.items.ItemSpell;
 import com.axanthic.loi.items.ItemStews;
+import com.axanthic.loi.items.ItemStorageVaseDyeable;
 import com.axanthic.loi.items.ToolAxe;
 import com.axanthic.loi.items.ToolBident;
 import com.axanthic.loi.items.ToolDagger;
@@ -615,7 +616,7 @@ public class Resources {
 
 		//vases
 		Resources.registerBlock(Resources.storageVase);
-		
+
 		Resources.registerBlock(Resources.storageVaseDyedWhite);
 		Resources.registerBlock(Resources.storageVaseDyedOrange);
 		Resources.registerBlock(Resources.storageVaseDyedMagenta);
