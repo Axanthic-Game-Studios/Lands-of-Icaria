@@ -12,7 +12,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_data",
-                            "data": 16
+                            "data": 13
                         },
                         {
                             "function": "set_count",

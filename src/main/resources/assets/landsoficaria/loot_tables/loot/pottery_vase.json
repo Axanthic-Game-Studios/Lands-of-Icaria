@@ -39,13 +39,13 @@
                 },
                 {
                     "type": "item",
-                    "name": "landsoficaria:resource",
+                    "name": "landsoficaria:unfired_vase",
 					"entryName": "unfired_vase",
                     "weight": 5,
                     "functions": [
                         {
                             "function": "minecraft:set_data",
-                            "data": 10
+                            "data": 0
                         },
                         {
                             "function": "set_count",
@@ -64,7 +64,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_data",
-                            "data": 11
+                            "data": 10
                         },
                         {
                             "function": "set_count",
@@ -83,7 +83,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_data",
-                            "data": 12
+                            "data": 11
                         },
                         {
                             "function": "set_count",
@@ -102,7 +102,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_data",
-                            "data": 24
+                            "data": 22
                         },
                         {
                             "function": "set_count",
