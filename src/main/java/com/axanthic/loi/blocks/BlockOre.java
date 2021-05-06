@@ -100,7 +100,6 @@ public class BlockOre extends Block implements IBlockMeta {
 				pool.addEntry(90, Resources.resource, ItemResources.ResourceType.ROTTEN_BONES.toMeta(), 1, 3);
 				pool.addEntry(20, Items.BONE, 0, 1, 1);
 				pool.addEntry(20, Items.DYE, EnumDyeColor.WHITE.getDyeDamage(), 1, 3);
-				pool.addEntry(10, Resources.resource, ItemResources.ResourceType.REVENANT_FEMUR.toMeta(), 1, 1);
 				pool.addEntry(2, Resources.resource, ItemResources.ResourceType.REMAINS.toMeta(), 1, 1);
 				pool.getDrops(drops);
 				break;

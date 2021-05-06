@@ -20,7 +20,6 @@
 			"loam_lump": { "textures": { "layer0": "landsoficaria:items/soil_loam_lump" } },
 			"loam_brick": { "textures": { "layer0": "landsoficaria:items/soil_loam_brick_item" } },
 			"rotten_bones": { "textures": { "layer0": "landsoficaria:items/loot_rotten_bones" } },
-			"revenant_femur": { "textures": { "layer0": "landsoficaria:items/loot_revenant_femur" } },
 			"remains": { "textures": { "layer0": "landsoficaria:items/flora_herb_remains" } },
 			"aeternae_fur": { "textures": { "layer0": "landsoficaria:items/loot_aeternae_fur" } },
 			"aeternae_leather": { "textures": { "layer0": "landsoficaria:items/loot_aeternae_tanned_leather" } },
