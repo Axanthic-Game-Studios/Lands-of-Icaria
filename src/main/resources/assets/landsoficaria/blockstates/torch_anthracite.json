@@ -4,7 +4,6 @@
     "transform": "forge:default-block"
   },
   "variants": {
-    "inventory":  { "model": "landsoficaria:torch_anthracite" },
     "facing=up": { "model": "landsoficaria:torch_anthracite" },
     "facing=north": { "model": "landsoficaria:torch_anthracite_wall", "y": 180 },
     "facing=south": { "model": "landsoficaria:torch_anthracite_wall", "y": 0 },
