@@ -1,9 +1,9 @@
 {
     "textures": {
-        "0": "landsoficaria:blocks/container_vase_model_dark",
-        "1": "landsoficaria:blocks/container_vase_model_undyed",
-        "2": "landsoficaria:blocks/container_vase_model_light",
-        "3": "landsoficaria:blocks/container_vase_model_neck"
+        "0": "landsoficaria:blocks/container_vase_purple_model_dark",
+        "1": "landsoficaria:blocks/container_vase_purple_model",
+        "2": "landsoficaria:blocks/container_vase_purple_model_light",
+        "3": "landsoficaria:blocks/container_vase_purple_model_neck"
     },
     "elements": [
         {

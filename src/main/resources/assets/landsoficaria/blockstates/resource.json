@@ -18,7 +18,6 @@
 			"zircon": { "textures": { "layer0": "landsoficaria:items/mineral_zircon_gem" } },
 			"calcite_powder": { "textures": { "layer0": "landsoficaria:items/mineral_calcite_powder" } },
 			"loam_lump": { "textures": { "layer0": "landsoficaria:items/soil_loam_lump" } },
-			"raw_vase": { "textures": { "layer0": "landsoficaria:items/container_vase_raw" } },
 			"loam_brick": { "textures": { "layer0": "landsoficaria:items/soil_loam_brick_item" } },
 			"rotten_bones": { "textures": { "layer0": "landsoficaria:items/loot_rotten_bones" } },
 			"revenant_femur": { "textures": { "layer0": "landsoficaria:items/loot_revenant_femur" } },

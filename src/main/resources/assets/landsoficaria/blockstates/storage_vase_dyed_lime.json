@@ -1,0 +1,13 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"layer0": "landsoficaria:items/container_vase_lime_baked",
+			"particle": "landsoficaria:blocks/container_vase_lime_model"
+		}
+	},
+	"variants": {
+		"normal": { "model": "landsoficaria:container_vase_dyed_lime" },
+		"inventory": { "model": "landsoficaria:generated" }
+	}
+}

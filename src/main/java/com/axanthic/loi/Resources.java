@@ -75,7 +75,7 @@ import com.axanthic.loi.blocks.BlockSoilGrass;
 import com.axanthic.loi.blocks.BlockSpeltCrop;
 import com.axanthic.loi.blocks.BlockStorageGem;
 import com.axanthic.loi.blocks.BlockStorageMetal;
-import com.axanthic.loi.blocks.BlockStorageVase;
+import com.axanthic.loi.blocks.BlockStorageVaseDyeable;
 import com.axanthic.loi.blocks.BlockStrawberryBush;
 import com.axanthic.loi.blocks.BlockStrawberryCrop;
 import com.axanthic.loi.blocks.BlockTallGrass;
@@ -209,6 +209,7 @@ public class Resources {
 	public static ItemMeta nugget = new ItemMetaMaterial("nugget", BlockStorageMetal.MetalTypes.getNames());
 	public static Item grenade = new ItemGrenade();
 	public static Item emptyFlask = new ItemBasic("concoction_flask_empty");
+	public static ItemMeta unfiredVase = new ItemStorageVaseDyeable();
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
@@ -329,7 +330,27 @@ public class Resources {
 	public static ItemBlock mobHeadSow = new ItemBlockMobHead(new BlockMobHead("sow"));
 	public static ItemBlock lootVase = new ItemBlock(new BlockLootVase("loot_vase", LOOT_VASE, MapColor.GRAY));
 	public static ItemBlock lootVase2 = new ItemBlock(new BlockLootVase("loot_vase_2", LOOT_VASE_2, MapColor.SILVER_STAINED_HARDENED_CLAY));
-	public static ItemBlock storageVase = new ItemBlock(new BlockStorageVase());
+
+	//vases
+	public static ItemBlock storageVase = new ItemBlock(new BlockStorageVaseDyeable("storage_vase"));
+
+	public static ItemBlock storageVaseDyedWhite = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_white"));
+	public static ItemBlock storageVaseDyedOrange = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_orange"));
+	public static ItemBlock storageVaseDyedMagenta = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_magenta"));
+	public static ItemBlock storageVaseDyedAzure = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_azure"));
+	public static ItemBlock storageVaseDyedYellow = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_yellow"));
+	public static ItemBlock storageVaseDyedLime = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_lime"));
+	public static ItemBlock storageVaseDyedPink = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_pink"));
+	public static ItemBlock storageVaseDyedGray = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_gray"));
+	public static ItemBlock storageVaseDyedPale = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_pale"));
+	public static ItemBlock storageVaseDyedCyan = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_cyan"));
+	public static ItemBlock storageVaseDyedPurple = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_purple"));
+	public static ItemBlock storageVaseDyedBlue = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_blue"));
+	public static ItemBlock storageVaseDyedBrown = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_brown"));
+	public static ItemBlock storageVaseDyedGreen = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_green"));
+	public static ItemBlock storageVaseDyedRed = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_red"));
+	public static ItemBlock storageVaseDyedBlack = new ItemBlock(new BlockStorageVaseDyeable("storage_vase_dyed_black"));
+
 	public static ItemBlock kiln = new ItemBlock(new BlockKiln());
 	public static ItemBlock grinder = new ItemBlock(new BlockGrinder());
 	public static ItemBlock forge = new ItemBlockForge(new BlockForge());
@@ -437,6 +458,7 @@ public class Resources {
 	public static void registerItems() {
 		//Resources.items.add(Resources.dimensionTp);
 		Resources.items.add(Resources.resource);
+		Resources.items.add(Resources.unfiredVase);
 		Resources.items.add(Resources.seedsStrawberry);
 		Resources.items.add(Resources.seedsPhysalis);
 		Resources.items.add(Resources.seedsSpelt);
@@ -590,7 +612,27 @@ public class Resources {
 		Resources.registerBlock(Resources.mobHeadSow);
 		Resources.registerBlock(Resources.lootVase);
 		Resources.registerBlock(Resources.lootVase2);
+
+		//vases
 		Resources.registerBlock(Resources.storageVase);
+		
+		Resources.registerBlock(Resources.storageVaseDyedWhite);
+		Resources.registerBlock(Resources.storageVaseDyedOrange);
+		Resources.registerBlock(Resources.storageVaseDyedMagenta);
+		Resources.registerBlock(Resources.storageVaseDyedAzure);
+		Resources.registerBlock(Resources.storageVaseDyedYellow);
+		Resources.registerBlock(Resources.storageVaseDyedLime);
+		Resources.registerBlock(Resources.storageVaseDyedPink);
+		Resources.registerBlock(Resources.storageVaseDyedGray);
+		Resources.registerBlock(Resources.storageVaseDyedPale);
+		Resources.registerBlock(Resources.storageVaseDyedCyan);
+		Resources.registerBlock(Resources.storageVaseDyedPurple);
+		Resources.registerBlock(Resources.storageVaseDyedBlue);
+		Resources.registerBlock(Resources.storageVaseDyedBrown);
+		Resources.registerBlock(Resources.storageVaseDyedGreen);
+		Resources.registerBlock(Resources.storageVaseDyedRed);
+		Resources.registerBlock(Resources.storageVaseDyedBlack);
+
 		Resources.registerBlock(Resources.kiln);
 		Resources.registerBlock(Resources.grinder);
 		Resources.registerBlock(Resources.forge);

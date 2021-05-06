@@ -21,6 +21,7 @@ import com.axanthic.loi.entity.EntityScorpion;
 import com.axanthic.loi.items.ItemFoods;
 import com.axanthic.loi.items.ItemResources;
 import com.axanthic.loi.items.ItemStews;
+import com.axanthic.loi.items.ItemStorageVaseDyeable;
 import com.axanthic.loi.proxy.CommonProxy;
 import com.axanthic.loi.utils.ForgeRecipe;
 import com.axanthic.loi.utils.GrinderFuel;
@@ -123,8 +124,47 @@ public class Recipes {
 
 		addRecipe(new ItemStack(Resources.soil, 1, 2), "loam_block", new Object[]{"LL", "LL", 'L', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_LUMP.toMeta())});
 		addRecipe(new ItemStack(Resources.resource, 4, ItemResources.ResourceType.LOAM_LUMP.toMeta()), "loam_lump", new Object[]{"L", 'L', new ItemStack(Resources.soil, 1, 2)});
-		addRecipe(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.RAW_VASE.toMeta()), "loam_vase", new Object[]{"LLL", "L L", "LLL", 'L', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_LUMP.toMeta())});
-		GameRegistry.addSmelting(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.RAW_VASE.toMeta()), new ItemStack(Resources.storageVase, 1, 0), 0.2F);
+
+		//vases
+		addRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta()), "unfired_vase", new Object[]{"LLL", "L L", "LLL", 'L', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_LUMP.toMeta())});
+
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.WHITE.toMeta()), "unfired_vase_dyed_white", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeWhite")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.ORANGE.toMeta()), "unfired_vase_dyed_orange", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeOrange")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.MAGENTA.toMeta()), "unfired_vase_dyed_magenta", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeMagenta")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.AZURE.toMeta()), "unfired_vase_dyed_azure", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeLightBlue")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.YELLOW.toMeta()), "unfired_vase_dyed_yellow", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeYellow")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.LIME.toMeta()), "unfired_vase_dyed_lime", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeLime")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.PINK.toMeta()), "unfired_vase_dyed_pink", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyePink")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.GRAY.toMeta()), "unfired_vase_dyed_gray", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeGray")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.PALE.toMeta()), "unfired_vase_dyed_pale", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeLightGray")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.CYAN.toMeta()), "unfired_vase_dyed_cyan", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeCyan")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.PURPLE.toMeta()), "unfired_vase_dyed_purple", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyePurple")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.BLUE.toMeta()), "unfired_vase_dyed_blue", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeBlue")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.BROWN.toMeta()), "unfired_vase_dyed_brown", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeBrown")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.GREEN.toMeta()), "unfired_vase_dyed_green", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeGreen")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.RED.toMeta()), "unfired_vase_dyed_red", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeRed")});
+		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.BLACK.toMeta()), "unfired_vase_dyed_black", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeBlack")});
+
+		//vases
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta()), new ItemStack(Resources.storageVase, 1, 0), 0.2F);
+
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.WHITE.toMeta()), new ItemStack(Resources.storageVaseDyedWhite, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.ORANGE.toMeta()), new ItemStack(Resources.storageVaseDyedOrange, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.MAGENTA.toMeta()), new ItemStack(Resources.storageVaseDyedMagenta, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.AZURE.toMeta()), new ItemStack(Resources.storageVaseDyedAzure, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.YELLOW.toMeta()), new ItemStack(Resources.storageVaseDyedYellow, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.LIME.toMeta()), new ItemStack(Resources.storageVaseDyedLime, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.PINK.toMeta()), new ItemStack(Resources.storageVaseDyedPink, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.GRAY.toMeta()), new ItemStack(Resources.storageVaseDyedGray, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.PALE.toMeta()), new ItemStack(Resources.storageVaseDyedPale, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.CYAN.toMeta()), new ItemStack(Resources.storageVaseDyedCyan, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.PURPLE.toMeta()), new ItemStack(Resources.storageVaseDyedPurple, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.BLUE.toMeta()), new ItemStack(Resources.storageVaseDyedBlue, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.BROWN.toMeta()), new ItemStack(Resources.storageVaseDyedBrown, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.GREEN.toMeta()), new ItemStack(Resources.storageVaseDyedGreen, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.RED.toMeta()), new ItemStack(Resources.storageVaseDyedRed, 1, 0), 0.2F);
+		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.BLACK.toMeta()), new ItemStack(Resources.storageVaseDyedBlack, 1, 0), 0.2F);
+
 		GameRegistry.addSmelting(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_LUMP.toMeta()), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_BRICK.toMeta()), 0.1F);
 		addRecipe(new ItemStack(Resources.loamBricks, 1, 0), "loam_bricks", new Object[]{"BB", "BB", 'B', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_BRICK.toMeta())});
 		addRecipe(new ItemStack(Resources.dolomiteSmooth, 1, 0), "dolomite_smooth", new Object[]{"DD", "DD", 'D', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.DOLOMITE.toMeta())});
