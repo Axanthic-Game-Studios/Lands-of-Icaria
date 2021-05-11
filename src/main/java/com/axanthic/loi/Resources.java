@@ -120,6 +120,7 @@ import com.axanthic.loi.items.ItemSignPopulus;
 import com.axanthic.loi.items.ItemSpell;
 import com.axanthic.loi.items.ItemStews;
 import com.axanthic.loi.items.ItemStorageVaseDyeable;
+import com.axanthic.loi.items.ItemVineRoot;
 import com.axanthic.loi.items.ToolAxe;
 import com.axanthic.loi.items.ToolBident;
 import com.axanthic.loi.items.ToolDagger;
@@ -204,6 +205,7 @@ public class Resources {
 	public static Item food = new ItemFoods();
 	public static Item saltedFood = new ItemSaltedFood();
 	public static Item stew = new ItemStews();
+	public static ItemVineRoot vineRoot = new ItemVineRoot();
 	public static ItemMeta renderAddon = new ItemRenderAddon();
 	public static Item sharpBone = new ItemSharpBone();
 	public static Item laurelWreath = new ItemLaurelWreath();
@@ -470,6 +472,7 @@ public class Resources {
 		Resources.items.add(Resources.food);
 		Resources.items.add(Resources.saltedFood);
 		Resources.items.add(Resources.stew);
+		Resources.items.add(Resources.vineRoot);
 		Resources.items.add(Resources.renderAddon);
 		Resources.items.add(Resources.sharpBone);
 		Resources.items.add(Resources.laurelWreath);

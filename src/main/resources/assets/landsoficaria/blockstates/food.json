@@ -23,7 +23,8 @@
 			"spelt_bread": { "textures": { "layer0": "landsoficaria:items/food_bread_spelt" } },
 			"garlic": { "textures": { "layer0": "landsoficaria:items/food_garlic" } },
 			"cerver_meat": { "textures": { "layer0": "landsoficaria:items/food_meat_cerver_raw" } },
-			"cerver_meat_cooked": { "textures": { "layer0": "landsoficaria:items/food_meat_cerver_cooked" } }
+			"cerver_meat_cooked": { "textures": { "layer0": "landsoficaria:items/food_meat_cerver_cooked" } },
+			"vineberry": { "textures": { "layer0": "landsoficaria:items/food_vineberry" } }
 		}
 	}
 }
