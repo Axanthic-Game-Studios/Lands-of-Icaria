@@ -255,6 +255,8 @@ tile.aristone.name=Philosophenglas
 tile.aristone_packed.name=Philosophenstein
 tile.loot_vase.name=Vase
 tile.loot_vase_2.name=Vase
+tile.generic.mineral_lignite_block.name=Turff Block
+tile.generic.mineral_anthracite_block.name=Anthrazit Block
 
 #vases
 tile.storage_vase.name=Speichervase
