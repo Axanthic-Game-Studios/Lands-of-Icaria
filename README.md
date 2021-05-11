@@ -35,6 +35,7 @@ Other stuff:
 - Shado47
 - Concinus
 - Xenoform55
+- Carver
 
 **Animations**
 - RCXcrafter
@@ -46,6 +47,7 @@ Other stuff:
 - MCenderdragon
 - X30thTrovageDRAX
 - ChowChowSonic
+- Tikidoodle1
 
 **Community Manager**
 - SellswordMike
