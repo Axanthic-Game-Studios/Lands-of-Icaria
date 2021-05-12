@@ -23,6 +23,7 @@ public class ItemVineRoot extends ItemFood{
 		this.setAlwaysEdible();
 		this.setMaxDamage(24);
 		this.setMaxStackSize(1);
+		this.setNoRepair();
 	}
 	
 	 public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
@@ -39,6 +40,7 @@ public class ItemVineRoot extends ItemFood{
         	this.setDamage(stack, stack.getItemDamage() + 1);
         	((EntityPlayer) entityLiving).getCooldownTracker().setCooldown(stack.getItem(), 400);
         	if(this.getDamage(stack) >= this.getMaxDamage(stack)) {
+        		this.setDamage(stack, 0);
         		stack.shrink(1);
         	}
         }
