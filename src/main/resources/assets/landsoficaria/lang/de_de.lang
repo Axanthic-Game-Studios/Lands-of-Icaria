@@ -58,6 +58,8 @@ item.food.spelt_bread.name=Dinkelbrot
 item.food.garlic.name=Knoblauch
 item.food.cerver_meat.name=Rohes Raubkatzenfleisch
 item.food.cerver_meat_cooked.name=Gekochtes Raubkatzenfleisch
+item.food.vineberry.name=Rankenbeere
+item.vineroot.name=Rankenwurzel
 item.salted_food.name=%s gesalzen
 item.stew.fruit_salad.name=Obstsalat
 item.stew.aeternae.name=Wildeintopf
@@ -255,6 +257,7 @@ tile.aristone.name=Philosophenglas
 tile.aristone_packed.name=Philosophenstein
 tile.loot_vase.name=Vase
 tile.loot_vase_2.name=Vase
+tile.loot_vineroot_block.name=Rankenwurzel Block
 tile.generic.mineral_lignite_block.name=Turff Block
 tile.generic.mineral_anthracite_block.name=Anthrazit Block
 
@@ -276,6 +279,7 @@ tile.storage_vase_dyed_brown.name=Braun gefärbte Speichervase
 tile.storage_vase_dyed_green.name=Grün gefärbte Speichervase
 tile.storage_vase_dyed_red.name=Rot gefärbte Speichervase
 tile.storage_vase_dyed_black.name=Schwarz gefärbte Speichervase
+
 tile.crafting_kiln.name=Töpferofen
 tile.crafting_grinder.name=Mühle
 tile.crafting_forge.name=Schmelze
