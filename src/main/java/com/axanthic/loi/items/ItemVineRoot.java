@@ -3,7 +3,9 @@ package com.axanthic.loi.items;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -39,6 +41,7 @@ public class ItemVineRoot extends ItemFood{
         {
         	this.setDamage(stack, stack.getItemDamage() + 1);
         	((EntityPlayer) entityLiving).getCooldownTracker().setCooldown(stack.getItem(), 400);
+        	//((EntityPlayer) entityLiving).dropItem(false);
         	if(this.getDamage(stack) >= this.getMaxDamage(stack)) {
         		this.setDamage(stack, 0);
         		stack.shrink(1);
@@ -46,5 +49,23 @@ public class ItemVineRoot extends ItemFood{
         }
         return stack;
     }
-
+	
+	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected)
+    {
+		if(entityIn instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer)entityIn;
+			ItemStack itemstack = stack.copy();
+			itemstack.setCount(1);
+			if(stack.getCount() > 1 && !player.isCreative()) {
+				if(player.addItemStackToInventory(itemstack)) {
+					System.out.print("Player Can Add Item");
+					player.inventory.addItemStackToInventory(itemstack);
+					stack.shrink(1);
+				}else {
+					stack.shrink(1);
+					player.dropItem(stack, true);
+				}
+			}
+		}
+    }
 }
