@@ -317,13 +317,7 @@ public class CommonProxy {
 		if(target instanceof EntityPlayer) {
 			System.out.print(event.getSource().getDamageType());
 			EntityPlayer player = (EntityPlayer)target;
-			if(player.inventory.hasItemStack(new ItemStack(Resources.totem_undying))) {
-				if(damage > player.getHealth()) {
-					event.setAmount(0.0F);
-					player.setHealth(player.getMaxHealth());
-					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_undying))).shrink(1);
-				}
-			}else if(player.inventory.hasItemStack(new ItemStack(Resources.totem_undrowning))) {
+			if(player.inventory.hasItemStack(new ItemStack(Resources.totem_undrowning))) {
 				if(event.getSource() == DamageSource.DROWN) {
 					event.setAmount(0.0F);
 					player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 800));
@@ -343,6 +337,12 @@ public class CommonProxy {
 					player.getFoodStats().setFoodLevel(20);
 					player.getFoodStats().setFoodSaturationLevel(20);
 					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_stuffing))).shrink(1);
+				}
+			}else if(player.inventory.hasItemStack(new ItemStack(Resources.totem_undying))) {
+				if(damage > player.getHealth()) {
+					event.setAmount(0.0F);
+					player.setHealth(player.getMaxHealth());
+					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_undying))).shrink(1);
 				}
 			}
 		}
