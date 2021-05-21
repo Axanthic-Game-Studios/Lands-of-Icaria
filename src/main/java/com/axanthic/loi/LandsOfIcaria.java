@@ -10,16 +10,22 @@ import com.axanthic.loi.worldgen.dimension.WorldTypeLOI;
 import com.axanthic.loi.worldgen.dimension.WorldTypeSpawnLOI;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.PotionEvent.PotionAddedEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
@@ -121,6 +127,21 @@ public class LandsOfIcaria {
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onAttackEntity(AttackEntityEvent event) {
 		LandsOfIcaria.proxy.onAttackEntityEvent(event);
+	}
+	
+	@SubscribeEvent
+	public void onEntityHurt(LivingHurtEvent event) {
+		LandsOfIcaria.proxy.onEntityHurtEvent(event);
+	}
+	
+	@SubscribeEvent
+	public void onBlockBreak(BreakEvent event) {
+		LandsOfIcaria.proxy.onBlockBreak(event);
+	}
+	
+	@SubscribeEvent
+	public void onPotionAdded(PotionAddedEvent event) {
+		LandsOfIcaria.proxy.onPotionAdded(event);
 	}
 
 	/*private static final ResourceLocation motionblur = new ResourceLocation("shaders/post/phosphor.json");

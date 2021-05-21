@@ -120,6 +120,7 @@ import com.axanthic.loi.items.ItemSignPopulus;
 import com.axanthic.loi.items.ItemSpell;
 import com.axanthic.loi.items.ItemStews;
 import com.axanthic.loi.items.ItemStorageVaseDyeable;
+import com.axanthic.loi.items.ItemTotem;
 import com.axanthic.loi.items.ItemVineRoot;
 import com.axanthic.loi.items.ToolAxe;
 import com.axanthic.loi.items.ToolBident;
@@ -131,7 +132,9 @@ import com.axanthic.loi.items.ToolSword;
 import com.axanthic.loi.items.ItemConcoctionFlask;
 import com.axanthic.loi.spells.*;
 import com.axanthic.loi.utils.CustomTrigger;
+import com.axanthic.loi.utils.PotionBlindnessImmunity;
 import com.axanthic.loi.utils.PotionFrozen;
+import com.axanthic.loi.utils.PotionSlowFalling;
 import com.axanthic.loi.worldgen.feature.WorldGenCypressTree;
 import com.axanthic.loi.worldgen.feature.WorldGenDroughtrootTree;
 import com.axanthic.loi.worldgen.feature.WorldGenFirTree;
@@ -214,6 +217,13 @@ public class Resources {
 	public static Item grenade = new ItemGrenade();
 	public static Item emptyFlask = new ItemBasic("concoction_flask_empty");
 	public static ItemMeta unfiredVase = new ItemStorageVaseDyeable();
+	public static Item totem_undying = new ItemTotem("totem_undying", 0);
+	public static Item totem_stuffing = new ItemTotem("totem_stuffing", 1);
+	public static Item totem_unsinking = new ItemTotem("totem_unsinking", 2);
+	public static Item totem_undrowning = new ItemTotem("totem_undrowning", 3);
+	public static Item totem_unblinding = new ItemTotem("totem_unblinding", 4);
+	public static Item totem_unshattering = new ItemTotem("totem_unshattering", 5);
+	public static Item totem_preventation = new ItemTotem("totem_preventation", 6);
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
@@ -413,6 +423,8 @@ public class Resources {
 	public static SpellSet bubbleSpell = new SpellSet("bubble", new SpellBubble(), false);
 
 	public static Potion frozenEffect = new PotionFrozen();
+	public static Potion slowFalling = new PotionSlowFalling();
+	public static Potion blindnessImmunity = new PotionBlindnessImmunity();
 
 	//DEPRECATED-REFACTORED TO LOIFluids.java
 	/*
@@ -481,6 +493,13 @@ public class Resources {
 		Resources.items.add(Resources.nugget);
 		Resources.items.add(Resources.grenade);
 		Resources.items.add(Resources.emptyFlask);
+		Resources.items.add(Resources.totem_undying);
+		Resources.items.add(Resources.totem_stuffing);
+		Resources.items.add(Resources.totem_unsinking);
+		Resources.items.add(Resources.totem_undrowning);
+		Resources.items.add(Resources.totem_unblinding);
+		Resources.items.add(Resources.totem_unshattering);
+		Resources.items.add(Resources.totem_preventation);
 
 		//signs
 		Resources.items.add(Resources.signPlane);

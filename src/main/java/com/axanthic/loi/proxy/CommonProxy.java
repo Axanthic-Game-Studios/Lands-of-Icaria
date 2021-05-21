@@ -9,8 +9,43 @@ import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Recipes;
 import com.axanthic.loi.Resources;
-import com.axanthic.loi.utils.TorchNerfs;
-import com.axanthic.loi.entity.*;
+import com.axanthic.loi.entity.EntityAeternae;
+import com.axanthic.loi.entity.EntityArachne;
+import com.axanthic.loi.entity.EntityArachneDrone;
+import com.axanthic.loi.entity.EntityArganHound;
+import com.axanthic.loi.entity.EntityBident;
+import com.axanthic.loi.entity.EntityCatoblepas;
+import com.axanthic.loi.entity.EntityCerver;
+import com.axanthic.loi.entity.EntityFallingVase;
+import com.axanthic.loi.entity.EntityFloatingBlock;
+import com.axanthic.loi.entity.EntityForestHagCypress;
+import com.axanthic.loi.entity.EntityForestHagDroughtroot;
+import com.axanthic.loi.entity.EntityForestHagFir;
+import com.axanthic.loi.entity.EntityForestHagLaurel;
+import com.axanthic.loi.entity.EntityForestHagOlive;
+import com.axanthic.loi.entity.EntityForestHagPlane;
+import com.axanthic.loi.entity.EntityForestHagPopulus;
+import com.axanthic.loi.entity.EntityGrenade;
+import com.axanthic.loi.entity.EntityJellyfish;
+import com.axanthic.loi.entity.EntityLight;
+import com.axanthic.loi.entity.EntityMyrmeke;
+import com.axanthic.loi.entity.EntityRevenantCaptain;
+import com.axanthic.loi.entity.EntityRevenantCivilian;
+import com.axanthic.loi.entity.EntityRevenantCrawler;
+import com.axanthic.loi.entity.EntityRevenantOvergrown;
+import com.axanthic.loi.entity.EntityRevenantPyromancer;
+import com.axanthic.loi.entity.EntityRevenantPyromancerNether;
+import com.axanthic.loi.entity.EntityRevenantSoldier;
+import com.axanthic.loi.entity.EntityScorpion;
+import com.axanthic.loi.entity.EntitySiren;
+import com.axanthic.loi.entity.EntitySnull;
+import com.axanthic.loi.entity.EntitySolifugae;
+import com.axanthic.loi.entity.EntitySow;
+import com.axanthic.loi.entity.EntitySpellBubble;
+import com.axanthic.loi.entity.EntitySpellWisp;
+import com.axanthic.loi.entity.EntityVinegar;
+import com.axanthic.loi.entity.EntityVinegaroon;
+import com.axanthic.loi.entity.EntityWhipSpider;
 import com.axanthic.loi.gui.GuiHandlerLOI;
 import com.axanthic.loi.gui.GuiHandlerRegistry;
 import com.axanthic.loi.items.IItemCustomReach;
@@ -34,19 +69,31 @@ import com.axanthic.loi.utils.GrinderFuel;
 import com.axanthic.loi.utils.GrinderRecipe;
 import com.axanthic.loi.utils.KettleRecipe;
 import com.axanthic.loi.utils.MessageCustomReachAttack;
+import com.axanthic.loi.utils.TorchNerfs;
 import com.axanthic.loi.worldgen.biome.LOIBiomes;
 import com.axanthic.loi.worldgen.dimension.OreGeneratorLOI;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
 
+import ibxm.Player;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
+import net.minecraft.init.MobEffects;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemTool;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.biome.Biome;
@@ -56,7 +103,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.PotionEvent.PotionAddedEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -201,6 +251,7 @@ public class CommonProxy {
 
 	public void registerPotions(RegistryEvent.Register<Potion> event) {
 		event.getRegistry().register(Resources.frozenEffect);
+		event.getRegistry().register(Resources.slowFalling);
 	}
 
 	public void registerRegistry(RegistryEvent.NewRegistry event) {
@@ -254,6 +305,79 @@ public class CommonProxy {
 				if (attacker.getDistance(event.getTarget()) > ((IItemCustomReach) weapon.getItem()).getReach()) {
 					event.setResult(Result.DENY);
 					event.setCanceled(true);
+				}
+			}
+		}
+	}
+	
+	public void onEntityHurtEvent(LivingHurtEvent event) {
+		Entity target = event.getEntity();
+		float damage = event.getAmount();
+		
+		if(target instanceof EntityPlayer) {
+			System.out.print(event.getSource().getDamageType());
+			EntityPlayer player = (EntityPlayer)target;
+			if(player.inventory.hasItemStack(new ItemStack(Resources.totem_undying))) {
+				if(damage > player.getHealth()) {
+					event.setAmount(0.0F);
+					player.setHealth(player.getMaxHealth());
+					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_undying))).shrink(1);
+				}
+			}else if(player.inventory.hasItemStack(new ItemStack(Resources.totem_undrowning))) {
+				if(event.getSource() == DamageSource.DROWN) {
+					event.setAmount(0.0F);
+					player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 800));
+					player.setAir(300);
+					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_undrowning))).shrink(1);
+				}
+			}else if(player.inventory.hasItemStack(new ItemStack(Resources.totem_unsinking))) {
+				if(event.getSource() == DamageSource.OUT_OF_WORLD) {
+					event.setAmount(0.0F);
+					player.setPositionAndUpdate(player.posX, 255.0D, player.posZ);
+					player.addPotionEffect(new PotionEffect(Resources.slowFalling, 800));
+					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_unsinking))).shrink(1);
+				}
+			}else if(player.inventory.hasItemStack(new ItemStack(Resources.totem_stuffing))) {
+				if(event.getSource() == DamageSource.STARVE) {
+					event.setAmount(0.0F);
+					player.getFoodStats().setFoodLevel(20);
+					player.getFoodStats().setFoodSaturationLevel(20);
+					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_stuffing))).shrink(1);
+				}
+			}
+		}
+	}
+	
+	public void onBlockBreak(BreakEvent event) {
+		EntityPlayer player = event.getPlayer();
+		if(player.inventory.hasItemStack(new ItemStack(Resources.totem_unshattering))) {
+			ItemStack tool = player.inventory.getCurrentItem();
+			if(tool.getItem() instanceof ItemTool || tool.getItem() instanceof ItemSword || tool.getItem() instanceof ItemPickaxe || tool.getItem() instanceof ItemAxe || tool.getItem() instanceof ItemSpade || tool.getItem() instanceof ItemHoe) {
+				if(tool.getItem().getDurabilityForDisplay(tool) >= 1.0) {
+					System.out.println(" PLAYERS TOOL IS ALMOST BROKEN ");
+					tool.setItemDamage((int)(tool.getItem().getMaxDamage() * 0.1));
+					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_unshattering))).shrink(1);
+				}
+			}
+		}
+	}
+	
+	public void onPotionAdded(PotionAddedEvent event) {
+		Entity entity = event.getEntity();
+		PotionEffect effect = event.getPotionEffect();
+		System.out.println("Entity has a new potion");
+		if(entity instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer)entity;
+			System.out.println("Entity is a player");
+			System.out.println(effect.getEffectName());
+			if(player.getActivePotionEffect(Resources.blindnessImmunity) != null) {
+				System.out.println("Player has blindness immunity");
+			}else if(effect.getEffectName().equalsIgnoreCase("effect.blindness")) {
+				System.out.println("Effect is blindness");
+				if(player.inventory.hasItemStack(new ItemStack(Resources.totem_unblinding))) {
+					player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 800));
+					player.addPotionEffect(new PotionEffect(Resources.blindnessImmunity, 800));
+					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_unblinding))).shrink(1);
 				}
 			}
 		}

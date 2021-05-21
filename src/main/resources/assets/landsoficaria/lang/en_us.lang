@@ -79,6 +79,13 @@ item.bident_laurel.name=Laurel Spear
 item.dagger_laurel.name=Laurel Shiv
 item.scythe_laurel.name=Laurel Hoe
 item.sword_laurel.name=Laurel Club
+item.totem_undying.name=Totem of Undying
+item.totem_stuffing.name=Totem of Stuffing
+item.totem_unsinking.name=Totem of Unsinking
+item.totem_undrowning.name=Totem of Undrowning
+item.totem_unblinding.name=Totem of Unblinding
+item.totem_unshattering.name=Totem of Unshattering
+item.totem_preventation.name=Totem of Totems
 
 item.generic.ingot.name=%s Ingot
 item.generic.nugget.name=%s Nugget
@@ -105,6 +112,9 @@ item.sign_laurel.name=Laurel Sign
 item.sign_olive.name=Olive Sign
 item.sign_plane.name=Plane Sign
 item.sign_populus.name=Populus Sign
+
+effect.slowfall.name=Slow Falling
+effect.blindness_immunity.name=Blindness Immunity
 
 tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Bricks
