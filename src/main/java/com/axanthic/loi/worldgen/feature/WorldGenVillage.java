@@ -11,6 +11,7 @@ import com.axanthic.loi.Resources;
 import com.axanthic.loi.blocks.BlockHerb.HerbTypes;
 import com.axanthic.loi.blocks.BlockStorageMetal.MetalTypes;
 import com.axanthic.loi.blocks.BlockRock;
+import com.axanthic.loi.entity.EntityArachne;
 import com.axanthic.loi.entity.EntityRevenantCaptain;
 import com.axanthic.loi.entity.EntityRevenantCivilian;
 import com.axanthic.loi.entity.EntityRevenantCrawler;
@@ -247,18 +248,25 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		addBlocksToWorldSilently(template, worldIn, position, new BlockRotationProcessor(position.up(), placementsettings), placementsettings, rand, chunk, 2, -2, damaged, ruined, ruined);
 
 		if (worldIn.getDifficulty() != EnumDifficulty.PEACEFUL) {
-			EntityLiving entity;
-			int type = rand.nextInt(6);
-			if (type == 1)
-				entity = new EntityRevenantSoldier(worldIn);
-			else if (type == 2)
-				entity = new EntityRevenantCaptain(worldIn);
-			else if (type == 3)
-				entity = new EntityRevenantPyromancer(worldIn);
-			else if (type == 4)
-				entity = new EntityRevenantCrawler(worldIn);
-			else
-				entity = new EntityRevenantCivilian(worldIn);
+			EntityLiving entity = null;
+			if (ruined) {
+				if (rand.nextInt(6) == 0)
+					entity = new EntityArachne(worldIn);
+			} else {
+				int type = rand.nextInt(6);
+				if (type == 1)
+					entity = new EntityRevenantSoldier(worldIn);
+				else if (type == 2)
+					entity = new EntityRevenantCaptain(worldIn);
+				else if (type == 3)
+					entity = new EntityRevenantPyromancer(worldIn);
+				else if (type == 4)
+					entity = new EntityRevenantCrawler(worldIn);
+				else
+					entity = new EntityRevenantCivilian(worldIn);
+			}
+			if (entity == null)
+				return true;
 			position = position.add(template.transformedBlockPos(placementsettings, new BlockPos((template.getSize().getX() - 1) / 2, 1, template.getSize().getZ() / 2)));
 			for (int i = 0; true; ++i) {
 				int x = rand.nextInt(8) - 4;
@@ -415,7 +423,11 @@ public class WorldGenVillage extends WorldGenStructureBase {
 							}
 							if (tileentity2 instanceof TileEntityMobSpawner) {
 								MobSpawnerBaseLogic mobspawnerbaselogic = ((TileEntityMobSpawner)tileentity2).getSpawnerBaseLogic();
-								mobspawnerbaselogic.setEntityId(new ResourceLocation(ModInformation.ID, spawners[rand.nextInt(spawners.length)]));
+								if (webbed) {
+									mobspawnerbaselogic.setEntityId(new ResourceLocation(ModInformation.ID, "arachne_drone"));
+								} else {
+									mobspawnerbaselogic.setEntityId(new ResourceLocation(ModInformation.ID, spawners[rand.nextInt(spawners.length)]));
+								}
 								tileentity2.markDirty();
 							}
 						}
