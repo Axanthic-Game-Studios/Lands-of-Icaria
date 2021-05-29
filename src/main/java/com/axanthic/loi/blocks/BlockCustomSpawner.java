@@ -7,6 +7,7 @@ import net.minecraft.block.BlockMobSpawner;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.MobSpawnerBaseLogic;
@@ -26,6 +27,11 @@ public class BlockCustomSpawner extends BlockMobSpawner {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(ModInformation.ID, name);
 		this.disableStats();
+	}
+
+	@Override
+	public TileEntity createTileEntity(World worldIn, IBlockState state) {
+		return Blocks.MOB_SPAWNER.createTileEntity(worldIn, state);
 	}
 
 	@Override
