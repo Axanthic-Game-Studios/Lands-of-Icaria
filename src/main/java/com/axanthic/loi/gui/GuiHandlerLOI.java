@@ -38,7 +38,7 @@ public class GuiHandlerLOI implements IGuiHandler {
 		}
 		if (tileEntity instanceof TileEntityForge) {
 			TileEntityForge tileEntityInventoryBasic = (TileEntityForge) tileEntity;
-			return new ContainerForge(player.inventory, tileEntityInventoryBasic);
+			return new ContainerForge(player.inventory, tileEntityInventoryBasic.forgeInventory);
 		}
 		if (world.getBlockState(xyz).getBlock() instanceof BlockCustomWorkbench) {
 			return new ContainerCustomWorkbench(player.inventory, world, xyz);

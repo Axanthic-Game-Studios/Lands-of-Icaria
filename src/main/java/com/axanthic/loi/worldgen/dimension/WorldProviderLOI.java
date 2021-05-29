@@ -2,8 +2,6 @@ package com.axanthic.loi.worldgen.dimension;
 
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.proxy.ClientProxy;
-import com.axanthic.loi.render.IcariaSkyRenderer;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;

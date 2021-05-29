@@ -19,7 +19,7 @@ public class GuiInventoryForge extends GuiContainer {
 	private TileEntityForge tileEntity;
 
 	public GuiInventoryForge(InventoryPlayer invPlayer, TileEntityForge tile) {
-		super(new ContainerForge(invPlayer, tile));
+		super(new ContainerForge(invPlayer, tile.forgeInventory));
 		this.playerInventory = invPlayer;
 		this.tileEntity = tile;
 		xSize = 176;
@@ -46,7 +46,7 @@ public class GuiInventoryForge extends GuiContainer {
 		int j = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);
 
-		if (TileEntityFurnace.isBurning(this.tileEntity)) {
+		if (TileEntityFurnace.isBurning(this.tileEntity.forgeInventory)) {
 			int k = this.getBurnLeftScaled(13);
 			this.drawTexturedModalRect(i + 57, j + 36 + 12 - k, 176, 12 - k, 14, k + 1);
 		}
@@ -56,18 +56,18 @@ public class GuiInventoryForge extends GuiContainer {
 	}
 
 	private int getCookProgressScaled(int pixels) {
-		int i = this.tileEntity.getField(2);
-		int j = this.tileEntity.getField(3);
+		int i = this.tileEntity.forgeInventory.getField(2);
+		int j = this.tileEntity.forgeInventory.getField(3);
 		return j != 0 && i != 0 ? i * pixels / j : 0;
 	}
 
 	private int getBurnLeftScaled(int pixels) {
-		int i = this.tileEntity.getField(1);
+		int i = this.tileEntity.forgeInventory.getField(1);
 
 		if (i == 0) {
 			i = 200;
 		}
 
-		return this.tileEntity.getField(0) * pixels / i;
+		return this.tileEntity.forgeInventory.getField(0) * pixels / i;
 	}
 }

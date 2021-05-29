@@ -24,7 +24,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -46,7 +45,22 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockForge extends BlockContainer {
 
-	protected static final AxisAlignedBB FORGE_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 1.875D, 1.75D, 1.875D);
+	public static final AxisAlignedBB TOP_BACK_LEFT = new AxisAlignedBB(0.125, 0, 0.125, 1, 1, 1);
+	public static final AxisAlignedBB TOP_BACK_RIGHT = new AxisAlignedBB(0, 0, 0.125, 0.875, 1, 1);
+	public static final AxisAlignedBB TOP_FRONT_LEFT = new AxisAlignedBB(0.1875, 0.375, 0, 0.8125, 1, 0.8125);
+	public static final AxisAlignedBB TOP_FRONT_RIGHT = new AxisAlignedBB(0, 0, 0, 0.75, 1, 0.375);
+	public static final AxisAlignedBB BOTTOM_BACK_LEFT = new AxisAlignedBB(0.0625, 0, 0.0625, 1, 1, 1);
+	public static final AxisAlignedBB BOTTOM_BACK_RIGHT = new AxisAlignedBB(0, 0, 0.0625, 0.9375, 1, 1);
+	public static final AxisAlignedBB BOTTOM_FRONT_LEFT = new AxisAlignedBB(0.0625, 0, 0, 1, 0.875, 0.9375);
+	public static final AxisAlignedBB BOTTOM_FRONT_RIGHT = new AxisAlignedBB(0, 0, 0, 0.9375, 0.875, 0.9375);
+	public static final AxisAlignedBB[] TOP_BACK_LEFT_ARRAY = getRotatedAABBArray(TOP_BACK_LEFT);
+	public static final AxisAlignedBB[] TOP_BACK_RIGHT_ARRAY = getRotatedAABBArray(TOP_BACK_RIGHT);
+	public static final AxisAlignedBB[] TOP_FRONT_LEFT_ARRAY = getRotatedAABBArray(TOP_FRONT_LEFT);
+	public static final AxisAlignedBB[] TOP_FRONT_RIGHT_ARRAY = getRotatedAABBArray(TOP_FRONT_RIGHT);
+	public static final AxisAlignedBB[] BOTTOM_BACK_LEFT_ARRAY = getRotatedAABBArray(BOTTOM_BACK_LEFT);
+	public static final AxisAlignedBB[] BOTTOM_BACK_RIGHT_ARRAY = getRotatedAABBArray(BOTTOM_BACK_RIGHT);
+	public static final AxisAlignedBB[] BOTTOM_FRONT_LEFT_ARRAY = getRotatedAABBArray(BOTTOM_FRONT_LEFT);
+	public static final AxisAlignedBB[] BOTTOM_FRONT_RIGHT_ARRAY = getRotatedAABBArray(BOTTOM_FRONT_RIGHT);
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static final PropertyEnum CORNER = PropertyEnum.create("corner", EnumCorner.class);
 	public static final PropertyBool BURNING = PropertyBool.create("burning");
@@ -59,6 +73,14 @@ public class BlockForge extends BlockContainer {
 		this.setRegistryName(ModInformation.ID, "crafting_forge");
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false).withProperty(CORNER, EnumCorner.BOTTOM_FRONT_LEFT));
 		this.setSoundType(SoundType.STONE);
+	}
+
+	public static AxisAlignedBB[] getRotatedAABBArray(AxisAlignedBB box) {
+		return new AxisAlignedBB[] {
+				new AxisAlignedBB(1-box.maxX, box.minY, 1-box.maxZ, 1-box.minX, box.maxY, 1-box.minZ),
+				new AxisAlignedBB(box.minZ, box.minY, 1-box.maxX, box.maxZ, box.maxY, 1-box.minX),
+				box,
+				new AxisAlignedBB(1-box.maxZ, box.minY, box.minX, 1-box.minZ, box.maxY, box.maxX)};
 	}
 
 	/*public void onNeighborChange(IBlockAccess world, BlockPos pos, BlockPos neighbor){
@@ -117,21 +139,27 @@ public class BlockForge extends BlockContainer {
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		state = getActualState(state, source, pos);
-		AxisAlignedBB returnBox = FORGE_AABB;
 		EnumCorner corner = (EnumCorner) state.getValue(CORNER);
 		EnumFacing facing = (EnumFacing) state.getValue(FACING);
-		BlockPos pos2 = new BlockPos(0, 0, 0);
-		if (facing == EnumFacing.NORTH || facing == EnumFacing.WEST)
-			returnBox = returnBox.offset(0, 0, -1);
-		if (facing == EnumFacing.SOUTH || facing == EnumFacing.WEST)
-			returnBox = returnBox.offset(-1, 0, 0);
-		if (corner == EnumCorner.TOP_BACK_LEFT || corner == EnumCorner.TOP_BACK_RIGHT || corner == EnumCorner.TOP_FRONT_LEFT || corner == EnumCorner.TOP_FRONT_RIGHT)
-			returnBox = returnBox.offset(pos2.offset(EnumFacing.DOWN));
-		if (corner == EnumCorner.BOTTOM_BACK_LEFT || corner == EnumCorner.BOTTOM_BACK_RIGHT || corner == EnumCorner.TOP_BACK_LEFT || corner == EnumCorner.TOP_BACK_RIGHT)
-			returnBox = returnBox.offset(pos2.offset(facing.getOpposite()));
-		if (corner == EnumCorner.BOTTOM_BACK_RIGHT || corner == EnumCorner.BOTTOM_FRONT_RIGHT || corner == EnumCorner.TOP_BACK_RIGHT || corner == EnumCorner.TOP_FRONT_RIGHT)
-			returnBox = returnBox.offset(pos2.offset(facing.rotateY().getOpposite()));
-		return returnBox;
+		switch (corner) {
+		case TOP_BACK_LEFT:
+			return TOP_BACK_LEFT_ARRAY[facing.getHorizontalIndex()];
+		case TOP_BACK_RIGHT:
+			return TOP_BACK_RIGHT_ARRAY[facing.getHorizontalIndex()];
+		case TOP_FRONT_LEFT:
+			return TOP_FRONT_LEFT_ARRAY[facing.getHorizontalIndex()];
+		case TOP_FRONT_RIGHT:
+			return TOP_FRONT_RIGHT_ARRAY[facing.getHorizontalIndex()];
+		case BOTTOM_BACK_LEFT:
+			return BOTTOM_BACK_LEFT_ARRAY[facing.getHorizontalIndex()];
+		case BOTTOM_BACK_RIGHT:
+			return BOTTOM_BACK_RIGHT_ARRAY[facing.getHorizontalIndex()];
+		case BOTTOM_FRONT_LEFT:
+			return BOTTOM_FRONT_LEFT_ARRAY[facing.getHorizontalIndex()];
+		case BOTTOM_FRONT_RIGHT:
+			return BOTTOM_FRONT_RIGHT_ARRAY[facing.getHorizontalIndex()];
+		}
+		return BOTTOM_FRONT_RIGHT;
 	}
 
 	@Override
@@ -152,11 +180,11 @@ public class BlockForge extends BlockContainer {
 		if (tileentity instanceof TileEntityForgeRedirector) {
 			TileEntity tileentityOrigin = worldIn.getTileEntity(pos2);
 			if (tileentityOrigin instanceof TileEntityForge) {
-				InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory)tileentityOrigin);
+				InventoryHelper.dropInventoryItems(worldIn, pos, ((TileEntityForge) tileentityOrigin).forgeInventory);
 				worldIn.destroyBlock(pos2, false);
 			}
 		} else if (tileentity instanceof TileEntityForge) {
-			InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory)tileentity);
+			InventoryHelper.dropInventoryItems(worldIn, pos, ((TileEntityForge) tileentity).forgeInventory);
 			worldIn.destroyBlock(pos.offset(facing), false);
 			worldIn.destroyBlock(pos.offset(facing).offset(facing.rotateY()), false);
 			worldIn.destroyBlock(pos.offset(facing.rotateY()), false);
@@ -191,35 +219,15 @@ public class BlockForge extends BlockContainer {
 	}
 
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings("incomplete-switch")
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		stateIn = getActualState(stateIn, worldIn, pos);
 		BlockPos pos2 = getTileLocation(pos, stateIn);
 		if (((Boolean) stateIn.getValue(BURNING))) {
-			EnumFacing enumfacing = (EnumFacing) stateIn.getValue(FACING);
-			double d0 = (double) pos2.getX() + 0.5D;
-			double d1 = (double) pos2.getY() + rand.nextDouble() * 2.0D / 16.0D + 22.0D / 16.0D;
-			double d2 = (double) pos2.getZ() + 0.5D;
-			double d3 = 0.52D;
-			double d4 = rand.nextDouble() * 8.0D / 16.0D - 4.0D / 16.0D;
-
 			if (rand.nextDouble() < 0.1D) {
 				worldIn.playSound((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
 			}
-
-			switch (enumfacing) {
-			case WEST:
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 - 13.5D / 16.0D - 0.5D, d1, d2 + d4 - 0.5D, -0.03D, 0.0D, 0.0D);
-				break;
-			case EAST:
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + 13.5D / 16.0D + 0.5D, d1, d2 + d4 + 0.5D, 0.03D, 0.0D, 0.0D);
-				break;
-			case NORTH:
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4 + 0.5D, d1, d2 - 13.5D / 16.0D - 0.5D, 0.0D, 0.0D, -0.03D);
-				break;
-			case SOUTH:
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4 - 0.5D, d1, d2 + 13.5D / 16.0D + 0.5D, 0.0D, 0.0D, 0.03D);
-			}
+			EnumFacing facing = (EnumFacing) stateIn.getValue(FACING);
+			worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, (double) pos2.getX() + 0.5D + facing.getFrontOffsetX() / 2.0 + facing.rotateY().getFrontOffsetX() / 2.0 + rand.nextDouble() * 4.0D / 16.0D - 2.0D / 16.0D, (double) pos2.getY() + rand.nextDouble() * 2.0D / 16.0D + 30.0D / 16.0D, pos2.getZ() + 0.5D + facing.getFrontOffsetZ() / 2.0 + facing.rotateY().getFrontOffsetZ() / 2.0 + rand.nextDouble() * 4.0D / 16.0D - 2.0D / 16.0D, 0.0D, 0.0D, 0.0D);
 		}
 	}
 
@@ -446,6 +454,18 @@ public class BlockForge extends BlockContainer {
 				}
 			}
 			return this;
+		}
+
+		public boolean isBottom() {
+			return this == BOTTOM_BACK_LEFT || this == BOTTOM_BACK_RIGHT || this == BOTTOM_FRONT_LEFT || this == BOTTOM_FRONT_RIGHT;
+		}
+
+		public boolean isRight() {
+			return this == TOP_BACK_RIGHT || this == TOP_FRONT_RIGHT || this == BOTTOM_BACK_RIGHT || this == BOTTOM_FRONT_RIGHT;
+		}
+
+		public boolean isBack() {
+			return this == TOP_BACK_LEFT || this == TOP_BACK_RIGHT || this == BOTTOM_BACK_LEFT || this == BOTTOM_BACK_RIGHT;
 		}
 
 		public static String[] getNames() {

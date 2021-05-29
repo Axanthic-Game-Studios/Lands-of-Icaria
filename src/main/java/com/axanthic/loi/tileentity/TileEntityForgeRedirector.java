@@ -7,13 +7,11 @@ import com.axanthic.loi.blocks.BlockForge;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityLockable;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.world.IInteractionObject;
 
-public class TileEntityForgeRedirector extends TileEntityLockable implements ISidedInventory {
+public class TileEntityForgeRedirector extends TileEntity implements IInteractionObject {
 
 	public TileEntityForge original;
 
@@ -30,53 +28,6 @@ public class TileEntityForgeRedirector extends TileEntityLockable implements ISi
 		TileEntity hopefullyAForge = this.world.getTileEntity(BlockForge.getTileLocation(this.pos, this.world.getBlockState(this.pos)));
 		if (hopefullyAForge instanceof TileEntityForge)
 			this.original = (TileEntityForge) hopefullyAForge;
-	}
-
-	public int getSizeInventory() {
-		if (original == null)
-			return 0;
-		return original.getSizeInventory();
-	}
-
-	public boolean isEmpty() {
-		if (original == null)
-			return false;
-		return original.isEmpty();
-	}
-
-	public ItemStack getStackInSlot(int index) {
-		if (original == null)
-			return ItemStack.EMPTY;
-		return original.getStackInSlot(index);
-	}
-
-	/**
-	 * Removes up to a specified number of items from an inventory slot and returns
-	 * them in a new stack.
-	 */
-	public ItemStack decrStackSize(int index, int count) {
-		if (original == null)
-			return ItemStack.EMPTY;
-		return original.decrStackSize(index, count);
-	}
-
-	/**
-	 * Removes a stack from the given slot and returns it.
-	 */
-	public ItemStack removeStackFromSlot(int index) {
-		if (original == null)
-			return ItemStack.EMPTY;
-		return original.removeStackFromSlot(index);
-	}
-
-	/**
-	 * Sets the given item stack to the specified slot in the inventory (can be
-	 * crafting or armor sections).
-	 */
-	public void setInventorySlotContents(int index, ItemStack stack) {
-		if (original == null)
-			return;
-		original.setInventorySlotContents(index, stack);
 	}
 
 	/**
@@ -101,16 +52,6 @@ public class TileEntityForgeRedirector extends TileEntityLockable implements ISi
 		if (original == null)
 			return;
 		original.setCustomInventoryName(p_145951_1_);
-	}
-
-	/**
-	 * Returns the maximum stack size for a inventory slot. Seems to always be 64,
-	 * possibly will be extended.
-	 */
-	public int getInventoryStackLimit() {
-		if (original == null)
-			return 64;
-		return original.getInventoryStackLimit();
 	}
 
 	public boolean isBurning() {
@@ -138,42 +79,6 @@ public class TileEntityForgeRedirector extends TileEntityLockable implements ISi
 	public void closeInventory(EntityPlayer player) {
 	}
 
-	/**
-	 * Returns true if automation is allowed to insert the given stack (ignoring
-	 * stack size) into the given slot. For guis use Slot.isItemValid
-	 */
-	public boolean isItemValidForSlot(int index, ItemStack stack) {
-		if (original == null)
-			return false;
-		return original.isItemValidForSlot(index, stack);
-	}
-
-	public int[] getSlotsForFace(EnumFacing side) {
-		if (original == null)
-			return new int[] { 0 };
-		return original.getSlotsForFace(side);
-	}
-
-	/**
-	 * Returns true if automation can insert the given item in the given slot from
-	 * the given side.
-	 */
-	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
-		if (original == null)
-			return false;
-		return original.canInsertItem(index, itemStackIn, direction);
-	}
-
-	/**
-	 * Returns true if automation can extract the given item in the given slot from
-	 * the given side.
-	 */
-	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
-		if (original == null)
-			return false;
-		return original.canExtractItem(index, stack, direction);
-	}
-
 	public String getGuiID() {
 		if (original == null)
 			return "";
@@ -186,35 +91,11 @@ public class TileEntityForgeRedirector extends TileEntityLockable implements ISi
 		return original.createContainer(playerInventory, playerIn);
 	}
 
-	public int getField(int id) {
-		if (original == null)
-			return 0;
-		return original.getField(id);
-	}
-
-	public void setField(int id, int value) {
-		if (original == null)
-			return;
-		original.setField(id, value);
-	}
-
-	public int getFieldCount() {
-		if (original == null)
-			return 0 ;
-		return original.getFieldCount();
-	}
-
-	public void clear() {
-		if (original == null)
-			return;
-		original.clear();
-	}
-
 	@Override
 	public boolean hasCapability(net.minecraftforge.common.capabilities.Capability<?> capability, @Nullable net.minecraft.util.EnumFacing facing) {
 		if (original == null)
 			return false;
-		return original.hasCapability(capability, facing);
+		return original.hasCapabilityForPos(capability, facing, this.pos);
 	}
 
 	@Override
@@ -222,6 +103,6 @@ public class TileEntityForgeRedirector extends TileEntityLockable implements ISi
 	public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T> capability, @javax.annotation.Nullable net.minecraft.util.EnumFacing facing) {
 		if (original == null)
 			return null;
-		return original.getCapability(capability, facing);
+		return original.getCapabilityForPos(capability, facing, this.pos);
 	}
 }

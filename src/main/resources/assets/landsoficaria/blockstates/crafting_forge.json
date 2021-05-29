@@ -3,7 +3,8 @@
 	"defaults": {
 		"model": "landsoficaria:crafting_forge_inventorymodel",
 		"textures": {
-			"flame": "landsoficaria:blocks/empty"
+			"still": "landsoficaria:blocks/empty",
+			"flow": "landsoficaria:blocks/empty"
 		}
 	},
 	"variants": {
@@ -15,18 +16,21 @@
 			"west": { "y": 270 }
 		},
 		"burning": {
-			"true": { "textures": { "flame": "landsoficaria:blocks/crafting_forge_fire" } },
+			"true": { "textures": {
+				"still": "landsoficaria:blocks/molten_metal_still",
+				"flow": "landsoficaria:blocks/molten_metal_flow"
+				} },
 			"false": {}
 		},
 		"corner": {
-			"top_back_left": { "model": "landsoficaria:crafting_forge_reartopleft" },
-			"top_back_right": { "model": "landsoficaria:crafting_forge_reartopright" },
-			"top_front_left": { "model": "landsoficaria:crafting_forge_fronttopleft" },
-			"top_front_right": { "model": "landsoficaria:crafting_forge_fronttopright" },
-			"bottom_back_left": { "model": "landsoficaria:crafting_forge_rearbottomleft" },
-			"bottom_back_right": { "model": "landsoficaria:crafting_forge_rearbottomright" },
-			"bottom_front_left": { "model": "landsoficaria:crafting_forge_frontbottomleft" },
-			"bottom_front_right": { "model": "landsoficaria:crafting_forge_frontbottomright" }
+			"top_back_left": { "model": "landsoficaria:crafting_forge_rear_top_left" },
+			"top_back_right": { "model": "landsoficaria:crafting_forge_rear_top_right" },
+			"top_front_left": { "model": "landsoficaria:crafting_forge_front_top_left" },
+			"top_front_right": { "model": "landsoficaria:crafting_forge_front_top_right" },
+			"bottom_back_left": { "model": "landsoficaria:crafting_forge_rear_bottom_left" },
+			"bottom_back_right": { "model": "landsoficaria:crafting_forge_rear_bottom_right" },
+			"bottom_front_left": { "model": "landsoficaria:crafting_forge_front_bottom_left" },
+			"bottom_front_right": { "model": "landsoficaria:crafting_forge_front_bottom_right" }
 		}
 	}
 }
