@@ -18,10 +18,12 @@ public class ItemBlockMetaMaterial extends ItemBlockMeta {
 
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
+		if (I18n.canTranslate("tile." + this.block.getRegistryName().getResourcePath() + "." + ((IBlockMeta) this.block).getNames()[stack.getItemDamage()] + ".name"))
+			return I18n.translateToLocal("tile." + this.block.getRegistryName().getResourcePath() + "." + ((IBlockMeta) this.block).getNames()[stack.getItemDamage()] + ".name");
 		try {
 			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal("material." + ((IBlockMeta) this.block).getNames()[stack.getItemDamage()] + ".name"));
 		} catch (Exception e) {
-			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), "");
+			return I18n.translateToLocal("tile." + this.block.getRegistryName().getResourcePath() + "." + ((IBlockMeta) this.block).getNames()[stack.getItemDamage()] + ".name");
 		}
 	}
 }

@@ -20,10 +20,12 @@ public class ItemBlockMaterial extends ItemBlock {
 
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
+		if (I18n.canTranslate("tile." + this.block.getRegistryName().getResourcePath() + ".name"))
+			return I18n.translateToLocal("tile." + this.block.getRegistryName().getResourcePath() + ".name");
 		try {
 			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal(((IBlockMaterial) this.block).getName()));
 		} catch (Exception e) {
-			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), "");
+			return I18n.translateToLocal("tile." + this.block.getRegistryName().getResourcePath() + ".name");
 		}
 	}
 }
