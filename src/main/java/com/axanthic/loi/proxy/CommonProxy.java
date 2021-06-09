@@ -60,6 +60,7 @@ import com.axanthic.loi.tileentity.TileEntityColoredLight;
 import com.axanthic.loi.tileentity.TileEntityForge;
 import com.axanthic.loi.tileentity.TileEntityForgeRedirector;
 import com.axanthic.loi.tileentity.TileEntityGrinder;
+import com.axanthic.loi.tileentity.TileEntityIcariaChest;
 import com.axanthic.loi.tileentity.TileEntityKettle;
 import com.axanthic.loi.tileentity.TileEntityKiln;
 import com.axanthic.loi.tileentity.TileEntityMobHead;
@@ -69,7 +70,7 @@ import com.axanthic.loi.utils.GrinderFuel;
 import com.axanthic.loi.utils.GrinderRecipe;
 import com.axanthic.loi.utils.KettleRecipe;
 import com.axanthic.loi.utils.MessageCustomReachAttack;
-import com.axanthic.loi.utils.TorchNerfs;
+import com.axanthic.loi.utils.VanillaHandler;
 import com.axanthic.loi.worldgen.biome.LOIBiomes;
 import com.axanthic.loi.worldgen.dimension.OreGeneratorLOI;
 import com.axanthic.loi.worldgen.dimension.WorldProviderLOI;
@@ -97,6 +98,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.biome.Biome;
+
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -129,7 +131,7 @@ public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(LandsOfIcaria.instance);
-		MinecraftForge.EVENT_BUS.register(new TorchNerfs());
+		MinecraftForge.EVENT_BUS.register(new VanillaHandler());
 
 		LandsOfIcaria.logger = event.getModLog();
 
@@ -196,6 +198,9 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TESignOlive.class, new ResourceLocation(ModInformation.ID, "sign_olive"));
 		GameRegistry.registerTileEntity(TESignLaurel.class, new ResourceLocation(ModInformation.ID, "sign_laurel"));
 		GameRegistry.registerTileEntity(TESignDroughtroot.class, new ResourceLocation(ModInformation.ID, "sign_droughtroot"));
+
+		//chests
+		GameRegistry.registerTileEntity(TileEntityIcariaChest.class, new ResourceLocation(ModInformation.ID, "custom_chest"));
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(LandsOfIcaria.instance, GuiHandlerRegistry.getInstance());
 		GuiHandlerRegistry.getInstance().registerGuiHandler(new GuiHandlerLOI(), GuiHandlerLOI.getGuiID());

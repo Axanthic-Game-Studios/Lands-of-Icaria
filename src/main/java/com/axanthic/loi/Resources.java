@@ -42,6 +42,7 @@ import com.axanthic.loi.blocks.BlockGrinder;
 import com.axanthic.loi.blocks.BlockGroundFlower;
 import com.axanthic.loi.blocks.BlockHerb;
 import com.axanthic.loi.blocks.BlockHorizontalPane;
+import com.axanthic.loi.blocks.BlockIcariaChest;
 import com.axanthic.loi.blocks.BlockIcariaPortal;
 import com.axanthic.loi.blocks.BlockKettle;
 import com.axanthic.loi.blocks.BlockKiln;
@@ -164,6 +165,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
+
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
@@ -383,6 +385,10 @@ public class Resources {
 	//torches
 	public static ItemBlock torchAnthracite = new ItemBlock(new BlockTorchAnthracite());
 	public static ItemBlock torchLignite = new ItemBlock(new BlockTorchLignite());
+
+	//chests
+	public static ItemBlock icariaChest = new ItemBlock(new BlockIcariaChest("icaria_chest", BlockIcariaChest.Type.BASIC));
+	public static ItemBlock icariaChestTrapped = new ItemBlock(new BlockIcariaChest("icaria_chest_trapped", BlockIcariaChest.Type.TRAP));
 
 	public static Item seedsStrawberry = new ItemCustomSeeds("seed_strawberry", cropStrawberry.getBlock());
 	public static Item seedsPhysalis = new ItemCustomSeeds("seed_physalis", cropPhysalis.getBlock());
@@ -679,6 +685,10 @@ public class Resources {
 		//torches
 		Resources.registerBlock(Resources.torchAnthracite);
 		Resources.registerBlock(Resources.torchLignite);
+
+		//chests
+		Resources.registerBlock(Resources.icariaChest);
+		Resources.registerBlock(Resources.icariaChestTrapped);
 
 		//DEPRECATED
 		/*

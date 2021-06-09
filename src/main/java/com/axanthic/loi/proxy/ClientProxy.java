@@ -48,16 +48,19 @@ import com.axanthic.loi.tileentity.TESRSignPlane;
 import com.axanthic.loi.tileentity.TESRSignPopulus;
 import com.axanthic.loi.tileentity.TileEntityColoredLight;
 import com.axanthic.loi.tileentity.TileEntityGrinder;
+import com.axanthic.loi.tileentity.TileEntityIcariaChest;
 import com.axanthic.loi.tileentity.TileEntityKettle;
 import com.axanthic.loi.tileentity.TileEntityMobHead;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererColoredLight;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererGrinder;
+import com.axanthic.loi.tileentity.TileEntitySpecialRendererIcariaChest;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererKettle;
 import com.axanthic.loi.tileentity.TileEntitySpecialRendererMobHead;
 import com.axanthic.loi.utils.IcariaSounds;
 import com.axanthic.loi.utils.LOIItemStackRenderer;
 import com.axanthic.loi.utils.MessageCustomReachAttack;
-import com.axanthic.loi.utils.TorchNerfs;
+import com.axanthic.loi.utils.VanillaHandler;
+
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
@@ -91,6 +94,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeColorHelper;
+
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelBakeEvent;
@@ -119,7 +123,7 @@ public class ClientProxy extends CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
 		MinecraftForge.EVENT_BUS.register(this);
-		MinecraftForge.EVENT_BUS.register(new TorchNerfs());
+		MinecraftForge.EVENT_BUS.register(new VanillaHandler());
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityBident.class, RenderBident::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFallingVase.class, RenderFallingBlock::new);
@@ -190,6 +194,9 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TESignOlive.class, new TESRSignOlive());
 		ClientRegistry.bindTileEntitySpecialRenderer(TESignLaurel.class, new TESRSignLaurel());
 		ClientRegistry.bindTileEntitySpecialRenderer(TESignDroughtroot.class, new TESRSignDroughtroot());
+
+		//chests
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityIcariaChest.class, new TileEntitySpecialRendererIcariaChest());
 
 		if (LOIConfig.render.lights)
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntityColoredLight.class, new TileEntitySpecialRendererColoredLight());

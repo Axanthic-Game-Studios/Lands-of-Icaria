@@ -271,6 +271,10 @@ tile.loot_vineroot_block.name=Vineroot Block
 tile.generic.mineral_lignite_block.name=Lignite Block
 tile.generic.mineral_anthracite_block.name=Anthracite Block
 
+#chests
+tile.icaria_chest.name=Chest
+tile.icaria_chest_trapped.name=Trapped Chest
+
 #vases
 tile.storage_vase.name=Storage Vase
 tile.storage_vase_dyed_white.name=White Dyed Storage Vase

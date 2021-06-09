@@ -261,6 +261,10 @@ tile.loot_vineroot_block.name=Rankenwurzel Block
 tile.generic.mineral_lignite_block.name=Turff Block
 tile.generic.mineral_anthracite_block.name=Anthrazit Block
 
+#chests
+tile.icaria_chest.name=Truhe
+tile.icaria_chest_trapped.name=Redstone-Truhe
+
 #vases
 tile.storage_vase.name=Speichervase
 tile.storage_vase_dyed_white.name=Weiß gefärbte Speichervase
