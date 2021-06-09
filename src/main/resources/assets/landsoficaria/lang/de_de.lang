@@ -42,6 +42,7 @@ item.unfired_vase.dyed_brown.name=Ungebrannte braun gefärbte Vase
 item.unfired_vase.dyed_green.name=Ungebrannte grün gefärbte Vase
 item.unfired_vase.dyed_red.name=Ungebrannte rot gefärbte Vase
 item.unfired_vase.dyed_black.name=Ungebrannte schwarz gefärbte Vase
+
 item.food.olive_green.name=Grüne Oliven
 item.food.olive_black.name=Schwarze Oliven
 item.food.laurel_cherry.name=Lorbeerkirsche
@@ -79,6 +80,13 @@ item.bident_laurel.name=Lorbeerholz Speer
 item.dagger_laurel.name=Lorbeerholz Dolch
 item.scythe_laurel.name=Lorbeerholz Harke
 item.sword_laurel.name=Lorbeerholz Keule
+item.totem_undying.name=Totem der Unsterblichkeit
+item.totem_stuffing.name=Totem der Sättigung
+item.totem_unsinking.name=Totem des Endlossturzes
+item.totem_undrowning.name=Totem der Atemluft
+item.totem_unblinding.name=Totem der Sicht
+item.totem_unshattering.name=Totem der Stabilität
+item.totem_preventation.name=Totem der Totems
 
 item.generic.ingot.name=%s Barren
 item.generic.nugget.name=%s Nugget
@@ -105,6 +113,9 @@ item.sign_laurel.name=Lorbeer Schild
 item.sign_olive.name=Oliven Schild
 item.sign_plane.name=Platanen Schild
 item.sign_populus.name=Pappel Schild
+
+effect.slowfall.name=Gleitfall
+effect.blindness_immunity.name=Erblindungsimmunität
 
 tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Ziegel
