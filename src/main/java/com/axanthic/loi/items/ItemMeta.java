@@ -4,8 +4,11 @@ import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 
 public class ItemMeta extends Item implements IItemMeta {
@@ -43,5 +46,11 @@ public class ItemMeta extends Item implements IItemMeta {
 	@Override
 	public String[] getNames() {
 		return names;
+	}
+
+	@Override
+	public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer player, EntityLivingBase target, EnumHand hand)
+	{
+		return false;
 	}
 }

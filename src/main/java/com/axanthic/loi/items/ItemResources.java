@@ -3,7 +3,12 @@ package com.axanthic.loi.items;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 
 public class ItemResources extends ItemMeta {
 	public ItemResources() {
@@ -26,6 +31,51 @@ public class ItemResources extends ItemMeta {
 	@Override
 	public int getItemBurnTime(ItemStack stack) {
 		return ResourceType.byMeta(stack.getMetadata()).burnTime;
+	}
+
+	@Override
+	public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer player, EntityLivingBase target, EnumHand hand)
+	{
+		if (target instanceof EntitySheep)
+		{
+			EntitySheep entitysheep = (EntitySheep)target;
+
+			EnumDyeColor black = EnumDyeColor.byDyeDamage(0);
+			EnumDyeColor blue = EnumDyeColor.byDyeDamage(4);
+			EnumDyeColor brown = EnumDyeColor.byDyeDamage(3);
+			EnumDyeColor white = EnumDyeColor.byDyeDamage(15);
+
+			if(stack.getMetadata() == ResourceType.BLACK_DYE.toMeta() && entitysheep.getFleeceColor() != black && !entitysheep.getSheared())
+			{
+				entitysheep.setFleeceColor(black);
+				stack.shrink(1);
+			}
+
+			else if(stack.getMetadata() == ResourceType.BLUE_DYE.toMeta() && entitysheep.getFleeceColor() != blue && !entitysheep.getSheared())
+			{
+				entitysheep.setFleeceColor(blue);
+				stack.shrink(1);
+			}
+
+			else if(stack.getMetadata() == ResourceType.BROWN_DYE.toMeta() && entitysheep.getFleeceColor() != brown && !entitysheep.getSheared())
+			{
+				entitysheep.setFleeceColor(brown);
+				stack.shrink(1);
+			}
+
+			else if(stack.getMetadata() == ResourceType.WHITE_DYE.toMeta() && entitysheep.getFleeceColor() != white && !entitysheep.getSheared())
+			{
+				entitysheep.setFleeceColor(white);
+				stack.shrink(1);
+			}
+
+			return true;
+		}
+
+		else
+		{
+			return false;
+		}
 	}
 	
 	public enum ResourceType {
