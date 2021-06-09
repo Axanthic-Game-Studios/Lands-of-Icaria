@@ -200,7 +200,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TESignDroughtroot.class, new ResourceLocation(ModInformation.ID, "sign_droughtroot"));
 
 		//chests
-		GameRegistry.registerTileEntity(TileEntityIcariaChest.class, new ResourceLocation(ModInformation.ID, "custom_chest"));
+		GameRegistry.registerTileEntity(TileEntityIcariaChest.class, new ResourceLocation(ModInformation.ID, "icaria_chest"));
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(LandsOfIcaria.instance, GuiHandlerRegistry.getInstance());
 		GuiHandlerRegistry.getInstance().registerGuiHandler(new GuiHandlerLOI(), GuiHandlerLOI.getGuiID());

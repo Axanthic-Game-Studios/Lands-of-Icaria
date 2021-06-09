@@ -692,6 +692,10 @@ public class Recipes {
 		OreDictionary.registerOre("stone", new ItemStack(Resources.relicstone, 1, 0));
 		OreDictionary.registerOre("blockStone", new ItemStack(Resources.relicstone, 1, 0));
 
+		//chests
+		OreDictionary.registerOre("chestWood", new ItemStack(Resources.icariaChest, 1));
+		OreDictionary.registerOre("chestTrapped", new ItemStack(Resources.icariaChestTrapped, 1));
+
 		OreDictionary.registerOre("blockDolomite", new ItemStack(Resources.dolomiteSmooth, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("blockCalcite", new ItemStack(Resources.gemBlock, 1, BlockStorageGem.GemTypes.CALCITE.getMeta()));
 		OreDictionary.registerOre("blockHalite", new ItemStack(Resources.gemBlock, 1, BlockStorageGem.GemTypes.HALITE.getMeta()));
