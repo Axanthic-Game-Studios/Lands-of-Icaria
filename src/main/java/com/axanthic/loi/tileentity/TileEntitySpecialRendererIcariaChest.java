@@ -4,6 +4,7 @@ import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.blocks.BlockIcariaChest;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.model.ModelChest;
 import net.minecraft.client.model.ModelLargeChest;
 import net.minecraft.client.renderer.GlStateManager;
@@ -217,6 +218,26 @@ public class TileEntitySpecialRendererIcariaChest extends TileEntitySpecialRende
 
         modelchest.chestLid.rotateAngleX = -(f * ((float)Math.PI / 2F));
         modelchest.renderAll();
+
+        if(destroyStage < 0 && te.lidAngle == 0 || te.lidAngle == 1)
+        {
+            GlStateManager.translate(0.5F, (float)(0.12499 - (te.lidAngle * 0.071875)), (float)(0.53126 + (te.lidAngle * 0.71875)));
+            GlStateManager.scale(0.010416667F, 0.010416667F, 0.010416667F);
+            GlStateManager.rotate(90 + (te.lidAngle * 90), -1.0F, 0.0F, 0.0F);
+
+            String text = "";
+            FontRenderer fontRenderer = this.getFontRenderer();
+
+            if(te.adjacentChestZNeg == null && te.adjacentChestXNeg == null && te.adjacentChestXPos == null && te.adjacentChestZPos == null)
+            {
+                fontRenderer.drawString(text, fontRenderer.getStringWidth(text) / -2, 0, 0x000000);
+            }
+
+            if(te.adjacentChestZNeg != null || te.adjacentChestXNeg != null || te.adjacentChestXPos != null || te.adjacentChestZPos != null)
+            {
+                fontRenderer.drawString(text, fontRenderer.getStringWidth(text) / -2 + 48, 0, 0x000000);
+            }
+        }
 
         GlStateManager.disableRescaleNormal();
         GlStateManager.popMatrix();
