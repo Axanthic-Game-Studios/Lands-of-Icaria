@@ -1,6 +1,7 @@
 package com.axanthic.loi.blocks;
 
 import com.axanthic.loi.LandsOfIcaria;
+import com.axanthic.loi.Resources;
 import com.axanthic.loi.tileentity.TileEntityIcariaChest;
 
 import net.minecraft.block.Block;
@@ -16,6 +17,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
@@ -46,9 +48,9 @@ public class BlockIcariaChest extends BlockContainer
     public static final AxisAlignedBB NORTHAABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0D, 0.9375D, 0.875D, 0.9375D);
     public static final AxisAlignedBB SOUTHAABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.875D, 1.0D);
 
-    public final BlockIcariaChest.Type chestType;
+    public final Type chestType;
 
-    public BlockIcariaChest(String name, BlockIcariaChest.Type chestType)
+    public BlockIcariaChest(String name, Type chestType)
     {
         super(Material.WOOD);
         this.setRegistryName(name);
@@ -403,32 +405,34 @@ public class BlockIcariaChest extends BlockContainer
 
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        if(world.isRemote)
-        {
-            return true;
-        }
-
-        else
+        if(!world.isRemote)
         {
             ILockableContainer ilockablecontainer = this.getLockableContainer(world, pos);
 
-            if(ilockablecontainer != null)
+            ItemStack stack = player.getHeldItem(hand);
+
+            if(ilockablecontainer != null/* && stack.getItem() != Items.DIAMOND*/)
             {
                 player.displayGUIChest(ilockablecontainer);
 
-                if(this.chestType == BlockIcariaChest.Type.BASIC)
+                if(this.chestType == Type.BASIC)
                 {
                     player.addStat(StatList.CHEST_OPENED);
                 }
 
-                else if(this.chestType == BlockIcariaChest.Type.TRAP)
+                else if(this.chestType == Type.TRAP)
                 {
                     player.addStat(StatList.TRAPPED_CHEST_TRIGGERED);
                 }
             }
 
-            return true;
+            /*if(state == Resources.icariaChest.getBlock().getDefaultState().withProperty(FACING, EnumFacing.SOUTH) && stack.getItem() == Items.DIAMOND)
+            {
+                world.setBlockState(pos, Resources.icariaChest.getBlock().getDefaultState().withProperty(FACING, EnumFacing.SOUTH), 3);
+            }*/
         }
+
+        return true;
     }
 
     @Nullable
@@ -500,7 +504,7 @@ public class BlockIcariaChest extends BlockContainer
     @SuppressWarnings("deprecation")
     public boolean canProvidePower(IBlockState state)
     {
-        return this.chestType == BlockIcariaChest.Type.TRAP;
+        return this.chestType == Type.TRAP;
     }
 
     @SuppressWarnings("deprecation")

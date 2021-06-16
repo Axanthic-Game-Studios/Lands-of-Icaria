@@ -14,32 +14,20 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.Calendar;
-
 @SideOnly(Side.CLIENT)
 public class TileEntitySpecialRendererIcariaChest extends TileEntitySpecialRenderer<TileEntityIcariaChest>
 {
     public static final ResourceLocation TEXTURE_NORMAL = new ResourceLocation(ModInformation.ID, "textures/blocks/wood_chest_normal.png");
+    public static final ResourceLocation TEXTURE_LABEL_TOP = new ResourceLocation(ModInformation.ID, "textures/blocks/wood_chest_labels_normal_top.png");
+    public static final ResourceLocation TEXTURE_LABEL_FRONT = new ResourceLocation(ModInformation.ID, "textures/blocks/wood_chest_labels_normal_front.png");
     public static final ResourceLocation TEXTURE_TRAPPED = new ResourceLocation(ModInformation.ID, "textures/blocks/wood_trapped_chest_normal.png");
-    public static final ResourceLocation TEXTURE_CHRISTMAS = new ResourceLocation(ModInformation.ID, "textures/blocks/wood_chest_normal.png");
     public static final ResourceLocation TEXTURE_NORMAL_DOUBLE = new ResourceLocation(ModInformation.ID, "textures/blocks/wood_chest_double.png");
+    public static final ResourceLocation DOUBLE_LABEL_TOP = new ResourceLocation(ModInformation.ID, "textures/blocks/wood_chest_labels_double_top.png");
+    public static final ResourceLocation DOUBLE_LABEL_FRONT = new ResourceLocation(ModInformation.ID, "textures/blocks/wood_chest_labels_double_front.png");
     public static final ResourceLocation TEXTURE_TRAPPED_DOUBLE = new ResourceLocation(ModInformation.ID, "textures/blocks/wood_trapped_chest_double.png");
-    public static final ResourceLocation TEXTURE_CHRISTMAS_DOUBLE = new ResourceLocation(ModInformation.ID, "textures/blocks/wood_chest_double.png");
 
     public final ModelChest simpleChest = new ModelChest();
     public final ModelChest largeChest = new ModelLargeChest();
-
-    public boolean isChristmas;
-
-    public TileEntitySpecialRendererIcariaChest()
-    {
-        Calendar calendar = Calendar.getInstance();
-
-        if(calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26)
-        {
-            this.isChristmas = true;
-        }
-    }
 
     public void render(TileEntityIcariaChest te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
     {
@@ -87,11 +75,6 @@ public class TileEntitySpecialRendererIcariaChest extends TileEntitySpecialRende
                 GlStateManager.matrixMode(5888);
             }
 
-            else if(this.isChristmas)
-            {
-                this.bindTexture(TEXTURE_CHRISTMAS);
-            }
-
             else if(te.getChestType() == BlockIcariaChest.Type.TRAP)
             {
                 this.bindTexture(TEXTURE_TRAPPED);
@@ -116,11 +99,6 @@ public class TileEntitySpecialRendererIcariaChest extends TileEntitySpecialRende
                 GlStateManager.scale(8.0F, 4.0F, 1.0F);
                 GlStateManager.translate(0.0625F, 0.0625F, 0.0625F);
                 GlStateManager.matrixMode(5888);
-            }
-
-            else if(this.isChristmas)
-            {
-                this.bindTexture(TEXTURE_CHRISTMAS_DOUBLE);
             }
 
             else if(te.getChestType() == BlockIcariaChest.Type.TRAP)
@@ -225,7 +203,7 @@ public class TileEntitySpecialRendererIcariaChest extends TileEntitySpecialRende
             GlStateManager.scale(0.010416667F, 0.010416667F, 0.010416667F);
             GlStateManager.rotate(90 + (te.lidAngle * 90), -1.0F, 0.0F, 0.0F);
 
-            String text = "";
+            String text = "Test text";
             FontRenderer fontRenderer = this.getFontRenderer();
 
             if(te.adjacentChestZNeg == null && te.adjacentChestXNeg == null && te.adjacentChestXPos == null && te.adjacentChestZPos == null)
