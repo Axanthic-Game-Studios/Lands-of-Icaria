@@ -2,7 +2,12 @@ package com.axanthic.loi.items;
 
 import com.axanthic.loi.LandsOfIcaria;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemTotem extends Item{
 	private int func;
@@ -18,6 +23,12 @@ public class ItemTotem extends Item{
 	
 	public String getTotemFunc() {
 		return this.TotemFunc[this.func];
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public void onTotemUse(ItemStack totem) {
+		EntityRenderer render = new EntityRenderer(Minecraft.getMinecraft(), Minecraft.getMinecraft().getResourceManager());
+		render.displayItemActivation(totem);
 	}
 }
 

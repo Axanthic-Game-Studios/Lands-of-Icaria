@@ -49,6 +49,7 @@ import com.axanthic.loi.entity.EntityWhipSpider;
 import com.axanthic.loi.gui.GuiHandlerLOI;
 import com.axanthic.loi.gui.GuiHandlerRegistry;
 import com.axanthic.loi.items.IItemCustomReach;
+import com.axanthic.loi.items.ItemTotem;
 import com.axanthic.loi.tileentity.TESignCypress;
 import com.axanthic.loi.tileentity.TESignDroughtroot;
 import com.axanthic.loi.tileentity.TESignFir;
@@ -100,6 +101,7 @@ import net.minecraft.world.DimensionType;
 import net.minecraft.world.biome.Biome;
 
 import net.minecraftforge.client.event.MouseEvent;
+import net.minecraftforge.client.event.GuiScreenEvent.PotionShiftEvent;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Config.Type;
@@ -327,27 +329,35 @@ public class CommonProxy {
 					event.setAmount(0.0F);
 					player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 800));
 					player.setAir(300);
-					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_undrowning))).shrink(1);
+					ItemStack totemStack = player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_undrowning)));
+					((ItemTotem)totemStack.getItem()).onTotemUse(totemStack);
+					totemStack.shrink(1);
 				}
 			}else if(player.inventory.hasItemStack(new ItemStack(Resources.totem_unsinking))) {
 				if(event.getSource() == DamageSource.OUT_OF_WORLD) {
 					event.setAmount(0.0F);
 					player.setPositionAndUpdate(player.posX, 255.0D, player.posZ);
 					player.addPotionEffect(new PotionEffect(Resources.slowFalling, 800));
-					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_unsinking))).shrink(1);
+					ItemStack totemStack = player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_unsinking)));
+					((ItemTotem)totemStack.getItem()).onTotemUse(totemStack);
+					totemStack.shrink(1);
 				}
 			}else if(player.inventory.hasItemStack(new ItemStack(Resources.totem_stuffing))) {
 				if(event.getSource() == DamageSource.STARVE) {
 					event.setAmount(0.0F);
 					player.getFoodStats().setFoodLevel(20);
 					player.getFoodStats().setFoodSaturationLevel(20);
-					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_stuffing))).shrink(1);
+					ItemStack totemStack = player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_stuffing)));
+					((ItemTotem)totemStack.getItem()).onTotemUse(totemStack);
+					totemStack.shrink(1);
 				}
 			}else if(player.inventory.hasItemStack(new ItemStack(Resources.totem_undying))) {
 				if(damage > player.getHealth()) {
 					event.setAmount(0.0F);
 					player.setHealth(player.getMaxHealth());
-					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_undying))).shrink(1);
+					ItemStack totemStack = player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_undying)));
+					((ItemTotem)totemStack.getItem()).onTotemUse(totemStack);
+					totemStack.shrink(1);
 				}
 			}
 		}
@@ -361,7 +371,9 @@ public class CommonProxy {
 				if(tool.getItem().getDurabilityForDisplay(tool) >= 1.0) {
 					System.out.println(" PLAYERS TOOL IS ALMOST BROKEN ");
 					tool.setItemDamage((int)(tool.getItem().getMaxDamage() * 0.1));
-					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_unshattering))).shrink(1);
+					ItemStack totemStack = player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_unshattering)));
+					((ItemTotem)totemStack.getItem()).onTotemUse(totemStack);
+					totemStack.shrink(1);
 				}
 			}
 		}
@@ -370,19 +382,19 @@ public class CommonProxy {
 	public void onPotionAdded(PotionAddedEvent event) {
 		Entity entity = event.getEntity();
 		PotionEffect effect = event.getPotionEffect();
-		System.out.println("Entity has a new potion");
 		if(entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer)entity;
-			System.out.println("Entity is a player");
-			System.out.println(effect.getEffectName());
 			if(player.getActivePotionEffect(Resources.blindnessImmunity) != null) {
-				System.out.println("Player has blindness immunity");
+				if(effect.getEffectName().equalsIgnoreCase("effect.blindness")) {
+					//player.removePotionEffect(Potion.getPotionById(15));
+				}
 			}else if(effect.getEffectName().equalsIgnoreCase("effect.blindness")) {
-				System.out.println("Effect is blindness");
 				if(player.inventory.hasItemStack(new ItemStack(Resources.totem_unblinding))) {
 					player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 800));
 					player.addPotionEffect(new PotionEffect(Resources.blindnessImmunity, 800));
-					player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_unblinding))).shrink(1);
+					ItemStack totemStack = player.inventory.getStackInSlot(player.inventory.getSlotFor(new ItemStack(Resources.totem_unblinding)));
+					((ItemTotem)totemStack.getItem()).onTotemUse(totemStack);
+					totemStack.shrink(1);
 				}
 			}
 		}
