@@ -31,6 +31,7 @@ import com.axanthic.loi.items.ItemConcoctionFlask;
 import com.axanthic.loi.items.ItemCustomArmor;
 import com.axanthic.loi.items.ItemScroll;
 import com.axanthic.loi.items.ItemSpell;
+import com.axanthic.loi.items.ItemTotem;
 import com.axanthic.loi.render.*;
 import com.axanthic.loi.tileentity.TESignCypress;
 import com.axanthic.loi.tileentity.TESignDroughtroot;
@@ -79,11 +80,25 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemFishingRod;
+import net.minecraft.item.ItemFlintAndSteel;
+import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemShears;
+import net.minecraft.item.ItemShield;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemTool;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -104,6 +119,9 @@ import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.PotionEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -479,5 +497,388 @@ public class ClientProxy extends CommonProxy {
 				}
 			}
 		}*/
+	}
+
+	public void onArmorBreaks(LivingAttackEvent event) {
+		Entity entity = event.getEntity();
+
+		if (entity instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) entity;
+
+			for (int slot = 0; slot < 9; slot++) {
+				ItemStack totem = player.inventory.getStackInSlot(slot);
+
+				if (totem.getItem().equals(Resources.totem_unshattering)) {
+
+					for (int armorslot = 36; armorslot < 40; armorslot++) {
+						ItemStack tools = player.inventory.getStackInSlot(armorslot);
+
+						if (tools.getItem() instanceof ItemArmor) {
+
+							if (tools.getItem().getMaxDamage(tools) - tools.getItem().getDamage(tools) < tools.getItem().getMaxDamage(tools) * 0.1) {
+								tools.setItemDamage((int) (tools.getItem().getMaxDamage(tools) * 0.1));
+								((ItemTotem) totem.getItem()).animationTotemUnshattering(player);
+								totem.shrink(1);
+							}
+						}
+					}
+				}
+			}
+
+			ItemStack totem = player.inventory.getStackInSlot(40);
+
+			if (totem.getItem().equals(Resources.totem_unshattering)) {
+
+				for (int armorslot = 36; armorslot < 40; armorslot++) {
+					ItemStack tools = player.inventory.getStackInSlot(armorslot);
+
+					if (tools.getItem() instanceof ItemArmor) {
+
+						if (tools.getItem().getMaxDamage(tools) - tools.getItem().getDamage(tools) < tools.getItem().getMaxDamage(tools) * 0.1) {
+							tools.setItemDamage((int) (tools.getItem().getMaxDamage(tools) * 0.1));
+							((ItemTotem) totem.getItem()).animationTotemUnshattering(player);
+							totem.shrink(1);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	public void onWeaponBreaks(LivingAttackEvent event) {
+		DamageSource source = event.getSource();
+
+		if (source instanceof EntityDamageSource) {
+			EntityDamageSource damageSource = (EntityDamageSource) source;
+			Entity entitySource = damageSource.getTrueSource();
+
+			if (entitySource instanceof EntityPlayer) {
+				EntityPlayer player = (EntityPlayer) entitySource;
+
+				for (int slot = 0; slot < 9; slot++) {
+					ItemStack totem = player.inventory.getStackInSlot(slot);
+
+					if (totem.getItem().equals(Resources.totem_unshattering)) {
+						ItemStack tools = player.getHeldItemMainhand();
+
+						if (tools.getItem() instanceof ItemAxe ||
+								tools.getItem() instanceof ItemPickaxe ||
+								tools.getItem() instanceof ItemSpade ||
+								tools.getItem() instanceof ItemHoe ||
+								tools.getItem() instanceof ItemSword) {
+
+							if (tools.getItem().getMaxDamage(tools) - tools.getItem().getDamage(tools) < tools.getItem().getMaxDamage(tools) * 0.1) {
+								tools.setItemDamage((int) (tools.getItem().getMaxDamage(tools) * 0.1));
+								((ItemTotem) totem.getItem()).animationTotemUnshattering(player);
+								totem.shrink(1);
+							}
+						}
+					}
+				}
+
+				ItemStack totem = player.inventory.getStackInSlot(40);
+
+				if (totem.getItem().equals(Resources.totem_unshattering)) {
+					ItemStack tools = player.getHeldItemMainhand();
+
+					if (tools.getItem() instanceof ItemAxe ||
+							tools.getItem() instanceof ItemPickaxe ||
+							tools.getItem() instanceof ItemSpade ||
+							tools.getItem() instanceof ItemHoe ||
+							tools.getItem() instanceof ItemSword) {
+
+						if (tools.getItem().getMaxDamage(tools) - tools.getItem().getDamage(tools) < tools.getItem().getMaxDamage(tools) * 0.1) {
+							tools.setItemDamage((int) (tools.getItem().getMaxDamage(tools) * 0.1));
+							((ItemTotem) totem.getItem()).animationTotemUnshattering(player);
+							totem.shrink(1);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	public void onToolBreaksMainhand(PlayerInteractEvent event) {
+		EntityPlayer player = event.getEntityPlayer();
+
+		for (int slot = 0; slot < 9; slot++) {
+			ItemStack totem = player.inventory.getStackInSlot(slot);
+
+			if (totem.getItem().equals(Resources.totem_unshattering)) {
+				ItemStack tools = player.getHeldItemMainhand();
+
+				if (tools.getItem() instanceof ItemAxe ||
+						tools.getItem() instanceof ItemPickaxe ||
+						tools.getItem() instanceof ItemSpade ||
+						tools.getItem() instanceof ItemHoe ||
+						tools.getItem() instanceof ItemSword ||
+						tools.getItem() instanceof ItemBow ||
+						tools.getItem() instanceof ItemFishingRod ||
+						tools.getItem() instanceof ItemFlintAndSteel ||
+						tools.getItem() instanceof ItemShears ||
+						tools.getItem() instanceof ItemShield) {
+
+					if (tools.getItem().getMaxDamage(tools) - tools.getItem().getDamage(tools) < tools.getItem().getMaxDamage(tools) * 0.1) {
+						tools.setItemDamage((int) (tools.getItem().getMaxDamage(tools) * 0.1));
+						((ItemTotem) totem.getItem()).animationTotemUnshattering(player);
+						totem.shrink(1);
+					}
+				}
+			}
+		}
+
+		ItemStack totem = player.inventory.getStackInSlot(40);
+
+		if (totem.getItem().equals(Resources.totem_unshattering)) {
+			ItemStack tools = player.getHeldItemMainhand();
+
+			if (tools.getItem() instanceof ItemAxe ||
+					tools.getItem() instanceof ItemPickaxe ||
+					tools.getItem() instanceof ItemSpade ||
+					tools.getItem() instanceof ItemHoe ||
+					tools.getItem() instanceof ItemSword ||
+					tools.getItem() instanceof ItemBow ||
+					tools.getItem() instanceof ItemFishingRod ||
+					tools.getItem() instanceof ItemFlintAndSteel ||
+					tools.getItem() instanceof ItemShears ||
+					tools.getItem() instanceof ItemShield) {
+
+				if (tools.getItem().getMaxDamage(tools) - tools.getItem().getDamage(tools) < tools.getItem().getMaxDamage(tools) * 0.1) {
+					tools.setItemDamage((int) (tools.getItem().getMaxDamage(tools) * 0.1));
+					((ItemTotem) totem.getItem()).animationTotemUnshattering(player);
+					totem.shrink(1);
+				}
+			}
+		}
+	}
+
+
+	public void onToolBreaksOffhand(PlayerInteractEvent event) {
+		EntityPlayer player = event.getEntityPlayer();
+
+		for (int slot = 0; slot < 9; slot++) {
+			ItemStack totem = player.inventory.getStackInSlot(slot);
+
+			if (totem.getItem().equals(Resources.totem_unshattering)) {
+				ItemStack tools = player.getHeldItemOffhand();
+
+				if (tools.getItem() instanceof ItemAxe ||
+						tools.getItem() instanceof ItemSpade ||
+						tools.getItem() instanceof ItemHoe ||
+						tools.getItem() instanceof ItemBow ||
+						tools.getItem() instanceof ItemFishingRod ||
+						tools.getItem() instanceof ItemFlintAndSteel ||
+						tools.getItem() instanceof ItemShield) {
+
+					if (tools.getItem().getMaxDamage(tools) - tools.getItem().getDamage(tools) < tools.getItem().getMaxDamage(tools) * 0.1) {
+						tools.setItemDamage((int) (tools.getItem().getMaxDamage(tools) * 0.1));
+						((ItemTotem) totem.getItem()).animationTotemUnshattering(player);
+						totem.shrink(1);
+					}
+				}
+			}
+		}
+	}
+
+	public void onShearsBreaksOffhand(PlayerInteractEvent.EntityInteract event) {
+		EntityPlayer player = event.getEntityPlayer();
+
+		for (int slot = 0; slot < 9; slot++) {
+			ItemStack totem = player.inventory.getStackInSlot(slot);
+
+			if (totem.getItem().equals(Resources.totem_unshattering)) {
+				ItemStack tools = player.getHeldItemOffhand();
+
+				if (tools.getItem() instanceof ItemShears) {
+
+					if (tools.getItem().getMaxDamage(tools) - tools.getItem().getDamage(tools) < tools.getItem().getMaxDamage(tools) * 0.1) {
+						tools.setItemDamage((int) (tools.getItem().getMaxDamage(tools) * 0.1));
+						((ItemTotem) totem.getItem()).animationTotemUnshattering(player);
+						totem.shrink(1);
+					}
+				}
+			}
+		}
+	}
+
+	public void onPlayerDrowns(LivingAttackEvent event) {
+		Entity entity = event.getEntity();
+
+		if (entity instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) entity;
+
+			for (int slot = 0; slot < 9; slot++) {
+				ItemStack totem = player.inventory.getStackInSlot(slot);
+
+				if (totem.getItem().equals(Resources.totem_undrowning)) {
+
+					if (player.getAir() <= 300 / 10) {
+						player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 800));
+						((ItemTotem)totem.getItem()).animationTotemUndrowning(player);
+						totem.shrink(1);
+					}
+				}
+			}
+
+			ItemStack totem = player.inventory.getStackInSlot(40);
+
+			if (totem.getItem().equals(Resources.totem_undrowning)) {
+
+				if (player.getAir() <= 300 / 10) {
+					player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 800));
+					((ItemTotem)totem.getItem()).animationTotemUndrowning(player);
+					totem.shrink(1);
+				}
+			}
+		}
+	}
+	
+	public void onPlayerFalls(LivingAttackEvent event) {
+		Entity entity = event.getEntity();
+
+		if (entity instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) entity;
+
+			for (int slot = 0; slot < 9; slot++) {
+				ItemStack totem = player.inventory.getStackInSlot(slot);
+
+				if (totem.getItem().equals(Resources.totem_unsinking)) {
+
+					if (player.posY <= 0) {
+						player.addPotionEffect(new PotionEffect(Resources.slowFalling, 800));
+						player.setPositionAndUpdate(player.posX, 256, player.posZ);
+					}
+
+					if (player.posY >= 255) {
+						((ItemTotem)totem.getItem()).animationTotemUnsinking(player);
+						totem.shrink(1);
+					}
+				}
+			}
+
+			ItemStack totem = player.inventory.getStackInSlot(40);
+
+			if (totem.getItem().equals(Resources.totem_unsinking)) {
+
+				if (player.posY <= 0) {
+					player.addPotionEffect(new PotionEffect(Resources.slowFalling, 800));
+					player.setPositionAndUpdate(player.posX, 256, player.posZ);
+				}
+
+				if (player.posY >= 255) {
+					((ItemTotem)totem.getItem()).animationTotemUnsinking(player);
+					totem.shrink(1);
+				}
+			}
+		}
+	}
+
+	public void onPlayerStarves(LivingAttackEvent event) {
+		Entity entity = event.getEntity();
+
+		if (entity instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) entity;
+
+			for (int slot = 0; slot < 9; slot++) {
+				ItemStack totem = player.inventory.getStackInSlot(slot);
+
+				if (totem.getItem().equals(Resources.totem_stuffing)) {
+
+					if (player.getFoodStats().getFoodLevel() == 0) {
+						player.getFoodStats().setFoodLevel(20);
+						player.removePotionEffect(MobEffects.HUNGER);
+						player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 100));
+						((ItemTotem)totem.getItem()).animationTotemStuffing(player);
+						totem.shrink(1);
+					}
+				}
+			}
+
+			ItemStack totem = player.inventory.getStackInSlot(40);
+
+			if (totem.getItem().equals(Resources.totem_stuffing)) {
+
+				if (player.getFoodStats().getFoodLevel() == 0) {
+					player.getFoodStats().setFoodLevel(20);
+					player.removePotionEffect(MobEffects.HUNGER);
+					player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 100));
+					((ItemTotem)totem.getItem()).animationTotemStuffing(player);
+					totem.shrink(1);
+				}
+			}
+		}
+	}
+
+	public void onPlayerDies(LivingAttackEvent event) {
+		Entity entity = event.getEntity();
+
+		if (entity instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) entity;
+
+			for (int slot = 0; slot < 9; slot++) {
+				ItemStack totem = player.inventory.getStackInSlot(slot);
+
+				if (totem.getItem().equals(Resources.totem_undying)) {
+
+					if (event.getAmount() >= player.getHealth()) {
+						player.setHealth(1.0F);
+						player.clearActivePotions();
+						player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 100));
+						player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 900));
+						((ItemTotem)totem.getItem()).animationTotemUndying(player);
+						totem.shrink(1);
+					}
+				}
+			}
+
+			ItemStack totem = player.inventory.getStackInSlot(40);
+
+			if (totem.getItem().equals(Resources.totem_undying)) {
+
+				if (event.getAmount() >= player.getHealth()) {
+					player.setHealth(1.0F);
+					player.clearActivePotions();
+					player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 100));
+					player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 900));
+					((ItemTotem)totem.getItem()).animationTotemUndying(player);
+					totem.shrink(1);
+				}
+			}
+		}
+	}
+
+	public void onPlayerBlinded(PotionEvent.PotionAddedEvent event) {
+		Entity entity = event.getEntity();
+		PotionEffect effect = event.getPotionEffect();
+
+		if (entity instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) entity;
+
+			for (int slot = 0; slot < 9; slot++) {
+				ItemStack totem = player.inventory.getStackInSlot(slot);
+
+				if (totem.getItem().equals(Resources.totem_unblinding)) {
+
+					if (effect.getEffectName().equalsIgnoreCase("effect.blindness")) {
+						player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 800));
+						player.addPotionEffect(new PotionEffect(Resources.blindnessImmunity, 800));
+						((ItemTotem)totem.getItem()).animationTotemUnblinding(player);
+						totem.shrink(1);
+					}
+				}
+			}
+
+			ItemStack totem = player.inventory.getStackInSlot(40);
+
+			if (totem.getItem().equals(Resources.totem_unblinding)) {
+
+				if (effect.getEffectName().equalsIgnoreCase("effect.blindness")) {
+					player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 800));
+					player.addPotionEffect(new PotionEffect(Resources.blindnessImmunity, 800));
+					((ItemTotem)totem.getItem()).animationTotemUnblinding(player);
+					totem.shrink(1);
+				}
+			}
+		}
 	}
 }

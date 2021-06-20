@@ -219,13 +219,13 @@ public class Resources {
 	public static Item grenade = new ItemGrenade();
 	public static Item emptyFlask = new ItemBasic("concoction_flask_empty");
 	public static ItemMeta unfiredVase = new ItemStorageVaseDyeable();
-	public static Item totem_undying = new ItemTotem("totem_undying", 0);
-	public static Item totem_stuffing = new ItemTotem("totem_stuffing", 1);
-	public static Item totem_unsinking = new ItemTotem("totem_unsinking", 2);
-	public static Item totem_undrowning = new ItemTotem("totem_undrowning", 3);
-	public static Item totem_unblinding = new ItemTotem("totem_unblinding", 4);
-	public static Item totem_unshattering = new ItemTotem("totem_unshattering", 5);
-	public static Item totem_preventation = new ItemTotem("totem_preventation", 6);
+	public static Item totem_undying = new ItemTotem("totem_undying");
+	public static Item totem_stuffing = new ItemTotem("totem_stuffing");
+	public static Item totem_unsinking = new ItemTotem("totem_unsinking");
+	public static Item totem_undrowning = new ItemTotem("totem_undrowning");
+	public static Item totem_unblinding = new ItemTotem("totem_unblinding");
+	public static Item totem_unshattering = new ItemTotem("totem_unshattering");
+	public static Item totem_preventation = new ItemTotem("totem_preventation");
 
 	public static ItemBlockMeta soil = new ItemBlockMeta(new BlockSoil());
 	public static ItemBlock grass = new ItemBlock(new BlockSoilGrass());
