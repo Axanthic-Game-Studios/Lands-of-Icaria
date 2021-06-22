@@ -691,6 +691,7 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	public void onPlayerDrowns(LivingAttackEvent event) {
+		float damage = event.getAmount();
 		Entity entity = event.getEntity();
 
 		if (entity instanceof EntityPlayer) {
@@ -702,6 +703,8 @@ public class ClientProxy extends CommonProxy {
 				if (totem.getItem().equals(Resources.totem_undrowning)) {
 
 					if (player.getAir() <= 300 / 10) {
+						player.setAir(300);
+						player.heal(damage);
 						player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 800));
 						((ItemTotem)totem.getItem()).animationTotemUndrowning(player);
 						totem.shrink(1);
@@ -714,6 +717,8 @@ public class ClientProxy extends CommonProxy {
 			if (totem.getItem().equals(Resources.totem_undrowning)) {
 
 				if (player.getAir() <= 300 / 10) {
+					player.setAir(300);
+					player.heal(damage);
 					player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 800));
 					((ItemTotem)totem.getItem()).animationTotemUndrowning(player);
 					totem.shrink(1);
@@ -723,6 +728,7 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	public void onPlayerFalls(LivingAttackEvent event) {
+		float damage = event.getAmount();
 		Entity entity = event.getEntity();
 
 		if (entity instanceof EntityPlayer) {
@@ -734,11 +740,12 @@ public class ClientProxy extends CommonProxy {
 				if (totem.getItem().equals(Resources.totem_unsinking)) {
 
 					if (player.posY <= 0) {
-						player.addPotionEffect(new PotionEffect(Resources.slowFalling, 800));
 						player.setPositionAndUpdate(player.posX, 256, player.posZ);
+						player.addPotionEffect(new PotionEffect(Resources.slowFalling, 800));
 					}
 
 					if (player.posY >= 255) {
+						player.heal(damage);
 						((ItemTotem)totem.getItem()).animationTotemUnsinking(player);
 						totem.shrink(1);
 					}
@@ -750,11 +757,12 @@ public class ClientProxy extends CommonProxy {
 			if (totem.getItem().equals(Resources.totem_unsinking)) {
 
 				if (player.posY <= 0) {
-					player.addPotionEffect(new PotionEffect(Resources.slowFalling, 800));
 					player.setPositionAndUpdate(player.posX, 256, player.posZ);
+					player.addPotionEffect(new PotionEffect(Resources.slowFalling, 800));
 				}
 
 				if (player.posY >= 255) {
+					player.heal(damage);
 					((ItemTotem)totem.getItem()).animationTotemUnsinking(player);
 					totem.shrink(1);
 				}
@@ -763,6 +771,7 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	public void onPlayerStarves(LivingAttackEvent event) {
+		float damage = event.getAmount();
 		Entity entity = event.getEntity();
 
 		if (entity instanceof EntityPlayer) {
@@ -775,6 +784,7 @@ public class ClientProxy extends CommonProxy {
 
 					if (player.getFoodStats().getFoodLevel() == 0) {
 						player.getFoodStats().setFoodLevel(20);
+						player.heal(damage);
 						player.removePotionEffect(MobEffects.HUNGER);
 						player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 100));
 						((ItemTotem)totem.getItem()).animationTotemStuffing(player);
@@ -789,6 +799,7 @@ public class ClientProxy extends CommonProxy {
 
 				if (player.getFoodStats().getFoodLevel() == 0) {
 					player.getFoodStats().setFoodLevel(20);
+					player.heal(damage);
 					player.removePotionEffect(MobEffects.HUNGER);
 					player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 100));
 					((ItemTotem)totem.getItem()).animationTotemStuffing(player);
