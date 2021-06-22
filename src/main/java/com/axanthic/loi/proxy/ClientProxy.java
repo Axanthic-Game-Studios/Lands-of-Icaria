@@ -83,7 +83,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemFishingRod;
@@ -91,10 +90,8 @@ import net.minecraft.item.ItemFlintAndSteel;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemShield;
-import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemTool;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -561,9 +558,7 @@ public class ClientProxy extends CommonProxy {
 					if (totem.getItem().equals(Resources.totem_unshattering)) {
 						ItemStack tools = player.getHeldItemMainhand();
 
-						if (tools.getItem() instanceof ItemAxe ||
-								tools.getItem() instanceof ItemPickaxe ||
-								tools.getItem() instanceof ItemSpade ||
+						if (tools.getItem() instanceof ItemTool ||
 								tools.getItem() instanceof ItemHoe ||
 								tools.getItem() instanceof ItemSword) {
 
@@ -581,9 +576,7 @@ public class ClientProxy extends CommonProxy {
 				if (totem.getItem().equals(Resources.totem_unshattering)) {
 					ItemStack tools = player.getHeldItemMainhand();
 
-					if (tools.getItem() instanceof ItemAxe ||
-							tools.getItem() instanceof ItemPickaxe ||
-							tools.getItem() instanceof ItemSpade ||
+					if (tools.getItem() instanceof ItemTool ||
 							tools.getItem() instanceof ItemHoe ||
 							tools.getItem() instanceof ItemSword) {
 
@@ -607,9 +600,7 @@ public class ClientProxy extends CommonProxy {
 			if (totem.getItem().equals(Resources.totem_unshattering)) {
 				ItemStack tools = player.getHeldItemMainhand();
 
-				if (tools.getItem() instanceof ItemAxe ||
-						tools.getItem() instanceof ItemPickaxe ||
-						tools.getItem() instanceof ItemSpade ||
+				if (tools.getItem() instanceof ItemTool ||
 						tools.getItem() instanceof ItemHoe ||
 						tools.getItem() instanceof ItemSword ||
 						tools.getItem() instanceof ItemBow ||
@@ -632,9 +623,7 @@ public class ClientProxy extends CommonProxy {
 		if (totem.getItem().equals(Resources.totem_unshattering)) {
 			ItemStack tools = player.getHeldItemMainhand();
 
-			if (tools.getItem() instanceof ItemAxe ||
-					tools.getItem() instanceof ItemPickaxe ||
-					tools.getItem() instanceof ItemSpade ||
+			if (tools.getItem() instanceof ItemTool ||
 					tools.getItem() instanceof ItemHoe ||
 					tools.getItem() instanceof ItemSword ||
 					tools.getItem() instanceof ItemBow ||
@@ -662,9 +651,9 @@ public class ClientProxy extends CommonProxy {
 			if (totem.getItem().equals(Resources.totem_unshattering)) {
 				ItemStack tools = player.getHeldItemOffhand();
 
-				if (tools.getItem() instanceof ItemAxe ||
-						tools.getItem() instanceof ItemSpade ||
+				if (tools.getItem() instanceof ItemTool ||
 						tools.getItem() instanceof ItemHoe ||
+						tools.getItem() instanceof ItemSword ||
 						tools.getItem() instanceof ItemBow ||
 						tools.getItem() instanceof ItemFishingRod ||
 						tools.getItem() instanceof ItemFlintAndSteel ||
