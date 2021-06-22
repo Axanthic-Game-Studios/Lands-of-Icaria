@@ -628,6 +628,7 @@ public class CommonProxy {
 				if (totem.getItem().equals(Resources.totem_undying)) {
 
 					if (event.getAmount() >= player.getHealth()) {
+						event.setCanceled(true);
 						player.setHealth(1.0F);
 						player.clearActivePotions();
 						player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 100));
@@ -642,6 +643,7 @@ public class CommonProxy {
 			if (totem.getItem().equals(Resources.totem_undying)) {
 
 				if (event.getAmount() >= player.getHealth()) {
+					event.setCanceled(true);
 					player.setHealth(1.0F);
 					player.clearActivePotions();
 					player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 100));
