@@ -207,4 +207,10 @@ public class BlockGem extends BlockSixDirectional implements ITileEntityProvider
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
 		return this.createTileEntity(worldIn, null);
 	}
+
+	@Override
+	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
+	{
+		return new ItemStack(this);
+	}
 }
