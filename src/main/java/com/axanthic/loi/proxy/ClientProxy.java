@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 import com.axanthic.loi.LOIConfig;
+import com.axanthic.loi.LOIVines;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
@@ -342,14 +343,14 @@ public class ClientProxy extends CommonProxy {
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
 				return reduceGreen(worldIn != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(worldIn, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D));
 			}
-		}, Resources.grass.getBlock(), Resources.tallGrass.getBlock(), Resources.herb.getBlock(), Resources.vineDry.getBlock(), Resources.vineThorny.getBlock(), Resources.vineDryDead.getBlock(), Resources.vineThornyDead.getBlock());
+		}, Resources.grass.getBlock(), Resources.tallGrass.getBlock(), Resources.herb.getBlock(), LOIVines.vineDry, LOIVines.vineDryDead, LOIVines.vineDryGrowing, LOIVines.vineThorny, LOIVines.vineThornyDead, LOIVines.vineThornyGrowing);
 
 		event.getBlockColors().registerBlockColorHandler(new IBlockColor() {
 			@Override
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
 				return worldIn != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(worldIn, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D);
 			}
-		}, Resources.flower.getBlock(), Resources.flower2.getBlock(), Resources.bromelia.getBlock(), Resources.vineBloomy.getBlock(), Resources.vineBranch.getBlock(), Resources.vineBrushy.getBlock(), Resources.vineReedy.getBlock(), Resources.vineSwirly.getBlock(), Resources.vineBloomyDead.getBlock(), Resources.vineBranchDead.getBlock(), Resources.vineBrushyDead.getBlock(), Resources.vineReedyDead.getBlock(), Resources.vineSwirlyDead.getBlock());
+		}, Resources.flower.getBlock(), Resources.flower2.getBlock(), Resources.bromelia.getBlock(), LOIVines.vineBloomy, LOIVines.vineBloomyBlooming, LOIVines.vineBloomyDead, LOIVines.vineBloomyFruit, LOIVines.vineBloomyGrowing, LOIVines.vineBranch, LOIVines.vineBranchDead, LOIVines.vineBranchGrowing, LOIVines.vineBrushy, LOIVines.vineBrushyDead, LOIVines.vineBrushyGrowing, LOIVines.vineBrushyRoot, LOIVines.vineReedy, LOIVines.vineReedyDead, LOIVines.vineReedyGrowing, LOIVines.vineSwirly, LOIVines.vineSwirlyDead, LOIVines.vineSwirlyGrowing);
 	}
 
 	@SubscribeEvent
@@ -359,14 +360,14 @@ public class ClientProxy extends CommonProxy {
 			public int colorMultiplier(ItemStack stack, int tintIndex) {
 				return tintIndex > 0 ? -1 : reduceGreen(ColorizerGrass.getGrassColor(0.5D, 1.0D));
 			}
-		}, Resources.grass, Resources.tallGrass, Resources.herb, Resources.vineDry, Resources.vineThorny);
+		}, Resources.grass, Resources.tallGrass, Resources.herb, Item.getItemFromBlock(LOIVines.vineDry), Item.getItemFromBlock(LOIVines.vineDryDead), Item.getItemFromBlock(LOIVines.vineDryGrowing), Item.getItemFromBlock(LOIVines.vineThorny), Item.getItemFromBlock(LOIVines.vineThornyDead), Item.getItemFromBlock(LOIVines.vineThornyGrowing));
 
 		event.getItemColors().registerItemColorHandler(new IItemColor() {
 			@Override
 			public int colorMultiplier(ItemStack stack, int tintIndex) {
 				return tintIndex > 0 ? -1 : ColorizerGrass.getGrassColor(0.5D, 1.0D);
 			}
-		}, Resources.flower, Resources.flower2, Resources.bromelia, Resources.vineBloomy, Resources.vineBranch, Resources.vineBrushy, Resources.vineReedy, Resources.vineSwirly);
+		}, Resources.flower, Resources.flower2, Resources.bromelia, Item.getItemFromBlock(LOIVines.vineBloomy), Item.getItemFromBlock(LOIVines.vineBloomyBlooming), Item.getItemFromBlock(LOIVines.vineBloomyDead), Item.getItemFromBlock(LOIVines.vineBloomyFruit), Item.getItemFromBlock(LOIVines.vineBloomyGrowing), Item.getItemFromBlock(LOIVines.vineBranch), Item.getItemFromBlock(LOIVines.vineBranchDead), Item.getItemFromBlock(LOIVines.vineBranchGrowing), Item.getItemFromBlock(LOIVines.vineBrushy), Item.getItemFromBlock(LOIVines.vineBrushyDead), Item.getItemFromBlock(LOIVines.vineBrushyGrowing), Item.getItemFromBlock(LOIVines.vineBrushyRoot), Item.getItemFromBlock(LOIVines.vineReedy), Item.getItemFromBlock(LOIVines.vineReedyDead), Item.getItemFromBlock(LOIVines.vineReedyGrowing), Item.getItemFromBlock(LOIVines.vineSwirly), Item.getItemFromBlock(LOIVines.vineSwirlyDead), Item.getItemFromBlock(LOIVines.vineSwirlyGrowing));
 
 		event.getItemColors().registerItemColorHandler(new IItemColor() {
 			@Override

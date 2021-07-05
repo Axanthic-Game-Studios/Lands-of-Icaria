@@ -3,8 +3,8 @@
 	"defaults": {
 		"model": "landsoficaria:vine_1",
 		"textures": {
-			"vine": "landsoficaria:blocks/flora_vine_swirly_growth",
-			"leaf": "landsoficaria:blocks/flora_vine_swirly_leaves_growth"
+			"vine": "landsoficaria:blocks/flora_vine_brushy_growth",
+			"leaf": "landsoficaria:blocks/flora_vine_brushy_leaves_growth"
 		}
 	},
     "variants": {

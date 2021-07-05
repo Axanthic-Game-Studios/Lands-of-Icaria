@@ -2,6 +2,7 @@ package com.axanthic.loi.worldgen.biome;
 
 import java.util.Random;
 
+import com.axanthic.loi.LOIVines;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.entity.*;
@@ -98,8 +99,8 @@ public class BiomeForest extends BiomeLOI {
 		biomeDecorator.woodTypes.add(Resources.fir);
 		biomeDecorator.woodTypes.add(Resources.populus);
 		biomeDecorator.vines = new IBlockState[] {
-				Resources.vineBloomyDead.getBlock().getDefaultState(),
-				Resources.vineBrushyDead.getBlock().getDefaultState()
+				LOIVines.vineBloomy.getDefaultState(),
+				LOIVines.vineBrushy.getDefaultState()
 		};
 
 		return biomeDecorator;

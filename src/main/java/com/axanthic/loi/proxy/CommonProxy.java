@@ -5,6 +5,7 @@ import java.util.Collection;
 import com.axanthic.loi.LOIConfig;
 import com.axanthic.loi.LOIFluids;
 import com.axanthic.loi.LOISigns;
+import com.axanthic.loi.LOIVines;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Recipes;
@@ -141,6 +142,7 @@ public class CommonProxy {
 		Resources.registerItems();
 		LOIFluids.registerFluids();
 		LOISigns.registerSigns();
+		LOIVines.registerVines();
 
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "bident"), EntityBident.class, "icaria.bident", 0, ModInformation.ID, 64, 20, true);
 		EntityRegistry.registerModEntity(new ResourceLocation(ModInformation.ID, "falling_vase"), EntityFallingVase.class, "icaria.falling_vase", 1, ModInformation.ID, 160, 20, true);

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.axanthic.loi.LOIFluids;
+import com.axanthic.loi.LOIVines;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.Resources.WoodSet;
 import com.axanthic.loi.blocks.BlockCardonCactus;
@@ -52,13 +53,13 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	public WorldGenRuins ruinGenerator = new WorldGenRuins(1.0F);
 	public WorldGenVillage villageGenerator = new WorldGenVillage(1.0F);
 	public IBlockState[] vines = new IBlockState[] {
-			Resources.vineBloomyDead.getBlock().getDefaultState(),
-			Resources.vineBranchDead.getBlock().getDefaultState(),
-			Resources.vineBrushyDead.getBlock().getDefaultState(),
-			Resources.vineDryDead.getBlock().getDefaultState(),
-			Resources.vineReedyDead.getBlock().getDefaultState(),
-			Resources.vineSwirlyDead.getBlock().getDefaultState(),
-			Resources.vineThornyDead.getBlock().getDefaultState()
+			LOIVines.vineBloomy.getDefaultState(),
+			LOIVines.vineBranch.getDefaultState(),
+			LOIVines.vineBrushy.getDefaultState(),
+			LOIVines.vineDry.getDefaultState(),
+			LOIVines.vineReedy.getDefaultState(),
+			LOIVines.vineSwirly.getDefaultState(),
+			LOIVines.vineThorny.getDefaultState()
 	};
 	public IBlockState[] groundMushrooms = new IBlockState[] {
 			Resources.groundMushroom0.getBlock().getDefaultState(),

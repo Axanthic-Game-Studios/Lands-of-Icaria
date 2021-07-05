@@ -2,6 +2,7 @@ package com.axanthic.loi.worldgen.biome;
 
 import java.util.Random;
 
+import com.axanthic.loi.LOIVines;
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.entity.*;
@@ -91,8 +92,8 @@ public class BiomeScrubland extends BiomeLOI {
 		biomeDecorator.woodTypes.add(Resources.plane);
 		biomeDecorator.woodTypes.add(Resources.laurel);
 		biomeDecorator.vines = new IBlockState[] {
-				Resources.vineReedyDead.getBlock().getDefaultState(),
-				Resources.vineSwirlyDead.getBlock().getDefaultState()
+				LOIVines.vineReedy.getDefaultState(),
+				LOIVines.vineSwirly.getDefaultState()
 		};
 		biomeDecorator.extraRubble = new IBlockState[] {
 				Resources.relicstoneRubble.getBlock().getDefaultState(),

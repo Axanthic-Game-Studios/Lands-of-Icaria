@@ -702,13 +702,13 @@ public class Recipes {
 		OreDictionary.registerOre("blockJasper", new ItemStack(Resources.gemBlock, 1, BlockStorageGem.GemTypes.JASPER.getMeta()));
 		OreDictionary.registerOre("blockZircon", new ItemStack(Resources.gemBlock, 1, BlockStorageGem.GemTypes.ZIRCON.getMeta()));
 
-		OreDictionary.registerOre("vine", new ItemStack(Resources.vineBloomy, 1, OreDictionary.WILDCARD_VALUE));
-		OreDictionary.registerOre("vine", new ItemStack(Resources.vineBranch, 1, OreDictionary.WILDCARD_VALUE));
-		OreDictionary.registerOre("vine", new ItemStack(Resources.vineBrushy, 1, OreDictionary.WILDCARD_VALUE));
-		OreDictionary.registerOre("vine", new ItemStack(Resources.vineDry, 1, OreDictionary.WILDCARD_VALUE));
-		OreDictionary.registerOre("vine", new ItemStack(Resources.vineReedy, 1, OreDictionary.WILDCARD_VALUE));
-		OreDictionary.registerOre("vine", new ItemStack(Resources.vineSwirly, 1, OreDictionary.WILDCARD_VALUE));
-		OreDictionary.registerOre("vine", new ItemStack(Resources.vineThorny, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(LOIVines.vineBloomy, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(LOIVines.vineBranch, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(LOIVines.vineBrushy, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(LOIVines.vineDry, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(LOIVines.vineReedy, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(LOIVines.vineSwirly, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("vine", new ItemStack(LOIVines.vineThorny, 1, OreDictionary.WILDCARD_VALUE));
 
 		OreDictionary.registerOre("mushroom", new ItemStack(Blocks.BROWN_MUSHROOM, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("mushroom", new ItemStack(Blocks.RED_MUSHROOM, 1, OreDictionary.WILDCARD_VALUE));
