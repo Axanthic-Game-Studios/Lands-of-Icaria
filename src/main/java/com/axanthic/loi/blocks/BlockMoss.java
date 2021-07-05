@@ -18,14 +18,18 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockMoss extends BlockBasic {
+public class BlockMoss extends Block {
 
 	protected static final AxisAlignedBB MOSS_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.125D, 1.0D);
 
-	public BlockMoss() {
-		super(Material.PLANTS, 0.5F, "moss", MapColor.LIME_STAINED_HARDENED_CLAY);
-		this.setCreativeTab(LandsOfIcaria.modTabFlora);
+	public BlockMoss(String name) {
+		super(Material.PLANTS, MapColor.LIME_STAINED_HARDENED_CLAY);
+		this.setRegistryName(name);
+		this.setUnlocalizedName(name);
+		this.setHardness(0.5F);
+		this.setResistance(0.5F);
 		this.setSoundType(SoundType.SNOW);
+		this.setCreativeTab(LandsOfIcaria.modTabFlora);
 	}
 
 	@Override

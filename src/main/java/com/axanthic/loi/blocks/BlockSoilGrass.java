@@ -36,10 +36,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockSoilGrass extends BlockBasic implements IGrowable {
 
 	public static final PropertyBool MOSSY = PropertyBool.create("mossy");
+	public static final PropertyBool MOSSY_2 = PropertyBool.create("mossy_2");
+	public static final PropertyBool MOSSY_3 = PropertyBool.create("mossy_3");
 
 	public BlockSoilGrass() {
 		super(Material.GRASS, 1.2F, "soil_grass", MapColor.GREEN_STAINED_HARDENED_CLAY);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(MOSSY, Boolean.valueOf(false)));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(MOSSY, Boolean.valueOf(false)).withProperty(MOSSY_2, Boolean.valueOf(false)).withProperty(MOSSY_3, Boolean.valueOf(false)));
 		this.setTickRandomly(true);
 		this.setSoundType(SoundType.GROUND);
 	}
@@ -47,7 +49,7 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
 		Block block = worldIn.getBlockState(pos.up()).getBlock();
-		return state.withProperty(MOSSY, Boolean.valueOf(block.equals(Resources.moss.getBlock())));
+		return state.withProperty(MOSSY, Boolean.valueOf(block.equals(Resources.moss.getBlock()))).withProperty(MOSSY_2, Boolean.valueOf(block.equals(Resources.moss_2.getBlock()))).withProperty(MOSSY_3, Boolean.valueOf(block.equals(Resources.moss_3.getBlock())));
 	}
 
 	@Override
@@ -160,7 +162,7 @@ public class BlockSoilGrass extends BlockBasic implements IGrowable {
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {MOSSY});
+		return new BlockStateContainer(this, new IProperty[] {MOSSY, MOSSY_2, MOSSY_3});
 	}
 
 	@Override

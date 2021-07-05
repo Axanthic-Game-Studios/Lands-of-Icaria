@@ -232,7 +232,9 @@ public class Resources {
 	public static ItemBlock cropPhysalis = new ItemBlock(new BlockPhysalisCrop("crop_physalis"));
 	public static ItemBlock cropSpelt = new ItemBlock(new BlockSpeltCrop("crop_spelt"));
 	public static ItemBlock cropOnion = new ItemBlock(new BlockOnionCrop("crop_onion"));
-	public static ItemBlock moss = new ItemBlock(new BlockMoss());
+	public static ItemBlock moss = new ItemBlock(new BlockMoss("moss"));
+	public static ItemBlock moss_2 = new ItemBlock(new BlockMoss("moss_2"));
+	public static ItemBlock moss_3 = new ItemBlock(new BlockMoss("moss_3"));
 	public static ItemBlockMeta tallGrass = new ItemBlockMeta(new BlockTallGrass());
 	public static ItemBlockMeta flower = new ItemBlockMeta(new BlockFlower());
 	public static ItemBlockMeta flower2 = new ItemBlockMeta(new BlockFlower2());
@@ -531,6 +533,8 @@ public class Resources {
 		Resources.registerBlock(Resources.cropSpelt);
 		Resources.registerBlock(Resources.cropOnion);
 		Resources.registerBlock(Resources.moss);
+		Resources.registerBlock(Resources.moss_2);
+		Resources.registerBlock(Resources.moss_3);
 		Resources.registerBlock(Resources.tallGrass);
 		Resources.registerBlock(Resources.flower);
 		Resources.registerBlock(Resources.flower2);
