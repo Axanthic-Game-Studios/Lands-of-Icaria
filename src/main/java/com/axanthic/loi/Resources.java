@@ -235,6 +235,13 @@ public class Resources {
 	public static ItemBlock moss = new ItemBlock(new BlockGroundCover("moss"));
 	public static ItemBlock moss_2 = new ItemBlock(new BlockGroundCover("moss_2"));
 	public static ItemBlock moss_3 = new ItemBlock(new BlockGroundCover("moss_3"));
+	public static ItemBlock ground_cover = new ItemBlock(new BlockGroundCover("ground_cover"));
+	public static ItemBlock ground_cover_2 = new ItemBlock(new BlockGroundCover("ground_cover_2"));
+	public static ItemBlock ground_cover_3 = new ItemBlock(new BlockGroundCover("ground_cover_3"));
+	public static ItemBlock ground_cover_4 = new ItemBlock(new BlockGroundCover("ground_cover_4"));
+	public static ItemBlock ground_cover_5 = new ItemBlock(new BlockGroundCover("ground_cover_5"));
+	public static ItemBlock ground_cover_6 = new ItemBlock(new BlockGroundCover("ground_cover_6"));
+	public static ItemBlock ground_cover_7 = new ItemBlock(new BlockGroundCover("ground_cover_7"));
 	public static ItemBlockMeta tallGrass = new ItemBlockMeta(new BlockTallGrass());
 	public static ItemBlockMeta flower = new ItemBlockMeta(new BlockFlower());
 	public static ItemBlockMeta flower2 = new ItemBlockMeta(new BlockFlower2());
@@ -535,6 +542,13 @@ public class Resources {
 		Resources.registerBlock(Resources.moss);
 		Resources.registerBlock(Resources.moss_2);
 		Resources.registerBlock(Resources.moss_3);
+		Resources.registerBlock(Resources.ground_cover);
+		Resources.registerBlock(Resources.ground_cover_2);
+		Resources.registerBlock(Resources.ground_cover_3);
+		Resources.registerBlock(Resources.ground_cover_4);
+		Resources.registerBlock(Resources.ground_cover_5);
+		Resources.registerBlock(Resources.ground_cover_6);
+		Resources.registerBlock(Resources.ground_cover_7);
 		Resources.registerBlock(Resources.tallGrass);
 		Resources.registerBlock(Resources.flower);
 		Resources.registerBlock(Resources.flower2);
