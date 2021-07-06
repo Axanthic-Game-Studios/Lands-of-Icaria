@@ -119,7 +119,7 @@ import com.axanthic.loi.items.ItemSpell;
 import com.axanthic.loi.items.ItemStews;
 import com.axanthic.loi.items.ItemStorageVaseDyeable;
 import com.axanthic.loi.items.ItemTotem;
-import com.axanthic.loi.items.ItemVineRoot;
+import com.axanthic.loi.items.ItemVineSprout;
 import com.axanthic.loi.items.ToolAxe;
 import com.axanthic.loi.items.ToolBident;
 import com.axanthic.loi.items.ToolDagger;
@@ -207,7 +207,7 @@ public class Resources {
 	public static Item food = new ItemFoods();
 	public static Item saltedFood = new ItemSaltedFood();
 	public static Item stew = new ItemStews();
-	public static ItemVineRoot vineRoot = new ItemVineRoot();
+	public static ItemVineSprout vineSprout = new ItemVineSprout();
 	public static ItemMeta renderAddon = new ItemRenderAddon();
 	public static Item sharpBone = new ItemSharpBone();
 	public static Item laurelWreath = new ItemLaurelWreath();
@@ -331,7 +331,7 @@ public class Resources {
 	public static ItemBlock mobHeadSow = new ItemBlockMobHead(new BlockMobHead("sow"));
 	public static ItemBlock lootVase = new ItemBlock(new BlockLootVase("loot_vase", LOOT_VASE, MapColor.GRAY));
 	public static ItemBlock lootVase2 = new ItemBlock(new BlockLootVase("loot_vase_2", LOOT_VASE_2, MapColor.SILVER_STAINED_HARDENED_CLAY));
-	public static ItemBlock vineRootBlock = new ItemBlock(new BlockBasic(Material.WOOD, 1.0F, "loot_vineroot_block", MapColor.WOOD));
+	public static ItemBlock vineSproutBlock = new ItemBlock(new BlockBasic(Material.WOOD, 1.0F, "loot_vinesprout_block", MapColor.WOOD));
 	public static ItemBlockFuel ligniteBlock = new ItemBlockFuel(new BlockBasic(Material.ROCK, 1.2F, "mineral_lignite_block", MapColor.BLACK), 7200);
 	public static ItemBlockFuel anthraciteBlock = new ItemBlockFuel(new BlockBasic(Material.ROCK, 1.2F, "mineral_anthracite_block", MapColor.BLACK), 28800);
 
@@ -476,7 +476,7 @@ public class Resources {
 		Resources.items.add(Resources.food);
 		Resources.items.add(Resources.saltedFood);
 		Resources.items.add(Resources.stew);
-		Resources.items.add(Resources.vineRoot);
+		Resources.items.add(Resources.vineSprout);
 		Resources.items.add(Resources.renderAddon);
 		Resources.items.add(Resources.sharpBone);
 		Resources.items.add(Resources.laurelWreath);
@@ -618,7 +618,7 @@ public class Resources {
 		Resources.registerBlock(Resources.mobHeadSow);
 		Resources.registerBlock(Resources.lootVase);
 		Resources.registerBlock(Resources.lootVase2);
-		Resources.registerBlock(Resources.vineRootBlock);
+		Resources.registerBlock(Resources.vineSproutBlock);
 		Resources.registerBlock(Resources.ligniteBlock);
 		Resources.registerBlock(Resources.anthraciteBlock);
 

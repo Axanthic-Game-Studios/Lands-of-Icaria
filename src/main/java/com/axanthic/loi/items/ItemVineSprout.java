@@ -14,13 +14,13 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class ItemVineRoot extends ItemFood{
+public class ItemVineSprout extends ItemFood{
 
-	public ItemVineRoot() {
+	public ItemVineSprout() {
 		super(0, 1.0F, false);
 		this.setCreativeTab(LandsOfIcaria.modTabItems);
-		this.setUnlocalizedName("vineroot");
-		this.setRegistryName(ModInformation.ID, "vineroot");
+		this.setUnlocalizedName("vinesprout");
+		this.setRegistryName(ModInformation.ID, "vinesprout");
 		this.setHasSubtypes(true);
 		this.setAlwaysEdible();
 		this.setMaxDamage(24);

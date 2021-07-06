@@ -145,8 +145,8 @@ public class Recipes {
 		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.GREEN.toMeta()), "unfired_vase_dyed_green", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeGreen")});
 		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.RED.toMeta()), "unfired_vase_dyed_red", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeRed")});
 		addShapelessRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.BLACK.toMeta()), "unfired_vase_dyed_black", "unfired_vase", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta())), new OreIngredient("dyeBlack")});
-		addShapelessRecipe(new ItemStack(Resources.vineRootBlock, 1), "vineroot_block", new Ingredient[] {Ingredient.fromStacks(new ItemStack(Resources.vineRoot, 1)), Ingredient.fromStacks(new ItemStack(Resources.vineRoot, 1)), Ingredient.fromStacks(new ItemStack(Resources.vineRoot, 1)), Ingredient.fromStacks(new ItemStack(Resources.vineRoot, 1))});
-		addShapelessRecipe(new ItemStack(Resources.vineRoot, 4), "vineroot", new Ingredient[] {Ingredient.fromStacks(new ItemStack(Resources.vineRootBlock, 1))});
+		addShapelessRecipe(new ItemStack(Resources.vineSproutBlock, 1), "vinesprout_block", new Ingredient[] {Ingredient.fromStacks(new ItemStack(Resources.vineSprout, 1)), Ingredient.fromStacks(new ItemStack(Resources.vineSprout, 1)), Ingredient.fromStacks(new ItemStack(Resources.vineSprout, 1)), Ingredient.fromStacks(new ItemStack(Resources.vineSprout, 1))});
+		addShapelessRecipe(new ItemStack(Resources.vineSprout, 4), "vinesprout", new Ingredient[] {Ingredient.fromStacks(new ItemStack(Resources.vineSproutBlock, 1))});
 		
 		//vases
 		GameRegistry.addSmelting(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta()), new ItemStack(Resources.storageVase, 1, 0), 0.2F);

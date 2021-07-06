@@ -79,7 +79,7 @@ public class BlockVineBloomy extends BlockVine
             {
                 IBlockState blockstate = worldIn.getBlockState(pos.up());
 
-                if (blockstate.getBlock() != this && blockstate.getBlock() != LOIVines.vineBloomyBlooming && blockstate.getBlock() != LOIVines.vineBloomyFruit || !blockstate.getValue(propertybool).booleanValue())
+                if (blockstate.getBlock() != this && blockstate.getBlock() != LOIVines.vineBloomyBlooming && blockstate.getBlock() != LOIVines.vineBloomyBerry || !blockstate.getValue(propertybool).booleanValue())
                 {
                     state = state.withProperty(propertybool, Boolean.valueOf(false));
                 }

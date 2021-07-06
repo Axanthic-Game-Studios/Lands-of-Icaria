@@ -26,9 +26,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class BlockVineBloomyFruit extends BlockVine
+public class BlockVineBloomyBerry extends BlockVine
 {
-    public BlockVineBloomyFruit(String name)
+    public BlockVineBloomyBerry(String name)
     {
         this.setRegistryName(name);
         this.setUnlocalizedName(name);

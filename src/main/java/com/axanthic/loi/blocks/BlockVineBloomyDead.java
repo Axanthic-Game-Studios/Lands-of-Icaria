@@ -71,7 +71,7 @@ public class BlockVineBloomyDead extends BlockVine
     {
         if (!worldIn.isRemote)
         {
-            if(worldIn.getBlockState(pos.up()).getBlock() != LOIVines.vineBloomy && worldIn.getBlockState(pos.up()).getBlock() != LOIVines.vineBloomyBlooming && worldIn.getBlockState(pos.up()).getBlock() != LOIVines.vineBloomyFruit)
+            if(worldIn.getBlockState(pos.up()).getBlock() != LOIVines.vineBloomy && worldIn.getBlockState(pos.up()).getBlock() != LOIVines.vineBloomyBlooming && worldIn.getBlockState(pos.up()).getBlock() != LOIVines.vineBloomyBerry)
             {
                 this.dropBlockAsItem(worldIn, pos, state, 0);
                 worldIn.setBlockToAir(pos);

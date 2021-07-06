@@ -5,7 +5,7 @@
 		"model": "cube_all",
 		"uvlock": true,
 		"textures": {
-			"all": "landsoficaria:blocks/loot_vineroot_block",
+			"all": "landsoficaria:blocks/loot_vinesprout_block",
 			"particle": "#all"
 		}
 	},

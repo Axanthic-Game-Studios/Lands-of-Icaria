@@ -79,7 +79,7 @@ public class BlockVineBrushy extends BlockVine
             {
                 IBlockState blockstate = worldIn.getBlockState(pos.up());
 
-                if (blockstate.getBlock() != this && blockstate.getBlock() != LOIVines.vineBrushyRoot || !blockstate.getValue(propertybool).booleanValue())
+                if (blockstate.getBlock() != this && blockstate.getBlock() != LOIVines.vineBrushySprout || !blockstate.getValue(propertybool).booleanValue())
                 {
                     state = state.withProperty(propertybool, Boolean.valueOf(false));
                 }
@@ -835,7 +835,7 @@ public class BlockVineBrushy extends BlockVine
                             .withProperty(SOUTH, state.getValue(SOUTH))
                             .withProperty(WEST, state.getValue(WEST)))
                     {
-                        worldIn.setBlockState(pos, LOIVines.vineBrushyRoot.getDefaultState()
+                        worldIn.setBlockState(pos, LOIVines.vineBrushySprout.getDefaultState()
                                 .withProperty(NORTH, state.getValue(NORTH))
                                 .withProperty(EAST, state.getValue(EAST))
                                 .withProperty(SOUTH, state.getValue(SOUTH))

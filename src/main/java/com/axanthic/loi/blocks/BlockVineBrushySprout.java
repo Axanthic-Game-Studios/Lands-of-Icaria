@@ -26,9 +26,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class BlockVineBrushyRoot extends BlockVine
+public class BlockVineBrushySprout extends BlockVine
 {
-    public BlockVineBrushyRoot(String name)
+    public BlockVineBrushySprout(String name)
     {
         this.setRegistryName(name);
         this.setUnlocalizedName(name);
@@ -143,7 +143,7 @@ public class BlockVineBrushyRoot extends BlockVine
                     .withProperty(EAST, state.getValue(EAST))
                     .withProperty(SOUTH, state.getValue(SOUTH))
                     .withProperty(WEST, state.getValue(WEST)));
-            spawnAsEntity(worldIn, pos, new ItemStack(Resources.vineRoot, 1, 0));
+            spawnAsEntity(worldIn, pos, new ItemStack(Resources.vineSprout, 1, 0));
         }
 
         return true;

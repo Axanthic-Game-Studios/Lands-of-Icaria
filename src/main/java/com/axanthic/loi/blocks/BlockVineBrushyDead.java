@@ -71,7 +71,7 @@ public class BlockVineBrushyDead extends BlockVine
     {
         if (!worldIn.isRemote)
         {
-            if(worldIn.getBlockState(pos.up()).getBlock() != LOIVines.vineBrushy && worldIn.getBlockState(pos.up()).getBlock() != LOIVines.vineBrushyRoot)
+            if(worldIn.getBlockState(pos.up()).getBlock() != LOIVines.vineBrushy && worldIn.getBlockState(pos.up()).getBlock() != LOIVines.vineBrushySprout)
             {
                 this.dropBlockAsItem(worldIn, pos, state, 0);
                 worldIn.setBlockToAir(pos);
