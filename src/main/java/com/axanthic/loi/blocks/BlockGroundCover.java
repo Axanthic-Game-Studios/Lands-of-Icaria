@@ -11,6 +11,7 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -152,6 +153,7 @@ public class BlockGroundCover extends Block
 					if(facing == EnumFacing.UP)
 					{
 						worldIn.setBlockState(pos, this.getDefaultState().withProperty(LAYERS, i + 1));
+						playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
 					}
 
 					if(worldIn.isAirBlock(pos.north()) && !worldIn.isAirBlock(pos.north().down()))
@@ -159,6 +161,7 @@ public class BlockGroundCover extends Block
 						if (facing == EnumFacing.NORTH)
 						{
 							worldIn.setBlockState(pos.north(), this.getDefaultState().withProperty(LAYERS, 1));
+							playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
 						}
 					}
 
@@ -167,6 +170,7 @@ public class BlockGroundCover extends Block
 						if (facing == EnumFacing.SOUTH)
 						{
 							worldIn.setBlockState(pos.south(), this.getDefaultState().withProperty(LAYERS, 1));
+							playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
 						}
 					}
 
@@ -175,6 +179,7 @@ public class BlockGroundCover extends Block
 						if (facing == EnumFacing.EAST)
 						{
 							worldIn.setBlockState(pos.east(), this.getDefaultState().withProperty(LAYERS, 1));
+							playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
 						}
 					}
 
@@ -183,6 +188,7 @@ public class BlockGroundCover extends Block
 						if (facing == EnumFacing.WEST)
 						{
 							worldIn.setBlockState(pos.west(), this.getDefaultState().withProperty(LAYERS, 1));
+							playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
 						}
 					}
 
