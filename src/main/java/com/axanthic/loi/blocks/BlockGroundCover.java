@@ -65,14 +65,14 @@ public class BlockGroundCover extends Block
 	@SuppressWarnings("deprecation")
 	public boolean isFullCube(IBlockState state)
 	{
-		return false;
+		return state.getValue(LAYERS) == 8;
 	}
 
 	@Override
 	@SuppressWarnings("deprecation")
 	public boolean isOpaqueCube(IBlockState state)
 	{
-		return false;
+		return state.getValue(LAYERS) == 8;
 	}
 
 	@Override
@@ -142,6 +142,21 @@ public class BlockGroundCover extends Block
 	}
 
 	@Override
+	@SuppressWarnings("deprecation")
+	public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
+	{
+		if(isFullCube(state))
+		{
+			return BlockFaceShape.SOLID;
+		}
+
+		else
+		{
+			return BlockFaceShape.UNDEFINED;
+		}
+	}
+
+	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
 	{
 		if(Block.getBlockFromItem(playerIn.getHeldItem(hand).getItem()) == this)
@@ -156,39 +171,42 @@ public class BlockGroundCover extends Block
 						playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
 					}
 
-					if(worldIn.isAirBlock(pos.north()) && !worldIn.isAirBlock(pos.north().down()))
+					if(this.isFullCube(state))
 					{
-						if (facing == EnumFacing.NORTH)
+						if(worldIn.isAirBlock(pos.north()) && !worldIn.isAirBlock(pos.north().down()))
 						{
-							worldIn.setBlockState(pos.north(), this.getDefaultState().withProperty(LAYERS, 1));
-							playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
+							if (facing == EnumFacing.NORTH)
+							{
+								worldIn.setBlockState(pos.north(), this.getDefaultState().withProperty(LAYERS, 1));
+								playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
+							}
 						}
-					}
 
-					if(worldIn.isAirBlock(pos.south()) && !worldIn.isAirBlock(pos.south().down()))
-					{
-						if (facing == EnumFacing.SOUTH)
+						if(worldIn.isAirBlock(pos.south()) && !worldIn.isAirBlock(pos.south().down()))
 						{
-							worldIn.setBlockState(pos.south(), this.getDefaultState().withProperty(LAYERS, 1));
-							playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
+							if (facing == EnumFacing.SOUTH)
+							{
+								worldIn.setBlockState(pos.south(), this.getDefaultState().withProperty(LAYERS, 1));
+								playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
+							}
 						}
-					}
 
-					if(worldIn.isAirBlock(pos.east()) && !worldIn.isAirBlock(pos.east().down()))
-					{
-						if (facing == EnumFacing.EAST)
+						if(worldIn.isAirBlock(pos.east()) && !worldIn.isAirBlock(pos.east().down()))
 						{
-							worldIn.setBlockState(pos.east(), this.getDefaultState().withProperty(LAYERS, 1));
-							playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
+							if (facing == EnumFacing.EAST)
+							{
+								worldIn.setBlockState(pos.east(), this.getDefaultState().withProperty(LAYERS, 1));
+								playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
+							}
 						}
-					}
 
-					if(worldIn.isAirBlock(pos.west()) && !worldIn.isAirBlock(pos.west().down()))
-					{
-						if (facing == EnumFacing.WEST)
+						if(worldIn.isAirBlock(pos.west()) && !worldIn.isAirBlock(pos.west().down()))
 						{
-							worldIn.setBlockState(pos.west(), this.getDefaultState().withProperty(LAYERS, 1));
-							playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
+							if (facing == EnumFacing.WEST)
+							{
+								worldIn.setBlockState(pos.west(), this.getDefaultState().withProperty(LAYERS, 1));
+								playerIn.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, 1.0F);
+							}
 						}
 					}
 
