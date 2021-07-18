@@ -72,7 +72,7 @@ public class BlockGroundCover extends Block
 	@SuppressWarnings("deprecation")
 	public boolean isOpaqueCube(IBlockState state)
 	{
-		return state.getValue(LAYERS) == 8;
+		return false;
 	}
 
 	@Override
