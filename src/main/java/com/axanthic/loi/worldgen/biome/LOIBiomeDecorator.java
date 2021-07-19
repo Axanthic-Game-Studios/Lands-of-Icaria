@@ -231,7 +231,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 				for (int i = 0; i < 50; ++i) {
 					BlockPos blockpos = blockpos1.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
 
-					if (worldIn.isAirBlock(blockpos) && ((BlockRockDecoration) iblockstate2.getBlock()).canPlaceBlockAt(worldIn, blockpos)) {
+					if (worldIn.isAirBlock(blockpos) && ((BlockRockDecoration) iblockstate2.getBlock()).canPlaceBlockAt(worldIn, blockpos) && worldIn.isSideSolid(blockpos.down(), EnumFacing.UP)) {
 						worldIn.setBlockState(blockpos, iblockstate2, 2);
 					}
 				}
