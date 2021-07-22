@@ -126,6 +126,7 @@ tile.generic.sapling.name=%s Sapling
 tile.generic.leaf.name=%s Leaves
 tile.generic.log.name=%s Log
 tile.generic.log_stripped.name=Stripped %s Log
+tile.generic.log_dead.name=Dead %s Log
 tile.generic.twigs.name=%s Twigs
 tile.generic.planks.name=%s Planks
 tile.generic.fence.name=%s Fence

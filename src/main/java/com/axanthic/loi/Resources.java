@@ -47,6 +47,7 @@ import com.axanthic.loi.blocks.BlockLeaf;
 import com.axanthic.loi.blocks.BlockLeafOlives;
 import com.axanthic.loi.blocks.BlockTorchLignite;
 import com.axanthic.loi.blocks.BlockLog;
+import com.axanthic.loi.blocks.BlockLogDead;
 import com.axanthic.loi.blocks.BlockLootVase;
 import com.axanthic.loi.blocks.BlockMobHead;
 import com.axanthic.loi.blocks.BlockMobHeadHag;
@@ -892,6 +893,7 @@ public class Resources {
 		public BlockPlanks.WoodTypes type;
 		public ItemBlockMaterial log;
 		public ItemBlockMaterial strippedLog;
+		public ItemBlockMaterial deadLog;
 		public ItemBlockMaterial sapling;
 		public ItemBlockMaterial leaf;
 		public ItemBlockMaterial twigs;
@@ -908,6 +910,7 @@ public class Resources {
 
 		public WoodSet(final BlockPlanks.WoodTypes type, WorldGenLOITree generator, Class forestHag) {
 			this.type = type;
+			this.deadLog = new ItemBlockMaterial(new BlockLogDead(type));
 			this.strippedLog = new ItemBlockMaterial(new BlockLog(type, type.mapColor, null));
 			this.log = new ItemBlockMaterial(new BlockLog(type, type.logColor, strippedLog));
 			this.leaf = new ItemBlockMaterial(new BlockLeaf(type));
@@ -933,6 +936,7 @@ public class Resources {
 		public void register() {
 			Resources.registerBlock(log);
 			Resources.registerBlock(strippedLog);
+			Resources.registerBlock(deadLog);
 			Resources.registerBlock(sapling);
 			Resources.registerBlock(leaf);
 			Resources.registerBlock(twigs);

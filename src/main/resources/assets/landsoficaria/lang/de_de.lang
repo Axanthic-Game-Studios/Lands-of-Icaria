@@ -126,6 +126,7 @@ tile.generic.sapling.name=%s Setzling
 tile.generic.leaf.name=%s Blätter
 tile.generic.log.name=%s Holzstamm
 tile.generic.log_stripped.name=Entrindeter %s Holzstamm
+tile.generic.log_dead.name=Toter %s Holzstamm
 tile.generic.twigs.name=%s Zweige
 tile.generic.planks.name=%s Planken
 tile.generic.fence.name=%s Zaun
