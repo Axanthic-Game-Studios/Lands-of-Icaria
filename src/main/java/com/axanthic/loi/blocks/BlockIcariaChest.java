@@ -1,7 +1,6 @@
 package com.axanthic.loi.blocks;
 
 import com.axanthic.loi.LandsOfIcaria;
-import com.axanthic.loi.Resources;
 import com.axanthic.loi.tileentity.TileEntityIcariaChest;
 
 import net.minecraft.block.Block;
@@ -17,7 +16,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
@@ -409,9 +407,7 @@ public class BlockIcariaChest extends BlockContainer
         {
             ILockableContainer ilockablecontainer = this.getLockableContainer(world, pos);
 
-            ItemStack stack = player.getHeldItem(hand);
-
-            if(ilockablecontainer != null/* && stack.getItem() != Items.DIAMOND*/)
+            if(ilockablecontainer != null)
             {
                 player.displayGUIChest(ilockablecontainer);
 
@@ -425,11 +421,6 @@ public class BlockIcariaChest extends BlockContainer
                     player.addStat(StatList.TRAPPED_CHEST_TRIGGERED);
                 }
             }
-
-            /*if(state == Resources.icariaChest.getBlock().getDefaultState().withProperty(FACING, EnumFacing.SOUTH) && stack.getItem() == Items.DIAMOND)
-            {
-                world.setBlockState(pos, Resources.icariaChest.getBlock().getDefaultState().withProperty(FACING, EnumFacing.SOUTH), 3);
-            }*/
         }
 
         return true;

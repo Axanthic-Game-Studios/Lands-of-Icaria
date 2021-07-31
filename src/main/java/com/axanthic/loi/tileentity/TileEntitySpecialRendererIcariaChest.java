@@ -203,7 +203,7 @@ public class TileEntitySpecialRendererIcariaChest extends TileEntitySpecialRende
             GlStateManager.scale(0.010416667F, 0.010416667F, 0.010416667F);
             GlStateManager.rotate(90 + (te.lidAngle * 90), -1.0F, 0.0F, 0.0F);
 
-            String text = "Test text";
+            String text = "";
             FontRenderer fontRenderer = this.getFontRenderer();
 
             if(te.adjacentChestZNeg == null && te.adjacentChestXNeg == null && te.adjacentChestXPos == null && te.adjacentChestZPos == null)
