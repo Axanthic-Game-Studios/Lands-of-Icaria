@@ -232,7 +232,9 @@ public class Recipes {
 		addRecipe(new ItemStack(Resources.grainelGlassHorizontalPane, 3, 0), "grainel_glass_pane_horizontal", new Object[]{"GGG", 'G', new ItemStack(Resources.grainelGlassPane, 1, 0)});
 
 		addRecipe(new ItemStack(Resources.ligniteBlock, 1), "lignite_block", new Object[] {"LLL", "LLL", "LLL", 'L', new ItemStack(Resources.resource, 1, 0)});
-		addRecipe(new ItemStack(Resources.anthraciteBlock, 1), "anthracite_block", new Object[] {"LLL", "LLL", "LLL", 'L', new ItemStack(Resources.resource, 1, 2)});
+		addRecipe(new ItemStack(Resources.resource, 9, 0), "lignite", new Object[]{"L", 'L', new ItemStack(Resources.ligniteBlock, 1)});
+		addRecipe(new ItemStack(Resources.anthraciteBlock, 1), "anthracite_block", new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Resources.resource, 1, 2)});
+		addRecipe(new ItemStack(Resources.resource, 9, 2), "anthracite", new Object[]{"A", 'A', new ItemStack(Resources.anthraciteBlock, 1)});
 		
 		GameRegistry.addSmelting(new ItemStack(Resources.rock, 1, 5), new ItemStack(Resources.relicstone, 1, 0), 0.1F);
 		GameRegistry.addSmelting(new ItemStack(Resources.brick, 1, 5), new ItemStack(Resources.relicstone, 1, 1), 0.1F);
