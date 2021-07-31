@@ -2,9 +2,6 @@ package com.axanthic.loi.blocks;
 
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.ModInformation;
-import com.axanthic.loi.Resources;
-
-import com.google.common.base.Predicate;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -24,11 +21,11 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockRock extends Block implements IBlockMeta {
+public class BlockRockCobblestone extends Block implements IBlockMeta {
 
 	public static PropertyEnum TYPES = PropertyEnum.create("type", StoneTypes.class);
 
-	public BlockRock(final String name) {
+	public BlockRockCobblestone(final String name) {
 		super(Material.ROCK);
 		this.setCreativeTab(LandsOfIcaria.modTabBlocks);
 		this.setHardness(1.5F);
@@ -36,11 +33,6 @@ public class BlockRock extends Block implements IBlockMeta {
 		this.setRegistryName(ModInformation.ID, name);
 		this.setDefaultState(this.getStateFromMeta(0));
 		this.setSoundType(SoundType.STONE);
-	}
-
-	@Override
-	public boolean isReplaceableOreGen(IBlockState state, IBlockAccess world, BlockPos pos, Predicate<IBlockState> target) {
-		return target.apply(state);
 	}
 
 	@Override
@@ -55,23 +47,23 @@ public class BlockRock extends Block implements IBlockMeta {
 
 	@Override
 	public int getMetaFromState(final IBlockState state) {
-		return ((StoneTypes) state.getValue(BlockRock.TYPES)).meta;
+		return ((StoneTypes) state.getValue(BlockRockCobblestone.TYPES)).meta;
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(final int meta) {
-		return this.getDefaultState().withProperty(BlockRock.TYPES, StoneTypes.byMetadata(meta));
+		return this.getDefaultState().withProperty(BlockRockCobblestone.TYPES, StoneTypes.byMetadata(meta));
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[]{BlockRock.TYPES});
+		return new BlockStateContainer(this, new IProperty[]{BlockRockCobblestone.TYPES});
 	}
 
 	@Override
 	public int damageDropped(final IBlockState state) {
 		final int meta = this.getMetaFromState(state);
-		if ((meta == 1) && this.getUnlocalizedName().equals("tile.rock")) {
+		if ((meta == 1) && this.getUnlocalizedName().equals("tile.cobble")) {
 			return 0;
 		}
 		return meta;
@@ -82,27 +74,27 @@ public class BlockRock extends Block implements IBlockMeta {
 	{
 		if(this.getMetaFromState(state) == 0)
 		{
-			drops.add(new ItemStack(Resources.cobble, 1, 0));
+			drops.add(new ItemStack(this, 1, 0));
 		}
 
 		if(this.getMetaFromState(state) == 1)
 		{
-			drops.add(new ItemStack(Resources.cobble, 1, 1));
+			drops.add(new ItemStack(this, 1, 1));
 		}
 
 		if(this.getMetaFromState(state) == 2)
 		{
-			drops.add(new ItemStack(Resources.cobble, 1, 2));
+			drops.add(new ItemStack(this, 1, 2));
 		}
 
 		if(this.getMetaFromState(state) == 3)
 		{
-			drops.add(new ItemStack(Resources.cobble, 1, 3));
+			drops.add(new ItemStack(this, 1, 3));
 		}
 
 		if(this.getMetaFromState(state) == 4)
 		{
-			drops.add(new ItemStack(Resources.cobble, 1, 4));
+			drops.add(new ItemStack(this, 1, 4));
 		}
 
 		if(this.getMetaFromState(state) == 5)
@@ -110,19 +102,6 @@ public class BlockRock extends Block implements IBlockMeta {
 			drops.add(new ItemStack(this, 1, 5));
 		}
 	}
-
-	/*@Override
-	public int quantityDropped(final IBlockState state, final int fortune, final Random random) {
-		if ((this.getMetaFromState(state) == 1) && this.getUnlocalizedName().equals("tile.rock")) {
-			int i = random.nextInt(fortune + 2) - 1;
-			if (i < 0) {
-				i = 0;
-			}
-			return Math.min(4, (random.nextInt(3) + 1) * (i + 1));
-		} else {
-			return this.quantityDropped(random);
-		}
-	}*/
 
 	@Override
 	public ItemStack getPickBlock(final IBlockState state, final RayTraceResult target, final World world, final BlockPos pos, final EntityPlayer player) {
@@ -138,7 +117,7 @@ public class BlockRock extends Block implements IBlockMeta {
 
 	@Override
 	public MapColor getMapColor(final IBlockState state, final IBlockAccess worldIn, final BlockPos pos) {
-		return ((StoneTypes) state.getValue(BlockRock.TYPES)).mapColor;
+		return ((StoneTypes) state.getValue(BlockRockCobblestone.TYPES)).mapColor;
 	}
 
 	@Override
@@ -170,8 +149,7 @@ public class BlockRock extends Block implements IBlockMeta {
 		SILKSTONE(1, "silkstone", MapColor.PINK_STAINED_HARDENED_CLAY, 3),
 		SUNSTONE(2, "sunstone", MapColor.WOOD, 4),
 		VOIDSHALE(3, "voidshale", MapColor.GRAY, 5),
-		BAETYL(4, "baetyl", MapColor.STONE, 6),
-		RELICSTONE(5, "relicstone", MapColor.WOOD, 0);
+		BAETYL(4, "baetyl", MapColor.STONE, 6);
 
 		private static final StoneTypes[] META_LOOKUP = new StoneTypes[StoneTypes.values().length];
 		private final int meta;

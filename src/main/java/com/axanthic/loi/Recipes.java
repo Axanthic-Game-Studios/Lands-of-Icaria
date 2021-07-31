@@ -246,6 +246,18 @@ public class Recipes {
 		addRecipe(new ItemStack(Resources.pillar, 2, 0), "relicstone_pillar", new Object[]{"B", "B", 'B', new ItemStack(Resources.brick, 1, 5)});
 		addRecipe(new ItemStack(Resources.pillarHead, 2, 0), "relicstone_pillar_head", new Object[]{"T", "P", 'P', new ItemStack(Resources.pillar, 1, 0), 'T', new ItemStack(Resources.relicstone, 1, 4)});
 
+		addRecipe(new ItemStack(Resources.chiseled, 1, 0), "yellowstone_bricks_chiseled", new Object[]{"S", "S", 'S', new ItemStack(Resources.yellowstoneBrick.slab, 1, 0)});
+		addRecipe(new ItemStack(Resources.chiseled, 1, 1), "silkstone_bricks_chiseled", new Object[]{"S", "S", 'S', new ItemStack(Resources.silkstoneBrick.slab, 1, 0)});
+		addRecipe(new ItemStack(Resources.chiseled, 1, 2), "sunstone_bricks_chiseled", new Object[]{"S", "S", 'S', new ItemStack(Resources.sunstoneBrick.slab, 1, 0)});
+		addRecipe(new ItemStack(Resources.chiseled, 1, 3), "voidshale_bricks_chiseled", new Object[]{"S", "S", 'S', new ItemStack(Resources.voidshaleBrick.slab, 1, 0)});
+		addRecipe(new ItemStack(Resources.chiseled, 1, 4), "baetyl_bricks_chiseled", new Object[]{"S", "S", 'S', new ItemStack(Resources.baetylBrick.slab, 1, 0)});
+
+		GameRegistry.addSmelting(new ItemStack(Resources.cobble, 1, 0), new ItemStack(Resources.rock, 1, 0), 0.0F);
+		GameRegistry.addSmelting(new ItemStack(Resources.cobble, 1, 1), new ItemStack(Resources.rock, 1, 1), 0.0F);
+		GameRegistry.addSmelting(new ItemStack(Resources.cobble, 1, 2), new ItemStack(Resources.rock, 1, 2), 0.0F);
+		GameRegistry.addSmelting(new ItemStack(Resources.cobble, 1, 3), new ItemStack(Resources.rock, 1, 3), 0.0F);
+		GameRegistry.addSmelting(new ItemStack(Resources.cobble, 1, 4), new ItemStack(Resources.rock, 1, 4), 0.0F);
+
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 0), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LIGNITE.toMeta()), 0.1F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 1), new ItemStack(Resources.ingot, 1, 0), 0.3F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 2), new ItemStack(Resources.ingot, 1, 1), 0.4F);
@@ -316,6 +328,11 @@ public class Recipes {
 		registerWoodRecipe(Resources.laurel);
 		registerWoodRecipe(Resources.droughtroot);
 
+		registerSlabStairRecipe(Resources.yellowstoneCobble);
+		registerSlabStairRecipe(Resources.silkstoneCobble);
+		registerSlabStairRecipe(Resources.sunstoneCobble);
+		registerSlabStairRecipe(Resources.voidshaleCobble);
+		registerSlabStairRecipe(Resources.baetylCobble);
 		registerSlabStairRecipe(Resources.yellowstoneStone);
 		registerSlabStairRecipe(Resources.silkstoneStone);
 		registerSlabStairRecipe(Resources.sunstoneStone);

@@ -65,6 +65,8 @@ import com.axanthic.loi.blocks.BlockPlanks.WoodTypes;
 import com.axanthic.loi.blocks.BlockRock.StoneTypes;
 import com.axanthic.loi.blocks.BlockRelicstone;
 import com.axanthic.loi.blocks.BlockRock;
+import com.axanthic.loi.blocks.BlockRockBricksChiseled;
+import com.axanthic.loi.blocks.BlockRockCobblestone;
 import com.axanthic.loi.blocks.BlockRockDecoration;
 import com.axanthic.loi.blocks.BlockSandy;
 import com.axanthic.loi.blocks.BlockSapling;
@@ -266,8 +268,10 @@ public class Resources {
 	public static ItemBlockMeta planks = new ItemBlockMetaMaterial(new BlockPlanks());
 	public static ItemBlock aristone = new ItemBlock(new BlockAristone("aristone"));
 	public static ItemBlock aristonePacked = new ItemBlock(new BlockAristone("aristone_packed"));
+	public static ItemBlockMeta cobble = new ItemBlockMetaMaterial(new BlockRockCobblestone("cobble"));
 	public static ItemBlockMeta rock = new ItemBlockMetaMaterial(new BlockRock("rock"));
 	public static ItemBlockMeta brick = new ItemBlockMetaMaterial(new BlockRock("bricks"));
+	public static ItemBlockMeta chiseled = new ItemBlockMetaMaterial(new BlockRockBricksChiseled("chiseled"));
 	public static ItemBlockMeta ore = new ItemBlockMetaMaterial(new BlockOre());
 	public static ItemBlock yellowstoneRubble = new ItemBlockMaterial(new BlockRockDecoration(StoneTypes.YELLOWSTONE.getName()));
 	public static ItemBlock silkstoneRubble = new ItemBlockMaterial(new BlockRockDecoration(StoneTypes.SILKSTONE.getName()));
@@ -437,6 +441,12 @@ public class Resources {
 	public static final FluidCustom voidFluid = (FluidCustom) new FluidCustom("hyliastrum_fluid", new ResourceLocation(ModInformation.ID,"blocks/fluid_hyliastrum_still"), new ResourceLocation(ModInformation.ID, "blocks/fluid_hyliastrum_flow")).setMaterial(Material.WATER).setDensity(500).setGaseous(false).setViscosity(3000).setTemperature(300).setColor(0xFF51A18B);
 	public static ItemBlock voidFluidBlock;*/
 
+	public static StairSlabPair yellowstoneCobble = new StairSlabPair(cobble, 0, "yellowstone_cobble", true);
+	public static StairSlabPair silkstoneCobble = new StairSlabPair(cobble, 1, "silkstone_cobble", true);
+	public static StairSlabPair sunstoneCobble = new StairSlabPair(cobble, 2, "sunstone_cobble", true);
+	public static StairSlabPair voidshaleCobble = new StairSlabPair(cobble, 3, "voidshale_cobble", true);
+	public static StairSlabPair baetylCobble = new StairSlabPair(cobble, 4, "baetyl_cobble", true);
+
 	public static StairSlabPair yellowstoneStone = new StairSlabPair(rock, 0, "yellowstone", true);
 	public static StairSlabPair silkstoneStone = new StairSlabPair(rock, 1, "silkstone", true);
 	public static StairSlabPair sunstoneStone = new StairSlabPair(rock, 2, "sunstone", true);
@@ -574,8 +584,10 @@ public class Resources {
 		Resources.registerBlock(Resources.planks);
 		Resources.registerBlock(Resources.aristone);
 		Resources.registerBlock(Resources.aristonePacked);
+		Resources.registerBlock(Resources.cobble);
 		Resources.registerBlock(Resources.rock);
 		Resources.registerBlock(Resources.brick);
+		Resources.registerBlock(Resources.chiseled);
 		Resources.registerBlock(Resources.ore);
 		Resources.registerBlock(Resources.yellowstoneRubble);
 		Resources.registerBlock(Resources.silkstoneRubble);
@@ -710,6 +722,12 @@ public class Resources {
 		((BlockSapling) Resources.olive.sapling.getBlock()).generator.init();
 		Resources.laurel.register();
 		Resources.droughtroot.register();
+
+		Resources.yellowstoneCobble.register();
+		Resources.silkstoneCobble.register();
+		Resources.sunstoneCobble.register();
+		Resources.voidshaleCobble.register();
+		Resources.baetylCobble.register();
 
 		Resources.yellowstoneStone.register();
 		Resources.silkstoneStone.register();

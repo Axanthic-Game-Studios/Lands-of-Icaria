@@ -117,8 +117,10 @@ item.sign_populus.name=Populus Sign
 effect.slowfall.name=Slow Falling
 effect.blindness_immunity.name=Blindness Immunity
 
+tile.generic.cobble.name=%s Cobblestone
 tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Bricks
+tile.generic.chiseled.name=Chiseled %s Bricks
 tile.generic.ore.name=%s Ore
 tile.generic.rock_decoration.name=%s Rubble
 tile.generic.block.name=%s Block

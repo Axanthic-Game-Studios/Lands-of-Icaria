@@ -1,0 +1,38 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "cobblestone_wall_post",
+		"uvlock": true,
+		"textures": {
+			"wall": "landsoficaria:blocks/rock_sunstone_cobble",
+			"particle": "#wall"
+		}
+	},
+	"variants": {
+        "inventory":  { "model": "wall_inventory" },
+		"variant": {
+			"cobblestone": {},
+			"mossy_cobblestone": {}
+		},
+		"up": {
+			"true": { "model": "cobblestone_wall_post" },
+			"false": { "model": "landsoficaria:empty" }
+		},
+		"north": {
+			"true": { "submodel": "cobblestone_wall_side" },
+			"false": {}
+		},
+		"east": {
+			"true": { "submodel": "cobblestone_wall_side", "y": 90 },
+			"false": {}
+		},
+		"south": {
+			"true": { "submodel": "cobblestone_wall_side", "y": 180 },
+			"false": {}
+		},
+		"west": {
+			"true": { "submodel": "cobblestone_wall_side", "y": 270 },
+			"false": {}
+		}
+	}
+}

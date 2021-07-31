@@ -117,8 +117,10 @@ item.sign_populus.name=Pappel Schild
 effect.slowfall.name=Gleitfall
 effect.blindness_immunity.name=Erblindungsimmunität
 
+tile.generic.cobble.name=%s Bruchstein
 tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Ziegel
+tile.generic.chiseled.name=Gemeißelte %s Ziegel
 tile.generic.ore.name=%s Erz
 tile.generic.rock_decoration.name=%s Geröll
 tile.generic.block.name=%s Block
