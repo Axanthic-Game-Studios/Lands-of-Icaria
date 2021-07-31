@@ -103,19 +103,6 @@ public class BlockRockBricksChiseled extends Block implements IBlockMeta {
 		}
 	}
 
-	/*@Override
-	public int quantityDropped(final IBlockState state, final int fortune, final Random random) {
-		if ((this.getMetaFromState(state) == 1) && this.getUnlocalizedName().equals("tile.rock")) {
-			int i = random.nextInt(fortune + 2) - 1;
-			if (i < 0) {
-				i = 0;
-			}
-			return Math.min(4, (random.nextInt(3) + 1) * (i + 1));
-		} else {
-			return this.quantityDropped(random);
-		}
-	}*/
-
 	@Override
 	public ItemStack getPickBlock(final IBlockState state, final RayTraceResult target, final World world, final BlockPos pos, final EntityPlayer player) {
 		return new ItemStack(this, 1, this.getMetaFromState(world.getBlockState(pos)));
