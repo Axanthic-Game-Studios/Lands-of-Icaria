@@ -95,13 +95,12 @@ public class BlockStorageMetal extends Block implements IBlockMeta  {
 		KASSITEROS(1, "kassiteros", MapColor.LIGHT_BLUE_STAINED_HARDENED_CLAY),
 		MOLIBOS(2, "molibos", MapColor.CYAN_STAINED_HARDENED_CLAY),
 		ORICHALCUM(3, "orichalcum", MapColor.ADOBE),
-		SLIVER(4, "sliver", MapColor.SAND),
-		VANADIUM(5, "vanadium", MapColor.YELLOW),
-		VANADIUMSTEEL(6, "vanadiumsteel", MapColor.WOOD),
-		SIDEROS(7, "sideros", MapColor.GRAY),
-		MOLYBDENUM(8, "molybdenum", MapColor.SILVER),
-		MOLYBDENUMSTEEL(9, "molybdenumsteel", MapColor.SILVER),
-		BLURIDIUM(10, "bluridium", MapColor.LIGHT_BLUE);
+		VANADIUM(4, "vanadium", MapColor.YELLOW),
+		VANADIUMSTEEL(5, "vanadiumsteel", MapColor.WOOD),
+		SIDEROS(6, "sideros", MapColor.GRAY),
+		MOLYBDENUM(7, "molybdenum", MapColor.SILVER),
+		MOLYBDENUMSTEEL(8, "molybdenumsteel", MapColor.SILVER),
+		BLURIDIUM(9, "bluridium", MapColor.LIGHT_BLUE);
 
 		private static final MetalTypes[] META_LOOKUP = new MetalTypes[MetalTypes.values().length];
 		private final int meta;

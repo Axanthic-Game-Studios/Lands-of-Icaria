@@ -340,6 +340,7 @@ public class Resources {
 	public static ItemBlock lootVase = new ItemBlock(new BlockLootVase("loot_vase", LOOT_VASE, MapColor.GRAY));
 	public static ItemBlock lootVase2 = new ItemBlock(new BlockLootVase("loot_vase_2", LOOT_VASE_2, MapColor.SILVER_STAINED_HARDENED_CLAY));
 	public static ItemBlock vineSproutBlock = new ItemBlock(new BlockBasic(Material.WOOD, 1.0F, "loot_vinesprout_block", MapColor.WOOD));
+	public static ItemBlock sliverBlock = new ItemBlock(new BlockBasic(Material.IRON, 1.2F, "metal_sliver_block", MapColor.SAND).setSoundType(SoundType.METAL));
 	public static ItemBlockFuel ligniteBlock = new ItemBlockFuel(new BlockBasic(Material.ROCK, 1.2F, "mineral_lignite_block", MapColor.BLACK), 7200);
 	public static ItemBlockFuel anthraciteBlock = new ItemBlockFuel(new BlockBasic(Material.ROCK, 1.2F, "mineral_anthracite_block", MapColor.BLACK), 28800);
 
@@ -634,6 +635,7 @@ public class Resources {
 		Resources.registerBlock(Resources.lootVase);
 		Resources.registerBlock(Resources.lootVase2);
 		Resources.registerBlock(Resources.vineSproutBlock);
+		Resources.registerBlock(Resources.sliverBlock);
 		Resources.registerBlock(Resources.ligniteBlock);
 		Resources.registerBlock(Resources.anthraciteBlock);
 

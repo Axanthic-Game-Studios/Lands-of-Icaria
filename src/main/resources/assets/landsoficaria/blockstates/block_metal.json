@@ -15,7 +15,6 @@
 			"kassiteros": { "textures": { "all": "landsoficaria:blocks/metal_kassiteros_block" } },
 			"molibos": { "textures": { "all": "landsoficaria:blocks/metal_molibos_block" } },
 			"orichalcum": { "textures": { "all": "landsoficaria:blocks/metal_orichalcum_block" } },
-			"sliver": { "textures": { "all": "landsoficaria:blocks/metal_sliver_block" } },
 			"vanadium": { "textures": { "all": "landsoficaria:blocks/metal_vanadium_block" } },
 			"vanadiumsteel": { "textures": { "all": "landsoficaria:blocks/metal_vanadiumsteel_block" } },
 			"sideros": { "textures": { "all": "landsoficaria:blocks/metal_sideros_block" } },

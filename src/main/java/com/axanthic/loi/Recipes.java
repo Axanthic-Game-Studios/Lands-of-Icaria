@@ -82,9 +82,8 @@ public class Recipes {
 		for (int i = 0; i < 16; ++i)
 			addGrinderRecipe("concrete_" + i, new ItemStack(Blocks.CONCRETE_POWDER, 1, i), 0.1F, new ItemStack(Blocks.CONCRETE, 1, i));
 
-		addGrinderFuel("sliver_nugget", new ItemStack(Resources.nugget, 1, 4), 800);
-		addGrinderFuel("sliver_ingot", new ItemStack(Resources.ingot, 1, 4), 7200);
-		addGrinderFuel("sliver_block", new ItemStack(Resources.metalBlock, 1, 4), 64800);
+		addGrinderFuel("sliver", new ItemStack(Resources.resource, 1, 26), 800);
+		addGrinderFuel("sliver_block", new ItemStack(Resources.sliverBlock, 1, 0), 7200);
 
 		addKettleRecipe(Resources.healSpell, 200, new ItemStack(Resources.herb, 1, 1), new ItemStack(Resources.herb, 1, 2), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
 		addKettleRecipe(Resources.fortifySpell, 200, new ItemStack(Resources.herb, 1, 3), new ItemStack(Resources.herb, 1, 4), new ItemStack(Resources.food, 1, ItemFoods.FoodType.LAUREL_CHERRY.toMeta()));
@@ -125,6 +124,9 @@ public class Recipes {
 
 		addRecipe(new ItemStack(Resources.soil, 1, 2), "loam_block", new Object[]{"LL", "LL", 'L', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_LUMP.toMeta())});
 		addRecipe(new ItemStack(Resources.resource, 4, ItemResources.ResourceType.LOAM_LUMP.toMeta()), "loam_lump", new Object[]{"L", 'L', new ItemStack(Resources.soil, 1, 2)});
+
+		addRecipe(new ItemStack(Resources.sliverBlock, 1), "sliver_block", new Object[]{"SSS", "SSS", "SSS", 'S', new ItemStack(Resources.resource, 1, 26)});
+		addRecipe(new ItemStack(Resources.resource, 9, 26), "sliver", new Object[]{"S", 'S', new ItemStack(Resources.sliverBlock, 1)});
 
 		//vases
 		addRecipe(new ItemStack(Resources.unfiredVase, 1, ItemStorageVaseDyeable.VaseType.NONE.toMeta()), "unfired_vase", new Object[]{"LLL", "L L", "LLL", 'L', new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LOAM_LUMP.toMeta())});
@@ -248,7 +250,7 @@ public class Recipes {
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 3), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.DOLOMITE.toMeta()), 0.2F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 4), new ItemStack(Resources.ingot, 1, 2), 0.5F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 5), new ItemStack(Resources.ingot, 1, 5), 0.6F);
-		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 6), new ItemStack(Resources.ingot, 1, 4), 0.7F);
+		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 6), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.SLIVER.toMeta()), 0.7F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 7), new ItemStack(Resources.ingot, 1, 7), 0.8F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 8), new ItemStack(Resources.resource, 1, ItemResources.ResourceType.ANTHRACITE.toMeta()), 0.2F);
 		GameRegistry.addSmelting(new ItemStack(Resources.ore, 1, 9), new ItemStack(Resources.ingot, 1, 8), 0.9F);
@@ -385,9 +387,6 @@ public class Recipes {
 
 		if (!bronzeIngots.isEmpty())
 			addShapelessRecipe(bronzeIngots.get(0), "orichalcum_bronze", "bronze_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE_POWDER.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 3))});
-
-		if (!silverIngots.isEmpty())
-			addShapelessRecipe(silverIngots.get(0), "sliver_silver", "silver_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE_POWDER.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 4))});
 
 		addShapelessRecipe(new ItemStack(Items.IRON_INGOT, 5, 0), "sideros_iron", "iron_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE_POWDER.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 7))});
 
@@ -602,37 +601,34 @@ public class Recipes {
 		OreDictionary.registerOre("ingotKassiteros", new ItemStack(Resources.ingot, 1, 1));
 		OreDictionary.registerOre("ingotMolibos", new ItemStack(Resources.ingot, 1, 2));
 		OreDictionary.registerOre("ingotOrichalcum", new ItemStack(Resources.ingot, 1, 3));
-		OreDictionary.registerOre("ingotSliver", new ItemStack(Resources.ingot, 1, 4));
-		OreDictionary.registerOre("ingotVanadium", new ItemStack(Resources.ingot, 1, 5));
-		OreDictionary.registerOre("ingotVanadiumsteel", new ItemStack(Resources.ingot, 1, 6));
-		OreDictionary.registerOre("ingotSideros", new ItemStack(Resources.ingot, 1, 7));
-		OreDictionary.registerOre("ingotMolybdenum", new ItemStack(Resources.ingot, 1, 8));
-		OreDictionary.registerOre("ingotMolybdenumsteel", new ItemStack(Resources.ingot, 1, 9));
-		OreDictionary.registerOre("ingotBluridium", new ItemStack(Resources.ingot, 1, 10));
+		OreDictionary.registerOre("ingotVanadium", new ItemStack(Resources.ingot, 1, 4));
+		OreDictionary.registerOre("ingotVanadiumsteel", new ItemStack(Resources.ingot, 1, 5));
+		OreDictionary.registerOre("ingotSideros", new ItemStack(Resources.ingot, 1, 6));
+		OreDictionary.registerOre("ingotMolybdenum", new ItemStack(Resources.ingot, 1, 7));
+		OreDictionary.registerOre("ingotMolybdenumsteel", new ItemStack(Resources.ingot, 1, 8));
+		OreDictionary.registerOre("ingotBluridium", new ItemStack(Resources.ingot, 1, 9));
 
 		OreDictionary.registerOre("nuggetChalkos", new ItemStack(Resources.nugget, 1, 0));
 		OreDictionary.registerOre("nuggetKassiteros", new ItemStack(Resources.nugget, 1, 1));
 		OreDictionary.registerOre("nuggetMolibos", new ItemStack(Resources.nugget, 1, 2));
 		OreDictionary.registerOre("nuggetOrichalcum", new ItemStack(Resources.nugget, 1, 3));
-		OreDictionary.registerOre("nuggetSliver", new ItemStack(Resources.nugget, 1, 4));
-		OreDictionary.registerOre("nuggetVanadium", new ItemStack(Resources.nugget, 1, 5));
-		OreDictionary.registerOre("nuggetVanadiumsteel", new ItemStack(Resources.nugget, 1, 6));
-		OreDictionary.registerOre("nuggetSideros", new ItemStack(Resources.nugget, 1, 7));
-		OreDictionary.registerOre("nuggetMolybdenum", new ItemStack(Resources.nugget, 1, 8));
-		OreDictionary.registerOre("nuggetMolybdenumsteel", new ItemStack(Resources.nugget, 1, 9));
-		OreDictionary.registerOre("nuggetBluridium", new ItemStack(Resources.nugget, 1, 10));
+		OreDictionary.registerOre("nuggetVanadium", new ItemStack(Resources.nugget, 1, 4));
+		OreDictionary.registerOre("nuggetVanadiumsteel", new ItemStack(Resources.nugget, 1, 5));
+		OreDictionary.registerOre("nuggetSideros", new ItemStack(Resources.nugget, 1, 6));
+		OreDictionary.registerOre("nuggetMolybdenum", new ItemStack(Resources.nugget, 1, 7));
+		OreDictionary.registerOre("nuggetMolybdenumsteel", new ItemStack(Resources.nugget, 1, 8));
+		OreDictionary.registerOre("nuggetBluridium", new ItemStack(Resources.nugget, 1, 9));
 
 		OreDictionary.registerOre("blockChalkos", new ItemStack(Resources.metalBlock, 1, 0));
 		OreDictionary.registerOre("blockKassiteros", new ItemStack(Resources.metalBlock, 1, 1));
 		OreDictionary.registerOre("blockMolibos", new ItemStack(Resources.metalBlock, 1, 2));
 		OreDictionary.registerOre("blockOrichalcum", new ItemStack(Resources.metalBlock, 1, 3));
-		OreDictionary.registerOre("blockSliver", new ItemStack(Resources.metalBlock, 1, 4));
-		OreDictionary.registerOre("blockVanadium", new ItemStack(Resources.metalBlock, 1, 5));
-		OreDictionary.registerOre("blockVanadiumsteel", new ItemStack(Resources.metalBlock, 1, 6));
-		OreDictionary.registerOre("blockSideros", new ItemStack(Resources.metalBlock, 1, 7));
-		OreDictionary.registerOre("blockMolybdenum", new ItemStack(Resources.metalBlock, 1, 8));
-		OreDictionary.registerOre("blockMolybdenumsteel", new ItemStack(Resources.metalBlock, 1, 9));
-		OreDictionary.registerOre("blockBluridium", new ItemStack(Resources.metalBlock, 1, 10));
+		OreDictionary.registerOre("blockVanadium", new ItemStack(Resources.metalBlock, 1, 4));
+		OreDictionary.registerOre("blockVanadiumsteel", new ItemStack(Resources.metalBlock, 1, 5));
+		OreDictionary.registerOre("blockSideros", new ItemStack(Resources.metalBlock, 1, 6));
+		OreDictionary.registerOre("blockMolybdenum", new ItemStack(Resources.metalBlock, 1, 7));
+		OreDictionary.registerOre("blockMolybdenumsteel", new ItemStack(Resources.metalBlock, 1, 8));
+		OreDictionary.registerOre("blockBluridium", new ItemStack(Resources.metalBlock, 1, 9));
 
 		OreDictionary.registerOre("gemLignite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LIGNITE.toMeta()));
 		OreDictionary.registerOre("fuelLignite", new ItemStack(Resources.resource, 1, ItemResources.ResourceType.LIGNITE.toMeta()));

@@ -118,6 +118,7 @@ public class BlockOre extends Block implements IBlockMeta {
 	public int damageDropped(IBlockState state) {
 		int meta = getMetaFromState(state);
 		switch (OreTypes.byMetadata(meta)) {
+			case SLIVER: return ItemResources.ResourceType.SLIVER.toMeta();
 			case LIGNITE: return ItemResources.ResourceType.LIGNITE.toMeta();
 			case DOLOMITE: return ItemResources.ResourceType.DOLOMITE.toMeta();
 			case ANTHRACITE: return ItemResources.ResourceType.ANTHRACITE.toMeta();
@@ -177,6 +178,7 @@ public class BlockOre extends Block implements IBlockMeta {
 	public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
 		Random rand = world instanceof World ? ((World)world).rand : new Random();
 		switch (OreTypes.byMetadata(getMetaFromState(state))) {
+			case SLIVER:
 			case LIGNITE: return MathHelper.getInt(rand, 0, 2);
 			case ANTHRACITE: return MathHelper.getInt(rand, 1, 3);
 			case DOLOMITE:
@@ -188,6 +190,7 @@ public class BlockOre extends Block implements IBlockMeta {
 	@Override
 	public int quantityDropped(IBlockState state, int fortune, Random random) {
 		switch (OreTypes.byMetadata(getMetaFromState(state))) {
+			case SLIVER:
 			case LIGNITE:
 			case DOLOMITE:
 			case ANTHRACITE:
@@ -211,6 +214,7 @@ public class BlockOre extends Block implements IBlockMeta {
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		switch (OreTypes.byMetadata(getMetaFromState(state))) {
+			case SLIVER:
 			case LIGNITE:
 			case DOLOMITE:
 			case ANTHRACITE:

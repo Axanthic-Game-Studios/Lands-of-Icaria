@@ -293,6 +293,7 @@ tile.aristone_packed.name=Philosophenstein
 tile.loot_vase.name=Vase
 tile.loot_vase_2.name=Vase
 tile.loot_vinesprout_block.name=Rankenspross Block
+tile.metal_sliver_block.name=Slibber Block
 tile.generic.mineral_lignite_block.name=Turff Block
 tile.generic.mineral_anthracite_block.name=Anthrazit Block
 

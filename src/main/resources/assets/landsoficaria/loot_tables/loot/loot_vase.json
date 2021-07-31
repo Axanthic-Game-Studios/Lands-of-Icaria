@@ -195,13 +195,13 @@
                 },
                 {
                     "type": "item",
-                    "name": "landsoficaria:nugget",
-					"entryName": "sliver_nugget",
+                    "name": "landsoficaria:resource",
+					"entryName": "sliver",
                     "weight": 5,
                     "functions": [
                         {
                             "function": "minecraft:set_data",
-                            "data": 4
+                            "data": 26
                         },
                         {
                             "function": "set_count",

@@ -496,7 +496,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 				forge.setInventorySlotContents(3, new ItemStack(Resources.resource, rand.nextInt(4), ItemResources.ResourceType.ANTHRACITE.toMeta()));
 			} else if (tile instanceof TileEntityGrinder) {
 				TileEntityGrinder grinder = (TileEntityGrinder) tile;
-				grinder.setInventorySlotContents(1, new ItemStack(Resources.nugget, rand.nextInt(3), MetalTypes.SLIVER.getMeta()));
+				grinder.setInventorySlotContents(1, new ItemStack(Resources.resource, rand.nextInt(3), ItemResources.ResourceType.SLIVER.toMeta()));
 			} else if (tile instanceof TileEntityVase) {
 				TileEntityVase vase = (TileEntityVase) tile;
 				vase.setLootTable(Resources.POTTERY_VASE, rand.nextLong());

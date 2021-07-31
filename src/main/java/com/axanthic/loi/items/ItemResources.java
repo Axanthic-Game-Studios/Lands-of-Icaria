@@ -104,7 +104,8 @@ public class ItemResources extends ItemMeta {
 		ARACHNE_STRING("arachne_string"),
 		PLANT_FIBER("plant_fiber"),
 		JELLYFISH_JELLY("jellyfish_jelly"),
-		HALITE_POWDER("halite_powder");
+		HALITE_POWDER("halite_powder"),
+		SLIVER("sliver", true);
 		
 		public static final ResourceType[] values = ResourceType.values();
 		public static final int length = values.length;

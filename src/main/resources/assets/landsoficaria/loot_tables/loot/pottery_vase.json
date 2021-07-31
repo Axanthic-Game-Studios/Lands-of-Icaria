@@ -140,7 +140,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_data",
-                            "data": 10
+                            "data": 9
                         },
                         {
                             "function": "set_count",

@@ -33,7 +33,8 @@
 			"arachne_string": { "textures": { "layer0": "landsoficaria:items/loot_arachne_string" } },
 			"plant_fiber": { "textures": { "layer0": "landsoficaria:items/loot_plant_fiber" } },
 			"jellyfish_jelly": { "textures": { "layer0": "landsoficaria:items/loot_jelly" } },
-			"halite_powder": { "textures": { "layer0": "landsoficaria:items/mineral_halite_powder" } }
+			"halite_powder": { "textures": { "layer0": "landsoficaria:items/mineral_halite_powder" } },
+			"sliver": { "textures": { "layer0": "landsoficaria:items/metal_sliver_raw" } }
 		}
 	}
 }
