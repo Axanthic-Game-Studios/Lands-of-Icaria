@@ -1,7 +1,9 @@
 {
   "textures": {
-    "chest": "landsoficaria:blocks/wood_trapped_chest_normal",
-    "particle": "landsoficaria:blocks/wood_trapped_chest_normal"
+    "chest": "landsoficaria:models/wood_trapped_chest_normal",
+    "plank_top": "landsoficaria:models/wood_chest_planks_normal_top",
+    "plank_front": "landsoficaria:models/wood_chest_planks_normal_front",
+    "particle": "landsoficaria:models/wood_trapped_chest_normal"
   },
   "elements": [
     {
@@ -15,6 +17,19 @@
         "west": {"uv": [10.5, 8.25, 14, 10.75], "texture": "#chest"},
         "up": {"uv": [3.5, 4.75, 7, 8.25], "rotation": 180, "texture": "#chest"},
         "down": {"uv": [7.25, 4.75, 10.5, 8.25], "rotation": 180, "texture": "#chest"}
+      }
+    },
+    {
+      "from": [1, 0, 1],
+      "to": [15, 10, 15],
+      "rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+      "faces": {
+        "north": {"uv": [3.5, 8.25, 7, 10.75], "texture": "#plank_front"},
+        "east": {"uv": [0, 8.25, 3.5, 10.75], "texture": "#plank_front"},
+        "south": {"uv": [7, 8.25, 10.5, 10.75], "texture": "#plank_front"},
+        "west": {"uv": [10.5, 8.25, 14, 10.75], "texture": "#plank_front"},
+        "up": {"uv": [3.5, 4.75, 7, 8.25], "rotation": 180, "texture": "#plank_front"},
+        "down": {"uv": [7.25, 4.75, 10.5, 8.25], "rotation": 180, "texture": "#plank_front"}
       }
     },
     {
@@ -41,6 +56,19 @@
         "west": {"uv": [10.5, 3.5, 14, 4.5], "texture": "#chest"},
         "up": {"uv": [3.5, 0, 7, 3.5], "rotation": 180, "texture": "#chest"},
         "down": {"uv": [7, 0, 10.5, 3.5], "rotation": 180, "texture": "#chest"}
+      }
+    },
+    {
+      "from": [1, 10, 1],
+      "to": [15, 14, 15],
+      "rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+      "faces": {
+        "north": {"uv": [3.5, 3.5, 7, 4.5], "texture": "#plank_top"},
+        "east": {"uv": [0, 3.5, 3.5, 4.5], "texture": "#plank_top"},
+        "south": {"uv": [7, 3.5, 10.5, 4.5], "texture": "#plank_top"},
+        "west": {"uv": [10.5, 3.5, 14, 4.5], "texture": "#plank_top"},
+        "up": {"uv": [3.5, 0, 7, 3.5], "rotation": 180, "texture": "#plank_top"},
+        "down": {"uv": [7, 0, 10.5, 3.5], "rotation": 180, "texture": "#plank_top"}
       }
     }
   ]

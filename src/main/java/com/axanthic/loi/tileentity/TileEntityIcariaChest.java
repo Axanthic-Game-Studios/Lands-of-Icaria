@@ -10,6 +10,10 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
+import net.minecraft.server.management.PlayerChunkMap;
+import net.minecraft.server.management.PlayerChunkMapEntry;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.EnumFacing;
@@ -18,7 +22,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -104,6 +108,42 @@ public class TileEntityIcariaChest extends TileEntityLockableLoot implements ITi
 
         return compound;
     }
+
+	@Override
+	public NBTTagCompound getUpdateTag() {
+		return this.writeToNBT(new NBTTagCompound());
+	}
+
+	@Override
+	public void handleUpdateTag(NBTTagCompound nbt) {
+		this.readFromNBT(nbt);
+	}
+
+	@Override
+	public SPacketUpdateTileEntity getUpdatePacket() {
+		NBTTagCompound nbtTag = this.getUpdateTag();
+		return new SPacketUpdateTileEntity(getPos(), 1, nbtTag);
+	}
+
+	@Override
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+		this.handleUpdateTag(pkt.getNbtCompound());
+	}
+
+	protected void syncToClient() {
+		if(world instanceof WorldServer) {
+			SPacketUpdateTileEntity packet = this.getUpdatePacket();
+			if (packet != null) {
+				PlayerChunkMap chunkMap = ((WorldServer) world).getPlayerChunkMap();
+				int i = this.getPos().getX() >> 4;
+				int j = this.getPos().getZ() >> 4;
+		PlayerChunkMapEntry entry = chunkMap.getEntry(i, j);
+		if(entry != null) {
+			entry.sendPacket(packet);
+		}
+			}
+		}
+	}
 
     public int getInventoryStackLimit()
     {
