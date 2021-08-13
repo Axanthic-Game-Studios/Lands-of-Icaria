@@ -407,10 +407,10 @@ public class Recipes {
 		if (!bronzeIngots.isEmpty())
 			addShapelessRecipe(bronzeIngots.get(0), "orichalcum_bronze", "bronze_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE_POWDER.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 3))});
 
-		addShapelessRecipe(new ItemStack(Items.IRON_INGOT, 5, 0), "sideros_iron", "iron_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE_POWDER.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 7))});
+		addShapelessRecipe(new ItemStack(Items.IRON_INGOT, 5, 0), "sideros_iron", "iron_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE_POWDER.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 6))});
 
 		if (!iridiumIngots.isEmpty())
-			addShapelessRecipe(iridiumIngots.get(0), "bluridium_iridium", "iridium_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE_POWDER.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 10))});
+			addShapelessRecipe(iridiumIngots.get(0), "bluridium_iridium", "iridium_ingot", new Ingredient[]{Ingredient.fromStacks(new ItemStack(Resources.resource, 1, ItemResources.ResourceType.CALCITE_POWDER.toMeta())), Ingredient.fromStacks(new ItemStack(Resources.ingot, 1, 9))});
 
 		//compatibility alloying recipes
 		if (!copperIngots.isEmpty() && !tinIngots.isEmpty() && !bronzeIngots.isEmpty())
