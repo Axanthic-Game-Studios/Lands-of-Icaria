@@ -18,12 +18,16 @@ public class ItemBlockMetaMaterial extends ItemBlockMeta {
 
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
-		if (I18n.canTranslate("tile." + this.block.getRegistryName().getResourcePath() + "." + ((IBlockMeta) this.block).getNames()[stack.getItemDamage()] + ".name"))
-			return I18n.translateToLocal("tile." + this.block.getRegistryName().getResourcePath() + "." + ((IBlockMeta) this.block).getNames()[stack.getItemDamage()] + ".name");
+		if (I18n.canTranslate("tile." + this.block.getRegistryName().getResourcePath() + "." + getNameForMeta(stack.getItemDamage()) + ".name"))
+			return I18n.translateToLocal("tile." + this.block.getRegistryName().getResourcePath() + "." + getNameForMeta(stack.getItemDamage()) + ".name");
 		try {
-			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal("material." + ((IBlockMeta) this.block).getNames()[stack.getItemDamage()] + ".name"));
+			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal("material." + getNameForMeta(stack.getItemDamage()) + ".name"));
 		} catch (Exception e) {
-			return I18n.translateToLocal("tile." + this.block.getRegistryName().getResourcePath() + "." + ((IBlockMeta) this.block).getNames()[stack.getItemDamage()] + ".name");
+			return I18n.translateToLocal("tile." + this.block.getRegistryName().getResourcePath() + "." + getNameForMeta(stack.getItemDamage()) + ".name");
 		}
+	}
+
+	public String getNameForMeta(int meta) {
+		return ((IBlockMeta) this.block).getNames()[meta % ((IBlockMeta) this.block).getNames().length];
 	}
 }

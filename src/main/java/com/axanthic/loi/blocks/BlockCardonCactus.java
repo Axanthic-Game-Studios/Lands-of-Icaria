@@ -230,7 +230,7 @@ public class BlockCardonCactus extends BlockBasic implements net.minecraftforge.
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(AGE, Integer.valueOf(meta));
+		return this.getDefaultState().withProperty(AGE, Integer.valueOf(meta % AGE.getAllowedValues().size()));
 	}
 
 	@Override

@@ -32,7 +32,7 @@ public class ItemMeta extends Item implements IItemMeta {
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return super.getUnlocalizedName() + "." + names[stack.getMetadata()];
+		return super.getUnlocalizedName() + "." + names[stack.getMetadata() % names.length];
 	}
 
 	@Override

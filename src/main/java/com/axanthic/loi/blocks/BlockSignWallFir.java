@@ -97,7 +97,7 @@ public class BlockSignWallFir extends BlockSign
     @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(ROTATION, Integer.valueOf(meta));
+        return this.getDefaultState().withProperty(ROTATION, Integer.valueOf(meta % ROTATION.getAllowedValues().size()));
     }
 
     protected BlockStateContainer createBlockState()

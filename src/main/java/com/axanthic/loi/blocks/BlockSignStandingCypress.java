@@ -50,7 +50,7 @@ public class BlockSignStandingCypress extends BlockSign
     @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(ROTATION, Integer.valueOf(meta));
+        return this.getDefaultState().withProperty(ROTATION, Integer.valueOf(meta % ROTATION.getAllowedValues().size()));
     }
 
     public BlockStateContainer createBlockState()

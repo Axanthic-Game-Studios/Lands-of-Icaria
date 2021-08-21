@@ -13,7 +13,7 @@ public class ItemMetaMaterial extends ItemMeta {
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
 		try {
-			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal("material." + names[stack.getItemDamage()] + ".name"));
+			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), I18n.translateToLocal("material." + names[stack.getItemDamage() % names.length] + ".name"));
 		} catch (Exception e) {
 			return String.format(I18n.translateToLocal(this.getUnlocalizedName() + ".name"), "");
 		}
