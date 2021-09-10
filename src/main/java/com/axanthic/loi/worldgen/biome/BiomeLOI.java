@@ -10,6 +10,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BiomeLOI extends Biome {
 
+	private final double density;
+	private final double topCraziness;
+
 	public IBlockState upperBlockPrimary = null;
 	public IBlockState topBlockPrimary = Resources.grass.getBlock().getDefaultState();
 	public IBlockState fillerBlockPrimary = Resources.soil.getBlock().getDefaultState();
@@ -20,12 +23,27 @@ public class BiomeLOI extends Biome {
 	public IBlockState topBlockTertiary = Resources.soil.getBlock().getStateFromMeta(2);
 	public IBlockState fillerBlockTertiary = Resources.soil.getBlock().getStateFromMeta(2);
 
-	public BiomeLOI(BiomeProperties properties) {
+	public BiomeLOI(final BiomeProperties properties, final double d, final double topC) {
 		super(properties);
+		this.density = d;
+		this.topCraziness = topC;
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
-	public int getFoliageColorAtPos(BlockPos pos) {
-		return getGrassColorAtPos(pos);
+	public int getFoliageColorAtPos(final BlockPos pos) {
+		return this.getGrassColorAtPos(pos);
+	}
+
+	public boolean isVoid() {
+		return false;
+	}
+
+	public double getDensity() {
+		return this.density;
+	}
+
+	public double getTopCrazyness() {
+		return this.topCraziness;
 	}
 }
