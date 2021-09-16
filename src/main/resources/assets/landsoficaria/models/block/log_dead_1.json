@@ -205,10 +205,10 @@
 			"to": [8.5, 4, 13],
 			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 3.75, 12.5]},
 			"faces": {
-				"north": {"uv": [2, 0, 3, 3], "texture": "#shroom_ground_stem"},
-				"east": {"uv": [3, 0, 4, 3], "texture": "#shroom_ground_stem"},
-				"south": {"uv": [0, 0, 1, 3], "texture": "#shroom_ground_stem"},
-				"west": {"uv": [1, 0, 2, 3], "texture": "#shroom_ground_stem"},
+				"north": {"uv": [2, 0, 3, 2], "texture": "#shroom_ground_stem"},
+				"east": {"uv": [3, 0, 4, 2], "texture": "#shroom_ground_stem"},
+				"south": {"uv": [0, 0, 1, 2], "texture": "#shroom_ground_stem"},
+				"west": {"uv": [1, 0, 2, 2], "texture": "#shroom_ground_stem"},
 				"up": {"uv": [0, 0, 1, 1], "texture": "#missing"},
 				"down": {"uv": [0, 0, 1, 1], "texture": "#missing"}
 			}
