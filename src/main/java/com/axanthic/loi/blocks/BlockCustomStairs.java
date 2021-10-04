@@ -48,4 +48,9 @@ public class BlockCustomStairs extends BlockStairs implements IBlockMaterial{
 	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
 		return modelBlock.getFireSpreadSpeed(world, pos, face);
 	}
+
+	@Override
+	public boolean isTopSolid(IBlockState state) {
+		return true;
+	}
 }
