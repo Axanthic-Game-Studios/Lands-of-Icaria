@@ -145,11 +145,11 @@ public class BlockRockCobblestone extends Block implements IBlockMeta {
 	}
 
 	public enum StoneTypes implements IStringSerializable {
-		YELLOWSTONE(0, "yellowstone", MapColor.DIRT, 2),
-		SILKSTONE(1, "silkstone", MapColor.PINK_STAINED_HARDENED_CLAY, 3),
-		SUNSTONE(2, "sunstone", MapColor.WOOD, 4),
-		VOIDSHALE(3, "voidshale", MapColor.GRAY, 5),
-		BAETYL(4, "baetyl", MapColor.STONE, 6);
+		YELLOWSTONE(0, "yellowstone", MapColor.DIRT, 1),
+		SILKSTONE(1, "silkstone", MapColor.PINK_STAINED_HARDENED_CLAY, 1),
+		SUNSTONE(2, "sunstone", MapColor.WOOD, 1),
+		VOIDSHALE(3, "voidshale", MapColor.GRAY, 1),
+		BAETYL(4, "baetyl", MapColor.STONE, 1);
 
 		private static final StoneTypes[] META_LOOKUP = new StoneTypes[StoneTypes.values().length];
 		private final int meta;

@@ -117,6 +117,7 @@ item.sign_populus.name=Populus Sign
 effect.slowfall.name=Slow Falling
 effect.blindness_immunity.name=Blindness Immunity
 
+tile.generic.adobe.name=%s Adobe
 tile.generic.cobble.name=%s Cobblestone
 tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Bricks
@@ -352,6 +353,8 @@ material.voidshale.name=Voidshale
 material.baetyl.name=Baetyl
 material.relicstone.name=Relicstone
 material.grainite.name=Grainite
+material.grainel.name=Grainel
+material.marl.name=Marl
 
 material.aeternae_leather.name=Aeternae Leather
 material.chalkos.name=Chalkos

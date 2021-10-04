@@ -21,11 +21,11 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockRockBricksChiseled extends Block implements IBlockMeta {
+public class BlockRockAdobe extends Block implements IBlockMeta {
 
 	public static PropertyEnum TYPES = PropertyEnum.create("type", StoneTypes.class);
 
-	public BlockRockBricksChiseled(final String name) {
+	public BlockRockAdobe(final String name) {
 		super(Material.ROCK);
 		this.setCreativeTab(LandsOfIcaria.modTabBlocks);
 		this.setHardness(1.5F);
@@ -47,23 +47,23 @@ public class BlockRockBricksChiseled extends Block implements IBlockMeta {
 
 	@Override
 	public int getMetaFromState(final IBlockState state) {
-		return ((StoneTypes) state.getValue(BlockRockBricksChiseled.TYPES)).meta;
+		return ((StoneTypes) state.getValue(BlockRockAdobe.TYPES)).meta;
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(final int meta) {
-		return this.getDefaultState().withProperty(BlockRockBricksChiseled.TYPES, StoneTypes.byMetadata(meta));
+		return this.getDefaultState().withProperty(BlockRockAdobe.TYPES, StoneTypes.byMetadata(meta));
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[]{BlockRockBricksChiseled.TYPES});
+		return new BlockStateContainer(this, new IProperty[]{BlockRockAdobe.TYPES});
 	}
 
 	@Override
 	public int damageDropped(final IBlockState state) {
 		final int meta = this.getMetaFromState(state);
-		if ((meta == 1) && this.getUnlocalizedName().equals("tile.chiseled")) {
+		if ((meta == 1) && this.getUnlocalizedName().equals("tile.adobe")) {
 			return 0;
 		}
 		return meta;
@@ -101,6 +101,16 @@ public class BlockRockBricksChiseled extends Block implements IBlockMeta {
 		{
 			drops.add(new ItemStack(this, 1, 5));
 		}
+
+		if(this.getMetaFromState(state) == 6)
+		{
+			drops.add(new ItemStack(this, 1, 6));
+		}
+
+		if(this.getMetaFromState(state) == 7)
+		{
+			drops.add(new ItemStack(this, 1, 7));
+		}
 	}
 
 	@Override
@@ -117,7 +127,7 @@ public class BlockRockBricksChiseled extends Block implements IBlockMeta {
 
 	@Override
 	public MapColor getMapColor(final IBlockState state, final IBlockAccess worldIn, final BlockPos pos) {
-		return ((StoneTypes) state.getValue(BlockRockBricksChiseled.TYPES)).mapColor;
+		return ((StoneTypes) state.getValue(BlockRockAdobe.TYPES)).mapColor;
 	}
 
 	@Override
@@ -149,7 +159,10 @@ public class BlockRockBricksChiseled extends Block implements IBlockMeta {
 		SILKSTONE(1, "silkstone", MapColor.PINK_STAINED_HARDENED_CLAY, 1),
 		SUNSTONE(2, "sunstone", MapColor.WOOD, 1),
 		VOIDSHALE(3, "voidshale", MapColor.GRAY, 1),
-		BAETYL(4, "baetyl", MapColor.STONE, 1);
+		BAETYL(4, "baetyl", MapColor.STONE, 1),
+		GRAINEL(5, "grainel", MapColor.WOOD, 1),
+		MARL(6, "marl", MapColor.BROWN, 1),
+		DOLOMITE(7, "dolomite", MapColor.WHITE_STAINED_HARDENED_CLAY, 1);
 
 		private static final StoneTypes[] META_LOOKUP = new StoneTypes[StoneTypes.values().length];
 		private final int meta;

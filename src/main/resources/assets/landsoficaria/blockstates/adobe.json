@@ -1,0 +1,24 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "cube_all",
+		"uvlock": true,
+		"textures": {
+			"all": "landsoficaria:blocks/adobe_yellowstone",
+			"particle": "#all"
+		}
+	},
+	"variants": {
+		"type": {
+			"yellowstone": { "textures": { "all": "landsoficaria:blocks/adobe_yellowstone" } },
+			"silkstone": { "textures": { "all": "landsoficaria:blocks/adobe_silkstone" } },
+			"sunstone": { "textures": { "all": "landsoficaria:blocks/adobe_sunstone" } },
+			"voidshale": { "textures": { "all": "landsoficaria:blocks/adobe_voidshale" } },
+			"baetyl": { "textures": { "all": "landsoficaria:blocks/adobe_baetyl" } },
+			"grainel": { "textures": { "all": "landsoficaria:blocks/adobe_grainel" } },
+			"marl": { "textures": { "all": "landsoficaria:blocks/adobe_marl" } },
+			"dolomite": { "textures": { "all": "landsoficaria:blocks/adobe_dolomite" } }
+		}
+	}
+}

@@ -117,6 +117,7 @@ item.sign_populus.name=Pappel Schild
 effect.slowfall.name=Gleitfall
 effect.blindness_immunity.name=Erblindungsimmunität
 
+tile.generic.adobe.name=%s Lehm
 tile.generic.cobble.name=%s Bruchstein
 tile.generic.rock.name=%s
 tile.generic.bricks.name=%s Ziegel
@@ -352,6 +353,8 @@ material.voidshale.name=Fallschiefer
 material.baetyl.name=Bätyl
 material.relicstone.name=Reliktenstein
 material.grainite.name=Schluffstein
+material.grainel.name=Schluffsand
+material.marl.name=Mergel
 
 material.aeternae_leather.name=Äternen Leder
 material.chalkos.name=Kuffar
