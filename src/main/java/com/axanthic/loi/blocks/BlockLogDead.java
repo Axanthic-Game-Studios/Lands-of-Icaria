@@ -126,13 +126,6 @@ public class BlockLogDead extends Block implements IBlockMaterial
 	}
 
 	@Override
-	@SuppressWarnings("deprecation")
-	public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-	{
-		return BlockFaceShape.SOLID;
-	}
-
-	@Override
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer()
 	{
@@ -164,6 +157,21 @@ public class BlockLogDead extends Block implements IBlockMaterial
 		}
 
 		return this.getDefaultState().withProperty(FACING, enumfacing);
+	}
+
+	@Override
+	@SuppressWarnings("deprecation")
+	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face)
+	{
+		if (face != EnumFacing.UP && face != EnumFacing.DOWN)
+		{
+			return state.getValue(FACING).getAxis() == face.rotateY().getAxis() ? BlockFaceShape.SOLID : BlockFaceShape.UNDEFINED;
+		}
+
+		else
+		{
+			return BlockFaceShape.UNDEFINED;
+		}
 	}
 
 	@Override
