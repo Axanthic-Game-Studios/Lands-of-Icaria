@@ -865,6 +865,8 @@ public class Resources {
 		public ItemBlockMaterial strippedLog;
 		public ItemBlockMaterial deadLog;
 		public ItemBlockMaterial strippedDeadLog;
+		public ItemBlockMaterial stumpLog;
+		public ItemBlockMaterial strippedStumpLog;
 		public ItemBlockMaterial sapling;
 		public ItemBlockMaterial leaf;
 		public ItemBlockMaterial twigs;
@@ -881,6 +883,8 @@ public class Resources {
 
 		public WoodSet(final BlockPlanks.WoodTypes type, WorldGenLOITree generator, Class forestHag) {
 			this.type = type;
+			this.strippedStumpLog = new ItemBlockMaterial(new BlockLogStump(type, type.mapColor, null));
+			this.stumpLog = new ItemBlockMaterial(new BlockLogStump(type, type.logColor, strippedStumpLog));
 			this.strippedDeadLog = new ItemBlockMaterial(new BlockLogDead(type, type.mapColor, null));
 			this.deadLog = new ItemBlockMaterial(new BlockLogDead(type, type.logColor, strippedDeadLog));
 			this.strippedLog = new ItemBlockMaterial(new BlockLog(type, type.mapColor, null));
@@ -910,6 +914,8 @@ public class Resources {
 			Resources.registerBlock(strippedLog);
 			Resources.registerBlock(deadLog);
 			Resources.registerBlock(strippedDeadLog);
+			Resources.registerBlock(stumpLog);
+			Resources.registerBlock(strippedStumpLog);
 			Resources.registerBlock(sapling);
 			Resources.registerBlock(leaf);
 			Resources.registerBlock(twigs);
