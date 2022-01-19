@@ -20,18 +20,6 @@ build
 # other
 eclipse
 run
-saves
-logs
-crash-reports
-config
 
-usernamecache.json
-options.txt
-forge-1.12.2-14.23.3.2655-changelog.txt
-README.txt
-Paulscode SoundSystem CodecIBXM License.txt
-Paulscode IBXM Library License.txt
-MinecraftForge-Credits.txt
-LICENSE-new.txt
-CREDITS-fml.txt
-usercache.json
+# Files from Forge MDK
+forge*changelog.txt

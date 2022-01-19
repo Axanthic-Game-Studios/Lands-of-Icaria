@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[39,)"
+license="Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License, GNU General Public License"
+[[mods]]
+modId="landsoficaria"
+version="${file.jarVersion}"
+displayName="Lands of Icaria"
+credits="Axanthic Game Studios"
+authors="Shado47, RCXcrafter, Poiuytrezay, MCenderdragon, Foxbud, Arrowstorm66, luxtracon"
+description='''A new floating dimension inspired by greek mythology.'''
+
+[[dependencies.landsoficaria]]
+    modId="forge"
+    mandatory=true
+    versionRange="[39,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.landsoficaria]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.1,1.19)"
+    ordering="NONE"
+    side="BOTH"

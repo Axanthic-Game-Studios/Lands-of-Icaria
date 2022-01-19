@@ -1,8 +1,0 @@
-{
-    "parent": "block/cube_bottom_top",
-    "textures": {
-        "bottom": "landsoficaria:blocks/rock_relicstone_pillar_top",
-        "side": "landsoficaria:blocks/rock_relicstone_pillarhead_side_inverted",
-        "top": "landsoficaria:blocks/rock_relicstone_pillarhead_top"
-    }
-}
