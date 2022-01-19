@@ -1,5 +1,7 @@
 {
   "block.landsoficaria.marl": "Mergel",
+  "block.landsoficaria.marl_coarse": "Trockener Mergel",
+  "block.landsoficaria.loam": "Lehm",
 
   "itemGroup.landsoficaria.blocks": "Lands of Icaria Blöcke",
   "itemGroup.landsoficaria.flora": "Lands of Icaria Flora",

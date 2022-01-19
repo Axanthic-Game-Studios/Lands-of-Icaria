@@ -1,5 +1,7 @@
 {
   "block.landsoficaria.marl": "Marl",
+  "block.landsoficaria.marl_coarse": "Coarse Marl",
+  "block.landsoficaria.loam": "Loam",
 
   "itemGroup.landsoficaria.blocks": "Lands of Icaria Blocks",
   "itemGroup.landsoficaria.flora": "Lands of Icaria Flora",

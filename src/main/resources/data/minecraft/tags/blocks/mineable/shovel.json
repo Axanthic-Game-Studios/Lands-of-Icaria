@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-   "landsoficaria:marl"
+    "landsoficaria:marl",
+    "landsoficaria:marl_coarse",
+    "landsoficaria:loam"
   ]
 }
