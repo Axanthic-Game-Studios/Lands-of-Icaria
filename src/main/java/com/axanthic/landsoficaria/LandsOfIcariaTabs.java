@@ -14,7 +14,7 @@ public class LandsOfIcariaTabs {
         @Override
         @OnlyIn(Dist.CLIENT)
         public ItemStack makeIcon() {
-            return new ItemStack(IcariaItems.EXAMPLE.get());
+            return new ItemStack(IcariaItems.LOAM_LUMP.get());
         }
     };
 
@@ -22,7 +22,7 @@ public class LandsOfIcariaTabs {
         @Override
         @OnlyIn(Dist.CLIENT)
         public ItemStack makeIcon() {
-            return new ItemStack(IcariaItems.EXAMPLE.get());
+            return new ItemStack(IcariaItems.LOAM_LUMP.get());
         }
     };
 
@@ -30,7 +30,7 @@ public class LandsOfIcariaTabs {
         @Override
         @OnlyIn(Dist.CLIENT)
         public ItemStack makeIcon() {
-            return new ItemStack(IcariaItems.EXAMPLE.get());
+            return new ItemStack(IcariaItems.LOAM_LUMP.get());
         }
     };
 }

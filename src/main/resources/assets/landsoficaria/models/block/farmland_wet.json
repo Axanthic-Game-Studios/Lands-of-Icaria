@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_farmland",
+  "textures": {
+    "dirt": "landsoficaria:block/marl",
+    "top": "landsoficaria:block/farmland_wet"
+  }
+}

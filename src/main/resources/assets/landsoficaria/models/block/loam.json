@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/soil_loam"
+    "all": "landsoficaria:block/loam"
   }
 }

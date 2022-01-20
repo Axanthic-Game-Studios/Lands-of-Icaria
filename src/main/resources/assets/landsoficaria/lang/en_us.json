@@ -2,6 +2,11 @@
   "block.landsoficaria.marl": "Marl",
   "block.landsoficaria.marl_coarse": "Coarse Marl",
   "block.landsoficaria.loam": "Loam",
+  "block.landsoficaria.farmland": "Farmland",
+  "block.landsoficaria.farmland_fertilized": "Fertilized Farmland",
+
+  "item.landsoficaria.loam_lump": "Lump of Loam",
+  "item.landsoficaria.calcite_powder": "Calcite Powder",
 
   "itemGroup.landsoficaria.blocks": "Lands of Icaria Blocks",
   "itemGroup.landsoficaria.flora": "Lands of Icaria Flora",

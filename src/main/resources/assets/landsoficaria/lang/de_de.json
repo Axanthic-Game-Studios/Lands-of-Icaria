@@ -2,6 +2,11 @@
   "block.landsoficaria.marl": "Mergel",
   "block.landsoficaria.marl_coarse": "Trockener Mergel",
   "block.landsoficaria.loam": "Lehm",
+  "block.landsoficaria.farmland": "Ackerboden",
+  "block.landsoficaria.farmland_fertilized": "Gedüngter Ackerboden",
+
+  "item.landsoficaria.loam_lump": "Lehmklumpen",
+  "item.landsoficaria.calcite_powder": "Calcit Pulver",
 
   "itemGroup.landsoficaria.blocks": "Lands of Icaria Blöcke",
   "itemGroup.landsoficaria.flora": "Lands of Icaria Flora",

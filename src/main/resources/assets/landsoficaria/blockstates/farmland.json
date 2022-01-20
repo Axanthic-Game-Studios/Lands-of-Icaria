@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "moisture=0": {
+      "model": "landsoficaria:block/farmland_dry"
+    },
+    "moisture=1": {
+      "model": "landsoficaria:block/farmland_dry"
+    },
+    "moisture=2": {
+      "model": "landsoficaria:block/farmland_dry"
+    },
+    "moisture=3": {
+      "model": "landsoficaria:block/farmland_dry"
+    },
+    "moisture=4": {
+      "model": "landsoficaria:block/farmland_dry"
+    },
+    "moisture=5": {
+      "model": "landsoficaria:block/farmland_dry"
+    },
+    "moisture=6": {
+      "model": "landsoficaria:block/farmland_dry"
+    },
+    "moisture=7": {
+      "model": "landsoficaria:block/farmland_wet"
+    }
+  }
+}

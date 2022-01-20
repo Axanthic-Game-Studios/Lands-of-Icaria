@@ -3,6 +3,8 @@
   "values": [
     "landsoficaria:marl",
     "landsoficaria:marl_coarse",
-    "landsoficaria:loam"
+    "landsoficaria:loam",
+    "landsoficaria:farmland",
+    "landsoficaria:farmland_fertilized"
   ]
 }
