@@ -1,6 +1,6 @@
-package com.axanthic.landsoficaria;
+package com.axanthic.landsoficaria.util;
 
-import com.axanthic.landsoficaria.common.items.IcariaItems;
+import com.axanthic.landsoficaria.common.blocks.IcariaBlocks;
 
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -14,7 +14,7 @@ public class LandsOfIcariaTabs {
         @Override
         @OnlyIn(Dist.CLIENT)
         public ItemStack makeIcon() {
-            return new ItemStack(IcariaItems.LOAM_LUMP.get());
+            return new ItemStack(IcariaBlocks.MARL_GRASS.get());
         }
     };
 
@@ -22,7 +22,7 @@ public class LandsOfIcariaTabs {
         @Override
         @OnlyIn(Dist.CLIENT)
         public ItemStack makeIcon() {
-            return new ItemStack(IcariaItems.LOAM_LUMP.get());
+            return new ItemStack(IcariaBlocks.MARL_GRASS.get());
         }
     };
 
@@ -30,7 +30,7 @@ public class LandsOfIcariaTabs {
         @Override
         @OnlyIn(Dist.CLIENT)
         public ItemStack makeIcon() {
-            return new ItemStack(IcariaItems.LOAM_LUMP.get());
+            return new ItemStack(IcariaBlocks.MARL_GRASS.get());
         }
     };
 }

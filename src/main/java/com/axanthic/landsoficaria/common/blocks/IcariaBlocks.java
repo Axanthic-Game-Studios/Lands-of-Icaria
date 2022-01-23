@@ -1,7 +1,7 @@
 package com.axanthic.landsoficaria.common.blocks;
 
-import com.axanthic.landsoficaria.LandsOfIcariaInfo;
-import com.axanthic.landsoficaria.LandsOfIcariaTabs;
+import com.axanthic.landsoficaria.util.LandsOfIcariaInfo;
+import com.axanthic.landsoficaria.util.LandsOfIcariaTabs;
 import com.axanthic.landsoficaria.common.items.IcariaItems;
 
 import net.minecraft.world.item.BlockItem;
@@ -26,8 +26,12 @@ public class IcariaBlocks {
     public static final RegistryObject<Block> MARL = register("marl", () -> new MarlBlock(BlockBehaviour.Properties.of(Material.DIRT, MaterialColor.DIRT).sound(SoundType.GRAVEL).explosionResistance(0.5F).strength(0.5F)), object -> () -> new BlockItem(object.get(), new Item.Properties().tab(LandsOfIcariaTabs.creativeBlocks)));
     public static final RegistryObject<Block> MARL_COARSE = register("marl_coarse", () -> new MarlCoarseBlock(BlockBehaviour.Properties.of(Material.DIRT, MaterialColor.DIRT).sound(SoundType.GRAVEL).explosionResistance(0.5F).strength(0.5F)), object -> () -> new BlockItem(object.get(), new Item.Properties().tab(LandsOfIcariaTabs.creativeBlocks)));
     public static final RegistryObject<Block> LOAM = register("loam", () -> new Block(BlockBehaviour.Properties.of(Material.DIRT, MaterialColor.DIRT).sound(SoundType.GRAVEL).explosionResistance(0.6F).strength(0.6F)), object -> () -> new BlockItem(object.get(), new Item.Properties().tab(LandsOfIcariaTabs.creativeBlocks)));
+    public static final RegistryObject<Block> MARL_GRASS = register("marl_grass", () -> new MarlGrassBlock(BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.GRASS).sound(SoundType.GRASS).explosionResistance(0.6F).strength(0.6F).randomTicks()), object -> () -> new BlockItem(object.get(), new Item.Properties().tab(LandsOfIcariaTabs.creativeBlocks)));
     public static final RegistryObject<Block> FARMLAND = register("farmland", () -> new FarmlandBlock(BlockBehaviour.Properties.of(Material.DIRT, MaterialColor.DIRT).sound(SoundType.GRAVEL).explosionResistance(0.6F).strength(0.6F).randomTicks()), object -> () -> new BlockItem(object.get(), new Item.Properties().tab(LandsOfIcariaTabs.creativeBlocks)));
     public static final RegistryObject<Block> FARMLAND_FERTILIZED = register("farmland_fertilized", () -> new FarmlandFertilizedBlock(BlockBehaviour.Properties.of(Material.DIRT, MaterialColor.DIRT).sound(SoundType.GRAVEL).explosionResistance(0.6F).strength(0.6F).randomTicks()), object -> () -> new BlockItem(object.get(), new Item.Properties().tab(LandsOfIcariaTabs.creativeBlocks)));
+    public static final RegistryObject<Block> MOSS_0 = register("moss_0", () -> new MossBlock(BlockBehaviour.Properties.of(Material.MOSS, MaterialColor.PLANT).sound(SoundType.MOSS).explosionResistance(0.15F).strength(0.15F)), object -> () -> new BlockItem(object.get(), new Item.Properties().tab(LandsOfIcariaTabs.creativeFlora)));
+    public static final RegistryObject<Block> MOSS_1 = register("moss_1", () -> new MossBlock(BlockBehaviour.Properties.of(Material.MOSS, MaterialColor.PLANT).sound(SoundType.MOSS).explosionResistance(0.15F).strength(0.15F)), object -> () -> new BlockItem(object.get(), new Item.Properties().tab(LandsOfIcariaTabs.creativeFlora)));
+    public static final RegistryObject<Block> MOSS_2 = register("moss_2", () -> new MossBlock(BlockBehaviour.Properties.of(Material.MOSS, MaterialColor.PLANT).sound(SoundType.MOSS).explosionResistance(0.15F).strength(0.15F)), object -> () -> new BlockItem(object.get(), new Item.Properties().tab(LandsOfIcariaTabs.creativeFlora)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(final String name, final Supplier<? extends T> block) {
         return BLOCKS.register(name, block);

@@ -1,7 +1,7 @@
 package com.axanthic.landsoficaria.common.items;
 
-import com.axanthic.landsoficaria.LandsOfIcariaInfo;
-import com.axanthic.landsoficaria.LandsOfIcariaTabs;
+import com.axanthic.landsoficaria.util.LandsOfIcariaInfo;
+import com.axanthic.landsoficaria.util.LandsOfIcariaTabs;
 
 import net.minecraft.world.item.Item;
 
