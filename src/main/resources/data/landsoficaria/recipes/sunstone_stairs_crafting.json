@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "landsoficaria:sunstone"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:sunstone_stairs",
+    "count": 4
+  }
+}

@@ -2,10 +2,9 @@ package com.axanthic.landsoficaria;
 
 import com.axanthic.landsoficaria.client.ClientProxy;
 import com.axanthic.landsoficaria.common.CommonProxy;
-import com.axanthic.landsoficaria.common.blocks.IcariaBlocks;
-import com.axanthic.landsoficaria.common.items.IcariaItems;
+import com.axanthic.landsoficaria.common.registry.LandsOfIcariaBlocks;
+import com.axanthic.landsoficaria.common.registry.LandsOfIcariaItems;
 
-import com.axanthic.landsoficaria.util.LandsOfIcariaInfo;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 
@@ -28,14 +27,14 @@ public class LandsOfIcaria
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetupEvent);
 
-        IcariaItems.ITEMS.register(bus);
-        IcariaBlocks.BLOCKS.register(bus);
+        LandsOfIcariaItems.ITEMS.register(bus);
+        LandsOfIcariaBlocks.BLOCKS.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     public void onClientSetupEvent(FMLClientSetupEvent event) {
-        ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.MARL_GRASS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.MARL_GRASS.get(), RenderType.cutout());
     }
 
     private void loadComplete(final FMLLoadCompleteEvent event)

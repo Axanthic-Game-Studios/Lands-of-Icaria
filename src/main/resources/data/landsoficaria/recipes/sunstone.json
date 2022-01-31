@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "landsoficaria:sunstone_cobble"
+  },
+  "result": "landsoficaria:sunstone",
+  "experience": 0.1,
+  "cookingtime": 200
+}

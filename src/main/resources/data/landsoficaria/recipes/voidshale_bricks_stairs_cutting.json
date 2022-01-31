@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "landsoficaria:voidshale_bricks"
+  },
+  "result": "landsoficaria:voidshale_bricks_stairs",
+  "count": 1
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "landsoficaria:silkstone"
+  },
+  "result": "landsoficaria:silkstone_chiseled",
+  "count": 1
+}

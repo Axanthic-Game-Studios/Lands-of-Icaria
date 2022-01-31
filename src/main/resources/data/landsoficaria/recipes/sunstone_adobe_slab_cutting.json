@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "landsoficaria:sunstone_adobe"
+  },
+  "result": "landsoficaria:sunstone_adobe_slab",
+  "count": 2
+}

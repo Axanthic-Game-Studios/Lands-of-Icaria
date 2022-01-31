@@ -1,7 +1,7 @@
 package com.axanthic.landsoficaria.client;
 
 import com.axanthic.landsoficaria.common.CommonProxy;
-import com.axanthic.landsoficaria.common.blocks.IcariaBlocks;
+import com.axanthic.landsoficaria.common.registry.LandsOfIcariaBlocks;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
@@ -22,13 +22,13 @@ public class ClientProxy extends CommonProxy {
         BlockColors blockColors = Minecraft.getInstance().getBlockColors();
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
 
-        blockColors.register((state, getter, pos, i) -> getter != null && pos != null ? BiomeColors.getAverageGrassColor(getter, pos) : GrassColor.get(0.60D, 0.10D), IcariaBlocks.MARL_GRASS.get());
+        blockColors.register((state, getter, pos, i) -> getter != null && pos != null ? BiomeColors.getAverageGrassColor(getter, pos) : GrassColor.get(0.60D, 0.10D), LandsOfIcariaBlocks.MARL_GRASS.get());
 
         ItemColor itemBlockColorHandler = (stack, tintIndex) -> {
             BlockState state = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
             return blockColors.getColor(state, null, null, tintIndex);
         };
 
-        itemColors.register(itemBlockColorHandler, IcariaBlocks.MARL_GRASS.get());
+        itemColors.register(itemBlockColorHandler, LandsOfIcariaBlocks.MARL_GRASS.get());
     }
 }

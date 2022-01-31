@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "landsoficaria:yellowstone_adobe_wall",
+    "landsoficaria:yellowstone_cobble_wall",
+    "landsoficaria:yellowstone_wall",
+    "landsoficaria:yellowstone_bricks_wall",
+    "landsoficaria:silkstone_adobe_wall",
+    "landsoficaria:silkstone_cobble_wall",
+    "landsoficaria:silkstone_wall",
+    "landsoficaria:silkstone_bricks_wall",
+    "landsoficaria:sunstone_adobe_wall",
+    "landsoficaria:sunstone_cobble_wall",
+    "landsoficaria:sunstone_wall",
+    "landsoficaria:sunstone_bricks_wall",
+    "landsoficaria:voidshale_adobe_wall",
+    "landsoficaria:voidshale_cobble_wall",
+    "landsoficaria:voidshale_wall",
+    "landsoficaria:voidshale_bricks_wall",
+    "landsoficaria:baetyl_adobe_wall",
+    "landsoficaria:baetyl_cobble_wall",
+    "landsoficaria:baetyl_wall",
+    "landsoficaria:baetyl_bricks_wall"
+  ]
+}
