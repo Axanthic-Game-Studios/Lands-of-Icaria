@@ -8,6 +8,10 @@
   "block.landsoficaria.moss_0": "Moss",
   "block.landsoficaria.moss_1": "Moss",
   "block.landsoficaria.moss_2": "Moss",
+  "block.landsoficaria.loam_bricks": "Loam Bricks",
+  "block.landsoficaria.loam_bricks_slab": "Loam Bricks Slab",
+  "block.landsoficaria.loam_bricks_stairs": "Loam Bricks Stairs",
+  "block.landsoficaria.loam_bricks_wall": "Loam Bricks Wall",
   "block.landsoficaria.yellowstone_adobe": "Yellowstone Adobe",
   "block.landsoficaria.yellowstone_adobe_slab": "Yellowstone Adobe Slab",
   "block.landsoficaria.yellowstone_adobe_stairs": "Yellowstone Adobe Stairs",
@@ -95,6 +99,7 @@
   "block.landsoficaria.baetyl_chiseled": "Chiseled Baetyl Bricks",
 
   "item.landsoficaria.loam_lump": "Lump of Loam",
+  "item.landsoficaria.loam_brick": "Loam Brick",
   "item.landsoficaria.calcite_powder": "Calcite Powder",
 
   "itemGroup.landsoficaria.blocks": "Lands of Icaria Blocks",

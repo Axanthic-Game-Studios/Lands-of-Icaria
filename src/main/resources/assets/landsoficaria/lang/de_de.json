@@ -8,6 +8,10 @@
   "block.landsoficaria.moss_0": "Moos",
   "block.landsoficaria.moss_1": "Moos",
   "block.landsoficaria.moss_2": "Moos",
+  "block.landsoficaria.loam_bricks": "Lehmziegel",
+  "block.landsoficaria.loam_bricks_slab": "Lehmziegel Stufe",
+  "block.landsoficaria.loam_bricks_stairs": "Lehmziegel Treppen",
+  "block.landsoficaria.loam_bricks_wall": "Lehmziegel Wand",
   "block.landsoficaria.yellowstone_adobe": "Gelbstein Lehm",
   "block.landsoficaria.yellowstone_adobe_slab": "Gelbstein Lehm Stufe",
   "block.landsoficaria.yellowstone_adobe_stairs": "Gelbstein Lehm Treppen",
@@ -95,6 +99,7 @@
   "block.landsoficaria.baetyl_chiseled": "Gemeißelte Bätyl Ziegel",
 
   "item.landsoficaria.loam_lump": "Lehmklumpen",
+  "item.landsoficaria.loam_brick": "Lehmziegel",
   "item.landsoficaria.calcite_powder": "Calcit Pulver",
 
   "itemGroup.landsoficaria.blocks": "Lands of Icaria Blöcke",

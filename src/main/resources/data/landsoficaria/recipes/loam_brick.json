@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "landsoficaria:loam_lump"
+  },
+  "result": "landsoficaria:loam_brick",
+  "experience": 0.3,
+  "cookingtime": 200
+}
