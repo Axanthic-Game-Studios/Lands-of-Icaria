@@ -19,7 +19,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 @Mod(LandsOfIcariaInfo.MODID)
 public class LandsOfIcaria
 {
-    public static CommonProxy proxy = DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
+    public static CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
     public LandsOfIcaria() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -27,8 +27,8 @@ public class LandsOfIcaria
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetupEvent);
 
-        LandsOfIcariaItems.ITEMS.register(bus);
         LandsOfIcariaBlocks.BLOCKS.register(bus);
+        LandsOfIcariaItems.ITEMS.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
