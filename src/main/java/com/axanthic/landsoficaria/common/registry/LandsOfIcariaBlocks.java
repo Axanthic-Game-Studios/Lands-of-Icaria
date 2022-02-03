@@ -35,6 +35,21 @@ public class LandsOfIcariaBlocks {
     public static final RegistryObject<Block> LOAM_BRICKS_STAIRS = register("loam_bricks_stairs", () -> new StairBlock(LOAM_BRICKS.get().defaultBlockState(), propertiesLoamBricks()));
     public static final RegistryObject<Block> LOAM_BRICKS_WALL = register("loam_bricks_wall", () -> new WallBlock(propertiesLoamBricks()));
 
+    public static final RegistryObject<Block> GRAINEL = register("grainel", () -> new Block(propertiesGrainel()));
+    public static final RegistryObject<Block> GRAINITE_ADOBE = register("grainite_adobe", () -> new Block(propertiesGrainite()));
+    public static final RegistryObject<Block> GRAINITE_ADOBE_SLAB = register("grainite_adobe_slab", () -> new SlabBlock(propertiesGrainite()));
+    public static final RegistryObject<Block> GRAINITE_ADOBE_STAIRS = register("grainite_adobe_stairs", () -> new StairBlock(GRAINITE_ADOBE.get().defaultBlockState(), propertiesGrainite()));
+    public static final RegistryObject<Block> GRAINITE_ADOBE_WALL = register("grainite_adobe_wall", () -> new WallBlock(propertiesGrainite()));
+    public static final RegistryObject<Block> GRAINITE = register("grainite", () -> new Block(propertiesGrainite()));
+    public static final RegistryObject<Block> GRAINITE_SLAB = register("grainite_slab", () -> new SlabBlock(propertiesGrainite()));
+    public static final RegistryObject<Block> GRAINITE_STAIRS = register("grainite_stairs", () -> new StairBlock(GRAINITE.get().defaultBlockState(), propertiesGrainite()));
+    public static final RegistryObject<Block> GRAINITE_WALL = register("grainite_wall", () -> new WallBlock(propertiesGrainite()));
+    public static final RegistryObject<Block> GRAINITE_BRICKS = register("grainite_bricks", () -> new Block(propertiesGrainite()));
+    public static final RegistryObject<Block> GRAINITE_BRICKS_SLAB = register("grainite_bricks_slab", () -> new SlabBlock(propertiesGrainite()));
+    public static final RegistryObject<Block> GRAINITE_BRICKS_STAIRS = register("grainite_bricks_stairs", () -> new StairBlock(GRAINITE_BRICKS.get().defaultBlockState(), propertiesGrainite()));
+    public static final RegistryObject<Block> GRAINITE_BRICKS_WALL = register("grainite_bricks_wall", () -> new WallBlock(propertiesGrainite()));
+    public static final RegistryObject<Block> GRAINITE_CHISELED = register("grainite_chiseled", () -> new Block(propertiesGrainite()));
+
     public static final RegistryObject<Block> YELLOWSTONE_ADOBE = register("yellowstone_adobe", () -> new Block(propertiesYellowstone()));
     public static final RegistryObject<Block> YELLOWSTONE_ADOBE_SLAB = register("yellowstone_adobe_slab", () -> new SlabBlock(propertiesYellowstone()));
     public static final RegistryObject<Block> YELLOWSTONE_ADOBE_STAIRS = register("yellowstone_adobe_stairs", () -> new StairBlock(YELLOWSTONE_ADOBE.get().defaultBlockState(), propertiesYellowstone()));
@@ -135,6 +150,14 @@ public class LandsOfIcariaBlocks {
 
     private static Properties propertiesLoamBricks() {
         return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
+    }
+
+    private static Properties propertiesGrainel() {
+        return Properties.of(Material.SAND, MaterialColor.TERRACOTTA_YELLOW).sound(SoundType.SAND).explosionResistance(0.5F).strength(0.5F);
+    }
+
+    private static Properties propertiesGrainite() {
+        return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_YELLOW).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
     }
 
     private static Properties propertiesYellowstone() {

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "landsoficaria:block/grainite_slab_bottom" },
+    "type=top": { "model": "landsoficaria:block/grainite_slab_top" },
+    "type=double": { "model": "landsoficaria:block/grainite" }
+  }
+}

@@ -3,6 +3,9 @@
   "values": [
     "landsoficaria:marl_adobe_wall",
     "landsoficaria:loam_bricks_wall",
+    "landsoficaria:grainite_adobe_wall",
+    "landsoficaria:grainite_wall",
+    "landsoficaria:grainite_bricks_wall",
     "landsoficaria:yellowstone_adobe_wall",
     "landsoficaria:yellowstone_cobble_wall",
     "landsoficaria:yellowstone_wall",

@@ -33,6 +33,21 @@ public class LandsOfIcariaItems {
     public static final RegistryObject<Item> LOAM_BRICKS_STAIRS = register("loam_bricks_stairs", () -> new BlockItem(LandsOfIcariaBlocks.LOAM_BRICKS_STAIRS.get(), propertiesBlocks()));
     public static final RegistryObject<Item> LOAM_BRICKS_WALL = register("loam_bricks_wall", () -> new BlockItem(LandsOfIcariaBlocks.LOAM_BRICKS_WALL.get(), propertiesBlocks()));
 
+    public static final RegistryObject<Item> GRAINEL = register("grainel", () -> new BlockItem(LandsOfIcariaBlocks.GRAINEL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE_ADOBE = register("grainite_adobe", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_ADOBE.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE_ADOBE_SLAB = register("grainite_adobe_slab", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_ADOBE_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE_ADOBE_STAIRS = register("grainite_adobe_stairs", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_ADOBE_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE_ADOBE_WALL = register("grainite_adobe_wall", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_ADOBE_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE = register("grainite", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE_SLAB = register("grainite_slab", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE_STAIRS = register("grainite_stairs", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE_WALL = register("grainite_wall", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE_BRICKS = register("grainite_bricks", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_BRICKS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE_BRICKS_SLAB = register("grainite_bricks_slab", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_BRICKS_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE_BRICKS_STAIRS = register("grainite_bricks_stairs", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_BRICKS_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE_BRICKS_WALL = register("grainite_bricks_wall", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_BRICKS_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINITE_CHISELED = register("grainite_chiseled", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_CHISELED.get(), propertiesBlocks()));
+
     public static final RegistryObject<Item> YELLOWSTONE_ADOBE = register("yellowstone_adobe", () -> new BlockItem(LandsOfIcariaBlocks.YELLOWSTONE_ADOBE.get(), propertiesBlocks()));
     public static final RegistryObject<Item> YELLOWSTONE_ADOBE_SLAB = register("yellowstone_adobe_slab", () -> new BlockItem(LandsOfIcariaBlocks.YELLOWSTONE_ADOBE_SLAB.get(), propertiesBlocks()));
     public static final RegistryObject<Item> YELLOWSTONE_ADOBE_STAIRS = register("yellowstone_adobe_stairs", () -> new BlockItem(LandsOfIcariaBlocks.YELLOWSTONE_ADOBE_STAIRS.get(), propertiesBlocks()));

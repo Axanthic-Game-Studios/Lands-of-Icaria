@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "landsoficaria:grainite_adobe"
+  },
+  "result": "landsoficaria:grainite_adobe_wall",
+  "count": 1
+}
