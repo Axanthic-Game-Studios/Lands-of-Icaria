@@ -46,8 +46,7 @@ public class LandsOfIcaria
         ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_2.get(), 0.3F);
     }
 
-    private void loadComplete(final FMLLoadCompleteEvent event)
-    {
+    private void loadComplete(final FMLLoadCompleteEvent event) {
         proxy.init();
     }
 }
