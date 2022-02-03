@@ -7,12 +7,14 @@ import com.axanthic.landsoficaria.common.registry.LandsOfIcariaItems;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.level.block.ComposterBlock;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -24,8 +26,9 @@ public class LandsOfIcaria
     public LandsOfIcaria() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetupEvent);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetupEvent);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 
         LandsOfIcariaBlocks.BLOCKS.register(bus);
         LandsOfIcariaItems.ITEMS.register(bus);
@@ -35,6 +38,12 @@ public class LandsOfIcaria
 
     public void onClientSetupEvent(FMLClientSetupEvent event) {
         ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.MARL_GRASS.get(), RenderType.cutout());
+    }
+
+    public void onCommonSetupEvent(FMLCommonSetupEvent event) {
+        ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_0.get(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_1.get(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_2.get(), 0.3F);
     }
 
     private void loadComplete(final FMLLoadCompleteEvent event)
