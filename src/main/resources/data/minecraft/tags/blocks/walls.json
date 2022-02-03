@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "landsoficaria:marl_adobe_wall",
     "landsoficaria:loam_bricks_wall",
     "landsoficaria:yellowstone_adobe_wall",
     "landsoficaria:yellowstone_cobble_wall",

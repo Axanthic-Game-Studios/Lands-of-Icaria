@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AB",
+    "BA"
+  ],
+  "key": {
+    "A": {
+      "item": "landsoficaria:grainel"
+    },
+    "B": {
+      "item": "landsoficaria:marl"
+    }
+  },
+
+  "result": {
+    "item": "landsoficaria:marl_coarse"
+  }
+}

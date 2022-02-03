@@ -18,11 +18,16 @@ public class LandsOfIcariaItems {
 
     public static final RegistryObject<Item> MARL_GRASS = register("marl_grass", () -> new BlockItem(LandsOfIcariaBlocks.MARL_GRASS.get(), propertiesBlocks()));
     public static final RegistryObject<Item> MARL = register("marl", () -> new BlockItem(LandsOfIcariaBlocks.MARL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> MARL_ADOBE = register("marl_adobe", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> MARL_ADOBE_WALL = register("marl_adobe_wall", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_WALL.get(), propertiesBlocks()));
     public static final RegistryObject<Item> MARL_COARSE = register("marl_coarse", () -> new BlockItem(LandsOfIcariaBlocks.MARL_COARSE.get(), propertiesBlocks()));
+
     public static final RegistryObject<Item> FARMLAND = register("farmland", () -> new BlockItem(LandsOfIcariaBlocks.FARMLAND.get(), propertiesBlocks()));
     public static final RegistryObject<Item> FARMLAND_FERTILIZED = register("farmland_fertilized", () -> new BlockItem(LandsOfIcariaBlocks.FARMLAND_FERTILIZED.get(), propertiesBlocks()));
-    public static final RegistryObject<Item> LOAM = register("loam", () -> new BlockItem(LandsOfIcariaBlocks.LOAM.get(), propertiesBlocks()));
 
+    public static final RegistryObject<Item> LOAM = register("loam", () -> new BlockItem(LandsOfIcariaBlocks.LOAM.get(), propertiesBlocks()));
     public static final RegistryObject<Item> LOAM_BRICKS = register("loam_bricks", () -> new BlockItem(LandsOfIcariaBlocks.LOAM_BRICKS.get(), propertiesBlocks()));
     public static final RegistryObject<Item> LOAM_BRICKS_SLAB = register("loam_bricks_slab", () -> new BlockItem(LandsOfIcariaBlocks.LOAM_BRICKS_SLAB.get(), propertiesBlocks()));
     public static final RegistryObject<Item> LOAM_BRICKS_STAIRS = register("loam_bricks_stairs", () -> new BlockItem(LandsOfIcariaBlocks.LOAM_BRICKS_STAIRS.get(), propertiesBlocks()));

@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
+    "landsoficaria:marl_adobe",
+    "landsoficaria:marl_adobe_stairs",
+    "landsoficaria:marl_adobe_slab",
+    "landsoficaria:marl_adobe_wall",
     "landsoficaria:loam_bricks",
     "landsoficaria:loam_bricks_stairs",
     "landsoficaria:loam_bricks_slab",
