@@ -47,6 +47,10 @@
   "block.landsoficaria.yellowstone_bricks_stairs": "Gelbstein Ziegel Treppen",
   "block.landsoficaria.yellowstone_bricks_wall": "Gelbstein Ziegel Mauer",
   "block.landsoficaria.yellowstone_chiseled": "Gemeißelte Gelbstein Ziegel",
+  "block.landsoficaria.silksand": "Seidensand",
+  "block.landsoficaria.silkglass": "Seidenglas",
+  "block.landsoficaria.silkglass_pane": "Seidenglasscheibe",
+  "block.landsoficaria.silkglass_pane_horizontal": "Horizontale Seidenglasscheibe",
   "block.landsoficaria.silkstone_adobe": "Seidenstein Lehm",
   "block.landsoficaria.silkstone_adobe_slab": "Seidenstein Lehm Stufe",
   "block.landsoficaria.silkstone_adobe_stairs": "Seidenstein Lehm Treppen",
@@ -122,6 +126,7 @@
   "item.landsoficaria.loam_lump": "Lehmklumpen",
   "item.landsoficaria.loam_brick": "Lehmziegel",
   "item.landsoficaria.calcite_powder": "Calcit Pulver",
+  "item.landsoficaria.flask_empty": "Leeres Fläschchen",
 
   "itemGroup.landsoficaria.blocks": "Lands of Icaria Blöcke",
   "itemGroup.landsoficaria.flora": "Lands of Icaria Flora",

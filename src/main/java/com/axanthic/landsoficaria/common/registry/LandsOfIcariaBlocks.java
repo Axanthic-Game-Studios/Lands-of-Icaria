@@ -72,6 +72,10 @@ public class LandsOfIcariaBlocks {
     public static final RegistryObject<Block> YELLOWSTONE_BRICKS_WALL = register("yellowstone_bricks_wall", () -> new WallBlock(propertiesYellowstone()));
     public static final RegistryObject<Block> YELLOWSTONE_CHISELED = register("yellowstone_chiseled", () -> new Block(propertiesYellowstone()));
 
+    public static final RegistryObject<Block> SILKSAND = register("silksand", () -> new SandBlock(propertiesSilksand()));
+    public static final RegistryObject<Block> SILKGLASS = register("silkglass", () -> new GlassBlock(propertiesGlass()));
+    public static final RegistryObject<Block> SILKGLASS_PANE = register("silkglass_pane", () -> new IronBarsBlock(propertiesGlass()));
+    public static final RegistryObject<Block> SILKGLASS_PANE_HORIZONTAL = register("silkglass_pane_horizontal", () -> new HorizontalPaneBlock(propertiesGlass()));
     public static final RegistryObject<Block> SILKSTONE_ADOBE = register("silkstone_adobe", () -> new Block(propertiesSilkstone()));
     public static final RegistryObject<Block> SILKSTONE_ADOBE_SLAB = register("silkstone_adobe_slab", () -> new SlabBlock(propertiesSilkstone()));
     public static final RegistryObject<Block> SILKSTONE_ADOBE_STAIRS = register("silkstone_adobe_stairs", () -> new StairBlock(SILKSTONE_ADOBE.get().defaultBlockState(), propertiesSilkstone()));
@@ -152,6 +156,11 @@ public class LandsOfIcariaBlocks {
     private static Properties propertiesGrainel() {
         return Properties.of(Material.SAND, MaterialColor.TERRACOTTA_YELLOW).sound(SoundType.SAND).explosionResistance(0.5F).strength(0.5F);
     }
+
+    private static Properties propertiesSilksand() {
+        return Properties.of(Material.SAND, MaterialColor.TERRACOTTA_LIGHT_GRAY).sound(SoundType.SAND).explosionResistance(0.5F).strength(0.5F);
+    }
+
     private static Properties propertiesGlass() {
         return Properties.of(Material.GLASS, MaterialColor.NONE).sound(SoundType.GLASS).explosionResistance(0.3F).strength(0.3F).noOcclusion();
     }

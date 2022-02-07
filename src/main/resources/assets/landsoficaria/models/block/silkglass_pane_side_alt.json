@@ -1,0 +1,21 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "landsoficaria:block/silkglass",
+    "glass": "landsoficaria:block/silkglass",
+    "pane": "landsoficaria:block/silkglass_pane"
+  },
+  "elements": [
+    {
+      "from": [ 7, 0, 9 ],
+      "to": [ 9, 16, 16 ],
+      "faces": {
+        "down": { "uv": [ 7, 0, 9, 7 ], "texture": "#pane" },
+        "up": { "uv": [ 7, 0, 9, 7 ], "texture": "#pane" },
+        "south": { "uv": [ 7, 0, 9, 16 ], "texture": "#pane", "cullface": "south" },
+        "west": { "uv": [ 7, 0, 0, 16 ], "texture": "#glass" },
+        "east": { "uv": [ 0, 0, 7, 16 ], "texture": "#glass" }
+      }
+    }
+  ]
+}

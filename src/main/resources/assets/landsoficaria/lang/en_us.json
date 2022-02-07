@@ -47,6 +47,10 @@
   "block.landsoficaria.yellowstone_bricks_stairs": "Yellowstone Bricks Stairs",
   "block.landsoficaria.yellowstone_bricks_wall": "Yellowstone Bricks Wall",
   "block.landsoficaria.yellowstone_chiseled": "Chiseled Yellowstone Bricks",
+  "block.landsoficaria.silksand": "Silksand",
+  "block.landsoficaria.silkglass": "Silkglass",
+  "block.landsoficaria.silkglass_pane": "Silkglass Pane",
+  "block.landsoficaria.silkglass_pane_horizontal": "Horizontal Silkglass Pane",
   "block.landsoficaria.silkstone_adobe": "Silkstone Adobe",
   "block.landsoficaria.silkstone_adobe_slab": "Silkstone Adobe Slab",
   "block.landsoficaria.silkstone_adobe_stairs": "Silkstone Adobe Stairs",
@@ -122,6 +126,7 @@
   "item.landsoficaria.loam_lump": "Lump of Loam",
   "item.landsoficaria.loam_brick": "Loam Brick",
   "item.landsoficaria.calcite_powder": "Calcite Powder",
+  "item.landsoficaria.flask_empty": "Empty Flask",
 
   "itemGroup.landsoficaria.blocks": "Lands of Icaria Blocks",
   "itemGroup.landsoficaria.flora": "Lands of Icaria Flora",

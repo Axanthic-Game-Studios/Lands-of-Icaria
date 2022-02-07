@@ -41,6 +41,9 @@ public class LandsOfIcaria
         ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS_PANE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.SILKGLASS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.SILKGLASS_PANE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
     }
 
     public void onCommonSetupEvent(FMLCommonSetupEvent event) {

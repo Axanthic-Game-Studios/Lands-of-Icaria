@@ -69,6 +69,10 @@ public class LandsOfIcariaItems {
     public static final RegistryObject<Item> YELLOWSTONE_BRICKS_WALL = register("yellowstone_bricks_wall", () -> new BlockItem(LandsOfIcariaBlocks.YELLOWSTONE_BRICKS_WALL.get(), propertiesBlocks()));
     public static final RegistryObject<Item> YELLOWSTONE_CHISELED = register("yellowstone_chiseled", () -> new BlockItem(LandsOfIcariaBlocks.YELLOWSTONE_CHISELED.get(), propertiesBlocks()));
 
+    public static final RegistryObject<Item> SILKSAND = register("silksand", () -> new BlockItem(LandsOfIcariaBlocks.SILKSAND.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> SILKGLASS = register("silkglass", () -> new BlockItem(LandsOfIcariaBlocks.SILKGLASS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> SILKGLASS_PANE = register("silkglass_pane", ()-> new BlockItem(LandsOfIcariaBlocks.SILKGLASS_PANE.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> SILKGLASS_PANE_HORIZONTAL = register("silkglass_pane_horizontal", ()-> new BlockItem(LandsOfIcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get(), propertiesBlocks()));
     public static final RegistryObject<Item> SILKSTONE_ADOBE = register("silkstone_adobe", () -> new BlockItem(LandsOfIcariaBlocks.SILKSTONE_ADOBE.get(), propertiesBlocks()));
     public static final RegistryObject<Item> SILKSTONE_ADOBE_SLAB = register("silkstone_adobe_slab", () -> new BlockItem(LandsOfIcariaBlocks.SILKSTONE_ADOBE_SLAB.get(), propertiesBlocks()));
     public static final RegistryObject<Item> SILKSTONE_ADOBE_STAIRS = register("silkstone_adobe_stairs", () -> new BlockItem(LandsOfIcariaBlocks.SILKSTONE_ADOBE_STAIRS.get(), propertiesBlocks()));
@@ -148,6 +152,7 @@ public class LandsOfIcariaItems {
     public static final RegistryObject<Item> LOAM_LUMP = register("loam_lump", () -> new Item(propertiesItems()));
     public static final RegistryObject<Item> LOAM_BRICK = register("loam_brick", () -> new Item(propertiesItems()));
     public static final RegistryObject<Item> CALCITE_POWDER = register("calcite_powder", () -> new Item(propertiesItems()));
+    public static final RegistryObject<Item> FLASK_EMPTY = register("flask_empty", () -> new Item(propertiesItems()));
 
     private static Properties propertiesBlocks() {
         return new Properties().tab(LandsOfIcariaTabs.creativeBlocks);
