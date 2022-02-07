@@ -38,6 +38,9 @@ public class LandsOfIcaria
 
     public void onClientSetupEvent(FMLClientSetupEvent event) {
         ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.MARL_GRASS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS_PANE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
     }
 
     public void onCommonSetupEvent(FMLCommonSetupEvent event) {

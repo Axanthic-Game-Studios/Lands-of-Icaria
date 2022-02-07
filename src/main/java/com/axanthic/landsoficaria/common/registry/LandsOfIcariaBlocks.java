@@ -4,6 +4,7 @@ import com.axanthic.landsoficaria.common.blocks.*;
 import com.axanthic.landsoficaria.common.blocks.MossBlock;
 import com.axanthic.landsoficaria.LandsOfIcariaInfo;
 
+import com.axanthic.landsoficaria.common.blocks.SandBlock;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.material.Material;
@@ -35,7 +36,10 @@ public class LandsOfIcariaBlocks {
     public static final RegistryObject<Block> LOAM_BRICKS_STAIRS = register("loam_bricks_stairs", () -> new StairBlock(LOAM_BRICKS.get().defaultBlockState(), propertiesLoamBricks()));
     public static final RegistryObject<Block> LOAM_BRICKS_WALL = register("loam_bricks_wall", () -> new WallBlock(propertiesLoamBricks()));
 
-    public static final RegistryObject<Block> GRAINEL = register("grainel", () -> new Block(propertiesGrainel()));
+    public static final RegistryObject<Block> GRAINEL = register("grainel", () -> new SandBlock(propertiesGrainel()));
+    public static final RegistryObject<Block> GRAINGLASS = register("grainglass", () -> new GlassBlock(propertiesGlass()));
+    public static final RegistryObject<Block> GRAINGLASS_PANE = register("grainglass_pane", () -> new IronBarsBlock(propertiesGlass()));
+    public static final RegistryObject<Block> GRAINGLASS_PANE_HORIZONTAL = register("grainglass_pane_horizontal", () -> new HorizontalPaneBlock(propertiesGlass()));
     public static final RegistryObject<Block> GRAINITE_ADOBE = register("grainite_adobe", () -> new Block(propertiesGrainite()));
     public static final RegistryObject<Block> GRAINITE_ADOBE_SLAB = register("grainite_adobe_slab", () -> new SlabBlock(propertiesGrainite()));
     public static final RegistryObject<Block> GRAINITE_ADOBE_STAIRS = register("grainite_adobe_stairs", () -> new StairBlock(GRAINITE_ADOBE.get().defaultBlockState(), propertiesGrainite()));
@@ -144,16 +148,20 @@ public class LandsOfIcariaBlocks {
     public static final RegistryObject<Block> MOSS_1 = register("moss_1", MossBlock::new);
     public static final RegistryObject<Block> MOSS_2 = register("moss_2", MossBlock::new);
 
+
+    private static Properties propertiesGrainel() {
+        return Properties.of(Material.SAND, MaterialColor.TERRACOTTA_YELLOW).sound(SoundType.SAND).explosionResistance(0.5F).strength(0.5F);
+    }
+    private static Properties propertiesGlass() {
+        return Properties.of(Material.GLASS, MaterialColor.NONE).sound(SoundType.GLASS).explosionResistance(0.3F).strength(0.3F).noOcclusion();
+    }
+
     private static Properties propertiesMarlAdobe() {
         return Properties.of(Material.STONE, MaterialColor.COLOR_BROWN).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
     }
 
     private static Properties propertiesLoamBricks() {
         return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
-    }
-
-    private static Properties propertiesGrainel() {
-        return Properties.of(Material.SAND, MaterialColor.TERRACOTTA_YELLOW).sound(SoundType.SAND).explosionResistance(0.5F).strength(0.5F);
     }
 
     private static Properties propertiesGrainite() {

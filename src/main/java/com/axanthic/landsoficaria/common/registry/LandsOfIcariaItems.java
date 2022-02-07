@@ -34,6 +34,9 @@ public class LandsOfIcariaItems {
     public static final RegistryObject<Item> LOAM_BRICKS_WALL = register("loam_bricks_wall", () -> new BlockItem(LandsOfIcariaBlocks.LOAM_BRICKS_WALL.get(), propertiesBlocks()));
 
     public static final RegistryObject<Item> GRAINEL = register("grainel", () -> new BlockItem(LandsOfIcariaBlocks.GRAINEL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINGLASS = register("grainglass", () -> new BlockItem(LandsOfIcariaBlocks.GRAINGLASS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINGLASS_PANE = register("grainglass_pane", ()-> new BlockItem(LandsOfIcariaBlocks.GRAINGLASS_PANE.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> GRAINGLASS_PANE_HORIZONTAL = register("grainglass_pane_horizontal", ()-> new BlockItem(LandsOfIcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get(), propertiesBlocks()));
     public static final RegistryObject<Item> GRAINITE_ADOBE = register("grainite_adobe", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_ADOBE.get(), propertiesBlocks()));
     public static final RegistryObject<Item> GRAINITE_ADOBE_SLAB = register("grainite_adobe_slab", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_ADOBE_SLAB.get(), propertiesBlocks()));
     public static final RegistryObject<Item> GRAINITE_ADOBE_STAIRS = register("grainite_adobe_stairs", () -> new BlockItem(LandsOfIcariaBlocks.GRAINITE_ADOBE_STAIRS.get(), propertiesBlocks()));

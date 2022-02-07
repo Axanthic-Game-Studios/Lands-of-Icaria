@@ -5,7 +5,8 @@
     "all": "landsoficaria:block/marl_coarse"
   },
   "elements": [
-    { "from": [ 0, 0, 0 ],
+    {
+      "from": [ 0, 0, 0 ],
       "to": [ 16, 16, 16 ],
       "faces": {
         "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#all" },
