@@ -193,6 +193,8 @@ public class LandsOfIcariaItems {
     public static final RegistryObject<Item> RELICSTONE_PILLAR = register("relicstone_pillar", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_PILLAR.get(), propertiesBlocks()));
     public static final RegistryObject<Item> RELICSTONE_PILLAR_HEAD = register("relicstone_pillar_head", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_PILLAR_HEAD.get(), propertiesBlocks()));
 
+    public static final RegistryObject<Item> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new BlockItem(LandsOfIcariaBlocks.QUARTZ_PILLAR_HEAD.get(), propertiesBlocks()));
+
     public static final RegistryObject<Item> MOSS_0 = register("moss_0", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_0.get(), propertiesFlora()));
     public static final RegistryObject<Item> MOSS_1 = register("moss_1", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_1.get(), propertiesFlora()));
     public static final RegistryObject<Item> MOSS_2 = register("moss_2", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_2.get(), propertiesFlora()));

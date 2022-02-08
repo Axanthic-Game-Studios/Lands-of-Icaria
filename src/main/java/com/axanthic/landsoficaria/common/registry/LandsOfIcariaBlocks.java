@@ -198,6 +198,8 @@ public class LandsOfIcariaBlocks {
     public static final RegistryObject<Block> RELICSTONE_PILLAR = register("relicstone_pillar", () -> new AxisBlock(propertiesRelicstone()));
     public static final RegistryObject<Block> RELICSTONE_PILLAR_HEAD = register("relicstone_pillar_head", () -> new FacingBlock(propertiesRelicstone()));
 
+    public static final RegistryObject<Block> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new FacingBlock(propertiesQuartz()));
+
     public static final RegistryObject<Block> MOSS_0 = register("moss_0", MossBlock::new);
     public static final RegistryObject<Block> MOSS_1 = register("moss_1", MossBlock::new);
     public static final RegistryObject<Block> MOSS_2 = register("moss_2", MossBlock::new);
@@ -256,6 +258,10 @@ public class LandsOfIcariaBlocks {
 
     private static Properties propertiesRelicstone() {
         return Properties.of(Material.STONE, MaterialColor.COLOR_BROWN).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
+    }
+
+    private static Properties propertiesQuartz() {
+        return Properties.of(Material.STONE, MaterialColor.QUARTZ).sound(SoundType.STONE).explosionResistance(0.8F).strength(0.8F).requiresCorrectToolForDrops();
     }
 
     private static <T extends Block> RegistryObject<T> register(final String name, final Supplier<? extends T> block) {
