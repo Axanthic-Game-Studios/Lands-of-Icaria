@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "landsoficaria:dolomite_adobe"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:dolomite_adobe_slab",
+    "count": 6
+  }
+}

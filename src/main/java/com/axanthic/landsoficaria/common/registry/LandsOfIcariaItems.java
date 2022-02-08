@@ -33,6 +33,18 @@ public class LandsOfIcariaItems {
     public static final RegistryObject<Item> LOAM_BRICKS_STAIRS = register("loam_bricks_stairs", () -> new BlockItem(LandsOfIcariaBlocks.LOAM_BRICKS_STAIRS.get(), propertiesBlocks()));
     public static final RegistryObject<Item> LOAM_BRICKS_WALL = register("loam_bricks_wall", () -> new BlockItem(LandsOfIcariaBlocks.LOAM_BRICKS_WALL.get(), propertiesBlocks()));
 
+    public static final RegistryObject<Item> DOLOMITE_ADOBE = register("dolomite_adobe", () -> new BlockItem(LandsOfIcariaBlocks.DOLOMITE_ADOBE.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> DOLOMITE_ADOBE_SLAB = register("dolomite_adobe_slab", () -> new BlockItem(LandsOfIcariaBlocks.DOLOMITE_ADOBE_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> DOLOMITE_ADOBE_STAIRS = register("dolomite_adobe_stairs", () -> new BlockItem(LandsOfIcariaBlocks.DOLOMITE_ADOBE_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> DOLOMITE_ADOBE_WALL = register("dolomite_adobe_wall", () -> new BlockItem(LandsOfIcariaBlocks.DOLOMITE_ADOBE_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> DOLOMITE_SMOOTH = register("dolomite_smooth", () -> new BlockItem(LandsOfIcariaBlocks.DOLOMITE_SMOOTH.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> DOLOMITE_SMOOTH_SLAB = register("dolomite_smooth_slab", () -> new BlockItem(LandsOfIcariaBlocks.DOLOMITE_SMOOTH_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> DOLOMITE_SMOOTH_STAIRS = register("dolomite_smooth_stairs", () -> new BlockItem(LandsOfIcariaBlocks.DOLOMITE_SMOOTH_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> DOLOMITE_SMOOTH_WALL = register("dolomite_smooth_wall", () -> new BlockItem(LandsOfIcariaBlocks.DOLOMITE_SMOOTH_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> DOLOMITE_BRICKS = register("dolomite_bricks", () -> new BlockItem(LandsOfIcariaBlocks.DOLOMITE_BRICKS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> DOLOMITE_PILLAR = register("dolomite_pillar", () -> new BlockItem(LandsOfIcariaBlocks.DOLOMITE_PILLAR.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> DOLOMITE_PILLAR_HEAD = register("dolomite_pillar_head", () -> new BlockItem(LandsOfIcariaBlocks.DOLOMITE_PILLAR_HEAD.get(), propertiesBlocks()));
+
     public static final RegistryObject<Item> GRAINEL = register("grainel", () -> new BlockItem(LandsOfIcariaBlocks.GRAINEL.get(), propertiesBlocks()));
     public static final RegistryObject<Item> GRAINGLASS = register("grainglass", () -> new BlockItem(LandsOfIcariaBlocks.GRAINGLASS.get(), propertiesBlocks()));
     public static final RegistryObject<Item> GRAINGLASS_PANE = register("grainglass_pane", ()-> new BlockItem(LandsOfIcariaBlocks.GRAINGLASS_PANE.get(), propertiesBlocks()));
@@ -152,6 +164,7 @@ public class LandsOfIcariaItems {
     public static final RegistryObject<Item> LOAM_LUMP = register("loam_lump", () -> new Item(propertiesItems()));
     public static final RegistryObject<Item> LOAM_BRICK = register("loam_brick", () -> new Item(propertiesItems()));
     public static final RegistryObject<Item> CALCITE_POWDER = register("calcite_powder", () -> new Item(propertiesItems()));
+    public static final RegistryObject<Item> DOLOMITE = register("dolomite", () -> new Item(propertiesItems()));
     public static final RegistryObject<Item> FLASK_EMPTY = register("flask_empty", () -> new Item(propertiesItems()));
 
     private static Properties propertiesBlocks() {

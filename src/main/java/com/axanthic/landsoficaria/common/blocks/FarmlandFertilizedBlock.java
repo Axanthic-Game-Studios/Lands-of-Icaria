@@ -66,7 +66,7 @@ public class FarmlandFertilizedBlock extends Block {
     }
 
     public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float f) {
-        // trample-resistant
+
     }
 
     public static void turnToMarl(BlockState state, Level level, BlockPos pos) {
