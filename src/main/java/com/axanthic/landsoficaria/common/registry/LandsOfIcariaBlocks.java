@@ -22,10 +22,10 @@ public class LandsOfIcariaBlocks {
 
     public static final RegistryObject<Block> MARL_GRASS = register("marl_grass", MarlGrassBlock::new);
     public static final RegistryObject<Block> MARL = register("marl", MarlBlock::new);
-    public static final RegistryObject<Block> MARL_ADOBE = register("marl_adobe", () -> new Block(propertiesMarl()));
-    public static final RegistryObject<Block> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new SlabBlock(propertiesMarl()));
-    public static final RegistryObject<Block> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new StairBlock(MARL_ADOBE.get().defaultBlockState(), propertiesMarl()));
-    public static final RegistryObject<Block> MARL_ADOBE_WALL = register("marl_adobe_wall", () -> new WallBlock(propertiesMarl()));
+    public static final RegistryObject<Block> MARL_ADOBE = register("marl_adobe", () -> new Block(propertiesMarlAdobe()));
+    public static final RegistryObject<Block> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new SlabBlock(propertiesMarlAdobe()));
+    public static final RegistryObject<Block> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new StairBlock(MARL_ADOBE.get().defaultBlockState(), propertiesMarlAdobe()));
+    public static final RegistryObject<Block> MARL_ADOBE_WALL = register("marl_adobe_wall", () -> new WallBlock(propertiesMarlAdobe()));
     public static final RegistryObject<Block> MARL_COARSE = register("marl_coarse", MarlCoarseBlock::new);
 
     public static final RegistryObject<Block> FARMLAND = register("farmland", FarmlandBlock::new);
@@ -162,11 +162,47 @@ public class LandsOfIcariaBlocks {
     public static final RegistryObject<Block> BAETYL_BRICKS_WALL = register("baetyl_bricks_wall", () -> new WallBlock(propertiesBaetyl()));
     public static final RegistryObject<Block> BAETYL_CHISELED = register("baetyl_chiseled", () -> new Block(propertiesBaetyl()));
 
+    public static final RegistryObject<Block> RELICSTONE = register("relicstone", () -> new Block(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_SLAB = register("relicstone_slab", () -> new SlabBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_STAIRS = register("relicstone_stairs", () -> new StairBlock(RELICSTONE.get().defaultBlockState(), propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_WALL = register("relicstone_wall", () -> new WallBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_SMOOTH = register("relicstone_smooth", () -> new Block(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_SMOOTH_SLAB = register("relicstone_smooth_slab", () -> new SlabBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_SMOOTH_STAIRS = register("relicstone_smooth_stairs", () -> new StairBlock(RELICSTONE_SMOOTH.get().defaultBlockState(), propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_SMOOTH_WALL = register("relicstone_smooth_wall", () -> new WallBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_BRICKS = register("relicstone_bricks", () -> new Block(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_BRICKS_SLAB = register("relicstone_bricks_slab", () -> new SlabBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_BRICKS_STAIRS = register("relicstone_bricks_stairs", () -> new StairBlock(RELICSTONE_BRICKS.get().defaultBlockState(), propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_BRICKS_WALL = register("relicstone_bricks_wall", () -> new WallBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_BRICKS_CRACKED = register("relicstone_bricks_cracked", () -> new Block(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_BRICKS_CRACKED_SLAB = register("relicstone_bricks_cracked_slab", () -> new SlabBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_BRICKS_CRACKED_STAIRS = register("relicstone_bricks_cracked_stairs", () -> new StairBlock(RELICSTONE_BRICKS_CRACKED.get().defaultBlockState(), propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_BRICKS_CRACKED_WALL = register("relicstone_bricks_cracked_wall", () -> new WallBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_BRICKS_MOSSY = register("relicstone_bricks_mossy", () -> new Block(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_BRICKS_MOSSY_SLAB = register("relicstone_bricks_mossy_slab", () -> new SlabBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_BRICKS_MOSSY_STAIRS = register("relicstone_bricks_mossy_stairs", () -> new StairBlock(RELICSTONE_BRICKS_MOSSY.get().defaultBlockState(), propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_BRICKS_MOSSY_WALL = register("relicstone_bricks_mossy_wall", () -> new WallBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_TILES = register("relicstone_tiles", () -> new Block(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_TILES_SLAB = register("relicstone_tiles_slab", () -> new SlabBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_TILES_STAIRS = register("relicstone_tiles_stairs", () -> new StairBlock(RELICSTONE_TILES.get().defaultBlockState(), propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_TILES_WALL = register("relicstone_tiles_wall", () -> new WallBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_TILES_CRACKED = register("relicstone_tiles_cracked", () -> new Block(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_TILES_CRACKED_SLAB = register("relicstone_tiles_cracked_slab", () -> new SlabBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_TILES_CRACKED_STAIRS = register("relicstone_tiles_cracked_stairs", () -> new StairBlock(RELICSTONE_TILES_CRACKED.get().defaultBlockState(), propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_TILES_CRACKED_WALL = register("relicstone_tiles_cracked_wall", () -> new WallBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_TILES_MOSSY = register("relicstone_tiles_mossy", () -> new Block(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_TILES_MOSSY_SLAB = register("relicstone_tiles_mossy_slab", () -> new SlabBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_TILES_MOSSY_STAIRS = register("relicstone_tiles_mossy_stairs", () -> new StairBlock(RELICSTONE_TILES_MOSSY.get().defaultBlockState(), propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_TILES_MOSSY_WALL = register("relicstone_tiles_mossy_wall", () -> new WallBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_CHISELED = register("relicstone_chiseled", () -> new Block(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_PILLAR = register("relicstone_pillar", () -> new AxisBlock(propertiesRelicstone()));
+    public static final RegistryObject<Block> RELICSTONE_PILLAR_HEAD = register("relicstone_pillar_head", () -> new FacingBlock(propertiesRelicstone()));
+
     public static final RegistryObject<Block> MOSS_0 = register("moss_0", MossBlock::new);
     public static final RegistryObject<Block> MOSS_1 = register("moss_1", MossBlock::new);
     public static final RegistryObject<Block> MOSS_2 = register("moss_2", MossBlock::new);
 
-    private static Properties propertiesMarl() {
+    private static Properties propertiesMarlAdobe() {
         return Properties.of(Material.STONE, MaterialColor.COLOR_BROWN).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
     }
 
@@ -216,6 +252,10 @@ public class LandsOfIcariaBlocks {
 
     private static Properties propertiesBaetyl() {
         return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
+    }
+
+    private static Properties propertiesRelicstone() {
+        return Properties.of(Material.STONE, MaterialColor.COLOR_BROWN).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
     }
 
     private static <T extends Block> RegistryObject<T> register(final String name, final Supplier<? extends T> block) {

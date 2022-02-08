@@ -157,13 +157,49 @@ public class LandsOfIcariaItems {
     public static final RegistryObject<Item> BAETYL_BRICKS_WALL = register("baetyl_bricks_wall", () -> new BlockItem(LandsOfIcariaBlocks.BAETYL_BRICKS_WALL.get(), propertiesBlocks()));
     public static final RegistryObject<Item> BAETYL_CHISELED = register("baetyl_chiseled", () -> new BlockItem(LandsOfIcariaBlocks.BAETYL_CHISELED.get(), propertiesBlocks()));
 
+    public static final RegistryObject<Item> RELICSTONE = register("relicstone", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_SLAB = register("relicstone_slab", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_STAIRS = register("relicstone_stairs", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_WALL = register("relicstone_wall", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_SMOOTH = register("relicstone_smooth", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_SMOOTH.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_SMOOTH_SLAB = register("relicstone_smooth_slab", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_SMOOTH_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_SMOOTH_STAIRS = register("relicstone_smooth_stairs", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_SMOOTH_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_SMOOTH_WALL = register("relicstone_smooth_wall", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_SMOOTH_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_BRICKS = register("relicstone_bricks", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_BRICKS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_BRICKS_SLAB = register("relicstone_bricks_slab", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_BRICKS_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_BRICKS_STAIRS = register("relicstone_bricks_stairs", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_BRICKS_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_BRICKS_WALL = register("relicstone_bricks_wall", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_BRICKS_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_BRICKS_CRACKED = register("relicstone_bricks_cracked", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_BRICKS_CRACKED.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_BRICKS_CRACKED_SLAB = register("relicstone_bricks_cracked_slab", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_BRICKS_CRACKED_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_BRICKS_CRACKED_STAIRS = register("relicstone_bricks_cracked_stairs", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_BRICKS_CRACKED_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_BRICKS_CRACKED_WALL = register("relicstone_bricks_cracked_wall", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_BRICKS_CRACKED_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_BRICKS_MOSSY = register("relicstone_bricks_mossy", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_BRICKS_MOSSY.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_BRICKS_MOSSY_SLAB = register("relicstone_bricks_mossy_slab", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_BRICKS_MOSSY_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_BRICKS_MOSSY_STAIRS = register("relicstone_bricks_mossy_stairs", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_BRICKS_MOSSY_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_BRICKS_MOSSY_WALL = register("relicstone_bricks_mossy_wall", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_BRICKS_MOSSY_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_TILES = register("relicstone_tiles", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_TILES.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_TILES_SLAB = register("relicstone_tiles_slab", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_TILES_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_TILES_STAIRS = register("relicstone_tiles_stairs", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_TILES_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_TILES_WALL = register("relicstone_tiles_wall", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_TILES_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_TILES_CRACKED = register("relicstone_tiles_cracked", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_TILES_CRACKED.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_TILES_CRACKED_SLAB = register("relicstone_tiles_cracked_slab", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_TILES_CRACKED_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_TILES_CRACKED_STAIRS = register("relicstone_tiles_cracked_stairs", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_TILES_CRACKED_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_TILES_CRACKED_WALL = register("relicstone_tiles_cracked_wall", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_TILES_CRACKED_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_TILES_MOSSY = register("relicstone_tiles_mossy", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_TILES_MOSSY.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_TILES_MOSSY_SLAB = register("relicstone_tiles_mossy_slab", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_TILES_MOSSY_SLAB.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_TILES_MOSSY_STAIRS = register("relicstone_tiles_mossy_stairs", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_TILES_MOSSY_STAIRS.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_TILES_MOSSY_WALL = register("relicstone_tiles_mossy_wall", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_TILES_MOSSY_WALL.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_CHISELED = register("relicstone_chiseled", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_CHISELED.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_PILLAR = register("relicstone_pillar", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_PILLAR.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> RELICSTONE_PILLAR_HEAD = register("relicstone_pillar_head", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_PILLAR_HEAD.get(), propertiesBlocks()));
+
     public static final RegistryObject<Item> MOSS_0 = register("moss_0", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_0.get(), propertiesFlora()));
     public static final RegistryObject<Item> MOSS_1 = register("moss_1", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_1.get(), propertiesFlora()));
     public static final RegistryObject<Item> MOSS_2 = register("moss_2", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_2.get(), propertiesFlora()));
 
+    public static final RegistryObject<Item> CALCITE_POWDER = register("calcite_powder", () -> new Item(propertiesItems()));
     public static final RegistryObject<Item> LOAM_LUMP = register("loam_lump", () -> new Item(propertiesItems()));
     public static final RegistryObject<Item> LOAM_BRICK = register("loam_brick", () -> new Item(propertiesItems()));
-    public static final RegistryObject<Item> CALCITE_POWDER = register("calcite_powder", () -> new Item(propertiesItems()));
     public static final RegistryObject<Item> DOLOMITE = register("dolomite", () -> new Item(propertiesItems()));
     public static final RegistryObject<Item> FLASK_EMPTY = register("flask_empty", () -> new Item(propertiesItems()));
 

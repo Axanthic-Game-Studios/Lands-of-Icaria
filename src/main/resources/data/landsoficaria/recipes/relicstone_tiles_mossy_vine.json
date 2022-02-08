@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AB"
+  ],
+  "key": {
+    "A": {
+      "item": "landsoficaria:relicstone_tiles"
+    },
+    "B": {
+      "item": "minecraft:vine"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:relicstone_tiles_mossy"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "landsoficaria:relicstone_bricks_cracked"
+  },
+  "result": "landsoficaria:relicstone_bricks_cracked_wall",
+  "count": 1
+}

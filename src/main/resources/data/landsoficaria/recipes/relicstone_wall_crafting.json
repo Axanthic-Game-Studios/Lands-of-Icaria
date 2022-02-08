@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "landsoficaria:relicstone"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:relicstone_wall",
+    "count": 6
+  }
+}

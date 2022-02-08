@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "landsoficaria:relicstone_smooth"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:relicstone_smooth_stairs",
+    "count": 4
+  }
+}

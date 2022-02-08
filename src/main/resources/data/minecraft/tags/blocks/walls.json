@@ -27,6 +27,14 @@
     "landsoficaria:baetyl_adobe_wall",
     "landsoficaria:baetyl_cobble_wall",
     "landsoficaria:baetyl_wall",
-    "landsoficaria:baetyl_bricks_wall"
+    "landsoficaria:baetyl_bricks_wall",
+    "landsoficaria:relicstone_wall",
+    "landsoficaria:relicstone_smooth_wall",
+    "landsoficaria:relicstone_bricks_wall",
+    "landsoficaria:relicstone_bricks_cracked_wall",
+    "landsoficaria:relicstone_bricks_mossy_wall",
+    "landsoficaria:relicstone_tiles_wall",
+    "landsoficaria:relicstone_tiles_cracked_wall",
+    "landsoficaria:relicstone_tiles_mossy_wall"
   ]
 }
