@@ -23,6 +23,9 @@ public class LandsOfIcariaBlocks {
 
     public static final RegistryObject<Block> MARL_GRASS = register("marl_grass", MarlGrassBlock::new);
     public static final RegistryObject<Block> MARL = register("marl", MarlBlock::new);
+    public static final RegistryObject<Block> MARL_CHERT = register("marl_chert", () -> new Block(propertiesMarlOre()));
+    public static final RegistryObject<Block> MARL_ROTTEN_BONES = register("marl_rotten_bones", () -> new Block(propertiesMarlOre()));
+    public static final RegistryObject<Block> MARL_LIGNITE = register("marl_lignite", () -> new Block(propertiesMarlOre()));
     public static final RegistryObject<Block> MARL_ADOBE = register("marl_adobe", () -> new Block(propertiesMarlAdobe()));
     public static final RegistryObject<Block> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new SlabBlock(propertiesMarlAdobe()));
     public static final RegistryObject<Block> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new StairBlock(MARL_ADOBE.get().defaultBlockState(), propertiesMarlAdobe()));
@@ -36,7 +39,6 @@ public class LandsOfIcariaBlocks {
     public static final RegistryObject<Block> ARISTONE_PACKED = register("aristone_packed", () -> new Block(propertiesAristone()));
 
     public static final RegistryObject<Block> LOAM = register("loam", () -> new SandBlock(propertiesLoam()));
-
     public static final RegistryObject<Block> LOAM_BRICKS = register("loam_bricks", () -> new Block(propertiesLoamBricks()));
     public static final RegistryObject<Block> LOAM_BRICKS_SLAB = register("loam_bricks_slab", () -> new SlabBlock(propertiesLoamBricks()));
     public static final RegistryObject<Block> LOAM_BRICKS_STAIRS = register("loam_bricks_stairs", () -> new StairBlock(LOAM_BRICKS.get().defaultBlockState(), propertiesLoamBricks()));
@@ -204,9 +206,18 @@ public class LandsOfIcariaBlocks {
 
     public static final RegistryObject<Block> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new FacingBlock(propertiesQuartz()));
 
+    //TODO: Properties
+    public static final RegistryObject<Block> CHERT_BLOCK = register("chert_block", () -> new Block(propertiesQuartz()));
+    public static final RegistryObject<Block> ROTTEN_BONES_BLOCK = register("rotten_bones_block", () -> new Block(propertiesQuartz()));
+    public static final RegistryObject<Block> LIGNITE_BLOCK = register("lignite_block", () -> new Block(propertiesQuartz()));
+
     public static final RegistryObject<Block> MOSS_0 = register("moss_0", MossBlock::new);
     public static final RegistryObject<Block> MOSS_1 = register("moss_1", MossBlock::new);
     public static final RegistryObject<Block> MOSS_2 = register("moss_2", MossBlock::new);
+
+    private static Properties propertiesMarlOre() {
+        return Properties.of(Material.DIRT, MaterialColor.COLOR_BROWN).sound(SoundType.GRAVEL).explosionResistance(0.9F).strength(0.9F).requiresCorrectToolForDrops();
+    }
 
     private static Properties propertiesMarlAdobe() {
         return Properties.of(Material.STONE, MaterialColor.COLOR_BROWN).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
