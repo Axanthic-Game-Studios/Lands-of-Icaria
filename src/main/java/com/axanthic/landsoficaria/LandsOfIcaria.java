@@ -29,33 +29,32 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 @Mod(LandsOfIcariaInfo.MODID)
-public class LandsOfIcaria
-{
-    public static CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
+public class LandsOfIcaria {
+	public static CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
-    public LandsOfIcaria() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+	public LandsOfIcaria() {
+		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetupEvent);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetupEvent);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 
-        LandsOfIcariaBlocks.BLOCKS.register(bus);
-        LandsOfIcariaItems.ITEMS.register(bus);
+		LandsOfIcariaBlocks.BLOCKS.register(bus);
+		LandsOfIcariaItems.ITEMS.register(bus);
 
-        MinecraftForge.EVENT_BUS.register(this);
-    }
+		MinecraftForge.EVENT_BUS.register(this);
+	}
 
-    public void onCommonSetupEvent(FMLCommonSetupEvent event) {
-        ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_0.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_1.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_2.get(), 0.3F);
-    }
+	public void onCommonSetupEvent(FMLCommonSetupEvent event) {
+		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_0.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_1.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_2.get(), 0.3F);
+	}
 
-    private void loadComplete(final FMLLoadCompleteEvent event) {
-        proxy.init();
-    }
+	private void loadComplete(final FMLLoadCompleteEvent event) {
+		proxy.init();
+	}
 
-    @SubscribeEvent
+	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
 		DataGenerator gen = event.getGenerator();
 		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
@@ -65,7 +64,8 @@ public class LandsOfIcaria
 			ItemModelProvider itemModels = new IcariaItemModels(gen, existingFileHelper);
 			gen.addProvider(itemModels);
 			gen.addProvider(new IcariaBlockStates(gen, existingFileHelper));
-		} if (event.includeServer()) {
+		}
+		if (event.includeServer()) {
 			gen.addProvider(new IcariaLootTables(gen));
 			gen.addProvider(new IcariaRecipes(gen));
 			BlockTagsProvider blockTags = new IcariaBlockTags(gen, existingFileHelper);

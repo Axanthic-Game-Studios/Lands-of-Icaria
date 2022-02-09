@@ -9,18 +9,20 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 public class AxisBlock extends Block {
-    public static final EnumProperty<Axis> AXIS = BlockStateProperties.AXIS;
+	public static final EnumProperty<Axis> AXIS = BlockStateProperties.AXIS;
 
-    public AxisBlock(Properties properties) {
-        super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Axis.Y));
-    }
+	public AxisBlock(Properties properties) {
+		super(properties);
+		this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Axis.Y));
+	}
 
-    public void createBlockStateDefinition(Builder<Block, BlockState> builder) {
-        builder.add(AXIS);
-    }
+	@Override
+	public void createBlockStateDefinition(Builder<Block, BlockState> builder) {
+		builder.add(AXIS);
+	}
 
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(AXIS, context.getClickedFace().getAxis());
-    }
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		return this.defaultBlockState().setValue(AXIS, context.getClickedFace().getAxis());
+	}
 }

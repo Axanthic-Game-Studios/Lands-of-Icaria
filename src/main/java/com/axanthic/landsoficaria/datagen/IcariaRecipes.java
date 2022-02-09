@@ -26,6 +26,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		return LandsOfIcariaInfo.MODID;
 	}
 
+	@Override
 	public void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
 	}

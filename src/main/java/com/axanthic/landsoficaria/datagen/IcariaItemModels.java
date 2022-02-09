@@ -35,7 +35,8 @@ public class IcariaItemModels extends ItemModelProvider {
 		ModelBuilder builder = getBuilder(registryObject.getId().getPath()).parent(getExistingFile(new ResourceLocation(LandsOfIcariaInfo.MODID, "item/bucket_fluid")));
 
 		//I'm not sure how this works but it works
-		builder.customLoader((t, u) ->  new CustomLoaderBuilder(((ModelBuilder) t).getLocation(), (ModelBuilder) t, (ExistingFileHelper) u) {
+		builder.customLoader((t, u) -> new CustomLoaderBuilder(((ModelBuilder) t).getLocation(), (ModelBuilder) t, (ExistingFileHelper) u) {
+			@Override
 			public JsonObject toJson(JsonObject json) {
 				json.addProperty("loader", "forge:bucket");
 				json.addProperty("fluid", registryObject.get().getFluid().getRegistryName().toString());

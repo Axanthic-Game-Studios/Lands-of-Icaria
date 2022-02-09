@@ -16,9 +16,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 	@Nonnull
 	@Override
 	protected Iterable<Block> getKnownBlocks() {
-		return ForgeRegistries.BLOCKS.getValues().stream()
-				.filter((block) -> LandsOfIcariaInfo.MODID.equals(Objects.requireNonNull(block.getRegistryName()).getNamespace()))
-				.collect(Collectors.toList());
+		return ForgeRegistries.BLOCKS.getValues().stream().filter((block) -> LandsOfIcariaInfo.MODID.equals(Objects.requireNonNull(block.getRegistryName()).getNamespace())).collect(Collectors.toList());
 	}
 
 	@Override
