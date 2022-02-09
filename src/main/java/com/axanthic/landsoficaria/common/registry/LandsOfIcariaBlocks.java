@@ -34,20 +34,18 @@ public class LandsOfIcariaBlocks {
 
 	public static final RegistryObject<Block> MARL_GRASS = register("marl_grass", () -> new MarlGrassBlock(propertiesMarlGrass()));
 	public static final RegistryObject<Block> MARL = register("marl", () -> new MarlBlock(propertiesMarl()));
-	public static final RegistryObject<Block> MARL_CHERT = register("marl_chert", () -> new Block(propertiesMarlOres()));
-	public static final RegistryObject<Block> MARL_ROTTEN_BONES = register("marl_rotten_bones", () -> new Block(propertiesMarlOres()));
-	public static final RegistryObject<Block> MARL_LIGNITE = register("marl_lignite", () -> new Block(propertiesMarlOres()));
-	public static final RegistryObject<Block> MARL_ADOBE = register("marl_adobe", () -> new Block(propertiesMarlAdobe()));
-	public static final RegistryObject<Block> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new SlabBlock(propertiesMarlAdobe()));
-	public static final RegistryObject<Block> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new StairBlock(MARL_ADOBE.get().defaultBlockState(), propertiesMarlAdobe()));
-	public static final RegistryObject<Block> MARL_ADOBE_WALL = register("marl_adobe_wall", () -> new WallBlock(propertiesMarlAdobe()));
+	public static final RegistryObject<Block> MARL_CHERT = register("marl_chert", () -> new Block(propertiesMarlOre()));
+	public static final RegistryObject<Block> MARL_ROTTEN_BONES = register("marl_rotten_bones", () -> new Block(propertiesMarlOre()));
+	public static final RegistryObject<Block> MARL_LIGNITE = register("marl_lignite", () -> new Block(propertiesMarlOre()));
 	public static final RegistryObject<Block> MARL_COARSE = register("marl_coarse", () -> new MarlCoarseBlock(propertiesMarl()));
 
 	public static final RegistryObject<Block> FARMLAND = register("farmland", () -> new FarmlandBlock(propertiesFarmland()));
 	public static final RegistryObject<Block> FARMLAND_FERTILIZED = register("farmland_fertilized", () -> new FarmlandFertilizedBlock(propertiesFarmland()));
 
-	public static final RegistryObject<Block> ARISTONE = register("aristone", () -> new GlassBlock(propertiesAristone()));
-	public static final RegistryObject<Block> ARISTONE_PACKED = register("aristone_packed", () -> new Block(propertiesAristone()));
+	public static final RegistryObject<Block> MARL_ADOBE = register("marl_adobe", () -> new Block(propertiesMarlAdobe()));
+	public static final RegistryObject<Block> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new SlabBlock(propertiesMarlAdobe()));
+	public static final RegistryObject<Block> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new StairBlock(MARL_ADOBE.get().defaultBlockState(), propertiesMarlAdobe()));
+	public static final RegistryObject<Block> MARL_ADOBE_WALL = register("marl_adobe_wall", () -> new WallBlock(propertiesMarlAdobe()));
 
 	public static final RegistryObject<Block> LOAM = register("loam", () -> new SandBlock(propertiesLoam()));
 	public static final RegistryObject<Block> LOAM_BRICKS = register("loam_bricks", () -> new Block(propertiesLoamBricks()));
@@ -68,6 +66,7 @@ public class LandsOfIcariaBlocks {
 	public static final RegistryObject<Block> DOLOMITE_PILLAR_HEAD = register("dolomite_pillar_head", () -> new FacingBlock(propertiesDolomite()));
 
 	public static final RegistryObject<Block> GRAINEL = register("grainel", () -> new SandBlock(propertiesGrainel()));
+	public static final RegistryObject<Block> GRAINEL_CHERT = register("grainel_chert", () -> new Block(propertiesGrainelOre()));
 	public static final RegistryObject<Block> GRAINGLASS = register("grainglass", () -> new GlassBlock(propertiesGlass()));
 	public static final RegistryObject<Block> GRAINGLASS_PANE = register("grainglass_pane", () -> new IronBarsBlock(propertiesGlass()));
 	public static final RegistryObject<Block> GRAINGLASS_PANE_HORIZONTAL = register("grainglass_pane_horizontal", () -> new HorizontalPaneBlock(propertiesGlass()));
@@ -215,6 +214,9 @@ public class LandsOfIcariaBlocks {
 	public static final RegistryObject<Block> RELICSTONE_PILLAR = register("relicstone_pillar", () -> new AxisBlock(propertiesRelicstone()));
 	public static final RegistryObject<Block> RELICSTONE_PILLAR_HEAD = register("relicstone_pillar_head", () -> new FacingBlock(propertiesRelicstone()));
 
+	public static final RegistryObject<Block> ARISTONE = register("aristone", () -> new GlassBlock(propertiesAristone()));
+	public static final RegistryObject<Block> ARISTONE_PACKED = register("aristone_packed", () -> new Block(propertiesAristone()));
+
 	public static final RegistryObject<Block> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new FacingBlock(propertiesQuartz()));
 
 	public static final RegistryObject<Block> CHERT_BLOCK = register("chert_block", () -> new Block(propertiesChertBlock()));
@@ -233,20 +235,16 @@ public class LandsOfIcariaBlocks {
 		return Properties.of(Material.DIRT, MaterialColor.COLOR_BROWN).sound(SoundType.GRAVEL).explosionResistance(0.5F).strength(0.5F);
 	}
 
-	private static Properties propertiesMarlOres() {
+	private static Properties propertiesMarlOre() {
 		return Properties.of(Material.DIRT, MaterialColor.COLOR_BROWN).sound(SoundType.GRAVEL).explosionResistance(0.5F).strength(0.5F).requiresCorrectToolForDrops();
-	}
-
-	private static Properties propertiesMarlAdobe() {
-		return Properties.of(Material.STONE, MaterialColor.COLOR_BROWN).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
 	}
 
 	private static Properties propertiesFarmland() {
 		return Properties.of(Material.DIRT, MaterialColor.COLOR_BROWN).sound(SoundType.GRAVEL).explosionResistance(0.6F).strength(0.6F).randomTicks();
 	}
 
-	private static Properties propertiesAristone() {
-		return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GREEN).sound(LandsOfIcariaSounds.ARISTONE).explosionResistance(0.5F).strength(0.5F).friction(0.98F).noOcclusion();
+	private static Properties propertiesMarlAdobe() {
+		return Properties.of(Material.STONE, MaterialColor.COLOR_BROWN).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
 	}
 
 	private static Properties propertiesLoam() {
@@ -263,6 +261,10 @@ public class LandsOfIcariaBlocks {
 
 	private static Properties propertiesGrainel() {
 		return Properties.of(Material.SAND, MaterialColor.TERRACOTTA_YELLOW).sound(SoundType.SAND).explosionResistance(0.5F).strength(0.5F);
+	}
+
+	private static Properties propertiesGrainelOre() {
+		return Properties.of(Material.SAND, MaterialColor.TERRACOTTA_YELLOW).sound(SoundType.SAND).explosionResistance(0.5F).strength(0.5F).requiresCorrectToolForDrops();
 	}
 
 	private static Properties propertiesGlass() {
@@ -299,6 +301,10 @@ public class LandsOfIcariaBlocks {
 
 	private static Properties propertiesRelicstone() {
 		return Properties.of(Material.STONE, MaterialColor.COLOR_BROWN).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
+	}
+
+	private static Properties propertiesAristone() {
+		return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GREEN).sound(LandsOfIcariaSounds.ARISTONE).explosionResistance(0.5F).strength(0.5F).friction(0.98F).noOcclusion();
 	}
 
 	private static Properties propertiesQuartz() {

@@ -22,17 +22,15 @@ public class LandsOfIcariaItems {
 	public static final RegistryObject<Item> MARL_CHERT = register("marl_chert", () -> new BlockItem(LandsOfIcariaBlocks.MARL_CHERT.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> MARL_ROTTEN_BONES = register("marl_rotten_bones", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ROTTEN_BONES.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> MARL_LIGNITE = register("marl_lignite", () -> new BlockItem(LandsOfIcariaBlocks.MARL_LIGNITE.get(), propertiesBlocks()));
-	public static final RegistryObject<Item> MARL_ADOBE = register("marl_adobe", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE.get(), propertiesBlocks()));
-	public static final RegistryObject<Item> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_SLAB.get(), propertiesBlocks()));
-	public static final RegistryObject<Item> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_STAIRS.get(), propertiesBlocks()));
-	public static final RegistryObject<Item> MARL_ADOBE_WALL = register("marl_adobe_wall", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_WALL.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> MARL_COARSE = register("marl_coarse", () -> new BlockItem(LandsOfIcariaBlocks.MARL_COARSE.get(), propertiesBlocks()));
 
 	public static final RegistryObject<Item> FARMLAND = register("farmland", () -> new BlockItem(LandsOfIcariaBlocks.FARMLAND.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> FARMLAND_FERTILIZED = register("farmland_fertilized", () -> new BlockItem(LandsOfIcariaBlocks.FARMLAND_FERTILIZED.get(), propertiesBlocks()));
 
-	public static final RegistryObject<Item> ARISTONE = register("aristone", () -> new BlockItem(LandsOfIcariaBlocks.ARISTONE.get(), propertiesBlocks()));
-	public static final RegistryObject<Item> ARISTONE_PACKED = register("aristone_packed", () -> new BlockItem(LandsOfIcariaBlocks.ARISTONE_PACKED.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> MARL_ADOBE = register("marl_adobe", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_SLAB.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_STAIRS.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> MARL_ADOBE_WALL = register("marl_adobe_wall", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_WALL.get(), propertiesBlocks()));
 
 	public static final RegistryObject<Item> LOAM = register("loam", () -> new BlockItem(LandsOfIcariaBlocks.LOAM.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> LOAM_BRICKS = register("loam_bricks", () -> new BlockItem(LandsOfIcariaBlocks.LOAM_BRICKS.get(), propertiesBlocks()));
@@ -53,6 +51,7 @@ public class LandsOfIcariaItems {
 	public static final RegistryObject<Item> DOLOMITE_PILLAR_HEAD = register("dolomite_pillar_head", () -> new BlockItem(LandsOfIcariaBlocks.DOLOMITE_PILLAR_HEAD.get(), propertiesBlocks()));
 
 	public static final RegistryObject<Item> GRAINEL = register("grainel", () -> new BlockItem(LandsOfIcariaBlocks.GRAINEL.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> GRAINEL_CHERT = register("grainel_chert", () -> new BlockItem(LandsOfIcariaBlocks.GRAINEL_CHERT.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> GRAINGLASS = register("grainglass", () -> new BlockItem(LandsOfIcariaBlocks.GRAINGLASS.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> GRAINGLASS_PANE = register("grainglass_pane", () -> new BlockItem(LandsOfIcariaBlocks.GRAINGLASS_PANE.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> GRAINGLASS_PANE_HORIZONTAL = register("grainglass_pane_horizontal", () -> new BlockItem(LandsOfIcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get(), propertiesBlocks()));
@@ -199,6 +198,9 @@ public class LandsOfIcariaItems {
 	public static final RegistryObject<Item> RELICSTONE_CHISELED = register("relicstone_chiseled", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_CHISELED.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> RELICSTONE_PILLAR = register("relicstone_pillar", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_PILLAR.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> RELICSTONE_PILLAR_HEAD = register("relicstone_pillar_head", () -> new BlockItem(LandsOfIcariaBlocks.RELICSTONE_PILLAR_HEAD.get(), propertiesBlocks()));
+
+	public static final RegistryObject<Item> ARISTONE = register("aristone", () -> new BlockItem(LandsOfIcariaBlocks.ARISTONE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> ARISTONE_PACKED = register("aristone_packed", () -> new BlockItem(LandsOfIcariaBlocks.ARISTONE_PACKED.get(), propertiesBlocks()));
 
 	public static final RegistryObject<Item> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new BlockItem(LandsOfIcariaBlocks.QUARTZ_PILLAR_HEAD.get(), propertiesBlocks()));
 
