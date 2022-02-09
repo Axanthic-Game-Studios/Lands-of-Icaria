@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "landsoficaria:rotten_bones"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:rotten_bones_block",
+    "count": 1
+  }
+}
