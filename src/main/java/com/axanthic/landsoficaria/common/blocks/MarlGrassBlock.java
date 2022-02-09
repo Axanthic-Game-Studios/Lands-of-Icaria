@@ -21,13 +21,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.lighting.LayerLightEngine;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.IPlantable;
 
@@ -36,8 +33,8 @@ public class MarlGrassBlock extends Block {
 	public static final BooleanProperty MOSSY_1 = BooleanProperty.create("mossy_1");
 	public static final BooleanProperty MOSSY_2 = BooleanProperty.create("mossy_2");
 
-	public MarlGrassBlock() {
-		super(Properties.of(Material.GRASS, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).explosionResistance(0.6F).strength(0.6F).randomTicks());
+	public MarlGrassBlock(Properties properties) {
+		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(MOSSY_0, false).setValue(MOSSY_1, false).setValue(MOSSY_2, false));
 	}
 
