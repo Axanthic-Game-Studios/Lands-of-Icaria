@@ -3,8 +3,6 @@ package com.axanthic.landsoficaria.common.registry;
 import com.axanthic.landsoficaria.LandsOfIcariaInfo;
 import com.axanthic.landsoficaria.client.util.LandsOfIcariaTabs;
 
-import com.axanthic.landsoficaria.common.items.FuelItem;
-import com.axanthic.landsoficaria.common.items.FuelBlockItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
@@ -20,9 +18,6 @@ public class LandsOfIcariaItems {
 
     public static final RegistryObject<Item> MARL_GRASS = register("marl_grass", () -> new BlockItem(LandsOfIcariaBlocks.MARL_GRASS.get(), propertiesBlocks()));
     public static final RegistryObject<Item> MARL = register("marl", () -> new BlockItem(LandsOfIcariaBlocks.MARL.get(), propertiesBlocks()));
-    public static final RegistryObject<Item> MARL_CHERT = register("marl_chert", () -> new BlockItem(LandsOfIcariaBlocks.MARL_CHERT.get(), propertiesBlocks()));
-    public static final RegistryObject<Item> MARL_ROTTEN_BONES = register("marl_rotten_bones", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ROTTEN_BONES.get(), propertiesBlocks()));
-    public static final RegistryObject<Item> MARL_LIGNITE = register("marl_lignite", () -> new BlockItem(LandsOfIcariaBlocks.MARL_LIGNITE.get(), propertiesBlocks()));
     public static final RegistryObject<Item> MARL_ADOBE = register("marl_adobe", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE.get(), propertiesBlocks()));
     public static final RegistryObject<Item> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_SLAB.get(), propertiesBlocks()));
     public static final RegistryObject<Item> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_STAIRS.get(), propertiesBlocks()));
@@ -203,18 +198,10 @@ public class LandsOfIcariaItems {
 
     public static final RegistryObject<Item> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new BlockItem(LandsOfIcariaBlocks.QUARTZ_PILLAR_HEAD.get(), propertiesBlocks()));
 
-    public static final RegistryObject<Item> CHERT_BLOCK = register("chert_block", () -> new BlockItem(LandsOfIcariaBlocks.CHERT_BLOCK.get(), propertiesBlocks()));
-    public static final RegistryObject<Item> ROTTEN_BONES_BLOCK = register("rotten_bones_block", () -> new BlockItem(LandsOfIcariaBlocks.ROTTEN_BONES_BLOCK.get(), propertiesBlocks()));
-    public static final RegistryObject<Item> LIGNITE_BLOCK = register("lignite_block", () -> new FuelBlockItem(LandsOfIcariaBlocks.LIGNITE_BLOCK.get(), propertiesBlocks(), 7200));
-
     public static final RegistryObject<Item> MOSS_0 = register("moss_0", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_0.get(), propertiesFlora()));
     public static final RegistryObject<Item> MOSS_1 = register("moss_1", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_1.get(), propertiesFlora()));
     public static final RegistryObject<Item> MOSS_2 = register("moss_2", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_2.get(), propertiesFlora()));
 
-    public static final RegistryObject<Item> CHERT = register("chert", () -> new Item(propertiesItems()));
-    public static final RegistryObject<Item> ROTTEN_BONES = register("rotten_bones", () -> new Item(propertiesItems()));
-    public static final RegistryObject<Item> REMAINS = register("remains", () -> new Item(propertiesItems()));
-    public static final RegistryObject<Item> LIGNITE = register("lignite", () -> new FuelItem(propertiesItems(), 800));
     public static final RegistryObject<Item> CALCITE_POWDER = register("calcite_powder", () -> new Item(propertiesItems()));
     public static final RegistryObject<Item> LOAM_LUMP = register("loam_lump", () -> new Item(propertiesItems()));
     public static final RegistryObject<Item> LOAM_BRICK = register("loam_brick", () -> new Item(propertiesItems()));

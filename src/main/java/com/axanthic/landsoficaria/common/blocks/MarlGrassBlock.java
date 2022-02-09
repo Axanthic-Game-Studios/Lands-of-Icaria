@@ -27,8 +27,6 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.BlockHitResult;
 
-import net.minecraftforge.common.IPlantable;
-
 import java.util.Random;
 
 public class MarlGrassBlock extends Block {
@@ -91,7 +89,7 @@ public class MarlGrassBlock extends Block {
     }
 
     @Override
-    public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
+    public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable) {
         return false; //TODO
     }
 
