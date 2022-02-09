@@ -1,4 +1,4 @@
-package com.axanthic.landsoficaria.client;
+package com.axanthic.landsoficaria.client.util;
 
 import com.axanthic.landsoficaria.common.registry.LandsOfIcariaBlocks;
 
@@ -10,7 +10,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class LandsOfIcariaTabs {
-
     public static final CreativeModeTab creativeBlocks = new CreativeModeTab(LandsOfIcariaInfo.MODID + ".blocks") {
         @Override
         @OnlyIn(Dist.CLIENT)

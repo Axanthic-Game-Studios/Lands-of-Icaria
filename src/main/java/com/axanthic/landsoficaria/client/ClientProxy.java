@@ -8,6 +8,8 @@ import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -30,5 +32,14 @@ public class ClientProxy extends CommonProxy {
         };
 
         itemColors.register(itemBlockColorHandler, LandsOfIcariaBlocks.MARL_GRASS.get());
+
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.MARL_GRASS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.ARISTONE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS_PANE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.SILKGLASS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.SILKGLASS_PANE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
     }
 }

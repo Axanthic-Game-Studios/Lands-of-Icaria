@@ -1,7 +1,7 @@
 package com.axanthic.landsoficaria.common.registry;
 
 import com.axanthic.landsoficaria.LandsOfIcariaInfo;
-import com.axanthic.landsoficaria.client.LandsOfIcariaTabs;
+import com.axanthic.landsoficaria.client.util.LandsOfIcariaTabs;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -26,6 +26,9 @@ public class LandsOfIcariaItems {
 
     public static final RegistryObject<Item> FARMLAND = register("farmland", () -> new BlockItem(LandsOfIcariaBlocks.FARMLAND.get(), propertiesBlocks()));
     public static final RegistryObject<Item> FARMLAND_FERTILIZED = register("farmland_fertilized", () -> new BlockItem(LandsOfIcariaBlocks.FARMLAND_FERTILIZED.get(), propertiesBlocks()));
+
+    public static final RegistryObject<Item> ARISTONE = register("aristone", () -> new BlockItem(LandsOfIcariaBlocks.ARISTONE.get(), propertiesBlocks()));
+    public static final RegistryObject<Item> ARISTONE_PACKED = register("aristone_packed", () -> new BlockItem(LandsOfIcariaBlocks.ARISTONE_PACKED.get(), propertiesBlocks()));
 
     public static final RegistryObject<Item> LOAM = register("loam", () -> new BlockItem(LandsOfIcariaBlocks.LOAM.get(), propertiesBlocks()));
     public static final RegistryObject<Item> LOAM_BRICKS = register("loam_bricks", () -> new BlockItem(LandsOfIcariaBlocks.LOAM_BRICKS.get(), propertiesBlocks()));

@@ -6,6 +6,7 @@ import com.axanthic.landsoficaria.common.blocks.MossBlock;
 import com.axanthic.landsoficaria.LandsOfIcariaInfo;
 
 import com.axanthic.landsoficaria.common.blocks.SandBlock;
+import com.axanthic.landsoficaria.client.util.LandsOfIcariaSounds;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.material.Material;
@@ -30,6 +31,9 @@ public class LandsOfIcariaBlocks {
 
     public static final RegistryObject<Block> FARMLAND = register("farmland", FarmlandBlock::new);
     public static final RegistryObject<Block> FARMLAND_FERTILIZED = register("farmland_fertilized", FarmlandFertilizedBlock::new);
+
+    public static final RegistryObject<Block> ARISTONE = register("aristone", () -> new GlassBlock(propertiesAristone()));
+    public static final RegistryObject<Block> ARISTONE_PACKED = register("aristone_packed", () -> new Block(propertiesAristone()));
 
     public static final RegistryObject<Block> LOAM = register("loam", () -> new SandBlock(propertiesLoam()));
 
@@ -206,6 +210,10 @@ public class LandsOfIcariaBlocks {
 
     private static Properties propertiesMarlAdobe() {
         return Properties.of(Material.STONE, MaterialColor.COLOR_BROWN).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
+    }
+
+    private static Properties propertiesAristone() {
+        return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GREEN).sound(LandsOfIcariaSounds.ARISTONE).explosionResistance(1.2F).strength(1.2F).friction(0.98F).noOcclusion();
     }
 
     private static Properties propertiesLoam() {
