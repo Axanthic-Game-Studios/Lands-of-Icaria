@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=x": { "model": "landsoficaria:block/spelt_bale_block", "x": 90, "y": 90 },
+    "axis=y": { "model": "landsoficaria:block/spelt_bale_block", "x": 0, "y": 0 },
+    "axis=z": { "model": "landsoficaria:block/spelt_bale_block", "x": 90, "y": 0 }
+  }
+}

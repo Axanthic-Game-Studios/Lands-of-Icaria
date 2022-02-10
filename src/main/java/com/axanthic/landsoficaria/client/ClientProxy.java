@@ -34,12 +34,13 @@ public class ClientProxy extends CommonProxy {
 		itemColors.register(itemBlockColorHandler, LandsOfIcariaBlocks.MARL_GRASS.get());
 
 		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.MARL_GRASS.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.ARISTONE.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS_PANE.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.SILKGLASS.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.SILKGLASS_PANE.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.ARISTONE.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.JELLYFISH_JELLY_BLOCK.get(), RenderType.translucent());
 	}
 }

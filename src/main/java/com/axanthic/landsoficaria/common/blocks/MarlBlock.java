@@ -37,9 +37,7 @@ public class MarlBlock extends Block {
 			if (!level.isClientSide) {
 				level.setBlock(pos, LandsOfIcariaBlocks.FARMLAND.get().defaultBlockState(), 0);
 				if (!player.isCreative()) {
-					itemStack.hurtAndBreak(1, player, (playerUsing) -> {
-						playerUsing.broadcastBreakEvent(hand);
-					});
+					itemStack.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(hand));
 				}
 			}
 

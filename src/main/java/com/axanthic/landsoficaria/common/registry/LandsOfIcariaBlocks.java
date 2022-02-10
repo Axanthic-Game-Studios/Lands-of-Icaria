@@ -4,24 +4,11 @@ import java.util.function.Supplier;
 
 import com.axanthic.landsoficaria.LandsOfIcariaInfo;
 import com.axanthic.landsoficaria.client.util.LandsOfIcariaSounds;
-import com.axanthic.landsoficaria.common.blocks.AxisBlock;
-import com.axanthic.landsoficaria.common.blocks.FacingBlock;
-import com.axanthic.landsoficaria.common.blocks.FarmlandBlock;
-import com.axanthic.landsoficaria.common.blocks.FarmlandFertilizedBlock;
-import com.axanthic.landsoficaria.common.blocks.HorizontalPaneBlock;
-import com.axanthic.landsoficaria.common.blocks.MarlBlock;
-import com.axanthic.landsoficaria.common.blocks.MarlCoarseBlock;
-import com.axanthic.landsoficaria.common.blocks.MarlGrassBlock;
+import com.axanthic.landsoficaria.common.blocks.*;
 import com.axanthic.landsoficaria.common.blocks.MossBlock;
 import com.axanthic.landsoficaria.common.blocks.SandBlock;
 
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.GlassBlock;
-import net.minecraft.world.level.block.IronBarsBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -219,9 +206,15 @@ public class LandsOfIcariaBlocks {
 
 	public static final RegistryObject<Block> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new FacingBlock(propertiesQuartz()));
 
-	public static final RegistryObject<Block> CHERT_BLOCK = register("chert_block", () -> new Block(propertiesChertBlock()));
+	public static final RegistryObject<Block> JELLYFISH_JELLY_BLOCK = register("jellyfish_jelly_block", () -> new SlimeBlock(propertiesJellyBlock()));
+	public static final RegistryObject<Block> ARACHNE_STRING_BLOCK = register("arachne_string_block", () -> new Block(propertiesArachneStringBlock()));
+	public static final RegistryObject<Block> SPELT_BALE_BLOCK = register("spelt_bale_block", () -> new SpeltBaleBlock(propertiesSpeltBlock()));
+	public static final RegistryObject<Block> VINE_REED_BLOCK = register("vine_reed_block", () -> new Block(propertiesVineBlock()));
+	public static final RegistryObject<Block> VINE_SPROUT_BLOCK = register("vine_sprout_block", () -> new Block(propertiesVineBlock()));
 	public static final RegistryObject<Block> ROTTEN_BONES_BLOCK = register("rotten_bones_block", () -> new Block(propertiesRottenBonesBlock()));
-	public static final RegistryObject<Block> LIGNITE_BLOCK = register("lignite_block", () -> new Block(propertiesAnthraciteBlock()));
+	public static final RegistryObject<Block> LIGNITE_BLOCK = register("lignite_block", () -> new Block(propertiesLigniteBlock()));
+	public static final RegistryObject<Block> ANTHRACITE_BLOCK = register("anthracite_block", () -> new Block(propertiesAnthraciteBlock()));
+	public static final RegistryObject<Block> CHERT_BLOCK = register("chert_block", () -> new Block(propertiesChertBlock()));
 
 	public static final RegistryObject<Block> MOSS_0 = register("moss_0", () -> new MossBlock(propertiesMoss()));
 	public static final RegistryObject<Block> MOSS_1 = register("moss_1", () -> new MossBlock(propertiesMoss()));
@@ -311,16 +304,36 @@ public class LandsOfIcariaBlocks {
 		return Properties.of(Material.STONE, MaterialColor.QUARTZ).sound(SoundType.STONE).explosionResistance(0.8F).strength(0.8F).requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesChertBlock() {
-		return Properties.of(Material.STONE, MaterialColor.COLOR_GRAY).sound(SoundType.STONE).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
+	private static Properties propertiesJellyBlock() {
+		return Properties.of(Material.CLAY, MaterialColor.COLOR_RED).sound(SoundType.SLIME_BLOCK).explosionResistance(0.5F).strength(0.5F).friction(0.8F).noOcclusion().instabreak();
+	}
+
+	private static Properties propertiesArachneStringBlock() {
+		return Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOL).explosionResistance(0.8F).strength(0.8F);
+	}
+
+	private static Properties propertiesSpeltBlock() {
+		return Properties.of(Material.GRASS, MaterialColor.TERRACOTTA_YELLOW).sound(SoundType.GRASS).explosionResistance(0.5F).strength(0.5F);
+	}
+
+	private static Properties propertiesVineBlock() {
+		return Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_GREEN).sound(SoundType.WOOD).explosionResistance(2.5F).strength(0.5F);
 	}
 
 	private static Properties propertiesRottenBonesBlock() {
 		return Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_GRAY).sound(SoundType.BONE_BLOCK).explosionResistance(2.0F).strength(2.0F).requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesAnthraciteBlock() {
+	private static Properties propertiesLigniteBlock() {
 		return Properties.of(Material.STONE, MaterialColor.COLOR_BROWN).sound(SoundType.STONE).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
+	}
+
+	private static Properties propertiesAnthraciteBlock() {
+		return Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).sound(SoundType.STONE).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
+	}
+
+	private static Properties propertiesChertBlock() {
+		return Properties.of(Material.STONE, MaterialColor.COLOR_GRAY).sound(SoundType.STONE).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
 	}
 
 	private static Properties propertiesMoss() {

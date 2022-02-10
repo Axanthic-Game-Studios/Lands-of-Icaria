@@ -7,6 +7,8 @@ import com.axanthic.landsoficaria.client.util.LandsOfIcariaTabs;
 import com.axanthic.landsoficaria.common.items.FuelBlockItem;
 import com.axanthic.landsoficaria.common.items.FuelItem;
 
+import com.axanthic.landsoficaria.common.items.VineSproutItem;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
@@ -204,23 +206,35 @@ public class LandsOfIcariaItems {
 
 	public static final RegistryObject<Item> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new BlockItem(LandsOfIcariaBlocks.QUARTZ_PILLAR_HEAD.get(), propertiesBlocks()));
 
-	public static final RegistryObject<Item> CHERT_BLOCK = register("chert_block", () -> new BlockItem(LandsOfIcariaBlocks.CHERT_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> JELLYFISH_jelly_BLOCK = register("jellyfish_jelly_block", () -> new BlockItem(LandsOfIcariaBlocks.JELLYFISH_JELLY_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> ARACHNE_STRING_BLOCK = register("arachne_string_block", () -> new BlockItem(LandsOfIcariaBlocks.ARACHNE_STRING_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> SPELT_BALE_BLOCK = register("spelt_bale_block", () -> new BlockItem(LandsOfIcariaBlocks.SPELT_BALE_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> VINE_REED_BLOCK = register("vine_reed_block", () -> new BlockItem(LandsOfIcariaBlocks.VINE_REED_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> VINE_SPROUT_BLOCK = register("vine_sprout_block", () -> new BlockItem(LandsOfIcariaBlocks.VINE_SPROUT_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> ROTTEN_BONES_BLOCK = register("rotten_bones_block", () -> new BlockItem(LandsOfIcariaBlocks.ROTTEN_BONES_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> LIGNITE_BLOCK = register("lignite_block", () -> new FuelBlockItem(LandsOfIcariaBlocks.LIGNITE_BLOCK.get(), propertiesBlocks(), 7200));
+	public static final RegistryObject<Item> ANTHRACITE_BLOCK = register("anthracite_block", () -> new FuelBlockItem(LandsOfIcariaBlocks.ANTHRACITE_BLOCK.get(), propertiesBlocks(), 28800));
+	public static final RegistryObject<Item> CHERT_BLOCK = register("chert_block", () -> new BlockItem(LandsOfIcariaBlocks.CHERT_BLOCK.get(), propertiesBlocks()));
 
 	public static final RegistryObject<Item> MOSS_0 = register("moss_0", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_0.get(), propertiesFlora()));
 	public static final RegistryObject<Item> MOSS_1 = register("moss_1", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_1.get(), propertiesFlora()));
 	public static final RegistryObject<Item> MOSS_2 = register("moss_2", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_2.get(), propertiesFlora()));
 
-	public static final RegistryObject<Item> CHERT = register("chert", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> FLASK_EMPTY = register("flask_empty", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> JELLYFISH_JELLY = register("jellyfish_jelly", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> ARACHNE_STRING = register("arachne_string", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> SPELT = register("spelt", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> VINE_REED = register("vine_reed", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> VINE_SPROUT = register("vine_sprout", () -> new VineSproutItem(propertiesVineSprout().food(foodPropertiesVineSprout())));
 	public static final RegistryObject<Item> ROTTEN_BONES = register("rotten_bones", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> REMAINS = register("remains", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> LIGNITE = register("lignite", () -> new FuelItem(propertiesItems(), 800));
 	public static final RegistryObject<Item> CALCITE_POWDER = register("calcite_powder", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> LOAM_LUMP = register("loam_lump", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> LOAM_BRICK = register("loam_brick", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> LIGNITE = register("lignite", () -> new FuelItem(propertiesItems(), 800));
+	public static final RegistryObject<Item> ANTHRACITE = register("anthracite", () -> new FuelItem(propertiesItems(), 3200));
 	public static final RegistryObject<Item> DOLOMITE = register("dolomite", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> FLASK_EMPTY = register("flask_empty", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> CHERT = register("chert", () -> new Item(propertiesItems()));
 
 	private static Properties propertiesBlocks() {
 		return new Properties().tab(LandsOfIcariaTabs.creativeBlocks);
@@ -232,6 +246,14 @@ public class LandsOfIcariaItems {
 
 	private static Properties propertiesItems() {
 		return new Properties().tab(LandsOfIcariaTabs.creativeItems);
+	}
+
+	private static Properties propertiesVineSprout() {
+		return new Properties().tab(LandsOfIcariaTabs.creativeItems).setNoRepair().stacksTo(1).durability(24);
+	}
+
+	private static FoodProperties foodPropertiesVineSprout() {
+		return new FoodProperties.Builder().nutrition(0).saturationMod(1).alwaysEat().build();
 	}
 
 	private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item) {

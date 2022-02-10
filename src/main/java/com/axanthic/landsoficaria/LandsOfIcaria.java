@@ -48,6 +48,12 @@ public class LandsOfIcaria {
 		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_0.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_1.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_2.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.SPELT_BALE_BLOCK.get(), 0.85F);
+		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.VINE_REED_BLOCK.get(), 0.85F);
+		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.VINE_SPROUT_BLOCK.get(), 0.65F);
+		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.SPELT.get(), 0.65F);
+		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.VINE_REED.get(), 0.5F);
+		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.VINE_SPROUT.get(), 0.3F);
 	}
 
 	private void loadComplete(final FMLLoadCompleteEvent event) {
