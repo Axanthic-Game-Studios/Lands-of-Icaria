@@ -43,9 +43,11 @@ public class LandsOfIcariaBlocks {
 	public static final RegistryObject<Block> FARMLAND_FERTILIZED = register("farmland_fertilized", () -> new FarmlandFertilizedBlock(propertiesFarmland()));
 
 	public static final RegistryObject<Block> MARL_ADOBE = register("marl_adobe", () -> new Block(propertiesMarlAdobe()));
-	public static final RegistryObject<Block> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new SlabBlock(propertiesMarlAdobe()));
-	public static final RegistryObject<Block> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new StairBlock(MARL_ADOBE.get().defaultBlockState(), propertiesMarlAdobe()));
-	public static final RegistryObject<Block> MARL_ADOBE_WALL = register("marl_adobe_wall", () -> new WallBlock(propertiesMarlAdobe()));
+	public static final DecoBlockCombination MARL_ADOBE_DECO = new DecoBlockCombination("marl_adobe", MARL_ADOBE, propertiesMarlAdobe());
+
+	//public static final RegistryObject<Block> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new SlabBlock(propertiesMarlAdobe()));
+	//public static final RegistryObject<Block> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new StairBlock(MARL_ADOBE.get().defaultBlockState(), propertiesMarlAdobe()));
+	//public static final RegistryObject<Block> MARL_ADOBE_WALL = register("marl_adobe_wall", () -> new WallBlock(propertiesMarlAdobe()));
 
 	public static final RegistryObject<Block> LOAM = register("loam", () -> new SandBlock(propertiesLoam()));
 	public static final RegistryObject<Block> LOAM_BRICKS = register("loam_bricks", () -> new Block(propertiesLoamBricks()));
@@ -329,5 +331,35 @@ public class LandsOfIcariaBlocks {
 
 	private static <T extends Block> RegistryObject<T> register(final String name, final Supplier<? extends T> block) {
 		return BLOCKS.register(name, block);
+	}
+
+	public static class DecoBlockCombination {
+
+		public final String name;
+		public final RegistryObject<Block> original;
+		public final RegistryObject<Block> SLAB;
+		public final RegistryObject<Block> STAIRS;
+		public final RegistryObject<Block> WALL;
+
+		public DecoBlockCombination(String name, RegistryObject<Block> original, Properties prop, boolean slab, boolean stairs, boolean wall) {
+			this.name = name;
+			this.original = original;
+			if (slab)
+				SLAB = register(name + "_slab", () -> new SlabBlock(prop));
+			else
+				SLAB = null;
+			if (stairs)
+				STAIRS = register(name + "_stairs", () -> new StairBlock(() -> original.get().defaultBlockState(), prop));
+			else
+				STAIRS = null;
+			if (wall)
+				WALL = register(name + "_wall", () -> new WallBlock(prop));
+			else
+				WALL = null;
+		}
+
+		public DecoBlockCombination(String name, RegistryObject<Block> original, Properties prop) {
+			this(name, original, prop, true, true, true);
+		}
 	}
 }

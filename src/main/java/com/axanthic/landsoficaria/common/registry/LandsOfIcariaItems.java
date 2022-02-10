@@ -1,21 +1,30 @@
 package com.axanthic.landsoficaria.common.registry;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 import com.axanthic.landsoficaria.LandsOfIcariaInfo;
 import com.axanthic.landsoficaria.client.util.LandsOfIcariaTabs;
 import com.axanthic.landsoficaria.common.items.FuelBlockItem;
 import com.axanthic.landsoficaria.common.items.FuelItem;
+import com.axanthic.landsoficaria.common.registry.LandsOfIcariaBlocks.DecoBlockCombination;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class LandsOfIcariaItems {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, LandsOfIcariaInfo.MODID);
+
+	public static final List<DecoItemBlockCombination> DECO_BLOCKS = new ArrayList<DecoItemBlockCombination>();
 
 	public static final RegistryObject<Item> MARL_GRASS = register("marl_grass", () -> new BlockItem(LandsOfIcariaBlocks.MARL_GRASS.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> MARL = register("marl", () -> new BlockItem(LandsOfIcariaBlocks.MARL.get(), propertiesBlocks()));
@@ -28,9 +37,10 @@ public class LandsOfIcariaItems {
 	public static final RegistryObject<Item> FARMLAND_FERTILIZED = register("farmland_fertilized", () -> new BlockItem(LandsOfIcariaBlocks.FARMLAND_FERTILIZED.get(), propertiesBlocks()));
 
 	public static final RegistryObject<Item> MARL_ADOBE = register("marl_adobe", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE.get(), propertiesBlocks()));
-	public static final RegistryObject<Item> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_SLAB.get(), propertiesBlocks()));
-	public static final RegistryObject<Item> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_STAIRS.get(), propertiesBlocks()));
-	public static final RegistryObject<Item> MARL_ADOBE_WALL = register("marl_adobe_wall", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_WALL.get(), propertiesBlocks()));
+	public static final DecoItemBlockCombination MARL_ADOBE_DECO = new DecoItemBlockCombination(LandsOfIcariaBlocks.MARL_ADOBE_DECO, MARL_ADOBE);
+	//public static final RegistryObject<Item> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_SLAB.get(), propertiesBlocks()));
+	//public static final RegistryObject<Item> MARL_ADOBE_STAIRS = register("marl_adobe_stairs", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_STAIRS.get(), propertiesBlocks()));
+	//public static final RegistryObject<Item> MARL_ADOBE_WALL = register("marl_adobe_wall", () -> new BlockItem(LandsOfIcariaBlocks.MARL_ADOBE_WALL.get(), propertiesBlocks()));
 
 	public static final RegistryObject<Item> LOAM = register("loam", () -> new BlockItem(LandsOfIcariaBlocks.LOAM.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> LOAM_BRICKS = register("loam_bricks", () -> new BlockItem(LandsOfIcariaBlocks.LOAM_BRICKS.get(), propertiesBlocks()));
@@ -236,5 +246,32 @@ public class LandsOfIcariaItems {
 
 	private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item) {
 		return ITEMS.register(name, item);
+	}
+
+	public static class DecoItemBlockCombination {
+
+		public final DecoBlockCombination block;
+		public final RegistryObject<Item> originalItem;
+		public final RegistryObject<Item> SLAB;
+		public final RegistryObject<Item> STAIRS;
+		public final RegistryObject<Item> WALL;
+
+		public DecoItemBlockCombination(DecoBlockCombination block, RegistryObject<Item> originalItem) {
+			this.block = block;
+			this.originalItem = originalItem;
+			if (block.SLAB != null)
+				SLAB = register(block.name + "_slab", () -> new BlockItem(block.SLAB.get(), propertiesBlocks()));
+			else
+				SLAB = null;
+			if (block.STAIRS != null)
+				STAIRS = register(block.name + "_stairs", () -> new BlockItem(block.STAIRS.get(), propertiesBlocks()));
+			else
+				STAIRS = null;
+			if (block.WALL != null)
+				WALL = register(block.name + "_wall", () -> new BlockItem(block.WALL.get(), propertiesBlocks()));
+			else
+				WALL = null;
+			DECO_BLOCKS.add(this);
+		}
 	}
 }

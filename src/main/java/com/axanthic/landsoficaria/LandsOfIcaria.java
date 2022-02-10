@@ -37,6 +37,7 @@ public class LandsOfIcaria {
 
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetupEvent);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::gatherData);
 
 		LandsOfIcariaBlocks.BLOCKS.register(bus);
 		LandsOfIcariaItems.ITEMS.register(bus);
@@ -54,8 +55,8 @@ public class LandsOfIcaria {
 		proxy.init();
 	}
 
-	@SubscribeEvent
-	public static void gatherData(GatherDataEvent event) {
+	public void gatherData(GatherDataEvent event) {
+		System.out.println("is anyone there?");
 		DataGenerator gen = event.getGenerator();
 		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
@@ -66,7 +67,7 @@ public class LandsOfIcaria {
 			gen.addProvider(new IcariaBlockStates(gen, existingFileHelper));
 		}
 		if (event.includeServer()) {
-			gen.addProvider(new IcariaLootTables(gen));
+			//gen.addProvider(new IcariaLootTables(gen));
 			gen.addProvider(new IcariaRecipes(gen));
 			BlockTagsProvider blockTags = new IcariaBlockTags(gen, existingFileHelper);
 			gen.addProvider(blockTags);

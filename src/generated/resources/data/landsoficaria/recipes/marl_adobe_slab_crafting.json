@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:marl_adobe"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:marl_adobe_slab",
+    "count": 6
+  }
+}
