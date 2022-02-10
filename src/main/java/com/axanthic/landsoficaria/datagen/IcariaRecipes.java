@@ -52,14 +52,6 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 				.group("")
 				.unlockedBy("has_block", has(deco.originalItem.get()))
 				.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.get().getRegistryName().getPath() + "_stairs_crafting"));
-				ShapedRecipeBuilder.shaped(deco.STAIRS.get(), 4)
-				.pattern("  X")
-				.pattern(" XX")
-				.pattern("XXX")
-				.define('X', deco.originalItem.get())
-				.group("")
-				.unlockedBy("has_block", has(deco.originalItem.get()))
-				.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.get().getRegistryName().getPath() + "_stairs_mirrored_crafting"));
 				SingleItemRecipeBuilder.stonecutting(Ingredient.of(deco.originalItem.get()), deco.STAIRS.get()).unlockedBy("has_block", has(deco.originalItem.get()))
 				.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.get().getRegistryName().getPath() + "_stairs_cutting"));
 			}
