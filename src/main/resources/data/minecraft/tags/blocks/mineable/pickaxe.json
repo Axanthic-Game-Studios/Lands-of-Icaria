@@ -154,8 +154,9 @@
     "landsoficaria:relicstone_pillar",
     "landsoficaria:relicstone_pillar_head",
     "landsoficaria:quartz_pillar_head",
-    "landsoficaria:chert_block",
     "landsoficaria:rotten_bones_block",
-    "landsoficaria:lignite_block"
+    "landsoficaria:lignite_block",
+    "landsoficaria:anthracite_block",
+    "landsoficaria:chert_block"
   ]
 }

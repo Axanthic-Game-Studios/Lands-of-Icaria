@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "landsoficaria:arachne_string_block"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:arachne_string",
+    "count": 9
+  }
+}
