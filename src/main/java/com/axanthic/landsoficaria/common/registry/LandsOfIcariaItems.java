@@ -8,17 +8,21 @@ import com.axanthic.landsoficaria.LandsOfIcariaInfo;
 import com.axanthic.landsoficaria.client.util.LandsOfIcariaTabs;
 import com.axanthic.landsoficaria.common.items.FuelBlockItem;
 import com.axanthic.landsoficaria.common.items.FuelItem;
+import com.axanthic.landsoficaria.common.items.IcariaPickaxeItem;
 import com.axanthic.landsoficaria.common.registry.LandsOfIcariaBlocks.DecoBlockCombination;
-
+import com.axanthic.landsoficaria.util.IcariaTier;
 import com.axanthic.landsoficaria.common.items.VineSproutItem;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
+import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
+import net.minecraftforge.common.TierSortingRegistry;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -28,6 +32,7 @@ public class LandsOfIcariaItems {
 
 	public static final List<DecoItemBlockCombination> DECO_BLOCKS = new ArrayList<DecoItemBlockCombination>();
 	public static final List<RegistryObject<? extends Item>> BASIC_ITEMS = new ArrayList<RegistryObject<? extends Item>>();
+	public static final List<RegistryObject<? extends Item>> TOOL_ITEMS = new ArrayList<RegistryObject<? extends Item>>();
 
 	public static final RegistryObject<Item> MARL_GRASS = register("marl_grass", () -> new BlockItem(LandsOfIcariaBlocks.MARL_GRASS.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> MARL = register("marl", () -> new BlockItem(LandsOfIcariaBlocks.MARL.get(), propertiesBlocks()));
@@ -248,6 +253,14 @@ public class LandsOfIcariaItems {
 	public static final RegistryObject<Item> DOLOMITE = register("dolomite", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> CHERT = register("chert", () -> new Item(propertiesItems()));
 
+	public static final ToolCombination CHERT_TOOLS = new ToolCombination(LandsOfIcariaTiers.CHERT);
+	public static final ToolCombination CHALKOS_TOOLS = new ToolCombination(LandsOfIcariaTiers.CHALKOS);
+	public static final ToolCombination KASSITEROS_TOOLS = new ToolCombination(LandsOfIcariaTiers.KASSITEROS);
+	public static final ToolCombination ORICHALCUM_TOOLS = new ToolCombination(LandsOfIcariaTiers.ORICHALCUM);
+	public static final ToolCombination VANADIUMSTEEL_TOOLS = new ToolCombination(LandsOfIcariaTiers.VANADIUMSTEEL);
+	public static final ToolCombination SIDEROS_TOOLS = new ToolCombination(LandsOfIcariaTiers.SIDEROS);
+	public static final ToolCombination MOLYBDENUMSTEEL_TOOLS = new ToolCombination(LandsOfIcariaTiers.MOLYBDENUMSTEEL);
+
 	private static Properties propertiesBlocks() {
 		return new Properties().tab(LandsOfIcariaTabs.creativeBlocks);
 	}
@@ -275,6 +288,12 @@ public class LandsOfIcariaItems {
 	private static <T extends Item> RegistryObject<T> registerBasic(final String name, final Supplier<T> item) {
 		RegistryObject<T> registeredItem = register(name, item);
 		BASIC_ITEMS.add(registeredItem);
+		return registeredItem;
+	}
+
+	private static <T extends Item> RegistryObject<T> registerTool(final String name, final Supplier<T> item) {
+		RegistryObject<T> registeredItem = register(name, item);
+		TOOL_ITEMS.add(registeredItem);
 		return registeredItem;
 	}
 
@@ -306,6 +325,18 @@ public class LandsOfIcariaItems {
 			else
 				WALL = null;
 			DECO_BLOCKS.add(this);
+		}
+	}
+
+	public static class ToolCombination {
+
+		public final IcariaTier tier;
+		public final RegistryObject<Item> PICKAXE;
+
+		public ToolCombination(IcariaTier tier) {
+			this.tier = tier;
+			String name = TierSortingRegistry.getName(tier).getPath();
+			PICKAXE = registerTool(name + "_pickaxe", () -> new IcariaPickaxeItem(tier, 1, -2.8F, propertiesItems()));
 		}
 	}
 }

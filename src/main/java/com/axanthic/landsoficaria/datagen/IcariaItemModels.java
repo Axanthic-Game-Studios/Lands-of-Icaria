@@ -25,6 +25,9 @@ public class IcariaItemModels extends ItemModelProvider {
 		for (RegistryObject<? extends Item> item : LandsOfIcariaItems.BASIC_ITEMS) {
 			itemWithModel(item, "item/generated");
 		}
+		for (RegistryObject<? extends Item> item : LandsOfIcariaItems.TOOL_ITEMS) {
+			itemWithModel(item, "item/handheld");
+		}
 	}
 
 	public void itemWithModel(RegistryObject<? extends Item> registryObject, String model) {
