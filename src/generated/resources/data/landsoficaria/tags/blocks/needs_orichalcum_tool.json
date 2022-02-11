@@ -1,6 +1,22 @@
 {
   "replace": false,
   "values": [
-    "landsoficaria:sunstone"
+    "landsoficaria:sunstone_adobe",
+    "landsoficaria:sunstone_cobble",
+    "landsoficaria:sunstone",
+    "landsoficaria:sunstone_bricks",
+    "landsoficaria:sunstone_chiseled",
+    "landsoficaria:sunstone_adobe_slab",
+    "landsoficaria:sunstone_adobe_stairs",
+    "landsoficaria:sunstone_adobe_wall",
+    "landsoficaria:sunstone_cobble_slab",
+    "landsoficaria:sunstone_cobble_stairs",
+    "landsoficaria:sunstone_cobble_wall",
+    "landsoficaria:sunstone_slab",
+    "landsoficaria:sunstone_stairs",
+    "landsoficaria:sunstone_wall",
+    "landsoficaria:sunstone_bricks_slab",
+    "landsoficaria:sunstone_bricks_stairs",
+    "landsoficaria:sunstone_bricks_wall"
   ]
 }

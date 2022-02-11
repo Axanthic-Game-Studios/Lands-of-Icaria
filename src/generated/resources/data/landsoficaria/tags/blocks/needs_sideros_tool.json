@@ -1,6 +1,23 @@
 {
   "replace": false,
   "values": [
-    "landsoficaria:baetyl"
+    "landsoficaria:baetyl_adobe",
+    "landsoficaria:baetyl_cobble",
+    "landsoficaria:baetyl",
+    "landsoficaria:baetyl_bricks",
+    "landsoficaria:baetyl_chiseled",
+    "landsoficaria:anthracite_block",
+    "landsoficaria:baetyl_adobe_slab",
+    "landsoficaria:baetyl_adobe_stairs",
+    "landsoficaria:baetyl_adobe_wall",
+    "landsoficaria:baetyl_cobble_slab",
+    "landsoficaria:baetyl_cobble_stairs",
+    "landsoficaria:baetyl_cobble_wall",
+    "landsoficaria:baetyl_slab",
+    "landsoficaria:baetyl_stairs",
+    "landsoficaria:baetyl_wall",
+    "landsoficaria:baetyl_bricks_slab",
+    "landsoficaria:baetyl_bricks_stairs",
+    "landsoficaria:baetyl_bricks_wall"
   ]
 }

@@ -1,6 +1,22 @@
 {
   "replace": false,
   "values": [
-    "landsoficaria:voidshale"
+    "landsoficaria:voidshale_adobe",
+    "landsoficaria:voidshale_cobble",
+    "landsoficaria:voidshale",
+    "landsoficaria:voidshale_bricks",
+    "landsoficaria:voidshale_chiseled",
+    "landsoficaria:voidshale_adobe_slab",
+    "landsoficaria:voidshale_adobe_stairs",
+    "landsoficaria:voidshale_adobe_wall",
+    "landsoficaria:voidshale_cobble_slab",
+    "landsoficaria:voidshale_cobble_stairs",
+    "landsoficaria:voidshale_cobble_wall",
+    "landsoficaria:voidshale_slab",
+    "landsoficaria:voidshale_stairs",
+    "landsoficaria:voidshale_wall",
+    "landsoficaria:voidshale_bricks_slab",
+    "landsoficaria:voidshale_bricks_stairs",
+    "landsoficaria:voidshale_bricks_wall"
   ]
 }

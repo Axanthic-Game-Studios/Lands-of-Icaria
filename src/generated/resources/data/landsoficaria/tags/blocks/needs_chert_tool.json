@@ -1,6 +1,22 @@
 {
   "replace": false,
   "values": [
-    "landsoficaria:yellowstone"
+    "landsoficaria:yellowstone_adobe",
+    "landsoficaria:yellowstone_cobble",
+    "landsoficaria:yellowstone",
+    "landsoficaria:yellowstone_bricks",
+    "landsoficaria:yellowstone_chiseled",
+    "landsoficaria:yellowstone_adobe_slab",
+    "landsoficaria:yellowstone_adobe_stairs",
+    "landsoficaria:yellowstone_adobe_wall",
+    "landsoficaria:yellowstone_cobble_slab",
+    "landsoficaria:yellowstone_cobble_stairs",
+    "landsoficaria:yellowstone_cobble_wall",
+    "landsoficaria:yellowstone_slab",
+    "landsoficaria:yellowstone_stairs",
+    "landsoficaria:yellowstone_wall",
+    "landsoficaria:yellowstone_bricks_slab",
+    "landsoficaria:yellowstone_bricks_stairs",
+    "landsoficaria:yellowstone_bricks_wall"
   ]
 }
