@@ -27,6 +27,7 @@ public class LandsOfIcariaItems {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, LandsOfIcariaInfo.MODID);
 
 	public static final List<DecoItemBlockCombination> DECO_BLOCKS = new ArrayList<DecoItemBlockCombination>();
+	public static final List<RegistryObject<? extends Item>> BASIC_ITEMS = new ArrayList<RegistryObject<? extends Item>>();
 
 	public static final RegistryObject<Item> MARL_GRASS = register("marl_grass", () -> new BlockItem(LandsOfIcariaBlocks.MARL_GRASS.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> MARL = register("marl", () -> new BlockItem(LandsOfIcariaBlocks.MARL.get(), propertiesBlocks()));
@@ -230,7 +231,7 @@ public class LandsOfIcariaItems {
 	public static final RegistryObject<Item> MOSS_1 = register("moss_1", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_1.get(), propertiesFlora()));
 	public static final RegistryObject<Item> MOSS_2 = register("moss_2", () -> new BlockItem(LandsOfIcariaBlocks.MOSS_2.get(), propertiesFlora()));
 
-	public static final RegistryObject<Item> FLASK_EMPTY = register("flask_empty", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> FLASK_EMPTY = registerBasic("flask_empty", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> JELLYFISH_JELLY = register("jellyfish_jelly", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> ARACHNE_STRING = register("arachne_string", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> SPELT = register("spelt", () -> new Item(propertiesItems()));
@@ -269,6 +270,12 @@ public class LandsOfIcariaItems {
 
 	private static FoodProperties foodPropertiesSpeltBread() {
 		return new FoodProperties.Builder().nutrition(5).saturationMod(0.6F).build();
+	}
+
+	private static <T extends Item> RegistryObject<T> registerBasic(final String name, final Supplier<T> item) {
+		RegistryObject<T> registeredItem = register(name, item);
+		BASIC_ITEMS.add(registeredItem);
+		return registeredItem;
 	}
 
 	private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item) {

@@ -1,6 +1,7 @@
 package com.axanthic.landsoficaria.datagen;
 
 import com.axanthic.landsoficaria.LandsOfIcariaInfo;
+import com.axanthic.landsoficaria.common.registry.LandsOfIcariaItems;
 import com.google.gson.JsonObject;
 
 import net.minecraft.data.DataGenerator;
@@ -21,7 +22,9 @@ public class IcariaItemModels extends ItemModelProvider {
 
 	@Override
 	protected void registerModels() {
-
+		for (RegistryObject<? extends Item> item : LandsOfIcariaItems.BASIC_ITEMS) {
+			itemWithModel(item, "item/generated");
+		}
 	}
 
 	public void itemWithModel(RegistryObject<? extends Item> registryObject, String model) {

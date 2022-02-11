@@ -2,27 +2,18 @@ package com.axanthic.landsoficaria.datagen;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 import java.util.function.BiConsumer;
-import java.util.stream.Collectors;
 
 import javax.annotation.Nonnull;
 
-import com.axanthic.landsoficaria.LandsOfIcariaInfo;
 import com.axanthic.landsoficaria.common.registry.LandsOfIcariaBlocks;
 import com.axanthic.landsoficaria.common.registry.LandsOfIcariaItems;
 import com.axanthic.landsoficaria.common.registry.LandsOfIcariaItems.DecoItemBlockCombination;
-import com.google.common.collect.Sets;
 
-import net.minecraft.core.Registry;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class IcariaBlockLootTables extends BlockLoot {
@@ -69,14 +60,5 @@ public class IcariaBlockLootTables extends BlockLoot {
 		/*add(LandsOfIcariaBlocks.MARL_GRASS.get(), (p_124191_) -> {
 			return createSingleItemTableWithSilkTouch(p_124191_, LandsOfIcariaItems.MARL.get());
 		});*/
-	}
-
-	@Override
-	public void accept(BiConsumer<ResourceLocation, LootTable.Builder> p_124179_) {
-		try {
-			super.accept(p_124179_);
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
 	}
 }
