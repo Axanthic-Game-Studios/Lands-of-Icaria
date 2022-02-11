@@ -1,5 +1,7 @@
 package com.axanthic.landsoficaria.common.registry;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 import com.axanthic.landsoficaria.LandsOfIcariaInfo;
@@ -7,6 +9,7 @@ import com.axanthic.landsoficaria.client.util.LandsOfIcariaSounds;
 import com.axanthic.landsoficaria.common.blocks.*;
 import com.axanthic.landsoficaria.common.blocks.MossBlock;
 import com.axanthic.landsoficaria.common.blocks.SandBlock;
+import com.axanthic.landsoficaria.common.registry.LandsOfIcariaItems.DecoItemBlockCombination;
 
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
@@ -19,6 +22,8 @@ import net.minecraftforge.registries.RegistryObject;
 public class LandsOfIcariaBlocks {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, LandsOfIcariaInfo.MODID);
 
+	public static final List<RegistryObject<? extends Block>> BASIC_BLOCKS = new ArrayList<RegistryObject<? extends Block>>();
+
 	public static final RegistryObject<Block> MARL_GRASS = register("marl_grass", () -> new MarlGrassBlock(propertiesMarlGrass()));
 	public static final RegistryObject<Block> MARL = register("marl", () -> new MarlBlock(propertiesMarl()));
 	public static final RegistryObject<Block> MARL_CHERT = register("marl_chert", () -> new Block(propertiesMarlOre()));
@@ -29,7 +34,7 @@ public class LandsOfIcariaBlocks {
 	public static final RegistryObject<Block> FARMLAND = register("farmland", () -> new FarmlandBlock(propertiesFarmland()));
 	public static final RegistryObject<Block> FARMLAND_FERTILIZED = register("farmland_fertilized", () -> new FarmlandFertilizedBlock(propertiesFarmland()));
 
-	public static final RegistryObject<Block> MARL_ADOBE = register("marl_adobe", () -> new Block(propertiesMarlAdobe()));
+	public static final RegistryObject<Block> MARL_ADOBE = registerBasic("marl_adobe", () -> new Block(propertiesMarlAdobe()));
 	public static final DecoBlockCombination MARL_ADOBE_DECO = new DecoBlockCombination("marl_adobe", MARL_ADOBE, propertiesMarlAdobe());
 
 	//public static final RegistryObject<Block> MARL_ADOBE_SLAB = register("marl_adobe_slab", () -> new SlabBlock(propertiesMarlAdobe()));
@@ -340,6 +345,12 @@ public class LandsOfIcariaBlocks {
 
 	private static Properties propertiesMoss() {
 		return Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).explosionResistance(0.1F).strength(0.1F);
+	}
+
+	private static <T extends Block> RegistryObject<T> registerBasic(final String name, final Supplier<? extends T> block) {
+		RegistryObject<T> registeredBlock = register(name, block);
+		BASIC_BLOCKS.add(registeredBlock);
+		return registeredBlock;
 	}
 
 	private static <T extends Block> RegistryObject<T> register(final String name, final Supplier<? extends T> block) {

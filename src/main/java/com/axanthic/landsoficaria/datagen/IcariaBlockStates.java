@@ -1,6 +1,7 @@
 package com.axanthic.landsoficaria.datagen;
 
 import com.axanthic.landsoficaria.LandsOfIcariaInfo;
+import com.axanthic.landsoficaria.common.registry.LandsOfIcariaBlocks;
 import com.axanthic.landsoficaria.common.registry.LandsOfIcariaItems;
 import com.axanthic.landsoficaria.common.registry.LandsOfIcariaItems.DecoItemBlockCombination;
 
@@ -20,18 +21,21 @@ public class IcariaBlockStates extends BlockStateProvider {
 
 	@Override
 	protected void registerStatesAndModels() {
+		for (RegistryObject<? extends Block> basicBlock : LandsOfIcariaBlocks.BASIC_BLOCKS) {
+			blockWithItem(basicBlock);
+		}
 		for (DecoItemBlockCombination deco : LandsOfIcariaItems.DECO_BLOCKS) {
 			ResourceLocation texture = blockTexture(deco.block.original.get());
 			if (deco.SLAB != null) {
-				this.slabBlock(deco.block.SLAB.get(), deco.block.original.getId(), texture);
+				slabBlock(deco.block.SLAB.get(), deco.block.original.getId(), texture);
 				itemModels().slab(deco.block.SLAB.getId().getPath(), texture, texture, texture);
 			}
 			if (deco.STAIRS != null) {
-				this.stairsBlock(deco.block.STAIRS.get(), texture);
+				stairsBlock(deco.block.STAIRS.get(), texture);
 				itemModels().stairs(deco.block.STAIRS.getId().getPath(), texture, texture, texture);
 			}
 			if (deco.WALL != null) {
-				this.wallBlock(deco.block.WALL.get(), texture);
+				wallBlock(deco.block.WALL.get(), texture);
 				itemModels().wallInventory(deco.block.WALL.getId().getPath(), texture);
 			}
 		}
@@ -40,10 +44,9 @@ public class IcariaBlockStates extends BlockStateProvider {
 	public void blockWithItem(RegistryObject<? extends Block> registryObject) {
 		//block model
 		simpleBlock(registryObject.get());
+
 		//itemblock model
-		ResourceLocation id = registryObject.getId();
-		ResourceLocation textureLocation = new ResourceLocation(id.getNamespace(), "block/" + id.getPath());
-		itemModels().cubeAll(id.getPath(), textureLocation);
+		itemModels().cubeAll(registryObject.getId().getPath(), blockTexture(registryObject.get()));
 	}
 
 	public void fluid(RegistryObject<? extends Block> fluid) {
