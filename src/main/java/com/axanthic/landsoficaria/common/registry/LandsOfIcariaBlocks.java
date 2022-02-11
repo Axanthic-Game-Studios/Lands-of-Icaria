@@ -350,9 +350,9 @@ public class LandsOfIcariaBlocks {
 
 		public final String name;
 		public final RegistryObject<Block> original;
-		public final RegistryObject<Block> SLAB;
-		public final RegistryObject<Block> STAIRS;
-		public final RegistryObject<Block> WALL;
+		public final RegistryObject<SlabBlock> SLAB;
+		public final RegistryObject<StairBlock> STAIRS;
+		public final RegistryObject<WallBlock> WALL;
 
 		public DecoBlockCombination(String name, RegistryObject<Block> original, Properties prop, boolean slab, boolean stairs, boolean wall) {
 			this.name = name;

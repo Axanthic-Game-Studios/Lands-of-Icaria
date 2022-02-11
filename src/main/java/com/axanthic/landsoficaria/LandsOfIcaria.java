@@ -10,17 +10,14 @@ import com.axanthic.landsoficaria.datagen.IcariaFluidTags;
 import com.axanthic.landsoficaria.datagen.IcariaItemModels;
 import com.axanthic.landsoficaria.datagen.IcariaItemTags;
 import com.axanthic.landsoficaria.datagen.IcariaLang;
-import com.axanthic.landsoficaria.datagen.IcariaLootTables;
 import com.axanthic.landsoficaria.datagen.IcariaRecipes;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -62,14 +59,12 @@ public class LandsOfIcaria {
 	}
 
 	public void gatherData(GatherDataEvent event) {
-		System.out.println("is anyone there?");
 		DataGenerator gen = event.getGenerator();
 		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
 		if (event.includeClient()) {
 			gen.addProvider(new IcariaLang(gen));
-			ItemModelProvider itemModels = new IcariaItemModels(gen, existingFileHelper);
-			gen.addProvider(itemModels);
+			gen.addProvider(new IcariaItemModels(gen, existingFileHelper));
 			gen.addProvider(new IcariaBlockStates(gen, existingFileHelper));
 		}
 		if (event.includeServer()) {

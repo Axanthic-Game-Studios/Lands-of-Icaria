@@ -1,6 +1,8 @@
 package com.axanthic.landsoficaria.datagen;
 
 import com.axanthic.landsoficaria.LandsOfIcariaInfo;
+import com.axanthic.landsoficaria.common.registry.LandsOfIcariaItems;
+import com.axanthic.landsoficaria.common.registry.LandsOfIcariaItems.DecoItemBlockCombination;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -18,7 +20,21 @@ public class IcariaBlockStates extends BlockStateProvider {
 
 	@Override
 	protected void registerStatesAndModels() {
-
+		for (DecoItemBlockCombination deco : LandsOfIcariaItems.DECO_BLOCKS) {
+			ResourceLocation texture = blockTexture(deco.block.original.get());
+			if (deco.SLAB != null) {
+				this.slabBlock(deco.block.SLAB.get(), deco.block.original.getId(), texture);
+				itemModels().slab(deco.block.SLAB.getId().getPath(), texture, texture, texture);
+			}
+			if (deco.STAIRS != null) {
+				this.stairsBlock(deco.block.STAIRS.get(), texture);
+				itemModels().stairs(deco.block.STAIRS.getId().getPath(), texture, texture, texture);
+			}
+			if (deco.WALL != null) {
+				this.wallBlock(deco.block.WALL.get(), texture);
+				itemModels().wallInventory(deco.block.WALL.getId().getPath(), texture);
+			}
+		}
 	}
 
 	public void blockWithItem(RegistryObject<? extends Block> registryObject) {

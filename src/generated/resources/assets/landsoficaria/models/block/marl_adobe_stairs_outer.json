@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "side": "landsoficaria:block/marl_adobe",
+    "bottom": "landsoficaria:block/marl_adobe",
+    "top": "landsoficaria:block/marl_adobe"
+  }
+}
