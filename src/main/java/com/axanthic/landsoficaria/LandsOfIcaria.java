@@ -10,6 +10,7 @@ import com.axanthic.landsoficaria.datagen.IcariaFluidTags;
 import com.axanthic.landsoficaria.datagen.IcariaItemModels;
 import com.axanthic.landsoficaria.datagen.IcariaItemTags;
 import com.axanthic.landsoficaria.datagen.IcariaLang;
+import com.axanthic.landsoficaria.datagen.IcariaLootTables;
 import com.axanthic.landsoficaria.datagen.IcariaRecipes;
 
 import net.minecraft.data.DataGenerator;
@@ -68,7 +69,7 @@ public class LandsOfIcaria {
 			gen.addProvider(new IcariaBlockStates(gen, existingFileHelper));
 		}
 		if (event.includeServer()) {
-			//gen.addProvider(new IcariaLootTables(gen));
+			gen.addProvider(new IcariaLootTables(gen));
 			gen.addProvider(new IcariaRecipes(gen));
 			BlockTagsProvider blockTags = new IcariaBlockTags(gen, existingFileHelper);
 			gen.addProvider(blockTags);
