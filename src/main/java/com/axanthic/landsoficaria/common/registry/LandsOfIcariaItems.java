@@ -8,7 +8,9 @@ import com.axanthic.landsoficaria.LandsOfIcariaInfo;
 import com.axanthic.landsoficaria.client.util.LandsOfIcariaTabs;
 import com.axanthic.landsoficaria.common.items.FuelBlockItem;
 import com.axanthic.landsoficaria.common.items.FuelItem;
+import com.axanthic.landsoficaria.common.items.IcariaAxeItem;
 import com.axanthic.landsoficaria.common.items.IcariaPickaxeItem;
+import com.axanthic.landsoficaria.common.items.IcariaShovelItem;
 import com.axanthic.landsoficaria.common.registry.LandsOfIcariaBlocks.DecoBlockCombination;
 import com.axanthic.landsoficaria.util.IcariaTier;
 import com.axanthic.landsoficaria.common.items.VineSproutItem;
@@ -18,6 +20,7 @@ import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
@@ -331,12 +334,18 @@ public class LandsOfIcariaItems {
 	public static class ToolCombination {
 
 		public final IcariaTier tier;
+		public final RegistryObject<Item> SWORD;
+		public final RegistryObject<Item> SHOVEL;
 		public final RegistryObject<Item> PICKAXE;
+		public final RegistryObject<Item> AXE;
 
 		public ToolCombination(IcariaTier tier) {
 			this.tier = tier;
 			String name = TierSortingRegistry.getName(tier).getPath();
+			SWORD = registerTool(name + "_sword", () -> new SwordItem(tier, 3, -2.4F, propertiesItems()));
+			SHOVEL = registerTool(name + "_shovel", () -> new IcariaShovelItem(tier, 1.5F, -3.0F, propertiesItems()));
 			PICKAXE = registerTool(name + "_pickaxe", () -> new IcariaPickaxeItem(tier, 1, -2.8F, propertiesItems()));
+			AXE = registerTool(name + "_axe", () -> new IcariaAxeItem(tier, 6.0F, -3.0F, propertiesItems()));
 		}
 	}
 }
