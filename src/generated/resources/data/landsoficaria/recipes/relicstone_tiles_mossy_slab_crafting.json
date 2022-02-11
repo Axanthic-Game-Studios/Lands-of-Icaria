@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:relicstone_tiles_mossy"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:relicstone_tiles_mossy_slab",
+    "count": 6
+  }
+}

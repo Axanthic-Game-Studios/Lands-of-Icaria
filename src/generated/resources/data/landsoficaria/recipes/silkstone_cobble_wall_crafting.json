@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:silkstone_cobble"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:silkstone_cobble_wall",
+    "count": 6
+  }
+}

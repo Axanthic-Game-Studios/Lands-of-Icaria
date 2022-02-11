@@ -1,7 +1,0 @@
-{
-  "variants": {
-    "type=bottom": { "model": "landsoficaria:block/silkstone_cobble_slab_bottom" },
-    "type=top": { "model": "landsoficaria:block/silkstone_cobble_slab_top" },
-    "type=double": { "model": "landsoficaria:block/silkstone_cobble" }
-  }
-}

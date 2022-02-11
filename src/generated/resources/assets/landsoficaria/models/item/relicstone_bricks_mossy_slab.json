@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "side": "landsoficaria:block/relicstone_bricks_mossy",
+    "bottom": "landsoficaria:block/relicstone_bricks_mossy",
+    "top": "landsoficaria:block/relicstone_bricks_mossy"
+  }
+}

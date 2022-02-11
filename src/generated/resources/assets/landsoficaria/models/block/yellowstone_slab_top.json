@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "side": "landsoficaria:block/yellowstone",
+    "bottom": "landsoficaria:block/yellowstone",
+    "top": "landsoficaria:block/yellowstone"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "side": "landsoficaria:block/yellowstone_cobble",
+    "bottom": "landsoficaria:block/yellowstone_cobble",
+    "top": "landsoficaria:block/yellowstone_cobble"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "side": "landsoficaria:block/dolomite_adobe",
+    "bottom": "landsoficaria:block/dolomite_adobe",
+    "top": "landsoficaria:block/dolomite_adobe"
+  }
+}

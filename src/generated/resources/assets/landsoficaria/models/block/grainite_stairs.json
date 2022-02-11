@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "side": "landsoficaria:block/grainite",
+    "bottom": "landsoficaria:block/grainite",
+    "top": "landsoficaria:block/grainite"
+  }
+}

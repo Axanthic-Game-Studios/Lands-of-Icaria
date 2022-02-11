@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:grainite_adobe"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:grainite_adobe_stairs",
+    "count": 4
+  }
+}

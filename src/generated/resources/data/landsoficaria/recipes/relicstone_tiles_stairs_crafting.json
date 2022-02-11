@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:relicstone_tiles"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:relicstone_tiles_stairs",
+    "count": 4
+  }
+}

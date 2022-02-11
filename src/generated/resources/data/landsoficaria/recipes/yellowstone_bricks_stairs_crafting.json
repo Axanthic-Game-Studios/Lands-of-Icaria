@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:yellowstone_bricks"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:yellowstone_bricks_stairs",
+    "count": 4
+  }
+}

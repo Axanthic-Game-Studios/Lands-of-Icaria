@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:voidshale_cobble"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:voidshale_cobble_stairs",
+    "count": 4
+  }
+}
