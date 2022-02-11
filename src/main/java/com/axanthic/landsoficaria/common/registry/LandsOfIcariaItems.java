@@ -10,6 +10,7 @@ import com.axanthic.landsoficaria.common.items.FuelBlockItem;
 import com.axanthic.landsoficaria.common.items.FuelItem;
 import com.axanthic.landsoficaria.common.items.IcariaAxeItem;
 import com.axanthic.landsoficaria.common.items.IcariaPickaxeItem;
+import com.axanthic.landsoficaria.common.items.IcariaScytheItem;
 import com.axanthic.landsoficaria.common.items.IcariaShovelItem;
 import com.axanthic.landsoficaria.common.registry.LandsOfIcariaBlocks.DecoBlockCombination;
 import com.axanthic.landsoficaria.util.IcariaTier;
@@ -338,6 +339,7 @@ public class LandsOfIcariaItems {
 		public final RegistryObject<Item> SHOVEL;
 		public final RegistryObject<Item> PICKAXE;
 		public final RegistryObject<Item> AXE;
+		public final RegistryObject<Item> SCYTHE;
 
 		public ToolCombination(IcariaTier tier) {
 			this.tier = tier;
@@ -346,6 +348,7 @@ public class LandsOfIcariaItems {
 			SHOVEL = registerTool(name + "_shovel", () -> new IcariaShovelItem(tier, 1.5F, -3.0F, propertiesItems()));
 			PICKAXE = registerTool(name + "_pickaxe", () -> new IcariaPickaxeItem(tier, 1, -2.8F, propertiesItems()));
 			AXE = registerTool(name + "_axe", () -> new IcariaAxeItem(tier, 6.0F, -3.0F, propertiesItems()));
+			SCYTHE = registerTool(name + "_scythe", () -> new IcariaScytheItem(tier, 4, -2.8F, propertiesItems()));
 		}
 	}
 }

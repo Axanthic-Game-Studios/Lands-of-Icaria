@@ -21,6 +21,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final Tag.Named<Block> NEEDS_SIDEROS_TOOL = BlockTags.bind(LandsOfIcariaInfo.MODID + ":needs_sideros_tool");
 	public static final Tag.Named<Block> NEEDS_MOLYBDENUMSTEEL_TOOL = BlockTags.bind(LandsOfIcariaInfo.MODID + ":needs_molybdenumsteel_tool");
 
+	public static final Tag.Named<Block> MINEABLE_WITH_SCYTHE = BlockTags.bind(LandsOfIcariaInfo.MODID + ":mineable/scythe");
+
 	public IcariaBlockTags(DataGenerator gen, ExistingFileHelper existingFileHelper) {
 		super(gen, LandsOfIcariaInfo.MODID, existingFileHelper);
 	}
@@ -35,5 +37,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(NEEDS_VANADIUMSTEEL_TOOL).add(LandsOfIcariaBlocks.VOIDSHALE.get());
 		tag(NEEDS_SIDEROS_TOOL).add(LandsOfIcariaBlocks.BAETYL.get());
 		tag(NEEDS_MOLYBDENUMSTEEL_TOOL);
+
+		tag(MINEABLE_WITH_SCYTHE).addTag(BlockTags.MINEABLE_WITH_HOE).addTag(BlockTags.LEAVES).addTag(BlockTags.CROPS).addTag(BlockTags.REPLACEABLE_PLANTS);
 	}
 }

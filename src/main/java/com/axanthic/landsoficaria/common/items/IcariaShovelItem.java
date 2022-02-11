@@ -10,6 +10,7 @@ import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.TierSortingRegistry;
 
 public class IcariaShovelItem extends ShovelItem {
 
@@ -23,22 +24,11 @@ public class IcariaShovelItem extends ShovelItem {
 
 	@Override
 	public boolean isCorrectToolForDrops(BlockState state) {
-		Tier tier = state.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier;
-		if (net.minecraftforge.common.TierSortingRegistry.isTierSorted(tier)) {
-			return net.minecraftforge.common.TierSortingRegistry.isCorrectTierForDrops(tier, state) && state.is(this.blocks);
-		}
-		int i = tier.getLevel();
-		if (i < 3 && state.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
-			return false;
-		} else if (i < 2 && state.is(BlockTags.NEEDS_IRON_TOOL)) {
-			return false;
-		} else {
-			return i < 1 && state.is(BlockTags.NEEDS_STONE_TOOL) ? false : state.is(this.blocks);
-		}
+		return state.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(state.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, state);
 	}
 
 	@Override
 	public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
-		return state.is(blocks) && net.minecraftforge.common.TierSortingRegistry.isCorrectTierForDrops(state.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, state);
+		return state.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(state.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, state);
 	}
 }
