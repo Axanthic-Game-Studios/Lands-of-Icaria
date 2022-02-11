@@ -234,6 +234,7 @@ public class LandsOfIcariaItems {
 	public static final RegistryObject<Item> JELLYFISH_JELLY = register("jellyfish_jelly", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> ARACHNE_STRING = register("arachne_string", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> SPELT = register("spelt", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> SPELT_BREAD = register("spelt_bread", () -> new Item(propertiesItems().food(foodPropertiesSpeltBread())));
 	public static final RegistryObject<Item> VINE_REED = register("vine_reed", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> VINE_SPROUT = register("vine_sprout", () -> new VineSproutItem(propertiesVineSprout().food(foodPropertiesVineSprout())));
 	public static final RegistryObject<Item> ROTTEN_BONES = register("rotten_bones", () -> new Item(propertiesItems()));
@@ -263,7 +264,11 @@ public class LandsOfIcariaItems {
 	}
 
 	private static FoodProperties foodPropertiesVineSprout() {
-		return new FoodProperties.Builder().nutrition(0).saturationMod(1).alwaysEat().build();
+		return new FoodProperties.Builder().nutrition(0).saturationMod(1.0F).alwaysEat().build();
+	}
+
+	private static FoodProperties foodPropertiesSpeltBread() {
+		return new FoodProperties.Builder().nutrition(5).saturationMod(0.6F).build();
 	}
 
 	private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item) {
