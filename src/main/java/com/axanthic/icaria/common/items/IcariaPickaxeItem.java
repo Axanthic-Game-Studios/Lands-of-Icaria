@@ -1,0 +1,34 @@
+package com.axanthic.icaria.common.items;
+
+import com.axanthic.icaria.datagen.IcariaBlockTags;
+import com.axanthic.icaria.util.IcariaTier;
+
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.TierSortingRegistry;
+
+public class IcariaPickaxeItem extends PickaxeItem {
+
+	private final Tag<Block> blocks = BlockTags.MINEABLE_WITH_PICKAXE;
+	private final Tier equivalentTier;
+
+	public IcariaPickaxeItem(IcariaTier tier, int damage, float attackSpeed, Properties prop) {
+		super(tier, damage, attackSpeed, prop);
+		this.equivalentTier = tier.vanillaEquivalent;
+	}
+
+	@Override
+	public boolean isCorrectToolForDrops(BlockState state) {
+		return state.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(state.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, state);
+	}
+
+	@Override
+	public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
+		return state.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(state.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, state);
+	}
+}
