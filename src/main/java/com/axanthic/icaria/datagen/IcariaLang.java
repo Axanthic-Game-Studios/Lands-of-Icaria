@@ -2,7 +2,7 @@ package com.axanthic.icaria.datagen;
 
 import java.util.function.Supplier;
 
-import com.axanthic.icaria.LandsOfIcariaInfo;
+import com.axanthic.icaria.IcariaInfo;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -12,7 +12,7 @@ import net.minecraftforge.fluids.ForgeFlowingFluid;
 public class IcariaLang extends LanguageProvider {
 
 	public IcariaLang(DataGenerator gen) {
-		super(gen, LandsOfIcariaInfo.MODID, "en_us");
+		super(gen, IcariaInfo.MODID, "en_us");
 	}
 
 	@Override

@@ -6,9 +6,9 @@ import java.util.function.BiConsumer;
 
 import javax.annotation.Nonnull;
 
-import com.axanthic.icaria.common.registry.LandsOfIcariaBlocks;
-import com.axanthic.icaria.common.registry.LandsOfIcariaItems;
-import com.axanthic.icaria.common.registry.LandsOfIcariaItems.DecoItemBlockCombination;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;
 
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.resources.ResourceLocation;
@@ -22,10 +22,10 @@ public class IcariaBlockLootTables extends BlockLoot {
 	@Override
 	protected Iterable<Block> getKnownBlocks() {
 		List<Block> blocks = new ArrayList<Block>();
-		for (RegistryObject<? extends Block> basicBlock : LandsOfIcariaBlocks.BASIC_BLOCKS) {
+		for (RegistryObject<? extends Block> basicBlock : IcariaBlocks.BASIC_BLOCKS) {
 			blocks.add(basicBlock.get());
 		}
-		for (DecoItemBlockCombination deco : LandsOfIcariaItems.DECO_BLOCKS) {
+		for (DecoItemBlockCombination deco : IcariaItems.DECO_BLOCKS) {
 			if (deco.SLAB != null) {
 				blocks.add(deco.block.SLAB.get());
 			}
@@ -42,10 +42,10 @@ public class IcariaBlockLootTables extends BlockLoot {
 
 	@Override
 	protected void addTables() {
-		for (RegistryObject<? extends Block> basicBlock : LandsOfIcariaBlocks.BASIC_BLOCKS) {
+		for (RegistryObject<? extends Block> basicBlock : IcariaBlocks.BASIC_BLOCKS) {
 			dropSelf(basicBlock.get());
 		}
-		for (DecoItemBlockCombination deco : LandsOfIcariaItems.DECO_BLOCKS) {
+		for (DecoItemBlockCombination deco : IcariaItems.DECO_BLOCKS) {
 			if (deco.SLAB != null) {
 				add(deco.block.SLAB.get(), BlockLoot::createSlabItemTable);
 			}

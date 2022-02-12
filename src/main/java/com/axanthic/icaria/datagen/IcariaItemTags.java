@@ -1,6 +1,6 @@
 package com.axanthic.icaria.datagen;
 
-import com.axanthic.icaria.LandsOfIcariaInfo;
+import com.axanthic.icaria.IcariaInfo;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
@@ -12,7 +12,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 public class IcariaItemTags extends ItemTagsProvider {
 
 	public IcariaItemTags(DataGenerator gen, BlockTagsProvider blockTags, ExistingFileHelper existingFileHelper) {
-		super(gen, blockTags, LandsOfIcariaInfo.MODID, existingFileHelper);
+		super(gen, blockTags, IcariaInfo.MODID, existingFileHelper);
 	}
 
 	@Override

@@ -1,5 +1,5 @@
 package com.axanthic.icaria;
 
-public class LandsOfIcariaInfo {
+public class IcariaInfo {
 	public static final String MODID = "landsoficaria";
 }

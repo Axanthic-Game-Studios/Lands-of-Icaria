@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-import com.axanthic.icaria.LandsOfIcariaInfo;
-import com.axanthic.icaria.client.util.LandsOfIcariaSounds;
+import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.client.util.IcariaSounds;
 import com.axanthic.icaria.common.blocks.*;
 import com.axanthic.icaria.common.blocks.MossBlock;
 import com.axanthic.icaria.common.blocks.SandBlock;
@@ -18,8 +18,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class LandsOfIcariaBlocks {
-	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, LandsOfIcariaInfo.MODID);
+public class IcariaBlocks {
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, IcariaInfo.MODID);
 
 	public static final List<RegistryObject<? extends Block>> BASIC_BLOCKS = new ArrayList<RegistryObject<? extends Block>>();
 
@@ -231,7 +231,7 @@ public class LandsOfIcariaBlocks {
 	}
 
 	private static Properties propertiesAristone() {
-		return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GREEN).sound(LandsOfIcariaSounds.ARISTONE).explosionResistance(0.5F).strength(0.5F).friction(0.98F).noOcclusion();
+		return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GREEN).sound(IcariaSounds.ARISTONE).explosionResistance(0.5F).strength(0.5F).friction(0.98F).noOcclusion();
 	}
 
 	private static Properties propertiesQuartz() {

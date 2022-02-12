@@ -1,7 +1,7 @@
 package com.axanthic.icaria.datagen;
 
-import com.axanthic.icaria.LandsOfIcariaInfo;
-import com.axanthic.icaria.common.registry.LandsOfIcariaItems;
+import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.google.gson.JsonObject;
 
 import net.minecraft.data.DataGenerator;
@@ -17,15 +17,15 @@ import net.minecraftforge.registries.RegistryObject;
 public class IcariaItemModels extends ItemModelProvider {
 
 	public IcariaItemModels(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-		super(generator, LandsOfIcariaInfo.MODID, existingFileHelper);
+		super(generator, IcariaInfo.MODID, existingFileHelper);
 	}
 
 	@Override
 	protected void registerModels() {
-		for (RegistryObject<? extends Item> item : LandsOfIcariaItems.BASIC_ITEMS) {
+		for (RegistryObject<? extends Item> item : IcariaItems.BASIC_ITEMS) {
 			itemWithModel(item, "item/generated");
 		}
-		for (RegistryObject<? extends Item> item : LandsOfIcariaItems.TOOL_ITEMS) {
+		for (RegistryObject<? extends Item> item : IcariaItems.TOOL_ITEMS) {
 			itemWithModel(item, "item/handheld");
 		}
 	}
@@ -38,7 +38,7 @@ public class IcariaItemModels extends ItemModelProvider {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void bucketModel(RegistryObject<? extends BucketItem> registryObject) {
-		ModelBuilder builder = getBuilder(registryObject.getId().getPath()).parent(getExistingFile(new ResourceLocation(LandsOfIcariaInfo.MODID, "item/bucket_fluid")));
+		ModelBuilder builder = getBuilder(registryObject.getId().getPath()).parent(getExistingFile(new ResourceLocation(IcariaInfo.MODID, "item/bucket_fluid")));
 
 		//I'm not sure how this works but it works
 		builder.customLoader((t, u) -> new CustomLoaderBuilder(((ModelBuilder) t).getLocation(), (ModelBuilder) t, (ExistingFileHelper) u) {

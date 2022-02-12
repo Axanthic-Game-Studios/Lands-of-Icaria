@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client;
 
 import com.axanthic.icaria.common.CommonProxy;
-import com.axanthic.icaria.common.registry.LandsOfIcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
@@ -24,23 +24,23 @@ public class ClientProxy extends CommonProxy {
 		BlockColors blockColors = Minecraft.getInstance().getBlockColors();
 		ItemColors itemColors = Minecraft.getInstance().getItemColors();
 
-		blockColors.register((state, getter, pos, i) -> getter != null && pos != null ? BiomeColors.getAverageGrassColor(getter, pos) : GrassColor.get(0.60D, 0.10D), LandsOfIcariaBlocks.MARL_GRASS.get());
+		blockColors.register((state, getter, pos, i) -> getter != null && pos != null ? BiomeColors.getAverageGrassColor(getter, pos) : GrassColor.get(0.60D, 0.10D), IcariaBlocks.MARL_GRASS.get());
 
 		ItemColor itemBlockColorHandler = (stack, tintIndex) -> {
 			BlockState state = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
 			return blockColors.getColor(state, null, null, tintIndex);
 		};
 
-		itemColors.register(itemBlockColorHandler, LandsOfIcariaBlocks.MARL_GRASS.get());
+		itemColors.register(itemBlockColorHandler, IcariaBlocks.MARL_GRASS.get());
 
-		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.MARL_GRASS.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS_PANE.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.SILKGLASS.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.SILKGLASS_PANE.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.ARISTONE.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(LandsOfIcariaBlocks.JELLYFISH_JELLY_BLOCK.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.MARL_GRASS.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.GRAINGLASS.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.GRAINGLASS_PANE.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SILKGLASS.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SILKGLASS_PANE.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.ARISTONE.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get(), RenderType.translucent());
 	}
 }

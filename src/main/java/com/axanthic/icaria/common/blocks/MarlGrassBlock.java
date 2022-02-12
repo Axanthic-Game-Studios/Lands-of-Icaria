@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.blocks;
 
 import java.util.Random;
 
-import com.axanthic.icaria.common.registry.LandsOfIcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -40,13 +40,13 @@ public class MarlGrassBlock extends Block {
 
 	@Override
 	public BlockState updateShape(BlockState stateFirst, Direction direction, BlockState stateSecond, LevelAccessor accessor, BlockPos posFirst, BlockPos posSecond) {
-		return direction == Direction.UP ? stateFirst.setValue(MOSSY_0, stateSecond.is(LandsOfIcariaBlocks.MOSS_0.get())).setValue(MOSSY_1, stateSecond.is(LandsOfIcariaBlocks.MOSS_1.get())).setValue(MOSSY_2, stateSecond.is(LandsOfIcariaBlocks.MOSS_2.get())) : super.updateShape(stateFirst, direction, stateSecond, accessor, posFirst, posSecond);
+		return direction == Direction.UP ? stateFirst.setValue(MOSSY_0, stateSecond.is(IcariaBlocks.MOSS_0.get())).setValue(MOSSY_1, stateSecond.is(IcariaBlocks.MOSS_1.get())).setValue(MOSSY_2, stateSecond.is(IcariaBlocks.MOSS_2.get())) : super.updateShape(stateFirst, direction, stateSecond, accessor, posFirst, posSecond);
 	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().above());
-		return this.defaultBlockState().setValue(MOSSY_0, blockstate.is(LandsOfIcariaBlocks.MOSS_0.get())).setValue(MOSSY_1, blockstate.is(LandsOfIcariaBlocks.MOSS_1.get())).setValue(MOSSY_2, blockstate.is(LandsOfIcariaBlocks.MOSS_2.get()));
+		return this.defaultBlockState().setValue(MOSSY_0, blockstate.is(IcariaBlocks.MOSS_0.get())).setValue(MOSSY_1, blockstate.is(IcariaBlocks.MOSS_1.get())).setValue(MOSSY_2, blockstate.is(IcariaBlocks.MOSS_2.get()));
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class MarlGrassBlock extends Block {
 	public static boolean canBeGrass(BlockState state, LevelReader reader, BlockPos pos) {
 		BlockPos blockpos = pos.above();
 		BlockState blockstate = reader.getBlockState(blockpos);
-		if ((blockstate.is(LandsOfIcariaBlocks.MOSS_0.get()) || blockstate.is(LandsOfIcariaBlocks.MOSS_1.get()) || blockstate.is(LandsOfIcariaBlocks.MOSS_2.get())) && blockstate.getValue(MossBlock.LAYERS) == 1) {
+		if ((blockstate.is(IcariaBlocks.MOSS_0.get()) || blockstate.is(IcariaBlocks.MOSS_1.get()) || blockstate.is(IcariaBlocks.MOSS_2.get())) && blockstate.getValue(MossBlock.LAYERS) == 1) {
 			return true;
 		} else if (blockstate.getFluidState().getAmount() == 8) {
 			return false;
@@ -77,7 +77,7 @@ public class MarlGrassBlock extends Block {
 		if (!canBeGrass(state, level, pos)) {
 			if (!level.isAreaLoaded(pos, 1))
 				return;
-			level.setBlockAndUpdate(pos, LandsOfIcariaBlocks.MARL.get().defaultBlockState());
+			level.setBlockAndUpdate(pos, IcariaBlocks.MARL.get().defaultBlockState());
 		} else {
 			if (!level.isAreaLoaded(pos, 3))
 				return;
@@ -85,8 +85,8 @@ public class MarlGrassBlock extends Block {
 				BlockState blockstate = this.defaultBlockState();
 				for (int i = 0; i < 4; ++i) {
 					BlockPos blockpos = pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-					if (level.getBlockState(blockpos).is(LandsOfIcariaBlocks.MARL.get()) && canPropagate(blockstate, level, blockpos)) {
-						level.setBlockAndUpdate(blockpos, blockstate.setValue(MOSSY_0, level.getBlockState(blockpos.above()).is(LandsOfIcariaBlocks.MOSS_0.get())).setValue(MOSSY_1, level.getBlockState(blockpos.above()).is(LandsOfIcariaBlocks.MOSS_1.get())).setValue(MOSSY_2, level.getBlockState(blockpos.above()).is(LandsOfIcariaBlocks.MOSS_2.get())));
+					if (level.getBlockState(blockpos).is(IcariaBlocks.MARL.get()) && canPropagate(blockstate, level, blockpos)) {
+						level.setBlockAndUpdate(blockpos, blockstate.setValue(MOSSY_0, level.getBlockState(blockpos.above()).is(IcariaBlocks.MOSS_0.get())).setValue(MOSSY_1, level.getBlockState(blockpos.above()).is(IcariaBlocks.MOSS_1.get())).setValue(MOSSY_2, level.getBlockState(blockpos.above()).is(IcariaBlocks.MOSS_2.get())));
 					}
 				}
 			}
@@ -105,7 +105,7 @@ public class MarlGrassBlock extends Block {
 		if (itemStack.getItem() instanceof HoeItem) {
 			level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
 			if (!level.isClientSide) {
-				level.setBlock(pos, LandsOfIcariaBlocks.FARMLAND.get().defaultBlockState(), 0);
+				level.setBlock(pos, IcariaBlocks.FARMLAND.get().defaultBlockState(), 0);
 				if (!player.isCreative()) {
 					itemStack.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(hand));
 				}

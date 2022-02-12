@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.blocks;
 
-import com.axanthic.icaria.common.registry.LandsOfIcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -35,7 +35,7 @@ public class MarlCoarseBlock extends Block {
 		if (itemStack.getItem() instanceof HoeItem) {
 			level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
 			if (!level.isClientSide) {
-				level.setBlock(pos, LandsOfIcariaBlocks.MARL.get().defaultBlockState(), 0);
+				level.setBlock(pos, IcariaBlocks.MARL.get().defaultBlockState(), 0);
 				if (!player.isCreative()) {
 					itemStack.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(hand));
 				}

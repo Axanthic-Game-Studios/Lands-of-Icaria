@@ -2,8 +2,8 @@ package com.axanthic.icaria;
 
 import com.axanthic.icaria.client.ClientProxy;
 import com.axanthic.icaria.common.CommonProxy;
-import com.axanthic.icaria.common.registry.LandsOfIcariaBlocks;
-import com.axanthic.icaria.common.registry.LandsOfIcariaItems;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.datagen.IcariaBlockStates;
 import com.axanthic.icaria.datagen.IcariaBlockTags;
 import com.axanthic.icaria.datagen.IcariaFluidTags;
@@ -26,33 +26,33 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
-@Mod(LandsOfIcariaInfo.MODID)
-public class LandsOfIcaria {
+@Mod(IcariaInfo.MODID)
+public class Icaria {
 	public static CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
-	public LandsOfIcaria() {
+	public Icaria() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetupEvent);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::gatherData);
 
-		LandsOfIcariaBlocks.BLOCKS.register(bus);
-		LandsOfIcariaItems.ITEMS.register(bus);
+		IcariaBlocks.BLOCKS.register(bus);
+		IcariaItems.ITEMS.register(bus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	public void onCommonSetupEvent(FMLCommonSetupEvent event) {
-		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_0.get(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_1.get(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.MOSS_2.get(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.SPELT_BALE_BLOCK.get(), 0.85F);
-		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.VINE_REED_BLOCK.get(), 0.85F);
-		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.VINE_SPROUT_BLOCK.get(), 0.65F);
-		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.SPELT.get(), 0.65F);
-		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.VINE_REED.get(), 0.5F);
-		ComposterBlock.COMPOSTABLES.put(LandsOfIcariaItems.VINE_SPROUT.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.MOSS_0.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.MOSS_1.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.MOSS_2.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.SPELT_BALE_BLOCK.get(), 0.85F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_REED_BLOCK.get(), 0.85F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_SPROUT_BLOCK.get(), 0.65F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.SPELT.get(), 0.65F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_REED.get(), 0.5F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_SPROUT.get(), 0.3F);
 	}
 
 	private void loadComplete(final FMLLoadCompleteEvent event) {

@@ -6,7 +6,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import com.axanthic.icaria.LandsOfIcariaInfo;
+import com.axanthic.icaria.IcariaInfo;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 
@@ -37,7 +37,7 @@ public class IcariaLootTables extends LootTableProvider {
 		map.forEach((loc, table) -> LootTables.validate(validationtracker, loc, table));
 		// Remove vanilla's tables, which we also loaded so we can redirect stuff to them.
 		// This ensures the remaining generator logic doesn't write those to files.
-		map.keySet().removeIf((loc) -> !loc.getNamespace().equals(LandsOfIcariaInfo.MODID));
+		map.keySet().removeIf((loc) -> !loc.getNamespace().equals(IcariaInfo.MODID));
 	}
 
 	/**
@@ -45,6 +45,6 @@ public class IcariaLootTables extends LootTableProvider {
 	 */
 	@Override
 	public String getName() {
-		return LandsOfIcariaInfo.MODID + " LootTables";
+		return IcariaInfo.MODID + " LootTables";
 	}
 }

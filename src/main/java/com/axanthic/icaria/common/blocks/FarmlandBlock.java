@@ -2,8 +2,8 @@ package com.axanthic.icaria.common.blocks;
 
 import java.util.Random;
 
-import com.axanthic.icaria.common.registry.LandsOfIcariaBlocks;
-import com.axanthic.icaria.common.registry.LandsOfIcariaItems;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -62,7 +62,7 @@ public class FarmlandBlock extends Block {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos()) ? LandsOfIcariaBlocks.MARL.get().defaultBlockState() : super.getStateForPlacement(context);
+		return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos()) ? IcariaBlocks.MARL.get().defaultBlockState() : super.getStateForPlacement(context);
 	}
 
 	@Override
@@ -98,7 +98,7 @@ public class FarmlandBlock extends Block {
 
 	@Override
 	public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float f) {
-		if (!level.isClientSide && net.minecraftforge.common.ForgeHooks.onFarmlandTrample(level, pos, LandsOfIcariaBlocks.MARL.get().defaultBlockState(), f, entity)) {
+		if (!level.isClientSide && net.minecraftforge.common.ForgeHooks.onFarmlandTrample(level, pos, IcariaBlocks.MARL.get().defaultBlockState(), f, entity)) {
 			turnToMarl(state, level, pos);
 		}
 
@@ -106,7 +106,7 @@ public class FarmlandBlock extends Block {
 	}
 
 	public static void turnToMarl(BlockState state, Level level, BlockPos pos) {
-		level.setBlockAndUpdate(pos, pushEntitiesUp(state, LandsOfIcariaBlocks.MARL.get().defaultBlockState(), level, pos));
+		level.setBlockAndUpdate(pos, pushEntitiesUp(state, IcariaBlocks.MARL.get().defaultBlockState(), level, pos));
 	}
 
 	public static boolean isUnderCrops(BlockGetter getter, BlockPos pos) {
@@ -145,11 +145,11 @@ public class FarmlandBlock extends Block {
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		ItemStack itemStack = player.getItemInHand(hand);
 
-		if (itemStack.getItem() == LandsOfIcariaItems.CALCITE_POWDER.get()) {
+		if (itemStack.getItem() == IcariaItems.CALCITE_POWDER.get()) {
 			if (state.getValue(MOISTURE) == 7) {
 				level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
 				if (!level.isClientSide) {
-					level.setBlock(pos, LandsOfIcariaBlocks.FARMLAND_FERTILIZED.get().defaultBlockState(), 0);
+					level.setBlock(pos, IcariaBlocks.FARMLAND_FERTILIZED.get().defaultBlockState(), 0);
 					if (!player.isCreative()) {
 						itemStack.shrink(1);
 					}

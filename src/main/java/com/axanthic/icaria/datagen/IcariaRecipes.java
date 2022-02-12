@@ -2,9 +2,9 @@ package com.axanthic.icaria.datagen;
 
 import java.util.function.Consumer;
 
-import com.axanthic.icaria.LandsOfIcariaInfo;
-import com.axanthic.icaria.common.registry.LandsOfIcariaItems;
-import com.axanthic.icaria.common.registry.LandsOfIcariaItems.DecoItemBlockCombination;
+import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -27,12 +27,12 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 
 	@Override
 	public String getName() {
-		return LandsOfIcariaInfo.MODID;
+		return IcariaInfo.MODID;
 	}
 
 	@Override
 	public void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
-		for (DecoItemBlockCombination deco : LandsOfIcariaItems.DECO_BLOCKS) {
+		for (DecoItemBlockCombination deco : IcariaItems.DECO_BLOCKS) {
 			if (deco.SLAB != null) {
 				ShapedRecipeBuilder.shaped(deco.SLAB.get(), 6)
 				.pattern("XXX")

@@ -1,9 +1,9 @@
 package com.axanthic.icaria.datagen;
 
-import com.axanthic.icaria.LandsOfIcariaInfo;
-import com.axanthic.icaria.common.registry.LandsOfIcariaBlocks;
-import com.axanthic.icaria.common.registry.LandsOfIcariaItems;
-import com.axanthic.icaria.common.registry.LandsOfIcariaItems.DecoItemBlockCombination;
+import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -16,15 +16,15 @@ import net.minecraftforge.registries.RegistryObject;
 public class IcariaBlockStates extends BlockStateProvider {
 
 	public IcariaBlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
-		super(gen, LandsOfIcariaInfo.MODID, exFileHelper);
+		super(gen, IcariaInfo.MODID, exFileHelper);
 	}
 
 	@Override
 	protected void registerStatesAndModels() {
-		for (RegistryObject<? extends Block> basicBlock : LandsOfIcariaBlocks.BASIC_BLOCKS) {
+		for (RegistryObject<? extends Block> basicBlock : IcariaBlocks.BASIC_BLOCKS) {
 			blockWithItem(basicBlock);
 		}
-		for (DecoItemBlockCombination deco : LandsOfIcariaItems.DECO_BLOCKS) {
+		for (DecoItemBlockCombination deco : IcariaItems.DECO_BLOCKS) {
 			ResourceLocation texture = blockTexture(deco.block.original.get());
 			if (deco.SLAB != null) {
 				slabBlock(deco.block.SLAB.get(), deco.block.original.getId(), texture);

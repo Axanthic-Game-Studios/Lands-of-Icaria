@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.blocks;
 
 import java.util.Random;
 
-import com.axanthic.icaria.common.registry.LandsOfIcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -47,7 +47,7 @@ public class FarmlandFertilizedBlock extends Block {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos()) ? LandsOfIcariaBlocks.MARL.get().defaultBlockState() : super.getStateForPlacement(context);
+		return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos()) ? IcariaBlocks.MARL.get().defaultBlockState() : super.getStateForPlacement(context);
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class FarmlandFertilizedBlock extends Block {
 	}
 
 	public static void turnToMarl(BlockState state, Level level, BlockPos pos) {
-		level.setBlockAndUpdate(pos, pushEntitiesUp(state, LandsOfIcariaBlocks.MARL.get().defaultBlockState(), level, pos));
+		level.setBlockAndUpdate(pos, pushEntitiesUp(state, IcariaBlocks.MARL.get().defaultBlockState(), level, pos));
 	}
 
 	@Override
