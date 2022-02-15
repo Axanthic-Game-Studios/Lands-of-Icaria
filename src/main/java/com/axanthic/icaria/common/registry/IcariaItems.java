@@ -9,6 +9,7 @@ import com.axanthic.icaria.client.util.IcariaTabs;
 import com.axanthic.icaria.common.items.FuelBlockItem;
 import com.axanthic.icaria.common.items.FuelItem;
 import com.axanthic.icaria.common.items.IcariaAxeItem;
+import com.axanthic.icaria.common.items.IcariaBidentItem;
 import com.axanthic.icaria.common.items.IcariaPickaxeItem;
 import com.axanthic.icaria.common.items.IcariaScytheItem;
 import com.axanthic.icaria.common.items.IcariaShovelItem;
@@ -31,7 +32,7 @@ public class IcariaItems {
 
 	public static final List<DecoItemBlockCombination> DECO_BLOCKS = new ArrayList<DecoItemBlockCombination>();
 	public static final List<RegistryObject<? extends Item>> BASIC_ITEMS = new ArrayList<RegistryObject<? extends Item>>();
-	public static final List<RegistryObject<? extends Item>> TOOL_ITEMS = new ArrayList<RegistryObject<? extends Item>>();
+	public static final List<ToolCombination> TOOLS = new ArrayList<ToolCombination>();
 
 	public static final RegistryObject<Item> MARL_GRASS = register("marl_grass", () -> new BlockItem(IcariaBlocks.MARL_GRASS.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> MARL = register("marl", () -> new BlockItem(IcariaBlocks.MARL.get(), propertiesBlocks()));
@@ -219,12 +220,6 @@ public class IcariaItems {
 		return registeredItem;
 	}
 
-	private static <T extends Item> RegistryObject<T> registerTool(final String name, final Supplier<T> item) {
-		RegistryObject<T> registeredItem = register(name, item);
-		TOOL_ITEMS.add(registeredItem);
-		return registeredItem;
-	}
-
 	private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item) {
 		return ITEMS.register(name, item);
 	}
@@ -264,15 +259,18 @@ public class IcariaItems {
 		public final RegistryObject<Item> PICKAXE;
 		public final RegistryObject<Item> AXE;
 		public final RegistryObject<Item> SCYTHE;
+		public final RegistryObject<Item> BIDENT;
 
 		public ToolCombination(IcariaTier tier) {
 			this.tier = tier;
 			String name = TierSortingRegistry.getName(tier).getPath();
-			SWORD = registerTool(name + "_sword", () -> new SwordItem(tier, 3, -2.4F, propertiesItems()));
-			SHOVEL = registerTool(name + "_shovel", () -> new IcariaShovelItem(tier, 1.5F, -3.0F, propertiesItems()));
-			PICKAXE = registerTool(name + "_pickaxe", () -> new IcariaPickaxeItem(tier, 1, -2.8F, propertiesItems()));
-			AXE = registerTool(name + "_axe", () -> new IcariaAxeItem(tier, 6.0F, -3.0F, propertiesItems()));
-			SCYTHE = registerTool(name + "_scythe", () -> new IcariaScytheItem(tier, 4, -2.8F, propertiesItems()));
+			SWORD = register(name + "_sword", () -> new SwordItem(tier, 3, -2.4F, propertiesItems()));
+			SHOVEL = register(name + "_shovel", () -> new IcariaShovelItem(tier, 1.5F, -3.0F, propertiesItems()));
+			PICKAXE = register(name + "_pickaxe", () -> new IcariaPickaxeItem(tier, 1, -2.8F, propertiesItems()));
+			AXE = register(name + "_axe", () -> new IcariaAxeItem(tier, 6.0F, -3.0F, propertiesItems()));
+			SCYTHE = register(name + "_scythe", () -> new IcariaScytheItem(tier, 4, -2.8F, propertiesItems()));
+			BIDENT = register(name + "_bident", () -> new IcariaBidentItem(tier, propertiesItems()));
+			TOOLS.add(this);
 		}
 	}
 }

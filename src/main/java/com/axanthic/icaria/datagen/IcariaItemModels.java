@@ -2,6 +2,7 @@ package com.axanthic.icaria.datagen;
 
 import com.axanthic.icaria.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaItems.ToolCombination;
 import com.google.gson.JsonObject;
 
 import net.minecraft.data.DataGenerator;
@@ -9,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.CustomLoaderBuilder;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -25,15 +27,26 @@ public class IcariaItemModels extends ItemModelProvider {
 		for (RegistryObject<? extends Item> item : IcariaItems.BASIC_ITEMS) {
 			itemWithModel(item, "item/generated");
 		}
-		for (RegistryObject<? extends Item> item : IcariaItems.TOOL_ITEMS) {
-			itemWithModel(item, "item/handheld");
+		for (ToolCombination tools : IcariaItems.TOOLS) {
+			itemWithModel(tools.SWORD, "item/handheld");
+			itemWithModel(tools.SHOVEL, "item/handheld");
+			itemWithModel(tools.PICKAXE, "item/handheld");
+			itemWithModel(tools.AXE, "item/handheld");
+			itemWithModel(tools.SCYTHE, "item/handheld");
+			ResourceLocation id = tools.BIDENT.getId();
+			ItemModelBuilder throwingModel = singleTexture(id.getPath() + "_throwing", new ResourceLocation(IcariaInfo.MODID, "item/bident_throwing"), "layer0", new ResourceLocation(id.getNamespace(), "item/" + id.getPath()));
+			itemWithModel(tools.BIDENT, new ResourceLocation(IcariaInfo.MODID, "item/bident")).override().predicate(new ResourceLocation(IcariaInfo.MODID, "throwing"), 1.0F).model(throwingModel).end();
 		}
 	}
 
-	public void itemWithModel(RegistryObject<? extends Item> registryObject, String model) {
+	public ItemModelBuilder itemWithModel(RegistryObject<? extends Item> registryObject, ResourceLocation model) {
 		ResourceLocation id = registryObject.getId();
 		ResourceLocation textureLocation = new ResourceLocation(id.getNamespace(), "item/" + id.getPath());
-		singleTexture(id.getPath(), new ResourceLocation(model), "layer0", textureLocation);
+		return singleTexture(id.getPath(), model, "layer0", textureLocation);
+	}
+
+	public ItemModelBuilder itemWithModel(RegistryObject<? extends Item> registryObject, String model) {
+		return itemWithModel(registryObject, new ResourceLocation(model));
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })

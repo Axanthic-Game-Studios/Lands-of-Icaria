@@ -14,7 +14,7 @@ import net.minecraftforge.common.TierSortingRegistry;
 
 public class IcariaTiers {
 
-	public static final IcariaTier CHERT = new IcariaTier(0, 59, 2.0F, 0.0F, 15, IcariaBlockTags.NEEDS_CHERT_TOOL, () -> Ingredient.of(Items.BEDROCK), Tiers.STONE);
+	public static final IcariaTier CHERT = new IcariaTier(0, 59, 2.0F, 0.0F, 15, IcariaBlockTags.NEEDS_CHERT_TOOL, () -> Ingredient.of(IcariaItems.CHERT.get()), Tiers.STONE);
 	public static final IcariaTier CHALKOS = new IcariaTier(1, 174, 5.0F, 1.0F, 15, IcariaBlockTags.NEEDS_CHALKOS_TOOL, () -> Ingredient.of(Items.BEDROCK), Tiers.STONE);
 	public static final IcariaTier KASSITEROS = new IcariaTier(1, 234, 5.0F, 1.5F, 15, IcariaBlockTags.NEEDS_KASSITEROS_TOOL, () -> Ingredient.of(Items.BEDROCK), Tiers.IRON);
 	public static final IcariaTier ORICHALCUM = new IcariaTier(2, 385, 6.0F, 2.0F, 19, IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, () -> Ingredient.of(Items.BEDROCK), Tiers.IRON);

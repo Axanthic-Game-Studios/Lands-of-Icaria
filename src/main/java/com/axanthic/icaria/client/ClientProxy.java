@@ -1,7 +1,9 @@
 package com.axanthic.icaria.client;
 
+import com.axanthic.icaria.client.render.ThrownBidentRenderer;
 import com.axanthic.icaria.common.CommonProxy;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaEntities;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
@@ -10,6 +12,7 @@ import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -19,8 +22,12 @@ public class ClientProxy extends CommonProxy {
 
 	}
 
+	public void setup() {
+
+	}
+
 	@Override
-	public void init() {
+	public void loadComplete() {
 		BlockColors blockColors = Minecraft.getInstance().getBlockColors();
 		ItemColors itemColors = Minecraft.getInstance().getItemColors();
 
@@ -42,5 +49,7 @@ public class ClientProxy extends CommonProxy {
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.ARISTONE.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get(), RenderType.translucent());
+
+		EntityRenderers.register(IcariaEntities.BIDENT.get(), ThrownBidentRenderer::new);
 	}
 }

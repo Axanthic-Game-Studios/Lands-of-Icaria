@@ -1,0 +1,6 @@
+{
+  "parent": "landsoficaria:item/bident_throwing",
+  "textures": {
+    "layer0": "landsoficaria:item/sideros_bident"
+  }
+}

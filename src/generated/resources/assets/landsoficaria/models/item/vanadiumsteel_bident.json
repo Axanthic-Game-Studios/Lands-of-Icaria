@@ -1,0 +1,14 @@
+{
+  "parent": "landsoficaria:item/bident",
+  "textures": {
+    "layer0": "landsoficaria:item/vanadiumsteel_bident"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "landsoficaria:throwing": 1.0
+      },
+      "model": "landsoficaria:item/vanadiumsteel_bident_throwing"
+    }
+  ]
+}

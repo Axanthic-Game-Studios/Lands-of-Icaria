@@ -5,7 +5,11 @@ public class CommonProxy {
 
 	}
 
-	public void init() {
+	public void setup() {
+
+	}
+
+	public void loadComplete() {
 
 	}
 }
