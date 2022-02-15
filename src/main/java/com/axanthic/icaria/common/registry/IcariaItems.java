@@ -166,21 +166,21 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MOSS_2 = register("moss_2", () -> new BlockItem(IcariaBlocks.MOSS_2.get(), propertiesFlora()));
 
 	public static final RegistryObject<Item> FLASK_EMPTY = registerBasic("flask_empty", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> JELLYFISH_JELLY = register("jellyfish_jelly", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> ARACHNE_STRING = register("arachne_string", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> SPELT = register("spelt", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> SPELT_BREAD = register("spelt_bread", () -> new Item(propertiesItems().food(foodPropertiesSpeltBread())));
-	public static final RegistryObject<Item> VINE_REED = register("vine_reed", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> VINE_SPROUT = register("vine_sprout", () -> new VineSproutItem(propertiesVineSprout().food(foodPropertiesVineSprout())));
-	public static final RegistryObject<Item> ROTTEN_BONES = register("rotten_bones", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> REMAINS = register("remains", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> CALCITE_POWDER = register("calcite_powder", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> LOAM_LUMP = register("loam_lump", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> LOAM_BRICK = register("loam_brick", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> LIGNITE = register("lignite", () -> new FuelItem(propertiesItems(), 800));
-	public static final RegistryObject<Item> ANTHRACITE = register("anthracite", () -> new FuelItem(propertiesItems(), 3200));
-	public static final RegistryObject<Item> DOLOMITE = register("dolomite", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> CHERT = register("chert", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> JELLYFISH_JELLY = registerBasic("jellyfish_jelly", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> ARACHNE_STRING = registerBasic("arachne_string", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> SPELT = registerBasic("spelt", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> SPELT_BREAD = registerBasic("spelt_bread", () -> new Item(propertiesItems().food(foodPropertiesSpeltBread())));
+	public static final RegistryObject<Item> VINE_REED = registerBasic("vine_reed", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> VINE_SPROUT = registerBasic("vine_sprout", () -> new VineSproutItem(propertiesVineSprout().food(foodPropertiesVineSprout())));
+	public static final RegistryObject<Item> ROTTEN_BONES = registerBasic("rotten_bones", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> REMAINS = registerBasic("remains", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> CALCITE_POWDER = registerBasic("calcite_powder", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> LOAM_LUMP = registerBasic("loam_lump", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> LOAM_BRICK = registerBasic("loam_brick", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> LIGNITE = registerBasic("lignite", () -> new FuelItem(propertiesItems(), 800));
+	public static final RegistryObject<Item> ANTHRACITE = registerBasic("anthracite", () -> new FuelItem(propertiesItems(), 3200));
+	public static final RegistryObject<Item> DOLOMITE = registerBasic("dolomite", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> CHERT = registerBasic("chert", () -> new Item(propertiesItems()));
 
 	public static final ToolCombination CHERT_TOOLS = new ToolCombination(IcariaTiers.CHERT);
 	public static final ToolCombination CHALKOS_TOOLS = new ToolCombination(IcariaTiers.CHALKOS);
