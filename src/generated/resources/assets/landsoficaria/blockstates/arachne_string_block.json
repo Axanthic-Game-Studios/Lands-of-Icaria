@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/arachne_string_block"
+      },
+      {
+        "model": "landsoficaria:block/arachne_string_block",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/arachne_string_block"
+      },
+      {
+        "model": "landsoficaria:block/arachne_string_block",
+        "y": 180
+      }
+    ]
+  }
+}

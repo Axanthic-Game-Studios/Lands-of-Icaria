@@ -2,7 +2,6 @@ package com.axanthic.icaria.datagen;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiConsumer;
 
 import javax.annotation.Nonnull;
 
@@ -11,9 +10,7 @@ import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;
 
 import net.minecraft.data.loot.BlockLoot;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraftforge.registries.RegistryObject;
 
 public class IcariaBlockLootTables extends BlockLoot {

@@ -1,0 +1,78 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/grainel"
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "x": 90
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "x": 90,
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "x": 90,
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "x": 180
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "x": 180,
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "x": 180,
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "x": 180,
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "x": 270
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "x": 270,
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "x": 270,
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/grainel",
+        "x": 270,
+        "y": 270
+      }
+    ]
+  }
+}
