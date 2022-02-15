@@ -2,7 +2,8 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1,
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:alternatives",
@@ -24,33 +25,16 @@
                   }
                 }
               ],
-              "name": "landsoficaria:marl_lignite"
+              "name": "landsoficaria:sunstone"
             },
             {
               "type": "minecraft:item",
-              "functions": [
+              "conditions": [
                 {
-                  "function": "minecraft:set_count",
-                  "count": {
-                    "type": "minecraft:uniform",
-                    "min": 1,
-                    "max": 3
-                  },
-                  "add": false
-                },
-                {
-                  "function": "minecraft:apply_bonus",
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:uniform_bonus_count",
-                  "parameters": {
-                    "bonusMultiplier": 1
-                  }
-                },
-                {
-                  "function": "minecraft:explosion_decay"
+                  "condition": "minecraft:survives_explosion"
                 }
               ],
-              "name": "landsoficaria:lignite"
+              "name": "landsoficaria:sunstone_cobble"
             }
           ]
         }
