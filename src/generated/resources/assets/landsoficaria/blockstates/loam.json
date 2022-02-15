@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/loam"
+      },
+      {
+        "model": "landsoficaria:block/loam",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/loam_mirrored"
+      },
+      {
+        "model": "landsoficaria:block/loam_mirrored",
+        "y": 180
+      }
+    ]
+  }
+}

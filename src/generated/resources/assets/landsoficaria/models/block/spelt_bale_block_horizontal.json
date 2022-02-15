@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "side": "landsoficaria:block/spelt_bale_block_side",
+    "end": "landsoficaria:block/spelt_bale_block_end"
+  }
+}

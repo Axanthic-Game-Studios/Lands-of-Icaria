@@ -46,6 +46,40 @@ public class IcariaBlockStates extends BlockStateProvider {
 
 		MIRRORED.add(IcariaBlocks.ARACHNE_STRING_BLOCK);
 
+		//blockWithItem(IcariaBlocks.MARL_GRASS);
+		blockWithItem(IcariaBlocks.MARL_CHERT);
+		blockWithItem(IcariaBlocks.MARL_ROTTEN_BONES);
+		blockWithItem(IcariaBlocks.MARL_LIGNITE);
+		//blockWithItem(IcariaBlocks.FARMLAND);
+		//blockWithItem(IcariaBlocks.FARMLAND_FERTILIZED);
+		mirroredBlockWithItem(IcariaBlocks.LOAM);
+		axisBlock(IcariaBlocks.DOLOMITE_PILLAR.get());
+		blockItem(IcariaBlocks.DOLOMITE_PILLAR);
+		//blockWithItem(IcariaBlocks.DOLOMITE_PILLAR_HEAD);
+		blockWithItem(IcariaBlocks.GRAINEL_CHERT);
+		blockWithItem(IcariaBlocks.GRAINGLASS);
+		paneBlock(IcariaBlocks.GRAINGLASS_PANE.get(), new ResourceLocation(IcariaBlocks.GRAINGLASS.getId().getNamespace(), "block/" + IcariaBlocks.GRAINGLASS.getId().getPath()), new ResourceLocation(IcariaBlocks.GRAINGLASS.getId().getNamespace(), "block/" + IcariaBlocks.GRAINGLASS.getId().getPath() + "_pane"));
+		//blockWithItem(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL);
+		blockWithItem(IcariaBlocks.YELLOWSTONE);
+		blockWithItem(IcariaBlocks.SILKGLASS);
+		paneBlock(IcariaBlocks.SILKGLASS_PANE.get(), new ResourceLocation(IcariaBlocks.SILKGLASS.getId().getNamespace(), "block/" + IcariaBlocks.SILKGLASS.getId().getPath()), new ResourceLocation(IcariaBlocks.SILKGLASS.getId().getNamespace(), "block/" + IcariaBlocks.SILKGLASS.getId().getPath() + "_pane"));
+		//blockWithItem(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL);
+		blockWithItem(IcariaBlocks.SILKSTONE);
+		blockWithItem(IcariaBlocks.SUNSTONE);
+		blockWithItem(IcariaBlocks.VOIDSHALE);
+		blockWithItem(IcariaBlocks.BAETYL);
+		mirroredBlockWithItem(IcariaBlocks.RELICSTONE_SMOOTH);
+		axisBlock(IcariaBlocks.RELICSTONE_PILLAR.get());
+		blockItem(IcariaBlocks.RELICSTONE_PILLAR);
+		//blockWithItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD);
+		//blockWithItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD);
+		//blockWithItem(IcariaBlocks.QUARTZ_PILLAR_HEAD);
+		axisBlock(IcariaBlocks.SPELT_BALE_BLOCK.get());
+		blockItem(IcariaBlocks.SPELT_BALE_BLOCK);
+		//blockWithItem(IcariaBlocks.MOSS_0);
+		//blockWithItem(IcariaBlocks.MOSS_1);
+		//blockWithItem(IcariaBlocks.MOSS_2);
+
 		for (RegistryObject<? extends Block> basicBlock : IcariaBlocks.BASIC_BLOCKS) {
 			if (ROTATED.contains(basicBlock)) {
 				rotatedBlockWithItem(basicBlock);
@@ -78,7 +112,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		simpleBlock(registryObject.get());
 
 		//itemblock model
-		itemModels().withExistingParent(registryObject.getId().getPath(), registryObject.getId().getNamespace() + ":block/" + registryObject.getId().getPath());
+		blockItem(registryObject);
 	}
 
 	public void rotatedBlockWithItem(RegistryObject<? extends Block> registryObject) {
@@ -86,16 +120,28 @@ public class IcariaBlockStates extends BlockStateProvider {
 		getVariantBuilder(registryObject.get()).partialState().setModels(ConfiguredModel.allRotations(cubeAll(registryObject.get()), false));
 
 		//itemblock model
-		itemModels().withExistingParent(registryObject.getId().getPath(), registryObject.getId().getNamespace() + ":block/" + registryObject.getId().getPath());
+		blockItem(registryObject);
+	}
+
+	public void rotatedYBlockWithItem(RegistryObject<? extends Block> registryObject) {
+		//block model
+		getVariantBuilder(registryObject.get()).partialState().setModels(ConfiguredModel.allYRotations(cubeAll(registryObject.get()), 0, false));
+
+		//itemblock model
+		blockItem(registryObject);
 	}
 
 	public void mirroredBlockWithItem(RegistryObject<? extends Block> registryObject) {
 		//block model
 		ModelFile normal = cubeAll(registryObject.get());
-		ModelFile mirrored = models().singleTexture(registryObject.get().getRegistryName().getPath(), new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/cube_all"), "all", blockTexture(registryObject.get()));
+		ModelFile mirrored = models().singleTexture(registryObject.get().getRegistryName().getPath() + "_mirrored", new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/cube_mirrored_all"), "all", blockTexture(registryObject.get()));
 		getVariantBuilder(registryObject.get()).partialState().setModels(new ConfiguredModel(normal), new ConfiguredModel(normal, 0, 180, false), new ConfiguredModel(mirrored), new ConfiguredModel(mirrored, 0, 180, false));
 
 		//itemblock model
+		blockItem(registryObject);
+	}
+
+	public void blockItem(RegistryObject<? extends Block> registryObject) {
 		itemModels().withExistingParent(registryObject.getId().getPath(), registryObject.getId().getNamespace() + ":block/" + registryObject.getId().getPath());
 	}
 

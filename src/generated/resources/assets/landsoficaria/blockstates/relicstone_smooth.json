@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/relicstone_smooth"
+      },
+      {
+        "model": "landsoficaria:block/relicstone_smooth",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/relicstone_smooth_mirrored"
+      },
+      {
+        "model": "landsoficaria:block/relicstone_smooth_mirrored",
+        "y": 180
+      }
+    ]
+  }
+}

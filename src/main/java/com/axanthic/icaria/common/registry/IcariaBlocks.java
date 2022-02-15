@@ -45,13 +45,13 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> DOLOMITE_SMOOTH = registerBasic("dolomite_smooth", () -> new Block(propertiesDolomite()));
 	public static final DecoBlockCombination DOLOMITE_SMOOTH_DECO = new DecoBlockCombination("dolomite_smooth", DOLOMITE_SMOOTH, propertiesDolomite());
 	public static final RegistryObject<Block> DOLOMITE_BRICKS = registerBasic("dolomite_bricks", () -> new Block(propertiesDolomite()));
-	public static final RegistryObject<Block> DOLOMITE_PILLAR = register("dolomite_pillar", () -> new AxisBlock(propertiesDolomite()));
-	public static final RegistryObject<Block> DOLOMITE_PILLAR_HEAD = register("dolomite_pillar_head", () -> new FacingBlock(propertiesDolomite()));
+	public static final RegistryObject<RotatedPillarBlock> DOLOMITE_PILLAR = register("dolomite_pillar", () -> new RotatedPillarBlock(propertiesDolomite()));
+	public static final RegistryObject<FacingBlock> DOLOMITE_PILLAR_HEAD = register("dolomite_pillar_head", () -> new FacingBlock(propertiesDolomite()));
 
 	public static final RegistryObject<Block> GRAINEL = registerBasic("grainel", () -> new SandBlock(propertiesGrainel()));
 	public static final RegistryObject<Block> GRAINEL_CHERT = register("grainel_chert", () -> new Block(propertiesGrainelOre()));
 	public static final RegistryObject<Block> GRAINGLASS = register("grainglass", () -> new GlassBlock(propertiesGlass()));
-	public static final RegistryObject<Block> GRAINGLASS_PANE = register("grainglass_pane", () -> new IronBarsBlock(propertiesGlass()));
+	public static final RegistryObject<IronBarsBlock> GRAINGLASS_PANE = register("grainglass_pane", () -> new IronBarsBlock(propertiesGlass()));
 	public static final RegistryObject<Block> GRAINGLASS_PANE_HORIZONTAL = register("grainglass_pane_horizontal", () -> new HorizontalPaneBlock(propertiesGlass()));
 	public static final RegistryObject<Block> GRAINITE_ADOBE = registerBasic("grainite_adobe", () -> new Block(propertiesGrainite()));
 	public static final DecoBlockCombination GRAINITE_ADOBE_DECO = new DecoBlockCombination("grainite_adobe", GRAINITE_ADOBE, propertiesGrainite());
@@ -73,7 +73,7 @@ public class IcariaBlocks {
 
 	public static final RegistryObject<Block> SILKSAND = registerBasic("silksand", () -> new SandBlock(propertiesSilksand()));
 	public static final RegistryObject<Block> SILKGLASS = register("silkglass", () -> new GlassBlock(propertiesGlass()));
-	public static final RegistryObject<Block> SILKGLASS_PANE = register("silkglass_pane", () -> new IronBarsBlock(propertiesGlass()));
+	public static final RegistryObject<IronBarsBlock> SILKGLASS_PANE = register("silkglass_pane", () -> new IronBarsBlock(propertiesGlass()));
 	public static final RegistryObject<Block> SILKGLASS_PANE_HORIZONTAL = register("silkglass_pane_horizontal", () -> new HorizontalPaneBlock(propertiesGlass()));
 	public static final RegistryObject<Block> SILKSTONE_ADOBE = registerBasic("silkstone_adobe", () -> new Block(propertiesSilkstone()));
 	public static final DecoBlockCombination SILKSTONE_ADOBE_DECO = new DecoBlockCombination("silkstone_adobe", SILKSTONE_ADOBE, propertiesSilkstone());
@@ -132,7 +132,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> RELICSTONE_TILES_MOSSY = registerBasic("relicstone_tiles_mossy", () -> new Block(propertiesRelicstone()));
 	public static final DecoBlockCombination RELICSTONE_TILES_MOSSY_DECO = new DecoBlockCombination("relicstone_tiles_mossy", RELICSTONE_TILES_MOSSY, propertiesRelicstone());
 	public static final RegistryObject<Block> RELICSTONE_CHISELED = registerBasic("relicstone_chiseled", () -> new Block(propertiesRelicstone()));
-	public static final RegistryObject<Block> RELICSTONE_PILLAR = register("relicstone_pillar", () -> new AxisBlock(propertiesRelicstone()));
+	public static final RegistryObject<RotatedPillarBlock> RELICSTONE_PILLAR = register("relicstone_pillar", () -> new RotatedPillarBlock(propertiesRelicstone()));
 	public static final RegistryObject<Block> RELICSTONE_PILLAR_HEAD = register("relicstone_pillar_head", () -> new FacingBlock(propertiesRelicstone()));
 
 	public static final RegistryObject<Block> ARISTONE = registerBasic("aristone", () -> new GlassBlock(propertiesAristone()));
@@ -142,7 +142,7 @@ public class IcariaBlocks {
 
 	public static final RegistryObject<Block> JELLYFISH_JELLY_BLOCK = registerBasic("jellyfish_jelly_block", () -> new SlimeBlock(propertiesJellyBlock()));
 	public static final RegistryObject<Block> ARACHNE_STRING_BLOCK = registerBasic("arachne_string_block", () -> new Block(propertiesArachneStringBlock()));
-	public static final RegistryObject<Block> SPELT_BALE_BLOCK = register("spelt_bale_block", () -> new SpeltBaleBlock(propertiesSpeltBlock()));
+	public static final RegistryObject<RotatedPillarBlock> SPELT_BALE_BLOCK = register("spelt_bale_block", () -> new SpeltBaleBlock(propertiesSpeltBlock()));
 	public static final RegistryObject<Block> VINE_REED_BLOCK = registerBasic("vine_reed_block", () -> new Block(propertiesVineBlock()));
 	public static final RegistryObject<Block> VINE_SPROUT_BLOCK = registerBasic("vine_sprout_block", () -> new Block(propertiesVineBlock()));
 	public static final RegistryObject<Block> ROTTEN_BONES_BLOCK = registerBasic("rotten_bones_block", () -> new Block(propertiesRottenBonesBlock()));
