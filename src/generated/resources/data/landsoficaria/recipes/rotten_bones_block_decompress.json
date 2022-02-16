@@ -1,0 +1,24 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:true"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "ingredients": [
+          {
+            "item": "landsoficaria:rotten_bones_block"
+          }
+        ],
+        "result": {
+          "item": "landsoficaria:rotten_bones",
+          "count": 9
+        }
+      }
+    }
+  ]
+}

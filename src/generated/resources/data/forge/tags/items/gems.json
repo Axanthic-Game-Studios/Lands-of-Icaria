@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:gems/lignite",
+    "#forge:gems/anthracite",
+    "#forge:gems/dolomite",
+    "#forge:gems/chert"
+  ]
+}

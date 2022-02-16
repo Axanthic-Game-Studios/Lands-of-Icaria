@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "landsoficaria:yellowstone_cobble",
+    "landsoficaria:silkstone_cobble",
+    "landsoficaria:sunstone_cobble",
+    "landsoficaria:voidshale_cobble",
+    "landsoficaria:baetyl_cobble",
+    "landsoficaria:relicstone"
+  ]
+}

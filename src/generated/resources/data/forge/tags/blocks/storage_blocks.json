@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:storage_blocks/lignite",
+    "#forge:storage_blocks/anthracite",
+    "#forge:storage_blocks/chert"
+  ]
+}

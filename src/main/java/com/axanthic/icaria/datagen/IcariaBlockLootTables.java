@@ -65,7 +65,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 
 		requireSilkTouch(IcariaBlocks.MARL_GRASS.get(), IcariaItems.MARL.get());
 		this.add(IcariaBlocks.MARL_CHERT.get(), (blockDrop) -> {
-			return createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.CHERT.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
+			return createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.CHERT.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
 		});
 		this.add(IcariaBlocks.MARL_ROTTEN_BONES.get(), (blockDrop) -> {
 			return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(blockDrop).when(HAS_SILK_TOUCH).otherwise(
@@ -75,7 +75,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 					)));
 		});
 		this.add(IcariaBlocks.MARL_LIGNITE.get(), (blockDrop) -> {
-			return createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.LIGNITE.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
+			return createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.LIGNITE.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
 		});
 		dropOther(IcariaBlocks.FARMLAND.get(), IcariaItems.MARL.get());
 		dropOther(IcariaBlocks.FARMLAND_FERTILIZED.get(), IcariaItems.MARL.get());
@@ -85,7 +85,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.DOLOMITE_PILLAR.get());
 		dropSelf(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get());
 		this.add(IcariaBlocks.GRAINEL_CHERT.get(), (blockDrop) -> {
-			return createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.CHERT.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
+			return createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.CHERT.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
 		});
 		dropWhenSilkTouch(IcariaBlocks.GRAINGLASS.get());
 		dropWhenSilkTouch(IcariaBlocks.GRAINGLASS_PANE.get());

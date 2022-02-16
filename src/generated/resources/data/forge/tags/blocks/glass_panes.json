@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "landsoficaria:grainglass_pane",
+    "landsoficaria:silkglass_pane",
+    "landsoficaria:grainglass_pane_horizontal",
+    "landsoficaria:silkglass_pane_horizontal"
+  ]
+}
