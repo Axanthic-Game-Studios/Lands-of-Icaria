@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.blocks;
 import java.util.Random;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.datagen.IcariaItemTags;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -145,7 +145,7 @@ public class FarmlandBlock extends Block {
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		ItemStack itemStack = player.getItemInHand(hand);
 
-		if (itemStack.getItem() == IcariaItems.CALCITE_POWDER.get()) {
+		if (itemStack.is(IcariaItemTags.SMALL_DUST_CALCITE)) {
 			if (state.getValue(MOISTURE) == 7) {
 				level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
 				if (!level.isClientSide) {

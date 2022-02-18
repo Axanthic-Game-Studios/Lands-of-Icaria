@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "landsoficaria:marl_coarse"
+    ]
+  },
+  "criteria": {
+    "has_marl": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:marl"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "landsoficaria:marl_coarse"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_marl",
+      "has_the_recipe"
+    ]
+  ]
+}

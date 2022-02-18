@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "landsoficaria:loam_lump"
+    ]
+  },
+  "criteria": {
+    "has_loam": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:loam"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "landsoficaria:loam_lump"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_loam",
+      "has_the_recipe"
+    ]
+  ]
+}

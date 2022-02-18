@@ -1,28 +1,16 @@
 {
-  "type": "forge:conditional",
-  "recipes": [
-    {
-      "conditions": [
-        {
-          "type": "forge:true"
-        }
-      ],
-      "recipe": {
-        "type": "minecraft:crafting_shaped",
-        "pattern": [
-          "XXX",
-          "XXX",
-          "XXX"
-        ],
-        "key": {
-          "X": {
-            "item": "landsoficaria:rotten_bones"
-          }
-        },
-        "result": {
-          "item": "landsoficaria:rotten_bones_block"
-        }
-      }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:rotten_bones"
     }
-  ]
+  },
+  "result": {
+    "item": "landsoficaria:rotten_bones_block"
+  }
 }

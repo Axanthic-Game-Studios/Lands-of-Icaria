@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "Y"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:chiseled_quartz_block"
+    },
+    "Y": {
+      "item": "minecraft:quartz_pillar"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:quartz_pillar_head",
+    "count": 2
+  }
+}

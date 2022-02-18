@@ -1,31 +1,19 @@
 {
-  "type": "forge:conditional",
-  "recipes": [
-    {
-      "conditions": [
-        {
-          "type": "forge:true"
-        }
-      ],
-      "recipe": {
-        "type": "minecraft:crafting_shaped",
-        "pattern": [
-          "XXX",
-          "XYX",
-          "XXX"
-        ],
-        "key": {
-          "X": {
-            "tag": "forge:gems/chert"
-          },
-          "Y": {
-            "item": "landsoficaria:chert"
-          }
-        },
-        "result": {
-          "item": "landsoficaria:chert_block"
-        }
-      }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:gems/chert"
+    },
+    "Y": {
+      "item": "landsoficaria:chert"
     }
-  ]
+  },
+  "result": {
+    "item": "landsoficaria:chert_block"
+  }
 }

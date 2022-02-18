@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "landsoficaria:relicstone_pillar_head_cutting_pillar"
+    ]
+  },
+  "criteria": {
+    "has_pillar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:relicstone_pillar"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "landsoficaria:relicstone_pillar_head_cutting_pillar"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pillar",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:vine_reed_block"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:vine_reed",
+    "count": 9
+  }
+}

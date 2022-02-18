@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "landsoficaria:dolomite_pillar_cutting"
+    ]
+  },
+  "criteria": {
+    "has_dolomite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:dolomite_smooth"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "landsoficaria:dolomite_pillar_cutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dolomite",
+      "has_the_recipe"
+    ]
+  ]
+}

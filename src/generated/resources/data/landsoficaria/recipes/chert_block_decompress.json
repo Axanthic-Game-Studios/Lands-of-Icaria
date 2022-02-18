@@ -1,24 +1,12 @@
 {
-  "type": "forge:conditional",
-  "recipes": [
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
     {
-      "conditions": [
-        {
-          "type": "forge:true"
-        }
-      ],
-      "recipe": {
-        "type": "minecraft:crafting_shapeless",
-        "ingredients": [
-          {
-            "item": "landsoficaria:chert_block"
-          }
-        ],
-        "result": {
-          "item": "landsoficaria:chert",
-          "count": 9
-        }
-      }
+      "item": "landsoficaria:chert_block"
     }
-  ]
+  ],
+  "result": {
+    "item": "landsoficaria:chert",
+    "count": 9
+  }
 }

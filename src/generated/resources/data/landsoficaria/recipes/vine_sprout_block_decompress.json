@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:vine_sprout_block"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:vine_sprout",
+    "count": 4
+  }
+}

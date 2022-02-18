@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "landsoficaria:grainite_from_sand"
+    ]
+  },
+  "criteria": {
+    "has_grainel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:grainel"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "landsoficaria:grainite_from_sand"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_grainel",
+      "has_the_recipe"
+    ]
+  ]
+}

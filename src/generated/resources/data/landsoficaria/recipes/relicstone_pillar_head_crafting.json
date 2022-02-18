@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "Y"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:relicstone_tiles"
+    },
+    "Y": {
+      "item": "landsoficaria:relicstone_pillar"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:relicstone_pillar_head",
+    "count": 2
+  }
+}

@@ -1,24 +1,12 @@
 {
-  "type": "forge:conditional",
-  "recipes": [
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
     {
-      "conditions": [
-        {
-          "type": "forge:true"
-        }
-      ],
-      "recipe": {
-        "type": "minecraft:crafting_shapeless",
-        "ingredients": [
-          {
-            "item": "landsoficaria:arachne_string_block"
-          }
-        ],
-        "result": {
-          "item": "landsoficaria:arachne_string",
-          "count": 9
-        }
-      }
+      "item": "landsoficaria:arachne_string_block"
     }
-  ]
+  ],
+  "result": {
+    "item": "landsoficaria:arachne_string",
+    "count": 9
+  }
 }

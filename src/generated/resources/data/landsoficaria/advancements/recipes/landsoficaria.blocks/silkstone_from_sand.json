@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "landsoficaria:silkstone_from_sand"
+    ]
+  },
+  "criteria": {
+    "has_silksand": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:silksand"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "landsoficaria:silkstone_from_sand"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_silksand",
+      "has_the_recipe"
+    ]
+  ]
+}

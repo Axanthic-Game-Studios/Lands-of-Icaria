@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "landsoficaria:grainglass_pane_horizontal"
+    ]
+  },
+  "criteria": {
+    "has_pane": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:grainglass_pane"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "landsoficaria:grainglass_pane_horizontal"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pane",
+      "has_the_recipe"
+    ]
+  ]
+}

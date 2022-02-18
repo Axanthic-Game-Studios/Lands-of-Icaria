@@ -133,7 +133,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> RELICSTONE_BRICKS = register("relicstone_bricks", () -> new BlockItem(IcariaBlocks.RELICSTONE_BRICKS.get(), propertiesBlocks()));
 	public static final DecoItemBlockCombination RELICSTONE_BRICKS_DECO = new DecoItemBlockCombination(IcariaBlocks.RELICSTONE_BRICKS_DECO, RELICSTONE_BRICKS);
 	public static final RegistryObject<Item> RELICSTONE_BRICKS_CRACKED = register("relicstone_bricks_cracked", () -> new BlockItem(IcariaBlocks.RELICSTONE_BRICKS_CRACKED.get(), propertiesBlocks()));
-	public static final DecoItemBlockCombination CRACKED = new DecoItemBlockCombination(IcariaBlocks.RELICSTONE_BRICKS_CRACKED_DECO, RELICSTONE_BRICKS_CRACKED);
+	public static final DecoItemBlockCombination RELICSTONE_BRICKS_CRACKED_DECO = new DecoItemBlockCombination(IcariaBlocks.RELICSTONE_BRICKS_CRACKED_DECO, RELICSTONE_BRICKS_CRACKED);
 	public static final RegistryObject<Item> RELICSTONE_BRICKS_MOSSY = register("relicstone_bricks_mossy", () -> new BlockItem(IcariaBlocks.RELICSTONE_BRICKS_MOSSY.get(), propertiesBlocks()));
 	public static final DecoItemBlockCombination RELICSTONE_BRICKS_MOSSY_DECO = new DecoItemBlockCombination(IcariaBlocks.RELICSTONE_BRICKS_MOSSY_DECO, RELICSTONE_BRICKS_MOSSY);
 	public static final RegistryObject<Item> RELICSTONE_TILES = register("relicstone_tiles", () -> new BlockItem(IcariaBlocks.RELICSTONE_TILES.get(), propertiesBlocks()));
