@@ -1,8 +1,17 @@
 {
   "replace": false,
   "values": [
-    "#forge:ores/lignite",
     "#forge:ores/rotten_bones",
-    "#forge:ores/chert"
+    "#forge:ores/chert",
+    "#forge:ores/lignite",
+    "#forge:ores/chalkos",
+    "#forge:ores/kassiteros",
+    "#forge:ores/dolomite",
+    "#forge:ores/vanadium",
+    "#forge:ores/sliver",
+    "#forge:ores/sideros",
+    "#forge:ores/anthracite",
+    "#forge:ores/molybdenum",
+    "#forge:ores/hyliastrum"
   ]
 }

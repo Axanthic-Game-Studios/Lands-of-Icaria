@@ -71,6 +71,16 @@ public class IcariaBlockStates extends BlockStateProvider {
 		mirroredBlockWithItem(IcariaBlocks.RELICSTONE_SMOOTH);
 		axisBlock(IcariaBlocks.RELICSTONE_PILLAR.get());
 		blockItem(IcariaBlocks.RELICSTONE_PILLAR);
+		blockWithItem(IcariaBlocks.LIGNITE_ORE);
+		blockWithItem(IcariaBlocks.CHALKOS_ORE);
+		blockWithItem(IcariaBlocks.KASSITEROS_ORE);
+		blockWithItem(IcariaBlocks.DOLOMITE_ORE);
+		blockWithItem(IcariaBlocks.VANADIUM_ORE);
+		blockWithItem(IcariaBlocks.SLIVER_ORE);
+		blockWithItem(IcariaBlocks.SIDEROS_ORE);
+		blockWithItem(IcariaBlocks.ANTHRACITE_ORE);
+		blockWithItem(IcariaBlocks.MOLYBDENUM_ORE);
+		blockWithItem(IcariaBlocks.HYLIASTRUM_ORE);
 		//blockWithItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD);
 		//blockWithItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD);
 		//blockWithItem(IcariaBlocks.QUARTZ_PILLAR_HEAD);

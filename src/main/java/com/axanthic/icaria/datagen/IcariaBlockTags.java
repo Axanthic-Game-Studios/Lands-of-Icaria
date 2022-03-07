@@ -49,9 +49,18 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final Named<Block> ORES_IN_GROUND_VOIDSHALE = forgeTag("ores_in_ground/voidshale");
 	public static final Named<Block> ORES_IN_GROUND_BAETYL = forgeTag("ores_in_ground/baetyl");
 
-	public static final Named<Block> ORES_LIGNITE = forgeTag("ores/lignite");
 	public static final Named<Block> ORES_ROTTEN_BONES = forgeTag("ores/rotten_bones");
 	public static final Named<Block> ORES_CHERT = forgeTag("ores/chert");
+	public static final Named<Block> ORES_LIGNITE = forgeTag("ores/lignite");
+	public static final Named<Block> ORES_CHALKOS = forgeTag("ores/chalkos");
+	public static final Named<Block> ORES_KASSITEROS = forgeTag("ores/kassiteros");
+	public static final Named<Block> ORES_DOLOMITE = forgeTag("ores/dolomite");
+	public static final Named<Block> ORES_VANADIUM = forgeTag("ores/vanadium");
+	public static final Named<Block> ORES_SLIVER = forgeTag("ores/sliver");
+	public static final Named<Block> ORES_SIDEROS = forgeTag("ores/sideros");
+	public static final Named<Block> ORES_ANTHRACITE = forgeTag("ores/anthracite");
+	public static final Named<Block> ORES_MOLYBDENUM = forgeTag("ores/molybdenum");
+	public static final Named<Block> ORES_HYLIASTRUM = forgeTag("ores/hyliastrum");
 
 	public IcariaBlockTags(DataGenerator gen, ExistingFileHelper existingFileHelper) {
 		super(gen, IcariaInfo.MODID, existingFileHelper);
@@ -62,7 +71,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(ICARIA_TIER).addTag(NEEDS_CHERT_TOOL).addTag(NEEDS_CHALKOS_TOOL).addTag(NEEDS_KASSITEROS_TOOL).addTag(NEEDS_ORICHALCUM_TOOL).addTag(NEEDS_VANADIUMSTEEL_TOOL).addTag(NEEDS_SIDEROS_TOOL).addTag(NEEDS_MOLYBDENUMSTEEL_TOOL);
 		tag(NEEDS_CHERT_TOOL)
 		.add(IcariaBlocks.YELLOWSTONE_ADOBE.get()).add(IcariaBlocks.YELLOWSTONE_COBBLE.get()).add(IcariaBlocks.YELLOWSTONE.get()).add(IcariaBlocks.YELLOWSTONE_BRICKS.get()).add(IcariaBlocks.YELLOWSTONE_CHISELED.get())
-		;
+		.add(IcariaBlocks.LIGNITE_ORE.get())
+		.add(IcariaBlocks.CHALKOS_ORE.get());
 		addDecoToTag(IcariaBlocks.YELLOWSTONE_ADOBE_DECO, NEEDS_CHERT_TOOL);
 		addDecoToTag(IcariaBlocks.YELLOWSTONE_COBBLE_DECO, NEEDS_CHERT_TOOL);
 		addDecoToTag(IcariaBlocks.YELLOWSTONE_DECO, NEEDS_CHERT_TOOL);
@@ -71,7 +81,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		.add(IcariaBlocks.DOLOMITE_ADOBE.get()).add(IcariaBlocks.DOLOMITE_SMOOTH.get()).add(IcariaBlocks.DOLOMITE_BRICKS.get()).add(IcariaBlocks.DOLOMITE_PILLAR.get()).add(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get())
 		.add(IcariaBlocks.SILKSAND.get()).add(IcariaBlocks.SILKGLASS.get()).add(IcariaBlocks.SILKGLASS_PANE.get()).add(IcariaBlocks.SILKGLASS.get())
 		.add(IcariaBlocks.SILKSTONE_ADOBE.get()).add(IcariaBlocks.SILKSTONE_COBBLE.get()).add(IcariaBlocks.SILKSTONE.get()).add(IcariaBlocks.SILKSTONE_BRICKS.get()).add(IcariaBlocks.SILKSTONE_CHISELED.get())
-		;
+		.add(IcariaBlocks.KASSITEROS_ORE.get())
+		.add(IcariaBlocks.DOLOMITE_ORE.get());
 		addDecoToTag(IcariaBlocks.DOLOMITE_ADOBE_DECO, NEEDS_CHALKOS_TOOL);
 		addDecoToTag(IcariaBlocks.DOLOMITE_SMOOTH_DECO, NEEDS_CHALKOS_TOOL);
 		addDecoToTag(IcariaBlocks.SILKSTONE_ADOBE_DECO, NEEDS_CHALKOS_TOOL);
@@ -81,22 +92,25 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(NEEDS_KASSITEROS_TOOL);
 		tag(NEEDS_ORICHALCUM_TOOL)
 		.add(IcariaBlocks.SUNSTONE_ADOBE.get()).add(IcariaBlocks.SUNSTONE_COBBLE.get()).add(IcariaBlocks.SUNSTONE.get()).add(IcariaBlocks.SUNSTONE_BRICKS.get()).add(IcariaBlocks.SUNSTONE_CHISELED.get())
-		;
+		.add(IcariaBlocks.VANADIUM_ORE.get())
+		.add(IcariaBlocks.SLIVER_ORE.get());
 		addDecoToTag(IcariaBlocks.SUNSTONE_ADOBE_DECO, NEEDS_ORICHALCUM_TOOL);
 		addDecoToTag(IcariaBlocks.SUNSTONE_COBBLE_DECO, NEEDS_ORICHALCUM_TOOL);
 		addDecoToTag(IcariaBlocks.SUNSTONE_DECO, NEEDS_ORICHALCUM_TOOL);
 		addDecoToTag(IcariaBlocks.SUNSTONE_BRICKS_DECO, NEEDS_ORICHALCUM_TOOL);
 		tag(NEEDS_VANADIUMSTEEL_TOOL)
 		.add(IcariaBlocks.VOIDSHALE_ADOBE.get()).add(IcariaBlocks.VOIDSHALE_COBBLE.get()).add(IcariaBlocks.VOIDSHALE.get()).add(IcariaBlocks.VOIDSHALE_BRICKS.get()).add(IcariaBlocks.VOIDSHALE_CHISELED.get())
-		;
+		.add(IcariaBlocks.SIDEROS_ORE.get())
+		.add(IcariaBlocks.ANTHRACITE_ORE.get());
 		addDecoToTag(IcariaBlocks.VOIDSHALE_ADOBE_DECO, NEEDS_VANADIUMSTEEL_TOOL);
 		addDecoToTag(IcariaBlocks.VOIDSHALE_COBBLE_DECO, NEEDS_VANADIUMSTEEL_TOOL);
 		addDecoToTag(IcariaBlocks.VOIDSHALE_DECO, NEEDS_VANADIUMSTEEL_TOOL);
 		addDecoToTag(IcariaBlocks.VOIDSHALE_BRICKS_DECO, NEEDS_VANADIUMSTEEL_TOOL);
 		tag(NEEDS_SIDEROS_TOOL)
 		.add(IcariaBlocks.BAETYL_ADOBE.get()).add(IcariaBlocks.BAETYL_COBBLE.get()).add(IcariaBlocks.BAETYL.get()).add(IcariaBlocks.BAETYL_BRICKS.get()).add(IcariaBlocks.BAETYL_CHISELED.get())
-		.add(IcariaBlocks.ANTHRACITE_BLOCK.get())
-		;
+		.add(IcariaBlocks.MOLYBDENUM_ORE.get())
+		.add(IcariaBlocks.HYLIASTRUM_ORE.get())
+		.add(IcariaBlocks.ANTHRACITE_BLOCK.get());
 		addDecoToTag(IcariaBlocks.BAETYL_ADOBE_DECO, NEEDS_SIDEROS_TOOL);
 		addDecoToTag(IcariaBlocks.BAETYL_COBBLE_DECO, NEEDS_SIDEROS_TOOL);
 		addDecoToTag(IcariaBlocks.BAETYL_DECO, NEEDS_SIDEROS_TOOL);
@@ -153,11 +167,21 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		.add(IcariaBlocks.RELICSTONE_CHISELED.get())
 		.add(IcariaBlocks.RELICSTONE_PILLAR.get())
 		.add(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get())
+		.add(IcariaBlocks.LIGNITE_ORE.get())
+		.add(IcariaBlocks.CHALKOS_ORE.get())
+		.add(IcariaBlocks.KASSITEROS_ORE.get())
+		.add(IcariaBlocks.DOLOMITE_ORE.get())
+		.add(IcariaBlocks.VANADIUM_ORE.get())
+		.add(IcariaBlocks.SLIVER_ORE.get())
+		.add(IcariaBlocks.SIDEROS_ORE.get())
+		.add(IcariaBlocks.ANTHRACITE_ORE.get())
+		.add(IcariaBlocks.MOLYBDENUM_ORE.get())
+		.add(IcariaBlocks.HYLIASTRUM_ORE.get())
 		.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get())
 		.add(IcariaBlocks.ROTTEN_BONES_BLOCK.get())
+		.add(IcariaBlocks.CHERT_BLOCK.get())
 		.add(IcariaBlocks.LIGNITE_BLOCK.get())
-		.add(IcariaBlocks.ANTHRACITE_BLOCK.get())
-		.add(IcariaBlocks.CHERT_BLOCK.get());
+		.add(IcariaBlocks.ANTHRACITE_BLOCK.get());
 		addDecoToTag(IcariaBlocks.MARL_ADOBE_DECO, BlockTags.MINEABLE_WITH_PICKAXE);
 		addDecoToTag(IcariaBlocks.LOAM_BRICKS_DECO, BlockTags.MINEABLE_WITH_PICKAXE);
 		addDecoToTag(IcariaBlocks.DOLOMITE_ADOBE_DECO, BlockTags.MINEABLE_WITH_PICKAXE);
@@ -236,18 +260,51 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 		tag(ORES_IN_GROUND_MARL).add(IcariaBlocks.MARL_LIGNITE.get()).add(IcariaBlocks.MARL_ROTTEN_BONES.get()).add(IcariaBlocks.MARL_CHERT.get());
 		tag(ORES_IN_GROUND_GRAINEL).add(IcariaBlocks.GRAINEL_CHERT.get());
-		tag(ORES_IN_GROUND_YELLOWSTONE);
-		tag(ORES_IN_GROUND_SILKSTONE);
-		tag(ORES_IN_GROUND_SUNSTONE);
-		tag(ORES_IN_GROUND_VOIDSHALE);
-		tag(ORES_IN_GROUND_BAETYL);
+		tag(ORES_IN_GROUND_YELLOWSTONE).add(IcariaBlocks.LIGNITE_ORE.get()).add(IcariaBlocks.CHALKOS_ORE.get());
+		tag(ORES_IN_GROUND_SILKSTONE).add(IcariaBlocks.KASSITEROS_ORE.get()).add(IcariaBlocks.DOLOMITE_ORE.get());
+		tag(ORES_IN_GROUND_SUNSTONE).add(IcariaBlocks.VANADIUM_ORE.get()).add(IcariaBlocks.SLIVER_ORE.get());
+		tag(ORES_IN_GROUND_VOIDSHALE).add(IcariaBlocks.SIDEROS_ORE.get()).add(IcariaBlocks.ANTHRACITE_ORE.get());
+		tag(ORES_IN_GROUND_BAETYL).add(IcariaBlocks.MOLYBDENUM_ORE.get()).add(IcariaBlocks.HYLIASTRUM_ORE.get());
 
-		tag(ORES_LIGNITE).add(IcariaBlocks.MARL_LIGNITE.get());
 		tag(ORES_ROTTEN_BONES).add(IcariaBlocks.MARL_ROTTEN_BONES.get());
 		tag(ORES_CHERT).add(IcariaBlocks.MARL_CHERT.get()).add(IcariaBlocks.GRAINEL_CHERT.get());
+		tag(ORES_LIGNITE).add(IcariaBlocks.MARL_LIGNITE.get()).add(IcariaBlocks.LIGNITE_ORE.get());
+		tag(ORES_CHALKOS).add(IcariaBlocks.CHALKOS_ORE.get());
+		tag(ORES_KASSITEROS).add(IcariaBlocks.KASSITEROS_ORE.get());
+		tag(ORES_DOLOMITE).add(IcariaBlocks.DOLOMITE_ORE.get());
+		tag(ORES_VANADIUM).add(IcariaBlocks.VANADIUM_ORE.get());
+		tag(ORES_SLIVER).add(IcariaBlocks.SLIVER_ORE.get());
+		tag(ORES_SIDEROS).add(IcariaBlocks.SIDEROS_ORE.get());
+		tag(ORES_ANTHRACITE).add(IcariaBlocks.ANTHRACITE_ORE.get());
+		tag(ORES_MOLYBDENUM).add(IcariaBlocks.MOLYBDENUM_ORE.get());
+		tag(ORES_HYLIASTRUM).add(IcariaBlocks.HYLIASTRUM_ORE.get());
 
-		tag(Tags.Blocks.ORES).addTag(ORES_LIGNITE).addTag(ORES_ROTTEN_BONES).addTag(ORES_CHERT);
-		tag(Tags.Blocks.ORE_RATES_SINGULAR).addTag(ORES_LIGNITE).addTag(ORES_CHERT);
+		tag(Tags.Blocks.ORES)
+		.addTag(ORES_ROTTEN_BONES)
+		.addTag(ORES_CHERT)
+		.addTag(ORES_LIGNITE)
+		.addTag(ORES_CHALKOS)
+		.addTag(ORES_KASSITEROS)
+		.addTag(ORES_DOLOMITE)
+		.addTag(ORES_VANADIUM)
+		.addTag(ORES_SLIVER)
+		.addTag(ORES_SIDEROS)
+		.addTag(ORES_ANTHRACITE)
+		.addTag(ORES_MOLYBDENUM)
+		.addTag(ORES_HYLIASTRUM);
+
+		tag(Tags.Blocks.ORE_RATES_SINGULAR)
+		.addTag(ORES_CHERT)
+		.addTag(ORES_LIGNITE)
+		.addTag(ORES_CHALKOS)
+		.addTag(ORES_KASSITEROS)
+		.addTag(ORES_DOLOMITE)
+		.addTag(ORES_VANADIUM)
+		.addTag(ORES_SLIVER)
+		.addTag(ORES_SIDEROS)
+		.addTag(ORES_ANTHRACITE)
+		.addTag(ORES_MOLYBDENUM);
+
 		tag(Tags.Blocks.ORE_RATES_DENSE).addTag(ORES_ROTTEN_BONES);
 
 		tag(Tags.Blocks.STONE).add(IcariaBlocks.YELLOWSTONE.get())

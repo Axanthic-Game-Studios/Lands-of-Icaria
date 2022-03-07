@@ -135,6 +135,17 @@ public class IcariaBlocks {
 	public static final RegistryObject<RotatedPillarBlock> RELICSTONE_PILLAR = register("relicstone_pillar", () -> new RotatedPillarBlock(propertiesRelicstone()));
 	public static final RegistryObject<Block> RELICSTONE_PILLAR_HEAD = register("relicstone_pillar_head", () -> new FacingBlock(propertiesRelicstone()));
 
+	public static final RegistryObject<Block> LIGNITE_ORE = register("lignite_ore", () -> new Block(propertiesYellowstone()));
+	public static final RegistryObject<Block> CHALKOS_ORE = register("chalkos_ore", () -> new Block(propertiesYellowstone()));
+	public static final RegistryObject<Block> KASSITEROS_ORE = register("kassiteros_ore", () -> new Block(propertiesSilkstone()));
+	public static final RegistryObject<Block> DOLOMITE_ORE = register("dolomite_ore", () -> new Block(propertiesSilkstone()));
+	public static final RegistryObject<Block> VANADIUM_ORE = register("vanadium_ore", () -> new Block(propertiesSunstone()));
+	public static final RegistryObject<Block> SLIVER_ORE = register("sliver_ore", () -> new Block(propertiesSunstone()));
+	public static final RegistryObject<Block> SIDEROS_ORE = register("sideros_ore", () -> new Block(propertiesVoidshale()));
+	public static final RegistryObject<Block> ANTHRACITE_ORE = register("anthracite_ore", () -> new Block(propertiesVoidshale()));
+	public static final RegistryObject<Block> MOLYBDENUM_ORE = register("molybdenum_ore", () -> new Block(propertiesBaetyl()));
+	public static final RegistryObject<Block> HYLIASTRUM_ORE = register("hyliastrum_ore", () -> new HyliastrumOreBlock(propertiesBaetyl()));
+
 	public static final RegistryObject<Block> ARISTONE = registerBasic("aristone", () -> new GlassBlock(propertiesAristone()));
 	public static final RegistryObject<Block> ARISTONE_PACKED = registerBasic("aristone_packed", () -> new Block(propertiesAristone()));
 
@@ -146,9 +157,9 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> VINE_REED_BLOCK = registerBasic("vine_reed_block", () -> new Block(propertiesVineBlock()));
 	public static final RegistryObject<Block> VINE_SPROUT_BLOCK = registerBasic("vine_sprout_block", () -> new Block(propertiesVineBlock()));
 	public static final RegistryObject<Block> ROTTEN_BONES_BLOCK = registerBasic("rotten_bones_block", () -> new Block(propertiesRottenBonesBlock()));
+	public static final RegistryObject<Block> CHERT_BLOCK = registerBasic("chert_block", () -> new Block(propertiesChertBlock()));
 	public static final RegistryObject<Block> LIGNITE_BLOCK = registerBasic("lignite_block", () -> new Block(propertiesLigniteBlock()));
 	public static final RegistryObject<Block> ANTHRACITE_BLOCK = registerBasic("anthracite_block", () -> new Block(propertiesAnthraciteBlock()));
-	public static final RegistryObject<Block> CHERT_BLOCK = registerBasic("chert_block", () -> new Block(propertiesChertBlock()));
 
 	public static final RegistryObject<Block> MOSS_0 = register("moss_0", () -> new MossBlock(propertiesMoss()));
 	public static final RegistryObject<Block> MOSS_1 = register("moss_1", () -> new MossBlock(propertiesMoss()));
