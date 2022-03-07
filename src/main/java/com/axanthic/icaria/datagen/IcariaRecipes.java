@@ -5,7 +5,6 @@ import java.util.function.Consumer;
 import javax.annotation.Nullable;
 
 import com.axanthic.icaria.IcariaInfo;
-import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;
 
@@ -101,6 +100,14 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		blockIngotNuggetCompression(consumer, "sideros", IcariaItems.SIDEROS_BLOCK.get(), IcariaItems.SIDEROS_INGOT.get(), IcariaItems.SIDEROS_NUGGET.get());
 		blockIngotNuggetCompression(consumer, "molybdenum", IcariaItems.MOLYBDENUM_BLOCK.get(), IcariaItems.MOLYBDENUM_INGOT.get(), IcariaItems.MOLYBDENUM_NUGGET.get());
 		blockIngotNuggetCompression(consumer, "molybdenumsteel", IcariaItems.MOLYBDENUMSTEEL_BLOCK.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), IcariaItems.MOLYBDENUMSTEEL_NUGGET.get());
+
+		gemToolRecipes(consumer, "chert", IcariaItems.CHERT_TOOLS.SWORD.get(), IcariaItems.CHERT_TOOLS.SHOVEL.get(), IcariaItems.CHERT_TOOLS.PICKAXE.get(), IcariaItems.CHERT_TOOLS.AXE.get(), IcariaItems.CHERT_TOOLS.SCYTHE.get(), IcariaItems.CHERT_TOOLS.BIDENT.get(), IcariaItems.CHERT.get());
+		ingotToolRecipes(consumer, "chalkos", IcariaItems.CHALKOS_TOOLS.SWORD.get(), IcariaItems.CHALKOS_TOOLS.SHOVEL.get(), IcariaItems.CHALKOS_TOOLS.PICKAXE.get(), IcariaItems.CHALKOS_TOOLS.AXE.get(), IcariaItems.CHALKOS_TOOLS.SCYTHE.get(), IcariaItems.CHALKOS_TOOLS.BIDENT.get(), IcariaItems.CHALKOS_INGOT.get());
+		ingotToolRecipes(consumer, "kassiteros", IcariaItems.KASSITEROS_TOOLS.SWORD.get(), IcariaItems.KASSITEROS_TOOLS.SHOVEL.get(), IcariaItems.KASSITEROS_TOOLS.PICKAXE.get(), IcariaItems.KASSITEROS_TOOLS.AXE.get(), IcariaItems.KASSITEROS_TOOLS.SCYTHE.get(), IcariaItems.KASSITEROS_TOOLS.BIDENT.get(), IcariaItems.KASSITEROS_INGOT.get());
+		ingotToolRecipes(consumer, "orichalcum", IcariaItems.ORICHALCUM_TOOLS.SWORD.get(), IcariaItems.ORICHALCUM_TOOLS.SHOVEL.get(), IcariaItems.ORICHALCUM_TOOLS.PICKAXE.get(), IcariaItems.ORICHALCUM_TOOLS.AXE.get(), IcariaItems.ORICHALCUM_TOOLS.SCYTHE.get(), IcariaItems.ORICHALCUM_TOOLS.BIDENT.get(), IcariaItems.ORICHALCUM_INGOT.get());
+		ingotToolRecipes(consumer, "vanadiumsteel", IcariaItems.VANADIUMSTEEL_TOOLS.SWORD.get(), IcariaItems.VANADIUMSTEEL_TOOLS.SHOVEL.get(), IcariaItems.VANADIUMSTEEL_TOOLS.PICKAXE.get(), IcariaItems.VANADIUMSTEEL_TOOLS.AXE.get(), IcariaItems.VANADIUMSTEEL_TOOLS.SCYTHE.get(), IcariaItems.VANADIUMSTEEL_TOOLS.BIDENT.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
+		ingotToolRecipes(consumer, "sideros", IcariaItems.SIDEROS_TOOLS.SWORD.get(), IcariaItems.SIDEROS_TOOLS.SHOVEL.get(), IcariaItems.SIDEROS_TOOLS.PICKAXE.get(), IcariaItems.SIDEROS_TOOLS.AXE.get(), IcariaItems.SIDEROS_TOOLS.SCYTHE.get(), IcariaItems.SIDEROS_TOOLS.BIDENT.get(), IcariaItems.SIDEROS_INGOT.get());
+		ingotToolRecipes(consumer, "molybdenumsteel", IcariaItems.MOLYBDENUMSTEEL_TOOLS.SWORD.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.SHOVEL.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.PICKAXE.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.AXE.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.SCYTHE.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.BIDENT.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get());
 
 		//dolomite
 		ShapedRecipeBuilder.shaped(IcariaItems.DOLOMITE_SMOOTH.get())
@@ -456,6 +463,130 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		.group("")
 		.unlockedBy("has_ingot", has(ingot))
 		.save(consumer, appendResource(ingot.getRegistryName(), "_to_nugget"));
+	}
+
+	public void ingotToolRecipes(Consumer<FinishedRecipe> consumer, String name, Item sword, Item shovel, Item pickaxe, Item axe, Item scythe, Item bident, Item ingot) {
+		ShapedRecipeBuilder.shaped(sword, 1)
+				.pattern(" X ")
+				.pattern(" X ")
+				.pattern(" Y ")
+				.define('X', ItemTags.bind("forge:ingots/" + name))
+				.define('Y', ItemTags.bind("forge:bones"))
+				.group("")
+				.unlockedBy("has_ingot", has(ingot))
+				.save(consumer, sword.getRegistryName());
+
+		ShapedRecipeBuilder.shaped(shovel, 1)
+				.pattern(" X ")
+				.pattern(" Y ")
+				.pattern(" Y ")
+				.define('X', ItemTags.bind("forge:ingots/" + name))
+				.define('Y', ItemTags.bind("forge:bones"))
+				.group("")
+				.unlockedBy("has_ingot", has(ingot))
+				.save(consumer, shovel.getRegistryName());
+
+		ShapedRecipeBuilder.shaped(pickaxe, 1)
+				.pattern("XXX")
+				.pattern(" Y ")
+				.pattern(" Y ")
+				.define('X', ItemTags.bind("forge:ingots/" + name))
+				.define('Y', ItemTags.bind("forge:bones"))
+				.group("")
+				.unlockedBy("has_ingot", has(ingot))
+				.save(consumer, pickaxe.getRegistryName());
+
+		ShapedRecipeBuilder.shaped(axe, 1)
+				.pattern("XX ")
+				.pattern("XY ")
+				.pattern(" Y ")
+				.define('X', ItemTags.bind("forge:ingots/" + name))
+				.define('Y', ItemTags.bind("forge:bones"))
+				.group("")
+				.unlockedBy("has_ingot", has(ingot))
+				.save(consumer, axe.getRegistryName());
+
+		ShapedRecipeBuilder.shaped(scythe, 1)
+				.pattern(" XX")
+				.pattern("X Y")
+				.pattern("  Y")
+				.define('X', ItemTags.bind("forge:ingots/" + name))
+				.define('Y', ItemTags.bind("forge:bones"))
+				.group("")
+				.unlockedBy("has_ingot", has(ingot))
+				.save(consumer, scythe.getRegistryName());
+
+		ShapedRecipeBuilder.shaped(bident, 1)
+				.pattern("X X")
+				.pattern(" Y ")
+				.pattern(" Y ")
+				.define('X', ItemTags.bind("forge:ingots/" + name))
+				.define('Y', ItemTags.bind("forge:bones"))
+				.group("")
+				.unlockedBy("has_ingot", has(ingot))
+				.save(consumer, bident.getRegistryName());
+	}
+
+	public void gemToolRecipes(Consumer<FinishedRecipe> consumer, String name, Item sword, Item shovel, Item pickaxe, Item axe, Item scythe, Item bident, Item gem) {
+		ShapedRecipeBuilder.shaped(sword, 1)
+				.pattern(" X ")
+				.pattern(" X ")
+				.pattern(" Y ")
+				.define('X', ItemTags.bind("forge:gems/" + name))
+				.define('Y', ItemTags.bind("forge:bones"))
+				.group("")
+				.unlockedBy("has_ingot", has(gem))
+				.save(consumer, sword.getRegistryName());
+
+		ShapedRecipeBuilder.shaped(shovel, 1)
+				.pattern(" X ")
+				.pattern(" Y ")
+				.pattern(" Y ")
+				.define('X', ItemTags.bind("forge:gems/" + name))
+				.define('Y', ItemTags.bind("forge:bones"))
+				.group("")
+				.unlockedBy("has_ingot", has(gem))
+				.save(consumer, shovel.getRegistryName());
+
+		ShapedRecipeBuilder.shaped(pickaxe, 1)
+				.pattern("XXX")
+				.pattern(" Y ")
+				.pattern(" Y ")
+				.define('X', ItemTags.bind("forge:gems/" + name))
+				.define('Y', ItemTags.bind("forge:bones"))
+				.group("")
+				.unlockedBy("has_ingot", has(gem))
+				.save(consumer, pickaxe.getRegistryName());
+
+		ShapedRecipeBuilder.shaped(axe, 1)
+				.pattern("XX ")
+				.pattern("XY ")
+				.pattern(" Y ")
+				.define('X', ItemTags.bind("forge:gems/" + name))
+				.define('Y', ItemTags.bind("forge:bones"))
+				.group("")
+				.unlockedBy("has_ingot", has(gem))
+				.save(consumer, axe.getRegistryName());
+
+		ShapedRecipeBuilder.shaped(scythe, 1)
+				.pattern(" XX")
+				.pattern("X Y")
+				.pattern("  Y")
+				.define('X', ItemTags.bind("forge:gems/" + name))
+				.define('Y', ItemTags.bind("forge:bones"))
+				.group("")
+				.unlockedBy("has_ingot", has(gem))
+				.save(consumer, scythe.getRegistryName());
+
+		ShapedRecipeBuilder.shaped(bident, 1)
+				.pattern("X X")
+				.pattern(" Y ")
+				.pattern(" Y ")
+				.define('X', ItemTags.bind("forge:gems/" + name))
+				.define('Y', ItemTags.bind("forge:bones"))
+				.group("")
+				.unlockedBy("has_ingot", has(gem))
+				.save(consumer, bident.getRegistryName());
 	}
 
 	public ResourceLocation appendResource(ResourceLocation res, String stuff) {

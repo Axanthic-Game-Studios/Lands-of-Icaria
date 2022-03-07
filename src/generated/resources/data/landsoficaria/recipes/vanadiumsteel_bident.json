@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    " Y ",
+    " Y "
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:ingots/vanadiumsteel"
+    },
+    "Y": {
+      "tag": "forge:bones"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:vanadiumsteel_bident"
+  }
+}

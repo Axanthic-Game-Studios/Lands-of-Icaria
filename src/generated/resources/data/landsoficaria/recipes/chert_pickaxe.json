@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    " Y ",
+    " Y "
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:gems/chert"
+    },
+    "Y": {
+      "tag": "forge:bones"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:chert_pickaxe"
+  }
+}
