@@ -1,6 +1,14 @@
 {
   "replace": false,
   "values": [
-    "#forge:ingots/loam_brick"
+    "#forge:ingots/loam_brick",
+    "#forge:ingots/chalkos",
+    "#forge:ingots/kassiteros",
+    "#forge:ingots/orichalcum",
+    "#forge:ingots/vanadium",
+    "#forge:ingots/vanadiumsteel",
+    "#forge:ingots/sideros",
+    "#forge:ingots/molybdenum",
+    "#forge:ingots/molybdenumsteel"
   ]
 }

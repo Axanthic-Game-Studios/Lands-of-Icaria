@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:kassiteros_block"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:kassiteros_ingot",
+    "count": 9
+  }
+}

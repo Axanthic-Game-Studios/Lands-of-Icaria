@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:ingots/vanadium"
+    },
+    "Y": {
+      "item": "landsoficaria:vanadium_ingot"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:vanadium_block"
+  }
+}

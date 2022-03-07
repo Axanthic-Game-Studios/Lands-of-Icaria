@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import javax.annotation.Nullable;
 
 import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;
 
@@ -91,6 +92,15 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		blockCompression(consumer, IcariaItems.LIGNITE_BLOCK.get(), IcariaItems.LIGNITE.get(), IcariaItemTags.GEMS_LIGNITE);
 		blockCompression(consumer, IcariaItems.SLIVER_BLOCK.get(), IcariaItems.SLIVER.get(), IcariaItemTags.GEMS_SLIVER);
 		blockCompression(consumer, IcariaItems.ANTHRACITE_BLOCK.get(), IcariaItems.ANTHRACITE.get(), IcariaItemTags.GEMS_ANTHRACITE);
+
+		blockIngotNuggetCompression(consumer, "chalkos", IcariaItems.CHALKOS_BLOCK.get(), IcariaItems.CHALKOS_INGOT.get(), IcariaItems.CHALKOS_NUGGET.get());
+		blockIngotNuggetCompression(consumer, "kassiteros", IcariaItems.KASSITEROS_BLOCK.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.KASSITEROS_NUGGET.get());
+		blockIngotNuggetCompression(consumer, "orichalcum", IcariaItems.ORICHALCUM_BLOCK.get(), IcariaItems.ORICHALCUM_INGOT.get(), IcariaItems.ORICHALCUM_NUGGET.get());
+		blockIngotNuggetCompression(consumer, "vanadium", IcariaItems.VANADIUM_BLOCK.get(), IcariaItems.VANADIUM_INGOT.get(), IcariaItems.VANADIUM_NUGGET.get());
+		blockIngotNuggetCompression(consumer, "vanadiumsteel", IcariaItems.VANADIUMSTEEL_BLOCK.get(), IcariaItems.VANADIUMSTEEL_INGOT.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get());
+		blockIngotNuggetCompression(consumer, "sideros", IcariaItems.SIDEROS_BLOCK.get(), IcariaItems.SIDEROS_INGOT.get(), IcariaItems.SIDEROS_NUGGET.get());
+		blockIngotNuggetCompression(consumer, "molybdenum", IcariaItems.MOLYBDENUM_BLOCK.get(), IcariaItems.MOLYBDENUM_INGOT.get(), IcariaItems.MOLYBDENUM_NUGGET.get());
+		blockIngotNuggetCompression(consumer, "molybdenumsteel", IcariaItems.MOLYBDENUMSTEEL_BLOCK.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), IcariaItems.MOLYBDENUMSTEEL_NUGGET.get());
 
 		//dolomite
 		ShapedRecipeBuilder.shaped(IcariaItems.DOLOMITE_SMOOTH.get())

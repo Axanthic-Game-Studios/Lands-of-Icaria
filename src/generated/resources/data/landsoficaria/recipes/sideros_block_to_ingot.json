@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:sideros_block"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:sideros_ingot",
+    "count": 9
+  }
+}

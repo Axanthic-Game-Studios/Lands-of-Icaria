@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:nuggets/orichalcum"
+    },
+    "Y": {
+      "item": "landsoficaria:orichalcum_nugget"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:orichalcum_ingot"
+  }
+}

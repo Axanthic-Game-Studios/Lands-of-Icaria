@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:ingots/molybdenum"
+    },
+    "Y": {
+      "item": "landsoficaria:molybdenum_ingot"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:molybdenum_block"
+  }
+}

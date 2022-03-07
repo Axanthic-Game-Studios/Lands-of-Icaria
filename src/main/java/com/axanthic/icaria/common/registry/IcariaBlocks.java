@@ -157,15 +157,25 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> VINE_REED_BLOCK = registerBasic("vine_reed_block", () -> new Block(propertiesVineBlock()));
 	public static final RegistryObject<Block> VINE_SPROUT_BLOCK = registerBasic("vine_sprout_block", () -> new Block(propertiesVineBlock()));
 	public static final RegistryObject<Block> ROTTEN_BONES_BLOCK = registerBasic("rotten_bones_block", () -> new Block(propertiesRottenBonesBlock()));
-	public static final RegistryObject<Block> CHALKOS_RAW_BLOCK = registerBasic("chalkos_raw_block", () -> new Block(propertiesAnthraciteBlock()));
-	public static final RegistryObject<Block> KASSITEROS_RAW_BLOCK = registerBasic("kassiteros_raw_block", () -> new Block(propertiesAnthraciteBlock()));
-	public static final RegistryObject<Block> VANADIUM_RAW_BLOCK = registerBasic("vanadium_raw_block", () -> new Block(propertiesAnthraciteBlock()));
-	public static final RegistryObject<Block> SIDEROS_RAW_BLOCK = registerBasic("sideros_raw_block", () -> new Block(propertiesAnthraciteBlock()));
-	public static final RegistryObject<Block> MOLYBDENUM_RAW_BLOCK = registerBasic("molybdenum_raw_block", () -> new Block(propertiesAnthraciteBlock()));
+
+	public static final RegistryObject<Block> CHALKOS_RAW_BLOCK = registerBasic("chalkos_raw_block", () -> new Block(propertiesChalkosBlock()));
+	public static final RegistryObject<Block> KASSITEROS_RAW_BLOCK = registerBasic("kassiteros_raw_block", () -> new Block(propertiesKassiterosBlock()));
+	public static final RegistryObject<Block> VANADIUM_RAW_BLOCK = registerBasic("vanadium_raw_block", () -> new Block(propertiesVanadiumBlock()));
+	public static final RegistryObject<Block> SIDEROS_RAW_BLOCK = registerBasic("sideros_raw_block", () -> new Block(propertiesSiderosBlock()));
+	public static final RegistryObject<Block> MOLYBDENUM_RAW_BLOCK = registerBasic("molybdenum_raw_block", () -> new Block(propertiesMolybdenumBlock()));
+
 	public static final RegistryObject<Block> CHERT_BLOCK = registerBasic("chert_block", () -> new Block(propertiesChertBlock()));
 	public static final RegistryObject<Block> LIGNITE_BLOCK = registerBasic("lignite_block", () -> new Block(propertiesLigniteBlock()));
+	public static final RegistryObject<Block> CHALKOS_BLOCK = registerBasic("chalkos_block", () -> new Block(propertiesChalkosBlock()));
+	public static final RegistryObject<Block> KASSITEROS_BLOCK = registerBasic("kassiteros_block", () -> new Block(propertiesKassiterosBlock()));
+	public static final RegistryObject<Block> ORICHALCUM_BLOCK = registerBasic("orichalcum_block", () -> new Block(propertiesOrichalcumBlock()));
+	public static final RegistryObject<Block> VANADIUM_BLOCK = registerBasic("vanadium_block", () -> new Block(propertiesVanadiumBlock()));
+	public static final RegistryObject<Block> VANADIUMSTEEL_BLOCK = registerBasic("vanadiumsteel_block", () -> new Block(propertiesVanadiumBlock()));
 	public static final RegistryObject<Block> SLIVER_BLOCK = registerBasic("sliver_block", () -> new Block(propertiesSliverBlock()));
+	public static final RegistryObject<Block> SIDEROS_BLOCK = registerBasic("sideros_block", () -> new Block(propertiesSiderosBlock()));
 	public static final RegistryObject<Block> ANTHRACITE_BLOCK = registerBasic("anthracite_block", () -> new Block(propertiesAnthraciteBlock()));
+	public static final RegistryObject<Block> MOLYBDENUM_BLOCK = registerBasic("molybdenum_block", () -> new Block(propertiesMolybdenumBlock()));
+	public static final RegistryObject<Block> MOLYBDENUMSTEEL_BLOCK = registerBasic("molybdenumsteel_block", () -> new Block(propertiesMolybdenumBlock()));
 
 	public static final RegistryObject<Block> MOSS_0 = register("moss_0", () -> new MossBlock(propertiesMoss()));
 	public static final RegistryObject<Block> MOSS_1 = register("moss_1", () -> new MossBlock(propertiesMoss()));
@@ -283,12 +293,36 @@ public class IcariaBlocks {
 		return Properties.of(Material.STONE, MaterialColor.COLOR_BROWN).sound(SoundType.STONE).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
 	}
 
+	private static Properties propertiesChalkosBlock() {
+		return Properties.of(Material.METAL, MaterialColor.COLOR_GREEN).sound(SoundType.METAL).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
+	}
+
+	private static Properties propertiesKassiterosBlock() {
+		return Properties.of(Material.METAL, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.METAL).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
+	}
+
+	private static Properties propertiesOrichalcumBlock() {
+		return Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE).sound(SoundType.METAL).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
+	}
+
+	private static Properties propertiesVanadiumBlock() {
+		return Properties.of(Material.METAL, MaterialColor.COLOR_YELLOW).sound(SoundType.METAL).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
+	}
+
+	private static Properties propertiesSiderosBlock() {
+		return Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE).sound(SoundType.METAL).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
+	}
+
 	private static Properties propertiesSliverBlock() {
 		return Properties.of(Material.METAL, MaterialColor.WOOD).sound(SoundType.METAL).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
 	}
 
 	private static Properties propertiesAnthraciteBlock() {
 		return Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).sound(SoundType.STONE).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
+	}
+
+	private static Properties propertiesMolybdenumBlock() {
+		return Properties.of(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY).sound(SoundType.METAL).explosionResistance(6.0F).strength(5.0F).requiresCorrectToolForDrops();
 	}
 
 	private static Properties propertiesMoss() {

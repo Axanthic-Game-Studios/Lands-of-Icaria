@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:nuggets/chalkos"
+    },
+    "Y": {
+      "item": "landsoficaria:chalkos_nugget"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:chalkos_ingot"
+  }
+}

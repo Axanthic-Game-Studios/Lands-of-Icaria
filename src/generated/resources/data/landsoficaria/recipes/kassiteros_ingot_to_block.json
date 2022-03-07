@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:ingots/kassiteros"
+    },
+    "Y": {
+      "item": "landsoficaria:kassiteros_ingot"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:kassiteros_block"
+  }
+}

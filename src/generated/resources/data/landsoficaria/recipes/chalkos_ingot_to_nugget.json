@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:chalkos_ingot"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:chalkos_nugget",
+    "count": 9
+  }
+}

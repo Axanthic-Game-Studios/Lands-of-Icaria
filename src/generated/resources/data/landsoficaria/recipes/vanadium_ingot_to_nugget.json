@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:vanadium_ingot"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:vanadium_nugget",
+    "count": 9
+  }
+}

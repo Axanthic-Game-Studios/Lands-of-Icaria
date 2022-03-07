@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:molybdenum_ingot"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:molybdenum_nugget",
+    "count": 9
+  }
+}

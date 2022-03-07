@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:nuggets/sideros"
+    },
+    "Y": {
+      "item": "landsoficaria:sideros_nugget"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:sideros_ingot"
+  }
+}

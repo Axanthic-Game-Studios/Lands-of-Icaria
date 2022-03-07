@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:nuggets/chalkos",
+    "#forge:nuggets/kassiteros",
+    "#forge:nuggets/orichalcum",
+    "#forge:nuggets/vanadium",
+    "#forge:nuggets/vanadiumsteel",
+    "#forge:nuggets/sideros",
+    "#forge:nuggets/molybdenum",
+    "#forge:nuggets/molybdenumsteel"
+  ]
+}
