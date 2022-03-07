@@ -19,12 +19,12 @@ apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 archivesBaseName = 'landsoficaria'
 group = 'com.axanthic.loi'
-version = "${mcversion}-${modversion}"
+version = "${version_minecraft}-${version_icaria}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'parchment', version: '2022.02.13-1.18.1'
+    mappings channel: 'parchment', version: "${version_mappings}-${version_minecraft}"
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -80,9 +80,9 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.1-39.0.64'
-    compileOnly fg.deobf("mezz.jei:jei-${mcversion}:${jeiversion}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-${mcversion}:${jeiversion}")
+    minecraft "net.minecraftforge:forge:${version_minecraft}-${version_forge}"
+    compileOnly fg.deobf("mezz.jei:jei-${version_minecraft}:${version_jei}:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-${version_minecraft}:${version_jei}")
 }
 
 jar {
@@ -90,7 +90,7 @@ jar {
         attributes([
                 "Specification-Title"     : "landsoficaria",
                 "Specification-Vendor"    : "axanthic",
-                "Specification-Version"   : "${mcversion}-${modversion}",
+                "Specification-Version"   : "${version_minecraft}-${version_icaria}",
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.version,
                 "Implementation-Vendor"   : "axanthic",
