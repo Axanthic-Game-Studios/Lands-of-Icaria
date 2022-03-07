@@ -16,8 +16,14 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 public class IcariaItemTags extends ItemTagsProvider {
 
 	//block tags to copy
+	public static final Named<Item> STORAGE_BLOCKS_RAW_CHALKOS = forgeTag("storage_blocks/raw_chalkos");
+	public static final Named<Item> STORAGE_BLOCKS_RAW_KASSITEROS = forgeTag("storage_blocks/raw_kassiteros");
+	public static final Named<Item> STORAGE_BLOCKS_RAW_VANADIUM = forgeTag("storage_blocks/raw_vanadium");
+	public static final Named<Item> STORAGE_BLOCKS_RAW_SIDEROS = forgeTag("storage_blocks/raw_sideros");
+	public static final Named<Item> STORAGE_BLOCKS_RAW_MOLYBDENUM = forgeTag("storage_blocks/raw_molybdenum");
 	public static final Named<Item> STORAGE_BLOCKS_CHERT = forgeTag("storage_blocks/chert");
 	public static final Named<Item> STORAGE_BLOCKS_LIGNITE = forgeTag("storage_blocks/lignite");
+	public static final Named<Item> STORAGE_BLOCKS_SLIVER = forgeTag("storage_blocks/sliver");
 	public static final Named<Item> STORAGE_BLOCKS_ANTHRACITE = forgeTag("storage_blocks/anthracite");
 
 	public static final Named<Item> ORE_BEARING_GROUND_MARL = forgeTag("ore_bearing_ground/marl");
@@ -85,10 +91,26 @@ public class IcariaItemTags extends ItemTagsProvider {
 			}
 		}
 
-		copy(IcariaBlockTags.STORAGE_BLOCKS_LIGNITE, STORAGE_BLOCKS_LIGNITE);
-		copy(IcariaBlockTags.STORAGE_BLOCKS_ANTHRACITE, STORAGE_BLOCKS_ANTHRACITE);
+		tag(Tags.Items.STORAGE_BLOCKS)
+		.addTag(STORAGE_BLOCKS_RAW_CHALKOS)
+		.addTag(STORAGE_BLOCKS_RAW_KASSITEROS)
+		.addTag(STORAGE_BLOCKS_RAW_VANADIUM)
+		.addTag(STORAGE_BLOCKS_RAW_SIDEROS)
+		.addTag(STORAGE_BLOCKS_RAW_MOLYBDENUM)
+		.addTag(STORAGE_BLOCKS_CHERT)
+		.addTag(STORAGE_BLOCKS_LIGNITE)
+		.addTag(STORAGE_BLOCKS_SLIVER)
+		.addTag(STORAGE_BLOCKS_ANTHRACITE);
+
+		copy(IcariaBlockTags.STORAGE_BLOCKS_RAW_CHALKOS, STORAGE_BLOCKS_RAW_CHALKOS);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_RAW_KASSITEROS, STORAGE_BLOCKS_RAW_KASSITEROS);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_RAW_VANADIUM, STORAGE_BLOCKS_RAW_VANADIUM);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_RAW_SIDEROS, STORAGE_BLOCKS_RAW_SIDEROS);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_RAW_MOLYBDENUM, STORAGE_BLOCKS_RAW_MOLYBDENUM);
 		copy(IcariaBlockTags.STORAGE_BLOCKS_CHERT, STORAGE_BLOCKS_CHERT);
-		tag(Tags.Items.STORAGE_BLOCKS).addTag(STORAGE_BLOCKS_LIGNITE).addTag(STORAGE_BLOCKS_ANTHRACITE).addTag(STORAGE_BLOCKS_CHERT);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_LIGNITE, STORAGE_BLOCKS_LIGNITE);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_SLIVER, STORAGE_BLOCKS_SLIVER);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_ANTHRACITE, STORAGE_BLOCKS_ANTHRACITE);
 
 		copy(IcariaBlockTags.ORE_BEARING_GROUND_MARL, ORE_BEARING_GROUND_MARL);
 		copy(IcariaBlockTags.ORE_BEARING_GROUND_GRAINEL, ORE_BEARING_GROUND_GRAINEL);

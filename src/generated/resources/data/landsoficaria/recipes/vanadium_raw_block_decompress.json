@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:vanadium_raw_block"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:vanadium_raw",
+    "count": 9
+  }
+}

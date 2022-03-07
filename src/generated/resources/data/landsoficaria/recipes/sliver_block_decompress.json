@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:sliver_block"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:sliver",
+    "count": 9
+  }
+}

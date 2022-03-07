@@ -82,9 +82,15 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		blockCompression(consumer, IcariaItems.VINE_REED_BLOCK.get(), IcariaItems.VINE_REED.get(), null);
 		//blockCompression(consumer, IcariaItems.VINE_SPROUT_BLOCK.get(), IcariaItems.VINE_SPROUT.get(), null);
 		blockCompression(consumer, IcariaItems.ROTTEN_BONES_BLOCK.get(), IcariaItems.ROTTEN_BONES.get(), null);
-		blockCompression(consumer, IcariaItems.LIGNITE_BLOCK.get(), IcariaItems.LIGNITE.get(), IcariaItemTags.GEMS_LIGNITE);
-		blockCompression(consumer, IcariaItems.ANTHRACITE_BLOCK.get(), IcariaItems.ANTHRACITE.get(), IcariaItemTags.GEMS_ANTHRACITE);
+		blockCompression(consumer, IcariaItems.CHALKOS_RAW_BLOCK.get(), IcariaItems.CHALKOS_RAW.get(), IcariaItemTags.RAW_MATERIALS_CHALKOS);
+		blockCompression(consumer, IcariaItems.KASSITEROS_RAW_BLOCK.get(), IcariaItems.KASSITEROS_RAW.get(), IcariaItemTags.RAW_MATERIALS_KASSITEROS);
+		blockCompression(consumer, IcariaItems.VANADIUM_RAW_BLOCK.get(), IcariaItems.VANADIUM_RAW.get(), IcariaItemTags.RAW_MATERIALS_VANADIUM);
+		blockCompression(consumer, IcariaItems.SIDEROS_RAW_BLOCK.get(), IcariaItems.SIDEROS_RAW.get(), IcariaItemTags.RAW_MATERIALS_SIDEROS);
+		blockCompression(consumer, IcariaItems.MOLYBDENUM_RAW_BLOCK.get(), IcariaItems.MOLYBDENUM_RAW.get(), IcariaItemTags.RAW_MATERIALS_MOLYBDENUM);
 		blockCompression(consumer, IcariaItems.CHERT_BLOCK.get(), IcariaItems.CHERT.get(), IcariaItemTags.GEMS_CHERT);
+		blockCompression(consumer, IcariaItems.LIGNITE_BLOCK.get(), IcariaItems.LIGNITE.get(), IcariaItemTags.GEMS_LIGNITE);
+		blockCompression(consumer, IcariaItems.SLIVER_BLOCK.get(), IcariaItems.SLIVER.get(), IcariaItemTags.GEMS_SLIVER);
+		blockCompression(consumer, IcariaItems.ANTHRACITE_BLOCK.get(), IcariaItems.ANTHRACITE.get(), IcariaItemTags.GEMS_ANTHRACITE);
 
 		//dolomite
 		ShapedRecipeBuilder.shaped(IcariaItems.DOLOMITE_SMOOTH.get())

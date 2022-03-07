@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:raw_materials/chalkos"
+    },
+    "Y": {
+      "item": "landsoficaria:chalkos_raw"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:chalkos_raw_block"
+  }
+}

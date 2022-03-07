@@ -1,8 +1,14 @@
 {
   "replace": false,
   "values": [
+    "#forge:storage_blocks/chert",
     "#forge:storage_blocks/lignite",
+    "#forge:storage_blocks/sliver",
     "#forge:storage_blocks/anthracite",
-    "#forge:storage_blocks/chert"
+    "#forge:storage_blocks/raw_chalkos",
+    "#forge:storage_blocks/raw_kassiteros",
+    "#forge:storage_blocks/raw_vanadium",
+    "#forge:storage_blocks/raw_sideros",
+    "#forge:storage_blocks/raw_molybdenum"
   ]
 }
