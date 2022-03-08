@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 import com.axanthic.icaria.client.ClientProxy;
 import com.axanthic.icaria.common.CommonProxy;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaCompostables;
 import com.axanthic.icaria.common.registry.IcariaEntities;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.ToolCombination;
@@ -25,7 +26,6 @@ import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -58,16 +58,7 @@ public class Icaria {
 
 	public void onCommonSetupEvent(FMLCommonSetupEvent event) {
 		proxy.setup();
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.MOSS_0.get(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.MOSS_1.get(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.MOSS_2.get(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.SPELT_BALE_BLOCK.get(), 0.85F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_REED_BLOCK.get(), 0.85F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_SPROUT_BLOCK.get(), 0.65F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.SPELT.get(), 0.65F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.SPELT_BREAD.get(), 0.85F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_REED.get(), 0.5F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_SPROUT.get(), 0.3F);
+		event.enqueueWork(IcariaCompostables::setup);
 	}
 
 	public void onClientSetupEvent(FMLClientSetupEvent event) {
