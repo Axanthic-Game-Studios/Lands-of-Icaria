@@ -1,6 +1,6 @@
 package com.axanthic.icaria.datagen;
 
-import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaBlocks.DecoBlockCombination;
 import com.axanthic.icaria.common.registry.IcariaItems;

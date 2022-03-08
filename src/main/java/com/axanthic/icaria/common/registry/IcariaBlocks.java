@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.client.util.IcariaSounds;
 import com.axanthic.icaria.common.blocks.*;
 import com.axanthic.icaria.common.blocks.MossBlock;

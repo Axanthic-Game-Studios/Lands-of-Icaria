@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import javax.annotation.Nonnull;
 
-import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;

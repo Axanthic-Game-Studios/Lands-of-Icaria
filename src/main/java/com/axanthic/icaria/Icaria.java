@@ -2,12 +2,9 @@ package com.axanthic.icaria;
 
 import javax.annotation.Nullable;
 
-import com.axanthic.icaria.client.ClientProxy;
-import com.axanthic.icaria.common.CommonProxy;
-import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaCompostables;
-import com.axanthic.icaria.common.registry.IcariaEntities;
-import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.client.proxy.ClientProxy;
+import com.axanthic.icaria.common.proxy.CommonProxy;
+import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.registry.IcariaItems.ToolCombination;
 import com.axanthic.icaria.datagen.IcariaBlockStates;
 import com.axanthic.icaria.datagen.IcariaBlockTags;
@@ -18,6 +15,7 @@ import com.axanthic.icaria.datagen.IcariaLang;
 import com.axanthic.icaria.datagen.IcariaLootTables;
 import com.axanthic.icaria.datagen.IcariaRecipes;
 
+import com.axanthic.icaria.util.IcariaInfo;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -59,6 +57,7 @@ public class Icaria {
 	public void onCommonSetupEvent(FMLCommonSetupEvent event) {
 		proxy.setup();
 		event.enqueueWork(IcariaCompostables::setup);
+		event.enqueueWork(IcariaFlammables::setup);
 	}
 
 	public void onClientSetupEvent(FMLClientSetupEvent event) {

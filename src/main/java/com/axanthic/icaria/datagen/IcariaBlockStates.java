@@ -3,7 +3,7 @@ package com.axanthic.icaria.datagen;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;

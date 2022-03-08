@@ -6,7 +6,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.util.IcariaInfo;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 

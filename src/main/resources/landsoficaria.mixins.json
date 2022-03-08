@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.axanthic.icaria.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "landsoficaria.refmap.json",
+  "mixins": [
+    "FireBlockAccess"
+  ],
+  "client": [
+  ],
+  "minVersion": "0.8"
+}

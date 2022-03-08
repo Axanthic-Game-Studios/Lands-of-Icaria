@@ -1,4 +1,4 @@
-package com.axanthic.icaria.common;
+package com.axanthic.icaria.common.proxy;
 
 public class CommonProxy {
 	public CommonProxy() {

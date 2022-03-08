@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.registry;
 
 import java.util.List;
 
-import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.datagen.IcariaBlockTags;
 import com.axanthic.icaria.datagen.IcariaItemTags;
 import com.axanthic.icaria.util.IcariaTier;

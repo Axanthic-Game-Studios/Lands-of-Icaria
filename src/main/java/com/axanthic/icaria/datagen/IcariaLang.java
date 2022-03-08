@@ -2,7 +2,7 @@ package com.axanthic.icaria.datagen;
 
 import java.util.function.Supplier;
 
-import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.util.IcariaInfo;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;

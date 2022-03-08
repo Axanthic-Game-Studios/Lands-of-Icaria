@@ -1,7 +1,7 @@
-package com.axanthic.icaria.client;
+package com.axanthic.icaria.client.proxy;
 
 import com.axanthic.icaria.client.render.ThrownBidentRenderer;
-import com.axanthic.icaria.common.CommonProxy;
+import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntities;
 

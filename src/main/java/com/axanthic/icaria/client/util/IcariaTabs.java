@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.util;
 
-import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import net.minecraft.world.item.CreativeModeTab;

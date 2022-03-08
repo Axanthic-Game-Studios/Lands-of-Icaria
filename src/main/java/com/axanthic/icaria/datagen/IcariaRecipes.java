@@ -4,7 +4,7 @@ import java.util.function.Consumer;
 
 import javax.annotation.Nullable;
 
-import com.axanthic.icaria.IcariaInfo;
+import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;
 
