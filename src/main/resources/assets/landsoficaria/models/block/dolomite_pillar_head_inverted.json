@@ -2,7 +2,7 @@
   "parent": "block/block",
   "textures": {
     "particle": "landsoficaria:block/dolomite_pillar_head_side_inverted",
-    "bottom": "landsoficaria:block/dolomite_pillar_bottom",
+    "bottom": "landsoficaria:block/dolomite_pillar_end",
     "side": "landsoficaria:block/dolomite_pillar_head_side_inverted",
     "top": "landsoficaria:block/dolomite_smooth"
   },

@@ -2,7 +2,7 @@
   "parent": "block/block",
   "textures": {
     "particle": "landsoficaria:block/relicstone_pillar_head_side_inverted",
-    "bottom": "landsoficaria:block/relicstone_pillar_bottom",
+    "bottom": "landsoficaria:block/relicstone_pillar_end",
     "side": "landsoficaria:block/relicstone_pillar_head_side_inverted",
     "top": "landsoficaria:block/relicstone_pillar_head_top"
   },
