@@ -48,6 +48,7 @@ public class Icaria {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::gatherData);
 
 		IcariaBlocks.BLOCKS.register(bus);
+		IcariaFluids.FLUIDS.register(bus);
 		IcariaItems.ITEMS.register(bus);
 		IcariaEntities.ENTITIES.register(bus);
 

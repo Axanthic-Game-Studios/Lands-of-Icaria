@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "landsoficaria:mediterranean_water_source",
+    "landsoficaria:mediterranean_water_flowing",
+    "landsoficaria:upwards_fluid_source",
+    "landsoficaria:upwards_fluid_flowing"
+  ]
+}

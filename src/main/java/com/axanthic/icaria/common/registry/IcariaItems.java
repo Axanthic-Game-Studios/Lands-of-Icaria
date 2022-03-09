@@ -18,10 +18,8 @@ import com.axanthic.icaria.common.registry.IcariaBlocks.DecoBlockCombination;
 import com.axanthic.icaria.util.IcariaTier;
 
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.Item.Properties;
-import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.common.TierSortingRegistry;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -241,6 +239,10 @@ public class IcariaItems {
 	public static final ToolCombination SIDEROS_TOOLS = new ToolCombination(IcariaTiers.SIDEROS);
 	public static final ToolCombination MOLYBDENUMSTEEL_TOOLS = new ToolCombination(IcariaTiers.MOLYBDENUMSTEEL);
 
+	public static final RegistryObject<BucketItem> HYLIASTRUM_FLUID_BUCKET = registerBasic("hyliastrum_fluid_bucket", () -> new BucketItem(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, propertiesBuckets()));
+	public static final RegistryObject<BucketItem> MEDITERRANEAN_WATER_BUCKET = registerBasic("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesBuckets()));
+	public static final RegistryObject<BucketItem> UPWARDS_FLUID_BUCKET = registerBasic("upwards_fluid_bucket", () -> new BucketItem(IcariaFluids.UPWARDS_FLUID_SOURCE, propertiesBuckets()));
+
 	private static Properties propertiesBlocks() {
 		return new Properties().tab(IcariaTabs.creativeBlocks);
 	}
@@ -255,6 +257,10 @@ public class IcariaItems {
 
 	private static Properties propertiesVineSprout() {
 		return new Properties().tab(IcariaTabs.creativeItems).setNoRepair().stacksTo(1).durability(24);
+	}
+
+	private static Properties propertiesBuckets() {
+		return new Properties().tab(IcariaTabs.creativeItems).craftRemainder(Items.BUCKET).stacksTo(1);
 	}
 
 	private static FoodProperties foodPropertiesVineSprout() {

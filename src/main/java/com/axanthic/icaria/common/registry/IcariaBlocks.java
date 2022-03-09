@@ -181,6 +181,10 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MOSS_1 = register("moss_1", () -> new MossBlock(propertiesMoss()));
 	public static final RegistryObject<Block> MOSS_2 = register("moss_2", () -> new MossBlock(propertiesMoss()));
 
+	public static final RegistryObject<LiquidBlock> HYLIASTRUM_FLUID = register("hyliastrum_fluid", () -> new LiquidBlock(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, propertiesLavaFluid()));
+	public static final RegistryObject<LiquidBlock> MEDITERRANEAN_WATER = register("mediterranean_water", () -> new LiquidBlock(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesWaterFluid()));
+	public static final RegistryObject<LiquidBlock> UPWARDS_FLUID = register("upwards_fluid", () -> new LiquidBlock(IcariaFluids.UPWARDS_FLUID_SOURCE, propertiesWaterFluid()));
+
 	private static Properties propertiesMarlGrass() {
 		return Properties.of(Material.GRASS, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).explosionResistance(0.6F).strength(0.6F).randomTicks();
 	}
@@ -327,6 +331,14 @@ public class IcariaBlocks {
 
 	private static Properties propertiesMoss() {
 		return Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).explosionResistance(0.1F).strength(0.1F);
+	}
+
+	private static Properties propertiesLavaFluid() {
+		return Properties.of(Material.LAVA).explosionResistance(100.0F).strength(100.0F).noCollission().noDrops();
+	}
+
+	private static Properties propertiesWaterFluid() {
+		return Properties.of(Material.WATER).explosionResistance(100.0F).strength(100.0F).noCollission().noDrops();
 	}
 
 	private static <T extends Block> RegistryObject<T> registerBasic(final String name, final Supplier<? extends T> block) {
