@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": [
-      { "model": "landsoficaria:block/farmland_fertilized" }
-    ]
+    "": {
+      "model": "landsoficaria:block/farmland_fertilized"
+    }
   }
 }

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "landsoficaria:block/lignite_wall_torch", "y": 180 },
+    "facing=east": { "model": "landsoficaria:block/lignite_wall_torch", "y": 270 },
+    "facing=south": { "model": "landsoficaria:block/lignite_wall_torch", "y": 0 },
+    "facing=west": { "model": "landsoficaria:block/lignite_wall_torch", "y": 90 }
+  }
+}

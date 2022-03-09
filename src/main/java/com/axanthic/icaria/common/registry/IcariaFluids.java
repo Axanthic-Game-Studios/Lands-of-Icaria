@@ -18,15 +18,12 @@ import java.util.function.Supplier;
 public class IcariaFluids {
 	public static final ResourceLocation HYLIASTRUM_FLUID_STILL = new ResourceLocation(IcariaInfo.MODID + ":block/hyliastrum_fluid_still");
 	public static final ResourceLocation HYLIASTRUM_FLUID_FLOW = new ResourceLocation(IcariaInfo.MODID + ":block/hyliastrum_fluid_flow");
-	public static final ResourceLocation HYLIASTRUM_FLUID_OVERLAY = new ResourceLocation("block/water_overlay");
 
 	public static final ResourceLocation MEDITERRANEAN_WATER_STILL = new ResourceLocation(IcariaInfo.MODID + ":block/mediterranean_water_still");
 	public static final ResourceLocation MEDITERRANEAN_WATER_FLOW = new ResourceLocation(IcariaInfo.MODID + ":block/mediterranean_water_flow");
-	public static final ResourceLocation MEDITERRANEAN_WATER_OVERLAY = new ResourceLocation("block/water_overlay");
 
 	public static final ResourceLocation UPWARDS_FLUID_STILL = new ResourceLocation(IcariaInfo.MODID + ":block/upwards_fluid_still");
 	public static final ResourceLocation UPWARDS_FLUID_FLOW = new ResourceLocation(IcariaInfo.MODID + ":block/upwards_fluid_flow");
-	public static final ResourceLocation UPWARDS_FLUID_OVERLAY = new ResourceLocation("block/water_overlay");
 
 	public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, IcariaInfo.MODID);
 
@@ -51,7 +48,6 @@ public class IcariaFluids {
 		return FluidAttributes.builder(HYLIASTRUM_FLUID_STILL, HYLIASTRUM_FLUID_FLOW)
 				.translationKey("fluid.landsoficaria.hyliastrum_fluid")
 				.color(0xFF000000)
-				.overlay(HYLIASTRUM_FLUID_OVERLAY)
 				.density(300)
 				.temperature(300)
 				.viscosity(3000)
@@ -69,7 +65,6 @@ public class IcariaFluids {
 		return FluidAttributes.builder(MEDITERRANEAN_WATER_STILL, MEDITERRANEAN_WATER_FLOW)
 			.translationKey("fluid.landsoficaria.mediterranean_water")
 			.color(0xFF51A18B)
-			.overlay(MEDITERRANEAN_WATER_OVERLAY)
 			.density(1000)
 			.temperature(300)
 			.viscosity(1000)
@@ -86,7 +81,6 @@ public class IcariaFluids {
 		return FluidAttributes.builder(UPWARDS_FLUID_STILL, UPWARDS_FLUID_FLOW)
 			.translationKey("fluid.landsoficaria.upwards_fluid")
 			.color(0xFFF3BF61)
-			.overlay(UPWARDS_FLUID_OVERLAY)
 			.luminosity(15)
 			.density(-1000)
 			.temperature(1300)

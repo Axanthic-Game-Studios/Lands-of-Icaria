@@ -113,6 +113,10 @@ public class IcariaBlockLootTables extends BlockLoot {
 		this.dropWhenSilkTouch(IcariaBlocks.HYLIASTRUM_ORE.get());
 		dropSelf(IcariaBlocks.QUARTZ_PILLAR_HEAD.get());
 		dropSelf(IcariaBlocks.SPELT_BALE_BLOCK.get());
+		dropSelf(IcariaBlocks.LIGNITE_TORCH.get());
+		dropOther(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
+		dropSelf(IcariaBlocks.ANTHRACITE_TORCH.get());
+		dropOther(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
 		dropLayers(IcariaBlocks.MOSS_0.get());
 		dropLayers(IcariaBlocks.MOSS_1.get());
 		dropLayers(IcariaBlocks.MOSS_2.get());

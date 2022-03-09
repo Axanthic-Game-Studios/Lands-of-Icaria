@@ -109,6 +109,9 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		ingotToolRecipes(consumer, "sideros", IcariaItems.SIDEROS_TOOLS.SWORD.get(), IcariaItems.SIDEROS_TOOLS.SHOVEL.get(), IcariaItems.SIDEROS_TOOLS.PICKAXE.get(), IcariaItems.SIDEROS_TOOLS.AXE.get(), IcariaItems.SIDEROS_TOOLS.SCYTHE.get(), IcariaItems.SIDEROS_TOOLS.BIDENT.get(), IcariaItems.SIDEROS_INGOT.get());
 		ingotToolRecipes(consumer, "molybdenumsteel", IcariaItems.MOLYBDENUMSTEEL_TOOLS.SWORD.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.SHOVEL.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.PICKAXE.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.AXE.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.SCYTHE.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.BIDENT.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get());
 
+		torchRecipe(consumer, "lignite", IcariaItems.LIGNITE_TORCH.get(), IcariaItems.LIGNITE.get());
+		torchRecipe(consumer, "anthracite", IcariaItems.ANTHRACITE_TORCH.get(), IcariaItems.ANTHRACITE.get());
+
 		//dolomite
 		ShapedRecipeBuilder.shaped(IcariaItems.DOLOMITE_SMOOTH.get())
 		.pattern("XX")
@@ -467,126 +470,138 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 
 	public void ingotToolRecipes(Consumer<FinishedRecipe> consumer, String name, Item sword, Item shovel, Item pickaxe, Item axe, Item scythe, Item bident, Item ingot) {
 		ShapedRecipeBuilder.shaped(sword, 1)
-				.pattern(" X ")
-				.pattern(" X ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:ingots/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(ingot))
-				.save(consumer, sword.getRegistryName());
+			.pattern(" X ")
+			.pattern(" X ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:ingots/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(ingot))
+			.save(consumer, sword.getRegistryName());
 
 		ShapedRecipeBuilder.shaped(shovel, 1)
-				.pattern(" X ")
-				.pattern(" Y ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:ingots/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(ingot))
-				.save(consumer, shovel.getRegistryName());
+			.pattern(" X ")
+			.pattern(" Y ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:ingots/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(ingot))
+			.save(consumer, shovel.getRegistryName());
 
 		ShapedRecipeBuilder.shaped(pickaxe, 1)
-				.pattern("XXX")
-				.pattern(" Y ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:ingots/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(ingot))
-				.save(consumer, pickaxe.getRegistryName());
+			.pattern("XXX")
+			.pattern(" Y ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:ingots/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(ingot))
+			.save(consumer, pickaxe.getRegistryName());
 
 		ShapedRecipeBuilder.shaped(axe, 1)
-				.pattern("XX ")
-				.pattern("XY ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:ingots/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(ingot))
-				.save(consumer, axe.getRegistryName());
+			.pattern("XX ")
+			.pattern("XY ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:ingots/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(ingot))
+			.save(consumer, axe.getRegistryName());
 
 		ShapedRecipeBuilder.shaped(scythe, 1)
-				.pattern(" XX")
-				.pattern("X Y")
-				.pattern("  Y")
-				.define('X', ItemTags.bind("forge:ingots/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(ingot))
-				.save(consumer, scythe.getRegistryName());
+			.pattern(" XX")
+			.pattern("X Y")
+			.pattern("  Y")
+			.define('X', ItemTags.bind("forge:ingots/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(ingot))
+			.save(consumer, scythe.getRegistryName());
 
 		ShapedRecipeBuilder.shaped(bident, 1)
-				.pattern("X X")
-				.pattern(" Y ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:ingots/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(ingot))
-				.save(consumer, bident.getRegistryName());
+			.pattern("X X")
+			.pattern(" Y ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:ingots/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(ingot))
+			.save(consumer, bident.getRegistryName());
 	}
 
 	public void gemToolRecipes(Consumer<FinishedRecipe> consumer, String name, Item sword, Item shovel, Item pickaxe, Item axe, Item scythe, Item bident, Item gem) {
 		ShapedRecipeBuilder.shaped(sword, 1)
-				.pattern(" X ")
-				.pattern(" X ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(gem))
-				.save(consumer, sword.getRegistryName());
+			.pattern(" X ")
+			.pattern(" X ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(gem))
+			.save(consumer, sword.getRegistryName());
 
 		ShapedRecipeBuilder.shaped(shovel, 1)
-				.pattern(" X ")
-				.pattern(" Y ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(gem))
-				.save(consumer, shovel.getRegistryName());
+			.pattern(" X ")
+			.pattern(" Y ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(gem))
+			.save(consumer, shovel.getRegistryName());
 
 		ShapedRecipeBuilder.shaped(pickaxe, 1)
-				.pattern("XXX")
-				.pattern(" Y ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(gem))
-				.save(consumer, pickaxe.getRegistryName());
+			.pattern("XXX")
+			.pattern(" Y ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(gem))
+			.save(consumer, pickaxe.getRegistryName());
 
 		ShapedRecipeBuilder.shaped(axe, 1)
-				.pattern("XX ")
-				.pattern("XY ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(gem))
-				.save(consumer, axe.getRegistryName());
+			.pattern("XX ")
+			.pattern("XY ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(gem))
+			.save(consumer, axe.getRegistryName());
 
 		ShapedRecipeBuilder.shaped(scythe, 1)
-				.pattern(" XX")
-				.pattern("X Y")
-				.pattern("  Y")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(gem))
-				.save(consumer, scythe.getRegistryName());
+			.pattern(" XX")
+			.pattern("X Y")
+			.pattern("  Y")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(gem))
+			.save(consumer, scythe.getRegistryName());
 
 		ShapedRecipeBuilder.shaped(bident, 1)
-				.pattern("X X")
-				.pattern(" Y ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(gem))
-				.save(consumer, bident.getRegistryName());
+			.pattern("X X")
+			.pattern(" Y ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(gem))
+			.save(consumer, bident.getRegistryName());
+	}
+
+	public void torchRecipe(Consumer<FinishedRecipe> consumer, String name, Item torch, Item material) {
+		ShapedRecipeBuilder.shaped(torch, 2)
+			.pattern(" X ")
+			.pattern(" Y ")
+			.pattern("   ")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(material))
+			.save(consumer, torch.getRegistryName());
 	}
 
 	public ResourceLocation appendResource(ResourceLocation res, String stuff) {

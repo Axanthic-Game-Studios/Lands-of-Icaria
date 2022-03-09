@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    " Y ",
+    "   "
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:gems/lignite"
+    },
+    "Y": {
+      "tag": "forge:bones"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:lignite_torch",
+    "count": 2
+  }
+}

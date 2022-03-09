@@ -10,6 +10,7 @@ import com.axanthic.icaria.common.blocks.*;
 import com.axanthic.icaria.common.blocks.MossBlock;
 import com.axanthic.icaria.common.blocks.SandBlock;
 
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.material.Material;
@@ -177,6 +178,11 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MOLYBDENUM_BLOCK = registerBasic("molybdenum_block", () -> new Block(propertiesMolybdenumBlock()));
 	public static final RegistryObject<Block> MOLYBDENUMSTEEL_BLOCK = registerBasic("molybdenumsteel_block", () -> new Block(propertiesMolybdenumBlock()));
 
+	public static final RegistryObject<Block> LIGNITE_TORCH = register("lignite_torch", () -> new TorchBlock(propertiesLigniteTorch(), ParticleTypes.FLAME));
+	public static final RegistryObject<Block> LIGNITE_WALL_TORCH = register("lignite_wall_torch", () -> new WallTorchBlock(propertiesLigniteTorch(), ParticleTypes.FLAME));
+	public static final RegistryObject<Block> ANTHRACITE_TORCH = register("anthracite_torch", () -> new TorchBlock(propertiesAnthraciteTorch(), ParticleTypes.FLAME));
+	public static final RegistryObject<Block> ANTHRACITE_WALL_TORCH = register("anthracite_wall_torch", () -> new WallTorchBlock(propertiesAnthraciteTorch(), ParticleTypes.FLAME));
+
 	public static final RegistryObject<Block> MOSS_0 = register("moss_0", () -> new MossBlock(propertiesMoss()));
 	public static final RegistryObject<Block> MOSS_1 = register("moss_1", () -> new MossBlock(propertiesMoss()));
 	public static final RegistryObject<Block> MOSS_2 = register("moss_2", () -> new MossBlock(propertiesMoss()));
@@ -331,6 +337,14 @@ public class IcariaBlocks {
 
 	private static Properties propertiesMoss() {
 		return Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).explosionResistance(0.1F).strength(0.1F);
+	}
+
+	private static Properties propertiesLigniteTorch() {
+		return Properties.of(Material.DECORATION).noCollission().instabreak().lightLevel((p_152607_) -> 9).sound(SoundType.METAL);
+	}
+
+	private static Properties propertiesAnthraciteTorch() {
+		return Properties.of(Material.DECORATION).noCollission().instabreak().lightLevel((p_152607_) -> 14).sound(SoundType.METAL);
 	}
 
 	private static Properties propertiesLavaFluid() {
