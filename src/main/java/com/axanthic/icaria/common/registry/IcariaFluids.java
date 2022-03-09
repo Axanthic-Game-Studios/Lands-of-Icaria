@@ -1,8 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.fluids.HyliastrumFluid;
-import com.axanthic.icaria.common.fluids.MediterraneanWaterFluid;
-import com.axanthic.icaria.common.fluids.UpwardsFluid;
 import com.axanthic.icaria.util.IcariaInfo;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -10,6 +7,7 @@ import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.FluidAttributes.Builder;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fluids.ForgeFlowingFluid.Properties;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -32,15 +30,15 @@ public class IcariaFluids {
 
 	public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, IcariaInfo.MODID);
 
-	public static final RegistryObject<FlowingFluid> HYLIASTRUM_FLUID_SOURCE = register("hyliastrum_fluid_source", () -> new HyliastrumFluid.Source(propertiesHyliastrumFluid()));
-	public static final RegistryObject<FlowingFluid> HYLIASTRUM_FLUID_FLOWING = register("hyliastrum_fluid_flowing", () -> new HyliastrumFluid.Flowing(propertiesHyliastrumFluid()));
+	public static final RegistryObject<FlowingFluid> HYLIASTRUM_FLUID_SOURCE = register("hyliastrum_fluid_source", () -> new ForgeFlowingFluid.Source(propertiesHyliastrumFluid()));
+	public static final RegistryObject<FlowingFluid> HYLIASTRUM_FLUID_FLOWING = register("hyliastrum_fluid_flowing", () -> new ForgeFlowingFluid.Flowing(propertiesHyliastrumFluid()));
 
-	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_SOURCE = register("mediterranean_water_source", () -> new MediterraneanWaterFluid.Source(propertiesMediterraneanWater()));
-	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_FLOWING = register("mediterranean_water_flowing", () -> new MediterraneanWaterFluid.Flowing(propertiesMediterraneanWater()));
+	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_SOURCE = register("mediterranean_water_source", () -> new ForgeFlowingFluid.Source(propertiesMediterraneanWater()));
+	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_FLOWING = register("mediterranean_water_flowing", () -> new ForgeFlowingFluid.Flowing(propertiesMediterraneanWater()));
 
 	// TODO more like downwards fluid atm
-	public static final RegistryObject<FlowingFluid> UPWARDS_FLUID_SOURCE = register("upwards_fluid_source", () -> new UpwardsFluid.Source(propertiesUpwardsFluid()));
-	public static final RegistryObject<FlowingFluid> UPWARDS_FLUID_FLOWING = register("upwards_fluid_flowing", () -> new UpwardsFluid.Flowing(propertiesUpwardsFluid()));
+	public static final RegistryObject<FlowingFluid> UPWARDS_FLUID_SOURCE = register("upwards_fluid_source", () -> new ForgeFlowingFluid.Source(propertiesUpwardsFluid()));
+	public static final RegistryObject<FlowingFluid> UPWARDS_FLUID_FLOWING = register("upwards_fluid_flowing", () -> new ForgeFlowingFluid.Flowing(propertiesUpwardsFluid()));
 
 	private static Properties propertiesHyliastrumFluid() {
 		return new Properties(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, IcariaFluids.HYLIASTRUM_FLUID_FLOWING, attributesHyliastrumFluid())

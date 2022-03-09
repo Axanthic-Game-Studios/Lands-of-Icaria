@@ -334,7 +334,7 @@ public class IcariaBlocks {
 	}
 
 	private static Properties propertiesLavaFluid() {
-		return Properties.of(Material.LAVA).explosionResistance(100.0F).strength(100.0F).noCollission().noDrops();
+		return Properties.of(Material.LAVA).color(MaterialColor.COLOR_BLACK).explosionResistance(100.0F).strength(100.0F).noCollission().noDrops();
 	}
 
 	private static Properties propertiesWaterFluid() {
