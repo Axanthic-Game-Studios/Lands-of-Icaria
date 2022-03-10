@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "landsoficaria:cypress_stairs",
+    "landsoficaria:droughtroot_stairs",
+    "landsoficaria:fir_stairs",
+    "landsoficaria:laurel_stairs",
+    "landsoficaria:olive_stairs",
+    "landsoficaria:plane_stairs",
+    "landsoficaria:populus_stairs"
+  ]
+}

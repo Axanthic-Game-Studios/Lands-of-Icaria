@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "landsoficaria:cypress_slab",
+    "landsoficaria:droughtroot_slab",
+    "landsoficaria:fir_slab",
+    "landsoficaria:laurel_slab",
+    "landsoficaria:olive_slab",
+    "landsoficaria:plane_slab",
+    "landsoficaria:populus_slab"
+  ]
+}

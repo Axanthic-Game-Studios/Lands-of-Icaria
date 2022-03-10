@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "landsoficaria:block/olive_slab_top"
+    },
+    "type=bottom": {
+      "model": "landsoficaria:block/olive_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/olive_planks"
+    }
+  }
+}

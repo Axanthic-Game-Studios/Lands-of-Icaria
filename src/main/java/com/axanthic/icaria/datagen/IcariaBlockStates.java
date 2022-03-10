@@ -6,7 +6,8 @@ import java.util.List;
 import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;
+import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
+import com.axanthic.icaria.common.registry.IcariaItems.WoodDecoItemBlocks;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -20,8 +21,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class IcariaBlockStates extends BlockStateProvider {
 
-	public static final List<RegistryObject<? extends Block>> ROTATED = new ArrayList<RegistryObject<? extends Block>>();
-	public static final List<RegistryObject<? extends Block>> MIRRORED = new ArrayList<RegistryObject<? extends Block>>();
+	public static final List<RegistryObject<? extends Block>> ROTATED = new ArrayList<>();
+	public static final List<RegistryObject<? extends Block>> MIRRORED = new ArrayList<>();
 
 	public IcariaBlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
 		super(gen, IcariaInfo.MODID, exFileHelper);
@@ -100,7 +101,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 			}
 		}
 
-		for (DecoItemBlockCombination deco : IcariaItems.DECO_BLOCKS) {
+		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			ResourceLocation texture = blockTexture(deco.block.original.get());
 			if (deco.SLAB != null) {
 				slabBlock(deco.block.SLAB.get(), deco.block.original.getId(), texture);
@@ -113,6 +114,26 @@ public class IcariaBlockStates extends BlockStateProvider {
 			if (deco.WALL != null) {
 				wallBlock(deco.block.WALL.get(), texture);
 				itemModels().wallInventory(deco.block.WALL.getId().getPath(), texture);
+			}
+		}
+
+		for (WoodDecoItemBlocks deco : IcariaItems.WOOD_BLOCKS) {
+			ResourceLocation texture = blockTexture(deco.block.original.get());
+			if (deco.SLAB != null) {
+				slabBlock(deco.block.SLAB.get(), deco.block.original.getId(), texture);
+				itemModels().slab(deco.block.SLAB.getId().getPath(), texture, texture, texture);
+			}
+			if (deco.STAIRS != null) {
+				stairsBlock(deco.block.STAIRS.get(), texture);
+				itemModels().stairs(deco.block.STAIRS.getId().getPath(), texture, texture, texture);
+			}
+			if (deco.FENCE != null) {
+				fenceBlock(deco.block.FENCE.get(), texture);
+				itemModels().fenceInventory(deco.block.FENCE.getId().getPath(), texture);
+			}
+			if (deco.GATE != null) {
+				fenceGateBlock(deco.block.GATE.get(), texture);
+				itemModels().fenceGate(deco.block.GATE.getId().getPath(), texture);
 			}
 		}
 	}

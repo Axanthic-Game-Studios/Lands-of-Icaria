@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XYX",
+    "XYX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:laurel_planks"
+    },
+    "Y": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:laurel_fence",
+    "count": 3
+  }
+}

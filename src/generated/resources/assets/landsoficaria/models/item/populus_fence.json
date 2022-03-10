@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "landsoficaria:block/populus_planks"
+  }
+}

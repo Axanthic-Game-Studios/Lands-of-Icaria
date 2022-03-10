@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "YXY",
+    "YXY"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:plane_planks"
+    },
+    "Y": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:plane_fence_gate"
+  }
+}

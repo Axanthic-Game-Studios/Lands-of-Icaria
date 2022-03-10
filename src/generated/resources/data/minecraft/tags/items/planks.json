@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "landsoficaria:cypress_planks",
+    "landsoficaria:droughtroot_planks",
+    "landsoficaria:fir_planks",
+    "landsoficaria:laurel_planks",
+    "landsoficaria:olive_planks",
+    "landsoficaria:plane_planks",
+    "landsoficaria:populus_planks"
+  ]
+}

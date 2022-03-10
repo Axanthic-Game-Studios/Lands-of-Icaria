@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;
+import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -38,7 +38,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 
 	@Override
 	public void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
-		for (DecoItemBlockCombination deco : IcariaItems.DECO_BLOCKS) {
+		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			if (deco.SLAB != null) {
 				ShapedRecipeBuilder.shaped(deco.SLAB.get(), 6)
 				.pattern("XXX")
@@ -70,6 +70,44 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 				.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_wall_cutting"));
 			}
 		}
+
+		for (IcariaItems.WoodDecoItemBlocks deco : IcariaItems.WOOD_BLOCKS) {
+			if (deco.SLAB != null) {
+				ShapedRecipeBuilder.shaped(deco.SLAB.get(), 6)
+						.pattern("XXX")
+						.define('X', deco.originalItem.get())
+						.unlockedBy("has_block", has(deco.originalItem.get()))
+						.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_slab_crafting"));
+			}
+			if (deco.STAIRS != null) {
+				ShapedRecipeBuilder.shaped(deco.STAIRS.get(), 4)
+						.pattern("X  ")
+						.pattern("XX ")
+						.pattern("XXX")
+						.define('X', deco.originalItem.get())
+						.unlockedBy("has_block", has(deco.originalItem.get()))
+						.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_stairs_crafting"));
+			}
+			if (deco.FENCE != null) {
+				ShapedRecipeBuilder.shaped(deco.FENCE.get(), 3)
+						.pattern("XYX")
+						.pattern("XYX")
+						.define('X', deco.originalItem.get())
+						.define('Y', Items.STICK)
+						.unlockedBy("has_block", has(deco.originalItem.get()))
+						.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_fence_crafting"));
+			}
+			if (deco.GATE != null) {
+				ShapedRecipeBuilder.shaped(deco.GATE.get(), 1)
+						.pattern("YXY")
+						.pattern("YXY")
+						.define('X', deco.originalItem.get())
+						.define('Y', Items.STICK)
+						.unlockedBy("has_block", has(deco.originalItem.get()))
+						.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_fence_gate_crafting"));
+			}
+		}
+
 		stoneTypeRecipes(consumer, IcariaItems.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_COBBLE.get(), IcariaItems.YELLOWSTONE_BRICKS.get(), IcariaItems.YELLOWSTONE_CHISELED.get(), IcariaItems.YELLOWSTONE_BRICKS_DECO);
 		stoneTypeRecipes(consumer, IcariaItems.SILKSTONE.get(), IcariaItems.SILKSTONE_COBBLE.get(), IcariaItems.SILKSTONE_BRICKS.get(), IcariaItems.SILKSTONE_CHISELED.get(), IcariaItems.SILKSTONE_BRICKS_DECO);
 		stoneTypeRecipes(consumer, IcariaItems.SUNSTONE.get(), IcariaItems.SUNSTONE_COBBLE.get(), IcariaItems.SUNSTONE_BRICKS.get(), IcariaItems.SUNSTONE_CHISELED.get(), IcariaItems.SUNSTONE_BRICKS_DECO);
@@ -361,7 +399,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		.save(consumer, appendResource(IcariaItems.VINE_SPROUT_BLOCK.getId(), "_decompress"));
 	}
 
-	public void stoneTypeRecipes(Consumer<FinishedRecipe> consumer, Item stone, Item cobble, Item bricks, Item chiseled, DecoItemBlockCombination deco) {
+	public void stoneTypeRecipes(Consumer<FinishedRecipe> consumer, Item stone, Item cobble, Item bricks, Item chiseled, StoneDecoItemBlocks deco) {
 		//smelting
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(cobble), stone, 0.1F, 200).unlockedBy("has_cobble", has(cobble))
 		.save(consumer, appendResource(stone.getRegistryName(), "_smelting"));
@@ -588,11 +626,11 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.define('X', ItemTags.bind("forge:gems/" + name))
 			.define('Y', ItemTags.bind("forge:bones"))
 			.group("")
-			.unlockedBy("has_ingot", has(gem))
+			.unlockedBy("has_gem", has(gem))
 			.save(consumer, bident.getRegistryName());
 	}
 
-	public void torchRecipe(Consumer<FinishedRecipe> consumer, String name, Item torch, Item material) {
+	public void torchRecipe(Consumer<FinishedRecipe> consumer, String name, Item torch, Item gem) {
 		ShapedRecipeBuilder.shaped(torch, 2)
 			.pattern(" X ")
 			.pattern(" Y ")
@@ -600,7 +638,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.define('X', ItemTags.bind("forge:gems/" + name))
 			.define('Y', ItemTags.bind("forge:bones"))
 			.group("")
-			.unlockedBy("has_ingot", has(material))
+			.unlockedBy("has_gem", has(gem))
 			.save(consumer, torch.getRegistryName());
 	}
 

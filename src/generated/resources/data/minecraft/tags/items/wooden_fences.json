@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "landsoficaria:cypress_fence",
+    "landsoficaria:droughtroot_fence",
+    "landsoficaria:fir_fence",
+    "landsoficaria:laurel_fence",
+    "landsoficaria:olive_fence",
+    "landsoficaria:plane_fence",
+    "landsoficaria:populus_fence"
+  ]
+}

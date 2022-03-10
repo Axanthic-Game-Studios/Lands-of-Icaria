@@ -2,6 +2,11 @@
   "replace": false,
   "values": [
     "landsoficaria:vine_reed_block",
-    "landsoficaria:vine_sprout_block"
+    "landsoficaria:vine_sprout_block",
+    "landsoficaria:plane_planks",
+    "landsoficaria:plane_slab",
+    "landsoficaria:plane_stairs",
+    "landsoficaria:plane_fence",
+    "landsoficaria:plane_fence_gate"
   ]
 }

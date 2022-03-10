@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:populus_planks"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:populus_stairs",
+    "count": 4
+  }
+}

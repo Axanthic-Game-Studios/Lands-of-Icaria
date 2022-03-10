@@ -8,7 +8,8 @@ import javax.annotation.Nonnull;
 import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;
+import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
+import com.axanthic.icaria.common.registry.IcariaItems.WoodDecoItemBlocks;
 
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -51,7 +52,8 @@ public class IcariaBlockLootTables extends BlockLoot {
 		for (RegistryObject<? extends Block> basicBlock : IcariaBlocks.BASIC_BLOCKS) {
 			dropSelf(basicBlock.get());
 		}
-		for (DecoItemBlockCombination deco : IcariaItems.DECO_BLOCKS) {
+
+		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			if (deco.SLAB != null) {
 				add(deco.block.SLAB.get(), BlockLoot::createSlabItemTable);
 			}
@@ -63,30 +65,35 @@ public class IcariaBlockLootTables extends BlockLoot {
 			}
 		}
 
+		for (WoodDecoItemBlocks deco : IcariaItems.WOOD_BLOCKS) {
+			if (deco.SLAB != null) {
+				add(deco.block.SLAB.get(), BlockLoot::createSlabItemTable);
+			}
+			if (deco.STAIRS != null) {
+				dropSelf(deco.block.STAIRS.get());
+			}
+			if (deco.FENCE != null) {
+				dropSelf(deco.block.FENCE.get());
+			}
+			if (deco.GATE != null) {
+				dropSelf(deco.block.GATE.get());
+			}
+		}
+
 		requireSilkTouch(IcariaBlocks.MARL_GRASS.get(), IcariaItems.MARL.get());
-		this.add(IcariaBlocks.MARL_CHERT.get(), (blockDrop) -> {
-			return createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.CHERT.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
-		});
-		this.add(IcariaBlocks.MARL_ROTTEN_BONES.get(), (blockDrop) -> {
-			return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(blockDrop).when(HAS_SILK_TOUCH).otherwise(
-					applyExplosionDecay(Items.BONE, LootItem.lootTableItem(Items.BONE).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(25)
-					.append(applyExplosionDecay(IcariaItems.ROTTEN_BONES.get(), LootItem.lootTableItem(IcariaItems.ROTTEN_BONES.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(25))
-					.append(applyExplosionDecay(IcariaItems.REMAINS.get(), LootItem.lootTableItem(IcariaItems.REMAINS.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(1))
-					)));
-		});
-		this.add(IcariaBlocks.MARL_LIGNITE.get(), (blockDrop) -> {
-			return createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.LIGNITE.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
-		});
+		this.add(IcariaBlocks.MARL_CHERT.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.CHERT.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
+		this.add(IcariaBlocks.MARL_ROTTEN_BONES.get(), (blockDrop) -> LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(blockDrop).when(HAS_SILK_TOUCH).otherwise(
+				applyExplosionDecay(Items.BONE, LootItem.lootTableItem(Items.BONE).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(25)
+				.append(applyExplosionDecay(IcariaItems.ROTTEN_BONES.get(), LootItem.lootTableItem(IcariaItems.ROTTEN_BONES.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(25))
+				.append(applyExplosionDecay(IcariaItems.REMAINS.get(), LootItem.lootTableItem(IcariaItems.REMAINS.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(1))
+				))));
+		this.add(IcariaBlocks.MARL_LIGNITE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.LIGNITE.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		dropOther(IcariaBlocks.FARMLAND.get(), IcariaItems.MARL.get());
 		dropOther(IcariaBlocks.FARMLAND_FERTILIZED.get(), IcariaItems.MARL.get());
-		this.add(IcariaBlocks.LOAM.get(), (blockDrop) -> {
-			return createSingleItemTableWithSilkTouch(blockDrop, IcariaItems.LOAM_LUMP.get(), ConstantValue.exactly(4.0F));
-		});
+		this.add(IcariaBlocks.LOAM.get(), (blockDrop) -> createSingleItemTableWithSilkTouch(blockDrop, IcariaItems.LOAM_LUMP.get(), ConstantValue.exactly(4.0F)));
 		dropSelf(IcariaBlocks.DOLOMITE_PILLAR.get());
 		dropSelf(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get());
-		this.add(IcariaBlocks.GRAINEL_CHERT.get(), (blockDrop) -> {
-			return createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.CHERT.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
-		});
+		this.add(IcariaBlocks.GRAINEL_CHERT.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.CHERT.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		dropWhenSilkTouch(IcariaBlocks.GRAINGLASS.get());
 		dropWhenSilkTouch(IcariaBlocks.GRAINGLASS_PANE.get());
 		dropWhenSilkTouch(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get());
@@ -123,22 +130,18 @@ public class IcariaBlockLootTables extends BlockLoot {
 	}
 
 	public void requireSilkTouch(Block block, Item item) {
-		add(block, (blockDrop) -> {
-			return createSingleItemTableWithSilkTouch(blockDrop, item);
-		});
+		add(block, (blockDrop) -> createSingleItemTableWithSilkTouch(blockDrop, item));
 	}
 
 	public void dropLayers(Block block) { //like onions
-		this.add(block, (blockDrop) -> {
-			return LootTable.lootTable().withPool(LootPool.lootPool().when(LootItemEntityPropertyCondition.entityPresent(LootContext.EntityTarget.THIS)).add(AlternativesEntry.alternatives(
-					LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 1))),
-					LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 2))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))),
-					LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 3))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F))),
-					LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 4))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))),
-					LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 5))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5.0F))),
-					LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 6))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(6.0F))),
-					LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 7))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(7.0F))),
-					LootItem.lootTableItem(blockDrop).apply(SetItemCountFunction.setCount(ConstantValue.exactly(8.0F))))));
-		});
+		this.add(block, (blockDrop) -> LootTable.lootTable().withPool(LootPool.lootPool().when(LootItemEntityPropertyCondition.entityPresent(LootContext.EntityTarget.THIS)).add(AlternativesEntry.alternatives(
+				LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 1))),
+				LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 2))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))),
+				LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 3))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F))),
+				LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 4))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))),
+				LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 5))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5.0F))),
+				LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 6))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(6.0F))),
+				LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 7))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(7.0F))),
+				LootItem.lootTableItem(blockDrop).apply(SetItemCountFunction.setCount(ConstantValue.exactly(8.0F)))))));
 	}
 }

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "landsoficaria:plane_planks_fence_gate_crafting"
+    ]
+  },
+  "criteria": {
+    "has_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:plane_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "landsoficaria:plane_planks_fence_gate_crafting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_block",
+      "has_the_recipe"
+    ]
+  ]
+}

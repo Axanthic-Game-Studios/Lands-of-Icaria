@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "landsoficaria:fir_planks_stairs_crafting"
+    ]
+  },
+  "criteria": {
+    "has_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:fir_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "landsoficaria:fir_planks_stairs_crafting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_block",
+      "has_the_recipe"
+    ]
+  ]
+}

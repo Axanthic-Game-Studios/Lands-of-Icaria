@@ -2,7 +2,8 @@ package com.axanthic.icaria.datagen;
 
 import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaItems.DecoItemBlockCombination;
+import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
+import com.axanthic.icaria.common.registry.IcariaItems.WoodDecoItemBlocks;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
@@ -104,7 +105,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 	@Override
 	protected void addTags() {
 		//copying block tags
-		for (DecoItemBlockCombination deco : IcariaItems.DECO_BLOCKS) {
+		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			if (deco.SLAB != null) {
 				tag(ItemTags.SLABS).add(deco.SLAB.get());
 			}
@@ -113,6 +114,18 @@ public class IcariaItemTags extends ItemTagsProvider {
 			}
 			if (deco.WALL != null) {
 				tag(ItemTags.WALLS).add(deco.WALL.get());
+			}
+		}
+
+		for (WoodDecoItemBlocks deco : IcariaItems.WOOD_BLOCKS) {
+			if (deco.SLAB != null) {
+				tag(ItemTags.WOODEN_SLABS).add(deco.SLAB.get());
+			}
+			if (deco.STAIRS != null) {
+				tag(ItemTags.WOODEN_STAIRS).add(deco.STAIRS.get());
+			}
+			if (deco.FENCE != null) {
+				tag(ItemTags.WOODEN_FENCES).add(deco.FENCE.get());
 			}
 		}
 
@@ -152,6 +165,15 @@ public class IcariaItemTags extends ItemTagsProvider {
 		copy(IcariaBlockTags.STORAGE_BLOCKS_ANTHRACITE, STORAGE_BLOCKS_ANTHRACITE);
 		copy(IcariaBlockTags.STORAGE_BLOCKS_MOLYBDENUM, STORAGE_BLOCKS_MOLYBDENUM);
 		copy(IcariaBlockTags.STORAGE_BLOCKS_MOLYBDENUMSTEEL, STORAGE_BLOCKS_MOLYBDENUMSTEEL);
+
+		tag(ItemTags.PLANKS)
+			.add(IcariaItems.CYPRESS_PLANKS.get())
+			.add(IcariaItems.DROUGHTROOT_PLANKS.get())
+			.add(IcariaItems.FIR_PLANKS.get())
+			.add(IcariaItems.LAUREL_PLANKS.get())
+			.add(IcariaItems.OLIVE_PLANKS.get())
+			.add(IcariaItems.PLANE_PLANKS.get())
+			.add(IcariaItems.POPULUS_PLANKS.get());
 
 		copy(IcariaBlockTags.ORE_BEARING_GROUND_MARL, ORE_BEARING_GROUND_MARL);
 		copy(IcariaBlockTags.ORE_BEARING_GROUND_GRAINEL, ORE_BEARING_GROUND_GRAINEL);
@@ -208,7 +230,8 @@ public class IcariaItemTags extends ItemTagsProvider {
 		.addTag(ORES_ANTHRACITE)
 		.addTag(ORES_MOLYBDENUM);
 
-		tag(Tags.Items.ORE_RATES_DENSE).addTag(ORES_ROTTEN_BONES);
+		tag(Tags.Items.ORE_RATES_DENSE)
+		.addTag(ORES_ROTTEN_BONES);
 
 		tag(Tags.Items.STONE).add(IcariaItems.YELLOWSTONE.get())
 		.add(IcariaItems.SILKSTONE.get())

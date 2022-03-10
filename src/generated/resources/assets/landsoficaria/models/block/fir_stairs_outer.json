@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "side": "landsoficaria:block/fir_planks",
+    "bottom": "landsoficaria:block/fir_planks",
+    "top": "landsoficaria:block/fir_planks"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:cypress_planks"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:cypress_stairs",
+    "count": 4
+  }
+}
