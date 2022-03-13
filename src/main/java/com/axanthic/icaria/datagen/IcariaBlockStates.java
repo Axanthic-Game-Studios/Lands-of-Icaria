@@ -1,8 +1,5 @@
 package com.axanthic.icaria.datagen;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
@@ -12,6 +9,7 @@ import com.axanthic.icaria.common.registry.IcariaItems.WoodDecoItemBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -19,8 +17,15 @@ import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
-public class IcariaBlockStates extends BlockStateProvider {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+
+public class IcariaBlockStates extends BlockStateProvider {
 	public static final List<RegistryObject<? extends Block>> ROTATED = new ArrayList<>();
 	public static final List<RegistryObject<? extends Block>> MIRRORED = new ArrayList<>();
 
@@ -32,18 +37,17 @@ public class IcariaBlockStates extends BlockStateProvider {
 	protected void registerStatesAndModels() {
 		ROTATED.add(IcariaBlocks.MARL);
 		ROTATED.add(IcariaBlocks.MARL_COARSE);
-		ROTATED.add(IcariaBlocks.GRAINEL);
-		ROTATED.add(IcariaBlocks.SILKSAND);
-		ROTATED.add(IcariaBlocks.JELLYFISH_JELLY_BLOCK);
-
 		ROTATED.add(IcariaBlocks.MARL_ADOBE);
 		ROTATED.add(IcariaBlocks.DOLOMITE_ADOBE);
+		ROTATED.add(IcariaBlocks.GRAINEL);
 		ROTATED.add(IcariaBlocks.GRAINITE_ADOBE);
 		ROTATED.add(IcariaBlocks.YELLOWSTONE_ADOBE);
+		ROTATED.add(IcariaBlocks.SILKSAND);
 		ROTATED.add(IcariaBlocks.SILKSTONE_ADOBE);
 		ROTATED.add(IcariaBlocks.SUNSTONE_ADOBE);
-		ROTATED.add(IcariaBlocks.VOIDSHALE);
-		ROTATED.add(IcariaBlocks.BAETYL);
+		ROTATED.add(IcariaBlocks.VOIDSHALE_ADOBE);
+		ROTATED.add(IcariaBlocks.BAETYL_ADOBE);
+		ROTATED.add(IcariaBlocks.JELLYFISH_JELLY_BLOCK);
 
 		MIRRORED.add(IcariaBlocks.ARACHNE_STRING_BLOCK);
 
@@ -72,6 +76,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		mirroredBlockWithItem(IcariaBlocks.RELICSTONE_SMOOTH);
 		axisBlock(IcariaBlocks.RELICSTONE_PILLAR.get());
 		blockItem(IcariaBlocks.RELICSTONE_PILLAR);
+		//blockWithItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD);
 		blockWithItem(IcariaBlocks.LIGNITE_ORE);
 		blockWithItem(IcariaBlocks.CHALKOS_ORE);
 		blockWithItem(IcariaBlocks.KASSITEROS_ORE);
@@ -82,11 +87,65 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockWithItem(IcariaBlocks.ANTHRACITE_ORE);
 		blockWithItem(IcariaBlocks.MOLYBDENUM_ORE);
 		blockWithItem(IcariaBlocks.HYLIASTRUM_ORE);
-		//blockWithItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD);
-		//blockWithItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD);
 		//blockWithItem(IcariaBlocks.QUARTZ_PILLAR_HEAD);
 		axisBlock(IcariaBlocks.SPELT_BALE_BLOCK.get());
 		blockItem(IcariaBlocks.SPELT_BALE_BLOCK);
+		axisBlock(IcariaBlocks.CYPRESS_WOOD.get());
+		blockItem(IcariaBlocks.CYPRESS_WOOD);
+		axisBlock(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());
+		blockItem(IcariaBlocks.STRIPPED_CYPRESS_WOOD);
+		axisBlock(IcariaBlocks.CYPRESS_LOG.get());
+		blockItem(IcariaBlocks.CYPRESS_LOG);
+		axisBlock(IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
+		blockItem(IcariaBlocks.STRIPPED_CYPRESS_LOG);
+		axisBlock(IcariaBlocks.DROUGHTROOT_WOOD.get());
+		blockItem(IcariaBlocks.DROUGHTROOT_WOOD);
+		axisBlock(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get());
+		blockItem(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD);
+		axisBlock(IcariaBlocks.DROUGHTROOT_LOG.get());
+		blockItem(IcariaBlocks.DROUGHTROOT_LOG);
+		axisBlock(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
+		blockItem(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG);
+		axisBlock(IcariaBlocks.FIR_WOOD.get());
+		blockItem(IcariaBlocks.FIR_WOOD);
+		axisBlock(IcariaBlocks.STRIPPED_FIR_WOOD.get());
+		blockItem(IcariaBlocks.STRIPPED_FIR_WOOD);
+		axisBlock(IcariaBlocks.FIR_LOG.get());
+		blockItem(IcariaBlocks.FIR_LOG);
+		axisBlock(IcariaBlocks.STRIPPED_FIR_LOG.get());
+		blockItem(IcariaBlocks.STRIPPED_FIR_LOG);
+		axisBlock(IcariaBlocks.LAUREL_WOOD.get());
+		blockItem(IcariaBlocks.LAUREL_WOOD);
+		axisBlock(IcariaBlocks.STRIPPED_LAUREL_WOOD.get());
+		blockItem(IcariaBlocks.STRIPPED_LAUREL_WOOD);
+		axisBlock(IcariaBlocks.LAUREL_LOG.get());
+		blockItem(IcariaBlocks.LAUREL_LOG);
+		axisBlock(IcariaBlocks.STRIPPED_LAUREL_LOG.get());
+		blockItem(IcariaBlocks.STRIPPED_LAUREL_LOG);
+		axisBlock(IcariaBlocks.OLIVE_WOOD.get());
+		blockItem(IcariaBlocks.OLIVE_WOOD);
+		axisBlock(IcariaBlocks.STRIPPED_OLIVE_WOOD.get());
+		blockItem(IcariaBlocks.STRIPPED_OLIVE_WOOD);
+		axisBlock(IcariaBlocks.OLIVE_LOG.get());
+		blockItem(IcariaBlocks.OLIVE_LOG);
+		axisBlock(IcariaBlocks.STRIPPED_OLIVE_LOG.get());
+		blockItem(IcariaBlocks.STRIPPED_OLIVE_LOG);
+		axisBlock(IcariaBlocks.PLANE_WOOD.get());
+		blockItem(IcariaBlocks.PLANE_WOOD);
+		axisBlock(IcariaBlocks.STRIPPED_PLANE_WOOD.get());
+		blockItem(IcariaBlocks.STRIPPED_PLANE_WOOD);
+		axisBlock(IcariaBlocks.PLANE_LOG.get());
+		blockItem(IcariaBlocks.PLANE_LOG);
+		axisBlock(IcariaBlocks.STRIPPED_PLANE_LOG.get());
+		blockItem(IcariaBlocks.STRIPPED_PLANE_LOG);
+		axisBlock(IcariaBlocks.POPULUS_WOOD.get());
+		blockItem(IcariaBlocks.POPULUS_WOOD);
+		axisBlock(IcariaBlocks.STRIPPED_POPULUS_WOOD.get());
+		blockItem(IcariaBlocks.STRIPPED_POPULUS_WOOD);
+		axisBlock(IcariaBlocks.POPULUS_LOG.get());
+		blockItem(IcariaBlocks.POPULUS_LOG);
+		axisBlock(IcariaBlocks.STRIPPED_POPULUS_LOG.get());
+		blockItem(IcariaBlocks.STRIPPED_POPULUS_LOG);
 		//blockWithItem(IcariaBlocks.MOSS_0);
 		//blockWithItem(IcariaBlocks.MOSS_1);
 		//blockWithItem(IcariaBlocks.MOSS_2);
@@ -104,15 +163,15 @@ public class IcariaBlockStates extends BlockStateProvider {
 		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			ResourceLocation texture = blockTexture(deco.block.original.get());
 			if (deco.SLAB != null) {
-				slabBlock(deco.block.SLAB.get(), deco.block.original.getId(), texture);
+				slabBlock(Objects.requireNonNull(deco.block.SLAB).get(), deco.block.original.getId(), texture);
 				itemModels().slab(deco.block.SLAB.getId().getPath(), texture, texture, texture);
 			}
 			if (deco.STAIRS != null) {
-				stairsBlock(deco.block.STAIRS.get(), texture);
+				stairsBlock(Objects.requireNonNull(deco.block.STAIRS).get(), texture);
 				itemModels().stairs(deco.block.STAIRS.getId().getPath(), texture, texture, texture);
 			}
 			if (deco.WALL != null) {
-				wallBlock(deco.block.WALL.get(), texture);
+				wallBlock(Objects.requireNonNull(deco.block.WALL).get(), texture);
 				itemModels().wallInventory(deco.block.WALL.getId().getPath(), texture);
 			}
 		}
@@ -120,19 +179,19 @@ public class IcariaBlockStates extends BlockStateProvider {
 		for (WoodDecoItemBlocks deco : IcariaItems.WOOD_BLOCKS) {
 			ResourceLocation texture = blockTexture(deco.block.original.get());
 			if (deco.SLAB != null) {
-				slabBlock(deco.block.SLAB.get(), deco.block.original.getId(), texture);
+				slabBlock(Objects.requireNonNull(deco.block.SLAB).get(), deco.block.original.getId(), texture);
 				itemModels().slab(deco.block.SLAB.getId().getPath(), texture, texture, texture);
 			}
 			if (deco.STAIRS != null) {
-				stairsBlock(deco.block.STAIRS.get(), texture);
+				stairsBlock(Objects.requireNonNull(deco.block.STAIRS).get(), texture);
 				itemModels().stairs(deco.block.STAIRS.getId().getPath(), texture, texture, texture);
 			}
 			if (deco.FENCE != null) {
-				fenceBlock(deco.block.FENCE.get(), texture);
+				fenceBlock(Objects.requireNonNull(deco.block.FENCE).get(), texture);
 				itemModels().fenceInventory(deco.block.FENCE.getId().getPath(), texture);
 			}
 			if (deco.GATE != null) {
-				fenceGateBlock(deco.block.GATE.get(), texture);
+				fenceGateBlock(Objects.requireNonNull(deco.block.GATE).get(), texture);
 				itemModels().fenceGate(deco.block.GATE.getId().getPath(), texture);
 			}
 		}
@@ -165,7 +224,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 	public void mirroredBlockWithItem(RegistryObject<? extends Block> registryObject) {
 		//block model
 		ModelFile normal = cubeAll(registryObject.get());
-		ModelFile mirrored = models().singleTexture(registryObject.get().getRegistryName().getPath() + "_mirrored", new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/cube_mirrored_all"), "all", blockTexture(registryObject.get()));
+		ModelFile mirrored = models().singleTexture(Objects.requireNonNull(registryObject.get().getRegistryName()).getPath() + "_mirrored", new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/cube_mirrored_all"), "all", blockTexture(registryObject.get()));
 		getVariantBuilder(registryObject.get()).partialState().setModels(new ConfiguredModel(normal), new ConfiguredModel(normal, 0, 180, false), new ConfiguredModel(mirrored), new ConfiguredModel(mirrored, 0, 180, false));
 
 		//itemblock model
@@ -178,6 +237,6 @@ public class IcariaBlockStates extends BlockStateProvider {
 
 	public void fluid(RegistryObject<? extends Block> fluid) {
 		ResourceLocation name = fluid.get().getRegistryName();
-		simpleBlock(fluid.get(), models().cubeAll(name.getPath(), new ResourceLocation(name.getNamespace(), ModelProvider.BLOCK_FOLDER + "/fluid/" + name.getPath().replace("block", "still"))));
+		simpleBlock(fluid.get(), models().cubeAll(Objects.requireNonNull(name).getPath(), new ResourceLocation(name.getNamespace(), ModelProvider.BLOCK_FOLDER + "/fluid/" + name.getPath().replace("block", "still"))));
 	}
 }

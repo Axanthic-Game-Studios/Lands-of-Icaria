@@ -10,10 +10,15 @@ import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+
 import net.minecraftforge.common.TierSortingRegistry;
 
-public class IcariaShovelItem extends ShovelItem {
+import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("deprecation")
+@ParametersAreNonnullByDefault
+
+public class IcariaShovelItem extends ShovelItem {
 	private final Tag<Block> blocks = BlockTags.MINEABLE_WITH_SHOVEL;
 	private final Tier equivalentTier;
 

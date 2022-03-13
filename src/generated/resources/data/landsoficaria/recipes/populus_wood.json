@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    "XX ",
+    "   "
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:populus_log"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:populus_wood",
+    "count": 3
+  }
+}

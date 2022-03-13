@@ -10,21 +10,26 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+
 import net.minecraftforge.common.TierSortingRegistry;
 
-public class IcariaAxeItem extends AxeItem {
+import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("deprecation")
+@ParametersAreNonnullByDefault
+
+public class IcariaAxeItem extends AxeItem {
 	private final Tag<Block> blocks = BlockTags.MINEABLE_WITH_AXE;
 	private final Tier equivalentTier;
 
-	public IcariaAxeItem(IcariaTier tier, float damage, float attackSpeed, Properties prop) {
-		super(tier, damage, attackSpeed, prop);
+	public IcariaAxeItem(IcariaTier tier, float damage, float attackSpeed, Properties properties) {
+		super(tier, damage, attackSpeed, properties);
 		this.equivalentTier = tier.vanillaEquivalent;
 	}
 
 	@Override
-	public boolean isCorrectToolForDrops(BlockState state) {
-		return state.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(state.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, state);
+	public boolean isCorrectToolForDrops(BlockState pBlock) {
+		return pBlock.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(pBlock.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, pBlock);
 	}
 
 	@Override

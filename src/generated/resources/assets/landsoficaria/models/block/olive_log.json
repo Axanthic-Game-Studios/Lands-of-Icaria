@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "landsoficaria:block/olive_log_side",
+    "end": "landsoficaria:block/olive_log_end"
+  }
+}

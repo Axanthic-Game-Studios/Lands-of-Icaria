@@ -2,6 +2,7 @@ package com.axanthic.icaria.client.util;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.SoundType;
+
 import net.minecraftforge.common.util.ForgeSoundType;
 
 public class IcariaSounds {

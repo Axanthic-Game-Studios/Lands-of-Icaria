@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "landsoficaria:block/droughtroot_wood_side",
+    "end": "landsoficaria:block/droughtroot_wood_end"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "landsoficaria:block/droughtroot_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "landsoficaria:block/droughtroot_log"
+    },
+    "axis=z": {
+      "model": "landsoficaria:block/droughtroot_log_horizontal",
+      "x": 90
+    }
+  }
+}

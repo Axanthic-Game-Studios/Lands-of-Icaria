@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:logs/laurel"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:laurel_planks",
+    "count": 4
+  }
+}

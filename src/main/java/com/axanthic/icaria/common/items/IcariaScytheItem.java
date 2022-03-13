@@ -1,15 +1,11 @@
 package com.axanthic.icaria.common.items;
 
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import javax.annotation.Nonnull;
-
 import com.axanthic.icaria.datagen.IcariaBlockTags;
 import com.axanthic.icaria.util.IcariaTier;
+
 import com.google.common.collect.Sets;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.entity.Entity;
@@ -25,12 +21,23 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+
 import net.minecraftforge.common.TierSortingRegistry;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 
-public class IcariaScytheItem extends HoeItem {
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
+public class IcariaScytheItem extends HoeItem {
 	private final Tag<Block> blocks = IcariaBlockTags.MINEABLE_WITH_SCYTHE;
 	private final Tier equivalentTier;
 	public static final Set<ToolAction> SCYTHE_ACTIONS = Stream.of(ToolActions.HOE_DIG, ToolActions.SWORD_SWEEP /* TODO: , ToolActions.HOE_TILL */).collect(Collectors.toCollection(Sets::newIdentityHashSet));
@@ -41,15 +48,13 @@ public class IcariaScytheItem extends HoeItem {
 	}
 
 	@Override
-	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		stack.hurtAndBreak(1, attacker, (entity) -> {
-			entity.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-		});
+	public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
+		pStack.hurtAndBreak(1, pAttacker, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		return true;
 	}
 
 	@Override
-	public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, Player player) {
+	public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, Player player) {
 		Level world = player.getLevel();
 		if (isCorrectToolForDrops(world.getBlockState(pos))) {
 			for (BlockPos pos2 : BlockPos.withinManhattan(pos, 1, 1, 1)) {
@@ -57,6 +62,7 @@ public class IcariaScytheItem extends HoeItem {
 					world.destroyBlock(pos2, true, player);
 			}
 		}
+
 		return false;
 	}
 
@@ -66,8 +72,8 @@ public class IcariaScytheItem extends HoeItem {
 	}
 
 	@Override
-	public boolean isCorrectToolForDrops(BlockState state) {
-		return state.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(state.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, state);
+	public boolean isCorrectToolForDrops(BlockState pBlock) {
+		return pBlock.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(pBlock.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, pBlock);
 	}
 
 	@Override
@@ -76,13 +82,12 @@ public class IcariaScytheItem extends HoeItem {
 	}
 
 	@Override
-	public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
-		return SCYTHE_ACTIONS.contains(toolAction);
+	public boolean canPerformAction(ItemStack stack, ToolAction action) {
+		return SCYTHE_ACTIONS.contains(action);
 	}
 
 	@Override
-	@Nonnull
-	public AABB getSweepHitBox(@Nonnull ItemStack stack, @Nonnull Player player, @Nonnull Entity target) {
+	public AABB getSweepHitBox(ItemStack stack, Player player, Entity target) {
 		return target.getBoundingBox().inflate(1.4D, 0.25D, 1.4D);
 	}
 }

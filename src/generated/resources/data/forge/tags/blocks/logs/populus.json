@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "landsoficaria:populus_log",
+    "landsoficaria:stripped_populus_log",
+    "landsoficaria:populus_wood",
+    "landsoficaria:stripped_populus_wood"
+  ]
+}

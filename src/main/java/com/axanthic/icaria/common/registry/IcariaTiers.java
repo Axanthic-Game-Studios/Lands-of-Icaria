@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import java.util.List;
-
 import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.datagen.IcariaBlockTags;
 import com.axanthic.icaria.datagen.IcariaItemTags;
@@ -11,10 +9,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
+
 import net.minecraftforge.common.TierSortingRegistry;
 
-public class IcariaTiers {
+import java.util.List;
 
+public class IcariaTiers {
 	public static final IcariaTier CHERT = new IcariaTier(0, 59, 2.0F, 0.0F, 15, IcariaBlockTags.NEEDS_CHERT_TOOL, () -> Ingredient.of(IcariaItemTags.GEMS_CHERT), Tiers.STONE);
 	public static final IcariaTier CHALKOS = new IcariaTier(1, 174, 5.0F, 1.0F, 15, IcariaBlockTags.NEEDS_CHALKOS_TOOL, () -> Ingredient.of(Items.BEDROCK), Tiers.STONE);
 	public static final IcariaTier KASSITEROS = new IcariaTier(1, 234, 5.0F, 1.5F, 15, IcariaBlockTags.NEEDS_KASSITEROS_TOOL, () -> Ingredient.of(Items.BEDROCK), Tiers.IRON);

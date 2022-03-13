@@ -4,8 +4,8 @@ import com.axanthic.icaria.client.render.ThrownBidentRenderer;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntities;
-
 import com.axanthic.icaria.common.registry.IcariaFluids;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColor;
@@ -23,6 +23,7 @@ public class ClientProxy extends CommonProxy {
 
 	}
 
+	@Override
 	public void setup() {
 
 	}

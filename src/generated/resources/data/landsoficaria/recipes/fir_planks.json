@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:logs/fir"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:fir_planks",
+    "count": 4
+  }
+}

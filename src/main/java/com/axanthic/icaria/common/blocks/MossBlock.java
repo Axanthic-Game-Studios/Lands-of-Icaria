@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.blocks;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -10,72 +11,34 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
 public class MossBlock extends Block {
-	public static final IntegerProperty LAYERS = IntegerProperty.create("layers", 1, 8);
-	public static final VoxelShape[] SHAPES = new VoxelShape[] { Shapes.empty(), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D) };
+	public static final IntegerProperty LAYERS = BlockStateProperties.LAYERS;
+	public static final VoxelShape[] SHAPE_BY_LAYER = new VoxelShape[]{Shapes.empty(), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)};
 
 	public MossBlock(Properties properties) {
 		super(properties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(LAYERS, Integer.valueOf(1)));
+		this.registerDefaultState(this.stateDefinition.any().setValue(LAYERS, 1));
 	}
 
 	@Override
-	public boolean isPathfindable(BlockState state, BlockGetter getter, BlockPos pos, PathComputationType type) {
-		if (type == PathComputationType.LAND) {
-			return state.getValue(LAYERS) < 5;
-		}
-
-		return false;
-	}
-
-	@Override
-	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-		return SHAPES[state.getValue(LAYERS)];
-	}
-
-	@Override
-	public VoxelShape getCollisionShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-		return SHAPES[state.getValue(LAYERS) - 1];
-	}
-
-	@Override
-	public VoxelShape getBlockSupportShape(BlockState state, BlockGetter getter, BlockPos pos) {
-		return SHAPES[state.getValue(LAYERS)];
-	}
-
-	@Override
-	public VoxelShape getVisualShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-		return SHAPES[state.getValue(LAYERS)];
-	}
-
-	@Override
-	public boolean useShapeForLightOcclusion(BlockState state) {
-		return true;
-	}
-
-	@Override
-	public boolean canSurvive(BlockState state, LevelReader reader, BlockPos pos) {
-		BlockState blockstate = reader.getBlockState(pos.below());
-		return Block.isFaceFull(blockstate.getCollisionShape(reader, pos.below()), Direction.UP) || blockstate.is(this) && blockstate.getValue(LAYERS) == 8;
-	}
-
-	@Override
-	public BlockState updateShape(BlockState stateFirst, Direction direction, BlockState stateSecond, LevelAccessor accessor, BlockPos posFirst, BlockPos posSecond) {
-		return !stateFirst.canSurvive(accessor, posFirst) ? Blocks.AIR.defaultBlockState() : super.updateShape(stateFirst, direction, stateSecond, accessor, posFirst, posSecond);
-	}
-
-	@Override
-	public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
-		int i = state.getValue(LAYERS);
-		if (context.getItemInHand().is(this.asItem()) && i < 8) {
-			if (context.replacingClickedOnBlock()) {
-				return context.getClickedFace() == Direction.UP;
+	public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
+		int i = pState.getValue(LAYERS);
+		if (pUseContext.getItemInHand().is(this.asItem()) && i < 8) {
+			if (pUseContext.replacingClickedOnBlock()) {
+				return pUseContext.getClickedFace() == Direction.UP;
 			} else {
 				return true;
 			}
@@ -85,18 +48,63 @@ public class MossBlock extends Block {
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos());
+	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+		BlockState blockstate = pLevel.getBlockState(pPos.below());
+		return Block.isFaceFull(blockstate.getCollisionShape(pLevel, pPos.below()), Direction.UP) || blockstate.is(this) && blockstate.getValue(LAYERS) == 8;
+	}
+
+	@Override
+	public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
+		if (pType == PathComputationType.LAND) {
+			return pState.getValue(LAYERS) < 5;
+		}
+
+		return false;
+	}
+
+	@Override
+	public boolean useShapeForLightOcclusion(BlockState pState) {
+		return true;
+	}
+
+	@Override
+	public void createBlockStateDefinition(Builder<Block, BlockState> pBuilder) {
+		pBuilder.add(LAYERS);
+	}
+
+	@Override
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
+	}
+
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+		BlockState blockstate = pContext.getLevel().getBlockState(pContext.getClickedPos());
 		if (blockstate.is(this)) {
 			int i = blockstate.getValue(LAYERS);
-			return blockstate.setValue(LAYERS, Integer.valueOf(Math.min(8, i + 1)));
+			return blockstate.setValue(LAYERS, Math.min(8, i + 1));
 		} else {
-			return super.getStateForPlacement(context);
+			return super.getStateForPlacement(pContext);
 		}
 	}
 
 	@Override
-	public void createBlockStateDefinition(Builder<Block, BlockState> builder) {
-		builder.add(LAYERS);
+	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+		return SHAPE_BY_LAYER[pState.getValue(LAYERS)];
+	}
+
+	@Override
+	public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+		return SHAPE_BY_LAYER[pState.getValue(LAYERS) - 1];
+	}
+
+	@Override
+	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+		return SHAPE_BY_LAYER[pState.getValue(LAYERS)];
+	}
+
+	@Override
+	public VoxelShape getVisualShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+		return SHAPE_BY_LAYER[pState.getValue(LAYERS)];
 	}
 }

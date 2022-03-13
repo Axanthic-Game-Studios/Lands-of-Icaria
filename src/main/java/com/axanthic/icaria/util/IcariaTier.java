@@ -1,28 +1,26 @@
 package com.axanthic.icaria.util;
 
-import java.util.function.Supplier;
-
-import javax.annotation.Nonnull;
-
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 
-public class IcariaTier implements Tier {
+import java.util.function.Supplier;
 
+@MethodsReturnNonnullByDefault
+
+public class IcariaTier implements Tier {
 	private final int level;
 	private final int uses;
 	private final float speed;
 	private final float attackDamageBonus;
 	private final int enchantmentValue;
-	@Nonnull
 	private final Tag<Block> tag;
-	@Nonnull
 	private final Supplier<Ingredient> repairIngredient;
 	public final Tier vanillaEquivalent;
 
-	public IcariaTier(int level, int uses, float speed, float attackDamageBonus, int enchantmentValue, @Nonnull Tag<Block> tag, @Nonnull Supplier<Ingredient> repairIngredient, Tier vanillaEquivalent) {
+	public IcariaTier(int level, int uses, float speed, float attackDamageBonus, int enchantmentValue, Tag<Block> tag, Supplier<Ingredient> repairIngredient, Tier vanillaEquivalent) {
 		this.level = level;
 		this.uses = uses;
 		this.speed = speed;
@@ -58,12 +56,11 @@ public class IcariaTier implements Tier {
 		return this.enchantmentValue;
 	}
 
-	@Nonnull
+	@Override
 	public Tag<Block> getTag() {
 		return this.tag;
 	}
 
-	@Nonnull
 	@Override
 	public Ingredient getRepairIngredient() {
 		return this.repairIngredient.get();
@@ -72,12 +69,12 @@ public class IcariaTier implements Tier {
 	@Override
 	public String toString() {
 		return "ForgeTier[" +
-				"level=" + level + ", " +
-				"uses=" + uses + ", " +
-				"speed=" + speed + ", " +
-				"attackDamageBonus=" + attackDamageBonus + ", " +
-				"enchantmentValue=" + enchantmentValue + ", " +
-				"tag=" + tag + ", " +
-				"repairIngredient=" + repairIngredient + ']';
+			"level=" + level + ", " +
+			"uses=" + uses + ", " +
+			"speed=" + speed + ", " +
+			"attackDamageBonus=" + attackDamageBonus + ", " +
+			"enchantmentValue=" + enchantmentValue + ", " +
+			"tag=" + tag + ", " +
+			"repairIngredient=" + repairIngredient + ']';
 	}
 }

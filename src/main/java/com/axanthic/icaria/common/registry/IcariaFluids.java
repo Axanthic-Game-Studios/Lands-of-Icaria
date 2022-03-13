@@ -1,10 +1,13 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.util.IcariaInfo;
+
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
+
 import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.FluidAttributes.Builder;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
@@ -14,6 +17,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
+
+@MethodsReturnNonnullByDefault
 
 public class IcariaFluids {
 	public static final ResourceLocation HYLIASTRUM_FLUID_STILL = new ResourceLocation(IcariaInfo.MODID + ":block/hyliastrum_fluid_still");

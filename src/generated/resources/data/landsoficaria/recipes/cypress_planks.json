@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:logs/cypress"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:cypress_planks",
+    "count": 4
+  }
+}

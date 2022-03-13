@@ -3,12 +3,14 @@ package com.axanthic.icaria.datagen;
 import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.ToolCombination;
+
 import com.google.gson.JsonObject;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
+
 import net.minecraftforge.client.model.generators.CustomLoaderBuilder;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -16,8 +18,13 @@ import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
-public class IcariaItemModels extends ItemModelProvider {
+import java.util.Objects;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+
+public class IcariaItemModels extends ItemModelProvider {
 	public IcariaItemModels(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, IcariaInfo.MODID, existingFileHelper);
 	}
@@ -58,7 +65,7 @@ public class IcariaItemModels extends ItemModelProvider {
 			@Override
 			public JsonObject toJson(JsonObject json) {
 				json.addProperty("loader", "forge:bucket");
-				json.addProperty("fluid", registryObject.get().getFluid().getRegistryName().toString());
+				json.addProperty("fluid", Objects.requireNonNull(registryObject.get().getFluid().getRegistryName()).toString());
 				return json;
 			}
 		});

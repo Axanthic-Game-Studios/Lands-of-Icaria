@@ -1,10 +1,9 @@
 package com.axanthic.icaria.common.blocks;
 
-import java.util.Random;
-
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.datagen.IcariaItemTags;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -16,7 +15,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -28,13 +26,21 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.FarmlandWaterManager;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
+
+import java.util.Random;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class FarmlandBlock extends Block {
 	public static final IntegerProperty MOISTURE = BlockStateProperties.MOISTURE;
@@ -46,111 +52,96 @@ public class FarmlandBlock extends Block {
 	}
 
 	@Override
-	public BlockState updateShape(BlockState stateFirst, Direction direction, BlockState stateSecond, LevelAccessor accessor, BlockPos posFirst, BlockPos posSecond) {
-		if (direction == Direction.UP && !stateFirst.canSurvive(accessor, posFirst)) {
-			accessor.scheduleTick(posFirst, this, 1);
-		}
-
-		return super.updateShape(stateFirst, direction, stateSecond, accessor, posFirst, posSecond);
-	}
-
-	@Override
-	public boolean canSurvive(BlockState state, LevelReader reader, BlockPos pos) {
-		BlockState blockstate = reader.getBlockState(pos.above());
+	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+		BlockState blockstate = pLevel.getBlockState(pPos.above());
 		return !blockstate.getMaterial().isSolid() || blockstate.getBlock() instanceof FenceGateBlock || blockstate.getBlock() instanceof MovingPistonBlock;
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos()) ? IcariaBlocks.MARL.get().defaultBlockState() : super.getStateForPlacement(context);
+	public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
+		PlantType plantType = plantable.getPlantType(world, pos.relative(facing));
+		return plantType == PlantType.CROP || plantType == PlantType.PLAINS;
 	}
 
-	@Override
-	public boolean useShapeForLightOcclusion(BlockState state) {
-		return true;
-	}
-
-	@Override
-	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-		return SHAPE;
-	}
-
-	@Override
-	public void tick(BlockState state, ServerLevel level, BlockPos pos, Random random) {
-		if (!state.canSurvive(level, pos)) {
-			turnToMarl(state, level, pos);
-		}
-	}
-
-	@Override
-	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, Random random) {
-		int i = state.getValue(MOISTURE);
-		if (!isNearWater(level, pos) && !level.isRainingAt(pos.above())) {
-			if (i > 0) {
-				level.setBlock(pos, state.setValue(MOISTURE, i - 1), 2);
-			} else if (!isUnderCrops(level, pos)) {
-				turnToMarl(state, level, pos);
-			}
-		} else if (i < 7) {
-			level.setBlock(pos, state.setValue(MOISTURE, 7), 2);
-		}
-	}
-
-	@Override
-	public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float f) {
-		if (!level.isClientSide && net.minecraftforge.common.ForgeHooks.onFarmlandTrample(level, pos, IcariaBlocks.MARL.get().defaultBlockState(), f, entity)) {
-			turnToMarl(state, level, pos);
-		}
-
-		super.fallOn(level, state, pos, entity, f);
-	}
-
-	public static void turnToMarl(BlockState state, Level level, BlockPos pos) {
-		level.setBlockAndUpdate(pos, pushEntitiesUp(state, IcariaBlocks.MARL.get().defaultBlockState(), level, pos));
-	}
-
-	public static boolean isUnderCrops(BlockGetter getter, BlockPos pos) {
-		BlockState plant = getter.getBlockState(pos.above());
-		BlockState state = getter.getBlockState(pos);
-		return plant.getBlock() instanceof IPlantable && state.canSustainPlant(getter, pos, Direction.UP, (IPlantable) plant.getBlock());
-	}
-
-	public static boolean isNearWater(LevelReader reader, BlockPos pos) {
-		for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-4, 0, -4), pos.offset(4, 1, 4))) {
-			if (reader.getFluidState(blockpos).is(FluidTags.WATER)) {
+	public boolean isNearWater(LevelReader pLevel, BlockPos pPos) {
+		for (BlockPos blockpos : BlockPos.betweenClosed(pPos.offset(-4, 0, -4), pPos.offset(4, 1, 4))) {
+			if (pLevel.getFluidState(blockpos).is(FluidTags.WATER)) {
 				return true;
 			}
 		}
 
-		return FarmlandWaterManager.hasBlockWaterTicket(reader, pos);
+		return FarmlandWaterManager.hasBlockWaterTicket(pLevel, pPos);
+	}
+
+	public boolean isUnderCrops(BlockGetter pLevel, BlockPos pPos) {
+		BlockState plant = pLevel.getBlockState(pPos.above());
+		BlockState state = pLevel.getBlockState(pPos);
+		return plant.getBlock() instanceof IPlantable && state.canSustainPlant(pLevel, pPos, Direction.UP, (IPlantable) plant.getBlock());
 	}
 
 	@Override
-	public void createBlockStateDefinition(Builder<Block, BlockState> builder) {
-		builder.add(MOISTURE);
+	public boolean useShapeForLightOcclusion(BlockState pState) {
+		return true;
 	}
 
 	@Override
-	public boolean isPathfindable(BlockState state, BlockGetter getter, BlockPos pos, PathComputationType type) {
-		return false;
+	public void createBlockStateDefinition(Builder<Block, BlockState> pBuilder) {
+		pBuilder.add(MOISTURE);
 	}
 
 	@Override
-	public boolean canSustainPlant(BlockState state, BlockGetter getter, BlockPos pos, Direction direction, IPlantable plantable) {
-		PlantType plantType = plantable.getPlantType(getter, pos.relative(direction));
-		return plantType == PlantType.CROP || plantType == PlantType.PLAINS;
+	public void fallOn(Level p_152426_, BlockState p_152427_, BlockPos p_152428_, Entity p_152429_, float p_152430_) {
+		if (!p_152426_.isClientSide && ForgeHooks.onFarmlandTrample(p_152426_, p_152428_, IcariaBlocks.MARL.get().defaultBlockState(), p_152430_, p_152429_)) {
+			turnToMarl(p_152427_, p_152426_, p_152428_);
+		}
+
+		super.fallOn(p_152426_, p_152427_, p_152428_, p_152429_, p_152430_);
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-		ItemStack itemStack = player.getItemInHand(hand);
+	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
+		int i = pState.getValue(MOISTURE);
+		if (!isNearWater(pLevel, pPos) && !pLevel.isRainingAt(pPos.above())) {
+			if (i > 0) {
+				pLevel.setBlock(pPos, pState.setValue(MOISTURE, i - 1), 2);
+			} else if (!isUnderCrops(pLevel, pPos)) {
+				turnToMarl(pState, pLevel, pPos);
+			}
+		} else if (i < 7) {
+			pLevel.setBlock(pPos, pState.setValue(MOISTURE, 7), 2);
+		}
+	}
+
+	@Override
+	public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
+		if (!pState.canSurvive(pLevel, pPos)) {
+			turnToMarl(pState, pLevel, pPos);
+		}
+	}
+
+	public void turnToMarl(BlockState pState, Level pLevel, BlockPos pPos) {
+		pLevel.setBlockAndUpdate(pPos, pushEntitiesUp(pState, IcariaBlocks.MARL.get().defaultBlockState(), pLevel, pPos));
+	}
+
+	@Override
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		if (pDirection == Direction.UP && !pState.canSurvive(pLevel, pCurrentPos)) {
+			pLevel.scheduleTick(pCurrentPos, this, 1);
+		}
+
+		return super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
+	}
+
+	@Override
+	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+		ItemStack itemStack = pPlayer.getItemInHand(pHand);
 
 		if (itemStack.is(IcariaItemTags.SMALL_DUST_CALCITE)) {
-			if (state.getValue(MOISTURE) == 7) {
-				level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-				if (!level.isClientSide) {
-					level.setBlock(pos, IcariaBlocks.FARMLAND_FERTILIZED.get().defaultBlockState(), 0);
-					if (!player.isCreative()) {
+			if (pState.getValue(MOISTURE) == 7) {
+				pLevel.playSound(pPlayer, pPos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+				if (!pLevel.isClientSide) {
+					pLevel.setBlock(pPos, IcariaBlocks.FARMLAND_FERTILIZED.get().defaultBlockState(), 0);
+					if (!pPlayer.isCreative()) {
 						itemStack.shrink(1);
 					}
 				}
@@ -160,5 +151,10 @@ public class FarmlandBlock extends Block {
 		}
 
 		return InteractionResult.FAIL;
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+		return SHAPE;
 	}
 }

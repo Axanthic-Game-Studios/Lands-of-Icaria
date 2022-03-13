@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:logs/cypress",
+    "#forge:logs/droughtroot",
+    "#forge:logs/fir",
+    "#forge:logs/laurel",
+    "#forge:logs/olive",
+    "#forge:logs/plane",
+    "#forge:logs/populus"
+  ]
+}

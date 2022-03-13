@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    "XX ",
+    "   "
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:cypress_log"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:cypress_wood",
+    "count": 3
+  }
+}

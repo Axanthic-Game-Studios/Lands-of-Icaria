@@ -1,15 +1,12 @@
 package com.axanthic.icaria.datagen;
 
-import java.util.List;
-import java.util.Map;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
-
 import com.axanthic.icaria.util.IcariaInfo;
+
 import com.google.common.collect.ImmutableList;
+
 import com.mojang.datafixers.util.Pair;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -19,8 +16,18 @@ import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
-public class IcariaLootTables extends LootTableProvider {
+import java.util.List;
+import java.util.Map;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
+public class IcariaLootTables extends LootTableProvider {
 	private final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> lootTables = ImmutableList.of(Pair.of(IcariaBlockLootTables::new, LootContextParamSets.BLOCK));
 
 	public IcariaLootTables(DataGenerator gen) {

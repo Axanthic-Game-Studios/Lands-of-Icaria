@@ -5,15 +5,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 
 public class FuelItem extends Item {
-	public int burnTime;
+	public int burntime;
 
-	public FuelItem(Properties properties, int burnTime) {
+	public FuelItem(Properties properties, int burntime) {
 		super(properties);
-		this.burnTime = burnTime;
+		this.burntime = burntime;
 	}
 
 	@Override
-	public int getBurnTime(ItemStack itemStack, RecipeType<?> recipeType) {
-		return burnTime;
+	public int getBurnTime(ItemStack stack, RecipeType<?> type) {
+		return burntime;
 	}
 }

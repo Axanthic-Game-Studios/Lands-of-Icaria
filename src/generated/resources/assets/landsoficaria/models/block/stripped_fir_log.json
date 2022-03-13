@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "landsoficaria:block/stripped_fir_log_side",
+    "end": "landsoficaria:block/stripped_fir_log_end"
+  }
+}

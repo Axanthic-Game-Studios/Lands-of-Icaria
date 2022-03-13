@@ -1,11 +1,13 @@
 package com.axanthic.icaria.common.items;
 
-import com.axanthic.icaria.common.entities.ThrownBident;
+import com.axanthic.icaria.common.entities.ThrownBidentEntity;
 import com.axanthic.icaria.util.IcariaTier;
+
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableMultimap.Builder;
 import com.google.common.collect.Multimap;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -31,16 +33,21 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-public class IcariaBidentItem extends TieredItem implements Vanishable {
+import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
+public class IcariaBidentItem extends TieredItem implements Vanishable {
 	public static final int THROW_THRESHOLD_TIME = 10;
 	public static final float BASE_DAMAGE = 3.5F;
 	public static final float SHOOT_POWER = 1.5F;
 	private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 	public final Float attackDamage;
 
-	public IcariaBidentItem(IcariaTier tier, Properties prop) {
-		super(tier, prop);
+	public IcariaBidentItem(IcariaTier tier, Properties properties) {
+		super(tier, properties);
 		Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
 		this.attackDamage = BASE_DAMAGE + tier.getAttackDamageBonus();
 		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", this.attackDamage, AttributeModifier.Operation.ADDITION));
@@ -49,43 +56,40 @@ public class IcariaBidentItem extends TieredItem implements Vanishable {
 	}
 
 	@Override
-	public boolean canAttackBlock(BlockState state, Level world, BlockPos pos, Player player) {
-		return !player.isCreative();
+	public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
+		return !pPlayer.isCreative();
 	}
 
 	@Override
-	public UseAnim getUseAnimation(ItemStack stack) {
+	public UseAnim getUseAnimation(ItemStack pStack) {
 		return UseAnim.SPEAR;
 	}
 
 	@Override
-	public int getUseDuration(ItemStack stack) {
+	public int getUseDuration(ItemStack pStack) {
 		return 72000;
 	}
 
 	@Override
-	public void releaseUsing(ItemStack stack, Level world, LivingEntity entity, int duration) {
-		if (entity instanceof Player) {
-			Player player = (Player)entity;
-			int i = this.getUseDuration(stack) - duration;
+	public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
+		if (pLivingEntity instanceof Player player) {
+			int i = this.getUseDuration(pStack) - pTimeCharged;
 			if (i >= THROW_THRESHOLD_TIME) {
-				int j = EnchantmentHelper.getRiptide(stack);
+				int j = EnchantmentHelper.getRiptide(pStack);
 				if (j <= 0 || player.isInWaterOrRain()) {
-					if (!world.isClientSide) {
-						stack.hurtAndBreak(1, player, (p_43388_) -> {
-							p_43388_.broadcastBreakEvent(entity.getUsedItemHand());
-						});
+					if (!pLevel.isClientSide) {
+						pStack.hurtAndBreak(1, player, (p_43388_) -> p_43388_.broadcastBreakEvent(pLivingEntity.getUsedItemHand()));
 						if (j == 0) {
-							ThrownBident thrownbident = new ThrownBident(world, player, stack);
+							ThrownBidentEntity thrownbident = new ThrownBidentEntity(pLevel, player, pStack);
 							thrownbident.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, SHOOT_POWER + (float)j * 0.5F, 1.0F);
 							if (player.getAbilities().instabuild) {
 								thrownbident.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
 							}
 
-							world.addFreshEntity(thrownbident);
-							world.playSound((Player)null, thrownbident, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+							pLevel.addFreshEntity(thrownbident);
+							pLevel.playSound(null, thrownbident, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
 							if (!player.getAbilities().instabuild) {
-								player.getInventory().removeItem(stack);
+								player.getInventory().removeItem(pStack);
 							}
 						}
 					}
@@ -102,10 +106,10 @@ public class IcariaBidentItem extends TieredItem implements Vanishable {
 						f1 *= f5 / f4;
 						f2 *= f5 / f4;
 						f3 *= f5 / f4;
-						player.push((double)f1, (double)f2, (double)f3);
+						player.push(f1, f2, f3);
 						player.startAutoSpinAttack(20);
 						if (player.isOnGround()) {
-							player.move(MoverType.SELF, new Vec3(0.0D, (double)1.1999999F, 0.0D));
+							player.move(MoverType.SELF, new Vec3(0.0D, 1.1999999F, 0.0D));
 						}
 
 						SoundEvent soundevent;
@@ -117,7 +121,7 @@ public class IcariaBidentItem extends TieredItem implements Vanishable {
 							soundevent = SoundEvents.TRIDENT_RIPTIDE_1;
 						}
 
-						world.playSound((Player)null, player, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
+						pLevel.playSound(null, player, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
 					}
 
 				}
@@ -126,38 +130,34 @@ public class IcariaBidentItem extends TieredItem implements Vanishable {
 	}
 
 	@Override
-	public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-		ItemStack itemstack = player.getItemInHand(hand);
+	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+		ItemStack itemstack = pPlayer.getItemInHand(pUsedHand);
 		if (itemstack.getDamageValue() >= itemstack.getMaxDamage() - 1) {
 			return InteractionResultHolder.fail(itemstack);
-		} else if (EnchantmentHelper.getRiptide(itemstack) > 0 && !player.isInWaterOrRain()) {
+		} else if (EnchantmentHelper.getRiptide(itemstack) > 0 && !pPlayer.isInWaterOrRain()) {
 			return InteractionResultHolder.fail(itemstack);
 		} else {
-			player.startUsingItem(hand);
+			pPlayer.startUsingItem(pUsedHand);
 			return InteractionResultHolder.consume(itemstack);
 		}
 	}
 
 	@Override
-	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		stack.hurtAndBreak(1, attacker, (entity) -> {
-			entity.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-		});
+	public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
+		pStack.hurtAndBreak(1, pAttacker, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		return true;
 	}
 
 	@Override
-	public boolean mineBlock(ItemStack stack, Level world, BlockState state, BlockPos pos, LivingEntity breaker) {
-		if ((double)state.getDestroySpeed(world, pos) != 0.0D) {
-			stack.hurtAndBreak(2, breaker, (entity) -> {
-				entity.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-			});
+	public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pMiningEntity) {
+		if ((double)pState.getDestroySpeed(pLevel, pPos) != 0.0D) {
+			pStack.hurtAndBreak(2, pMiningEntity, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		}
 		return true;
 	}
 
 	@Override
-	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot slot) {
-		return slot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(slot);
+	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pSlot) {
+		return pSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pSlot);
 	}
 }

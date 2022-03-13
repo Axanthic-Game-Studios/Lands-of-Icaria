@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.blocks;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -15,50 +16,58 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.Objects;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
 public class HorizontalPaneBlock extends Block implements SimpleWaterloggedBlock {
-	public static final VoxelShape SHAPE = Block.box(0.0D, 7.0D, 0.0D, 16.0D, 9.0D, 16.0D);
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+	public static final VoxelShape SHAPE = Block.box(0.0D, 7.0D, 0.0D, 16.0D, 9.0D, 16.0D);
 
 	public HorizontalPaneBlock(Properties properties) {
 		super(properties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, Boolean.valueOf(false)));
+		this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, Boolean.FALSE));
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-		return SHAPE;
+	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+		return true;
 	}
 
 	@Override
-	public void createBlockStateDefinition(Builder<Block, BlockState> builder) {
-		builder.add(WATERLOGGED);
-	}
-
-	@Override
-	public boolean propagatesSkylightDown(BlockState state, BlockGetter getter, BlockPos pos) {
-		return !state.getValue(WATERLOGGED);
-	}
-
-	@Override
-	public FluidState getFluidState(BlockState state) {
-		return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
-	}
-
-	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
-		boolean flag = fluidstate.getType() == Fluids.WATER;
-		return super.getStateForPlacement(context).setValue(WATERLOGGED, Boolean.valueOf(flag));
-	}
-
-	@Override
-	public boolean skipRendering(BlockState stateFirst, BlockState stateSecond, Direction direction) {
-		if (stateSecond.is(this)) {
-			if (direction.getAxis().isHorizontal()) {
+	public boolean skipRendering(BlockState pState, BlockState pAdjacentBlockState, Direction pDirection) {
+		if (pAdjacentBlockState.is(this)) {
+			if (pDirection.getAxis().isHorizontal()) {
 				return true;
 			}
 		}
 
-		return super.skipRendering(stateFirst, stateSecond, direction);
+		return super.skipRendering(pState, pAdjacentBlockState, pDirection);
+	}
+
+	@Override
+	public void createBlockStateDefinition(Builder<Block, BlockState> pBuilder) {
+		pBuilder.add(WATERLOGGED);
+	}
+
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+		FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
+		boolean flag = fluidstate.getType() == Fluids.WATER;
+		return Objects.requireNonNull(super.getStateForPlacement(pContext)).setValue(WATERLOGGED, flag);
+	}
+
+	@Override
+	public FluidState getFluidState(BlockState pState) {
+		return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+		return SHAPE;
 	}
 }

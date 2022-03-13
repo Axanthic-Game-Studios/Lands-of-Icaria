@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:logs/populus"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:populus_planks",
+    "count": 4
+  }
+}

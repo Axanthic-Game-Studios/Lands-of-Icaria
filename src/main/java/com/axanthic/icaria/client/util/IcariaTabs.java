@@ -3,10 +3,14 @@ package com.axanthic.icaria.client.util;
 import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+@MethodsReturnNonnullByDefault
 
 public class IcariaTabs {
 	public static final CreativeModeTab creativeBlocks = new CreativeModeTab(IcariaInfo.MODID + ".blocks") {
