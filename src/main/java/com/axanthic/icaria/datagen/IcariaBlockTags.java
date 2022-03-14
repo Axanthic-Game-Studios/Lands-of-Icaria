@@ -86,21 +86,45 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final Named<Block> ORES_MOLYBDENUM = forgeTag("ores/molybdenum");
 	public static final Named<Block> ORES_HYLIASTRUM = forgeTag("ores/hyliastrum");
 
-	public static final Named<Block> CYPRESS_LOGS = forgeTag("logs/cypress");
-	public static final Named<Block> DROUGHTROOT_LOGS = forgeTag("logs/droughtroot");
-	public static final Named<Block> FIR_LOGS = forgeTag("logs/fir");
-	public static final Named<Block> LAUREL_LOGS = forgeTag("logs/laurel");
-	public static final Named<Block> OLIVE_LOGS = forgeTag("logs/olive");
-	public static final Named<Block> PLANE_LOGS = forgeTag("logs/plane");
-	public static final Named<Block> POPULUS_LOGS = forgeTag("logs/populus");
+	public static final Named<Block> FLOWER_POTS_CYPRESS_SAPLING = forgeTag("flower_pots/cypress");
+	public static final Named<Block> FLOWER_POTS_DROUGHTROOT_SAPLING = forgeTag("flower_pots/droughtroot");
+	public static final Named<Block> FLOWER_POTS_FIR_SAPLING = forgeTag("flower_pots/fir");
+	public static final Named<Block> FLOWER_POTS_LAUREL_SAPLING = forgeTag("flower_pots/laurel");
+	public static final Named<Block> FLOWER_POTS_OLIVE_SAPLING = forgeTag("flower_pots/olive");
+	public static final Named<Block> FLOWER_POTS_PLANE_SAPLING = forgeTag("flower_pots/plane");
+	public static final Named<Block> FLOWER_POTS_POPULUS_SAPLING = forgeTag("flower_pots/populus");
 
-	public static final Named<Block> CYPRESS_PLANKS = forgeTag("planks/cypress");
-	public static final Named<Block> DROUGHTROOT_PLANKS  = forgeTag("planks/droughtroot");
-	public static final Named<Block> FIR_PLANKS  = forgeTag("planks/fir");
-	public static final Named<Block> LAUREL_PLANKS  = forgeTag("planks/laurel");
-	public static final Named<Block> OLIVE_PLANKS  = forgeTag("planks/olive");
-	public static final Named<Block> PLANE_PLANKS  = forgeTag("planks/plane");
-	public static final Named<Block> POPULUS_PLANKS  = forgeTag("planks/populus");
+	public static final Named<Block> SAPLINGS_CYPRESS = forgeTag("saplings/cypress");
+	public static final Named<Block> SAPLINGS_DROUGHTROOT = forgeTag("saplings/droughtroot");
+	public static final Named<Block> SAPLINGS_FIR = forgeTag("saplings/fir");
+	public static final Named<Block> SAPLINGS_LAUREL = forgeTag("saplings/laurel");
+	public static final Named<Block> SAPLINGS_OLIVE = forgeTag("saplings/olive");
+	public static final Named<Block> SAPLINGS_PLANE = forgeTag("saplings/plane");
+	public static final Named<Block> SAPLINGS_POPULUS = forgeTag("saplings/populus");
+
+	public static final Named<Block> LEAVES_CYPRESS = forgeTag("leaves/cypress");
+	public static final Named<Block> LEAVES_DROUGHTROOT = forgeTag("leaves/droughtroot");
+	public static final Named<Block> LEAVES_FIR = forgeTag("leaves/fir");
+	public static final Named<Block> LEAVES_LAUREL = forgeTag("leaves/laurel");
+	public static final Named<Block> LEAVES_OLIVE = forgeTag("leaves/olive");
+	public static final Named<Block> LEAVES_PLANE = forgeTag("leaves/plane");
+	public static final Named<Block> LEAVES_POPULUS = forgeTag("leaves/populus");
+	
+	public static final Named<Block> LOGS_CYPRESS = forgeTag("logs/cypress");
+	public static final Named<Block> LOGS_DROUGHTROOT = forgeTag("logs/droughtroot");
+	public static final Named<Block> LOGS_FIR = forgeTag("logs/fir");
+	public static final Named<Block> LOGS_LAUREL = forgeTag("logs/laurel");
+	public static final Named<Block> LOGS_OLIVE = forgeTag("logs/olive");
+	public static final Named<Block> LOGS_PLANE = forgeTag("logs/plane");
+	public static final Named<Block> LOGS_POPULUS = forgeTag("logs/populus");
+
+	public static final Named<Block> PLANKS_CYPRESS = forgeTag("planks/cypress");
+	public static final Named<Block> PLANKS_DROUGHTROOT = forgeTag("planks/droughtroot");
+	public static final Named<Block> PLANKS_FIR = forgeTag("planks/fir");
+	public static final Named<Block> PLANKS_LAUREL = forgeTag("planks/laurel");
+	public static final Named<Block> PLANKS_OLIVE = forgeTag("planks/olive");
+	public static final Named<Block> PLANKS_PLANE  = forgeTag("planks/plane");
+	public static final Named<Block> PLANKS_POPULUS = forgeTag("planks/populus");
 
 	public IcariaBlockTags(DataGenerator gen, ExistingFileHelper existingFileHelper) {
 		super(gen, IcariaInfo.MODID, existingFileHelper);
@@ -479,48 +503,99 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(STORAGE_BLOCKS_MOLYBDENUM)
 			.addTag(STORAGE_BLOCKS_MOLYBDENUMSTEEL);
 
-		tag(CYPRESS_LOGS).add(IcariaBlocks.CYPRESS_LOG.get()).add(IcariaBlocks.STRIPPED_CYPRESS_LOG.get()).add(IcariaBlocks.CYPRESS_WOOD.get()).add(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());
-		tag(DROUGHTROOT_LOGS).add(IcariaBlocks.DROUGHTROOT_LOG.get()).add(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get()).add(IcariaBlocks.DROUGHTROOT_WOOD.get()).add(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get());
-		tag(FIR_LOGS).add(IcariaBlocks.FIR_LOG.get()).add(IcariaBlocks.STRIPPED_FIR_LOG.get()).add(IcariaBlocks.FIR_WOOD.get()).add(IcariaBlocks.STRIPPED_FIR_WOOD.get());
-		tag(LAUREL_LOGS).add(IcariaBlocks.LAUREL_LOG.get()).add(IcariaBlocks.STRIPPED_LAUREL_LOG.get()).add(IcariaBlocks.LAUREL_WOOD.get()).add(IcariaBlocks.STRIPPED_LAUREL_WOOD.get());
-		tag(OLIVE_LOGS).add(IcariaBlocks.OLIVE_LOG.get()).add(IcariaBlocks.STRIPPED_OLIVE_LOG.get()).add(IcariaBlocks.OLIVE_WOOD.get()).add(IcariaBlocks.STRIPPED_OLIVE_WOOD.get());
-		tag(PLANE_LOGS).add(IcariaBlocks.PLANE_LOG.get()).add(IcariaBlocks.STRIPPED_PLANE_LOG.get()).add(IcariaBlocks.PLANE_WOOD.get()).add(IcariaBlocks.STRIPPED_PLANE_WOOD.get());
-		tag(POPULUS_LOGS).add(IcariaBlocks.POPULUS_LOG.get()).add(IcariaBlocks.STRIPPED_POPULUS_LOG.get()).add(IcariaBlocks.POPULUS_WOOD.get()).add(IcariaBlocks.STRIPPED_POPULUS_WOOD.get());
+		tag(SAPLINGS_CYPRESS).add(IcariaBlocks.CYPRESS_SAPLING.get());
+		tag(SAPLINGS_DROUGHTROOT).add(IcariaBlocks.DROUGHTROOT_SAPLING.get());
+		tag(SAPLINGS_FIR).add(IcariaBlocks.FIR_SAPLING.get());
+		tag(SAPLINGS_LAUREL).add(IcariaBlocks.LAUREL_SAPLING.get());
+		tag(SAPLINGS_OLIVE).add(IcariaBlocks.OLIVE_SAPLING.get());
+		tag(SAPLINGS_PLANE).add(IcariaBlocks.PLANE_SAPLING.get());
+		tag(SAPLINGS_POPULUS).add(IcariaBlocks.POPULUS_SAPLING.get());
+
+		tag(BlockTags.SAPLINGS)
+			.addTag(SAPLINGS_CYPRESS)
+			.addTag(SAPLINGS_DROUGHTROOT)
+			.addTag(SAPLINGS_FIR)
+			.addTag(SAPLINGS_LAUREL)
+			.addTag(SAPLINGS_OLIVE)
+			.addTag(SAPLINGS_PLANE)
+			.addTag(SAPLINGS_POPULUS);
+
+		tag(FLOWER_POTS_CYPRESS_SAPLING).add(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
+		tag(FLOWER_POTS_DROUGHTROOT_SAPLING).add(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
+		tag(FLOWER_POTS_FIR_SAPLING).add(IcariaBlocks.POTTED_FIR_SAPLING.get());
+		tag(FLOWER_POTS_LAUREL_SAPLING).add(IcariaBlocks.POTTED_LAUREL_SAPLING.get());
+		tag(FLOWER_POTS_OLIVE_SAPLING).add(IcariaBlocks.POTTED_OLIVE_SAPLING.get());
+		tag(FLOWER_POTS_PLANE_SAPLING).add(IcariaBlocks.POTTED_PLANE_SAPLING.get());
+		tag(FLOWER_POTS_POPULUS_SAPLING).add(IcariaBlocks.POTTED_POPULUS_SAPLING.get());
+
+		tag(BlockTags.FLOWER_POTS)
+			.addTag(FLOWER_POTS_CYPRESS_SAPLING)
+			.addTag(FLOWER_POTS_DROUGHTROOT_SAPLING)
+			.addTag(FLOWER_POTS_FIR_SAPLING)
+			.addTag(FLOWER_POTS_LAUREL_SAPLING)
+			.addTag(FLOWER_POTS_OLIVE_SAPLING)
+			.addTag(FLOWER_POTS_PLANE_SAPLING)
+			.addTag(FLOWER_POTS_POPULUS_SAPLING);
+
+		tag(LEAVES_CYPRESS).add(IcariaBlocks.CYPRESS_LEAVES.get());
+		tag(LEAVES_DROUGHTROOT).add(IcariaBlocks.DROUGHTROOT_LEAVES.get());
+		tag(LEAVES_FIR).add(IcariaBlocks.FIR_LEAVES.get());
+		tag(LEAVES_LAUREL).add(IcariaBlocks.LAUREL_LEAVES.get());
+		tag(LEAVES_OLIVE).add(IcariaBlocks.OLIVE_LEAVES.get()).add(IcariaBlocks.OLIVE_LEAVES_BLACK.get()).add(IcariaBlocks.OLIVE_LEAVES_GREEN.get());
+		tag(LEAVES_PLANE).add(IcariaBlocks.PLANE_LEAVES.get());
+		tag(LEAVES_POPULUS).add(IcariaBlocks.POPULUS_LEAVES.get());
+
+		tag(BlockTags.LEAVES)
+			.addTag(LEAVES_CYPRESS)
+			.addTag(LEAVES_DROUGHTROOT)
+			.addTag(LEAVES_FIR)
+			.addTag(LEAVES_LAUREL)
+			.addTag(LEAVES_OLIVE)
+			.addTag(LEAVES_PLANE)
+			.addTag(LEAVES_POPULUS);
+
+		tag(LOGS_CYPRESS).add(IcariaBlocks.CYPRESS_LOG.get()).add(IcariaBlocks.STRIPPED_CYPRESS_LOG.get()).add(IcariaBlocks.CYPRESS_WOOD.get()).add(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());
+		tag(LOGS_DROUGHTROOT).add(IcariaBlocks.DROUGHTROOT_LOG.get()).add(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get()).add(IcariaBlocks.DROUGHTROOT_WOOD.get()).add(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get());
+		tag(LOGS_FIR).add(IcariaBlocks.FIR_LOG.get()).add(IcariaBlocks.STRIPPED_FIR_LOG.get()).add(IcariaBlocks.FIR_WOOD.get()).add(IcariaBlocks.STRIPPED_FIR_WOOD.get());
+		tag(LOGS_LAUREL).add(IcariaBlocks.LAUREL_LOG.get()).add(IcariaBlocks.STRIPPED_LAUREL_LOG.get()).add(IcariaBlocks.LAUREL_WOOD.get()).add(IcariaBlocks.STRIPPED_LAUREL_WOOD.get());
+		tag(LOGS_OLIVE).add(IcariaBlocks.OLIVE_LOG.get()).add(IcariaBlocks.STRIPPED_OLIVE_LOG.get()).add(IcariaBlocks.OLIVE_WOOD.get()).add(IcariaBlocks.STRIPPED_OLIVE_WOOD.get());
+		tag(LOGS_PLANE).add(IcariaBlocks.PLANE_LOG.get()).add(IcariaBlocks.STRIPPED_PLANE_LOG.get()).add(IcariaBlocks.PLANE_WOOD.get()).add(IcariaBlocks.STRIPPED_PLANE_WOOD.get());
+		tag(LOGS_POPULUS).add(IcariaBlocks.POPULUS_LOG.get()).add(IcariaBlocks.STRIPPED_POPULUS_LOG.get()).add(IcariaBlocks.POPULUS_WOOD.get()).add(IcariaBlocks.STRIPPED_POPULUS_WOOD.get());
 
 		tag(BlockTags.LOGS)
-			.addTag(CYPRESS_LOGS)
-			.addTag(DROUGHTROOT_LOGS)
-			.addTag(FIR_LOGS)
-			.addTag(LAUREL_LOGS)
-			.addTag(OLIVE_LOGS)
-			.addTag(PLANE_LOGS)
-			.addTag(POPULUS_LOGS);
+			.addTag(LOGS_CYPRESS)
+			.addTag(LOGS_DROUGHTROOT)
+			.addTag(LOGS_FIR)
+			.addTag(LOGS_LAUREL)
+			.addTag(LOGS_OLIVE)
+			.addTag(LOGS_PLANE)
+			.addTag(LOGS_POPULUS);
 
 		tag(BlockTags.LOGS_THAT_BURN)
-			.addTag(CYPRESS_LOGS)
-			.addTag(DROUGHTROOT_LOGS)
-			.addTag(FIR_LOGS)
-			.addTag(LAUREL_LOGS)
-			.addTag(OLIVE_LOGS)
-			.addTag(PLANE_LOGS)
-			.addTag(POPULUS_LOGS);
+			.addTag(LOGS_CYPRESS)
+			.addTag(LOGS_DROUGHTROOT)
+			.addTag(LOGS_FIR)
+			.addTag(LOGS_LAUREL)
+			.addTag(LOGS_OLIVE)
+			.addTag(LOGS_PLANE)
+			.addTag(LOGS_POPULUS);
 
-		tag(CYPRESS_PLANKS).add(IcariaBlocks.CYPRESS_PLANKS.get());
-		tag(DROUGHTROOT_PLANKS).add(IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		tag(FIR_PLANKS).add(IcariaBlocks.FIR_PLANKS.get());
-		tag(LAUREL_PLANKS).add(IcariaBlocks.LAUREL_PLANKS.get());
-		tag(OLIVE_PLANKS).add(IcariaBlocks.OLIVE_PLANKS.get());
-		tag(PLANE_PLANKS).add(IcariaBlocks.PLANE_PLANKS.get());
-		tag(POPULUS_PLANKS).add(IcariaBlocks.POPULUS_PLANKS.get());
+		tag(PLANKS_CYPRESS).add(IcariaBlocks.CYPRESS_PLANKS.get());
+		tag(PLANKS_DROUGHTROOT).add(IcariaBlocks.DROUGHTROOT_PLANKS.get());
+		tag(PLANKS_FIR).add(IcariaBlocks.FIR_PLANKS.get());
+		tag(PLANKS_LAUREL).add(IcariaBlocks.LAUREL_PLANKS.get());
+		tag(PLANKS_OLIVE).add(IcariaBlocks.OLIVE_PLANKS.get());
+		tag(PLANKS_PLANE).add(IcariaBlocks.PLANE_PLANKS.get());
+		tag(PLANKS_POPULUS).add(IcariaBlocks.POPULUS_PLANKS.get());
 
 		tag(BlockTags.PLANKS)
-			.addTag(CYPRESS_PLANKS)
-			.addTag(DROUGHTROOT_PLANKS)
-			.addTag(FIR_PLANKS)
-			.addTag(LAUREL_PLANKS)
-			.addTag(OLIVE_PLANKS)
-			.addTag(PLANE_PLANKS)
-			.addTag(POPULUS_PLANKS);
+			.addTag(PLANKS_CYPRESS)
+			.addTag(PLANKS_DROUGHTROOT)
+			.addTag(PLANKS_FIR)
+			.addTag(PLANKS_LAUREL)
+			.addTag(PLANKS_OLIVE)
+			.addTag(PLANKS_PLANE)
+			.addTag(PLANKS_POPULUS);
 
 		tag(ORE_BEARING_GROUND_MARL).add(IcariaBlocks.MARL.get());
 		tag(ORE_BEARING_GROUND_GRAINEL).add(IcariaBlocks.GRAINEL.get());

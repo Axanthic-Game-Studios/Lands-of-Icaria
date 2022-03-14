@@ -52,6 +52,7 @@ public class Icaria {
 		proxy.setup();
 		event.enqueueWork(IcariaCompostables::setup);
 		event.enqueueWork(IcariaFlammables::setup);
+		event.enqueueWork(IcariaPottables::setup);
 		event.enqueueWork(IcariaStrippables::setup);
 		event.enqueueWork(IcariaTillables::setup);
 	}

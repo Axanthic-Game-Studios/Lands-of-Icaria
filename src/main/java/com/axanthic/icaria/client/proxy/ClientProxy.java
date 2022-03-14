@@ -42,6 +42,20 @@ public class ClientProxy extends CommonProxy {
 
 		itemColors.register(itemBlockColorHandler, IcariaBlocks.MARL_GRASS.get());
 
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.CYPRESS_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_CYPRESS_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.DROUGHTROOT_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.FIR_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_FIR_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.LAUREL_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_LAUREL_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.OLIVE_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_OLIVE_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.PLANE_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_PLANE_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POPULUS_SAPLING.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_POPULUS_SAPLING.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.HYLIASTRUM_FLUID_SOURCE.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.HYLIASTRUM_FLUID_FLOWING.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.MEDITERRANEAN_WATER_SOURCE.get(), RenderType.translucent());

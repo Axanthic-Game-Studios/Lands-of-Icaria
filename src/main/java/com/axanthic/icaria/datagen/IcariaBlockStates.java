@@ -90,6 +90,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		//blockWithItem(IcariaBlocks.QUARTZ_PILLAR_HEAD);
 		axisBlock(IcariaBlocks.SPELT_BALE_BLOCK.get());
 		blockItem(IcariaBlocks.SPELT_BALE_BLOCK);
+		blockWithItem(IcariaBlocks.CYPRESS_LEAVES);
 		axisBlock(IcariaBlocks.CYPRESS_WOOD.get());
 		blockItem(IcariaBlocks.CYPRESS_WOOD);
 		axisBlock(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());
@@ -98,6 +99,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.CYPRESS_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_CYPRESS_LOG);
+		blockWithItem(IcariaBlocks.DROUGHTROOT_LEAVES);
 		axisBlock(IcariaBlocks.DROUGHTROOT_WOOD.get());
 		blockItem(IcariaBlocks.DROUGHTROOT_WOOD);
 		axisBlock(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get());
@@ -106,6 +108,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.DROUGHTROOT_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG);
+		blockWithItem(IcariaBlocks.FIR_LEAVES);
 		axisBlock(IcariaBlocks.FIR_WOOD.get());
 		blockItem(IcariaBlocks.FIR_WOOD);
 		axisBlock(IcariaBlocks.STRIPPED_FIR_WOOD.get());
@@ -114,6 +117,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.FIR_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_FIR_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_FIR_LOG);
+		blockWithItem(IcariaBlocks.LAUREL_LEAVES);
 		axisBlock(IcariaBlocks.LAUREL_WOOD.get());
 		blockItem(IcariaBlocks.LAUREL_WOOD);
 		axisBlock(IcariaBlocks.STRIPPED_LAUREL_WOOD.get());
@@ -122,6 +126,9 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.LAUREL_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_LAUREL_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_LAUREL_LOG);
+		blockWithItem(IcariaBlocks.OLIVE_LEAVES);
+		blockWithItem(IcariaBlocks.OLIVE_LEAVES_BLACK);
+		blockWithItem(IcariaBlocks.OLIVE_LEAVES_GREEN);
 		axisBlock(IcariaBlocks.OLIVE_WOOD.get());
 		blockItem(IcariaBlocks.OLIVE_WOOD);
 		axisBlock(IcariaBlocks.STRIPPED_OLIVE_WOOD.get());
@@ -130,6 +137,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.OLIVE_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_OLIVE_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_OLIVE_LOG);
+		blockWithItem(IcariaBlocks.PLANE_LEAVES);
 		axisBlock(IcariaBlocks.PLANE_WOOD.get());
 		blockItem(IcariaBlocks.PLANE_WOOD);
 		axisBlock(IcariaBlocks.STRIPPED_PLANE_WOOD.get());
@@ -138,6 +146,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.PLANE_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_PLANE_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_PLANE_LOG);
+		blockWithItem(IcariaBlocks.POPULUS_LEAVES);
 		axisBlock(IcariaBlocks.POPULUS_WOOD.get());
 		blockItem(IcariaBlocks.POPULUS_WOOD);
 		axisBlock(IcariaBlocks.STRIPPED_POPULUS_WOOD.get());

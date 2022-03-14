@@ -4,6 +4,22 @@ import net.minecraft.world.level.block.ComposterBlock;
 
 public class IcariaCompostables {
 	public static void setup() {
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.CYPRESS_SAPLING.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.CYPRESS_LEAVES.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.FIR_SAPLING.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.FIR_LEAVES.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.DROUGHTROOT_SAPLING.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.DROUGHTROOT_LEAVES.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.LAUREL_SAPLING.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.LAUREL_LEAVES.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.OLIVE_SAPLING.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.OLIVE_LEAVES.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.OLIVE_LEAVES_BLACK.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.OLIVE_LEAVES_GREEN.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.PLANE_SAPLING.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.PLANE_LEAVES.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.POPULUS_SAPLING.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.POPULUS_LEAVES.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.MOSS_0.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.MOSS_1.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.MOSS_2.get(), 0.3F);

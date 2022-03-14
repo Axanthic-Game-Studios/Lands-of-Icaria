@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:leaves/cypress",
+    "#forge:leaves/droughtroot",
+    "#forge:leaves/fir",
+    "#forge:leaves/laurel",
+    "#forge:leaves/olive",
+    "#forge:leaves/plane",
+    "#forge:leaves/populus"
+  ]
+}

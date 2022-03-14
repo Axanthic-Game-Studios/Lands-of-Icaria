@@ -1,5 +1,6 @@
 package com.axanthic.icaria.datagen;
 
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
@@ -9,10 +10,12 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag.Named;
 import net.minecraft.world.item.Item;
 
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -71,21 +74,37 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final Named<Item> ORES_MOLYBDENUM = forgeTag("ores/molybdenum");
 	public static final Named<Item> ORES_HYLIASTRUM = forgeTag("ores/hyliastrum");
 
-	public static final Named<Item> CYPRESS_LOGS = forgeTag("logs/cypress");
-	public static final Named<Item> DROUGHTROOT_LOGS = forgeTag("logs/droughtroot");
-	public static final Named<Item> FIR_LOGS = forgeTag("logs/fir");
-	public static final Named<Item> LAUREL_LOGS = forgeTag("logs/laurel");
-	public static final Named<Item> OLIVE_LOGS = forgeTag("logs/olive");
-	public static final Named<Item> PLANE_LOGS = forgeTag("logs/plane");
-	public static final Named<Item> POPULUS_LOGS = forgeTag("logs/populus");
+	public static final Named<Item> SAPLINGS_CYPRESS = forgeTag("saplings/cypress");
+	public static final Named<Item> SAPLINGS_DROUGHTROOT = forgeTag("saplings/droughtroot");
+	public static final Named<Item> SAPLINGS_FIR = forgeTag("saplings/fir");
+	public static final Named<Item> SAPLINGS_LAUREL = forgeTag("saplings/laurel");
+	public static final Named<Item> SAPLINGS_OLIVE = forgeTag("saplings/olive");
+	public static final Named<Item> SAPLINGS_PLANE = forgeTag("saplings/plane");
+	public static final Named<Item> SAPLINGS_POPULUS = forgeTag("saplings/populus");
 
-	public static final Named<Item> CYPRESS_PLANKS = forgeTag("planks/cypress");
-	public static final Named<Item> DROUGHTROOT_PLANKS  = forgeTag("planks/droughtroot");
-	public static final Named<Item> FIR_PLANKS  = forgeTag("planks/fir");
-	public static final Named<Item> LAUREL_PLANKS  = forgeTag("planks/laurel");
-	public static final Named<Item> OLIVE_PLANKS  = forgeTag("planks/olive");
-	public static final Named<Item> PLANE_PLANKS  = forgeTag("planks/plane");
-	public static final Named<Item> POPULUS_PLANKS  = forgeTag("planks/populus");
+	public static final Named<Item> LEAVES_CYPRESS = forgeTag("leaves/cypress");
+	public static final Named<Item> LEAVES_DROUGHTROOT = forgeTag("leaves/droughtroot");
+	public static final Named<Item> LEAVES_FIR = forgeTag("leaves/fir");
+	public static final Named<Item> LEAVES_LAUREL = forgeTag("leaves/laurel");
+	public static final Named<Item> LEAVES_OLIVE = forgeTag("leaves/olive");
+	public static final Named<Item> LEAVES_PLANE = forgeTag("leaves/plane");
+	public static final Named<Item> LEAVES_POPULUS = forgeTag("leaves/populus");
+
+	public static final Named<Item> LOGS_CYPRESS = forgeTag("logs/cypress");
+	public static final Named<Item> LOGS_DROUGHTROOT = forgeTag("logs/droughtroot");
+	public static final Named<Item> LOGS_FIR = forgeTag("logs/fir");
+	public static final Named<Item> LOGS_LAUREL = forgeTag("logs/laurel");
+	public static final Named<Item> LOGS_OLIVE = forgeTag("logs/olive");
+	public static final Named<Item> LOGS_PLANE = forgeTag("logs/plane");
+	public static final Named<Item> LOGS_POPULUS = forgeTag("logs/populus");
+
+	public static final Named<Item> PLANKS_CYPRESS = forgeTag("planks/cypress");
+	public static final Named<Item> PLANKS_DROUGHTROOT = forgeTag("planks/droughtroot");
+	public static final Named<Item> PLANKS_FIR = forgeTag("planks/fir");
+	public static final Named<Item> PLANKS_LAUREL = forgeTag("planks/laurel");
+	public static final Named<Item> PLANKS_OLIVE = forgeTag("planks/olive");
+	public static final Named<Item> PLANKS_PLANE  = forgeTag("planks/plane");
+	public static final Named<Item> PLANKS_POPULUS = forgeTag("planks/populus");
 
 	//item exclusive tags
 	public static final Named<Item> SPELT = forgeTag("crops/spelt");
@@ -188,48 +207,82 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.addTag(STORAGE_BLOCKS_MOLYBDENUM)
 			.addTag(STORAGE_BLOCKS_MOLYBDENUMSTEEL);
 
-		copy(IcariaBlockTags.CYPRESS_LOGS, CYPRESS_LOGS);
-		copy(IcariaBlockTags.DROUGHTROOT_LOGS, DROUGHTROOT_LOGS);
-		copy(IcariaBlockTags.FIR_LOGS, FIR_LOGS);
-		copy(IcariaBlockTags.LAUREL_LOGS, LAUREL_LOGS);
-		copy(IcariaBlockTags.OLIVE_LOGS, OLIVE_LOGS);
-		copy(IcariaBlockTags.PLANE_LOGS, PLANE_LOGS);
-		copy(IcariaBlockTags.POPULUS_LOGS, POPULUS_LOGS);
+		copy(IcariaBlockTags.SAPLINGS_CYPRESS, SAPLINGS_CYPRESS);
+		copy(IcariaBlockTags.SAPLINGS_DROUGHTROOT, SAPLINGS_DROUGHTROOT);
+		copy(IcariaBlockTags.SAPLINGS_FIR, SAPLINGS_FIR);
+		copy(IcariaBlockTags.SAPLINGS_LAUREL, SAPLINGS_LAUREL);
+		copy(IcariaBlockTags.SAPLINGS_OLIVE, SAPLINGS_OLIVE);
+		copy(IcariaBlockTags.SAPLINGS_PLANE, SAPLINGS_PLANE);
+		copy(IcariaBlockTags.SAPLINGS_POPULUS, SAPLINGS_POPULUS);
+
+		tag(ItemTags.SAPLINGS)
+			.addTag(SAPLINGS_CYPRESS)
+			.addTag(SAPLINGS_DROUGHTROOT)
+			.addTag(SAPLINGS_FIR)
+			.addTag(SAPLINGS_LAUREL)
+			.addTag(SAPLINGS_OLIVE)
+			.addTag(SAPLINGS_PLANE)
+			.addTag(SAPLINGS_POPULUS);
+
+		copy(IcariaBlockTags.LEAVES_CYPRESS, LEAVES_CYPRESS);
+		copy(IcariaBlockTags.LEAVES_DROUGHTROOT, LEAVES_DROUGHTROOT);
+		copy(IcariaBlockTags.LEAVES_FIR, LEAVES_FIR);
+		copy(IcariaBlockTags.LEAVES_LAUREL, LEAVES_LAUREL);
+		copy(IcariaBlockTags.LEAVES_OLIVE, LEAVES_OLIVE);
+		copy(IcariaBlockTags.LEAVES_PLANE, LEAVES_PLANE);
+		copy(IcariaBlockTags.LEAVES_POPULUS, LEAVES_POPULUS);
+
+		tag(ItemTags.LEAVES)
+			.addTag(LEAVES_CYPRESS)
+			.addTag(LEAVES_DROUGHTROOT)
+			.addTag(LEAVES_FIR)
+			.addTag(LEAVES_LAUREL)
+			.addTag(LEAVES_OLIVE)
+			.addTag(LEAVES_PLANE)
+			.addTag(LEAVES_POPULUS);
+
+		copy(IcariaBlockTags.LOGS_CYPRESS, LOGS_CYPRESS);
+		copy(IcariaBlockTags.LOGS_DROUGHTROOT, LOGS_DROUGHTROOT);
+		copy(IcariaBlockTags.LOGS_FIR, LOGS_FIR);
+		copy(IcariaBlockTags.LOGS_LAUREL, LOGS_LAUREL);
+		copy(IcariaBlockTags.LOGS_OLIVE, LOGS_OLIVE);
+		copy(IcariaBlockTags.LOGS_PLANE, LOGS_PLANE);
+		copy(IcariaBlockTags.LOGS_POPULUS, LOGS_POPULUS);
 
 		tag(ItemTags.LOGS)
-			.addTag(CYPRESS_LOGS)
-			.addTag(DROUGHTROOT_LOGS)
-			.addTag(FIR_LOGS)
-			.addTag(LAUREL_LOGS)
-			.addTag(OLIVE_LOGS)
-			.addTag(PLANE_LOGS)
-			.addTag(POPULUS_LOGS);
+			.addTag(LOGS_CYPRESS)
+			.addTag(LOGS_DROUGHTROOT)
+			.addTag(LOGS_FIR)
+			.addTag(LOGS_LAUREL)
+			.addTag(LOGS_OLIVE)
+			.addTag(LOGS_PLANE)
+			.addTag(LOGS_POPULUS);
 
 		tag(ItemTags.LOGS_THAT_BURN)
-			.addTag(CYPRESS_LOGS)
-			.addTag(DROUGHTROOT_LOGS)
-			.addTag(FIR_LOGS)
-			.addTag(LAUREL_LOGS)
-			.addTag(OLIVE_LOGS)
-			.addTag(PLANE_LOGS)
-			.addTag(POPULUS_LOGS);
+			.addTag(LOGS_CYPRESS)
+			.addTag(LOGS_DROUGHTROOT)
+			.addTag(LOGS_FIR)
+			.addTag(LOGS_LAUREL)
+			.addTag(LOGS_OLIVE)
+			.addTag(LOGS_PLANE)
+			.addTag(LOGS_POPULUS);
 
-		copy(IcariaBlockTags.CYPRESS_PLANKS, CYPRESS_PLANKS);
-		copy(IcariaBlockTags.DROUGHTROOT_PLANKS, DROUGHTROOT_PLANKS);
-		copy(IcariaBlockTags.FIR_PLANKS, FIR_PLANKS);
-		copy(IcariaBlockTags.LAUREL_PLANKS, LAUREL_PLANKS);
-		copy(IcariaBlockTags.OLIVE_PLANKS, OLIVE_PLANKS);
-		copy(IcariaBlockTags.PLANE_PLANKS, PLANE_PLANKS);
-		copy(IcariaBlockTags.POPULUS_PLANKS, POPULUS_PLANKS);
+		copy(IcariaBlockTags.PLANKS_CYPRESS, PLANKS_CYPRESS);
+		copy(IcariaBlockTags.PLANKS_DROUGHTROOT, PLANKS_DROUGHTROOT);
+		copy(IcariaBlockTags.PLANKS_FIR, PLANKS_FIR);
+		copy(IcariaBlockTags.PLANKS_LAUREL, PLANKS_LAUREL);
+		copy(IcariaBlockTags.PLANKS_OLIVE, PLANKS_OLIVE);
+		copy(IcariaBlockTags.PLANKS_PLANE, PLANKS_PLANE);
+		copy(IcariaBlockTags.PLANKS_POPULUS, PLANKS_POPULUS);
 
 		tag(ItemTags.PLANKS)
-			.addTag(CYPRESS_PLANKS)
-			.addTag(DROUGHTROOT_PLANKS)
-			.addTag(FIR_PLANKS)
-			.addTag(LAUREL_PLANKS)
-			.addTag(OLIVE_PLANKS)
-			.addTag(PLANE_PLANKS)
-			.addTag(POPULUS_PLANKS);
+			.addTag(PLANKS_CYPRESS)
+			.addTag(PLANKS_DROUGHTROOT)
+			.addTag(PLANKS_FIR)
+			.addTag(PLANKS_LAUREL)
+			.addTag(PLANKS_OLIVE)
+			.addTag(PLANKS_PLANE)
+			.addTag(PLANKS_POPULUS);
 
 		copy(IcariaBlockTags.ORE_BEARING_GROUND_MARL, ORE_BEARING_GROUND_MARL);
 		copy(IcariaBlockTags.ORE_BEARING_GROUND_GRAINEL, ORE_BEARING_GROUND_GRAINEL);

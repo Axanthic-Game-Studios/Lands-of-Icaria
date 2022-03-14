@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:saplings/cypress",
+    "#forge:saplings/droughtroot",
+    "#forge:saplings/fir",
+    "#forge:saplings/laurel",
+    "#forge:saplings/olive",
+    "#forge:saplings/plane",
+    "#forge:saplings/populus"
+  ]
+}

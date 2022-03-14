@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "landsoficaria:block/plane_sapling"
+  }
+}
