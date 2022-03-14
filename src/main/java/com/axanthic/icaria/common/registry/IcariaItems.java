@@ -199,6 +199,7 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> CYPRESS_SAPLING = register("cypress_sapling", () -> new BlockItem(IcariaBlocks.CYPRESS_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CYPRESS_LEAVES = register("cypress_leaves", () -> new BlockItem(IcariaBlocks.CYPRESS_LEAVES.get(), propertiesFlora()));
+	public static final RegistryObject<Item> FALLEN_CYPRESS_LEAVES = register("fallen_cypress_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CYPRESS_WOOD = register("cypress_wood", () -> new BlockItem(IcariaBlocks.CYPRESS_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> STRIPPED_CYPRESS_WOOD = register("stripped_cypress_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CYPRESS_LOG = register("cypress_log", () -> new BlockItem(IcariaBlocks.CYPRESS_LOG.get(), propertiesFlora()));
@@ -210,6 +211,7 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> DROUGHTROOT_SAPLING = register("droughtroot_sapling", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> DROUGHTROOT_LEAVES = register("droughtroot_leaves", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_LEAVES.get(), propertiesFlora()));
+	public static final RegistryObject<Item> FALLEN_DROUGHTROOT_LEAVES = register("fallen_droughtroot_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), propertiesFlora()));
 	public static final RegistryObject<Item> DROUGHTROOT_WOOD = register("droughtroot_wood", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> STRIPPED_DROUGHTROOT_WOOD = register("stripped_droughtroot_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> DROUGHTROOT_LOG = register("droughtroot_log", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_LOG.get(), propertiesFlora()));
@@ -221,6 +223,7 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> FIR_SAPLING = register("fir_sapling", () -> new BlockItem(IcariaBlocks.FIR_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> FIR_LEAVES = register("fir_leaves", () -> new BlockItem(IcariaBlocks.FIR_LEAVES.get(), propertiesFlora()));
+	public static final RegistryObject<Item> FALLEN_FIR_LEAVES = register("fallen_fir_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_FIR_LEAVES.get(), propertiesFlora()));
 	public static final RegistryObject<Item> FIR_WOOD = register("fir_wood", () -> new BlockItem(IcariaBlocks.FIR_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> STRIPPED_FIR_WOOD = register("stripped_fir_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_FIR_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> FIR_LOG = register("fir_log", () -> new BlockItem(IcariaBlocks.FIR_LOG.get(), propertiesFlora()));
@@ -232,6 +235,7 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> LAUREL_SAPLING = register("laurel_sapling", () -> new BlockItem(IcariaBlocks.LAUREL_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> LAUREL_LEAVES = register("laurel_leaves", () -> new BlockItem(IcariaBlocks.LAUREL_LEAVES.get(), propertiesFlora()));
+	public static final RegistryObject<Item> FALLEN_LAUREL_LEAVES = register("fallen_laurel_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_LAUREL_LEAVES.get(), propertiesFlora()));
 	public static final RegistryObject<Item> LAUREL_WOOD = register("laurel_wood", () -> new BlockItem(IcariaBlocks.LAUREL_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> STRIPPED_LAUREL_WOOD = register("stripped_laurel_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_LAUREL_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> LAUREL_LOG = register("laurel_log", () -> new BlockItem(IcariaBlocks.LAUREL_LOG.get(), propertiesFlora()));
@@ -245,6 +249,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> OLIVE_LEAVES = register("olive_leaves", () -> new BlockItem(IcariaBlocks.OLIVE_LEAVES.get(), propertiesFlora()));
 	public static final RegistryObject<Item> OLIVE_LEAVES_BLACK = register("olive_leaves_black", () -> new BlockItem(IcariaBlocks.OLIVE_LEAVES_BLACK.get(), propertiesFlora()));
 	public static final RegistryObject<Item> OLIVE_LEAVES_GREEN = register("olive_leaves_green", () -> new BlockItem(IcariaBlocks.OLIVE_LEAVES_GREEN.get(), propertiesFlora()));
+	public static final RegistryObject<Item> FALLEN_OLIVE_LEAVES = register("fallen_olive_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), propertiesFlora()));
 	public static final RegistryObject<Item> OLIVE_WOOD = register("olive_wood", () -> new BlockItem(IcariaBlocks.OLIVE_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> STRIPPED_OLIVE_WOOD = register("stripped_olive_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_OLIVE_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> OLIVE_LOG = register("olive_log", () -> new BlockItem(IcariaBlocks.OLIVE_LOG.get(), propertiesFlora()));
@@ -256,6 +261,7 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> PLANE_SAPLING = register("plane_sapling", () -> new BlockItem(IcariaBlocks.PLANE_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PLANE_LEAVES = register("plane_leaves", () -> new BlockItem(IcariaBlocks.PLANE_LEAVES.get(), propertiesFlora()));
+	public static final RegistryObject<Item> FALLEN_PLANE_LEAVES = register("fallen_plane_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_PLANE_LEAVES.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PLANE_WOOD = register("plane_wood", () -> new BlockItem(IcariaBlocks.PLANE_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> STRIPPED_PLANE_WOOD = register("stripped_plane_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_PLANE_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PLANE_LOG = register("plane_log", () -> new BlockItem(IcariaBlocks.PLANE_LOG.get(), propertiesFlora()));
@@ -267,6 +273,7 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> POPULUS_SAPLING = register("populus_sapling", () -> new BlockItem(IcariaBlocks.POPULUS_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> POPULUS_LEAVES = register("populus_leaves", () -> new BlockItem(IcariaBlocks.POPULUS_LEAVES.get(), propertiesFlora()));
+	public static final RegistryObject<Item> FALLEN_POPULUS_LEAVES = register("fallen_populus_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), propertiesFlora()));
 	public static final RegistryObject<Item> POPULUS_WOOD = register("populus_wood", () -> new BlockItem(IcariaBlocks.POPULUS_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> STRIPPED_POPULUS_WOOD = register("stripped_populus_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_POPULUS_WOOD.get(), propertiesFlora()));
 	public static final RegistryObject<Item> POPULUS_LOG = register("populus_log", () -> new BlockItem(IcariaBlocks.POPULUS_LOG.get(), propertiesFlora()));

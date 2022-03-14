@@ -18,6 +18,7 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.VINE_REED_BLOCK.get(), 5, 20);
 		flammableBlock(IcariaBlocks.VINE_SPROUT_BLOCK.get(), 5, 20);
 		flammableBlock(IcariaBlocks.CYPRESS_LEAVES.get(), 30, 60);
+		flammableBlock(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), 30, 60);
 		flammableBlock(IcariaBlocks.CYPRESS_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.CYPRESS_LOG.get(), 5 ,5);
@@ -30,6 +31,7 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.CYPRESS_DECO.FENCE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.CYPRESS_DECO.GATE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.DROUGHTROOT_LEAVES.get(), 30, 60);
+		flammableBlock(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), 30, 60);
 		flammableBlock(IcariaBlocks.DROUGHTROOT_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.DROUGHTROOT_LOG.get(), 5 ,5);
@@ -42,6 +44,7 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.DROUGHTROOT_DECO.FENCE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.DROUGHTROOT_DECO.GATE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.FIR_LEAVES.get(), 30, 60);
+		flammableBlock(IcariaBlocks.FALLEN_FIR_LEAVES.get(), 30, 60);
 		flammableBlock(IcariaBlocks.FIR_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.STRIPPED_FIR_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.FIR_LOG.get(), 5 ,5);
@@ -54,6 +57,7 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.FIR_DECO.FENCE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.FIR_DECO.GATE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.LAUREL_LEAVES.get(), 30, 60);
+		flammableBlock(IcariaBlocks.FALLEN_LAUREL_LEAVES.get(), 30, 60);
 		flammableBlock(IcariaBlocks.LAUREL_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.STRIPPED_LAUREL_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.LAUREL_LOG.get(), 5 ,5);
@@ -68,6 +72,7 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.OLIVE_LEAVES.get(), 30, 60);
 		flammableBlock(IcariaBlocks.OLIVE_LEAVES_BLACK.get(), 30, 60);
 		flammableBlock(IcariaBlocks.OLIVE_LEAVES_GREEN.get(), 30, 60);
+		flammableBlock(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), 30, 60);
 		flammableBlock(IcariaBlocks.OLIVE_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.STRIPPED_OLIVE_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.OLIVE_LOG.get(), 5 ,5);
@@ -80,6 +85,7 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.OLIVE_DECO.FENCE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.OLIVE_DECO.GATE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.PLANE_LEAVES.get(), 30, 60);
+		flammableBlock(IcariaBlocks.FALLEN_PLANE_LEAVES.get(), 30, 60);
 		flammableBlock(IcariaBlocks.PLANE_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.STRIPPED_PLANE_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.PLANE_LOG.get(), 5 ,5);
@@ -92,6 +98,7 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.PLANE_DECO.FENCE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.PLANE_DECO.GATE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.POPULUS_LEAVES.get(), 30, 60);
+		flammableBlock(IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), 30, 60);
 		flammableBlock(IcariaBlocks.POPULUS_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.STRIPPED_POPULUS_WOOD.get(), 5 ,5);
 		flammableBlock(IcariaBlocks.POPULUS_LOG.get(), 5 ,5);

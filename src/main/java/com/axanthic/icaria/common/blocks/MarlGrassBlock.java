@@ -39,7 +39,7 @@ public class MarlGrassBlock extends Block { // TODO bonemeal
 	public static boolean canBeGrass(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		BlockPos blockpos = pPos.above();
 		BlockState blockstate = pLevel.getBlockState(blockpos);
-		if ((blockstate.is(IcariaBlocks.MOSS_0.get()) || blockstate.is(IcariaBlocks.MOSS_1.get()) || blockstate.is(IcariaBlocks.MOSS_2.get())) && blockstate.getValue(MossBlock.LAYERS) == 1) {
+		if ((blockstate.is(IcariaBlocks.MOSS_0.get()) || blockstate.is(IcariaBlocks.MOSS_1.get()) || blockstate.is(IcariaBlocks.MOSS_2.get())) && blockstate.getValue(LayerBlock.LAYERS) == 1) {
 			return true;
 		} else if (blockstate.getFluidState().getAmount() == 8) {
 			return false;

@@ -41,8 +41,8 @@ import java.util.stream.Collectors;
 @MethodsReturnNonnullByDefault
 
 public class IcariaBlockLootTables extends BlockLoot {
-	public static final LootItemCondition.Builder HAS_SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, Ints.atLeast(1))));
 	public static final float[] SAPLING_CHANCES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};
+	public static final LootItemCondition.Builder HAS_SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, Ints.atLeast(1))));
 
 	@Override
 	protected Iterable<Block> getKnownBlocks() {
@@ -124,6 +124,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.CYPRESS_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
 		this.add(IcariaBlocks.CYPRESS_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.CYPRESS_SAPLING.get(), SAPLING_CHANCES));
+		dropLayers(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get());
 		dropSelf(IcariaBlocks.CYPRESS_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());
 		dropSelf(IcariaBlocks.CYPRESS_LOG.get());
@@ -133,6 +134,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.DROUGHTROOT_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
 		this.add(IcariaBlocks.DROUGHTROOT_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.DROUGHTROOT_SAPLING.get(), SAPLING_CHANCES));
+		dropLayers(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get());
 		dropSelf(IcariaBlocks.DROUGHTROOT_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get());
 		dropSelf(IcariaBlocks.DROUGHTROOT_LOG.get());
@@ -142,6 +144,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.FIR_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_FIR_SAPLING.get());
 		this.add(IcariaBlocks.FIR_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.FIR_SAPLING.get(), SAPLING_CHANCES));
+		dropLayers(IcariaBlocks.FALLEN_FIR_LEAVES.get());
 		dropSelf(IcariaBlocks.FIR_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_FIR_WOOD.get());
 		dropSelf(IcariaBlocks.FIR_LOG.get());
@@ -151,6 +154,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.LAUREL_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_LAUREL_SAPLING.get());
 		this.add(IcariaBlocks.LAUREL_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.LAUREL_SAPLING.get(), SAPLING_CHANCES));
+		dropLayers(IcariaBlocks.FALLEN_LAUREL_LEAVES.get());
 		dropSelf(IcariaBlocks.LAUREL_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_LAUREL_WOOD.get());
 		dropSelf(IcariaBlocks.LAUREL_LOG.get());
@@ -162,6 +166,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		this.add(IcariaBlocks.OLIVE_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.OLIVE_SAPLING.get(), SAPLING_CHANCES));
 		this.add(IcariaBlocks.OLIVE_LEAVES_BLACK.get(), (pBlock) -> createSilkTouchOrShearsDispatchTable(pBlock, applyExplosionDecay(pBlock, LootItem.lootTableItem(IcariaItems.OLIVES_BLACK.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		this.add(IcariaBlocks.OLIVE_LEAVES_GREEN.get(), (pBlock) -> createSilkTouchOrShearsDispatchTable(pBlock, applyExplosionDecay(pBlock, LootItem.lootTableItem(IcariaItems.OLIVES_GREEN.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
+		dropLayers(IcariaBlocks.FALLEN_OLIVE_LEAVES.get());
 		dropSelf(IcariaBlocks.OLIVE_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_OLIVE_WOOD.get());
 		dropSelf(IcariaBlocks.OLIVE_LOG.get());
@@ -171,6 +176,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.PLANE_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_PLANE_SAPLING.get());
 		this.add(IcariaBlocks.PLANE_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.PLANE_SAPLING.get(), SAPLING_CHANCES));
+		dropLayers(IcariaBlocks.FALLEN_PLANE_LEAVES.get());
 		dropSelf(IcariaBlocks.PLANE_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_PLANE_WOOD.get());
 		dropSelf(IcariaBlocks.PLANE_LOG.get());
@@ -180,6 +186,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.POPULUS_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_POPULUS_SAPLING.get());
 		this.add(IcariaBlocks.POPULUS_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.POPULUS_SAPLING.get(), SAPLING_CHANCES));
+		dropLayers(IcariaBlocks.FALLEN_POPULUS_LEAVES.get());
 		dropSelf(IcariaBlocks.POPULUS_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_POPULUS_WOOD.get());
 		dropSelf(IcariaBlocks.POPULUS_LOG.get());
