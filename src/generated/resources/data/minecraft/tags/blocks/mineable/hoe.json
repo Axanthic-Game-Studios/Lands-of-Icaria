@@ -1,6 +1,25 @@
 {
   "replace": false,
   "values": [
-    "landsoficaria:spelt_bale_block"
+    "landsoficaria:spelt_bale_block",
+    "landsoficaria:cypress_leaves",
+    "landsoficaria:fallen_cypress_leaves",
+    "landsoficaria:droughtroot_leaves",
+    "landsoficaria:fallen_droughtroot_leaves",
+    "landsoficaria:fir_leaves",
+    "landsoficaria:fallen_fir_leaves",
+    "landsoficaria:laurel_leaves",
+    "landsoficaria:fallen_laurel_leaves",
+    "landsoficaria:olive_leaves",
+    "landsoficaria:olive_leaves_black",
+    "landsoficaria:olive_leaves_green",
+    "landsoficaria:fallen_olive_leaves",
+    "landsoficaria:plane_leaves",
+    "landsoficaria:fallen_plane_leaves",
+    "landsoficaria:populus_leaves",
+    "landsoficaria:fallen_populus_leaves",
+    "landsoficaria:moss_0",
+    "landsoficaria:moss_1",
+    "landsoficaria:moss_2"
   ]
 }

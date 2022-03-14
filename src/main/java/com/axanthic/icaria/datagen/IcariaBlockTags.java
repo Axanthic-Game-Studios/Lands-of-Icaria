@@ -241,9 +241,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(NEEDS_MOLYBDENUMSTEEL_TOOL);
 
 		tag(MINEABLE_WITH_SCYTHE)
-			.addTag(BlockTags.MINEABLE_WITH_HOE)
-			.addTag(BlockTags.LEAVES)
 			.addTag(BlockTags.CROPS)
+			.addTag(BlockTags.MINEABLE_WITH_HOE)
 			.addTag(BlockTags.REPLACEABLE_PLANTS);
 
 		tag(BlockTags.MINEABLE_WITH_AXE)
@@ -307,7 +306,27 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		addWoodDecoToTag(IcariaBlocks.PLANE_DECO, BlockTags.MINEABLE_WITH_AXE);
 		addWoodDecoToTag(IcariaBlocks.POPULUS_DECO, BlockTags.MINEABLE_WITH_AXE);
 		
-		tag(BlockTags.MINEABLE_WITH_HOE).add(IcariaBlocks.SPELT_BALE_BLOCK.get());
+		tag(BlockTags.MINEABLE_WITH_HOE)
+			.add(IcariaBlocks.SPELT_BALE_BLOCK.get())
+			.add(IcariaBlocks.CYPRESS_LEAVES.get())
+			.add(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get())
+			.add(IcariaBlocks.DROUGHTROOT_LEAVES.get())
+			.add(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get())
+			.add(IcariaBlocks.FIR_LEAVES.get())
+			.add(IcariaBlocks.FALLEN_FIR_LEAVES.get())
+			.add(IcariaBlocks.LAUREL_LEAVES.get())
+			.add(IcariaBlocks.FALLEN_LAUREL_LEAVES.get())
+			.add(IcariaBlocks.OLIVE_LEAVES.get())
+			.add(IcariaBlocks.OLIVE_LEAVES_BLACK.get())
+			.add(IcariaBlocks.OLIVE_LEAVES_GREEN.get())
+			.add(IcariaBlocks.FALLEN_OLIVE_LEAVES.get())
+			.add(IcariaBlocks.PLANE_LEAVES.get())
+			.add(IcariaBlocks.FALLEN_PLANE_LEAVES.get())
+			.add(IcariaBlocks.POPULUS_LEAVES.get())
+			.add(IcariaBlocks.FALLEN_POPULUS_LEAVES.get())
+			.add(IcariaBlocks.MOSS_0.get())
+			.add(IcariaBlocks.MOSS_1.get())
+			.add(IcariaBlocks.MOSS_2.get());
 		
 		tag(BlockTags.MINEABLE_WITH_PICKAXE)
 			.add(IcariaBlocks.MARL_ADOBE.get())
@@ -433,10 +452,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.FARMLAND_FERTILIZED.get())
 			.add(IcariaBlocks.LOAM.get())
 			.add(IcariaBlocks.GRAINEL.get())
-			.add(IcariaBlocks.GRAINEL_CHERT.get())
-			.add(IcariaBlocks.MOSS_0.get())
-			.add(IcariaBlocks.MOSS_1.get())
-			.add(IcariaBlocks.MOSS_2.get());
+			.add(IcariaBlocks.GRAINEL_CHERT.get());
 
 		//tags shared with items
 		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {

@@ -1,9 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:mineable/hoe",
-    "#minecraft:leaves",
     "#minecraft:crops",
+    "#minecraft:mineable/hoe",
     "#minecraft:replaceable_plants"
   ]
 }
