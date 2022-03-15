@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    "XX ",
+    "XX "
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:planks/plane"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:plane_door",
+    "count": 3
+  }
+}

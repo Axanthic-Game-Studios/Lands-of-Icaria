@@ -126,6 +126,14 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final Named<Block> PLANKS_PLANE  = forgeTag("planks/plane");
 	public static final Named<Block> PLANKS_POPULUS = forgeTag("planks/populus");
 
+	public static final Named<Block> WOODEN_DOORS_CYPRESS = forgeTag("wooden_doors/cypress");
+	public static final Named<Block> WOODEN_DOORS_DROUGHTROOT = forgeTag("wooden_doors/droughtroot");
+	public static final Named<Block> WOODEN_DOORS_FIR = forgeTag("wooden_doors/fir");
+	public static final Named<Block> WOODEN_DOORS_LAUREL = forgeTag("wooden_doors/laurel");
+	public static final Named<Block> WOODEN_DOORS_OLIVE = forgeTag("wooden_doors/olive");
+	public static final Named<Block> WOODEN_DOORS_PLANE  = forgeTag("wooden_doors/plane");
+	public static final Named<Block> WOODEN_DOORS_POPULUS = forgeTag("wooden_doors/populus");
+
 	public IcariaBlockTags(DataGenerator gen, ExistingFileHelper existingFileHelper) {
 		super(gen, IcariaInfo.MODID, existingFileHelper);
 	}
@@ -612,6 +620,23 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(PLANKS_OLIVE)
 			.addTag(PLANKS_PLANE)
 			.addTag(PLANKS_POPULUS);
+
+		tag(WOODEN_DOORS_CYPRESS).add(IcariaBlocks.CYPRESS_DOOR.get());
+		tag(WOODEN_DOORS_DROUGHTROOT).add(IcariaBlocks.DROUGHTROOT_DOOR.get());
+		tag(WOODEN_DOORS_FIR).add(IcariaBlocks.FIR_DOOR.get());
+		tag(WOODEN_DOORS_LAUREL).add(IcariaBlocks.LAUREL_DOOR.get());
+		tag(WOODEN_DOORS_OLIVE).add(IcariaBlocks.OLIVE_DOOR.get());
+		tag(WOODEN_DOORS_PLANE).add(IcariaBlocks.PLANE_DOOR.get());
+		tag(WOODEN_DOORS_POPULUS).add(IcariaBlocks.POPULUS_DOOR.get());
+
+		tag(BlockTags.WOODEN_DOORS)
+			.addTag(WOODEN_DOORS_CYPRESS)
+			.addTag(WOODEN_DOORS_DROUGHTROOT)
+			.addTag(WOODEN_DOORS_FIR)
+			.addTag(WOODEN_DOORS_LAUREL)
+			.addTag(WOODEN_DOORS_OLIVE)
+			.addTag(WOODEN_DOORS_PLANE)
+			.addTag(WOODEN_DOORS_POPULUS);
 
 		tag(ORE_BEARING_GROUND_MARL).add(IcariaBlocks.MARL.get());
 		tag(ORE_BEARING_GROUND_GRAINEL).add(IcariaBlocks.GRAINEL.get());

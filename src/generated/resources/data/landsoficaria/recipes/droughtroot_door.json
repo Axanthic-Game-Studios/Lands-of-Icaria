@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    "XX ",
+    "XX "
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:planks/droughtroot"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:droughtroot_door",
+    "count": 3
+  }
+}

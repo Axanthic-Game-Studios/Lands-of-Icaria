@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:wooden_doors/cypress",
+    "#forge:wooden_doors/droughtroot",
+    "#forge:wooden_doors/fir",
+    "#forge:wooden_doors/laurel",
+    "#forge:wooden_doors/olive",
+    "#forge:wooden_doors/plane",
+    "#forge:wooden_doors/populus"
+  ]
+}

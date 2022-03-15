@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    "XX ",
+    "XX "
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:planks/populus"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:populus_door",
+    "count": 3
+  }
+}

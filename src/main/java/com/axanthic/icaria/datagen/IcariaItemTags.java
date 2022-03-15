@@ -103,6 +103,14 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final Named<Item> PLANKS_PLANE  = forgeTag("planks/plane");
 	public static final Named<Item> PLANKS_POPULUS = forgeTag("planks/populus");
 
+	public static final Named<Item> WOODEN_DOORS_CYPRESS = forgeTag("wooden_doors/cypress");
+	public static final Named<Item> WOODEN_DOORS_DROUGHTROOT = forgeTag("wooden_doors/droughtroot");
+	public static final Named<Item> WOODEN_DOORS_FIR = forgeTag("wooden_doors/fir");
+	public static final Named<Item> WOODEN_DOORS_LAUREL = forgeTag("wooden_doors/laurel");
+	public static final Named<Item> WOODEN_DOORS_OLIVE = forgeTag("wooden_doors/olive");
+	public static final Named<Item> WOODEN_DOORS_PLANE  = forgeTag("wooden_doors/plane");
+	public static final Named<Item> WOODEN_DOORS_POPULUS = forgeTag("wooden_doors/populus");
+
 	//item exclusive tags
 	public static final Named<Item> SPELT = forgeTag("crops/spelt");
 	public static final Named<Item> SMALL_DUST = forgeTag("small_dusts");
@@ -280,6 +288,23 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.addTag(PLANKS_OLIVE)
 			.addTag(PLANKS_PLANE)
 			.addTag(PLANKS_POPULUS);
+
+		tag(WOODEN_DOORS_CYPRESS).add(IcariaItems.CYPRESS_DOOR.get());
+		tag(WOODEN_DOORS_DROUGHTROOT).add(IcariaItems.DROUGHTROOT_DOOR.get());
+		tag(WOODEN_DOORS_FIR).add(IcariaItems.FIR_DOOR.get());
+		tag(WOODEN_DOORS_LAUREL).add(IcariaItems.LAUREL_DOOR.get());
+		tag(WOODEN_DOORS_OLIVE).add(IcariaItems.OLIVE_DOOR.get());
+		tag(WOODEN_DOORS_PLANE).add(IcariaItems.PLANE_DOOR.get());
+		tag(WOODEN_DOORS_POPULUS).add(IcariaItems.POPULUS_DOOR.get());
+
+		tag(ItemTags.WOODEN_DOORS)
+			.addTag(WOODEN_DOORS_CYPRESS)
+			.addTag(WOODEN_DOORS_DROUGHTROOT)
+			.addTag(WOODEN_DOORS_FIR)
+			.addTag(WOODEN_DOORS_LAUREL)
+			.addTag(WOODEN_DOORS_OLIVE)
+			.addTag(WOODEN_DOORS_PLANE)
+			.addTag(WOODEN_DOORS_POPULUS);
 
 		copy(IcariaBlockTags.ORE_BEARING_GROUND_MARL, ORE_BEARING_GROUND_MARL);
 		copy(IcariaBlockTags.ORE_BEARING_GROUND_GRAINEL, ORE_BEARING_GROUND_GRAINEL);

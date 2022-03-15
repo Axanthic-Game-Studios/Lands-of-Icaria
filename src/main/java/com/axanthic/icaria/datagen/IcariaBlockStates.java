@@ -99,6 +99,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.CYPRESS_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_CYPRESS_LOG);
+		doorBlock(IcariaBlocks.CYPRESS_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/cypress_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/cypress_door_top"));
 		blockWithItem(IcariaBlocks.DROUGHTROOT_LEAVES);
 		axisBlock(IcariaBlocks.DROUGHTROOT_WOOD.get());
 		blockItem(IcariaBlocks.DROUGHTROOT_WOOD);
@@ -108,6 +109,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.DROUGHTROOT_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG);
+		doorBlock(IcariaBlocks.DROUGHTROOT_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/droughtroot_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/droughtroot_door_top"));
 		blockWithItem(IcariaBlocks.FIR_LEAVES);
 		axisBlock(IcariaBlocks.FIR_WOOD.get());
 		blockItem(IcariaBlocks.FIR_WOOD);
@@ -117,6 +119,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.FIR_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_FIR_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_FIR_LOG);
+		doorBlock(IcariaBlocks.FIR_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/fir_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/fir_door_top"));
 		blockWithItem(IcariaBlocks.LAUREL_LEAVES);
 		axisBlock(IcariaBlocks.LAUREL_WOOD.get());
 		blockItem(IcariaBlocks.LAUREL_WOOD);
@@ -126,6 +129,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.LAUREL_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_LAUREL_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_LAUREL_LOG);
+		doorBlock(IcariaBlocks.LAUREL_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/laurel_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/laurel_door_top"));
 		blockWithItem(IcariaBlocks.OLIVE_LEAVES);
 		blockWithItem(IcariaBlocks.OLIVE_LEAVES_BLACK);
 		blockWithItem(IcariaBlocks.OLIVE_LEAVES_GREEN);
@@ -137,6 +141,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.OLIVE_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_OLIVE_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_OLIVE_LOG);
+		doorBlock(IcariaBlocks.OLIVE_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/olive_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/olive_door_top"));
 		blockWithItem(IcariaBlocks.PLANE_LEAVES);
 		axisBlock(IcariaBlocks.PLANE_WOOD.get());
 		blockItem(IcariaBlocks.PLANE_WOOD);
@@ -146,6 +151,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.PLANE_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_PLANE_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_PLANE_LOG);
+		doorBlock(IcariaBlocks.PLANE_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/plane_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/plane_door_top"));
 		blockWithItem(IcariaBlocks.POPULUS_LEAVES);
 		axisBlock(IcariaBlocks.POPULUS_WOOD.get());
 		blockItem(IcariaBlocks.POPULUS_WOOD);
@@ -155,6 +161,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockItem(IcariaBlocks.POPULUS_LOG);
 		axisBlock(IcariaBlocks.STRIPPED_POPULUS_LOG.get());
 		blockItem(IcariaBlocks.STRIPPED_POPULUS_LOG);
+		doorBlock(IcariaBlocks.POPULUS_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/populus_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/populus_door_top"));
 		//blockWithItem(IcariaBlocks.MOSS_0);
 		//blockWithItem(IcariaBlocks.MOSS_1);
 		//blockWithItem(IcariaBlocks.MOSS_2);

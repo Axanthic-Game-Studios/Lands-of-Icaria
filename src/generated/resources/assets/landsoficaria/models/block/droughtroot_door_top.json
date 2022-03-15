@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top",
+  "textures": {
+    "bottom": "landsoficaria:block/droughtroot_door_bottom",
+    "top": "landsoficaria:block/droughtroot_door_top"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    "XX ",
+    "XX "
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:planks/cypress"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:cypress_door",
+    "count": 3
+  }
+}

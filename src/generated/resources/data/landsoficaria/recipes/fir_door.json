@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    "XX ",
+    "XX "
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:planks/fir"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:fir_door",
+    "count": 3
+  }
+}
