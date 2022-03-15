@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "landsoficaria:cypress_twigs",
+    "landsoficaria:droughtroot_twigs",
+    "landsoficaria:fir_twigs",
+    "landsoficaria:laurel_twigs",
+    "landsoficaria:olive_twigs",
+    "landsoficaria:plane_twigs",
+    "landsoficaria:populus_twigs"
+  ]
+}

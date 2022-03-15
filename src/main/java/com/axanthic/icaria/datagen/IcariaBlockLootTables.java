@@ -21,14 +21,12 @@ import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.LootTable.Builder;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
@@ -42,7 +40,10 @@ import java.util.stream.Collectors;
 
 public class IcariaBlockLootTables extends BlockLoot {
 	public static final float[] SAPLING_CHANCES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};
+	public static final LootItemCondition.Builder HAS_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
 	public static final LootItemCondition.Builder HAS_SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, Ints.atLeast(1))));
+	public static final LootItemCondition.Builder HAS_SHEARS_OR_SILK_TOUCH = HAS_SHEARS.or(HAS_SILK_TOUCH);
+	public static final LootItemCondition.Builder HAS_NO_SHEARS_OR_SILK_TOUCH = HAS_SHEARS_OR_SILK_TOUCH.invert();
 
 	@Override
 	protected Iterable<Block> getKnownBlocks() {
@@ -98,17 +99,24 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropWhenSilkTouch(IcariaBlocks.GRAINGLASS.get());
 		dropWhenSilkTouch(IcariaBlocks.GRAINGLASS_PANE.get());
 		dropWhenSilkTouch(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get());
+		this.add(IcariaBlocks.GRAINITE_RUBBLE.get(), noDrop());
 		requireSilkTouch(IcariaBlocks.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_COBBLE.get());
+		this.add(IcariaBlocks.YELLOWSTONE_RUBBLE.get(), noDrop());
 		dropWhenSilkTouch(IcariaBlocks.SILKGLASS.get());
 		dropWhenSilkTouch(IcariaBlocks.SILKGLASS_PANE.get());
 		dropWhenSilkTouch(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get());
 		requireSilkTouch(IcariaBlocks.SILKSTONE.get(), IcariaItems.SILKSTONE_COBBLE.get());
+		this.add(IcariaBlocks.SILKSTONE_RUBBLE.get(), noDrop());
 		requireSilkTouch(IcariaBlocks.SUNSTONE.get(), IcariaItems.SUNSTONE_COBBLE.get());
+		this.add(IcariaBlocks.SUNSTONE_RUBBLE.get(), noDrop());
 		requireSilkTouch(IcariaBlocks.VOIDSHALE.get(), IcariaItems.VOIDSHALE_COBBLE.get());
+		this.add(IcariaBlocks.VOIDSHALE_RUBBLE.get(), noDrop());
 		requireSilkTouch(IcariaBlocks.BAETYL.get(), IcariaItems.BAETYL_COBBLE.get());
+		this.add(IcariaBlocks.BAETYL_RUBBLE.get(), noDrop());
 		requireSilkTouch(IcariaBlocks.RELICSTONE_SMOOTH.get(), IcariaItems.RELICSTONE.get());
 		dropSelf(IcariaBlocks.RELICSTONE_PILLAR.get());
 		dropSelf(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get());
+		this.add(IcariaBlocks.RELICSTONE_RUBBLE.get(), noDrop());
 		this.add(IcariaBlocks.LIGNITE_ORE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.LIGNITE.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		this.add(IcariaBlocks.CHALKOS_ORE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.CHALKOS_RAW.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		this.add(IcariaBlocks.KASSITEROS_ORE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.KASSITEROS_RAW.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
@@ -125,6 +133,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropPottedContents(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
 		this.add(IcariaBlocks.CYPRESS_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.CYPRESS_SAPLING.get(), SAPLING_CHANCES));
 		dropLayers(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get());
+		this.add(IcariaBlocks.CYPRESS_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		dropSelf(IcariaBlocks.CYPRESS_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());
 		dropSelf(IcariaBlocks.CYPRESS_LOG.get());
@@ -135,6 +144,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropPottedContents(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
 		this.add(IcariaBlocks.DROUGHTROOT_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.DROUGHTROOT_SAPLING.get(), SAPLING_CHANCES));
 		dropLayers(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get());
+		this.add(IcariaBlocks.DROUGHTROOT_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		dropSelf(IcariaBlocks.DROUGHTROOT_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get());
 		dropSelf(IcariaBlocks.DROUGHTROOT_LOG.get());
@@ -145,6 +155,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropPottedContents(IcariaBlocks.POTTED_FIR_SAPLING.get());
 		this.add(IcariaBlocks.FIR_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.FIR_SAPLING.get(), SAPLING_CHANCES));
 		dropLayers(IcariaBlocks.FALLEN_FIR_LEAVES.get());
+		this.add(IcariaBlocks.FIR_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		dropSelf(IcariaBlocks.FIR_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_FIR_WOOD.get());
 		dropSelf(IcariaBlocks.FIR_LOG.get());
@@ -153,8 +164,9 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get());
 		dropSelf(IcariaBlocks.LAUREL_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_LAUREL_SAPLING.get());
-		this.add(IcariaBlocks.LAUREL_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.LAUREL_SAPLING.get(), SAPLING_CHANCES));
+		this.add(IcariaBlocks.LAUREL_LEAVES.get(), (pBlock) -> createLaurelLeavesDrops(pBlock, IcariaBlocks.LAUREL_SAPLING.get(), SAPLING_CHANCES));
 		dropLayers(IcariaBlocks.FALLEN_LAUREL_LEAVES.get());
+		this.add(IcariaBlocks.LAUREL_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		dropSelf(IcariaBlocks.LAUREL_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_LAUREL_WOOD.get());
 		dropSelf(IcariaBlocks.LAUREL_LOG.get());
@@ -167,6 +179,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		this.add(IcariaBlocks.OLIVE_LEAVES_BLACK.get(), (pBlock) -> createSilkTouchOrShearsDispatchTable(pBlock, applyExplosionDecay(pBlock, LootItem.lootTableItem(IcariaItems.OLIVES_BLACK.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		this.add(IcariaBlocks.OLIVE_LEAVES_GREEN.get(), (pBlock) -> createSilkTouchOrShearsDispatchTable(pBlock, applyExplosionDecay(pBlock, LootItem.lootTableItem(IcariaItems.OLIVES_GREEN.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		dropLayers(IcariaBlocks.FALLEN_OLIVE_LEAVES.get());
+		this.add(IcariaBlocks.OLIVE_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		dropSelf(IcariaBlocks.OLIVE_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_OLIVE_WOOD.get());
 		dropSelf(IcariaBlocks.OLIVE_LOG.get());
@@ -177,6 +190,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropPottedContents(IcariaBlocks.POTTED_PLANE_SAPLING.get());
 		this.add(IcariaBlocks.PLANE_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.PLANE_SAPLING.get(), SAPLING_CHANCES));
 		dropLayers(IcariaBlocks.FALLEN_PLANE_LEAVES.get());
+		this.add(IcariaBlocks.PLANE_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		dropSelf(IcariaBlocks.PLANE_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_PLANE_WOOD.get());
 		dropSelf(IcariaBlocks.PLANE_LOG.get());
@@ -187,6 +201,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropPottedContents(IcariaBlocks.POTTED_POPULUS_SAPLING.get());
 		this.add(IcariaBlocks.POPULUS_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.POPULUS_SAPLING.get(), SAPLING_CHANCES));
 		dropLayers(IcariaBlocks.FALLEN_POPULUS_LEAVES.get());
+		this.add(IcariaBlocks.POPULUS_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 		dropSelf(IcariaBlocks.POPULUS_WOOD.get());
 		dropSelf(IcariaBlocks.STRIPPED_POPULUS_WOOD.get());
 		dropSelf(IcariaBlocks.POPULUS_LOG.get());
@@ -204,6 +219,10 @@ public class IcariaBlockLootTables extends BlockLoot {
 
 	public void requireSilkTouch(Block block, Item item) {
 		add(block, (blockDrop) -> createSingleItemTableWithSilkTouch(blockDrop, item));
+	}
+
+	public static Builder createLaurelLeavesDrops(Block pOakLeavesBlock, Block pSaplingBlock, float... pChances) {
+		return createLeavesDrops(pOakLeavesBlock, pSaplingBlock, pChances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(applyExplosionCondition(pOakLeavesBlock, LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get())).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
 	}
 
 	public void dropLayers(Block block) { //like onions

@@ -714,6 +714,15 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 		tag(Tags.Blocks.SANDSTONE).add(IcariaBlocks.GRAINITE.get());
 
+		tag(BlockTags.REPLACEABLE_PLANTS)
+			.add(IcariaBlocks.CYPRESS_TWIGS.get())
+			.add(IcariaBlocks.DROUGHTROOT_TWIGS.get())
+			.add(IcariaBlocks.FIR_TWIGS.get())
+			.add(IcariaBlocks.LAUREL_TWIGS.get())
+			.add(IcariaBlocks.OLIVE_TWIGS.get())
+			.add(IcariaBlocks.PLANE_TWIGS.get())
+			.add(IcariaBlocks.POPULUS_TWIGS.get());
+
 		tag(BlockTags.WALL_POST_OVERRIDE)
 			.add(IcariaBlocks.LIGNITE_TORCH.get())
 			.add(IcariaBlocks.ANTHRACITE_TORCH.get());
