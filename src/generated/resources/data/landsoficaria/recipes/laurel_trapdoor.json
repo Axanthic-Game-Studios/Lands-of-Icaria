@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:planks/laurel"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:laurel_trapdoor",
+    "count": 3
+  }
+}

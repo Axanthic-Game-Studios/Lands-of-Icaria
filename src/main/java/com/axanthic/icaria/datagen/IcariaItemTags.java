@@ -111,6 +111,14 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final Named<Item> WOODEN_DOORS_PLANE  = forgeTag("wooden_doors/plane");
 	public static final Named<Item> WOODEN_DOORS_POPULUS = forgeTag("wooden_doors/populus");
 
+	public static final Named<Item> WOODEN_TRAPDOORS_CYPRESS = forgeTag("wooden_trapdoors/cypress");
+	public static final Named<Item> WOODEN_TRAPDOORS_DROUGHTROOT = forgeTag("wooden_trapdoors/droughtroot");
+	public static final Named<Item> WOODEN_TRAPDOORS_FIR = forgeTag("wooden_trapdoors/fir");
+	public static final Named<Item> WOODEN_TRAPDOORS_LAUREL = forgeTag("wooden_trapdoors/laurel");
+	public static final Named<Item> WOODEN_TRAPDOORS_OLIVE = forgeTag("wooden_trapdoors/olive");
+	public static final Named<Item> WOODEN_TRAPDOORS_PLANE  = forgeTag("wooden_trapdoors/plane");
+	public static final Named<Item> WOODEN_TRAPDOORS_POPULUS = forgeTag("wooden_trapdoors/populus");
+
 	//item exclusive tags
 	public static final Named<Item> SPELT = forgeTag("crops/spelt");
 	public static final Named<Item> SMALL_DUST = forgeTag("small_dusts");
@@ -305,6 +313,23 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.addTag(WOODEN_DOORS_OLIVE)
 			.addTag(WOODEN_DOORS_PLANE)
 			.addTag(WOODEN_DOORS_POPULUS);
+
+		tag(WOODEN_TRAPDOORS_CYPRESS).add(IcariaItems.CYPRESS_TRAPDOOR.get());
+		tag(WOODEN_TRAPDOORS_DROUGHTROOT).add(IcariaItems.DROUGHTROOT_TRAPDOOR.get());
+		tag(WOODEN_TRAPDOORS_FIR).add(IcariaItems.FIR_TRAPDOOR.get());
+		tag(WOODEN_TRAPDOORS_LAUREL).add(IcariaItems.LAUREL_TRAPDOOR.get());
+		tag(WOODEN_TRAPDOORS_OLIVE).add(IcariaItems.OLIVE_TRAPDOOR.get());
+		tag(WOODEN_TRAPDOORS_PLANE).add(IcariaItems.PLANE_TRAPDOOR.get());
+		tag(WOODEN_TRAPDOORS_POPULUS).add(IcariaItems.POPULUS_TRAPDOOR.get());
+
+		tag(ItemTags.WOODEN_TRAPDOORS)
+			.addTag(WOODEN_TRAPDOORS_CYPRESS)
+			.addTag(WOODEN_TRAPDOORS_DROUGHTROOT)
+			.addTag(WOODEN_TRAPDOORS_FIR)
+			.addTag(WOODEN_TRAPDOORS_LAUREL)
+			.addTag(WOODEN_TRAPDOORS_OLIVE)
+			.addTag(WOODEN_TRAPDOORS_PLANE)
+			.addTag(WOODEN_TRAPDOORS_POPULUS);
 
 		copy(IcariaBlockTags.ORE_BEARING_GROUND_MARL, ORE_BEARING_GROUND_MARL);
 		copy(IcariaBlockTags.ORE_BEARING_GROUND_GRAINEL, ORE_BEARING_GROUND_GRAINEL);

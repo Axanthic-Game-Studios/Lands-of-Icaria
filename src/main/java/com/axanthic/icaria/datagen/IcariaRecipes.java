@@ -161,6 +161,14 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		doorRecipe(consumer, "plane", IcariaItems.PLANE_DOOR.get(), IcariaItems.PLANE_PLANKS.get());
 		doorRecipe(consumer, "populus", IcariaItems.POPULUS_DOOR.get(), IcariaItems.POPULUS_PLANKS.get());
 
+		trapdoorRecipe(consumer, "cypress", IcariaItems.CYPRESS_TRAPDOOR.get(), IcariaItems.CYPRESS_PLANKS.get());
+		trapdoorRecipe(consumer, "droughtroot", IcariaItems.DROUGHTROOT_TRAPDOOR.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		trapdoorRecipe(consumer, "fir", IcariaItems.FIR_TRAPDOOR.get(), IcariaItems.FIR_PLANKS.get());
+		trapdoorRecipe(consumer, "laurel", IcariaItems.LAUREL_TRAPDOOR.get(), IcariaItems.LAUREL_PLANKS.get());
+		trapdoorRecipe(consumer, "olive", IcariaItems.OLIVE_TRAPDOOR.get(), IcariaItems.OLIVE_PLANKS.get());
+		trapdoorRecipe(consumer, "plane", IcariaItems.PLANE_TRAPDOOR.get(), IcariaItems.PLANE_PLANKS.get());
+		trapdoorRecipe(consumer, "populus", IcariaItems.POPULUS_TRAPDOOR.get(), IcariaItems.POPULUS_PLANKS.get());
+
 		torchRecipe(consumer, "lignite", IcariaItems.LIGNITE_TORCH.get(), IcariaItems.LIGNITE.get());
 		torchRecipe(consumer, "anthracite", IcariaItems.ANTHRACITE_TORCH.get(), IcariaItems.ANTHRACITE.get());
 
@@ -566,6 +574,17 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 				.group("")
 				.unlockedBy("has_planks", has(planks))
 				.save(consumer, Objects.requireNonNull(door.getRegistryName()));
+	}
+
+	public void trapdoorRecipe(Consumer<FinishedRecipe> consumer, String name, Item trapdoor, Item planks) {
+		ShapedRecipeBuilder.shaped(trapdoor, 3)
+				.pattern("   ")
+				.pattern("XXX")
+				.pattern("XXX")
+				.define('X', ItemTags.bind("forge:planks/" + name))
+				.group("")
+				.unlockedBy("has_planks", has(planks))
+				.save(consumer, Objects.requireNonNull(trapdoor.getRegistryName()));
 	}
 
 	public void torchRecipe(Consumer<FinishedRecipe> consumer, String name, Item torch, Item gem) {

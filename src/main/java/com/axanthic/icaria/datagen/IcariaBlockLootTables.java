@@ -142,6 +142,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.DEAD_CYPRESS_LOG.get());
 		dropSelf(IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get());
 		this.add(IcariaBlocks.CYPRESS_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.CYPRESS_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
+		dropSelf(IcariaBlocks.CYPRESS_TRAPDOOR.get());
 		dropSelf(IcariaBlocks.DROUGHTROOT_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
 		this.add(IcariaBlocks.DROUGHTROOT_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.DROUGHTROOT_SAPLING.get(), SAPLING_CHANCES));
@@ -154,6 +155,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.DEAD_DROUGHTROOT_LOG.get());
 		dropSelf(IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get());
 		this.add(IcariaBlocks.DROUGHTROOT_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.DROUGHTROOT_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
+		dropSelf(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
 		dropSelf(IcariaBlocks.FIR_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_FIR_SAPLING.get());
 		this.add(IcariaBlocks.FIR_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.FIR_SAPLING.get(), SAPLING_CHANCES));
@@ -166,6 +168,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.DEAD_FIR_LOG.get());
 		dropSelf(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get());
 		this.add(IcariaBlocks.FIR_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.FIR_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
+		dropSelf(IcariaBlocks.FIR_TRAPDOOR.get());
 		dropSelf(IcariaBlocks.LAUREL_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_LAUREL_SAPLING.get());
 		this.add(IcariaBlocks.LAUREL_LEAVES.get(), (pBlock) -> createLaurelLeavesDrops(pBlock, IcariaBlocks.LAUREL_SAPLING.get(), SAPLING_CHANCES));
@@ -178,6 +181,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.DEAD_LAUREL_LOG.get());
 		dropSelf(IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get());
 		this.add(IcariaBlocks.LAUREL_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.LAUREL_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
+		dropSelf(IcariaBlocks.LAUREL_TRAPDOOR.get());
 		dropSelf(IcariaBlocks.OLIVE_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_OLIVE_SAPLING.get());
 		this.add(IcariaBlocks.OLIVE_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.OLIVE_SAPLING.get(), SAPLING_CHANCES));
@@ -192,6 +196,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.DEAD_OLIVE_LOG.get());
 		dropSelf(IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get());
 		this.add(IcariaBlocks.OLIVE_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.OLIVE_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
+		dropSelf(IcariaBlocks.OLIVE_TRAPDOOR.get());
 		dropSelf(IcariaBlocks.PLANE_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_PLANE_SAPLING.get());
 		this.add(IcariaBlocks.PLANE_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.PLANE_SAPLING.get(), SAPLING_CHANCES));
@@ -204,6 +209,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.DEAD_PLANE_LOG.get());
 		dropSelf(IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get());
 		this.add(IcariaBlocks.PLANE_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.PLANE_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
+		dropSelf(IcariaBlocks.PLANE_TRAPDOOR.get());
 		dropSelf(IcariaBlocks.POPULUS_SAPLING.get());
 		dropPottedContents(IcariaBlocks.POTTED_POPULUS_SAPLING.get());
 		this.add(IcariaBlocks.POPULUS_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.POPULUS_SAPLING.get(), SAPLING_CHANCES));
@@ -216,6 +222,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropSelf(IcariaBlocks.DEAD_POPULUS_LOG.get());
 		dropSelf(IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get());
 		this.add(IcariaBlocks.POPULUS_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.POPULUS_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
+		dropSelf(IcariaBlocks.POPULUS_TRAPDOOR.get());
 		dropSelf(IcariaBlocks.LIGNITE_TORCH.get());
 		dropOther(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
 		dropSelf(IcariaBlocks.ANTHRACITE_TORCH.get());
