@@ -577,7 +577,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 	}
 
 	public void trapdoorRecipe(Consumer<FinishedRecipe> consumer, String name, Item trapdoor, Item planks) {
-		ShapedRecipeBuilder.shaped(trapdoor, 3)
+		ShapedRecipeBuilder.shaped(trapdoor, 2)
 				.pattern("   ")
 				.pattern("XXX")
 				.pattern("XXX")
