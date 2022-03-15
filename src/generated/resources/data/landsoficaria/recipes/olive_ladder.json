@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "XXX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:planks/olive"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:olive_ladder",
+    "count": 6
+  }
+}

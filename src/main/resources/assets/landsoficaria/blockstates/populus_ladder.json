@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "landsoficaria:block/populus_ladder", "y": 0 },
+    "facing=east": { "model": "landsoficaria:block/populus_ladder", "y": 90 },
+    "facing=south": { "model": "landsoficaria:block/populus_ladder", "y": 180 },
+    "facing=west": { "model": "landsoficaria:block/populus_ladder", "y": 270 }
+  }
+}

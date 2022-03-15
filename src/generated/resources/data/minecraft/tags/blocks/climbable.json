@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "landsoficaria:cypress_ladder",
+    "landsoficaria:droughtroot_ladder",
+    "landsoficaria:fir_ladder",
+    "landsoficaria:laurel_ladder",
+    "landsoficaria:olive_ladder",
+    "landsoficaria:plane_ladder",
+    "landsoficaria:populus_ladder"
+  ]
+}
