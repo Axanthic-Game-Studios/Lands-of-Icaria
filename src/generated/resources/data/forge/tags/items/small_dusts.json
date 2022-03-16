@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#forge:small_dusts/calcite"
+    "#forge:small_dusts/calcite",
+    "#forge:small_dusts/halite"
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:gems/halite"
+    },
+    "Y": {
+      "item": "landsoficaria:halite"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:halite_block"
+  }
+}

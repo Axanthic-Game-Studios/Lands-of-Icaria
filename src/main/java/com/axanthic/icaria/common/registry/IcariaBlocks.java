@@ -149,6 +149,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> RELICSTONE_PILLAR_HEAD = register("relicstone_pillar_head", () -> new PillarHeadBlock(propertiesRelicstone()));
 	public static final RegistryObject<Block> RELICSTONE_RUBBLE = register("relicstone_rubble", () -> new GroundDecoBlock(propertiesStoneDeco()));
 
+	public static final RegistryObject<Block> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new PillarHeadBlock(propertiesQuartz()));
+
 	public static final RegistryObject<Block> LIGNITE_ORE = register("lignite_ore", () -> new Block(propertiesYellowstone()));
 	public static final RegistryObject<Block> CHALKOS_ORE = register("chalkos_ore", () -> new Block(propertiesYellowstone()));
 	public static final RegistryObject<Block> KASSITEROS_ORE = register("kassiteros_ore", () -> new Block(propertiesSilkstone()));
@@ -163,8 +165,6 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> ARISTONE = registerBasic("aristone", () -> new GlassBlock(propertiesAristone()));
 	public static final RegistryObject<Block> ARISTONE_PACKED = registerBasic("aristone_packed", () -> new Block(propertiesAristone()));
 
-	public static final RegistryObject<Block> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new PillarHeadBlock(propertiesQuartz()));
-
 	public static final RegistryObject<Block> JELLYFISH_JELLY_BLOCK = registerBasic("jellyfish_jelly_block", () -> new SlimeBlock(propertiesJellyBlock()));
 	public static final RegistryObject<Block> ARACHNE_STRING_BLOCK = registerBasic("arachne_string_block", () -> new Block(propertiesArachneStringBlock()));
 	public static final RegistryObject<RotatedPillarBlock> SPELT_BALE_BLOCK = register("spelt_bale_block", () -> new SpeltBaleBlock(propertiesSpeltBlock()));
@@ -178,6 +178,10 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> SIDEROS_RAW_BLOCK = registerBasic("sideros_raw_block", () -> new Block(propertiesSiderosBlock()));
 	public static final RegistryObject<Block> MOLYBDENUM_RAW_BLOCK = registerBasic("molybdenum_raw_block", () -> new Block(propertiesMolybdenumBlock()));
 
+	public static final RegistryObject<Block> CALCITE_BLOCK = registerBasic("calcite_block", () -> new HalfTransparentBlock(propertiesCrystalGemBlock(MaterialColor.COLOR_LIGHT_GRAY)));
+	public static final RegistryObject<Block> HALITE_BLOCK = registerBasic("halite_block", () -> new HalfTransparentBlock(propertiesCrystalGemBlock(MaterialColor.COLOR_GREEN)));
+	public static final RegistryObject<Block> JASPER_BLOCK = registerBasic("jasper_block", () -> new HalfTransparentBlock(propertiesCrystalGemBlock(MaterialColor.COLOR_RED)));
+	public static final RegistryObject<Block> ZIRCON_BLOCK = registerBasic("zircon_block", () -> new HalfTransparentBlock(propertiesCrystalGemBlock(MaterialColor.COLOR_BLUE)));
 	public static final RegistryObject<Block> CHERT_BLOCK = registerBasic("chert_block", () -> new Block(propertiesChertBlock()));
 	public static final RegistryObject<Block> LIGNITE_BLOCK = registerBasic("lignite_block", () -> new Block(propertiesLigniteBlock()));
 	public static final RegistryObject<Block> CHALKOS_BLOCK = registerBasic("chalkos_block", () -> new Block(propertiesChalkosBlock()));
@@ -401,12 +405,12 @@ public class IcariaBlocks {
 		return Properties.of(Material.STONE, MaterialColor.COLOR_BROWN).sound(SoundType.STONE).explosionResistance(6.0F).strength(1.5F).requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesAristone() {
-		return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GREEN).sound(IcariaSounds.ARISTONE).explosionResistance(0.5F).strength(0.5F).friction(0.98F).noOcclusion();
-	}
-
 	private static Properties propertiesQuartz() {
 		return Properties.of(Material.STONE, MaterialColor.QUARTZ).sound(SoundType.STONE).explosionResistance(0.8F).strength(0.8F).requiresCorrectToolForDrops();
+	}
+
+	private static Properties propertiesAristone() {
+		return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GREEN).sound(IcariaSounds.ARISTONE).explosionResistance(0.5F).strength(0.5F).friction(0.98F).noOcclusion();
 	}
 
 	private static Properties propertiesJellyBlock() {
@@ -427,6 +431,10 @@ public class IcariaBlocks {
 
 	private static Properties propertiesRottenBonesBlock() {
 		return Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_GRAY).sound(SoundType.BONE_BLOCK).explosionResistance(2.0F).strength(2.0F).requiresCorrectToolForDrops();
+	}
+
+	private static Properties propertiesCrystalGemBlock(MaterialColor color) {
+		return Properties.of(Material.GLASS, color).sound(SoundType.GLASS).strength(1.2F, 1.2F).lightLevel((pState) -> 6).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	private static Properties propertiesChertBlock() {
@@ -538,11 +546,11 @@ public class IcariaBlocks {
 	}
 
 	private static Properties propertiesLigniteTorch() {
-		return Properties.of(Material.DECORATION).noCollission().instabreak().lightLevel((p_152607_) -> 9).sound(SoundType.METAL);
+		return Properties.of(Material.DECORATION).noCollission().instabreak().lightLevel((pState) -> 9).sound(SoundType.METAL);
 	}
 
 	private static Properties propertiesAnthraciteTorch() {
-		return Properties.of(Material.DECORATION).noCollission().instabreak().lightLevel((p_152607_) -> 14).sound(SoundType.METAL);
+		return Properties.of(Material.DECORATION).noCollission().instabreak().lightLevel((pState) -> 14).sound(SoundType.METAL);
 	}
 
 	private static Properties propertiesLavaFluid() {

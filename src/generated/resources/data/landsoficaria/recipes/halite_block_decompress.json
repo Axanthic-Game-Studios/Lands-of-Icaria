@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:halite_block"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:halite",
+    "count": 9
+  }
+}

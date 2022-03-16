@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:gems/jasper"
+    },
+    "Y": {
+      "item": "landsoficaria:jasper"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:jasper_block"
+  }
+}

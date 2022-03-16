@@ -39,6 +39,17 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final Named<Block> MINEABLE_WITH_SCYTHE = icariaTag("mineable/scythe");
 
 	//tags shared with items
+	public static final Named<Block> STORAGE_BLOCKS_ARISTONE_PACKED = forgeTag("storage_blocks/aristone_packed");
+	public static final Named<Block> STORAGE_BLOCKS_JELLYFISH_JELLY = forgeTag("storage_blocks/jellyfish_jelly");
+	public static final Named<Block> STORAGE_BLOCKS_ARACHNE_STRING = forgeTag("storage_blocks/arachne_string");
+	public static final Named<Block> STORAGE_BLOCKS_SPELT = forgeTag("storage_blocks/spelt");
+	public static final Named<Block> STORAGE_BLOCKS_VINE_REED = forgeTag("storage_blocks/vine_reed");
+	public static final Named<Block> STORAGE_BLOCKS_VINE_SPROUT = forgeTag("storage_blocks/vine_sprout");
+	public static final Named<Block> STORAGE_BLOCKS_ROTTEN_BONES = forgeTag("storage_blocks/rotten_bones");
+	public static final Named<Block> STORAGE_BLOCKS_CALCITE = forgeTag("storage_blocks/calcite");
+	public static final Named<Block> STORAGE_BLOCKS_HALITE = forgeTag("storage_blocks/halite");
+	public static final Named<Block> STORAGE_BLOCKS_JASPER = forgeTag("storage_blocks/jasper");
+	public static final Named<Block> STORAGE_BLOCKS_ZIRCON = forgeTag("storage_blocks/zircon");
 	public static final Named<Block> STORAGE_BLOCKS_RAW_CHALKOS = forgeTag("storage_blocks/raw_chalkos");
 	public static final Named<Block> STORAGE_BLOCKS_RAW_KASSITEROS = forgeTag("storage_blocks/raw_kassiteros");
 	public static final Named<Block> STORAGE_BLOCKS_RAW_VANADIUM = forgeTag("storage_blocks/raw_vanadium");
@@ -429,6 +440,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.VANADIUM_RAW_BLOCK.get())
 			.add(IcariaBlocks.SIDEROS_RAW_BLOCK.get())
 			.add(IcariaBlocks.MOLYBDENUM_RAW_BLOCK.get())
+			.add(IcariaBlocks.CALCITE_BLOCK.get())
+			.add(IcariaBlocks.HALITE_BLOCK.get())
+			.add(IcariaBlocks.JASPER_BLOCK.get())
+			.add(IcariaBlocks.ZIRCON_BLOCK.get())
 			.add(IcariaBlocks.CHERT_BLOCK.get())
 			.add(IcariaBlocks.LIGNITE_BLOCK.get())
 			.add(IcariaBlocks.CHALKOS_BLOCK.get())
@@ -519,6 +534,17 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			}
 		}
 
+		tag(STORAGE_BLOCKS_ARISTONE_PACKED).add(IcariaBlocks.ARISTONE_PACKED.get());
+		tag(STORAGE_BLOCKS_JELLYFISH_JELLY).add(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get());
+		tag(STORAGE_BLOCKS_ARACHNE_STRING).add(IcariaBlocks.ARACHNE_STRING_BLOCK.get());
+		tag(STORAGE_BLOCKS_SPELT).add(IcariaBlocks.SPELT_BALE_BLOCK.get());
+		tag(STORAGE_BLOCKS_VINE_REED).add(IcariaBlocks.VINE_REED_BLOCK.get());
+		tag(STORAGE_BLOCKS_VINE_SPROUT).add(IcariaBlocks.VINE_SPROUT_BLOCK.get());
+		tag(STORAGE_BLOCKS_ROTTEN_BONES).add(IcariaBlocks.ROTTEN_BONES_BLOCK.get());
+		tag(STORAGE_BLOCKS_CALCITE).add(IcariaBlocks.CALCITE_BLOCK.get());
+		tag(STORAGE_BLOCKS_HALITE).add(IcariaBlocks.HALITE_BLOCK.get());
+		tag(STORAGE_BLOCKS_JASPER).add(IcariaBlocks.JASPER_BLOCK.get());
+		tag(STORAGE_BLOCKS_ZIRCON).add(IcariaBlocks.ZIRCON_BLOCK.get());
 		tag(STORAGE_BLOCKS_RAW_CHALKOS).add(IcariaBlocks.CHALKOS_RAW_BLOCK.get());
 		tag(STORAGE_BLOCKS_RAW_KASSITEROS).add(IcariaBlocks.KASSITEROS_RAW_BLOCK.get());
 		tag(STORAGE_BLOCKS_RAW_VANADIUM).add(IcariaBlocks.VANADIUM_RAW_BLOCK.get());
@@ -538,6 +564,17 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(STORAGE_BLOCKS_MOLYBDENUMSTEEL).add(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get());
 
 		tag(Tags.Blocks.STORAGE_BLOCKS)
+			.addTag(STORAGE_BLOCKS_ARISTONE_PACKED)
+			.addTag(STORAGE_BLOCKS_JELLYFISH_JELLY)
+			.addTag(STORAGE_BLOCKS_ARACHNE_STRING)
+			.addTag(STORAGE_BLOCKS_SPELT)
+			.addTag(STORAGE_BLOCKS_VINE_REED)
+			.addTag(STORAGE_BLOCKS_VINE_SPROUT)
+			.addTag(STORAGE_BLOCKS_ROTTEN_BONES)
+			.addTag(STORAGE_BLOCKS_CALCITE)
+			.addTag(STORAGE_BLOCKS_HALITE)
+			.addTag(STORAGE_BLOCKS_JASPER)
+			.addTag(STORAGE_BLOCKS_ZIRCON)
 			.addTag(STORAGE_BLOCKS_RAW_CHALKOS)
 			.addTag(STORAGE_BLOCKS_RAW_KASSITEROS)
 			.addTag(STORAGE_BLOCKS_RAW_VANADIUM)
@@ -779,8 +816,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 		tag(Tags.Blocks.GLASS_PANES)
 			.add(IcariaBlocks.GRAINGLASS_PANE.get())
-			.add(IcariaBlocks.SILKGLASS_PANE.get())
 			.add(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get())
+			.add(IcariaBlocks.SILKGLASS_PANE.get())
 			.add(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get());
 
 		tag(Tags.Blocks.SANDSTONE).add(IcariaBlocks.GRAINITE.get());

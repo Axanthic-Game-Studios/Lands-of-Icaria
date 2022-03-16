@@ -120,12 +120,15 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		stoneTypeRecipes(consumer, IcariaItems.VOIDSHALE.get(), IcariaItems.VOIDSHALE_COBBLE.get(), IcariaItems.VOIDSHALE_BRICKS.get(), IcariaItems.VOIDSHALE_CHISELED.get(), IcariaItems.VOIDSHALE_BRICKS_DECO);
 		stoneTypeRecipes(consumer, IcariaItems.BAETYL.get(), IcariaItems.BAETYL_COBBLE.get(), IcariaItems.BAETYL_BRICKS.get(), IcariaItems.BAETYL_CHISELED.get(), IcariaItems.BAETYL_BRICKS_DECO);
 
-		blockCompression(consumer, IcariaItems.JELLYFISH_JELLY_BLOCK.get(), IcariaItems.JELLYFISH_JELLY.get(), null);
-		blockCompression(consumer, IcariaItems.ARACHNE_STRING_BLOCK.get(), IcariaItems.ARACHNE_STRING.get(), null);
-		blockCompression(consumer, IcariaItems.SPELT_BALE_BLOCK.get(), IcariaItems.SPELT.get(), null);
-		blockCompression(consumer, IcariaItems.VINE_REED_BLOCK.get(), IcariaItems.VINE_REED.get(), null);
-		//blockCompression(consumer, IcariaItems.VINE_SPROUT_BLOCK.get(), IcariaItems.VINE_SPROUT.get(), null);
-		blockCompression(consumer, IcariaItems.ROTTEN_BONES_BLOCK.get(), IcariaItems.ROTTEN_BONES.get(), null);
+		blockCompression(consumer, IcariaItems.JELLYFISH_JELLY_BLOCK.get(), IcariaItems.JELLYFISH_JELLY.get(), IcariaItemTags.STORAGE_BLOCKS_JELLYFISH_JELLY);
+		blockCompression(consumer, IcariaItems.ARACHNE_STRING_BLOCK.get(), IcariaItems.ARACHNE_STRING.get(), IcariaItemTags.STORAGE_BLOCKS_ARACHNE_STRING);
+		blockCompression(consumer, IcariaItems.SPELT_BALE_BLOCK.get(), IcariaItems.SPELT.get(), IcariaItemTags.STORAGE_BLOCKS_SPELT);
+		blockCompression(consumer, IcariaItems.VINE_REED_BLOCK.get(), IcariaItems.VINE_REED.get(), IcariaItemTags.STORAGE_BLOCKS_VINE_REED);
+		blockCompression(consumer, IcariaItems.ROTTEN_BONES_BLOCK.get(), IcariaItems.ROTTEN_BONES.get(), IcariaItemTags.STORAGE_BLOCKS_ROTTEN_BONES);
+		blockCompression(consumer, IcariaItems.CALCITE_BLOCK.get(), IcariaItems.CALCITE.get(), IcariaItemTags.GEMS_CALCITE);
+		blockCompression(consumer, IcariaItems.HALITE_BLOCK.get(), IcariaItems.HALITE.get(), IcariaItemTags.GEMS_HALITE);
+		blockCompression(consumer, IcariaItems.JASPER_BLOCK.get(), IcariaItems.JASPER.get(), IcariaItemTags.GEMS_JASPER);
+		blockCompression(consumer, IcariaItems.ZIRCON_BLOCK.get(), IcariaItems.ZIRCON.get(), IcariaItemTags.GEMS_ZIRCON);
 		blockCompression(consumer, IcariaItems.CHALKOS_RAW_BLOCK.get(), IcariaItems.CHALKOS_RAW.get(), IcariaItemTags.RAW_MATERIALS_CHALKOS);
 		blockCompression(consumer, IcariaItems.KASSITEROS_RAW_BLOCK.get(), IcariaItems.KASSITEROS_RAW.get(), IcariaItemTags.RAW_MATERIALS_KASSITEROS);
 		blockCompression(consumer, IcariaItems.VANADIUM_RAW_BLOCK.get(), IcariaItems.VANADIUM_RAW.get(), IcariaItemTags.RAW_MATERIALS_VANADIUM);
@@ -412,7 +415,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		.define('Y', Items.QUARTZ_PILLAR)
 		.unlockedBy("has_pillar", has(Items.QUARTZ_PILLAR))
 		.save(consumer, appendResource(IcariaItems.QUARTZ_PILLAR_HEAD.getId(), "_crafting"));
-		SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.QUARTZ_BLOCK), IcariaItems.QUARTZ_PILLAR_HEAD.get()).unlockedBy("has_dolomite", has(Items.QUARTZ_BLOCK))
+		SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.QUARTZ_BLOCK), IcariaItems.QUARTZ_PILLAR_HEAD.get()).unlockedBy("has_quartz", has(Items.QUARTZ_BLOCK))
 		.save(consumer, appendResource(IcariaItems.QUARTZ_PILLAR_HEAD.getId(), "_cutting"));
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.QUARTZ_BRICKS), IcariaItems.QUARTZ_PILLAR_HEAD.get()).unlockedBy("has_bricks", has(Items.QUARTZ_BRICKS))
 		.save(consumer, appendResource(IcariaItems.QUARTZ_PILLAR_HEAD.getId(), "_cutting_bricks"));
@@ -420,6 +423,8 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		.save(consumer, appendResource(IcariaItems.QUARTZ_PILLAR_HEAD.getId(), "_cutting_pillar"));
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.CHISELED_QUARTZ_BLOCK), IcariaItems.QUARTZ_PILLAR_HEAD.get()).unlockedBy("has_chiseled", has(Items.CHISELED_QUARTZ_BLOCK))
 		.save(consumer, appendResource(IcariaItems.QUARTZ_PILLAR_HEAD.getId(), "_cutting_chiseled"));
+		SimpleCookingRecipeBuilder.smelting(Ingredient.of(IcariaItems.SPELT_FLOUR.get()), IcariaItems.SPELT_BREAD.get(), 0.1F, 200).unlockedBy("has_flour", has(IcariaItems.SPELT_FLOUR.get()))
+		.save(consumer, appendResource(IcariaItems.SPELT_BREAD.getId(), "_smelting"));
 		ShapedRecipeBuilder.shaped(IcariaItems.SPELT_BREAD.get())
 		.pattern("XXX")
 		.define('X', IcariaItemTags.SPELT)
@@ -440,244 +445,251 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 	public void stoneTypeRecipes(Consumer<FinishedRecipe> consumer, Item stone, Item cobble, Item bricks, Item chiseled, StoneDecoItemBlocks deco) {
 		//smelting
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(cobble), stone, 0.1F, 200).unlockedBy("has_cobble", has(cobble))
-		.save(consumer, appendResource(Objects.requireNonNull(stone.getRegistryName()), "_smelting"));
+			.save(consumer, appendResource(Objects.requireNonNull(stone.getRegistryName()), "_smelting"));
+
 		//bricks
 		ShapedRecipeBuilder.shaped(bricks, 4)
-		.pattern("XX")
-		.pattern("XX")
-		.define('X', stone)
-		.unlockedBy("has_stone", has(stone))
-		.save(consumer, appendResource(Objects.requireNonNull(bricks.getRegistryName()), "_crafting"));
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', stone)
+			.unlockedBy("has_stone", has(stone))
+			.save(consumer, appendResource(Objects.requireNonNull(bricks.getRegistryName()), "_crafting"));
+
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(stone), bricks).unlockedBy("has_stone", has(stone))
-		.save(consumer, appendResource(bricks.getRegistryName(), "_cutting"));
+			.save(consumer, appendResource(bricks.getRegistryName(), "_cutting"));
+
 		//chiseled bricks
 		ShapedRecipeBuilder.shaped(chiseled, 1)
-		.pattern("X")
-		.pattern("X")
-		.define('X', Objects.requireNonNull(deco.SLAB).get())
-		.unlockedBy("has_slab", has(deco.SLAB.get()))
-		.save(consumer, appendResource(Objects.requireNonNull(chiseled.getRegistryName()), "_crafting"));
+			.pattern("X")
+			.pattern("X")
+			.define('X', Objects.requireNonNull(deco.SLAB).get())
+			.unlockedBy("has_slab", has(deco.SLAB.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(chiseled.getRegistryName()), "_crafting"));
+
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(stone), chiseled).unlockedBy("has_stone", has(stone))
-		.save(consumer, appendResource(chiseled.getRegistryName(), "_cutting_from_stone"));
+			.save(consumer, appendResource(chiseled.getRegistryName(), "_cutting_from_stone"));
+
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(bricks), chiseled).unlockedBy("has_bricks", has(bricks))
-		.save(consumer, appendResource(chiseled.getRegistryName(), "_cutting_from_bricks"));
+			.save(consumer, appendResource(chiseled.getRegistryName(), "_cutting_from_bricks"));
 	}
 
 	public void glassRecipes(Consumer<FinishedRecipe> consumer, Item sand, Item glass, Item pane, Item horizontalPane) {
 		//smelting
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(sand), glass, 0.1F, 200).unlockedBy("has_sand", has(sand))
-		.save(consumer, appendResource(Objects.requireNonNull(glass.getRegistryName()), "_smelting"));
+			.save(consumer, appendResource(Objects.requireNonNull(glass.getRegistryName()), "_smelting"));
+
 		//panes
 		ShapedRecipeBuilder.shaped(pane, 16)
-		.pattern("XXX")
-		.pattern("XXX")
-		.define('X', glass)
-		.unlockedBy("has_glass", has(glass))
-		.save(consumer, Objects.requireNonNull(pane.getRegistryName()));
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', glass)
+			.unlockedBy("has_glass", has(glass))
+			.save(consumer, Objects.requireNonNull(pane.getRegistryName()));
+
 		//horizontal panes
 		ShapedRecipeBuilder.shaped(horizontalPane, 2)
-		.pattern("XX")
-		.define('X', pane)
-		.unlockedBy("has_pane", has(pane))
-		.save(consumer, Objects.requireNonNull(horizontalPane.getRegistryName()));
+			.pattern("XX")
+			.define('X', pane)
+			.unlockedBy("has_pane", has(pane))
+			.save(consumer, Objects.requireNonNull(horizontalPane.getRegistryName()));
 	}
 
 	public void blockCompression(Consumer<FinishedRecipe> consumer, Item block, Item uncompressed, @Nullable Named<Item> uncompressedTag) {
 		if (uncompressedTag == null) {
 			ShapedRecipeBuilder.shaped(block, 1)
-			.pattern("XXX")
-			.pattern("XXX")
-			.pattern("XXX")
-			.define('X', uncompressed)
-			.group("")
-			.unlockedBy("has_uncompressed", has(uncompressed))
-			.save(consumer, appendResource(Objects.requireNonNull(uncompressed.getRegistryName()), "_to_block"));
+				.pattern("XXX")
+				.pattern("XXX")
+				.pattern("XXX")
+				.define('X', uncompressed)
+				.group("")
+				.unlockedBy("has_uncompressed", has(uncompressed))
+				.save(consumer, appendResource(Objects.requireNonNull(uncompressed.getRegistryName()), "_to_block"));
 		} else {
 			ShapedRecipeBuilder.shaped(block, 1)
-			.pattern("XXX")
-			.pattern("XYX")
-			.pattern("XXX")
-			.define('X', uncompressedTag)
-			.define('Y', uncompressed)
-			.group("")
-			.unlockedBy("has_uncompressed", has(uncompressed))
-			.save(consumer, appendResource(Objects.requireNonNull(uncompressed.getRegistryName()), "_to_block"));
+				.pattern("XXX")
+				.pattern("XYX")
+				.pattern("XXX")
+				.define('X', uncompressedTag)
+				.define('Y', uncompressed)
+				.group("")
+				.unlockedBy("has_uncompressed", has(uncompressed))
+				.save(consumer, appendResource(Objects.requireNonNull(uncompressed.getRegistryName()), "_to_block"));
 		}
 		ShapelessRecipeBuilder.shapeless(uncompressed, 9)
-		.requires(block)
-		.group("")
-		.unlockedBy("has_block", has(block))
-		.save(consumer, appendResource(Objects.requireNonNull(block.getRegistryName()), "_decompress"));
+			.requires(block)
+			.group("")
+			.unlockedBy("has_block", has(block))
+			.save(consumer, appendResource(Objects.requireNonNull(block.getRegistryName()), "_decompress"));
 	}
 
 	public void blockIngotNuggetCompression(Consumer<FinishedRecipe> consumer, String name, Item block, Item ingot, Item nugget) {
 		ShapedRecipeBuilder.shaped(block, 1)
-		.pattern("XXX")
-		.pattern("XYX")
-		.pattern("XXX")
-		.define('X', ItemTags.bind("forge:ingots/" + name))
-		.define('Y', ingot)
-		.group("")
-		.unlockedBy("has_ingot", has(ingot))
-		.save(consumer, appendResource(Objects.requireNonNull(ingot.getRegistryName()), "_to_block"));
+			.pattern("XXX")
+			.pattern("XYX")
+			.pattern("XXX")
+			.define('X', ItemTags.bind("forge:ingots/" + name))
+			.define('Y', ingot)
+			.group("")
+			.unlockedBy("has_ingot", has(ingot))
+			.save(consumer, appendResource(Objects.requireNonNull(ingot.getRegistryName()), "_to_block"));
 
 		ShapelessRecipeBuilder.shapeless(ingot, 9)
-		.requires(block)
-		.group("")
-		.unlockedBy("has_block", has(block))
-		.save(consumer, appendResource(Objects.requireNonNull(block.getRegistryName()), "_to_ingot"));
+			.requires(block)
+			.group("")
+			.unlockedBy("has_block", has(block))
+			.save(consumer, appendResource(Objects.requireNonNull(block.getRegistryName()), "_to_ingot"));
 
 		ShapedRecipeBuilder.shaped(ingot, 1)
-		.pattern("XXX")
-		.pattern("XYX")
-		.pattern("XXX")
-		.define('X', ItemTags.bind("forge:nuggets/" + name))
-		.define('Y', nugget)
-		.group("")
-		.unlockedBy("has_nugget", has(nugget))
-		.save(consumer, appendResource(Objects.requireNonNull(nugget.getRegistryName()), "_to_ingot"));
+			.pattern("XXX")
+			.pattern("XYX")
+			.pattern("XXX")
+			.define('X', ItemTags.bind("forge:nuggets/" + name))
+			.define('Y', nugget)
+			.group("")
+			.unlockedBy("has_nugget", has(nugget))
+			.save(consumer, appendResource(Objects.requireNonNull(nugget.getRegistryName()), "_to_ingot"));
 
 		ShapelessRecipeBuilder.shapeless(nugget, 9)
-		.requires(ingot)
-		.group("")
-		.unlockedBy("has_ingot", has(ingot))
-		.save(consumer, appendResource(ingot.getRegistryName(), "_to_nugget"));
+			.requires(ingot)
+			.group("")
+			.unlockedBy("has_ingot", has(ingot))
+			.save(consumer, appendResource(ingot.getRegistryName(), "_to_nugget"));
 	}
 
 	public void woodRecipes(Consumer<FinishedRecipe> consumer, String name, Item wood, Item strippedWood, Item log, Item strippedLog, Item planks) {
 		ShapedRecipeBuilder.shaped(wood, 3)
-				.pattern("XX ")
-				.pattern("XX ")
-				.pattern("   ")
-				.define('X', log)
-				.group("")
-				.unlockedBy("has_log", has(log))
-				.save(consumer, Objects.requireNonNull(wood.getRegistryName()));
+			.pattern("XX ")
+			.pattern("XX ")
+			.pattern("   ")
+			.define('X', log)
+			.group("")
+			.unlockedBy("has_log", has(log))
+			.save(consumer, Objects.requireNonNull(wood.getRegistryName()));
 
 		ShapedRecipeBuilder.shaped(strippedWood, 3)
-				.pattern("XX ")
-				.pattern("XX ")
-				.pattern("   ")
-				.define('X', strippedLog)
-				.group("")
-				.unlockedBy("has_log", has(strippedLog))
-				.save(consumer, Objects.requireNonNull(strippedWood.getRegistryName()));
+			.pattern("XX ")
+			.pattern("XX ")
+			.pattern("   ")
+			.define('X', strippedLog)
+			.group("")
+			.unlockedBy("has_log", has(strippedLog))
+			.save(consumer, Objects.requireNonNull(strippedWood.getRegistryName()));
 
 		ShapedRecipeBuilder.shaped(planks, 4)
-				.pattern("X  ")
-				.pattern("   ")
-				.pattern("   ")
-				.define('X', ItemTags.bind("forge:logs/" + name))
-				.group("")
-				.unlockedBy("has_log", has(log))
-				.save(consumer, Objects.requireNonNull(planks.getRegistryName()));
+			.pattern("X  ")
+			.pattern("   ")
+			.pattern("   ")
+			.define('X', ItemTags.bind("forge:logs/" + name))
+			.group("")
+			.unlockedBy("has_log", has(log))
+			.save(consumer, Objects.requireNonNull(planks.getRegistryName()));
 	}
 
 	public void doorRecipe(Consumer<FinishedRecipe> consumer, String name, Item door, Item planks) {
 		ShapedRecipeBuilder.shaped(door, 3)
-				.pattern("XX ")
-				.pattern("XX ")
-				.pattern("XX ")
-				.define('X', ItemTags.bind("forge:planks/" + name))
-				.group("")
-				.unlockedBy("has_planks", has(planks))
-				.save(consumer, Objects.requireNonNull(door.getRegistryName()));
+			.pattern("XX ")
+			.pattern("XX ")
+			.pattern("XX ")
+			.define('X', ItemTags.bind("forge:planks/" + name))
+			.group("")
+			.unlockedBy("has_planks", has(planks))
+			.save(consumer, Objects.requireNonNull(door.getRegistryName()));
 	}
 
 	public void trapdoorRecipe(Consumer<FinishedRecipe> consumer, String name, Item trapdoor, Item planks) {
 		ShapedRecipeBuilder.shaped(trapdoor, 2)
-				.pattern("   ")
-				.pattern("XXX")
-				.pattern("XXX")
-				.define('X', ItemTags.bind("forge:planks/" + name))
-				.group("")
-				.unlockedBy("has_planks", has(planks))
-				.save(consumer, Objects.requireNonNull(trapdoor.getRegistryName()));
+			.pattern("   ")
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', ItemTags.bind("forge:planks/" + name))
+			.group("")
+			.unlockedBy("has_planks", has(planks))
+			.save(consumer, Objects.requireNonNull(trapdoor.getRegistryName()));
 	}
 
 	public void ladderRecipe(Consumer<FinishedRecipe> consumer, String name, Item ladder, Item planks) {
 		ShapedRecipeBuilder.shaped(ladder, 6)
-				.pattern("X X")
-				.pattern("XXX")
-				.pattern("X X")
-				.define('X', ItemTags.bind("forge:planks/" + name))
-				.group("")
-				.unlockedBy("has_planks", has(planks))
-				.save(consumer, Objects.requireNonNull(ladder.getRegistryName()));
+			.pattern("X X")
+			.pattern("XXX")
+			.pattern("X X")
+			.define('X', ItemTags.bind("forge:planks/" + name))
+			.group("")
+			.unlockedBy("has_planks", has(planks))
+			.save(consumer, Objects.requireNonNull(ladder.getRegistryName()));
 	}
 
 	public void torchRecipe(Consumer<FinishedRecipe> consumer, String name, Item torch, Item gem) {
 		ShapedRecipeBuilder.shaped(torch, 2)
-				.pattern(" X ")
-				.pattern(" Y ")
-				.pattern("   ")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_gem", has(gem))
-				.save(consumer, Objects.requireNonNull(torch.getRegistryName()));
+			.pattern(" X ")
+			.pattern(" Y ")
+			.pattern("   ")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_gem", has(gem))
+			.save(consumer, Objects.requireNonNull(torch.getRegistryName()));
 	}
 
 	public void gemToolRecipes(Consumer<FinishedRecipe> consumer, String name, Item sword, Item shovel, Item pickaxe, Item axe, Item scythe, Item bident, Item gem) {
 		ShapedRecipeBuilder.shaped(sword, 1)
-				.pattern(" X ")
-				.pattern(" X ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(gem))
-				.save(consumer, Objects.requireNonNull(sword.getRegistryName()));
+			.pattern(" X ")
+			.pattern(" X ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(gem))
+			.save(consumer, Objects.requireNonNull(sword.getRegistryName()));
 
 		ShapedRecipeBuilder.shaped(shovel, 1)
-				.pattern(" X ")
-				.pattern(" Y ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(gem))
-				.save(consumer, Objects.requireNonNull(shovel.getRegistryName()));
+			.pattern(" X ")
+			.pattern(" Y ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(gem))
+			.save(consumer, Objects.requireNonNull(shovel.getRegistryName()));
 
 		ShapedRecipeBuilder.shaped(pickaxe, 1)
-				.pattern("XXX")
-				.pattern(" Y ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(gem))
-				.save(consumer, Objects.requireNonNull(pickaxe.getRegistryName()));
+			.pattern("XXX")
+			.pattern(" Y ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(gem))
+			.save(consumer, Objects.requireNonNull(pickaxe.getRegistryName()));
 
 		ShapedRecipeBuilder.shaped(axe, 1)
-				.pattern("XX ")
-				.pattern("XY ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(gem))
-				.save(consumer, Objects.requireNonNull(axe.getRegistryName()));
+			.pattern("XX ")
+			.pattern("XY ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(gem))
+			.save(consumer, Objects.requireNonNull(axe.getRegistryName()));
 
 		ShapedRecipeBuilder.shaped(scythe, 1)
-				.pattern(" XX")
-				.pattern("X Y")
-				.pattern("  Y")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_ingot", has(gem))
-				.save(consumer, Objects.requireNonNull(scythe.getRegistryName()));
+			.pattern(" XX")
+			.pattern("X Y")
+			.pattern("  Y")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_ingot", has(gem))
+			.save(consumer, Objects.requireNonNull(scythe.getRegistryName()));
 
 		ShapedRecipeBuilder.shaped(bident, 1)
-				.pattern("X X")
-				.pattern(" Y ")
-				.pattern(" Y ")
-				.define('X', ItemTags.bind("forge:gems/" + name))
-				.define('Y', ItemTags.bind("forge:bones"))
-				.group("")
-				.unlockedBy("has_gem", has(gem))
-				.save(consumer, Objects.requireNonNull(bident.getRegistryName()));
+			.pattern("X X")
+			.pattern(" Y ")
+			.pattern(" Y ")
+			.define('X', ItemTags.bind("forge:gems/" + name))
+			.define('Y', ItemTags.bind("forge:bones"))
+			.group("")
+			.unlockedBy("has_gem", has(gem))
+			.save(consumer, Objects.requireNonNull(bident.getRegistryName()));
 	}
 
 	public void ingotToolRecipes(Consumer<FinishedRecipe> consumer, String name, Item sword, Item shovel, Item pickaxe, Item axe, Item scythe, Item bident, Item ingot) {

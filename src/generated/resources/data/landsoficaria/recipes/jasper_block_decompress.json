@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:jasper_block"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:jasper",
+    "count": 9
+  }
+}

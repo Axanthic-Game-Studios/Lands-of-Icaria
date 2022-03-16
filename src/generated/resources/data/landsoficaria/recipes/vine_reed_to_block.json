@@ -2,11 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "XXX",
-    "XXX",
+    "XYX",
     "XXX"
   ],
   "key": {
     "X": {
+      "tag": "forge:storage_blocks/vine_reed"
+    },
+    "Y": {
       "item": "landsoficaria:vine_reed"
     }
   },

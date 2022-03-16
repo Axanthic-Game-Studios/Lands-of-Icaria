@@ -5,6 +5,10 @@
     "#forge:gems/lignite",
     "#forge:gems/dolomite",
     "#forge:gems/sliver",
-    "#forge:gems/anthracite"
+    "#forge:gems/anthracite",
+    "#forge:gems/calcite",
+    "#forge:gems/halite",
+    "#forge:gems/jasper",
+    "#forge:gems/zircon"
   ]
 }

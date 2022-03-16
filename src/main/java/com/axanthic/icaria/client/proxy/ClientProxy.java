@@ -99,6 +99,10 @@ public class ClientProxy extends CommonProxy {
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.ARISTONE.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.CALCITE_BLOCK.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.HALITE_BLOCK.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.JASPER_BLOCK.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.ZIRCON_BLOCK.get(), RenderType.translucent());
 
 		EntityRenderers.register(IcariaEntities.BIDENT.get(), ThrownBidentRenderer::new);
 	}

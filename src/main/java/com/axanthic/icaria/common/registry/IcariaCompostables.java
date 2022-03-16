@@ -41,9 +41,9 @@ public class IcariaCompostables {
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_REED_BLOCK.get(), 0.85F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_SPROUT_BLOCK.get(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.SPELT.get(), 0.65F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.SPELT_BREAD.get(), 0.85F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_REED.get(), 0.5F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_SPROUT.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.SPELT_BREAD.get(), 0.85F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.LAUREL_CHERRY.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.OLIVES_BLACK.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.OLIVES_GREEN.get(), 0.3F);

@@ -24,6 +24,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaItemTags extends ItemTagsProvider {
 
 	//block tags to copy
+	public static final Named<Item> STORAGE_BLOCKS_ARISTONE_PACKED = forgeTag("storage_blocks/aristone_packed");
+	public static final Named<Item> STORAGE_BLOCKS_JELLYFISH_JELLY = forgeTag("storage_blocks/jellyfish_jelly");
+	public static final Named<Item> STORAGE_BLOCKS_ARACHNE_STRING = forgeTag("storage_blocks/arachne_string");
+	public static final Named<Item> STORAGE_BLOCKS_SPELT = forgeTag("storage_blocks/spelt");
+	public static final Named<Item> STORAGE_BLOCKS_VINE_REED = forgeTag("storage_blocks/vine_reed");
+	public static final Named<Item> STORAGE_BLOCKS_VINE_SPROUT = forgeTag("storage_blocks/vine_sprout");
+	public static final Named<Item> STORAGE_BLOCKS_ROTTEN_BONES = forgeTag("storage_blocks/rotten_bones");
+	public static final Named<Item> STORAGE_BLOCKS_CALCITE = forgeTag("storage_blocks/calcite");
+	public static final Named<Item> STORAGE_BLOCKS_HALITE = forgeTag("storage_blocks/halite");
+	public static final Named<Item> STORAGE_BLOCKS_JASPER = forgeTag("storage_blocks/jasper");
+	public static final Named<Item> STORAGE_BLOCKS_ZIRCON = forgeTag("storage_blocks/zircon");
 	public static final Named<Item> STORAGE_BLOCKS_RAW_CHALKOS = forgeTag("storage_blocks/raw_chalkos");
 	public static final Named<Item> STORAGE_BLOCKS_RAW_KASSITEROS = forgeTag("storage_blocks/raw_kassiteros");
 	public static final Named<Item> STORAGE_BLOCKS_RAW_VANADIUM = forgeTag("storage_blocks/raw_vanadium");
@@ -121,8 +132,27 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 	//item exclusive tags
 	public static final Named<Item> SPELT = forgeTag("crops/spelt");
+
+	public static final Named<Item> GEMS_CHERT = forgeTag("gems/chert");
+	public static final Named<Item> GEMS_LIGNITE = forgeTag("gems/lignite");
+	public static final Named<Item> GEMS_DOLOMITE = forgeTag("gems/dolomite");
+	public static final Named<Item> GEMS_SLIVER = forgeTag("gems/sliver");
+	public static final Named<Item> GEMS_ANTHRACITE = forgeTag("gems/anthracite");
+	public static final Named<Item> GEMS_CALCITE = forgeTag("gems/calcite");
+	public static final Named<Item> GEMS_HALITE = forgeTag("gems/halite");
+	public static final Named<Item> GEMS_JASPER = forgeTag("gems/jasper");
+	public static final Named<Item> GEMS_ZIRCON = forgeTag("gems/zircon");
+
 	public static final Named<Item> SMALL_DUST = forgeTag("small_dusts");
 	public static final Named<Item> SMALL_DUST_CALCITE = forgeTag("small_dusts/calcite");
+	public static final Named<Item> SMALL_DUST_HALITE = forgeTag("small_dusts/halite");
+
+	public static final Named<Item> RAW_MATERIALS_CHALKOS = forgeTag("raw_materials/chalkos");
+	public static final Named<Item> RAW_MATERIALS_KASSITEROS = forgeTag("raw_materials/kassiteros");
+	public static final Named<Item> RAW_MATERIALS_VANADIUM = forgeTag("raw_materials/vanadium");
+	public static final Named<Item> RAW_MATERIALS_SIDEROS = forgeTag("raw_materials/sideros");
+	public static final Named<Item> RAW_MATERIALS_MOLYBDENUM = forgeTag("raw_materials/molybdenum");
+
 	public static final Named<Item> NUGGETS_CHALKOS = forgeTag("nuggets/chalkos");
 	public static final Named<Item> NUGGETS_KASSITEROS = forgeTag("nuggets/kassiteros");
 	public static final Named<Item> NUGGETS_ORICHALCUM = forgeTag("nuggets/orichalcum");
@@ -131,6 +161,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final Named<Item> NUGGETS_SIDEROS = forgeTag("nuggets/sideros");
 	public static final Named<Item> NUGGETS_MOLYBDENUM = forgeTag("nuggets/molybdenum");
 	public static final Named<Item> NUGGETS_MOLYBDENUMSTEEL = forgeTag("nuggets/molybdenumsteel");
+
 	public static final Named<Item> INGOTS_LOAM_BRICK = forgeTag("ingots/loam_brick");
 	public static final Named<Item> INGOTS_CHALKOS = forgeTag("ingots/chalkos");
 	public static final Named<Item> INGOTS_KASSITEROS = forgeTag("ingots/kassiteros");
@@ -140,17 +171,6 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final Named<Item> INGOTS_SIDEROS = forgeTag("ingots/sideros");
 	public static final Named<Item> INGOTS_MOLYBDENUM = forgeTag("ingots/molybdenum");
 	public static final Named<Item> INGOTS_MOLYBDENUMSTEEL = forgeTag("ingots/molybdenumsteel");
-	public static final Named<Item> GEMS_CHERT = forgeTag("gems/chert");
-	public static final Named<Item> GEMS_LIGNITE = forgeTag("gems/lignite");
-	public static final Named<Item> GEMS_DOLOMITE = forgeTag("gems/dolomite");
-	public static final Named<Item> GEMS_SLIVER = forgeTag("gems/sliver");
-	public static final Named<Item> GEMS_ANTHRACITE = forgeTag("gems/anthracite");
-
-	public static final Named<Item> RAW_MATERIALS_CHALKOS = forgeTag("raw_materials/chalkos");
-	public static final Named<Item> RAW_MATERIALS_KASSITEROS = forgeTag("raw_materials/kassiteros");
-	public static final Named<Item> RAW_MATERIALS_VANADIUM = forgeTag("raw_materials/vanadium");
-	public static final Named<Item> RAW_MATERIALS_SIDEROS = forgeTag("raw_materials/sideros");
-	public static final Named<Item> RAW_MATERIALS_MOLYBDENUM = forgeTag("raw_materials/molybdenum");
 
 	public IcariaItemTags(DataGenerator gen, BlockTagsProvider blockTags, ExistingFileHelper existingFileHelper) {
 		super(gen, blockTags, IcariaInfo.MODID, existingFileHelper);
@@ -183,6 +203,17 @@ public class IcariaItemTags extends ItemTagsProvider {
 			}
 		}
 
+		copy(IcariaBlockTags.STORAGE_BLOCKS_ARISTONE_PACKED, STORAGE_BLOCKS_ARISTONE_PACKED);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_JELLYFISH_JELLY, STORAGE_BLOCKS_JELLYFISH_JELLY);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_ARACHNE_STRING, STORAGE_BLOCKS_ARACHNE_STRING);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_SPELT, STORAGE_BLOCKS_SPELT);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_VINE_REED, STORAGE_BLOCKS_VINE_REED);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_VINE_SPROUT, STORAGE_BLOCKS_VINE_SPROUT);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_ROTTEN_BONES, STORAGE_BLOCKS_ROTTEN_BONES);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_CALCITE, STORAGE_BLOCKS_CALCITE);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_HALITE, STORAGE_BLOCKS_HALITE);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_JASPER, STORAGE_BLOCKS_JASPER);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_ZIRCON, STORAGE_BLOCKS_ZIRCON);
 		copy(IcariaBlockTags.STORAGE_BLOCKS_RAW_CHALKOS, STORAGE_BLOCKS_RAW_CHALKOS);
 		copy(IcariaBlockTags.STORAGE_BLOCKS_RAW_KASSITEROS, STORAGE_BLOCKS_RAW_KASSITEROS);
 		copy(IcariaBlockTags.STORAGE_BLOCKS_RAW_VANADIUM, STORAGE_BLOCKS_RAW_VANADIUM);
@@ -202,6 +233,17 @@ public class IcariaItemTags extends ItemTagsProvider {
 		copy(IcariaBlockTags.STORAGE_BLOCKS_MOLYBDENUMSTEEL, STORAGE_BLOCKS_MOLYBDENUMSTEEL);
 
 		tag(Tags.Items.STORAGE_BLOCKS)
+			.addTag(STORAGE_BLOCKS_ARISTONE_PACKED)
+			.addTag(STORAGE_BLOCKS_JELLYFISH_JELLY)
+			.addTag(STORAGE_BLOCKS_ARACHNE_STRING)
+			.addTag(STORAGE_BLOCKS_SPELT)
+			.addTag(STORAGE_BLOCKS_VINE_REED)
+			.addTag(STORAGE_BLOCKS_VINE_SPROUT)
+			.addTag(STORAGE_BLOCKS_ROTTEN_BONES)
+			.addTag(STORAGE_BLOCKS_CALCITE)
+			.addTag(STORAGE_BLOCKS_HALITE)
+			.addTag(STORAGE_BLOCKS_JASPER)
+			.addTag(STORAGE_BLOCKS_ZIRCON)
 			.addTag(STORAGE_BLOCKS_RAW_CHALKOS)
 			.addTag(STORAGE_BLOCKS_RAW_KASSITEROS)
 			.addTag(STORAGE_BLOCKS_RAW_VANADIUM)
@@ -426,8 +468,8 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 		tag(Tags.Items.GLASS_PANES)
 			.add(IcariaItems.GRAINGLASS_PANE.get())
-			.add(IcariaItems.SILKGLASS_PANE.get())
 			.add(IcariaItems.GRAINGLASS_PANE_HORIZONTAL.get())
+			.add(IcariaItems.SILKGLASS_PANE.get())
 			.add(IcariaItems.SILKGLASS_PANE_HORIZONTAL.get());
 
 		tag(Tags.Items.SANDSTONE).add(IcariaItems.GRAINITE.get());
@@ -457,9 +499,46 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 		tag(SPELT).add(IcariaItems.SPELT.get());
 
-		tag(SMALL_DUST).addTag(SMALL_DUST_CALCITE);
+		tag(GEMS_CHERT).add(IcariaItems.CHERT.get());
+		tag(GEMS_LIGNITE).add(IcariaItems.LIGNITE.get());
+		tag(GEMS_DOLOMITE).add(IcariaItems.DOLOMITE.get());
+		tag(GEMS_SLIVER).add(IcariaItems.SLIVER.get());
+		tag(GEMS_ANTHRACITE).add(IcariaItems.ANTHRACITE.get());
+		tag(GEMS_CALCITE).add(IcariaItems.CALCITE.get());
+		tag(GEMS_HALITE).add(IcariaItems.HALITE.get());
+		tag(GEMS_JASPER).add(IcariaItems.JASPER.get());
+		tag(GEMS_ZIRCON).add(IcariaItems.ZIRCON.get());
+
+		tag(Tags.Items.GEMS)
+			.addTag(GEMS_CHERT)
+			.addTag(GEMS_LIGNITE)
+			.addTag(GEMS_DOLOMITE)
+			.addTag(GEMS_SLIVER)
+			.addTag(GEMS_ANTHRACITE)
+			.addTag(GEMS_CALCITE)
+			.addTag(GEMS_HALITE)
+			.addTag(GEMS_JASPER)
+			.addTag(GEMS_ZIRCON);
 
 		tag(SMALL_DUST_CALCITE).add(IcariaItems.CALCITE_POWDER.get());
+		tag(SMALL_DUST_HALITE).add(IcariaItems.ROCK_SALT.get());
+
+		tag(SMALL_DUST)
+			.addTag(SMALL_DUST_CALCITE)
+			.addTag(SMALL_DUST_HALITE);
+
+		tag(RAW_MATERIALS_CHALKOS).add(IcariaItems.CHALKOS_RAW.get());
+		tag(RAW_MATERIALS_KASSITEROS).add(IcariaItems.KASSITEROS_RAW.get());
+		tag(RAW_MATERIALS_VANADIUM).add(IcariaItems.VANADIUM_RAW.get());
+		tag(RAW_MATERIALS_SIDEROS).add(IcariaItems.SIDEROS_RAW.get());
+		tag(RAW_MATERIALS_MOLYBDENUM).add(IcariaItems.MOLYBDENUM_RAW.get());
+
+		tag(Tags.Items.RAW_MATERIALS)
+			.addTag(RAW_MATERIALS_CHALKOS)
+			.addTag(RAW_MATERIALS_KASSITEROS)
+			.addTag(RAW_MATERIALS_VANADIUM)
+			.addTag(RAW_MATERIALS_SIDEROS)
+			.addTag(RAW_MATERIALS_MOLYBDENUM);
 
 		tag(NUGGETS_CHALKOS).add(IcariaItems.CHALKOS_NUGGET.get());
 		tag(NUGGETS_KASSITEROS).add(IcariaItems.KASSITEROS_NUGGET.get());
@@ -500,32 +579,6 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.addTag(INGOTS_SIDEROS)
 			.addTag(INGOTS_MOLYBDENUM)
 			.addTag(INGOTS_MOLYBDENUMSTEEL);
-
-		tag(GEMS_CHERT).add(IcariaItems.CHERT.get());
-		tag(GEMS_LIGNITE).add(IcariaItems.LIGNITE.get());
-		tag(GEMS_DOLOMITE).add(IcariaItems.DOLOMITE.get());
-		tag(GEMS_SLIVER).add(IcariaItems.SLIVER.get());
-		tag(GEMS_ANTHRACITE).add(IcariaItems.ANTHRACITE.get());
-
-		tag(Tags.Items.GEMS)
-			.addTag(GEMS_CHERT)
-			.addTag(GEMS_LIGNITE)
-			.addTag(GEMS_DOLOMITE)
-			.addTag(GEMS_SLIVER)
-			.addTag(GEMS_ANTHRACITE);
-
-		tag(RAW_MATERIALS_CHALKOS).add(IcariaItems.CHALKOS_RAW.get());
-		tag(RAW_MATERIALS_KASSITEROS).add(IcariaItems.KASSITEROS_RAW.get());
-		tag(RAW_MATERIALS_VANADIUM).add(IcariaItems.VANADIUM_RAW.get());
-		tag(RAW_MATERIALS_SIDEROS).add(IcariaItems.SIDEROS_RAW.get());
-		tag(RAW_MATERIALS_MOLYBDENUM).add(IcariaItems.MOLYBDENUM_RAW.get());
-
-		tag(Tags.Items.RAW_MATERIALS)
-			.addTag(RAW_MATERIALS_CHALKOS)
-			.addTag(RAW_MATERIALS_KASSITEROS)
-			.addTag(RAW_MATERIALS_VANADIUM)
-			.addTag(RAW_MATERIALS_SIDEROS)
-			.addTag(RAW_MATERIALS_MOLYBDENUM);
 	}
 
 	@SafeVarargs
