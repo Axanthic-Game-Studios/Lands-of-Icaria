@@ -6,12 +6,14 @@
     ]
   },
   "criteria": {
-    "has_brick": {
+    "has_item": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:ingots/loam_brick"
+            "items": [
+              "landsoficaria:loam_brick"
+            ]
           }
         ]
       }
@@ -25,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_brick",
+      "has_item",
       "has_the_recipe"
     ]
   ]

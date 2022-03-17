@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:stick"
+    },
+    "Y": {
+      "item": "landsoficaria:aeternae_hide"
+    }
+  },
+  "result": {
+    "item": "minecraft:item_frame"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:kassiteros_raw"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:kassiteros_raw_block"
+  }
+}

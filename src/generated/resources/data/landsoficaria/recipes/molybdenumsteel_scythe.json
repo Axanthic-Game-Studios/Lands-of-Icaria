@@ -7,7 +7,7 @@
   ],
   "key": {
     "X": {
-      "tag": "forge:ingots/molybdenumsteel"
+      "item": "landsoficaria:molybdenumsteel_ingot"
     },
     "Y": {
       "tag": "forge:bones"

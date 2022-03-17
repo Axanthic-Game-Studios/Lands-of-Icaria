@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "landsoficaria:dolomite_ore"
+  },
+  "result": "landsoficaria:dolomite",
+  "experience": 0.7,
+  "cookingtime": 200
+}

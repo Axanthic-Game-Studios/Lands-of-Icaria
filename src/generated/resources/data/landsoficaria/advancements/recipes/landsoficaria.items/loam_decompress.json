@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "landsoficaria:loam_decompress"
+    ]
+  },
+  "criteria": {
+    "has_compressed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:loam"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "landsoficaria:loam_decompress"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_compressed",
+      "has_the_recipe"
+    ]
+  ]
+}

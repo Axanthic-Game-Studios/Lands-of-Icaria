@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "landsoficaria:vanadium_raw"
+  },
+  "result": "landsoficaria:vanadium_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

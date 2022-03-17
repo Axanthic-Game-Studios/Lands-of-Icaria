@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:chalkos_raw"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:chalkos_raw_block"
+  }
+}

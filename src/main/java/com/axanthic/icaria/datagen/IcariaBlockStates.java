@@ -29,8 +29,8 @@ public class IcariaBlockStates extends BlockStateProvider {
 	public static final List<RegistryObject<? extends Block>> ROTATED = new ArrayList<>();
 	public static final List<RegistryObject<? extends Block>> MIRRORED = new ArrayList<>();
 
-	public IcariaBlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
-		super(gen, IcariaInfo.MODID, exFileHelper);
+	public IcariaBlockStates(DataGenerator generator, ExistingFileHelper exFileHelper) {
+		super(generator, IcariaInfo.MODID, exFileHelper);
 	}
 
 	@Override

@@ -30,8 +30,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaLootTables extends LootTableProvider {
 	private final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> lootTables = ImmutableList.of(Pair.of(IcariaBlockLootTables::new, LootContextParamSets.BLOCK));
 
-	public IcariaLootTables(DataGenerator gen) {
-		super(gen);
+	public IcariaLootTables(DataGenerator generator) {
+		super(generator);
 	}
 
 	@Override

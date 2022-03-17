@@ -6,7 +6,7 @@
   ],
   "key": {
     "X": {
-      "tag": "forge:ingots/loam_brick"
+      "item": "landsoficaria:loam_brick"
     }
   },
   "result": {

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "landsoficaria:raw_catoblepas_meat"
+  },
+  "result": "landsoficaria:cooked_catoblepas_meat",
+  "experience": 0.35,
+  "cookingtime": 100
+}

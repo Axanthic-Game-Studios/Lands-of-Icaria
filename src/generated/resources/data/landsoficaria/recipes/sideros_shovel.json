@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " X ",
-    " Y ",
-    " Y "
+    "X",
+    "Y",
+    "Y"
   ],
   "key": {
     "X": {
-      "tag": "forge:ingots/sideros"
+      "item": "landsoficaria:sideros_ingot"
     },
     "Y": {
       "tag": "forge:bones"

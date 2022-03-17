@@ -2,14 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "XXX",
-    "XYX",
+    "XXX",
     "XXX"
   ],
   "key": {
     "X": {
-      "tag": "forge:ingots/sideros"
-    },
-    "Y": {
       "item": "landsoficaria:sideros_ingot"
     }
   },

@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "XX ",
-    "XX ",
-    "XX "
+    "XX",
+    "XX",
+    "XX"
   ],
   "key": {
     "X": {
-      "tag": "forge:planks/plane"
+      "item": "landsoficaria:plane_planks"
     }
   },
   "result": {

@@ -16,8 +16,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaLang extends LanguageProvider {
-	public IcariaLang(DataGenerator gen) {
-		super(gen, IcariaInfo.MODID, "en_us");
+	public IcariaLang(DataGenerator generator) {
+		super(generator, IcariaInfo.MODID, "en_us");
 	}
 
 	@Override

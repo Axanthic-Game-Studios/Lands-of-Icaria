@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " X ",
-    " Y ",
-    " Y "
+    "X",
+    "Y",
+    "Y"
   ],
   "key": {
     "X": {
-      "tag": "forge:gems/chert"
+      "item": "landsoficaria:chert"
     },
     "Y": {
       "tag": "forge:bones"

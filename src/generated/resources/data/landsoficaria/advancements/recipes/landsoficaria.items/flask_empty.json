@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_glass": {
+    "has_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_glass",
+      "has_block",
       "has_the_recipe"
     ]
   ]

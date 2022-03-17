@@ -15,6 +15,9 @@ import com.axanthic.icaria.common.registry.IcariaBlocks.WoodDecoBlocks;
 import com.axanthic.icaria.util.IcariaTier;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.FoodProperties.Builder;
 import net.minecraft.world.item.*;
@@ -222,7 +225,7 @@ public class IcariaItems {
 	public static final WoodDecoItemBlocks CYPRESS_DECO = new WoodDecoItemBlocks(IcariaBlocks.CYPRESS_DECO, CYPRESS_PLANKS);
 	public static final RegistryObject<Item> CYPRESS_DOOR = registerBasic("cypress_door", () -> new BlockItem(IcariaBlocks.CYPRESS_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CYPRESS_TRAPDOOR = register("cypress_trapdoor", () -> new BlockItem(IcariaBlocks.CYPRESS_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> CYPRESS_LADDER = registerBasic("cypress_ladder", () -> new BlockItem(IcariaBlocks.CYPRESS_LADDER.get(), propertiesFlora()));
+	public static final RegistryObject<Item> CYPRESS_LADDER = registerBasic("cypress_ladder", () -> new FuelBlockItem(IcariaBlocks.CYPRESS_LADDER.get(), propertiesFlora(), 300));
 
 	public static final RegistryObject<Item> DROUGHTROOT_SAPLING = register("droughtroot_sapling", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> DROUGHTROOT_LEAVES = register("droughtroot_leaves", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_LEAVES.get(), propertiesFlora()));
@@ -238,7 +241,7 @@ public class IcariaItems {
 	public static final WoodDecoItemBlocks DROUGHTROOT_DECO = new WoodDecoItemBlocks(IcariaBlocks.DROUGHTROOT_DECO, DROUGHTROOT_PLANKS);
 	public static final RegistryObject<Item> DROUGHTROOT_DOOR = registerBasic("droughtroot_door", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> DROUGHTROOT_TRAPDOOR = register("droughtroot_trapdoor", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> DROUGHTROOT_LADDER = registerBasic("droughtroot_ladder", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_LADDER.get(), propertiesFlora()));
+	public static final RegistryObject<Item> DROUGHTROOT_LADDER = registerBasic("droughtroot_ladder", () -> new FuelBlockItem(IcariaBlocks.DROUGHTROOT_LADDER.get(), propertiesFlora(), 300));
 
 	public static final RegistryObject<Item> FIR_SAPLING = register("fir_sapling", () -> new BlockItem(IcariaBlocks.FIR_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> FIR_LEAVES = register("fir_leaves", () -> new BlockItem(IcariaBlocks.FIR_LEAVES.get(), propertiesFlora()));
@@ -254,7 +257,7 @@ public class IcariaItems {
 	public static final WoodDecoItemBlocks FIR_DECO = new WoodDecoItemBlocks(IcariaBlocks.FIR_DECO, FIR_PLANKS);
 	public static final RegistryObject<Item> FIR_DOOR = registerBasic("fir_door", () -> new BlockItem(IcariaBlocks.FIR_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> FIR_TRAPDOOR = register("fir_trapdoor", () -> new BlockItem(IcariaBlocks.FIR_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> FIR_LADDER = registerBasic("fir_ladder", () -> new BlockItem(IcariaBlocks.FIR_LADDER.get(), propertiesFlora()));
+	public static final RegistryObject<Item> FIR_LADDER = registerBasic("fir_ladder", () -> new FuelBlockItem(IcariaBlocks.FIR_LADDER.get(), propertiesFlora(), 300));
 
 	public static final RegistryObject<Item> LAUREL_SAPLING = register("laurel_sapling", () -> new BlockItem(IcariaBlocks.LAUREL_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> LAUREL_LEAVES = register("laurel_leaves", () -> new BlockItem(IcariaBlocks.LAUREL_LEAVES.get(), propertiesFlora()));
@@ -270,7 +273,7 @@ public class IcariaItems {
 	public static final WoodDecoItemBlocks LAUREL_DECO = new WoodDecoItemBlocks(IcariaBlocks.LAUREL_DECO, LAUREL_PLANKS);
 	public static final RegistryObject<Item> LAUREL_DOOR = registerBasic("laurel_door", () -> new BlockItem(IcariaBlocks.LAUREL_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> LAUREL_TRAPDOOR = register("laurel_trapdoor", () -> new BlockItem(IcariaBlocks.LAUREL_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> LAUREL_LADDER = registerBasic("laurel_ladder", () -> new BlockItem(IcariaBlocks.LAUREL_LADDER.get(), propertiesFlora()));
+	public static final RegistryObject<Item> LAUREL_LADDER = registerBasic("laurel_ladder", () -> new FuelBlockItem(IcariaBlocks.LAUREL_LADDER.get(), propertiesFlora(), 300));
 
 	public static final RegistryObject<Item> OLIVE_SAPLING = register("olive_sapling", () -> new BlockItem(IcariaBlocks.OLIVE_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> OLIVE_LEAVES = register("olive_leaves", () -> new BlockItem(IcariaBlocks.OLIVE_LEAVES.get(), propertiesFlora()));
@@ -288,7 +291,7 @@ public class IcariaItems {
 	public static final WoodDecoItemBlocks OLIVE_DECO = new WoodDecoItemBlocks(IcariaBlocks.OLIVE_DECO, OLIVE_PLANKS);
 	public static final RegistryObject<Item> OLIVE_DOOR = registerBasic("olive_door", () -> new BlockItem(IcariaBlocks.OLIVE_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> OLIVE_TRAPDOOR = register("olive_trapdoor", () -> new BlockItem(IcariaBlocks.OLIVE_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> OLIVE_LADDER = registerBasic("olive_ladder", () -> new BlockItem(IcariaBlocks.OLIVE_LADDER.get(), propertiesFlora()));
+	public static final RegistryObject<Item> OLIVE_LADDER = registerBasic("olive_ladder", () -> new FuelBlockItem(IcariaBlocks.OLIVE_LADDER.get(), propertiesFlora(), 300));
 
 	public static final RegistryObject<Item> PLANE_SAPLING = register("plane_sapling", () -> new BlockItem(IcariaBlocks.PLANE_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PLANE_LEAVES = register("plane_leaves", () -> new BlockItem(IcariaBlocks.PLANE_LEAVES.get(), propertiesFlora()));
@@ -304,7 +307,7 @@ public class IcariaItems {
 	public static final WoodDecoItemBlocks PLANE_DECO = new WoodDecoItemBlocks(IcariaBlocks.PLANE_DECO, PLANE_PLANKS);
 	public static final RegistryObject<Item> PLANE_DOOR = registerBasic("plane_door", () -> new BlockItem(IcariaBlocks.PLANE_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PLANE_TRAPDOOR = register("plane_trapdoor", () -> new BlockItem(IcariaBlocks.PLANE_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> PLANE_LADDER = registerBasic("plane_ladder", () -> new BlockItem(IcariaBlocks.PLANE_LADDER.get(), propertiesFlora()));
+	public static final RegistryObject<Item> PLANE_LADDER = registerBasic("plane_ladder", () -> new FuelBlockItem(IcariaBlocks.PLANE_LADDER.get(), propertiesFlora(), 300));
 
 	public static final RegistryObject<Item> POPULUS_SAPLING = register("populus_sapling", () -> new BlockItem(IcariaBlocks.POPULUS_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> POPULUS_LEAVES = register("populus_leaves", () -> new BlockItem(IcariaBlocks.POPULUS_LEAVES.get(), propertiesFlora()));
@@ -320,7 +323,7 @@ public class IcariaItems {
 	public static final WoodDecoItemBlocks POPULUS_DECO = new WoodDecoItemBlocks(IcariaBlocks.POPULUS_DECO, POPULUS_PLANKS);
 	public static final RegistryObject<Item> POPULUS_DOOR = registerBasic("populus_door", () -> new BlockItem(IcariaBlocks.POPULUS_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> POPULUS_TRAPDOOR = register("populus_trapdoor", () -> new BlockItem(IcariaBlocks.POPULUS_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> POPULUS_LADDER = registerBasic("populus_ladder", () -> new BlockItem(IcariaBlocks.POPULUS_LADDER.get(), propertiesFlora()));
+	public static final RegistryObject<Item> POPULUS_LADDER = registerBasic("populus_ladder", () -> new FuelBlockItem(IcariaBlocks.POPULUS_LADDER.get(), propertiesFlora(), 300));
 
 	public static final RegistryObject<Item> LIGNITE_TORCH = registerBasic("lignite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.LIGNITE_TORCH.get(), IcariaBlocks.LIGNITE_WALL_TORCH.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> ANTHRACITE_TORCH = registerBasic("anthracite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.ANTHRACITE_TORCH.get(), IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), propertiesBlocks()));
@@ -337,7 +340,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> ARACHNE_STRING = registerBasic("arachne_string", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> SPELT = registerBasic("spelt", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> VINE_REED = registerBasic("vine_reed", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> VINE_SPROUT = registerBasic("vine_sprout", () -> new VineSproutItem(propertiesVineSprout().food(foodPropertiesVineSprout())));
+	public static final RegistryObject<Item> VINE_SPROUT = registerBasic("vine_sprout", () -> new VineSproutItem(propertiesItems().setNoRepair().stacksTo(1).durability(24).food(foodPropertiesVineSprout(0, 1.0F))));
 	public static final RegistryObject<Item> ROTTEN_BONES = registerBasic("rotten_bones", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> CALCITE = registerBasic("calcite", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> HALITE = registerBasic("halite", () -> new Item(propertiesItems()));
@@ -384,14 +387,24 @@ public class IcariaItems {
 	public static final RegistryObject<Item> FLASK_EMPTY = registerBasic("flask_empty", () -> new Item(propertiesItems()));
 
 	public static final RegistryObject<Item> SPELT_FLOUR = registerBasic("spelt_flour", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> SPELT_BREAD = registerBasic("spelt_bread", () -> new Item(propertiesItems().food(foodPropertiesSpeltBread())));
-	public static final RegistryObject<Item> LAUREL_CHERRY = registerBasic("laurel_cherry", () -> new Item(propertiesItems().food(foodPropertiesLaurelCherry())));
-	public static final RegistryObject<Item> OLIVES_BLACK = registerBasic("olives_black", () -> new Item(propertiesItems().food(foodPropertiesOlives())));
-	public static final RegistryObject<Item> OLIVES_GREEN = registerBasic("olives_green", () -> new Item(propertiesItems().food(foodPropertiesOlives())));
+	public static final RegistryObject<Item> SPELT_BREAD = registerBasic("spelt_bread", () -> new Item(propertiesItems().food(foodProperties(5, 0.6F))));
+	public static final RegistryObject<Item> LAUREL_CHERRY = registerBasic("laurel_cherry", () -> new Item(propertiesItems().food(foodProperties(4, 0.3F))));
+	public static final RegistryObject<Item> OLIVES_BLACK = registerBasic("olives_black", () -> new Item(propertiesItems().food(foodProperties(2, 0.3F))));
+	public static final RegistryObject<Item> OLIVES_GREEN = registerBasic("olives_green", () -> new Item(propertiesItems().food(foodProperties(2, 0.3F))));
+	public static final RegistryObject<Item> AETERNAE_HIDE = registerBasic("aeternae_hide", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> RAW_AETERNAE_MEAT = registerBasic("raw_aeternae_meat", () -> new Item(propertiesItems().food(foodPropertiesMeatEffect(3, 0.3F, MobEffects.HUNGER, 100, 0, 1.0F))));
+	public static final RegistryObject<Item> COOKED_AETERNAE_MEAT = registerBasic("cooked_aeternae_meat", () -> new Item(propertiesItems().food(foodPropertiesMeat(8, 0.8F))));
+	public static final RegistryObject<Item> RAW_CATOBLEPAS_MEAT = registerBasic("raw_catoblepas_meat", () -> new Item(propertiesItems().food(foodPropertiesMeat(2, 0.3F))));
+	public static final RegistryObject<Item> COOKED_CATOBLEPAS_MEAT = registerBasic("cooked_catoblepas_meat", () -> new Item(propertiesItems().food(foodPropertiesMeat(6, 0.8F))));
+	public static final RegistryObject<Item> RAW_CERVER_MEAT = registerBasic("raw_cerver_meat", () -> new Item(propertiesItems().food(foodPropertiesMeatEffect(2, 0.3F, MobEffects.WEAKNESS, 800, 0, 0.4F))));
+	public static final RegistryObject<Item> COOKED_CERVER_MEAT = registerBasic("cooked_cerver_meat", () -> new Item(propertiesItems().food(foodPropertiesMeat(5, 0.8F))));
+	public static final RegistryObject<Item> RAW_SOW_MEAT = registerBasic("raw_sow_meat", () -> new Item(propertiesItems().food(foodPropertiesMeatEffect(2, 0.3F, MobEffects.HUNGER, 400, 0, 1.0F))));
+	public static final RegistryObject<Item> COOKED_SOW_MEAT = registerBasic("cooked_sow_meat", () -> new Item(propertiesItems().food(foodPropertiesMeat(5, 0.8F))));
+	public static final RegistryObject<Item> SNULL_CREAM = registerBasic("snull_cream", () -> new Item(propertiesItems().food(foodPropertiesSnullCream(3, 0.1F, MobEffects.HUNGER, 100, 0, 0.5F, MobEffects.CONFUSION, 200, 0, 0.5F))));
 
-	public static final RegistryObject<BucketItem> HYLIASTRUM_FLUID_BUCKET = registerBasic("hyliastrum_fluid_bucket", () -> new BucketItem(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, propertiesBuckets()));
-	public static final RegistryObject<BucketItem> MEDITERRANEAN_WATER_BUCKET = registerBasic("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesBuckets()));
-	public static final RegistryObject<BucketItem> UPWARDS_FLUID_BUCKET = registerBasic("upwards_fluid_bucket", () -> new BucketItem(IcariaFluids.UPWARDS_FLUID_SOURCE, propertiesBuckets()));
+	public static final RegistryObject<BucketItem> HYLIASTRUM_FLUID_BUCKET = registerBasic("hyliastrum_fluid_bucket", () -> new BucketItem(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
+	public static final RegistryObject<BucketItem> MEDITERRANEAN_WATER_BUCKET = registerBasic("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
+	public static final RegistryObject<BucketItem> UPWARDS_FLUID_BUCKET = registerBasic("upwards_fluid_bucket", () -> new BucketItem(IcariaFluids.UPWARDS_FLUID_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
 
 	private static Properties propertiesBlocks() {
 		return new Properties().tab(IcariaTabs.creativeBlocks);
@@ -405,28 +418,28 @@ public class IcariaItems {
 		return new Properties().tab(IcariaTabs.creativeItems);
 	}
 
-	private static Properties propertiesVineSprout() {
-		return new Properties().tab(IcariaTabs.creativeItems).setNoRepair().stacksTo(1).durability(24);
+	private static FoodProperties foodPropertiesVineSprout(int nutrition, float saturation) {
+		return new Builder().nutrition(nutrition).saturationMod(saturation).alwaysEat().build();
 	}
 
-	private static Properties propertiesBuckets() {
-		return new Properties().tab(IcariaTabs.creativeItems).craftRemainder(Items.BUCKET).stacksTo(1);
+	private static FoodProperties foodPropertiesEffect(int nutrition, float saturation, MobEffect effect, int effectDuration, int effectAmplifier, float effectProbability) {
+		return new Builder().nutrition(nutrition).saturationMod(saturation).effect(() -> new MobEffectInstance(effect, effectDuration, effectAmplifier), effectProbability).build();
 	}
 
-	private static FoodProperties foodPropertiesVineSprout() {
-		return new Builder().nutrition(0).saturationMod(1.0F).alwaysEat().build();
+	private static FoodProperties foodProperties(int nutrition, float saturation) {
+		return new Builder().nutrition(nutrition).saturationMod(saturation).build();
 	}
 
-	private static FoodProperties foodPropertiesSpeltBread() {
-		return new Builder().nutrition(5).saturationMod(0.6F).build();
+	private static FoodProperties foodPropertiesMeatEffect(int nutrition, float saturation, MobEffect effect, int effectDuration, int effectAmplifier, float effectProbability) {
+		return new Builder().nutrition(nutrition).saturationMod(saturation).effect(() -> new MobEffectInstance(effect, effectDuration, effectAmplifier), effectProbability).meat().build();
 	}
 
-	private static FoodProperties foodPropertiesLaurelCherry() {
-		return new Builder().nutrition(4).saturationMod(0.3F).build();
+	private static FoodProperties foodPropertiesMeat(int nutrition, float saturation) {
+		return new Builder().nutrition(nutrition).saturationMod(saturation).meat().build();
 	}
 
-	private static FoodProperties foodPropertiesOlives() {
-		return new Builder().nutrition(2).saturationMod(0.3F).build();
+	private static FoodProperties foodPropertiesSnullCream(int nutrition, float saturation, MobEffect effect, int effectDuration, int effectAmplifier, float effectProbability, MobEffect effect2, int effectDuration2,int effectAmplifier2, float effectProbability2) {
+		return new Builder().nutrition(nutrition).saturationMod(saturation).effect(() -> new MobEffectInstance(effect, effectDuration, effectAmplifier), effectProbability).effect(() -> new MobEffectInstance(effect2, effectDuration2, effectAmplifier2), effectProbability2).build();
 	}
 
 	private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item) {
@@ -485,11 +498,11 @@ public class IcariaItems {
 			else
 				STAIRS = null;
 			if (block.FENCE != null)
-				FENCE = register(block.name + "_fence", () -> new BlockItem(block.FENCE.get(), propertiesFlora()));
+				FENCE = register(block.name + "_fence", () -> new FuelBlockItem(block.FENCE.get(), propertiesFlora(), 300));
 			else
 				FENCE = null;
 			if (block.GATE != null)
-				GATE = register(block.name + "_fence_gate", () -> new BlockItem(block.GATE.get(), propertiesFlora()));
+				GATE = register(block.name + "_fence_gate", () -> new FuelBlockItem(block.GATE.get(), propertiesFlora(), 300));
 			else
 				GATE = null;
 			WOOD_BLOCKS.add(this);

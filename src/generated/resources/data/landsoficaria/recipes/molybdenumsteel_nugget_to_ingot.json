@@ -2,14 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "XXX",
-    "XYX",
+    "XXX",
     "XXX"
   ],
   "key": {
     "X": {
-      "tag": "forge:nuggets/molybdenumsteel"
-    },
-    "Y": {
       "item": "landsoficaria:molybdenumsteel_nugget"
     }
   },

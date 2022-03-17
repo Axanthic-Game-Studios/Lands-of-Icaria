@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "YX",
-    "XY"
+    "XY",
+    "YX"
   ],
   "key": {
-    "X": {
+    "Y": {
       "item": "landsoficaria:marl"
     },
-    "Y": {
+    "X": {
       "item": "landsoficaria:grainel"
     }
   },

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "landsoficaria:anthracite_ore"
+  },
+  "result": "landsoficaria:anthracite",
+  "experience": 0.7,
+  "cookingtime": 100
+}

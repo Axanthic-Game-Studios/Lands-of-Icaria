@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XYX",
+    "ZZZ"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:redstone_torch"
+    },
+    "Y": {
+      "item": "minecraft:redstone"
+    },
+    "Z": {
+      "item": "landsoficaria:relicstone_smooth"
+    }
+  },
+  "result": {
+    "item": "minecraft:repeater"
+  }
+}

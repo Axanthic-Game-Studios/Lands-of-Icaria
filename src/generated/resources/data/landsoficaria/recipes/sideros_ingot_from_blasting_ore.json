@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "landsoficaria:sideros_ore"
+  },
+  "result": "landsoficaria:sideros_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

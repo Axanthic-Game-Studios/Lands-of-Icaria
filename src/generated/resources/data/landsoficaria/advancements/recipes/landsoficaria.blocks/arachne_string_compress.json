@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "landsoficaria:arachne_string_compress"
+    ]
+  },
+  "criteria": {
+    "has_uncompressed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:arachne_string"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "landsoficaria:arachne_string_compress"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_uncompressed",
+      "has_the_recipe"
+    ]
+  ]
+}

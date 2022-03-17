@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "landsoficaria:raw_cerver_meat"
+  },
+  "result": "landsoficaria:cooked_cerver_meat",
+  "experience": 0.35,
+  "cookingtime": 600
+}

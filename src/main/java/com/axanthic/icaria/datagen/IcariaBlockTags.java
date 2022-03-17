@@ -153,8 +153,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final Named<Block> WOODEN_TRAPDOORS_PLANE  = forgeTag("wooden_trapdoors/plane");
 	public static final Named<Block> WOODEN_TRAPDOORS_POPULUS = forgeTag("wooden_trapdoors/populus");
 
-	public IcariaBlockTags(DataGenerator gen, ExistingFileHelper existingFileHelper) {
-		super(gen, IcariaInfo.MODID, existingFileHelper);
+	public IcariaBlockTags(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+		super(generator, IcariaInfo.MODID, existingFileHelper);
 	}
 
 	@Override

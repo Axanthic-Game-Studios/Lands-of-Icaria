@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "XY"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:paper"
+    },
+    "Y": {
+      "item": "landsoficaria:aeternae_hide"
+    }
+  },
+  "result": {
+    "item": "minecraft:book"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:leather_boots_from_aeternae"
+    ]
+  },
+  "criteria": {
+    "has_leather": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:aeternae_hide"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:leather_boots_from_aeternae"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_leather",
+      "has_the_recipe"
+    ]
+  ]
+}

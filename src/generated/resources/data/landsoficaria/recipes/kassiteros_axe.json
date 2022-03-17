@@ -7,7 +7,7 @@
   ],
   "key": {
     "X": {
-      "tag": "forge:ingots/kassiteros"
+      "item": "landsoficaria:kassiteros_ingot"
     },
     "Y": {
       "tag": "forge:bones"

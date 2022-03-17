@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "XX ",
-    "XX ",
-    "XX "
+    "XX",
+    "XX",
+    "XX"
   ],
   "key": {
     "X": {
-      "tag": "forge:planks/droughtroot"
+      "item": "landsoficaria:droughtroot_planks"
     }
   },
   "result": {

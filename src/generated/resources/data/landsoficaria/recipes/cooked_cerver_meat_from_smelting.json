@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "landsoficaria:raw_cerver_meat"
+  },
+  "result": "landsoficaria:cooked_cerver_meat",
+  "experience": 0.35,
+  "cookingtime": 200
+}

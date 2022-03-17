@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "landsoficaria:chalkos_raw"
+  },
+  "result": "landsoficaria:chalkos_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

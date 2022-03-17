@@ -1,13 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " X ",
-    " Y ",
-    "   "
+    "X",
+    "Y"
   ],
   "key": {
     "X": {
-      "tag": "forge:gems/anthracite"
+      "item": "landsoficaria:anthracite"
     },
     "Y": {
       "tag": "forge:bones"

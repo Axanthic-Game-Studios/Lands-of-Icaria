@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "landsoficaria:chalkos_ore"
+  },
+  "result": "landsoficaria:chalkos_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

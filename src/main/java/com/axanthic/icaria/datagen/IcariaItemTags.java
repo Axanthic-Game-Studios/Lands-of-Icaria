@@ -172,8 +172,10 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final Named<Item> INGOTS_MOLYBDENUM = forgeTag("ingots/molybdenum");
 	public static final Named<Item> INGOTS_MOLYBDENUMSTEEL = forgeTag("ingots/molybdenumsteel");
 
-	public IcariaItemTags(DataGenerator gen, BlockTagsProvider blockTags, ExistingFileHelper existingFileHelper) {
-		super(gen, blockTags, IcariaInfo.MODID, existingFileHelper);
+	public static final Named<Item> LEATHER_AETERNAE_HIDE = forgeTag("leather/aeternae_hide");
+
+	public IcariaItemTags(DataGenerator generator, BlockTagsProvider blockTags, ExistingFileHelper existingFileHelper) {
+		super(generator, blockTags, IcariaInfo.MODID, existingFileHelper);
 	}
 
 	@Override
@@ -579,6 +581,10 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.addTag(INGOTS_SIDEROS)
 			.addTag(INGOTS_MOLYBDENUM)
 			.addTag(INGOTS_MOLYBDENUMSTEEL);
+
+		tag(LEATHER_AETERNAE_HIDE).add(IcariaItems.AETERNAE_HIDE.get());
+
+		tag(Tags.Items.LEATHER).addTag(LEATHER_AETERNAE_HIDE);
 	}
 
 	@SafeVarargs

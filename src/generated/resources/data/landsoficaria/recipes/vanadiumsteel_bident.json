@@ -7,7 +7,7 @@
   ],
   "key": {
     "X": {
-      "tag": "forge:ingots/vanadiumsteel"
+      "item": "landsoficaria:vanadiumsteel_ingot"
     },
     "Y": {
       "tag": "forge:bones"

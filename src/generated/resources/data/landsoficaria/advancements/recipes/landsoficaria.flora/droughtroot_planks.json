@@ -6,14 +6,12 @@
     ]
   },
   "criteria": {
-    "has_log": {
+    "has_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:droughtroot_log"
-            ]
+            "tag": "forge:logs/droughtroot"
           }
         ]
       }
@@ -27,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_log",
+      "has_block",
       "has_the_recipe"
     ]
   ]

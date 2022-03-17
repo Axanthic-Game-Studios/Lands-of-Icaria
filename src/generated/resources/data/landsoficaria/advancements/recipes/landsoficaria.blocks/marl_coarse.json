@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_marl": {
+    "has_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:marl"
+              "landsoficaria:grainel"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_marl",
+      "has_block",
       "has_the_recipe"
     ]
   ]

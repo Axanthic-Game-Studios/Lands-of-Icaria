@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "landsoficaria:raw_aeternae_meat"
+  },
+  "result": "landsoficaria:cooked_aeternae_meat",
+  "experience": 0.35,
+  "cookingtime": 600
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:vanadium_raw"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:vanadium_raw_block"
+  }
+}
