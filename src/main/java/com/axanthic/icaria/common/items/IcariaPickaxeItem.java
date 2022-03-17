@@ -4,7 +4,7 @@ import com.axanthic.icaria.datagen.IcariaBlockTags;
 import com.axanthic.icaria.util.IcariaTier;
 
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tier;
@@ -19,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaPickaxeItem extends PickaxeItem {
-	private final Tag<Block> blocks = BlockTags.MINEABLE_WITH_PICKAXE;
+	private final TagKey<Block> blocks = BlockTags.MINEABLE_WITH_PICKAXE;
 	private final Tier equivalentTier;
 
 	public IcariaPickaxeItem(IcariaTier tier, int damage, float attackSpeed, Properties properties) {

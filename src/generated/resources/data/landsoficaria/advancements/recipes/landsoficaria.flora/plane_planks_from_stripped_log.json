@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "landsoficaria:silkstone"
+      "landsoficaria:plane_planks_from_stripped_log"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "landsoficaria:silksand"
+              "landsoficaria:stripped_plane_log"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "landsoficaria:silkstone"
+        "recipe": "landsoficaria:plane_planks_from_stripped_log"
       }
     }
   },

@@ -9,10 +9,12 @@ import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems.WoodDecoItemBlocks;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag.Named;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.common.Tags;
@@ -26,132 +28,132 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaBlockTags extends BlockTagsProvider {
 
 	//tags exclusive to blocks
-	public static final Named<Block> ICARIA_TIER = icariaTag("icaria_tier");
+	public static final TagKey<Block> ICARIA_TIER = icariaTag("icaria_tier");
 
-	public static final Named<Block> NEEDS_CHERT_TOOL = icariaTag("needs_chert_tool");
-	public static final Named<Block> NEEDS_CHALKOS_TOOL = icariaTag("needs_chalkos_tool");
-	public static final Named<Block> NEEDS_KASSITEROS_TOOL = icariaTag("needs_kassiteros_tool");
-	public static final Named<Block> NEEDS_ORICHALCUM_TOOL = icariaTag("needs_orichalcum_tool");
-	public static final Named<Block> NEEDS_VANADIUMSTEEL_TOOL = icariaTag("needs_vanadiumsteel_tool");
-	public static final Named<Block> NEEDS_SIDEROS_TOOL = icariaTag("needs_sideros_tool");
-	public static final Named<Block> NEEDS_MOLYBDENUMSTEEL_TOOL = icariaTag("needs_molybdenumsteel_tool");
+	public static final TagKey<Block> NEEDS_CHERT_TOOL = icariaTag("needs_chert_tool");
+	public static final TagKey<Block> NEEDS_CHALKOS_TOOL = icariaTag("needs_chalkos_tool");
+	public static final TagKey<Block> NEEDS_KASSITEROS_TOOL = icariaTag("needs_kassiteros_tool");
+	public static final TagKey<Block> NEEDS_ORICHALCUM_TOOL = icariaTag("needs_orichalcum_tool");
+	public static final TagKey<Block> NEEDS_VANADIUMSTEEL_TOOL = icariaTag("needs_vanadiumsteel_tool");
+	public static final TagKey<Block> NEEDS_SIDEROS_TOOL = icariaTag("needs_sideros_tool");
+	public static final TagKey<Block> NEEDS_MOLYBDENUMSTEEL_TOOL = icariaTag("needs_molybdenumsteel_tool");
 
-	public static final Named<Block> MINEABLE_WITH_SCYTHE = icariaTag("mineable/scythe");
+	public static final TagKey<Block> MINEABLE_WITH_SCYTHE = icariaTag("mineable/scythe");
 
 	//tags shared with items
-	public static final Named<Block> STORAGE_BLOCKS_ARISTONE_PACKED = forgeTag("storage_blocks/aristone_packed");
-	public static final Named<Block> STORAGE_BLOCKS_JELLYFISH_JELLY = forgeTag("storage_blocks/jellyfish_jelly");
-	public static final Named<Block> STORAGE_BLOCKS_ARACHNE_STRING = forgeTag("storage_blocks/arachne_string");
-	public static final Named<Block> STORAGE_BLOCKS_SPELT = forgeTag("storage_blocks/spelt");
-	public static final Named<Block> STORAGE_BLOCKS_VINE_REED = forgeTag("storage_blocks/vine_reed");
-	public static final Named<Block> STORAGE_BLOCKS_VINE_SPROUT = forgeTag("storage_blocks/vine_sprout");
-	public static final Named<Block> STORAGE_BLOCKS_ROTTEN_BONES = forgeTag("storage_blocks/rotten_bones");
-	public static final Named<Block> STORAGE_BLOCKS_CALCITE = forgeTag("storage_blocks/calcite");
-	public static final Named<Block> STORAGE_BLOCKS_HALITE = forgeTag("storage_blocks/halite");
-	public static final Named<Block> STORAGE_BLOCKS_JASPER = forgeTag("storage_blocks/jasper");
-	public static final Named<Block> STORAGE_BLOCKS_ZIRCON = forgeTag("storage_blocks/zircon");
-	public static final Named<Block> STORAGE_BLOCKS_RAW_CHALKOS = forgeTag("storage_blocks/raw_chalkos");
-	public static final Named<Block> STORAGE_BLOCKS_RAW_KASSITEROS = forgeTag("storage_blocks/raw_kassiteros");
-	public static final Named<Block> STORAGE_BLOCKS_RAW_VANADIUM = forgeTag("storage_blocks/raw_vanadium");
-	public static final Named<Block> STORAGE_BLOCKS_RAW_SIDEROS = forgeTag("storage_blocks/raw_sideros");
-	public static final Named<Block> STORAGE_BLOCKS_RAW_MOLYBDENUM = forgeTag("storage_blocks/raw_molybdenum");
-	public static final Named<Block> STORAGE_BLOCKS_CHERT = forgeTag("storage_blocks/chert");
-	public static final Named<Block> STORAGE_BLOCKS_LIGNITE = forgeTag("storage_blocks/lignite");
-	public static final Named<Block> STORAGE_BLOCKS_CHALKOS = forgeTag("storage_blocks/chalkos");
-	public static final Named<Block> STORAGE_BLOCKS_KASSITEROS = forgeTag("storage_blocks/kassiteros");
-	public static final Named<Block> STORAGE_BLOCKS_ORICHALCUM = forgeTag("storage_blocks/orichalcum");
-	public static final Named<Block> STORAGE_BLOCKS_VANADIUM = forgeTag("storage_blocks/vanadium");
-	public static final Named<Block> STORAGE_BLOCKS_VANADIUMSTEEL = forgeTag("storage_blocks/vanadiumsteel");
-	public static final Named<Block> STORAGE_BLOCKS_SLIVER = forgeTag("storage_blocks/sliver");
-	public static final Named<Block> STORAGE_BLOCKS_SIDEROS = forgeTag("storage_blocks/sideros");
-	public static final Named<Block> STORAGE_BLOCKS_ANTHRACITE = forgeTag("storage_blocks/anthracite");
-	public static final Named<Block> STORAGE_BLOCKS_MOLYBDENUM = forgeTag("storage_blocks/molybdenum");
-	public static final Named<Block> STORAGE_BLOCKS_MOLYBDENUMSTEEL = forgeTag("storage_blocks/molybdenumsteel");
+	public static final TagKey<Block> STORAGE_BLOCKS_ARISTONE_PACKED = forgeTag("storage_blocks/aristone_packed");
+	public static final TagKey<Block> STORAGE_BLOCKS_JELLYFISH_JELLY = forgeTag("storage_blocks/jellyfish_jelly");
+	public static final TagKey<Block> STORAGE_BLOCKS_ARACHNE_STRING = forgeTag("storage_blocks/arachne_string");
+	public static final TagKey<Block> STORAGE_BLOCKS_SPELT = forgeTag("storage_blocks/spelt");
+	public static final TagKey<Block> STORAGE_BLOCKS_VINE_REED = forgeTag("storage_blocks/vine_reed");
+	public static final TagKey<Block> STORAGE_BLOCKS_VINE_SPROUT = forgeTag("storage_blocks/vine_sprout");
+	public static final TagKey<Block> STORAGE_BLOCKS_ROTTEN_BONES = forgeTag("storage_blocks/rotten_bones");
+	public static final TagKey<Block> STORAGE_BLOCKS_CALCITE = forgeTag("storage_blocks/calcite");
+	public static final TagKey<Block> STORAGE_BLOCKS_HALITE = forgeTag("storage_blocks/halite");
+	public static final TagKey<Block> STORAGE_BLOCKS_JASPER = forgeTag("storage_blocks/jasper");
+	public static final TagKey<Block> STORAGE_BLOCKS_ZIRCON = forgeTag("storage_blocks/zircon");
+	public static final TagKey<Block> STORAGE_BLOCKS_RAW_CHALKOS = forgeTag("storage_blocks/raw_chalkos");
+	public static final TagKey<Block> STORAGE_BLOCKS_RAW_KASSITEROS = forgeTag("storage_blocks/raw_kassiteros");
+	public static final TagKey<Block> STORAGE_BLOCKS_RAW_VANADIUM = forgeTag("storage_blocks/raw_vanadium");
+	public static final TagKey<Block> STORAGE_BLOCKS_RAW_SIDEROS = forgeTag("storage_blocks/raw_sideros");
+	public static final TagKey<Block> STORAGE_BLOCKS_RAW_MOLYBDENUM = forgeTag("storage_blocks/raw_molybdenum");
+	public static final TagKey<Block> STORAGE_BLOCKS_CHERT = forgeTag("storage_blocks/chert");
+	public static final TagKey<Block> STORAGE_BLOCKS_LIGNITE = forgeTag("storage_blocks/lignite");
+	public static final TagKey<Block> STORAGE_BLOCKS_CHALKOS = forgeTag("storage_blocks/chalkos");
+	public static final TagKey<Block> STORAGE_BLOCKS_KASSITEROS = forgeTag("storage_blocks/kassiteros");
+	public static final TagKey<Block> STORAGE_BLOCKS_ORICHALCUM = forgeTag("storage_blocks/orichalcum");
+	public static final TagKey<Block> STORAGE_BLOCKS_VANADIUM = forgeTag("storage_blocks/vanadium");
+	public static final TagKey<Block> STORAGE_BLOCKS_VANADIUMSTEEL = forgeTag("storage_blocks/vanadiumsteel");
+	public static final TagKey<Block> STORAGE_BLOCKS_SLIVER = forgeTag("storage_blocks/sliver");
+	public static final TagKey<Block> STORAGE_BLOCKS_SIDEROS = forgeTag("storage_blocks/sideros");
+	public static final TagKey<Block> STORAGE_BLOCKS_ANTHRACITE = forgeTag("storage_blocks/anthracite");
+	public static final TagKey<Block> STORAGE_BLOCKS_MOLYBDENUM = forgeTag("storage_blocks/molybdenum");
+	public static final TagKey<Block> STORAGE_BLOCKS_MOLYBDENUMSTEEL = forgeTag("storage_blocks/molybdenumsteel");
 
-	public static final Named<Block> ORE_BEARING_GROUND_MARL = forgeTag("ore_bearing_ground/marl");
-	public static final Named<Block> ORE_BEARING_GROUND_GRAINEL = forgeTag("ore_bearing_ground/grainel");
-	public static final Named<Block> ORE_BEARING_GROUND_YELLOWSTONE = forgeTag("ore_bearing_ground/yellowstone");
-	public static final Named<Block> ORE_BEARING_GROUND_SILKSTONE = forgeTag("ore_bearing_ground/silkstone");
-	public static final Named<Block> ORE_BEARING_GROUND_SUNSTONE = forgeTag("ore_bearing_ground/sunstone");
-	public static final Named<Block> ORE_BEARING_GROUND_VOIDSHALE = forgeTag("ore_bearing_ground/voidshale");
-	public static final Named<Block> ORE_BEARING_GROUND_BAETYL = forgeTag("ore_bearing_ground/baetyl");
+	public static final TagKey<Block> ORE_BEARING_GROUND_MARL = forgeTag("ore_bearing_ground/marl");
+	public static final TagKey<Block> ORE_BEARING_GROUND_GRAINEL = forgeTag("ore_bearing_ground/grainel");
+	public static final TagKey<Block> ORE_BEARING_GROUND_YELLOWSTONE = forgeTag("ore_bearing_ground/yellowstone");
+	public static final TagKey<Block> ORE_BEARING_GROUND_SILKSTONE = forgeTag("ore_bearing_ground/silkstone");
+	public static final TagKey<Block> ORE_BEARING_GROUND_SUNSTONE = forgeTag("ore_bearing_ground/sunstone");
+	public static final TagKey<Block> ORE_BEARING_GROUND_VOIDSHALE = forgeTag("ore_bearing_ground/voidshale");
+	public static final TagKey<Block> ORE_BEARING_GROUND_BAETYL = forgeTag("ore_bearing_ground/baetyl");
 
-	public static final Named<Block> ORES_IN_GROUND_MARL = forgeTag("ores_in_ground/marl");
-	public static final Named<Block> ORES_IN_GROUND_GRAINEL = forgeTag("ores_in_ground/grainel");
-	public static final Named<Block> ORES_IN_GROUND_YELLOWSTONE = forgeTag("ores_in_ground/yellowstone");
-	public static final Named<Block> ORES_IN_GROUND_SILKSTONE = forgeTag("ores_in_ground/silkstone");
-	public static final Named<Block> ORES_IN_GROUND_SUNSTONE = forgeTag("ores_in_ground/sunstone");
-	public static final Named<Block> ORES_IN_GROUND_VOIDSHALE = forgeTag("ores_in_ground/voidshale");
-	public static final Named<Block> ORES_IN_GROUND_BAETYL = forgeTag("ores_in_ground/baetyl");
+	public static final TagKey<Block> ORES_IN_GROUND_MARL = forgeTag("ores_in_ground/marl");
+	public static final TagKey<Block> ORES_IN_GROUND_GRAINEL = forgeTag("ores_in_ground/grainel");
+	public static final TagKey<Block> ORES_IN_GROUND_YELLOWSTONE = forgeTag("ores_in_ground/yellowstone");
+	public static final TagKey<Block> ORES_IN_GROUND_SILKSTONE = forgeTag("ores_in_ground/silkstone");
+	public static final TagKey<Block> ORES_IN_GROUND_SUNSTONE = forgeTag("ores_in_ground/sunstone");
+	public static final TagKey<Block> ORES_IN_GROUND_VOIDSHALE = forgeTag("ores_in_ground/voidshale");
+	public static final TagKey<Block> ORES_IN_GROUND_BAETYL = forgeTag("ores_in_ground/baetyl");
 
-	public static final Named<Block> ORES_ROTTEN_BONES = forgeTag("ores/rotten_bones");
-	public static final Named<Block> ORES_CHERT = forgeTag("ores/chert");
-	public static final Named<Block> ORES_LIGNITE = forgeTag("ores/lignite");
-	public static final Named<Block> ORES_CHALKOS = forgeTag("ores/chalkos");
-	public static final Named<Block> ORES_KASSITEROS = forgeTag("ores/kassiteros");
-	public static final Named<Block> ORES_DOLOMITE = forgeTag("ores/dolomite");
-	public static final Named<Block> ORES_VANADIUM = forgeTag("ores/vanadium");
-	public static final Named<Block> ORES_SLIVER = forgeTag("ores/sliver");
-	public static final Named<Block> ORES_SIDEROS = forgeTag("ores/sideros");
-	public static final Named<Block> ORES_ANTHRACITE = forgeTag("ores/anthracite");
-	public static final Named<Block> ORES_MOLYBDENUM = forgeTag("ores/molybdenum");
-	public static final Named<Block> ORES_HYLIASTRUM = forgeTag("ores/hyliastrum");
+	public static final TagKey<Block> ORES_ROTTEN_BONES = forgeTag("ores/rotten_bones");
+	public static final TagKey<Block> ORES_CHERT = forgeTag("ores/chert");
+	public static final TagKey<Block> ORES_LIGNITE = forgeTag("ores/lignite");
+	public static final TagKey<Block> ORES_CHALKOS = forgeTag("ores/chalkos");
+	public static final TagKey<Block> ORES_KASSITEROS = forgeTag("ores/kassiteros");
+	public static final TagKey<Block> ORES_DOLOMITE = forgeTag("ores/dolomite");
+	public static final TagKey<Block> ORES_VANADIUM = forgeTag("ores/vanadium");
+	public static final TagKey<Block> ORES_SLIVER = forgeTag("ores/sliver");
+	public static final TagKey<Block> ORES_SIDEROS = forgeTag("ores/sideros");
+	public static final TagKey<Block> ORES_ANTHRACITE = forgeTag("ores/anthracite");
+	public static final TagKey<Block> ORES_MOLYBDENUM = forgeTag("ores/molybdenum");
+	public static final TagKey<Block> ORES_HYLIASTRUM = forgeTag("ores/hyliastrum");
 
-	public static final Named<Block> FLOWER_POTS_CYPRESS_SAPLING = forgeTag("flower_pots/cypress");
-	public static final Named<Block> FLOWER_POTS_DROUGHTROOT_SAPLING = forgeTag("flower_pots/droughtroot");
-	public static final Named<Block> FLOWER_POTS_FIR_SAPLING = forgeTag("flower_pots/fir");
-	public static final Named<Block> FLOWER_POTS_LAUREL_SAPLING = forgeTag("flower_pots/laurel");
-	public static final Named<Block> FLOWER_POTS_OLIVE_SAPLING = forgeTag("flower_pots/olive");
-	public static final Named<Block> FLOWER_POTS_PLANE_SAPLING = forgeTag("flower_pots/plane");
-	public static final Named<Block> FLOWER_POTS_POPULUS_SAPLING = forgeTag("flower_pots/populus");
+	public static final TagKey<Block> FLOWER_POTS_CYPRESS_SAPLING = forgeTag("flower_pots/cypress");
+	public static final TagKey<Block> FLOWER_POTS_DROUGHTROOT_SAPLING = forgeTag("flower_pots/droughtroot");
+	public static final TagKey<Block> FLOWER_POTS_FIR_SAPLING = forgeTag("flower_pots/fir");
+	public static final TagKey<Block> FLOWER_POTS_LAUREL_SAPLING = forgeTag("flower_pots/laurel");
+	public static final TagKey<Block> FLOWER_POTS_OLIVE_SAPLING = forgeTag("flower_pots/olive");
+	public static final TagKey<Block> FLOWER_POTS_PLANE_SAPLING = forgeTag("flower_pots/plane");
+	public static final TagKey<Block> FLOWER_POTS_POPULUS_SAPLING = forgeTag("flower_pots/populus");
 
-	public static final Named<Block> SAPLINGS_CYPRESS = forgeTag("saplings/cypress");
-	public static final Named<Block> SAPLINGS_DROUGHTROOT = forgeTag("saplings/droughtroot");
-	public static final Named<Block> SAPLINGS_FIR = forgeTag("saplings/fir");
-	public static final Named<Block> SAPLINGS_LAUREL = forgeTag("saplings/laurel");
-	public static final Named<Block> SAPLINGS_OLIVE = forgeTag("saplings/olive");
-	public static final Named<Block> SAPLINGS_PLANE = forgeTag("saplings/plane");
-	public static final Named<Block> SAPLINGS_POPULUS = forgeTag("saplings/populus");
+	public static final TagKey<Block> SAPLINGS_CYPRESS = forgeTag("saplings/cypress");
+	public static final TagKey<Block> SAPLINGS_DROUGHTROOT = forgeTag("saplings/droughtroot");
+	public static final TagKey<Block> SAPLINGS_FIR = forgeTag("saplings/fir");
+	public static final TagKey<Block> SAPLINGS_LAUREL = forgeTag("saplings/laurel");
+	public static final TagKey<Block> SAPLINGS_OLIVE = forgeTag("saplings/olive");
+	public static final TagKey<Block> SAPLINGS_PLANE = forgeTag("saplings/plane");
+	public static final TagKey<Block> SAPLINGS_POPULUS = forgeTag("saplings/populus");
 
-	public static final Named<Block> LEAVES_CYPRESS = forgeTag("leaves/cypress");
-	public static final Named<Block> LEAVES_DROUGHTROOT = forgeTag("leaves/droughtroot");
-	public static final Named<Block> LEAVES_FIR = forgeTag("leaves/fir");
-	public static final Named<Block> LEAVES_LAUREL = forgeTag("leaves/laurel");
-	public static final Named<Block> LEAVES_OLIVE = forgeTag("leaves/olive");
-	public static final Named<Block> LEAVES_PLANE = forgeTag("leaves/plane");
-	public static final Named<Block> LEAVES_POPULUS = forgeTag("leaves/populus");
+	public static final TagKey<Block> LEAVES_CYPRESS = forgeTag("leaves/cypress");
+	public static final TagKey<Block> LEAVES_DROUGHTROOT = forgeTag("leaves/droughtroot");
+	public static final TagKey<Block> LEAVES_FIR = forgeTag("leaves/fir");
+	public static final TagKey<Block> LEAVES_LAUREL = forgeTag("leaves/laurel");
+	public static final TagKey<Block> LEAVES_OLIVE = forgeTag("leaves/olive");
+	public static final TagKey<Block> LEAVES_PLANE = forgeTag("leaves/plane");
+	public static final TagKey<Block> LEAVES_POPULUS = forgeTag("leaves/populus");
 	
-	public static final Named<Block> LOGS_CYPRESS = forgeTag("logs/cypress");
-	public static final Named<Block> LOGS_DROUGHTROOT = forgeTag("logs/droughtroot");
-	public static final Named<Block> LOGS_FIR = forgeTag("logs/fir");
-	public static final Named<Block> LOGS_LAUREL = forgeTag("logs/laurel");
-	public static final Named<Block> LOGS_OLIVE = forgeTag("logs/olive");
-	public static final Named<Block> LOGS_PLANE = forgeTag("logs/plane");
-	public static final Named<Block> LOGS_POPULUS = forgeTag("logs/populus");
+	public static final TagKey<Block> LOGS_CYPRESS = forgeTag("logs/cypress");
+	public static final TagKey<Block> LOGS_DROUGHTROOT = forgeTag("logs/droughtroot");
+	public static final TagKey<Block> LOGS_FIR = forgeTag("logs/fir");
+	public static final TagKey<Block> LOGS_LAUREL = forgeTag("logs/laurel");
+	public static final TagKey<Block> LOGS_OLIVE = forgeTag("logs/olive");
+	public static final TagKey<Block> LOGS_PLANE = forgeTag("logs/plane");
+	public static final TagKey<Block> LOGS_POPULUS = forgeTag("logs/populus");
 
-	public static final Named<Block> PLANKS_CYPRESS = forgeTag("planks/cypress");
-	public static final Named<Block> PLANKS_DROUGHTROOT = forgeTag("planks/droughtroot");
-	public static final Named<Block> PLANKS_FIR = forgeTag("planks/fir");
-	public static final Named<Block> PLANKS_LAUREL = forgeTag("planks/laurel");
-	public static final Named<Block> PLANKS_OLIVE = forgeTag("planks/olive");
-	public static final Named<Block> PLANKS_PLANE  = forgeTag("planks/plane");
-	public static final Named<Block> PLANKS_POPULUS = forgeTag("planks/populus");
+	public static final TagKey<Block> PLANKS_CYPRESS = forgeTag("planks/cypress");
+	public static final TagKey<Block> PLANKS_DROUGHTROOT = forgeTag("planks/droughtroot");
+	public static final TagKey<Block> PLANKS_FIR = forgeTag("planks/fir");
+	public static final TagKey<Block> PLANKS_LAUREL = forgeTag("planks/laurel");
+	public static final TagKey<Block> PLANKS_OLIVE = forgeTag("planks/olive");
+	public static final TagKey<Block> PLANKS_PLANE  = forgeTag("planks/plane");
+	public static final TagKey<Block> PLANKS_POPULUS = forgeTag("planks/populus");
 
-	public static final Named<Block> WOODEN_DOORS_CYPRESS = forgeTag("wooden_doors/cypress");
-	public static final Named<Block> WOODEN_DOORS_DROUGHTROOT = forgeTag("wooden_doors/droughtroot");
-	public static final Named<Block> WOODEN_DOORS_FIR = forgeTag("wooden_doors/fir");
-	public static final Named<Block> WOODEN_DOORS_LAUREL = forgeTag("wooden_doors/laurel");
-	public static final Named<Block> WOODEN_DOORS_OLIVE = forgeTag("wooden_doors/olive");
-	public static final Named<Block> WOODEN_DOORS_PLANE  = forgeTag("wooden_doors/plane");
-	public static final Named<Block> WOODEN_DOORS_POPULUS = forgeTag("wooden_doors/populus");
+	public static final TagKey<Block> WOODEN_DOORS_CYPRESS = forgeTag("wooden_doors/cypress");
+	public static final TagKey<Block> WOODEN_DOORS_DROUGHTROOT = forgeTag("wooden_doors/droughtroot");
+	public static final TagKey<Block> WOODEN_DOORS_FIR = forgeTag("wooden_doors/fir");
+	public static final TagKey<Block> WOODEN_DOORS_LAUREL = forgeTag("wooden_doors/laurel");
+	public static final TagKey<Block> WOODEN_DOORS_OLIVE = forgeTag("wooden_doors/olive");
+	public static final TagKey<Block> WOODEN_DOORS_PLANE  = forgeTag("wooden_doors/plane");
+	public static final TagKey<Block> WOODEN_DOORS_POPULUS = forgeTag("wooden_doors/populus");
 
-	public static final Named<Block> WOODEN_TRAPDOORS_CYPRESS = forgeTag("wooden_trapdoors/cypress");
-	public static final Named<Block> WOODEN_TRAPDOORS_DROUGHTROOT = forgeTag("wooden_trapdoors/droughtroot");
-	public static final Named<Block> WOODEN_TRAPDOORS_FIR = forgeTag("wooden_trapdoors/fir");
-	public static final Named<Block> WOODEN_TRAPDOORS_LAUREL = forgeTag("wooden_trapdoors/laurel");
-	public static final Named<Block> WOODEN_TRAPDOORS_OLIVE = forgeTag("wooden_trapdoors/olive");
-	public static final Named<Block> WOODEN_TRAPDOORS_PLANE  = forgeTag("wooden_trapdoors/plane");
-	public static final Named<Block> WOODEN_TRAPDOORS_POPULUS = forgeTag("wooden_trapdoors/populus");
+	public static final TagKey<Block> WOODEN_TRAPDOORS_CYPRESS = forgeTag("wooden_trapdoors/cypress");
+	public static final TagKey<Block> WOODEN_TRAPDOORS_DROUGHTROOT = forgeTag("wooden_trapdoors/droughtroot");
+	public static final TagKey<Block> WOODEN_TRAPDOORS_FIR = forgeTag("wooden_trapdoors/fir");
+	public static final TagKey<Block> WOODEN_TRAPDOORS_LAUREL = forgeTag("wooden_trapdoors/laurel");
+	public static final TagKey<Block> WOODEN_TRAPDOORS_OLIVE = forgeTag("wooden_trapdoors/olive");
+	public static final TagKey<Block> WOODEN_TRAPDOORS_PLANE  = forgeTag("wooden_trapdoors/plane");
+	public static final TagKey<Block> WOODEN_TRAPDOORS_POPULUS = forgeTag("wooden_trapdoors/populus");
 
 	public IcariaBlockTags(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, IcariaInfo.MODID, existingFileHelper);
@@ -845,19 +847,23 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.ANTHRACITE_TORCH.get());
 	}
 
-	public void addStoneDecoToTag(StoneDecoBlocks deco, Named<Block> tag) {
+	public void addStoneDecoToTag(StoneDecoBlocks deco, TagKey<Block> tag) {
 		tag(tag).add(deco.SLAB.get()).add(deco.STAIRS.get()).add(deco.WALL.get());
 	}
 
-	public void addWoodDecoToTag(WoodDecoBlocks deco, Named<Block> tag) {
+	public void addWoodDecoToTag(WoodDecoBlocks deco, TagKey<Block> tag) {
 		tag(tag).add(deco.SLAB.get()).add(deco.STAIRS.get()).add(deco.FENCE.get()).add(deco.GATE.get());
 	}
 
-	public static Named<Block> icariaTag(String name) {
-		return BlockTags.bind(IcariaInfo.MODID + ":" + name);
+	public static TagKey<Block> icariaTag(String name) {
+		return IcariaBlockTags.bind(IcariaInfo.MODID + ":" + name);
 	}
 
-	public static Named<Block> forgeTag(String name) {
-		return BlockTags.bind("forge:" + name);
+	public static TagKey<Block> forgeTag(String name) {
+		return IcariaBlockTags.bind("forge:" + name);
+	}
+
+	public static TagKey<Block> bind(String pName) {
+		return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(pName));
 	}
 }

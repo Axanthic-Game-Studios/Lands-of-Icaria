@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:stripped_plane_wood"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:plane_planks",
+    "count": 4
+  }
+}

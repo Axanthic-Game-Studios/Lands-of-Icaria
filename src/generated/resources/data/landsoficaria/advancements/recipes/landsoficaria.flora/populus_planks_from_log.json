@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "landsoficaria:populus_planks"
+      "landsoficaria:populus_planks_from_log"
     ]
   },
   "criteria": {
@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:logs/populus"
+            "items": [
+              "landsoficaria:populus_log"
+            ]
           }
         ]
       }
@@ -19,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "landsoficaria:populus_planks"
+        "recipe": "landsoficaria:populus_planks_from_log"
       }
     }
   },

@@ -6,11 +6,11 @@
   ],
   "key": {
     "X": {
-      "tag": "forge:logs/droughtroot"
+      "item": "landsoficaria:populus_log"
     }
   },
   "result": {
-    "item": "landsoficaria:droughtroot_planks",
+    "item": "landsoficaria:populus_planks",
     "count": 4
   }
 }

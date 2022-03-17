@@ -13,7 +13,6 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -82,13 +81,13 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		woodRecipes(consumer, IcariaItems.PLANE_WOOD.get(), IcariaItems.STRIPPED_PLANE_WOOD.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get());
 		woodRecipes(consumer, IcariaItems.POPULUS_WOOD.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get());
 
-		planksRecipe(consumer, "cypress", IcariaItems.CYPRESS_PLANKS.get());
-		planksRecipe(consumer, "droughtroot", IcariaItems.DROUGHTROOT_PLANKS.get());
-		planksRecipe(consumer, "fir", IcariaItems.FIR_PLANKS.get());
-		planksRecipe(consumer, "laurel", IcariaItems.LAUREL_PLANKS.get());
-		planksRecipe(consumer, "olive", IcariaItems.OLIVE_PLANKS.get());
-		planksRecipe(consumer, "plane", IcariaItems.PLANE_PLANKS.get());
-		planksRecipe(consumer, "populus", IcariaItems.POPULUS_PLANKS.get());
+		planksRecipes(consumer, IcariaItems.CYPRESS_WOOD.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
+		planksRecipes(consumer, IcariaItems.DROUGHTROOT_WOOD.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		planksRecipes(consumer, IcariaItems.FIR_WOOD.get(), IcariaItems.STRIPPED_FIR_WOOD.get(), IcariaItems.FIR_LOG.get(), IcariaItems.STRIPPED_FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
+		planksRecipes(consumer, IcariaItems.LAUREL_WOOD.get(), IcariaItems.STRIPPED_LAUREL_WOOD.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.STRIPPED_LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
+		planksRecipes(consumer, IcariaItems.OLIVE_WOOD.get(), IcariaItems.STRIPPED_OLIVE_WOOD.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.STRIPPED_OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
+		planksRecipes(consumer, IcariaItems.PLANE_WOOD.get(), IcariaItems.STRIPPED_PLANE_WOOD.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
+		planksRecipes(consumer, IcariaItems.POPULUS_WOOD.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
 
 		doorRecipe(consumer, IcariaItems.CYPRESS_DOOR.get(), IcariaItems.CYPRESS_PLANKS.get());
 		doorRecipe(consumer, IcariaItems.DROUGHTROOT_DOOR.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
@@ -691,13 +690,34 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.save(consumer, Objects.requireNonNull(strippedWood.getRegistryName()));
 	}
 
-	public void planksRecipe(Consumer<FinishedRecipe> consumer, String name, Item planks) {
+	public void planksRecipes(Consumer<FinishedRecipe> consumer, Item wood, Item strippedWood, Item log, Item strippedLog, Item planks) {
 		ShapedRecipeBuilder.shaped(planks, 4)
 			.pattern("XX")
 			.pattern("XX")
-			.define('X', ItemTags.bind("forge:logs/" + name))
-			.unlockedBy("has_block", has(ItemTags.bind("forge:logs/" + name)))
-			.save(consumer, Objects.requireNonNull(planks.getRegistryName()));
+			.define('X', wood)
+			.unlockedBy("has_block", has(wood))
+			.save(consumer, planks.getRegistryName() + "_from_wood");
+
+		ShapedRecipeBuilder.shaped(planks, 4)
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', strippedWood)
+			.unlockedBy("has_block", has(strippedWood))
+			.save(consumer, planks.getRegistryName() + "_from_stripped_wood");
+
+		ShapedRecipeBuilder.shaped(planks, 4)
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', log)
+			.unlockedBy("has_block", has(log))
+			.save(consumer, planks.getRegistryName() + "_from_log");
+
+		ShapedRecipeBuilder.shaped(planks, 4)
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', strippedLog)
+			.unlockedBy("has_block", has(strippedLog))
+			.save(consumer, planks.getRegistryName() + "_from_stripped_log");
 	}
 
 	public void doorRecipe(Consumer<FinishedRecipe> consumer, Item door, Item planks) {
@@ -734,7 +754,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.pattern("X")
 			.pattern("Y")
 			.define('X', gem)
-			.define('Y', ItemTags.bind("forge:bones"))
+			.define('Y', IcariaItemTags.bind("forge:bones"))
 			.unlockedBy("has_gem", has(gem))
 			.save(consumer, Objects.requireNonNull(torch.getRegistryName()));
 	}
@@ -801,7 +821,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.pattern("X")
 			.pattern("Y")
 			.define('X', resource)
-			.define('Y', ItemTags.bind("forge:bones"))
+			.define('Y', IcariaItemTags.bind("forge:bones"))
 			.group("")
 			.unlockedBy("has_ingot", has(resource))
 			.save(consumer, Objects.requireNonNull(sword.getRegistryName()));
@@ -811,7 +831,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.pattern("Y")
 			.pattern("Y")
 			.define('X', resource)
-			.define('Y', ItemTags.bind("forge:bones"))
+			.define('Y', IcariaItemTags.bind("forge:bones"))
 			.group("")
 			.unlockedBy("has_ingot", has(resource))
 			.save(consumer, Objects.requireNonNull(shovel.getRegistryName()));
@@ -821,7 +841,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.pattern(" Y ")
 			.pattern(" Y ")
 			.define('X', resource)
-			.define('Y', ItemTags.bind("forge:bones"))
+			.define('Y', IcariaItemTags.bind("forge:bones"))
 			.group("")
 			.unlockedBy("has_ingot", has(resource))
 			.save(consumer, Objects.requireNonNull(pickaxe.getRegistryName()));
@@ -831,7 +851,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.pattern("XY ")
 			.pattern(" Y ")
 			.define('X', resource)
-			.define('Y', ItemTags.bind("forge:bones"))
+			.define('Y', IcariaItemTags.bind("forge:bones"))
 			.group("")
 			.unlockedBy("has_ingot", has(resource))
 			.save(consumer, Objects.requireNonNull(axe.getRegistryName()));
@@ -841,7 +861,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.pattern("X Y")
 			.pattern("  Y")
 			.define('X', resource)
-			.define('Y', ItemTags.bind("forge:bones"))
+			.define('Y', IcariaItemTags.bind("forge:bones"))
 			.group("")
 			.unlockedBy("has_ingot", has(resource))
 			.save(consumer, Objects.requireNonNull(scythe.getRegistryName()));
@@ -851,7 +871,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.pattern(" Y ")
 			.pattern(" Y ")
 			.define('X', resource)
-			.define('Y', ItemTags.bind("forge:bones"))
+			.define('Y', IcariaItemTags.bind("forge:bones"))
 			.group("")
 			.unlockedBy("has_ingot", has(resource))
 			.save(consumer, Objects.requireNonNull(bident.getRegistryName()));

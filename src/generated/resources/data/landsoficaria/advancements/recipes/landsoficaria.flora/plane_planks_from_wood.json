@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "landsoficaria:plane_planks"
+      "landsoficaria:plane_planks_from_wood"
     ]
   },
   "criteria": {
@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:logs/plane"
+            "items": [
+              "landsoficaria:plane_wood"
+            ]
           }
         ]
       }
@@ -19,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "landsoficaria:plane_planks"
+        "recipe": "landsoficaria:plane_planks_from_wood"
       }
     }
   },

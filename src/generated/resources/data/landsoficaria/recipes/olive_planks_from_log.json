@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:olive_log"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:olive_planks",
+    "count": 4
+  }
+}

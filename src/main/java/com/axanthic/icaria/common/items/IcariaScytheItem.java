@@ -7,7 +7,7 @@ import com.google.common.collect.Sets;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -37,7 +37,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaScytheItem extends HoeItem {
-	private final Tag<Block> blocks = IcariaBlockTags.MINEABLE_WITH_SCYTHE;
+	private final TagKey<Block> blocks = IcariaBlockTags.MINEABLE_WITH_SCYTHE;
 	private final Tier equivalentTier;
 	public static final Set<ToolAction> SCYTHE_ACTIONS = Stream.of(ToolActions.HOE_DIG, ToolActions.SWORD_SWEEP /* TODO: , ToolActions.HOE_TILL */).collect(Collectors.toCollection(Sets::newIdentityHashSet));
 

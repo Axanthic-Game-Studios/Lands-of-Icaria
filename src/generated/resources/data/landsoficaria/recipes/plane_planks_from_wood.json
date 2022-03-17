@@ -6,11 +6,11 @@
   ],
   "key": {
     "X": {
-      "tag": "forge:logs/laurel"
+      "item": "landsoficaria:plane_wood"
     }
   },
   "result": {
-    "item": "landsoficaria:laurel_planks",
+    "item": "landsoficaria:plane_planks",
     "count": 4
   }
 }

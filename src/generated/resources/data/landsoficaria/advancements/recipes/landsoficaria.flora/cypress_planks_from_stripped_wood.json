@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "landsoficaria:laurel_planks"
+      "landsoficaria:cypress_planks_from_stripped_wood"
     ]
   },
   "criteria": {
@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:logs/laurel"
+            "items": [
+              "landsoficaria:stripped_cypress_wood"
+            ]
           }
         ]
       }
@@ -19,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "landsoficaria:laurel_planks"
+        "recipe": "landsoficaria:cypress_planks_from_stripped_wood"
       }
     }
   },

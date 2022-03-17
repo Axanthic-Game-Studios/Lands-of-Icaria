@@ -6,11 +6,11 @@
   ],
   "key": {
     "X": {
-      "tag": "forge:logs/olive"
+      "item": "landsoficaria:fir_wood"
     }
   },
   "result": {
-    "item": "landsoficaria:olive_planks",
+    "item": "landsoficaria:fir_planks",
     "count": 4
   }
 }

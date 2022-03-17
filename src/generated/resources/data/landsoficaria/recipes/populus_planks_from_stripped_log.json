@@ -6,11 +6,11 @@
   ],
   "key": {
     "X": {
-      "tag": "forge:logs/cypress"
+      "item": "landsoficaria:stripped_populus_log"
     }
   },
   "result": {
-    "item": "landsoficaria:cypress_planks",
+    "item": "landsoficaria:populus_planks",
     "count": 4
   }
 }

@@ -1,7 +1,7 @@
 package com.axanthic.icaria.util;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
@@ -16,11 +16,11 @@ public class IcariaTier implements Tier {
 	private final float speed;
 	private final float attackDamageBonus;
 	private final int enchantmentValue;
-	private final Tag<Block> tag;
+	private final TagKey<Block> tag;
 	private final Supplier<Ingredient> repairIngredient;
 	public final Tier vanillaEquivalent;
 
-	public IcariaTier(int level, int uses, float speed, float attackDamageBonus, int enchantmentValue, Tag<Block> tag, Supplier<Ingredient> repairIngredient, Tier vanillaEquivalent) {
+	public IcariaTier(int level, int uses, float speed, float attackDamageBonus, int enchantmentValue, TagKey<Block> tag, Supplier<Ingredient> repairIngredient, Tier vanillaEquivalent) {
 		this.level = level;
 		this.uses = uses;
 		this.speed = speed;
@@ -57,7 +57,7 @@ public class IcariaTier implements Tier {
 	}
 
 	@Override
-	public Tag<Block> getTag() {
+	public TagKey<Block> getTag() {
 		return this.tag;
 	}
 

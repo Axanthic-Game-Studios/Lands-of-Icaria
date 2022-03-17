@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:droughtroot_log"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:droughtroot_planks",
+    "count": 4
+  }
+}

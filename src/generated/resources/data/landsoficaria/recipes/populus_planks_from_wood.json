@@ -6,11 +6,11 @@
   ],
   "key": {
     "X": {
-      "tag": "forge:logs/fir"
+      "item": "landsoficaria:populus_wood"
     }
   },
   "result": {
-    "item": "landsoficaria:fir_planks",
+    "item": "landsoficaria:populus_planks",
     "count": 4
   }
 }
