@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "landsoficaria:loam_bowl_unfired"
+  },
+  "result": "landsoficaria:loam_bowl",
+  "experience": 0.3,
+  "cookingtime": 200
+}

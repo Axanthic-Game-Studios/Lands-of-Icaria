@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABC",
+    "DE "
+  ],
+  "key": {
+    "A": {
+      "item": "landsoficaria:cooked_sow_meat"
+    },
+    "B": {
+      "tag": "forge:mushrooms"
+    },
+    "C": {
+      "tag": "forge:mushrooms"
+    },
+    "D": {
+      "item": "landsoficaria:rock_salt"
+    },
+    "E": {
+      "item": "landsoficaria:loam_bowl"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:stew_sow"
+  }
+}

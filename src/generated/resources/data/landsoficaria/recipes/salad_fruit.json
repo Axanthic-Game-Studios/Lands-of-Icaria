@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABC",
+    "DEF",
+    "G  "
+  ],
+  "key": {
+    "A": {
+      "item": "landsoficaria:strawberries"
+    },
+    "B": {
+      "item": "landsoficaria:physalis"
+    },
+    "C": {
+      "item": "minecraft:cocoa_beans"
+    },
+    "D": {
+      "item": "minecraft:melon_slice"
+    },
+    "E": {
+      "item": "minecraft:golden_apple"
+    },
+    "F": {
+      "item": "landsoficaria:laurel_cherry"
+    },
+    "G": {
+      "item": "landsoficaria:loam_bowl"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:salad_fruit"
+  }
+}

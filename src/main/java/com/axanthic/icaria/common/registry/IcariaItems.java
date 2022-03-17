@@ -1,15 +1,8 @@
 package com.axanthic.icaria.common.registry;
 
+import com.axanthic.icaria.common.items.*;
 import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.client.util.IcariaTabs;
-import com.axanthic.icaria.common.items.FuelBlockItem;
-import com.axanthic.icaria.common.items.FuelItem;
-import com.axanthic.icaria.common.items.IcariaAxeItem;
-import com.axanthic.icaria.common.items.IcariaBidentItem;
-import com.axanthic.icaria.common.items.IcariaPickaxeItem;
-import com.axanthic.icaria.common.items.IcariaScytheItem;
-import com.axanthic.icaria.common.items.IcariaShovelItem;
-import com.axanthic.icaria.common.items.VineSproutItem;
 import com.axanthic.icaria.common.registry.IcariaBlocks.StoneDecoBlocks;
 import com.axanthic.icaria.common.registry.IcariaBlocks.WoodDecoBlocks;
 import com.axanthic.icaria.util.IcariaTier;
@@ -406,6 +399,15 @@ public class IcariaItems {
 	public static final RegistryObject<Item> RAW_SOW_MEAT = registerBasic("raw_sow_meat", () -> new Item(propertiesItems().food(foodPropertiesMeatEffect(2, 0.3F, MobEffects.HUNGER, 400, 0, 1.0F))));
 	public static final RegistryObject<Item> COOKED_SOW_MEAT = registerBasic("cooked_sow_meat", () -> new Item(propertiesItems().food(foodPropertiesMeat(5, 0.8F))));
 	public static final RegistryObject<Item> SNULL_CREAM = registerBasic("snull_cream", () -> new Item(propertiesItems().food(foodPropertiesSnullCream(3, 0.1F, MobEffects.HUNGER, 100, 0, 0.5F, MobEffects.CONFUSION, 200, 0, 0.5F))));
+
+	public static final RegistryObject<Item> LOAM_BOWL_UNFIRED = registerBasic("loam_bowl_unfired", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> LOAM_BOWL = registerBasic("loam_bowl", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> SALAD_FRUIT = registerBasic("salad_fruit", () -> new StewFoodItem(propertiesItems().stacksTo(1).food(foodPropertiesEffect(7, 1.2F, MobEffects.HEAL, 1 ,0 ,1.0F))));
+	public static final RegistryObject<Item> SOUP_ONION = registerBasic("soup_onion", () -> new StewFoodItem(propertiesItems().stacksTo(1).food(foodProperties(4, 1.0F))));
+	public static final RegistryObject<Item> STEW_AETERNAE = registerBasic("stew_aeternae", () -> new StewFoodItem(propertiesItems().stacksTo(1).food(foodPropertiesMeat(9, 1.0F))));
+	public static final RegistryObject<Item> STEW_CATOBLEPAS = registerBasic("stew_catoblepas", () -> new StewFoodItem(propertiesItems().stacksTo(1).food(foodPropertiesMeat(8, 1.0F))));
+	public static final RegistryObject<Item> STEW_CERVER = registerBasic("stew_cerver", () -> new StewFoodItem(propertiesItems().stacksTo(1).food(foodPropertiesMeat(9, 1.0F))));
+	public static final RegistryObject<Item> STEW_SOW = registerBasic("stew_sow", () -> new StewFoodItem(propertiesItems().stacksTo(1).food(foodPropertiesMeat(8, 1.0F))));
 
 	public static final RegistryObject<BucketItem> HYLIASTRUM_FLUID_BUCKET = registerBasic("hyliastrum_fluid_bucket", () -> new BucketItem(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
 	public static final RegistryObject<BucketItem> MEDITERRANEAN_WATER_BUCKET = registerBasic("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));

@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "landsoficaria:flask_empty"
+      "landsoficaria:loam_bowl_smelting"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "landsoficaria:silkglass"
+              "landsoficaria:loam_bowl_unfired"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "landsoficaria:flask_empty"
+        "recipe": "landsoficaria:loam_bowl_smelting"
       }
     }
   },

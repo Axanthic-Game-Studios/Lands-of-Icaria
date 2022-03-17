@@ -13,6 +13,7 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -39,6 +40,19 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 
 	@Override
 	public void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+		smeltingRecipe(consumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BRICK.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.SPELT_FLOUR.get(), IcariaItems.SPELT_BREAD.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.LOAM_BOWL_UNFIRED.get(), IcariaItems.LOAM_BOWL.get(), 0.3F, 200);
+
+		bowlFlaskTypeRecipe(consumer, IcariaItems.SILKGLASS.get(), IcariaItems.FLASK_EMPTY.get(), 3);
+		bowlFlaskTypeRecipe(consumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BOWL_UNFIRED.get(), 4);
+
+		threeIngredientStewRecipe(consumer, IcariaItems.ONION.get(), IcariaItemTags.bind("forge:crops/onion"), IcariaItemTags.bind("forge:crops/onion"), IcariaItems.SOUP_ONION.get());
+		twoIngredientStewRecipe(consumer, IcariaItems.COOKED_AETERNAE_MEAT.get(), Items.BEETROOT, IcariaItems.STEW_AETERNAE.get());
+		twoIngredientStewRecipe(consumer, IcariaItems.COOKED_CERVER_MEAT.get(), Items.CARROT, IcariaItems.STEW_CERVER.get());
+		twoIngredientStewRecipe(consumer, IcariaItems.COOKED_CATOBLEPAS_MEAT.get(), IcariaItems.ONION.get(), IcariaItems.STEW_CATOBLEPAS.get());
+		threeIngredientStewRecipe(consumer, IcariaItems.COOKED_SOW_MEAT.get(), IcariaItemTags.bind("forge:mushrooms"), IcariaItemTags.bind("forge:mushrooms"), IcariaItems.STEW_SOW.get());
+
 		glassRecipes(consumer, IcariaItems.GRAINEL.get(), IcariaItems.GRAINGLASS.get(), IcariaItems.GRAINGLASS_PANE.get(), IcariaItems.GRAINGLASS_PANE_HORIZONTAL.get());
 		glassRecipes(consumer, IcariaItems.SILKSAND.get(), IcariaItems.SILKGLASS.get(), IcariaItems.SILKGLASS_PANE.get(), IcariaItems.SILKGLASS_PANE_HORIZONTAL.get());
 
@@ -475,20 +489,19 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_item", has(IcariaItems.SPELT.get()))
 			.save(consumer, IcariaItems.SPELT_BREAD.getId());
 
-		ShapedRecipeBuilder.shaped(IcariaItems.FLASK_EMPTY.get(), 3)
-			.pattern("X X")
-			.pattern(" X ")
-			.define('X', IcariaItems.SILKGLASS.get())
-			.unlockedBy("has_block", has(IcariaItems.SILKGLASS.get()))
-			.save(consumer, IcariaItems.FLASK_EMPTY.getId());
-
-		SimpleCookingRecipeBuilder.smelting(Ingredient.of(IcariaItems.SPELT_FLOUR.get()), IcariaItems.SPELT_BREAD.get(), 0.3F, 200)
-			.unlockedBy("has_item", has(IcariaItems.SPELT_FLOUR.get()))
-			.save(consumer, appendResource(IcariaItems.SPELT_BREAD.getId(), "_smelting"));
-
-		SimpleCookingRecipeBuilder.smelting(Ingredient.of(IcariaItems.LOAM_LUMP.get()), IcariaItems.LOAM_BRICK.get(), 0.3F, 200)
-			.unlockedBy("has_item", has(IcariaItems.LOAM_LUMP.get()))
-			.save(consumer, appendResource(IcariaItems.LOAM_BRICK.getId(), "_smelting"));
+		ShapedRecipeBuilder.shaped(IcariaItems.SALAD_FRUIT.get())
+			.pattern("ABC")
+			.pattern("DEF")
+			.pattern("G  ")
+			.define('A', IcariaItems.STRAWBERRIES.get())
+			.define('B', IcariaItems.PHYSALIS.get())
+			.define('C', Items.COCOA_BEANS)
+			.define('D', Items.MELON_SLICE)
+			.define('E', Items.GOLDEN_APPLE)
+			.define('F', IcariaItems.LAUREL_CHERRY.get())
+			.define('G', IcariaItems.LOAM_BOWL.get())
+			.unlockedBy("has_item", has(Items.GOLDEN_APPLE))
+			.save(consumer, IcariaItems.SALAD_FRUIT.getId());
 
 		// VANILLA
 		ShapedRecipeBuilder.shaped(Items.BOOK, 1)
@@ -585,6 +598,65 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.save(consumer, appendResource(Objects.requireNonNull(Items.SUGAR.getRegistryName()), "_from_vine_reeds"));
 	}
 
+	public void smeltingRecipe(Consumer<FinishedRecipe> consumer, Item resource, Item result, float experience, int cookingTime) {
+		SimpleCookingRecipeBuilder.smelting(Ingredient.of(resource), result, experience, cookingTime)
+			.unlockedBy("has_item", has(resource))
+			.save(consumer, appendResource(Objects.requireNonNull(result.asItem().getRegistryName()), "_smelting"));
+	}
+
+	public void bowlFlaskTypeRecipe(Consumer<FinishedRecipe> consumer, Item resource, Item result, int amount) {
+		ShapedRecipeBuilder.shaped(result, amount)
+			.pattern("X X")
+			.pattern(" X ")
+			.define('X', resource)
+			.unlockedBy("has_item", has(resource))
+			.save(consumer, Objects.requireNonNull(result.getRegistryName()));
+	}
+
+	public void twoIngredientStewRecipe(Consumer<FinishedRecipe> consumer, Item meat, Item veggie, Item result) {
+		ShapedRecipeBuilder.shaped(result, 1)
+				.pattern("AB")
+				.pattern("CD")
+				.define('A', meat)
+				.define('B', veggie)
+				.define('C', IcariaItems.ROCK_SALT.get())
+				.define('D', IcariaItems.LOAM_BOWL.get())
+				.unlockedBy("has_item", has(meat))
+				.save(consumer, Objects.requireNonNull(result.getRegistryName()));
+	}
+
+	public void threeIngredientStewRecipe(Consumer<FinishedRecipe> consumer, Item ingredientOne, TagKey<Item> ingredientTwo, TagKey<Item> ingredientThree, Item result) {
+		ShapedRecipeBuilder.shaped(result, 1)
+				.pattern("ABC")
+				.pattern("DE ")
+				.define('A', ingredientOne)
+				.define('B', ingredientTwo)
+				.define('C', ingredientThree)
+				.define('D', IcariaItems.ROCK_SALT.get())
+				.define('E', IcariaItems.LOAM_BOWL.get())
+				.unlockedBy("has_item", has(ingredientOne))
+				.save(consumer, Objects.requireNonNull(result.getRegistryName()));
+	}
+
+	public void glassRecipes(Consumer<FinishedRecipe> consumer, Item sand, Item glass, Item pane, Item horizontalPane) {
+		ShapedRecipeBuilder.shaped(pane, 16)
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', glass)
+			.unlockedBy("has_block", has(glass))
+			.save(consumer, Objects.requireNonNull(pane.getRegistryName()));
+
+		ShapedRecipeBuilder.shaped(horizontalPane, 2)
+			.pattern("XX")
+			.define('X', pane)
+			.unlockedBy("has_block", has(pane))
+			.save(consumer, Objects.requireNonNull(horizontalPane.getRegistryName()));
+
+		SimpleCookingRecipeBuilder.smelting(Ingredient.of(sand), glass, 0.1F, 200)
+			.unlockedBy("has_block", has(sand))
+			.save(consumer, Objects.requireNonNull(glass.getRegistryName()));
+	}
+
 	public void stoneRecipes(Consumer<FinishedRecipe> consumer, Item cobble, Item stone, Item bricks, Item chiseled, StoneDecoItemBlocks deco) {
 		ShapedRecipeBuilder.shaped(bricks, 4)
 			.pattern("XX")
@@ -615,25 +687,6 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(bricks), chiseled)
 			.unlockedBy("has_block", has(bricks))
 			.save(consumer, appendResource(chiseled.getRegistryName(), "_cutting_bricks"));
-	}
-
-	public void glassRecipes(Consumer<FinishedRecipe> consumer, Item sand, Item glass, Item pane, Item horizontalPane) {
-		ShapedRecipeBuilder.shaped(pane, 16)
-			.pattern("XXX")
-			.pattern("XXX")
-			.define('X', glass)
-			.unlockedBy("has_block", has(glass))
-			.save(consumer, Objects.requireNonNull(pane.getRegistryName()));
-
-		ShapedRecipeBuilder.shaped(horizontalPane, 2)
-			.pattern("XX")
-			.define('X', pane)
-			.unlockedBy("has_block", has(pane))
-			.save(consumer, Objects.requireNonNull(horizontalPane.getRegistryName()));
-
-		SimpleCookingRecipeBuilder.smelting(Ingredient.of(sand), glass, 0.1F, 200)
-			.unlockedBy("has_block", has(sand))
-			.save(consumer, Objects.requireNonNull(glass.getRegistryName()));
 	}
 
 	public void smallCompressRecipe(Consumer<FinishedRecipe> consumer, Item compressed, Item uncompressed) {

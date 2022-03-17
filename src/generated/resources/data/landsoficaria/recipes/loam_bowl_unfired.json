@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    " X "
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:loam_lump"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:loam_bowl_unfired",
+    "count": 4
+  }
+}
