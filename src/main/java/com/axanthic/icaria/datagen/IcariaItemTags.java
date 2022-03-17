@@ -134,6 +134,8 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 	//item exclusive tags
 	public static final TagKey<Item> SPELT = forgeTag("crops/spelt");
+	public static final TagKey<Item> GARLIC = forgeTag("crops/garlic");
+	public static final TagKey<Item> ONION = forgeTag("crops/onion");
 
 	public static final TagKey<Item> GEMS_CHERT = forgeTag("gems/chert");
 	public static final TagKey<Item> GEMS_LIGNITE = forgeTag("gems/lignite");
@@ -182,7 +184,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 	@Override
 	protected void addTags() {
-		//copying block tags
+		// COPY BLOCK TAGS
 		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			if (deco.SLAB != null) {
 				tag(ItemTags.SLABS).add(deco.SLAB.get());
@@ -478,7 +480,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 		tag(Tags.Items.SANDSTONE).add(IcariaItems.GRAINITE.get());
 
-		//adding item tags
+		// ADD ITEM TAGS
 		tag(ItemTags.STONE_CRAFTING_MATERIALS)
 			.add(IcariaItems.YELLOWSTONE_COBBLE.get())
 			.add(IcariaItems.SILKSTONE_COBBLE.get())
@@ -499,9 +501,14 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 		tag(Tags.Items.STRING).add(IcariaItems.ARACHNE_STRING.get());
 
-		tag(Tags.Items.CROPS).addTag(SPELT);
-
 		tag(SPELT).add(IcariaItems.SPELT.get());
+		tag(GARLIC).add(IcariaItems.GARLIC.get());
+		tag(ONION).add(IcariaItems.ONION.get());
+
+		tag(Tags.Items.CROPS)
+			.addTag(SPELT)
+			.addTag(GARLIC)
+			.addTag(ONION);
 
 		tag(GEMS_CHERT).add(IcariaItems.CHERT.get());
 		tag(GEMS_LIGNITE).add(IcariaItems.LIGNITE.get());

@@ -386,12 +386,17 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> FLASK_EMPTY = registerBasic("flask_empty", () -> new Item(propertiesItems()));
 
+	public static final RegistryObject<Item> AETERNAE_HIDE = registerBasic("aeternae_hide", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> SPELT_FLOUR = registerBasic("spelt_flour", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> SPELT_BREAD = registerBasic("spelt_bread", () -> new Item(propertiesItems().food(foodProperties(5, 0.6F))));
+	public static final RegistryObject<Item> VINEBERRIES = registerBasic("vineberries", () -> new Item(propertiesItems().food(foodProperties(2, 0.0F))));
+	public static final RegistryObject<Item> STRAWBERRIES = registerBasic("strawberries", () -> new Item(propertiesItems().food(foodProperties(1, 0.3F))));
+	public static final RegistryObject<Item> PHYSALIS = registerBasic("physalis", () -> new Item(propertiesItems().food(foodProperties(2, 0.5F))));
 	public static final RegistryObject<Item> LAUREL_CHERRY = registerBasic("laurel_cherry", () -> new Item(propertiesItems().food(foodProperties(4, 0.3F))));
 	public static final RegistryObject<Item> OLIVES_BLACK = registerBasic("olives_black", () -> new Item(propertiesItems().food(foodProperties(2, 0.3F))));
 	public static final RegistryObject<Item> OLIVES_GREEN = registerBasic("olives_green", () -> new Item(propertiesItems().food(foodProperties(2, 0.3F))));
-	public static final RegistryObject<Item> AETERNAE_HIDE = registerBasic("aeternae_hide", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> GARLIC = registerBasic("garlic", () -> new Item(propertiesItems().food(foodProperties(1, 0.3F))));
+	public static final RegistryObject<Item> ONION = registerBasic("onion", () -> new Item(propertiesItems().food(foodProperties(1, 0.3F))));
 	public static final RegistryObject<Item> RAW_AETERNAE_MEAT = registerBasic("raw_aeternae_meat", () -> new Item(propertiesItems().food(foodPropertiesMeatEffect(3, 0.3F, MobEffects.HUNGER, 100, 0, 1.0F))));
 	public static final RegistryObject<Item> COOKED_AETERNAE_MEAT = registerBasic("cooked_aeternae_meat", () -> new Item(propertiesItems().food(foodPropertiesMeat(8, 0.8F))));
 	public static final RegistryObject<Item> RAW_CATOBLEPAS_MEAT = registerBasic("raw_catoblepas_meat", () -> new Item(propertiesItems().food(foodPropertiesMeat(2, 0.3F))));
