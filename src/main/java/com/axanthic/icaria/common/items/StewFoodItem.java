@@ -19,10 +19,12 @@ public class StewFoodItem extends Item {
 		super(pProperties);
 	}
 
+	@Override
 	public int getUseDuration(ItemStack pStack) {
 		return 2;
 	}
 
+	@Override
 	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
 		ItemStack itemstack = super.finishUsingItem(pStack, pLevel, pEntityLiving);
 		return pEntityLiving instanceof Player && ((Player)pEntityLiving).getAbilities().instabuild ? itemstack : new ItemStack(IcariaItems.LOAM_BOWL.get());

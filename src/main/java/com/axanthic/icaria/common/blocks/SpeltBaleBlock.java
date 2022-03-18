@@ -12,12 +12,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class SpeltBaleBlock extends RotatedPillarBlock {
-	public SpeltBaleBlock(Properties properties) {
-		super(properties);
+	public SpeltBaleBlock(Properties pProperties) {
+		super(pProperties);
 	}
 
 	@Override
-	public void fallOn(Level p_152426_, BlockState p_152427_, BlockPos p_152428_, Entity p_152429_, float p_152430_) {
-		p_152429_.causeFallDamage(p_152430_, 0.2F, DamageSource.FALL);
+	public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
+		pEntity.causeFallDamage(pFallDistance, 0.2F, DamageSource.FALL);
 	}
 }

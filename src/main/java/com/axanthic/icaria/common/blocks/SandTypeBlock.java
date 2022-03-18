@@ -13,12 +13,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class SandTypeBlock extends Block {
-	public SandTypeBlock(Properties properties) {
-		super(properties);
+	public SandTypeBlock(Properties pProperties) {
+		super(pProperties);
 	}
 
 	@Override
-	public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
-		return false; // TODO
+	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pFacing, IPlantable pPlantable) {
+		return false; // TODO canSustainPlant
 	}
 }

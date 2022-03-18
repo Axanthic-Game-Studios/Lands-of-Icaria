@@ -20,13 +20,13 @@ public class IcariaLang extends LanguageProvider {
 		super(generator, IcariaInfo.MODID, "en_us");
 	}
 
-	@Override
-	protected void addTranslations() {
-
-	}
-
 	public void addFluid(Supplier<? extends ForgeFlowingFluid> key, String name) {
 		ResourceLocation id = key.get().getRegistryName();
 		add("fluid." + Objects.requireNonNull(id).getNamespace() + "." + id.getPath(), name);
+	}
+
+	@Override
+	public void addTranslations() {
+
 	}
 }

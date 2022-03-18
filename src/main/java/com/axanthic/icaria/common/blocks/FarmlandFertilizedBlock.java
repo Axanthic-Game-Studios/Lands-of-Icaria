@@ -20,13 +20,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class FarmlandFertilizedBlock extends Block {
 	public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D);
 
-	public FarmlandFertilizedBlock(Properties properties) {
-		super(properties);
+	public FarmlandFertilizedBlock(Properties pProperties) {
+		super(pProperties);
 	}
 
 	@Override
-	public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
-		PlantType plantType = plantable.getPlantType(world, pos.relative(facing));
+	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pFacing, IPlantable pPlantable) {
+		PlantType plantType = pPlantable.getPlantType(pLevel, pPos.relative(pFacing));
 		return plantType == PlantType.CROP || plantType == PlantType.PLAINS;
 	}
 

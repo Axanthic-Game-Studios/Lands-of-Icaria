@@ -14,8 +14,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class PillarHeadBlock extends DirectionalBlock {
-	public PillarHeadBlock(Properties properties) {
-		super(properties);
+	public PillarHeadBlock(Properties pProperties) {
+		super(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 

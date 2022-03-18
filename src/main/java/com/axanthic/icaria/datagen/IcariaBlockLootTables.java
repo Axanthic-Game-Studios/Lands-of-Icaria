@@ -47,12 +47,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 	public static final LootItemCondition.Builder HAS_NO_SHEARS_OR_SILK_TOUCH = HAS_SHEARS_OR_SILK_TOUCH.invert();
 
 	@Override
-	protected Iterable<Block> getKnownBlocks() {
-		return ForgeRegistries.BLOCKS.getValues().stream().filter((block) -> IcariaInfo.MODID.equals(Objects.requireNonNull(block.getRegistryName()).getNamespace())).collect(Collectors.toList());
-	}
-
-	@Override
-	protected void addTables() {
+	public void addTables() {
 		for (RegistryObject<? extends Block> basicBlock : IcariaBlocks.BASIC_BLOCKS) {
 			dropSelf(basicBlock.get());
 		}
@@ -237,14 +232,24 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropLayers(IcariaBlocks.MOSS_0.get());
 		dropLayers(IcariaBlocks.MOSS_1.get());
 		dropLayers(IcariaBlocks.MOSS_2.get());
-	}
-
-	public void requireSilkTouch(Block block, Item item) {
-		add(block, (blockDrop) -> createSingleItemTableWithSilkTouch(blockDrop, item));
-	}
-
-	public static Builder createLaurelLeavesDrops(Block pOakLeavesBlock, Block pSaplingBlock, float... pChances) {
-		return createLeavesDrops(pOakLeavesBlock, pSaplingBlock, pChances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(applyExplosionCondition(pOakLeavesBlock, LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get())).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
+		this.add(IcariaBlocks.STRAWBERRY_CAKE.get(), noDrop());
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get(), Items.CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_WHITE_CANDLE.get(), Items.WHITE_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_ORANGE_CANDLE.get(), Items.ORANGE_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_MAGENTA_CANDLE.get(), Items.MAGENTA_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_BLUE_CANDLE.get(), Items.LIGHT_BLUE_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_YELLOW_CANDLE.get(), Items.YELLOW_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_LIME_CANDLE.get(), Items.LIME_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_PINK_CANDLE.get(), Items.PINK_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_GRAY_CANDLE.get(), Items.GRAY_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_GRAY_CANDLE.get(), Items.LIGHT_GRAY_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_CYAN_CANDLE.get(), Items.CYAN_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_PURPLE_CANDLE.get(), Items.PURPLE_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_BLUE_CANDLE.get(), Items.BLUE_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_BROWN_CANDLE.get(), Items.BROWN_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_GREEN_CANDLE.get(), Items.GREEN_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_RED_CANDLE.get(), Items.RED_CANDLE);
+		dropOther(IcariaBlocks.STRAWBERRY_CAKE_BLACK_CANDLE.get(), Items.BLACK_CANDLE);
 	}
 
 	public void dropLayers(Block block) { //like onions
@@ -257,5 +262,18 @@ public class IcariaBlockLootTables extends BlockLoot {
 			LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 6))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(6.0F))),
 			LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 7))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(7.0F))),
 			LootItem.lootTableItem(blockDrop).apply(SetItemCountFunction.setCount(ConstantValue.exactly(8.0F)))))));
+	}
+
+	public void requireSilkTouch(Block block, Item item) {
+		add(block, (blockDrop) -> createSingleItemTableWithSilkTouch(blockDrop, item));
+	}
+
+	public static Builder createLaurelLeavesDrops(Block leaves, Block sapling, float... chances) {
+		return createLeavesDrops(leaves, sapling, chances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(applyExplosionCondition(leaves, LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get())).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
+	}
+
+	@Override
+	public Iterable<Block> getKnownBlocks() {
+		return ForgeRegistries.BLOCKS.getValues().stream().filter((block) -> IcariaInfo.MODID.equals(Objects.requireNonNull(block.getRegistryName()).getNamespace())).collect(Collectors.toList());
 	}
 }

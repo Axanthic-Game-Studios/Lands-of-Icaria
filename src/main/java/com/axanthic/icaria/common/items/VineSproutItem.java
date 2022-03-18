@@ -14,35 +14,35 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 
 public class VineSproutItem extends Item {
-	public VineSproutItem(Properties properties) {
-		super(properties);
+	public VineSproutItem(Properties pProperties) {
+		super(pProperties);
 	}
 
 	@Override
-	public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
-		Player player = (Player)entity;
-		if (!level.isClientSide) {
+	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
+		Player player = (Player)pEntityLiving;
+		if (!pLevel.isClientSide) {
 			player.getCooldowns().addCooldown(this, 400);
 			if (!player.isCreative()) {
-				stack.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+				pStack.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 			}
 		}
 
-		return stack;
+		return pStack;
 	}
 
 	@Override
-	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
-		Player player = (Player)entity;
-		ItemStack itemStack = stack.copy();
+	public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pInventorySlot, boolean pIsCurrentItem) {
+		Player player = (Player)pEntity;
+		ItemStack itemStack = pStack.copy();
 		itemStack.setCount(1);
-		if(stack.getCount() > 1) {
+		if(pStack.getCount() > 1) {
 			if(player.addItem(itemStack)) {
-				stack.shrink(1);
+				pStack.shrink(1);
 				player.addItem(itemStack);
 			} else {
-				stack.shrink(1);
-				player.drop(stack, true);
+				pStack.shrink(1);
+				player.drop(pStack, true);
 			}
 		}
 	}

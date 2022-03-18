@@ -16,8 +16,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nonnull;
 
 public class HyliastrumOreBlock extends Block {
-	public HyliastrumOreBlock(Properties properties) {
-		super(properties);
+	public HyliastrumOreBlock(Properties pProperties) {
+		super(pProperties);
 	}
 
 	@Override

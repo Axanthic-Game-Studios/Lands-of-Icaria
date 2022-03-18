@@ -8,13 +8,13 @@ import net.minecraft.world.level.block.Block;
 public class FuelBlockItem extends BlockItem {
 	public int burntime;
 
-	public FuelBlockItem(Block block, Properties properties, int burntime) {
-		super(block, properties);
-		this.burntime = burntime;
+	public FuelBlockItem(Block pBlock, Properties pProperties, int pBurntime) {
+		super(pBlock, pProperties);
+		this.burntime = pBurntime;
 	}
 
 	@Override
-	public int getBurnTime(ItemStack stack, RecipeType<?> type) {
+	public int getBurnTime(ItemStack pStack, RecipeType<?> pType) {
 		return burntime;
 	}
 }

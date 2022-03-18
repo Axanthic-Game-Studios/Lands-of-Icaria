@@ -29,8 +29,23 @@ public class IcariaItemModels extends ItemModelProvider {
 		super(generator, IcariaInfo.MODID, existingFileHelper);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void bucketModel(RegistryObject<? extends BucketItem> registryObject) {
+		ModelBuilder builder = getBuilder(registryObject.getId().getPath()).parent(getExistingFile(new ResourceLocation(IcariaInfo.MODID, "item/bucket_fluid")));
+
+		//I'm not sure how this works but it works
+		builder.customLoader((t, u) -> new CustomLoaderBuilder(((ModelBuilder) t).getLocation(), (ModelBuilder) t, (ExistingFileHelper) u) {
+			@Override
+			public JsonObject toJson(JsonObject json) {
+				json.addProperty("loader", "forge:bucket");
+				json.addProperty("fluid", Objects.requireNonNull(registryObject.get().getFluid().getRegistryName()).toString());
+				return json;
+			}
+		});
+	}
+
 	@Override
-	protected void registerModels() {
+	public void registerModels() {
 		for (RegistryObject<? extends Item> item : IcariaItems.BASIC_ITEMS) {
 			itemWithModel(item, "item/generated");
 		}
@@ -54,20 +69,5 @@ public class IcariaItemModels extends ItemModelProvider {
 
 	public ItemModelBuilder itemWithModel(RegistryObject<? extends Item> registryObject, String model) {
 		return itemWithModel(registryObject, new ResourceLocation(model));
-	}
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public void bucketModel(RegistryObject<? extends BucketItem> registryObject) {
-		ModelBuilder builder = getBuilder(registryObject.getId().getPath()).parent(getExistingFile(new ResourceLocation(IcariaInfo.MODID, "item/bucket_fluid")));
-
-		//I'm not sure how this works but it works
-		builder.customLoader((t, u) -> new CustomLoaderBuilder(((ModelBuilder) t).getLocation(), (ModelBuilder) t, (ExistingFileHelper) u) {
-			@Override
-			public JsonObject toJson(JsonObject json) {
-				json.addProperty("loader", "forge:bucket");
-				json.addProperty("fluid", Objects.requireNonNull(registryObject.get().getFluid().getRegistryName()).toString());
-				return json;
-			}
-		});
 	}
 }

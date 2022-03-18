@@ -34,11 +34,6 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 	}
 
 	@Override
-	public String getName() {
-		return IcariaInfo.MODID;
-	}
-
-	@Override
 	public void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 		smeltingRecipe(consumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BRICK.get(), 0.3F, 200);
 		smeltingRecipe(consumer, IcariaItems.SPELT_FLOUR.get(), IcariaItems.SPELT_BREAD.get(), 0.3F, 200);
@@ -489,6 +484,18 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_item", has(IcariaItems.SPELT.get()))
 			.save(consumer, IcariaItems.SPELT_BREAD.getId());
 
+		ShapedRecipeBuilder.shaped(IcariaItems.STRAWBERRY_CAKE.get())
+			.pattern("ABA")
+			.pattern("CDC")
+			.pattern("EEE")
+			.define('A', IcariaItems.STRAWBERRIES.get())
+			.define('B', Items.MILK_BUCKET)
+			.define('C', Items.SUGAR)
+			.define('D', IcariaItems.JELLYFISH_JELLY.get())
+			.define('E', IcariaItems.SPELT_FLOUR.get())
+			.unlockedBy("has_item", has(IcariaItems.SPELT_FLOUR.get()))
+			.save(consumer, IcariaItems.STRAWBERRY_CAKE.getId());
+
 		ShapedRecipeBuilder.shaped(IcariaItems.SALAD_FRUIT.get())
 			.pattern("ABC")
 			.pattern("DEF")
@@ -615,27 +622,27 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 
 	public void twoIngredientStewRecipe(Consumer<FinishedRecipe> consumer, Item meat, Item veggie, Item result) {
 		ShapedRecipeBuilder.shaped(result, 1)
-				.pattern("AB")
-				.pattern("CD")
-				.define('A', meat)
-				.define('B', veggie)
-				.define('C', IcariaItems.ROCK_SALT.get())
-				.define('D', IcariaItems.LOAM_BOWL.get())
-				.unlockedBy("has_item", has(meat))
-				.save(consumer, Objects.requireNonNull(result.getRegistryName()));
+			.pattern("AB")
+			.pattern("CD")
+			.define('A', meat)
+			.define('B', veggie)
+			.define('C', IcariaItems.ROCK_SALT.get())
+			.define('D', IcariaItems.LOAM_BOWL.get())
+			.unlockedBy("has_item", has(meat))
+			.save(consumer, Objects.requireNonNull(result.getRegistryName()));
 	}
 
 	public void threeIngredientStewRecipe(Consumer<FinishedRecipe> consumer, Item ingredientOne, TagKey<Item> ingredientTwo, TagKey<Item> ingredientThree, Item result) {
 		ShapedRecipeBuilder.shaped(result, 1)
-				.pattern("ABC")
-				.pattern("DE ")
-				.define('A', ingredientOne)
-				.define('B', ingredientTwo)
-				.define('C', ingredientThree)
-				.define('D', IcariaItems.ROCK_SALT.get())
-				.define('E', IcariaItems.LOAM_BOWL.get())
-				.unlockedBy("has_item", has(ingredientOne))
-				.save(consumer, Objects.requireNonNull(result.getRegistryName()));
+			.pattern("ABC")
+			.pattern("DE ")
+			.define('A', ingredientOne)
+			.define('B', ingredientTwo)
+			.define('C', ingredientThree)
+			.define('D', IcariaItems.ROCK_SALT.get())
+			.define('E', IcariaItems.LOAM_BOWL.get())
+			.unlockedBy("has_item", has(ingredientOne))
+			.save(consumer, Objects.requireNonNull(result.getRegistryName()));
 	}
 
 	public void glassRecipes(Consumer<FinishedRecipe> consumer, Item sand, Item glass, Item pane, Item horizontalPane) {
@@ -946,5 +953,10 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 
 	public ResourceLocation appendResource(ResourceLocation location, String suffix) {
 		return new ResourceLocation(location.getNamespace(), location.getPath() + suffix);
+	}
+
+	@Override
+	public String getName() {
+		return IcariaInfo.MODID;
 	}
 }

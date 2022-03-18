@@ -43,13 +43,13 @@ public class IcariaBidentItem extends TieredItem implements Vanishable {
 	public static final int THROW_THRESHOLD_TIME = 10;
 	public static final float BASE_DAMAGE = 3.5F;
 	public static final float SHOOT_POWER = 1.5F;
-	private final Multimap<Attribute, AttributeModifier> defaultModifiers;
+	public final Multimap<Attribute, AttributeModifier> defaultModifiers;
 	public final Float attackDamage;
 
-	public IcariaBidentItem(IcariaTier tier, Properties properties) {
-		super(tier, properties);
+	public IcariaBidentItem(IcariaTier pTier, Properties pProperties) {
+		super(pTier, pProperties);
 		Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-		this.attackDamage = BASE_DAMAGE + tier.getAttackDamageBonus();
+		this.attackDamage = BASE_DAMAGE + pTier.getAttackDamageBonus();
 		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", this.attackDamage, AttributeModifier.Operation.ADDITION));
 		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -2.5D, AttributeModifier.Operation.ADDITION));
 		this.defaultModifiers = builder.build();
@@ -143,21 +143,21 @@ public class IcariaBidentItem extends TieredItem implements Vanishable {
 	}
 
 	@Override
-	public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-		pStack.hurtAndBreak(1, pAttacker, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+	public boolean hurtEnemy(ItemStack pStack, LivingEntity pEntity, LivingEntity pPlayer) {
+		pStack.hurtAndBreak(1, pPlayer, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		return true;
 	}
 
 	@Override
-	public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pMiningEntity) {
+	public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pPlayer) {
 		if ((double)pState.getDestroySpeed(pLevel, pPos) != 0.0D) {
-			pStack.hurtAndBreak(2, pMiningEntity, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+			pStack.hurtAndBreak(2, pPlayer, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		}
 		return true;
 	}
 
 	@Override
-	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pSlot) {
-		return pSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pSlot);
+	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
+		return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
 	}
 }

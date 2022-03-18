@@ -7,13 +7,13 @@ import net.minecraft.world.item.crafting.RecipeType;
 public class FuelItem extends Item {
 	public int burntime;
 
-	public FuelItem(Properties properties, int burntime) {
-		super(properties);
-		this.burntime = burntime;
+	public FuelItem(Properties pProperties, int pBurntime) {
+		super(pProperties);
+		this.burntime = pBurntime;
 	}
 
 	@Override
-	public int getBurnTime(ItemStack stack, RecipeType<?> type) {
+	public int getBurnTime(ItemStack pStack, RecipeType<?> pType) {
 		return burntime;
 	}
 }

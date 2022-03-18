@@ -34,25 +34,25 @@ import java.util.Objects;
 @ParametersAreNonnullByDefault
 
 public class ThrownBidentEntity extends AbstractArrow {
-	private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(ThrownBidentEntity.class, EntityDataSerializers.BYTE);
-	private static final EntityDataAccessor<ItemStack> ID_BIDENT_ITEM = SynchedEntityData.defineId(ThrownBidentEntity.class, EntityDataSerializers.ITEM_STACK);
-	private ItemStack bidentItem = new ItemStack(IcariaItems.CHALKOS_TOOLS.BIDENT.get());
-	private boolean dealtDamage;
+	public static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(ThrownBidentEntity.class, EntityDataSerializers.BYTE);
+	public static final EntityDataAccessor<ItemStack> ID_BIDENT_ITEM = SynchedEntityData.defineId(ThrownBidentEntity.class, EntityDataSerializers.ITEM_STACK);
+	public ItemStack bidentItem = new ItemStack(IcariaItems.CHALKOS_TOOLS.BIDENT.get());
+	public boolean dealtDamage;
 	public int clientSideReturnTridentTickCount;
 
-	public ThrownBidentEntity(EntityType<? extends ThrownBidentEntity> p_37561_, Level world) {
-		super(p_37561_, world);
+	public ThrownBidentEntity(EntityType<? extends ThrownBidentEntity> pType, Level pLevel) {
+		super(pType, pLevel);
 	}
 
-	public ThrownBidentEntity(Level world, LivingEntity bident, ItemStack stack) {
-		super(IcariaEntities.BIDENT.get(), bident, world);
+	public ThrownBidentEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
+		super(IcariaEntities.BIDENT.get(), pEntity, pLevel);
 
-		this.bidentItem = stack.copy();
-		this.entityData.set(ID_LOYALTY, (byte)EnchantmentHelper.getLoyalty(stack));
+		this.bidentItem = pStack.copy();
+		this.entityData.set(ID_LOYALTY, (byte)EnchantmentHelper.getLoyalty(pStack));
 		this.entityData.set(ID_BIDENT_ITEM, this.bidentItem);
 	}
 
-	protected void defineSynchedData() {
+	public void defineSynchedData() {
 		super.defineSynchedData();
 		this.entityData.define(ID_LOYALTY, (byte)0);
 		this.entityData.define(ID_BIDENT_ITEM, bidentItem);
@@ -93,7 +93,7 @@ public class ThrownBidentEntity extends AbstractArrow {
 		super.tick();
 	}
 
-	private boolean isAcceptibleReturnOwner() {
+	public boolean isAcceptibleReturnOwner() {
 		Entity entity = this.getOwner();
 		if (entity != null && entity.isAlive()) {
 			return !(entity instanceof ServerPlayer) || !entity.isSpectator();
@@ -110,11 +110,11 @@ public class ThrownBidentEntity extends AbstractArrow {
 		return this.entityData.get(ID_BIDENT_ITEM);
 	}
 
-	protected EntityHitResult findHitEntity(Vec3 pStartVec, Vec3 pEndVec) {
+	public EntityHitResult findHitEntity(Vec3 pStartVec, Vec3 pEndVec) {
 		return this.dealtDamage ? null : super.findHitEntity(pStartVec, pEndVec);
 	}
 
-	protected void onHitEntity(EntityHitResult pResult) {
+	public void onHitEntity(EntityHitResult pResult) {
 		Entity entity = pResult.getEntity();
 		float f = 1.0F;
 		if (this.bidentItem.getItem() instanceof IcariaBidentItem)
@@ -163,11 +163,11 @@ public class ThrownBidentEntity extends AbstractArrow {
 		return EnchantmentHelper.hasChanneling(this.bidentItem);
 	}
 
-	protected boolean tryPickup(Player p_150196_) {
-		return super.tryPickup(p_150196_) || this.isNoPhysics() && this.ownedBy(p_150196_) && p_150196_.getInventory().add(this.getPickupItem());
+	public boolean tryPickup(Player pPlayer) {
+		return super.tryPickup(pPlayer) || this.isNoPhysics() && this.ownedBy(pPlayer) && pPlayer.getInventory().add(this.getPickupItem());
 	}
 
-	protected SoundEvent getDefaultHitGroundSoundEvent() {
+	public SoundEvent getDefaultHitGroundSoundEvent() {
 		return SoundEvents.TRIDENT_HIT_GROUND;
 	}
 
@@ -201,7 +201,7 @@ public class ThrownBidentEntity extends AbstractArrow {
 		}
 	}
 
-	protected float getWaterInertia() {
+	public float getWaterInertia() {
 		return 0.99F;
 	}
 

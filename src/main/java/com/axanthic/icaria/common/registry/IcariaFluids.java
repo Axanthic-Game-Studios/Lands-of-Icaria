@@ -38,18 +38,17 @@ public class IcariaFluids {
 	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_SOURCE = register("mediterranean_water_source", () -> new ForgeFlowingFluid.Source(propertiesMediterraneanWater()));
 	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_FLOWING = register("mediterranean_water_flowing", () -> new ForgeFlowingFluid.Flowing(propertiesMediterraneanWater()));
 
-	// TODO more like downwards fluid atm
 	public static final RegistryObject<FlowingFluid> UPWARDS_FLUID_SOURCE = register("upwards_fluid_source", () -> new ForgeFlowingFluid.Source(propertiesUpwardsFluid()));
 	public static final RegistryObject<FlowingFluid> UPWARDS_FLUID_FLOWING = register("upwards_fluid_flowing", () -> new ForgeFlowingFluid.Flowing(propertiesUpwardsFluid()));
 
-	private static Properties propertiesHyliastrumFluid() {
+	public static Properties propertiesHyliastrumFluid() {
 		return new Properties(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, IcariaFluids.HYLIASTRUM_FLUID_FLOWING, attributesHyliastrumFluid())
 				.bucket(IcariaItems.HYLIASTRUM_FLUID_BUCKET)
 				.block(IcariaBlocks.HYLIASTRUM_FLUID)
 				.tickRate(15);
 	}
 
-	private static Builder attributesHyliastrumFluid() {
+	public static Builder attributesHyliastrumFluid() {
 		return FluidAttributes.builder(HYLIASTRUM_FLUID_STILL, HYLIASTRUM_FLUID_FLOW)
 				.translationKey("fluid.landsoficaria.hyliastrum_fluid")
 				.color(0xFF000000)
@@ -59,14 +58,14 @@ public class IcariaFluids {
 				.sound(SoundEvents.BUCKET_FILL, SoundEvents.BUCKET_EMPTY);
 	}
 
-	private static Properties propertiesMediterraneanWater() {
+	public static Properties propertiesMediterraneanWater() {
 		return new Properties(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, IcariaFluids.MEDITERRANEAN_WATER_FLOWING, attributesMediterraneanWater())
 			.bucket(IcariaItems.MEDITERRANEAN_WATER_BUCKET)
 			.block(IcariaBlocks.MEDITERRANEAN_WATER)
 			.canMultiply();
 	}
 
-	private static Builder attributesMediterraneanWater() {
+	public static Builder attributesMediterraneanWater() {
 		return FluidAttributes.builder(MEDITERRANEAN_WATER_STILL, MEDITERRANEAN_WATER_FLOW)
 			.translationKey("fluid.landsoficaria.mediterranean_water")
 			.color(0xFF51A18B)
@@ -76,13 +75,13 @@ public class IcariaFluids {
 			.sound(SoundEvents.BUCKET_FILL, SoundEvents.BUCKET_EMPTY);
 	}
 
-	private static Properties propertiesUpwardsFluid() {
+	public static Properties propertiesUpwardsFluid() {
 		return new Properties(IcariaFluids.UPWARDS_FLUID_SOURCE, IcariaFluids.UPWARDS_FLUID_FLOWING, attributesUpwardsFluid())
 			.bucket(IcariaItems.UPWARDS_FLUID_BUCKET)
 			.block(IcariaBlocks.UPWARDS_FLUID);
 	}
 
-	private static Builder attributesUpwardsFluid() {
+	public static Builder attributesUpwardsFluid() {
 		return FluidAttributes.builder(UPWARDS_FLUID_STILL, UPWARDS_FLUID_FLOW)
 			.translationKey("fluid.landsoficaria.upwards_fluid")
 			.color(0xFFF3BF61)
@@ -93,7 +92,7 @@ public class IcariaFluids {
 			.sound(SoundEvents.BUCKET_FILL, SoundEvents.BUCKET_EMPTY);
 	}
 
-	private static <T extends Fluid> RegistryObject<T> register(final String name, final Supplier<? extends T> block) {
+	public static <T extends Fluid> RegistryObject<T> register(final String name, final Supplier<? extends T> block) {
 		return FLUIDS.register(name, block);
 	}
 }

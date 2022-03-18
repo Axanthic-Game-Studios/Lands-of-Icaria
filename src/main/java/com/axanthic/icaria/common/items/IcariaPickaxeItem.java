@@ -19,12 +19,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaPickaxeItem extends PickaxeItem {
-	private final TagKey<Block> blocks = BlockTags.MINEABLE_WITH_PICKAXE;
-	private final Tier equivalentTier;
+	public final TagKey<Block> blocks = BlockTags.MINEABLE_WITH_PICKAXE;
+	public final Tier equivalentTier;
 
-	public IcariaPickaxeItem(IcariaTier tier, int damage, float attackSpeed, Properties properties) {
-		super(tier, damage, attackSpeed, properties);
-		this.equivalentTier = tier.vanillaEquivalent;
+	public IcariaPickaxeItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
+		super(pTier, pDamage, pAttackSpeed, pProperties);
+		this.equivalentTier = pTier.vanillaEquivalent;
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class IcariaPickaxeItem extends PickaxeItem {
 	}
 
 	@Override
-	public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
-		return state.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(state.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, state);
+	public boolean isCorrectToolForDrops(ItemStack pStack, BlockState pState) {
+		return pState.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, pState);
 	}
 }

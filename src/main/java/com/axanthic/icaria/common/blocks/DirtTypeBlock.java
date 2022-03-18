@@ -13,12 +13,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DirtTypeBlock extends Block {
-	public DirtTypeBlock(Properties properties) {
-		super(properties);
+	public DirtTypeBlock(Properties pProperties) {
+		super(pProperties);
 	}
 
 	@Override
-	public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
-		return false; // TODO
+	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pFacing, IPlantable pPlantable) {
+		return false; // TODO canSustainPlant
 	}
 }

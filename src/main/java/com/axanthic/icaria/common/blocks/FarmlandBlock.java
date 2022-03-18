@@ -46,8 +46,8 @@ public class FarmlandBlock extends Block {
 	public static final IntegerProperty MOISTURE = BlockStateProperties.MOISTURE;
 	public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D);
 
-	public FarmlandBlock(Properties properties) {
-		super(properties);
+	public FarmlandBlock(Properties pProperties) {
+		super(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(MOISTURE, 0));
 	}
 
@@ -58,8 +58,8 @@ public class FarmlandBlock extends Block {
 	}
 
 	@Override
-	public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
-		PlantType plantType = plantable.getPlantType(world, pos.relative(facing));
+	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pFacing, IPlantable pPlantable) {
+		PlantType plantType = pPlantable.getPlantType(pLevel, pPos.relative(pFacing));
 		return plantType == PlantType.CROP || plantType == PlantType.PLAINS;
 	}
 
@@ -90,12 +90,12 @@ public class FarmlandBlock extends Block {
 	}
 
 	@Override
-	public void fallOn(Level p_152426_, BlockState p_152427_, BlockPos p_152428_, Entity p_152429_, float p_152430_) {
-		if (!p_152426_.isClientSide && ForgeHooks.onFarmlandTrample(p_152426_, p_152428_, IcariaBlocks.MARL.get().defaultBlockState(), p_152430_, p_152429_)) {
-			turnToMarl(p_152427_, p_152426_, p_152428_);
+	public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
+		if (!pLevel.isClientSide && ForgeHooks.onFarmlandTrample(pLevel, pPos, IcariaBlocks.MARL.get().defaultBlockState(), pFallDistance, pEntity)) {
+			turnToMarl(pState, pLevel, pPos);
 		}
 
-		super.fallOn(p_152426_, p_152427_, p_152428_, p_152429_, p_152430_);
+		super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
 	}
 
 	@Override
@@ -124,12 +124,12 @@ public class FarmlandBlock extends Block {
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-		if (pDirection == Direction.UP && !pState.canSurvive(pLevel, pCurrentPos)) {
+	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		if (pFacing == Direction.UP && !pState.canSurvive(pLevel, pCurrentPos)) {
 			pLevel.scheduleTick(pCurrentPos, this, 1);
 		}
 
-		return super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
+		return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pNeighborPos);
 	}
 
 	@Override

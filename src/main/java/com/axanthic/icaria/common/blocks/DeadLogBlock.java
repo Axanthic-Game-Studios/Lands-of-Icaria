@@ -30,8 +30,8 @@ public class DeadLogBlock extends RotatedPillarBlock implements SimpleWaterlogge
 	public static final VoxelShape INSIDE_SHAPE = box(2.0D, 8.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 	public static final VoxelShape SHAPE = Shapes.join(Shapes.block(), Shapes.or(INSIDE_SHAPE), BooleanOp.ONLY_FIRST);
 
-	public DeadLogBlock(Properties properties) {
-		super(properties);
+	public DeadLogBlock(Properties pProperties) {
+		super(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Axis.Y).setValue(WATERLOGGED, Boolean.FALSE));
 	}
 
@@ -58,7 +58,7 @@ public class DeadLogBlock extends RotatedPillarBlock implements SimpleWaterlogge
 	}
 
 	@Override
-	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
 		return Shapes.empty();
 	}
 

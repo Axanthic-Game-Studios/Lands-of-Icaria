@@ -1,0 +1,23 @@
+{
+  "textures": {
+    "top": "landsoficaria:block/strawberry_cake_top",
+    "side": "landsoficaria:block/strawberry_cake_side",
+    "inside": "landsoficaria:block/strawberry_cake_inside",
+    "bottom": "landsoficaria:block/strawberry_cake_bottom",
+    "particle": "#side"
+  },
+  "elements": [
+    {
+      "from": [ 11, 0, 1 ],
+      "to": [ 15, 8, 15 ],
+      "faces": {
+        "north": { "texture": "#side" },
+        "east": { "texture": "#side" },
+        "south": { "texture": "#side" },
+        "west": { "texture": "#inside" },
+        "up": { "texture": "#top" },
+        "down": { "texture": "#bottom" }
+      }
+    }
+  ]
+}

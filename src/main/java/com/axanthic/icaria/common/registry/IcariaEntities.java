@@ -17,7 +17,7 @@ public class IcariaEntities {
 
 	public static final RegistryObject<EntityType<ThrownBidentEntity>> BIDENT = register(Builder.<ThrownBidentEntity>of(ThrownBidentEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
 
-	private static <T extends Entity> RegistryObject<EntityType<T>> register(Builder<T> sup) {
-		return ENTITIES.register("bident", () -> sup.build(IcariaInfo.MODID + ":" + "bident"));
+	public static <T extends Entity> RegistryObject<EntityType<T>> register(Builder<T> builder) {
+		return ENTITIES.register("bident", () -> builder.build(IcariaInfo.MODID + ":" + "bident"));
 	}
 }

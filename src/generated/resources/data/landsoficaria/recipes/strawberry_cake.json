@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "CDC",
+    "EEE"
+  ],
+  "key": {
+    "A": {
+      "item": "landsoficaria:strawberries"
+    },
+    "B": {
+      "item": "minecraft:milk_bucket"
+    },
+    "C": {
+      "item": "minecraft:sugar"
+    },
+    "D": {
+      "item": "landsoficaria:jellyfish_jelly"
+    },
+    "E": {
+      "item": "landsoficaria:spelt_flour"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:strawberry_cake"
+  }
+}

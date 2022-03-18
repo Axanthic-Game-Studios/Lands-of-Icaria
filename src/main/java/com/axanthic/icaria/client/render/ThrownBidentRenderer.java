@@ -9,7 +9,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
@@ -27,11 +27,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @OnlyIn(Dist.CLIENT)
 public class ThrownBidentRenderer extends EntityRenderer<ThrownBidentEntity> {
-	private final ItemRenderer itemRenderer;
+	public final ItemRenderer itemRenderer;
 
-	public ThrownBidentRenderer(EntityRendererProvider.Context context) {
-		super(context);
-		this.itemRenderer = context.getItemRenderer();
+	public ThrownBidentRenderer(Context pContext) {
+		super(pContext);
+		this.itemRenderer = pContext.getItemRenderer();
 	}
 
 	@Override

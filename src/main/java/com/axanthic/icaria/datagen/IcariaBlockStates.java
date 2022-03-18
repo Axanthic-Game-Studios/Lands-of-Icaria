@@ -34,7 +34,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 	}
 
 	@Override
-	protected void registerStatesAndModels() {
+	public void registerStatesAndModels() {
 		ROTATED.add(IcariaBlocks.MARL);
 		ROTATED.add(IcariaBlocks.MARL_COARSE);
 		ROTATED.add(IcariaBlocks.MARL_ADOBE);
@@ -51,24 +51,18 @@ public class IcariaBlockStates extends BlockStateProvider {
 
 		MIRRORED.add(IcariaBlocks.ARACHNE_STRING_BLOCK);
 
-		//blockWithItem(IcariaBlocks.MARL_GRASS);
 		blockWithItem(IcariaBlocks.MARL_CHERT);
 		blockWithItem(IcariaBlocks.MARL_ROTTEN_BONES);
 		blockWithItem(IcariaBlocks.MARL_LIGNITE);
-		//blockWithItem(IcariaBlocks.FARMLAND);
-		//blockWithItem(IcariaBlocks.FARMLAND_FERTILIZED);
 		mirroredBlockWithItem(IcariaBlocks.LOAM);
 		axisBlock(IcariaBlocks.DOLOMITE_PILLAR.get());
 		blockItem(IcariaBlocks.DOLOMITE_PILLAR);
-		//blockWithItem(IcariaBlocks.DOLOMITE_PILLAR_HEAD);
 		blockWithItem(IcariaBlocks.GRAINEL_CHERT);
 		blockWithItem(IcariaBlocks.GRAINGLASS);
 		paneBlock(IcariaBlocks.GRAINGLASS_PANE.get(), new ResourceLocation(IcariaBlocks.GRAINGLASS.getId().getNamespace(), "block/" + IcariaBlocks.GRAINGLASS.getId().getPath()), new ResourceLocation(IcariaBlocks.GRAINGLASS.getId().getNamespace(), "block/" + IcariaBlocks.GRAINGLASS.getId().getPath() + "_pane"));
-		//blockWithItem(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL);
 		blockWithItem(IcariaBlocks.YELLOWSTONE);
 		blockWithItem(IcariaBlocks.SILKGLASS);
 		paneBlock(IcariaBlocks.SILKGLASS_PANE.get(), new ResourceLocation(IcariaBlocks.SILKGLASS.getId().getNamespace(), "block/" + IcariaBlocks.SILKGLASS.getId().getPath()), new ResourceLocation(IcariaBlocks.SILKGLASS.getId().getNamespace(), "block/" + IcariaBlocks.SILKGLASS.getId().getPath() + "_pane"));
-		//blockWithItem(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL);
 		blockWithItem(IcariaBlocks.SILKSTONE);
 		blockWithItem(IcariaBlocks.SUNSTONE);
 		blockWithItem(IcariaBlocks.VOIDSHALE);
@@ -76,7 +70,6 @@ public class IcariaBlockStates extends BlockStateProvider {
 		mirroredBlockWithItem(IcariaBlocks.RELICSTONE_SMOOTH);
 		axisBlock(IcariaBlocks.RELICSTONE_PILLAR.get());
 		blockItem(IcariaBlocks.RELICSTONE_PILLAR);
-		//blockWithItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD);
 		blockWithItem(IcariaBlocks.LIGNITE_ORE);
 		blockWithItem(IcariaBlocks.CHALKOS_ORE);
 		blockWithItem(IcariaBlocks.KASSITEROS_ORE);
@@ -87,7 +80,6 @@ public class IcariaBlockStates extends BlockStateProvider {
 		blockWithItem(IcariaBlocks.ANTHRACITE_ORE);
 		blockWithItem(IcariaBlocks.MOLYBDENUM_ORE);
 		blockWithItem(IcariaBlocks.HYLIASTRUM_ORE);
-		//blockWithItem(IcariaBlocks.QUARTZ_PILLAR_HEAD);
 		axisBlock(IcariaBlocks.SPELT_BALE_BLOCK.get());
 		blockItem(IcariaBlocks.SPELT_BALE_BLOCK);
 		blockWithItem(IcariaBlocks.CYPRESS_LEAVES);
@@ -176,9 +168,6 @@ public class IcariaBlockStates extends BlockStateProvider {
 		doorBlock(IcariaBlocks.POPULUS_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/populus_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/populus_door_top"));
 		trapdoorBlock(IcariaBlocks.POPULUS_TRAPDOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/populus_trapdoor"), true);
 		blockItemTrapDoor(IcariaBlocks.POPULUS_TRAPDOOR);
-		//blockWithItem(IcariaBlocks.MOSS_0);
-		//blockWithItem(IcariaBlocks.MOSS_1);
-		//blockWithItem(IcariaBlocks.MOSS_2);
 
 		for (RegistryObject<? extends Block> basicBlock : IcariaBlocks.BASIC_BLOCKS) {
 			if (ROTATED.contains(basicBlock)) {
@@ -227,40 +216,6 @@ public class IcariaBlockStates extends BlockStateProvider {
 		}
 	}
 
-	public void blockWithItem(RegistryObject<? extends Block> registryObject) {
-		//block model
-		simpleBlock(registryObject.get());
-
-		//itemblock model
-		blockItem(registryObject);
-	}
-
-	public void rotatedBlockWithItem(RegistryObject<? extends Block> registryObject) {
-		//block model
-		getVariantBuilder(registryObject.get()).partialState().setModels(ConfiguredModel.allRotations(cubeAll(registryObject.get()), false));
-
-		//itemblock model
-		blockItem(registryObject);
-	}
-
-	public void rotatedYBlockWithItem(RegistryObject<? extends Block> registryObject) {
-		//block model
-		getVariantBuilder(registryObject.get()).partialState().setModels(ConfiguredModel.allYRotations(cubeAll(registryObject.get()), 0, false));
-
-		//itemblock model
-		blockItem(registryObject);
-	}
-
-	public void mirroredBlockWithItem(RegistryObject<? extends Block> registryObject) {
-		//block model
-		ModelFile normal = cubeAll(registryObject.get());
-		ModelFile mirrored = models().singleTexture(Objects.requireNonNull(registryObject.get().getRegistryName()).getPath() + "_mirrored", new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/cube_mirrored_all"), "all", blockTexture(registryObject.get()));
-		getVariantBuilder(registryObject.get()).partialState().setModels(new ConfiguredModel(normal), new ConfiguredModel(normal, 0, 180, false), new ConfiguredModel(mirrored), new ConfiguredModel(mirrored, 0, 180, false));
-
-		//itemblock model
-		blockItem(registryObject);
-	}
-
 	public void blockItem(RegistryObject<? extends Block> registryObject) {
 		itemModels().withExistingParent(registryObject.getId().getPath(), registryObject.getId().getNamespace() + ":block/" + registryObject.getId().getPath());
 	}
@@ -269,8 +224,29 @@ public class IcariaBlockStates extends BlockStateProvider {
 		itemModels().withExistingParent(registryObject.getId().getPath(), registryObject.getId().getNamespace() + ":block/" + registryObject.getId().getPath() + "_bottom");
 	}
 
-	public void fluid(RegistryObject<? extends Block> fluid) {
-		ResourceLocation name = fluid.get().getRegistryName();
-		simpleBlock(fluid.get(), models().cubeAll(Objects.requireNonNull(name).getPath(), new ResourceLocation(name.getNamespace(), ModelProvider.BLOCK_FOLDER + "/fluid/" + name.getPath().replace("block", "still"))));
+	public void blockWithItem(RegistryObject<? extends Block> registryObject) {
+		// BLOCK MODEL
+		simpleBlock(registryObject.get());
+
+		// ITEMBLOCK MODEL
+		blockItem(registryObject);
+	}
+
+	public void mirroredBlockWithItem(RegistryObject<? extends Block> registryObject) {
+		// BLOCK MODEL
+		ModelFile normal = cubeAll(registryObject.get());
+		ModelFile mirrored = models().singleTexture(Objects.requireNonNull(registryObject.get().getRegistryName()).getPath() + "_mirrored", new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/cube_mirrored_all"), "all", blockTexture(registryObject.get()));
+		getVariantBuilder(registryObject.get()).partialState().setModels(new ConfiguredModel(normal), new ConfiguredModel(normal, 0, 180, false), new ConfiguredModel(mirrored), new ConfiguredModel(mirrored, 0, 180, false));
+
+		// ITEMBLOCK MODEL
+		blockItem(registryObject);
+	}
+
+	public void rotatedBlockWithItem(RegistryObject<? extends Block> registryObject) {
+		// BLOCK MODEL
+		getVariantBuilder(registryObject.get()).partialState().setModels(ConfiguredModel.allRotations(cubeAll(registryObject.get()), false));
+
+		// ITEMBLOCK MODEL
+		blockItem(registryObject);
 	}
 }
