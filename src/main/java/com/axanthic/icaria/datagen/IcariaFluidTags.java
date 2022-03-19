@@ -10,8 +10,8 @@ import net.minecraft.tags.FluidTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class IcariaFluidTags extends FluidTagsProvider {
-	public IcariaFluidTags(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-		super(generator, IcariaInfo.MODID, existingFileHelper);
+	public IcariaFluidTags(DataGenerator generator, ExistingFileHelper helper) {
+		super(generator, IcariaInfo.MODID, helper);
 	}
 
 	@Override

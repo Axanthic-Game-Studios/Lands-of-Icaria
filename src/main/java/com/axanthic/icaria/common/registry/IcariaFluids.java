@@ -92,7 +92,7 @@ public class IcariaFluids {
 			.sound(SoundEvents.BUCKET_FILL, SoundEvents.BUCKET_EMPTY);
 	}
 
-	public static <T extends Fluid> RegistryObject<T> register(final String name, final Supplier<? extends T> block) {
-		return FLUIDS.register(name, block);
+	public static <T extends Fluid> RegistryObject<T> register(final String name, final Supplier<? extends T> sup) {
+		return FLUIDS.register(name, sup);
 	}
 }

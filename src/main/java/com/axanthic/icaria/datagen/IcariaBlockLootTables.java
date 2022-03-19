@@ -15,14 +15,15 @@ import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootContext.EntityTarget;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.LootTable.Builder;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
@@ -37,7 +38,11 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("unchecked")
 @MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaBlockLootTables extends BlockLoot {
 	public static final float[] SAPLING_CHANCES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};
@@ -48,8 +53,190 @@ public class IcariaBlockLootTables extends BlockLoot {
 
 	@Override
 	public void addTables() {
-		for (RegistryObject<? extends Block> basicBlock : IcariaBlocks.BASIC_BLOCKS) {
-			dropSelf(basicBlock.get());
+
+		dropWithSilk(IcariaBlocks.MARL_GRASS.get(), IcariaItems.MARL.get(), 1.0F, 1.0F);
+		dropWithSilk(IcariaBlocks.LOAM.get(), IcariaItems.LOAM_LUMP.get(), 4.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_COBBLE.get(), 1.0F, 1.0F);
+		dropWithSilk(IcariaBlocks.SILKSTONE.get(), IcariaItems.SILKSTONE_COBBLE.get(), 1.0F, 1.0F);
+		dropWithSilk(IcariaBlocks.SUNSTONE.get(), IcariaItems.SUNSTONE_COBBLE.get(), 1.0F, 1.0F);
+		dropWithSilk(IcariaBlocks.VOIDSHALE.get(), IcariaItems.VOIDSHALE_COBBLE.get(), 1.0F, 1.0F);
+		dropWithSilk(IcariaBlocks.BAETYL.get(), IcariaItems.BAETYL_COBBLE.get(), 1.0F, 1.0F);
+		dropWithSilk(IcariaBlocks.RELICSTONE_SMOOTH.get(), IcariaItems.RELICSTONE.get(), 1.0F, 1.0F);
+		dropWithSilk(IcariaBlocks.CYPRESS_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.DROUGHTROOT_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.FIR_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.LAUREL_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.OLIVE_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.PLANE_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.POPULUS_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
+
+		dropOres(IcariaBlocks.MARL_CHERT.get(), IcariaItems.CHERT.get());
+		dropOres(IcariaBlocks.MARL_LIGNITE.get(), IcariaItems.LIGNITE.get());
+		dropOres(IcariaBlocks.GRAINEL_CHERT.get(), IcariaItems.CHERT.get());
+		dropOres(IcariaBlocks.LIGNITE_ORE.get(), IcariaItems.LIGNITE.get());
+		dropOres(IcariaBlocks.CHALKOS_ORE.get(), IcariaItems.CHALKOS_RAW.get());
+		dropOres(IcariaBlocks.KASSITEROS_ORE.get(), IcariaItems.KASSITEROS_RAW.get());
+		dropOres(IcariaBlocks.DOLOMITE_ORE.get(), IcariaItems.DOLOMITE.get());
+		dropOres(IcariaBlocks.VANADIUM_ORE.get(), IcariaItems.VANADIUM_RAW.get());
+		dropOres(IcariaBlocks.SLIVER_ORE.get(), IcariaItems.SLIVER.get());
+		dropOres(IcariaBlocks.SIDEROS_ORE.get(), IcariaItems.SIDEROS_RAW.get());
+		dropOres(IcariaBlocks.ANTHRACITE_ORE.get(), IcariaItems.ANTHRACITE.get());
+		dropOres(IcariaBlocks.MOLYBDENUM_ORE.get(), IcariaItems.MOLYBDENUM_RAW.get());
+
+		dropBone(IcariaBlocks.MARL_ROTTEN_BONES.get(), Items.BONE, IcariaItems.ROTTEN_BONES.get(), IcariaItems.REMAINS.get());
+
+		dropElse(IcariaBlocks.FARMLAND.get(), IcariaItems.MARL.get());
+		dropElse(IcariaBlocks.FARMLAND_FERTILIZED.get(), IcariaItems.MARL.get());
+		dropElse(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
+		dropElse(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get(), Items.CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_WHITE_CANDLE.get(), Items.WHITE_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_ORANGE_CANDLE.get(), Items.ORANGE_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_MAGENTA_CANDLE.get(), Items.MAGENTA_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_BLUE_CANDLE.get(), Items.LIGHT_BLUE_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_YELLOW_CANDLE.get(), Items.YELLOW_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_LIME_CANDLE.get(), Items.LIME_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_PINK_CANDLE.get(), Items.PINK_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_GRAY_CANDLE.get(), Items.GRAY_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_GRAY_CANDLE.get(), Items.LIGHT_GRAY_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_CYAN_CANDLE.get(), Items.CYAN_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_PURPLE_CANDLE.get(), Items.PURPLE_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_BLUE_CANDLE.get(), Items.BLUE_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_BROWN_CANDLE.get(), Items.BROWN_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_GREEN_CANDLE.get(), Items.GREEN_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_RED_CANDLE.get(), Items.RED_CANDLE);
+		dropElse(IcariaBlocks.STRAWBERRY_CAKE_BLACK_CANDLE.get(), Items.BLACK_CANDLE);
+
+		dropWhenSilk(IcariaBlocks.GRAINGLASS.get());
+		dropWhenSilk(IcariaBlocks.GRAINGLASS_PANE.get());
+		dropWhenSilk(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get());
+		dropWhenSilk(IcariaBlocks.SILKGLASS.get());
+		dropWhenSilk(IcariaBlocks.SILKGLASS_PANE.get());
+		dropWhenSilk(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get());
+		dropWhenSilk(IcariaBlocks.HYLIASTRUM_ORE.get());
+		dropWhenSilk(IcariaBlocks.GRAINITE_RUBBLE.get());
+		dropWhenSilk(IcariaBlocks.YELLOWSTONE_RUBBLE.get());
+		dropWhenSilk(IcariaBlocks.SILKSTONE_RUBBLE.get());
+		dropWhenSilk(IcariaBlocks.SUNSTONE_RUBBLE.get());
+		dropWhenSilk(IcariaBlocks.VOIDSHALE_RUBBLE.get());
+		dropWhenSilk(IcariaBlocks.BAETYL_RUBBLE.get());
+		dropWhenSilk(IcariaBlocks.RELICSTONE_RUBBLE.get());
+
+		dropThis(IcariaBlocks.RELICSTONE_PILLAR.get());
+		dropThis(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get());
+		dropThis(IcariaBlocks.DOLOMITE_PILLAR.get());
+		dropThis(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get());
+		dropThis(IcariaBlocks.QUARTZ_PILLAR_HEAD.get());
+		dropThis(IcariaBlocks.SPELT_BALE_BLOCK.get());
+		dropThis(IcariaBlocks.CYPRESS_SAPLING.get());
+		dropThis(IcariaBlocks.CYPRESS_WOOD.get());
+		dropThis(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());
+		dropThis(IcariaBlocks.CYPRESS_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
+		dropThis(IcariaBlocks.DEAD_CYPRESS_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get());
+		dropThis(IcariaBlocks.CYPRESS_TRAPDOOR.get());
+		dropThis(IcariaBlocks.CYPRESS_LADDER.get());
+		dropThis(IcariaBlocks.DROUGHTROOT_SAPLING.get());
+		dropThis(IcariaBlocks.DROUGHTROOT_WOOD.get());
+		dropThis(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get());
+		dropThis(IcariaBlocks.DROUGHTROOT_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
+		dropThis(IcariaBlocks.DEAD_DROUGHTROOT_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get());
+		dropThis(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
+		dropThis(IcariaBlocks.DROUGHTROOT_LADDER.get());
+		dropThis(IcariaBlocks.FIR_SAPLING.get());
+		dropThis(IcariaBlocks.FIR_WOOD.get());
+		dropThis(IcariaBlocks.STRIPPED_FIR_WOOD.get());
+		dropThis(IcariaBlocks.FIR_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_FIR_LOG.get());
+		dropThis(IcariaBlocks.DEAD_FIR_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get());
+		dropThis(IcariaBlocks.FIR_TRAPDOOR.get());
+		dropThis(IcariaBlocks.FIR_LADDER.get());
+		dropThis(IcariaBlocks.LAUREL_SAPLING.get());
+		dropThis(IcariaBlocks.LAUREL_WOOD.get());
+		dropThis(IcariaBlocks.STRIPPED_LAUREL_WOOD.get());
+		dropThis(IcariaBlocks.LAUREL_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_LAUREL_LOG.get());
+		dropThis(IcariaBlocks.DEAD_LAUREL_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get());
+		dropThis(IcariaBlocks.LAUREL_TRAPDOOR.get());
+		dropThis(IcariaBlocks.LAUREL_LADDER.get());
+		dropThis(IcariaBlocks.OLIVE_SAPLING.get());
+		dropThis(IcariaBlocks.OLIVE_WOOD.get());
+		dropThis(IcariaBlocks.STRIPPED_OLIVE_WOOD.get());
+		dropThis(IcariaBlocks.OLIVE_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_OLIVE_LOG.get());
+		dropThis(IcariaBlocks.DEAD_OLIVE_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get());
+		dropThis(IcariaBlocks.OLIVE_TRAPDOOR.get());
+		dropThis(IcariaBlocks.OLIVE_LADDER.get());
+		dropThis(IcariaBlocks.PLANE_SAPLING.get());
+		dropThis(IcariaBlocks.PLANE_WOOD.get());
+		dropThis(IcariaBlocks.STRIPPED_PLANE_WOOD.get());
+		dropThis(IcariaBlocks.PLANE_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_PLANE_LOG.get());
+		dropThis(IcariaBlocks.DEAD_PLANE_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get());
+		dropThis(IcariaBlocks.PLANE_TRAPDOOR.get());
+		dropThis(IcariaBlocks.PLANE_LADDER.get());
+		dropThis(IcariaBlocks.POPULUS_SAPLING.get());
+		dropThis(IcariaBlocks.POPULUS_WOOD.get());
+		dropThis(IcariaBlocks.STRIPPED_POPULUS_WOOD.get());
+		dropThis(IcariaBlocks.POPULUS_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_POPULUS_LOG.get());
+		dropThis(IcariaBlocks.DEAD_POPULUS_LOG.get());
+		dropThis(IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get());
+		dropThis(IcariaBlocks.POPULUS_TRAPDOOR.get());
+		dropThis(IcariaBlocks.POPULUS_LADDER.get());
+		dropThis(IcariaBlocks.LIGNITE_TORCH.get());
+		dropThis(IcariaBlocks.ANTHRACITE_TORCH.get());
+
+		dropPots(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
+		dropPots(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
+		dropPots(IcariaBlocks.POTTED_FIR_SAPLING.get());
+		dropPots(IcariaBlocks.POTTED_LAUREL_SAPLING.get());
+		dropPots(IcariaBlocks.POTTED_OLIVE_SAPLING.get());
+		dropPots(IcariaBlocks.POTTED_PLANE_SAPLING.get());
+		dropPots(IcariaBlocks.POTTED_POPULUS_SAPLING.get());
+
+		dropLeaves(IcariaBlocks.CYPRESS_LEAVES.get(), IcariaBlocks.CYPRESS_SAPLING.get());
+		dropLeaves(IcariaBlocks.DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_SAPLING.get());
+		dropLeaves(IcariaBlocks.FIR_LEAVES.get(), IcariaBlocks.FIR_SAPLING.get());
+		dropLeaves(IcariaBlocks.OLIVE_LEAVES.get(), IcariaBlocks.OLIVE_SAPLING.get());
+		dropLeaves(IcariaBlocks.PLANE_LEAVES.get(), IcariaBlocks.PLANE_SAPLING.get());
+		dropLeaves(IcariaBlocks.POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_SAPLING.get());
+
+		dropLaurelsLeaves(IcariaBlocks.LAUREL_LEAVES.get(), IcariaBlocks.LAUREL_SAPLING.get());
+
+		dropOlivesLeaves(IcariaBlocks.OLIVE_LEAVES_BLACK.get(), IcariaItems.OLIVES_BLACK.get());
+		dropOlivesLeaves(IcariaBlocks.OLIVE_LEAVES_GREEN.get(), IcariaItems.OLIVES_GREEN.get());
+
+		dropLayers(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get());
+		dropLayers(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get());
+		dropLayers(IcariaBlocks.FALLEN_FIR_LEAVES.get());
+		dropLayers(IcariaBlocks.FALLEN_LAUREL_LEAVES.get());
+		dropLayers(IcariaBlocks.FALLEN_OLIVE_LEAVES.get());
+		dropLayers(IcariaBlocks.FALLEN_PLANE_LEAVES.get());
+		dropLayers(IcariaBlocks.FALLEN_POPULUS_LEAVES.get());
+		dropLayers(IcariaBlocks.MOSS_0.get());
+		dropLayers(IcariaBlocks.MOSS_1.get());
+		dropLayers(IcariaBlocks.MOSS_2.get());
+
+		dropDoor(IcariaBlocks.CYPRESS_DOOR.get());
+		dropDoor(IcariaBlocks.DROUGHTROOT_DOOR.get());
+		dropDoor(IcariaBlocks.FIR_DOOR.get());
+		dropDoor(IcariaBlocks.LAUREL_DOOR.get());
+		dropDoor(IcariaBlocks.OLIVE_DOOR.get());
+		dropDoor(IcariaBlocks.PLANE_DOOR.get());
+		dropDoor(IcariaBlocks.POPULUS_DOOR.get());
+
+		dropNone(IcariaBlocks.STRAWBERRY_CAKE.get());
+
+		for (RegistryObject<? extends Block> registryObject : IcariaBlocks.BASIC_BLOCKS) {
+			dropThis(registryObject.get());
 		}
 
 		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
@@ -57,10 +244,10 @@ public class IcariaBlockLootTables extends BlockLoot {
 				add(Objects.requireNonNull(deco.block.SLAB).get(), BlockLoot::createSlabItemTable);
 			}
 			if (deco.STAIRS != null) {
-				dropSelf(Objects.requireNonNull(deco.block.STAIRS).get());
+				dropThis(Objects.requireNonNull(deco.block.STAIRS).get());
 			}
 			if (deco.WALL != null) {
-				dropSelf(Objects.requireNonNull(deco.block.WALL).get());
+				dropThis(Objects.requireNonNull(deco.block.WALL).get());
 			}
 		}
 
@@ -69,207 +256,71 @@ public class IcariaBlockLootTables extends BlockLoot {
 				add(Objects.requireNonNull(deco.block.SLAB).get(), BlockLoot::createSlabItemTable);
 			}
 			if (deco.STAIRS != null) {
-				dropSelf(Objects.requireNonNull(deco.block.STAIRS).get());
+				dropThis(Objects.requireNonNull(deco.block.STAIRS).get());
 			}
 			if (deco.FENCE != null) {
-				dropSelf(Objects.requireNonNull(deco.block.FENCE).get());
+				dropThis(Objects.requireNonNull(deco.block.FENCE).get());
 			}
 			if (deco.GATE != null) {
-				dropSelf(Objects.requireNonNull(deco.block.GATE).get());
+				dropThis(Objects.requireNonNull(deco.block.GATE).get());
 			}
 		}
-
-		requireSilkTouch(IcariaBlocks.MARL_GRASS.get(), IcariaItems.MARL.get());
-		this.add(IcariaBlocks.MARL_CHERT.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.CHERT.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		this.add(IcariaBlocks.MARL_ROTTEN_BONES.get(), (blockDrop) -> LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(blockDrop).when(HAS_SILK_TOUCH)
-			.otherwise(applyExplosionDecay(Items.BONE, LootItem.lootTableItem(Items.BONE).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(25)
-			.append(applyExplosionDecay(IcariaItems.ROTTEN_BONES.get(), LootItem.lootTableItem(IcariaItems.ROTTEN_BONES.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(25))
-			.append(applyExplosionDecay(IcariaItems.REMAINS.get(), LootItem.lootTableItem(IcariaItems.REMAINS.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(1))))));
-		this.add(IcariaBlocks.MARL_LIGNITE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.LIGNITE.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		dropOther(IcariaBlocks.FARMLAND.get(), IcariaItems.MARL.get());
-		dropOther(IcariaBlocks.FARMLAND_FERTILIZED.get(), IcariaItems.MARL.get());
-		this.add(IcariaBlocks.LOAM.get(), (blockDrop) -> createSingleItemTableWithSilkTouch(blockDrop, IcariaItems.LOAM_LUMP.get(), ConstantValue.exactly(4.0F)));
-		dropSelf(IcariaBlocks.DOLOMITE_PILLAR.get());
-		dropSelf(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get());
-		this.add(IcariaBlocks.GRAINEL_CHERT.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.CHERT.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		dropWhenSilkTouch(IcariaBlocks.GRAINGLASS.get());
-		dropWhenSilkTouch(IcariaBlocks.GRAINGLASS_PANE.get());
-		dropWhenSilkTouch(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get());
-		this.add(IcariaBlocks.GRAINITE_RUBBLE.get(), noDrop());
-		requireSilkTouch(IcariaBlocks.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_COBBLE.get());
-		this.add(IcariaBlocks.YELLOWSTONE_RUBBLE.get(), noDrop());
-		dropWhenSilkTouch(IcariaBlocks.SILKGLASS.get());
-		dropWhenSilkTouch(IcariaBlocks.SILKGLASS_PANE.get());
-		dropWhenSilkTouch(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get());
-		requireSilkTouch(IcariaBlocks.SILKSTONE.get(), IcariaItems.SILKSTONE_COBBLE.get());
-		this.add(IcariaBlocks.SILKSTONE_RUBBLE.get(), noDrop());
-		requireSilkTouch(IcariaBlocks.SUNSTONE.get(), IcariaItems.SUNSTONE_COBBLE.get());
-		this.add(IcariaBlocks.SUNSTONE_RUBBLE.get(), noDrop());
-		requireSilkTouch(IcariaBlocks.VOIDSHALE.get(), IcariaItems.VOIDSHALE_COBBLE.get());
-		this.add(IcariaBlocks.VOIDSHALE_RUBBLE.get(), noDrop());
-		requireSilkTouch(IcariaBlocks.BAETYL.get(), IcariaItems.BAETYL_COBBLE.get());
-		this.add(IcariaBlocks.BAETYL_RUBBLE.get(), noDrop());
-		requireSilkTouch(IcariaBlocks.RELICSTONE_SMOOTH.get(), IcariaItems.RELICSTONE.get());
-		dropSelf(IcariaBlocks.RELICSTONE_PILLAR.get());
-		dropSelf(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get());
-		this.add(IcariaBlocks.RELICSTONE_RUBBLE.get(), noDrop());
-		this.add(IcariaBlocks.LIGNITE_ORE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.LIGNITE.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		this.add(IcariaBlocks.CHALKOS_ORE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.CHALKOS_RAW.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		this.add(IcariaBlocks.KASSITEROS_ORE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.KASSITEROS_RAW.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		this.add(IcariaBlocks.DOLOMITE_ORE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.DOLOMITE.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		this.add(IcariaBlocks.VANADIUM_ORE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.VANADIUM_RAW.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		this.add(IcariaBlocks.SLIVER_ORE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.SLIVER.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		this.add(IcariaBlocks.SIDEROS_ORE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.SIDEROS_RAW.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		this.add(IcariaBlocks.ANTHRACITE_ORE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.ANTHRACITE.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		this.add(IcariaBlocks.MOLYBDENUM_ORE.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(IcariaItems.MOLYBDENUM_RAW.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		dropWhenSilkTouch(IcariaBlocks.HYLIASTRUM_ORE.get());
-		dropSelf(IcariaBlocks.QUARTZ_PILLAR_HEAD.get());
-		dropSelf(IcariaBlocks.SPELT_BALE_BLOCK.get());
-		dropSelf(IcariaBlocks.CYPRESS_SAPLING.get());
-		dropPottedContents(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
-		this.add(IcariaBlocks.CYPRESS_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.CYPRESS_SAPLING.get(), SAPLING_CHANCES));
-		dropLayers(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get());
-		this.add(IcariaBlocks.CYPRESS_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		dropSelf(IcariaBlocks.CYPRESS_WOOD.get());
-		dropSelf(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());
-		dropSelf(IcariaBlocks.CYPRESS_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
-		dropSelf(IcariaBlocks.DEAD_CYPRESS_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get());
-		this.add(IcariaBlocks.CYPRESS_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.CYPRESS_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
-		dropSelf(IcariaBlocks.CYPRESS_TRAPDOOR.get());
-		dropSelf(IcariaBlocks.CYPRESS_LADDER.get());
-		dropSelf(IcariaBlocks.DROUGHTROOT_SAPLING.get());
-		dropPottedContents(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
-		this.add(IcariaBlocks.DROUGHTROOT_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.DROUGHTROOT_SAPLING.get(), SAPLING_CHANCES));
-		dropLayers(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get());
-		this.add(IcariaBlocks.DROUGHTROOT_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		dropSelf(IcariaBlocks.DROUGHTROOT_WOOD.get());
-		dropSelf(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get());
-		dropSelf(IcariaBlocks.DROUGHTROOT_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
-		dropSelf(IcariaBlocks.DEAD_DROUGHTROOT_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get());
-		this.add(IcariaBlocks.DROUGHTROOT_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.DROUGHTROOT_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
-		dropSelf(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
-		dropSelf(IcariaBlocks.DROUGHTROOT_LADDER.get());
-		dropSelf(IcariaBlocks.FIR_SAPLING.get());
-		dropPottedContents(IcariaBlocks.POTTED_FIR_SAPLING.get());
-		this.add(IcariaBlocks.FIR_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.FIR_SAPLING.get(), SAPLING_CHANCES));
-		dropLayers(IcariaBlocks.FALLEN_FIR_LEAVES.get());
-		this.add(IcariaBlocks.FIR_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		dropSelf(IcariaBlocks.FIR_WOOD.get());
-		dropSelf(IcariaBlocks.STRIPPED_FIR_WOOD.get());
-		dropSelf(IcariaBlocks.FIR_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_FIR_LOG.get());
-		dropSelf(IcariaBlocks.DEAD_FIR_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get());
-		this.add(IcariaBlocks.FIR_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.FIR_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
-		dropSelf(IcariaBlocks.FIR_TRAPDOOR.get());
-		dropSelf(IcariaBlocks.FIR_LADDER.get());
-		dropSelf(IcariaBlocks.LAUREL_SAPLING.get());
-		dropPottedContents(IcariaBlocks.POTTED_LAUREL_SAPLING.get());
-		this.add(IcariaBlocks.LAUREL_LEAVES.get(), (pBlock) -> createLaurelLeavesDrops(pBlock, IcariaBlocks.LAUREL_SAPLING.get(), SAPLING_CHANCES));
-		dropLayers(IcariaBlocks.FALLEN_LAUREL_LEAVES.get());
-		this.add(IcariaBlocks.LAUREL_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		dropSelf(IcariaBlocks.LAUREL_WOOD.get());
-		dropSelf(IcariaBlocks.STRIPPED_LAUREL_WOOD.get());
-		dropSelf(IcariaBlocks.LAUREL_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_LAUREL_LOG.get());
-		dropSelf(IcariaBlocks.DEAD_LAUREL_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get());
-		this.add(IcariaBlocks.LAUREL_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.LAUREL_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
-		dropSelf(IcariaBlocks.LAUREL_TRAPDOOR.get());
-		dropSelf(IcariaBlocks.LAUREL_LADDER.get());
-		dropSelf(IcariaBlocks.OLIVE_SAPLING.get());
-		dropPottedContents(IcariaBlocks.POTTED_OLIVE_SAPLING.get());
-		this.add(IcariaBlocks.OLIVE_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.OLIVE_SAPLING.get(), SAPLING_CHANCES));
-		this.add(IcariaBlocks.OLIVE_LEAVES_BLACK.get(), (pBlock) -> createSilkTouchOrShearsDispatchTable(pBlock, applyExplosionDecay(pBlock, LootItem.lootTableItem(IcariaItems.OLIVES_BLACK.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		this.add(IcariaBlocks.OLIVE_LEAVES_GREEN.get(), (pBlock) -> createSilkTouchOrShearsDispatchTable(pBlock, applyExplosionDecay(pBlock, LootItem.lootTableItem(IcariaItems.OLIVES_GREEN.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		dropLayers(IcariaBlocks.FALLEN_OLIVE_LEAVES.get());
-		this.add(IcariaBlocks.OLIVE_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		dropSelf(IcariaBlocks.OLIVE_WOOD.get());
-		dropSelf(IcariaBlocks.STRIPPED_OLIVE_WOOD.get());
-		dropSelf(IcariaBlocks.OLIVE_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_OLIVE_LOG.get());
-		dropSelf(IcariaBlocks.DEAD_OLIVE_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get());
-		this.add(IcariaBlocks.OLIVE_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.OLIVE_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
-		dropSelf(IcariaBlocks.OLIVE_TRAPDOOR.get());
-		dropSelf(IcariaBlocks.OLIVE_LADDER.get());
-		dropSelf(IcariaBlocks.PLANE_SAPLING.get());
-		dropPottedContents(IcariaBlocks.POTTED_PLANE_SAPLING.get());
-		this.add(IcariaBlocks.PLANE_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.PLANE_SAPLING.get(), SAPLING_CHANCES));
-		dropLayers(IcariaBlocks.FALLEN_PLANE_LEAVES.get());
-		this.add(IcariaBlocks.PLANE_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		dropSelf(IcariaBlocks.PLANE_WOOD.get());
-		dropSelf(IcariaBlocks.STRIPPED_PLANE_WOOD.get());
-		dropSelf(IcariaBlocks.PLANE_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_PLANE_LOG.get());
-		dropSelf(IcariaBlocks.DEAD_PLANE_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get());
-		this.add(IcariaBlocks.PLANE_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.PLANE_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
-		dropSelf(IcariaBlocks.PLANE_TRAPDOOR.get());
-		dropSelf(IcariaBlocks.PLANE_LADDER.get());
-		dropSelf(IcariaBlocks.POPULUS_SAPLING.get());
-		dropPottedContents(IcariaBlocks.POTTED_POPULUS_SAPLING.get());
-		this.add(IcariaBlocks.POPULUS_LEAVES.get(), (pBlock) -> createLeavesDrops(pBlock, IcariaBlocks.POPULUS_SAPLING.get(), SAPLING_CHANCES));
-		dropLayers(IcariaBlocks.FALLEN_POPULUS_LEAVES.get());
-		this.add(IcariaBlocks.POPULUS_TWIGS.get(), (blockDrop) -> createSilkTouchDispatchTable(blockDrop, applyExplosionDecay(blockDrop, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 4))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
-		dropSelf(IcariaBlocks.POPULUS_WOOD.get());
-		dropSelf(IcariaBlocks.STRIPPED_POPULUS_WOOD.get());
-		dropSelf(IcariaBlocks.POPULUS_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_POPULUS_LOG.get());
-		dropSelf(IcariaBlocks.DEAD_POPULUS_LOG.get());
-		dropSelf(IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get());
-		this.add(IcariaBlocks.POPULUS_DOOR.get(), createSinglePropConditionTable(IcariaBlocks.POPULUS_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
-		dropSelf(IcariaBlocks.POPULUS_TRAPDOOR.get());
-		dropSelf(IcariaBlocks.POPULUS_LADDER.get());
-		dropSelf(IcariaBlocks.LIGNITE_TORCH.get());
-		dropOther(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
-		dropSelf(IcariaBlocks.ANTHRACITE_TORCH.get());
-		dropOther(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
-		dropLayers(IcariaBlocks.MOSS_0.get());
-		dropLayers(IcariaBlocks.MOSS_1.get());
-		dropLayers(IcariaBlocks.MOSS_2.get());
-		this.add(IcariaBlocks.STRAWBERRY_CAKE.get(), noDrop());
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get(), Items.CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_WHITE_CANDLE.get(), Items.WHITE_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_ORANGE_CANDLE.get(), Items.ORANGE_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_MAGENTA_CANDLE.get(), Items.MAGENTA_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_BLUE_CANDLE.get(), Items.LIGHT_BLUE_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_YELLOW_CANDLE.get(), Items.YELLOW_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_LIME_CANDLE.get(), Items.LIME_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_PINK_CANDLE.get(), Items.PINK_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_GRAY_CANDLE.get(), Items.GRAY_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_GRAY_CANDLE.get(), Items.LIGHT_GRAY_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_CYAN_CANDLE.get(), Items.CYAN_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_PURPLE_CANDLE.get(), Items.PURPLE_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_BLUE_CANDLE.get(), Items.BLUE_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_BROWN_CANDLE.get(), Items.BROWN_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_GREEN_CANDLE.get(), Items.GREEN_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_RED_CANDLE.get(), Items.RED_CANDLE);
-		dropOther(IcariaBlocks.STRAWBERRY_CAKE_BLACK_CANDLE.get(), Items.BLACK_CANDLE);
 	}
 
-	public void dropLayers(Block block) { //like onions
-		this.add(block, (blockDrop) -> LootTable.lootTable().withPool(LootPool.lootPool().when(LootItemEntityPropertyCondition.entityPresent(LootContext.EntityTarget.THIS)).add(AlternativesEntry.alternatives(
-			LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 1))),
-			LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 2))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))),
-			LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 3))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F))),
-			LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 4))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))),
-			LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 5))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5.0F))),
-			LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 6))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(6.0F))),
-			LootItem.lootTableItem(blockDrop).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(blockDrop).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 7))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(7.0F))),
-			LootItem.lootTableItem(blockDrop).apply(SetItemCountFunction.setCount(ConstantValue.exactly(8.0F)))))));
+	public void dropWithSilk(Block pBlock, Item pItem, float pMin, float pMax) {
+		add(pBlock, createSingleItemTableWithSilkTouch(pBlock, pItem, UniformGenerator.between(pMin, pMax)));
 	}
 
-	public void requireSilkTouch(Block block, Item item) {
-		add(block, (blockDrop) -> createSingleItemTableWithSilkTouch(blockDrop, item));
+	public void dropBone(Block pBlock, Item pItemOne, Item pItemTwo, Item pItemThree) {
+		add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(pBlock).when(HAS_SILK_TOUCH).otherwise(applyExplosionDecay(pItemOne, LootItem.lootTableItem(pItemOne).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(25).append(applyExplosionDecay(pItemTwo, LootItem.lootTableItem(pItemTwo).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(25)).append(applyExplosionDecay(pItemThree, LootItem.lootTableItem(pItemThree).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(1))))));
 	}
 
-	public static Builder createLaurelLeavesDrops(Block leaves, Block sapling, float... chances) {
-		return createLeavesDrops(leaves, sapling, chances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(applyExplosionCondition(leaves, LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get())).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
+	public void dropElse(Block pBlock, ItemLike pItem) {
+		add(pBlock, createSingleItemTable(pItem));
+	}
+
+	public void dropWhenSilk(Block pBlock) {
+		add(pBlock, createSilkTouchOnlyTable(pBlock));
+	}
+
+	public void dropOres(Block pBlock, Item pItem) {
+		add(pBlock, createOreDrop(pBlock, pItem));
+	}
+
+	public void dropThis(Block pBlock) {
+		add(pBlock, createSingleItemTable(pBlock));
+	}
+
+	public void dropPots(Block pBlock) {
+		add(pBlock, createPotFlowerItemTable(((FlowerPotBlock)pBlock).getContent()));
+	}
+
+	public void dropLeaves(Block pLeavesBlock, Block pSaplingBlock) {
+		add(pLeavesBlock, createLeavesDrops(pLeavesBlock, pSaplingBlock, SAPLING_CHANCES));
+	}
+
+	public void dropLaurelsLeaves(Block pLeavesBlock, Block pSaplingBlock) {
+		add(pLeavesBlock, createLaurelLeavesDrops(pLeavesBlock, pSaplingBlock, SAPLING_CHANCES));
+	}
+
+	public void dropOlivesLeaves(Block pBlock, Item pItem) {
+		add(pBlock, createSilkTouchOrShearsDispatchTable(pBlock, applyExplosionDecay(pBlock, LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
+	}
+
+	public void dropLayers(Block pBlock) {
+		add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().when(LootItemEntityPropertyCondition.entityPresent(EntityTarget.THIS)).add(AlternativesEntry.alternatives(LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 1))), LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 2))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))), LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 3))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F))), LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 4))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))), LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 5))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5.0F))), LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 6))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(6.0F))), LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SnowLayerBlock.LAYERS, 7))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(7.0F))), LootItem.lootTableItem(pBlock).apply(SetItemCountFunction.setCount(ConstantValue.exactly(8.0F)))))));
+	}
+
+	public void dropDoor(Block pBlock) {
+		add(pBlock, createSinglePropConditionTable(pBlock, DoorBlock.HALF, DoubleBlockHalf.LOWER));
+	}
+
+	public void dropNone(Block pBlock) {
+		add(pBlock, noDrop());
+	}
+
+	public static LootTable.Builder createLaurelLeavesDrops(Block pLeavesBlock, Block pSaplingBlock, float... pChances) {
+		return createLeavesDrops(pLeavesBlock, pSaplingBlock, pChances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(applyExplosionCondition(pLeavesBlock, LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get())).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
 	}
 
 	@Override

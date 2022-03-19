@@ -178,8 +178,8 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 	public static final TagKey<Item> LEATHER_AETERNAE_HIDE = forgeTag("leather/aeternae_hide");
 
-	public IcariaItemTags(DataGenerator generator, BlockTagsProvider blockTags, ExistingFileHelper existingFileHelper) {
-		super(generator, blockTags, IcariaInfo.MODID, existingFileHelper);
+	public IcariaItemTags(DataGenerator generator, BlockTagsProvider provider, ExistingFileHelper helper) {
+		super(generator, provider, IcariaInfo.MODID, helper);
 	}
 
 	@Override

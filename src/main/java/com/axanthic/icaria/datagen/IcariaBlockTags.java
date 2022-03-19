@@ -155,8 +155,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> WOODEN_TRAPDOORS_PLANE  = forgeTag("wooden_trapdoors/plane");
 	public static final TagKey<Block> WOODEN_TRAPDOORS_POPULUS = forgeTag("wooden_trapdoors/populus");
 
-	public IcariaBlockTags(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-		super(generator, IcariaInfo.MODID, existingFileHelper);
+	public IcariaBlockTags(DataGenerator generator, ExistingFileHelper helper) {
+		super(generator, IcariaInfo.MODID, helper);
 	}
 
 	@Override
@@ -595,30 +595,30 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(ORES_HYLIASTRUM).add(IcariaBlocks.HYLIASTRUM_ORE.get());
 
 		tag(Tags.Blocks.ORES)
-				.addTag(ORES_ROTTEN_BONES)
-				.addTag(ORES_CHERT)
-				.addTag(ORES_LIGNITE)
-				.addTag(ORES_CHALKOS)
-				.addTag(ORES_KASSITEROS)
-				.addTag(ORES_DOLOMITE)
-				.addTag(ORES_VANADIUM)
-				.addTag(ORES_SLIVER)
-				.addTag(ORES_SIDEROS)
-				.addTag(ORES_ANTHRACITE)
-				.addTag(ORES_MOLYBDENUM)
-				.addTag(ORES_HYLIASTRUM);
+			.addTag(ORES_ROTTEN_BONES)
+			.addTag(ORES_CHERT)
+			.addTag(ORES_LIGNITE)
+			.addTag(ORES_CHALKOS)
+			.addTag(ORES_KASSITEROS)
+			.addTag(ORES_DOLOMITE)
+			.addTag(ORES_VANADIUM)
+			.addTag(ORES_SLIVER)
+			.addTag(ORES_SIDEROS)
+			.addTag(ORES_ANTHRACITE)
+			.addTag(ORES_MOLYBDENUM)
+			.addTag(ORES_HYLIASTRUM);
 
 		tag(Tags.Blocks.ORE_RATES_SINGULAR)
-				.addTag(ORES_CHERT)
-				.addTag(ORES_LIGNITE)
-				.addTag(ORES_CHALKOS)
-				.addTag(ORES_KASSITEROS)
-				.addTag(ORES_DOLOMITE)
-				.addTag(ORES_VANADIUM)
-				.addTag(ORES_SLIVER)
-				.addTag(ORES_SIDEROS)
-				.addTag(ORES_ANTHRACITE)
-				.addTag(ORES_MOLYBDENUM);
+			.addTag(ORES_CHERT)
+			.addTag(ORES_LIGNITE)
+			.addTag(ORES_CHALKOS)
+			.addTag(ORES_KASSITEROS)
+			.addTag(ORES_DOLOMITE)
+			.addTag(ORES_VANADIUM)
+			.addTag(ORES_SLIVER)
+			.addTag(ORES_SIDEROS)
+			.addTag(ORES_ANTHRACITE)
+			.addTag(ORES_MOLYBDENUM);
 
 		tag(Tags.Blocks.ORE_RATES_DENSE).addTag(ORES_ROTTEN_BONES);
 

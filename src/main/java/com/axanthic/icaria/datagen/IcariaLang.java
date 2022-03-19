@@ -20,8 +20,8 @@ public class IcariaLang extends LanguageProvider {
 		super(generator, IcariaInfo.MODID, "en_us");
 	}
 
-	public void addFluid(Supplier<? extends ForgeFlowingFluid> key, String name) {
-		ResourceLocation id = key.get().getRegistryName();
+	public void addFluid(Supplier<? extends ForgeFlowingFluid> supplier, String name) {
+		ResourceLocation id = supplier.get().getRegistryName();
 		add("fluid." + Objects.requireNonNull(id).getNamespace() + "." + id.getPath(), name);
 	}
 

@@ -28,6 +28,7 @@ import java.util.function.Supplier;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("SameParameterValue")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -427,36 +428,36 @@ public class IcariaItems {
 		return new Properties().tab(IcariaTabs.creativeItems);
 	}
 
-	private static FoodProperties foodPropertiesVineSprout(int nutrition, float saturation) {
-		return new Builder().nutrition(nutrition).saturationMod(saturation).alwaysEat().build();
+	private static FoodProperties foodPropertiesVineSprout(int pNutrition, float pSaturation) {
+		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).alwaysEat().build();
 	}
 
-	private static FoodProperties foodPropertiesEffect(int nutrition, float saturation, MobEffect effect, int effectDuration, int effectAmplifier, float effectProbability) {
-		return new Builder().nutrition(nutrition).saturationMod(saturation).effect(() -> new MobEffectInstance(effect, effectDuration, effectAmplifier), effectProbability).build();
+	private static FoodProperties foodPropertiesEffect(int pNutrition, float pSaturation, MobEffect pEffect, int pDuration, int pAmplifier, float probability) {
+		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).effect(() -> new MobEffectInstance(pEffect, pDuration, pAmplifier), probability).build();
 	}
 
-	private static FoodProperties foodProperties(int nutrition, float saturation) {
-		return new Builder().nutrition(nutrition).saturationMod(saturation).build();
+	private static FoodProperties foodProperties(int pNutrition, float pSaturation) {
+		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).build();
 	}
 
-	private static FoodProperties foodPropertiesMeatEffect(int nutrition, float saturation, MobEffect effect, int effectDuration, int effectAmplifier, float effectProbability) {
-		return new Builder().nutrition(nutrition).saturationMod(saturation).effect(() -> new MobEffectInstance(effect, effectDuration, effectAmplifier), effectProbability).meat().build();
+	private static FoodProperties foodPropertiesMeatEffect(int pNutrition, float pSaturation, MobEffect pEffect, int pDuration, int pAmplifier, float probability) {
+		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).effect(() -> new MobEffectInstance(pEffect, pDuration, pAmplifier), probability).meat().build();
 	}
 
-	private static FoodProperties foodPropertiesMeat(int nutrition, float saturation) {
-		return new Builder().nutrition(nutrition).saturationMod(saturation).meat().build();
+	private static FoodProperties foodPropertiesMeat(int pNutrition, float pSaturation) {
+		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).meat().build();
 	}
 
-	private static FoodProperties foodPropertiesSnullCream(int nutrition, float saturation, MobEffect effect, int effectDuration, int effectAmplifier, float effectProbability, MobEffect effect2, int effectDuration2,int effectAmplifier2, float effectProbability2) {
-		return new Builder().nutrition(nutrition).saturationMod(saturation).effect(() -> new MobEffectInstance(effect, effectDuration, effectAmplifier), effectProbability).effect(() -> new MobEffectInstance(effect2, effectDuration2, effectAmplifier2), effectProbability2).build();
+	private static FoodProperties foodPropertiesSnullCream(int pNutrition, float pSaturation, MobEffect pEffectOne, int pDurationOne, int pAmplifierOne, float probabilityOne, MobEffect pEffectTwo, int pDurationTwo,int pAmplifierTwo, float probabilityTwo) {
+		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).effect(() -> new MobEffectInstance(pEffectOne, pDurationOne, pAmplifierOne), probabilityOne).effect(() -> new MobEffectInstance(pEffectTwo, pDurationTwo, pAmplifierTwo), probabilityTwo).build();
 	}
 
-	private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item) {
-		return ITEMS.register(name, item);
+	private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> sup) {
+		return ITEMS.register(name, sup);
 	}
 
-	private static <T extends Item> RegistryObject<T> registerBasic(final String name, final Supplier<T> item) {
-		RegistryObject<T> registeredItem = register(name, item);
+	private static <T extends Item> RegistryObject<T> registerBasic(final String name, final Supplier<T> sup) {
+		RegistryObject<T> registeredItem = register(name, sup);
 		BASIC_ITEMS.add(registeredItem);
 		return registeredItem;
 	}

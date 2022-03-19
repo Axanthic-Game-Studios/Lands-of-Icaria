@@ -8,7 +8,7 @@ import com.axanthic.icaria.common.registry.IcariaItems.WoodDecoItemBlocks;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.*;
 
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -23,18 +23,21 @@ import java.util.Objects;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("unchecked")
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockStates extends BlockStateProvider {
-	public static final List<RegistryObject<? extends Block>> ROTATED = new ArrayList<>();
 	public static final List<RegistryObject<? extends Block>> MIRRORED = new ArrayList<>();
+	public static final List<RegistryObject<? extends Block>> ROTATED = new ArrayList<>();
 
-	public IcariaBlockStates(DataGenerator generator, ExistingFileHelper exFileHelper) {
-		super(generator, IcariaInfo.MODID, exFileHelper);
+	public IcariaBlockStates(DataGenerator generator, ExistingFileHelper helper) {
+		super(generator, IcariaInfo.MODID, helper);
 	}
 
 	@Override
 	public void registerStatesAndModels() {
+		MIRRORED.add(IcariaBlocks.ARACHNE_STRING_BLOCK);
+
 		ROTATED.add(IcariaBlocks.MARL);
 		ROTATED.add(IcariaBlocks.MARL_COARSE);
 		ROTATED.add(IcariaBlocks.MARL_ADOBE);
@@ -49,133 +52,98 @@ public class IcariaBlockStates extends BlockStateProvider {
 		ROTATED.add(IcariaBlocks.BAETYL_ADOBE);
 		ROTATED.add(IcariaBlocks.JELLYFISH_JELLY_BLOCK);
 
-		MIRRORED.add(IcariaBlocks.ARACHNE_STRING_BLOCK);
+		baseBlockWithItem(IcariaBlocks.MARL_CHERT);
+		baseBlockWithItem(IcariaBlocks.MARL_ROTTEN_BONES);
+		baseBlockWithItem(IcariaBlocks.MARL_LIGNITE);
+		baseBlockWithItem(IcariaBlocks.GRAINEL_CHERT);
+		baseBlockWithItem(IcariaBlocks.GRAINGLASS);
+		baseBlockWithItem(IcariaBlocks.YELLOWSTONE);
+		baseBlockWithItem(IcariaBlocks.SILKGLASS);
+		baseBlockWithItem(IcariaBlocks.SILKSTONE);
+		baseBlockWithItem(IcariaBlocks.SUNSTONE);
+		baseBlockWithItem(IcariaBlocks.VOIDSHALE);
+		baseBlockWithItem(IcariaBlocks.BAETYL);
+		baseBlockWithItem(IcariaBlocks.LIGNITE_ORE);
+		baseBlockWithItem(IcariaBlocks.CHALKOS_ORE);
+		baseBlockWithItem(IcariaBlocks.KASSITEROS_ORE);
+		baseBlockWithItem(IcariaBlocks.DOLOMITE_ORE);
+		baseBlockWithItem(IcariaBlocks.VANADIUM_ORE);
+		baseBlockWithItem(IcariaBlocks.SLIVER_ORE);
+		baseBlockWithItem(IcariaBlocks.SIDEROS_ORE);
+		baseBlockWithItem(IcariaBlocks.ANTHRACITE_ORE);
+		baseBlockWithItem(IcariaBlocks.MOLYBDENUM_ORE);
+		baseBlockWithItem(IcariaBlocks.HYLIASTRUM_ORE);
+		baseBlockWithItem(IcariaBlocks.CYPRESS_LEAVES);
+		baseBlockWithItem(IcariaBlocks.DROUGHTROOT_LEAVES);
+		baseBlockWithItem(IcariaBlocks.FIR_LEAVES);
+		baseBlockWithItem(IcariaBlocks.LAUREL_LEAVES);
+		baseBlockWithItem(IcariaBlocks.OLIVE_LEAVES);
+		baseBlockWithItem(IcariaBlocks.OLIVE_LEAVES_BLACK);
+		baseBlockWithItem(IcariaBlocks.OLIVE_LEAVES_GREEN);
+		baseBlockWithItem(IcariaBlocks.PLANE_LEAVES);
+		baseBlockWithItem(IcariaBlocks.POPULUS_LEAVES);
 
-		blockWithItem(IcariaBlocks.MARL_CHERT);
-		blockWithItem(IcariaBlocks.MARL_ROTTEN_BONES);
-		blockWithItem(IcariaBlocks.MARL_LIGNITE);
 		mirroredBlockWithItem(IcariaBlocks.LOAM);
-		axisBlock(IcariaBlocks.DOLOMITE_PILLAR.get());
-		blockItem(IcariaBlocks.DOLOMITE_PILLAR);
-		blockWithItem(IcariaBlocks.GRAINEL_CHERT);
-		blockWithItem(IcariaBlocks.GRAINGLASS);
-		paneBlock(IcariaBlocks.GRAINGLASS_PANE.get(), new ResourceLocation(IcariaBlocks.GRAINGLASS.getId().getNamespace(), "block/" + IcariaBlocks.GRAINGLASS.getId().getPath()), new ResourceLocation(IcariaBlocks.GRAINGLASS.getId().getNamespace(), "block/" + IcariaBlocks.GRAINGLASS.getId().getPath() + "_pane"));
-		blockWithItem(IcariaBlocks.YELLOWSTONE);
-		blockWithItem(IcariaBlocks.SILKGLASS);
-		paneBlock(IcariaBlocks.SILKGLASS_PANE.get(), new ResourceLocation(IcariaBlocks.SILKGLASS.getId().getNamespace(), "block/" + IcariaBlocks.SILKGLASS.getId().getPath()), new ResourceLocation(IcariaBlocks.SILKGLASS.getId().getNamespace(), "block/" + IcariaBlocks.SILKGLASS.getId().getPath() + "_pane"));
-		blockWithItem(IcariaBlocks.SILKSTONE);
-		blockWithItem(IcariaBlocks.SUNSTONE);
-		blockWithItem(IcariaBlocks.VOIDSHALE);
-		blockWithItem(IcariaBlocks.BAETYL);
 		mirroredBlockWithItem(IcariaBlocks.RELICSTONE_SMOOTH);
-		axisBlock(IcariaBlocks.RELICSTONE_PILLAR.get());
-		blockItem(IcariaBlocks.RELICSTONE_PILLAR);
-		blockWithItem(IcariaBlocks.LIGNITE_ORE);
-		blockWithItem(IcariaBlocks.CHALKOS_ORE);
-		blockWithItem(IcariaBlocks.KASSITEROS_ORE);
-		blockWithItem(IcariaBlocks.DOLOMITE_ORE);
-		blockWithItem(IcariaBlocks.VANADIUM_ORE);
-		blockWithItem(IcariaBlocks.SLIVER_ORE);
-		blockWithItem(IcariaBlocks.SIDEROS_ORE);
-		blockWithItem(IcariaBlocks.ANTHRACITE_ORE);
-		blockWithItem(IcariaBlocks.MOLYBDENUM_ORE);
-		blockWithItem(IcariaBlocks.HYLIASTRUM_ORE);
-		axisBlock(IcariaBlocks.SPELT_BALE_BLOCK.get());
-		blockItem(IcariaBlocks.SPELT_BALE_BLOCK);
-		blockWithItem(IcariaBlocks.CYPRESS_LEAVES);
-		axisBlock(IcariaBlocks.CYPRESS_WOOD.get());
-		blockItem(IcariaBlocks.CYPRESS_WOOD);
-		axisBlock(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());
-		blockItem(IcariaBlocks.STRIPPED_CYPRESS_WOOD);
-		axisBlock(IcariaBlocks.CYPRESS_LOG.get());
-		blockItem(IcariaBlocks.CYPRESS_LOG);
-		axisBlock(IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
-		blockItem(IcariaBlocks.STRIPPED_CYPRESS_LOG);
-		doorBlock(IcariaBlocks.CYPRESS_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/cypress_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/cypress_door_top"));
-		trapdoorBlock(IcariaBlocks.CYPRESS_TRAPDOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/cypress_trapdoor"), true);
-		blockItemTrapDoor(IcariaBlocks.CYPRESS_TRAPDOOR);
-		blockWithItem(IcariaBlocks.DROUGHTROOT_LEAVES);
-		axisBlock(IcariaBlocks.DROUGHTROOT_WOOD.get());
-		blockItem(IcariaBlocks.DROUGHTROOT_WOOD);
-		axisBlock(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get());
-		blockItem(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD);
-		axisBlock(IcariaBlocks.DROUGHTROOT_LOG.get());
-		blockItem(IcariaBlocks.DROUGHTROOT_LOG);
-		axisBlock(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
-		blockItem(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG);
-		doorBlock(IcariaBlocks.DROUGHTROOT_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/droughtroot_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/droughtroot_door_top"));
-		trapdoorBlock(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/droughtroot_trapdoor"), true);
-		blockItemTrapDoor(IcariaBlocks.DROUGHTROOT_TRAPDOOR);
-		blockWithItem(IcariaBlocks.FIR_LEAVES);
-		axisBlock(IcariaBlocks.FIR_WOOD.get());
-		blockItem(IcariaBlocks.FIR_WOOD);
-		axisBlock(IcariaBlocks.STRIPPED_FIR_WOOD.get());
-		blockItem(IcariaBlocks.STRIPPED_FIR_WOOD);
-		axisBlock(IcariaBlocks.FIR_LOG.get());
-		blockItem(IcariaBlocks.FIR_LOG);
-		axisBlock(IcariaBlocks.STRIPPED_FIR_LOG.get());
-		blockItem(IcariaBlocks.STRIPPED_FIR_LOG);
-		doorBlock(IcariaBlocks.FIR_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/fir_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/fir_door_top"));
-		trapdoorBlock(IcariaBlocks.FIR_TRAPDOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/fir_trapdoor"), true);
-		blockItemTrapDoor(IcariaBlocks.FIR_TRAPDOOR);
-		blockWithItem(IcariaBlocks.LAUREL_LEAVES);
-		axisBlock(IcariaBlocks.LAUREL_WOOD.get());
-		blockItem(IcariaBlocks.LAUREL_WOOD);
-		axisBlock(IcariaBlocks.STRIPPED_LAUREL_WOOD.get());
-		blockItem(IcariaBlocks.STRIPPED_LAUREL_WOOD);
-		axisBlock(IcariaBlocks.LAUREL_LOG.get());
-		blockItem(IcariaBlocks.LAUREL_LOG);
-		axisBlock(IcariaBlocks.STRIPPED_LAUREL_LOG.get());
-		blockItem(IcariaBlocks.STRIPPED_LAUREL_LOG);
-		doorBlock(IcariaBlocks.LAUREL_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/laurel_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/laurel_door_top"));
-		trapdoorBlock(IcariaBlocks.LAUREL_TRAPDOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/laurel_trapdoor"), true);
-		blockItemTrapDoor(IcariaBlocks.LAUREL_TRAPDOOR);
-		blockWithItem(IcariaBlocks.OLIVE_LEAVES);
-		blockWithItem(IcariaBlocks.OLIVE_LEAVES_BLACK);
-		blockWithItem(IcariaBlocks.OLIVE_LEAVES_GREEN);
-		axisBlock(IcariaBlocks.OLIVE_WOOD.get());
-		blockItem(IcariaBlocks.OLIVE_WOOD);
-		axisBlock(IcariaBlocks.STRIPPED_OLIVE_WOOD.get());
-		blockItem(IcariaBlocks.STRIPPED_OLIVE_WOOD);
-		axisBlock(IcariaBlocks.OLIVE_LOG.get());
-		blockItem(IcariaBlocks.OLIVE_LOG);
-		axisBlock(IcariaBlocks.STRIPPED_OLIVE_LOG.get());
-		blockItem(IcariaBlocks.STRIPPED_OLIVE_LOG);
-		doorBlock(IcariaBlocks.OLIVE_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/olive_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/olive_door_top"));
-		trapdoorBlock(IcariaBlocks.OLIVE_TRAPDOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/olive_trapdoor"), true);
-		blockItemTrapDoor(IcariaBlocks.OLIVE_TRAPDOOR);
-		blockWithItem(IcariaBlocks.PLANE_LEAVES);
-		axisBlock(IcariaBlocks.PLANE_WOOD.get());
-		blockItem(IcariaBlocks.PLANE_WOOD);
-		axisBlock(IcariaBlocks.STRIPPED_PLANE_WOOD.get());
-		blockItem(IcariaBlocks.STRIPPED_PLANE_WOOD);
-		axisBlock(IcariaBlocks.PLANE_LOG.get());
-		blockItem(IcariaBlocks.PLANE_LOG);
-		axisBlock(IcariaBlocks.STRIPPED_PLANE_LOG.get());
-		blockItem(IcariaBlocks.STRIPPED_PLANE_LOG);
-		doorBlock(IcariaBlocks.PLANE_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/plane_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/plane_door_top"));
-		trapdoorBlock(IcariaBlocks.PLANE_TRAPDOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/plane_trapdoor"), true);
-		blockItemTrapDoor(IcariaBlocks.PLANE_TRAPDOOR);
-		blockWithItem(IcariaBlocks.POPULUS_LEAVES);
-		axisBlock(IcariaBlocks.POPULUS_WOOD.get());
-		blockItem(IcariaBlocks.POPULUS_WOOD);
-		axisBlock(IcariaBlocks.STRIPPED_POPULUS_WOOD.get());
-		blockItem(IcariaBlocks.STRIPPED_POPULUS_WOOD);
-		axisBlock(IcariaBlocks.POPULUS_LOG.get());
-		blockItem(IcariaBlocks.POPULUS_LOG);
-		axisBlock(IcariaBlocks.STRIPPED_POPULUS_LOG.get());
-		blockItem(IcariaBlocks.STRIPPED_POPULUS_LOG);
-		doorBlock(IcariaBlocks.POPULUS_DOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/populus_door_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/populus_door_top"));
-		trapdoorBlock(IcariaBlocks.POPULUS_TRAPDOOR.get(), new ResourceLocation(IcariaInfo.MODID + ":block/populus_trapdoor"), true);
-		blockItemTrapDoor(IcariaBlocks.POPULUS_TRAPDOOR);
 
-		for (RegistryObject<? extends Block> basicBlock : IcariaBlocks.BASIC_BLOCKS) {
-			if (ROTATED.contains(basicBlock)) {
-				rotatedBlockWithItem(basicBlock);
-			} else if (MIRRORED.contains(basicBlock)) {
-				mirroredBlockWithItem(basicBlock);
+		axisBlockWithItem(IcariaBlocks.DOLOMITE_PILLAR);
+		axisBlockWithItem(IcariaBlocks.RELICSTONE_PILLAR);
+		axisBlockWithItem(IcariaBlocks.SPELT_BALE_BLOCK);
+		axisBlockWithItem(IcariaBlocks.CYPRESS_WOOD);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_CYPRESS_WOOD);
+		axisBlockWithItem(IcariaBlocks.CYPRESS_LOG);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_CYPRESS_LOG);
+		axisBlockWithItem(IcariaBlocks.DROUGHTROOT_WOOD);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD);
+		axisBlockWithItem(IcariaBlocks.DROUGHTROOT_LOG);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG);
+		axisBlockWithItem(IcariaBlocks.FIR_WOOD);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_FIR_WOOD);
+		axisBlockWithItem(IcariaBlocks.FIR_LOG);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_FIR_LOG);
+		axisBlockWithItem(IcariaBlocks.LAUREL_WOOD);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_LAUREL_WOOD);
+		axisBlockWithItem(IcariaBlocks.LAUREL_LOG);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_LAUREL_LOG);
+		axisBlockWithItem(IcariaBlocks.OLIVE_WOOD);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_OLIVE_WOOD);
+		axisBlockWithItem(IcariaBlocks.OLIVE_LOG);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_OLIVE_LOG);
+		axisBlockWithItem(IcariaBlocks.PLANE_WOOD);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_PLANE_WOOD);
+		axisBlockWithItem(IcariaBlocks.PLANE_LOG);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_PLANE_LOG);
+		axisBlockWithItem(IcariaBlocks.POPULUS_WOOD);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_POPULUS_WOOD);
+		axisBlockWithItem(IcariaBlocks.POPULUS_LOG);
+		axisBlockWithItem(IcariaBlocks.STRIPPED_POPULUS_LOG);
+
+		paneBlock(IcariaBlocks.GRAINGLASS_PANE, IcariaBlocks.GRAINGLASS);
+		paneBlock(IcariaBlocks.SILKGLASS_PANE, IcariaBlocks.SILKGLASS);
+
+		doorBlock(IcariaBlocks.CYPRESS_DOOR);
+		doorBlock(IcariaBlocks.DROUGHTROOT_DOOR);
+		doorBlock(IcariaBlocks.FIR_DOOR);
+		doorBlock(IcariaBlocks.LAUREL_DOOR);
+		doorBlock(IcariaBlocks.OLIVE_DOOR);
+		doorBlock(IcariaBlocks.PLANE_DOOR);
+		doorBlock(IcariaBlocks.POPULUS_DOOR);
+
+		trapDoorWithItem(IcariaBlocks.CYPRESS_TRAPDOOR);
+		trapDoorWithItem(IcariaBlocks.DROUGHTROOT_TRAPDOOR);
+		trapDoorWithItem(IcariaBlocks.FIR_TRAPDOOR);
+		trapDoorWithItem(IcariaBlocks.LAUREL_TRAPDOOR);
+		trapDoorWithItem(IcariaBlocks.OLIVE_TRAPDOOR);
+		trapDoorWithItem(IcariaBlocks.PLANE_TRAPDOOR);
+		trapDoorWithItem(IcariaBlocks.POPULUS_TRAPDOOR);
+
+		for (RegistryObject<? extends Block> registryObject : IcariaBlocks.BASIC_BLOCKS) {
+			if (MIRRORED.contains(registryObject)) {
+				mirroredBlockWithItem(registryObject);
+			} else if (ROTATED.contains(registryObject)) {
+				rotatedBlockWithItem(registryObject);
 			} else {
-				blockWithItem(basicBlock);
+				baseBlockWithItem(registryObject);
 			}
 		}
 
@@ -216,37 +184,46 @@ public class IcariaBlockStates extends BlockStateProvider {
 		}
 	}
 
-	public void blockItem(RegistryObject<? extends Block> registryObject) {
+	public void baseBlockWithItem(RegistryObject<? extends Block> registryObject) {
+		simpleBlock(registryObject.get());
+		itemBlock(registryObject);
+	}
+
+	public void axisBlockWithItem(RegistryObject<? extends RotatedPillarBlock> registryObject) {
+		axisBlock(registryObject.get());
+		itemBlock(registryObject);
+	}
+
+	public void paneBlock(RegistryObject<? extends IronBarsBlock> registryObject, RegistryObject<? extends GlassBlock> glassBlock) {
+		paneBlock(registryObject.get(), new ResourceLocation(glassBlock.getId().getNamespace(), "block/" + glassBlock.getId().getPath()), new ResourceLocation(glassBlock.getId().getNamespace(), "block/" + glassBlock.getId().getPath() + "_pane"));
+	}
+
+	public void doorBlock(RegistryObject<? extends DoorBlock> registryObject) {
+		doorBlock(registryObject.get(), new ResourceLocation(IcariaInfo.MODID + ":block/" + registryObject.getId().getPath() + "_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/" + registryObject.getId().getPath() + "_top"));
+	}
+
+	public void trapDoorWithItem(RegistryObject<? extends TrapDoorBlock> registryObject) {
+		trapdoorBlock(registryObject.get(), new ResourceLocation(IcariaInfo.MODID + ":block/" + registryObject.getId().getPath()), true);
+		itemBlockTrapDoor(registryObject);
+	}
+
+	public void itemBlock(RegistryObject<? extends Block> registryObject) {
 		itemModels().withExistingParent(registryObject.getId().getPath(), registryObject.getId().getNamespace() + ":block/" + registryObject.getId().getPath());
 	}
 
-	public void blockItemTrapDoor(RegistryObject<? extends Block> registryObject) {
+	public void itemBlockTrapDoor(RegistryObject<? extends Block> registryObject) {
 		itemModels().withExistingParent(registryObject.getId().getPath(), registryObject.getId().getNamespace() + ":block/" + registryObject.getId().getPath() + "_bottom");
 	}
 
-	public void blockWithItem(RegistryObject<? extends Block> registryObject) {
-		// BLOCK MODEL
-		simpleBlock(registryObject.get());
-
-		// ITEMBLOCK MODEL
-		blockItem(registryObject);
-	}
-
 	public void mirroredBlockWithItem(RegistryObject<? extends Block> registryObject) {
-		// BLOCK MODEL
 		ModelFile normal = cubeAll(registryObject.get());
 		ModelFile mirrored = models().singleTexture(Objects.requireNonNull(registryObject.get().getRegistryName()).getPath() + "_mirrored", new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/cube_mirrored_all"), "all", blockTexture(registryObject.get()));
 		getVariantBuilder(registryObject.get()).partialState().setModels(new ConfiguredModel(normal), new ConfiguredModel(normal, 0, 180, false), new ConfiguredModel(mirrored), new ConfiguredModel(mirrored, 0, 180, false));
-
-		// ITEMBLOCK MODEL
-		blockItem(registryObject);
+		itemBlock(registryObject);
 	}
 
 	public void rotatedBlockWithItem(RegistryObject<? extends Block> registryObject) {
-		// BLOCK MODEL
 		getVariantBuilder(registryObject.get()).partialState().setModels(ConfiguredModel.allRotations(cubeAll(registryObject.get()), false));
-
-		// ITEMBLOCK MODEL
-		blockItem(registryObject);
+		itemBlock(registryObject);
 	}
 }
