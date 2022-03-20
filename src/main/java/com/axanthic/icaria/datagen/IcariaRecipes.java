@@ -125,6 +125,13 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		torchRecipe(consumer, IcariaItems.LIGNITE_TORCH.get(), IcariaItems.LIGNITE.get());
 		torchRecipe(consumer, IcariaItems.ANTHRACITE_TORCH.get(), IcariaItems.ANTHRACITE.get());
 
+		dyesFromGroundFlowerRecipe(consumer, Items.BLUE_DYE, IcariaItems.BLUE_GROUND_FLOWERS.get());
+		dyesFromGroundFlowerRecipe(consumer, Items.CYAN_DYE, IcariaItems.CYAN_GROUND_FLOWERS.get());
+		dyesFromGroundFlowerRecipe(consumer, Items.PINK_DYE, IcariaItems.PINK_GROUND_FLOWERS.get());
+		dyesFromGroundFlowerRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_GROUND_FLOWERS.get());
+		dyesFromGroundFlowerRecipe(consumer, Items.RED_DYE, IcariaItems.RED_GROUND_FLOWERS.get());
+		dyesFromGroundFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.WHITE_GROUND_FLOWERS.get());
+
 		blockIngotNuggetRecipes(consumer, IcariaItems.CHALKOS_BLOCK.get(), IcariaItems.CHALKOS_INGOT.get(), IcariaItems.CHALKOS_NUGGET.get());
 		blockIngotNuggetRecipes(consumer, IcariaItems.KASSITEROS_BLOCK.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.KASSITEROS_NUGGET.get());
 		blockIngotNuggetRecipes(consumer, IcariaItems.ORICHALCUM_BLOCK.get(), IcariaItems.ORICHALCUM_INGOT.get(), IcariaItems.ORICHALCUM_NUGGET.get());
@@ -822,6 +829,13 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.define('Y', IcariaItemTags.bind("forge:bones"))
 			.unlockedBy("has_gem", has(gem))
 			.save(consumer, Objects.requireNonNull(torch.getRegistryName()));
+	}
+
+	public void dyesFromGroundFlowerRecipe(Consumer<FinishedRecipe> consumer, Item dye, Item flower) {
+		ShapelessRecipeBuilder.shapeless(dye)
+			.requires(flower)
+			.unlockedBy("has_item", has(flower))
+			.save(consumer, appendResource(Objects.requireNonNull(dye.getRegistryName()), "_from_ground_flower"));
 	}
 
 	public void blockIngotNuggetRecipes(Consumer<FinishedRecipe> consumer, Item block, Item ingot, Item nugget) {

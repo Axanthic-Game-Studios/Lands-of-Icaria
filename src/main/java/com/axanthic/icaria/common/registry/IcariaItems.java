@@ -28,7 +28,7 @@ import java.util.function.Supplier;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("SameParameterValue")
+@SuppressWarnings("SameParameterValue, unused")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -322,11 +322,18 @@ public class IcariaItems {
 	public static final RegistryObject<Item> LIGNITE_TORCH = registerBasic("lignite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.LIGNITE_TORCH.get(), IcariaBlocks.LIGNITE_WALL_TORCH.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> ANTHRACITE_TORCH = registerBasic("anthracite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.ANTHRACITE_TORCH.get(), IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), propertiesBlocks()));
 
-	public static final RegistryObject<Item> STRAWBERRY_BUSH = register("strawberry_bush", () -> new BlockItem(IcariaBlocks.STRAWBERRY_BUSH.get(), propertiesFlora()));
+	public static final RegistryObject<Item> BLUE_GROUND_FLOWERS = register("blue_ground_flowers", () -> new BlockItem(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> CYAN_GROUND_FLOWERS = register("cyan_ground_flowers", () -> new BlockItem(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> PINK_GROUND_FLOWERS = register("pink_ground_flowers", () -> new BlockItem(IcariaBlocks.PINK_GROUND_FLOWERS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> PURPLE_GROUND_FLOWERS = register("purple_ground_flowers", () -> new BlockItem(IcariaBlocks.PURPLE_GROUND_FLOWERS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> RED_GROUND_FLOWERS = register("red_ground_flowers", () -> new BlockItem(IcariaBlocks.RED_GROUND_FLOWERS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> WHITE_GROUND_FLOWERS = register("white_ground_flowers", () -> new BlockItem(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), propertiesFlora()));
 
 	public static final RegistryObject<Item> MOSS_0 = register("moss_0", () -> new BlockItem(IcariaBlocks.MOSS_0.get(), propertiesFlora()));
 	public static final RegistryObject<Item> MOSS_1 = register("moss_1", () -> new BlockItem(IcariaBlocks.MOSS_1.get(), propertiesFlora()));
 	public static final RegistryObject<Item> MOSS_2 = register("moss_2", () -> new BlockItem(IcariaBlocks.MOSS_2.get(), propertiesFlora()));
+
+	public static final RegistryObject<Item> STRAWBERRY_BUSH = register("strawberry_bush", () -> new BlockItem(IcariaBlocks.STRAWBERRY_BUSH.get(), propertiesFlora()));
 
 	public static final RegistryObject<Item> STRAWBERRY_CAKE = registerBasic("strawberry_cake", () -> new BlockItem(IcariaBlocks.STRAWBERRY_CAKE.get(), propertiesBlocks()));
 

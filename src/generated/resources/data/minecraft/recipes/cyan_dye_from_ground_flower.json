@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:cyan_ground_flowers"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cyan_dye"
+  }
+}

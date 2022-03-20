@@ -117,6 +117,12 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.POPULUS_DECO.STAIRS.get(), 5, 20);
 		flammableBlock(IcariaBlocks.POPULUS_DECO.FENCE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.POPULUS_DECO.GATE.get(), 5, 20);
+		flammableBlock(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), 60, 100);
+		flammableBlock(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), 60, 100);
+		flammableBlock(IcariaBlocks.PINK_GROUND_FLOWERS.get(), 60, 100);
+		flammableBlock(IcariaBlocks.PURPLE_GROUND_FLOWERS.get(), 60, 100);
+		flammableBlock(IcariaBlocks.RED_GROUND_FLOWERS.get(), 60, 100);
+		flammableBlock(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), 60, 100);
 		flammableBlock(IcariaBlocks.STRAWBERRY_BUSH.get(), 60, 100);
 	}
 }

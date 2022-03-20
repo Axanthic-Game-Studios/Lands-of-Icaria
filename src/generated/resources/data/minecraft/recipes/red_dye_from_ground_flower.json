@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:red_ground_flowers"
+    }
+  ],
+  "result": {
+    "item": "minecraft:red_dye"
+  }
+}

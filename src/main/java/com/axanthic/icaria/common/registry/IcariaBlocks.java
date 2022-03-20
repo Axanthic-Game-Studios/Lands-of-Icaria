@@ -321,11 +321,18 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> ANTHRACITE_TORCH = register("anthracite_torch", () -> new TorchBlock(propertiesTorch().lightLevel((pLightEmission) -> 14), ParticleTypes.FLAME));
 	public static final RegistryObject<Block> ANTHRACITE_WALL_TORCH = register("anthracite_wall_torch", () -> new WallTorchBlock(propertiesTorch().lightLevel((pLightEmission) -> 14), ParticleTypes.FLAME));
 
-	public static final RegistryObject<Block> STRAWBERRY_BUSH = register("strawberry_bush", () -> new StrawberryBushBlock(propertiesPlant()));
+	public static final RegistryObject<Block> BLUE_GROUND_FLOWERS = register("blue_ground_flowers", () -> new GroundFlowerBlock(propertiesPlant(MaterialColor.NONE)));
+	public static final RegistryObject<Block> CYAN_GROUND_FLOWERS = register("cyan_ground_flowers", () -> new GroundFlowerBlock(propertiesPlant(MaterialColor.NONE)));
+	public static final RegistryObject<Block> PINK_GROUND_FLOWERS = register("pink_ground_flowers", () -> new GroundFlowerBlock(propertiesPlant(MaterialColor.NONE)));
+	public static final RegistryObject<Block> PURPLE_GROUND_FLOWERS = register("purple_ground_flowers", () -> new GroundFlowerBlock(propertiesPlant(MaterialColor.NONE)));
+	public static final RegistryObject<Block> RED_GROUND_FLOWERS = register("red_ground_flowers", () -> new GroundFlowerBlock(propertiesPlant(MaterialColor.NONE)));
+	public static final RegistryObject<Block> WHITE_GROUND_FLOWERS = register("white_ground_flowers", () -> new GroundFlowerBlock(propertiesPlant(MaterialColor.NONE)));
 
 	public static final RegistryObject<Block> MOSS_0 = register("moss_0", () -> new LayerBlock(propertiesMoss()));
 	public static final RegistryObject<Block> MOSS_1 = register("moss_1", () -> new LayerBlock(propertiesMoss()));
 	public static final RegistryObject<Block> MOSS_2 = register("moss_2", () -> new LayerBlock(propertiesMoss()));
+
+	public static final RegistryObject<Block> STRAWBERRY_BUSH = register("strawberry_bush", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
 
 	public static final RegistryObject<Block> STRAWBERRY_CAKE = register("strawberry_cake", () -> new StrawberryCakeBlock(propertiesCake()));
 	public static final RegistryObject<Block> STRAWBERRY_CAKE_CANDLE = register("strawberry_cake_candle", () -> new StrawberryCandleCakeBlock(Blocks.CANDLE, propertiesCake()));
@@ -388,7 +395,7 @@ public class IcariaBlocks {
 	}
 
 	private static Properties propertiesRubble() {
-		return Properties.of(Material.DECORATION, MaterialColor.NONE).sound(SoundType.STONE).instabreak().noOcclusion();
+		return Properties.of(Material.DECORATION, MaterialColor.NONE).sound(SoundType.STONE).instabreak().noCollission().noOcclusion();
 	}
 
 	private static Properties propertiesQuartz() {
@@ -444,7 +451,7 @@ public class IcariaBlocks {
 	}
 
 	private static Properties propertiesTwigs() {
-		return Properties.of(Material.DECORATION, MaterialColor.NONE).sound(SoundType.WOOD).instabreak().noOcclusion();
+		return Properties.of(Material.DECORATION, MaterialColor.NONE).sound(SoundType.WOOD).instabreak().noCollission().noOcclusion();
 	}
 
 	private static Properties propertiesWood(MaterialColor pMaterialColorEnd, MaterialColor pMaterialColorSide) {
@@ -467,8 +474,8 @@ public class IcariaBlocks {
 		return Properties.of(Material.DECORATION, MaterialColor.NONE).sound(SoundType.METAL).instabreak().noCollission();
 	}
 
-	private static Properties propertiesPlant() {
-		return Properties.of(Material.PLANT, MaterialColor.PLANT).sound(SoundType.GRASS).instabreak().noCollission();
+	private static Properties propertiesPlant(MaterialColor pMaterialColor) {
+		return Properties.of(Material.PLANT, pMaterialColor).sound(SoundType.GRASS).instabreak().noCollission();
 	}
 
 	private static Properties propertiesMoss() {

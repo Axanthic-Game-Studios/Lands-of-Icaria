@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "": [
+      { "model": "landsoficaria:block/cyan_ground_flowers_0", "y": 0 },
+      { "model": "landsoficaria:block/cyan_ground_flowers_0", "y": 90 },
+      { "model": "landsoficaria:block/cyan_ground_flowers_0", "y": 180 },
+      { "model": "landsoficaria:block/cyan_ground_flowers_0", "y": 270 },
+      { "model": "landsoficaria:block/cyan_ground_flowers_1", "y": 0 },
+      { "model": "landsoficaria:block/cyan_ground_flowers_1", "y": 90 },
+      { "model": "landsoficaria:block/cyan_ground_flowers_1", "y": 180 },
+      { "model": "landsoficaria:block/cyan_ground_flowers_1", "y": 270 },
+      { "model": "landsoficaria:block/cyan_ground_flowers_2", "y": 0 },
+      { "model": "landsoficaria:block/cyan_ground_flowers_2", "y": 90 },
+      { "model": "landsoficaria:block/cyan_ground_flowers_2", "y": 180 },
+      { "model": "landsoficaria:block/cyan_ground_flowers_2", "y": 270 }
+    ]
+  }
+}
+

@@ -36,13 +36,13 @@ public class DeadLogBlock extends RotatedPillarBlock implements SimpleWaterlogge
 	}
 
 	@Override
-	public void createBlockStateDefinition(Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(AXIS, WATERLOGGED);
+	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+		return false;
 	}
 
 	@Override
-	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-		return false;
+	public void createBlockStateDefinition(Builder<Block, BlockState> pBuilder) {
+		pBuilder.add(AXIS, WATERLOGGED);
 	}
 
 	@Override

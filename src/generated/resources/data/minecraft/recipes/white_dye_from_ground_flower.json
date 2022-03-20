@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:white_ground_flowers"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_dye"
+  }
+}

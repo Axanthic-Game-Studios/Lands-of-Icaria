@@ -97,6 +97,12 @@ public class ClientProxy extends CommonProxy {
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POPULUS_DOOR.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POPULUS_TRAPDOOR.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POPULUS_LADDER.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.PINK_GROUND_FLOWERS.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.PURPLE_GROUND_FLOWERS.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.RED_GROUND_FLOWERS.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.STRAWBERRY_BUSH.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SPELT_CROP.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.STRAWBERRY_CROP.get(), RenderType.cutout());
