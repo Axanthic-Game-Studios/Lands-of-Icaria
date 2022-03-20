@@ -1,0 +1,48 @@
+{
+    "textures": {
+        "0": "landsoficaria:block/strawberry_crop_age_4",
+        "1": "landsoficaria:block/strawberry_crop_age_4_horizontal",
+        "particle": "#0"
+    },
+    "elements": [
+        {
+            "from": [ 8.0, -1.0, 0.0 ], 
+            "to": [ 8.0, 7.0, 16.0 ], 
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 45.0 },
+            "faces": {
+                "north": { "texture": "#-1", "uv": [ 0.0, 0.0, 0.0, 8.0 ] },
+                "east": { "texture": "#0", "uv": [ 0.0, 8.0, 16.0, 16.0 ] },
+                "south": { "texture": "#-1", "uv": [ 0.0, 0.0, -6.0, 10.0 ] },
+                "west": { "texture": "#0", "uv": [ 0.0, 8.0, 16.0, 16.0 ] },
+                "up": { "texture": "#-1", "uv": [ 0.0, 0.0, 0.0, 8.0 ] },
+                "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 0.0, 8.0 ] }
+            }
+        },
+        {
+            "from": [ 8.0, -1.0, 0.0 ], 
+            "to": [ 8.0, 7.0, 16.0 ], 
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": -45.0 },
+            "faces": {
+                "north": { "texture": "#-1", "uv": [ 0.0, 0.0, 0.0, 8.0 ] },
+                "east": { "texture": "#0", "uv": [ 0.0, 8.0, 16.0, 16.0 ] },
+                "south": { "texture": "#-1", "uv": [ 0.0, 0.0, 0.0, 8.0 ] },
+                "west": { "texture": "#0", "uv": [ 0.0, 8.0, 16.0, 16.0 ] },
+                "up": { "texture": "#-1", "uv": [ 0.0, 0.0, 0.0, 8.0 ] },
+                "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 0.0, 8.0 ] }
+            }
+        },
+        {
+            "from": [ 0.0, 1.0, 0.0 ], 
+            "to": [ 16.0, 1.0, 16.0 ], 
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 45.0 },
+            "faces": {
+                "north": { "texture": "#-1", "uv": [ 0.0, 0.0, 8.0, 0.0 ] },
+                "east": { "texture": "#-1", "uv": [ 0.0, 0.0, 8.0, 0.0 ] },
+                "south": { "texture": "#-1", "uv": [ 0.0, 0.0, 8.0, 0.0 ] },
+                "west": { "texture": "#-1", "uv": [ 0.0, 0.0, 8.0, 0.0 ] },
+                "up": { "texture": "#1", "uv": [ 0.0, 0.0, 16.0, 16.0 ] },
+                "down": { "texture": "#1", "uv": [ 0.0, 0.0, 16.0, 16.0 ] }
+            }
+        }
+    ]
+}

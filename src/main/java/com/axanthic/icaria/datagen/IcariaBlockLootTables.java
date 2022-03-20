@@ -16,10 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.SnowLayerBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootContext.EntityTarget;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -235,6 +232,12 @@ public class IcariaBlockLootTables extends BlockLoot {
 
 		dropNone(IcariaBlocks.STRAWBERRY_CAKE.get());
 
+		dropCrop(IcariaBlocks.SPELT_CROP.get(), IcariaItems.SPELT.get(), IcariaItems.SPELT_SEEDS.get());
+		dropCrop(IcariaBlocks.STRAWBERRY_CROP.get(), IcariaItems.STRAWBERRIES.get(), IcariaItems.STRAWBERRY_SEEDS.get());
+		dropCrop(IcariaBlocks.PHYSALIS_CROP.get(), IcariaItems.PHYSALIS.get(), IcariaItems.PHYSALIS_SEEDS.get());
+
+		dropGarlicOnions(IcariaBlocks.ONION_CROP.get(), IcariaItems.ONION.get(), IcariaItems.ONION.get(), IcariaItems.GARLIC.get());
+
 		for (RegistryObject<? extends Block> registryObject : IcariaBlocks.BASIC_BLOCKS) {
 			dropThis(registryObject.get());
 		}
@@ -271,8 +274,8 @@ public class IcariaBlockLootTables extends BlockLoot {
 		add(pBlock, createSingleItemTableWithSilkTouch(pBlock, pItem, UniformGenerator.between(pMin, pMax)));
 	}
 
-	public void dropBone(Block pBlock, Item pItemOne, Item pItemTwo, Item pItemThree) {
-		add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(pBlock).when(HAS_SILK_TOUCH).otherwise(applyExplosionDecay(pItemOne, LootItem.lootTableItem(pItemOne).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(25).append(applyExplosionDecay(pItemTwo, LootItem.lootTableItem(pItemTwo).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(25)).append(applyExplosionDecay(pItemThree, LootItem.lootTableItem(pItemThree).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(1))))));
+	public void dropBone(Block pBlock, Item pBoneItem, Item pRottenBoneItem, Item pRemainItem) {
+		add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(pBlock).when(HAS_SILK_TOUCH).otherwise(applyExplosionDecay(pBoneItem, LootItem.lootTableItem(pBoneItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(25).append(applyExplosionDecay(pRottenBoneItem, LootItem.lootTableItem(pRottenBoneItem).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(25)).append(applyExplosionDecay(pRemainItem, LootItem.lootTableItem(pRemainItem).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)).setWeight(1))))));
 	}
 
 	public void dropElse(Block pBlock, ItemLike pItem) {
@@ -300,7 +303,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 	}
 
 	public void dropLaurelsLeaves(Block pLeavesBlock, Block pSaplingBlock) {
-		add(pLeavesBlock, createLaurelLeavesDrops(pLeavesBlock, pSaplingBlock, SAPLING_CHANCES));
+		add(pLeavesBlock, createLaurelLeavesDrop(pLeavesBlock, pSaplingBlock, SAPLING_CHANCES));
 	}
 
 	public void dropOlivesLeaves(Block pBlock, Item pItem) {
@@ -319,8 +322,20 @@ public class IcariaBlockLootTables extends BlockLoot {
 		add(pBlock, noDrop());
 	}
 
-	public static LootTable.Builder createLaurelLeavesDrops(Block pLeavesBlock, Block pSaplingBlock, float... pChances) {
+	public void dropGarlicOnions(Block pCropBlock, Item pCropItem, Item pSeedItem, Item pGarlicItem) {
+		add(pCropBlock, createGarlicOnionsDrop(pCropBlock, pCropItem, pSeedItem, pGarlicItem, LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCropBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7))));
+	}
+
+	public void dropCrop(Block pBlock, Item pCropItem, Item pSeedItem) {
+		add(pBlock, createCropDrops(pBlock, pCropItem, pSeedItem, LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7))));
+	}
+
+	public static LootTable.Builder createLaurelLeavesDrop(Block pLeavesBlock, Block pSaplingBlock, float... pChances) {
 		return createLeavesDrops(pLeavesBlock, pSaplingBlock, pChances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(applyExplosionCondition(pLeavesBlock, LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get())).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
+	}
+
+	public static LootTable.Builder createGarlicOnionsDrop(Block pCropBlock, Item pCropItem, Item pSeedItem, Item pGarlicItem, LootItemCondition.Builder pBuilder) {
+		return applyExplosionDecay(pCropBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pCropItem).when(pBuilder).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 5.0F))).setWeight(10).otherwise(LootItem.lootTableItem(pSeedItem)).append(LootItem.lootTableItem(pGarlicItem).when(pBuilder).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).setWeight(1)))));
 	}
 
 	@Override

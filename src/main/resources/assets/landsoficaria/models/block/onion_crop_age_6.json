@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "landsoficaria:block/onion_crop_age_6"
+  }
+}

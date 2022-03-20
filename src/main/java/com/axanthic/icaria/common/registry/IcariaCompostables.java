@@ -53,5 +53,8 @@ public class IcariaCompostables {
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.OLIVES_GREEN.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.GARLIC.get(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.ONION.get(), 0.65F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.SPELT_SEEDS.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.STRAWBERRY_SEEDS.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.PHYSALIS_SEEDS.get(), 0.3F);
 	}
 }

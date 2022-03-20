@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "landsoficaria:block/spelt_crop_age_4"
+  }
+}

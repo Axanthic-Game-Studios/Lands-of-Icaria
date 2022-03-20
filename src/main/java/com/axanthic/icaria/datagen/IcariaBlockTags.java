@@ -40,6 +40,14 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 	public static final TagKey<Block> MINEABLE_WITH_SCYTHE = icariaTag("mineable/scythe");
 
+	public static final TagKey<Block> FLOWER_POTS_CYPRESS_SAPLING = forgeTag("flower_pots/cypress");
+	public static final TagKey<Block> FLOWER_POTS_DROUGHTROOT_SAPLING = forgeTag("flower_pots/droughtroot");
+	public static final TagKey<Block> FLOWER_POTS_FIR_SAPLING = forgeTag("flower_pots/fir");
+	public static final TagKey<Block> FLOWER_POTS_LAUREL_SAPLING = forgeTag("flower_pots/laurel");
+	public static final TagKey<Block> FLOWER_POTS_OLIVE_SAPLING = forgeTag("flower_pots/olive");
+	public static final TagKey<Block> FLOWER_POTS_PLANE_SAPLING = forgeTag("flower_pots/plane");
+	public static final TagKey<Block> FLOWER_POTS_POPULUS_SAPLING = forgeTag("flower_pots/populus");
+
 	// ITEMBLOCK TAGS
 	public static final TagKey<Block> ORES_ROTTEN_BONES = forgeTag("ores/rotten_bones");
 	public static final TagKey<Block> ORES_CHERT = forgeTag("ores/chert");
@@ -106,14 +114,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> SAPLINGS_OLIVE = forgeTag("saplings/olive");
 	public static final TagKey<Block> SAPLINGS_PLANE = forgeTag("saplings/plane");
 	public static final TagKey<Block> SAPLINGS_POPULUS = forgeTag("saplings/populus");
-
-	public static final TagKey<Block> FLOWER_POTS_CYPRESS_SAPLING = forgeTag("flower_pots/cypress");
-	public static final TagKey<Block> FLOWER_POTS_DROUGHTROOT_SAPLING = forgeTag("flower_pots/droughtroot");
-	public static final TagKey<Block> FLOWER_POTS_FIR_SAPLING = forgeTag("flower_pots/fir");
-	public static final TagKey<Block> FLOWER_POTS_LAUREL_SAPLING = forgeTag("flower_pots/laurel");
-	public static final TagKey<Block> FLOWER_POTS_OLIVE_SAPLING = forgeTag("flower_pots/olive");
-	public static final TagKey<Block> FLOWER_POTS_PLANE_SAPLING = forgeTag("flower_pots/plane");
-	public static final TagKey<Block> FLOWER_POTS_POPULUS_SAPLING = forgeTag("flower_pots/populus");
 
 	public static final TagKey<Block> LEAVES_CYPRESS = forgeTag("leaves/cypress");
 	public static final TagKey<Block> LEAVES_DROUGHTROOT = forgeTag("leaves/droughtroot");
@@ -509,6 +509,61 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.GRAINEL_CHERT.get());
 
+		tag(FLOWER_POTS_CYPRESS_SAPLING).add(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
+		tag(FLOWER_POTS_DROUGHTROOT_SAPLING).add(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
+		tag(FLOWER_POTS_FIR_SAPLING).add(IcariaBlocks.POTTED_FIR_SAPLING.get());
+		tag(FLOWER_POTS_LAUREL_SAPLING).add(IcariaBlocks.POTTED_LAUREL_SAPLING.get());
+		tag(FLOWER_POTS_OLIVE_SAPLING).add(IcariaBlocks.POTTED_OLIVE_SAPLING.get());
+		tag(FLOWER_POTS_PLANE_SAPLING).add(IcariaBlocks.POTTED_PLANE_SAPLING.get());
+		tag(FLOWER_POTS_POPULUS_SAPLING).add(IcariaBlocks.POTTED_POPULUS_SAPLING.get());
+
+		tag(BlockTags.FLOWER_POTS)
+			.addTag(FLOWER_POTS_CYPRESS_SAPLING)
+			.addTag(FLOWER_POTS_DROUGHTROOT_SAPLING)
+			.addTag(FLOWER_POTS_FIR_SAPLING)
+			.addTag(FLOWER_POTS_LAUREL_SAPLING)
+			.addTag(FLOWER_POTS_OLIVE_SAPLING)
+			.addTag(FLOWER_POTS_PLANE_SAPLING)
+			.addTag(FLOWER_POTS_POPULUS_SAPLING);
+
+		tag(BlockTags.CLIMBABLE)
+			.add(IcariaBlocks.CYPRESS_LADDER.get())
+			.add(IcariaBlocks.DROUGHTROOT_LADDER.get())
+			.add(IcariaBlocks.FIR_LADDER.get())
+			.add(IcariaBlocks.LAUREL_LADDER.get())
+			.add(IcariaBlocks.OLIVE_LADDER.get())
+			.add(IcariaBlocks.PLANE_LADDER.get())
+			.add(IcariaBlocks.POPULUS_LADDER.get());
+
+		tag(BlockTags.WALL_POST_OVERRIDE)
+			.add(IcariaBlocks.LIGNITE_TORCH.get())
+			.add(IcariaBlocks.ANTHRACITE_TORCH.get());
+
+		tag(BlockTags.CANDLE_CAKES)
+			.add(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_WHITE_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_ORANGE_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_MAGENTA_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_BLUE_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_YELLOW_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_LIME_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_PINK_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_GRAY_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_GRAY_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_CYAN_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_PURPLE_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_BLUE_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_BROWN_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_GREEN_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_RED_CANDLE.get())
+			.add(IcariaBlocks.STRAWBERRY_CAKE_BLACK_CANDLE.get());
+
+		tag(BlockTags.CROPS)
+			.add(IcariaBlocks.SPELT_CROP.get())
+			.add(IcariaBlocks.STRAWBERRY_CROP.get())
+			.add(IcariaBlocks.PHYSALIS_CROP.get())
+			.add(IcariaBlocks.ONION_CROP.get());
+
 		// ITEMBLOCK TAGS
 		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			if (deco.SLAB != null) {
@@ -714,23 +769,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(SAPLINGS_PLANE)
 			.addTag(SAPLINGS_POPULUS);
 
-		tag(FLOWER_POTS_CYPRESS_SAPLING).add(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
-		tag(FLOWER_POTS_DROUGHTROOT_SAPLING).add(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
-		tag(FLOWER_POTS_FIR_SAPLING).add(IcariaBlocks.POTTED_FIR_SAPLING.get());
-		tag(FLOWER_POTS_LAUREL_SAPLING).add(IcariaBlocks.POTTED_LAUREL_SAPLING.get());
-		tag(FLOWER_POTS_OLIVE_SAPLING).add(IcariaBlocks.POTTED_OLIVE_SAPLING.get());
-		tag(FLOWER_POTS_PLANE_SAPLING).add(IcariaBlocks.POTTED_PLANE_SAPLING.get());
-		tag(FLOWER_POTS_POPULUS_SAPLING).add(IcariaBlocks.POTTED_POPULUS_SAPLING.get());
-
-		tag(BlockTags.FLOWER_POTS)
-			.addTag(FLOWER_POTS_CYPRESS_SAPLING)
-			.addTag(FLOWER_POTS_DROUGHTROOT_SAPLING)
-			.addTag(FLOWER_POTS_FIR_SAPLING)
-			.addTag(FLOWER_POTS_LAUREL_SAPLING)
-			.addTag(FLOWER_POTS_OLIVE_SAPLING)
-			.addTag(FLOWER_POTS_PLANE_SAPLING)
-			.addTag(FLOWER_POTS_POPULUS_SAPLING);
-
 		tag(LEAVES_CYPRESS).add(IcariaBlocks.CYPRESS_LEAVES.get());
 		tag(LEAVES_DROUGHTROOT).add(IcariaBlocks.DROUGHTROOT_LEAVES.get());
 		tag(LEAVES_FIR).add(IcariaBlocks.FIR_LEAVES.get());
@@ -833,38 +871,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(WOODEN_TRAPDOORS_OLIVE)
 			.addTag(WOODEN_TRAPDOORS_PLANE)
 			.addTag(WOODEN_TRAPDOORS_POPULUS);
-
-		tag(BlockTags.CLIMBABLE)
-			.add(IcariaBlocks.CYPRESS_LADDER.get())
-			.add(IcariaBlocks.DROUGHTROOT_LADDER.get())
-			.add(IcariaBlocks.FIR_LADDER.get())
-			.add(IcariaBlocks.LAUREL_LADDER.get())
-			.add(IcariaBlocks.OLIVE_LADDER.get())
-			.add(IcariaBlocks.PLANE_LADDER.get())
-			.add(IcariaBlocks.POPULUS_LADDER.get());
-
-		tag(BlockTags.WALL_POST_OVERRIDE)
-			.add(IcariaBlocks.LIGNITE_TORCH.get())
-			.add(IcariaBlocks.ANTHRACITE_TORCH.get());
-
-		tag(BlockTags.CANDLE_CAKES)
-			.add(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_WHITE_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_ORANGE_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_MAGENTA_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_BLUE_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_YELLOW_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_LIME_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_PINK_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_GRAY_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_GRAY_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_CYAN_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_PURPLE_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_BLUE_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_BROWN_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_GREEN_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_RED_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_BLACK_CANDLE.get());
 	}
 
 	public void addStoneDecoToTag(StoneDecoBlocks deco, TagKey<Block> tag) {

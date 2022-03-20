@@ -392,7 +392,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> OLIVES_BLACK = registerBasic("olives_black", () -> new Item(propertiesItems().food(foodProperties(2, 0.3F))));
 	public static final RegistryObject<Item> OLIVES_GREEN = registerBasic("olives_green", () -> new Item(propertiesItems().food(foodProperties(2, 0.3F))));
 	public static final RegistryObject<Item> GARLIC = registerBasic("garlic", () -> new Item(propertiesItems().food(foodProperties(1, 0.3F))));
-	public static final RegistryObject<Item> ONION = registerBasic("onion", () -> new Item(propertiesItems().food(foodProperties(1, 0.3F))));
+	public static final RegistryObject<Item> ONION = registerBasic("onion", () -> new ItemNameBlockItem(IcariaBlocks.ONION_CROP.get(), propertiesItems().food(foodProperties(1, 0.3F))));
 	public static final RegistryObject<Item> RAW_AETERNAE_MEAT = registerBasic("raw_aeternae_meat", () -> new Item(propertiesItems().food(foodPropertiesMeatEffect(3, 0.3F, MobEffects.HUNGER, 100, 0, 1.0F))));
 	public static final RegistryObject<Item> COOKED_AETERNAE_MEAT = registerBasic("cooked_aeternae_meat", () -> new Item(propertiesItems().food(foodPropertiesMeat(8, 0.8F))));
 	public static final RegistryObject<Item> RAW_CATOBLEPAS_MEAT = registerBasic("raw_catoblepas_meat", () -> new Item(propertiesItems().food(foodPropertiesMeat(2, 0.3F))));
@@ -411,6 +411,10 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STEW_CATOBLEPAS = registerBasic("stew_catoblepas", () -> new StewFoodItem(propertiesItems().stacksTo(1).food(foodPropertiesMeat(8, 1.0F))));
 	public static final RegistryObject<Item> STEW_CERVER = registerBasic("stew_cerver", () -> new StewFoodItem(propertiesItems().stacksTo(1).food(foodPropertiesMeat(9, 1.0F))));
 	public static final RegistryObject<Item> STEW_SOW = registerBasic("stew_sow", () -> new StewFoodItem(propertiesItems().stacksTo(1).food(foodPropertiesMeat(8, 1.0F))));
+
+	public static final RegistryObject<Item> SPELT_SEEDS = registerBasic("spelt_seeds", () -> new ItemNameBlockItem(IcariaBlocks.SPELT_CROP.get(), propertiesItems()));
+	public static final RegistryObject<Item> STRAWBERRY_SEEDS = registerBasic("strawberry_seeds", () -> new ItemNameBlockItem(IcariaBlocks.STRAWBERRY_CROP.get(), propertiesItems()));
+	public static final RegistryObject<Item> PHYSALIS_SEEDS = registerBasic("physalis_seeds", () -> new ItemNameBlockItem(IcariaBlocks.PHYSALIS_CROP.get(), propertiesItems()));
 
 	public static final RegistryObject<BucketItem> HYLIASTRUM_FLUID_BUCKET = registerBasic("hyliastrum_fluid_bucket", () -> new BucketItem(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
 	public static final RegistryObject<BucketItem> MEDITERRANEAN_WATER_BUCKET = registerBasic("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
