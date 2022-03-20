@@ -510,6 +510,11 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_item", has(Items.GOLDEN_APPLE))
 			.save(consumer, IcariaItems.SALAD_FRUIT.getId());
 
+		ShapelessRecipeBuilder.shapeless(IcariaItems.STRAWBERRY_SEEDS.get())
+			.requires(IcariaItems.STRAWBERRIES.get())
+			.unlockedBy("has_item", has(IcariaItems.STRAWBERRIES.get()))
+			.save(consumer, IcariaItems.STRAWBERRY_SEEDS.getId());
+
 		// VANILLA
 		ShapedRecipeBuilder.shaped(Items.BOOK, 1)
 			.pattern("XX")

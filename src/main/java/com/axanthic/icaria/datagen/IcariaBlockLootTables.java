@@ -230,6 +230,8 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropDoor(IcariaBlocks.PLANE_DOOR.get());
 		dropDoor(IcariaBlocks.POPULUS_DOOR.get());
 
+		dropBush(IcariaBlocks.STRAWBERRY_BUSH.get(), IcariaItems.STRAWBERRIES.get(), 2.0F, 5.0F);
+
 		dropNone(IcariaBlocks.STRAWBERRY_CAKE.get());
 
 		dropCrop(IcariaBlocks.SPELT_CROP.get(), IcariaItems.SPELT.get(), IcariaItems.SPELT_SEEDS.get());
@@ -318,16 +320,20 @@ public class IcariaBlockLootTables extends BlockLoot {
 		add(pBlock, createSinglePropConditionTable(pBlock, DoorBlock.HALF, DoubleBlockHalf.LOWER));
 	}
 
+	public void dropBush(Block pBlock, Item pItem, float pMin, float pMax) {
+		add(pBlock, createSingleItemTable(pItem, UniformGenerator.between(pMin, pMax)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)));
+	}
+
 	public void dropNone(Block pBlock) {
 		add(pBlock, noDrop());
 	}
 
-	public void dropGarlicOnions(Block pCropBlock, Item pCropItem, Item pSeedItem, Item pGarlicItem) {
-		add(pCropBlock, createGarlicOnionsDrop(pCropBlock, pCropItem, pSeedItem, pGarlicItem, LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCropBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7))));
-	}
-
 	public void dropCrop(Block pBlock, Item pCropItem, Item pSeedItem) {
 		add(pBlock, createCropDrops(pBlock, pCropItem, pSeedItem, LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7))));
+	}
+
+	public void dropGarlicOnions(Block pCropBlock, Item pCropItem, Item pSeedItem, Item pGarlicItem) {
+		add(pCropBlock, createGarlicOnionsDrop(pCropBlock, pCropItem, pSeedItem, pGarlicItem, LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCropBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7))));
 	}
 
 	public static LootTable.Builder createLaurelLeavesDrop(Block pLeavesBlock, Block pSaplingBlock, float... pChances) {

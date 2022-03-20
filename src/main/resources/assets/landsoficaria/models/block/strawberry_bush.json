@@ -1,0 +1,48 @@
+{
+	"textures": {
+		"0": "landsoficaria:block/strawberry_crop_age_4",
+		"1": "landsoficaria:block/strawberry_crop_age_4_horizontal",
+		"particle": "#0"
+	},
+	"elements": [
+		{
+			"from": [8, 0, 0],
+			"to": [8, 8, 16],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 9, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 8], "texture": "#-1"},
+				"east": {"uv": [0, 8, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, -6, 10], "texture": "#-1"},
+				"west": {"uv": [0, 8, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 0, 8], "texture": "#-1"},
+				"down": {"uv": [0, 0, 0, 8], "texture": "#-1"}
+			}
+		},
+		{
+			"from": [8, 0, 0],
+			"to": [8, 8, 16],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 9, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 8], "texture": "#-1"},
+				"east": {"uv": [0, 8, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 8], "texture": "#-1"},
+				"west": {"uv": [0, 8, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 0, 8], "texture": "#-1"},
+				"down": {"uv": [0, 0, 0, 8], "texture": "#-1"}
+			}
+		},
+		{
+			"from": [0, 2, 0],
+			"to": [16, 2, 16],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 9, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 0], "texture": "#-1"},
+				"east": {"uv": [0, 0, 8, 0], "texture": "#-1"},
+				"south": {"uv": [0, 0, 8, 0], "texture": "#-1"},
+				"west": {"uv": [0, 0, 8, 0], "texture": "#-1"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#1"}
+			}
+		}
+	]
+}

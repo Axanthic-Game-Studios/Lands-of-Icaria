@@ -1,5 +1,6 @@
 package com.axanthic.icaria.datagen;
 
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
@@ -298,6 +299,12 @@ public class IcariaItemTags extends ItemTagsProvider {
 		tag(LEATHER_AETERNAE_HIDE).add(IcariaItems.AETERNAE_HIDE.get());
 
 		tag(Tags.Items.LEATHER).addTag(LEATHER_AETERNAE_HIDE);
+
+		tag(Tags.Items.SEEDS)
+			.add(IcariaItems.SPELT_SEEDS.get())
+			.add(IcariaItems.STRAWBERRY_SEEDS.get())
+			.add(IcariaItems.PHYSALIS_SEEDS.get())
+			.add(IcariaItems.ONION.get());
 
 		// ITEMBLOCK TAGS
 		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {

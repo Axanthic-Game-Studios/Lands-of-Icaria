@@ -117,5 +117,6 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.POPULUS_DECO.STAIRS.get(), 5, 20);
 		flammableBlock(IcariaBlocks.POPULUS_DECO.FENCE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.POPULUS_DECO.GATE.get(), 5, 20);
+		flammableBlock(IcariaBlocks.STRAWBERRY_BUSH.get(), 60, 100);
 	}
 }

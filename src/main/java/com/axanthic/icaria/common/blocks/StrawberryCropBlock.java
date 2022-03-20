@@ -24,10 +24,12 @@ public class StrawberryCropBlock extends CropBlock {
 		super(pProperties);
 	}
 
+	@Override
 	public ItemStack getCloneItemStack(BlockGetter pLevel, BlockPos pPos, BlockState pState) {
 		return new ItemStack(IcariaItems.STRAWBERRY_SEEDS.get());
 	}
 
+	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return SHAPES[pState.getValue(this.getAgeProperty())];
 	}
