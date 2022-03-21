@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:lionfangs"
+    }
+  ],
+  "result": {
+    "item": "minecraft:purple_dye"
+  }
+}

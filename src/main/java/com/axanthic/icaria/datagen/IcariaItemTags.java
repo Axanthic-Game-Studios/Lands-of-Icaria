@@ -1,6 +1,5 @@
 package com.axanthic.icaria.datagen;
 
-import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
@@ -295,6 +294,25 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.addTag(INGOTS_SIDEROS)
 			.addTag(INGOTS_MOLYBDENUM)
 			.addTag(INGOTS_MOLYBDENUMSTEEL);
+
+		tag(ItemTags.SMALL_FLOWERS)
+			.add(IcariaItems.BLINDWEED.get())
+			.add(IcariaItems.CHAMEOMILE.get())
+			.add(IcariaItems.CHARMONDER.get())
+			.add(IcariaItems.CLOVER.get())
+			.add(IcariaItems.FIREHILT.get())
+			.add(IcariaItems.BLUE_HYDRACINTH.get())
+			.add(IcariaItems.PURPLE_HYDRACINTH.get())
+			.add(IcariaItems.LIONFANGS.get())
+			.add(IcariaItems.SPEARDROPS.get())
+			.add(IcariaItems.PURPLE_STAGHORN.get())
+			.add(IcariaItems.YELLOW_STAGHORN.get())
+			.add(IcariaItems.BLUE_STORMCOTTON.get())
+			.add(IcariaItems.PINK_STORMCOTTON.get())
+			.add(IcariaItems.PURPLE_STORMCOTTON.get())
+			.add(IcariaItems.SUNKETTLE.get())
+			.add(IcariaItems.SUNSPONGE.get())
+			.add(IcariaItems.VOIDLILY.get());
 
 		tag(LEATHER_AETERNAE_HIDE).add(IcariaItems.AETERNAE_HIDE.get());
 

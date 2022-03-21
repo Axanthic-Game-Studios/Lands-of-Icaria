@@ -1,6 +1,83 @@
 {
-  "parent": "minecraft:block/flower_pot_cross",
+  "ambientocclusion": false,
   "textures": {
-    "plant": "landsoficaria:block/fir_sapling"
-  }
+    "sapling": "landsoficaria:block/fir_sapling",
+    "pot": "minecraft:block/flower_pot",
+    "dirt": "minecraft:block/dirt",
+    "particle": "#pot"
+  },
+  "elements": [
+    {
+      "from": [ 5, 0, 5 ],
+      "to": [ 6, 6, 11 ],
+      "faces": {
+        "down": { "uv": [ 5, 5, 6, 11 ], "texture": "#pot", "cullface": "down" },
+        "up": { "uv": [ 5, 5, 6, 11 ], "texture": "#pot" },
+        "north": { "uv": [ 10, 10, 11, 16 ], "texture": "#pot"},
+        "south": { "uv": [ 5, 10, 6, 16 ], "texture": "#pot" },
+        "west": { "uv": [ 5, 10, 11, 16 ], "texture": "#pot" },
+        "east": { "uv": [ 5, 10, 11, 16 ], "texture": "#pot" }
+      }
+    },
+    {
+      "from": [ 10, 0, 5 ],
+      "to": [ 11, 6, 11 ],
+      "faces": {
+        "down": { "uv": [ 10, 5, 11, 11 ], "texture": "#pot", "cullface": "down" },
+        "up": { "uv": [ 10, 5, 11, 11 ], "texture": "#pot" },
+        "north": { "uv": [ 5, 10, 6, 16 ], "texture": "#pot" },
+        "south": { "uv": [ 10, 10, 11, 16 ], "texture": "#pot" },
+        "west": { "uv": [ 5, 10, 11, 16 ], "texture": "#pot" },
+        "east": { "uv": [ 5, 10, 11, 16 ], "texture": "#pot" }
+      }
+    },
+    {
+      "from": [ 6, 0, 5 ],
+      "to": [ 10, 6, 6 ],
+      "faces": {
+        "down": { "uv": [ 6, 10, 10, 11 ], "texture": "#pot", "cullface": "down" },
+        "up": { "uv": [ 6, 5, 10, 6 ], "texture": "#pot" },
+        "north": { "uv": [ 6, 10, 10, 16 ], "texture": "#pot" },
+        "south": { "uv": [ 6, 10, 10, 16 ], "texture": "#pot"}
+      }
+    },
+    {
+      "from": [ 6, 0, 10 ],
+      "to": [ 10, 6, 11 ],
+      "faces": {
+        "down": { "uv": [ 6, 5, 10, 6 ], "texture": "#pot", "cullface": "down" },
+        "up": { "uv": [ 6, 10, 10, 11 ], "texture": "#pot" },
+        "north": { "uv": [ 6, 10, 10, 16 ], "texture": "#pot" },
+        "south": { "uv": [ 6, 10, 10, 16 ], "texture": "#pot" }
+      }
+    },
+    {
+      "from": [ 6, 0, 6 ],
+      "to": [ 10, 4, 10 ],
+      "faces": {
+        "down": { "uv": [ 6, 12, 10, 16 ], "texture": "#pot", "cullface": "down" },
+        "up": { "uv": [ 6, 6, 10, 10 ], "texture": "#dirt" }
+      }
+    },
+    {
+      "from": [ 2.6, 4, 8 ],
+      "to": [ 13.4, 16, 8 ],
+      "shade": false,
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+      "faces": {
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#sapling" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#sapling" }
+      }
+    },
+    {
+      "from": [ 8, 4, 2.6 ],
+      "to": [ 8, 16, 13.4 ],
+      "shade": false,
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+      "faces": {
+        "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#sapling" },
+        "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#sapling" }
+      }
+    }
+  ]
 }

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:blue_hydracinth"
+    }
+  ],
+  "result": {
+    "item": "minecraft:blue_dye"
+  }
+}

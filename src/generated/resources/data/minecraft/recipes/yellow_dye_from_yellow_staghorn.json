@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:yellow_staghorn"
+    }
+  ],
+  "result": {
+    "item": "minecraft:yellow_dye"
+  }
+}

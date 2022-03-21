@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:blindweed"
+    }
+  ],
+  "result": {
+    "item": "minecraft:pink_dye"
+  }
+}

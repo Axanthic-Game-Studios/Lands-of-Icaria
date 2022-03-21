@@ -7,6 +7,23 @@
     "#forge:flower_pots/laurel",
     "#forge:flower_pots/olive",
     "#forge:flower_pots/plane",
-    "#forge:flower_pots/populus"
+    "#forge:flower_pots/populus",
+    "landsoficaria:potted_blindweed",
+    "landsoficaria:potted_chameomile",
+    "landsoficaria:potted_charmonder",
+    "landsoficaria:potted_clover",
+    "landsoficaria:potted_firehilt",
+    "landsoficaria:potted_blue_hydracinth",
+    "landsoficaria:potted_purple_hydracinth",
+    "landsoficaria:potted_lionfangs",
+    "landsoficaria:potted_speardrops",
+    "landsoficaria:potted_purple_staghorn",
+    "landsoficaria:potted_yellow_staghorn",
+    "landsoficaria:potted_blue_stormcotton",
+    "landsoficaria:potted_pink_stormcotton",
+    "landsoficaria:potted_purple_stormcotton",
+    "landsoficaria:potted_sunkettle",
+    "landsoficaria:potted_sunsponge",
+    "landsoficaria:potted_voidlily"
   ]
 }

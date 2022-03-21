@@ -189,6 +189,23 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.POPULUS_LADDER.get());
 		dropThis(IcariaBlocks.LIGNITE_TORCH.get());
 		dropThis(IcariaBlocks.ANTHRACITE_TORCH.get());
+		dropThis(IcariaBlocks.BLINDWEED.get());
+		dropThis(IcariaBlocks.CHAMEOMILE.get());
+		dropThis(IcariaBlocks.CHARMONDER.get());
+		dropThis(IcariaBlocks.CLOVER.get());
+		dropThis(IcariaBlocks.FIREHILT.get());
+		dropThis(IcariaBlocks.BLUE_HYDRACINTH.get());
+		dropThis(IcariaBlocks.PURPLE_HYDRACINTH.get());
+		dropThis(IcariaBlocks.LIONFANGS.get());
+		dropThis(IcariaBlocks.SPEARDROPS.get());
+		dropThis(IcariaBlocks.PURPLE_STAGHORN.get());
+		dropThis(IcariaBlocks.YELLOW_STAGHORN.get());
+		dropThis(IcariaBlocks.BLUE_STORMCOTTON.get());
+		dropThis(IcariaBlocks.PINK_STORMCOTTON.get());
+		dropThis(IcariaBlocks.PURPLE_STORMCOTTON.get());
+		dropThis(IcariaBlocks.SUNKETTLE.get());
+		dropThis(IcariaBlocks.SUNSPONGE.get());
+		dropThis(IcariaBlocks.VOIDLILY.get());
 
 		dropPots(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
 		dropPots(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
@@ -197,6 +214,23 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropPots(IcariaBlocks.POTTED_OLIVE_SAPLING.get());
 		dropPots(IcariaBlocks.POTTED_PLANE_SAPLING.get());
 		dropPots(IcariaBlocks.POTTED_POPULUS_SAPLING.get());
+		dropPots(IcariaBlocks.POTTED_BLINDWEED.get());
+		dropPots(IcariaBlocks.POTTED_CHAMEOMILE.get());
+		dropPots(IcariaBlocks.POTTED_CHARMONDER.get());
+		dropPots(IcariaBlocks.POTTED_CLOVER.get());
+		dropPots(IcariaBlocks.POTTED_FIREHILT.get());
+		dropPots(IcariaBlocks.POTTED_BLUE_HYDRACINTH.get());
+		dropPots(IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get());
+		dropPots(IcariaBlocks.POTTED_LIONFANGS.get());
+		dropPots(IcariaBlocks.POTTED_SPEARDROPS.get());
+		dropPots(IcariaBlocks.POTTED_PURPLE_STAGHORN.get());
+		dropPots(IcariaBlocks.POTTED_YELLOW_STAGHORN.get());
+		dropPots(IcariaBlocks.POTTED_BLUE_STORMCOTTON.get());
+		dropPots(IcariaBlocks.POTTED_PINK_STORMCOTTON.get());
+		dropPots(IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get());
+		dropPots(IcariaBlocks.POTTED_SUNKETTLE.get());
+		dropPots(IcariaBlocks.POTTED_SUNSPONGE.get());
+		dropPots(IcariaBlocks.POTTED_VOIDLILY.get());
 
 		dropLeaves(IcariaBlocks.CYPRESS_LEAVES.get(), IcariaBlocks.CYPRESS_SAPLING.get());
 		dropLeaves(IcariaBlocks.DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_SAPLING.get());

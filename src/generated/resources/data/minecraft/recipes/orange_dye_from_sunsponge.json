@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:sunsponge"
+    }
+  ],
+  "result": {
+    "item": "minecraft:orange_dye"
+  }
+}
