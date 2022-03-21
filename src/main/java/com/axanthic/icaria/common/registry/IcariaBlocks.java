@@ -321,39 +321,53 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> ANTHRACITE_TORCH = register("anthracite_torch", () -> new TorchBlock(propertiesTorch().lightLevel((pLightEmission) -> 14), ParticleTypes.FLAME));
 	public static final RegistryObject<Block> ANTHRACITE_WALL_TORCH = register("anthracite_wall_torch", () -> new WallTorchBlock(propertiesTorch().lightLevel((pLightEmission) -> 14), ParticleTypes.FLAME));
 
-	public static final RegistryObject<Block> BLINDWEED = register("blindweed", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> FERN = register("fern", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> POTTED_FERN = register("potted_fern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FERN, propertiesPot()));
+
+	public static final RegistryObject<Block> SMALL_GRASS = register("small_grass", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> MEDIUM_GRASS = register("medium_grass", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> LARGE_GRASS = register("large_grass", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+
+	public static final RegistryObject<Block> GRAIN_0 = register("grain_0", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> GRAIN_1 = register("grain_1", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> GRAIN_2 = register("grain_2", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> GRAIN_3 = register("grain_3", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> GRAIN_4 = register("grain_4", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> GRAIN_5 = register("grain_5", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+
+	public static final RegistryObject<Block> BLINDWEED = register("blindweed", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_BLINDWEED = register("potted_blindweed", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLINDWEED, propertiesPot()));
-	public static final RegistryObject<Block> CHAMEOMILE = register("chameomile", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> CHAMEOMILE = register("chameomile", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_CHAMEOMILE = register("potted_chameomile", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CHAMEOMILE, propertiesPot()));
-	public static final RegistryObject<Block> CHARMONDER = register("charmonder", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> CHARMONDER = register("charmonder", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_CHARMONDER = register("potted_charmonder", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CHARMONDER, propertiesPot()));
-	public static final RegistryObject<Block> CLOVER = register("clover", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> CLOVER = register("clover", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_CLOVER = register("potted_clover", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CLOVER, propertiesPot()));
-	public static final RegistryObject<Block> FIREHILT = register("firehilt", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> FIREHILT = register("firehilt", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_FIREHILT = register("potted_firehilt", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FIREHILT, propertiesPot()));
-	public static final RegistryObject<Block> BLUE_HYDRACINTH = register("blue_hydracinth", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> BLUE_HYDRACINTH = register("blue_hydracinth", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_BLUE_HYDRACINTH = register("potted_blue_hydracinth", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLUE_HYDRACINTH, propertiesPot()));
-	public static final RegistryObject<Block> PURPLE_HYDRACINTH = register("purple_hydracinth", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> PURPLE_HYDRACINTH = register("purple_hydracinth", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_PURPLE_HYDRACINTH = register("potted_purple_hydracinth", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PURPLE_HYDRACINTH, propertiesPot()));
-	public static final RegistryObject<Block> LIONFANGS = register("lionfangs", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> LIONFANGS = register("lionfangs", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_LIONFANGS = register("potted_lionfangs", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, LIONFANGS, propertiesPot()));
-	public static final RegistryObject<Block> SPEARDROPS = register("speardrops", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> SPEARDROPS = register("speardrops", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_SPEARDROPS = register("potted_speardrops", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPEARDROPS, propertiesPot()));
-	public static final RegistryObject<Block> PURPLE_STAGHORN = register("purple_staghorn", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_PURPLE_STAGHORN = register("potted_purple_staghorn", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PURPLE_STAGHORN, propertiesPot()));
-	public static final RegistryObject<Block> YELLOW_STAGHORN = register("yellow_staghorn", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_YELLOW_STAGHORN = register("potted_yellow_staghorn", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, YELLOW_STAGHORN, propertiesPot()));
-	public static final RegistryObject<Block> BLUE_STORMCOTTON = register("blue_stormcotton", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> PURPLE_STAGHORN = register("purple_staghorn", () -> new DamagingBushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> POTTED_PURPLE_STAGHORN = register("potted_purple_staghorn", () -> new DamagingFlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PURPLE_STAGHORN, propertiesPot()));
+	public static final RegistryObject<Block> YELLOW_STAGHORN = register("yellow_staghorn", () -> new DamagingBushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> POTTED_YELLOW_STAGHORN = register("potted_yellow_staghorn", () -> new DamagingFlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, YELLOW_STAGHORN, propertiesPot()));
+	public static final RegistryObject<Block> BLUE_STORMCOTTON = register("blue_stormcotton", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_BLUE_STORMCOTTON = register("potted_blue_stormcotton", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLUE_STORMCOTTON, propertiesPot()));
-	public static final RegistryObject<Block> PINK_STORMCOTTON = register("pink_stormcotton", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> PINK_STORMCOTTON = register("pink_stormcotton", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_PINK_STORMCOTTON = register("potted_pink_stormcotton", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PINK_STORMCOTTON, propertiesPot()));
-	public static final RegistryObject<Block> PURPLE_STORMCOTTON = register("purple_stormcotton", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> PURPLE_STORMCOTTON = register("purple_stormcotton", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_PURPLE_STORMCOTTON = register("potted_purple_stormcotton", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PURPLE_STORMCOTTON, propertiesPot()));
-	public static final RegistryObject<Block> SUNKETTLE = register("sunkettle", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> SUNKETTLE = register("sunkettle", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_SUNKETTLE = register("potted_sunkettle", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SUNKETTLE, propertiesPot()));
-	public static final RegistryObject<Block> SUNSPONGE = register("sunsponge", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> SUNSPONGE = register("sunsponge", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_SUNSPONGE = register("potted_sunsponge", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SUNSPONGE, propertiesPot()));
-	public static final RegistryObject<Block> VOIDLILY = register("voidlily", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> VOIDLILY = register("voidlily", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_VOIDLILY = register("potted_voidlily", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, VOIDLILY, propertiesPot()));
 
 	public static final RegistryObject<Block> BLUE_GROUND_FLOWERS = register("blue_ground_flowers", () -> new GroundFlowerBlock(propertiesPlant(MaterialColor.NONE)));
@@ -367,7 +381,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MOSS_1 = register("moss_1", () -> new LayerBlock(propertiesMoss()));
 	public static final RegistryObject<Block> MOSS_2 = register("moss_2", () -> new LayerBlock(propertiesMoss()));
 
-	public static final RegistryObject<Block> STRAWBERRY_BUSH = register("strawberry_bush", () -> new StrawberryBushBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> STRAWBERRY_BUSH = register("strawberry_bush", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 
 	public static final RegistryObject<Block> STRAWBERRY_CAKE = register("strawberry_cake", () -> new StrawberryCakeBlock(propertiesCake()));
 	public static final RegistryObject<Block> STRAWBERRY_CAKE_CANDLE = register("strawberry_cake_candle", () -> new StrawberryCandleCakeBlock(Blocks.CANDLE, propertiesCake()));

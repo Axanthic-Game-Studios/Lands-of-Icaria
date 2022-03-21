@@ -322,6 +322,19 @@ public class IcariaItems {
 	public static final RegistryObject<Item> LIGNITE_TORCH = registerBasic("lignite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.LIGNITE_TORCH.get(), IcariaBlocks.LIGNITE_WALL_TORCH.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> ANTHRACITE_TORCH = registerBasic("anthracite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.ANTHRACITE_TORCH.get(), IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), propertiesBlocks()));
 
+	public static final RegistryObject<Item> FERN = registerBasic("fern", () -> new BlockItem(IcariaBlocks.FERN.get(), propertiesFlora()));
+
+	public static final RegistryObject<Item> SMALL_GRASS = registerBasic("small_grass", () -> new BlockItem(IcariaBlocks.SMALL_GRASS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> MEDIUM_GRASS = registerBasic("medium_grass", () -> new BlockItem(IcariaBlocks.MEDIUM_GRASS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> LARGE_GRASS = registerBasic("large_grass", () -> new BlockItem(IcariaBlocks.LARGE_GRASS.get(), propertiesFlora()));
+
+	public static final RegistryObject<Item> GRAIN_0 = registerBasic("grain_0", () -> new BlockItem(IcariaBlocks.GRAIN_0.get(), propertiesFlora()));
+	public static final RegistryObject<Item> GRAIN_1 = registerBasic("grain_1", () -> new BlockItem(IcariaBlocks.GRAIN_1.get(), propertiesFlora()));
+	public static final RegistryObject<Item> GRAIN_2 = registerBasic("grain_2", () -> new BlockItem(IcariaBlocks.GRAIN_2.get(), propertiesFlora()));
+	public static final RegistryObject<Item> GRAIN_3 = registerBasic("grain_3", () -> new BlockItem(IcariaBlocks.GRAIN_3.get(), propertiesFlora()));
+	public static final RegistryObject<Item> GRAIN_4 = registerBasic("grain_4", () -> new BlockItem(IcariaBlocks.GRAIN_4.get(), propertiesFlora()));
+	public static final RegistryObject<Item> GRAIN_5 = registerBasic("grain_5", () -> new BlockItem(IcariaBlocks.GRAIN_5.get(), propertiesFlora()));
+
 	public static final RegistryObject<Item> BLINDWEED = registerBasic("blindweed", () -> new BlockItem(IcariaBlocks.BLINDWEED.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CHAMEOMILE = registerBasic("chameomile", () -> new BlockItem(IcariaBlocks.CHAMEOMILE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CHARMONDER = registerBasic("charmonder", () -> new BlockItem(IcariaBlocks.CHARMONDER.get(), propertiesFlora()));

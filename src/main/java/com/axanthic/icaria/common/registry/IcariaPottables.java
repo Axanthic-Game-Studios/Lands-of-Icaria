@@ -12,6 +12,7 @@ public class IcariaPottables {
 		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.OLIVE_SAPLING.getId(), IcariaBlocks.POTTED_OLIVE_SAPLING);
 		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.PLANE_SAPLING.getId(), IcariaBlocks.POTTED_PLANE_SAPLING);
 		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.POPULUS_SAPLING.getId(), IcariaBlocks.POTTED_POPULUS_SAPLING);
+		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.FERN.getId(), IcariaBlocks.POTTED_FERN);
 		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.BLINDWEED.getId(), IcariaBlocks.POTTED_BLINDWEED);
 		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.CHAMEOMILE.getId(), IcariaBlocks.POTTED_CHAMEOMILE);
 		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.CHARMONDER.getId(), IcariaBlocks.POTTED_CHARMONDER);

@@ -1,0 +1,26 @@
+package com.axanthic.icaria.common.blocks;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.state.BlockState;
+
+import java.util.function.Supplier;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("deprecation")
+@ParametersAreNonnullByDefault
+
+public class DamagingFlowerPotBlock extends FlowerPotBlock {
+	public DamagingFlowerPotBlock(Supplier<FlowerPotBlock> emptyPot, Supplier<? extends Block> pContent, Properties properties) {
+		super(emptyPot, pContent, properties);
+	}
+
+	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+		pEntity.hurt(DamageSource.CACTUS, 1.0F);
+	}
+}

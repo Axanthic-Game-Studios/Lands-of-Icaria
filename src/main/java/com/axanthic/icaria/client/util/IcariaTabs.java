@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.util;
 
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.util.IcariaInfo;
-import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.CreativeModeTab;
@@ -17,7 +17,7 @@ public class IcariaTabs {
 		@Override
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack makeIcon() {
-			return new ItemStack(IcariaBlocks.MARL_GRASS.get());
+			return new ItemStack(IcariaItems.MARL_GRASS.get());
 		}
 	};
 
@@ -25,7 +25,7 @@ public class IcariaTabs {
 		@Override
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack makeIcon() {
-			return new ItemStack(IcariaBlocks.MARL_GRASS.get());
+			return new ItemStack(IcariaItems.LARGE_GRASS.get());
 		}
 	};
 
@@ -33,7 +33,7 @@ public class IcariaTabs {
 		@Override
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack makeIcon() {
-			return new ItemStack(IcariaBlocks.MARL_GRASS.get());
+			return new ItemStack(IcariaItems.ORICHALCUM_TOOLS.PICKAXE.get());
 		}
 	};
 }

@@ -214,6 +214,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropPots(IcariaBlocks.POTTED_OLIVE_SAPLING.get());
 		dropPots(IcariaBlocks.POTTED_PLANE_SAPLING.get());
 		dropPots(IcariaBlocks.POTTED_POPULUS_SAPLING.get());
+		dropPots(IcariaBlocks.POTTED_FERN.get());
 		dropPots(IcariaBlocks.POTTED_BLINDWEED.get());
 		dropPots(IcariaBlocks.POTTED_CHAMEOMILE.get());
 		dropPots(IcariaBlocks.POTTED_CHARMONDER.get());
@@ -262,6 +263,17 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropDoor(IcariaBlocks.OLIVE_DOOR.get());
 		dropDoor(IcariaBlocks.PLANE_DOOR.get());
 		dropDoor(IcariaBlocks.POPULUS_DOOR.get());
+
+		dropSeed(IcariaBlocks.FERN.get());
+		dropSeed(IcariaBlocks.SMALL_GRASS.get());
+		dropSeed(IcariaBlocks.MEDIUM_GRASS.get());
+		dropSeed(IcariaBlocks.LARGE_GRASS.get());
+		dropSeed(IcariaBlocks.GRAIN_0.get());
+		dropSeed(IcariaBlocks.GRAIN_1.get());
+		dropSeed(IcariaBlocks.GRAIN_2.get());
+		dropSeed(IcariaBlocks.GRAIN_3.get());
+		dropSeed(IcariaBlocks.GRAIN_4.get());
+		dropSeed(IcariaBlocks.GRAIN_5.get());
 
 		dropPlants(IcariaBlocks.BLUE_GROUND_FLOWERS.get());
 		dropPlants(IcariaBlocks.CYAN_GROUND_FLOWERS.get());
@@ -360,6 +372,10 @@ public class IcariaBlockLootTables extends BlockLoot {
 		add(pBlock, createSinglePropConditionTable(pBlock, DoorBlock.HALF, DoubleBlockHalf.LOWER));
 	}
 
+	public void dropSeed(Block pBlock) {
+		add(pBlock, createSeedDrop(pBlock));
+	}
+
 	public void dropPlants(Block pBlock) {
 		add(pBlock, createPlantsDrop(pBlock));
 	}
@@ -382,6 +398,10 @@ public class IcariaBlockLootTables extends BlockLoot {
 
 	public static LootTable.Builder createLaurelLeavesDrop(Block pLeavesBlock, Block pSaplingBlock, float... pChances) {
 		return createLeavesDrops(pLeavesBlock, pSaplingBlock, pChances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(applyExplosionCondition(pLeavesBlock, LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get())).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
+	}
+
+	public static LootTable.Builder createSeedDrop(Block pBlock) {
+		return createShearsDispatchTable(pBlock, applyExplosionDecay(pBlock, LootItem.lootTableItem(IcariaItems.SPELT_SEEDS.get()).when(LootItemRandomChanceCondition.randomChance(0.125F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))).otherwise(applyExplosionDecay(pBlock, LootItem.lootTableItem(IcariaItems.STRAWBERRY_SEEDS.get()).when(LootItemRandomChanceCondition.randomChance(0.125F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))).otherwise(applyExplosionDecay(pBlock, LootItem.lootTableItem(IcariaItems.PHYSALIS_SEEDS.get()).when(LootItemRandomChanceCondition.randomChance(0.125F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
 	}
 
 	public static LootTable.Builder createPlantsDrop(Block pBlock) {

@@ -117,6 +117,16 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.POPULUS_DECO.STAIRS.get(), 5, 20);
 		flammableBlock(IcariaBlocks.POPULUS_DECO.FENCE.get(), 5, 20);
 		flammableBlock(IcariaBlocks.POPULUS_DECO.GATE.get(), 5, 20);
+		flammableBlock(IcariaBlocks.FERN.get(), 60, 100);
+		flammableBlock(IcariaBlocks.SMALL_GRASS.get(), 60, 100);
+		flammableBlock(IcariaBlocks.MEDIUM_GRASS.get(), 60, 100);
+		flammableBlock(IcariaBlocks.LARGE_GRASS.get(), 60, 100);
+		flammableBlock(IcariaBlocks.GRAIN_0.get(), 60, 100);
+		flammableBlock(IcariaBlocks.GRAIN_1.get(), 60, 100);
+		flammableBlock(IcariaBlocks.GRAIN_2.get(), 60, 100);
+		flammableBlock(IcariaBlocks.GRAIN_3.get(), 60, 100);
+		flammableBlock(IcariaBlocks.GRAIN_4.get(), 60, 100);
+		flammableBlock(IcariaBlocks.GRAIN_5.get(), 60, 100);
 		flammableBlock(IcariaBlocks.BLINDWEED.get(), 60, 100);
 		flammableBlock(IcariaBlocks.CHAMEOMILE.get(), 60, 100);
 		flammableBlock(IcariaBlocks.CHARMONDER.get(), 60, 100);

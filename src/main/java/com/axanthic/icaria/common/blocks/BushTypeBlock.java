@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.blocks;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -21,10 +22,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class StrawberryBushBlock extends Block {
+public class BushTypeBlock extends Block {
 	public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
 
-	public StrawberryBushBlock(Properties pProperties) {
+	public BushTypeBlock(Properties pProperties) {
 		super(pProperties);
 	}
 
@@ -54,7 +55,7 @@ public class StrawberryBushBlock extends Block {
 	}
 
 	@Override
-	public VoxelShape getShape( BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		Vec3 vec3 = pState.getOffset(pLevel, pPos);
 		return SHAPE.move(vec3.x, vec3.y, vec3.z);
 	}
