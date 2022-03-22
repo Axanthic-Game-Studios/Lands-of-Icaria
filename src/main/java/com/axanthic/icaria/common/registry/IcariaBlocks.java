@@ -370,6 +370,14 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> VOIDLILY = register("voidlily", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> POTTED_VOIDLILY = register("potted_voidlily", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, VOIDLILY, propertiesPot()));
 
+	public static final RegistryObject<Block> BOLBOS = register("bolbos", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> DATHULLA = register("dathulla", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> MONDANOS = register("mondanos", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> MOTH_AGARIC = register("moth_agaric", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> NAMDRAKE = register("namdrake", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> PSILOCYBOS = register("psilocybos", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> ROWAN = register("rowan", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+
 	public static final RegistryObject<Block> BLUE_GROUND_FLOWERS = register("blue_ground_flowers", () -> new GroundFlowerBlock(propertiesPlant(MaterialColor.NONE)));
 	public static final RegistryObject<Block> CYAN_GROUND_FLOWERS = register("cyan_ground_flowers", () -> new GroundFlowerBlock(propertiesPlant(MaterialColor.NONE)));
 	public static final RegistryObject<Block> PINK_GROUND_FLOWERS = register("pink_ground_flowers", () -> new GroundFlowerBlock(propertiesPlant(MaterialColor.NONE)));

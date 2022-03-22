@@ -353,6 +353,14 @@ public class IcariaItems {
 	public static final RegistryObject<Item> SUNSPONGE = registerBasic("sunsponge", () -> new BlockItem(IcariaBlocks.SUNSPONGE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> VOIDLILY = registerBasic("voidlily", () -> new BlockItem(IcariaBlocks.VOIDLILY.get(), propertiesFlora()));
 
+	public static final RegistryObject<Item> BOLBOS = registerBasic("bolbos", () -> new BlockItem(IcariaBlocks.BOLBOS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> DATHULLA = registerBasic("dathulla", () -> new BlockItem(IcariaBlocks.DATHULLA.get(), propertiesFlora()));
+	public static final RegistryObject<Item> MONDANOS = registerBasic("mondanos", () -> new BlockItem(IcariaBlocks.MONDANOS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> MOTH_AGARIC = registerBasic("moth_agaric", () -> new BlockItem(IcariaBlocks.MOTH_AGARIC.get(), propertiesFlora()));
+	public static final RegistryObject<Item> NAMDRAKE = registerBasic("namdrake", () -> new BlockItem(IcariaBlocks.NAMDRAKE.get(), propertiesFlora()));
+	public static final RegistryObject<Item> PSILOCYBOS = registerBasic("psilocybos", () -> new BlockItem(IcariaBlocks.PSILOCYBOS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> ROWAN = registerBasic("rowan", () -> new BlockItem(IcariaBlocks.ROWAN.get(), propertiesFlora()));
+
 	public static final RegistryObject<Item> BLUE_GROUND_FLOWERS = register("blue_ground_flowers", () -> new BlockItem(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CYAN_GROUND_FLOWERS = register("cyan_ground_flowers", () -> new BlockItem(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PINK_GROUND_FLOWERS = register("pink_ground_flowers", () -> new BlockItem(IcariaBlocks.PINK_GROUND_FLOWERS.get(), propertiesFlora()));

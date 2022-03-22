@@ -144,6 +144,13 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.SUNKETTLE.get(), 60, 100);
 		flammableBlock(IcariaBlocks.SUNSPONGE.get(), 60, 100);
 		flammableBlock(IcariaBlocks.VOIDLILY.get(), 60, 100);
+		flammableBlock(IcariaBlocks.BOLBOS.get(), 60, 100);
+		flammableBlock(IcariaBlocks.DATHULLA.get(), 60, 100);
+		flammableBlock(IcariaBlocks.MONDANOS.get(), 60, 100);
+		flammableBlock(IcariaBlocks.MOTH_AGARIC.get(), 60, 100);
+		flammableBlock(IcariaBlocks.NAMDRAKE.get(), 60, 100);
+		flammableBlock(IcariaBlocks.PSILOCYBOS.get(), 60, 100);
+		flammableBlock(IcariaBlocks.ROWAN.get(), 60, 100);
 		flammableBlock(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), 60, 100);
 		flammableBlock(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), 60, 100);
 		flammableBlock(IcariaBlocks.PINK_GROUND_FLOWERS.get(), 60, 100);

@@ -206,6 +206,13 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.SUNKETTLE.get());
 		dropThis(IcariaBlocks.SUNSPONGE.get());
 		dropThis(IcariaBlocks.VOIDLILY.get());
+		dropThis(IcariaBlocks.BOLBOS.get());
+		dropThis(IcariaBlocks.DATHULLA.get());
+		dropThis(IcariaBlocks.MONDANOS.get());
+		dropThis(IcariaBlocks.MOTH_AGARIC.get());
+		dropThis(IcariaBlocks.NAMDRAKE.get());
+		dropThis(IcariaBlocks.PSILOCYBOS.get());
+		dropThis(IcariaBlocks.ROWAN.get());
 		dropThis(IcariaBlocks.WHITE_BROMELIA.get());
 		dropThis(IcariaBlocks.ORANGE_BROMELIA.get());
 		dropThis(IcariaBlocks.PINK_BROMELIA.get());
