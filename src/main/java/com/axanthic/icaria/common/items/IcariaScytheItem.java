@@ -53,11 +53,11 @@ public class IcariaScytheItem extends HoeItem {
 
 	@Override
 	public boolean onBlockStartBreak(ItemStack pStack, BlockPos pPos, Player pPlayer) {
-		Level world = pPlayer.getLevel();
-		if (isCorrectToolForDrops(world.getBlockState(pPos))) {
-			for (BlockPos pos2 : BlockPos.withinManhattan(pPos, 1, 1, 1)) {
-				if (!pos2.equals(pPos) && isCorrectToolForDrops(world.getBlockState(pos2)))
-					world.destroyBlock(pos2, true, pPlayer);
+		Level level = pPlayer.getLevel();
+		if (isCorrectToolForDrops(level.getBlockState(pPos))) {
+			for (BlockPos pos : BlockPos.withinManhattan(pPos, 1, 1, 1)) {
+				if (!pos.equals(pPos) && isCorrectToolForDrops(level.getBlockState(pos)))
+					level.destroyBlock(pos, true, pPlayer);
 			}
 		}
 

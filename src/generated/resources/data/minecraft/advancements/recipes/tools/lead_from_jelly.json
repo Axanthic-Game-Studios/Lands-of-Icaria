@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:lead_from_jelly"
+    ]
+  },
+  "criteria": {
+    "has_jelly": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:jellyfish_jelly"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:lead_from_jelly"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_jelly",
+      "has_the_recipe"
+    ]
+  ]
+}

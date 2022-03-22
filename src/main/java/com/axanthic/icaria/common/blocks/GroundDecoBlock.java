@@ -33,8 +33,7 @@ public class GroundDecoBlock extends Block {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		BlockState blockstate = pLevel.getBlockState(pPos.below());
-		return Block.isFaceFull(blockstate.getCollisionShape(pLevel, pPos.below()), Direction.UP);
+		return Block.isFaceFull(pLevel.getBlockState(pPos.below()).getCollisionShape(pLevel, pPos.below()), Direction.UP);
 	}
 
 	@Override

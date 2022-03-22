@@ -34,12 +34,12 @@ public class VineSproutItem extends Item {
 	@Override
 	public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pInventorySlot, boolean pIsCurrentItem) {
 		Player player = (Player)pEntity;
-		ItemStack itemStack = pStack.copy();
-		itemStack.setCount(1);
+		ItemStack stack = pStack.copy();
+		stack.setCount(1);
 		if(pStack.getCount() > 1) {
-			if(player.addItem(itemStack)) {
+			if(player.addItem(stack)) {
 				pStack.shrink(1);
-				player.addItem(itemStack);
+				player.addItem(stack);
 			} else {
 				pStack.shrink(1);
 				player.drop(pStack, true);

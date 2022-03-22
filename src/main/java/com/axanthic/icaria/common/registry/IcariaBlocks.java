@@ -166,7 +166,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> ARISTONE = registerBasic("aristone", () -> new GlassBlock(propertiesAristone()));
 	public static final RegistryObject<Block> ARISTONE_PACKED = registerBasic("aristone_packed", () -> new Block(propertiesAristone()));
 
-	public static final RegistryObject<Block> JELLYFISH_JELLY_BLOCK = registerBasic("jellyfish_jelly_block", () -> new SlimeBlock(propertiesJellyfishJellyBlock()));
+	public static final RegistryObject<Block> JELLYFISH_JELLY_BLOCK = registerBasic("jellyfish_jelly_block", () -> new JellyfishJellyBlock(propertiesJellyfishJellyBlock()));
 	public static final RegistryObject<Block> ARACHNE_STRING_BLOCK = registerBasic("arachne_string_block", () -> new Block(propertiesArachneStringBlock()));
 	public static final RegistryObject<RotatedPillarBlock> SPELT_BALE_BLOCK = register("spelt_bale_block", () -> new SpeltBaleBlock(propertiesSpeltBaleBlock()));
 	public static final RegistryObject<Block> VINE_REED_BLOCK = registerBasic("vine_reed_block", () -> new Block(propertiesVineReedBlock()));
@@ -397,9 +397,13 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> PINK_BROMELIA = register("pink_bromelia", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> PURPLE_BROMELIA = register("purple_bromelia", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 
-	public static final RegistryObject<Block> GREEN_MUSHROOMS = register("green_ground_shrooms", () -> new GroundShroomBlock(propertiesShroom(MaterialColor.COLOR_BROWN)));
-	public static final RegistryObject<Block> BROWN_MUSHROOMS = register("brown_ground_shrooms", () -> new GroundShroomBlock(propertiesShroom(MaterialColor.COLOR_BROWN)));
-	public static final RegistryObject<Block> LARGE_BROWN_MUSHROOMS = register("large_brown_ground_shrooms", () -> new GroundShroomBlock(propertiesShroom(MaterialColor.COLOR_BROWN)));
+	public static final RegistryObject<Block> GREEN_GROUND_SHROOMS = register("green_ground_shrooms", () -> new GroundShroomBlock(propertiesShroom(MaterialColor.COLOR_BROWN)));
+	public static final RegistryObject<Block> BROWN_GROUND_SHROOMS = register("brown_ground_shrooms", () -> new GroundShroomBlock(propertiesShroom(MaterialColor.COLOR_BROWN)));
+	public static final RegistryObject<Block> LARGE_BROWN_GROUND_SHROOMS = register("large_brown_ground_shrooms", () -> new GroundShroomBlock(propertiesShroom(MaterialColor.COLOR_BROWN)));
+
+	public static final RegistryObject<Block> TINDER_FUNGUS_TREE_SHROOMS = register("tinder_fungus_tree_shrooms", () -> new TreeShroomBlock(propertiesPlant(MaterialColor.NONE)));
+	public static final RegistryObject<Block> TURKEY_TAIL_TREE_SHROOMS = register("turkey_tail_tree_shrooms", () -> new TreeShroomBlock(propertiesPlant(MaterialColor.NONE)));
+	public static final RegistryObject<Block> UNNAMED_TREE_SHROOMS = register("unnamed_tree_shrooms", () -> new TreeShroomBlock(propertiesPlant(MaterialColor.NONE)));
 
 	public static final RegistryObject<Block> STRAWBERRY_BUSH = register("strawberry_bush", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 
@@ -572,9 +576,9 @@ public class IcariaBlocks {
 	}
 
 	private static <T extends Block> RegistryObject<T> registerBasic(final String name, final Supplier<? extends T> sup) {
-		RegistryObject<T> registeredBlock = register(name, sup);
-		BASIC_BLOCKS.add(registeredBlock);
-		return registeredBlock;
+		RegistryObject<T> registryObject = register(name, sup);
+		BASIC_BLOCKS.add(registryObject);
+		return registryObject;
 	}
 
 	public static class StoneDecoBlocks {

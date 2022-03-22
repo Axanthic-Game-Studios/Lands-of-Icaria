@@ -319,9 +319,12 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.PURPLE_BROMELIA.get());
 
 		tag(Tags.Items.MUSHROOMS)
-			.add(IcariaItems.GREEN_MUSHROOMS.get())
-			.add(IcariaItems.BROWN_MUSHROOMS.get())
-			.add(IcariaItems.LARGE_BROWN_MUSHROOMS.get());
+			.add(IcariaItems.GREEN_GROUND_SHROOMS.get())
+			.add(IcariaItems.BROWN_GROUND_SHROOMS.get())
+			.add(IcariaItems.LARGE_BROWN_GROUND_SHROOMS.get())
+			.add(IcariaItems.TINDER_FUNGUS_TREE_SHROOMS.get())
+			.add(IcariaItems.TURKEY_TAIL_TREE_SHROOMS.get())
+			.add(IcariaItems.UNNAMED_TREE_SHROOMS.get());
 
 		tag(LEATHER_AETERNAE_HIDE).add(IcariaItems.AETERNAE_HIDE.get());
 

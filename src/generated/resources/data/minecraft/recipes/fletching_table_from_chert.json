@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "YY",
+    "YY"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:chert"
+    },
+    "Y": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "minecraft:fletching_table"
+  }
+}

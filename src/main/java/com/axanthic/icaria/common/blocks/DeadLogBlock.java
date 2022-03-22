@@ -47,9 +47,7 @@ public class DeadLogBlock extends RotatedPillarBlock implements SimpleWaterlogge
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
-		boolean flag = fluidstate.getType() == Fluids.WATER;
-		return Objects.requireNonNull(super.getStateForPlacement(pContext)).setValue(AXIS, pContext.getClickedFace().getAxis()).setValue(WATERLOGGED, flag);
+		return Objects.requireNonNull(super.getStateForPlacement(pContext)).setValue(AXIS, pContext.getClickedFace().getAxis()).setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
 	}
 
 	@Override

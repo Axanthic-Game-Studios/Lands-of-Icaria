@@ -80,14 +80,14 @@ public class IcariaBidentItem extends TieredItem implements Vanishable {
 					if (!pLevel.isClientSide) {
 						pStack.hurtAndBreak(1, player, (p_43388_) -> p_43388_.broadcastBreakEvent(pLivingEntity.getUsedItemHand()));
 						if (j == 0) {
-							ThrownBidentEntity thrownbident = new ThrownBidentEntity(pLevel, player, pStack);
-							thrownbident.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, SHOOT_POWER + (float)j * 0.5F, 1.0F);
+							ThrownBidentEntity thrownBidentEntity = new ThrownBidentEntity(pLevel, player, pStack);
+							thrownBidentEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, SHOOT_POWER + (float)j * 0.5F, 1.0F);
 							if (player.getAbilities().instabuild) {
-								thrownbident.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+								thrownBidentEntity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
 							}
 
-							pLevel.addFreshEntity(thrownbident);
-							pLevel.playSound(null, thrownbident, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+							pLevel.addFreshEntity(thrownBidentEntity);
+							pLevel.playSound(null, thrownBidentEntity, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
 							if (!player.getAbilities().instabuild) {
 								player.getInventory().removeItem(pStack);
 							}
@@ -97,16 +97,16 @@ public class IcariaBidentItem extends TieredItem implements Vanishable {
 					player.awardStat(Stats.ITEM_USED.get(this));
 					if (j > 0) {
 						float f7 = player.getYRot();
-						float f = player.getXRot();
-						float f1 = -Mth.sin(f7 * ((float)Math.PI / 180F)) * Mth.cos(f * ((float)Math.PI / 180F));
-						float f2 = -Mth.sin(f * ((float)Math.PI / 180F));
-						float f3 = Mth.cos(f7 * ((float)Math.PI / 180F)) * Mth.cos(f * ((float)Math.PI / 180F));
-						float f4 = Mth.sqrt(f1 * f1 + f2 * f2 + f3 * f3);
-						float f5 = 3.0F * ((1.0F + (float)j) / 4.0F);
-						f1 *= f5 / f4;
-						f2 *= f5 / f4;
-						f3 *= f5 / f4;
-						player.push(f1, f2, f3);
+						float f1 = player.getXRot();
+						float f2 = -Mth.sin(f7 * ((float)Math.PI / 180F)) * Mth.cos(f1 * ((float)Math.PI / 180F));
+						float f3 = -Mth.sin(f1 * ((float)Math.PI / 180F));
+						float f4 = Mth.cos(f7 * ((float)Math.PI / 180F)) * Mth.cos(f1 * ((float)Math.PI / 180F));
+						float f5 = Mth.sqrt(f2 * f2 + f3 * f3 + f4 * f4);
+						float f6 = 3.0F * ((1.0F + (float)j) / 4.0F);
+						f2 *= f6 / f5;
+						f3 *= f6 / f5;
+						f4 *= f6 / f5;
+						player.push(f2, f3, f4);
 						player.startAutoSpinAttack(20);
 						if (player.isOnGround()) {
 							player.move(MoverType.SELF, new Vec3(0.0D, 1.1999999F, 0.0D));
@@ -131,14 +131,14 @@ public class IcariaBidentItem extends TieredItem implements Vanishable {
 
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-		ItemStack itemstack = pPlayer.getItemInHand(pUsedHand);
-		if (itemstack.getDamageValue() >= itemstack.getMaxDamage() - 1) {
-			return InteractionResultHolder.fail(itemstack);
-		} else if (EnchantmentHelper.getRiptide(itemstack) > 0 && !pPlayer.isInWaterOrRain()) {
-			return InteractionResultHolder.fail(itemstack);
+		ItemStack stack = pPlayer.getItemInHand(pUsedHand);
+		if (stack.getDamageValue() >= stack.getMaxDamage() - 1) {
+			return InteractionResultHolder.fail(stack);
+		} else if (EnchantmentHelper.getRiptide(stack) > 0 && !pPlayer.isInWaterOrRain()) {
+			return InteractionResultHolder.fail(stack);
 		} else {
 			pPlayer.startUsingItem(pUsedHand);
-			return InteractionResultHolder.consume(itemstack);
+			return InteractionResultHolder.consume(stack);
 		}
 	}
 

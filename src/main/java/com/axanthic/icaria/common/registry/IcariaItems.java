@@ -379,9 +379,13 @@ public class IcariaItems {
 	public static final RegistryObject<Item> PINK_BROMELIA = register("pink_bromelia", () -> new BlockItem(IcariaBlocks.PINK_BROMELIA.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PURPLE_BROMELIA = register("purple_bromelia", () -> new BlockItem(IcariaBlocks.PURPLE_BROMELIA.get(), propertiesFlora()));
 
-	public static final RegistryObject<Item> GREEN_MUSHROOMS = register("green_ground_shrooms", () -> new BlockItem(IcariaBlocks.GREEN_MUSHROOMS.get(), propertiesFlora()));
-	public static final RegistryObject<Item> BROWN_MUSHROOMS = register("brown_ground_shrooms", () -> new BlockItem(IcariaBlocks.BROWN_MUSHROOMS.get(), propertiesFlora()));
-	public static final RegistryObject<Item> LARGE_BROWN_MUSHROOMS = register("large_brown_ground_shrooms", () -> new BlockItem(IcariaBlocks.LARGE_BROWN_MUSHROOMS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> GREEN_GROUND_SHROOMS = register("green_ground_shrooms", () -> new BlockItem(IcariaBlocks.GREEN_GROUND_SHROOMS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> BROWN_GROUND_SHROOMS = register("brown_ground_shrooms", () -> new BlockItem(IcariaBlocks.BROWN_GROUND_SHROOMS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> LARGE_BROWN_GROUND_SHROOMS = register("large_brown_ground_shrooms", () -> new BlockItem(IcariaBlocks.LARGE_BROWN_GROUND_SHROOMS.get(), propertiesFlora()));
+
+	public static final RegistryObject<Item> TINDER_FUNGUS_TREE_SHROOMS = register("tinder_fungus_tree_shrooms", () -> new BlockItem(IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> TURKEY_TAIL_TREE_SHROOMS = register("turkey_tail_tree_shrooms", () -> new BlockItem(IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> UNNAMED_TREE_SHROOMS = register("unnamed_tree_shrooms", () -> new BlockItem(IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), propertiesFlora()));
 
 	public static final RegistryObject<Item> STRAWBERRY_BUSH = register("strawberry_bush", () -> new BlockItem(IcariaBlocks.STRAWBERRY_BUSH.get(), propertiesFlora()));
 
@@ -520,9 +524,9 @@ public class IcariaItems {
 	}
 
 	private static <T extends Item> RegistryObject<T> registerBasic(final String name, final Supplier<T> sup) {
-		RegistryObject<T> registeredItem = register(name, sup);
-		BASIC_ITEMS.add(registeredItem);
-		return registeredItem;
+		RegistryObject<T> registryObject = register(name, sup);
+		BASIC_ITEMS.add(registryObject);
+		return registryObject;
 	}
 
 	public static class StoneDecoItemBlocks {

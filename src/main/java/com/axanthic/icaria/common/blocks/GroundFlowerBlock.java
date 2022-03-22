@@ -36,8 +36,7 @@ public class GroundFlowerBlock extends Block {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		BlockPos pos = pPos.below();
-		return this.mayPlaceOn(pLevel.getBlockState(pos));
+		return this.mayPlaceOn(pLevel.getBlockState(pPos.below()));
 	}
 
 	public boolean mayPlaceOn(BlockState pState) {

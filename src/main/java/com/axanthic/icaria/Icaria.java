@@ -68,20 +68,20 @@ public class Icaria {
 	}
 
 	public void gatherData(GatherDataEvent event) {
-		DataGenerator gen = event.getGenerator();
-		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+		DataGenerator generator = event.getGenerator();
+		ExistingFileHelper helper = event.getExistingFileHelper();
 		if (event.includeClient()) {
-			gen.addProvider(new IcariaLang(gen));
-			gen.addProvider(new IcariaItemModels(gen, existingFileHelper));
-			gen.addProvider(new IcariaBlockStates(gen, existingFileHelper));
+			generator.addProvider(new IcariaLang(generator));
+			generator.addProvider(new IcariaItemModels(generator, helper));
+			generator.addProvider(new IcariaBlockStates(generator, helper));
 		}
 		if (event.includeServer()) {
-			gen.addProvider(new IcariaLootTables(gen));
-			gen.addProvider(new IcariaRecipes(gen));
-			BlockTagsProvider blockTags = new IcariaBlockTags(gen, existingFileHelper);
-			gen.addProvider(blockTags);
-			gen.addProvider(new IcariaItemTags(gen, blockTags, existingFileHelper));
-			gen.addProvider(new IcariaFluidTags(gen, existingFileHelper));
+			generator.addProvider(new IcariaLootTables(generator));
+			generator.addProvider(new IcariaRecipes(generator));
+			BlockTagsProvider tags = new IcariaBlockTags(generator, helper);
+			generator.addProvider(tags);
+			generator.addProvider(new IcariaItemTags(generator, tags, helper));
+			generator.addProvider(new IcariaFluidTags(generator, helper));
 		}
 	}
 }

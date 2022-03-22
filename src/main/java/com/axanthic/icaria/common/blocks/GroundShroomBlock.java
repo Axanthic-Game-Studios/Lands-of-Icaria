@@ -25,8 +25,7 @@ public class GroundShroomBlock extends BushTypeBlock implements IPlantable {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		BlockPos pos = pPos.below();
-		return this.mayPlaceOn(pLevel.getBlockState(pos), pLevel, pPos);
+		return this.mayPlaceOn(pLevel.getBlockState(pPos.below()), pLevel, pPos);
 	}
 
 	public boolean mayPlaceOn(BlockState pState, LevelReader pLevel, BlockPos pPos) {

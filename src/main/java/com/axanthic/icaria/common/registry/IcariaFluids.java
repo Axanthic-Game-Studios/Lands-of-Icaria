@@ -43,19 +43,19 @@ public class IcariaFluids {
 
 	public static Properties propertiesHyliastrumFluid() {
 		return new Properties(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, IcariaFluids.HYLIASTRUM_FLUID_FLOWING, attributesHyliastrumFluid())
-				.bucket(IcariaItems.HYLIASTRUM_FLUID_BUCKET)
-				.block(IcariaBlocks.HYLIASTRUM_FLUID)
-				.tickRate(15);
+			.bucket(IcariaItems.HYLIASTRUM_FLUID_BUCKET)
+			.block(IcariaBlocks.HYLIASTRUM_FLUID)
+			.tickRate(15);
 	}
 
 	public static Builder attributesHyliastrumFluid() {
 		return FluidAttributes.builder(HYLIASTRUM_FLUID_STILL, HYLIASTRUM_FLUID_FLOW)
-				.translationKey("fluid.landsoficaria.hyliastrum_fluid")
-				.color(0xFF000000)
-				.density(300)
-				.temperature(300)
-				.viscosity(3000)
-				.sound(SoundEvents.BUCKET_FILL, SoundEvents.BUCKET_EMPTY);
+			.translationKey("fluid.landsoficaria.hyliastrum_fluid")
+			.color(0xFF000000)
+			.density(300)
+			.temperature(300)
+			.viscosity(3000)
+			.sound(SoundEvents.BUCKET_FILL, SoundEvents.BUCKET_EMPTY);
 	}
 
 	public static Properties propertiesMediterraneanWater() {

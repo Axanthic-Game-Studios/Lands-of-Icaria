@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  X",
+    " XY",
+    "X Y"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:stick"
+    },
+    "Y": {
+      "item": "landsoficaria:arachne_string"
+    }
+  },
+  "result": {
+    "item": "minecraft:fishing_rod"
+  }
+}

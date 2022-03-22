@@ -56,9 +56,7 @@ public class HorizontalPaneBlock extends Block implements SimpleWaterloggedBlock
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
-		boolean flag = fluidstate.getType() == Fluids.WATER;
-		return Objects.requireNonNull(super.getStateForPlacement(pContext)).setValue(WATERLOGGED, flag);
+		return Objects.requireNonNull(super.getStateForPlacement(pContext)).setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
 	}
 
 	@Override

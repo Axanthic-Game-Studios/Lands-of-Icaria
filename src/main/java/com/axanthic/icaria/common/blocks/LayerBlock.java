@@ -79,10 +79,10 @@ public class LayerBlock extends Block {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		BlockState blockstate = pContext.getLevel().getBlockState(pContext.getClickedPos());
-		if (blockstate.is(this)) {
-			int i = blockstate.getValue(LAYERS);
-			return blockstate.setValue(LAYERS, Math.min(8, i + 1));
+		BlockState state = pContext.getLevel().getBlockState(pContext.getClickedPos());
+		if (state.is(this)) {
+			int i = state.getValue(LAYERS);
+			return state.setValue(LAYERS, Math.min(8, i + 1));
 		} else {
 			return super.getStateForPlacement(pContext);
 		}

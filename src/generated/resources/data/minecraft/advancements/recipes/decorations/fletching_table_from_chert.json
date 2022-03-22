@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:fletching_table_from_chert"
+    ]
+  },
+  "criteria": {
+    "has_chert": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:chert"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:fletching_table_from_chert"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chert",
+      "has_the_recipe"
+    ]
+  ]
+}

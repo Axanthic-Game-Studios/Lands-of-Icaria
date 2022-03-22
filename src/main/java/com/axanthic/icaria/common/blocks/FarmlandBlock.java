@@ -64,8 +64,8 @@ public class FarmlandBlock extends Block {
 	}
 
 	public boolean isNearWater(LevelReader pLevel, BlockPos pPos) {
-		for (BlockPos blockpos : BlockPos.betweenClosed(pPos.offset(-4, 0, -4), pPos.offset(4, 1, 4))) {
-			if (pLevel.getFluidState(blockpos).is(FluidTags.WATER)) {
+		for (BlockPos pos : BlockPos.betweenClosed(pPos.offset(-4, 0, -4), pPos.offset(4, 1, 4))) {
+			if (pLevel.getFluidState(pos).is(FluidTags.WATER)) {
 				return true;
 			}
 		}
@@ -75,8 +75,7 @@ public class FarmlandBlock extends Block {
 
 	public boolean isUnderCrops(BlockGetter pLevel, BlockPos pPos) {
 		BlockState plant = pLevel.getBlockState(pPos.above());
-		BlockState state = pLevel.getBlockState(pPos);
-		return plant.getBlock() instanceof IPlantable && state.canSustainPlant(pLevel, pPos, Direction.UP, (IPlantable) plant.getBlock());
+		return plant.getBlock() instanceof IPlantable && pLevel.getBlockState(pPos).canSustainPlant(pLevel, pPos, Direction.UP, (IPlantable) plant.getBlock());
 	}
 
 	@Override

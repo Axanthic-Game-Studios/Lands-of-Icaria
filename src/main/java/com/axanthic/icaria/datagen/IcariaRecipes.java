@@ -544,13 +544,40 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.save(consumer, IcariaItems.STRAWBERRY_SEEDS.getId());
 
 		// VANILLA
-		ShapedRecipeBuilder.shaped(Items.BOOK, 1)
+		ShapedRecipeBuilder.shaped(Items.ARROW)
+			.pattern("X")
+			.pattern("Y")
+			.pattern("Z")
+			.define('X', IcariaItems.CHERT.get())
+			.define('Y', Items.STICK)
+			.define('Z', Items.FEATHER)
+			.unlockedBy("has_chert", has(IcariaItems.CHERT.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.ARROW.getRegistryName()), "_from_chert"));
+
+		ShapedRecipeBuilder.shaped(Items.BOOK)
 			.pattern("XX")
 			.pattern("XY")
 			.define('X', Items.PAPER)
 			.define('Y', IcariaItems.AETERNAE_HIDE.get())
 			.unlockedBy("has_leather", has(IcariaItems.AETERNAE_HIDE.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(Items.BOOK.getRegistryName()), "_from_aeternae"));
+
+		ShapedRecipeBuilder.shaped(Items.BOW)
+			.pattern(" XY")
+			.pattern("X Y")
+			.pattern(" XY")
+			.define('X', Items.STICK)
+			.define('Y', IcariaItems.ARACHNE_STRING.get())
+			.unlockedBy("has_string", has(IcariaItems.ARACHNE_STRING.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.BOW.getRegistryName()), "_from_arachne"));
+
+		ShapedRecipeBuilder.shaped(Items.CANDLE)
+			.pattern("X")
+			.pattern("Y")
+			.define('X', IcariaItems.ARACHNE_STRING.get())
+			.define('Y', Items.HONEYCOMB)
+			.unlockedBy("has_string", has(IcariaItems.ARACHNE_STRING.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.CANDLE.getRegistryName()), "_from_arachne"));
 
 		ShapedRecipeBuilder.shaped(Items.COMPARATOR)
 			.pattern(" X ")
@@ -562,7 +589,42 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_stone", has(IcariaItems.RELICSTONE_SMOOTH.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(Items.COMPARATOR.getRegistryName()), "_from_relicstone"));
 
-		ShapedRecipeBuilder.shaped(Items.ITEM_FRAME, 1)
+		ShapedRecipeBuilder.shaped(Items.CROSSBOW)
+			.pattern("ABA")
+			.pattern("CDC")
+			.pattern(" A ")
+			.define('A', Items.STICK)
+			.define('B', Items.IRON_INGOT)
+			.define('C', IcariaItems.ARACHNE_STRING.get())
+			.define('D', Items.TRIPWIRE_HOOK)
+			.unlockedBy("has_string", has(IcariaItems.ARACHNE_STRING.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.CROSSBOW.getRegistryName()), "_from_arachne"));
+
+		ShapedRecipeBuilder.shaped(Items.FISHING_ROD)
+			.pattern("  X")
+			.pattern(" XY")
+			.pattern("X Y")
+			.define('X', Items.STICK)
+			.define('Y', IcariaItems.ARACHNE_STRING.get())
+			.unlockedBy("has_string", has(IcariaItems.ARACHNE_STRING.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.FISHING_ROD.getRegistryName()), "_from_arachne"));
+
+		ShapedRecipeBuilder.shaped(Items.FLETCHING_TABLE)
+			.pattern("XX")
+			.pattern("YY")
+			.pattern("YY")
+			.define('X', IcariaItems.CHERT.get())
+			.define('Y', IcariaItemTags.bind("minecraft:planks"))
+			.unlockedBy("has_chert", has(IcariaItems.CHERT.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.FLETCHING_TABLE.getRegistryName()), "_from_chert"));
+
+		ShapelessRecipeBuilder.shapeless(Items.FLINT_AND_STEEL)
+			.requires(IcariaItems.CHERT.get())
+			.requires(Items.IRON_INGOT)
+			.unlockedBy("has_chert", has(IcariaItems.CHERT.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.FLINT_AND_STEEL.getRegistryName()), "_from_chert"));
+
+		ShapedRecipeBuilder.shaped(Items.ITEM_FRAME)
 			.pattern("XXX")
 			.pattern("XYX")
 			.pattern("XXX")
@@ -571,14 +633,41 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_leather", has(IcariaItems.AETERNAE_HIDE.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(Items.ITEM_FRAME.getRegistryName()), "_from_aeternae"));
 
-		ShapedRecipeBuilder.shaped(Items.LEATHER_BOOTS, 1)
+		ShapedRecipeBuilder.shaped(Items.LEAD, 2)
+			.pattern("XX ")
+			.pattern("XY ")
+			.pattern("  X")
+			.define('X', IcariaItems.ARACHNE_STRING.get())
+			.define('Y', Items.SLIME_BALL)
+			.unlockedBy("has_string", has(IcariaItems.ARACHNE_STRING.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.LEAD.getRegistryName()), "_from_arachne"));
+
+		ShapedRecipeBuilder.shaped(Items.LEAD, 2)
+			.pattern("XX ")
+			.pattern("XY ")
+			.pattern("  X")
+			.define('X', Items.STRING)
+			.define('Y', IcariaItems.JELLYFISH_JELLY.get())
+			.unlockedBy("has_jelly", has(IcariaItems.JELLYFISH_JELLY.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.LEAD.getRegistryName()), "_from_jelly"));
+
+		ShapedRecipeBuilder.shaped(Items.LEAD, 2)
+			.pattern("XX ")
+			.pattern("XY ")
+			.pattern("  X")
+			.define('X', IcariaItems.ARACHNE_STRING.get())
+			.define('Y', IcariaItems.JELLYFISH_JELLY.get())
+			.unlockedBy("has_string", has(IcariaItems.ARACHNE_STRING.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.LEAD.getRegistryName()), "_from_arachne_and_jelly"));
+
+		ShapedRecipeBuilder.shaped(Items.LEATHER_BOOTS)
 			.pattern("X X")
 			.pattern("X X")
 			.define('X', IcariaItems.AETERNAE_HIDE.get())
 			.unlockedBy("has_leather", has(IcariaItems.AETERNAE_HIDE.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(Items.LEATHER_BOOTS.getRegistryName()), "_from_aeternae"));
 
-		ShapedRecipeBuilder.shaped(Items.LEATHER_CHESTPLATE, 1)
+		ShapedRecipeBuilder.shaped(Items.LEATHER_CHESTPLATE)
 			.pattern("X X")
 			.pattern("XXX")
 			.pattern("XXX")
@@ -586,14 +675,14 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_leather", has(IcariaItems.AETERNAE_HIDE.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(Items.LEATHER_CHESTPLATE.getRegistryName()), "_from_aeternae"));
 
-		ShapedRecipeBuilder.shaped(Items.LEATHER_HELMET, 1)
+		ShapedRecipeBuilder.shaped(Items.LEATHER_HELMET)
 			.pattern("XXX")
 			.pattern("X X")
 			.define('X', IcariaItems.AETERNAE_HIDE.get())
 			.unlockedBy("has_leather", has(IcariaItems.AETERNAE_HIDE.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(Items.LEATHER_HELMET.getRegistryName()), "_from_aeternae"));
 
-		ShapedRecipeBuilder.shaped(Items.LEATHER_HORSE_ARMOR, 1)
+		ShapedRecipeBuilder.shaped(Items.LEATHER_HORSE_ARMOR)
 			.pattern("X X")
 			.pattern("XXX")
 			.pattern("X X")
@@ -601,13 +690,27 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_leather", has(IcariaItems.AETERNAE_HIDE.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(Items.LEATHER_HORSE_ARMOR.getRegistryName()), "_from_aeternae"));
 
-		ShapedRecipeBuilder.shaped(Items.LEATHER_LEGGINGS, 1)
+		ShapedRecipeBuilder.shaped(Items.LEATHER_LEGGINGS)
 			.pattern("XXX")
 			.pattern("X X")
 			.pattern("X X")
 			.define('X', IcariaItems.AETERNAE_HIDE.get())
 			.unlockedBy("has_leather", has(IcariaItems.AETERNAE_HIDE.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(Items.LEATHER_LEGGINGS.getRegistryName()), "_from_aeternae"));
+
+		ShapedRecipeBuilder.shaped(Items.LOOM)
+			.pattern("XX ")
+			.pattern("YY ")
+			.define('X', IcariaItems.ARACHNE_STRING.get())
+			.define('Y', IcariaItemTags.bind("minecraft:planks"))
+			.unlockedBy("has_string", has(IcariaItems.ARACHNE_STRING.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.LOOM.getRegistryName()), "_from_arachne"));
+
+		ShapelessRecipeBuilder.shapeless(Items.MAGMA_CREAM)
+			.requires(IcariaItems.JELLYFISH_JELLY.get())
+			.requires(Items.BLAZE_POWDER)
+			.unlockedBy("has_jelly", has(IcariaItems.JELLYFISH_JELLY.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.MAGMA_CREAM.getRegistryName()), "_from_jelly"));
 
 		ShapedRecipeBuilder.shaped(Items.PAPER, 3)
 			.pattern("XXX")
@@ -624,6 +727,23 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_stone", has(IcariaItems.RELICSTONE_SMOOTH.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(Items.REPEATER.getRegistryName()), "_from_relicstone"));
 
+		ShapedRecipeBuilder.shaped(Items.SCAFFOLDING)
+			.pattern("XYX")
+			.pattern("X X")
+			.pattern("X X")
+			.define('X', Items.BAMBOO)
+			.define('Y', IcariaItems.ARACHNE_STRING.get())
+			.unlockedBy("has_string", has(IcariaItems.ARACHNE_STRING.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.SCAFFOLDING.getRegistryName()), "_from_arachne"));
+
+		ShapedRecipeBuilder.shaped(Items.STICKY_PISTON)
+			.pattern("X")
+			.pattern("Y")
+			.define('X', IcariaItems.JELLYFISH_JELLY.get())
+			.define('Y', Items.PISTON)
+			.unlockedBy("has_jelly", has(IcariaItems.JELLYFISH_JELLY.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.STICKY_PISTON.getRegistryName()), "_from_jelly"));
+
 		ShapedRecipeBuilder.shaped(Items.STONECUTTER)
 			.pattern(" X ")
 			.pattern("YYY")
@@ -636,6 +756,13 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.requires(IcariaItems.VINE_REED.get())
 			.unlockedBy("has_item", has(IcariaItems.VINE_REED.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(Items.SUGAR.getRegistryName()), "_from_vine_reeds"));
+
+		ShapedRecipeBuilder.shaped(Items.WHITE_WOOL)
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', IcariaItems.ARACHNE_STRING.get())
+			.unlockedBy("has_string", has(IcariaItems.ARACHNE_STRING.get()))
+			.save(consumer, appendResource(Objects.requireNonNull(Items.WHITE_WOOL.getRegistryName()), "_from_arachne"));
 	}
 
 	public void smeltingRecipe(Consumer<FinishedRecipe> consumer, Item resource, Item result, float experience, int cookingTime) {

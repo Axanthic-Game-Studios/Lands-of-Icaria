@@ -80,8 +80,8 @@ public class ThrownBidentEntity extends AbstractArrow {
 					this.yOld = this.getY();
 				}
 
-				double d0 = 0.05D * (double)i;
-				this.setDeltaMovement(this.getDeltaMovement().scale(0.95D).add(vec3.normalize().scale(d0)));
+				double d = 0.05D * (double)i;
+				this.setDeltaMovement(this.getDeltaMovement().scale(0.95D).add(vec3.normalize().scale(d)));
 				if (this.clientSideReturnTridentTickCount == 0) {
 					this.playSound(SoundEvents.TRIDENT_RETURN, 10.0F, 1.0F);
 				}
@@ -115,48 +115,48 @@ public class ThrownBidentEntity extends AbstractArrow {
 	}
 
 	public void onHitEntity(EntityHitResult pResult) {
-		Entity entity = pResult.getEntity();
-		float f = 1.0F;
+		Entity entityOne = pResult.getEntity();
+		float f1 = 1.0F;
 		if (this.bidentItem.getItem() instanceof IcariaBidentItem)
-			f = ((IcariaBidentItem) this.bidentItem.getItem()).attackDamage - 1.0F;
-		if (entity instanceof LivingEntity livingentity) {
-			f += EnchantmentHelper.getDamageBonus(this.bidentItem, livingentity.getMobType());
+			f1 = ((IcariaBidentItem) this.bidentItem.getItem()).attackDamage - 1.0F;
+		if (entityOne instanceof LivingEntity livingEntityOne) {
+			f1 += EnchantmentHelper.getDamageBonus(this.bidentItem, livingEntityOne.getMobType());
 		}
 
-		Entity entity1 = this.getOwner();
-		DamageSource damagesource = DamageSource.trident(this, entity1 == null ? this : entity1);
+		Entity entityTwo = this.getOwner();
+		DamageSource source = DamageSource.trident(this, entityTwo == null ? this : entityTwo);
 		this.dealtDamage = true;
-		SoundEvent soundevent = SoundEvents.TRIDENT_HIT;
-		if (entity.hurt(damagesource, f)) {
-			if (entity.getType() == EntityType.ENDERMAN) {
+		SoundEvent event = SoundEvents.TRIDENT_HIT;
+		if (entityOne.hurt(source, f1)) {
+			if (entityOne.getType() == EntityType.ENDERMAN) {
 				return;
 			}
 
-			if (entity instanceof LivingEntity livingentity1) {
-				if (entity1 instanceof LivingEntity) {
-					EnchantmentHelper.doPostHurtEffects(livingentity1, entity1);
-					EnchantmentHelper.doPostDamageEffects((LivingEntity)entity1, livingentity1);
+			if (entityOne instanceof LivingEntity livingEntityTwo) {
+				if (entityTwo instanceof LivingEntity) {
+					EnchantmentHelper.doPostHurtEffects(livingEntityTwo, entityTwo);
+					EnchantmentHelper.doPostDamageEffects((LivingEntity)entityTwo, livingEntityTwo);
 				}
 
-				this.doPostHurtEffects(livingentity1);
+				this.doPostHurtEffects(livingEntityTwo);
 			}
 		}
 
 		this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
-		float f1 = 1.0F;
+		float f2 = 1.0F;
 		if (this.level instanceof ServerLevel && this.level.isThundering() && this.isChanneling()) {
-			BlockPos blockpos = entity.blockPosition();
+			BlockPos blockpos = entityOne.blockPosition();
 			if (this.level.canSeeSky(blockpos)) {
-				LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level);
-				Objects.requireNonNull(lightningbolt).moveTo(Vec3.atBottomCenterOf(blockpos));
-				lightningbolt.setCause(entity1 instanceof ServerPlayer ? (ServerPlayer)entity1 : null);
-				this.level.addFreshEntity(lightningbolt);
-				soundevent = SoundEvents.TRIDENT_THUNDER;
-				f1 = 5.0F;
+				LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(this.level);
+				Objects.requireNonNull(bolt).moveTo(Vec3.atBottomCenterOf(blockpos));
+				bolt.setCause(entityTwo instanceof ServerPlayer ? (ServerPlayer)entityTwo : null);
+				this.level.addFreshEntity(bolt);
+				event = SoundEvents.TRIDENT_THUNDER;
+				f2 = 5.0F;
 			}
 		}
 
-		this.playSound(soundevent, f1, 1.0F);
+		this.playSound(event, f2, 1.0F);
 	}
 
 	public boolean isChanneling() {

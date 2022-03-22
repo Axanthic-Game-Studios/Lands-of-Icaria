@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    "XY ",
+    "  X"
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:arachne_string"
+    },
+    "Y": {
+      "item": "landsoficaria:jellyfish_jelly"
+    }
+  },
+  "result": {
+    "item": "minecraft:lead",
+    "count": 2
+  }
+}
