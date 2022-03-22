@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+@SuppressWarnings("SameParameterValue")
 @MethodsReturnNonnullByDefault
 
 public class IcariaBlocks {
@@ -396,6 +397,10 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> PINK_BROMELIA = register("pink_bromelia", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> PURPLE_BROMELIA = register("purple_bromelia", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 
+	public static final RegistryObject<Block> GREEN_MUSHROOMS = register("green_ground_shrooms", () -> new GroundShroomBlock(propertiesShroom(MaterialColor.COLOR_BROWN)));
+	public static final RegistryObject<Block> BROWN_MUSHROOMS = register("brown_ground_shrooms", () -> new GroundShroomBlock(propertiesShroom(MaterialColor.COLOR_BROWN)));
+	public static final RegistryObject<Block> LARGE_BROWN_MUSHROOMS = register("large_brown_ground_shrooms", () -> new GroundShroomBlock(propertiesShroom(MaterialColor.COLOR_BROWN)));
+
 	public static final RegistryObject<Block> STRAWBERRY_BUSH = register("strawberry_bush", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 
 	public static final RegistryObject<Block> STRAWBERRY_CAKE = register("strawberry_cake", () -> new StrawberryCakeBlock(propertiesCake()));
@@ -544,6 +549,10 @@ public class IcariaBlocks {
 
 	private static Properties propertiesMoss() {
 		return Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).strength(0.1F, 0.1F);
+	}
+
+	private static Properties propertiesShroom(MaterialColor pMaterialColor) {
+		return Properties.of(Material.PLANT, pMaterialColor).sound(SoundType.GRASS).instabreak().noCollission().randomTicks();
 	}
 
 	private static Properties propertiesCake() {

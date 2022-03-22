@@ -379,6 +379,10 @@ public class IcariaItems {
 	public static final RegistryObject<Item> PINK_BROMELIA = register("pink_bromelia", () -> new BlockItem(IcariaBlocks.PINK_BROMELIA.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PURPLE_BROMELIA = register("purple_bromelia", () -> new BlockItem(IcariaBlocks.PURPLE_BROMELIA.get(), propertiesFlora()));
 
+	public static final RegistryObject<Item> GREEN_MUSHROOMS = register("green_ground_shrooms", () -> new BlockItem(IcariaBlocks.GREEN_MUSHROOMS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> BROWN_MUSHROOMS = register("brown_ground_shrooms", () -> new BlockItem(IcariaBlocks.BROWN_MUSHROOMS.get(), propertiesFlora()));
+	public static final RegistryObject<Item> LARGE_BROWN_MUSHROOMS = register("large_brown_ground_shrooms", () -> new BlockItem(IcariaBlocks.LARGE_BROWN_MUSHROOMS.get(), propertiesFlora()));
+
 	public static final RegistryObject<Item> STRAWBERRY_BUSH = register("strawberry_bush", () -> new BlockItem(IcariaBlocks.STRAWBERRY_BUSH.get(), propertiesFlora()));
 
 	public static final RegistryObject<Item> STRAWBERRY_CAKE = registerBasic("strawberry_cake", () -> new BlockItem(IcariaBlocks.STRAWBERRY_CAKE.get(), propertiesBlocks()));

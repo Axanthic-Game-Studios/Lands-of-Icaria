@@ -85,6 +85,9 @@ public class IcariaCompostables {
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.ORANGE_BROMELIA.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.PINK_BROMELIA.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.PURPLE_BROMELIA.get(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.GREEN_MUSHROOMS.get(), 0.65F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.BROWN_MUSHROOMS.get(), 0.65F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.LARGE_BROWN_MUSHROOMS.get(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.STRAWBERRY_CAKE.get(), 1.0F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.SPELT.get(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_REED.get(), 0.5F);
