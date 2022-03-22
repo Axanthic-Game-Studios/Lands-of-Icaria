@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:purple_bromelia"
+    }
+  ],
+  "result": {
+    "item": "minecraft:purple_dye"
+  }
+}

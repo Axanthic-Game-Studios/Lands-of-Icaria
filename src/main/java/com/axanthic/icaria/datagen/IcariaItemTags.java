@@ -312,7 +312,11 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.PURPLE_STORMCOTTON.get())
 			.add(IcariaItems.SUNKETTLE.get())
 			.add(IcariaItems.SUNSPONGE.get())
-			.add(IcariaItems.VOIDLILY.get());
+			.add(IcariaItems.VOIDLILY.get())
+			.add(IcariaItems.WHITE_BROMELIA.get())
+			.add(IcariaItems.ORANGE_BROMELIA.get())
+			.add(IcariaItems.PINK_BROMELIA.get())
+			.add(IcariaItems.PURPLE_BROMELIA.get());
 
 		tag(LEATHER_AETERNAE_HIDE).add(IcariaItems.AETERNAE_HIDE.get());
 

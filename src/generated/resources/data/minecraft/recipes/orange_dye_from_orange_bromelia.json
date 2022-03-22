@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "landsoficaria:orange_bromelia"
+    }
+  ],
+  "result": {
+    "item": "minecraft:orange_dye"
+  }
+}

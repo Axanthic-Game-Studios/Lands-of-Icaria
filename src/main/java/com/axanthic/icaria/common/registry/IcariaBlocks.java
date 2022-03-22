@@ -381,6 +381,13 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MOSS_1 = register("moss_1", () -> new LayerBlock(propertiesMoss()));
 	public static final RegistryObject<Block> MOSS_2 = register("moss_2", () -> new LayerBlock(propertiesMoss()));
 
+	public static final RegistryObject<Block> PALM_FERN = register("palm_fern", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+
+	public static final RegistryObject<Block> WHITE_BROMELIA = register("white_bromelia", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> ORANGE_BROMELIA = register("orange_bromelia", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> PINK_BROMELIA = register("pink_bromelia", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> PURPLE_BROMELIA = register("purple_bromelia", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+
 	public static final RegistryObject<Block> STRAWBERRY_BUSH = register("strawberry_bush", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 
 	public static final RegistryObject<Block> STRAWBERRY_CAKE = register("strawberry_cake", () -> new StrawberryCakeBlock(propertiesCake()));

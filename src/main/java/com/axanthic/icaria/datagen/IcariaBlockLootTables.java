@@ -206,6 +206,10 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.SUNKETTLE.get());
 		dropThis(IcariaBlocks.SUNSPONGE.get());
 		dropThis(IcariaBlocks.VOIDLILY.get());
+		dropThis(IcariaBlocks.WHITE_BROMELIA.get());
+		dropThis(IcariaBlocks.ORANGE_BROMELIA.get());
+		dropThis(IcariaBlocks.PINK_BROMELIA.get());
+		dropThis(IcariaBlocks.PURPLE_BROMELIA.get());
 
 		dropPots(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
 		dropPots(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
@@ -281,6 +285,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropPlants(IcariaBlocks.PURPLE_GROUND_FLOWERS.get());
 		dropPlants(IcariaBlocks.RED_GROUND_FLOWERS.get());
 		dropPlants(IcariaBlocks.WHITE_GROUND_FLOWERS.get());
+		dropPlants(IcariaBlocks.PALM_FERN.get());
 
 		dropBush(IcariaBlocks.STRAWBERRY_BUSH.get(), IcariaItems.STRAWBERRIES.get(), 2.0F, 5.0F);
 

@@ -34,14 +34,14 @@ public class ClientProxy extends CommonProxy {
 		BlockColors blockColors = Minecraft.getInstance().getBlockColors();
 		ItemColors itemColors = Minecraft.getInstance().getItemColors();
 
-		blockColors.register((state, getter, pos, i) -> getter != null && pos != null ? BiomeColors.getAverageGrassColor(getter, pos) : GrassColor.get(0.60D, 0.10D), IcariaBlocks.MARL_GRASS.get(), IcariaBlocks.FERN.get(), IcariaBlocks.POTTED_FERN.get(), IcariaBlocks.SMALL_GRASS.get(), IcariaBlocks.MEDIUM_GRASS.get(), IcariaBlocks.LARGE_GRASS.get(), IcariaBlocks.GRAIN_0.get(), IcariaBlocks.GRAIN_1.get(), IcariaBlocks.GRAIN_2.get(), IcariaBlocks.GRAIN_3.get(), IcariaBlocks.GRAIN_4.get(), IcariaBlocks.GRAIN_5.get(), IcariaBlocks.BLINDWEED.get(), IcariaBlocks.POTTED_BLINDWEED.get(), IcariaBlocks.CHAMEOMILE.get(), IcariaBlocks.POTTED_CHAMEOMILE.get(), IcariaBlocks.CHARMONDER.get(), IcariaBlocks.POTTED_CHARMONDER.get(), IcariaBlocks.CLOVER.get(), IcariaBlocks.POTTED_CLOVER.get(), IcariaBlocks.FIREHILT.get(), IcariaBlocks.POTTED_FIREHILT.get(), IcariaBlocks.BLUE_HYDRACINTH.get(), IcariaBlocks.POTTED_BLUE_HYDRACINTH.get(), IcariaBlocks.PURPLE_HYDRACINTH.get(), IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get(), IcariaBlocks.LIONFANGS.get(), IcariaBlocks.POTTED_LIONFANGS.get(), IcariaBlocks.SPEARDROPS.get(), IcariaBlocks.POTTED_SPEARDROPS.get(), IcariaBlocks.PURPLE_STAGHORN.get(), IcariaBlocks.POTTED_PURPLE_STAGHORN.get(), IcariaBlocks.YELLOW_STAGHORN.get(), IcariaBlocks.POTTED_YELLOW_STAGHORN.get(), IcariaBlocks.BLUE_STORMCOTTON.get(), IcariaBlocks.POTTED_BLUE_STORMCOTTON.get(), IcariaBlocks.PINK_STORMCOTTON.get(), IcariaBlocks.POTTED_PINK_STORMCOTTON.get(), IcariaBlocks.PURPLE_STORMCOTTON.get(), IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get(), IcariaBlocks.SUNKETTLE.get(), IcariaBlocks.POTTED_SUNKETTLE.get(), IcariaBlocks.SUNSPONGE.get(), IcariaBlocks.POTTED_SUNSPONGE.get(), IcariaBlocks.VOIDLILY.get(), IcariaBlocks.POTTED_VOIDLILY.get());
+		blockColors.register((state, getter, pos, i) -> getter != null && pos != null ? BiomeColors.getAverageGrassColor(getter, pos) : GrassColor.get(0.60D, 0.10D), IcariaBlocks.MARL_GRASS.get(), IcariaBlocks.FERN.get(), IcariaBlocks.POTTED_FERN.get(), IcariaBlocks.SMALL_GRASS.get(), IcariaBlocks.MEDIUM_GRASS.get(), IcariaBlocks.LARGE_GRASS.get(), IcariaBlocks.GRAIN_0.get(), IcariaBlocks.GRAIN_1.get(), IcariaBlocks.GRAIN_2.get(), IcariaBlocks.GRAIN_3.get(), IcariaBlocks.GRAIN_4.get(), IcariaBlocks.GRAIN_5.get(), IcariaBlocks.BLINDWEED.get(), IcariaBlocks.POTTED_BLINDWEED.get(), IcariaBlocks.CHAMEOMILE.get(), IcariaBlocks.POTTED_CHAMEOMILE.get(), IcariaBlocks.CHARMONDER.get(), IcariaBlocks.POTTED_CHARMONDER.get(), IcariaBlocks.CLOVER.get(), IcariaBlocks.POTTED_CLOVER.get(), IcariaBlocks.FIREHILT.get(), IcariaBlocks.POTTED_FIREHILT.get(), IcariaBlocks.BLUE_HYDRACINTH.get(), IcariaBlocks.POTTED_BLUE_HYDRACINTH.get(), IcariaBlocks.PURPLE_HYDRACINTH.get(), IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get(), IcariaBlocks.LIONFANGS.get(), IcariaBlocks.POTTED_LIONFANGS.get(), IcariaBlocks.SPEARDROPS.get(), IcariaBlocks.POTTED_SPEARDROPS.get(), IcariaBlocks.PURPLE_STAGHORN.get(), IcariaBlocks.POTTED_PURPLE_STAGHORN.get(), IcariaBlocks.YELLOW_STAGHORN.get(), IcariaBlocks.POTTED_YELLOW_STAGHORN.get(), IcariaBlocks.BLUE_STORMCOTTON.get(), IcariaBlocks.POTTED_BLUE_STORMCOTTON.get(), IcariaBlocks.PINK_STORMCOTTON.get(), IcariaBlocks.POTTED_PINK_STORMCOTTON.get(), IcariaBlocks.PURPLE_STORMCOTTON.get(), IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get(), IcariaBlocks.SUNKETTLE.get(), IcariaBlocks.POTTED_SUNKETTLE.get(), IcariaBlocks.SUNSPONGE.get(), IcariaBlocks.POTTED_SUNSPONGE.get(), IcariaBlocks.VOIDLILY.get(), IcariaBlocks.POTTED_VOIDLILY.get(), IcariaBlocks.WHITE_BROMELIA.get(), IcariaBlocks.ORANGE_BROMELIA.get(), IcariaBlocks.PINK_BROMELIA.get(), IcariaBlocks.PURPLE_BROMELIA.get());
 
 		ItemColor itemBlockColorHandler = (stack, tintIndex) -> {
 			BlockState state = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
 			return blockColors.getColor(state, null, null, tintIndex);
 		};
 
-		itemColors.register(itemBlockColorHandler, IcariaItems.MARL_GRASS.get());
+		itemColors.register(itemBlockColorHandler, IcariaItems.MARL_GRASS.get(), IcariaBlocks.WHITE_BROMELIA.get(), IcariaBlocks.ORANGE_BROMELIA.get(), IcariaBlocks.PINK_BROMELIA.get(), IcariaBlocks.PURPLE_BROMELIA.get());
 
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.MARL_GRASS.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.GRAINGLASS.get(), RenderType.cutout());
@@ -149,6 +149,11 @@ public class ClientProxy extends CommonProxy {
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.PURPLE_GROUND_FLOWERS.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.RED_GROUND_FLOWERS.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.PALM_FERN.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.WHITE_BROMELIA.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.ORANGE_BROMELIA.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.PINK_BROMELIA.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.PURPLE_BROMELIA.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.STRAWBERRY_BUSH.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SPELT_CROP.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.STRAWBERRY_CROP.get(), RenderType.cutout());

@@ -150,6 +150,11 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.PURPLE_GROUND_FLOWERS.get(), 60, 100);
 		flammableBlock(IcariaBlocks.RED_GROUND_FLOWERS.get(), 60, 100);
 		flammableBlock(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), 60, 100);
+		flammableBlock(IcariaBlocks.PALM_FERN.get(), 60, 100);
+		flammableBlock(IcariaBlocks.WHITE_BROMELIA.get(), 60, 100);
+		flammableBlock(IcariaBlocks.ORANGE_BROMELIA.get(), 60, 100);
+		flammableBlock(IcariaBlocks.PINK_BROMELIA.get(), 60, 100);
+		flammableBlock(IcariaBlocks.PURPLE_BROMELIA.get(), 60, 100);
 		flammableBlock(IcariaBlocks.STRAWBERRY_BUSH.get(), 60, 100);
 	}
 }

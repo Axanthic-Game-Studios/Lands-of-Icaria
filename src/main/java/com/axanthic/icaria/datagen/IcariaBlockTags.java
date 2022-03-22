@@ -573,7 +573,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.PURPLE_STORMCOTTON.get())
 			.add(IcariaBlocks.SUNKETTLE.get())
 			.add(IcariaBlocks.SUNSPONGE.get())
-			.add(IcariaBlocks.VOIDLILY.get());
+			.add(IcariaBlocks.VOIDLILY.get())
+			.add(IcariaBlocks.WHITE_BROMELIA.get())
+			.add(IcariaBlocks.ORANGE_BROMELIA.get())
+			.add(IcariaBlocks.PINK_BROMELIA.get())
+			.add(IcariaBlocks.PURPLE_BROMELIA.get());
 
 		tag(BlockTags.CANDLE_CAKES)
 			.add(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get())

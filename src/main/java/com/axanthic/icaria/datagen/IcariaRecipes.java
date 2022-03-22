@@ -125,12 +125,6 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		torchRecipe(consumer, IcariaItems.LIGNITE_TORCH.get(), IcariaItems.LIGNITE.get());
 		torchRecipe(consumer, IcariaItems.ANTHRACITE_TORCH.get(), IcariaItems.ANTHRACITE.get());
 
-		dyesFromFlowerRecipe(consumer, Items.BLUE_DYE, IcariaItems.BLUE_GROUND_FLOWERS.get());
-		dyesFromFlowerRecipe(consumer, Items.CYAN_DYE, IcariaItems.CYAN_GROUND_FLOWERS.get());
-		dyesFromFlowerRecipe(consumer, Items.PINK_DYE, IcariaItems.PINK_GROUND_FLOWERS.get());
-		dyesFromFlowerRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_GROUND_FLOWERS.get());
-		dyesFromFlowerRecipe(consumer, Items.RED_DYE, IcariaItems.RED_GROUND_FLOWERS.get());
-		dyesFromFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.WHITE_GROUND_FLOWERS.get());
 		dyesFromFlowerRecipe(consumer, Items.PINK_DYE, IcariaItems.BLINDWEED.get());
 		dyesFromFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.CHAMEOMILE.get());
 		dyesFromFlowerRecipe(consumer, Items.LIGHT_BLUE_DYE, IcariaItems.CHARMONDER.get());
@@ -148,6 +142,16 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		dyesFromFlowerRecipe(consumer, Items.YELLOW_DYE, IcariaItems.SUNKETTLE.get());
 		dyesFromFlowerRecipe(consumer, Items.ORANGE_DYE, IcariaItems.SUNSPONGE.get());
 		dyesFromFlowerRecipe(consumer, Items.BLACK_DYE, IcariaItems.VOIDLILY.get());
+		dyesFromFlowerRecipe(consumer, Items.BLUE_DYE, IcariaItems.BLUE_GROUND_FLOWERS.get());
+		dyesFromFlowerRecipe(consumer, Items.CYAN_DYE, IcariaItems.CYAN_GROUND_FLOWERS.get());
+		dyesFromFlowerRecipe(consumer, Items.PINK_DYE, IcariaItems.PINK_GROUND_FLOWERS.get());
+		dyesFromFlowerRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_GROUND_FLOWERS.get());
+		dyesFromFlowerRecipe(consumer, Items.RED_DYE, IcariaItems.RED_GROUND_FLOWERS.get());
+		dyesFromFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.WHITE_GROUND_FLOWERS.get());
+		dyesFromFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.WHITE_BROMELIA.get());
+		dyesFromFlowerRecipe(consumer, Items.ORANGE_DYE, IcariaItems.ORANGE_BROMELIA.get());
+		dyesFromFlowerRecipe(consumer, Items.PINK_DYE, IcariaItems.PINK_BROMELIA.get());
+		dyesFromFlowerRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_BROMELIA.get());
 
 		blockIngotNuggetRecipes(consumer, IcariaItems.CHALKOS_BLOCK.get(), IcariaItems.CHALKOS_INGOT.get(), IcariaItems.CHALKOS_NUGGET.get());
 		blockIngotNuggetRecipes(consumer, IcariaItems.KASSITEROS_BLOCK.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.KASSITEROS_NUGGET.get());
