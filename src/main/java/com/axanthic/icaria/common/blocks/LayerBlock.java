@@ -49,8 +49,8 @@ public class LayerBlock extends Block {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		BlockState blockstate = pLevel.getBlockState(pPos.below());
-		return Block.isFaceFull(blockstate.getCollisionShape(pLevel, pPos.below()), Direction.UP) || blockstate.is(this) && blockstate.getValue(LAYERS) == 8;
+		BlockState state = pLevel.getBlockState(pPos.below());
+		return Block.isFaceFull(state.getCollisionShape(pLevel, pPos.below()), Direction.UP) || state.is(this) && state.getValue(LAYERS) == 8;
 	}
 
 	@Override

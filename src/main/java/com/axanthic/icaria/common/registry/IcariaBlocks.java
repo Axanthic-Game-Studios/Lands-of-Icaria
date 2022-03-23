@@ -44,7 +44,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MARL_ADOBE = registerBasic("marl_adobe", () -> new Block(propertiesStone(MaterialColor.COLOR_BROWN)));
 	public static final StoneDecoBlocks MARL_ADOBE_DECO = new StoneDecoBlocks("marl_adobe", MARL_ADOBE, propertiesStone(MaterialColor.COLOR_BROWN));
 
-	public static final RegistryObject<Block> LOAM = register("loam", () -> new SandTypeBlock(propertiesLoam()));
+	public static final RegistryObject<Block> LOAM = register("loam", () -> new LoamTypeBlock(propertiesLoam()));
 	public static final RegistryObject<Block> LOAM_BRICKS = registerBasic("loam_bricks", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_PINK)));
 	public static final StoneDecoBlocks LOAM_BRICKS_DECO = new StoneDecoBlocks("loam_bricks", LOAM_BRICKS, propertiesStone(MaterialColor.TERRACOTTA_PINK));
 
@@ -480,7 +480,7 @@ public class IcariaBlocks {
 	}
 
 	private static Properties propertiesJellyfishJellyBlock() {
-		return Properties.of(Material.CLAY, MaterialColor.COLOR_RED).sound(SoundType.SLIME_BLOCK).strength(0.5F, 0.5F).friction(0.8F).noOcclusion().instabreak();
+		return Properties.of(Material.CLAY, MaterialColor.COLOR_RED).sound(SoundType.SLIME_BLOCK).strength(0.5F, 0.5F).friction(0.8F).noOcclusion();
 	}
 
 	private static Properties propertiesArachneStringBlock() {

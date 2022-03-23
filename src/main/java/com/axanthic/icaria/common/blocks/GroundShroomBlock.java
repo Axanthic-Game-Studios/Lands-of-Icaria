@@ -1,12 +1,19 @@
 package com.axanthic.icaria.common.blocks;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
@@ -16,9 +23,12 @@ import java.util.Random;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class GroundShroomBlock extends BushTypeBlock implements IPlantable {
+public class GroundShroomBlock extends Block implements IPlantable {
+	public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
+
 	public GroundShroomBlock(Properties pProperties) {
 		super(pProperties);
 	}
@@ -31,9 +41,16 @@ public class GroundShroomBlock extends BushTypeBlock implements IPlantable {
 	public boolean mayPlaceOn(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		if (pState.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
 			return true;
-		} else {
+		} else if (pState.isSolidRender(pLevel, pPos)) {
 			return pLevel.getRawBrightness(pPos, 0) < 13 && pState.canSustainPlant(pLevel, pPos, Direction.UP, this);
 		}
+
+		return false;
+	}
+
+	@Override
+	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+		return true;
 	}
 
 	@Override
@@ -72,7 +89,23 @@ public class GroundShroomBlock extends BushTypeBlock implements IPlantable {
 	}
 
 	@Override
+	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
+		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+	}
+
+	@Override
+	public OffsetType getOffsetType() {
+		return OffsetType.XZ;
+	}
+
+	@Override
 	public PlantType getPlantType(BlockGetter world, BlockPos pos) {
 		return PlantType.CAVE;
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+		Vec3 vec3 = pState.getOffset(pLevel, pPos);
+		return SHAPE.move(vec3.x, vec3.y, vec3.z);
 	}
 }

@@ -632,6 +632,20 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			}
 		}
 
+		tag(BlockTags.DIRT)
+			.add(IcariaBlocks.MARL_GRASS.get())
+			.add(IcariaBlocks.MARL.get())
+			.add(IcariaBlocks.MARL_COARSE.get())
+			.add(IcariaBlocks.LOAM.get());
+
+		tag(BlockTags.BAMBOO_PLANTABLE_ON)
+			.add(IcariaBlocks.MARL_GRASS.get())
+			.add(IcariaBlocks.MARL.get())
+			.add(IcariaBlocks.MARL_COARSE.get())
+			.add(IcariaBlocks.LOAM.get())
+			.add(IcariaBlocks.GRAINEL.get())
+			.add(IcariaBlocks.SILKSAND.get());
+
 		tag(Tags.Blocks.SAND)
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.SILKSAND.get());

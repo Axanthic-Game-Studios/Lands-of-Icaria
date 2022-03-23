@@ -13,9 +13,11 @@ import net.minecraft.world.level.pathfinder.BlockPathTypes;
 
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+@ParametersAreNonnullByDefault
 
 public class DamagingFlowerPotBlock extends FlowerPotBlock {
 	public DamagingFlowerPotBlock(Supplier<FlowerPotBlock> emptyPot, Supplier<? extends Block> pContent, Properties properties) {
@@ -23,12 +25,12 @@ public class DamagingFlowerPotBlock extends FlowerPotBlock {
 	}
 
 	@Override
-	public void entityInside(@Nonnull BlockState pState, @Nonnull Level pLevel, @Nonnull BlockPos pPos, Entity pEntity) {
+	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
 		pEntity.hurt(DamageSource.CACTUS, 1.0F);
 	}
 
 	@Override
-	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter level, BlockPos pos, Mob entity) {
+	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob entity) {
 		return BlockPathTypes.DAMAGE_CACTUS;
 	}
 }

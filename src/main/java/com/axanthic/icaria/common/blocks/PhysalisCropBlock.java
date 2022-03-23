@@ -12,6 +12,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import net.minecraftforge.common.PlantType;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
@@ -25,8 +27,18 @@ public class PhysalisCropBlock extends CropBlock {
 	}
 
 	@Override
+	public BlockState getPlant(BlockGetter level, BlockPos pos) {
+		return level.getBlockState(pos);
+	}
+
+	@Override
 	public ItemStack getCloneItemStack(BlockGetter pLevel, BlockPos pPos, BlockState pState) {
 		return new ItemStack(IcariaItems.PHYSALIS_SEEDS.get());
+	}
+
+	@Override
+	public PlantType getPlantType(BlockGetter world, BlockPos pos) {
+		return PlantType.CROP;
 	}
 
 	@Override

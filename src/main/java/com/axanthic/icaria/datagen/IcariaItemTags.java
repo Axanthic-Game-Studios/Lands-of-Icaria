@@ -361,6 +361,12 @@ public class IcariaItemTags extends ItemTagsProvider {
 			}
 		}
 
+		tag(ItemTags.DIRT)
+			.add(IcariaItems.MARL_GRASS.get())
+			.add(IcariaItems.MARL.get())
+			.add(IcariaItems.MARL_COARSE.get())
+			.add(IcariaItems.LOAM.get());
+
 		tag(Tags.Items.SAND)
 			.add(IcariaItems.GRAINEL.get())
 			.add(IcariaItems.SILKSAND.get());

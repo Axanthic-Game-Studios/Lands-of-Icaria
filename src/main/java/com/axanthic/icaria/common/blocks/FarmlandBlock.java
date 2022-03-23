@@ -29,6 +29,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
 import net.minecraftforge.common.FarmlandWaterManager;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IPlantable;
@@ -53,14 +54,14 @@ public class FarmlandBlock extends Block {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		BlockState blockstate = pLevel.getBlockState(pPos.above());
-		return !blockstate.getMaterial().isSolid() || blockstate.getBlock() instanceof FenceGateBlock || blockstate.getBlock() instanceof MovingPistonBlock;
+		BlockState state = pLevel.getBlockState(pPos.above());
+		return !state.getMaterial().isSolid() || state.getBlock() instanceof FenceGateBlock || state.getBlock() instanceof MovingPistonBlock;
 	}
 
 	@Override
 	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pFacing, IPlantable pPlantable) {
-		PlantType plantType = pPlantable.getPlantType(pLevel, pPos.relative(pFacing));
-		return plantType == PlantType.CROP || plantType == PlantType.PLAINS;
+		PlantType type = pPlantable.getPlantType(pLevel, pPos.relative(pFacing));
+		return type == PlantType.CROP;
 	}
 
 	public boolean isNearWater(LevelReader pLevel, BlockPos pPos) {
@@ -74,8 +75,8 @@ public class FarmlandBlock extends Block {
 	}
 
 	public boolean isUnderCrops(BlockGetter pLevel, BlockPos pPos) {
-		BlockState plant = pLevel.getBlockState(pPos.above());
-		return plant.getBlock() instanceof IPlantable && pLevel.getBlockState(pPos).canSustainPlant(pLevel, pPos, Direction.UP, (IPlantable) plant.getBlock());
+		BlockState state = pLevel.getBlockState(pPos.above());
+		return state.getBlock() instanceof IPlantable && pLevel.getBlockState(pPos).canSustainPlant(pLevel, pPos, Direction.UP, (IPlantable) state.getBlock());
 	}
 
 	@Override
@@ -133,15 +134,15 @@ public class FarmlandBlock extends Block {
 
 	@Override
 	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-		ItemStack itemStack = pPlayer.getItemInHand(pHand);
+		ItemStack stack = pPlayer.getItemInHand(pHand);
 
-		if (itemStack.is(IcariaItemTags.SMALL_DUST_CALCITE)) {
+		if (stack.is(IcariaItemTags.SMALL_DUST_CALCITE)) {
 			if (pState.getValue(MOISTURE) == 7) {
 				pLevel.playSound(pPlayer, pPos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
 				if (!pLevel.isClientSide) {
 					pLevel.setBlock(pPos, IcariaBlocks.FARMLAND_FERTILIZED.get().defaultBlockState(), 0);
 					if (!pPlayer.isCreative()) {
-						itemStack.shrink(1);
+						stack.shrink(1);
 					}
 				}
 			}

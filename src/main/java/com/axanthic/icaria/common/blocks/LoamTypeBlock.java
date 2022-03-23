@@ -16,15 +16,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 
-public class DirtTypeBlock extends Block {
-	public DirtTypeBlock(Properties pProperties) {
+public class LoamTypeBlock extends Block {
+	public LoamTypeBlock(Properties pProperties) {
 		super(pProperties);
 	}
 
 	@Override
 	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pFacing, IPlantable pPlantable) {
 		PlantType type = pPlantable.getPlantType(pLevel, pPos.relative(pFacing));
-		BlockState plant = pPlantable.getPlant(pLevel, pPos.relative(pFacing));
 		if (type == PlantType.BEACH) {
 			boolean water = false;
 			for (Direction direction : Direction.Plane.HORIZONTAL) {
@@ -38,7 +37,7 @@ public class DirtTypeBlock extends Block {
 			}
 			return water;
 		} else {
-			return type == PlantType.CAVE || type == PlantType.PLAINS || plant.is(Blocks.DEAD_BUSH);
+			return type == PlantType.CAVE || type == PlantType.DESERT || type == PlantType.PLAINS;
 		}
 	}
 }

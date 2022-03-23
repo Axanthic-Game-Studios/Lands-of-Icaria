@@ -405,7 +405,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> HALITE = registerBasic("halite", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> JASPER = registerBasic("jasper", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> ZIRCON = registerBasic("zircon", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> CALCITE_POWDER = registerBasic("calcite_powder", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> CALCITE_POWDER = registerBasic("calcite_powder", () -> new BoneMealItem(propertiesItems()));
 	public static final RegistryObject<Item> ROCK_SALT = registerBasic("rock_salt", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> LIGNITE = registerBasic("lignite", () -> new FuelItem(propertiesItems(), 800));
 	public static final RegistryObject<Item> CHALKOS_RAW = registerBasic("chalkos_raw", () -> new Item(propertiesItems()));

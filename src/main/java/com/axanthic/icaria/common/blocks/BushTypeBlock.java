@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.blocks;
 
-import com.axanthic.icaria.common.registry.IcariaBlocks;
-
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,13 +14,16 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.PlantType;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class BushTypeBlock extends Block {
+public class BushTypeBlock extends Block implements IPlantable {
 	public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
 
 	public BushTypeBlock(Properties pProperties) {
@@ -35,12 +36,17 @@ public class BushTypeBlock extends Block {
 	}
 
 	public boolean mayPlaceOn(BlockState pState) {
-		return pState.is(BlockTags.DIRT) || pState.is(IcariaBlocks.MARL.get()) || pState.is(IcariaBlocks.MARL_COARSE.get()) || pState.is(IcariaBlocks.MARL_GRASS.get());
+		return pState.is(BlockTags.DIRT);
 	}
 
 	@Override
 	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pReader, BlockPos pPos) {
 		return true;
+	}
+
+	@Override
+	public BlockState getPlant(BlockGetter level, BlockPos pos) {
+		return level.getBlockState(pos);
 	}
 
 	@Override
@@ -51,6 +57,11 @@ public class BushTypeBlock extends Block {
 	@Override
 	public OffsetType getOffsetType() {
 		return OffsetType.XZ;
+	}
+
+	@Override
+	public PlantType getPlantType(BlockGetter world, BlockPos pos) {
+		return PlantType.PLAINS;
 	}
 
 	@Override

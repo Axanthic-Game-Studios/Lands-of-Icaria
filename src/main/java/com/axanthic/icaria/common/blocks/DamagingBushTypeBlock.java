@@ -10,9 +10,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 
-import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+@ParametersAreNonnullByDefault
 
 public class DamagingBushTypeBlock extends BushTypeBlock {
 	public DamagingBushTypeBlock(Properties pProperties) {
@@ -20,7 +22,7 @@ public class DamagingBushTypeBlock extends BushTypeBlock {
 	}
 
 	@Override
-	public void entityInside(@Nonnull BlockState pState, @Nonnull Level pLevel, @Nonnull BlockPos pPos, @Nonnull Entity pEntity) {
+	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
 		if (pEntity instanceof Bee) {
 			pEntity.setInvulnerable(true);
 		}
@@ -29,7 +31,7 @@ public class DamagingBushTypeBlock extends BushTypeBlock {
 	}
 
 	@Override
-	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter level, BlockPos pos, Mob entity) {
+	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob entity) {
 		return BlockPathTypes.DAMAGE_CACTUS;
 	}
 }

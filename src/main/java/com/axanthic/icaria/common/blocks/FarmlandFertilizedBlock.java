@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
 
@@ -26,8 +27,8 @@ public class FarmlandFertilizedBlock extends Block {
 
 	@Override
 	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pFacing, IPlantable pPlantable) {
-		PlantType plantType = pPlantable.getPlantType(pLevel, pPos.relative(pFacing));
-		return plantType == PlantType.CROP || plantType == PlantType.PLAINS;
+		PlantType type = pPlantable.getPlantType(pLevel, pPos.relative(pFacing));
+		return type == PlantType.CROP;
 	}
 
 	@Override
