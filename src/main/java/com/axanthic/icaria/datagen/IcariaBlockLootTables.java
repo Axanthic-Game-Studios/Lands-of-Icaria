@@ -83,6 +83,10 @@ public class IcariaBlockLootTables extends BlockLoot {
 
 		dropElse(IcariaBlocks.FARMLAND.get(), IcariaItems.MARL.get());
 		dropElse(IcariaBlocks.FARMLAND_FERTILIZED.get(), IcariaItems.MARL.get());
+		dropElse(IcariaBlocks.CALCITE_CRYSTAL.get(), IcariaItems.CALCITE.get());
+		dropElse(IcariaBlocks.HALITE_CRYSTAL.get(), IcariaItems.HALITE.get());
+		dropElse(IcariaBlocks.JASPER_CRYSTAL.get(), IcariaItems.JASPER.get());
+		dropElse(IcariaBlocks.ZIRCON_CRYSTAL.get(), IcariaItems.ZIRCON.get());
 		dropElse(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
 		dropElse(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
 		dropElse(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get(), Items.CANDLE);

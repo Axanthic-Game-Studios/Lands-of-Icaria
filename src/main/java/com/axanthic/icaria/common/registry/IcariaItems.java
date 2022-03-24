@@ -172,6 +172,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MOLYBDENUM_ORE = register("molybdenum_ore", () -> new BlockItem(IcariaBlocks.MOLYBDENUM_ORE.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> HYLIASTRUM_ORE = register("hyliastrum_ore", () -> new BlockItem(IcariaBlocks.HYLIASTRUM_ORE.get(), propertiesBlocks()));
 
+	public static final RegistryObject<Item> CALCITE_CRYSTAL = register("calcite_crystal", () -> new BlockItem(IcariaBlocks.CALCITE_CRYSTAL.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> HALITE_CRYSTAL = register("halite_crystal", () -> new BlockItem(IcariaBlocks.HALITE_CRYSTAL.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> JASPER_CRYSTAL = register("jasper_crystal", () -> new BlockItem(IcariaBlocks.JASPER_CRYSTAL.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> ZIRCON_CRYSTAL = register("zircon_crystal", () -> new BlockItem(IcariaBlocks.ZIRCON_CRYSTAL.get(), propertiesBlocks()));
+
 	public static final RegistryObject<Item> ARISTONE = register("aristone", () -> new BlockItem(IcariaBlocks.ARISTONE.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> ARISTONE_PACKED = register("aristone_packed", () -> new BlockItem(IcariaBlocks.ARISTONE_PACKED.get(), propertiesBlocks()));
 

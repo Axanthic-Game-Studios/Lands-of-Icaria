@@ -179,6 +179,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.YELLOWSTONE_CHISELED.get())
 			.add(IcariaBlocks.LIGNITE_ORE.get())
 			.add(IcariaBlocks.CHALKOS_ORE.get())
+			.add(IcariaBlocks.CALCITE_CRYSTAL.get())
 			.add(IcariaBlocks.CHALKOS_RAW_BLOCK.get())
 			.add(IcariaBlocks.CHALKOS_BLOCK.get());
 
@@ -204,6 +205,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.SILKSTONE_CHISELED.get())
 			.add(IcariaBlocks.KASSITEROS_ORE.get())
 			.add(IcariaBlocks.DOLOMITE_ORE.get())
+			.add(IcariaBlocks.HALITE_CRYSTAL.get())
 			.add(IcariaBlocks.KASSITEROS_RAW_BLOCK.get())
 			.add(IcariaBlocks.KASSITEROS_BLOCK.get());
 
@@ -224,6 +226,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.SUNSTONE_CHISELED.get())
 			.add(IcariaBlocks.VANADIUM_ORE.get())
 			.add(IcariaBlocks.SLIVER_ORE.get())
+			.add(IcariaBlocks.JASPER_CRYSTAL.get())
 			.add(IcariaBlocks.VANADIUM_RAW_BLOCK.get())
 			.add(IcariaBlocks.VANADIUM_BLOCK.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_BLOCK.get())
@@ -259,6 +262,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.BAETYL_CHISELED.get())
 			.add(IcariaBlocks.MOLYBDENUM_ORE.get())
 			.add(IcariaBlocks.HYLIASTRUM_ORE.get())
+			.add(IcariaBlocks.ZIRCON_CRYSTAL.get())
 			.add(IcariaBlocks.MOLYBDENUM_RAW_BLOCK.get())
 			.add(IcariaBlocks.MOLYBDENUM_BLOCK.get())
 			.add(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get());
@@ -437,6 +441,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.MOLYBDENUM_ORE.get())
 			.add(IcariaBlocks.HYLIASTRUM_ORE.get())
 			.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get())
+			.add(IcariaBlocks.CALCITE_CRYSTAL.get())
+			.add(IcariaBlocks.HALITE_CRYSTAL.get())
+			.add(IcariaBlocks.JASPER_CRYSTAL.get())
+			.add(IcariaBlocks.ZIRCON_CRYSTAL.get())
 			.add(IcariaBlocks.ROTTEN_BONES_BLOCK.get())
 			.add(IcariaBlocks.CHALKOS_RAW_BLOCK.get())
 			.add(IcariaBlocks.KASSITEROS_RAW_BLOCK.get())

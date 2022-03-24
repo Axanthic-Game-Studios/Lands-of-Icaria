@@ -1,12 +1,13 @@
 package com.axanthic.icaria.client.proxy;
 
+import com.axanthic.icaria.client.render.CrystalBlockRenderer;
 import com.axanthic.icaria.client.render.ThrownBidentRenderer;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntities;
 import com.axanthic.icaria.common.registry.IcariaFluids;
-
 import com.axanthic.icaria.common.registry.IcariaItems;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColor;
@@ -14,6 +15,7 @@ import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.GrassColor;
@@ -51,6 +53,9 @@ public class ClientProxy extends CommonProxy {
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SILKGLASS_PANE.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.ARISTONE.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.CALCITE_CRYSTAL.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.HALITE_CRYSTAL.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.ZIRCON_CRYSTAL.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.CALCITE_BLOCK.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.HALITE_BLOCK.get(), RenderType.translucent());
@@ -169,5 +174,7 @@ public class ClientProxy extends CommonProxy {
 		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.UPWARDS_FLUID_FLOWING.get(), RenderType.translucent());
 
 		EntityRenderers.register(IcariaEntities.BIDENT.get(), ThrownBidentRenderer::new);
+
+		BlockEntityRenderers.register(IcariaEntities.CRYSTAL.get(), CrystalBlockRenderer::new);
 	}
 }

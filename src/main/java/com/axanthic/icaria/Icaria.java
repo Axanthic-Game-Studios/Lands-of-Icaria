@@ -44,6 +44,7 @@ public class Icaria {
 		IcariaFluids.FLUIDS.register(bus);
 		IcariaItems.ITEMS.register(bus);
 		IcariaEntities.ENTITIES.register(bus);
+		IcariaEntities.BLOCK_ENTITIES.register(bus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}
