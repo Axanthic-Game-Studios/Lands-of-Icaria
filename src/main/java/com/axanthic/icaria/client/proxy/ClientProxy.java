@@ -53,13 +53,9 @@ public class ClientProxy extends CommonProxy {
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SILKGLASS_PANE.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.ARISTONE.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.CALCITE_CRYSTAL.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.HALITE_CRYSTAL.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.ZIRCON_CRYSTAL.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.CALCITE_BLOCK.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.HALITE_BLOCK.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.JASPER_BLOCK.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.ZIRCON_BLOCK.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.CYPRESS_SAPLING.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_CYPRESS_SAPLING.get(), RenderType.cutout());

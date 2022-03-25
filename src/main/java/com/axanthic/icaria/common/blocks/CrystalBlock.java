@@ -33,9 +33,21 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock {
 	public static final VoxelShape UP_AABB = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
 	public static final VoxelShape DOWN_AABB = Block.box(4.0D, 8.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
+	public int r;
+	public int g;
+	public int b;
+
 	public CrystalBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+	}
+
+	public CrystalBlock(Properties pProperties, int r, int g, int b) {
+		this(pProperties);
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+		this.r = r;
+		this.g = g;
+		this.b = b;
 	}
 
 	@Override
@@ -57,7 +69,21 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		return new CrystalBlockEntity(pPos, pState);
+		switch(pState.getValue(FACING)) {
+			case NORTH:
+			default:
+				return new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 1.0D, r, g, b);
+			case EAST:
+				return new CrystalBlockEntity(pPos, pState, 0.0D, 0.5D, 0.5D, r, g, b);
+			case SOUTH:
+				return new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 0.0D, r, g, b);
+			case WEST:
+				return new CrystalBlockEntity(pPos, pState, 1.0D, 0.5D, 0.5D, r, g, b);
+			case UP:
+				return new CrystalBlockEntity(pPos, pState, 0.5D, 0.0D, 0.5D, r, g, b);
+			case DOWN:
+				return new CrystalBlockEntity(pPos, pState, 0.5D, 1.0D, 0.5D, r, g, b);
+		}
 	}
 
 	@Override
