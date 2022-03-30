@@ -1,6 +1,7 @@
 package com.axanthic.icaria;
 
 import com.axanthic.icaria.client.proxy.ClientProxy;
+import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.registry.IcariaItems.ToolCombination;
@@ -40,6 +41,8 @@ public class Icaria {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetupEvent);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::gatherData);
+
+		IcariaConfig.register();
 
 		IcariaBlocks.BLOCKS.register(bus);
 		IcariaFluids.FLUIDS.register(bus);

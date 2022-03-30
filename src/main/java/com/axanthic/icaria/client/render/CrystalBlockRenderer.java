@@ -1,5 +1,6 @@
 package com.axanthic.icaria.client.render;
 
+import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entities.CrystalBlockEntity;
 
 import com.mojang.blaze3d.platform.GlStateManager;
@@ -23,6 +24,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @OnlyIn(Dist.CLIENT)
 public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEntity> {
+	public static final boolean RENDER_RAYS = IcariaConfig.RENDER_RAYS.get();
 	public static final float HALF_SQRT_3 = (float)(Math.sqrt(3.0D) / 2.0D);
 
 	public CrystalBlockRenderer(BlockEntityRendererProvider.Context pContext) {
@@ -45,6 +47,9 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 		float fade = Math.min(0.0F, 1.0F);
 
 		int alpha = (int)(16.0F * (1.0F - fade));
+		if (!RENDER_RAYS) {
+			alpha = 0;
+		}
 		int r = pBlockEntity.r;
 		int g = pBlockEntity.g;
 		int b = pBlockEntity.b;
