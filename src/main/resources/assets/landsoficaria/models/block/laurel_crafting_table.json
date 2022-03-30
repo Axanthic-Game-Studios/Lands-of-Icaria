@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "landsoficaria:block/laurel_crafting_table_front",
+    "east": "landsoficaria:block/laurel_crafting_table_side",
+    "south": "landsoficaria:block/laurel_crafting_table_side",
+    "west": "landsoficaria:block/laurel_crafting_table_front",
+    "up": "landsoficaria:block/laurel_crafting_table_top",
+    "down": "landsoficaria:block/laurel_planks",
+    "particle": "#north"
+  }
+}

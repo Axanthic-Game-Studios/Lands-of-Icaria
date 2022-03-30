@@ -53,8 +53,8 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-      return canAttach(pLevel, pPos, getConnectedDirection(pState).getOpposite());
-   }
+		return canAttach(pLevel, pPos, getConnectedDirection(pState).getOpposite());
+	}
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {

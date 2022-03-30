@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "landsoficaria:block/populus_crafting_table_front",
+    "east": "landsoficaria:block/populus_crafting_table_side",
+    "south": "landsoficaria:block/populus_crafting_table_side",
+    "west": "landsoficaria:block/populus_crafting_table_front",
+    "up": "landsoficaria:block/populus_crafting_table_top",
+    "down": "landsoficaria:block/populus_planks",
+    "particle": "#north"
+  }
+}

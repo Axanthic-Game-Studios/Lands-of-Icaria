@@ -142,6 +142,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
 		dropThis(IcariaBlocks.DEAD_CYPRESS_LOG.get());
 		dropThis(IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get());
+		dropThis(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get());
 		dropThis(IcariaBlocks.CYPRESS_TRAPDOOR.get());
 		dropThis(IcariaBlocks.CYPRESS_LADDER.get());
 		dropThis(IcariaBlocks.CYPRESS_SIGN.get());
@@ -152,6 +153,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
 		dropThis(IcariaBlocks.DEAD_DROUGHTROOT_LOG.get());
 		dropThis(IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get());
+		dropThis(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get());
 		dropThis(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
 		dropThis(IcariaBlocks.DROUGHTROOT_LADDER.get());
 		dropThis(IcariaBlocks.DROUGHTROOT_SIGN.get());
@@ -162,6 +164,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_FIR_LOG.get());
 		dropThis(IcariaBlocks.DEAD_FIR_LOG.get());
 		dropThis(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get());
+		dropThis(IcariaBlocks.FIR_CRAFTING_TABLE.get());
 		dropThis(IcariaBlocks.FIR_TRAPDOOR.get());
 		dropThis(IcariaBlocks.FIR_LADDER.get());
 		dropThis(IcariaBlocks.FIR_SIGN.get());
@@ -172,6 +175,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_LAUREL_LOG.get());
 		dropThis(IcariaBlocks.DEAD_LAUREL_LOG.get());
 		dropThis(IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get());
+		dropThis(IcariaBlocks.LAUREL_CRAFTING_TABLE.get());
 		dropThis(IcariaBlocks.LAUREL_TRAPDOOR.get());
 		dropThis(IcariaBlocks.LAUREL_LADDER.get());
 		dropThis(IcariaBlocks.LAUREL_SIGN.get());
@@ -182,6 +186,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_OLIVE_LOG.get());
 		dropThis(IcariaBlocks.DEAD_OLIVE_LOG.get());
 		dropThis(IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get());
+		dropThis(IcariaBlocks.OLIVE_CRAFTING_TABLE.get());
 		dropThis(IcariaBlocks.OLIVE_TRAPDOOR.get());
 		dropThis(IcariaBlocks.OLIVE_LADDER.get());
 		dropThis(IcariaBlocks.OLIVE_SIGN.get());
@@ -192,6 +197,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_PLANE_LOG.get());
 		dropThis(IcariaBlocks.DEAD_PLANE_LOG.get());
 		dropThis(IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get());
+		dropThis(IcariaBlocks.PLANE_CRAFTING_TABLE.get());
 		dropThis(IcariaBlocks.PLANE_TRAPDOOR.get());
 		dropThis(IcariaBlocks.PLANE_LADDER.get());
 		dropThis(IcariaBlocks.PLANE_SIGN.get());
@@ -202,6 +208,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_POPULUS_LOG.get());
 		dropThis(IcariaBlocks.DEAD_POPULUS_LOG.get());
 		dropThis(IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get());
+		dropThis(IcariaBlocks.POPULUS_CRAFTING_TABLE.get());
 		dropThis(IcariaBlocks.POPULUS_TRAPDOOR.get());
 		dropThis(IcariaBlocks.POPULUS_LADDER.get());
 		dropThis(IcariaBlocks.POPULUS_SIGN.get());

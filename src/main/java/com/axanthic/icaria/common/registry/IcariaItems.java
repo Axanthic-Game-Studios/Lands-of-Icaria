@@ -222,6 +222,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_CYPRESS_LOG = register("stripped_dead_cypress_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CYPRESS_PLANKS = register("cypress_planks", () -> new BlockItem(IcariaBlocks.CYPRESS_PLANKS.get(), propertiesFlora()));
 	public static final WoodDecoItemBlocks CYPRESS_DECO = new WoodDecoItemBlocks(IcariaBlocks.CYPRESS_DECO, CYPRESS_PLANKS);
+	public static final RegistryObject<Item> CYPRESS_CRAFTING_TABLE = register("cypress_crafting_table", () -> new BlockItem(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CYPRESS_DOOR = registerBasic("cypress_door", () -> new BlockItem(IcariaBlocks.CYPRESS_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CYPRESS_TRAPDOOR = register("cypress_trapdoor", () -> new BlockItem(IcariaBlocks.CYPRESS_TRAPDOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CYPRESS_LADDER = registerBasic("cypress_ladder", () -> new FuelBlockItem(IcariaBlocks.CYPRESS_LADDER.get(), propertiesFlora(), 300));
@@ -239,6 +240,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_DROUGHTROOT_LOG = register("stripped_dead_droughtroot_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get(), propertiesFlora()));
 	public static final RegistryObject<Item> DROUGHTROOT_PLANKS = register("droughtroot_planks", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_PLANKS.get(), propertiesFlora()));
 	public static final WoodDecoItemBlocks DROUGHTROOT_DECO = new WoodDecoItemBlocks(IcariaBlocks.DROUGHTROOT_DECO, DROUGHTROOT_PLANKS);
+	public static final RegistryObject<Item> DROUGHTROOT_CRAFTING_TABLE = register("droughtroot_crafting_table", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> DROUGHTROOT_DOOR = registerBasic("droughtroot_door", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> DROUGHTROOT_TRAPDOOR = register("droughtroot_trapdoor", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> DROUGHTROOT_LADDER = registerBasic("droughtroot_ladder", () -> new FuelBlockItem(IcariaBlocks.DROUGHTROOT_LADDER.get(), propertiesFlora(), 300));
@@ -256,6 +258,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_FIR_LOG = register("stripped_dead_fir_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get(), propertiesFlora()));
 	public static final RegistryObject<Item> FIR_PLANKS = register("fir_planks", () -> new BlockItem(IcariaBlocks.FIR_PLANKS.get(), propertiesFlora()));
 	public static final WoodDecoItemBlocks FIR_DECO = new WoodDecoItemBlocks(IcariaBlocks.FIR_DECO, FIR_PLANKS);
+	public static final RegistryObject<Item> FIR_CRAFTING_TABLE = register("fir_crafting_table", () -> new BlockItem(IcariaBlocks.FIR_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> FIR_DOOR = registerBasic("fir_door", () -> new BlockItem(IcariaBlocks.FIR_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> FIR_TRAPDOOR = register("fir_trapdoor", () -> new BlockItem(IcariaBlocks.FIR_TRAPDOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> FIR_LADDER = registerBasic("fir_ladder", () -> new FuelBlockItem(IcariaBlocks.FIR_LADDER.get(), propertiesFlora(), 300));
@@ -273,6 +276,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_LAUREL_LOG = register("stripped_dead_laurel_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get(), propertiesFlora()));
 	public static final RegistryObject<Item> LAUREL_PLANKS = register("laurel_planks", () -> new BlockItem(IcariaBlocks.LAUREL_PLANKS.get(), propertiesFlora()));
 	public static final WoodDecoItemBlocks LAUREL_DECO = new WoodDecoItemBlocks(IcariaBlocks.LAUREL_DECO, LAUREL_PLANKS);
+	public static final RegistryObject<Item> LAUREL_CRAFTING_TABLE = register("laurel_crafting_table", () -> new BlockItem(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> LAUREL_DOOR = registerBasic("laurel_door", () -> new BlockItem(IcariaBlocks.LAUREL_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> LAUREL_TRAPDOOR = register("laurel_trapdoor", () -> new BlockItem(IcariaBlocks.LAUREL_TRAPDOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> LAUREL_LADDER = registerBasic("laurel_ladder", () -> new FuelBlockItem(IcariaBlocks.LAUREL_LADDER.get(), propertiesFlora(), 300));
@@ -292,6 +296,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_OLIVE_LOG = register("stripped_dead_olive_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get(), propertiesFlora()));
 	public static final RegistryObject<Item> OLIVE_PLANKS = register("olive_planks", () -> new BlockItem(IcariaBlocks.OLIVE_PLANKS.get(), propertiesFlora()));
 	public static final WoodDecoItemBlocks OLIVE_DECO = new WoodDecoItemBlocks(IcariaBlocks.OLIVE_DECO, OLIVE_PLANKS);
+	public static final RegistryObject<Item> OLIVE_CRAFTING_TABLE = register("olive_crafting_table", () -> new BlockItem(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> OLIVE_DOOR = registerBasic("olive_door", () -> new BlockItem(IcariaBlocks.OLIVE_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> OLIVE_TRAPDOOR = register("olive_trapdoor", () -> new BlockItem(IcariaBlocks.OLIVE_TRAPDOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> OLIVE_LADDER = registerBasic("olive_ladder", () -> new FuelBlockItem(IcariaBlocks.OLIVE_LADDER.get(), propertiesFlora(), 300));
@@ -309,6 +314,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_PLANE_LOG = register("stripped_dead_plane_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PLANE_PLANKS = register("plane_planks", () -> new BlockItem(IcariaBlocks.PLANE_PLANKS.get(), propertiesFlora()));
 	public static final WoodDecoItemBlocks PLANE_DECO = new WoodDecoItemBlocks(IcariaBlocks.PLANE_DECO, PLANE_PLANKS);
+	public static final RegistryObject<Item> PLANE_CRAFTING_TABLE = register("plane_crafting_table", () -> new BlockItem(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PLANE_DOOR = registerBasic("plane_door", () -> new BlockItem(IcariaBlocks.PLANE_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PLANE_TRAPDOOR = register("plane_trapdoor", () -> new BlockItem(IcariaBlocks.PLANE_TRAPDOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PLANE_LADDER = registerBasic("plane_ladder", () -> new FuelBlockItem(IcariaBlocks.PLANE_LADDER.get(), propertiesFlora(), 300));
@@ -326,6 +332,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_POPULUS_LOG = register("stripped_dead_populus_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get(), propertiesFlora()));
 	public static final RegistryObject<Item> POPULUS_PLANKS = register("populus_planks", () -> new BlockItem(IcariaBlocks.POPULUS_PLANKS.get(), propertiesFlora()));
 	public static final WoodDecoItemBlocks POPULUS_DECO = new WoodDecoItemBlocks(IcariaBlocks.POPULUS_DECO, POPULUS_PLANKS);
+	public static final RegistryObject<Item> POPULUS_CRAFTING_TABLE = register("populus_crafting_table", () -> new BlockItem(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> POPULUS_DOOR = registerBasic("populus_door", () -> new BlockItem(IcariaBlocks.POPULUS_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> POPULUS_TRAPDOOR = register("populus_trapdoor", () -> new BlockItem(IcariaBlocks.POPULUS_TRAPDOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> POPULUS_LADDER = registerBasic("populus_ladder", () -> new FuelBlockItem(IcariaBlocks.POPULUS_LADDER.get(), propertiesFlora(), 300));

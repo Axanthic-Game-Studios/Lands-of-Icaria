@@ -59,6 +59,13 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 
 		smallCompressRecipe(consumer, IcariaItems.LOAM_BRICKS.get(), IcariaItems.LOAM_BRICK.get());
 		smallCompressRecipe(consumer, IcariaItems.SILKSTONE.get(), IcariaItems.SILKSAND.get());
+		smallCompressRecipe(consumer, IcariaItems.CYPRESS_CRAFTING_TABLE.get(), IcariaItems.CYPRESS_PLANKS.get());
+		smallCompressRecipe(consumer, IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		smallCompressRecipe(consumer, IcariaItems.FIR_CRAFTING_TABLE.get(), IcariaItems.FIR_PLANKS.get());
+		smallCompressRecipe(consumer, IcariaItems.LAUREL_CRAFTING_TABLE.get(), IcariaItems.LAUREL_PLANKS.get());
+		smallCompressRecipe(consumer, IcariaItems.OLIVE_CRAFTING_TABLE.get(), IcariaItems.OLIVE_PLANKS.get());
+		smallCompressRecipe(consumer, IcariaItems.PLANE_CRAFTING_TABLE.get(), IcariaItems.PLANE_PLANKS.get());
+		smallCompressRecipe(consumer, IcariaItems.POPULUS_CRAFTING_TABLE.get(), IcariaItems.POPULUS_PLANKS.get());
 
 		smallCompressDecompressRecipes(consumer, IcariaItems.LOAM.get(), IcariaItems.LOAM_LUMP.get());
 		smallCompressDecompressRecipes(consumer, IcariaItems.VINE_SPROUT_BLOCK.get(), IcariaItems.VINE_SPROUT.get());

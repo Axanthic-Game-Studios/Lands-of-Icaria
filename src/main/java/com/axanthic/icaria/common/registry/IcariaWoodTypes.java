@@ -5,7 +5,7 @@ import com.axanthic.icaria.util.IcariaInfo;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
-public class IcariaWoodType {
+public class IcariaWoodTypes {
 	public static final WoodType CYPRESS = WoodType.create(new ResourceLocation(IcariaInfo.MODID, "cypress").toString());
 	public static final WoodType DROUGHTROOT = WoodType.create(new ResourceLocation(IcariaInfo.MODID, "droughtroot").toString());
 	public static final WoodType FIR = WoodType.create(new ResourceLocation(IcariaInfo.MODID, "fir").toString());
@@ -15,12 +15,12 @@ public class IcariaWoodType {
 	public static final WoodType POPULUS = WoodType.create(new ResourceLocation(IcariaInfo.MODID, "populus").toString());
 
 	public static void setup() {
-		WoodType.register(IcariaWoodType.CYPRESS);
-		WoodType.register(IcariaWoodType.DROUGHTROOT);
-		WoodType.register(IcariaWoodType.FIR);
-		WoodType.register(IcariaWoodType.LAUREL);
-		WoodType.register(IcariaWoodType.OLIVE);
-		WoodType.register(IcariaWoodType.PLANE);
-		WoodType.register(IcariaWoodType.POPULUS);
+		WoodType.register(IcariaWoodTypes.CYPRESS);
+		WoodType.register(IcariaWoodTypes.DROUGHTROOT);
+		WoodType.register(IcariaWoodTypes.FIR);
+		WoodType.register(IcariaWoodTypes.LAUREL);
+		WoodType.register(IcariaWoodTypes.OLIVE);
+		WoodType.register(IcariaWoodTypes.PLANE);
+		WoodType.register(IcariaWoodTypes.POPULUS);
 	}
 }

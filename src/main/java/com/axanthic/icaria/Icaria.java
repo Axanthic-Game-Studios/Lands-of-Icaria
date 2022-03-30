@@ -57,7 +57,7 @@ public class Icaria {
 		event.enqueueWork(IcariaPottables::setup);
 		event.enqueueWork(IcariaStrippables::setup);
 		event.enqueueWork(IcariaTillables::setup);
-		event.enqueueWork(IcariaWoodType::setup);
+		event.enqueueWork(IcariaWoodTypes::setup);
 	}
 
 	public void onClientSetupEvent(FMLClientSetupEvent event) {
@@ -66,13 +66,13 @@ public class Icaria {
 		}
 
 		event.enqueueWork(() -> {
-			Sheets.addWoodType(IcariaWoodType.CYPRESS);
-			Sheets.addWoodType(IcariaWoodType.DROUGHTROOT);
-			Sheets.addWoodType(IcariaWoodType.FIR);
-			Sheets.addWoodType(IcariaWoodType.LAUREL);
-			Sheets.addWoodType(IcariaWoodType.OLIVE);
-			Sheets.addWoodType(IcariaWoodType.PLANE);
-			Sheets.addWoodType(IcariaWoodType.POPULUS);
+			Sheets.addWoodType(IcariaWoodTypes.CYPRESS);
+			Sheets.addWoodType(IcariaWoodTypes.DROUGHTROOT);
+			Sheets.addWoodType(IcariaWoodTypes.FIR);
+			Sheets.addWoodType(IcariaWoodTypes.LAUREL);
+			Sheets.addWoodType(IcariaWoodTypes.OLIVE);
+			Sheets.addWoodType(IcariaWoodTypes.PLANE);
+			Sheets.addWoodType(IcariaWoodTypes.POPULUS);
 		});
 	}
 
