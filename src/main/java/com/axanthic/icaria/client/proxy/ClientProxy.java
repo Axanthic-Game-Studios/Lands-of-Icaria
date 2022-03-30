@@ -1,6 +1,7 @@
 package com.axanthic.icaria.client.proxy;
 
 import com.axanthic.icaria.client.render.CrystalBlockRenderer;
+import com.axanthic.icaria.client.render.IcariaSignRenderer;
 import com.axanthic.icaria.client.render.ThrownBidentRenderer;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
@@ -172,5 +173,6 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntities.BIDENT.get(), ThrownBidentRenderer::new);
 
 		BlockEntityRenderers.register(IcariaEntities.CRYSTAL.get(), CrystalBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaEntities.SIGN.get(), IcariaSignRenderer::new);
 	}
 }

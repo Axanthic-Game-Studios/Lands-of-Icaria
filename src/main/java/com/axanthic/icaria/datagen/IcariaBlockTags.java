@@ -292,6 +292,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.CYPRESS_DOOR.get())
 			.add(IcariaBlocks.CYPRESS_TRAPDOOR.get())
 			.add(IcariaBlocks.CYPRESS_LADDER.get())
+			.add(IcariaBlocks.CYPRESS_SIGN.get())
+			.add(IcariaBlocks.CYPRESS_WALL_SIGN.get())
 			.add(IcariaBlocks.DROUGHTROOT_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get())
 			.add(IcariaBlocks.DROUGHTROOT_LOG.get())
@@ -302,6 +304,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.DROUGHTROOT_DOOR.get())
 			.add(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get())
 			.add(IcariaBlocks.DROUGHTROOT_LADDER.get())
+			.add(IcariaBlocks.DROUGHTROOT_SIGN.get())
+			.add(IcariaBlocks.DROUGHTROOT_WALL_SIGN.get())
 			.add(IcariaBlocks.FIR_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_FIR_WOOD.get())
 			.add(IcariaBlocks.FIR_LOG.get())
@@ -312,6 +316,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.FIR_DOOR.get())
 			.add(IcariaBlocks.FIR_TRAPDOOR.get())
 			.add(IcariaBlocks.FIR_LADDER.get())
+			.add(IcariaBlocks.FIR_SIGN.get())
+			.add(IcariaBlocks.FIR_WALL_SIGN.get())
 			.add(IcariaBlocks.LAUREL_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_LAUREL_WOOD.get())
 			.add(IcariaBlocks.LAUREL_LOG.get())
@@ -322,6 +328,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.LAUREL_DOOR.get())
 			.add(IcariaBlocks.LAUREL_TRAPDOOR.get())
 			.add(IcariaBlocks.LAUREL_LADDER.get())
+			.add(IcariaBlocks.LAUREL_SIGN.get())
+			.add(IcariaBlocks.LAUREL_WALL_SIGN.get())
 			.add(IcariaBlocks.OLIVE_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_OLIVE_WOOD.get())
 			.add(IcariaBlocks.OLIVE_LOG.get())
@@ -332,6 +340,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.OLIVE_DOOR.get())
 			.add(IcariaBlocks.OLIVE_TRAPDOOR.get())
 			.add(IcariaBlocks.OLIVE_LADDER.get())
+			.add(IcariaBlocks.OLIVE_SIGN.get())
+			.add(IcariaBlocks.OLIVE_WALL_SIGN.get())
 			.add(IcariaBlocks.PLANE_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_PLANE_WOOD.get())
 			.add(IcariaBlocks.PLANE_LOG.get())
@@ -342,6 +352,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.PLANE_DOOR.get())
 			.add(IcariaBlocks.PLANE_TRAPDOOR.get())
 			.add(IcariaBlocks.PLANE_LADDER.get())
+			.add(IcariaBlocks.PLANE_SIGN.get())
+			.add(IcariaBlocks.PLANE_WALL_SIGN.get())
 			.add(IcariaBlocks.POPULUS_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_POPULUS_WOOD.get())
 			.add(IcariaBlocks.POPULUS_LOG.get())
@@ -351,8 +363,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.POPULUS_PLANKS.get())
 			.add(IcariaBlocks.POPULUS_DOOR.get())
 			.add(IcariaBlocks.POPULUS_TRAPDOOR.get())
-			.add(IcariaBlocks.POPULUS_LADDER.get());
-		
+			.add(IcariaBlocks.POPULUS_LADDER.get())
+			.add(IcariaBlocks.POPULUS_SIGN.get())
+			.add(IcariaBlocks.POPULUS_WALL_SIGN.get());
+
 		addWoodDecoToTag(IcariaBlocks.CYPRESS_DECO, BlockTags.MINEABLE_WITH_AXE);
 		addWoodDecoToTag(IcariaBlocks.DROUGHTROOT_DECO, BlockTags.MINEABLE_WITH_AXE);
 		addWoodDecoToTag(IcariaBlocks.FIR_DECO, BlockTags.MINEABLE_WITH_AXE);
@@ -360,7 +374,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		addWoodDecoToTag(IcariaBlocks.OLIVE_DECO, BlockTags.MINEABLE_WITH_AXE);
 		addWoodDecoToTag(IcariaBlocks.PLANE_DECO, BlockTags.MINEABLE_WITH_AXE);
 		addWoodDecoToTag(IcariaBlocks.POPULUS_DECO, BlockTags.MINEABLE_WITH_AXE);
-		
+
 		tag(BlockTags.MINEABLE_WITH_HOE)
 			.add(IcariaBlocks.SPELT_BALE_BLOCK.get())
 			.add(IcariaBlocks.CYPRESS_LEAVES.get())
@@ -382,7 +396,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.MOSS_0.get())
 			.add(IcariaBlocks.MOSS_1.get())
 			.add(IcariaBlocks.MOSS_2.get());
-		
+
 		tag(BlockTags.MINEABLE_WITH_PICKAXE)
 			.add(IcariaBlocks.MARL_ADOBE.get())
 			.add(IcariaBlocks.LOAM_BRICKS.get())
@@ -559,6 +573,24 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.OLIVE_LADDER.get())
 			.add(IcariaBlocks.PLANE_LADDER.get())
 			.add(IcariaBlocks.POPULUS_LADDER.get());
+
+		tag(BlockTags.STANDING_SIGNS)
+			.add(IcariaBlocks.CYPRESS_SIGN.get())
+			.add(IcariaBlocks.DROUGHTROOT_SIGN.get())
+			.add(IcariaBlocks.FIR_SIGN.get())
+			.add(IcariaBlocks.LAUREL_SIGN.get())
+			.add(IcariaBlocks.OLIVE_SIGN.get())
+			.add(IcariaBlocks.PLANE_SIGN.get())
+			.add(IcariaBlocks.POPULUS_SIGN.get());
+
+		tag(BlockTags.WALL_SIGNS)
+			.add(IcariaBlocks.CYPRESS_WALL_SIGN.get())
+			.add(IcariaBlocks.DROUGHTROOT_WALL_SIGN.get())
+			.add(IcariaBlocks.FIR_WALL_SIGN.get())
+			.add(IcariaBlocks.LAUREL_WALL_SIGN.get())
+			.add(IcariaBlocks.OLIVE_WALL_SIGN.get())
+			.add(IcariaBlocks.PLANE_WALL_SIGN.get())
+			.add(IcariaBlocks.POPULUS_WALL_SIGN.get());
 
 		tag(BlockTags.WALL_POST_OVERRIDE)
 			.add(IcariaBlocks.LIGNITE_TORCH.get())

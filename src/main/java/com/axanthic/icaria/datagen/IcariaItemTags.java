@@ -201,18 +201,14 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.BAETYL_COBBLE.get())
 			.add(IcariaItems.RELICSTONE.get());
 
-		tag(Tags.Items.SLIMEBALLS).add(IcariaItems.JELLYFISH_JELLY.get());
-
-		tag(Tags.Items.STRING).add(IcariaItems.ARACHNE_STRING.get());
-
-		tag(SPELT).add(IcariaItems.SPELT.get());
-		tag(GARLIC).add(IcariaItems.GARLIC.get());
-		tag(ONION).add(IcariaItems.ONION.get());
-
-		tag(Tags.Items.CROPS)
-			.addTag(SPELT)
-			.addTag(GARLIC)
-			.addTag(ONION);
+		tag(ItemTags.SIGNS)
+			.add(IcariaItems.CYPRESS_SIGN.get())
+			.add(IcariaItems.DROUGHTROOT_SIGN.get())
+			.add(IcariaItems.FIR_SIGN.get())
+			.add(IcariaItems.LAUREL_SIGN.get())
+			.add(IcariaItems.OLIVE_SIGN.get())
+			.add(IcariaItems.PLANE_SIGN.get())
+			.add(IcariaItems.POPULUS_SIGN.get());
 
 		tag(GEMS_CHERT).add(IcariaItems.CHERT.get());
 		tag(GEMS_LIGNITE).add(IcariaItems.LIGNITE.get());
@@ -234,6 +230,19 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.addTag(GEMS_HALITE)
 			.addTag(GEMS_JASPER)
 			.addTag(GEMS_ZIRCON);
+
+		tag(Tags.Items.SLIMEBALLS).add(IcariaItems.JELLYFISH_JELLY.get());
+
+		tag(Tags.Items.STRING).add(IcariaItems.ARACHNE_STRING.get());
+
+		tag(SPELT).add(IcariaItems.SPELT.get());
+		tag(GARLIC).add(IcariaItems.GARLIC.get());
+		tag(ONION).add(IcariaItems.ONION.get());
+
+		tag(Tags.Items.CROPS)
+			.addTag(SPELT)
+			.addTag(GARLIC)
+			.addTag(ONION);
 
 		tag(SMALL_DUST_CALCITE).add(IcariaItems.CALCITE_POWDER.get());
 		tag(SMALL_DUST_HALITE).add(IcariaItems.ROCK_SALT.get());

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    " Y "
+  ],
+  "key": {
+    "X": {
+      "item": "landsoficaria:populus_planks"
+    },
+    "Y": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "landsoficaria:populus_sign",
+    "count": 6
+  }
+}

@@ -122,6 +122,14 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		ladderRecipe(consumer, IcariaItems.PLANE_LADDER.get(), IcariaItems.PLANE_PLANKS.get());
 		ladderRecipe(consumer, IcariaItems.POPULUS_LADDER.get(), IcariaItems.POPULUS_PLANKS.get());
 
+		signRecipe(consumer, IcariaItems.CYPRESS_SIGN.get(), IcariaItems.CYPRESS_PLANKS.get());
+		signRecipe(consumer, IcariaItems.DROUGHTROOT_SIGN.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		signRecipe(consumer, IcariaItems.FIR_SIGN.get(), IcariaItems.FIR_PLANKS.get());
+		signRecipe(consumer, IcariaItems.LAUREL_SIGN.get(), IcariaItems.LAUREL_PLANKS.get());
+		signRecipe(consumer, IcariaItems.OLIVE_SIGN.get(), IcariaItems.OLIVE_PLANKS.get());
+		signRecipe(consumer, IcariaItems.PLANE_SIGN.get(), IcariaItems.PLANE_PLANKS.get());
+		signRecipe(consumer, IcariaItems.POPULUS_SIGN.get(), IcariaItems.POPULUS_PLANKS.get());
+
 		torchRecipe(consumer, IcariaItems.LIGNITE_TORCH.get(), IcariaItems.LIGNITE.get());
 		torchRecipe(consumer, IcariaItems.ANTHRACITE_TORCH.get(), IcariaItems.ANTHRACITE.get());
 
@@ -967,6 +975,17 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.define('X', planks)
 			.unlockedBy("has_block", has(planks))
 			.save(consumer, Objects.requireNonNull(ladder.getRegistryName()));
+	}
+
+	public void signRecipe(Consumer<FinishedRecipe> consumer, Item sign, Item planks) {
+		ShapedRecipeBuilder.shaped(sign, 6)
+			.pattern("XXX")
+			.pattern("XXX")
+			.pattern(" Y ")
+			.define('X', planks)
+			.define('Y', Items.STICK)
+			.unlockedBy("has_block", has(planks))
+			.save(consumer, Objects.requireNonNull(sign.getRegistryName()));
 	}
 
 	public void torchRecipe(Consumer<FinishedRecipe> consumer, Item torch, Item gem) {

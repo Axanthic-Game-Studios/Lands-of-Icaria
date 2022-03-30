@@ -87,6 +87,13 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropElse(IcariaBlocks.HALITE_CRYSTAL.get(), IcariaItems.HALITE.get());
 		dropElse(IcariaBlocks.JASPER_CRYSTAL.get(), IcariaItems.JASPER.get());
 		dropElse(IcariaBlocks.ZIRCON_CRYSTAL.get(), IcariaItems.ZIRCON.get());
+		dropElse(IcariaBlocks.CYPRESS_WALL_SIGN.get(), IcariaItems.CYPRESS_SIGN.get());
+		dropElse(IcariaBlocks.DROUGHTROOT_WALL_SIGN.get(), IcariaItems.DROUGHTROOT_SIGN.get());
+		dropElse(IcariaBlocks.FIR_WALL_SIGN.get(), IcariaItems.FIR_SIGN.get());
+		dropElse(IcariaBlocks.LAUREL_WALL_SIGN.get(), IcariaItems.LAUREL_SIGN.get());
+		dropElse(IcariaBlocks.OLIVE_WALL_SIGN.get(), IcariaItems.OLIVE_SIGN.get());
+		dropElse(IcariaBlocks.PLANE_WALL_SIGN.get(), IcariaItems.PLANE_SIGN.get());
+		dropElse(IcariaBlocks.POPULUS_WALL_SIGN.get(), IcariaItems.POPULUS_SIGN.get());
 		dropElse(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
 		dropElse(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
 		dropElse(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get(), Items.CANDLE);
@@ -137,6 +144,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get());
 		dropThis(IcariaBlocks.CYPRESS_TRAPDOOR.get());
 		dropThis(IcariaBlocks.CYPRESS_LADDER.get());
+		dropThis(IcariaBlocks.CYPRESS_SIGN.get());
 		dropThis(IcariaBlocks.DROUGHTROOT_SAPLING.get());
 		dropThis(IcariaBlocks.DROUGHTROOT_WOOD.get());
 		dropThis(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get());
@@ -146,6 +154,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get());
 		dropThis(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
 		dropThis(IcariaBlocks.DROUGHTROOT_LADDER.get());
+		dropThis(IcariaBlocks.DROUGHTROOT_SIGN.get());
 		dropThis(IcariaBlocks.FIR_SAPLING.get());
 		dropThis(IcariaBlocks.FIR_WOOD.get());
 		dropThis(IcariaBlocks.STRIPPED_FIR_WOOD.get());
@@ -155,6 +164,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get());
 		dropThis(IcariaBlocks.FIR_TRAPDOOR.get());
 		dropThis(IcariaBlocks.FIR_LADDER.get());
+		dropThis(IcariaBlocks.FIR_SIGN.get());
 		dropThis(IcariaBlocks.LAUREL_SAPLING.get());
 		dropThis(IcariaBlocks.LAUREL_WOOD.get());
 		dropThis(IcariaBlocks.STRIPPED_LAUREL_WOOD.get());
@@ -164,6 +174,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get());
 		dropThis(IcariaBlocks.LAUREL_TRAPDOOR.get());
 		dropThis(IcariaBlocks.LAUREL_LADDER.get());
+		dropThis(IcariaBlocks.LAUREL_SIGN.get());
 		dropThis(IcariaBlocks.OLIVE_SAPLING.get());
 		dropThis(IcariaBlocks.OLIVE_WOOD.get());
 		dropThis(IcariaBlocks.STRIPPED_OLIVE_WOOD.get());
@@ -173,6 +184,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get());
 		dropThis(IcariaBlocks.OLIVE_TRAPDOOR.get());
 		dropThis(IcariaBlocks.OLIVE_LADDER.get());
+		dropThis(IcariaBlocks.OLIVE_SIGN.get());
 		dropThis(IcariaBlocks.PLANE_SAPLING.get());
 		dropThis(IcariaBlocks.PLANE_WOOD.get());
 		dropThis(IcariaBlocks.STRIPPED_PLANE_WOOD.get());
@@ -182,6 +194,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get());
 		dropThis(IcariaBlocks.PLANE_TRAPDOOR.get());
 		dropThis(IcariaBlocks.PLANE_LADDER.get());
+		dropThis(IcariaBlocks.PLANE_SIGN.get());
 		dropThis(IcariaBlocks.POPULUS_SAPLING.get());
 		dropThis(IcariaBlocks.POPULUS_WOOD.get());
 		dropThis(IcariaBlocks.STRIPPED_POPULUS_WOOD.get());
@@ -191,6 +204,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get());
 		dropThis(IcariaBlocks.POPULUS_TRAPDOOR.get());
 		dropThis(IcariaBlocks.POPULUS_LADDER.get());
+		dropThis(IcariaBlocks.POPULUS_SIGN.get());
 		dropThis(IcariaBlocks.LIGNITE_TORCH.get());
 		dropThis(IcariaBlocks.ANTHRACITE_TORCH.get());
 		dropThis(IcariaBlocks.BLINDWEED.get());

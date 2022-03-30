@@ -7,6 +7,7 @@ import com.axanthic.icaria.common.registry.IcariaItems.ToolCombination;
 import com.axanthic.icaria.datagen.*;
 import com.axanthic.icaria.util.IcariaInfo;
 
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.data.DataGenerator;
@@ -56,12 +57,23 @@ public class Icaria {
 		event.enqueueWork(IcariaPottables::setup);
 		event.enqueueWork(IcariaStrippables::setup);
 		event.enqueueWork(IcariaTillables::setup);
+		event.enqueueWork(IcariaWoodType::setup);
 	}
 
 	public void onClientSetupEvent(FMLClientSetupEvent event) {
 		for (ToolCombination tools : IcariaItems.TOOLS) {
 			ItemProperties.register(tools.BIDENT.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (ClampedItemPropertyFunction) (stack, world, entity, id) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
 		}
+
+		event.enqueueWork(() -> {
+			Sheets.addWoodType(IcariaWoodType.CYPRESS);
+			Sheets.addWoodType(IcariaWoodType.DROUGHTROOT);
+			Sheets.addWoodType(IcariaWoodType.FIR);
+			Sheets.addWoodType(IcariaWoodType.LAUREL);
+			Sheets.addWoodType(IcariaWoodType.OLIVE);
+			Sheets.addWoodType(IcariaWoodType.PLANE);
+			Sheets.addWoodType(IcariaWoodType.POPULUS);
+		});
 	}
 
 	private void loadComplete(final FMLLoadCompleteEvent event) {

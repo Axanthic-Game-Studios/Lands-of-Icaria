@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "landsoficaria:cypress_wall_sign",
+    "landsoficaria:droughtroot_wall_sign",
+    "landsoficaria:fir_wall_sign",
+    "landsoficaria:laurel_wall_sign",
+    "landsoficaria:olive_wall_sign",
+    "landsoficaria:plane_wall_sign",
+    "landsoficaria:populus_wall_sign"
+  ]
+}
