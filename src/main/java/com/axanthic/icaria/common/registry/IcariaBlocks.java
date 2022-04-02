@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.util.IcariaInfo;
+import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.client.util.IcariaSounds;
 import com.axanthic.icaria.common.blocks.*;
 import com.axanthic.icaria.common.blocks.LayerBlock;
@@ -343,6 +343,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> POPULUS_SIGN = register("populus_sign", () -> new IcariaStandingSignBlock(propertiesSign(MaterialColor.COLOR_GRAY), IcariaWoodTypes.POPULUS));
 	public static final RegistryObject<Block> POPULUS_WALL_SIGN = register("populus_wall_sign", () -> new IcariaWallSignBlock(propertiesSign(MaterialColor.COLOR_GRAY), IcariaWoodTypes.POPULUS));
 
+	public static final RegistryObject<Block> DIM_TORCH = register("dim_torch", () -> new TorchBlock(propertiesTorch().lightLevel((pLightEmission) -> 8), ParticleTypes.SMOKE));
+	public static final RegistryObject<Block> DIM_WALL_TORCH = register("dim_wall_torch", () -> new WallTorchBlock(propertiesTorch().lightLevel((pLightEmission) -> 8), ParticleTypes.SMOKE));
 	public static final RegistryObject<Block> LIGNITE_TORCH = register("lignite_torch", () -> new TorchBlock(propertiesTorch().lightLevel((pLightEmission) -> 9), ParticleTypes.FLAME));
 	public static final RegistryObject<Block> LIGNITE_WALL_TORCH = register("lignite_wall_torch", () -> new WallTorchBlock(propertiesTorch().lightLevel((pLightEmission) -> 9), ParticleTypes.FLAME));
 	public static final RegistryObject<Block> ANTHRACITE_TORCH = register("anthracite_torch", () -> new TorchBlock(propertiesTorch().lightLevel((pLightEmission) -> 14), ParticleTypes.FLAME));

@@ -1,4 +1,4 @@
-package com.axanthic.icaria.util;
+package com.axanthic.icaria.common.util;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.tags.TagKey;

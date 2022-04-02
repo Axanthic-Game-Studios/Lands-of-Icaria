@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.util.IcariaInfo;
+import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.resources.ResourceLocation;

@@ -1,11 +1,11 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.items.*;
-import com.axanthic.icaria.util.IcariaInfo;
+import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.client.util.IcariaTabs;
 import com.axanthic.icaria.common.registry.IcariaBlocks.StoneDecoBlocks;
 import com.axanthic.icaria.common.registry.IcariaBlocks.WoodDecoBlocks;
-import com.axanthic.icaria.util.IcariaTier;
+import com.axanthic.icaria.common.util.IcariaTier;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.effect.MobEffect;
@@ -338,6 +338,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> POPULUS_LADDER = registerBasic("populus_ladder", () -> new FuelBlockItem(IcariaBlocks.POPULUS_LADDER.get(), propertiesFlora(), 300));
 	public static final RegistryObject<Item> POPULUS_SIGN = registerBasic("populus_sign", () -> new IcariaSignItem(propertiesFlora(), IcariaBlocks.POPULUS_SIGN.get(), IcariaBlocks.POPULUS_WALL_SIGN.get()));
 
+	public static final RegistryObject<Item> DIM_TORCH = registerBasic("dim_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.DIM_TORCH.get(), IcariaBlocks.DIM_WALL_TORCH.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> LIGNITE_TORCH = registerBasic("lignite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.LIGNITE_TORCH.get(), IcariaBlocks.LIGNITE_WALL_TORCH.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> ANTHRACITE_TORCH = registerBasic("anthracite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.ANTHRACITE_TORCH.get(), IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), propertiesBlocks()));
 

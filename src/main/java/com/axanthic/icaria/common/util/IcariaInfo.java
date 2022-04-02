@@ -1,4 +1,4 @@
-package com.axanthic.icaria.util;
+package com.axanthic.icaria.common.util;
 
 public class IcariaInfo {
 	public static final String MODID = "landsoficaria";

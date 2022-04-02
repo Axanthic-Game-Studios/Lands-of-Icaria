@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.blocks;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.datagen.IcariaItemTags;
+import com.axanthic.icaria.data.IcariaItemTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;

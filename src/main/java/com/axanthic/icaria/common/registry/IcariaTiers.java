@@ -1,9 +1,9 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.util.IcariaInfo;
-import com.axanthic.icaria.datagen.IcariaBlockTags;
-import com.axanthic.icaria.datagen.IcariaItemTags;
-import com.axanthic.icaria.util.IcariaTier;
+import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.data.IcariaBlockTags;
+import com.axanthic.icaria.data.IcariaItemTags;
+import com.axanthic.icaria.common.util.IcariaTier;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;

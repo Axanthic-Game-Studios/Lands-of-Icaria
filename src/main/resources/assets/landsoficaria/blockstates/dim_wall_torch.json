@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "landsoficaria:block/dim_wall_torch", "y": 270 },
+    "facing=east": { "model": "landsoficaria:block/dim_wall_torch", "y": 0 },
+    "facing=south": { "model": "landsoficaria:block/dim_wall_torch", "y": 90 },
+    "facing=west": { "model": "landsoficaria:block/dim_wall_torch", "y": 180 }
+  }
+}

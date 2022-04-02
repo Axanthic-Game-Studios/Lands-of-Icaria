@@ -41,7 +41,7 @@ public class GroundShroomBlock extends Block implements IPlantable {
 	public boolean mayPlaceOn(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		if (pState.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
 			return true;
-		} else if (pState.isSolidRender(pLevel, pPos)) {
+		} else if (Block.isFaceFull(pLevel.getBlockState(pPos.below()).getCollisionShape(pLevel, pPos.below()), Direction.UP)) {
 			return pLevel.getRawBrightness(pPos, 0) < 13 && pState.canSustainPlant(pLevel, pPos, Direction.UP, this);
 		}
 

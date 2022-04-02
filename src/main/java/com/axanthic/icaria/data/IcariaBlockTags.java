@@ -1,6 +1,6 @@
-package com.axanthic.icaria.datagen;
+package com.axanthic.icaria.data;
 
-import com.axanthic.icaria.util.IcariaInfo;
+import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaBlocks.StoneDecoBlocks;
 import com.axanthic.icaria.common.registry.IcariaBlocks.WoodDecoBlocks;
@@ -600,6 +600,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.POPULUS_WALL_SIGN.get());
 
 		tag(BlockTags.WALL_POST_OVERRIDE)
+			.add(IcariaBlocks.DIM_TORCH.get())
 			.add(IcariaBlocks.LIGNITE_TORCH.get())
 			.add(IcariaBlocks.ANTHRACITE_TORCH.get());
 

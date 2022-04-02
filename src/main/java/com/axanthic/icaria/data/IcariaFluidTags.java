@@ -1,7 +1,7 @@
-package com.axanthic.icaria.datagen;
+package com.axanthic.icaria.data;
 
 import com.axanthic.icaria.common.registry.IcariaFluids;
-import com.axanthic.icaria.util.IcariaInfo;
+import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.FluidTagsProvider;

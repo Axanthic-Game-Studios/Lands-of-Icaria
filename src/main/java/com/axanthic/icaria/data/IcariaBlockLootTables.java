@@ -1,6 +1,6 @@
-package com.axanthic.icaria.datagen;
+package com.axanthic.icaria.data;
 
-import com.axanthic.icaria.util.IcariaInfo;
+import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
@@ -94,6 +94,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropElse(IcariaBlocks.OLIVE_WALL_SIGN.get(), IcariaItems.OLIVE_SIGN.get());
 		dropElse(IcariaBlocks.PLANE_WALL_SIGN.get(), IcariaItems.PLANE_SIGN.get());
 		dropElse(IcariaBlocks.POPULUS_WALL_SIGN.get(), IcariaItems.POPULUS_SIGN.get());
+		dropElse(IcariaBlocks.DIM_WALL_TORCH.get(), IcariaItems.DIM_TORCH.get());
 		dropElse(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
 		dropElse(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
 		dropElse(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get(), Items.CANDLE);
@@ -212,6 +213,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.POPULUS_TRAPDOOR.get());
 		dropThis(IcariaBlocks.POPULUS_LADDER.get());
 		dropThis(IcariaBlocks.POPULUS_SIGN.get());
+		dropThis(IcariaBlocks.DIM_TORCH.get());
 		dropThis(IcariaBlocks.LIGNITE_TORCH.get());
 		dropThis(IcariaBlocks.ANTHRACITE_TORCH.get());
 		dropThis(IcariaBlocks.BLINDWEED.get());

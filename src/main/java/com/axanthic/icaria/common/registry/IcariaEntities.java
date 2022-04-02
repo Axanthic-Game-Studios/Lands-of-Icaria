@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.entities.CrystalBlockEntity;
 import com.axanthic.icaria.common.entities.IcariaSignBlockEntity;
-import com.axanthic.icaria.util.IcariaInfo;
+import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.entities.ThrownBidentEntity;
 
 import net.minecraft.world.entity.Entity;

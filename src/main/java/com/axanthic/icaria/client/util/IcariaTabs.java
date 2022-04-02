@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.util;
 
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.util.IcariaInfo;
+import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.CreativeModeTab;

@@ -8,6 +8,7 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntities;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
@@ -18,6 +19,8 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,7 +32,9 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void setup() {
-
+		for (IcariaItems.ToolCombination tools : IcariaItems.TOOLS) {
+			ItemProperties.register(tools.BIDENT.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (stack, world, entity, id) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
+		}
 	}
 
 	@Override
@@ -100,6 +105,8 @@ public class ClientProxy extends CommonProxy {
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POPULUS_DOOR.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POPULUS_TRAPDOOR.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POPULUS_LADDER.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.DIM_TORCH.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.DIM_WALL_TORCH.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.FERN.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_FERN.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SMALL_GRASS.get(), RenderType.cutout());
