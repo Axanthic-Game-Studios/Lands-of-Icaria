@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "landsoficaria:cyan_unfired_storage_vase"
+  },
+  "result": "landsoficaria:cyan_storage_vase",
+  "experience": 0.3,
+  "cookingtime": 200
+}

@@ -44,12 +44,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 @OnlyIn(Dist.CLIENT)
-public class IcariaSignRenderer extends SignRenderer {
+public class IcariaSignBlockRenderer extends SignRenderer {
 	public final Font font;
 	public final Map<WoodType, SignModel> signModels;
 	public static final int OUTLINE_RENDER_DISTANCE = Mth.square(16);
 
-	public IcariaSignRenderer(Context pContext) {
+	public IcariaSignBlockRenderer(Context pContext) {
 		super(pContext);
 		this.font = pContext.getFont();
 		this.signModels = WoodType.values().collect(ImmutableMap.toImmutableMap((pWoodType) -> pWoodType, (pWoodType) -> new SignModel(pContext.bakeLayer(ModelLayers.createSignModelName(pWoodType)))));

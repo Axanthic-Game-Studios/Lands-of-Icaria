@@ -205,5 +205,7 @@
 
   "itemGroup.landsoficaria.blocks": "Lands of Icaria Blocks",
   "itemGroup.landsoficaria.flora": "Lands of Icaria Flora",
-  "itemGroup.landsoficaria.items": "Lands of Icaria Items"
+  "itemGroup.landsoficaria.items": "Lands of Icaria Items",
+
+  "menu.landsoficaria.storage.vase": "Storage Vase"
 }

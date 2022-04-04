@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:orange_dye"
+    },
+    {
+      "item": "landsoficaria:unfired_storage_vase"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:orange_unfired_storage_vase"
+  }
+}

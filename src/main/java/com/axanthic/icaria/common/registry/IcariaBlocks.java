@@ -201,6 +201,24 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MOLYBDENUM_BLOCK = registerBasic("molybdenum_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_GRAY)));
 	public static final RegistryObject<Block> MOLYBDENUMSTEEL_BLOCK = registerBasic("molybdenumsteel_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_GRAY)));
 
+	public static final RegistryObject<Block> STORAGE_VASE = register("storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.TERRACOTTA_PINK)));
+	public static final RegistryObject<Block> WHITE_STORAGE_VASE = register("white_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.SNOW)));
+	public static final RegistryObject<Block> ORANGE_STORAGE_VASE = register("orange_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_ORANGE)));
+	public static final RegistryObject<Block> MAGENTA_STORAGE_VASE = register("magenta_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_MAGENTA)));
+	public static final RegistryObject<Block> LIGHT_BLUE_STORAGE_VASE = register("light_blue_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_LIGHT_BLUE)));
+	public static final RegistryObject<Block> YELLOW_STORAGE_VASE = register("yellow_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_YELLOW)));
+	public static final RegistryObject<Block> LIME_STORAGE_VASE = register("lime_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_LIGHT_GREEN)));
+	public static final RegistryObject<Block> PINK_STORAGE_VASE = register("pink_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_PINK)));
+	public static final RegistryObject<Block> GRAY_STORAGE_VASE = register("gray_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_GRAY)));
+	public static final RegistryObject<Block> LIGHT_GRAY_STORAGE_VASE = register("light_gray_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_LIGHT_GRAY)));
+	public static final RegistryObject<Block> CYAN_STORAGE_VASE = register("cyan_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_CYAN)));
+	public static final RegistryObject<Block> PURPLE_STORAGE_VASE = register("purple_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_PURPLE)));
+	public static final RegistryObject<Block> BLUE_STORAGE_VASE = register("blue_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_BLUE)));
+	public static final RegistryObject<Block> BROWN_STORAGE_VASE = register("brown_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_BROWN)));
+	public static final RegistryObject<Block> GREEN_STORAGE_VASE = register("green_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_GREEN)));
+	public static final RegistryObject<Block> RED_STORAGE_VASE = register("red_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_RED)));
+	public static final RegistryObject<Block> BLACK_STORAGE_VASE = register("black_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_BLACK)));
+
 	public static final RegistryObject<Block> CYPRESS_SAPLING = register("cypress_sapling", () -> new SaplingBlock(new OakTreeGrower(), propertiesSapling()));
 	public static final RegistryObject<Block> POTTED_CYPRESS_SAPLING = register("potted_cypress_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CYPRESS_SAPLING, propertiesPot()));
 	public static final RegistryObject<Block> CYPRESS_LEAVES = register("cypress_leaves", () -> new LeavesBlock(propertiesLeaves()));
@@ -541,6 +559,10 @@ public class IcariaBlocks {
 
 	private static Properties propertiesMetalStorageBlock(MaterialColor pMaterialColor) {
 		return Properties.of(Material.METAL, pMaterialColor).sound(SoundType.METAL).strength(5.0F, 6.0F).requiresCorrectToolForDrops();
+	}
+
+	private static Properties propertiesStorageVase(MaterialColor pMaterialColor) {
+		return Properties.of(Material.STONE, pMaterialColor).sound(IcariaSounds.CERAMIC).strength(1.3F, 1.3F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	private static Properties propertiesSapling() {

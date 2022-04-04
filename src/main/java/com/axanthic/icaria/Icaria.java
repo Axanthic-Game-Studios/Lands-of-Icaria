@@ -1,5 +1,6 @@
 package com.axanthic.icaria;
 
+import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.client.proxy.ClientProxy;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.proxy.CommonProxy;
@@ -7,6 +8,7 @@ import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
@@ -48,16 +50,18 @@ public class Icaria {
 		IcariaConfig.register();
 
 		IcariaBlocks.BLOCKS.register(bus);
+		IcariaBlockEntities.BLOCK_ENTITIES.register(bus);
+		IcariaContainers.CONTAINERS.register(bus);
 		IcariaFluids.FLUIDS.register(bus);
 		IcariaItems.ITEMS.register(bus);
 		IcariaEntities.ENTITIES.register(bus);
-		IcariaEntities.BLOCK_ENTITIES.register(bus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	public void onClientSetupEvent(FMLClientSetupEvent event) {
 		proxy.setup();
+		event.enqueueWork(() -> MenuScreens.register(IcariaContainers.STORAGE_VASE.get(), StorageVaseScreen::new));
 		event.enqueueWork(() -> {
 			Sheets.addWoodType(IcariaWoodTypes.CYPRESS);
 			Sheets.addWoodType(IcariaWoodTypes.DROUGHTROOT);

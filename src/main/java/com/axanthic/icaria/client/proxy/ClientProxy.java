@@ -1,13 +1,10 @@
 package com.axanthic.icaria.client.proxy;
 
 import com.axanthic.icaria.client.render.CrystalBlockRenderer;
-import com.axanthic.icaria.client.render.IcariaSignRenderer;
+import com.axanthic.icaria.client.render.IcariaSignBlockRenderer;
 import com.axanthic.icaria.client.render.ThrownBidentRenderer;
 import com.axanthic.icaria.common.proxy.CommonProxy;
-import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaEntities;
-import com.axanthic.icaria.common.registry.IcariaFluids;
-import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.client.Minecraft;
@@ -179,7 +176,7 @@ public class ClientProxy extends CommonProxy {
 
 		EntityRenderers.register(IcariaEntities.BIDENT.get(), ThrownBidentRenderer::new);
 
-		BlockEntityRenderers.register(IcariaEntities.CRYSTAL.get(), CrystalBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaEntities.SIGN.get(), IcariaSignRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntities.CRYSTAL.get(), CrystalBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntities.SIGN.get(), IcariaSignBlockRenderer::new);
 	}
 }

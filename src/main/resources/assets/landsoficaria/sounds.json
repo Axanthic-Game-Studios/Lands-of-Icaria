@@ -1,0 +1,10 @@
+{
+  "block.ceramic.break": {
+    "sounds": [
+      "landsoficaria:block/ceramic/break1",
+      "landsoficaria:block/ceramic/break2",
+      "landsoficaria:block/ceramic/break3",
+      "landsoficaria:block/ceramic/break4"
+    ]
+  }
+}

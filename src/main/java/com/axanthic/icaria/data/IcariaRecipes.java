@@ -36,6 +36,23 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 	@Override
 	public void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 		smeltingRecipe(consumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BRICK.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.UNFIRED_STORAGE_VASE.get(), IcariaItems.STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get(), IcariaItems.WHITE_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get(), IcariaItems.ORANGE_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get(), IcariaItems.MAGENTA_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.LIGHT_BLUE_UNFIRED_STORAGE_VASE.get(), IcariaItems.LIGHT_BLUE_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.YELLOW_UNFIRED_STORAGE_VASE.get(), IcariaItems.YELLOW_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.LIME_UNFIRED_STORAGE_VASE.get(), IcariaItems.LIME_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.PINK_UNFIRED_STORAGE_VASE.get(), IcariaItems.PINK_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get(), IcariaItems.GRAY_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get(), IcariaItems.LIGHT_GRAY_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.CYAN_UNFIRED_STORAGE_VASE.get(), IcariaItems.CYAN_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get(), IcariaItems.PURPLE_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.BLUE_UNFIRED_STORAGE_VASE.get(), IcariaItems.BLUE_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.BROWN_UNFIRED_STORAGE_VASE.get(), IcariaItems.BROWN_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.GREEN_UNFIRED_STORAGE_VASE.get(), IcariaItems.GREEN_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.RED_UNFIRED_STORAGE_VASE.get(), IcariaItems.RED_STORAGE_VASE.get(), 0.3F, 200);
+		smeltingRecipe(consumer, IcariaItems.BLACK_UNFIRED_STORAGE_VASE.get(), IcariaItems.BLACK_STORAGE_VASE.get(), 0.3F, 200);
 		smeltingRecipe(consumer, IcariaItems.SPELT_FLOUR.get(), IcariaItems.SPELT_BREAD.get(), 0.3F, 200);
 		smeltingRecipe(consumer, IcariaItems.LOAM_BOWL_UNFIRED.get(), IcariaItems.LOAM_BOWL.get(), 0.3F, 200);
 
@@ -88,6 +105,23 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		largeCompressDecompressRecipes(consumer, IcariaItems.LIGNITE_BLOCK.get(), IcariaItems.LIGNITE.get());
 		largeCompressDecompressRecipes(consumer, IcariaItems.SLIVER_BLOCK.get(), IcariaItems.SLIVER.get());
 		largeCompressDecompressRecipes(consumer, IcariaItems.ANTHRACITE_BLOCK.get(), IcariaItems.ANTHRACITE.get());
+
+		vaseRecipe(consumer, Items.WHITE_DYE, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.ORANGE_DYE, IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.MAGENTA_DYE, IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.LIGHT_BLUE_DYE, IcariaItems.LIGHT_BLUE_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.YELLOW_DYE, IcariaItems.YELLOW_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.LIME_DYE, IcariaItems.LIME_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.PINK_DYE, IcariaItems.PINK_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.GRAY_DYE, IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.LIGHT_GRAY_DYE, IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.CYAN_DYE, IcariaItems.CYAN_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.BLUE_DYE, IcariaItems.BLUE_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.BROWN_DYE, IcariaItems.BROWN_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.GREEN_DYE, IcariaItems.GREEN_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.RED_DYE, IcariaItems.RED_UNFIRED_STORAGE_VASE.get());
+		vaseRecipe(consumer, Items.BLACK_DYE, IcariaItems.BLACK_UNFIRED_STORAGE_VASE.get());
 
 		woodRecipes(consumer, IcariaItems.CYPRESS_WOOD.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get());
 		woodRecipes(consumer, IcariaItems.DROUGHTROOT_WOOD.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get());
@@ -521,6 +555,14 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_block", has(IcariaItems.ARISTONE.get()))
 			.save(consumer, IcariaItems.ARISTONE_PACKED.getId());
 
+		ShapedRecipeBuilder.shaped(IcariaItems.UNFIRED_STORAGE_VASE.get())
+			.pattern("XXX")
+			.pattern("X X")
+			.pattern("XXX")
+			.define('X', IcariaItems.LOAM_LUMP.get())
+			.unlockedBy("has_item", has(IcariaItems.LOAM_LUMP.get()))
+			.save(consumer, IcariaItems.UNFIRED_STORAGE_VASE.getId());
+
 		ShapedRecipeBuilder.shaped(IcariaItems.SPELT_BREAD.get())
 			.pattern("XXX")
 			.define('X', IcariaItems.SPELT.get())
@@ -907,6 +949,14 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.requires(compressed)
 			.unlockedBy("has_compressed", has(compressed))
 			.save(consumer, appendResource(Objects.requireNonNull(compressed.getRegistryName()), "_decompress"));
+	}
+
+	public void vaseRecipe(Consumer<FinishedRecipe> consumer, Item dye, Item vase) {
+		ShapelessRecipeBuilder.shapeless(vase, 1)
+			.requires(dye)
+			.requires(IcariaItems.UNFIRED_STORAGE_VASE.get())
+			.unlockedBy("has_vase", has(IcariaItems.UNFIRED_STORAGE_VASE.get()))
+			.save(consumer, Objects.requireNonNull(vase.getRegistryName()));
 	}
 
 	public void woodRecipes(Consumer<FinishedRecipe> consumer, Item wood, Item strippedWood, Item log, Item strippedLog) {

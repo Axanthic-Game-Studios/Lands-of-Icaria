@@ -210,6 +210,24 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MOLYBDENUM_BLOCK = register("molybdenum_block", () -> new BlockItem(IcariaBlocks.MOLYBDENUM_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> MOLYBDENUMSTEEL_BLOCK = register("molybdenumsteel_block", () -> new BlockItem(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get(), propertiesBlocks()));
 
+	public static final RegistryObject<Item> STORAGE_VASE = register("storage_vase", () -> new BlockItem(IcariaBlocks.STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> WHITE_STORAGE_VASE = register("white_storage_vase", () -> new BlockItem(IcariaBlocks.WHITE_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> ORANGE_STORAGE_VASE = register("orange_storage_vase", () -> new BlockItem(IcariaBlocks.ORANGE_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> MAGENTA_STORAGE_VASE = register("magenta_storage_vase", () -> new BlockItem(IcariaBlocks.MAGENTA_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> LIGHT_BLUE_STORAGE_VASE = register("light_blue_storage_vase", () -> new BlockItem(IcariaBlocks.LIGHT_BLUE_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> YELLOW_STORAGE_VASE = register("yellow_storage_vase", () -> new BlockItem(IcariaBlocks.YELLOW_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> LIME_STORAGE_VASE = register("lime_storage_vase", () -> new BlockItem(IcariaBlocks.LIME_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> PINK_STORAGE_VASE = register("pink_storage_vase", () -> new BlockItem(IcariaBlocks.PINK_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> GRAY_STORAGE_VASE = register("gray_storage_vase", () -> new BlockItem(IcariaBlocks.GRAY_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> LIGHT_GRAY_STORAGE_VASE = register("light_gray_storage_vase", () -> new BlockItem(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> CYAN_STORAGE_VASE = register("cyan_storage_vase", () -> new BlockItem(IcariaBlocks.CYAN_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> PURPLE_STORAGE_VASE = register("purple_storage_vase", () -> new BlockItem(IcariaBlocks.PURPLE_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> BLUE_STORAGE_VASE = register("blue_storage_vase", () -> new BlockItem(IcariaBlocks.BLUE_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> BROWN_STORAGE_VASE = register("brown_storage_vase", () -> new BlockItem(IcariaBlocks.BROWN_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> GREEN_STORAGE_VASE = register("green_storage_vase", () -> new BlockItem(IcariaBlocks.GREEN_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> RED_STORAGE_VASE = register("red_storage_vase", () -> new BlockItem(IcariaBlocks.RED_STORAGE_VASE.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> BLACK_STORAGE_VASE = register("black_storage_vase", () -> new BlockItem(IcariaBlocks.BLACK_STORAGE_VASE.get(), propertiesBlocks()));
+
 	public static final RegistryObject<Item> CYPRESS_SAPLING = register("cypress_sapling", () -> new BlockItem(IcariaBlocks.CYPRESS_SAPLING.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CYPRESS_LEAVES = register("cypress_leaves", () -> new BlockItem(IcariaBlocks.CYPRESS_LEAVES.get(), propertiesFlora()));
 	public static final RegistryObject<Item> FALLEN_CYPRESS_LEAVES = register("fallen_cypress_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), propertiesFlora()));
@@ -462,6 +480,24 @@ public class IcariaItems {
 	public static final ToolCombination VANADIUMSTEEL_TOOLS = new ToolCombination(IcariaTiers.VANADIUMSTEEL);
 	public static final ToolCombination SIDEROS_TOOLS = new ToolCombination(IcariaTiers.SIDEROS);
 	public static final ToolCombination MOLYBDENUMSTEEL_TOOLS = new ToolCombination(IcariaTiers.MOLYBDENUMSTEEL);
+
+	public static final RegistryObject<Item> UNFIRED_STORAGE_VASE = registerBasic("unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> WHITE_UNFIRED_STORAGE_VASE = registerBasic("white_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> ORANGE_UNFIRED_STORAGE_VASE = registerBasic("orange_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> MAGENTA_UNFIRED_STORAGE_VASE = registerBasic("magenta_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> LIGHT_BLUE_UNFIRED_STORAGE_VASE = registerBasic("light_blue_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> YELLOW_UNFIRED_STORAGE_VASE = registerBasic("yellow_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> LIME_UNFIRED_STORAGE_VASE = registerBasic("lime_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> PINK_UNFIRED_STORAGE_VASE = registerBasic("pink_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> GRAY_UNFIRED_STORAGE_VASE = registerBasic("gray_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> LIGHT_GRAY_UNFIRED_STORAGE_VASE = registerBasic("light_gray_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> CYAN_UNFIRED_STORAGE_VASE = registerBasic("cyan_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> PURPLE_UNFIRED_STORAGE_VASE = registerBasic("purple_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> BLUE_UNFIRED_STORAGE_VASE = registerBasic("blue_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> BROWN_UNFIRED_STORAGE_VASE = registerBasic("brown_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> GREEN_UNFIRED_STORAGE_VASE = registerBasic("green_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> RED_UNFIRED_STORAGE_VASE = registerBasic("red_unfired_storage_vase", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> BLACK_UNFIRED_STORAGE_VASE = registerBasic("black_unfired_storage_vase", () -> new Item(propertiesItems()));
 
 	public static final RegistryObject<Item> FLASK_EMPTY = registerBasic("flask_empty", () -> new Item(propertiesItems()));
 

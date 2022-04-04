@@ -487,7 +487,23 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.SIDEROS_BLOCK.get())
 			.add(IcariaBlocks.ANTHRACITE_BLOCK.get())
 			.add(IcariaBlocks.MOLYBDENUM_BLOCK.get())
-			.add(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get());
+			.add(IcariaBlocks.STORAGE_VASE.get())
+			.add(IcariaBlocks.WHITE_STORAGE_VASE.get())
+			.add(IcariaBlocks.ORANGE_STORAGE_VASE.get())
+			.add(IcariaBlocks.MAGENTA_STORAGE_VASE.get())
+			.add(IcariaBlocks.LIGHT_BLUE_STORAGE_VASE.get())
+			.add(IcariaBlocks.YELLOW_STORAGE_VASE.get())
+			.add(IcariaBlocks.LIME_STORAGE_VASE.get())
+			.add(IcariaBlocks.PINK_STORAGE_VASE.get())
+			.add(IcariaBlocks.GRAY_STORAGE_VASE.get())
+			.add(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get())
+			.add(IcariaBlocks.CYAN_STORAGE_VASE.get())
+			.add(IcariaBlocks.PURPLE_STORAGE_VASE.get())
+			.add(IcariaBlocks.BLUE_STORAGE_VASE.get())
+			.add(IcariaBlocks.BROWN_STORAGE_VASE.get())
+			.add(IcariaBlocks.GREEN_STORAGE_VASE.get())
+			.add(IcariaBlocks.RED_STORAGE_VASE.get())
+			.add(IcariaBlocks.BLACK_STORAGE_VASE.get());
 
 		addStoneDecoToTag(IcariaBlocks.MARL_ADOBE_DECO, BlockTags.MINEABLE_WITH_PICKAXE);
 		addStoneDecoToTag(IcariaBlocks.LOAM_BRICKS_DECO, BlockTags.MINEABLE_WITH_PICKAXE);

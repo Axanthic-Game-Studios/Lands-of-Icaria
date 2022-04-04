@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "landsoficaria:magenta_unfired_storage_vase"
+    ]
+  },
+  "criteria": {
+    "has_vase": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:unfired_storage_vase"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "landsoficaria:magenta_unfired_storage_vase"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_vase",
+      "has_the_recipe"
+    ]
+  ]
+}

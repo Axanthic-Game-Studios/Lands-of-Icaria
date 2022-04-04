@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:light_blue_dye"
+    },
+    {
+      "item": "landsoficaria:unfired_storage_vase"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:light_blue_unfired_storage_vase"
+  }
+}

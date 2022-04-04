@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.entities;
 
-import com.axanthic.icaria.common.registry.IcariaEntities;
+import com.axanthic.icaria.common.registry.IcariaBlockEntities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -19,7 +19,7 @@ public class CrystalBlockEntity extends BlockEntity {
 	public int b;
 
 	public CrystalBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
-		super(IcariaEntities.CRYSTAL.get(), pWorldPosition, pBlockState);
+		super(IcariaBlockEntities.CRYSTAL.get(), pWorldPosition, pBlockState);
 	}
 
 	public CrystalBlockEntity(BlockPos pWorldPosition, BlockState pBlockState, double x, double y, double z, int r, int g, int b) {
