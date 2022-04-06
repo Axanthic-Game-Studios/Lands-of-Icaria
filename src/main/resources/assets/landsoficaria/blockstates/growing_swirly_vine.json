@@ -1,0 +1,44 @@
+{
+  "multipart": [
+    {
+      "when": { "north": "true" },
+      "apply": { "model": "landsoficaria:block/growing_swirly_vine" }
+    },
+    {
+      "when": { "up": "false", "north": "false", "west": "false", "south": "false", "east": "false" },
+      "apply": { "model": "landsoficaria:block/growing_swirly_vine"}
+    },
+    {
+      "when": { "east": "true" },
+      "apply": { "model": "landsoficaria:block/growing_swirly_vine", "y": 90, "uvlock": true }
+    },
+    {
+      "when": { "up": "false", "north": "false", "west": "false", "south": "false", "east": "false" },
+      "apply": { "model": "landsoficaria:block/growing_swirly_vine", "y": 90, "uvlock": true }
+    },
+    {
+      "when": { "south": "true" },
+      "apply": { "model": "landsoficaria:block/growing_swirly_vine", "y": 180, "uvlock": true }
+    },
+    {
+      "when": { "up": "false", "north": "false", "west": "false", "south": "false", "east": "false" },
+      "apply": { "model": "landsoficaria:block/growing_swirly_vine", "y": 180, "uvlock": true }
+    },
+    {
+      "when": { "west": "true" },
+      "apply": { "model": "landsoficaria:block/growing_swirly_vine", "y": 270, "uvlock": true }
+    },
+    {
+      "when": { "up": "false", "north": "false", "west": "false", "south": "false", "east": "false" },
+      "apply": { "model": "landsoficaria:block/growing_swirly_vine", "y": 270, "uvlock": true }
+    },
+    {
+      "when": { "up": "true" },
+      "apply": { "model": "landsoficaria:block/growing_swirly_vine", "x": 270, "uvlock": true }
+    },
+    {
+      "when": { "up": "false", "north": "false", "west": "false", "south": "false", "east": "false"},
+      "apply": { "model": "landsoficaria:block/growing_swirly_vine", "x": 270, "uvlock": true }
+    }
+  ]
+}

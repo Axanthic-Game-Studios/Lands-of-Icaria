@@ -325,6 +325,18 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropDoor(IcariaBlocks.PLANE_DOOR.get());
 		dropDoor(IcariaBlocks.POPULUS_DOOR.get());
 
+		dropVine(IcariaBlocks.RIPE_BLOOMY_VINE.get(), IcariaItems.BLOOMY_VINE.get());
+		dropVine(IcariaBlocks.BLOOMING_BLOOMY_VINE.get(), IcariaItems.BLOOMY_VINE.get());
+		dropVine(IcariaBlocks.BLOOMY_VINE.get(), IcariaItems.BLOOMY_VINE.get());
+		dropVine(IcariaBlocks.BRANCHY_VINE.get(), IcariaItems.BRANCHY_VINE.get());
+		dropVine(IcariaBlocks.RIPE_BRUSHY_VINE.get(), IcariaItems.BRUSHY_VINE.get());
+		dropVine(IcariaBlocks.BRUSHY_VINE.get(), IcariaItems.BRUSHY_VINE.get());
+		dropVine(IcariaBlocks.DRY_VINE.get(), IcariaItems.DRY_VINE.get());
+		dropVine(IcariaBlocks.SWIRLY_VINE.get(), IcariaItems.SWIRLY_VINE.get());
+		dropVine(IcariaBlocks.THORNY_VINE.get(), IcariaItems.THORNY_VINE.get());
+
+		dropVineReed(IcariaBlocks.REEDY_VINE.get(), IcariaItems.VINE_REED.get());
+
 		dropSeed(IcariaBlocks.FERN.get());
 		dropSeed(IcariaBlocks.SMALL_GRASS.get());
 		dropSeed(IcariaBlocks.MEDIUM_GRASS.get());
@@ -346,6 +358,20 @@ public class IcariaBlockLootTables extends BlockLoot {
 
 		dropBush(IcariaBlocks.STRAWBERRY_BUSH.get(), IcariaItems.STRAWBERRIES.get(), 2.0F, 5.0F);
 
+		dropNone(IcariaBlocks.DEAD_BLOOMY_VINE.get());
+		dropNone(IcariaBlocks.GROWING_BLOOMY_VINE.get());
+		dropNone(IcariaBlocks.DEAD_BRANCHY_VINE.get());
+		dropNone(IcariaBlocks.GROWING_BRANCHY_VINE.get());
+		dropNone(IcariaBlocks.DEAD_BRUSHY_VINE.get());
+		dropNone(IcariaBlocks.GROWING_BRUSHY_VINE.get());
+		dropNone(IcariaBlocks.DEAD_DRY_VINE.get());
+		dropNone(IcariaBlocks.GROWING_DRY_VINE.get());
+		dropNone(IcariaBlocks.DEAD_REEDY_VINE.get());
+		dropNone(IcariaBlocks.GROWING_REEDY_VINE.get());
+		dropNone(IcariaBlocks.DEAD_SWIRLY_VINE.get());
+		dropNone(IcariaBlocks.GROWING_SWIRLY_VINE.get());
+		dropNone(IcariaBlocks.DEAD_THORNY_VINE.get());
+		dropNone(IcariaBlocks.GROWING_THORNY_VINE.get());
 		dropNone(IcariaBlocks.STRAWBERRY_CAKE.get());
 
 		dropCrop(IcariaBlocks.SPELT_CROP.get(), IcariaItems.SPELT.get(), IcariaItems.SPELT_SEEDS.get());
@@ -434,6 +460,14 @@ public class IcariaBlockLootTables extends BlockLoot {
 		add(pBlock, createSinglePropConditionTable(pBlock, DoorBlock.HALF, DoubleBlockHalf.LOWER));
 	}
 
+	public void dropVine(Block pBlock, Item pItem) {
+		add(pBlock, createVineDrop(pItem));
+	}
+
+	public void dropVineReed(Block pBlock, Item pItem) {
+		add(pBlock, createSilkTouchOrShearsDispatchTable(pBlock, applyExplosionDecay(pBlock, LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
+	}
+
 	public void dropSeed(Block pBlock) {
 		add(pBlock, createSeedDrop(pBlock));
 	}
@@ -460,6 +494,10 @@ public class IcariaBlockLootTables extends BlockLoot {
 
 	public static LootTable.Builder createLaurelLeavesDrop(Block pLeavesBlock, Block pSaplingBlock, float... pChances) {
 		return createLeavesDrops(pLeavesBlock, pSaplingBlock, pChances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(applyExplosionCondition(pLeavesBlock, LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get())).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
+	}
+
+	public static LootTable.Builder createVineDrop(Item pItem) {
+		return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_SHEARS).add(LootItem.lootTableItem(pItem)));
 	}
 
 	public static LootTable.Builder createSeedDrop(Block pBlock) {

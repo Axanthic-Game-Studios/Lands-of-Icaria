@@ -10,11 +10,14 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 
+@OnlyIn(Dist.CLIENT)
 public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> {
 	public ResourceLocation SCREEN = new ResourceLocation(IcariaInfo.MODID, "textures/screens/storage_vase.png");
 	public int imageHeight = 222;

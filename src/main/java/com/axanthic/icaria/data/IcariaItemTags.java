@@ -15,6 +15,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -68,6 +69,8 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final TagKey<Item> INGOTS_SIDEROS = forgeTag("ingots/sideros");
 	public static final TagKey<Item> INGOTS_MOLYBDENUM = forgeTag("ingots/molybdenum");
 	public static final TagKey<Item> INGOTS_MOLYBDENUMSTEEL = forgeTag("ingots/molybdenumsteel");
+
+	public static final TagKey<Item> VINES = forgeTag("vines");
 
 	public static final TagKey<Item> LEATHER_AETERNAE_HIDE = forgeTag("leather/aeternae_hide");
 
@@ -303,6 +306,16 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.addTag(INGOTS_SIDEROS)
 			.addTag(INGOTS_MOLYBDENUM)
 			.addTag(INGOTS_MOLYBDENUMSTEEL);
+
+		tag(VINES)
+			.add(Items.VINE)
+			.add(IcariaItems.BLOOMY_VINE.get())
+			.add(IcariaItems.BRANCHY_VINE.get())
+			.add(IcariaItems.BRUSHY_VINE.get())
+			.add(IcariaItems.DRY_VINE.get())
+			.add(IcariaItems.REEDY_VINE.get())
+			.add(IcariaItems.SWIRLY_VINE.get())
+			.add(IcariaItems.THORNY_VINE.get());
 
 		tag(ItemTags.SMALL_FLOWERS)
 			.add(IcariaItems.BLINDWEED.get())

@@ -420,7 +420,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 
 		ShapelessRecipeBuilder.shapeless(IcariaItems.RELICSTONE_BRICKS_MOSSY.get())
 			.requires(IcariaItems.RELICSTONE_BRICKS.get())
-			.requires(Items.VINE)
+			.requires(IcariaItemTags.bind("forge:vines"))
 			.unlockedBy("has_block", has(IcariaItems.RELICSTONE_BRICKS.get()))
 			.save(consumer, IcariaItems.RELICSTONE_BRICKS_MOSSY.getId() + "_from_vine");
 
@@ -439,7 +439,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 
 		ShapelessRecipeBuilder.shapeless(IcariaItems.RELICSTONE_TILES_MOSSY.get())
 			.requires(IcariaItems.RELICSTONE_TILES.get())
-			.requires(Items.VINE)
+			.requires(IcariaItemTags.bind("forge:vines"))
 			.unlockedBy("has_block", has(IcariaItems.RELICSTONE_TILES.get()))
 			.save(consumer, IcariaItems.RELICSTONE_TILES_MOSSY.getId() + "_from_vine");
 
@@ -636,6 +636,12 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_string", has(IcariaItems.ARACHNE_STRING.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(Items.CANDLE.getRegistryName()), "_from_arachne"));
 
+		ShapelessRecipeBuilder.shapeless(Items.MOSSY_COBBLESTONE)
+			.requires(Items.COBBLESTONE)
+			.requires(IcariaItemTags.bind("forge:vines"))
+			.unlockedBy("has_vine", has(IcariaItemTags.bind("forge:vines")))
+			.save(consumer, Objects.requireNonNull(Items.MOSSY_COBBLESTONE.getRegistryName()));
+
 		ShapedRecipeBuilder.shaped(Items.COMPARATOR)
 			.pattern(" X ")
 			.pattern("XYX")
@@ -800,6 +806,12 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.define('Y', Items.PISTON)
 			.unlockedBy("has_jelly", has(IcariaItems.JELLYFISH_JELLY.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(Items.STICKY_PISTON.getRegistryName()), "_from_jelly"));
+
+		ShapelessRecipeBuilder.shapeless(Items.MOSSY_STONE_BRICKS)
+			.requires(Items.STONE_BRICKS)
+			.requires(IcariaItemTags.bind("forge:vines"))
+			.unlockedBy("has_vine", has(IcariaItemTags.bind("forge:vines")))
+			.save(consumer, Objects.requireNonNull(Items.MOSSY_STONE_BRICKS.getRegistryName()));
 
 		ShapedRecipeBuilder.shaped(Items.STONECUTTER)
 			.pattern(" X ")
