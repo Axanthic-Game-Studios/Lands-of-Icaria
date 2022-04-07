@@ -1,0 +1,34 @@
+{
+  "ambientocclusion": false,
+  "parent": "block/block",
+  "textures": {
+    "side": "landsoficaria:block/cardon_cactus_side",
+    "bottom": "landsoficaria:block/cardon_cactus_bottom"
+  },
+  "display": {
+    "gui": {
+      "rotation": [ 30, 135, 0 ],
+      "translation": [ 0, 0, 0 ],
+      "scale": [ 0.625, 0.625, 0.625 ]
+    },
+    "fixed": {
+      "rotation": [ 0, 90, 0 ],
+      "translation": [ 0, 0, 0 ],
+      "scale": [ 0.5, 0.5, 0.5 ]
+    }
+  },
+  "elements": [
+    {
+      "from": [ 4, 0, 4 ],
+      "to": [ 12, 12, 12 ],
+      "faces": {
+        "north": { "uv": [ 4, 4, 12, 16 ], "texture": "#side" },
+        "east": { "uv": [ 4, 4, 12, 16 ], "texture": "#side" },
+        "south": { "uv": [ 4, 4, 12, 16 ], "texture": "#side" },
+        "west": { "uv": [ 4, 4, 12, 16 ], "texture": "#side" },
+        "up": { "uv": [ 4, 4, 12, 12 ], "texture": "#side" },
+        "down": { "uv": [ 4, 4, 12, 12 ], "texture": "#bottom" }
+      }
+    }
+  ]
+}

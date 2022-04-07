@@ -482,6 +482,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> TURKEY_TAIL_TREE_SHROOMS = register("turkey_tail_tree_shrooms", () -> new TreeShroomBlock(propertiesPlant(MaterialColor.NONE)));
 	public static final RegistryObject<Block> UNNAMED_TREE_SHROOMS = register("unnamed_tree_shrooms", () -> new TreeShroomBlock(propertiesPlant(MaterialColor.NONE)));
 
+	public static final RegistryObject<Block> CARDON_CACTUS = register("cardon_cactus", () -> new CardonCactusBlock(propertiesCactus(MaterialColor.PLANT)));
+
 	public static final RegistryObject<Block> STRAWBERRY_BUSH = register("strawberry_bush", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 
 	public static final RegistryObject<Block> STRAWBERRY_CAKE = register("strawberry_cake", () -> new StrawberryCakeBlock(propertiesCake()));
@@ -654,6 +656,10 @@ public class IcariaBlocks {
 
 	private static Properties propertiesShroom(MaterialColor pMaterialColor) {
 		return Properties.of(Material.PLANT, pMaterialColor).sound(SoundType.GRASS).instabreak().noCollission().randomTicks();
+	}
+
+	private static Properties propertiesCactus(MaterialColor pMaterialColor) {
+		return Properties.of(Material.CACTUS, pMaterialColor).sound(SoundType.WOOL).strength(0.4F, 0.4F).randomTicks();
 	}
 
 	private static Properties propertiesCake() {

@@ -734,7 +734,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.SILKSAND.get());
 
-		tag(Tags.Blocks.SAND)
+		tag(BlockTags.SAND)
+			.add(IcariaBlocks.LOAM.get())
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.SILKSAND.get());
 

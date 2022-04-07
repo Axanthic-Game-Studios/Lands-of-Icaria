@@ -267,6 +267,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get());
 		dropThis(IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get());
 		dropThis(IcariaBlocks.UNNAMED_TREE_SHROOMS.get());
+		dropThis(IcariaBlocks.CARDON_CACTUS.get());
 
 		dropPots(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
 		dropPots(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());

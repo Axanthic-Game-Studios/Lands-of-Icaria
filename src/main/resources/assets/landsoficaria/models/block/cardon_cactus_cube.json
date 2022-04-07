@@ -1,0 +1,20 @@
+{
+  "textures": {
+    "side": "landsoficaria:block/cardon_cactus_side",
+    "particle": "#side"
+  },
+  "elements": [
+    {
+      "from": [ 4, 4, 4 ],
+      "to": [ 12, 12, 12 ],
+      "faces": {
+        "north": {"uv": [ 0, 0, 8, 8 ], "texture": "#side" },
+        "east": { "uv": [ 8, 0, 16, 8 ], "texture": "#side" },
+        "south": { "uv": [ 0, 8, 8, 16 ], "texture": "#side" },
+        "west": { "uv": [ 8, 8, 16, 16 ], "texture": "#side" },
+        "up": { "uv": [ 0, 4, 8, 12 ], "texture": "#side" },
+        "down": { "uv": [ 8, 4, 16, 12 ], "texture": "#side" }
+      }
+    }
+  ]
+}

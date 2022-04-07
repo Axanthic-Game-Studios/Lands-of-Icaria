@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "landsoficaria:loam",
     "landsoficaria:grainel",
     "landsoficaria:silksand"
   ]

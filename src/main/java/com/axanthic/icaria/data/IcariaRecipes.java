@@ -35,6 +35,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 
 	@Override
 	public void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+		smeltingRecipe(consumer, IcariaItems.CARDON_CACTUS.get(), Items.GREEN_DYE, 1.0F, 200);
 		smeltingRecipe(consumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BRICK.get(), 0.3F, 200);
 		smeltingRecipe(consumer, IcariaItems.UNFIRED_STORAGE_VASE.get(), IcariaItems.STORAGE_VASE.get(), 0.3F, 200);
 		smeltingRecipe(consumer, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get(), IcariaItems.WHITE_STORAGE_VASE.get(), 0.3F, 200);

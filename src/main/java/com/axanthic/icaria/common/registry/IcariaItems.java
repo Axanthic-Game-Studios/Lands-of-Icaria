@@ -456,6 +456,8 @@ public class IcariaItems {
 	public static final RegistryObject<Item> TURKEY_TAIL_TREE_SHROOMS = register("turkey_tail_tree_shrooms", () -> new BlockItem(IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), propertiesFlora()));
 	public static final RegistryObject<Item> UNNAMED_TREE_SHROOMS = register("unnamed_tree_shrooms", () -> new BlockItem(IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), propertiesFlora()));
 
+	public static final RegistryObject<Item> CARDON_CACTUS = register("cardon_cactus", () -> new BlockItem(IcariaBlocks.CARDON_CACTUS.get(), propertiesFlora()));
+
 	public static final RegistryObject<Item> STRAWBERRY_BUSH = register("strawberry_bush", () -> new BlockItem(IcariaBlocks.STRAWBERRY_BUSH.get(), propertiesFlora()));
 
 	public static final RegistryObject<Item> STRAWBERRY_CAKE = registerBasic("strawberry_cake", () -> new BlockItem(IcariaBlocks.STRAWBERRY_CAKE.get(), propertiesBlocks()));
