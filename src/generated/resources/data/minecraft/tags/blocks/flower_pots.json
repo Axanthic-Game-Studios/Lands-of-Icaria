@@ -1,13 +1,13 @@
 {
   "replace": false,
   "values": [
-    "#forge:flower_pots/cypress",
-    "#forge:flower_pots/droughtroot",
-    "#forge:flower_pots/fir",
-    "#forge:flower_pots/laurel",
-    "#forge:flower_pots/olive",
-    "#forge:flower_pots/plane",
-    "#forge:flower_pots/populus",
+    "landsoficaria:potted_cypress_sapling",
+    "landsoficaria:potted_droughtroot_sapling",
+    "landsoficaria:potted_fir_sapling",
+    "landsoficaria:potted_laurel_sapling",
+    "landsoficaria:potted_olive_sapling",
+    "landsoficaria:potted_plane_sapling",
+    "landsoficaria:potted_populus_sapling",
     "landsoficaria:potted_blindweed",
     "landsoficaria:potted_chameomile",
     "landsoficaria:potted_charmonder",
@@ -24,6 +24,15 @@
     "landsoficaria:potted_purple_stormcotton",
     "landsoficaria:potted_sunkettle",
     "landsoficaria:potted_sunsponge",
-    "landsoficaria:potted_voidlily"
+    "landsoficaria:potted_voidlily",
+    "landsoficaria:potted_palm_fern",
+    "landsoficaria:potted_white_bromelia",
+    "landsoficaria:potted_orange_bromelia",
+    "landsoficaria:potted_pink_bromelia",
+    "landsoficaria:potted_purple_bromelia",
+    "landsoficaria:potted_green_ground_shrooms",
+    "landsoficaria:potted_brown_ground_shrooms",
+    "landsoficaria:potted_large_brown_ground_shrooms",
+    "landsoficaria:potted_cardon_cactus"
   ]
 }

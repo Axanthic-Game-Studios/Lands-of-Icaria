@@ -468,21 +468,30 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MOSS_2 = register("moss_2", () -> new LayerBlock(propertiesMoss()));
 
 	public static final RegistryObject<Block> PALM_FERN = register("palm_fern", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> POTTED_PALM_FERN = register("potted_palm_fern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PALM_FERN, propertiesPot()));
 
 	public static final RegistryObject<Block> WHITE_BROMELIA = register("white_bromelia", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> POTTED_WHITE_BROMELIA = register("potted_white_bromelia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, WHITE_BROMELIA, propertiesPot()));
 	public static final RegistryObject<Block> ORANGE_BROMELIA = register("orange_bromelia", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> POTTED_ORANGE_BROMELIA = register("potted_orange_bromelia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ORANGE_BROMELIA, propertiesPot()));
 	public static final RegistryObject<Block> PINK_BROMELIA = register("pink_bromelia", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> POTTED_PINK_BROMELIA = register("potted_pink_bromelia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PINK_BROMELIA, propertiesPot()));
 	public static final RegistryObject<Block> PURPLE_BROMELIA = register("purple_bromelia", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> POTTED_PURPLE_BROMELIA = register("potted_purple_bromelia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PURPLE_BROMELIA, propertiesPot()));
 
 	public static final RegistryObject<Block> GREEN_GROUND_SHROOMS = register("green_ground_shrooms", () -> new GroundShroomBlock(propertiesShroom(MaterialColor.COLOR_BROWN)));
+	public static final RegistryObject<Block> POTTED_GREEN_GROUND_SHROOMS = register("potted_green_ground_shrooms", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GREEN_GROUND_SHROOMS, propertiesPot()));
 	public static final RegistryObject<Block> BROWN_GROUND_SHROOMS = register("brown_ground_shrooms", () -> new GroundShroomBlock(propertiesShroom(MaterialColor.COLOR_BROWN)));
+	public static final RegistryObject<Block> POTTED_BROWN_GROUND_SHROOMS = register("potted_brown_ground_shrooms", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BROWN_GROUND_SHROOMS, propertiesPot()));
 	public static final RegistryObject<Block> LARGE_BROWN_GROUND_SHROOMS = register("large_brown_ground_shrooms", () -> new GroundShroomBlock(propertiesShroom(MaterialColor.COLOR_BROWN)));
+	public static final RegistryObject<Block> POTTED_LARGE_BROWN_GROUND_SHROOMS = register("potted_large_brown_ground_shrooms", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, LARGE_BROWN_GROUND_SHROOMS, propertiesPot()));
 
 	public static final RegistryObject<Block> TINDER_FUNGUS_TREE_SHROOMS = register("tinder_fungus_tree_shrooms", () -> new TreeShroomBlock(propertiesPlant(MaterialColor.NONE)));
 	public static final RegistryObject<Block> TURKEY_TAIL_TREE_SHROOMS = register("turkey_tail_tree_shrooms", () -> new TreeShroomBlock(propertiesPlant(MaterialColor.NONE)));
 	public static final RegistryObject<Block> UNNAMED_TREE_SHROOMS = register("unnamed_tree_shrooms", () -> new TreeShroomBlock(propertiesPlant(MaterialColor.NONE)));
 
 	public static final RegistryObject<Block> CARDON_CACTUS = register("cardon_cactus", () -> new CardonCactusBlock(propertiesCactus(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> POTTED_CARDON_CACTUS = register("potted_cardon_cactus", () -> new DamagingFlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CARDON_CACTUS, propertiesPot()));
 
 	public static final RegistryObject<Block> STRAWBERRY_BUSH = register("strawberry_bush", () -> new BushTypeBlock(propertiesPlant(MaterialColor.PLANT)));
 

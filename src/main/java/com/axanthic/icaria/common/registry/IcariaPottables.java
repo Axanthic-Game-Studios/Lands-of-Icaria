@@ -30,5 +30,14 @@ public class IcariaPottables {
 		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.SUNKETTLE.getId(), IcariaBlocks.POTTED_SUNKETTLE);
 		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.SUNSPONGE.getId(), IcariaBlocks.POTTED_SUNSPONGE);
 		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.VOIDLILY.getId(), IcariaBlocks.POTTED_VOIDLILY);
+		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.PALM_FERN.getId(), IcariaBlocks.POTTED_PALM_FERN);
+		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.WHITE_BROMELIA.getId(), IcariaBlocks.POTTED_WHITE_BROMELIA);
+		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.ORANGE_BROMELIA.getId(), IcariaBlocks.POTTED_ORANGE_BROMELIA);
+		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.PINK_BROMELIA.getId(), IcariaBlocks.POTTED_PINK_BROMELIA);
+		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.PURPLE_BROMELIA.getId(), IcariaBlocks.POTTED_PURPLE_BROMELIA);
+		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.GREEN_GROUND_SHROOMS.getId(), IcariaBlocks.POTTED_GREEN_GROUND_SHROOMS);
+		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.BROWN_GROUND_SHROOMS.getId(), IcariaBlocks.POTTED_BROWN_GROUND_SHROOMS);
+		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.LARGE_BROWN_GROUND_SHROOMS.getId(), IcariaBlocks.POTTED_LARGE_BROWN_GROUND_SHROOMS);
+		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.CARDON_CACTUS.getId(), IcariaBlocks.POTTED_CARDON_CACTUS);
 	}
 }

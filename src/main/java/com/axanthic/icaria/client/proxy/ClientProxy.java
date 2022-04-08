@@ -107,9 +107,13 @@ public class ClientProxy extends CommonProxy {
 			IcariaBlocks.VOIDLILY.get(),
 			IcariaBlocks.POTTED_VOIDLILY.get(),
 			IcariaBlocks.WHITE_BROMELIA.get(),
+			IcariaBlocks.POTTED_WHITE_BROMELIA.get(),
 			IcariaBlocks.ORANGE_BROMELIA.get(),
+			IcariaBlocks.POTTED_ORANGE_BROMELIA.get(),
 			IcariaBlocks.PINK_BROMELIA.get(),
-			IcariaBlocks.PURPLE_BROMELIA.get());
+			IcariaBlocks.POTTED_PINK_BROMELIA.get(),
+			IcariaBlocks.PURPLE_BROMELIA.get(),
+			IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
 
 		ItemColor itemBlockColorHandler = (stack, tintIndex) -> {
 			BlockState state = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
@@ -252,10 +256,15 @@ public class ClientProxy extends CommonProxy {
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.RED_GROUND_FLOWERS.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.PALM_FERN.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_PALM_FERN.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.WHITE_BROMELIA.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_WHITE_BROMELIA.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.ORANGE_BROMELIA.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_ORANGE_BROMELIA.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.PINK_BROMELIA.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_PINK_BROMELIA.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.PURPLE_BROMELIA.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.POTTED_PURPLE_BROMELIA.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.STRAWBERRY_BUSH.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.SPELT_CROP.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.STRAWBERRY_CROP.get(), RenderType.cutout());
