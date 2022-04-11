@@ -220,9 +220,9 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.SLIVER_ORE.get())
 			.add(IcariaBlocks.JASPER_CRYSTAL.get())
 			.add(IcariaBlocks.VANADIUM_RAW_BLOCK.get())
+			.add(IcariaBlocks.SLIVER_BLOCK.get())
 			.add(IcariaBlocks.VANADIUM_BLOCK.get())
-			.add(IcariaBlocks.VANADIUMSTEEL_BLOCK.get())
-			.add(IcariaBlocks.SLIVER_BLOCK.get());
+			.add(IcariaBlocks.VANADIUMSTEEL_BLOCK.get());
 
 		addStoneDecoToTag(IcariaBlocks.SUNSTONE_ADOBE_DECO, NEEDS_ORICHALCUM_TOOL);
 		addStoneDecoToTag(IcariaBlocks.SUNSTONE_COBBLE_DECO, NEEDS_ORICHALCUM_TOOL);
@@ -462,6 +462,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.CHALKOS_RAW_BLOCK.get())
 			.add(IcariaBlocks.KASSITEROS_RAW_BLOCK.get())
 			.add(IcariaBlocks.VANADIUM_RAW_BLOCK.get())
+			.add(IcariaBlocks.SLIVER_BLOCK.get())
 			.add(IcariaBlocks.SIDEROS_RAW_BLOCK.get())
 			.add(IcariaBlocks.MOLYBDENUM_RAW_BLOCK.get())
 			.add(IcariaBlocks.CALCITE_BLOCK.get())
@@ -475,7 +476,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.ORICHALCUM_BLOCK.get())
 			.add(IcariaBlocks.VANADIUM_BLOCK.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_BLOCK.get())
-			.add(IcariaBlocks.SLIVER_BLOCK.get())
 			.add(IcariaBlocks.SIDEROS_BLOCK.get())
 			.add(IcariaBlocks.ANTHRACITE_BLOCK.get())
 			.add(IcariaBlocks.MOLYBDENUM_BLOCK.get())
@@ -839,6 +839,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(STORAGE_BLOCKS_RAW_CHALKOS).add(IcariaBlocks.CHALKOS_RAW_BLOCK.get());
 		tag(STORAGE_BLOCKS_RAW_KASSITEROS).add(IcariaBlocks.KASSITEROS_RAW_BLOCK.get());
 		tag(STORAGE_BLOCKS_RAW_VANADIUM).add(IcariaBlocks.VANADIUM_RAW_BLOCK.get());
+		tag(STORAGE_BLOCKS_SLIVER).add(IcariaBlocks.SLIVER_BLOCK.get());
 		tag(STORAGE_BLOCKS_RAW_SIDEROS).add(IcariaBlocks.SIDEROS_RAW_BLOCK.get());
 		tag(STORAGE_BLOCKS_RAW_MOLYBDENUM).add(IcariaBlocks.MOLYBDENUM_RAW_BLOCK.get());
 		tag(STORAGE_BLOCKS_CALCITE).add(IcariaBlocks.CALCITE_BLOCK.get());
@@ -852,7 +853,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(STORAGE_BLOCKS_ORICHALCUM).add(IcariaBlocks.ORICHALCUM_BLOCK.get());
 		tag(STORAGE_BLOCKS_VANADIUM).add(IcariaBlocks.VANADIUM_BLOCK.get());
 		tag(STORAGE_BLOCKS_VANADIUMSTEEL).add(IcariaBlocks.VANADIUMSTEEL_BLOCK.get());
-		tag(STORAGE_BLOCKS_SLIVER).add(IcariaBlocks.SLIVER_BLOCK.get());
 		tag(STORAGE_BLOCKS_SIDEROS).add(IcariaBlocks.SIDEROS_BLOCK.get());
 		tag(STORAGE_BLOCKS_ANTHRACITE).add(IcariaBlocks.ANTHRACITE_BLOCK.get());
 		tag(STORAGE_BLOCKS_MOLYBDENUM).add(IcariaBlocks.MOLYBDENUM_BLOCK.get());

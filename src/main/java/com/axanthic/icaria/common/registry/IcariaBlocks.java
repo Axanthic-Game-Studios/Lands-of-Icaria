@@ -34,7 +34,9 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MARL_GRASS = register("marl_grass", () -> new MarlGrassBlock(propertiesGrass()));
 	public static final RegistryObject<Block> MARL = registerBasic("marl", () -> new DirtTypeBlock(propertiesMarl()));
 	public static final RegistryObject<Block> MARL_CHERT = register("marl_chert", () -> new Block(propertiesMarl().requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> SURFACE_CHERT = register("surface_chert", () -> new GroundDecoBlock(propertiesRubble()));
 	public static final RegistryObject<Block> MARL_ROTTEN_BONES = register("marl_rotten_bones", () -> new Block(propertiesMarl().requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> SURFACE_BONES = register("surface_bones", () -> new GroundDecoBlock(propertiesRubble()));
 	public static final RegistryObject<Block> MARL_LIGNITE = register("marl_lignite", () -> new Block(propertiesMarl().requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> MARL_COARSE = registerBasic("marl_coarse", () -> new DirtTypeBlock(propertiesMarl()));
 
@@ -181,6 +183,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> CHALKOS_RAW_BLOCK = registerBasic("chalkos_raw_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_GREEN)));
 	public static final RegistryObject<Block> KASSITEROS_RAW_BLOCK = registerBasic("kassiteros_raw_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_BLUE)));
 	public static final RegistryObject<Block> VANADIUM_RAW_BLOCK = registerBasic("vanadium_raw_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_YELLOW)));
+	public static final RegistryObject<Block> SLIVER_BLOCK = registerBasic("sliver_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.WOOD)));
 	public static final RegistryObject<Block> SIDEROS_RAW_BLOCK = registerBasic("sideros_raw_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_ORANGE)));
 	public static final RegistryObject<Block> MOLYBDENUM_RAW_BLOCK = registerBasic("molybdenum_raw_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_GRAY)));
 
@@ -195,7 +198,6 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> ORICHALCUM_BLOCK = registerBasic("orichalcum_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_ORANGE)));
 	public static final RegistryObject<Block> VANADIUM_BLOCK = registerBasic("vanadium_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_YELLOW)));
 	public static final RegistryObject<Block> VANADIUMSTEEL_BLOCK = registerBasic("vanadiumsteel_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_YELLOW)));
-	public static final RegistryObject<Block> SLIVER_BLOCK = registerBasic("sliver_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.WOOD)));
 	public static final RegistryObject<Block> SIDEROS_BLOCK = registerBasic("sideros_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_ORANGE)));
 	public static final RegistryObject<Block> ANTHRACITE_BLOCK = registerBasic("anthracite_block", () -> new Block(propertiesGemStorageBlock(MaterialColor.COLOR_BLACK)));
 	public static final RegistryObject<Block> MOLYBDENUM_BLOCK = registerBasic("molybdenum_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_GRAY)));

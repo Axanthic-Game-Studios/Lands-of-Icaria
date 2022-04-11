@@ -51,6 +51,8 @@ public class IcariaBlockLootTables extends BlockLoot {
 	public void addTables() {
 
 		dropWithSilk(IcariaBlocks.MARL_GRASS.get(), IcariaItems.MARL.get(), 1.0F, 1.0F);
+		dropWithSilk(IcariaBlocks.SURFACE_CHERT.get(), IcariaItems.CHERT.get(), 1.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.SURFACE_BONES.get(), Items.BONE, 1.0F, 4.0F);
 		dropWithSilk(IcariaBlocks.LOAM.get(), IcariaItems.LOAM_LUMP.get(), 4.0F, 4.0F);
 		dropWithSilk(IcariaBlocks.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_COBBLE.get(), 1.0F, 1.0F);
 		dropWithSilk(IcariaBlocks.SILKSTONE.get(), IcariaItems.SILKSTONE_COBBLE.get(), 1.0F, 1.0F);
@@ -58,13 +60,13 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropWithSilk(IcariaBlocks.VOIDSHALE.get(), IcariaItems.VOIDSHALE_COBBLE.get(), 1.0F, 1.0F);
 		dropWithSilk(IcariaBlocks.BAETYL.get(), IcariaItems.BAETYL_COBBLE.get(), 1.0F, 1.0F);
 		dropWithSilk(IcariaBlocks.RELICSTONE_SMOOTH.get(), IcariaItems.RELICSTONE.get(), 1.0F, 1.0F);
-		dropWithSilk(IcariaBlocks.CYPRESS_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
-		dropWithSilk(IcariaBlocks.DROUGHTROOT_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
-		dropWithSilk(IcariaBlocks.FIR_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
-		dropWithSilk(IcariaBlocks.LAUREL_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
-		dropWithSilk(IcariaBlocks.OLIVE_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
-		dropWithSilk(IcariaBlocks.PLANE_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
-		dropWithSilk(IcariaBlocks.POPULUS_TWIGS.get(), Items.STICK, 0.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.CYPRESS_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.DROUGHTROOT_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.FIR_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.LAUREL_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.OLIVE_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.PLANE_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
+		dropWithSilk(IcariaBlocks.POPULUS_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
 
 		dropOres(IcariaBlocks.MARL_CHERT.get(), IcariaItems.CHERT.get());
 		dropOres(IcariaBlocks.MARL_LIGNITE.get(), IcariaItems.LIGNITE.get());
