@@ -46,27 +46,19 @@ public class IcariaScytheItem extends HoeItem {
 	}
 
 	@Override
+	public boolean canApplyAtEnchantingTable(ItemStack pStack, Enchantment pEnchantment) {
+		return pEnchantment.category == EnchantmentCategory.WEAPON || pEnchantment.category.canEnchant(pStack.getItem());
+	}
+
+	@Override
+	public boolean canPerformAction(ItemStack pStack, ToolAction pAction) {
+		return SCYTHE_ACTIONS.contains(pAction);
+	}
+
+	@Override
 	public boolean hurtEnemy(ItemStack pStack, LivingEntity pEntity, LivingEntity pPlayer) {
 		pStack.hurtAndBreak(1, pPlayer, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		return true;
-	}
-
-	@Override
-	public boolean onBlockStartBreak(ItemStack pStack, BlockPos pPos, Player pPlayer) {
-		Level level = pPlayer.getLevel();
-		if (isCorrectToolForDrops(level.getBlockState(pPos))) {
-			for (BlockPos pos : BlockPos.withinManhattan(pPos, 1, 1, 1)) {
-				if (!pos.equals(pPos) && isCorrectToolForDrops(level.getBlockState(pos)))
-					level.destroyBlock(pos, true, pPlayer);
-			}
-		}
-
-		return false;
-	}
-
-	@Override
-	public boolean canApplyAtEnchantingTable(ItemStack pStack, Enchantment pEnchantment) {
-		return pEnchantment.category == EnchantmentCategory.WEAPON || pEnchantment.category.canEnchant(pStack.getItem());
 	}
 
 	@Override
@@ -80,8 +72,16 @@ public class IcariaScytheItem extends HoeItem {
 	}
 
 	@Override
-	public boolean canPerformAction(ItemStack pStack, ToolAction pAction) {
-		return SCYTHE_ACTIONS.contains(pAction);
+	public boolean onBlockStartBreak(ItemStack pStack, BlockPos pPos, Player pPlayer) {
+		Level level = pPlayer.getLevel();
+		if (isCorrectToolForDrops(level.getBlockState(pPos))) {
+			for (BlockPos pos : BlockPos.withinManhattan(pPos, 1, 1, 1)) {
+				if (!pos.equals(pPos) && isCorrectToolForDrops(level.getBlockState(pos)))
+					level.destroyBlock(pos, true, pPlayer);
+			}
+		}
+
+		return false;
 	}
 
 	@Override

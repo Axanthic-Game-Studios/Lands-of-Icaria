@@ -61,8 +61,17 @@ public class IcariaBidentItem extends TieredItem implements Vanishable {
 	}
 
 	@Override
-	public UseAnim getUseAnimation(ItemStack pStack) {
-		return UseAnim.SPEAR;
+	public boolean hurtEnemy(ItemStack pStack, LivingEntity pEntity, LivingEntity pPlayer) {
+		pStack.hurtAndBreak(1, pPlayer, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+		return true;
+	}
+
+	@Override
+	public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pPlayer) {
+		if ((double)pState.getDestroySpeed(pLevel, pPos) != 0.0D) {
+			pStack.hurtAndBreak(2, pPlayer, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+		}
+		return true;
 	}
 
 	@Override
@@ -143,21 +152,12 @@ public class IcariaBidentItem extends TieredItem implements Vanishable {
 	}
 
 	@Override
-	public boolean hurtEnemy(ItemStack pStack, LivingEntity pEntity, LivingEntity pPlayer) {
-		pStack.hurtAndBreak(1, pPlayer, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-		return true;
-	}
-
-	@Override
-	public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pPlayer) {
-		if ((double)pState.getDestroySpeed(pLevel, pPos) != 0.0D) {
-			pStack.hurtAndBreak(2, pPlayer, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-		}
-		return true;
-	}
-
-	@Override
 	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
 		return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
+	}
+
+	@Override
+	public UseAnim getUseAnimation(ItemStack pStack) {
+		return UseAnim.SPEAR;
 	}
 }

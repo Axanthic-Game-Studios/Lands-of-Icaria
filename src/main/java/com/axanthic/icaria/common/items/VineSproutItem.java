@@ -19,16 +19,8 @@ public class VineSproutItem extends Item {
 	}
 
 	@Override
-	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
-		Player player = (Player)pEntityLiving;
-		if (!pLevel.isClientSide) {
-			player.getCooldowns().addCooldown(this, 400);
-			if (!player.isCreative()) {
-				pStack.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
-			}
-		}
-
-		return pStack;
+	public boolean isEnchantable(ItemStack pStack) {
+		return false;
 	}
 
 	@Override
@@ -45,5 +37,18 @@ public class VineSproutItem extends Item {
 				player.drop(pStack, true);
 			}
 		}
+	}
+
+	@Override
+	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
+		Player player = (Player)pEntityLiving;
+		if (!pLevel.isClientSide) {
+			player.getCooldowns().addCooldown(this, 400);
+			if (!player.isCreative()) {
+				pStack.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+			}
+		}
+
+		return pStack;
 	}
 }
