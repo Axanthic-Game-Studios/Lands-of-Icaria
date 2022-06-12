@@ -23,7 +23,7 @@ version = "${version_minecraft}-${version_icaria}"
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'parchment', version: "${version_mappings}-${version_minecraft}"
+    mappings channel: 'parchment', version: "${version_mappings}-1.18.2"
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -81,8 +81,8 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${version_minecraft}-${version_forge}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    compileOnly fg.deobf("mezz.jei:jei-${version_minecraft}:${version_jei}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-${version_minecraft}:${version_jei}")
+    //compileOnly fg.deobf("mezz.jei:jei-${version_minecraft}:${version_jei}:api")
+    //runtimeOnly fg.deobf("mezz.jei:jei-${version_minecraft}:${version_jei}")
 }
 
 mixin {
