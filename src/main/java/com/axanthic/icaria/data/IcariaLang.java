@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 import java.util.function.Supplier;
@@ -21,7 +22,7 @@ public class IcariaLang extends LanguageProvider {
 	}
 
 	public void addFluid(Supplier<? extends ForgeFlowingFluid> supplier, String name) {
-		ResourceLocation id = supplier.get().getRegistryName();
+		ResourceLocation id = ForgeRegistries.FLUIDS.getKey(supplier.get());
 		add("fluid." + Objects.requireNonNull(id).getNamespace() + "." + id.getPath(), name);
 	}
 

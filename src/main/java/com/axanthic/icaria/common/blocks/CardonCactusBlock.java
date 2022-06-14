@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
@@ -22,8 +23,6 @@ import net.minecraft.world.level.pathfinder.BlockPathTypes;
 
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
-
-import java.util.Random;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -92,7 +91,7 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 	}
 
 	@Override
-	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
+	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (canSpread(pLevel, pPos)) {
 			if (pLevel.isAreaLoaded(pPos, 4)) {
 				if (pRandom.nextInt(4) == 0) {
@@ -149,7 +148,7 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 	}
 
 	@Override
-	public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRand) {
+	public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRand) {
 		if (!pState.canSurvive(pLevel, pPos)) {
 			pLevel.destroyBlock(pPos, true);
 		}

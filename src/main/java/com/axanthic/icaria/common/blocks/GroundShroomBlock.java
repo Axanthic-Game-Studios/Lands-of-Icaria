@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -17,8 +18,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
-
-import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -54,7 +53,7 @@ public class GroundShroomBlock extends Block implements IPlantable {
 	}
 
 	@Override
-	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
+	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (pRandom.nextInt(25) == 0) {
 			int i = 5;
 
@@ -91,11 +90,6 @@ public class GroundShroomBlock extends Block implements IPlantable {
 	@Override
 	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
 		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
-	}
-
-	@Override
-	public OffsetType getOffsetType() {
-		return OffsetType.XZ;
 	}
 
 	@Override

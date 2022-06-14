@@ -90,19 +90,17 @@ public class Icaria {
 	public void onGatherData(GatherDataEvent event) {
 		DataGenerator generator = event.getGenerator();
 		ExistingFileHelper helper = event.getExistingFileHelper();
-		if (event.includeClient()) {
-			generator.addProvider(new IcariaLang(generator));
-			generator.addProvider(new IcariaItemModels(generator, helper));
-			generator.addProvider(new IcariaBlockStates(generator, helper));
-		}
-		if (event.includeServer()) {
-			generator.addProvider(new IcariaLootTables(generator));
-			generator.addProvider(new IcariaRecipes(generator));
-			BlockTagsProvider tags = new IcariaBlockTags(generator, helper);
-			generator.addProvider(tags);
-			generator.addProvider(new IcariaItemTags(generator, tags, helper));
-			generator.addProvider(new IcariaFluidTags(generator, helper));
-		}
+		BlockTagsProvider tags = new IcariaBlockTags(generator, helper);
+
+		generator.addProvider(event.includeClient(), new IcariaLang(generator));
+		generator.addProvider(event.includeClient(), new IcariaItemModels(generator, helper));
+		generator.addProvider(event.includeClient(), new IcariaBlockStates(generator, helper));
+
+		generator.addProvider(event.includeServer(), new IcariaLootTables(generator));
+		generator.addProvider(event.includeServer(), new IcariaRecipes(generator));
+		generator.addProvider(event.includeServer(), new IcariaBlockTags(generator, helper));
+		generator.addProvider(event.includeServer(), new IcariaItemTags(generator, tags, helper));
+		generator.addProvider(event.includeServer(), new IcariaFluidTags(generator, helper));
 	}
 
 	@SubscribeEvent

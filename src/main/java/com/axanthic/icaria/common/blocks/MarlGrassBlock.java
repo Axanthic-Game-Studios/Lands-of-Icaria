@@ -9,6 +9,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -27,7 +28,6 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
 
 import java.util.List;
-import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -84,7 +84,7 @@ public class MarlGrassBlock extends Block implements BonemealableBlock {
 	}
 
 	@Override
-	public boolean isBonemealSuccess(Level pLevel, Random pRandom, BlockPos pPos, BlockState pState) {
+	public boolean isBonemealSuccess(Level pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
 		return true;
 	}
 
@@ -99,7 +99,7 @@ public class MarlGrassBlock extends Block implements BonemealableBlock {
 	}
 
 	@Override
-	public void performBonemeal(ServerLevel pLevel, Random pRand, BlockPos pPos, BlockState pState) {
+	public void performBonemeal(ServerLevel pLevel, RandomSource pRand, BlockPos pPos, BlockState pState) {
 		BlockPos posOne = pPos.above();
 		BlockState stateOne = IcariaBlocks.MARL_GRASS.get().defaultBlockState();
 
@@ -138,7 +138,7 @@ public class MarlGrassBlock extends Block implements BonemealableBlock {
 	}
 
 	@Override
-	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
+	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (!canBeGrass(pState, pLevel, pPos)) {
 			if (!pLevel.isAreaLoaded(pPos, 1))
 				return;

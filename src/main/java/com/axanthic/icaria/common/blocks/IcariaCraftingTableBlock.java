@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.blocks;
 import com.axanthic.icaria.common.menu.IcariaCraftingMenu;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -22,6 +22,6 @@ public class IcariaCraftingTableBlock extends CraftingTableBlock {
 
 	@Override
 	public MenuProvider getMenuProvider(BlockState pState, Level pLevel, BlockPos pPos) {
-		return new SimpleMenuProvider((id, inventory, player) -> new IcariaCraftingMenu(id, inventory, ContainerLevelAccess.create(pLevel, pPos), this), new TranslatableComponent("container.crafting"));
+		return new SimpleMenuProvider((id, inventory, player) -> new IcariaCraftingMenu(id, inventory, ContainerLevelAccess.create(pLevel, pPos), this), Component.translatable("container.crafting"));
 	}
 }

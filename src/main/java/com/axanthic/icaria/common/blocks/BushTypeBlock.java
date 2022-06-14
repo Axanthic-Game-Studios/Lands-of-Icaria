@@ -55,11 +55,6 @@ public class BushTypeBlock extends Block implements IPlantable {
 	}
 
 	@Override
-	public OffsetType getOffsetType() {
-		return OffsetType.XZ;
-	}
-
-	@Override
 	public PlantType getPlantType(BlockGetter world, BlockPos pos) {
 		return PlantType.PLAINS;
 	}

@@ -16,6 +16,7 @@ import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Objects;
@@ -38,7 +39,7 @@ public class IcariaItemModels extends ItemModelProvider {
 			@Override
 			public JsonObject toJson(JsonObject jsonObject) {
 				jsonObject.addProperty("loader", "forge:bucket");
-				jsonObject.addProperty("fluid", Objects.requireNonNull(registryObject.get().getFluid().getRegistryName()).toString());
+				jsonObject.addProperty("fluid", Objects.requireNonNull(ForgeRegistries.FLUIDS.getKey(registryObject.get().getFluid())).toString());
 				return jsonObject;
 			}
 		});

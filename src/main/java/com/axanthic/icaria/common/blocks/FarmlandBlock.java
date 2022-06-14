@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -34,8 +35,6 @@ import net.minecraftforge.common.FarmlandWaterManager;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
-
-import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -99,7 +98,7 @@ public class FarmlandBlock extends Block {
 	}
 
 	@Override
-	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
+	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
 		int i = pState.getValue(MOISTURE);
 		if (!isNearWater(pLevel, pPos) && !pLevel.isRainingAt(pPos.above())) {
 			if (i > 0) {
@@ -113,7 +112,7 @@ public class FarmlandBlock extends Block {
 	}
 
 	@Override
-	public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
+	public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (!pState.canSurvive(pLevel, pPos)) {
 			turnToMarl(pState, pLevel, pPos);
 		}

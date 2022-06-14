@@ -7,7 +7,6 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Inventory;
@@ -109,7 +108,7 @@ public class StorageVaseBlock extends Block implements EntityBlock, SimpleWaterl
 				MenuProvider provider = new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return new TranslatableComponent("menu." + IcariaInfo.MODID + ".storage.vase");
+						return Component.translatable("menu." + IcariaInfo.MODID + ".storage.vase");
 					}
 
 					@Override

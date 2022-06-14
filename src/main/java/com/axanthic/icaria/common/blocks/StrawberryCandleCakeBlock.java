@@ -11,6 +11,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -35,7 +36,6 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Map;
-import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -81,7 +81,7 @@ public class StrawberryCandleCakeBlock extends Block {
 		return 14;
 	}
 
-	public static void addParticlesAndSound(Level pLevel, Vec3 pVec3, Random pRandom) {
+	public static void addParticlesAndSound(Level pLevel, Vec3 pVec3, RandomSource pRandom) {
 		float f = pRandom.nextFloat();
 		if (f < 0.3F) {
 			pLevel.addParticle(ParticleTypes.SMOKE, pVec3.x, pVec3.y, pVec3.z, 0.0D, 0.0D, 0.0D);
@@ -94,7 +94,7 @@ public class StrawberryCandleCakeBlock extends Block {
 	}
 
 	@Override
-	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, Random pRandom) {
+	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (pState.getValue(LIT)) {
 			this.getParticleOffsets().forEach((pVec3) -> addParticlesAndSound(pLevel, pVec3.add(pPos.getX(), pPos.getY(), pPos.getZ()), pRandom));
 		}
