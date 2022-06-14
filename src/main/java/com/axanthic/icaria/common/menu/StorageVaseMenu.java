@@ -36,7 +36,7 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 			entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> layoutVaseInventorySlots(handler, 26, -10));
 		}
 
-		layoutPlayerInventorySlots(8, 112);
+		layoutPlayerInventorySlots(8, 94);
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 
 	public void layoutPlayerInventorySlots(int leftColumn, int topRow) {
 		addSlotBox(inventory, 9, leftColumn, topRow, 9, 18, 3, 18);
-		topRow += 58;
+		topRow += 76;
 		addSlotRange(inventory, 0, leftColumn, topRow, 9, 18);
 	}
 
