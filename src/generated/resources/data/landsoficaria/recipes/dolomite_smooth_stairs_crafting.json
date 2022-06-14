@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X  ",
-    "XX ",
-    "XXX"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:dolomite_smooth"
     }
   },
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
   "result": {
-    "item": "landsoficaria:dolomite_smooth_stairs",
-    "count": 4
+    "count": 4,
+    "item": "landsoficaria:dolomite_smooth_stairs"
   }
 }

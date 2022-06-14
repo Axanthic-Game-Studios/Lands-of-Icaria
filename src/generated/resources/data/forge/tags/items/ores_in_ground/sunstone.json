@@ -1,7 +1,3 @@
 {
-  "replace": false,
-  "values": [
-    "landsoficaria:vanadium_ore",
-    "landsoficaria:sliver_ore"
-  ]
+  "values": []
 }

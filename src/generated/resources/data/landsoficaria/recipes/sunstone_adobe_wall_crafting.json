@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX",
-    "XXX"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:sunstone_adobe"
     }
   },
+  "pattern": [
+    "XXX",
+    "XXX"
+  ],
   "result": {
-    "item": "landsoficaria:sunstone_adobe_wall",
-    "count": 6
+    "count": 6,
+    "item": "landsoficaria:sunstone_adobe_wall"
   }
 }

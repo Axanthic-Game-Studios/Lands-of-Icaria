@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X",
-    "Y"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:lignite"
@@ -12,8 +8,12 @@
       "tag": "forge:bones"
     }
   },
+  "pattern": [
+    "X",
+    "Y"
+  ],
   "result": {
-    "item": "landsoficaria:lignite_torch",
-    "count": 2
+    "count": 2,
+    "item": "landsoficaria:lignite_torch"
   }
 }

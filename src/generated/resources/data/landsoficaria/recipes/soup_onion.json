@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ABC",
-    "DE "
-  ],
   "key": {
     "A": {
       "item": "landsoficaria:onion"
@@ -21,6 +17,10 @@
       "item": "landsoficaria:loam_bowl"
     }
   },
+  "pattern": [
+    "ABC",
+    "DE "
+  ],
   "result": {
     "item": "landsoficaria:soup_onion"
   }

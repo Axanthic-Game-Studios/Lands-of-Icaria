@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ABC",
-    "DEF",
-    "G  "
-  ],
   "key": {
     "A": {
       "item": "landsoficaria:strawberries"
@@ -28,6 +23,11 @@
       "item": "landsoficaria:loam_bowl"
     }
   },
+  "pattern": [
+    "ABC",
+    "DEF",
+    "G  "
+  ],
   "result": {
     "item": "landsoficaria:salad_fruit"
   }

@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "YXY",
-    "YXY"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:cypress_planks"
@@ -12,6 +8,10 @@
       "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    "YXY",
+    "YXY"
+  ],
   "result": {
     "item": "landsoficaria:cypress_fence_gate"
   }

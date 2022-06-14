@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XYX",
-    "X X",
-    "X X"
-  ],
   "key": {
     "X": {
       "item": "minecraft:bamboo"
@@ -13,6 +8,11 @@
       "item": "landsoficaria:arachne_string"
     }
   },
+  "pattern": [
+    "XYX",
+    "X X",
+    "X X"
+  ],
   "result": {
     "item": "minecraft:scaffolding"
   }

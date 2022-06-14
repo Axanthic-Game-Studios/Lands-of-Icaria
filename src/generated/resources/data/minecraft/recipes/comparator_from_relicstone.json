@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " X ",
-    "XYX",
-    "ZZZ"
-  ],
   "key": {
     "X": {
       "item": "minecraft:redstone_torch"
@@ -16,6 +11,11 @@
       "item": "landsoficaria:relicstone_smooth"
     }
   },
+  "pattern": [
+    " X ",
+    "XYX",
+    "ZZZ"
+  ],
   "result": {
     "item": "minecraft:comparator"
   }

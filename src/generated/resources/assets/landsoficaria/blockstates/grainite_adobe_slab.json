@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "landsoficaria:block/grainite_adobe_slab_top"
-    },
     "type=bottom": {
       "model": "landsoficaria:block/grainite_adobe_slab"
     },
     "type=double": {
       "model": "landsoficaria:block/grainite_adobe"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/grainite_adobe_slab_top"
     }
   }
 }

@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "landsoficaria:block/yellowstone_adobe",
     "bottom": "landsoficaria:block/yellowstone_adobe",
+    "side": "landsoficaria:block/yellowstone_adobe",
     "top": "landsoficaria:block/yellowstone_adobe"
   }
 }

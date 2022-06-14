@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "landsoficaria:relicstone_pillar"
   },
-  "result": "landsoficaria:relicstone_pillar_head",
-  "count": 1
+  "result": "landsoficaria:relicstone_pillar_head"
 }

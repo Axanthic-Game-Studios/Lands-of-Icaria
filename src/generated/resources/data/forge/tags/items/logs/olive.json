@@ -1,9 +1,3 @@
 {
-  "replace": false,
-  "values": [
-    "landsoficaria:olive_log",
-    "landsoficaria:stripped_olive_log",
-    "landsoficaria:olive_wood",
-    "landsoficaria:stripped_olive_wood"
-  ]
+  "values": []
 }

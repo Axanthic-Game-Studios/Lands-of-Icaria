@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 0.7,
   "ingredient": {
     "item": "landsoficaria:molybdenum_ore"
   },
-  "result": "landsoficaria:molybdenum_ingot",
-  "experience": 0.7,
-  "cookingtime": 100
+  "result": "landsoficaria:molybdenum_ingot"
 }

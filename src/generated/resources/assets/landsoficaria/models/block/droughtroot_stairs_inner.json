@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "side": "landsoficaria:block/droughtroot_planks",
     "bottom": "landsoficaria:block/droughtroot_planks",
+    "side": "landsoficaria:block/droughtroot_planks",
     "top": "landsoficaria:block/droughtroot_planks"
   }
 }

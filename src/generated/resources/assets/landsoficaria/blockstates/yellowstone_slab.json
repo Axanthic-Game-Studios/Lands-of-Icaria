@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "landsoficaria:block/yellowstone_slab_top"
-    },
     "type=bottom": {
       "model": "landsoficaria:block/yellowstone_slab"
     },
     "type=double": {
       "model": "landsoficaria:block/yellowstone"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/yellowstone_slab_top"
     }
   }
 }

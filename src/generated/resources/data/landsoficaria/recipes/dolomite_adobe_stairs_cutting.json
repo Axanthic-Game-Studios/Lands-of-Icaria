@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "landsoficaria:dolomite_adobe"
   },
-  "result": "landsoficaria:dolomite_adobe_stairs",
-  "count": 1
+  "result": "landsoficaria:dolomite_adobe_stairs"
 }

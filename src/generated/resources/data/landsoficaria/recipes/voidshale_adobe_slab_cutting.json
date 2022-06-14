@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 2,
   "ingredient": {
     "item": "landsoficaria:voidshale_adobe"
   },
-  "result": "landsoficaria:voidshale_adobe_slab",
-  "count": 2
+  "result": "landsoficaria:voidshale_adobe_slab"
 }

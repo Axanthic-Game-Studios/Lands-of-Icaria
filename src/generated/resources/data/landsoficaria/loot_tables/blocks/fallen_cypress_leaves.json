@@ -2,8 +2,14 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {}
+        }
+      ],
       "entries": [
         {
           "type": "minecraft:alternatives",
@@ -12,8 +18,8 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:block_state_property",
                   "block": "landsoficaria:fallen_cypress_leaves",
+                  "condition": "minecraft:block_state_property",
                   "properties": {
                     "layers": "1"
                   }
@@ -25,8 +31,8 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:block_state_property",
                   "block": "landsoficaria:fallen_cypress_leaves",
+                  "condition": "minecraft:block_state_property",
                   "properties": {
                     "layers": "2"
                   }
@@ -34,9 +40,9 @@
               ],
               "functions": [
                 {
-                  "function": "minecraft:set_count",
+                  "add": false,
                   "count": 2.0,
-                  "add": false
+                  "function": "minecraft:set_count"
                 }
               ],
               "name": "landsoficaria:fallen_cypress_leaves"
@@ -45,8 +51,8 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:block_state_property",
                   "block": "landsoficaria:fallen_cypress_leaves",
+                  "condition": "minecraft:block_state_property",
                   "properties": {
                     "layers": "3"
                   }
@@ -54,9 +60,9 @@
               ],
               "functions": [
                 {
-                  "function": "minecraft:set_count",
+                  "add": false,
                   "count": 3.0,
-                  "add": false
+                  "function": "minecraft:set_count"
                 }
               ],
               "name": "landsoficaria:fallen_cypress_leaves"
@@ -65,8 +71,8 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:block_state_property",
                   "block": "landsoficaria:fallen_cypress_leaves",
+                  "condition": "minecraft:block_state_property",
                   "properties": {
                     "layers": "4"
                   }
@@ -74,9 +80,9 @@
               ],
               "functions": [
                 {
-                  "function": "minecraft:set_count",
+                  "add": false,
                   "count": 4.0,
-                  "add": false
+                  "function": "minecraft:set_count"
                 }
               ],
               "name": "landsoficaria:fallen_cypress_leaves"
@@ -85,8 +91,8 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:block_state_property",
                   "block": "landsoficaria:fallen_cypress_leaves",
+                  "condition": "minecraft:block_state_property",
                   "properties": {
                     "layers": "5"
                   }
@@ -94,9 +100,9 @@
               ],
               "functions": [
                 {
-                  "function": "minecraft:set_count",
+                  "add": false,
                   "count": 5.0,
-                  "add": false
+                  "function": "minecraft:set_count"
                 }
               ],
               "name": "landsoficaria:fallen_cypress_leaves"
@@ -105,8 +111,8 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:block_state_property",
                   "block": "landsoficaria:fallen_cypress_leaves",
+                  "condition": "minecraft:block_state_property",
                   "properties": {
                     "layers": "6"
                   }
@@ -114,9 +120,9 @@
               ],
               "functions": [
                 {
-                  "function": "minecraft:set_count",
+                  "add": false,
                   "count": 6.0,
-                  "add": false
+                  "function": "minecraft:set_count"
                 }
               ],
               "name": "landsoficaria:fallen_cypress_leaves"
@@ -125,8 +131,8 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:block_state_property",
                   "block": "landsoficaria:fallen_cypress_leaves",
+                  "condition": "minecraft:block_state_property",
                   "properties": {
                     "layers": "7"
                   }
@@ -134,9 +140,9 @@
               ],
               "functions": [
                 {
-                  "function": "minecraft:set_count",
+                  "add": false,
                   "count": 7.0,
-                  "add": false
+                  "function": "minecraft:set_count"
                 }
               ],
               "name": "landsoficaria:fallen_cypress_leaves"
@@ -145,9 +151,9 @@
               "type": "minecraft:item",
               "functions": [
                 {
-                  "function": "minecraft:set_count",
+                  "add": false,
                   "count": 8.0,
-                  "add": false
+                  "function": "minecraft:set_count"
                 }
               ],
               "name": "landsoficaria:fallen_cypress_leaves"
@@ -155,13 +161,7 @@
           ]
         }
       ],
-      "conditions": [
-        {
-          "condition": "minecraft:entity_properties",
-          "predicate": {},
-          "entity": "this"
-        }
-      ]
+      "rolls": 1.0
     }
   ]
 }

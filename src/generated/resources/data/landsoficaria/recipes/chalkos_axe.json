@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XX ",
-    "XY ",
-    " Y "
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:chalkos_ingot"
@@ -13,6 +8,11 @@
       "tag": "forge:bones"
     }
   },
+  "pattern": [
+    "XX ",
+    "XY ",
+    " Y "
+  ],
   "result": {
     "item": "landsoficaria:chalkos_axe"
   }

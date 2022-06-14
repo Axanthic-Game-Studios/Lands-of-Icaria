@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "landsoficaria:block/silkstone_bricks",
     "bottom": "landsoficaria:block/silkstone_bricks",
+    "side": "landsoficaria:block/silkstone_bricks",
     "top": "landsoficaria:block/silkstone_bricks"
   }
 }

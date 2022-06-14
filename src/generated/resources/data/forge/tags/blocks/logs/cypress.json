@@ -1,5 +1,4 @@
 {
-  "replace": false,
   "values": [
     "landsoficaria:cypress_log",
     "landsoficaria:stripped_cypress_log",

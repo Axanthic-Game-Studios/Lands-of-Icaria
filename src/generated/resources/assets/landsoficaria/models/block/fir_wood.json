@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "side": "landsoficaria:block/fir_wood_side",
-    "end": "landsoficaria:block/fir_wood_end"
+    "end": "landsoficaria:block/fir_wood_end",
+    "side": "landsoficaria:block/fir_wood_side"
   }
 }

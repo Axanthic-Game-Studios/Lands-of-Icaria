@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:sunstone_cobble"
     }
   },
+  "pattern": [
+    "XXX"
+  ],
   "result": {
-    "item": "landsoficaria:sunstone_cobble_slab",
-    "count": 6
+    "count": 6,
+    "item": "landsoficaria:sunstone_cobble_slab"
   }
 }

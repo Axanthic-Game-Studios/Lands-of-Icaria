@@ -1,7 +1,3 @@
 {
-  "replace": false,
-  "values": [
-    "landsoficaria:sideros_ore",
-    "landsoficaria:anthracite_ore"
-  ]
+  "values": []
 }

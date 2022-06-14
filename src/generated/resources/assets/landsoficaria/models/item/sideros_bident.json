@@ -1,14 +1,14 @@
 {
   "parent": "landsoficaria:item/bident",
-  "textures": {
-    "layer0": "landsoficaria:item/sideros_bident"
-  },
   "overrides": [
     {
+      "model": "landsoficaria:item/sideros_bident_throwing",
       "predicate": {
         "landsoficaria:throwing": 1.0
-      },
-      "model": "landsoficaria:item/sideros_bident_throwing"
+      }
     }
-  ]
+  ],
+  "textures": {
+    "layer0": "landsoficaria:item/sideros_bident"
+  }
 }

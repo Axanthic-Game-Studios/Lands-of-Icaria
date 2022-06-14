@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX",
-    "XXX"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:laurel_planks"
     }
   },
+  "pattern": [
+    "XXX",
+    "XXX"
+  ],
   "result": {
-    "item": "landsoficaria:laurel_trapdoor",
-    "count": 2
+    "count": 2,
+    "item": "landsoficaria:laurel_trapdoor"
   }
 }

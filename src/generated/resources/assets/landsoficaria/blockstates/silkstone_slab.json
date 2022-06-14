@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "landsoficaria:block/silkstone_slab_top"
-    },
     "type=bottom": {
       "model": "landsoficaria:block/silkstone_slab"
     },
     "type=double": {
       "model": "landsoficaria:block/silkstone"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/silkstone_slab_top"
     }
   }
 }

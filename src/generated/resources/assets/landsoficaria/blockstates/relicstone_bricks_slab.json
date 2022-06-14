@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "landsoficaria:block/relicstone_bricks_slab_top"
-    },
     "type=bottom": {
       "model": "landsoficaria:block/relicstone_bricks_slab"
     },
     "type=double": {
       "model": "landsoficaria:block/relicstone_bricks"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/relicstone_bricks_slab_top"
     }
   }
 }

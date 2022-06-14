@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX",
-    "XXX"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:fir_planks"
     }
   },
+  "pattern": [
+    "XXX",
+    "XXX"
+  ],
   "result": {
-    "item": "landsoficaria:fir_trapdoor",
-    "count": 2
+    "count": 2,
+    "item": "landsoficaria:fir_trapdoor"
   }
 }

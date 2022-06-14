@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ABC",
-    "DE "
-  ],
   "key": {
     "A": {
       "item": "landsoficaria:cooked_sow_meat"
@@ -21,6 +17,10 @@
       "item": "landsoficaria:loam_bowl"
     }
   },
+  "pattern": [
+    "ABC",
+    "DE "
+  ],
   "result": {
     "item": "landsoficaria:stew_sow"
   }

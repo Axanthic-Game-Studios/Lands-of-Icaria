@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "AB",
-    "CD"
-  ],
   "key": {
     "A": {
       "item": "landsoficaria:cooked_cerver_meat"
@@ -18,6 +14,10 @@
       "item": "landsoficaria:loam_bowl"
     }
   },
+  "pattern": [
+    "AB",
+    "CD"
+  ],
   "result": {
     "item": "landsoficaria:stew_cerver"
   }

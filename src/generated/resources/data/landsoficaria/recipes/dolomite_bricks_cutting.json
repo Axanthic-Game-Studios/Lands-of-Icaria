@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "landsoficaria:dolomite_smooth"
   },
-  "result": "landsoficaria:dolomite_bricks",
-  "count": 1
+  "result": "landsoficaria:dolomite_bricks"
 }

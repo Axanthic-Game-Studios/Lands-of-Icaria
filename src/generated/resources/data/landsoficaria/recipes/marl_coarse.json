@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "landsoficaria:grainel"
+    },
+    "Y": {
+      "item": "landsoficaria:marl"
+    }
+  },
   "pattern": [
     "XY",
     "YX"
   ],
-  "key": {
-    "Y": {
-      "item": "landsoficaria:marl"
-    },
-    "X": {
-      "item": "landsoficaria:grainel"
-    }
-  },
   "result": {
-    "item": "landsoficaria:marl_coarse",
-    "count": 4
+    "count": 4,
+    "item": "landsoficaria:marl_coarse"
   }
 }

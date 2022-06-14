@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "landsoficaria:dolomite_pillar"
   },
-  "result": "landsoficaria:dolomite_pillar_head",
-  "count": 1
+  "result": "landsoficaria:dolomite_pillar_head"
 }

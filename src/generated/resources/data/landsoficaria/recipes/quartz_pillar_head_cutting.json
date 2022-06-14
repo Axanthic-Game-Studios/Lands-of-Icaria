@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "minecraft:quartz_block"
   },
-  "result": "landsoficaria:quartz_pillar_head",
-  "count": 1
+  "result": "landsoficaria:quartz_pillar_head"
 }

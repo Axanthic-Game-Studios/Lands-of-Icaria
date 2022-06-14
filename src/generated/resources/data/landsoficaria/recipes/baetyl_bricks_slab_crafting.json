@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:baetyl_bricks"
     }
   },
+  "pattern": [
+    "XXX"
+  ],
   "result": {
-    "item": "landsoficaria:baetyl_bricks_slab",
-    "count": 6
+    "count": 6,
+    "item": "landsoficaria:baetyl_bricks_slab"
   }
 }

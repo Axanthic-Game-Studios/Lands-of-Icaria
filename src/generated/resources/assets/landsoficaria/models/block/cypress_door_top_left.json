@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "textures": {
+    "bottom": "landsoficaria:block/cypress_door_bottom",
+    "top": "landsoficaria:block/cypress_door_top"
+  }
+}

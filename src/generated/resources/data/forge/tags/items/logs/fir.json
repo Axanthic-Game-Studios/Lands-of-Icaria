@@ -1,9 +1,3 @@
 {
-  "replace": false,
-  "values": [
-    "landsoficaria:fir_log",
-    "landsoficaria:stripped_fir_log",
-    "landsoficaria:fir_wood",
-    "landsoficaria:stripped_fir_wood"
-  ]
+  "values": []
 }

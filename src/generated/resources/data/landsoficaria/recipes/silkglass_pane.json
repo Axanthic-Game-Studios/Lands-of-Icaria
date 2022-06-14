@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX",
-    "XXX"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:silkglass"
     }
   },
+  "pattern": [
+    "XXX",
+    "XXX"
+  ],
   "result": {
-    "item": "landsoficaria:silkglass_pane",
-    "count": 16
+    "count": 16,
+    "item": "landsoficaria:silkglass_pane"
   }
 }

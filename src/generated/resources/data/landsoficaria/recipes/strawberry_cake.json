@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ABA",
-    "CDC",
-    "EEE"
-  ],
   "key": {
     "A": {
       "item": "landsoficaria:strawberries"
@@ -22,6 +17,11 @@
       "item": "landsoficaria:spelt_flour"
     }
   },
+  "pattern": [
+    "ABA",
+    "CDC",
+    "EEE"
+  ],
   "result": {
     "item": "landsoficaria:strawberry_cake"
   }

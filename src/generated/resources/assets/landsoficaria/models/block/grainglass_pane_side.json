@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "landsoficaria:block/grainglass",
-    "edge": "landsoficaria:block/grainglass_pane"
+    "edge": "landsoficaria:block/grainglass_pane",
+    "pane": "landsoficaria:block/grainglass"
   }
 }

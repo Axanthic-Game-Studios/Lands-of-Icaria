@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ABA",
-    "CDC",
-    " A "
-  ],
   "key": {
     "A": {
       "item": "minecraft:stick"
@@ -19,6 +14,11 @@
       "item": "minecraft:tripwire_hook"
     }
   },
+  "pattern": [
+    "ABA",
+    "CDC",
+    " A "
+  ],
   "result": {
     "item": "minecraft:crossbow"
   }

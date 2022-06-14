@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "landsoficaria:block/fir_slab_top"
-    },
     "type=bottom": {
       "model": "landsoficaria:block/fir_slab"
     },
     "type=double": {
       "model": "landsoficaria:block/fir_planks"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/fir_slab_top"
     }
   }
 }

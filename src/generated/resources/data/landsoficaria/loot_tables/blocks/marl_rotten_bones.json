@@ -2,7 +2,6 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
@@ -32,69 +31,69 @@
               "children": [
                 {
                   "type": "minecraft:item",
-                  "weight": 25,
                   "functions": [
                     {
-                      "function": "minecraft:set_count",
+                      "add": false,
                       "count": {
                         "type": "minecraft:uniform",
-                        "min": 1.0,
-                        "max": 3.0
+                        "max": 3.0,
+                        "min": 1.0
                       },
-                      "add": false
+                      "function": "minecraft:set_count"
                     },
                     {
                       "function": "minecraft:explosion_decay"
                     },
                     {
-                      "function": "minecraft:apply_bonus",
                       "enchantment": "minecraft:fortune",
                       "formula": "minecraft:uniform_bonus_count",
+                      "function": "minecraft:apply_bonus",
                       "parameters": {
                         "bonusMultiplier": 1
                       }
                     }
                   ],
-                  "name": "minecraft:bone"
+                  "name": "minecraft:bone",
+                  "weight": 25
                 },
                 {
                   "type": "minecraft:item",
-                  "weight": 25,
                   "functions": [
                     {
-                      "function": "minecraft:set_count",
+                      "add": false,
                       "count": 1.0,
-                      "add": false
+                      "function": "minecraft:set_count"
                     },
                     {
                       "function": "minecraft:explosion_decay"
                     },
                     {
-                      "function": "minecraft:apply_bonus",
                       "enchantment": "minecraft:fortune",
                       "formula": "minecraft:uniform_bonus_count",
+                      "function": "minecraft:apply_bonus",
                       "parameters": {
                         "bonusMultiplier": 1
                       }
                     }
                   ],
-                  "name": "landsoficaria:rotten_bones"
+                  "name": "landsoficaria:rotten_bones",
+                  "weight": 25
                 },
                 {
                   "type": "minecraft:item",
                   "functions": [
                     {
-                      "function": "minecraft:set_count",
+                      "add": false,
                       "count": 1.0,
-                      "add": false
+                      "function": "minecraft:set_count"
                     },
                     {
                       "function": "minecraft:explosion_decay"
                     },
                     {
-                      "function": "minecraft:apply_bonus",
                       "enchantment": "minecraft:fortune",
                       "formula": "minecraft:uniform_bonus_count",
+                      "function": "minecraft:apply_bonus",
                       "parameters": {
                         "bonusMultiplier": 1
                       }
@@ -106,7 +105,8 @@
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1.0
     }
   ]
 }

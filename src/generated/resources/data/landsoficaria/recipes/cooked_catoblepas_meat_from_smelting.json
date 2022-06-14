@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.35,
   "ingredient": {
     "item": "landsoficaria:raw_catoblepas_meat"
   },
-  "result": "landsoficaria:cooked_catoblepas_meat",
-  "experience": 0.35,
-  "cookingtime": 200
+  "result": "landsoficaria:cooked_catoblepas_meat"
 }

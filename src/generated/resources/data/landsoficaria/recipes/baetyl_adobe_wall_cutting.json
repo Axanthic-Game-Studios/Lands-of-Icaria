@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "landsoficaria:baetyl_adobe"
   },
-  "result": "landsoficaria:baetyl_adobe_wall",
-  "count": 1
+  "result": "landsoficaria:baetyl_adobe_wall"
 }

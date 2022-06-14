@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "landsoficaria:loam_bricks"
   },
-  "result": "landsoficaria:loam_bricks_stairs",
-  "count": 1
+  "result": "landsoficaria:loam_bricks_stairs"
 }

@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "landsoficaria:block/dolomite_smooth_slab_top"
-    },
     "type=bottom": {
       "model": "landsoficaria:block/dolomite_smooth_slab"
     },
     "type=double": {
       "model": "landsoficaria:block/dolomite_smooth"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/dolomite_smooth_slab_top"
     }
   }
 }

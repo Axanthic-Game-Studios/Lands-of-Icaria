@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "landsoficaria:block/populus_slab_top"
-    },
     "type=bottom": {
       "model": "landsoficaria:block/populus_slab"
     },
     "type=double": {
       "model": "landsoficaria:block/populus_planks"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/populus_slab_top"
     }
   }
 }

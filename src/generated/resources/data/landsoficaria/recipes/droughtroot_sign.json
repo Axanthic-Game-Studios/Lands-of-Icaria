@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX",
-    "XXX",
-    " Y "
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:droughtroot_planks"
@@ -13,8 +8,13 @@
       "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    "XXX",
+    "XXX",
+    " Y "
+  ],
   "result": {
-    "item": "landsoficaria:droughtroot_sign",
-    "count": 6
+    "count": 6,
+    "item": "landsoficaria:droughtroot_sign"
   }
 }

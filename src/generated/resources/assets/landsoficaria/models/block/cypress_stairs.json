@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "landsoficaria:block/cypress_planks",
     "bottom": "landsoficaria:block/cypress_planks",
+    "side": "landsoficaria:block/cypress_planks",
     "top": "landsoficaria:block/cypress_planks"
   }
 }

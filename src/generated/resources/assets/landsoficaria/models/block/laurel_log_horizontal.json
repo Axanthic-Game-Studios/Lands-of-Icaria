@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column_horizontal",
   "textures": {
-    "side": "landsoficaria:block/laurel_log_side",
-    "end": "landsoficaria:block/laurel_log_end"
+    "end": "landsoficaria:block/laurel_log_end",
+    "side": "landsoficaria:block/laurel_log_side"
   }
 }

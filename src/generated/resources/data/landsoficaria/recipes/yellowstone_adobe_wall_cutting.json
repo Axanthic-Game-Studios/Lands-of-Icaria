@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "landsoficaria:yellowstone_adobe"
   },
-  "result": "landsoficaria:yellowstone_adobe_wall",
-  "count": 1
+  "result": "landsoficaria:yellowstone_adobe_wall"
 }

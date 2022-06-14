@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XX ",
-    "YY "
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:arachne_string"
@@ -12,6 +8,10 @@
       "tag": "minecraft:planks"
     }
   },
+  "pattern": [
+    "XX ",
+    "YY "
+  ],
   "result": {
     "item": "minecraft:loom"
   }

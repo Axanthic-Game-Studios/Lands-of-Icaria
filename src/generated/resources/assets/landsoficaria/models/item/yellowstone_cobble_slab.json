@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "landsoficaria:block/yellowstone_cobble",
     "bottom": "landsoficaria:block/yellowstone_cobble",
+    "side": "landsoficaria:block/yellowstone_cobble",
     "top": "landsoficaria:block/yellowstone_cobble"
   }
 }

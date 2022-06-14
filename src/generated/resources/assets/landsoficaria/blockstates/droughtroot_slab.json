@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "landsoficaria:block/droughtroot_slab_top"
-    },
     "type=bottom": {
       "model": "landsoficaria:block/droughtroot_slab"
     },
     "type=double": {
       "model": "landsoficaria:block/droughtroot_planks"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/droughtroot_slab_top"
     }
   }
 }

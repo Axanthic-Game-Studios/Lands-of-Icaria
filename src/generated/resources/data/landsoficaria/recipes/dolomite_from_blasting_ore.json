@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 0.7,
   "ingredient": {
     "item": "landsoficaria:dolomite_ore"
   },
-  "result": "landsoficaria:dolomite",
-  "experience": 0.7,
-  "cookingtime": 100
+  "result": "landsoficaria:dolomite"
 }

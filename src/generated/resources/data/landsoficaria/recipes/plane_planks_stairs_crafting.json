@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X  ",
-    "XX ",
-    "XXX"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:plane_planks"
     }
   },
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
   "result": {
-    "item": "landsoficaria:plane_stairs",
-    "count": 4
+    "count": 4,
+    "item": "landsoficaria:plane_stairs"
   }
 }

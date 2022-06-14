@@ -9,11 +9,10 @@ import com.axanthic.icaria.common.registry.IcariaItems.WoodDecoItemBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.DoorHingeSide;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.ModelProvider;
+import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -200,7 +199,38 @@ public class IcariaBlockStates extends BlockStateProvider {
 	}
 
 	public void doorBlock(RegistryObject<? extends DoorBlock> registryObject) {
-		doorBlock(registryObject.get(), new ResourceLocation(IcariaInfo.MODID + ":block/" + registryObject.getId().getPath() + "_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/" + registryObject.getId().getPath() + "_top"));
+		doorBlock(registryObject.getId().getPath(), registryObject.get(), new ResourceLocation(IcariaInfo.MODID + ":block/" + registryObject.getId().getPath() + "_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/" + registryObject.getId().getPath() + "_top"));
+	}
+
+	public void doorBlock(String typeLocation, Block door, ResourceLocation bottom, ResourceLocation top) {
+		BlockModelBuilder bottomLeft = doorBlock(typeLocation + "_bottom_left", "bottom_left", bottom, top);
+		BlockModelBuilder bottomLeftOpen = doorBlock(typeLocation + "_bottom_left_open", "bottom_left_open", bottom, top);
+		BlockModelBuilder bottomRight = doorBlock(typeLocation + "_bottom_right", "bottom_right", bottom, top);
+		BlockModelBuilder bottomRightOpen = doorBlock(typeLocation + "_bottom_right_open", "bottom_right_open", bottom, top);
+
+		BlockModelBuilder topLeft = doorBlock(typeLocation + "_top_left", "top_left", bottom, top);
+		BlockModelBuilder topLeftOpen = doorBlock(typeLocation + "_top_left_open", "top_left_open", bottom, top);
+		BlockModelBuilder topRight = doorBlock(typeLocation + "_top_right", "top_right", bottom, top);
+		BlockModelBuilder topRightOpen = doorBlock(typeLocation + "_top_right_open", "top_right_open", bottom, top);
+
+		getVariantBuilder(door).forAllStatesExcept(state -> {
+			int yRot = ((int) state.getValue(DoorBlock.FACING).toYRot()) + 90;
+			boolean rh = state.getValue(DoorBlock.HINGE) == DoorHingeSide.RIGHT;
+			boolean open = state.getValue(DoorBlock.OPEN);
+			boolean right = rh ^ open;
+			if (open) {
+				yRot += 90;
+			}
+
+			if (rh && open) {
+				yRot += 180;
+			}
+
+			yRot %= 360;
+			BlockModelBuilder bottomModel = open ? (right ? bottomRightOpen : bottomLeftOpen) : (right ? bottomRight : bottomLeft);
+			BlockModelBuilder topModel = open ? (right ? topRightOpen : topLeftOpen) : (right ? topRight : topLeft);
+			return ConfiguredModel.builder().modelFile(state.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER ? bottomModel : topModel).rotationY(yRot).build();
+		}, DoorBlock.POWERED);
 	}
 
 	public void trapDoorWithItem(RegistryObject<? extends TrapDoorBlock> registryObject) {
@@ -226,5 +256,9 @@ public class IcariaBlockStates extends BlockStateProvider {
 	public void rotatedBlockWithItem(RegistryObject<? extends Block> registryObject) {
 		getVariantBuilder(registryObject.get()).partialState().setModels(ConfiguredModel.allRotations(cubeAll(registryObject.get()), false));
 		itemBlock(registryObject);
+	}
+
+	public BlockModelBuilder doorBlock(String name, String type, ResourceLocation bottom, ResourceLocation top) {
+		return models().withExistingParent(name, "block/door_" + type).texture("bottom", bottom).texture("top", top);
 	}
 }

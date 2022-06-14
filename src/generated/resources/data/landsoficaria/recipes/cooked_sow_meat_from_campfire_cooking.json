@@ -1,9 +1,9 @@
 {
   "type": "minecraft:campfire_cooking",
+  "cookingtime": 600,
+  "experience": 0.35,
   "ingredient": {
     "item": "landsoficaria:raw_sow_meat"
   },
-  "result": "landsoficaria:cooked_sow_meat",
-  "experience": 0.35,
-  "cookingtime": 600
+  "result": "landsoficaria:cooked_sow_meat"
 }

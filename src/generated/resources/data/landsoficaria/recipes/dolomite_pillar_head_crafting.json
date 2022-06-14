@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X",
-    "Y"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:dolomite_bricks"
@@ -12,8 +8,12 @@
       "item": "landsoficaria:dolomite_pillar"
     }
   },
+  "pattern": [
+    "X",
+    "Y"
+  ],
   "result": {
-    "item": "landsoficaria:dolomite_pillar_head",
-    "count": 2
+    "count": 2,
+    "item": "landsoficaria:dolomite_pillar_head"
   }
 }

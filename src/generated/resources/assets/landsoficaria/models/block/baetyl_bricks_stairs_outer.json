@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "side": "landsoficaria:block/baetyl_bricks",
     "bottom": "landsoficaria:block/baetyl_bricks",
+    "side": "landsoficaria:block/baetyl_bricks",
     "top": "landsoficaria:block/baetyl_bricks"
   }
 }

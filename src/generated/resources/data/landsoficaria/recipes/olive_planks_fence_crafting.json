@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XYX",
-    "XYX"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:olive_planks"
@@ -12,8 +8,12 @@
       "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    "XYX",
+    "XYX"
+  ],
   "result": {
-    "item": "landsoficaria:olive_fence",
-    "count": 3
+    "count": 3,
+    "item": "landsoficaria:olive_fence"
   }
 }

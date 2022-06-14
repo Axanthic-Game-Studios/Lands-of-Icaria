@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X  ",
-    "XX ",
-    "XXX"
-  ],
   "key": {
     "X": {
       "item": "landsoficaria:baetyl_cobble"
     }
   },
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
   "result": {
-    "item": "landsoficaria:baetyl_cobble_stairs",
-    "count": 4
+    "count": 4,
+    "item": "landsoficaria:baetyl_cobble_stairs"
   }
 }
