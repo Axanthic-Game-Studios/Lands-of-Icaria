@@ -106,7 +106,7 @@ public class Icaria {
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		Player player = event.player;
-		if (player.level.dimension() == Level.NETHER) { // TODO replace with Icaria dimension
+		if (player.level.dimension() == IcariaDimensions.ICARIA) {
 			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
 				ItemStack stack = player.getInventory().getItem(slot);
 				if (stack.getItem().equals(Items.TORCH)) {

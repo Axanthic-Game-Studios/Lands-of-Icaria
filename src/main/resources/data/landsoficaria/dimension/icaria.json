@@ -1,0 +1,26 @@
+{
+  "_comment": "/execute in landsoficaria:icaria positioned as @s run tp 0 256 0 ",
+  "type": "landsoficaria:icaria",
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": 0,
+    "settings": "landsoficaria:icaria",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        }
+      ]
+    }
+  }
+}
