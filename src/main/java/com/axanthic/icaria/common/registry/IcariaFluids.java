@@ -5,7 +5,6 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
@@ -70,13 +69,11 @@ public class IcariaFluids {
 			.canConvertToSource(false)
 			.supportsBoating(false)
 			.pathType(BlockPathTypes.LAVA)
-			.adjacentPathType(BlockPathTypes.LAVA)
 			.canHydrate(false)
 			.lightLevel(15)
 			.density(3000)
 			.temperature(1300)
 			.viscosity(6000)
-			.rarity(Rarity.COMMON)
 			.sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
 			.sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)) {
 			@Override
@@ -99,13 +96,11 @@ public class IcariaFluids {
 			.canConvertToSource(true)
 			.supportsBoating(true)
 			.pathType(BlockPathTypes.WATER)
-			.adjacentPathType(BlockPathTypes.WATER)
 			.canHydrate(true)
 			.lightLevel(0)
 			.density(1000)
 			.temperature(300)
 			.viscosity(1000)
-			.rarity(Rarity.COMMON)
 			.sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
 			.sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)) {
 			@Override
@@ -128,13 +123,11 @@ public class IcariaFluids {
 			.canConvertToSource(true)
 			.supportsBoating(true)
 			.pathType(BlockPathTypes.WATER)
-			.adjacentPathType(BlockPathTypes.WATER)
 			.canHydrate(true)
 			.lightLevel(15)
 			.density(-1000)
 			.temperature(300)
 			.viscosity(1000)
-			.rarity(Rarity.COMMON)
 			.sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
 			.sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)) {
 			@Override

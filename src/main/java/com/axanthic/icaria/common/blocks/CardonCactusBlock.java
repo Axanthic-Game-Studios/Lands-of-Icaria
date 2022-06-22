@@ -200,7 +200,7 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 	}
 
 	@Override
-	public BlockPathTypes getAdjacentBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob, BlockPathTypes originalType) {
+	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob) {
 		return BlockPathTypes.DAMAGE_CACTUS;
 	}
 }
