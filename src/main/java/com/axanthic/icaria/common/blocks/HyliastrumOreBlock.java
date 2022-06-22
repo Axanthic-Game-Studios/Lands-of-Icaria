@@ -15,6 +15,8 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nonnull;
 
+@SuppressWarnings("deprecation")
+
 public class HyliastrumOreBlock extends Block {
 	public HyliastrumOreBlock(Properties pProperties) {
 		super(pProperties);

@@ -15,7 +15,6 @@ import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -52,9 +51,10 @@ public class Icaria {
 		IcariaBlocks.BLOCKS.register(bus);
 		IcariaBlockEntities.BLOCK_ENTITIES.register(bus);
 		IcariaContainers.CONTAINERS.register(bus);
-		IcariaFluids.FLUIDS.register(bus);
-		IcariaItems.ITEMS.register(bus);
 		IcariaEntities.ENTITIES.register(bus);
+		IcariaFluids.FLUIDS.register(bus);
+		IcariaFluids.FLUID_TYPES.register(bus);
+		IcariaItems.ITEMS.register(bus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}

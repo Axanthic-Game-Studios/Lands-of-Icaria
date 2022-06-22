@@ -71,19 +71,15 @@ sourceSets.main.resources {
 
 repositories {
     maven {
-        name = "JEI"
-        url "https://dvs1.progwml6.com/files/maven"
-        content {
-            includeGroup "mezz.jei"
-        }
+        name 'cursemaven'
+        url "https://www.cursemaven.com"
     }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${version_minecraft}-${version_forge}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    // compileOnly fg.deobf("mezz.jei:jei-${version_minecraft}:${version_jei}:api")
-    // runtimeOnly fg.deobf("mezz.jei:jei-${version_minecraft}:${version_jei}")
+    implementation fg.deobf("curse.maven:jei-238222:${version_jei}")
 }
 
 mixin {

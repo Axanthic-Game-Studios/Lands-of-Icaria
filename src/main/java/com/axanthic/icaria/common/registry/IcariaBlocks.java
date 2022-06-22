@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
+import com.axanthic.icaria.common.fluids.HyliastrumFluid;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.client.util.IcariaSounds;
 import com.axanthic.icaria.common.blocks.*;
@@ -522,7 +523,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> PHYSALIS_CROP = register("physalis_crop", () -> new PhysalisCropBlock(propertiesCrop()));
 	public static final RegistryObject<Block> ONION_CROP = register("onion_crop", () -> new OnionCropBlock(propertiesCrop()));
 
-	public static final RegistryObject<LiquidBlock> HYLIASTRUM_FLUID = register("hyliastrum_fluid", () -> new LiquidBlock(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, propertiesFluid(MaterialColor.COLOR_BLACK)));
+	public static final RegistryObject<LiquidBlock> HYLIASTRUM_FLUID = register("hyliastrum_fluid", () -> new HyliastrumFluid(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, propertiesFluid(MaterialColor.COLOR_BLACK)));
 	public static final RegistryObject<LiquidBlock> MEDITERRANEAN_WATER = register("mediterranean_water", () -> new LiquidBlock(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesFluid(MaterialColor.WATER)));
 	public static final RegistryObject<LiquidBlock> UPWARDS_FLUID = register("upwards_fluid", () -> new LiquidBlock(IcariaFluids.UPWARDS_FLUID_SOURCE, propertiesFluid(MaterialColor.WATER)));
 
@@ -687,7 +688,7 @@ public class IcariaBlocks {
 	}
 
 	private static Properties propertiesFluid(MaterialColor pMaterialColor) {
-		return Properties.of(Material.LAVA, pMaterialColor).strength(100.0F, 100.0F).noCollission().noLootTable();
+		return Properties.of(Material.WATER, pMaterialColor).strength(100.0F, 100.0F).noCollission().noLootTable();
 	}
 
 	private static <T extends Block> RegistryObject<T> register(final String name, final Supplier<? extends T> sup) {

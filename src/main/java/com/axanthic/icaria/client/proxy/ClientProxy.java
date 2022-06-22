@@ -120,7 +120,17 @@ public class ClientProxy extends CommonProxy {
 			return blockColors.getColor(state, null, null, tintIndex);
 		};
 
-		itemColors.register(itemBlockColorHandler, IcariaItems.MARL_GRASS.get(), IcariaBlocks.WHITE_BROMELIA.get(), IcariaBlocks.ORANGE_BROMELIA.get(), IcariaBlocks.PINK_BROMELIA.get(), IcariaBlocks.PURPLE_BROMELIA.get());
+		itemColors.register(itemBlockColorHandler,
+			IcariaItems.MARL_GRASS.get(),
+			IcariaBlocks.WHITE_BROMELIA.get(),
+			IcariaBlocks.ORANGE_BROMELIA.get(),
+			IcariaBlocks.PINK_BROMELIA.get(),
+			IcariaBlocks.PURPLE_BROMELIA.get());
+
+		BlockEntityRenderers.register(IcariaBlockEntities.CRYSTAL.get(), CrystalBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntities.SIGN.get(), IcariaSignBlockRenderer::new);
+
+		EntityRenderers.register(IcariaEntities.BIDENT.get(), ThrownBidentRenderer::new);
 
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.MARL_GRASS.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(IcariaBlocks.GRAINGLASS.get(), RenderType.cutout());
@@ -276,10 +286,5 @@ public class ClientProxy extends CommonProxy {
 		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.MEDITERRANEAN_WATER_FLOWING.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.UPWARDS_FLUID_SOURCE.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.UPWARDS_FLUID_FLOWING.get(), RenderType.translucent());
-
-		EntityRenderers.register(IcariaEntities.BIDENT.get(), ThrownBidentRenderer::new);
-
-		BlockEntityRenderers.register(IcariaBlockEntities.CRYSTAL.get(), CrystalBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntities.SIGN.get(), IcariaSignBlockRenderer::new);
 	}
 }

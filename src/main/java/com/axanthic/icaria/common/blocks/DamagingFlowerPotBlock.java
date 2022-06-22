@@ -30,7 +30,7 @@ public class DamagingFlowerPotBlock extends FlowerPotBlock {
 	}
 
 	@Override
-	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob entity) {
+	public BlockPathTypes getAdjacentBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob, BlockPathTypes originalType) {
 		return BlockPathTypes.DAMAGE_CACTUS;
 	}
 }

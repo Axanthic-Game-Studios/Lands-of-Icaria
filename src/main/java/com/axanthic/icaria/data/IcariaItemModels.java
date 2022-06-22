@@ -4,45 +4,22 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaItems.ToolCombination;
 
-import com.google.gson.JsonObject;
-
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 
-import net.minecraftforge.client.model.generators.CustomLoaderBuilder;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.Objects;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings({"unchecked", "rawtypes"})
 @ParametersAreNonnullByDefault
 
 public class IcariaItemModels extends ItemModelProvider {
 	public IcariaItemModels(DataGenerator generator, ExistingFileHelper helper) {
 		super(generator, IcariaInfo.MODID, helper);
-	}
-
-	public void bucketModel(RegistryObject<? extends BucketItem> registryObject) {
-		ModelBuilder<ItemModelBuilder> builder = getBuilder(registryObject.getId().getPath()).parent(getExistingFile(new ResourceLocation(IcariaInfo.MODID, "item/bucket_fluid")));
-
-		//I'm not sure how this works but it works
-		builder.customLoader((t, u) -> new CustomLoaderBuilder(t.getLocation(), t, u) {
-			@Override
-			public JsonObject toJson(JsonObject jsonObject) {
-				jsonObject.addProperty("loader", "forge:bucket");
-				jsonObject.addProperty("fluid", Objects.requireNonNull(ForgeRegistries.FLUIDS.getKey(registryObject.get().getFluid())).toString());
-				return jsonObject;
-			}
-		});
 	}
 
 	@Override
