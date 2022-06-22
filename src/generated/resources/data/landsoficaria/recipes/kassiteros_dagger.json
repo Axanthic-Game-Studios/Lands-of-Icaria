@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "landsoficaria:kassiteros_ingot"
+    },
+    "Y": {
+      "tag": "forge:bones"
+    }
+  },
+  "pattern": [
+    "X",
+    "Y"
+  ],
+  "result": {
+    "item": "landsoficaria:kassiteros_dagger"
+  }
+}

@@ -680,6 +680,7 @@ public class IcariaItems {
 	public static class ToolCombination {
 		public final IcariaTier tier;
 		public final RegistryObject<Item> SWORD;
+		public final RegistryObject<Item> DAGGER;
 		public final RegistryObject<Item> SHOVEL;
 		public final RegistryObject<Item> PICKAXE;
 		public final RegistryObject<Item> AXE;
@@ -690,9 +691,10 @@ public class IcariaItems {
 			this.tier = tier;
 			String name = Objects.requireNonNull(TierSortingRegistry.getName(tier)).getPath();
 			SWORD = register(name + "_sword", () -> new SwordItem(tier, 3, -2.4F, propertiesItems()));
+			DAGGER = register(name + "_dagger", () -> new IcariaDaggerItem(tier, 2, -1.0F, propertiesItems()));
 			SHOVEL = register(name + "_shovel", () -> new IcariaShovelItem(tier, 1.5F, -3.0F, propertiesItems()));
 			PICKAXE = register(name + "_pickaxe", () -> new IcariaPickaxeItem(tier, 1, -2.8F, propertiesItems()));
-			AXE = register(name + "_axe", () -> new IcariaAxeItem(tier, 6.0F, -3.0F, propertiesItems()));
+			AXE = register(name + "_axe", () -> new IcariaAxeItem(tier, 6, -3.0F, propertiesItems()));
 			SCYTHE = register(name + "_scythe", () -> new IcariaScytheItem(tier, 4, -2.8F, propertiesItems()));
 			BIDENT = register(name + "_bident", () -> new IcariaBidentItem(tier, propertiesItems()));
 			TOOLS.add(this);

@@ -22,7 +22,7 @@ public class IcariaAxeItem extends AxeItem {
 	public final TagKey<Block> blocks = BlockTags.MINEABLE_WITH_AXE;
 	public final Tier equivalentTier;
 
-	public IcariaAxeItem(IcariaTier pTier, float pDamage, float pAttackSpeed, Properties pProperties) {
+	public IcariaAxeItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
 		super(pTier, pDamage, pAttackSpeed, pProperties);
 		this.equivalentTier = pTier.vanillaEquivalent;
 	}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "landsoficaria:molybdenumsteel_ingot"
+    },
+    "Y": {
+      "tag": "forge:bones"
+    }
+  },
+  "pattern": [
+    "X",
+    "Y"
+  ],
+  "result": {
+    "item": "landsoficaria:molybdenumsteel_dagger"
+  }
+}

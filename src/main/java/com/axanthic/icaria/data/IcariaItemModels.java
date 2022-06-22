@@ -30,6 +30,7 @@ public class IcariaItemModels extends ItemModelProvider {
 
 		for (ToolCombination tools : IcariaItems.TOOLS) {
 			itemWithModel(tools.SWORD, "item/handheld");
+			itemWithModel(tools.DAGGER, "item/handheld");
 			itemWithModel(tools.SHOVEL, "item/handheld");
 			itemWithModel(tools.PICKAXE, "item/handheld");
 			itemWithModel(tools.AXE, "item/handheld");
