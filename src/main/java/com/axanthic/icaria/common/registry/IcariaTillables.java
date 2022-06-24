@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.mixin.HoeItemAccess;
+
 import com.mojang.datafixers.util.Pair;
 
 import net.minecraft.world.item.HoeItem;

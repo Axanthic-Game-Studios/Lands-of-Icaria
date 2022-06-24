@@ -11,14 +11,14 @@ import java.util.function.Supplier;
 @MethodsReturnNonnullByDefault
 
 public class IcariaTier implements Tier {
-	public final int level;
-	public final int uses;
-	public final float speed;
-	public final float attackDamageBonus;
-	public final int enchantmentValue;
-	public final TagKey<Block> tag;
-	public final Supplier<Ingredient> repairIngredient;
-	public final Tier vanillaEquivalent;
+	public int level;
+	public int uses;
+	public float speed;
+	public float attackDamageBonus;
+	public int enchantmentValue;
+	public TagKey<Block> tag;
+	public Supplier<Ingredient> repairIngredient;
+	public Tier vanillaEquivalent;
 
 	public IcariaTier(int level, int uses, float speed, float attackDamageBonus, int enchantmentValue, TagKey<Block> tag, Supplier<Ingredient> repairIngredient, Tier vanillaEquivalent) {
 		this.level = level;

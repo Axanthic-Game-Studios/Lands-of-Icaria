@@ -2,11 +2,7 @@ package com.axanthic.icaria.data;
 
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaBlocks.StoneDecoBlocks;
-import com.axanthic.icaria.common.registry.IcariaBlocks.WoodDecoBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
-import com.axanthic.icaria.common.registry.IcariaItems.WoodDecoItemBlocks;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Registry;
@@ -26,7 +22,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockTags extends BlockTagsProvider {
-
 	// BLOCK TAGS
 	public static final TagKey<Block> ICARIA_TIER = icariaTag("icaria_tier");
 
@@ -686,7 +681,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.ONION_CROP.get());
 
 		// ITEMBLOCK TAGS
-		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
+		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			if (deco.SLAB != null) {
 				tag(BlockTags.SLABS).add(deco.block.SLAB.get());
 			}
@@ -698,7 +693,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			}
 		}
 
-		for (WoodDecoItemBlocks deco : IcariaItems.WOOD_BLOCKS) {
+		for (IcariaItems.WoodDecoItemBlocks deco : IcariaItems.WOOD_BLOCKS) {
 			if (deco.SLAB != null) {
 				tag(BlockTags.WOODEN_SLABS).add(deco.block.SLAB.get());
 			}
@@ -1009,11 +1004,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(WOODEN_TRAPDOORS_POPULUS);
 	}
 
-	public void addStoneDecoToTag(StoneDecoBlocks deco, TagKey<Block> tag) {
+	public void addStoneDecoToTag(IcariaBlocks.StoneDecoBlocks deco, TagKey<Block> tag) {
 		tag(tag).add(deco.SLAB.get()).add(deco.STAIRS.get()).add(deco.WALL.get());
 	}
 
-	public void addWoodDecoToTag(WoodDecoBlocks deco, TagKey<Block> tag) {
+	public void addWoodDecoToTag(IcariaBlocks.WoodDecoBlocks deco, TagKey<Block> tag) {
 		tag(tag).add(deco.SLAB.get()).add(deco.STAIRS.get()).add(deco.FENCE.get()).add(deco.GATE.get());
 	}
 

@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.util.IcariaInfo;
-import com.axanthic.icaria.common.entities.ThrownBidentEntity;
+import com.axanthic.icaria.common.entity.ThrownBidentEntity;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;

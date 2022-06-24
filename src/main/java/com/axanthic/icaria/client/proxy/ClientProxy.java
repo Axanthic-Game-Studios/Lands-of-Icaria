@@ -1,8 +1,8 @@
 package com.axanthic.icaria.client.proxy;
 
-import com.axanthic.icaria.client.render.CrystalBlockRenderer;
-import com.axanthic.icaria.client.render.IcariaSignBlockRenderer;
-import com.axanthic.icaria.client.render.ThrownBidentRenderer;
+import com.axanthic.icaria.client.renderer.CrystalBlockRenderer;
+import com.axanthic.icaria.client.renderer.IcariaSignBlockRenderer;
+import com.axanthic.icaria.client.renderer.ThrownBidentRenderer;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
@@ -29,7 +29,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void setup() {
-		for (IcariaItems.ToolCombination tools : IcariaItems.TOOLS) {
+		for (IcariaItems.ToolSet tools : IcariaItems.TOOLS) {
 			ItemProperties.register(tools.BIDENT.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (stack, world, entity, id) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
 		}
 	}

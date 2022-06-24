@@ -1,5 +1,6 @@
 package com.axanthic.icaria;
 
+import com.axanthic.icaria.client.layer.OrichalcumHelmetLayer;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.client.proxy.ClientProxy;
 import com.axanthic.icaria.common.config.IcariaConfig;
@@ -17,6 +18,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -39,17 +41,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @Mod(IcariaInfo.MODID)
 public class Icaria {
-	public static CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
+	public CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
 	public Icaria() {
-		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		IcariaConfig.register();
 
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetupEvent);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetupEvent);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetupEvent);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onLoadComplete);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onGatherData);
 
-		IcariaConfig.register();
+		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		IcariaBlocks.BLOCKS.register(bus);
 		IcariaBlockEntities.BLOCK_ENTITIES.register(bus);
@@ -60,6 +62,11 @@ public class Icaria {
 		IcariaItems.ITEMS.register(bus);
 
 		MinecraftForge.EVENT_BUS.register(this);
+
+		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
+			FMLJavaModLoadingContext.get().getModEventBus().addListener(OrichalcumHelmetLayer::onEntityRenderers);
+			FMLJavaModLoadingContext.get().getModEventBus().addListener(OrichalcumHelmetLayer::register);
+		});
 	}
 
 	public void onClientSetupEvent(FMLClientSetupEvent event) {
@@ -131,7 +138,7 @@ public class Icaria {
 	}
 
 	@SubscribeEvent
-	public static void onEntityAttributeModification(EntityAttributeModificationEvent event) {
+	public void onEntityAttributeModification(EntityAttributeModificationEvent event) {
 		event.add(EntityType.PLAYER, ForgeMod.ATTACK_RANGE.get());
 	}
 }

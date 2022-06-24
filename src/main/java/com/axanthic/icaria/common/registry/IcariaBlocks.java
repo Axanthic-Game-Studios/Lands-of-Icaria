@@ -1,11 +1,11 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.fluids.HyliastrumFluid;
+import com.axanthic.icaria.common.fluid.HyliastrumFluid;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.client.util.IcariaSounds;
-import com.axanthic.icaria.common.blocks.*;
-import com.axanthic.icaria.common.blocks.LayerBlock;
-import com.axanthic.icaria.common.blocks.SandTypeBlock;
+import com.axanthic.icaria.common.block.*;
+import com.axanthic.icaria.common.block.LayerBlock;
+import com.axanthic.icaria.common.block.SandTypeBlock;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction.Axis;

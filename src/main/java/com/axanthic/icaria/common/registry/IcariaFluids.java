@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.util.IcariaFluidTypeRenderProperties;
+import com.axanthic.icaria.client.util.IcariaFluidTypeRenderProperties;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.resources.ResourceLocation;

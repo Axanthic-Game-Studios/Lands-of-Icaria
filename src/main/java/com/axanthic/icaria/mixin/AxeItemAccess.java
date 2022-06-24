@@ -9,6 +9,8 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 import java.util.Map;
 
+@SuppressWarnings("unused")
+
 @Mixin(AxeItem.class)
 public interface AxeItemAccess {
 	@Accessor("STRIPPABLES")

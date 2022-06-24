@@ -2,7 +2,6 @@ package com.axanthic.icaria.data;
 
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaItems.ToolCombination;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -28,7 +27,7 @@ public class IcariaItemModels extends ItemModelProvider {
 			itemWithModel(registryObject, "item/generated");
 		}
 
-		for (ToolCombination tools : IcariaItems.TOOLS) {
+		for (IcariaItems.ToolSet tools : IcariaItems.TOOLS) {
 			itemWithModel(tools.SWORD, "item/handheld");
 			itemWithModel(tools.DAGGER, "item/handheld");
 			itemWithModel(tools.SHOVEL, "item/handheld");
@@ -38,6 +37,13 @@ public class IcariaItemModels extends ItemModelProvider {
 			ResourceLocation id = tools.BIDENT.getId();
 			ItemModelBuilder throwingModel = singleTexture(id.getPath() + "_throwing", new ResourceLocation(IcariaInfo.MODID, "item/bident_throwing"), "layer0", new ResourceLocation(id.getNamespace(), "item/" + id.getPath()));
 			itemWithModel(tools.BIDENT, new ResourceLocation(IcariaInfo.MODID, "item/bident")).override().predicate(new ResourceLocation(IcariaInfo.MODID, "throwing"), 1.0F).model(throwingModel).end();
+		}
+
+		for (IcariaItems.ArmorSet armor : IcariaItems.ARMOR) {
+			itemWithModel(armor.HELMET, "item/generated");
+			itemWithModel(armor.CHESTPLATE, "item/generated");
+			itemWithModel(armor.LEGGINGS, "item/generated");
+			itemWithModel(armor.BOOTS, "item/generated");
 		}
 	}
 

@@ -2,8 +2,6 @@ package com.axanthic.icaria.data;
 
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
-import com.axanthic.icaria.common.registry.IcariaItems.WoodDecoItemBlocks;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Registry;
@@ -14,18 +12,18 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-
 import net.minecraft.world.item.Items;
+
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("unused")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaItemTags extends ItemTagsProvider {
-
 	// ITEM TAGS
 	public static final TagKey<Item> SPELT = forgeTag("crops/spelt");
 	public static final TagKey<Item> GARLIC = forgeTag("crops/garlic");
@@ -359,7 +357,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.ONION.get());
 
 		// ITEMBLOCK TAGS
-		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
+		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			if (deco.SLAB != null) {
 				tag(ItemTags.SLABS).add(deco.SLAB.get());
 			}
@@ -371,7 +369,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			}
 		}
 
-		for (WoodDecoItemBlocks deco : IcariaItems.WOOD_BLOCKS) {
+		for (IcariaItems.WoodDecoItemBlocks deco : IcariaItems.WOOD_BLOCKS) {
 			if (deco.SLAB != null) {
 				tag(ItemTags.WOODEN_SLABS).add(deco.SLAB.get());
 			}

@@ -11,8 +11,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaCraftingMenu extends CraftingMenu {
-	private final Block block;
-	private final ContainerLevelAccess access;
+	public Block block;
+	public ContainerLevelAccess access;
 
 	public IcariaCraftingMenu(int id, Inventory inventory, ContainerLevelAccess access, Block block) {
 		super(id, inventory, access);

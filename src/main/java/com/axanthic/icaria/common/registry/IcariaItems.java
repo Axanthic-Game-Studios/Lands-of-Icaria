@@ -1,16 +1,16 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.items.*;
+import com.axanthic.icaria.common.item.*;
+import com.axanthic.icaria.common.util.IcariaArmorMaterials;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.client.util.IcariaTabs;
-import com.axanthic.icaria.common.registry.IcariaBlocks.StoneDecoBlocks;
-import com.axanthic.icaria.common.registry.IcariaBlocks.WoodDecoBlocks;
 import com.axanthic.icaria.common.util.IcariaTier;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.FoodProperties.Builder;
 import net.minecraft.world.item.*;
@@ -38,7 +38,8 @@ public class IcariaItems {
 	public static final List<RegistryObject<? extends Item>> BASIC_ITEMS = new ArrayList<>();
 	public static final List<StoneDecoItemBlocks> STONE_BLOCKS = new ArrayList<>();
 	public static final List<WoodDecoItemBlocks> WOOD_BLOCKS = new ArrayList<>();
-	public static final List<ToolCombination> TOOLS = new ArrayList<>();
+	public static final List<ToolSet> TOOLS = new ArrayList<>();
+	public static final List<ArmorSet> ARMOR = new ArrayList<>();
 
 	public static final RegistryObject<Item> MARL_GRASS = register("marl_grass", () -> new BlockItem(IcariaBlocks.MARL_GRASS.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> MARL = register("marl", () -> new BlockItem(IcariaBlocks.MARL.get(), propertiesBlocks()));
@@ -201,14 +202,14 @@ public class IcariaItems {
 	public static final RegistryObject<Item> JASPER_BLOCK = register("jasper_block", () -> new BlockItem(IcariaBlocks.JASPER_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> ZIRCON_BLOCK = register("zircon_block", () -> new BlockItem(IcariaBlocks.ZIRCON_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> CHERT_BLOCK = register("chert_block", () -> new BlockItem(IcariaBlocks.CHERT_BLOCK.get(), propertiesBlocks()));
-	public static final RegistryObject<Item> LIGNITE_BLOCK = register("lignite_block", () -> new FuelBlockItem(IcariaBlocks.LIGNITE_BLOCK.get(), propertiesBlocks(), 7200));
+	public static final RegistryObject<Item> LIGNITE_BLOCK = register("lignite_block", () -> new IcariaFuelBlockItem(IcariaBlocks.LIGNITE_BLOCK.get(), propertiesBlocks(), 7200));
 	public static final RegistryObject<Item> CHALKOS_BLOCK = register("chalkos_block", () -> new BlockItem(IcariaBlocks.CHALKOS_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> KASSITEROS_BLOCK = register("kassiteros_block", () -> new BlockItem(IcariaBlocks.KASSITEROS_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> ORICHALCUM_BLOCK = register("orichalcum_block", () -> new BlockItem(IcariaBlocks.ORICHALCUM_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> VANADIUM_BLOCK = register("vanadium_block", () -> new BlockItem(IcariaBlocks.VANADIUM_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> VANADIUMSTEEL_BLOCK = register("vanadiumsteel_block", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> SIDEROS_BLOCK = register("sideros_block", () -> new BlockItem(IcariaBlocks.SIDEROS_BLOCK.get(), propertiesBlocks()));
-	public static final RegistryObject<Item> ANTHRACITE_BLOCK = register("anthracite_block", () -> new FuelBlockItem(IcariaBlocks.ANTHRACITE_BLOCK.get(), propertiesBlocks(), 28800));
+	public static final RegistryObject<Item> ANTHRACITE_BLOCK = register("anthracite_block", () -> new IcariaFuelBlockItem(IcariaBlocks.ANTHRACITE_BLOCK.get(), propertiesBlocks(), 28800));
 	public static final RegistryObject<Item> MOLYBDENUM_BLOCK = register("molybdenum_block", () -> new BlockItem(IcariaBlocks.MOLYBDENUM_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> MOLYBDENUMSTEEL_BLOCK = register("molybdenumsteel_block", () -> new BlockItem(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get(), propertiesBlocks()));
 
@@ -245,7 +246,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> CYPRESS_CRAFTING_TABLE = register("cypress_crafting_table", () -> new BlockItem(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CYPRESS_DOOR = registerBasic("cypress_door", () -> new BlockItem(IcariaBlocks.CYPRESS_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> CYPRESS_TRAPDOOR = register("cypress_trapdoor", () -> new BlockItem(IcariaBlocks.CYPRESS_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> CYPRESS_LADDER = registerBasic("cypress_ladder", () -> new FuelBlockItem(IcariaBlocks.CYPRESS_LADDER.get(), propertiesFlora(), 300));
+	public static final RegistryObject<Item> CYPRESS_LADDER = registerBasic("cypress_ladder", () -> new IcariaFuelBlockItem(IcariaBlocks.CYPRESS_LADDER.get(), propertiesFlora(), 300));
 	public static final RegistryObject<Item> CYPRESS_SIGN = registerBasic("cypress_sign", () -> new IcariaSignItem(propertiesFlora(), IcariaBlocks.CYPRESS_SIGN.get(), IcariaBlocks.CYPRESS_WALL_SIGN.get()));
 
 	public static final RegistryObject<Item> DROUGHTROOT_SAPLING = register("droughtroot_sapling", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_SAPLING.get(), propertiesFlora()));
@@ -263,7 +264,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> DROUGHTROOT_CRAFTING_TABLE = register("droughtroot_crafting_table", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> DROUGHTROOT_DOOR = registerBasic("droughtroot_door", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> DROUGHTROOT_TRAPDOOR = register("droughtroot_trapdoor", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> DROUGHTROOT_LADDER = registerBasic("droughtroot_ladder", () -> new FuelBlockItem(IcariaBlocks.DROUGHTROOT_LADDER.get(), propertiesFlora(), 300));
+	public static final RegistryObject<Item> DROUGHTROOT_LADDER = registerBasic("droughtroot_ladder", () -> new IcariaFuelBlockItem(IcariaBlocks.DROUGHTROOT_LADDER.get(), propertiesFlora(), 300));
 	public static final RegistryObject<Item> DROUGHTROOT_SIGN = registerBasic("droughtroot_sign", () -> new IcariaSignItem(propertiesFlora(), IcariaBlocks.DROUGHTROOT_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_SIGN.get()));
 
 	public static final RegistryObject<Item> FIR_SAPLING = register("fir_sapling", () -> new BlockItem(IcariaBlocks.FIR_SAPLING.get(), propertiesFlora()));
@@ -281,7 +282,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> FIR_CRAFTING_TABLE = register("fir_crafting_table", () -> new BlockItem(IcariaBlocks.FIR_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> FIR_DOOR = registerBasic("fir_door", () -> new BlockItem(IcariaBlocks.FIR_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> FIR_TRAPDOOR = register("fir_trapdoor", () -> new BlockItem(IcariaBlocks.FIR_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> FIR_LADDER = registerBasic("fir_ladder", () -> new FuelBlockItem(IcariaBlocks.FIR_LADDER.get(), propertiesFlora(), 300));
+	public static final RegistryObject<Item> FIR_LADDER = registerBasic("fir_ladder", () -> new IcariaFuelBlockItem(IcariaBlocks.FIR_LADDER.get(), propertiesFlora(), 300));
 	public static final RegistryObject<Item> FIR_SIGN = registerBasic("fir_sign", () -> new IcariaSignItem(propertiesFlora(), IcariaBlocks.FIR_SIGN.get(), IcariaBlocks.FIR_WALL_SIGN.get()));
 
 	public static final RegistryObject<Item> LAUREL_SAPLING = register("laurel_sapling", () -> new BlockItem(IcariaBlocks.LAUREL_SAPLING.get(), propertiesFlora()));
@@ -299,7 +300,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> LAUREL_CRAFTING_TABLE = register("laurel_crafting_table", () -> new BlockItem(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> LAUREL_DOOR = registerBasic("laurel_door", () -> new BlockItem(IcariaBlocks.LAUREL_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> LAUREL_TRAPDOOR = register("laurel_trapdoor", () -> new BlockItem(IcariaBlocks.LAUREL_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> LAUREL_LADDER = registerBasic("laurel_ladder", () -> new FuelBlockItem(IcariaBlocks.LAUREL_LADDER.get(), propertiesFlora(), 300));
+	public static final RegistryObject<Item> LAUREL_LADDER = registerBasic("laurel_ladder", () -> new IcariaFuelBlockItem(IcariaBlocks.LAUREL_LADDER.get(), propertiesFlora(), 300));
 	public static final RegistryObject<Item> LAUREL_SIGN = registerBasic("laurel_sign", () -> new IcariaSignItem(propertiesFlora(), IcariaBlocks.LAUREL_SIGN.get(), IcariaBlocks.LAUREL_WALL_SIGN.get()));
 
 	public static final RegistryObject<Item> OLIVE_SAPLING = register("olive_sapling", () -> new BlockItem(IcariaBlocks.OLIVE_SAPLING.get(), propertiesFlora()));
@@ -319,7 +320,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> OLIVE_CRAFTING_TABLE = register("olive_crafting_table", () -> new BlockItem(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> OLIVE_DOOR = registerBasic("olive_door", () -> new BlockItem(IcariaBlocks.OLIVE_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> OLIVE_TRAPDOOR = register("olive_trapdoor", () -> new BlockItem(IcariaBlocks.OLIVE_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> OLIVE_LADDER = registerBasic("olive_ladder", () -> new FuelBlockItem(IcariaBlocks.OLIVE_LADDER.get(), propertiesFlora(), 300));
+	public static final RegistryObject<Item> OLIVE_LADDER = registerBasic("olive_ladder", () -> new IcariaFuelBlockItem(IcariaBlocks.OLIVE_LADDER.get(), propertiesFlora(), 300));
 	public static final RegistryObject<Item> OLIVE_SIGN = registerBasic("olive_sign", () -> new IcariaSignItem(propertiesFlora(), IcariaBlocks.OLIVE_SIGN.get(), IcariaBlocks.OLIVE_WALL_SIGN.get()));
 
 	public static final RegistryObject<Item> PLANE_SAPLING = register("plane_sapling", () -> new BlockItem(IcariaBlocks.PLANE_SAPLING.get(), propertiesFlora()));
@@ -337,7 +338,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> PLANE_CRAFTING_TABLE = register("plane_crafting_table", () -> new BlockItem(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PLANE_DOOR = registerBasic("plane_door", () -> new BlockItem(IcariaBlocks.PLANE_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> PLANE_TRAPDOOR = register("plane_trapdoor", () -> new BlockItem(IcariaBlocks.PLANE_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> PLANE_LADDER = registerBasic("plane_ladder", () -> new FuelBlockItem(IcariaBlocks.PLANE_LADDER.get(), propertiesFlora(), 300));
+	public static final RegistryObject<Item> PLANE_LADDER = registerBasic("plane_ladder", () -> new IcariaFuelBlockItem(IcariaBlocks.PLANE_LADDER.get(), propertiesFlora(), 300));
 	public static final RegistryObject<Item> PLANE_SIGN = registerBasic("plane_sign", () -> new IcariaSignItem(propertiesFlora(), IcariaBlocks.PLANE_SIGN.get(), IcariaBlocks.PLANE_WALL_SIGN.get()));
 
 	public static final RegistryObject<Item> POPULUS_SAPLING = register("populus_sapling", () -> new BlockItem(IcariaBlocks.POPULUS_SAPLING.get(), propertiesFlora()));
@@ -355,7 +356,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> POPULUS_CRAFTING_TABLE = register("populus_crafting_table", () -> new BlockItem(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), propertiesFlora()));
 	public static final RegistryObject<Item> POPULUS_DOOR = registerBasic("populus_door", () -> new BlockItem(IcariaBlocks.POPULUS_DOOR.get(), propertiesFlora()));
 	public static final RegistryObject<Item> POPULUS_TRAPDOOR = register("populus_trapdoor", () -> new BlockItem(IcariaBlocks.POPULUS_TRAPDOOR.get(), propertiesFlora()));
-	public static final RegistryObject<Item> POPULUS_LADDER = registerBasic("populus_ladder", () -> new FuelBlockItem(IcariaBlocks.POPULUS_LADDER.get(), propertiesFlora(), 300));
+	public static final RegistryObject<Item> POPULUS_LADDER = registerBasic("populus_ladder", () -> new IcariaFuelBlockItem(IcariaBlocks.POPULUS_LADDER.get(), propertiesFlora(), 300));
 	public static final RegistryObject<Item> POPULUS_SIGN = registerBasic("populus_sign", () -> new IcariaSignItem(propertiesFlora(), IcariaBlocks.POPULUS_SIGN.get(), IcariaBlocks.POPULUS_WALL_SIGN.get()));
 
 	public static final RegistryObject<Item> DIM_TORCH = registerBasic("dim_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.DIM_TORCH.get(), IcariaBlocks.DIM_WALL_TORCH.get(), propertiesBlocks()));
@@ -480,14 +481,14 @@ public class IcariaItems {
 	public static final RegistryObject<Item> ZIRCON = registerBasic("zircon", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> CALCITE_POWDER = registerBasic("calcite_powder", () -> new BoneMealItem(propertiesItems()));
 	public static final RegistryObject<Item> ROCK_SALT = registerBasic("rock_salt", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> LIGNITE = registerBasic("lignite", () -> new FuelItem(propertiesItems(), 800));
+	public static final RegistryObject<Item> LIGNITE = registerBasic("lignite", () -> new IcariaFuelItem(propertiesItems(), 800));
 	public static final RegistryObject<Item> CHALKOS_RAW = registerBasic("chalkos_raw", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> KASSITEROS_RAW = registerBasic("kassiteros_raw", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> DOLOMITE = registerBasic("dolomite", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> VANADIUM_RAW = registerBasic("vanadium_raw", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> SLIVER = registerBasic("sliver", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> SIDEROS_RAW = registerBasic("sideros_raw", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> ANTHRACITE = registerBasic("anthracite", () -> new FuelItem(propertiesItems(), 3200));
+	public static final RegistryObject<Item> ANTHRACITE = registerBasic("anthracite", () -> new IcariaFuelItem(propertiesItems(), 3200));
 	public static final RegistryObject<Item> MOLYBDENUM_RAW = registerBasic("molybdenum_raw", () -> new Item(propertiesItems()));
 
 	public static final RegistryObject<Item> CHALKOS_NUGGET = registerBasic("chalkos_nugget", () -> new Item(propertiesItems()));
@@ -508,13 +509,22 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MOLYBDENUM_INGOT = registerBasic("molybdenum_ingot", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> MOLYBDENUMSTEEL_INGOT = registerBasic("molybdenumsteel_ingot", () -> new Item(propertiesItems()));
 
-	public static final ToolCombination CHERT_TOOLS = new ToolCombination(IcariaTiers.CHERT);
-	public static final ToolCombination CHALKOS_TOOLS = new ToolCombination(IcariaTiers.CHALKOS);
-	public static final ToolCombination KASSITEROS_TOOLS = new ToolCombination(IcariaTiers.KASSITEROS);
-	public static final ToolCombination ORICHALCUM_TOOLS = new ToolCombination(IcariaTiers.ORICHALCUM);
-	public static final ToolCombination VANADIUMSTEEL_TOOLS = new ToolCombination(IcariaTiers.VANADIUMSTEEL);
-	public static final ToolCombination SIDEROS_TOOLS = new ToolCombination(IcariaTiers.SIDEROS);
-	public static final ToolCombination MOLYBDENUMSTEEL_TOOLS = new ToolCombination(IcariaTiers.MOLYBDENUMSTEEL);
+	public static final ToolSet CHERT_TOOLS = new ToolSet(IcariaTiers.CHERT);
+	public static final ToolSet CHALKOS_TOOLS = new ToolSet(IcariaTiers.CHALKOS);
+	public static final ToolSet KASSITEROS_TOOLS = new ToolSet(IcariaTiers.KASSITEROS);
+	public static final ToolSet ORICHALCUM_TOOLS = new ToolSet(IcariaTiers.ORICHALCUM);
+	public static final ToolSet VANADIUMSTEEL_TOOLS = new ToolSet(IcariaTiers.VANADIUMSTEEL);
+	public static final ToolSet SIDEROS_TOOLS = new ToolSet(IcariaTiers.SIDEROS);
+	public static final ToolSet MOLYBDENUMSTEEL_TOOLS = new ToolSet(IcariaTiers.MOLYBDENUMSTEEL);
+
+	public static final ArmorSet AETERNAE_HIDE_ARMOR = new ArmorSet(IcariaArmorMaterials.AETERNAE_HIDE);
+	public static final ArmorSet CHALKOS_ARMOR = new ArmorSet(IcariaArmorMaterials.CHALKOS);
+	public static final ArmorSet KASSITEROS_ARMOR = new ArmorSet(IcariaArmorMaterials.KASSITEROS);
+	public static final RegistryObject<Item> ORICHALCUM_HELMET = registerBasic("orichalcum_helmet", () -> new OrichalcumHelmetItem(IcariaArmorMaterials.ORICHALCUM, EquipmentSlot.HEAD, propertiesItems()));
+	public static final RegistryObject<Item> ORICHALCUM_CHESTPLATE = registerBasic("orichalcum_chestplate", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, EquipmentSlot.CHEST, propertiesItems()));
+	public static final RegistryObject<Item> ORICHALCUM_LEGGINGS = registerBasic("orichalcum_leggings", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, EquipmentSlot.LEGS, propertiesItems()));
+	public static final RegistryObject<Item> ORICHALCUM_BOOTS = registerBasic("orichalcum_boots", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, EquipmentSlot.FEET, propertiesItems()));
+	public static final ArmorSet VANADIUMSTEEL_ARMOR = new ArmorSet(IcariaArmorMaterials.VANADIUMSTEEL);
 
 	public static final RegistryObject<Item> UNFIRED_STORAGE_VASE = registerBasic("unfired_storage_vase", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> WHITE_UNFIRED_STORAGE_VASE = registerBasic("white_unfired_storage_vase", () -> new Item(propertiesItems()));
@@ -621,13 +631,13 @@ public class IcariaItems {
 	}
 
 	public static class StoneDecoItemBlocks {
-		public final StoneDecoBlocks block;
+		public final IcariaBlocks.StoneDecoBlocks block;
 		public final RegistryObject<Item> originalItem;
 		public final RegistryObject<Item> SLAB;
 		public final RegistryObject<Item> STAIRS;
 		public final RegistryObject<Item> WALL;
 
-		public StoneDecoItemBlocks(StoneDecoBlocks block, RegistryObject<Item> originalItem) {
+		public StoneDecoItemBlocks(IcariaBlocks.StoneDecoBlocks block, RegistryObject<Item> originalItem) {
 			this.block = block;
 			this.originalItem = originalItem;
 			if (block.SLAB != null)
@@ -647,14 +657,14 @@ public class IcariaItems {
 	}
 
 	public static class WoodDecoItemBlocks {
-		public final WoodDecoBlocks block;
+		public final IcariaBlocks.WoodDecoBlocks block;
 		public final RegistryObject<Item> originalItem;
 		public final RegistryObject<Item> SLAB;
 		public final RegistryObject<Item> STAIRS;
 		public final RegistryObject<Item> FENCE;
 		public final RegistryObject<Item> GATE;
 
-		public WoodDecoItemBlocks(WoodDecoBlocks block, RegistryObject<Item> originalItem) {
+		public WoodDecoItemBlocks(IcariaBlocks.WoodDecoBlocks block, RegistryObject<Item> originalItem) {
 			this.block = block;
 			this.originalItem = originalItem;
 			if (block.SLAB != null)
@@ -666,18 +676,18 @@ public class IcariaItems {
 			else
 				STAIRS = null;
 			if (block.FENCE != null)
-				FENCE = register(block.name + "_fence", () -> new FuelBlockItem(block.FENCE.get(), propertiesFlora(), 300));
+				FENCE = register(block.name + "_fence", () -> new IcariaFuelBlockItem(block.FENCE.get(), propertiesFlora(), 300));
 			else
 				FENCE = null;
 			if (block.GATE != null)
-				GATE = register(block.name + "_fence_gate", () -> new FuelBlockItem(block.GATE.get(), propertiesFlora(), 300));
+				GATE = register(block.name + "_fence_gate", () -> new IcariaFuelBlockItem(block.GATE.get(), propertiesFlora(), 300));
 			else
 				GATE = null;
 			WOOD_BLOCKS.add(this);
 		}
 	}
 
-	public static class ToolCombination {
+	public static class ToolSet {
 		public final IcariaTier tier;
 		public final RegistryObject<Item> SWORD;
 		public final RegistryObject<Item> DAGGER;
@@ -687,7 +697,7 @@ public class IcariaItems {
 		public final RegistryObject<Item> SCYTHE;
 		public final RegistryObject<Item> BIDENT;
 
-		public ToolCombination(IcariaTier tier) {
+		public ToolSet(IcariaTier tier) {
 			this.tier = tier;
 			String name = Objects.requireNonNull(TierSortingRegistry.getName(tier)).getPath();
 			SWORD = register(name + "_sword", () -> new SwordItem(tier, 3, -2.4F, propertiesItems()));
@@ -698,6 +708,22 @@ public class IcariaItems {
 			SCYTHE = register(name + "_scythe", () -> new IcariaScytheItem(tier, 4, -2.8F, propertiesItems()));
 			BIDENT = register(name + "_bident", () -> new IcariaBidentItem(tier, propertiesItems()));
 			TOOLS.add(this);
+		}
+	}
+
+	public static class ArmorSet {
+		public final RegistryObject<Item> HELMET;
+		public final RegistryObject<Item> CHESTPLATE;
+		public final RegistryObject<Item> LEGGINGS;
+		public final RegistryObject<Item> BOOTS;
+
+		public ArmorSet(IcariaArmorMaterials material) {
+			String name = material.name;
+			HELMET = register(name + "_helmet", () -> new ArmorItem(material, EquipmentSlot.HEAD, (propertiesItems())));
+			CHESTPLATE = register(name + "_chestplate", () -> new ArmorItem(material, EquipmentSlot.CHEST, (propertiesItems())));
+			LEGGINGS = register(name + "_leggings", () -> new ArmorItem(material, EquipmentSlot.LEGS, (propertiesItems())));
+			BOOTS = register(name + "_boots", () -> new ArmorItem(material, EquipmentSlot.FEET, (propertiesItems())));
+			ARMOR.add(this);
 		}
 	}
 }

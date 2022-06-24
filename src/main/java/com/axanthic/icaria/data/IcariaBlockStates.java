@@ -3,8 +3,6 @@ package com.axanthic.icaria.data;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
-import com.axanthic.icaria.common.registry.IcariaItems.WoodDecoItemBlocks;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -23,12 +21,11 @@ import java.util.Objects;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("unchecked")
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockStates extends BlockStateProvider {
-	public static final List<RegistryObject<? extends Block>> MIRRORED = new ArrayList<>();
-	public static final List<RegistryObject<? extends Block>> ROTATED = new ArrayList<>();
+	public List<RegistryObject<? extends Block>> MIRRORED = new ArrayList<>();
+	public List<RegistryObject<? extends Block>> ROTATED = new ArrayList<>();
 
 	public IcariaBlockStates(DataGenerator generator, ExistingFileHelper helper) {
 		super(generator, IcariaInfo.MODID, helper);
@@ -147,7 +144,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 			}
 		}
 
-		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
+		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			ResourceLocation texture = blockTexture(deco.block.original.get());
 			if (deco.SLAB != null) {
 				slabBlock(Objects.requireNonNull(deco.block.SLAB).get(), deco.block.original.getId(), texture);
@@ -163,7 +160,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 			}
 		}
 
-		for (WoodDecoItemBlocks deco : IcariaItems.WOOD_BLOCKS) {
+		for (IcariaItems.WoodDecoItemBlocks deco : IcariaItems.WOOD_BLOCKS) {
 			ResourceLocation texture = blockTexture(deco.block.original.get());
 			if (deco.SLAB != null) {
 				slabBlock(Objects.requireNonNull(deco.block.SLAB).get(), deco.block.original.getId(), texture);

@@ -2,7 +2,6 @@ package com.axanthic.icaria.data;
 
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaItems.StoneDecoItemBlocks;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.DataGenerator;
@@ -232,12 +231,18 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		toolRecipes(consumer, IcariaItems.SIDEROS_TOOLS.SWORD.get(), IcariaItems.SIDEROS_TOOLS.DAGGER.get(), IcariaItems.SIDEROS_TOOLS.SHOVEL.get(), IcariaItems.SIDEROS_TOOLS.PICKAXE.get(), IcariaItems.SIDEROS_TOOLS.AXE.get(), IcariaItems.SIDEROS_TOOLS.SCYTHE.get(), IcariaItems.SIDEROS_TOOLS.BIDENT.get(), IcariaItems.SIDEROS_INGOT.get());
 		toolRecipes(consumer, IcariaItems.MOLYBDENUMSTEEL_TOOLS.SWORD.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.DAGGER.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.SHOVEL.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.PICKAXE.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.AXE.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.SCYTHE.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.BIDENT.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get());
 
+		armorRecipes(consumer, IcariaItems.AETERNAE_HIDE_ARMOR.HELMET.get(), IcariaItems.AETERNAE_HIDE_ARMOR.CHESTPLATE.get(), IcariaItems.AETERNAE_HIDE_ARMOR.LEGGINGS.get(), IcariaItems.AETERNAE_HIDE_ARMOR.BOOTS.get(), IcariaItems.AETERNAE_HIDE.get());
+		armorRecipes(consumer, IcariaItems.CHALKOS_ARMOR.HELMET.get(), IcariaItems.CHALKOS_ARMOR.CHESTPLATE.get(), IcariaItems.CHALKOS_ARMOR.LEGGINGS.get(), IcariaItems.CHALKOS_ARMOR.BOOTS.get(), IcariaItems.CHALKOS_INGOT.get());
+		armorRecipes(consumer, IcariaItems.KASSITEROS_ARMOR.HELMET.get(), IcariaItems.KASSITEROS_ARMOR.CHESTPLATE.get(), IcariaItems.KASSITEROS_ARMOR.LEGGINGS.get(), IcariaItems.KASSITEROS_ARMOR.BOOTS.get(), IcariaItems.KASSITEROS_INGOT.get());
+		armorRecipes(consumer, IcariaItems.ORICHALCUM_HELMET.get(), IcariaItems.ORICHALCUM_CHESTPLATE.get(), IcariaItems.ORICHALCUM_LEGGINGS.get(), IcariaItems.ORICHALCUM_BOOTS.get(), IcariaItems.ORICHALCUM_INGOT.get());
+		armorRecipes(consumer, IcariaItems.VANADIUMSTEEL_ARMOR.HELMET.get(), IcariaItems.VANADIUMSTEEL_ARMOR.CHESTPLATE.get(), IcariaItems.VANADIUMSTEEL_ARMOR.LEGGINGS.get(), IcariaItems.VANADIUMSTEEL_ARMOR.BOOTS.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
+
 		foodCookingRecipes(consumer, IcariaItems.RAW_AETERNAE_MEAT.get(), IcariaItems.COOKED_AETERNAE_MEAT.get());
 		foodCookingRecipes(consumer, IcariaItems.RAW_CATOBLEPAS_MEAT.get(), IcariaItems.COOKED_CATOBLEPAS_MEAT.get());
 		foodCookingRecipes(consumer, IcariaItems.RAW_CERVER_MEAT.get(), IcariaItems.COOKED_CERVER_MEAT.get());
 		foodCookingRecipes(consumer, IcariaItems.RAW_SOW_MEAT.get(), IcariaItems.COOKED_SOW_MEAT.get());
 
-		for (StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
+		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			if (deco.SLAB != null) {
 				ShapedRecipeBuilder.shaped(deco.SLAB.get(), 6)
 					.pattern("XXX")
@@ -895,7 +900,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.save(consumer, Objects.requireNonNull((ForgeRegistries.ITEMS.getKey(glass))));
 	}
 
-	public void stoneRecipes(Consumer<FinishedRecipe> consumer, Item cobble, Item stone, Item bricks, Item chiseled, StoneDecoItemBlocks deco) {
+	public void stoneRecipes(Consumer<FinishedRecipe> consumer, Item cobble, Item stone, Item bricks, Item chiseled, IcariaItems.StoneDecoItemBlocks deco) {
 		ShapedRecipeBuilder.shaped(bricks, 4)
 			.pattern("XX")
 			.pattern("XX")
@@ -1201,6 +1206,42 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.group("")
 			.unlockedBy("has_ingot", has(resource))
 			.save(consumer, Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(bident)));
+	}
+
+	public void armorRecipes(Consumer<FinishedRecipe> consumer, Item helmet, Item chestplate, Item leggings, Item boots, Item resource) {
+		ShapedRecipeBuilder.shaped(helmet, 1)
+			.pattern("XXX")
+			.pattern("X X")
+			.define('X', resource)
+			.group("")
+			.unlockedBy("has_ingot", has(resource))
+			.save(consumer, Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(helmet)));
+
+		ShapedRecipeBuilder.shaped(chestplate, 1)
+			.pattern("X X")
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', resource)
+			.group("")
+			.unlockedBy("has_ingot", has(resource))
+			.save(consumer, Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(chestplate)));
+
+		ShapedRecipeBuilder.shaped(leggings, 1)
+			.pattern("XXX")
+			.pattern("X X")
+			.pattern("X X")
+			.define('X', resource)
+			.group("")
+			.unlockedBy("has_ingot", has(resource))
+			.save(consumer, Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(leggings)));
+
+		ShapedRecipeBuilder.shaped(boots, 1)
+			.pattern("X X")
+			.pattern("X X")
+			.define('X', resource)
+			.group("")
+			.unlockedBy("has_ingot", has(resource))
+			.save(consumer, Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(boots)));
 	}
 
 	public void foodCookingRecipes(Consumer<FinishedRecipe> consumer, Item ingredient, Item result) {

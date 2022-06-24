@@ -13,7 +13,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @MethodsReturnNonnullByDefault
 
 public class IcariaTabs {
-	public static final CreativeModeTab creativeBlocks = new CreativeModeTab(IcariaInfo.MODID + ".blocks") {
+	public static CreativeModeTab creativeBlocks = new CreativeModeTab(IcariaInfo.MODID + ".blocks") {
 		@Override
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack makeIcon() {
@@ -21,7 +21,7 @@ public class IcariaTabs {
 		}
 	};
 
-	public static final CreativeModeTab creativeFlora = new CreativeModeTab(IcariaInfo.MODID + ".flora") {
+	public static CreativeModeTab creativeFlora = new CreativeModeTab(IcariaInfo.MODID + ".flora") {
 		@Override
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack makeIcon() {
@@ -29,7 +29,7 @@ public class IcariaTabs {
 		}
 	};
 
-	public static final CreativeModeTab creativeItems = new CreativeModeTab(IcariaInfo.MODID + ".items") {
+	public static CreativeModeTab creativeItems = new CreativeModeTab(IcariaInfo.MODID + ".items") {
 		@Override
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack makeIcon() {
