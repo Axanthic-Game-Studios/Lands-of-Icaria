@@ -46,15 +46,15 @@ public class OrichalcumHelmetItem extends ArmorItem {
 
         }
 
+        @OnlyIn(Dist.CLIENT)
+        public static EntityModelSet getModel() {
+            return Minecraft.getInstance().getEntityModels();
+        }
+
         @Override
         @OnlyIn(Dist.CLIENT)
         public HumanoidModel<?> getArmorModel(LivingEntity pEntity, ItemStack pStack, EquipmentSlot pSlot, HumanoidModel<?> pModel) {
             return this.helmet.get();
-        }
-
-        @OnlyIn(Dist.CLIENT)
-        public static EntityModelSet getModel() {
-            return Minecraft.getInstance().getEntityModels();
         }
     }
 }

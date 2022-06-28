@@ -526,6 +526,14 @@ public class IcariaItems {
 	public static final RegistryObject<Item> ORICHALCUM_BOOTS = registerBasic("orichalcum_boots", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, EquipmentSlot.FEET, propertiesItems()));
 	public static final ArmorSet VANADIUMSTEEL_ARMOR = new ArmorSet(IcariaArmorMaterials.VANADIUMSTEEL);
 
+	public static final RegistryObject<IcariaTotemItem> TOTEM_OF_PREVENTATION = registerBasic("totem_of_preventation", () -> new IcariaTotemItem(propertiesItems()));
+	public static final RegistryObject<IcariaTotemItem> TOTEM_OF_STUFFING = registerBasic("totem_of_stuffing", () -> new IcariaTotemItem(propertiesItems()));
+	public static final RegistryObject<IcariaTotemItem> TOTEM_OF_UNBLINDING = registerBasic("totem_of_unblinding", () -> new IcariaTotemItem(propertiesItems()));
+	public static final RegistryObject<IcariaTotemItem> TOTEM_OF_UNDROWNING = registerBasic("totem_of_undrowning", () -> new IcariaTotemItem(propertiesItems()));
+	public static final RegistryObject<IcariaTotemItem> TOTEM_OF_UNDYING = registerBasic("totem_of_undying", () -> new IcariaTotemItem(propertiesItems()));
+	public static final RegistryObject<IcariaTotemItem> TOTEM_OF_UNSHATTERING = registerBasic("totem_of_unshattering", () -> new IcariaTotemItem(propertiesItems()));
+	public static final RegistryObject<IcariaTotemItem> TOTEM_OF_UNSINKING = registerBasic("totem_of_unsinking", () -> new IcariaTotemItem(propertiesItems()));
+
 	public static final RegistryObject<Item> UNFIRED_STORAGE_VASE = registerBasic("unfired_storage_vase", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> WHITE_UNFIRED_STORAGE_VASE = registerBasic("white_unfired_storage_vase", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> ORANGE_UNFIRED_STORAGE_VASE = registerBasic("orange_unfired_storage_vase", () -> new Item(propertiesItems()));

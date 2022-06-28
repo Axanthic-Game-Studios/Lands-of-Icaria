@@ -22,6 +22,12 @@ public class OrichalcumHelmetModel<T extends LivingEntity> extends HumanoidModel
         this.helmet = pModel.getChild("helmet");
     }
 
+    @Override
+    public Iterable<ModelPart> headParts() {
+        this.helmet.copyFrom(this.head);
+        return ImmutableList.of(this.helmet);
+    }
+
     public static LayerDefinition createHelmetLayer(CubeDeformation pSize) {
         CubeListBuilder helmet = CubeListBuilder.create();
         helmet.texOffs(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.5F));
@@ -53,11 +59,5 @@ public class OrichalcumHelmetModel<T extends LivingEntity> extends HumanoidModel
         PartDefinition root = mesh.getRoot();
         root.addOrReplaceChild("helmet", helmet, PartPose.ZERO);
         return LayerDefinition.create(mesh, 64, 32);
-    }
-
-    @Override
-    public Iterable<ModelPart> headParts() {
-        this.helmet.copyFrom(this.head);
-        return ImmutableList.of(this.helmet);
     }
 }

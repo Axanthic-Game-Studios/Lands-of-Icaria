@@ -1,29 +1,19 @@
 package com.axanthic.icaria;
 
 import com.axanthic.icaria.client.layer.OrichalcumHelmetLayer;
-import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.client.proxy.ClientProxy;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.data.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.Sheets;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.PotionEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -46,99 +36,81 @@ public class Icaria {
 	public Icaria() {
 		IcariaConfig.register();
 
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetupEvent);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetupEvent);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onLoadComplete);
+		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> FMLJavaModLoadingContext.get().getModEventBus().addListener(OrichalcumHelmetLayer::onEntityRenderers));
+		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> FMLJavaModLoadingContext.get().getModEventBus().addListener(OrichalcumHelmetLayer::register));
+
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLClientSetup);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLCommonSetup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onGatherData);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onLoadComplete);
 
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		IcariaBlocks.BLOCKS.register(bus);
 		IcariaBlockEntities.BLOCK_ENTITIES.register(bus);
 		IcariaContainers.CONTAINERS.register(bus);
+		IcariaEffects.EFFECTS.register(bus);
 		IcariaEntities.ENTITIES.register(bus);
 		IcariaFluids.FLUIDS.register(bus);
 		IcariaFluids.FLUID_TYPES.register(bus);
 		IcariaItems.ITEMS.register(bus);
 
 		MinecraftForge.EVENT_BUS.register(this);
-
-		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-			FMLJavaModLoadingContext.get().getModEventBus().addListener(OrichalcumHelmetLayer::onEntityRenderers);
-			FMLJavaModLoadingContext.get().getModEventBus().addListener(OrichalcumHelmetLayer::register);
-		});
 	}
 
-	public void onClientSetupEvent(FMLClientSetupEvent event) {
-		proxy.setup();
-		event.enqueueWork(() -> MenuScreens.register(IcariaContainers.STORAGE_VASE.get(), StorageVaseScreen::new));
-		event.enqueueWork(() -> {
-			Sheets.addWoodType(IcariaWoodTypes.CYPRESS);
-			Sheets.addWoodType(IcariaWoodTypes.DROUGHTROOT);
-			Sheets.addWoodType(IcariaWoodTypes.FIR);
-			Sheets.addWoodType(IcariaWoodTypes.LAUREL);
-			Sheets.addWoodType(IcariaWoodTypes.OLIVE);
-			Sheets.addWoodType(IcariaWoodTypes.PLANE);
-			Sheets.addWoodType(IcariaWoodTypes.POPULUS);
-		});
+	public void onFMLClientSetup(FMLClientSetupEvent event) {
+		proxy.onFMLClientSetup(event);
 	}
 
-	public void onCommonSetupEvent(FMLCommonSetupEvent event) {
-		proxy.setup();
-		event.enqueueWork(IcariaCompostables::setup);
-		event.enqueueWork(IcariaFlammables::setup);
-		event.enqueueWork(IcariaPottables::setup);
-		event.enqueueWork(IcariaStrippables::setup);
-		event.enqueueWork(IcariaTillables::setup);
-		event.enqueueWork(IcariaWoodTypes::setup);
+	public void onFMLCommonSetup(FMLCommonSetupEvent event) {
+		proxy.onFMLCommonSetup(event);
+	}
+
+	public void onGatherData(GatherDataEvent event) {
+		proxy.onGatherData(event);
 	}
 
 	public void onLoadComplete(FMLLoadCompleteEvent event) {
 		proxy.loadComplete();
 	}
 
-	public void onGatherData(GatherDataEvent event) {
-		DataGenerator generator = event.getGenerator();
-		ExistingFileHelper helper = event.getExistingFileHelper();
-		BlockTagsProvider tags = new IcariaBlockTags(generator, helper);
+	@SubscribeEvent
+	public void onEntityAttributeModification(EntityAttributeModificationEvent event) {
+		proxy.onEntityAttributeModification(event);
+	}
 
-		generator.addProvider(event.includeClient(), new IcariaLang(generator));
-		generator.addProvider(event.includeClient(), new IcariaItemModels(generator, helper));
-		generator.addProvider(event.includeClient(), new IcariaBlockStates(generator, helper));
+	@SubscribeEvent
+	public void onLivingAttack(LivingAttackEvent event) {
+		proxy.onLivingAttack(event);
+	}
 
-		generator.addProvider(event.includeServer(), new IcariaLootTables(generator));
-		generator.addProvider(event.includeServer(), new IcariaRecipes(generator));
-		generator.addProvider(event.includeServer(), new IcariaBlockTags(generator, helper));
-		generator.addProvider(event.includeServer(), new IcariaItemTags(generator, tags, helper));
-		generator.addProvider(event.includeServer(), new IcariaFluidTags(generator, helper));
+	@SubscribeEvent
+	public void onPlayerInteract(PlayerInteractEvent event) {
+		proxy.onPlayerInteract(event);
+	}
+
+	@SubscribeEvent
+	public void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
+		proxy.onEntityInteract(event);
+	}
+
+	@SubscribeEvent
+	public void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
+		proxy.onLeftClickBlock(event);
+	}
+
+	@SubscribeEvent
+	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+		proxy.onRightClickBlock(event);
 	}
 
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
-		Player player = event.player;
-		if (player.level.dimension() == IcariaDimensions.ICARIA) {
-			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
-				ItemStack stack = player.getInventory().getItem(slot);
-				if (stack.getItem().equals(Items.TORCH)) {
-					int size = stack.getCount();
-					player.getInventory().removeItem(stack);
-					player.getInventory().add(slot, new ItemStack(IcariaItems.DIM_TORCH.get(), size));
-				}
-			}
-		} else {
-			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
-				ItemStack stack = player.getInventory().getItem(slot);
-				if (stack.getItem().equals(IcariaItems.DIM_TORCH.get())) {
-					int size = stack.getCount();
-					player.getInventory().removeItem(stack);
-					player.getInventory().add(slot, new ItemStack(Items.TORCH, size));
-				}
-			}
-		}
+		proxy.onPlayerTick(event);
 	}
 
 	@SubscribeEvent
-	public void onEntityAttributeModification(EntityAttributeModificationEvent event) {
-		event.add(EntityType.PLAYER, ForgeMod.ATTACK_RANGE.get());
+	public void onPotionApplicable(PotionEvent.PotionApplicableEvent event) {
+		proxy.onPotionApplicable(event);
 	}
 }

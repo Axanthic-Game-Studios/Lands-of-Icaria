@@ -1,5 +1,5 @@
 {
-  "_comment": "/execute in landsoficaria:icaria positioned as @s run tp 0 256 0 ",
+  "_comment": "/execute in landsoficaria:icaria positioned as @s run tp 0 256 0",
   "type": "landsoficaria:icaria",
   "generator": {
     "type": "minecraft:noise",
