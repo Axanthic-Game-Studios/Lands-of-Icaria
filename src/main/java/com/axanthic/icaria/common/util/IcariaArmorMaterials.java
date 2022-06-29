@@ -19,6 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public enum IcariaArmorMaterials implements ArmorMaterial {
+    LAUREL("laurel", 0, new int[]{0, 0, 0, 0}, 15, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> Ingredient.of(IcariaItems.LAUREL_LEAVES.get())),
     AETERNAE_HIDE("aeternae_hide", 11, new int[]{1, 2, 3, 1}, 15, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> Ingredient.of(IcariaItems.AETERNAE_HIDE.get())),
     CHALKOS("chalkos", 11, new int[]{1, 3, 4, 1}, 15, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> Ingredient.of(IcariaItems.CHALKOS_INGOT.get())),
     KASSITEROS("kassiteros", 15, new int[]{2, 3, 5, 1}, 15, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> Ingredient.of(IcariaItems.KASSITEROS_INGOT.get())),

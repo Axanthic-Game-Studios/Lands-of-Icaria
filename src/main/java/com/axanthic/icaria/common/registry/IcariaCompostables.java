@@ -117,6 +117,7 @@ public class IcariaCompostables {
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.UNNAMED_TREE_SHROOMS.get(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.CARDON_CACTUS.get(), 0.5F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.STRAWBERRY_CAKE.get(), 1.0F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.LAUREL_WREATH.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.SPELT.get(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_REED.get(), 0.5F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_SPROUT.get(), 0.3F);

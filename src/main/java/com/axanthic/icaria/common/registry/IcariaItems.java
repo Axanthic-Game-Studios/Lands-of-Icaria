@@ -517,6 +517,7 @@ public class IcariaItems {
 	public static final ToolSet SIDEROS_TOOLS = new ToolSet(IcariaTiers.SIDEROS);
 	public static final ToolSet MOLYBDENUMSTEEL_TOOLS = new ToolSet(IcariaTiers.MOLYBDENUMSTEEL);
 
+	public static final RegistryObject<Item> LAUREL_WREATH = registerBasic("laurel_wreath", () -> new ArmorItem(IcariaArmorMaterials.LAUREL, EquipmentSlot.HEAD, propertiesItems()));
 	public static final ArmorSet AETERNAE_HIDE_ARMOR = new ArmorSet(IcariaArmorMaterials.AETERNAE_HIDE);
 	public static final ArmorSet CHALKOS_ARMOR = new ArmorSet(IcariaArmorMaterials.CHALKOS);
 	public static final ArmorSet KASSITEROS_ARMOR = new ArmorSet(IcariaArmorMaterials.KASSITEROS);

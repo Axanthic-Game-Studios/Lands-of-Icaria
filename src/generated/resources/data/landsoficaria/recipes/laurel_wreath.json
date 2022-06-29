@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "landsoficaria:laurel_leaves"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "result": {
+    "item": "landsoficaria:laurel_wreath"
+  }
+}

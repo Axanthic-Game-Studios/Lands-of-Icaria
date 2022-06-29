@@ -562,6 +562,26 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_block", has(IcariaItems.ARISTONE.get()))
 			.save(consumer, IcariaItems.ARISTONE_PACKED.getId());
 
+		ShapedRecipeBuilder.shaped(IcariaItems.STRAWBERRY_CAKE.get())
+			.pattern("ABA")
+			.pattern("CDC")
+			.pattern("EEE")
+			.define('A', IcariaItems.STRAWBERRIES.get())
+			.define('B', Items.MILK_BUCKET)
+			.define('C', Items.SUGAR)
+			.define('D', IcariaItems.JELLYFISH_JELLY.get())
+			.define('E', IcariaItems.SPELT_FLOUR.get())
+			.unlockedBy("has_item", has(IcariaItems.SPELT_FLOUR.get()))
+			.save(consumer, IcariaItems.STRAWBERRY_CAKE.getId());
+
+		ShapedRecipeBuilder.shaped(IcariaItems.LAUREL_WREATH.get(), 1)
+			.pattern("XXX")
+			.pattern("X X")
+			.define('X', IcariaItems.LAUREL_LEAVES.get())
+			.group("")
+			.unlockedBy("has_item", has(IcariaItems.LAUREL_LEAVES.get()))
+			.save(consumer, IcariaItems.LAUREL_WREATH.getId());
+
 		ShapedRecipeBuilder.shaped(IcariaItems.UNFIRED_STORAGE_VASE.get())
 			.pattern("XXX")
 			.pattern("X X")
@@ -575,18 +595,6 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.define('X', IcariaItems.SPELT.get())
 			.unlockedBy("has_item", has(IcariaItems.SPELT.get()))
 			.save(consumer, IcariaItems.SPELT_BREAD.getId());
-
-		ShapedRecipeBuilder.shaped(IcariaItems.STRAWBERRY_CAKE.get())
-			.pattern("ABA")
-			.pattern("CDC")
-			.pattern("EEE")
-			.define('A', IcariaItems.STRAWBERRIES.get())
-			.define('B', Items.MILK_BUCKET)
-			.define('C', Items.SUGAR)
-			.define('D', IcariaItems.JELLYFISH_JELLY.get())
-			.define('E', IcariaItems.SPELT_FLOUR.get())
-			.unlockedBy("has_item", has(IcariaItems.SPELT_FLOUR.get()))
-			.save(consumer, IcariaItems.STRAWBERRY_CAKE.getId());
 
 		ShapedRecipeBuilder.shaped(IcariaItems.SALAD_FRUIT.get())
 			.pattern("ABC")
