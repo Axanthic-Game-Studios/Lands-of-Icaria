@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "landsoficaria:arachne_string"
+    },
+    "Y": {
+      "item": "landsoficaria:kassiteros_nugget"
+    },
+    "Z": {
+      "item": "landsoficaria:calcite_powder"
+    }
+  },
+  "pattern": [
+    " X ",
+    "YZY",
+    " Y "
+  ],
+  "result": {
+    "item": "landsoficaria:greek_fire_grenade"
+  }
+}

@@ -1,15 +1,14 @@
 package com.axanthic.icaria.common.item;
 
-import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.level.block.Block;
 
-public class IcariaFuelBlockItem extends BlockItem {
+public class FuelItem extends Item {
 	public int burntime;
 
-	public IcariaFuelBlockItem(Block pBlock, Properties pProperties, int pBurntime) {
-		super(pBlock, pProperties);
+	public FuelItem(Properties pProperties, int pBurntime) {
+		super(pProperties);
 		this.burntime = pBurntime;
 	}
 

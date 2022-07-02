@@ -1,12 +1,13 @@
 package com.axanthic.icaria.client.proxy;
 
+import com.axanthic.icaria.client.renderer.GreekFireGrenadeRenderer;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
-import com.axanthic.icaria.common.item.IcariaBidentItem;
+import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.registry.IcariaEffects;
 import com.axanthic.icaria.client.renderer.CrystalBlockRenderer;
 import com.axanthic.icaria.client.renderer.IcariaSignBlockRenderer;
-import com.axanthic.icaria.client.renderer.ThrownBidentRenderer;
-import com.axanthic.icaria.common.item.IcariaTotemItem;
+import com.axanthic.icaria.client.renderer.BidentRenderer;
+import com.axanthic.icaria.common.item.TotemItem;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
@@ -68,6 +69,8 @@ public class ClientProxy extends CommonProxy {
 		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.POPULUS));
 
 		event.enqueueWork(() -> MenuScreens.register(IcariaContainers.STORAGE_VASE.get(), StorageVaseScreen::new));
+
+		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
 
 		for (IcariaItems.ToolSet tools : IcariaItems.TOOLS) {
 			ItemProperties.register(tools.BIDENT.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
@@ -331,6 +334,7 @@ public class ClientProxy extends CommonProxy {
 		renderCutout(IcariaBlocks.STRAWBERRY_CROP.get());
 		renderCutout(IcariaBlocks.PHYSALIS_CROP.get());
 		renderCutout(IcariaBlocks.ONION_CROP.get());
+		renderCutout(IcariaBlocks.GREEK_FIRE.get());
 
 		// RENDER TRANSLUCENT
 		renderTranslucent(IcariaBlocks.ARISTONE.get());
@@ -346,7 +350,8 @@ public class ClientProxy extends CommonProxy {
 		renderTranslucent(IcariaFluids.UPWARDS_FLUID_FLOWING.get());
 
 		// ENTITY RENDERERS
-		EntityRenderers.register(IcariaEntities.BIDENT.get(), ThrownBidentRenderer::new);
+		EntityRenderers.register(IcariaEntities.BIDENT.get(), BidentRenderer::new);
+		EntityRenderers.register(IcariaEntities.GREEK_FIRE_GRENADE.get(), GreekFireGrenadeRenderer::new);
 
 		// BLOCK ENTITY RENDERERS
 		BlockEntityRenderers.register(IcariaBlockEntities.CRYSTAL.get(), CrystalBlockRenderer::new);
@@ -366,7 +371,7 @@ public class ClientProxy extends CommonProxy {
 			float health = player.getHealth();
 			ItemStack mainHandItem = player.getMainHandItem();
 			ItemStack offhandItem = player.getOffhandItem();
-			IcariaTotemItem totem = IcariaItems.TOTEM_OF_STUFFING.get();
+			TotemItem totem = IcariaItems.TOTEM_OF_STUFFING.get();
 			if (player.getFoodData().getFoodLevel() <= 0) {
 				if (offhandItem.getItem().equals(totem)) {
 					player.setHealth(health + damage);
@@ -394,7 +399,7 @@ public class ClientProxy extends CommonProxy {
 			float health = player.getHealth();
 			ItemStack mainHandItem = player.getMainHandItem();
 			ItemStack offhandItem = player.getOffhandItem();
-			IcariaTotemItem totem = IcariaItems.TOTEM_OF_UNDROWNING.get();
+			TotemItem totem = IcariaItems.TOTEM_OF_UNDROWNING.get();
 			if (player.getAirSupply() <= 0) {
 				if (offhandItem.getItem().equals(totem)) {
 					player.setHealth(health + damage);
@@ -418,7 +423,7 @@ public class ClientProxy extends CommonProxy {
 			float health = player.getHealth();
 			ItemStack mainHandItem = player.getMainHandItem();
 			ItemStack offhandItem = player.getOffhandItem();
-			IcariaTotemItem totem = IcariaItems.TOTEM_OF_UNDYING.get();
+			TotemItem totem = IcariaItems.TOTEM_OF_UNDYING.get();
 			if (damage >= health) {
 				if (offhandItem.getItem().equals(totem)) {
 					event.setCanceled(true);
@@ -448,7 +453,7 @@ public class ClientProxy extends CommonProxy {
 			if (entitySource instanceof Player player) {
 				ItemStack mainHandItem = player.getMainHandItem();
 				ItemStack offhandItem = player.getOffhandItem();
-				IcariaTotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+				TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
 				if (mainHandItem.getItem() instanceof TieredItem || mainHandItem.getItem() instanceof TridentItem) {
 					if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
 						if (offhandItem.getItem().equals(totem)) {
@@ -464,7 +469,7 @@ public class ClientProxy extends CommonProxy {
 		if (entity instanceof Player player) {
 			ItemStack mainHandItem = player.getMainHandItem();
 			ItemStack offhandItem = player.getOffhandItem();
-			IcariaTotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
 			for (int slot = 5; slot < 9; slot++) {
 				ItemStack armor = player.inventoryMenu.slots.get(slot).getItem();
 				if (armor.getItem() instanceof ArmorItem) {
@@ -489,7 +494,7 @@ public class ClientProxy extends CommonProxy {
 			float health = player.getHealth();
 			ItemStack mainHandItem = player.getMainHandItem();
 			ItemStack offhandItem = player.getOffhandItem();
-			IcariaTotemItem totem = IcariaItems.TOTEM_OF_UNSINKING.get();
+			TotemItem totem = IcariaItems.TOTEM_OF_UNSINKING.get();
 			if (player.position().y <= -64) {
 				if (offhandItem.getItem().equals(totem)) {
 					player.setHealth(health + damage);
@@ -516,8 +521,8 @@ public class ClientProxy extends CommonProxy {
 		if (entity instanceof Player player) {
 			ItemStack mainHandItem = player.getMainHandItem();
 			ItemStack offhandItem = player.getOffhandItem();
-			IcariaTotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-			if (mainHandItem.getItem() instanceof FishingRodItem || mainHandItem.getItem() instanceof BowItem || mainHandItem.getItem() instanceof CrossbowItem || mainHandItem.getItem() instanceof ShieldItem || mainHandItem.getItem() instanceof TridentItem || mainHandItem.getItem() instanceof IcariaBidentItem) {
+			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+			if (mainHandItem.getItem() instanceof FishingRodItem || mainHandItem.getItem() instanceof BowItem || mainHandItem.getItem() instanceof CrossbowItem || mainHandItem.getItem() instanceof ShieldItem || mainHandItem.getItem() instanceof TridentItem || mainHandItem.getItem() instanceof BidentItem) {
 				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
 					if (offhandItem.getItem().equals(totem)) {
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
@@ -527,7 +532,7 @@ public class ClientProxy extends CommonProxy {
 				}
 			}
 
-			if (offhandItem.getItem() instanceof FishingRodItem || offhandItem.getItem() instanceof BowItem || offhandItem.getItem() instanceof CrossbowItem || offhandItem.getItem() instanceof ShieldItem || offhandItem.getItem() instanceof TridentItem || offhandItem.getItem() instanceof IcariaBidentItem) {
+			if (offhandItem.getItem() instanceof FishingRodItem || offhandItem.getItem() instanceof BowItem || offhandItem.getItem() instanceof CrossbowItem || offhandItem.getItem() instanceof ShieldItem || offhandItem.getItem() instanceof TridentItem || offhandItem.getItem() instanceof BidentItem) {
 				if (offhandItem.getDamageValue() >= (offhandItem.getMaxDamage() * 0.9)) {
 					if (mainHandItem.getItem().equals(totem)) {
 						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
@@ -545,7 +550,7 @@ public class ClientProxy extends CommonProxy {
 		if (entity instanceof Player player) {
 			ItemStack mainHandItem = player.getMainHandItem();
 			ItemStack offhandItem = player.getOffhandItem();
-			IcariaTotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
 			if (mainHandItem.getItem() instanceof ShearsItem) {
 				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
 					if (offhandItem.getItem().equals(totem)) {
@@ -574,7 +579,7 @@ public class ClientProxy extends CommonProxy {
 		if (entity instanceof Player player) {
 			ItemStack mainHandItem = player.getMainHandItem();
 			ItemStack offhandItem = player.getOffhandItem();
-			IcariaTotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
 			if (mainHandItem.getItem() instanceof TieredItem || mainHandItem.getItem() instanceof ShearsItem) {
 				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
 					if (offhandItem.getItem().equals(totem)) {
@@ -593,7 +598,7 @@ public class ClientProxy extends CommonProxy {
 		if (entity instanceof Player player) {
 			ItemStack mainHandItem = player.getMainHandItem();
 			ItemStack offhandItem = player.getOffhandItem();
-			IcariaTotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
 			if (mainHandItem.getItem() instanceof AxeItem || mainHandItem.getItem() instanceof HoeItem || mainHandItem.getItem() instanceof ShovelItem || mainHandItem.getItem() instanceof FlintAndSteelItem) {
 				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
 					if (offhandItem.getItem().equals(totem)) {
@@ -647,7 +652,7 @@ public class ClientProxy extends CommonProxy {
 		if (entity instanceof Player player) {
 			ItemStack mainHandItem = player.getMainHandItem();
 			ItemStack offhandItem = player.getOffhandItem();
-			IcariaTotemItem totem = IcariaItems.TOTEM_OF_UNBLINDING.get();
+			TotemItem totem = IcariaItems.TOTEM_OF_UNBLINDING.get();
 			if (effect.getEffect().equals(MobEffects.BLINDNESS)) {
 				if (offhandItem.getItem().equals(totem)) {
 					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));

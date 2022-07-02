@@ -582,6 +582,17 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_item", has(IcariaItems.LAUREL_LEAVES.get()))
 			.save(consumer, IcariaItems.LAUREL_WREATH.getId());
 
+		ShapedRecipeBuilder.shaped(IcariaItems.GREEK_FIRE_GRENADE.get(), 1)
+			.pattern(" X ")
+			.pattern("YZY")
+			.pattern(" Y ")
+			.define('X', IcariaItems.ARACHNE_STRING.get())
+			.define('Y', IcariaItems.KASSITEROS_NUGGET.get())
+			.define('Z', IcariaItems.CALCITE_POWDER.get())
+			.group("")
+			.unlockedBy("has_item", has(IcariaItems.KASSITEROS_NUGGET.get()))
+			.save(consumer, IcariaItems.GREEK_FIRE_GRENADE.getId());
+
 		ShapedRecipeBuilder.shaped(IcariaItems.UNFIRED_STORAGE_VASE.get())
 			.pattern("XXX")
 			.pattern("X X")

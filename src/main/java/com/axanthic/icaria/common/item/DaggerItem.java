@@ -22,7 +22,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaDaggerItem extends SwordItem {
+public class DaggerItem extends SwordItem {
     public float damage;
     public float speed;
 
@@ -40,7 +40,7 @@ public class IcariaDaggerItem extends SwordItem {
         return builder.build();
     });
 
-    public IcariaDaggerItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
+    public DaggerItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
         super(pTier, pDamage, pAttackSpeed, pProperties);
         this.damage = pDamage + pTier.attackDamageBonus;
         this.speed = pAttackSpeed;

@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.common.entity.ThrownBidentEntity;
+import com.axanthic.icaria.common.entity.BidentEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
@@ -26,16 +26,16 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 @OnlyIn(Dist.CLIENT)
-public class ThrownBidentRenderer extends EntityRenderer<ThrownBidentEntity> {
+public class BidentRenderer extends EntityRenderer<BidentEntity> {
 	public ItemRenderer itemRenderer;
 
-	public ThrownBidentRenderer(EntityRendererProvider.Context pContext) {
+	public BidentRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext);
 		this.itemRenderer = pContext.getItemRenderer();
 	}
 
 	@Override
-	public void render(ThrownBidentEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+	public void render(BidentEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
 		pMatrixStack.pushPose();
 		pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot()) - 90.0F));
 		pMatrixStack.mulPose(Vector3f.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot()) - 45.0F));
@@ -47,7 +47,7 @@ public class ThrownBidentRenderer extends EntityRenderer<ThrownBidentEntity> {
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(ThrownBidentEntity pEntity) {
+	public ResourceLocation getTextureLocation(BidentEntity pEntity) {
 		return InventoryMenu.BLOCK_ATLAS;
 	}
 }

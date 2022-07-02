@@ -12,8 +12,8 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class IcariaTotemItem extends Item {
-    public IcariaTotemItem(Properties pProperties) {
+public class TotemItem extends Item {
+    public TotemItem(Properties pProperties) {
         super(pProperties);
     }
 

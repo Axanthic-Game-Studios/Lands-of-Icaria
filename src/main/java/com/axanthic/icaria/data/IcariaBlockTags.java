@@ -680,6 +680,9 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.PHYSALIS_CROP.get())
 			.add(IcariaBlocks.ONION_CROP.get());
 
+		tag(BlockTags.FIRE)
+			.add(IcariaBlocks.GREEK_FIRE.get());
+
 		// ITEMBLOCK TAGS
 		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			if (deco.SLAB != null) {

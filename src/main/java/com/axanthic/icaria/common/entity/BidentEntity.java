@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.item.IcariaBidentItem;
+import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.registry.IcariaEntities;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
@@ -34,18 +34,18 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class ThrownBidentEntity extends AbstractArrow {
-	public static EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(ThrownBidentEntity.class, EntityDataSerializers.BYTE);
-	public static EntityDataAccessor<ItemStack> ID_BIDENT_ITEM = SynchedEntityData.defineId(ThrownBidentEntity.class, EntityDataSerializers.ITEM_STACK);
+public class BidentEntity extends AbstractArrow {
+	public static EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(BidentEntity.class, EntityDataSerializers.BYTE);
+	public static EntityDataAccessor<ItemStack> ID_BIDENT_ITEM = SynchedEntityData.defineId(BidentEntity.class, EntityDataSerializers.ITEM_STACK);
 	public ItemStack bidentItem = new ItemStack(IcariaItems.CHALKOS_TOOLS.BIDENT.get());
 	public boolean dealtDamage;
 	public int clientSideReturnTridentTickCount;
 
-	public ThrownBidentEntity(EntityType<? extends ThrownBidentEntity> pType, Level pLevel) {
+	public BidentEntity(EntityType<? extends BidentEntity> pType, Level pLevel) {
 		super(pType, pLevel);
 	}
 
-	public ThrownBidentEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
+	public BidentEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
 		super(IcariaEntities.BIDENT.get(), pEntity, pLevel);
 
 		this.bidentItem = pStack.copy();
@@ -56,7 +56,7 @@ public class ThrownBidentEntity extends AbstractArrow {
 	@Override
 	public void defineSynchedData() {
 		super.defineSynchedData();
-		this.entityData.define(ID_LOYALTY, (byte)0);
+		this.entityData.define(ID_LOYALTY, (byte) 0);
 		this.entityData.define(ID_BIDENT_ITEM, bidentItem);
 	}
 
@@ -123,8 +123,8 @@ public class ThrownBidentEntity extends AbstractArrow {
 	public void onHitEntity(EntityHitResult pResult) {
 		Entity entityOne = pResult.getEntity();
 		float f1 = 1.0F;
-		if (this.bidentItem.getItem() instanceof IcariaBidentItem)
-			f1 = ((IcariaBidentItem) this.bidentItem.getItem()).attackDamage - 1.0F;
+		if (this.bidentItem.getItem() instanceof BidentItem)
+			f1 = ((BidentItem) this.bidentItem.getItem()).attackDamage - 1.0F;
 		if (entityOne instanceof LivingEntity livingEntityOne) {
 			f1 += EnchantmentHelper.getDamageBonus(this.bidentItem, livingEntityOne.getMobType());
 		}
@@ -189,13 +189,12 @@ public class ThrownBidentEntity extends AbstractArrow {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompound) {
 		super.readAdditionalSaveData(pCompound);
-		if (pCompound.contains("Bident", 10)) {
-			this.bidentItem = ItemStack.of(pCompound.getCompound("Bident"));
-		}
-
 		this.dealtDamage = pCompound.getBoolean("DealtDamage");
 		this.entityData.set(ID_LOYALTY, (byte)EnchantmentHelper.getLoyalty(this.bidentItem));
 		this.entityData.set(ID_BIDENT_ITEM, this.bidentItem);
+		if (pCompound.contains("Bident", 10)) {
+			this.bidentItem = ItemStack.of(pCompound.getCompound("Bident"));
+		}
 	}
 
 	@Override

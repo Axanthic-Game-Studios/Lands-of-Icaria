@@ -35,12 +35,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @SuppressWarnings("deprecation")
 @ParametersAreNonnullByDefault
 
-public class IcariaScytheItem extends HoeItem {
+public class ScytheItem extends HoeItem {
 	public TagKey<Block> blocks = IcariaBlockTags.MINEABLE_WITH_SCYTHE;
 	public Tier equivalentTier;
 	public Set<ToolAction> SCYTHE_ACTIONS = Stream.of(ToolActions.HOE_TILL, ToolActions.SWORD_SWEEP).collect(Collectors.toCollection(Sets::newIdentityHashSet));
 
-	public IcariaScytheItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
+	public ScytheItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
 		super(pTier, pDamage, pAttackSpeed, pProperties);
 		this.equivalentTier = pTier.vanillaEquivalent;
 	}

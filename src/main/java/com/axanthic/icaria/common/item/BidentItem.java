@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.common.entity.ThrownBidentEntity;
+import com.axanthic.icaria.common.entity.BidentEntity;
 import com.axanthic.icaria.common.util.IcariaTier;
 
 import com.google.common.collect.ImmutableMultimap;
@@ -39,14 +39,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaBidentItem extends TieredItem implements Vanishable {
+public class BidentItem extends TieredItem implements Vanishable {
 	public int THROW_THRESHOLD_TIME = 10;
 	public float BASE_DAMAGE = 3.5F;
 	public float SHOOT_POWER = 1.5F;
 	public Multimap<Attribute, AttributeModifier> defaultModifiers;
 	public Float attackDamage;
 
-	public IcariaBidentItem(IcariaTier pTier, Properties pProperties) {
+	public BidentItem(IcariaTier pTier, Properties pProperties) {
 		super(pTier, pProperties);
 		Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
 		this.attackDamage = BASE_DAMAGE + pTier.getAttackDamageBonus();
@@ -89,14 +89,14 @@ public class IcariaBidentItem extends TieredItem implements Vanishable {
 					if (!pLevel.isClientSide) {
 						pStack.hurtAndBreak(1, player, (p_43388_) -> p_43388_.broadcastBreakEvent(pLivingEntity.getUsedItemHand()));
 						if (j == 0) {
-							ThrownBidentEntity thrownBidentEntity = new ThrownBidentEntity(pLevel, player, pStack);
-							thrownBidentEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, SHOOT_POWER + (float)j * 0.5F, 1.0F);
+							BidentEntity bidentEntity = new BidentEntity(pLevel, player, pStack);
+							bidentEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, SHOOT_POWER + (float)j * 0.5F, 1.0F);
 							if (player.getAbilities().instabuild) {
-								thrownBidentEntity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+								bidentEntity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
 							}
 
-							pLevel.addFreshEntity(thrownBidentEntity);
-							pLevel.playSound(null, thrownBidentEntity, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+							pLevel.addFreshEntity(bidentEntity);
+							pLevel.playSound(null, bidentEntity, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
 							if (!player.getAbilities().instabuild) {
 								player.getInventory().removeItem(pStack);
 							}

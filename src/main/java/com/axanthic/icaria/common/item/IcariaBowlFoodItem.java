@@ -14,8 +14,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class StewFoodItem extends Item {
-	public StewFoodItem(Properties pProperties) {
+public class IcariaBowlFoodItem extends Item {
+	public IcariaBowlFoodItem(Properties pProperties) {
 		super(pProperties);
 	}
 
