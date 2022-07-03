@@ -110,7 +110,6 @@ public class CommonProxy {
 					player.getFoodData().setFoodLevel(20);
 					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
 					offhandItem.shrink(1);
-					totem.totemAnimation(player);
 				}
 
 				if (mainHandItem.getItem().equals(totem)) {
@@ -120,7 +119,6 @@ public class CommonProxy {
 					player.getFoodData().setFoodLevel(20);
 					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
 					mainHandItem.shrink(1);
-					totem.totemAnimation(player);
 				}
 			}
 		}
@@ -136,7 +134,6 @@ public class CommonProxy {
 					player.setAirSupply(300);
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
 					offhandItem.shrink(1);
-					totem.totemAnimation(player);
 				}
 
 				if (mainHandItem.getItem().equals(totem)) {
@@ -144,7 +141,6 @@ public class CommonProxy {
 					player.setAirSupply(300);
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
 					mainHandItem.shrink(1);
-					totem.totemAnimation(player);
 				}
 			}
 		}
@@ -162,7 +158,6 @@ public class CommonProxy {
 					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900));
 					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100));
 					offhandItem.shrink(1);
-					totem.totemAnimation(player);
 				}
 
 				if (mainHandItem.getItem().equals(totem)) {
@@ -172,7 +167,6 @@ public class CommonProxy {
 					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900));
 					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100));
 					mainHandItem.shrink(1);
-					totem.totemAnimation(player);
 				}
 			}
 		}
@@ -189,7 +183,6 @@ public class CommonProxy {
 						if (offhandItem.getItem().equals(totem)) {
 							mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
 							offhandItem.shrink(1);
-							totem.totemAnimation(player);
 						}
 					}
 				}
@@ -207,13 +200,11 @@ public class CommonProxy {
 						if (offhandItem.getItem().equals(totem)) {
 							armor.setDamageValue((int) (armor.getItem().getMaxDamage(armor) * 0.1));
 							offhandItem.shrink(1);
-							totem.totemAnimation(player);
 						}
 
 						if (mainHandItem.getItem().equals(totem)) {
 							armor.setDamageValue((int) (armor.getItem().getMaxDamage(armor) * 0.1));
 							mainHandItem.shrink(1);
-							totem.totemAnimation(player);
 						}
 					}
 				}
@@ -231,7 +222,6 @@ public class CommonProxy {
 					player.setPos(player.position().x, 320, player.position().z);
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					offhandItem.shrink(1);
-					totem.totemAnimation(player);
 				}
 
 				if (mainHandItem.getItem().equals(totem)) {
@@ -239,7 +229,6 @@ public class CommonProxy {
 					player.setPos(player.position().x, 320, player.position().z);
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					mainHandItem.shrink(1);
-					totem.totemAnimation(player);
 				}
 			}
 		}
@@ -256,7 +245,6 @@ public class CommonProxy {
 					if (offhandItem.getItem().equals(totem)) {
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
 						offhandItem.shrink(1);
-						totem.totemAnimation(player);
 					}
 				}
 			}
@@ -266,7 +254,6 @@ public class CommonProxy {
 					if (mainHandItem.getItem().equals(totem)) {
 						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
 						mainHandItem.shrink(1);
-						totem.totemAnimation(player);
 					}
 				}
 			}
@@ -284,7 +271,6 @@ public class CommonProxy {
 					if (offhandItem.getItem().equals(totem)) {
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
 						offhandItem.shrink(1);
-						totem.totemAnimation(player);
 					}
 				}
 			}
@@ -294,7 +280,6 @@ public class CommonProxy {
 					if (mainHandItem.getItem().equals(totem)) {
 						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
 						mainHandItem.shrink(1);
-						totem.totemAnimation(player);
 					}
 				}
 			}
@@ -312,7 +297,6 @@ public class CommonProxy {
 					if (offhandItem.getItem().equals(totem)) {
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
 						offhandItem.shrink(1);
-						totem.totemAnimation(player);
 					}
 				}
 			}
@@ -330,7 +314,6 @@ public class CommonProxy {
 					if (offhandItem.getItem().equals(totem)) {
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
 						offhandItem.shrink(1);
-						totem.totemAnimation(player);
 					}
 				}
 			}
@@ -340,7 +323,6 @@ public class CommonProxy {
 					if (mainHandItem.getItem().equals(totem)) {
 						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
 						mainHandItem.shrink(1);
-						totem.totemAnimation(player);
 					}
 				}
 			}
@@ -382,14 +364,12 @@ public class CommonProxy {
 					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					offhandItem.shrink(1);
-					totem.totemAnimation(player);
 				}
 
 				if (mainHandItem.getItem().equals(totem)) {
 					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					mainHandItem.shrink(1);
-					totem.totemAnimation(player);
 				}
 			}
 		}
