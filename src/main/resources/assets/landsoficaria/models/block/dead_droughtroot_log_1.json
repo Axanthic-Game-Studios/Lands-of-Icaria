@@ -5,8 +5,8 @@
 		"wood_top": "landsoficaria:block/droughtroot_log_end",
 		"wood_side": "landsoficaria:block/droughtroot_log_side",
 		"wood_side_stripped": "landsoficaria:block/stripped_droughtroot_log_side",
-		"shroom_ground": "landsoficaria:block/shroom_ground_3",
-		"shroom_ground_stem": "landsoficaria:block/shroom_ground_stem",
+		"shroom_ground": "landsoficaria:block/brown_ground_shrooms",
+		"shroom_ground_stem": "landsoficaria:block/stem_ground_shrooms",
 		"soil_marl": "landsoficaria:block/marl",
 		"soil_moss": "landsoficaria:block/moss_0"
 	},
