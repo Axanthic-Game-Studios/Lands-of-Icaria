@@ -34,49 +34,48 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 
 	@Override
 	public void render(CrystalBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
-		VertexConsumer vertexConsumer = pBufferSource.getBuffer(RenderType.lightning());
+		if (RENDER_RAYS) {
+			VertexConsumer vertexConsumer = pBufferSource.getBuffer(RenderType.lightning());
 
-		Matrix4f matrix4f = pPoseStack.last().pose();
+			Matrix4f matrix4f = pPoseStack.last().pose();
 
-		Random random = new Random(432L);
+			Random random = new Random(432L);
 
-		double x = pBlockEntity.x;
-		double y = pBlockEntity.y;
-		double z = pBlockEntity.z;
+			double x = pBlockEntity.x;
+			double y = pBlockEntity.y;
+			double z = pBlockEntity.z;
 
-		float length = random.nextFloat() * 2.0F + 1.25F;
-		float width = random.nextFloat() *  0.5F + 0.25F;
-		float fade = Math.min(0.0F, 1.0F);
+			float length = random.nextFloat() * 2.0F + 1.25F;
+			float width = random.nextFloat() *  0.5F + 0.25F;
+			float fade = Math.min(0.0F, 1.0F);
 
-		int alpha = (int)(16.0F * (1.0F - fade));
-		if (!RENDER_RAYS) {
-			alpha = 0;
-		}
-		int r = pBlockEntity.r;
-		int g = pBlockEntity.g;
-		int b = pBlockEntity.b;
+			int alpha = (int)(16.0F * (1.0F - fade));
+			int r = pBlockEntity.r;
+			int g = pBlockEntity.g;
+			int b = pBlockEntity.b;
 
-		GlStateManager._depthMask(false);
+			GlStateManager._depthMask(false);
 
-		pPoseStack.translate(x, y, z);
+			pPoseStack.translate(x, y, z);
 
-		for(int i = 0; (float)i < 96; ++i) {
-			pPoseStack.mulPose(Vector3f.XP.rotationDegrees(random.nextFloat() * 360.0F));
-			pPoseStack.mulPose(Vector3f.YP.rotationDegrees(random.nextFloat() * 360.0F));
-			pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(random.nextFloat() * 360.0F));
-			pPoseStack.mulPose(Vector3f.XP.rotationDegrees(random.nextFloat() * 360.0F));
-			pPoseStack.mulPose(Vector3f.YP.rotationDegrees(random.nextFloat() * 360.0F));
-			pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(random.nextFloat() * 360.0F));
+			for (int i = 0; (float)i < 96; ++i) {
+				pPoseStack.mulPose(Vector3f.XP.rotationDegrees(random.nextFloat() * 360.0F));
+				pPoseStack.mulPose(Vector3f.YP.rotationDegrees(random.nextFloat() * 360.0F));
+				pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(random.nextFloat() * 360.0F));
+				pPoseStack.mulPose(Vector3f.XP.rotationDegrees(random.nextFloat() * 360.0F));
+				pPoseStack.mulPose(Vector3f.YP.rotationDegrees(random.nextFloat() * 360.0F));
+				pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(random.nextFloat() * 360.0F));
 
-			vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
-			vertexB(vertexConsumer, matrix4f, length, width);
-			vertexC(vertexConsumer, matrix4f, length, width);
-			vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
-			vertexC(vertexConsumer, matrix4f, length, width);
-			vertexD(vertexConsumer, matrix4f, length, width);
-			vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
-			vertexD(vertexConsumer, matrix4f, length, width);
-			vertexB(vertexConsumer, matrix4f, length, width);
+				vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
+				vertexB(vertexConsumer, matrix4f, length, width);
+				vertexC(vertexConsumer, matrix4f, length, width);
+				vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
+				vertexC(vertexConsumer, matrix4f, length, width);
+				vertexD(vertexConsumer, matrix4f, length, width);
+				vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
+				vertexD(vertexConsumer, matrix4f, length, width);
+				vertexB(vertexConsumer, matrix4f, length, width);
+			}
 		}
 	}
 
