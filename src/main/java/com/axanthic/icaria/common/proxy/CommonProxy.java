@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.EntityDamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -109,6 +110,7 @@ public class CommonProxy {
 					player.getFoodData().setSaturation(20);
 					player.getFoodData().setFoodLevel(20);
 					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
+					player.awardStat(Stats.ITEM_USED.get(totem));
 					offhandItem.shrink(1);
 				}
 
@@ -118,6 +120,7 @@ public class CommonProxy {
 					player.getFoodData().setSaturation(20);
 					player.getFoodData().setFoodLevel(20);
 					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
+					player.awardStat(Stats.ITEM_USED.get(totem));
 					mainHandItem.shrink(1);
 				}
 			}
@@ -133,6 +136,7 @@ public class CommonProxy {
 					player.setHealth(health + damage);
 					player.setAirSupply(300);
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
+					player.awardStat(Stats.ITEM_USED.get(totem));
 					offhandItem.shrink(1);
 				}
 
@@ -140,6 +144,7 @@ public class CommonProxy {
 					player.setHealth(health + damage);
 					player.setAirSupply(300);
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
+					player.awardStat(Stats.ITEM_USED.get(totem));
 					mainHandItem.shrink(1);
 				}
 			}
@@ -157,6 +162,7 @@ public class CommonProxy {
 					player.removeAllEffects();
 					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900));
 					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100));
+					player.awardStat(Stats.ITEM_USED.get(totem));
 					offhandItem.shrink(1);
 				}
 
@@ -166,6 +172,7 @@ public class CommonProxy {
 					player.removeAllEffects();
 					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900));
 					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100));
+					player.awardStat(Stats.ITEM_USED.get(totem));
 					mainHandItem.shrink(1);
 				}
 			}
@@ -181,6 +188,7 @@ public class CommonProxy {
 				if (mainHandItem.getItem() instanceof TieredItem || mainHandItem.getItem() instanceof TridentItem) {
 					if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
 						if (offhandItem.getItem().equals(totem)) {
+							player.awardStat(Stats.ITEM_USED.get(totem));
 							mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
 							offhandItem.shrink(1);
 						}
@@ -198,11 +206,13 @@ public class CommonProxy {
 				if (armor.getItem() instanceof ArmorItem) {
 					if (armor.getDamageValue() >= (armor.getMaxDamage() * 0.9)) {
 						if (offhandItem.getItem().equals(totem)) {
+							player.awardStat(Stats.ITEM_USED.get(totem));
 							armor.setDamageValue((int) (armor.getItem().getMaxDamage(armor) * 0.1));
 							offhandItem.shrink(1);
 						}
 
 						if (mainHandItem.getItem().equals(totem)) {
+							player.awardStat(Stats.ITEM_USED.get(totem));
 							armor.setDamageValue((int) (armor.getItem().getMaxDamage(armor) * 0.1));
 							mainHandItem.shrink(1);
 						}
@@ -221,6 +231,7 @@ public class CommonProxy {
 					player.setHealth(health + damage);
 					player.setPos(player.position().x, 320, player.position().z);
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
+					player.awardStat(Stats.ITEM_USED.get(totem));
 					offhandItem.shrink(1);
 				}
 
@@ -228,6 +239,7 @@ public class CommonProxy {
 					player.setHealth(health + damage);
 					player.setPos(player.position().x, 320, player.position().z);
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
+					player.awardStat(Stats.ITEM_USED.get(totem));
 					mainHandItem.shrink(1);
 				}
 			}
@@ -243,6 +255,7 @@ public class CommonProxy {
 			if (mainHandItem.getItem() instanceof FishingRodItem || mainHandItem.getItem() instanceof BowItem || mainHandItem.getItem() instanceof CrossbowItem || mainHandItem.getItem() instanceof ShieldItem || mainHandItem.getItem() instanceof TridentItem || mainHandItem.getItem() instanceof BidentItem) {
 				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
 					if (offhandItem.getItem().equals(totem)) {
+						player.awardStat(Stats.ITEM_USED.get(totem));
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
 						offhandItem.shrink(1);
 					}
@@ -252,6 +265,7 @@ public class CommonProxy {
 			if (offhandItem.getItem() instanceof FishingRodItem || offhandItem.getItem() instanceof BowItem || offhandItem.getItem() instanceof CrossbowItem || offhandItem.getItem() instanceof ShieldItem || offhandItem.getItem() instanceof TridentItem || offhandItem.getItem() instanceof BidentItem) {
 				if (offhandItem.getDamageValue() >= (offhandItem.getMaxDamage() * 0.9)) {
 					if (mainHandItem.getItem().equals(totem)) {
+						player.awardStat(Stats.ITEM_USED.get(totem));
 						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
 						mainHandItem.shrink(1);
 					}
@@ -269,6 +283,7 @@ public class CommonProxy {
 			if (mainHandItem.getItem() instanceof ShearsItem) {
 				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
 					if (offhandItem.getItem().equals(totem)) {
+						player.awardStat(Stats.ITEM_USED.get(totem));
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
 						offhandItem.shrink(1);
 					}
@@ -278,6 +293,7 @@ public class CommonProxy {
 			if (offhandItem.getItem() instanceof ShearsItem) {
 				if (offhandItem.getDamageValue() >= (offhandItem.getMaxDamage() * 0.9)) {
 					if (mainHandItem.getItem().equals(totem)) {
+						player.awardStat(Stats.ITEM_USED.get(totem));
 						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
 						mainHandItem.shrink(1);
 					}
@@ -295,6 +311,7 @@ public class CommonProxy {
 			if (mainHandItem.getItem() instanceof TieredItem || mainHandItem.getItem() instanceof ShearsItem) {
 				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
 					if (offhandItem.getItem().equals(totem)) {
+						player.awardStat(Stats.ITEM_USED.get(totem));
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
 						offhandItem.shrink(1);
 					}
@@ -312,6 +329,7 @@ public class CommonProxy {
 			if (mainHandItem.getItem() instanceof AxeItem || mainHandItem.getItem() instanceof HoeItem || mainHandItem.getItem() instanceof ShovelItem || mainHandItem.getItem() instanceof FlintAndSteelItem) {
 				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
 					if (offhandItem.getItem().equals(totem)) {
+						player.awardStat(Stats.ITEM_USED.get(totem));
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
 						offhandItem.shrink(1);
 					}
@@ -321,6 +339,7 @@ public class CommonProxy {
 			if (offhandItem.getItem() instanceof AxeItem || offhandItem.getItem() instanceof HoeItem || offhandItem.getItem() instanceof ShovelItem || offhandItem.getItem() instanceof FlintAndSteelItem) {
 				if (offhandItem.getDamageValue() >= (offhandItem.getMaxDamage() * 0.9)) {
 					if (mainHandItem.getItem().equals(totem)) {
+						player.awardStat(Stats.ITEM_USED.get(totem));
 						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
 						mainHandItem.shrink(1);
 					}
@@ -363,12 +382,14 @@ public class CommonProxy {
 				if (offhandItem.getItem().equals(totem)) {
 					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
+					player.awardStat(Stats.ITEM_USED.get(totem));
 					offhandItem.shrink(1);
 				}
 
 				if (mainHandItem.getItem().equals(totem)) {
 					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
+					player.awardStat(Stats.ITEM_USED.get(totem));
 					mainHandItem.shrink(1);
 				}
 			}

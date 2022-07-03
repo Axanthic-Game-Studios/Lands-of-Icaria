@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.item;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -42,6 +43,7 @@ public class VineSproutItem extends Item {
 	@Override
 	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
 		Player player = (Player)pEntityLiving;
+		player.awardStat(Stats.ITEM_USED.get(this));
 		if (!pLevel.isClientSide) {
 			player.getCooldowns().addCooldown(this, 400);
 			if (!player.isCreative()) {
