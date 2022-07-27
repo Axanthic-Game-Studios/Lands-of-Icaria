@@ -1,0 +1,20 @@
+{
+	"textures": {
+		"particle": "landsoficaria:block/icaria_portal",
+		"portal": "landsoficaria:block/icaria_portal"
+	},
+	"elements": [
+		{
+			"from": [6, 0, 0],
+			"to": [10, 16, 16],
+			"faces": {
+				"north": {"uv": [6, 0, 10, 16], "texture": "#portal", "cullface": "north" },
+				"east": {"uv": [0, 0, 16, 16], "texture": "#portal"},
+				"south": {"uv": [6, 0, 10, 16], "texture": "#portal", "cullface": "south" },
+				"west": {"uv": [0, 0, 16, 16], "texture": "#portal"},
+				"up": {"uv": [6, 0, 10, 16], "texture": "#portal", "cullface": "up" },
+				"down": {"uv": [6, 0, 10, 16], "texture": "#portal", "cullface": "down" }
+			}
+		}
+	]
+}

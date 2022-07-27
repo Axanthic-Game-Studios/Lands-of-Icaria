@@ -528,6 +528,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<LiquidBlock> UPWARDS_FLUID = register("upwards_fluid", () -> new LiquidBlock(IcariaFluids.UPWARDS_FLUID_SOURCE, propertiesFluid(MaterialColor.WATER)));
 
 	public static final RegistryObject<Block> GREEK_FIRE = register("greek_fire", () -> new GreekFireBlock(propertiesGreekFire()));
+	public static final RegistryObject<Block> ICARIA_PORTAL = register("icaria_portal", () -> new IcariaPortalBlock(propertiesPortal()));
 
 	private static Properties propertiesGrass() {
 		return Properties.of(Material.GRASS, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).strength(0.6F, 0.6F).randomTicks();
@@ -696,6 +697,9 @@ public class IcariaBlocks {
 	private static Properties propertiesGreekFire() {
 		return Properties.of(Material.FIRE, MaterialColor.NONE).sound(SoundType.WOOL).lightLevel((pLightEmission) -> 15).instabreak().noCollission();
 	}
+
+	private static Properties propertiesPortal() {
+		return Properties.of(Material.PORTAL, MaterialColor.NONE).sound(SoundType.GLASS).strength(-1.0F, -1.0F).lightLevel((pLightEmission) -> 11).noCollission();
 	}
 
 	private static <T extends Block> RegistryObject<T> register(final String name, final Supplier<? extends T> sup) {

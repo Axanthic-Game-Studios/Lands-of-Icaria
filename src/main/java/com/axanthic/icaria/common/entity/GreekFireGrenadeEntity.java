@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.block.IcariaPortalBlock;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntities;
 import com.axanthic.icaria.common.registry.IcariaItems;
@@ -68,6 +69,12 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
     @Override
     public void onHit(HitResult pResult) {
         super.onHit(pResult);
+        BlockPos thisPos = new BlockPos(this.getX(), this.getY(), this.getZ());
+        if(((IcariaPortalBlock) IcariaBlocks.ICARIA_PORTAL.get()).spawnPortal(this.level, thisPos)) {
+            this.discard();
+            return;
+        }
+
         if (!this.level.isClientSide) {
             this.level.explode(null, this.getX(), this.getY(), this.getZ(), 1.5F, false, Explosion.BlockInteraction.NONE);
             for (int i = -2; i <= 2; i++) {

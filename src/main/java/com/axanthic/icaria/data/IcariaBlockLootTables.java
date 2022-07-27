@@ -382,6 +382,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropNone(IcariaBlocks.GROWING_THORNY_VINE.get());
 		dropNone(IcariaBlocks.STRAWBERRY_CAKE.get());
 		dropNone(IcariaBlocks.GREEK_FIRE.get());
+		dropNone(IcariaBlocks.ICARIA_PORTAL.get());
 
 		dropCrop(IcariaBlocks.SPELT_CROP.get(), IcariaItems.SPELT.get(), IcariaItems.SPELT_SEEDS.get());
 		dropCrop(IcariaBlocks.STRAWBERRY_CROP.get(), IcariaItems.STRAWBERRIES.get(), IcariaItems.STRAWBERRY_SEEDS.get());

@@ -344,6 +344,7 @@ public class ClientProxy extends CommonProxy {
 		renderTranslucent(IcariaBlocks.CALCITE_BLOCK.get());
 		renderTranslucent(IcariaBlocks.HALITE_BLOCK.get());
 		renderTranslucent(IcariaBlocks.ZIRCON_BLOCK.get());
+		renderTranslucent(IcariaBlocks.ICARIA_PORTAL.get());
 		renderTranslucent(IcariaFluids.HYLIASTRUM_FLUID_SOURCE.get());
 		renderTranslucent(IcariaFluids.HYLIASTRUM_FLUID_FLOWING.get());
 		renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER_SOURCE.get());

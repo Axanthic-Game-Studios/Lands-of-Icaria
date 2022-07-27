@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -34,6 +35,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> NEEDS_MOLYBDENUMSTEEL_TOOL = icariaTag("needs_molybdenumsteel_tool");
 
 	public static final TagKey<Block> MINEABLE_WITH_SCYTHE = icariaTag("mineable/scythe");
+
+	public static final TagKey<Block> ICARIA_PORTAL_BLOCKS = icariaTag("icaria_portal_blocks");
 
 	// ITEMBLOCK TAGS
 	public static final TagKey<Block> ORES_ROTTEN_BONES = forgeTag("ores/rotten_bones");
@@ -265,6 +268,23 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(BlockTags.CROPS)
 			.addTag(BlockTags.MINEABLE_WITH_HOE)
 			.addTag(BlockTags.REPLACEABLE_PLANTS);
+
+		tag(ICARIA_PORTAL_BLOCKS)
+			.add(Blocks.QUARTZ_SLAB)
+			.add(Blocks.SMOOTH_QUARTZ_SLAB)
+			.add(Blocks.QUARTZ_PILLAR)
+			.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get())
+			.add(IcariaBlocks.DOLOMITE_SMOOTH_DECO.SLAB.get())
+			.add(IcariaBlocks.DOLOMITE_PILLAR.get())
+			.add(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get())
+			.add(IcariaBlocks.RELICSTONE_DECO.SLAB.get())
+			.add(IcariaBlocks.RELICSTONE_SMOOTH_DECO.SLAB.get())
+			.add(IcariaBlocks.RELICSTONE_BRICKS_DECO.SLAB.get())
+			.add(IcariaBlocks.RELICSTONE_BRICKS_CRACKED_DECO.SLAB.get())
+			.add(IcariaBlocks.RELICSTONE_BRICKS_MOSSY_DECO.SLAB.get())
+			.add(IcariaBlocks.RELICSTONE_TILES_DECO.SLAB.get())
+			.add(IcariaBlocks.RELICSTONE_TILES_CRACKED_DECO.SLAB.get())
+			.add(IcariaBlocks.RELICSTONE_TILES_MOSSY_DECO.SLAB.get());
 
 		tag(BlockTags.MINEABLE_WITH_AXE)
 			.add(IcariaBlocks.VINE_REED_BLOCK.get())
