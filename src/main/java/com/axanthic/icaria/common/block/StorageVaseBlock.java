@@ -118,7 +118,7 @@ public class StorageVaseBlock extends Block implements EntityBlock, SimpleWaterl
 					}
 				};
 
-				NetworkHooks.openGui((ServerPlayer) pPlayer, provider, entity.getBlockPos());
+				NetworkHooks.openScreen((ServerPlayer) pPlayer, provider, entity.getBlockPos());
 			}
 		}
 

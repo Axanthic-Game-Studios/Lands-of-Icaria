@@ -41,9 +41,7 @@ public class HorizontalPaneBlock extends Block implements SimpleWaterloggedBlock
 	@Override
 	public boolean skipRendering(BlockState pState, BlockState pAdjacentBlockState, Direction pDirection) {
 		if (pAdjacentBlockState.is(this)) {
-			if (pDirection.getAxis().isHorizontal()) {
-				return true;
-			}
+			return true;
 		}
 
 		return super.skipRendering(pState, pAdjacentBlockState, pDirection);

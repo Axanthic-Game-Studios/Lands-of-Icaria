@@ -167,10 +167,10 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MOLYBDENUM_ORE = register("molybdenum_ore", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_CYAN)));
 	public static final RegistryObject<Block> HYLIASTRUM_ORE = register("hyliastrum_ore", () -> new HyliastrumOreBlock(propertiesStone(MaterialColor.TERRACOTTA_CYAN)));
 
-	public static final RegistryObject<Block> CALCITE_CRYSTAL = register("calcite_crystal", () -> new CrystalBlock(propertiesCrystalBlock(MaterialColor.COLOR_LIGHT_GRAY), 255, 255, 128));
-	public static final RegistryObject<Block> HALITE_CRYSTAL = register("halite_crystal", () -> new CrystalBlock(propertiesCrystalBlock(MaterialColor.COLOR_GREEN), 0, 255, 128));
-	public static final RegistryObject<Block> JASPER_CRYSTAL = register("jasper_crystal", () -> new CrystalBlock(propertiesCrystalBlock(MaterialColor.COLOR_RED), 255, 0, 0));
-	public static final RegistryObject<Block> ZIRCON_CRYSTAL = register("zircon_crystal", () -> new CrystalBlock(propertiesCrystalBlock(MaterialColor.COLOR_BLUE), 0, 0, 255));
+	public static final RegistryObject<Block> CALCITE_CRYSTAL = register("calcite_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 255, 255, 128));
+	public static final RegistryObject<Block> HALITE_CRYSTAL = register("halite_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 0, 255, 128));
+	public static final RegistryObject<Block> JASPER_CRYSTAL = register("jasper_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 255, 0, 0));
+	public static final RegistryObject<Block> ZIRCON_CRYSTAL = register("zircon_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 0, 0, 255));
 
 	public static final RegistryObject<Block> ARISTONE = registerBasic("aristone", () -> new GlassBlock(propertiesAristone()));
 	public static final RegistryObject<Block> ARISTONE_PACKED = registerBasic("aristone_packed", () -> new Block(propertiesAristone()));
@@ -573,8 +573,8 @@ public class IcariaBlocks {
 		return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GREEN).sound(IcariaSounds.ARISTONE).strength(0.5F, 0.5F).friction(0.98F).noOcclusion();
 	}
 
-	private static Properties propertiesCrystalBlock(MaterialColor pMaterialColor) {
-		return Properties.of(Material.GLASS, pMaterialColor).sound(SoundType.GLASS).lightLevel((pLightEmission) -> 4).instabreak().noOcclusion().requiresCorrectToolForDrops();
+	private static Properties propertiesCrystalBlock() {
+		return Properties.of(Material.GLASS, MaterialColor.NONE).sound(SoundType.GLASS).lightLevel((pLightEmission) -> 4).instabreak().noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	private static Properties propertiesJellyfishJellyBlock() {
@@ -694,7 +694,8 @@ public class IcariaBlocks {
 	}
 
 	private static Properties propertiesGreekFire() {
-		return Properties.of(Material.FIRE, MaterialColor.COLOR_LIGHT_GREEN).sound(SoundType.WOOL).lightLevel((pLightEmission) -> 15).instabreak().noCollission();
+		return Properties.of(Material.FIRE, MaterialColor.NONE).sound(SoundType.WOOL).lightLevel((pLightEmission) -> 15).instabreak().noCollission();
+	}
 	}
 
 	private static <T extends Block> RegistryObject<T> register(final String name, final Supplier<? extends T> sup) {

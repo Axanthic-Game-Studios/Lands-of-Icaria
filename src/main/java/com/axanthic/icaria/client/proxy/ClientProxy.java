@@ -41,17 +41,18 @@ import net.minecraft.world.level.material.Fluid;
 
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.entity.living.PotionEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("deprecation")
 @ParametersAreNonnullByDefault
 
 public class ClientProxy extends CommonProxy {
@@ -665,9 +666,9 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void onPotionApplicable(PotionEvent.PotionApplicableEvent event) {
+	public void onPotionApplicable(MobEffectEvent.Applicable event) {
 		Entity entity = event.getEntity();
-		MobEffectInstance effect = event.getPotionEffect();
+		MobEffectInstance effect = event.getEffectInstance();
 		if (entity instanceof Player player) {
 			ItemStack mainHandItem = player.getMainHandItem();
 			ItemStack offhandItem = player.getOffhandItem();

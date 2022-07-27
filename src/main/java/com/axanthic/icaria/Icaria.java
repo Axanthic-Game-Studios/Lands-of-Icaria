@@ -9,10 +9,11 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.entity.living.PotionEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,7 +23,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -47,10 +47,10 @@ public class Icaria {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		IcariaBlocks.BLOCKS.register(bus);
-		IcariaBlockEntities.BLOCK_ENTITIES.register(bus);
-		IcariaContainers.CONTAINERS.register(bus);
+		IcariaBlockEntities.BLOCK_ENTITY_TYPES.register(bus);
+		IcariaContainers.MENU_TYPES.register(bus);
 		IcariaEffects.EFFECTS.register(bus);
-		IcariaEntities.ENTITIES.register(bus);
+		IcariaEntities.ENTITY_TYPES.register(bus);
 		IcariaFluids.FLUIDS.register(bus);
 		IcariaFluids.FLUID_TYPES.register(bus);
 		IcariaItems.ITEMS.register(bus);
@@ -110,7 +110,7 @@ public class Icaria {
 	}
 
 	@SubscribeEvent
-	public void onPotionApplicable(PotionEvent.PotionApplicableEvent event) {
+	public void onPotionApplicable(MobEffectEvent.Applicable event) {
 		proxy.onPotionApplicable(event);
 	}
 }

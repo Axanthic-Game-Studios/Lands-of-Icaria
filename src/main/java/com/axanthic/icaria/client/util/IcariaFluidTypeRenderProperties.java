@@ -10,11 +10,11 @@ import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 
-import net.minecraftforge.client.IFluidTypeRenderProperties;
+import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 
 import java.util.Objects;
 
-public class IcariaFluidTypeRenderProperties implements IFluidTypeRenderProperties {
+public class IcariaFluidTypeRenderProperties implements IClientFluidTypeExtensions {
     public ResourceLocation stillTexture;
     public ResourceLocation flowingTexture;
     public ResourceLocation renderOverlayTexture;

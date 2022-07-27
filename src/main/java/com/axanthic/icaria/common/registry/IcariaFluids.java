@@ -9,7 +9,7 @@ import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 
-import net.minecraftforge.client.IFluidTypeRenderProperties;
+import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.common.SoundActions;
 import net.minecraftforge.common.util.NonNullFunction;
 import net.minecraftforge.fluids.FluidType;
@@ -77,7 +77,7 @@ public class IcariaFluids {
 			.sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
 			.sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)) {
 			@Override
-			public void initializeClient(Consumer<IFluidTypeRenderProperties> consumer) {
+			public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
 				consumer.accept(new IcariaFluidTypeRenderProperties(HYLIASTRUM_FLUID_TEXTURE_STILL, HYLIASTRUM_FLUID_TEXTURE_FLOWING, HYLIASTRUM_FLUID_TEXTURE_OVERLAY));
 			}
 		});
@@ -104,7 +104,7 @@ public class IcariaFluids {
 			.sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
 			.sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)) {
 			@Override
-			public void initializeClient(Consumer<IFluidTypeRenderProperties> consumer) {
+			public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
 				consumer.accept(new IcariaFluidTypeRenderProperties(MEDITERRANEAN_WATER_TEXTURE_STILL, MEDITERRANEAN_WATER_TEXTURE_FLOWING, MEDITERRANEAN_WATER_TEXTURE_OVERLAY));
 			}
 		});
@@ -131,7 +131,7 @@ public class IcariaFluids {
 			.sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
 			.sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)) {
 			@Override
-			public void initializeClient(Consumer<IFluidTypeRenderProperties> consumer) {
+			public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
 				consumer.accept(new IcariaFluidTypeRenderProperties(UPWARDS_FLUID_TEXTURE_STILL, UPWARDS_FLUID_TEXTURE_FLOWING, UPWARDS_FLUID_TEXTURE_OVERLAY));
 			}
 		});

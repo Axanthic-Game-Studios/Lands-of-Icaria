@@ -15,11 +15,12 @@ import net.minecraft.world.item.ItemStack;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.IItemRenderProperties;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.common.util.NonNullLazy;
 
 import java.util.function.Consumer;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
@@ -32,12 +33,12 @@ public class OrichalcumHelmetItem extends ArmorItem {
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void initializeClient(Consumer<IItemRenderProperties> pConsumer) {
+    public void initializeClient(Consumer<IClientItemExtensions> pConsumer) {
         pConsumer.accept(Rendering.INSTANCE);
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static final class Rendering implements IItemRenderProperties {
+    public static final class Rendering implements IClientItemExtensions {
         public static final Rendering INSTANCE = new OrichalcumHelmetItem.Rendering();
         public final NonNullLazy<OrichalcumHelmetModel<LivingEntity>> helmet = NonNullLazy.of(() -> new OrichalcumHelmetModel<>(getModel().bakeLayer(OrichalcumHelmetLayer.ORICHALCUM_HELMET)));
 
@@ -53,7 +54,7 @@ public class OrichalcumHelmetItem extends ArmorItem {
 
         @Override
         @OnlyIn(Dist.CLIENT)
-        public HumanoidModel<?> getArmorModel(LivingEntity pEntity, ItemStack pStack, EquipmentSlot pSlot, HumanoidModel<?> pModel) {
+        public @Nonnull HumanoidModel<?> getHumanoidArmorModel(LivingEntity pEntity, ItemStack pStack, EquipmentSlot pSlot, HumanoidModel<?> pModel) {
             return this.helmet.get();
         }
     }

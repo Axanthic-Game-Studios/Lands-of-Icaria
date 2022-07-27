@@ -10,6 +10,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -94,10 +96,15 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
 
     @Override
     public ItemStack getPickupItem() {
-        return this.itemStack.copy();
+        return ItemStack.EMPTY;
     }
 
     public ItemStack getContainedItem() {
         return this.entityData.get(ID_ITEM);
+    }
+
+    @Override
+    public SoundEvent getDefaultHitGroundSoundEvent() {
+        return SoundEvents.GENERIC_EXPLODE;
     }
 }
