@@ -205,6 +205,9 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MOLYBDENUM_BLOCK = registerBasic("molybdenum_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_GRAY)));
 	public static final RegistryObject<Block> MOLYBDENUMSTEEL_BLOCK = registerBasic("molybdenumsteel_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_GRAY)));
 
+	public static final RegistryObject<IronBarsBlock> VANADIUMSTEEL_BARS = register("vanadiumsteel_bars", () -> new IronBarsBlock(propertiesBars()));
+	public static final RegistryObject<Block> VANADIUMSTEEL_BARS_HORIZONTAL = register("vanadiumsteel_bars_horizontal", () -> new HorizontalPaneBlock(propertiesBars()));
+
 	public static final RegistryObject<Block> STORAGE_VASE = register("storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.TERRACOTTA_PINK)));
 	public static final RegistryObject<Block> WHITE_STORAGE_VASE = register("white_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.SNOW)));
 	public static final RegistryObject<Block> ORANGE_STORAGE_VASE = register("orange_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_ORANGE)));
@@ -608,6 +611,10 @@ public class IcariaBlocks {
 
 	private static Properties propertiesMetalStorageBlock(MaterialColor pMaterialColor) {
 		return Properties.of(Material.METAL, pMaterialColor).sound(SoundType.METAL).strength(5.0F, 6.0F).requiresCorrectToolForDrops();
+	}
+
+	private static Properties propertiesBars() {
+		return Properties.of(Material.METAL, MaterialColor.NONE).sound(SoundType.METAL).strength(5.0F, 6.0F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	private static Properties propertiesStorageVase(MaterialColor pMaterialColor) {

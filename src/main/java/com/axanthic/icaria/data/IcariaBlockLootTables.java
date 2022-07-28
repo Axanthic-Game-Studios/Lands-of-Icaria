@@ -134,6 +134,8 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get());
 		dropThis(IcariaBlocks.QUARTZ_PILLAR_HEAD.get());
 		dropThis(IcariaBlocks.SPELT_BALE_BLOCK.get());
+		dropThis(IcariaBlocks.VANADIUMSTEEL_BARS.get());
+		dropThis(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get());
 		dropThis(IcariaBlocks.STORAGE_VASE.get());
 		dropThis(IcariaBlocks.WHITE_STORAGE_VASE.get());
 		dropThis(IcariaBlocks.ORANGE_STORAGE_VASE.get());

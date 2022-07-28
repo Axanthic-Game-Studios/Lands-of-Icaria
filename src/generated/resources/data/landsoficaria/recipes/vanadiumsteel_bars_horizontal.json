@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "landsoficaria:vanadiumsteel_bars"
+    }
+  },
+  "pattern": [
+    "XX"
+  ],
+  "result": {
+    "count": 2,
+    "item": "landsoficaria:vanadiumsteel_bars_horizontal"
+  }
+}

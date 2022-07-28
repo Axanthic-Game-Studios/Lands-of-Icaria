@@ -220,7 +220,9 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.VANADIUM_RAW_BLOCK.get())
 			.add(IcariaBlocks.SLIVER_BLOCK.get())
 			.add(IcariaBlocks.VANADIUM_BLOCK.get())
-			.add(IcariaBlocks.VANADIUMSTEEL_BLOCK.get());
+			.add(IcariaBlocks.VANADIUMSTEEL_BLOCK.get())
+			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
+			.add(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get());
 
 		addStoneDecoToTag(IcariaBlocks.SUNSTONE_ADOBE_DECO, NEEDS_ORICHALCUM_TOOL);
 		addStoneDecoToTag(IcariaBlocks.SUNSTONE_COBBLE_DECO, NEEDS_ORICHALCUM_TOOL);
@@ -494,6 +496,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.SIDEROS_BLOCK.get())
 			.add(IcariaBlocks.ANTHRACITE_BLOCK.get())
 			.add(IcariaBlocks.MOLYBDENUM_BLOCK.get())
+			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
+			.add(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get())
 			.add(IcariaBlocks.STORAGE_VASE.get())
 			.add(IcariaBlocks.WHITE_STORAGE_VASE.get())
 			.add(IcariaBlocks.ORANGE_STORAGE_VASE.get())

@@ -213,6 +213,9 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MOLYBDENUM_BLOCK = register("molybdenum_block", () -> new BlockItem(IcariaBlocks.MOLYBDENUM_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> MOLYBDENUMSTEEL_BLOCK = register("molybdenumsteel_block", () -> new BlockItem(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get(), propertiesBlocks()));
 
+	public static final RegistryObject<Item> VANADIUMSTEEL_BARS = register("vanadiumsteel_bars", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_BARS.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> VANADIUMSTEEL_BARS_HORIZONTAL = register("vanadiumsteel_bars_horizontal", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get(), propertiesBlocks()));
+
 	public static final RegistryObject<Item> STORAGE_VASE = register("storage_vase", () -> new BlockItem(IcariaBlocks.STORAGE_VASE.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> WHITE_STORAGE_VASE = register("white_storage_vase", () -> new BlockItem(IcariaBlocks.WHITE_STORAGE_VASE.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> ORANGE_STORAGE_VASE = register("orange_storage_vase", () -> new BlockItem(IcariaBlocks.ORANGE_STORAGE_VASE.get(), propertiesBlocks()));

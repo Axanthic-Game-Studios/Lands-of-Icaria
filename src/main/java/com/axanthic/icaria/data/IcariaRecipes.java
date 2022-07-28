@@ -107,6 +107,8 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		largeCompressDecompressRecipes(consumer, IcariaItems.SLIVER_BLOCK.get(), IcariaItems.SLIVER.get());
 		largeCompressDecompressRecipes(consumer, IcariaItems.ANTHRACITE_BLOCK.get(), IcariaItems.ANTHRACITE.get());
 
+		barsRecipe(consumer, IcariaItems.VANADIUMSTEEL_INGOT.get(), IcariaItems.VANADIUMSTEEL_BARS.get(), IcariaItems.VANADIUMSTEEL_BARS_HORIZONTAL.get());
+
 		vaseRecipe(consumer, Items.WHITE_DYE, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get());
 		vaseRecipe(consumer, Items.ORANGE_DYE, IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get());
 		vaseRecipe(consumer, Items.MAGENTA_DYE, IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get());
@@ -987,6 +989,21 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.requires(compressed)
 			.unlockedBy("has_compressed", has(compressed))
 			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(compressed)), "_decompress"));
+	}
+
+	public void barsRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item bars, Item horizontalBars) {
+		ShapedRecipeBuilder.shaped(bars, 16)
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', ingot)
+			.unlockedBy("has_block", has(ingot))
+			.save(consumer, Objects.requireNonNull((ForgeRegistries.ITEMS.getKey(bars))));
+
+		ShapedRecipeBuilder.shaped(horizontalBars, 2)
+			.pattern("XX")
+			.define('X', bars)
+			.unlockedBy("has_block", has(bars))
+			.save(consumer, Objects.requireNonNull((ForgeRegistries.ITEMS.getKey(horizontalBars))));
 	}
 
 	public void vaseRecipe(Consumer<FinishedRecipe> consumer, Item dye, Item vase) {
