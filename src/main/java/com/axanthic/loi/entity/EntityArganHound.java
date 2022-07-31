@@ -7,6 +7,7 @@ import com.axanthic.loi.Resources;
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
+import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -17,6 +18,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -51,6 +53,7 @@ public class EntityArganHound extends EntityMob {
 		this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityRevenantCrawler.class, true));
 		this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityRevenantOvergrown.class, true));
 		this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityRevenantSoldier.class, true));
+        this.tasks.addTask(3, new EntityAIAvoidEntity(this, EntityRevenantPyromancer.class, 10.0F, 1.0D, 1.2D));
 	}
 
 	/**
