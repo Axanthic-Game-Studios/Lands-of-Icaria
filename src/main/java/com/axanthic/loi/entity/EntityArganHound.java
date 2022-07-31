@@ -46,7 +46,11 @@ public class EntityArganHound extends EntityMob {
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 		this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityIronGolem.class, true));
 		this.targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, EntityCerver.class, true));
-		this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityRevenant.class, true));
+		this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityRevenantCaptain.class, true));
+		this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityRevenantCivilian.class, true));
+		this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityRevenantCrawler.class, true));
+		this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityRevenantOvergrown.class, true));
+		this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityRevenantSoldier.class, true));
 	}
 
 	/**
