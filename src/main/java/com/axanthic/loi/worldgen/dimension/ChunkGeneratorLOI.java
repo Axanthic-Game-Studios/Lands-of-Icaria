@@ -394,7 +394,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 				IBlockState fillerBlockTertiary = ChunkGeneratorLOI.LOAM;
 
 				BiomeLOI biomeLOI = null;
-				if (biome instanceof BiomeLOI && !((BiomeLOI) biome).isVoid()) {
+				if (biome instanceof BiomeLOI) {
 					biomeLOI = (BiomeLOI) biome;
 					upperBlockPrimary = biomeLOI.upperBlockPrimary;
 					topBlockPrimary = biomeLOI.topBlockPrimary;

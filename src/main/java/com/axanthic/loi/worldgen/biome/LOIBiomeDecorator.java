@@ -160,6 +160,8 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	}
 
 	public boolean generateTwigs(World worldIn, Random random, Biome biome, BlockPos pos) {
+		if (woodTypes.size() == 0)
+			return true;
 		for (int l2 = 0; l2 < this.treesPerChunk / 3 + 1; ++l2) {
 			int i7 = random.nextInt(16) + 8;
 			int l10 = random.nextInt(16) + 8;
@@ -307,7 +309,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 		}
 		return true;
 	}
-	
+
 	public boolean generateVillages(World worldIn, Random random, Biome biome, ChunkPos pos) {
 		this.villageGenerator.generate(worldIn, pos);
 		return true;
