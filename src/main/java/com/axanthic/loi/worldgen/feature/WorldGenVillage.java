@@ -25,6 +25,7 @@ import com.axanthic.loi.tileentity.TileEntityVase;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.BlockLadder;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
@@ -60,6 +61,8 @@ public class WorldGenVillage extends WorldGenStructureBase {
 	public static int range = 5;
 	public static int spawnerChance = 9;
 	public static int breakingChance = 20;
+	public static int maxVillageHeight = 125;
+	public static int minVillageHeight = 88;
 
 	public final TemplatePublic[] ruins = new TemplatePublic[] {
 			readTemplateFromJar(new ResourceLocation(ModInformation.ID, "village/house_0")),
@@ -165,13 +168,13 @@ public class WorldGenVillage extends WorldGenStructureBase {
 				ruined = true;
 			}
 
-			this.placeWell(worldIn, rand, new BlockPos(startX, 111, startZ), chunk, size > 4 ? 1 : 0, damaged, ruined);
+			this.placeWell(worldIn, rand, new BlockPos(startX, maxVillageHeight, startZ), chunk, size > 4 ? 1 : 0, damaged, ruined);
 
 			for (int l = 0; l < k / 2; ++l) {
 				int addX = rand.nextInt(128) - 64;
 				int addZ = rand.nextInt(128) - 64;
 				for (int attempt = 0; attempt < attempts; ++attempt) {
-					if (this.placeHouse(worldIn, rand, new BlockPos(startX + addX, 111, startZ + addZ), chunk, damaged, ruined))
+					if (this.placeHouse(worldIn, rand, new BlockPos(startX + addX, maxVillageHeight, startZ + addZ), chunk, damaged, ruined))
 						break;
 				}
 			}
@@ -179,7 +182,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 				int addX = rand.nextInt(64) - 32;
 				int addZ = rand.nextInt(64) - 32;
 				for (int attempt = 0; attempt < attempts; ++attempt) {
-					if (this.placeHouse(worldIn, rand, new BlockPos(startX + addX, 111, startZ + addZ), chunk, damaged, ruined))
+					if (this.placeHouse(worldIn, rand, new BlockPos(startX + addX, maxVillageHeight, startZ + addZ), chunk, damaged, ruined))
 						break;
 				}
 			}
@@ -202,7 +205,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 
 		while (!worldIn.isBlockFullCube(offsetPos)) {
 			offsetPos = offsetPos.down();
-			if (offsetPos.getY() < 88)
+			if (offsetPos.getY() < WorldGenVillage.minVillageHeight)
 				return false;
 		}
 
@@ -235,7 +238,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 
 		while (!worldIn.isBlockFullCube(position)) {
 			position = position.down();
-			if (position.getY() < 88)
+			if (position.getY() < WorldGenVillage.minVillageHeight)
 				return false;
 		}
 
@@ -292,16 +295,16 @@ public class WorldGenVillage extends WorldGenStructureBase {
 	public boolean canPlaceHouseHere(World worldIn, Random rand, BlockPos position, ChunkPos chunk, TemplatePublic template) {
 		for (BlockPos basePos : BlockPos.getAllInBox(zero, zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) { //check the ground under the house
 			BlockPos pos = template.transformedBlockPos(placementsettings, basePos).add(position);
-			if (!worldIn.isBlockFullCube(pos.down()))
+			if (!worldIn.isBlockFullCube(pos.down()) && !worldIn.isBlockFullCube(pos.down(2)) && !worldIn.isBlockFullCube(pos.down(3)))
 				return false;
 			if (worldIn.getBlockState(pos).equals(oldRoadState) || worldIn.getBlockState(pos.down()).equals(oldRoadState) || worldIn.getBlockState(pos).equals(roadState) || worldIn.getBlockState(pos.down()).equals(roadState))
 				return false;
 		}
-		for (BlockPos basePos : BlockPos.getAllInBox(zero.add(0, 0, template.getSize().getZ() - 1), zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) { //check the ground at the front of the house
+		/*for (BlockPos basePos : BlockPos.getAllInBox(zero.add(0, 0, template.getSize().getZ() - 1), zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) { //check the ground at the front of the house
 			BlockPos pos = template.transformedBlockPos(placementsettings, basePos).add(position);
 			if (!worldIn.isBlockFullCube(pos))
 				return false;
-		}
+		}*/
 		for (BlockPos basePos : BlockPos.getAllInBox(zero.up().add(-1, 0, -1), zero.add(template.getSize().getX(), template.getSize().getY(), template.getSize().getZ()))) { //check if the house isn't obstructed by solid blocks
 			BlockPos pos = template.transformedBlockPos(placementsettings, basePos).add(position);
 			if (worldIn.isBlockFullCube(pos))
@@ -357,7 +360,7 @@ public class WorldGenVillage extends WorldGenStructureBase {
 						IBlockState iblockstate1 = iblockstate.withRotation(placementIn.getRotation());
 
 						if (ruined) {
-							if (worldIn.isAirBlock(blockpos.down()))
+							if (blockpos.getY() != position.getY() && worldIn.isAirBlock(blockpos.down()))
 								continue;
 							if (iblockstate1.getMaterial() != Material.AIR) {
 								if (rand.nextInt(breakingChance / (relativePos.getY() + 1) + 1) == 0) {
@@ -475,13 +478,14 @@ public class WorldGenVillage extends WorldGenStructureBase {
 		//place a foundation where needed
 		for (BlockPos basePos : BlockPos.getAllInBox(zero, zero.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) {
 			BlockPos pos = template.transformedBlockPos(placementIn, basePos).add(position);
-			if (worldIn.isAirBlock(pos)) {
-				for (BlockPos heightPos : BlockPos.getAllInBox(pos.up(), pos.up(template.getSize().getY() - 1))) {
-					if (!worldIn.isAirBlock(pos)) {
-						worldIn.setBlockState(pos, Resources.grainelStone.getBlock().getDefaultState(), flags);
-						break;
-					}
-				}
+			for (int i = 0; i < 4; ++i) {
+				if (!worldIn.isBlockFullCube(pos.down(i)) && !worldIn.isAirBlock(pos.down(i - 1))) {
+					if (worldIn.getBlockState(pos.down(i - 1)).getBlock() instanceof BlockLadder)
+						worldIn.setBlockState(pos.down(i), worldIn.getBlockState(pos.down(i - 1)), flags);
+					else
+						worldIn.setBlockState(pos.down(i), Resources.relicstone.getBlock().getDefaultState(), flags);
+				} else if (i != 0)
+					break;
 			}
 		}
 		//fill forges, kilns and grinders with fuel and vases with loot

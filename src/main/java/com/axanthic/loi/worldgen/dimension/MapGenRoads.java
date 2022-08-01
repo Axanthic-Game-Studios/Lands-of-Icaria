@@ -3,6 +3,7 @@ package com.axanthic.loi.worldgen.dimension;
 import java.util.Random;
 
 import com.axanthic.loi.Resources;
+import com.axanthic.loi.worldgen.feature.WorldGenVillage;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -197,7 +198,7 @@ public class MapGenRoads extends MapGenBase {
 	}
 
 	protected void placeBlock(ChunkPrimer data, int x, int z, int chunkX, int chunkZ) {
-		for (int y = 111; y >= 88; --y) {
+		for (int y = WorldGenVillage.maxVillageHeight; y >= WorldGenVillage.minVillageHeight; --y) {
 			if (data.getBlockState(x, y, z).isTopSolid()) {
 				if(data.getBlockState(x, y, z).getBlock() != Resources.rock.getBlock()) {
 					data.setBlockState(x, y, z, BLK_ROAD);

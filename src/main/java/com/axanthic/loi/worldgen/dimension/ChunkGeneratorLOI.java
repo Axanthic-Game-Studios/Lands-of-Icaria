@@ -285,7 +285,7 @@ public class ChunkGeneratorLOI implements IChunkGenerator {
 				final int biomeIndex = (cx + cz << 4) & 0xFF;
 				final double addedValue = this.generateValueForSubpos(x, z);
 				final double bufferModificationTop = this.generateBufferModificationForSubpos(x, z);
-				System.out.println(bufferModificationTop);
+				//System.out.println(bufferModificationTop);
 				for (int y = 0; y < sizeY; ++y) {
 					final double roughValue1 = (this.roughShapeNoise1[index] / roughValueScaleDown) + decal;
 					final double roughValue2 = (this.roughShapeNoise2[index] / roughValueScaleDown) + decal;

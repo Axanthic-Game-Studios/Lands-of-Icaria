@@ -43,6 +43,8 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BiomeIcarianVoid extends BiomeLOI {
 
@@ -83,6 +85,12 @@ public class BiomeIcarianVoid extends BiomeLOI {
 		this.addFlower(Resources.flower.getBlock().getStateFromMeta(14), 20);
 		this.addFlower(Resources.cyanGroundFlowers.getBlock().getDefaultState(), 20);
 		this.addFlower(Resources.purpleGroundFlowers.getBlock().getDefaultState(), 20);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getGrassColorAtPos(final BlockPos pos) {
+		return 0x70C474;
 	}
 
 	@Override
