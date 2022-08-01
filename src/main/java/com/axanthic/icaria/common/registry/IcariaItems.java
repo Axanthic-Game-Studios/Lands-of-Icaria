@@ -535,13 +535,13 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> GREEK_FIRE_GRENADE = registerBasic("greek_fire_grenade", () -> new GreekFireGrenade(IcariaTiers.KASSITEROS, propertiesItems().stacksTo(1)));
 
-	public static final RegistryObject<TotemItem> TOTEM_OF_PREVENTATION = registerBasic("totem_of_preventation", () -> new TotemItem(propertiesItems()));
-	public static final RegistryObject<TotemItem> TOTEM_OF_STUFFING = registerBasic("totem_of_stuffing", () -> new TotemItem(propertiesItems()));
-	public static final RegistryObject<TotemItem> TOTEM_OF_UNBLINDING = registerBasic("totem_of_unblinding", () -> new TotemItem(propertiesItems()));
-	public static final RegistryObject<TotemItem> TOTEM_OF_UNDROWNING = registerBasic("totem_of_undrowning", () -> new TotemItem(propertiesItems()));
-	public static final RegistryObject<TotemItem> TOTEM_OF_UNDYING = registerBasic("totem_of_undying", () -> new TotemItem(propertiesItems()));
-	public static final RegistryObject<TotemItem> TOTEM_OF_UNSHATTERING = registerBasic("totem_of_unshattering", () -> new TotemItem(propertiesItems()));
-	public static final RegistryObject<TotemItem> TOTEM_OF_UNSINKING = registerBasic("totem_of_unsinking", () -> new TotemItem(propertiesItems()));
+	public static final RegistryObject<TotemItem> TOTEM_OF_PREVENTATION = registerBasic("totem_of_preventation", () -> new TotemItem(propertiesItems().durability(4)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_STUFFING = registerBasic("totem_of_stuffing", () -> new TotemItem(propertiesItems().durability(4)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_UNBLINDING = registerBasic("totem_of_unblinding", () -> new TotemItem(propertiesItems().durability(4)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_UNDROWNING = registerBasic("totem_of_undrowning", () -> new TotemItem(propertiesItems().durability(4)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_UNDYING = registerBasic("totem_of_undying", () -> new TotemItem(propertiesItems().durability(4)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_UNSHATTERING = registerBasic("totem_of_unshattering", () -> new TotemItem(propertiesItems().durability(4)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_UNSINKING = registerBasic("totem_of_unsinking", () -> new TotemItem(propertiesItems().durability(4)));
 
 	public static final RegistryObject<Item> UNFIRED_STORAGE_VASE = registerBasic("unfired_storage_vase", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> WHITE_UNFIRED_STORAGE_VASE = registerBasic("white_unfired_storage_vase", () -> new Item(propertiesItems()));

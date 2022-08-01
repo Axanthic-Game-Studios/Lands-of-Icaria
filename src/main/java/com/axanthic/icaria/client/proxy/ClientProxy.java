@@ -384,7 +384,7 @@ public class ClientProxy extends CommonProxy {
 					player.getFoodData().setFoodLevel(20);
 					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offhandItem.shrink(1);
+					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
@@ -395,7 +395,7 @@ public class ClientProxy extends CommonProxy {
 					player.getFoodData().setFoodLevel(20);
 					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHandItem.shrink(1);
+					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -412,7 +412,7 @@ public class ClientProxy extends CommonProxy {
 					player.setAirSupply(300);
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offhandItem.shrink(1);
+					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
@@ -421,7 +421,7 @@ public class ClientProxy extends CommonProxy {
 					player.setAirSupply(300);
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHandItem.shrink(1);
+					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -440,7 +440,7 @@ public class ClientProxy extends CommonProxy {
 					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900));
 					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offhandItem.shrink(1);
+					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
@@ -451,7 +451,7 @@ public class ClientProxy extends CommonProxy {
 					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900));
 					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHandItem.shrink(1);
+					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -469,7 +469,7 @@ public class ClientProxy extends CommonProxy {
 						if (offhandItem.getItem().equals(totem)) {
 							player.awardStat(Stats.ITEM_USED.get(totem));
 							mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
-							offhandItem.shrink(1);
+							offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 							totem.totemAnimation(player);
 						}
 					}
@@ -488,14 +488,14 @@ public class ClientProxy extends CommonProxy {
 						if (offhandItem.getItem().equals(totem)) {
 							player.awardStat(Stats.ITEM_USED.get(totem));
 							armor.setDamageValue((int) (armor.getItem().getMaxDamage(armor) * 0.1));
-							offhandItem.shrink(1);
+							offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 							totem.totemAnimation(player);
 						}
 
 						if (mainHandItem.getItem().equals(totem)) {
 							player.awardStat(Stats.ITEM_USED.get(totem));
 							armor.setDamageValue((int) (armor.getItem().getMaxDamage(armor) * 0.1));
-							mainHandItem.shrink(1);
+							mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 							totem.totemAnimation(player);
 						}
 					}
@@ -514,7 +514,7 @@ public class ClientProxy extends CommonProxy {
 					player.setPos(player.position().x, 320, player.position().z);
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offhandItem.shrink(1);
+					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
@@ -523,7 +523,7 @@ public class ClientProxy extends CommonProxy {
 					player.setPos(player.position().x, 320, player.position().z);
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHandItem.shrink(1);
+					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -542,7 +542,7 @@ public class ClientProxy extends CommonProxy {
 					if (offhandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
-						offhandItem.shrink(1);
+						offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -553,7 +553,7 @@ public class ClientProxy extends CommonProxy {
 					if (mainHandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
-						mainHandItem.shrink(1);
+						mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -573,7 +573,7 @@ public class ClientProxy extends CommonProxy {
 					if (offhandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
-						offhandItem.shrink(1);
+						offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -584,7 +584,7 @@ public class ClientProxy extends CommonProxy {
 					if (mainHandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
-						mainHandItem.shrink(1);
+						mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -604,7 +604,7 @@ public class ClientProxy extends CommonProxy {
 					if (offhandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
-						offhandItem.shrink(1);
+						offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -624,7 +624,7 @@ public class ClientProxy extends CommonProxy {
 					if (offhandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
-						offhandItem.shrink(1);
+						offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -635,7 +635,7 @@ public class ClientProxy extends CommonProxy {
 					if (mainHandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
-						mainHandItem.shrink(1);
+						mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -680,7 +680,7 @@ public class ClientProxy extends CommonProxy {
 					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offhandItem.shrink(1);
+					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
@@ -688,7 +688,7 @@ public class ClientProxy extends CommonProxy {
 					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHandItem.shrink(1);
+					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
