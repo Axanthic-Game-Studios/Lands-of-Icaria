@@ -212,6 +212,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> ANTHRACITE_BLOCK = register("anthracite_block", () -> new FuelBlockItem(IcariaBlocks.ANTHRACITE_BLOCK.get(), propertiesBlocks(), 28800));
 	public static final RegistryObject<Item> MOLYBDENUM_BLOCK = register("molybdenum_block", () -> new BlockItem(IcariaBlocks.MOLYBDENUM_BLOCK.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> MOLYBDENUMSTEEL_BLOCK = register("molybdenumsteel_block", () -> new BlockItem(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> BLURIDIUM_BLOCK = register("bluridium_block", () -> new BlockItem(IcariaBlocks.BLURIDIUM_BLOCK.get(), propertiesBlocks()));
 
 	public static final RegistryObject<Item> VANADIUMSTEEL_BARS = register("vanadiumsteel_bars", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_BARS.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> VANADIUMSTEEL_BARS_HORIZONTAL = register("vanadiumsteel_bars_horizontal", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get(), propertiesBlocks()));
@@ -502,6 +503,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> SIDEROS_NUGGET = registerBasic("sideros_nugget", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> MOLYBDENUM_NUGGET = registerBasic("molybdenum_nugget", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> MOLYBDENUMSTEEL_NUGGET = registerBasic("molybdenumsteel_nugget", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> BLURIDIUM_NUGGET = registerBasic("bluridium_nugget", () -> new Item(propertiesItems()));
 
 	public static final RegistryObject<Item> CHALKOS_INGOT = registerBasic("chalkos_ingot", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> KASSITEROS_INGOT = registerBasic("kassiteros_ingot", () -> new Item(propertiesItems()));
@@ -511,6 +513,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> SIDEROS_INGOT = registerBasic("sideros_ingot", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> MOLYBDENUM_INGOT = registerBasic("molybdenum_ingot", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> MOLYBDENUMSTEEL_INGOT = registerBasic("molybdenumsteel_ingot", () -> new Item(propertiesItems()));
+	public static final RegistryObject<Item> BLURIDIUM_INGOT = registerBasic("bluridium_ingot", () -> new Item(propertiesItems()));
 
 	public static final ToolSet CHERT_TOOLS = new ToolSet(IcariaTiers.CHERT);
 	public static final ToolSet CHALKOS_TOOLS = new ToolSet(IcariaTiers.CHALKOS);

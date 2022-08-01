@@ -96,6 +96,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> STORAGE_BLOCKS_ANTHRACITE = forgeTag("storage_blocks/anthracite");
 	public static final TagKey<Block> STORAGE_BLOCKS_MOLYBDENUM = forgeTag("storage_blocks/molybdenum");
 	public static final TagKey<Block> STORAGE_BLOCKS_MOLYBDENUMSTEEL = forgeTag("storage_blocks/molybdenumsteel");
+	public static final TagKey<Block> STORAGE_BLOCKS_BLURIDIUM = forgeTag("storage_blocks/bluridium");
 
 	public static final TagKey<Block> SAPLINGS_CYPRESS = forgeTag("saplings/cypress");
 	public static final TagKey<Block> SAPLINGS_DROUGHTROOT = forgeTag("saplings/droughtroot");
@@ -257,7 +258,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.ZIRCON_CRYSTAL.get())
 			.add(IcariaBlocks.MOLYBDENUM_RAW_BLOCK.get())
 			.add(IcariaBlocks.MOLYBDENUM_BLOCK.get())
-			.add(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get());
+			.add(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get())
+			.add(IcariaBlocks.BLURIDIUM_BLOCK.get());
 
 		addStoneDecoToTag(IcariaBlocks.BAETYL_ADOBE_DECO, NEEDS_SIDEROS_TOOL);
 		addStoneDecoToTag(IcariaBlocks.BAETYL_COBBLE_DECO, NEEDS_SIDEROS_TOOL);
@@ -497,6 +499,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.ANTHRACITE_BLOCK.get())
 			.add(IcariaBlocks.MOLYBDENUM_BLOCK.get())
 			.add(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get())
+			.add(IcariaBlocks.BLURIDIUM_BLOCK.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get())
 			.add(IcariaBlocks.STORAGE_VASE.get())
@@ -889,6 +892,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(STORAGE_BLOCKS_ANTHRACITE).add(IcariaBlocks.ANTHRACITE_BLOCK.get());
 		tag(STORAGE_BLOCKS_MOLYBDENUM).add(IcariaBlocks.MOLYBDENUM_BLOCK.get());
 		tag(STORAGE_BLOCKS_MOLYBDENUMSTEEL).add(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get());
+		tag(STORAGE_BLOCKS_BLURIDIUM).add(IcariaBlocks.BLURIDIUM_BLOCK.get());
 
 		tag(Tags.Blocks.STORAGE_BLOCKS)
 			.addTag(STORAGE_BLOCKS_ARISTONE_PACKED)
@@ -918,7 +922,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(STORAGE_BLOCKS_SIDEROS)
 			.addTag(STORAGE_BLOCKS_ANTHRACITE)
 			.addTag(STORAGE_BLOCKS_MOLYBDENUM)
-			.addTag(STORAGE_BLOCKS_MOLYBDENUMSTEEL);
+			.addTag(STORAGE_BLOCKS_MOLYBDENUMSTEEL)
+			.addTag(STORAGE_BLOCKS_BLURIDIUM);
 
 		tag(SAPLINGS_CYPRESS).add(IcariaBlocks.CYPRESS_SAPLING.get());
 		tag(SAPLINGS_DROUGHTROOT).add(IcariaBlocks.DROUGHTROOT_SAPLING.get());

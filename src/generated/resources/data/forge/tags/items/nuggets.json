@@ -7,6 +7,7 @@
     "#forge:nuggets/vanadiumsteel",
     "#forge:nuggets/sideros",
     "#forge:nuggets/molybdenum",
-    "#forge:nuggets/molybdenumsteel"
+    "#forge:nuggets/molybdenumsteel",
+    "#forge:nuggets/bluridium"
   ]
 }

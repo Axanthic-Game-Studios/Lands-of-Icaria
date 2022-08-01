@@ -27,6 +27,7 @@
     "#forge:storage_blocks/sideros",
     "#forge:storage_blocks/anthracite",
     "#forge:storage_blocks/molybdenum",
-    "#forge:storage_blocks/molybdenumsteel"
+    "#forge:storage_blocks/molybdenumsteel",
+    "#forge:storage_blocks/bluridium"
   ]
 }

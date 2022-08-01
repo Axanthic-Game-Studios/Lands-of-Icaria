@@ -203,6 +203,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> ANTHRACITE_BLOCK = registerBasic("anthracite_block", () -> new Block(propertiesGemStorageBlock(MaterialColor.COLOR_BLACK)));
 	public static final RegistryObject<Block> MOLYBDENUM_BLOCK = registerBasic("molybdenum_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_GRAY)));
 	public static final RegistryObject<Block> MOLYBDENUMSTEEL_BLOCK = registerBasic("molybdenumsteel_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_GRAY)));
+	public static final RegistryObject<Block> BLURIDIUM_BLOCK = registerBasic("bluridium_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_BLUE)));
 
 	public static final RegistryObject<IronBarsBlock> VANADIUMSTEEL_BARS = register("vanadiumsteel_bars", () -> new IronBarsBlock(propertiesBars()));
 	public static final RegistryObject<Block> VANADIUMSTEEL_BARS_HORIZONTAL = register("vanadiumsteel_bars_horizontal", () -> new HorizontalPaneBlock(propertiesBars()));

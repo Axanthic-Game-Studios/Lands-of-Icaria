@@ -211,6 +211,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		blockIngotNuggetRecipes(consumer, IcariaItems.SIDEROS_BLOCK.get(), IcariaItems.SIDEROS_INGOT.get(), IcariaItems.SIDEROS_NUGGET.get());
 		blockIngotNuggetRecipes(consumer, IcariaItems.MOLYBDENUM_BLOCK.get(), IcariaItems.MOLYBDENUM_INGOT.get(), IcariaItems.MOLYBDENUM_NUGGET.get());
 		blockIngotNuggetRecipes(consumer, IcariaItems.MOLYBDENUMSTEEL_BLOCK.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), IcariaItems.MOLYBDENUMSTEEL_NUGGET.get());
+		blockIngotNuggetRecipes(consumer, IcariaItems.BLURIDIUM_BLOCK.get(), IcariaItems.BLURIDIUM_INGOT.get(), IcariaItems.BLURIDIUM_NUGGET.get());
 
 		gemSmeltingRecipe(consumer, IcariaItems.LIGNITE_ORE.get(), IcariaItems.LIGNITE.get());
 		gemSmeltingRecipe(consumer, IcariaItems.DOLOMITE_ORE.get(), IcariaItems.DOLOMITE.get());

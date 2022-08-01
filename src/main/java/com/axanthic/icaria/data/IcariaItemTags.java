@@ -57,6 +57,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final TagKey<Item> NUGGETS_SIDEROS = forgeTag("nuggets/sideros");
 	public static final TagKey<Item> NUGGETS_MOLYBDENUM = forgeTag("nuggets/molybdenum");
 	public static final TagKey<Item> NUGGETS_MOLYBDENUMSTEEL = forgeTag("nuggets/molybdenumsteel");
+	public static final TagKey<Item> NUGGETS_BLURIDIUM = forgeTag("nuggets/bluridium");
 
 	public static final TagKey<Item> INGOTS_LOAM_BRICK = forgeTag("ingots/loam_brick");
 	public static final TagKey<Item> INGOTS_CHALKOS = forgeTag("ingots/chalkos");
@@ -67,6 +68,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final TagKey<Item> INGOTS_SIDEROS = forgeTag("ingots/sideros");
 	public static final TagKey<Item> INGOTS_MOLYBDENUM = forgeTag("ingots/molybdenum");
 	public static final TagKey<Item> INGOTS_MOLYBDENUMSTEEL = forgeTag("ingots/molybdenumsteel");
+	public static final TagKey<Item> INGOTS_BLURIDIUM = forgeTag("ingots/bluridium");
 
 	public static final TagKey<Item> VINES = forgeTag("vines");
 
@@ -130,6 +132,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final TagKey<Item> STORAGE_BLOCKS_ANTHRACITE = forgeTag("storage_blocks/anthracite");
 	public static final TagKey<Item> STORAGE_BLOCKS_MOLYBDENUM = forgeTag("storage_blocks/molybdenum");
 	public static final TagKey<Item> STORAGE_BLOCKS_MOLYBDENUMSTEEL = forgeTag("storage_blocks/molybdenumsteel");
+	public static final TagKey<Item> STORAGE_BLOCKS_BLURIDIUM = forgeTag("storage_blocks/bluridium");
 
 	public static final TagKey<Item> SAPLINGS_CYPRESS = forgeTag("saplings/cypress");
 	public static final TagKey<Item> SAPLINGS_DROUGHTROOT = forgeTag("saplings/droughtroot");
@@ -273,6 +276,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 		tag(NUGGETS_SIDEROS).add(IcariaItems.SIDEROS_NUGGET.get());
 		tag(NUGGETS_MOLYBDENUM).add(IcariaItems.MOLYBDENUM_NUGGET.get());
 		tag(NUGGETS_MOLYBDENUMSTEEL).add(IcariaItems.MOLYBDENUMSTEEL_NUGGET.get());
+		tag(NUGGETS_BLURIDIUM).add(IcariaItems.BLURIDIUM_NUGGET.get());
 
 		tag(Tags.Items.NUGGETS)
 			.addTag(NUGGETS_CHALKOS)
@@ -282,7 +286,8 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.addTag(NUGGETS_VANADIUMSTEEL)
 			.addTag(NUGGETS_SIDEROS)
 			.addTag(NUGGETS_MOLYBDENUM)
-			.addTag(NUGGETS_MOLYBDENUMSTEEL);
+			.addTag(NUGGETS_MOLYBDENUMSTEEL)
+			.addTag(NUGGETS_BLURIDIUM);
 
 		tag(INGOTS_LOAM_BRICK).add(IcariaItems.LOAM_BRICK.get());
 		tag(INGOTS_CHALKOS).add(IcariaItems.CHALKOS_INGOT.get());
@@ -293,6 +298,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 		tag(INGOTS_SIDEROS).add(IcariaItems.SIDEROS_INGOT.get());
 		tag(INGOTS_MOLYBDENUM).add(IcariaItems.MOLYBDENUM_INGOT.get());
 		tag(INGOTS_MOLYBDENUMSTEEL).add(IcariaItems.MOLYBDENUMSTEEL_INGOT.get());
+		tag(INGOTS_BLURIDIUM).add(IcariaItems.BLURIDIUM_INGOT.get());
 
 		tag(Tags.Items.INGOTS)
 			.addTag(INGOTS_LOAM_BRICK)
@@ -303,7 +309,8 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.addTag(INGOTS_VANADIUMSTEEL)
 			.addTag(INGOTS_SIDEROS)
 			.addTag(INGOTS_MOLYBDENUM)
-			.addTag(INGOTS_MOLYBDENUMSTEEL);
+			.addTag(INGOTS_MOLYBDENUMSTEEL)
+			.addTag(INGOTS_BLURIDIUM);
 
 		tag(VINES)
 			.add(Items.VINE)
@@ -516,6 +523,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 		copy(IcariaBlockTags.STORAGE_BLOCKS_ANTHRACITE, STORAGE_BLOCKS_ANTHRACITE);
 		copy(IcariaBlockTags.STORAGE_BLOCKS_MOLYBDENUM, STORAGE_BLOCKS_MOLYBDENUM);
 		copy(IcariaBlockTags.STORAGE_BLOCKS_MOLYBDENUMSTEEL, STORAGE_BLOCKS_MOLYBDENUMSTEEL);
+		copy(IcariaBlockTags.STORAGE_BLOCKS_BLURIDIUM, STORAGE_BLOCKS_BLURIDIUM);
 
 		tag(Tags.Items.STORAGE_BLOCKS)
 			.addTag(STORAGE_BLOCKS_ARISTONE_PACKED)
@@ -545,7 +553,8 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.addTag(STORAGE_BLOCKS_SIDEROS)
 			.addTag(STORAGE_BLOCKS_ANTHRACITE)
 			.addTag(STORAGE_BLOCKS_MOLYBDENUM)
-			.addTag(STORAGE_BLOCKS_MOLYBDENUMSTEEL);
+			.addTag(STORAGE_BLOCKS_MOLYBDENUMSTEEL)
+			.addTag(STORAGE_BLOCKS_BLURIDIUM);
 
 		copy(IcariaBlockTags.SAPLINGS_CYPRESS, SAPLINGS_CYPRESS);
 		copy(IcariaBlockTags.SAPLINGS_DROUGHTROOT, SAPLINGS_DROUGHTROOT);
