@@ -63,7 +63,7 @@ public class BiomeIcarianVoid extends BiomeLOI {
 		this.spawnableWaterCreatureList.clear();
 		this.spawnableCaveCreatureList.clear();
 		this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySnull.class, 50, 2, 6));
-		this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityForestHagOlive.class, 5, 1, 1));
+		this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityJellyfish.class, 100, 1, 2));
 		this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenantCivilian.class, 75, 2, 5));
 		this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenantSoldier.class, 75, 2, 5));
 		this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityRevenantCaptain.class, 75, 1, 1));

@@ -110,6 +110,7 @@ import net.minecraft.world.biome.BiomeColorHelper;
 
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.MouseEvent;
@@ -497,6 +498,16 @@ public class ClientProxy extends CommonProxy {
 		}*/
 	}
 
+	@SubscribeEvent
+	public void entityRenderPost(EntityViewRenderEvent.FogColors event) {
+		if (event.getEntity().dimension == LandsOfIcaria.dimensionId) {
+			float d3 = (float) (event.getEntity().getPositionEyes((float) event.getRenderPartialTicks()).y - event.getEntity().world.getHorizon());
+			event.setRed(event.getRed() * (Math.max(0, (IcariaSkyRenderer.fade + d3) / IcariaSkyRenderer.fade) * 0.9F + 0.1F));
+			event.setGreen(event.getGreen() * (Math.max(0, (IcariaSkyRenderer.fade + d3) / IcariaSkyRenderer.fade) * 0.9F + 0.1F));
+			event.setBlue(event.getBlue() * (Math.max(0, (IcariaSkyRenderer.fade + d3) / IcariaSkyRenderer.fade) * 0.9F + 0.1F));
+		}
+	}
+
 	public void onArmorBreaks(LivingAttackEvent event) {
 		Entity entity = event.getEntity();
 
@@ -727,7 +738,7 @@ public class ClientProxy extends CommonProxy {
 			}
 		}
 	}
-	
+
 	public void onPlayerFalls(LivingAttackEvent event) {
 		float damage = event.getAmount();
 		Entity entity = event.getEntity();

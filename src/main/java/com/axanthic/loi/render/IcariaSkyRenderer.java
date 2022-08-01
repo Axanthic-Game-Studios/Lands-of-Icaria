@@ -12,7 +12,9 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.vertex.VertexBuffer;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.client.IRenderHandler;
@@ -23,11 +25,12 @@ public class IcariaSkyRenderer extends IRenderHandler {
 	private static final ResourceLocation MOON_PHASES_TEXTURES = new ResourceLocation("textures/environment/moon_phases.png");
 	private static final ResourceLocation SUN_TEXTURES = new ResourceLocation("textures/environment/sun.png");
 	private static final ResourceLocation EXTRA_MOON_TEXTURES = new ResourceLocation(ModInformation.ID, "textures/environment/moon.png");
+	public static float fade = 60.0F;
 
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
 		GlStateManager.disableTexture2D();
-		Vec3d vec3d = world.getSkyColor(mc.getRenderViewEntity(), partialTicks);
+		Vec3d vec3d = getSkyColorBody(mc.getRenderViewEntity(), world, partialTicks);
 		float f = (float)vec3d.x;
 		float f1 = (float)vec3d.y;
 		float f2 = (float)vec3d.z;
@@ -115,7 +118,7 @@ public class IcariaSkyRenderer extends IRenderHandler {
 		float f16 = 1.0F - world.getRainStrength(partialTicks);
 		GlStateManager.color(1.0F, 1.0F, 1.0F, f16);
 		GlStateManager.rotate(-90.0F, 0.0F, 1.0F, 0.0F);
-		
+
 		//extra moon
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(45.0F, 0.0F, 0.0F, 1.0F);
@@ -129,9 +132,9 @@ public class IcariaSkyRenderer extends IRenderHandler {
 		bufferbuilder.pos((double)(-f17), -100.0D, (double)(-f17)).tex(0.0D, 1.0D).endVertex();
 		tessellator.draw();
 		GlStateManager.popMatrix();
-		
+
 		GlStateManager.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-		
+
 		f17 = 30.0F;
 		mc.renderEngine.bindTexture(SUN_TEXTURES);
 		bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
@@ -140,7 +143,7 @@ public class IcariaSkyRenderer extends IRenderHandler {
 		bufferbuilder.pos((double)f17, 100.0D, (double)f17).tex(1.0D, 1.0D).endVertex();
 		bufferbuilder.pos((double)(-f17), 100.0D, (double)f17).tex(0.0D, 1.0D).endVertex();
 		tessellator.draw();
-		
+
 		f17 = 20.0F;
 		mc.renderEngine.bindTexture(MOON_PHASES_TEXTURES);
 		int k1 = world.getMoonPhase();
@@ -156,7 +159,7 @@ public class IcariaSkyRenderer extends IRenderHandler {
 		bufferbuilder.pos((double)f17, -100.0D, (double)(-f17)).tex((double)f22, (double)f23).endVertex();
 		bufferbuilder.pos((double)(-f17), -100.0D, (double)(-f17)).tex((double)f24, (double)f23).endVertex();
 		tessellator.draw();
-		
+
 		GlStateManager.disableTexture2D();
 		float f15 = world.getStarBrightness(partialTicks) * f16;
 
@@ -184,7 +187,9 @@ public class IcariaSkyRenderer extends IRenderHandler {
 		GlStateManager.color(0.0F, 0.0F, 0.0F);
 		double d3 = mc.player.getPositionEyes(partialTicks).y - world.getHorizon();
 
-		if (d3 < 0.0D) {
+		/*if (d3 < 0.0D) {
+			//float voidOpacity = (float) Math.max(0, (fade + d3) / fade);
+
 			GlStateManager.pushMatrix();
 			GlStateManager.translate(0.0F, 12.0F, 0.0F);
 
@@ -201,7 +206,7 @@ public class IcariaSkyRenderer extends IRenderHandler {
 
 			GlStateManager.popMatrix();
 			float f18 = 1.0F;
-			float f19 = -((float)(d3 + 65.0D));
+			float f19 = -((float)(d3 + 85.0D + fade));
 			float f20 = -1.0F;
 			bufferbuilder.begin(7, DefaultVertexFormats.POSITION_COLOR);
 			bufferbuilder.pos(-1.0D, (double)f19, 1.0D).color(0, 0, 0, 255).endVertex();
@@ -225,14 +230,11 @@ public class IcariaSkyRenderer extends IRenderHandler {
 			bufferbuilder.pos(1.0D, -1.0D, 1.0D).color(0, 0, 0, 255).endVertex();
 			bufferbuilder.pos(1.0D, -1.0D, -1.0D).color(0, 0, 0, 255).endVertex();
 			tessellator.draw();
-		}
+		}*/
 
-		if (world.provider.isSkyColored())
-		{
+		if (world.provider.isSkyColored()) {
 			GlStateManager.color(f * 0.2F + 0.04F, f1 * 0.2F + 0.04F, f2 * 0.6F + 0.1F);
-		}
-		else
-		{
+		} else {
 			GlStateManager.color(f, f1, f2);
 		}
 
@@ -242,5 +244,53 @@ public class IcariaSkyRenderer extends IRenderHandler {
 		GlStateManager.popMatrix();
 		GlStateManager.enableTexture2D();
 		GlStateManager.depthMask(true);
+	}
+
+	public Vec3d getSkyColorBody(Entity entityIn, WorldClient world, float partialTicks) {
+		float f = world.getCelestialAngle(partialTicks);
+		float f1 = MathHelper.cos(f * ((float)Math.PI * 2F)) * 2.0F + 0.5F;
+		f1 = MathHelper.clamp(f1, 0.0F, 1.0F);
+		int i = MathHelper.floor(entityIn.posX);
+		int j = MathHelper.floor(entityIn.posY);
+		int k = MathHelper.floor(entityIn.posZ);
+		BlockPos blockpos = new BlockPos(i, j, k);
+		int l = net.minecraftforge.client.ForgeHooksClient.getSkyBlendColour(world, blockpos);
+		float f3 = (float)(l >> 16 & 255) / 255.0F;
+		float f4 = (float)(l >> 8 & 255) / 255.0F;
+		float f5 = (float)(l & 255) / 255.0F;
+		f3 = f3 * f1;
+		f4 = f4 * f1;
+		f5 = f5 * f1;
+
+		float f10 = world.getThunderStrength(partialTicks);
+
+		if (f10 > 0.0F) {
+			float f11 = (f3 * 0.3F + f4 * 0.59F + f5 * 0.11F) * 0.2F;
+			float f9 = 1.0F - f10 * 0.75F;
+			f3 = f3 * f9 + f11 * (1.0F - f9);
+			f4 = f4 * f9 + f11 * (1.0F - f9);
+			f5 = f5 * f9 + f11 * (1.0F - f9);
+		}
+
+		if (world.getLastLightningBolt() > 0) {
+			float f12 = (float)world.getLastLightningBolt() - partialTicks;
+
+			if (f12 > 1.0F) {
+				f12 = 1.0F;
+			}
+			f12 = f12 * 0.45F;
+			f3 = f3 * (1.0F - f12) + 0.8F * f12;
+			f4 = f4 * (1.0F - f12) + 0.8F * f12;
+			f5 = f5 * (1.0F - f12) + 1.0F * f12;
+		}
+
+		float d3 = (float) (entityIn.getPositionEyes(partialTicks).y - world.getHorizon());
+		if (d3 < 0.0D) {
+			f3 = f3 * (Math.max(0, (fade + d3) / fade) * 0.6F + 0.4F);
+			f4 = f4 * (Math.max(0, (fade + d3) / fade) * 0.6F + 0.4F);
+			f5 = f5 * (Math.max(0, (fade + d3) / fade) * 0.6F + 0.4F);
+		}
+
+		return new Vec3d((double)f3, (double)f4, (double)f5);
 	}
 }

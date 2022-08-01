@@ -4,6 +4,7 @@ import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.proxy.ClientProxy;
 import com.axanthic.loi.render.IcariaSkyRenderer;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -50,6 +51,11 @@ public class WorldProviderLOI extends WorldProvider {
 	public float getCloudHeight()
 	{
 		return 170.0f;
+	}
+
+	public double getHorizon()
+	{
+		return 100;
 	}
 
 	/**
@@ -156,6 +162,7 @@ public class WorldProviderLOI extends WorldProvider {
 		f1 = f1 * (f * 0.91F + 0.09F);
 		f2 = f2 * (f * 0.94F + 0.06F);
 		f3 = f3 * (f * 0.94F + 0.06F);
+
 		return new Vec3d((double)f1, (double)f2, (double)f3);
 	}
 
