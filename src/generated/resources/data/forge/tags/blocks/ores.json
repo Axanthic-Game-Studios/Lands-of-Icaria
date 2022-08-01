@@ -11,6 +11,7 @@
     "#forge:ores/sideros",
     "#forge:ores/anthracite",
     "#forge:ores/molybdenum",
-    "#forge:ores/hyliastrum"
+    "#forge:ores/hyliastrum",
+    "#forge:ores/bluridium"
   ]
 }

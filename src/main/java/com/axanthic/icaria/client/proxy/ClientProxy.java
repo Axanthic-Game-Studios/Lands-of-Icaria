@@ -199,6 +199,8 @@ public class ClientProxy extends CommonProxy {
 		renderCutout(IcariaBlocks.SILKGLASS.get());
 		renderCutout(IcariaBlocks.SILKGLASS_PANE.get());
 		renderCutout(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get());
+		renderCutout(IcariaBlocks.PLATOSHALE_BLURRED.get());
+		renderCutout(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get());
 		renderCutout(IcariaBlocks.VANADIUMSTEEL_BARS.get());
 		renderCutout(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get());
 		renderCutout(IcariaBlocks.CYPRESS_SAPLING.get());

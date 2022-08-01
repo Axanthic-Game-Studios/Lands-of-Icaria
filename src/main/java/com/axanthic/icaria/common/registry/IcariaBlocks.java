@@ -153,6 +153,14 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> RELICSTONE_PILLAR_HEAD = register("relicstone_pillar_head", () -> new PillarHeadBlock(propertiesStone(MaterialColor.WOOD)));
 	public static final RegistryObject<Block> RELICSTONE_RUBBLE = register("relicstone_rubble", () -> new GroundDecoBlock(propertiesRubble()));
 
+	public static final RegistryObject<Block> PLATOSHALE = registerBasic("platoshale", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
+	public static final StoneDecoBlocks PLATOSHALE_DECO = new StoneDecoBlocks("platoshale", PLATOSHALE, propertiesStone(MaterialColor.COLOR_BLACK));
+	public static final RegistryObject<Block> PLATOSHALE_BLURRED = register("platoshale_blurred", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
+	public static final RegistryObject<Block> PLATOSHALE_BRICKS = registerBasic("platoshale_bricks", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
+	public static final StoneDecoBlocks PLATOSHALE_BRICKS_DECO = new StoneDecoBlocks("platoshale_bricks", PLATOSHALE_BRICKS, propertiesStone(MaterialColor.COLOR_BLACK));
+	public static final RegistryObject<Block> PLATOSHALE_BRICKS_BLURRED = register("platoshale_bricks_blurred", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
+	public static final RegistryObject<Block> PLATOSHALE_CHISELED = registerBasic("platoshale_chiseled", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
+
 	public static final RegistryObject<Block> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new PillarHeadBlock(propertiesQuartz()));
 
 	public static final RegistryObject<Block> LIGNITE_ORE = register("lignite_ore", () -> new Block(propertiesStone(MaterialColor.WOOD)));

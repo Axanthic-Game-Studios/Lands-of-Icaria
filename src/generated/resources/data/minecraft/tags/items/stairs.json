@@ -34,6 +34,8 @@
     "landsoficaria:relicstone_bricks_mossy_stairs",
     "landsoficaria:relicstone_tiles_stairs",
     "landsoficaria:relicstone_tiles_cracked_stairs",
-    "landsoficaria:relicstone_tiles_mossy_stairs"
+    "landsoficaria:relicstone_tiles_mossy_stairs",
+    "landsoficaria:platoshale_stairs",
+    "landsoficaria:platoshale_bricks_stairs"
   ]
 }

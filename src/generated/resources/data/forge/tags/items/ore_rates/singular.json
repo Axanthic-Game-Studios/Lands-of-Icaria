@@ -9,6 +9,7 @@
     "#forge:ores/sliver",
     "#forge:ores/sideros",
     "#forge:ores/anthracite",
-    "#forge:ores/molybdenum"
+    "#forge:ores/molybdenum",
+    "#forge:ores/bluridium"
   ]
 }

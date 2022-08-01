@@ -162,6 +162,14 @@ public class IcariaItems {
 	public static final RegistryObject<Item> RELICSTONE_PILLAR_HEAD = register("relicstone_pillar_head", () -> new BlockItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> RELICSTONE_RUBBLE = register("relicstone_rubble", () -> new BlockItem(IcariaBlocks.RELICSTONE_RUBBLE.get(), propertiesBlocks()));
 
+	public static final RegistryObject<Item> PLATOSHALE = register("platoshale", () -> new BlockItem(IcariaBlocks.PLATOSHALE.get(), propertiesBlocks()));
+	public static final StoneDecoItemBlocks PLATOSHALE_DECO = new StoneDecoItemBlocks(IcariaBlocks.PLATOSHALE_DECO, PLATOSHALE);
+	public static final RegistryObject<Item> PLATOSHALE_BLURRED = register("platoshale_blurred", () -> new BlockItem(IcariaBlocks.PLATOSHALE_BLURRED.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> PLATOSHALE_BRICKS = register("platoshale_bricks", () -> new BlockItem(IcariaBlocks.PLATOSHALE_BRICKS.get(), propertiesBlocks()));
+	public static final StoneDecoItemBlocks PLATOSHALE_BRICKS_DECO = new StoneDecoItemBlocks(IcariaBlocks.PLATOSHALE_BRICKS_DECO, PLATOSHALE_BRICKS);
+	public static final RegistryObject<Item> PLATOSHALE_BRICKS_BLURRED = register("platoshale_bricks_blurred", () -> new BlockItem(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> PLATOSHALE_CHISELED = register("platoshale_chiseled", () -> new BlockItem(IcariaBlocks.PLATOSHALE_CHISELED.get(), propertiesBlocks()));
+
 	public static final RegistryObject<Item> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new BlockItem(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), propertiesBlocks()));
 
 	public static final RegistryObject<Item> LIGNITE_ORE = register("lignite_ore", () -> new BlockItem(IcariaBlocks.LIGNITE_ORE.get(), propertiesBlocks()));

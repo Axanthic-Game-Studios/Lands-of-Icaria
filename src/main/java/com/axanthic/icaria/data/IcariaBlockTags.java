@@ -51,6 +51,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> ORES_ANTHRACITE = forgeTag("ores/anthracite");
 	public static final TagKey<Block> ORES_MOLYBDENUM = forgeTag("ores/molybdenum");
 	public static final TagKey<Block> ORES_HYLIASTRUM = forgeTag("ores/hyliastrum");
+	public static final TagKey<Block> ORES_BLURIDIUM = forgeTag("ores/bluridium");
 
 	public static final TagKey<Block> ORES_IN_GROUND_MARL = forgeTag("ores_in_ground/marl");
 	public static final TagKey<Block> ORES_IN_GROUND_GRAINEL = forgeTag("ores_in_ground/grainel");
@@ -59,6 +60,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> ORES_IN_GROUND_SUNSTONE = forgeTag("ores_in_ground/sunstone");
 	public static final TagKey<Block> ORES_IN_GROUND_VOIDSHALE = forgeTag("ores_in_ground/voidshale");
 	public static final TagKey<Block> ORES_IN_GROUND_BAETYL = forgeTag("ores_in_ground/baetyl");
+	public static final TagKey<Block> ORES_IN_GROUND_PLATOSHALE = forgeTag("ores_in_ground/platoshale");
 
 	public static final TagKey<Block> ORE_BEARING_GROUND_MARL = forgeTag("ore_bearing_ground/marl");
 	public static final TagKey<Block> ORE_BEARING_GROUND_GRAINEL = forgeTag("ore_bearing_ground/grainel");
@@ -67,6 +69,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> ORE_BEARING_GROUND_SUNSTONE = forgeTag("ore_bearing_ground/sunstone");
 	public static final TagKey<Block> ORE_BEARING_GROUND_VOIDSHALE = forgeTag("ore_bearing_ground/voidshale");
 	public static final TagKey<Block> ORE_BEARING_GROUND_BAETYL = forgeTag("ore_bearing_ground/baetyl");
+	public static final TagKey<Block> ORE_BEARING_GROUND_PLATOSHALE = forgeTag("ore_bearing_ground/platoshale");
 
 	public static final TagKey<Block> STORAGE_BLOCKS_ARISTONE_PACKED = forgeTag("storage_blocks/aristone_packed");
 	public static final TagKey<Block> STORAGE_BLOCKS_JELLYFISH_JELLY = forgeTag("storage_blocks/jellyfish_jelly");
@@ -253,6 +256,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.BAETYL.get())
 			.add(IcariaBlocks.BAETYL_BRICKS.get())
 			.add(IcariaBlocks.BAETYL_CHISELED.get())
+			.add(IcariaBlocks.PLATOSHALE.get())
+			.add(IcariaBlocks.PLATOSHALE_BLURRED.get())
+			.add(IcariaBlocks.PLATOSHALE_BRICKS.get())
+			.add(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get())
+			.add(IcariaBlocks.PLATOSHALE_CHISELED.get())
 			.add(IcariaBlocks.MOLYBDENUM_ORE.get())
 			.add(IcariaBlocks.HYLIASTRUM_ORE.get())
 			.add(IcariaBlocks.ZIRCON_CRYSTAL.get())
@@ -265,6 +273,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		addStoneDecoToTag(IcariaBlocks.BAETYL_COBBLE_DECO, NEEDS_SIDEROS_TOOL);
 		addStoneDecoToTag(IcariaBlocks.BAETYL_DECO, NEEDS_SIDEROS_TOOL);
 		addStoneDecoToTag(IcariaBlocks.BAETYL_BRICKS_DECO, NEEDS_SIDEROS_TOOL);
+		addStoneDecoToTag(IcariaBlocks.PLATOSHALE_DECO, NEEDS_SIDEROS_TOOL);
+		addStoneDecoToTag(IcariaBlocks.PLATOSHALE_BRICKS_DECO, NEEDS_SIDEROS_TOOL);
 
 		tag(NEEDS_MOLYBDENUMSTEEL_TOOL);
 
@@ -462,6 +472,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.RELICSTONE_CHISELED.get())
 			.add(IcariaBlocks.RELICSTONE_PILLAR.get())
 			.add(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get())
+			.add(IcariaBlocks.PLATOSHALE.get())
+			.add(IcariaBlocks.PLATOSHALE_BLURRED.get())
+			.add(IcariaBlocks.PLATOSHALE_BRICKS.get())
+			.add(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get())
+			.add(IcariaBlocks.PLATOSHALE_CHISELED.get())
 			.add(IcariaBlocks.LIGNITE_ORE.get())
 			.add(IcariaBlocks.CHALKOS_ORE.get())
 			.add(IcariaBlocks.KASSITEROS_ORE.get())
@@ -555,6 +570,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		addStoneDecoToTag(IcariaBlocks.RELICSTONE_TILES_DECO, BlockTags.MINEABLE_WITH_PICKAXE);
 		addStoneDecoToTag(IcariaBlocks.RELICSTONE_TILES_CRACKED_DECO, BlockTags.MINEABLE_WITH_PICKAXE);
 		addStoneDecoToTag(IcariaBlocks.RELICSTONE_TILES_MOSSY_DECO, BlockTags.MINEABLE_WITH_PICKAXE);
+		addStoneDecoToTag(IcariaBlocks.PLATOSHALE_DECO, BlockTags.MINEABLE_WITH_PICKAXE);
+		addStoneDecoToTag(IcariaBlocks.PLATOSHALE_BRICKS_DECO, BlockTags.MINEABLE_WITH_PICKAXE);
 
 		tag(BlockTags.MINEABLE_WITH_SHOVEL)
 			.add(IcariaBlocks.MARL_GRASS.get())
@@ -789,7 +806,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.SUNSTONE_COBBLE.get())
 			.add(IcariaBlocks.VOIDSHALE_COBBLE.get())
 			.add(IcariaBlocks.BAETYL_COBBLE.get())
-			.add(IcariaBlocks.RELICSTONE.get());
+			.add(IcariaBlocks.RELICSTONE.get())
+			.add(IcariaBlocks.PLATOSHALE.get());
 
 		tag(Tags.Blocks.STONE)
 			.add(IcariaBlocks.YELLOWSTONE.get())
@@ -805,7 +823,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.SUNSTONE_BRICKS.get())
 			.add(IcariaBlocks.VOIDSHALE_BRICKS.get())
 			.add(IcariaBlocks.BAETYL_BRICKS.get())
-			.add(IcariaBlocks.RELICSTONE_BRICKS.get());
+			.add(IcariaBlocks.RELICSTONE_BRICKS.get())
+			.add(IcariaBlocks.PLATOSHALE_BRICKS.get());
 
 		tag(ORES_ROTTEN_BONES).add(IcariaBlocks.MARL_ROTTEN_BONES.get());
 		tag(ORES_CHERT).add(IcariaBlocks.MARL_CHERT.get()).add(IcariaBlocks.GRAINEL_CHERT.get());
@@ -820,6 +839,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(ORES_MOLYBDENUM).add(IcariaBlocks.MOLYBDENUM_ORE.get());
 		tag(ORES_HYLIASTRUM).add(IcariaBlocks.HYLIASTRUM_ORE.get());
 
+		tag(ORES_BLURIDIUM)
+			.add(IcariaBlocks.PLATOSHALE_BLURRED.get())
+			.add(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get());
+
 		tag(Tags.Blocks.ORES)
 			.addTag(ORES_ROTTEN_BONES)
 			.addTag(ORES_CHERT)
@@ -832,7 +855,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(ORES_SIDEROS)
 			.addTag(ORES_ANTHRACITE)
 			.addTag(ORES_MOLYBDENUM)
-			.addTag(ORES_HYLIASTRUM);
+			.addTag(ORES_HYLIASTRUM)
+			.addTag(ORES_BLURIDIUM);
 
 		tag(Tags.Blocks.ORE_RATES_SINGULAR)
 			.addTag(ORES_CHERT)
@@ -844,7 +868,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(ORES_SLIVER)
 			.addTag(ORES_SIDEROS)
 			.addTag(ORES_ANTHRACITE)
-			.addTag(ORES_MOLYBDENUM);
+			.addTag(ORES_MOLYBDENUM)
+			.addTag(ORES_BLURIDIUM);
 
 		tag(Tags.Blocks.ORE_RATES_DENSE).addTag(ORES_ROTTEN_BONES);
 
@@ -855,6 +880,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(ORES_IN_GROUND_SUNSTONE).add(IcariaBlocks.VANADIUM_ORE.get()).add(IcariaBlocks.SLIVER_ORE.get());
 		tag(ORES_IN_GROUND_VOIDSHALE).add(IcariaBlocks.SIDEROS_ORE.get()).add(IcariaBlocks.ANTHRACITE_ORE.get());
 		tag(ORES_IN_GROUND_BAETYL).add(IcariaBlocks.MOLYBDENUM_ORE.get()).add(IcariaBlocks.HYLIASTRUM_ORE.get());
+		tag(ORES_IN_GROUND_PLATOSHALE).add(IcariaBlocks.PLATOSHALE_BLURRED.get()).add(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get());
 
 		tag(ORE_BEARING_GROUND_MARL).add(IcariaBlocks.MARL.get());
 		tag(ORE_BEARING_GROUND_GRAINEL).add(IcariaBlocks.GRAINEL.get());
@@ -863,6 +889,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(ORE_BEARING_GROUND_SUNSTONE).add(IcariaBlocks.SUNSTONE.get());
 		tag(ORE_BEARING_GROUND_VOIDSHALE).add(IcariaBlocks.VOIDSHALE.get());
 		tag(ORE_BEARING_GROUND_BAETYL).add(IcariaBlocks.BAETYL.get());
+		tag(ORE_BEARING_GROUND_PLATOSHALE).add(IcariaBlocks.PLATOSHALE.get());
 
 		tag(STORAGE_BLOCKS_ARISTONE_PACKED).add(IcariaBlocks.ARISTONE_PACKED.get());
 		tag(STORAGE_BLOCKS_JELLYFISH_JELLY).add(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get());

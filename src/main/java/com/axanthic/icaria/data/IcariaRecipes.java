@@ -525,6 +525,33 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_block", has(IcariaItems.RELICSTONE_PILLAR.get()))
 			.save(consumer, appendResource(IcariaItems.RELICSTONE_PILLAR_HEAD.getId(), "_cutting_pillar"));
 
+		// PLATOSHALE
+		ShapedRecipeBuilder.shaped(IcariaItems.PLATOSHALE_BRICKS.get(), 4)
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', IcariaItems.PLATOSHALE.get())
+			.unlockedBy("has_block", has(IcariaItems.PLATOSHALE.get()))
+			.save(consumer, appendResource(IcariaItems.PLATOSHALE_BRICKS.getId(), "_crafting"));
+
+		ShapedRecipeBuilder.shaped(IcariaItems.PLATOSHALE_CHISELED.get())
+			.pattern("X")
+			.pattern("X")
+			.define('X', Objects.requireNonNull(IcariaItems.PLATOSHALE_BRICKS_DECO.SLAB).get())
+			.unlockedBy("has_block", has(IcariaItems.PLATOSHALE_BRICKS_DECO.SLAB.get()))
+			.save(consumer, appendResource(IcariaItems.PLATOSHALE_CHISELED.getId(), "_crafting"));
+
+		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.PLATOSHALE.get()), IcariaItems.PLATOSHALE_BRICKS.get())
+			.unlockedBy("has_block", has(IcariaItems.PLATOSHALE.get()))
+			.save(consumer, appendResource(IcariaItems.PLATOSHALE_BRICKS.getId(), "_cutting"));
+
+		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.PLATOSHALE.get()), IcariaItems.PLATOSHALE_CHISELED.get())
+			.unlockedBy("has_block", has(IcariaItems.PLATOSHALE.get()))
+			.save(consumer, appendResource(IcariaItems.PLATOSHALE_CHISELED.getId(), "_cutting"));
+
+		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.PLATOSHALE_BRICKS.get()), IcariaItems.PLATOSHALE_CHISELED.get())
+			.unlockedBy("has_block", has(IcariaItems.PLATOSHALE_BRICKS.get()))
+			.save(consumer, appendResource(IcariaItems.PLATOSHALE_CHISELED.getId(), "_cutting_bricks"));
+
 		// QUARTZ
 		ShapedRecipeBuilder.shaped(IcariaItems.QUARTZ_PILLAR_HEAD.get(), 2)
 			.pattern("X")

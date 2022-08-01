@@ -269,6 +269,9 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.UNNAMED_TREE_SHROOMS.get());
 		dropThis(IcariaBlocks.CARDON_CACTUS.get());
 
+		dropBlurredPlatoshale(IcariaBlocks.PLATOSHALE_BLURRED.get(), IcariaItems.BLURIDIUM_NUGGET.get());
+		dropBlurredPlatoshale(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get(), IcariaItems.BLURIDIUM_NUGGET.get());
+
 		dropPots(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
 		dropPots(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
 		dropPots(IcariaBlocks.POTTED_FIR_SAPLING.get());
@@ -448,6 +451,10 @@ public class IcariaBlockLootTables extends BlockLoot {
 		add(pBlock, createSingleItemTable(pBlock));
 	}
 
+	public void dropBlurredPlatoshale(Block pBlock, Item pItem) {
+		add(pBlock, createBlurredPlatoshaleDrops(pBlock, pItem));
+	}
+
 	public void dropPots(Block pBlock) {
 		add(pBlock, createPotFlowerItemTable(((FlowerPotBlock)pBlock).getContent()));
 	}
@@ -502,6 +509,10 @@ public class IcariaBlockLootTables extends BlockLoot {
 
 	public void dropGarlicOnions(Block pCropBlock, Item pCropItem, Item pSeedItem, Item pGarlicItem) {
 		add(pCropBlock, createGarlicOnionsDrop(pCropBlock, pCropItem, pSeedItem, pGarlicItem, LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCropBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7))));
+	}
+
+	public static LootTable.Builder createBlurredPlatoshaleDrops(Block pBlurredPlatoshaleBlock, Item pBluridiumNuggetItem) {
+		return createSilkTouchDispatchTable(pBlurredPlatoshaleBlock, applyExplosionCondition(pBlurredPlatoshaleBlock, LootItem.lootTableItem(pBluridiumNuggetItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 5.0F))).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.1F, 0.14285715F, 0.25F, 1.0F)).otherwise(LootItem.lootTableItem(pBlurredPlatoshaleBlock))));
 	}
 
 	public static LootTable.Builder createLaurelLeavesDrop(Block pLeavesBlock, Block pSaplingBlock, float... pChances) {

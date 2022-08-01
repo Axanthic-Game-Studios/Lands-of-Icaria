@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/platoshale_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/platoshale"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/platoshale_slab_top"
+    }
+  }
+}

@@ -46,6 +46,11 @@
     "landsoficaria:relicstone_chiseled",
     "landsoficaria:relicstone_pillar",
     "landsoficaria:relicstone_pillar_head",
+    "landsoficaria:platoshale",
+    "landsoficaria:platoshale_blurred",
+    "landsoficaria:platoshale_bricks",
+    "landsoficaria:platoshale_bricks_blurred",
+    "landsoficaria:platoshale_chiseled",
     "landsoficaria:lignite_ore",
     "landsoficaria:chalkos_ore",
     "landsoficaria:kassiteros_ore",
@@ -207,6 +212,12 @@
     "landsoficaria:relicstone_tiles_cracked_wall",
     "landsoficaria:relicstone_tiles_mossy_slab",
     "landsoficaria:relicstone_tiles_mossy_stairs",
-    "landsoficaria:relicstone_tiles_mossy_wall"
+    "landsoficaria:relicstone_tiles_mossy_wall",
+    "landsoficaria:platoshale_slab",
+    "landsoficaria:platoshale_stairs",
+    "landsoficaria:platoshale_wall",
+    "landsoficaria:platoshale_bricks_slab",
+    "landsoficaria:platoshale_bricks_stairs",
+    "landsoficaria:platoshale_bricks_wall"
   ]
 }

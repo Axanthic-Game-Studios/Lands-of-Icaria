@@ -34,6 +34,8 @@
     "landsoficaria:relicstone_bricks_mossy_wall",
     "landsoficaria:relicstone_tiles_wall",
     "landsoficaria:relicstone_tiles_cracked_wall",
-    "landsoficaria:relicstone_tiles_mossy_wall"
+    "landsoficaria:relicstone_tiles_mossy_wall",
+    "landsoficaria:platoshale_wall",
+    "landsoficaria:platoshale_bricks_wall"
   ]
 }

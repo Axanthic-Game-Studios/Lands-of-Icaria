@@ -5,6 +5,11 @@
     "landsoficaria:baetyl",
     "landsoficaria:baetyl_bricks",
     "landsoficaria:baetyl_chiseled",
+    "landsoficaria:platoshale",
+    "landsoficaria:platoshale_blurred",
+    "landsoficaria:platoshale_bricks",
+    "landsoficaria:platoshale_bricks_blurred",
+    "landsoficaria:platoshale_chiseled",
     "landsoficaria:molybdenum_ore",
     "landsoficaria:hyliastrum_ore",
     "landsoficaria:zircon_crystal",
@@ -23,6 +28,12 @@
     "landsoficaria:baetyl_wall",
     "landsoficaria:baetyl_bricks_slab",
     "landsoficaria:baetyl_bricks_stairs",
-    "landsoficaria:baetyl_bricks_wall"
+    "landsoficaria:baetyl_bricks_wall",
+    "landsoficaria:platoshale_slab",
+    "landsoficaria:platoshale_stairs",
+    "landsoficaria:platoshale_wall",
+    "landsoficaria:platoshale_bricks_slab",
+    "landsoficaria:platoshale_bricks_stairs",
+    "landsoficaria:platoshale_bricks_wall"
   ]
 }
