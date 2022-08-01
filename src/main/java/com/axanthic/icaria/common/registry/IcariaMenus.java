@@ -10,7 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class IcariaContainers {
+public class IcariaMenus {
 	public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.MENU_TYPES, IcariaInfo.MODID);
 
 	public static final RegistryObject<MenuType<StorageVaseMenu>> STORAGE_VASE = MENU_TYPES.register("storage_vase", () -> IForgeMenuType.create(((windowId, inv, data) -> new StorageVaseMenu(windowId, data.readBlockPos(), inv, inv.player))));

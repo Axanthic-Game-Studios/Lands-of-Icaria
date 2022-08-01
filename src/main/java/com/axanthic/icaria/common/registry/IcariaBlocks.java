@@ -2,7 +2,6 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.fluid.HyliastrumFluid;
 import com.axanthic.icaria.common.util.IcariaInfo;
-import com.axanthic.icaria.client.util.IcariaSounds;
 import com.axanthic.icaria.common.block.*;
 import com.axanthic.icaria.common.block.LayerBlock;
 import com.axanthic.icaria.common.block.SandTypeBlock;

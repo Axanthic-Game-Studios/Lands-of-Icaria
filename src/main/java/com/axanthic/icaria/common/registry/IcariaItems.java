@@ -476,7 +476,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> ARACHNE_STRING = registerBasic("arachne_string", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> SPELT = registerBasic("spelt", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> VINE_REED = registerBasic("vine_reed", () -> new Item(propertiesItems()));
-	public static final RegistryObject<Item> VINE_SPROUT = registerBasic("vine_sprout", () -> new VineSproutItem(propertiesItems().setNoRepair().stacksTo(1).durability(24).food(foodPropertiesVineSprout(0, 1.0F))));
+	public static final RegistryObject<Item> VINE_SPROUT = registerBasic("vine_sprout", () -> new VineSproutItem(propertiesItems().durability(24).food(foodPropertiesVineSprout(0, 1.0F))));
 	public static final RegistryObject<Item> ROTTEN_BONES = registerBasic("rotten_bones", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> CALCITE = registerBasic("calcite", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> HALITE = registerBasic("halite", () -> new Item(propertiesItems()));

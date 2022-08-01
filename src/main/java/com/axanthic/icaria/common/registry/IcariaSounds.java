@@ -1,4 +1,4 @@
-package com.axanthic.icaria.client.util;
+package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.util.IcariaInfo;
 

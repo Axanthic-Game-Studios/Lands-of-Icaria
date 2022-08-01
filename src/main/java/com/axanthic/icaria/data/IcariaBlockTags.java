@@ -496,6 +496,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.SIDEROS_BLOCK.get())
 			.add(IcariaBlocks.ANTHRACITE_BLOCK.get())
 			.add(IcariaBlocks.MOLYBDENUM_BLOCK.get())
+			.add(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get())
 			.add(IcariaBlocks.STORAGE_VASE.get())
@@ -599,6 +600,15 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.POTTED_BROWN_GROUND_SHROOMS.get())
 			.add(IcariaBlocks.POTTED_LARGE_BROWN_GROUND_SHROOMS.get())
 			.add(IcariaBlocks.POTTED_CARDON_CACTUS.get());
+
+		tag(BlockTags.REPLACEABLE_PLANTS)
+			.add(IcariaBlocks.CYPRESS_TWIGS.get())
+			.add(IcariaBlocks.DROUGHTROOT_TWIGS.get())
+			.add(IcariaBlocks.FIR_TWIGS.get())
+			.add(IcariaBlocks.LAUREL_TWIGS.get())
+			.add(IcariaBlocks.OLIVE_TWIGS.get())
+			.add(IcariaBlocks.PLANE_TWIGS.get())
+			.add(IcariaBlocks.POPULUS_TWIGS.get());
 
 		tag(BlockTags.CLIMBABLE)
 			.add(IcariaBlocks.CYPRESS_LADDER.get())
@@ -943,15 +953,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(LEAVES_OLIVE)
 			.addTag(LEAVES_PLANE)
 			.addTag(LEAVES_POPULUS);
-
-		tag(BlockTags.REPLACEABLE_PLANTS)
-			.add(IcariaBlocks.CYPRESS_TWIGS.get())
-			.add(IcariaBlocks.DROUGHTROOT_TWIGS.get())
-			.add(IcariaBlocks.FIR_TWIGS.get())
-			.add(IcariaBlocks.LAUREL_TWIGS.get())
-			.add(IcariaBlocks.OLIVE_TWIGS.get())
-			.add(IcariaBlocks.PLANE_TWIGS.get())
-			.add(IcariaBlocks.POPULUS_TWIGS.get());
 
 		tag(LOGS_CYPRESS).add(IcariaBlocks.CYPRESS_LOG.get()).add(IcariaBlocks.STRIPPED_CYPRESS_LOG.get()).add(IcariaBlocks.CYPRESS_WOOD.get()).add(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());
 		tag(LOGS_DROUGHTROOT).add(IcariaBlocks.DROUGHTROOT_LOG.get()).add(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get()).add(IcariaBlocks.DROUGHTROOT_WOOD.get()).add(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get());

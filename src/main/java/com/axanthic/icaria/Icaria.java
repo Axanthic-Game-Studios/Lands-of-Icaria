@@ -48,7 +48,7 @@ public class Icaria {
 
 		IcariaBlocks.BLOCKS.register(bus);
 		IcariaBlockEntities.BLOCK_ENTITY_TYPES.register(bus);
-		IcariaContainers.MENU_TYPES.register(bus);
+		IcariaMenus.MENU_TYPES.register(bus);
 		IcariaEffects.EFFECTS.register(bus);
 		IcariaEntities.ENTITY_TYPES.register(bus);
 		IcariaFluids.FLUIDS.register(bus);

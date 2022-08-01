@@ -1,12 +1,11 @@
 package com.axanthic.icaria.client.proxy;
 
+import com.axanthic.icaria.client.renderer.BidentRenderer;
+import com.axanthic.icaria.client.renderer.CrystalBlockRenderer;
 import com.axanthic.icaria.client.renderer.GreekFireGrenadeRenderer;
+import com.axanthic.icaria.client.renderer.IcariaSignBlockRenderer;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.item.BidentItem;
-import com.axanthic.icaria.common.registry.IcariaEffects;
-import com.axanthic.icaria.client.renderer.CrystalBlockRenderer;
-import com.axanthic.icaria.client.renderer.IcariaSignBlockRenderer;
-import com.axanthic.icaria.client.renderer.BidentRenderer;
 import com.axanthic.icaria.common.item.TotemItem;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
@@ -70,7 +69,7 @@ public class ClientProxy extends CommonProxy {
 		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.PLANE));
 		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.POPULUS));
 
-		event.enqueueWork(() -> MenuScreens.register(IcariaContainers.STORAGE_VASE.get(), StorageVaseScreen::new));
+		event.enqueueWork(() -> MenuScreens.register(IcariaMenus.STORAGE_VASE.get(), StorageVaseScreen::new));
 
 		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
 
