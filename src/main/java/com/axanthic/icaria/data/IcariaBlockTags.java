@@ -737,6 +737,9 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(BlockTags.FIRE)
 			.add(IcariaBlocks.GREEK_FIRE.get());
 
+		tag(BlockTags.PORTALS)
+			.add(IcariaBlocks.ICARIA_PORTAL.get());
+
 		// ITEMBLOCK TAGS
 		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
 			if (deco.SLAB != null) {
@@ -761,7 +764,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 				tag(BlockTags.WOODEN_FENCES).add(deco.block.FENCE.get());
 			}
 			if (deco.GATE != null) {
-				tag(BlockTags.FENCE_GATES).add(deco.block.GATE.get());
+				tag(Tags.Blocks.FENCE_GATES_WOODEN).add(deco.block.GATE.get());
 			}
 		}
 
@@ -792,7 +795,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.GRAINGLASS.get())
 			.add(IcariaBlocks.SILKGLASS.get());
 
-		tag(Tags.Blocks.GLASS_PANES)
+		tag(Tags.Blocks.GLASS_PANES_COLORLESS)
 			.add(IcariaBlocks.GRAINGLASS_PANE.get())
 			.add(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get())
 			.add(IcariaBlocks.SILKGLASS_PANE.get())
@@ -995,15 +998,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		tag(LOGS_POPULUS).add(IcariaBlocks.POPULUS_LOG.get()).add(IcariaBlocks.STRIPPED_POPULUS_LOG.get()).add(IcariaBlocks.POPULUS_WOOD.get()).add(IcariaBlocks.STRIPPED_POPULUS_WOOD.get());
 
 		tag(BlockTags.LOGS)
-			.addTag(LOGS_CYPRESS)
-			.addTag(LOGS_DROUGHTROOT)
-			.addTag(LOGS_FIR)
-			.addTag(LOGS_LAUREL)
-			.addTag(LOGS_OLIVE)
-			.addTag(LOGS_PLANE)
-			.addTag(LOGS_POPULUS);
-
-		tag(BlockTags.LOGS_THAT_BURN)
 			.addTag(LOGS_CYPRESS)
 			.addTag(LOGS_DROUGHTROOT)
 			.addTag(LOGS_FIR)

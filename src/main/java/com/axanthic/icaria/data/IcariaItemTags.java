@@ -391,6 +391,9 @@ public class IcariaItemTags extends ItemTagsProvider {
 			if (deco.FENCE != null) {
 				tag(ItemTags.WOODEN_FENCES).add(deco.FENCE.get());
 			}
+			if (deco.GATE != null) {
+				tag(Tags.Items.FENCE_GATES_WOODEN).add(deco.GATE.get());
+			}
 		}
 
 		tag(ItemTags.DIRT)
@@ -399,7 +402,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.MARL_COARSE.get())
 			.add(IcariaItems.LOAM.get());
 
-		tag(Tags.Items.SAND)
+		tag(ItemTags.SAND)
 			.add(IcariaItems.GRAINEL.get())
 			.add(IcariaItems.SILKSAND.get());
 
@@ -411,7 +414,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.GRAINGLASS.get())
 			.add(IcariaItems.SILKGLASS.get());
 
-		tag(Tags.Items.GLASS_PANES)
+		tag(Tags.Items.GLASS_PANES_COLORLESS)
 			.add(IcariaItems.GRAINGLASS_PANE.get())
 			.add(IcariaItems.GRAINGLASS_PANE_HORIZONTAL.get())
 			.add(IcariaItems.SILKGLASS_PANE.get())
@@ -611,15 +614,6 @@ public class IcariaItemTags extends ItemTagsProvider {
 		copy(IcariaBlockTags.LOGS_POPULUS, LOGS_POPULUS);
 
 		tag(ItemTags.LOGS)
-			.addTag(LOGS_CYPRESS)
-			.addTag(LOGS_DROUGHTROOT)
-			.addTag(LOGS_FIR)
-			.addTag(LOGS_LAUREL)
-			.addTag(LOGS_OLIVE)
-			.addTag(LOGS_PLANE)
-			.addTag(LOGS_POPULUS);
-
-		tag(ItemTags.LOGS_THAT_BURN)
 			.addTag(LOGS_CYPRESS)
 			.addTag(LOGS_DROUGHTROOT)
 			.addTag(LOGS_FIR)

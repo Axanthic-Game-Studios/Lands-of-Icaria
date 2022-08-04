@@ -7,6 +7,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.FluidTagsProvider;
 import net.minecraft.tags.FluidTags;
 
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class IcariaFluidTags extends FluidTagsProvider {
@@ -22,7 +23,9 @@ public class IcariaFluidTags extends FluidTagsProvider {
 
 		this.tag(FluidTags.WATER)
 			.add(IcariaFluids.MEDITERRANEAN_WATER_SOURCE.get())
-			.add(IcariaFluids.MEDITERRANEAN_WATER_FLOWING.get())
+			.add(IcariaFluids.MEDITERRANEAN_WATER_FLOWING.get());
+
+		this.tag(Tags.Fluids.GASEOUS)
 			.add(IcariaFluids.UPWARDS_FLUID_SOURCE.get())
 			.add(IcariaFluids.UPWARDS_FLUID_FLOWING.get());
 	}
