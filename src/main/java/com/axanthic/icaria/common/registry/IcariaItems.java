@@ -183,6 +183,15 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MOLYBDENUM_ORE = register("molybdenum_ore", () -> new BlockItem(IcariaBlocks.MOLYBDENUM_ORE.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> HYLIASTRUM_ORE = register("hyliastrum_ore", () -> new BlockItem(IcariaBlocks.HYLIASTRUM_ORE.get(), propertiesBlocks()));
 
+	public static final RegistryObject<Item> CALCITE_GEODE_BLOCK = register("calcite_geode_block", () -> new BlockItem(IcariaBlocks.CALCITE_GEODE_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> BUDDING_CALCITE_GEODE_BLOCK = register("budding_calcite_geode_block", () -> new BlockItem(IcariaBlocks.BUDDING_CALCITE_GEODE_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> HALITE_GEODE_BLOCK = register("halite_geode_block", () -> new BlockItem(IcariaBlocks.HALITE_GEODE_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> BUDDING_HALITE_GEODE_BLOCK = register("budding_halite_geode_block", () -> new BlockItem(IcariaBlocks.BUDDING_HALITE_GEODE_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> JASPER_GEODE_BLOCK = register("jasper_geode_block", () -> new BlockItem(IcariaBlocks.JASPER_GEODE_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> BUDDING_JASPER_GEODE_BLOCK = register("budding_jasper_geode_block", () -> new BlockItem(IcariaBlocks.BUDDING_JASPER_GEODE_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> ZIRCON_GEODE_BLOCK = register("zircon_geode_block", () -> new BlockItem(IcariaBlocks.ZIRCON_GEODE_BLOCK.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> BUDDING_ZIRCON_GEODE_BLOCK = register("budding_zircon_geode_block", () -> new BlockItem(IcariaBlocks.BUDDING_ZIRCON_GEODE_BLOCK.get(), propertiesBlocks()));
+
 	public static final RegistryObject<Item> CALCITE_CRYSTAL = register("calcite_crystal", () -> new BlockItem(IcariaBlocks.CALCITE_CRYSTAL.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> HALITE_CRYSTAL = register("halite_crystal", () -> new BlockItem(IcariaBlocks.HALITE_CRYSTAL.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> JASPER_CRYSTAL = register("jasper_crystal", () -> new BlockItem(IcariaBlocks.JASPER_CRYSTAL.get(), propertiesBlocks()));

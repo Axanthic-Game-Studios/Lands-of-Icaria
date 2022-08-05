@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:molybdenum_raw_large_compress"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_uncompressed": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:molybdenum_raw"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_uncompressed",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:molybdenum_raw_large_compress"
+    ]
+  }
+}

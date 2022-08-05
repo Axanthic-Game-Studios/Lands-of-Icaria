@@ -77,6 +77,10 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 
 		smallCompressRecipe(consumer, IcariaItems.LOAM_BRICKS.get(), IcariaItems.LOAM_BRICK.get());
 		smallCompressRecipe(consumer, IcariaItems.SILKSTONE.get(), IcariaItems.SILKSAND.get());
+		smallCompressRecipe(consumer, IcariaItems.CALCITE_GEODE_BLOCK.get(), IcariaItems.CALCITE.get());
+		smallCompressRecipe(consumer, IcariaItems.HALITE_GEODE_BLOCK.get(), IcariaItems.HALITE.get());
+		smallCompressRecipe(consumer, IcariaItems.JASPER_GEODE_BLOCK.get(), IcariaItems.JASPER.get());
+		smallCompressRecipe(consumer, IcariaItems.ZIRCON_GEODE_BLOCK.get(), IcariaItems.ZIRCON.get());
 		smallCompressRecipe(consumer, IcariaItems.CYPRESS_CRAFTING_TABLE.get(), IcariaItems.CYPRESS_PLANKS.get());
 		smallCompressRecipe(consumer, IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
 		smallCompressRecipe(consumer, IcariaItems.FIR_CRAFTING_TABLE.get(), IcariaItems.FIR_PLANKS.get());
@@ -998,7 +1002,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.pattern("XX")
 			.define('X', uncompressed)
 			.unlockedBy("has_uncompressed", has(uncompressed))
-			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(uncompressed)), "_compress"));
+			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(uncompressed)), "_small_compress"));
 	}
 
 	public void smallCompressDecompressRecipes(Consumer<FinishedRecipe> consumer, Item compressed, Item uncompressed) {
@@ -1007,12 +1011,12 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.pattern("XX")
 			.define('X', uncompressed)
 			.unlockedBy("has_uncompressed", has(uncompressed))
-			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(uncompressed)), "_compress"));
+			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(uncompressed)), "_small_compress"));
 
 		ShapelessRecipeBuilder.shapeless(uncompressed, 4)
 			.requires(compressed)
 			.unlockedBy("has_compressed", has(compressed))
-			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(compressed)), "_decompress"));
+			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(compressed)), "_small_decompress"));
 	}
 
 	public void largeCompressDecompressRecipes(Consumer<FinishedRecipe> consumer, Item compressed, Item uncompressed) {
@@ -1022,12 +1026,12 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.pattern("XXX")
 			.define('X', uncompressed)
 			.unlockedBy("has_uncompressed", has(uncompressed))
-			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(uncompressed)), "_compress"));
+			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(uncompressed)), "_large_compress"));
 
 		ShapelessRecipeBuilder.shapeless(uncompressed, 9)
 			.requires(compressed)
 			.unlockedBy("has_compressed", has(compressed))
-			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(compressed)), "_decompress"));
+			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(compressed)), "_large_decompress"));
 	}
 
 	public void vaseRecipe(Consumer<FinishedRecipe> consumer, Item dye, Item vase) {

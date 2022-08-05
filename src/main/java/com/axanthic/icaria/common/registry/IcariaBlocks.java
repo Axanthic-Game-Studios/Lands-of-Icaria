@@ -174,6 +174,15 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MOLYBDENUM_ORE = register("molybdenum_ore", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_CYAN)));
 	public static final RegistryObject<Block> HYLIASTRUM_ORE = register("hyliastrum_ore", () -> new HyliastrumOreBlock(propertiesStone(MaterialColor.TERRACOTTA_CYAN)));
 
+	public static final RegistryObject<Block> CALCITE_GEODE_BLOCK = registerBasic("calcite_geode_block", () -> new AmethystBlock(propertiesGeodeBlock(MaterialColor.COLOR_LIGHT_GRAY)));
+	public static final RegistryObject<Block> BUDDING_CALCITE_GEODE_BLOCK = registerBasic("budding_calcite_geode_block", () -> new AmethystBlock(propertiesGeodeBlock(MaterialColor.COLOR_LIGHT_GRAY)));
+	public static final RegistryObject<Block> HALITE_GEODE_BLOCK = registerBasic("halite_geode_block", () -> new AmethystBlock(propertiesGeodeBlock(MaterialColor.COLOR_GREEN)));
+	public static final RegistryObject<Block> BUDDING_HALITE_GEODE_BLOCK = registerBasic("budding_halite_geode_block", () -> new AmethystBlock(propertiesGeodeBlock(MaterialColor.COLOR_GREEN)));
+	public static final RegistryObject<Block> JASPER_GEODE_BLOCK = registerBasic("jasper_geode_block", () -> new AmethystBlock(propertiesGeodeBlock(MaterialColor.COLOR_RED)));
+	public static final RegistryObject<Block> BUDDING_JASPER_GEODE_BLOCK = registerBasic("budding_jasper_geode_block", () -> new AmethystBlock(propertiesGeodeBlock(MaterialColor.COLOR_RED)));
+	public static final RegistryObject<Block> ZIRCON_GEODE_BLOCK = registerBasic("zircon_geode_block", () -> new AmethystBlock(propertiesGeodeBlock(MaterialColor.COLOR_BLUE)));
+	public static final RegistryObject<Block> BUDDING_ZIRCON_GEODE_BLOCK = registerBasic("budding_zircon_geode_block", () -> new AmethystBlock(propertiesGeodeBlock(MaterialColor.COLOR_BLUE)));
+
 	public static final RegistryObject<Block> CALCITE_CRYSTAL = register("calcite_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 255, 255, 128));
 	public static final RegistryObject<Block> HALITE_CRYSTAL = register("halite_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 0, 255, 128));
 	public static final RegistryObject<Block> JASPER_CRYSTAL = register("jasper_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 255, 0, 0));
@@ -585,8 +594,12 @@ public class IcariaBlocks {
 		return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GREEN).sound(IcariaSounds.ARISTONE).strength(0.5F, 0.5F).friction(0.98F).noOcclusion();
 	}
 
+	private static Properties propertiesGeodeBlock(MaterialColor pMaterialColor) {
+		return Properties.of(Material.GLASS, pMaterialColor).sound(SoundType.AMETHYST).strength(1.5F, 1.5F).requiresCorrectToolForDrops();
+	}
+
 	private static Properties propertiesCrystalBlock() {
-		return Properties.of(Material.GLASS, MaterialColor.NONE).sound(SoundType.GLASS).lightLevel((pLightEmission) -> 4).instabreak().noOcclusion().requiresCorrectToolForDrops();
+		return Properties.of(Material.GLASS, MaterialColor.NONE).sound(SoundType.AMETHYST_CLUSTER).strength(1.5F, 1.5F).lightLevel((pLightEmission) -> 5).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	private static Properties propertiesJellyfishJellyBlock() {

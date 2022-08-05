@@ -133,6 +133,14 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.DOLOMITE_PILLAR.get());
 		dropThis(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get());
 		dropThis(IcariaBlocks.QUARTZ_PILLAR_HEAD.get());
+		dropThis(IcariaBlocks.CALCITE_GEODE_BLOCK.get());
+		dropThis(IcariaBlocks.BUDDING_CALCITE_GEODE_BLOCK.get());
+		dropThis(IcariaBlocks.HALITE_GEODE_BLOCK.get());
+		dropThis(IcariaBlocks.BUDDING_HALITE_GEODE_BLOCK.get());
+		dropThis(IcariaBlocks.JASPER_GEODE_BLOCK.get());
+		dropThis(IcariaBlocks.BUDDING_JASPER_GEODE_BLOCK.get());
+		dropThis(IcariaBlocks.ZIRCON_GEODE_BLOCK.get());
+		dropThis(IcariaBlocks.BUDDING_ZIRCON_GEODE_BLOCK.get());
 		dropThis(IcariaBlocks.SPELT_BALE_BLOCK.get());
 		dropThis(IcariaBlocks.VANADIUMSTEEL_BARS.get());
 		dropThis(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get());
