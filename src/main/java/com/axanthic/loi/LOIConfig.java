@@ -269,6 +269,9 @@ public class LOIConfig {
 		@LangKey("loi.config.misc.dimensionid")
 		public int dimensionID = -9;
 
+		@LangKey("loi.config.misc.nerfchests")
+		public Boolean nerfChests = true;
+
 		@RequiresMcRestart
 		@LangKey("loi.config.misc.salt.iswhitelist")
 		public Boolean saltListIsWhite = false;

@@ -22,7 +22,7 @@ import static com.axanthic.loi.blocks.BlockIcariaChest.FACING;
 
 public class VanillaHandler
 {
-    @SubscribeEvent
+	/*@SubscribeEvent
     public void torchNerfs(RightClickBlock event)
     {
         EntityPlayer player = event.getEntityPlayer();
@@ -37,63 +37,65 @@ public class VanillaHandler
         {
             Blocks.TORCH.setLightLevel(0.9375F);
         }
-    }
+    }*/
 
-    @SubscribeEvent
-    public void chestNerfs(PlayerTickEvent event)
-    {
-        EntityPlayer player = event.player;
+	@SubscribeEvent
+	public void chestNerfs(PlayerTickEvent event)
+	{
+		if (LOIConfig.misc.nerfChests) {
+			EntityPlayer player = event.player;
 
-        if(player.dimension == LOIConfig.misc.dimensionID)
-        {
-            for(int slot = 0; slot < player.inventory.getSizeInventory(); slot++)
-            {
-                ItemStack stack = player.inventory.getStackInSlot(slot);
+			if(player.dimension == LOIConfig.misc.dimensionID)
+			{
+				for(int slot = 0; slot < player.inventory.getSizeInventory(); slot++)
+				{
+					ItemStack stack = player.inventory.getStackInSlot(slot);
 
-                if(stack.getItem().equals(Item.getItemFromBlock(Blocks.CHEST)))
-                {
-                    int size = stack.getCount();
+					if(stack.getItem().equals(Item.getItemFromBlock(Blocks.CHEST)))
+					{
+						int size = stack.getCount();
 
-                    player.inventory.clearMatchingItems(Item.getItemFromBlock(Blocks.CHEST), 0, size, null);
-                    player.inventory.addItemStackToInventory(new ItemStack(Resources.icariaChest, size));
-                }
+						player.inventory.clearMatchingItems(Item.getItemFromBlock(Blocks.CHEST), 0, size, null);
+						player.inventory.addItemStackToInventory(new ItemStack(Resources.icariaChest, size));
+					}
 
-                if(stack.getItem().equals(Item.getItemFromBlock(Blocks.TRAPPED_CHEST)))
-                {
-                    int size = stack.getCount();
+					if(stack.getItem().equals(Item.getItemFromBlock(Blocks.TRAPPED_CHEST)))
+					{
+						int size = stack.getCount();
 
-                    player.inventory.clearMatchingItems(Item.getItemFromBlock(Blocks.TRAPPED_CHEST), 0, size, null);
-                    player.inventory.addItemStackToInventory(new ItemStack(Resources.icariaChestTrapped, size));
-                }
-            }
-        }
+						player.inventory.clearMatchingItems(Item.getItemFromBlock(Blocks.TRAPPED_CHEST), 0, size, null);
+						player.inventory.addItemStackToInventory(new ItemStack(Resources.icariaChestTrapped, size));
+					}
+				}
+			}
 
-        if(player.dimension != LOIConfig.misc.dimensionID)
-        {
-            for(int slot = 0; slot < player.inventory.getSizeInventory(); slot++)
-            {
-                ItemStack stack = player.inventory.getStackInSlot(slot);
+			if(player.dimension != LOIConfig.misc.dimensionID)
+			{
+				for(int slot = 0; slot < player.inventory.getSizeInventory(); slot++)
+				{
+					ItemStack stack = player.inventory.getStackInSlot(slot);
 
-                if(stack.getItem().equals(Item.getItemFromBlock(Block.getBlockFromItem(Resources.icariaChest))))
-                {
-                    int size = stack.getCount();
+					if(stack.getItem().equals(Item.getItemFromBlock(Block.getBlockFromItem(Resources.icariaChest))))
+					{
+						int size = stack.getCount();
 
-                    player.inventory.clearMatchingItems(Item.getItemFromBlock(Block.getBlockFromItem(Resources.icariaChest)), 0, size, null);
-                    player.inventory.addItemStackToInventory(new ItemStack(Blocks.CHEST, size));
-                }
+						player.inventory.clearMatchingItems(Item.getItemFromBlock(Block.getBlockFromItem(Resources.icariaChest)), 0, size, null);
+						player.inventory.addItemStackToInventory(new ItemStack(Blocks.CHEST, size));
+					}
 
-                if(stack.getItem().equals(Item.getItemFromBlock(Block.getBlockFromItem(Resources.icariaChestTrapped))))
-                {
-                    int size = stack.getCount();
+					if(stack.getItem().equals(Item.getItemFromBlock(Block.getBlockFromItem(Resources.icariaChestTrapped))))
+					{
+						int size = stack.getCount();
 
-                    player.inventory.clearMatchingItems(Item.getItemFromBlock(Block.getBlockFromItem(Resources.icariaChestTrapped)), 0, size, null);
-                    player.inventory.addItemStackToInventory(new ItemStack(Blocks.TRAPPED_CHEST, size));
-                }
-            }
-        }
-    }
+						player.inventory.clearMatchingItems(Item.getItemFromBlock(Block.getBlockFromItem(Resources.icariaChestTrapped)), 0, size, null);
+						player.inventory.addItemStackToInventory(new ItemStack(Blocks.TRAPPED_CHEST, size));
+					}
+				}
+			}
+		}
+	}
 
-    /*@SubscribeEvent
+	/*@SubscribeEvent
     @SuppressWarnings("deprecation")
     public void onBlockPlaced(PlaceEvent event)
     {
