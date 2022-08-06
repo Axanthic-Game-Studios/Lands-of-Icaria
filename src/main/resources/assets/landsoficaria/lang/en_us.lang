@@ -87,6 +87,7 @@ item.totem_undrowning.name=Totem of Undrowning
 item.totem_unblinding.name=Totem of Unblinding
 item.totem_unshattering.name=Totem of Unshattering
 item.totem_preventation.name=Totem of Totems
+item.icarus_wings.name=Icarus' Wings
 
 item.generic.ingot.name=%s Ingot
 item.generic.nugget.name=%s Nugget
@@ -336,6 +337,7 @@ tile.ruins_spawner.name=Ruins Spawner
 tile.village_spawner.name=Village Spawner
 tile.myrmeke_spawner.name=Myrmeke Hills Spawner
 tile.strawberry_cake.name=Strawberry Cake
+tile.wings_dispenser.name=Wings Dispenser
 tile.mediterranean_water.name=Mediterranean Water
 tile.gas.name=Upwards Liquid
 tile.hyliastrum_fluid.name=Liquid Hyliastrum

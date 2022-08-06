@@ -1,6 +1,7 @@
 package com.axanthic.loi.proxy;
 
 import java.awt.Color;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,6 +69,7 @@ import com.google.common.base.Predicates;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -76,11 +78,19 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderFallingBlock;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraft.client.renderer.entity.layers.LayerElytra;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -140,7 +150,6 @@ public class ClientProxy extends CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
 		MinecraftForge.EVENT_BUS.register(this);
-		MinecraftForge.EVENT_BUS.register(new VanillaHandler());
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityBident.class, RenderBident::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFallingVase.class, RenderFallingBlock::new);
@@ -222,6 +231,27 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void postInit(FMLPostInitializationEvent event) {
 		super.postInit(event);
+
+		RenderManager manager = Minecraft.getMinecraft().getRenderManager();
+		try { // I'd like to speak to the manager
+			Field f = manager.getClass().getDeclaredField("skinMap");
+			f.setAccessible(true);
+			Map<String, RenderPlayer> skinMap = (Map<String, RenderPlayer>) f.get(manager);
+			for (RenderLivingBase render : skinMap.values()) {
+				Field f2 = RenderLivingBase.class.getDeclaredField("layerRenderers");
+				f2.setAccessible(true);
+				List<LayerRenderer<EntityLivingBase>> layerRenderers = (List<LayerRenderer<EntityLivingBase>>) f2.get(render);
+				for (LayerRenderer<EntityLivingBase> layer : layerRenderers) {
+					if (layer instanceof LayerElytra) {
+						layerRenderers.remove(layer);
+						render.addLayer(new LayerIcarusWings(render, (LayerElytra) layer));
+						break;
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@SubscribeEvent
@@ -301,6 +331,7 @@ public class ClientProxy extends CommonProxy {
 		//register special item renderers here
 		Resources.saltedFood.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.grinder.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
+		//Items.ELYTRA.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadRevenant.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadArachne.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
 		Resources.mobHeadArachneDrone.setTileEntityItemStackRenderer(LOIItemStackRenderer.LOIInstance);
@@ -499,12 +530,14 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@SubscribeEvent
-	public void entityRenderPost(EntityViewRenderEvent.FogColors event) {
+	public void fogColors(EntityViewRenderEvent.FogColors event) {
 		if (event.getEntity().dimension == LandsOfIcaria.dimensionId) {
 			float d3 = (float) (event.getEntity().getPositionEyes((float) event.getRenderPartialTicks()).y - event.getEntity().world.getHorizon());
-			event.setRed(event.getRed() * (Math.max(0, (IcariaSkyRenderer.fade + d3) / IcariaSkyRenderer.fade) * 0.9F + 0.1F));
-			event.setGreen(event.getGreen() * (Math.max(0, (IcariaSkyRenderer.fade + d3) / IcariaSkyRenderer.fade) * 0.9F + 0.1F));
-			event.setBlue(event.getBlue() * (Math.max(0, (IcariaSkyRenderer.fade + d3) / IcariaSkyRenderer.fade) * 0.9F + 0.1F));
+			if (d3 < 0.0D) {
+				event.setRed(event.getRed() * (Math.max(0, (IcariaSkyRenderer.fade + d3) / IcariaSkyRenderer.fade) * 0.9F + 0.1F));
+				event.setGreen(event.getGreen() * (Math.max(0, (IcariaSkyRenderer.fade + d3) / IcariaSkyRenderer.fade) * 0.9F + 0.1F));
+				event.setBlue(event.getBlue() * (Math.max(0, (IcariaSkyRenderer.fade + d3) / IcariaSkyRenderer.fade) * 0.9F + 0.1F));
+			}
 		}
 	}
 

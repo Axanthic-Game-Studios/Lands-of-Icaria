@@ -286,9 +286,9 @@ public class IcariaSkyRenderer extends IRenderHandler {
 
 		float d3 = (float) (entityIn.getPositionEyes(partialTicks).y - world.getHorizon());
 		if (d3 < 0.0D) {
-			f3 = f3 * (Math.max(0, (fade + d3) / fade) * 0.6F + 0.4F);
-			f4 = f4 * (Math.max(0, (fade + d3) / fade) * 0.6F + 0.4F);
-			f5 = f5 * (Math.max(0, (fade + d3) / fade) * 0.6F + 0.4F);
+			f3 = f3 * (Math.max(0, (fade + d3) / fade) * 0.7F + 0.3F);
+			f4 = f4 * (Math.max(0, (fade + d3) / fade) * 0.7F + 0.3F);
+			f5 = f5 * (Math.max(0, (fade + d3) / fade) * 0.7F + 0.3F);
 		}
 
 		return new Vec3d((double)f3, (double)f4, (double)f5);

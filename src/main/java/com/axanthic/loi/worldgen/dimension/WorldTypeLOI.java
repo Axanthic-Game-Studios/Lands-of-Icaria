@@ -40,13 +40,13 @@ public class WorldTypeLOI extends WorldType
 	@Override
 	public int getMinimumSpawnHeight(final World world)
 	{
-		return world.getSeaLevel() + 1;
+		return 90;
 	}
 
 	@Override
 	public double getHorizon(final World world)
 	{
-		return 63.0D;
+		return 100.0D;
 	}
 
 	@Override

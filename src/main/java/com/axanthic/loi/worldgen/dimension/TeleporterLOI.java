@@ -230,7 +230,7 @@ public class TeleporterLOI extends Teleporter {
 		for (int offsetX = -125; offsetX <= 125; ++offsetX) {
 			BlockPos positionCache;
 			for (int offsetZ = -125; offsetZ <= 125; ++offsetZ) {
-				for (BlockPos currentPos = position.add(offsetX, world.getActualHeight() - 1 - position.getY(), offsetZ); currentPos.getY() >= 0; currentPos = positionCache) {
+				for (BlockPos currentPos = position.add(offsetX, 120 - position.getY(), offsetZ); currentPos.getY() >= 0; currentPos = positionCache) {
 					positionCache = currentPos.down();
 					boolean valid = true;
 					for (BlockPos basePos : BlockPos.getAllInBox(BlockPos.ORIGIN, BlockPos.ORIGIN.add(template.getSize().getX() - 1, 0, template.getSize().getZ() - 1))) {

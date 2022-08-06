@@ -3,14 +3,19 @@ package com.axanthic.loi.worldgen.dimension;
 import com.axanthic.loi.LandsOfIcaria;
 import com.axanthic.loi.proxy.ClientProxy;
 import com.axanthic.loi.render.IcariaSkyRenderer;
+import com.axanthic.loi.worldgen.feature.WorldGenShips;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
+import net.minecraft.world.GameType;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
+import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.client.IRenderHandler;
@@ -92,6 +97,48 @@ public class WorldProviderLOI extends WorldProvider {
 	public boolean canRespawnHere()
 	{
 		return true;
+	}
+
+	public BlockPos getRandomizedSpawnPoint()
+	{
+		BlockPos ret = this.world.getSpawnPoint();
+
+		boolean isAdventure = world.getWorldInfo().getGameType() == GameType.ADVENTURE;
+		int spawnFuzz = this.world instanceof WorldServer ? this.world.getWorldInfo().getTerrainType().getSpawnFuzz((WorldServer)this.world, this.world.getMinecraftServer()) : 1;
+		int border = MathHelper.floor(world.getWorldBorder().getClosestDistance(ret.getX(), ret.getZ()));
+		if (border < spawnFuzz) spawnFuzz = border;
+
+		if (!isNether() && !isAdventure && spawnFuzz != 0)
+		{
+			if (spawnFuzz < 2) spawnFuzz = 2;
+			int spawnFuzzHalf = spawnFuzz / 2;
+			ret = getTopSolidOrLiquidBlock(world, ret.add(spawnFuzzHalf - world.rand.nextInt(spawnFuzz), 0, spawnFuzzHalf - world.rand.nextInt(spawnFuzz)));
+		}
+
+		if (ret.getY() < 80) {
+			return new BlockPos(world.getSpawnPoint().getX(), WorldGenShips.spawnShipHeight + 1, world.getSpawnPoint().getZ());
+		}
+		return ret;
+	}
+
+	public BlockPos getTopSolidOrLiquidBlock(World world, BlockPos pos)
+	{
+		Chunk chunk = world.getChunkFromBlockCoords(pos);
+		BlockPos blockpos;
+		BlockPos blockpos1;
+
+		for (blockpos = new BlockPos(pos.getX(), 120, pos.getZ()); blockpos.getY() >= 0; blockpos = blockpos1)
+		{
+			blockpos1 = blockpos.down();
+			IBlockState state = chunk.getBlockState(blockpos1);
+
+			if (state.getMaterial().blocksMovement() && !state.getBlock().isLeaves(state, world, blockpos1) && !state.getBlock().isFoliage(world, blockpos1))
+			{
+				break;
+			}
+		}
+
+		return blockpos;
 	}
 
 	/**********************************************************************/

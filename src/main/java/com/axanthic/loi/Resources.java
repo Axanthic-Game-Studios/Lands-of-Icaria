@@ -310,6 +310,7 @@ public class Resources {
 	public static ItemBlock villageSpawner = new ItemBlock(new BlockCustomSpawner(5.0F, "village_spawner").setSoundType(SoundType.METAL));
 	public static ItemBlock myrmekeSpawner = new ItemBlock(new BlockCustomSpawner(5.0F, "myrmeke_spawner").setSoundType(SoundType.WOOD));
 	public static ItemBlock strawberryCake = new ItemBlock(new BlockCustomCake("strawberry_cake"));
+	public static ItemBlock wingsDispenser = new ItemBlock(new BlockWingsDispenser(Material.ROCK, -1.0F, "wings_dispenser", MapColor.WOOD));
 
 	//torches
 	public static ItemBlock torchAnthracite = new ItemBlock(new BlockTorchAnthracite());
@@ -623,6 +624,7 @@ public class Resources {
 		Resources.registerBlock(Resources.villageSpawner);
 		Resources.registerBlock(Resources.myrmekeSpawner);
 		Resources.registerBlock(Resources.strawberryCake);
+		Resources.registerBlock(Resources.wingsDispenser);
 		BlockIcariaPortal.init();
 
 		//torches

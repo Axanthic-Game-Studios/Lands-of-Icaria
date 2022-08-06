@@ -1,9 +1,12 @@
 package com.axanthic.loi.utils;
 
+import java.lang.reflect.Method;
+
 import com.axanthic.loi.ModInformation;
 import com.axanthic.loi.Resources;
 import com.axanthic.loi.blocks.BlockGrinder;
 import com.axanthic.loi.blocks.BlockMobHead;
+import com.axanthic.loi.blocks.BlockWingsDispenser;
 import com.axanthic.loi.items.ItemBlockMobHead;
 import com.axanthic.loi.items.ItemSaltedFood;
 import com.axanthic.loi.items.ItemScroll;
@@ -16,7 +19,9 @@ import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.client.renderer.entity.Render;
@@ -24,6 +29,7 @@ import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -41,6 +47,22 @@ public class LOIItemStackRenderer extends TileEntityItemStackRenderer {
 	public static LOIItemStackRenderer LOIInstance;
 	private static final ResourceLocation RES_SCROLL_BACKGROUND = new ResourceLocation(ModInformation.ID, "textures/gui/scroll_background.png");
 	public static ItemStack saltOverlay = new ItemStack(Resources.renderAddon, 1, 5);
+	//public static ItemStack icarusWings = new ItemStack(Resources.renderAddon, 1, 6);
+	//public static ItemStack icarusWingsBurning = new ItemStack(Resources.renderAddon, 1, 7);
+	public RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+	public Method renderModel;
+	public Method renderEffect;
+
+	public LOIItemStackRenderer() {
+		try {
+			renderModel = RenderItem.class.getDeclaredMethod("renderModel", IBakedModel.class, ItemStack.class);
+			renderModel.setAccessible(true);
+			renderEffect = RenderItem.class.getDeclaredMethod("renderEffect", IBakedModel.class);
+			renderEffect.setAccessible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void renderByItem(ItemStack stack, float partialTicks) {
 		Item item = stack.getItem();
@@ -57,7 +79,7 @@ public class LOIItemStackRenderer extends TileEntityItemStackRenderer {
 
 		if (item instanceof ItemSaltedFood) {
 			GlStateManager.pushMatrix();
-            GlStateManager.translate(0.5F, 0.5F, 0.5F);
+			GlStateManager.translate(0.5F, 0.5F, 0.5F);
 			if (stack.hasTagCompound()) {
 				ItemStack foodStack = ItemSaltedFood.getContainedItem(stack.getTagCompound());
 				if (!foodStack.isEmpty())
@@ -152,6 +174,26 @@ public class LOIItemStackRenderer extends TileEntityItemStackRenderer {
 			Minecraft.getMinecraft().getRenderItem().renderItem(scroll.getRecipe().recipeOutput, ItemCameraTransforms.TransformType.GUI);
 			GlStateManager.enableLighting();
 		}
+
+		/*if (item == Items.ELYTRA) {
+			if (stack.hasTagCompound() && stack.getTagCompound().getBoolean(BlockWingsDispenser.ICARUS_WINGS_TAG)) {
+				GlStateManager.pushMatrix();
+				GlStateManager.translate(0.5F, 0.5F, 0.5F);
+				Minecraft.getMinecraft().getRenderItem().renderItem(icarusWings, ItemCameraTransforms.TransformType.NONE);
+				GlStateManager.popMatrix();
+			} else {
+				try {
+					IBakedModel ibakedmodel = renderItem.getItemModelWithOverrides(stack, null, null);
+
+					renderModel.invoke(renderItem, ibakedmodel, stack);
+					if (stack.hasEffect()) {
+						renderEffect.invoke(renderItem, ibakedmodel);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}*/
 	}
 
 	public static void renderArm(EnumHandSide side) {

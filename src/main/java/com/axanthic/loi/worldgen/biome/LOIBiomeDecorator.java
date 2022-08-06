@@ -20,6 +20,7 @@ import com.axanthic.loi.worldgen.feature.WorldGenLakeFlipped;
 import com.axanthic.loi.worldgen.feature.WorldGenLakeNormal;
 import com.axanthic.loi.worldgen.feature.WorldGenPillars;
 import com.axanthic.loi.worldgen.feature.WorldGenRuins;
+import com.axanthic.loi.worldgen.feature.WorldGenShips;
 import com.axanthic.loi.worldgen.feature.WorldGenVillage;
 
 import net.minecraft.block.BlockHorizontal;
@@ -51,6 +52,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 	public WorldGenLakeNormal lakeGenerator = new WorldGenLakeNormal(LOIFluids.waterFluidBlock.getBlock());
 	public WorldGenPillars pillarGenerator = new WorldGenPillars(1.0F);
 	public WorldGenRuins ruinGenerator = new WorldGenRuins(1.0F);
+	public WorldGenShips shipGenerator = new WorldGenShips(1.0F);
 	public WorldGenVillage villageGenerator = new WorldGenVillage(1.0F);
 	public IBlockState[] vines = new IBlockState[] {
 			LOIVines.vineBloomy.getDefaultState(),
@@ -97,6 +99,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 			this.generateCrystals(worldIn, random, biome, pos);
 			this.generateVillages(worldIn, random, biome, forgeChunkPos);
 			this.generateRuins(worldIn, random, biome, pos);
+			this.generateShips(worldIn, random, biome, pos, forgeChunkPos);
 			this.generateBoulders(worldIn, random, biome, pos);
 			this.generateSpikes(worldIn, random, biome, pos);
 			this.generateLakes(worldIn, random, biome, pos);
@@ -298,7 +301,7 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					return true;
 			}
 			this.pillarGenerator.generate(worldIn, random, pos);
-		} else if (random.nextInt(180) == 0) {
+		} else if (random.nextInt(120) == 0) {
 			pos = pos.add(i1, j1, k1);
 			while (!worldIn.isBlockFullCube(pos)) {
 				pos = pos.down();
@@ -306,6 +309,21 @@ public class LOIBiomeDecorator extends BiomeDecorator {
 					return true;
 			}
 			this.ruinGenerator.generate(worldIn, random, pos);
+		}
+		return true;
+	}
+
+	public boolean generateShips(World worldIn, Random random, Biome biome, BlockPos pos, ChunkPos chunkPos) {
+		if (chunkPos.equals(new ChunkPos(worldIn.getSpawnPoint()))) {
+			this.shipGenerator.generateSpawnShip(worldIn, random, worldIn.getSpawnPoint());
+		} else {
+			int i1 = random.nextInt(16) + 8;
+			int j1 = random.nextInt(120);
+			int k1 = random.nextInt(16) + 8;
+			if (random.nextInt(30) == 0) {
+				pos = pos.add(i1, j1, k1);
+				this.shipGenerator.generate(worldIn, random, pos);
+			}
 		}
 		return true;
 	}
