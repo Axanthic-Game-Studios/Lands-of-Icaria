@@ -4,6 +4,7 @@ import com.axanthic.icaria.client.renderer.BidentRenderer;
 import com.axanthic.icaria.client.renderer.CrystalBlockRenderer;
 import com.axanthic.icaria.client.renderer.GreekFireGrenadeRenderer;
 import com.axanthic.icaria.client.renderer.IcariaSignBlockRenderer;
+import com.axanthic.icaria.client.model.OrichalcumHelmetModel;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.TotemItem;
@@ -16,6 +17,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
@@ -38,6 +40,7 @@ import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -57,6 +60,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class ClientProxy extends CommonProxy {
 	public ClientProxy() {
 
+	}
+
+	@Override
+	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(OrichalcumHelmetModel.ORICHALCUM_HELMET, () -> OrichalcumHelmetModel.createHelmetLayer(CubeDeformation.NONE));
 	}
 
 	@Override
@@ -107,7 +115,7 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void loadComplete() {
+	public void onFMLLoadComplete() {
 		// BLOCK COLOR
 		blockColor(IcariaBlocks.MARL_GRASS.get());
 		blockColor(IcariaBlocks.GROWING_BLOOMY_VINE.get());

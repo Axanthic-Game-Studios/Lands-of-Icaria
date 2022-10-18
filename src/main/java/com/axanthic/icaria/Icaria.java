@@ -1,13 +1,12 @@
 package com.axanthic.icaria;
 
-import com.axanthic.icaria.client.layer.OrichalcumHelmetLayer;
 import com.axanthic.icaria.client.proxy.ClientProxy;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
-import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.TickEvent;
@@ -36,13 +35,12 @@ public class Icaria {
 	public Icaria() {
 		IcariaConfig.register();
 
-		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> FMLJavaModLoadingContext.get().getModEventBus().addListener(OrichalcumHelmetLayer::onEntityRenderers));
-		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> FMLJavaModLoadingContext.get().getModEventBus().addListener(OrichalcumHelmetLayer::register));
 
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLClientSetup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLCommonSetup);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLLoadComplete);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onGatherData);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onLoadComplete);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onRegisterLayerDefinitions);
 
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -67,12 +65,16 @@ public class Icaria {
 		proxy.onFMLCommonSetup(event);
 	}
 
+	public void onFMLLoadComplete(FMLLoadCompleteEvent event) {
+		proxy.onFMLLoadComplete();
+	}
+
 	public void onGatherData(GatherDataEvent event) {
 		proxy.onGatherData(event);
 	}
 
-	public void onLoadComplete(FMLLoadCompleteEvent event) {
-		proxy.loadComplete();
+	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		proxy.onRegisterLayerDefinitions(event);
 	}
 
 	@SubscribeEvent

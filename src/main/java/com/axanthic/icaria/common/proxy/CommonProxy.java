@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.proxy;
 
+import com.axanthic.icaria.client.model.OrichalcumHelmetModel;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.TotemItem;
@@ -8,6 +9,7 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.data.*;
 
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.data.DataGenerator;
@@ -23,6 +25,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -41,6 +44,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class CommonProxy {
 	public CommonProxy() {
 
+	}
+
+
+	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(OrichalcumHelmetModel.ORICHALCUM_HELMET, () -> OrichalcumHelmetModel.createHelmetLayer(CubeDeformation.NONE));
 	}
 
 	public void onFMLClientSetup(FMLClientSetupEvent event) {
@@ -87,7 +95,7 @@ public class CommonProxy {
 		generator.addProvider(event.includeServer(), new IcariaFluidTags(generator, helper));
 	}
 
-	public void loadComplete() {
+	public void onFMLLoadComplete() {
 
 	}
 

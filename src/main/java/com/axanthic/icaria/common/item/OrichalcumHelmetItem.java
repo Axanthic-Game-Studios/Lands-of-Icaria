@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.client.layer.OrichalcumHelmetLayer;
 import com.axanthic.icaria.client.model.OrichalcumHelmetModel;
 import com.axanthic.icaria.common.util.IcariaArmorMaterials;
 
@@ -40,7 +39,7 @@ public class OrichalcumHelmetItem extends ArmorItem {
     @OnlyIn(Dist.CLIENT)
     public static final class Rendering implements IClientItemExtensions {
         public static final Rendering INSTANCE = new OrichalcumHelmetItem.Rendering();
-        public final NonNullLazy<OrichalcumHelmetModel<LivingEntity>> helmet = NonNullLazy.of(() -> new OrichalcumHelmetModel<>(getModel().bakeLayer(OrichalcumHelmetLayer.ORICHALCUM_HELMET)));
+        public final NonNullLazy<OrichalcumHelmetModel<LivingEntity>> helmet = NonNullLazy.of(() -> new OrichalcumHelmetModel<>(getModel().bakeLayer(OrichalcumHelmetModel.ORICHALCUM_HELMET)));
 
         @OnlyIn(Dist.CLIENT)
         public Rendering() {
