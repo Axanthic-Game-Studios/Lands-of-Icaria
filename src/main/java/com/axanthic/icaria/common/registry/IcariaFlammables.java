@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.mixin.FireBlockAccess;
+import com.axanthic.icaria.mixin.FireBlockMixin;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.FireBlock;
 public class IcariaFlammables {
 	public static void flammableBlock(Block pBlock, int pEncouragement, int pFlammability) {
 		FireBlock fireBlock = (FireBlock) Blocks.FIRE;
-		((FireBlockAccess) fireBlock).accessableFlammable(pBlock, pEncouragement, pFlammability);
+		((FireBlockMixin) fireBlock).setIcariaFlammables(pBlock, pEncouragement, pFlammability);
 	}
 
 	public static void setup() {

@@ -12,7 +12,7 @@ import java.util.Map;
 @SuppressWarnings("unused")
 
 @Mixin(AxeItem.class)
-public interface AxeItemAccess {
+public interface AxeItemMixin {
 	@Accessor("STRIPPABLES")
 	static Map<Block, Block> getIcariaStrippables() {
 		throw new Error("Mixin did not apply.");

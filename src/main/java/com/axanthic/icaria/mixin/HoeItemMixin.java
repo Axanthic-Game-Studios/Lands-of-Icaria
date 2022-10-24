@@ -17,7 +17,7 @@ import java.util.function.Predicate;
 @SuppressWarnings("unused")
 
 @Mixin(HoeItem.class)
-public interface HoeItemAccess {
+public interface HoeItemMixin {
 	@Accessor("TILLABLES")
 	static Map<Block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>>> getIcariaTillables() {
 		throw new Error("Mixin did not apply.");

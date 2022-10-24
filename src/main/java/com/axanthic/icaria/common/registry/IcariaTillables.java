@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.mixin.HoeItemAccess;
+import com.axanthic.icaria.mixin.HoeItemMixin;
 
 import com.mojang.datafixers.util.Pair;
 
@@ -15,12 +15,12 @@ import java.util.function.Predicate;
 
 public class IcariaTillables {
 	public static void setup() {
-		Map<Block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>>> tillables = new IdentityHashMap<>(HoeItemAccess.getIcariaTillables());
+		Map<Block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>>> tillables = new IdentityHashMap<>(HoeItemMixin.getIcariaTillables());
 
 		tillables.put(IcariaBlocks.MARL_GRASS.get(), Pair.of(HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(IcariaBlocks.FARMLAND.get().defaultBlockState())));
 		tillables.put(IcariaBlocks.MARL.get(), Pair.of(HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(IcariaBlocks.FARMLAND.get().defaultBlockState())));
 		tillables.put(IcariaBlocks.MARL_COARSE.get(), Pair.of(HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(IcariaBlocks.MARL.get().defaultBlockState())));
 
-		HoeItemAccess.setIcariaTillables(tillables);
+		HoeItemMixin.setIcariaTillables(tillables);
 	}
 }

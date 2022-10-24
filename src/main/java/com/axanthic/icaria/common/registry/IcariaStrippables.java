@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.mixin.AxeItemAccess;
+import com.axanthic.icaria.mixin.AxeItemMixin;
 
 import net.minecraft.world.level.block.Block;
 
@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class IcariaStrippables {
 	public static void setup() {
-		Map<Block, Block> strippables = new IdentityHashMap<>(AxeItemAccess.getIcariaStrippables());
+		Map<Block, Block> strippables = new IdentityHashMap<>(AxeItemMixin.getIcariaStrippables());
 
 		strippables.put(IcariaBlocks.CYPRESS_WOOD.get(), IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());
 		strippables.put(IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
@@ -33,6 +33,6 @@ public class IcariaStrippables {
 		strippables.put(IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get());
 		strippables.put(IcariaBlocks.DEAD_POPULUS_LOG.get(), IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get());
 
-		AxeItemAccess.setIcariaStrippables(strippables);
+		AxeItemMixin.setIcariaStrippables(strippables);
 	}
 }
