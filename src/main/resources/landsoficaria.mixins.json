@@ -9,6 +9,7 @@
     "HoeItemMixin"
   ],
   "client": [
+    "CustomHeadLayerMixin"
   ],
   "minVersion": "0.8"
 }

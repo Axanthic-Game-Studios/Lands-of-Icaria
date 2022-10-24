@@ -1,7 +1,10 @@
 package com.axanthic.icaria.common.proxy;
 
+import com.axanthic.icaria.client.model.CerverHeadModel;
+import com.axanthic.icaria.client.model.CerverModel;
 import com.axanthic.icaria.client.model.OrichalcumHelmetModel;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
+import com.axanthic.icaria.common.entity.CerverEntity;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.TotemItem;
 import com.axanthic.icaria.common.registry.*;
@@ -29,6 +32,7 @@ import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
@@ -45,8 +49,13 @@ public class CommonProxy {
 
 	}
 
+	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
+		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
+	}
 
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
+		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
 		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
 	}
 

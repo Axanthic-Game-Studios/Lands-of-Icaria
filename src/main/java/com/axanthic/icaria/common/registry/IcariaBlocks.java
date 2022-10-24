@@ -6,6 +6,7 @@ import com.axanthic.icaria.common.block.*;
 import com.axanthic.icaria.common.block.LayerBlock;
 import com.axanthic.icaria.common.block.SandTypeBlock;
 
+import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction.Axis;
 import net.minecraft.core.particles.ParticleTypes;
@@ -538,6 +539,9 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> STRAWBERRY_CAKE_RED_CANDLE = register("strawberry_cake_red_candle", () -> new StrawberryCandleCakeBlock(Blocks.RED_CANDLE, propertiesCake()));
 	public static final RegistryObject<Block> STRAWBERRY_CAKE_BLACK_CANDLE = register("strawberry_cake_black_candle", () -> new StrawberryCandleCakeBlock(Blocks.BLACK_CANDLE, propertiesCake()));
 
+	public static final RegistryObject<Block> CERVER_SKULL = register("cerver_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.CERVER, propertiesSkulls()));
+	public static final RegistryObject<Block> CERVER_WALL_SKULL = register("cerver_wall_skull", () -> new IcariaWallSkullBlock(0.055F, IcariaSkullBlockTypes.CERVER, propertiesSkulls()));
+
 	public static final RegistryObject<Block> SPELT_CROP = register("spelt_crop", () -> new SpeltCropBlock(propertiesCrop()));
 	public static final RegistryObject<Block> STRAWBERRY_CROP = register("strawberry_crop", () -> new StrawberryCropBlock(propertiesCrop()));
 	public static final RegistryObject<Block> PHYSALIS_CROP = register("physalis_crop", () -> new PhysalisCropBlock(propertiesCrop()));
@@ -712,6 +716,10 @@ public class IcariaBlocks {
 
 	private static Properties propertiesCake() {
 		return Properties.of(Material.CAKE, MaterialColor.NONE).sound(SoundType.WOOL).strength(0.5F, 0.5F);
+	}
+
+	private static Properties propertiesSkulls() {
+		return Properties.of(Material.DECORATION, MaterialColor.NONE).strength(1.0F, 1.0F);
 	}
 
 	private static Properties propertiesCrop() {

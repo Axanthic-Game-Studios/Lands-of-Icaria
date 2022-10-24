@@ -1,11 +1,11 @@
 package com.axanthic.icaria.client.proxy;
 
-import com.axanthic.icaria.client.renderer.BidentRenderer;
-import com.axanthic.icaria.client.renderer.CrystalBlockRenderer;
-import com.axanthic.icaria.client.renderer.GreekFireGrenadeRenderer;
-import com.axanthic.icaria.client.renderer.IcariaSignBlockRenderer;
+import com.axanthic.icaria.client.model.CerverHeadModel;
+import com.axanthic.icaria.client.model.CerverModel;
 import com.axanthic.icaria.client.model.OrichalcumHelmetModel;
+import com.axanthic.icaria.client.renderer.*;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
+import com.axanthic.icaria.common.entity.CerverEntity;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.TotemItem;
 import com.axanthic.icaria.common.proxy.CommonProxy;
@@ -44,6 +44,7 @@ import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
@@ -62,7 +63,14 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
+	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
+		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
+	}
+
+	@Override
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
+		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
 		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
 	}
 
@@ -364,11 +372,13 @@ public class ClientProxy extends CommonProxy {
 
 		// ENTITY RENDERERS
 		EntityRenderers.register(IcariaEntities.BIDENT.get(), BidentRenderer::new);
+		EntityRenderers.register(IcariaEntities.CERVER.get(), CerverRenderer::new);
 		EntityRenderers.register(IcariaEntities.GREEK_FIRE_GRENADE.get(), GreekFireGrenadeRenderer::new);
 
 		// BLOCK ENTITY RENDERERS
 		BlockEntityRenderers.register(IcariaBlockEntities.CRYSTAL.get(), CrystalBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntities.SIGN.get(), IcariaSignBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntities.SKULL.get(), IcariaSkullBlockRenderer::new);
 	}
 
 	@Override

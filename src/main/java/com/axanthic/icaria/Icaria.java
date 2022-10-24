@@ -10,6 +10,7 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
@@ -35,7 +36,7 @@ public class Icaria {
 	public Icaria() {
 		IcariaConfig.register();
 
-
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onEntityAttributeCreation);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLClientSetup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLCommonSetup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLLoadComplete);
@@ -55,6 +56,10 @@ public class Icaria {
 		IcariaPOIs.POIS.register(bus);
 
 		MinecraftForge.EVENT_BUS.register(this);
+	}
+
+	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
+		proxy.onEntityAttributeCreation(event);
 	}
 
 	public void onFMLClientSetup(FMLClientSetupEvent event) {

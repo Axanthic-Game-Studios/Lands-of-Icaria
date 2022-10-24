@@ -112,6 +112,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropElse(IcariaBlocks.STRAWBERRY_CAKE_GREEN_CANDLE.get(), Items.GREEN_CANDLE);
 		dropElse(IcariaBlocks.STRAWBERRY_CAKE_RED_CANDLE.get(), Items.RED_CANDLE);
 		dropElse(IcariaBlocks.STRAWBERRY_CAKE_BLACK_CANDLE.get(), Items.BLACK_CANDLE);
+		dropElse(IcariaBlocks.CERVER_WALL_SKULL.get(), IcariaItems.CERVER_SKULL.get());
 
 		dropWhenSilk(IcariaBlocks.GRAINGLASS.get());
 		dropWhenSilk(IcariaBlocks.GRAINGLASS_PANE.get());
@@ -276,6 +277,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get());
 		dropThis(IcariaBlocks.UNNAMED_TREE_SHROOMS.get());
 		dropThis(IcariaBlocks.CARDON_CACTUS.get());
+		dropThis(IcariaBlocks.CERVER_SKULL.get());
 
 		dropBlurredPlatoshale(IcariaBlocks.PLATOSHALE_BLURRED.get(), IcariaItems.BLURIDIUM_NUGGET.get());
 		dropBlurredPlatoshale(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get(), IcariaItems.BLURIDIUM_NUGGET.get());
