@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.entity.IcariaSignBlockEntity;
+import com.axanthic.icaria.common.blockentity.IcariaSignBlockEntity;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;

@@ -1,4 +1,4 @@
-package com.axanthic.icaria.common.entity;
+package com.axanthic.icaria.common.blockentity;
 
 import com.axanthic.icaria.common.registry.IcariaBlockEntities;
 

@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
-import com.axanthic.icaria.common.entity.CrystalBlockEntity;
+import com.axanthic.icaria.common.blockentity.CrystalBlockEntity;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.vertex.*;
