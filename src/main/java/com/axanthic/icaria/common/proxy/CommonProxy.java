@@ -9,7 +9,6 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.data.*;
 
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.data.DataGenerator;
@@ -48,7 +47,7 @@ public class CommonProxy {
 
 
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		event.registerLayerDefinition(OrichalcumHelmetModel.ORICHALCUM_HELMET, () -> OrichalcumHelmetModel.createHelmetLayer(CubeDeformation.NONE));
+		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
 	}
 
 	public void onFMLClientSetup(FMLClientSetupEvent event) {

@@ -17,7 +17,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
@@ -64,7 +63,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		event.registerLayerDefinition(OrichalcumHelmetModel.ORICHALCUM_HELMET, () -> OrichalcumHelmetModel.createHelmetLayer(CubeDeformation.NONE));
+		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
 	}
 
 	@Override

@@ -37,9 +37,9 @@ public class OrichalcumHelmetItem extends ArmorItem {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static final class Rendering implements IClientItemExtensions {
+    public static class Rendering implements IClientItemExtensions {
         public static final Rendering INSTANCE = new OrichalcumHelmetItem.Rendering();
-        public final NonNullLazy<OrichalcumHelmetModel<LivingEntity>> helmet = NonNullLazy.of(() -> new OrichalcumHelmetModel<>(getModel().bakeLayer(OrichalcumHelmetModel.ORICHALCUM_HELMET)));
+        public NonNullLazy<OrichalcumHelmetModel<LivingEntity>> helmet = NonNullLazy.of(() -> new OrichalcumHelmetModel<>(getModel().bakeLayer(OrichalcumHelmetModel.LAYER_LOCATION)));
 
         @OnlyIn(Dist.CLIENT)
         public Rendering() {
@@ -47,7 +47,7 @@ public class OrichalcumHelmetItem extends ArmorItem {
         }
 
         @OnlyIn(Dist.CLIENT)
-        public static EntityModelSet getModel() {
+        public EntityModelSet getModel() {
             return Minecraft.getInstance().getEntityModels();
         }
 
