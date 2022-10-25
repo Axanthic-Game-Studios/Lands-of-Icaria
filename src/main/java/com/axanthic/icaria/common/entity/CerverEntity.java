@@ -13,6 +13,7 @@ import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Creeper;
@@ -33,13 +34,13 @@ public class CerverEntity extends Monster {
     }
 
     @Override
-    public float getEyeHeight(Pose pPose) {
-        return 0.75F;
+    public double getPassengersRidingOffset() {
+        return this.getBbHeight() * 0.5F;
     }
 
     @Override
-    public float getSoundVolume() {
-        return 1.25F;
+    public float getEyeHeight(Pose pPose) {
+        return 0.75F;
     }
 
     @Override
@@ -67,14 +68,14 @@ public class CerverEntity extends Monster {
     public void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.4F));
-        this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.0D, true));
+        this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 0.8D));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
-
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
-        // TODO this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, ArganHoundEntity.class, true));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
+        // TODO this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, ArganHoundEntity.class, true));
     }
 
     public static AttributeSupplier.Builder registerAttributes() {

@@ -18,7 +18,7 @@ public class CerverRenderer extends MobRenderer<CerverEntity, CerverModel> {
     public static ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/cerver.png");
 
     public CerverRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new CerverModel(pContext.bakeLayer(CerverModel.LAYER_LOCATION)), 0.5F);
+        super(pContext, new CerverModel(pContext.bakeLayer(CerverModel.LAYER_LOCATION)), 0.75F);
     }
 
     @Override

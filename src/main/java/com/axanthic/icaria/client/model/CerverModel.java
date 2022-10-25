@@ -110,16 +110,9 @@ public class CerverModel extends EntityModel<CerverEntity> {
         return LayerDefinition.create(meshDefinition, 96, 64);
     }
 
-    public ModelPart body() {
-        return this.body;
-    }
-
     @Override
     public void setupAnim(CerverEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.body().getAllParts().forEach(ModelPart::resetPose);
-
-        this.idleAnim(pAgeInTicks);
-        this.lookAtPlayerAnim(pNetHeadYaw, pHeadPitch);
+        this.lookAnim(pNetHeadYaw, pHeadPitch);
         this.walkAnim(pLimbSwing, pLimbSwingAmount);
     }
 
@@ -128,15 +121,7 @@ public class CerverModel extends EntityModel<CerverEntity> {
         this.body.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
     }
 
-    public void idleAnim(float pAgeInTicks) {
-        float f = pAgeInTicks * 0.1F;
-        float f1 = Mth.cos(f);
-
-        this.head.xRot += 0.06F * f1;
-        this.tail_front.zRot += 0.06F * f1;
-    }
-
-    public void lookAtPlayerAnim(float pNetHeadYaw, float pHeadPitch) {
+    public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
         this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
         this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
     }
