@@ -2,10 +2,12 @@ package com.axanthic.icaria.client.proxy;
 
 import com.axanthic.icaria.client.model.CerverHeadModel;
 import com.axanthic.icaria.client.model.CerverModel;
+import com.axanthic.icaria.client.model.MyrmekeDroneModel;
 import com.axanthic.icaria.client.model.OrichalcumHelmetModel;
 import com.axanthic.icaria.client.renderer.*;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.entity.CerverEntity;
+import com.axanthic.icaria.common.entity.MyrmekeDroneEntity;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.TotemItem;
 import com.axanthic.icaria.common.proxy.CommonProxy;
@@ -65,12 +67,14 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
 		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
+		event.put(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 	}
 
 	@Override
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
 		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
+		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
 		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
 	}
 
@@ -374,6 +378,7 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntities.BIDENT.get(), BidentRenderer::new);
 		EntityRenderers.register(IcariaEntities.CERVER.get(), CerverRenderer::new);
 		EntityRenderers.register(IcariaEntities.GREEK_FIRE_GRENADE.get(), GreekFireGrenadeRenderer::new);
+		EntityRenderers.register(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneRenderer::new);
 
 		// BLOCK ENTITY RENDERERS
 		BlockEntityRenderers.register(IcariaBlockEntities.CRYSTAL.get(), CrystalBlockRenderer::new);

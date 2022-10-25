@@ -128,7 +128,7 @@ public class Icaria {
 	}
 
 	@SubscribeEvent
-	public static void test(RenderLivingEvent.Pre<?, ?> event) {
+	public static void onRenderLiving(RenderLivingEvent.Pre<?, ?> event) {
 		if (event.getRenderer().getModel() instanceof PlayerModel<?>) {
 			for (ItemStack itemStack : event.getEntity().getArmorSlots()) {
 				if (itemStack.getItem() instanceof IcariaSkullItem) {
