@@ -42,7 +42,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeDroneEntity extends Monster {
-    public EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(MyrmekeDroneEntity.class, EntityDataSerializers.BYTE);
+    public static EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(MyrmekeDroneEntity.class, EntityDataSerializers.BYTE);
 
     public MyrmekeDroneEntity(EntityType<? extends Monster> pType, Level pLevel) {
         super(pType, pLevel);
