@@ -9,6 +9,7 @@ import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.entity.CerverEntity;
 import com.axanthic.icaria.common.entity.MyrmekeDroneEntity;
 import com.axanthic.icaria.common.item.BidentItem;
+import com.axanthic.icaria.common.item.IcariaSkullItem;
 import com.axanthic.icaria.common.item.TotemItem;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
@@ -19,6 +20,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
@@ -42,6 +44,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -71,14 +74,6 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
-		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
-		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
-		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
-	}
-
-	@Override
 	public void onFMLClientSetup(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.CYPRESS));
 		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.DROUGHTROOT));
@@ -105,24 +100,6 @@ public class ClientProxy extends CommonProxy {
 		event.enqueueWork(IcariaStrippables::setup);
 		event.enqueueWork(IcariaTillables::setup);
 		event.enqueueWork(IcariaWoodTypes::setup);
-	}
-
-	@Override
-	public void onGatherData(GatherDataEvent event) {
-		DataGenerator generator = event.getGenerator();
-		ExistingFileHelper helper = event.getExistingFileHelper();
-
-		generator.addProvider(event.includeClient(), new IcariaLang(generator));
-		generator.addProvider(event.includeClient(), new IcariaItemModels(generator, helper));
-		generator.addProvider(event.includeClient(), new IcariaBlockStates(generator, helper));
-
-		BlockTagsProvider tags = new IcariaBlockTags(generator, helper);
-
-		generator.addProvider(event.includeServer(), new IcariaLootTables(generator));
-		generator.addProvider(event.includeServer(), new IcariaRecipes(generator));
-		generator.addProvider(event.includeServer(), new IcariaBlockTags(generator, helper));
-		generator.addProvider(event.includeServer(), new IcariaItemTags(generator, tags, helper));
-		generator.addProvider(event.includeServer(), new IcariaFluidTags(generator, helper));
 	}
 
 	@Override
@@ -387,6 +364,32 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
+	public void onGatherData(GatherDataEvent event) {
+		DataGenerator generator = event.getGenerator();
+		ExistingFileHelper helper = event.getExistingFileHelper();
+
+		generator.addProvider(event.includeClient(), new IcariaLang(generator));
+		generator.addProvider(event.includeClient(), new IcariaItemModels(generator, helper));
+		generator.addProvider(event.includeClient(), new IcariaBlockStates(generator, helper));
+
+		BlockTagsProvider tags = new IcariaBlockTags(generator, helper);
+
+		generator.addProvider(event.includeServer(), new IcariaLootTables(generator));
+		generator.addProvider(event.includeServer(), new IcariaRecipes(generator));
+		generator.addProvider(event.includeServer(), new IcariaBlockTags(generator, helper));
+		generator.addProvider(event.includeServer(), new IcariaItemTags(generator, tags, helper));
+		generator.addProvider(event.includeServer(), new IcariaFluidTags(generator, helper));
+	}
+
+	@Override
+	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
+		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
+		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
+		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
+	}
+
+	@Override
 	public void onEntityAttributeModification(EntityAttributeModificationEvent event) {
 		event.add(EntityType.PLAYER, ForgeMod.ATTACK_RANGE.get());
 	}
@@ -555,6 +558,34 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
+	public void onMobEffectApplicable(MobEffectEvent.Applicable event) {
+		Entity entity = event.getEntity();
+		MobEffectInstance effect = event.getEffectInstance();
+		if (entity instanceof Player player) {
+			ItemStack mainHandItem = player.getMainHandItem();
+			ItemStack offhandItem = player.getOffhandItem();
+			TotemItem totem = IcariaItems.TOTEM_OF_UNBLINDING.get();
+			if (effect.getEffect().equals(MobEffects.BLINDNESS)) {
+				if (offhandItem.getItem().equals(totem)) {
+					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
+					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
+					player.awardStat(Stats.ITEM_USED.get(totem));
+					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					totem.totemAnimation(player);
+				}
+
+				if (mainHandItem.getItem().equals(totem)) {
+					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
+					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
+					player.awardStat(Stats.ITEM_USED.get(totem));
+					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					totem.totemAnimation(player);
+				}
+			}
+		}
+	}
+
+	@Override
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		Entity entity = event.getEntity();
 		if (entity instanceof Player player) {
@@ -692,28 +723,13 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void onPotionApplicable(MobEffectEvent.Applicable event) {
-		Entity entity = event.getEntity();
-		MobEffectInstance effect = event.getEffectInstance();
-		if (entity instanceof Player player) {
-			ItemStack mainHandItem = player.getMainHandItem();
-			ItemStack offhandItem = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_UNBLINDING.get();
-			if (effect.getEffect().equals(MobEffects.BLINDNESS)) {
-				if (offhandItem.getItem().equals(totem)) {
-					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
-					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
-					player.awardStat(Stats.ITEM_USED.get(totem));
-					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
-					totem.totemAnimation(player);
-				}
-
-				if (mainHandItem.getItem().equals(totem)) {
-					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
-					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
-					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
-					totem.totemAnimation(player);
+	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> event) {
+		if (event.getRenderer().getModel() instanceof PlayerModel<?>) {
+			for (ItemStack itemStack : event.getEntity().getArmorSlots()) {
+				if (itemStack.getItem() instanceof IcariaSkullItem) {
+					((PlayerModel<?>) event.getRenderer().getModel()).hat.visible = false;
+					((PlayerModel<?>) event.getRenderer().getModel()).head.visible = false;
+					return;
 				}
 			}
 		}

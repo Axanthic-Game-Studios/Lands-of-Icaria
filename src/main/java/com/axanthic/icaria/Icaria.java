@@ -2,14 +2,12 @@ package com.axanthic.icaria;
 
 import com.axanthic.icaria.client.proxy.ClientProxy;
 import com.axanthic.icaria.common.config.IcariaConfig;
-import com.axanthic.icaria.common.item.IcariaSkullItem;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
-import net.minecraft.client.model.PlayerModel;
-import net.minecraft.world.item.ItemStack;
-
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -98,6 +96,11 @@ public class Icaria {
 	}
 
 	@SubscribeEvent
+	public void onMobEffectApplicable(MobEffectEvent.Applicable event) {
+		proxy.onMobEffectApplicable(event);
+	}
+
+	@SubscribeEvent
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		proxy.onPlayerInteract(event);
 	}
@@ -122,21 +125,9 @@ public class Icaria {
 		proxy.onPlayerTick(event);
 	}
 
+	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
-	public void onPotionApplicable(MobEffectEvent.Applicable event) {
-		proxy.onPotionApplicable(event);
-	}
-
-	@SubscribeEvent
-	public static void onRenderLiving(RenderLivingEvent.Pre<?, ?> event) {
-		if (event.getRenderer().getModel() instanceof PlayerModel<?>) {
-			for (ItemStack itemStack : event.getEntity().getArmorSlots()) {
-				if (itemStack.getItem() instanceof IcariaSkullItem) {
-					((PlayerModel<?>) event.getRenderer().getModel()).head.visible = false;
-					((PlayerModel<?>) event.getRenderer().getModel()).hat.visible = false;
-					return;
-				}
-			}
-		}
+	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> event) {
+		proxy.onRenderLivingPre(event);
 	}
 }

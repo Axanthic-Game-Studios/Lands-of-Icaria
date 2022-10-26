@@ -30,6 +30,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -54,13 +55,6 @@ public class CommonProxy {
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
 		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
-	}
-
-	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
-		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
-		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
-		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
 	}
 
 	public void onFMLClientSetup(FMLClientSetupEvent event) {
@@ -90,6 +84,10 @@ public class CommonProxy {
 		event.enqueueWork(IcariaWoodTypes::setup);
 	}
 
+	public void onFMLLoadComplete() {
+
+	}
+
 	public void onGatherData(GatherDataEvent event) {
 		DataGenerator generator = event.getGenerator();
 		ExistingFileHelper helper = event.getExistingFileHelper();
@@ -107,8 +105,11 @@ public class CommonProxy {
 		generator.addProvider(event.includeServer(), new IcariaFluidTags(generator, helper));
 	}
 
-	public void onFMLLoadComplete() {
-
+	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
+		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
+		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
+		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
 	}
 
 	public void onEntityAttributeModification(EntityAttributeModificationEvent event) {
@@ -266,6 +267,31 @@ public class CommonProxy {
 		}
 	}
 
+	public void onMobEffectApplicable(MobEffectEvent.Applicable event) {
+		Entity entity = event.getEntity();
+		MobEffectInstance effect = event.getEffectInstance();
+		if (entity instanceof Player player) {
+			ItemStack mainHandItem = player.getMainHandItem();
+			ItemStack offhandItem = player.getOffhandItem();
+			TotemItem totem = IcariaItems.TOTEM_OF_UNBLINDING.get();
+			if (effect.getEffect().equals(MobEffects.BLINDNESS)) {
+				if (offhandItem.getItem().equals(totem)) {
+					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
+					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
+					player.awardStat(Stats.ITEM_USED.get(totem));
+					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+				}
+
+				if (mainHandItem.getItem().equals(totem)) {
+					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
+					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
+					player.awardStat(Stats.ITEM_USED.get(totem));
+					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+				}
+			}
+		}
+	}
+
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		Entity entity = event.getEntity();
 		if (entity instanceof Player player) {
@@ -391,28 +417,7 @@ public class CommonProxy {
 		}
 	}
 
-	public void onPotionApplicable(MobEffectEvent.Applicable event) {
-		Entity entity = event.getEntity();
-		MobEffectInstance effect = event.getEffectInstance();
-		if (entity instanceof Player player) {
-			ItemStack mainHandItem = player.getMainHandItem();
-			ItemStack offhandItem = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_UNBLINDING.get();
-			if (effect.getEffect().equals(MobEffects.BLINDNESS)) {
-				if (offhandItem.getItem().equals(totem)) {
-					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
-					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
-					player.awardStat(Stats.ITEM_USED.get(totem));
-					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
-				}
+	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> event) {
 
-				if (mainHandItem.getItem().equals(totem)) {
-					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
-					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
-					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
-				}
-			}
-		}
 	}
 }

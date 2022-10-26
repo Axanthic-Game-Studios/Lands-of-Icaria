@@ -74,8 +74,6 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 	public static final TagKey<Item> LEATHER_AETERNAE_HIDE = forgeTag("leather/aeternae_hide");
 
-	public static final TagKey<Item> SKULLS = forgeTag("skulls");
-
 	// ITEMBLOCK TAGS
 	public static final TagKey<Item> ORES_ROTTEN_BONES = forgeTag("ores/rotten_bones");
 	public static final TagKey<Item> ORES_CHERT = forgeTag("ores/chert");
@@ -370,9 +368,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.PHYSALIS_SEEDS.get())
 			.add(IcariaItems.ONION.get());
 
-		tag(SKULLS).add(IcariaItems.CERVER_SKULL.get());
-
-		tag(Tags.Items.HEADS).addTag(SKULLS);
+		tag(Tags.Items.HEADS).add(IcariaItems.CERVER_SKULL.get());
 
 		// ITEMBLOCK TAGS
 		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {

@@ -1,8 +1,8 @@
 package com.axanthic.icaria.mixin;
 
 import com.axanthic.icaria.client.renderer.IcariaSkullBlockRenderer;
+import com.axanthic.icaria.common.item.IcariaSkullItem;
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
-import com.axanthic.icaria.data.IcariaItemTags;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
@@ -16,9 +16,6 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.CustomHeadLayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.ZombieVillager;
-import net.minecraft.world.entity.npc.Villager;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -50,16 +47,12 @@ public class CustomHeadLayerMixin<T extends LivingEntity, M extends EntityModel<
             modelByType = IcariaSkullBlockRenderer.createSkullRenderers(modelSet);
         }
 
-        if (stack.getItem() instanceof BlockItem blockItem && stack.is(IcariaItemTags.SKULLS)) {
-            poseStack.scale(1.35F, -1.35F, -1.35F);
-
-            if (entity instanceof Villager || entity instanceof ZombieVillager) {
-                poseStack.translate(0.0D, 0.0625D, 0.0D);
-            }
+        if (stack.getItem() instanceof IcariaSkullItem skullItem) {
+            poseStack.scale(1.1875F, -1.1875F, -1.1875F);
 
             poseStack.translate(-0.5D, 0.0D, -0.5D);
 
-            IcariaSkullBlockRenderer.renderSkull(null, 180.0F, poseStack, bufferSource, packedLight, modelByType, blockItem.getBlock());
+            IcariaSkullBlockRenderer.renderSkull(null, 180.0F, poseStack, bufferSource, packedLight, modelByType, skullItem.getBlock());
 
             poseStack.popPose();
 
