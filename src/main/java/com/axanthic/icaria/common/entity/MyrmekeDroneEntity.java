@@ -94,13 +94,13 @@ public class MyrmekeDroneEntity extends Monster {
     public void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.4F));
-        this.goalSelector.addGoal(4, new MyrmekeDroneEntity.SpiderAttackGoal(this));
+        this.goalSelector.addGoal(4, new MyrmekeDroneAttackGoal(this));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 0.8D));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new MyrmekeDroneEntity.SpiderTargetGoal<>(this, Player.class));
-        this.targetSelector.addGoal(3, new MyrmekeDroneEntity.SpiderTargetGoal<>(this, IronGolem.class));
+        this.targetSelector.addGoal(2, new MyrmekeDroneTargetGoal<>(this, Player.class));
+        this.targetSelector.addGoal(3, new MyrmekeDroneTargetGoal<>(this, IronGolem.class));
     }
 
     public void setClimbing(boolean pClimbing) {
@@ -172,8 +172,8 @@ public class MyrmekeDroneEntity extends Monster {
         return pSpawnData;
     }
 
-    public static class SpiderAttackGoal extends MeleeAttackGoal {
-        public SpiderAttackGoal(MyrmekeDroneEntity pEntity) {
+    public static class MyrmekeDroneAttackGoal extends MeleeAttackGoal {
+        public MyrmekeDroneAttackGoal(MyrmekeDroneEntity pEntity) {
             super(pEntity, 1.0D, true);
         }
 
@@ -199,8 +199,8 @@ public class MyrmekeDroneEntity extends Monster {
         }
     }
 
-    public static class SpiderTargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
-        public SpiderTargetGoal(MyrmekeDroneEntity pEntity, Class<T> pTarget) {
+    public static class MyrmekeDroneTargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
+        public MyrmekeDroneTargetGoal(MyrmekeDroneEntity pEntity, Class<T> pTarget) {
             super(pEntity, pTarget, true);
         }
 
