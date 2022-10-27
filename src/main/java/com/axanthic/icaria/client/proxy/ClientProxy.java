@@ -1,13 +1,11 @@
 package com.axanthic.icaria.client.proxy;
 
-import com.axanthic.icaria.client.model.CerverHeadModel;
-import com.axanthic.icaria.client.model.CerverModel;
-import com.axanthic.icaria.client.model.MyrmekeDroneModel;
-import com.axanthic.icaria.client.model.OrichalcumHelmetModel;
+import com.axanthic.icaria.client.model.*;
 import com.axanthic.icaria.client.renderer.*;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.entity.CerverEntity;
 import com.axanthic.icaria.common.entity.MyrmekeDroneEntity;
+import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.IcariaSkullItem;
 import com.axanthic.icaria.common.item.TotemItem;
@@ -71,6 +69,7 @@ public class ClientProxy extends CommonProxy {
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
 		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
+		event.put(IcariaEntities.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
 	}
 
 	@Override
@@ -356,6 +355,7 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntities.CERVER.get(), CerverRenderer::new);
 		EntityRenderers.register(IcariaEntities.GREEK_FIRE_GRENADE.get(), GreekFireGrenadeRenderer::new);
 		EntityRenderers.register(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneRenderer::new);
+		EntityRenderers.register(IcariaEntities.MYRMEKE_QUEEN.get(), MyrmekeQueenRenderer::new);
 
 		// BLOCK ENTITY RENDERERS
 		BlockEntityRenderers.register(IcariaBlockEntities.CRYSTAL.get(), CrystalBlockRenderer::new);
@@ -386,6 +386,7 @@ public class ClientProxy extends CommonProxy {
 		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
 		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
 		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
+		event.registerLayerDefinition(MyrmekeQueenModel.LAYER_LOCATION, MyrmekeQueenModel::createLayer);
 		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
 	}
 
