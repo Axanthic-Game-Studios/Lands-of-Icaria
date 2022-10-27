@@ -5,6 +5,7 @@ import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.entity.CerverEntity;
 import com.axanthic.icaria.common.entity.MyrmekeDroneEntity;
 import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
+import com.axanthic.icaria.common.entity.MyrmekeSoldierEntity;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.TotemItem;
 import com.axanthic.icaria.common.registry.*;
@@ -54,6 +55,7 @@ public class CommonProxy {
 		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
+		event.put(IcariaEntities.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
 	}
 
 	public void onFMLClientSetup(FMLClientSetupEvent event) {
@@ -109,6 +111,7 @@ public class CommonProxy {
 		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
 		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
 		event.registerLayerDefinition(MyrmekeQueenModel.LAYER_LOCATION, MyrmekeQueenModel::createLayer);
+		event.registerLayerDefinition(MyrmekeSoldierModel.LAYER_LOCATION, MyrmekeSoldierModel::createLayer);
 		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
 	}
 
