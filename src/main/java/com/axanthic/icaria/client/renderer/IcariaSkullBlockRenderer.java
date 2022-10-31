@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.client.model.ArganHoundHeadModel;
 import com.axanthic.icaria.client.model.CerverHeadModel;
-
 import com.axanthic.icaria.common.block.IcariaAbstractSkullBlock;
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
@@ -42,6 +42,7 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
     public Map<IcariaSkullBlockType, SkullModel> modelByType;
 
     public static Map<IcariaSkullBlockType, ResourceLocation> SKIN_BY_TYPE = Util.make(Maps.newHashMap(), (map) -> {
+        map.put(IcariaSkullBlockTypes.ARGAN_HOUND, new ResourceLocation(IcariaInfo.MODID, "textures/entity/argan_hound.png"));
         map.put(IcariaSkullBlockTypes.CERVER, new ResourceLocation(IcariaInfo.MODID, "textures/entity/cerver.png"));
     });
 
@@ -86,6 +87,7 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
     public static Map<IcariaSkullBlockType, SkullModel> createSkullRenderers(EntityModelSet pSet) {
         ImmutableMap.Builder<IcariaSkullBlockType, SkullModel> builder = ImmutableMap.builder();
 
+        builder.put(IcariaSkullBlockTypes.ARGAN_HOUND, new ArganHoundHeadModel(pSet.bakeLayer(ArganHoundHeadModel.LAYER_LOCATION)));
         builder.put(IcariaSkullBlockTypes.CERVER, new CerverHeadModel(pSet.bakeLayer(CerverHeadModel.LAYER_LOCATION)));
 
         return builder.build();

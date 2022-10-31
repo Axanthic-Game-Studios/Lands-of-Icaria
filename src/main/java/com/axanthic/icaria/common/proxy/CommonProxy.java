@@ -2,10 +2,7 @@ package com.axanthic.icaria.common.proxy;
 
 import com.axanthic.icaria.client.model.*;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
-import com.axanthic.icaria.common.entity.CerverEntity;
-import com.axanthic.icaria.common.entity.MyrmekeDroneEntity;
-import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
-import com.axanthic.icaria.common.entity.MyrmekeSoldierEntity;
+import com.axanthic.icaria.common.entity.*;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.TotemItem;
 import com.axanthic.icaria.common.registry.*;
@@ -52,6 +49,7 @@ public class CommonProxy {
 	}
 
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
+		event.put(IcariaEntities.ARGAN_HOUND.get(), ArganHoundEntity.registerAttributes().build());
 		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
@@ -107,6 +105,8 @@ public class CommonProxy {
 	}
 
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(ArganHoundModel.LAYER_LOCATION, ArganHoundModel::createLayer);
+		event.registerLayerDefinition(ArganHoundHeadModel.LAYER_LOCATION, ArganHoundHeadModel::createLayer);
 		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
 		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
 		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);

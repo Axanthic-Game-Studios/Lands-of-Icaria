@@ -368,7 +368,9 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.PHYSALIS_SEEDS.get())
 			.add(IcariaItems.ONION.get());
 
-		tag(Tags.Items.HEADS).add(IcariaItems.CERVER_SKULL.get());
+		tag(Tags.Items.HEADS)
+			.add(IcariaItems.ARGAN_HOUND_SKULL.get())
+			.add(IcariaItems.CERVER_SKULL.get());
 
 		// ITEMBLOCK TAGS
 		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {

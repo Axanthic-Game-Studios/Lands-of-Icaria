@@ -3,10 +3,7 @@ package com.axanthic.icaria.client.proxy;
 import com.axanthic.icaria.client.model.*;
 import com.axanthic.icaria.client.renderer.*;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
-import com.axanthic.icaria.common.entity.CerverEntity;
-import com.axanthic.icaria.common.entity.MyrmekeDroneEntity;
-import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
-import com.axanthic.icaria.common.entity.MyrmekeSoldierEntity;
+import com.axanthic.icaria.common.entity.*;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.IcariaSkullItem;
 import com.axanthic.icaria.common.item.TotemItem;
@@ -68,6 +65,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
+		event.put(IcariaEntities.ARGAN_HOUND.get(), ArganHoundEntity.registerAttributes().build());
 		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
@@ -353,6 +351,7 @@ public class ClientProxy extends CommonProxy {
 		renderTranslucent(IcariaFluids.UPWARDS_FLUID_FLOWING.get());
 
 		// ENTITY RENDERERS
+		EntityRenderers.register(IcariaEntities.ARGAN_HOUND.get(), ArganHoundRenderer::new);
 		EntityRenderers.register(IcariaEntities.BIDENT.get(), BidentRenderer::new);
 		EntityRenderers.register(IcariaEntities.CERVER.get(), CerverRenderer::new);
 		EntityRenderers.register(IcariaEntities.GREEK_FIRE_GRENADE.get(), GreekFireGrenadeRenderer::new);
@@ -386,6 +385,8 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(ArganHoundModel.LAYER_LOCATION, ArganHoundModel::createLayer);
+		event.registerLayerDefinition(ArganHoundHeadModel.LAYER_LOCATION, ArganHoundHeadModel::createLayer);
 		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
 		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
 		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
