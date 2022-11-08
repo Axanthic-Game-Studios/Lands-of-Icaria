@@ -6,7 +6,7 @@ import com.axanthic.icaria.common.block.IcariaAbstractSkullBlock;
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
 import com.axanthic.icaria.common.block.IcariaWallSkullBlock;
-import com.axanthic.icaria.common.blockentity.IcariaSkullBlockEntity;
+import com.axanthic.icaria.common.entity.IcariaSkullBlockEntity;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import com.google.common.collect.ImmutableMap;

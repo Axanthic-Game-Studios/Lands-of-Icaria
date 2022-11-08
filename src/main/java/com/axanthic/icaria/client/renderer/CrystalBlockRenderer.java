@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
-import com.axanthic.icaria.common.blockentity.CrystalBlockEntity;
+import com.axanthic.icaria.common.entity.CrystalBlockEntity;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.vertex.*;
@@ -12,11 +12,10 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.util.RandomSource;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-
-import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -39,14 +38,14 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 
 			Matrix4f matrix4f = pPoseStack.last().pose();
 
-			Random random = new Random(432L);
+			RandomSource randomSource = RandomSource.create(432L);
 
 			double x = pBlockEntity.x;
 			double y = pBlockEntity.y;
 			double z = pBlockEntity.z;
 
-			float length = random.nextFloat() * 2.0F + 1.25F;
-			float width = random.nextFloat() *  0.5F + 0.25F;
+			float length = randomSource.nextFloat() * 2.0F + 1.25F;
+			float width = randomSource.nextFloat() * 0.5F + 0.25F;
 			float fade = Math.min(0.0F, 1.0F);
 
 			int alpha = (int)(16.0F * (1.0F - fade));
@@ -59,12 +58,9 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 			pPoseStack.translate(x, y, z);
 
 			for (int i = 0; (float)i < 96; ++i) {
-				pPoseStack.mulPose(Vector3f.XP.rotationDegrees(random.nextFloat() * 360.0F));
-				pPoseStack.mulPose(Vector3f.YP.rotationDegrees(random.nextFloat() * 360.0F));
-				pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(random.nextFloat() * 360.0F));
-				pPoseStack.mulPose(Vector3f.XP.rotationDegrees(random.nextFloat() * 360.0F));
-				pPoseStack.mulPose(Vector3f.YP.rotationDegrees(random.nextFloat() * 360.0F));
-				pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(random.nextFloat() * 360.0F));
+				pPoseStack.mulPose(Vector3f.XP.rotationDegrees(randomSource.nextFloat() * 360.0F));
+				pPoseStack.mulPose(Vector3f.YP.rotationDegrees(randomSource.nextFloat() * 360.0F));
+				pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(randomSource.nextFloat() * 360.0F));
 
 				vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
 				vertexB(vertexConsumer, matrix4f, length, width);

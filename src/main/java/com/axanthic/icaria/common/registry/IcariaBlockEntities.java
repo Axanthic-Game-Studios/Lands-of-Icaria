@@ -1,9 +1,9 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.blockentity.CrystalBlockEntity;
-import com.axanthic.icaria.common.blockentity.IcariaSignBlockEntity;
-import com.axanthic.icaria.common.blockentity.IcariaSkullBlockEntity;
-import com.axanthic.icaria.common.blockentity.StorageVaseBlockEntity;
+import com.axanthic.icaria.common.entity.CrystalBlockEntity;
+import com.axanthic.icaria.common.entity.IcariaSignBlockEntity;
+import com.axanthic.icaria.common.entity.IcariaSkullBlockEntity;
+import com.axanthic.icaria.common.entity.StorageVaseBlockEntity;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.world.level.block.entity.BlockEntityType;

@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.blockentity.IcariaSkullBlockEntity;
+import com.axanthic.icaria.common.entity.IcariaSkullBlockEntity;
 
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 import net.minecraft.core.BlockPos;
