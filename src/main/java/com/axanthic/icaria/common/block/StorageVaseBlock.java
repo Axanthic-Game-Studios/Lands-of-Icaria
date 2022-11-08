@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.menu.StorageVaseMenu;
-import com.axanthic.icaria.common.blockentity.StorageVaseBlockEntity;
+import com.axanthic.icaria.common.entity.StorageVaseBlockEntity;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
