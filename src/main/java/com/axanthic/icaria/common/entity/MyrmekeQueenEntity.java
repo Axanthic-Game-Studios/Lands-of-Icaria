@@ -2,17 +2,12 @@ package com.axanthic.icaria.common.entity;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -20,24 +15,19 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
-import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.Event;
 
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("deprecation")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -93,14 +83,10 @@ public class MyrmekeQueenEntity extends Monster {
     @Override
     public void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.4F));
-        this.goalSelector.addGoal(4, new MyrmekeQueenAttackGoal(this));
-        this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 0.8D));
-        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new MyrmekeQueenTargetGoal<>(this, Player.class));
-        this.targetSelector.addGoal(3, new MyrmekeQueenTargetGoal<>(this, IronGolem.class));
+        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 0.8D));
+        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
+        this.targetSelector.addGoal(1, (new MyrmekeQueenHurtByTargetGoal(this)).setAlertOthers());
     }
 
     public void setClimbing(boolean pClimbing) {
@@ -151,79 +137,15 @@ public class MyrmekeQueenEntity extends Monster {
         return SoundEvents.SPIDER_HURT;
     }
 
-    @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pSpawnType, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pTag) {
-        pSpawnData = super.finalizeSpawn(pLevel, pDifficulty, pSpawnType, pSpawnData, pTag);
-        RandomSource randomSource = pLevel.getRandom();
-        if (pSpawnData == null) {
-            pSpawnData = new MyrmekeQueenEffectsGroupData();
-            if (pLevel.getDifficulty() == Difficulty.HARD && randomSource.nextFloat() < 0.1F * pDifficulty.getSpecialMultiplier()) {
-                ((MyrmekeQueenEffectsGroupData)pSpawnData).setRandomEffect(randomSource);
-            }
-        }
-
-        if (pSpawnData instanceof MyrmekeQueenEffectsGroupData) {
-            MobEffect mobEffect = ((MyrmekeQueenEffectsGroupData)pSpawnData).mobEffect;
-            if (mobEffect != null) {
-                this.addEffect(new MobEffectInstance(mobEffect, Integer.MAX_VALUE));
-            }
-        }
-
-        return pSpawnData;
-    }
-
-    public static class MyrmekeQueenAttackGoal extends MeleeAttackGoal {
-        public MyrmekeQueenAttackGoal(MyrmekeQueenEntity pEntity) {
-            super(pEntity, 1.0D, true);
+    public static class MyrmekeQueenHurtByTargetGoal extends HurtByTargetGoal {
+        MyrmekeQueenHurtByTargetGoal(MyrmekeQueenEntity pEntity) {
+            super(pEntity);
         }
 
         @Override
-        public boolean canUse() {
-            return super.canUse() && !this.mob.isVehicle();
-        }
-
-        @Override
-        public boolean canContinueToUse() {
-            float f = this.mob.getLightLevelDependentMagicValue();
-            if (f >= 0.5F && this.mob.getRandom().nextInt(100) == 0) {
-                this.mob.setTarget(null);
-                return false;
-            } else {
-                return super.canContinueToUse();
-            }
-        }
-
-        @Override
-        public double getAttackReachSqr(LivingEntity pEntity) {
-            return 4.0F + pEntity.getBbWidth();
-        }
-    }
-
-    public static class MyrmekeQueenTargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
-        public MyrmekeQueenTargetGoal(MyrmekeQueenEntity pEntity, Class<T> pTarget) {
-            super(pEntity, pTarget, true);
-        }
-
-        @Override
-        public boolean canUse() {
-            float f = this.mob.getLightLevelDependentMagicValue();
-            return f >= 0.5F ? false : super.canUse();
-        }
-    }
-
-    public static class MyrmekeQueenEffectsGroupData implements SpawnGroupData {
-        public MobEffect mobEffect;
-
-        public void setRandomEffect(RandomSource pRandomSource) {
-            int i = pRandomSource.nextInt(5);
-            if (i <= 1) {
-                this.mobEffect = MobEffects.MOVEMENT_SPEED;
-            } else if (i <= 2) {
-                this.mobEffect = MobEffects.DAMAGE_BOOST;
-            } else if (i <= 3) {
-                this.mobEffect = MobEffects.REGENERATION;
-            } else if (i <= 4) {
-                this.mobEffect = MobEffects.INVISIBILITY;
+        public void alertOther(Mob pMob, LivingEntity pEntity) {
+            if (pMob instanceof MyrmekeDroneEntity) {
+                pMob.setTarget(pEntity);
             }
         }
     }
