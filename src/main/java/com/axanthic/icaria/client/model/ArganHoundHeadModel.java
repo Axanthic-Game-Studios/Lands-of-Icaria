@@ -30,8 +30,8 @@ public class ArganHoundHeadModel extends SkullModel {
 
     @Override
     public void setupAnim(float x, float y, float z) {
-        this.head.yRot = y * ((float)Math.PI / 180F);
         this.head.xRot = z * ((float)Math.PI / 180F);
+        this.head.yRot = y * ((float)Math.PI / 180F);
     }
 
     @Override

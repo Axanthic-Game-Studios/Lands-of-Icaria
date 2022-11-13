@@ -35,13 +35,13 @@ public class ArganHoundModel extends EntityModel<ArganHoundEntity> {
     public ModelPart fang_right;
     public ModelPart fang_left;
     public ModelPart hair_front;
-    public ModelPart hair_middle;
+    public ModelPart hair_center;
     public ModelPart hair_rear;
     public ModelPart thigh_right_front;
     public ModelPart thigh_left_front;
     public ModelPart leg_right_front;
     public ModelPart leg_left_front;
-    public ModelPart body_back;
+    public ModelPart body_rear;
     public ModelPart tail;
     public ModelPart upper_thigh_right_rear;
     public ModelPart upper_thigh_left_rear;
@@ -61,18 +61,18 @@ public class ArganHoundModel extends EntityModel<ArganHoundEntity> {
         this.fang_right = this.nose.getChild("fang_right");
         this.fang_left = this.nose.getChild("fang_left");
         this.hair_front = this.body_front.getChild("hair_front");
-        this.hair_middle = this.hair_front.getChild("hair_middle");
-        this.hair_rear = this.hair_middle.getChild("hair_rear");
+        this.hair_center = this.hair_front.getChild("hair_center");
+        this.hair_rear = this.hair_center.getChild("hair_rear");
         this.thigh_right_front = this.body_front.getChild("thigh_right_front");
         this.thigh_left_front = this.body_front.getChild("thigh_left_front");
         this.leg_right_front = this.thigh_right_front.getChild("leg_right_front");
         this.leg_left_front = this.thigh_left_front.getChild("leg_left_front");
-        this.body_back = this.body_front.getChild("body_back");
-        this.tail = this.body_back.getChild("tail");
-        this.upper_thigh_right_rear = this.body_back.getChild("upper_thigh_right_rear");
-        this.upper_thigh_left_rear = this.body_back.getChild("upper_thigh_left_rear");
-        this.lower_thigh_right_rear = this.body_back.getChild("lower_thigh_right_rear");
-        this.lower_thigh_left_rear = this.body_back.getChild("lower_thigh_left_rear");
+        this.body_rear = this.body_front.getChild("body_rear");
+        this.tail = this.body_rear.getChild("tail");
+        this.upper_thigh_right_rear = this.body_rear.getChild("upper_thigh_right_rear");
+        this.upper_thigh_left_rear = this.body_rear.getChild("upper_thigh_left_rear");
+        this.lower_thigh_right_rear = this.body_rear.getChild("lower_thigh_right_rear");
+        this.lower_thigh_left_rear = this.body_rear.getChild("lower_thigh_left_rear");
         this.leg_right_rear = this.lower_thigh_right_rear.getChild("leg_right_rear");
         this.leg_left_rear = this.lower_thigh_left_rear.getChild("leg_left_rear");
     }
@@ -91,18 +91,18 @@ public class ArganHoundModel extends EntityModel<ArganHoundEntity> {
         nose.addOrReplaceChild("fang_right", CubeListBuilder.create().texOffs(37, 0).addBox(-0.5F, 0.0F, -2.0F, 1.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.1F, 0.5F, -3.0F, 0.7853981633974483F, 0.0F, 0.0F));
         nose.addOrReplaceChild("fang_left", CubeListBuilder.create().texOffs(38, 9).addBox(-0.5F, 0.0F, -2.0F, 1.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.1F, 0.5F, -3.0F, 0.7853981633974483F, 0.0F, 0.0F));
         PartDefinition hair_front = body_front.addOrReplaceChild("hair_front", CubeListBuilder.create().texOffs(0, 20).addBox(-1.51F, 0.0F, -9.0F, 3.0F, 2.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -1.7F, -4.0F, 0.136659280431156F, 0.0F, 0.0F));
-        PartDefinition hair_middle = hair_front.addOrReplaceChild("hair_middle", CubeListBuilder.create().texOffs(15, 20).addBox(-1.49F, 0.0F, 0.0F, 3.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.39269908169872414F, 0.0F, 0.0F));
-        hair_middle.addOrReplaceChild("hair_rear", CubeListBuilder.create().texOffs(51, 28).addBox(-1.52F, 0.0F, 0.0F, 3.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 5.0F, -0.39269908169872414F, 0.0F, 0.0F));
+        PartDefinition hair_center = hair_front.addOrReplaceChild("hair_center", CubeListBuilder.create().texOffs(15, 20).addBox(-1.49F, 0.0F, 0.0F, 3.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.39269908169872414F, 0.0F, 0.0F));
+        hair_center.addOrReplaceChild("hair_rear", CubeListBuilder.create().texOffs(51, 28).addBox(-1.52F, 0.0F, 0.0F, 3.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 5.0F, -0.39269908169872414F, 0.0F, 0.0F));
         PartDefinition thigh_right_front = body_front.addOrReplaceChild("thigh_right_front", CubeListBuilder.create().texOffs(27, 0).addBox(-1.5F, -3.0F, -3.0F, 3.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.0F, 6.5F, -8.3F, 0.091106186954104F, 0.0F, 0.0F));
         PartDefinition thigh_left_front = body_front.addOrReplaceChild("thigh_left_front", CubeListBuilder.create().texOffs(41, 0).addBox(-1.5F, -3.0F, -3.0F, 3.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, 6.5F, -8.3F, 0.091106186954104F, 0.0F, 0.0F));
         thigh_right_front.addOrReplaceChild("leg_right_front", CubeListBuilder.create().texOffs(52, 10).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.0F, -1.0F, -0.36425021489121656F, 0.0F, 0.0F));
         thigh_left_front.addOrReplaceChild("leg_left_front", CubeListBuilder.create().texOffs(37, 28).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.0F, -1.0F, -0.36425021489121656F, 0.0F, 0.0F));
-        PartDefinition body_back = body_front.addOrReplaceChild("body_back", CubeListBuilder.create().texOffs(31, 13).addBox(-3.5F, 0.0F, 0.0F, 7.0F, 8.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, -1.0F, -0.27314402793711257F, 0.0F, 0.0F));
-        body_back.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(37, 28).addBox(-1.0F, 0.0F, 0.0F, 2.0F, 2.0F, 10.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.1F, 0.5F, 6.0F, -0.27314402793711257F, 0.0F, 0.0F));
-        body_back.addOrReplaceChild("upper_thigh_right_rear", CubeListBuilder.create().texOffs(36, 40).addBox(-0.5F, -3.0F, -3.0F, 1.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.0F, 3.7F, 2.6F, 1.0471975511965976F, 0.0F, 0.0F));
-        body_back.addOrReplaceChild("upper_thigh_left_rear", CubeListBuilder.create().texOffs(24, 39).addBox(-0.5F, -3.0F, -3.0F, 1.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, 3.7F, 2.6F, 1.0471975511965976F, 0.0F, 0.0F));
-        PartDefinition lower_thigh_right_rear = body_back.addOrReplaceChild("lower_thigh_right_rear", CubeListBuilder.create().texOffs(0, 31).addBox(-1.5F, -3.0F, -3.0F, 3.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.5F, 6.5F, 5.5F, 0.091106186954104F, 0.0F, 0.0F));
-        PartDefinition lower_thigh_left_rear = body_back.addOrReplaceChild("lower_thigh_left_rear", CubeListBuilder.create().texOffs(10, 39).addBox(-1.5F, -3.0F, -3.0F, 3.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.5F, 6.5F, 5.5F, 0.091106186954104F, 0.0F, 0.0F));
+        PartDefinition body_rear = body_front.addOrReplaceChild("body_rear", CubeListBuilder.create().texOffs(31, 13).addBox(-3.5F, 0.0F, 0.0F, 7.0F, 8.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, -1.0F, -0.27314402793711257F, 0.0F, 0.0F));
+        body_rear.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(37, 28).addBox(-1.0F, 0.0F, 0.0F, 2.0F, 2.0F, 10.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.1F, 0.5F, 6.0F, -0.27314402793711257F, 0.0F, 0.0F));
+        body_rear.addOrReplaceChild("upper_thigh_right_rear", CubeListBuilder.create().texOffs(36, 40).addBox(-0.5F, -3.0F, -3.0F, 1.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.0F, 3.7F, 2.6F, 1.0471975511965976F, 0.0F, 0.0F));
+        body_rear.addOrReplaceChild("upper_thigh_left_rear", CubeListBuilder.create().texOffs(24, 39).addBox(-0.5F, -3.0F, -3.0F, 1.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, 3.7F, 2.6F, 1.0471975511965976F, 0.0F, 0.0F));
+        PartDefinition lower_thigh_right_rear = body_rear.addOrReplaceChild("lower_thigh_right_rear", CubeListBuilder.create().texOffs(0, 31).addBox(-1.5F, -3.0F, -3.0F, 3.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.5F, 6.5F, 5.5F, 0.091106186954104F, 0.0F, 0.0F));
+        PartDefinition lower_thigh_left_rear = body_rear.addOrReplaceChild("lower_thigh_left_rear", CubeListBuilder.create().texOffs(10, 39).addBox(-1.5F, -3.0F, -3.0F, 3.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.5F, 6.5F, 5.5F, 0.091106186954104F, 0.0F, 0.0F));
         lower_thigh_right_rear.addOrReplaceChild("leg_right_rear", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.0F, -1.0F, 0.27314402793711257F, 0.0F, 0.0F));
         lower_thigh_left_rear.addOrReplaceChild("leg_left_rear", CubeListBuilder.create().texOffs(55, 0).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.0F, -1.0F, 0.27314402793711257F, 0.0F, 0.0F));
 
@@ -130,12 +130,12 @@ public class ArganHoundModel extends EntityModel<ArganHoundEntity> {
         pLimbSwing *= 1.2F;
 
         this.thigh_right_front.xRot = -Mth.cos(pLimbSwing * 0.5F) * 0.6F * pLimbSwingAmount + 0.091106186954104F;
-        this.thigh_left_front.xRot = -Mth.cos(pLimbSwing * 0.5F + (float) Math.PI) * 0.6F * pLimbSwingAmount + 0.091106186954104F;
         this.leg_right_front.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing)) * 0.5F) * kneebend * pLimbSwingAmount - kneebend * pLimbSwingAmount - 0.36425021489121656F;
+        this.thigh_left_front.xRot = -Mth.cos(pLimbSwing * 0.5F + (float) Math.PI) * 0.6F * pLimbSwingAmount + 0.091106186954104F;
         this.leg_left_front.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + (float) Math.PI * 0.5F)) * 0.5F + (float) Math.PI) * kneebend * pLimbSwingAmount - kneebend * pLimbSwingAmount - 0.36425021489121656F;
         this.lower_thigh_right_rear.xRot = Mth.cos(pLimbSwing * 0.5F + (float) Math.PI * 1.5F) * 1.2F * pLimbSwingAmount - 0.091106186954104F;
-        this.lower_thigh_left_rear.xRot = Mth.cos(pLimbSwing * 0.5F + (float) Math.PI * 0.5F) * 1.2F * pLimbSwingAmount - 0.091106186954104F;
         this.leg_right_rear.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + (float) Math.PI * 0.75F)) * 0.5F + (float) Math.PI * 1.5F) * kneebend * pLimbSwingAmount + kneebend * pLimbSwingAmount + 0.27314402793711257F;
+        this.lower_thigh_left_rear.xRot = Mth.cos(pLimbSwing * 0.5F + (float) Math.PI * 0.5F) * 1.2F * pLimbSwingAmount - 0.091106186954104F;
         this.leg_left_rear.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + (float) Math.PI * 0.25F)) * 0.5F + (float) Math.PI * 0.5F) * kneebend * pLimbSwingAmount + kneebend * pLimbSwingAmount + 0.27314402793711257F;
     }
 }
