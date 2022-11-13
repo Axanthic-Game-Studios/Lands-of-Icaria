@@ -60,11 +60,6 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     @Override
-    public double getPassengersRidingOffset() {
-        return this.getBbHeight() * 0.5F;
-    }
-
-    @Override
     public float getEyeHeight(Pose pPose) {
         return 0.25F;
     }
@@ -77,14 +72,14 @@ public class MyrmekeQueenEntity extends Monster {
 
     @Override
     public void playStepSound(BlockPos pPos, BlockState pState) {
-        this.playSound(SoundEvents.SPIDER_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.SPIDER_STEP, 0.1F, 1.0F);
     }
 
     @Override
     public void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 0.8D));
-        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
+        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, (new MyrmekeQueenHurtByTargetGoal(this)).setAlertOthers());
     }
@@ -109,7 +104,7 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
-        return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.3D);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
     @Override

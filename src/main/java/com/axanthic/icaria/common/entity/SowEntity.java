@@ -35,13 +35,8 @@ public class SowEntity extends Animal {
     }
 
     @Override
-    public double getPassengersRidingOffset() {
-        return this.getBbHeight() * 0.5F;
-    }
-
-    @Override
     public float getEyeHeight(Pose pPose) {
-        return this.isBaby() ? 0.4F : 0.6F;
+        return this.isBaby() ? 0.25F : 0.5F;
     }
 
     @Override
@@ -62,25 +57,25 @@ public class SowEntity extends Animal {
 
     @Override
     public void playStepSound(BlockPos pPos, BlockState pState) {
-        this.playSound(SoundEvents.PIG_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.PIG_STEP, 0.1F, 1.0F);
     }
 
     @Override
     public void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new SowPanicGoal(this, 2.0D));
+        this.goalSelector.addGoal(2, new SowPanicGoal(this, 1.5D));
         this.goalSelector.addGoal(3, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.WHEAT), false));
-        this.goalSelector.addGoal(5, new FollowParentGoal(this, 1.1D));
-        this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, (new SowHurtByOtherGoal(this)).setAlertOthers());
+        this.goalSelector.addGoal(5, new TemptGoal(this, 1.0D, Ingredient.of(Items.WHEAT), true));
+        this.goalSelector.addGoal(6, new FollowParentGoal(this, 1.0D));
+        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
+        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 5.0F, 0.025F, false));
+        this.goalSelector.addGoal(9, new RandomLookAroundGoal(this));
+        this.targetSelector.addGoal(1, (new SowHurtByOtherGoal(this, 1.5D)).setAlertOthers());
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
-        return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.MOVEMENT_SPEED, 0.2D);
+        return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
     @Override
@@ -115,8 +110,11 @@ public class SowEntity extends Animal {
     }
 
     public static class SowHurtByOtherGoal extends HurtByTargetGoal {
-        SowHurtByOtherGoal(SowEntity pMob) {
+        public double speedModifier;
+
+        SowHurtByOtherGoal(SowEntity pMob, double pSpeedModifier) {
             super(pMob);
+            this.speedModifier = pSpeedModifier;
         }
 
         @Override
@@ -124,7 +122,7 @@ public class SowEntity extends Animal {
             if (pMob instanceof SowEntity) {
                 double randomSource = RandomSource.create().nextInt(8, 16);
 
-                pMob.getNavigation().moveTo(pEntity.getX() + randomSource, 0.0D, pEntity.getX() + randomSource, 2.0D);
+                pMob.getNavigation().moveTo(pEntity.getX() + randomSource, 0.0D, pEntity.getX() + randomSource, speedModifier);
             }
         }
     }
