@@ -70,6 +70,7 @@ public class ClientProxy extends CommonProxy {
 		event.put(IcariaEntities.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
+		event.put(IcariaEntities.SOW.get(), SowEntity.registerAttributes().build());
 	}
 
 	@Override
@@ -358,6 +359,7 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntities.MYRMEKE_SOLDIER.get(), MyrmekeSoldierRenderer::new);
 		EntityRenderers.register(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneRenderer::new);
 		EntityRenderers.register(IcariaEntities.MYRMEKE_QUEEN.get(), MyrmekeQueenRenderer::new);
+		EntityRenderers.register(IcariaEntities.SOW.get(), SowRenderer::new);
 
 		// BLOCK ENTITY RENDERERS
 		BlockEntityRenderers.register(IcariaBlockEntities.CRYSTAL.get(), CrystalBlockRenderer::new);
@@ -393,6 +395,8 @@ public class ClientProxy extends CommonProxy {
 		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
 		event.registerLayerDefinition(MyrmekeQueenModel.LAYER_LOCATION, MyrmekeQueenModel::createLayer);
 		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
+		event.registerLayerDefinition(SowModel.LAYER_LOCATION, SowModel::createLayer);
+		event.registerLayerDefinition(SowHeadModel.LAYER_LOCATION, SowHeadModel::createLayer);
 	}
 
 	@Override

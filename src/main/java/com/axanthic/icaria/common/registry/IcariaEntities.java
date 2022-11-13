@@ -22,6 +22,7 @@ public class IcariaEntities {
 	public static final RegistryObject<EntityType<MyrmekeSoldierEntity>> MYRMEKE_SOLDIER = register("myrmeke_soldier", Builder.of(MyrmekeSoldierEntity::new, MobCategory.CREATURE).sized(1.0F, 0.5F));
 	public static final RegistryObject<EntityType<MyrmekeDroneEntity>> MYRMEKE_DRONE = register("myrmeke_drone", Builder.of(MyrmekeDroneEntity::new, MobCategory.CREATURE).sized(1.0F, 0.5F));
 	public static final RegistryObject<EntityType<MyrmekeQueenEntity>> MYRMEKE_QUEEN = register("myrmeke_queen", Builder.of(MyrmekeQueenEntity::new, MobCategory.CREATURE).sized(1.0F, 0.5F));
+	public static final RegistryObject<EntityType<SowEntity>> SOW = register("sow", Builder.of(SowEntity::new, MobCategory.CREATURE).sized(0.8F, 0.8F));
 
 	public static <T extends Entity> RegistryObject<EntityType<T>> register(String name, Builder<T> builder) {
 		return ENTITY_TYPES.register(name, () -> builder.build(IcariaInfo.MODID + ":" + name));

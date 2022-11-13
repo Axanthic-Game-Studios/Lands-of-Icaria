@@ -370,7 +370,8 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 		tag(Tags.Items.HEADS)
 			.add(IcariaItems.ARGAN_HOUND_SKULL.get())
-			.add(IcariaItems.CERVER_SKULL.get());
+			.add(IcariaItems.CERVER_SKULL.get())
+			.add(IcariaItems.SOW_SKULL.get());
 
 		// ITEMBLOCK TAGS
 		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {

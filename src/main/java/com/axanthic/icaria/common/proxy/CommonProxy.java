@@ -54,6 +54,7 @@ public class CommonProxy {
 		event.put(IcariaEntities.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
+		event.put(IcariaEntities.SOW.get(), SowEntity.registerAttributes().build());
 	}
 
 	public void onFMLClientSetup(FMLClientSetupEvent event) {
@@ -113,6 +114,8 @@ public class CommonProxy {
 		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
 		event.registerLayerDefinition(MyrmekeQueenModel.LAYER_LOCATION, MyrmekeQueenModel::createLayer);
 		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
+		event.registerLayerDefinition(SowModel.LAYER_LOCATION, SowModel::createLayer);
+		event.registerLayerDefinition(SowHeadModel.LAYER_LOCATION, SowHeadModel::createLayer);
 	}
 
 	public void onEntityAttributeModification(EntityAttributeModificationEvent event) {

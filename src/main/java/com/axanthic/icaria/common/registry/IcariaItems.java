@@ -489,6 +489,7 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> ARGAN_HOUND_SKULL = register("argan_hound_skull", () -> new IcariaSkullItem(IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> CERVER_SKULL = register("cerver_skull", () -> new IcariaSkullItem(IcariaBlocks.CERVER_SKULL.get(), IcariaBlocks.CERVER_WALL_SKULL.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> SOW_SKULL = register("sow_skull", () -> new IcariaSkullItem(IcariaBlocks.SOW_SKULL.get(), IcariaBlocks.SOW_WALL_SKULL.get(), propertiesBlocks()));
 
 	public static final RegistryObject<Item> REMAINS = registerBasic("remains", () -> new Item(propertiesItems()));
 	public static final RegistryObject<Item> LOAM_LUMP = registerBasic("loam_lump", () -> new Item(propertiesItems()));
@@ -623,6 +624,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MYRMEKE_SOLDIER_SPAWN_EGG = register("myrmeke_soldier_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.MYRMEKE_SOLDIER, 0x472317, 0x26120C, propertiesItems()));
 	public static final RegistryObject<Item> MYRMEKE_DRONE_SPAWN_EGG = register("myrmeke_drone_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.MYRMEKE_DRONE, 0x472317, 0x26120C, propertiesItems()));
 	public static final RegistryObject<Item> MYRMEKE_QUEEN_SPAWN_EGG = register("myrmeke_queen_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.MYRMEKE_QUEEN, 0x472317, 0x26120C, propertiesItems()));
+	public static final RegistryObject<Item> SOW_SPAWN_EGG = register("sow_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.SOW, 0x625242, 0x27201A, propertiesItems()));
 
 	public static final RegistryObject<Item> HYLIASTRUM_FLUID_BUCKET = registerBasic("hyliastrum_fluid_bucket", () -> new BucketItem(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
 	public static final RegistryObject<Item> MEDITERRANEAN_WATER_BUCKET = registerBasic("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
