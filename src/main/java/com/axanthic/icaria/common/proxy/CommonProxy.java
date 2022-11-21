@@ -50,6 +50,7 @@ public class CommonProxy {
 
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
 		event.put(IcariaEntities.ARGAN_HOUND.get(), ArganHoundEntity.registerAttributes().build());
+		event.put(IcariaEntities.CATOBLEPAS.get(), CatoblepasEntity.registerAttributes().build());
 		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
@@ -107,15 +108,17 @@ public class CommonProxy {
 
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(ArganHoundModel.LAYER_LOCATION, ArganHoundModel::createLayer);
-		event.registerLayerDefinition(ArganHoundHeadModel.LAYER_LOCATION, ArganHoundHeadModel::createLayer);
+		event.registerLayerDefinition(ArganHoundSkullModel.LAYER_LOCATION, ArganHoundSkullModel::createLayer);
+		event.registerLayerDefinition(CatoblepasModel.LAYER_LOCATION, CatoblepasModel::createLayer);
+		event.registerLayerDefinition(CatoblepasSkullModel.LAYER_LOCATION, CatoblepasSkullModel::createLayer);
 		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
-		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
+		event.registerLayerDefinition(CerverSkullModel.LAYER_LOCATION, CerverSkullModel::createLayer);
 		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
 		event.registerLayerDefinition(MyrmekeSoldierModel.LAYER_LOCATION, MyrmekeSoldierModel::createLayer);
 		event.registerLayerDefinition(MyrmekeQueenModel.LAYER_LOCATION, MyrmekeQueenModel::createLayer);
 		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
 		event.registerLayerDefinition(SowModel.LAYER_LOCATION, SowModel::createLayer);
-		event.registerLayerDefinition(SowHeadModel.LAYER_LOCATION, SowHeadModel::createLayer);
+		event.registerLayerDefinition(SowSkullModel.LAYER_LOCATION, SowSkullModel::createLayer);
 	}
 
 	public void onEntityAttributeModification(EntityAttributeModificationEvent event) {

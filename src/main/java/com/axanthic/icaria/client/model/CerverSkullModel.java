@@ -18,12 +18,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CerverHeadModel extends SkullModel {
+public class CerverSkullModel extends SkullModel {
     public static ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "cerver_skull"), "main");
 
     public ModelPart head;
 
-    public CerverHeadModel(ModelPart pModelPart) {
+    public CerverSkullModel(ModelPart pModelPart) {
         super(pModelPart);
         this.head = pModelPart.getChild("head");
     }

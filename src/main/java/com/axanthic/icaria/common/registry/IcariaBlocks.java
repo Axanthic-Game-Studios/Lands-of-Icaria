@@ -541,6 +541,8 @@ public class IcariaBlocks {
 
 	public static final RegistryObject<Block> ARGAN_HOUND_SKULL = register("argan_hound_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.ARGAN_HOUND, propertiesSkulls()));
 	public static final RegistryObject<Block> ARGAN_HOUND_WALL_SKULL = register("argan_hound_wall_skull", () -> new IcariaWallSkullBlock(0.055F, IcariaSkullBlockTypes.ARGAN_HOUND, propertiesSkulls()));
+	public static final RegistryObject<Block> CATOBLEPAS_SKULL = register("catoblepas_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.CATOBLEPAS, propertiesSkulls()));
+	public static final RegistryObject<Block> CATOBLEPAS_WALL_SKULL = register("catoblepas_wall_skull", () -> new IcariaWallSkullBlock(0.055F, IcariaSkullBlockTypes.CATOBLEPAS, propertiesSkulls()));
 	public static final RegistryObject<Block> CERVER_SKULL = register("cerver_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.CERVER, propertiesSkulls()));
 	public static final RegistryObject<Block> CERVER_WALL_SKULL = register("cerver_wall_skull", () -> new IcariaWallSkullBlock(0.055F, IcariaSkullBlockTypes.CERVER, propertiesSkulls()));
 	public static final RegistryObject<Block> SOW_SKULL = register("sow_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.SOW, propertiesSkulls()));

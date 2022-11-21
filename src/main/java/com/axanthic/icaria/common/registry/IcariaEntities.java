@@ -17,6 +17,7 @@ public class IcariaEntities {
 
 	public static final RegistryObject<EntityType<ArganHoundEntity>> ARGAN_HOUND = register("argan_hound", Builder.of(ArganHoundEntity::new, MobCategory.CREATURE).sized(1.25F, 1.0F));
 	public static final RegistryObject<EntityType<BidentEntity>> BIDENT = register("bident", Builder.<BidentEntity>of(BidentEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
+	public static final RegistryObject<EntityType<CatoblepasEntity>> CATOBLEPAS = register("catoblepas", Builder.of(CatoblepasEntity::new, MobCategory.CREATURE).sized(1.25F, 1.25F));
 	public static final RegistryObject<EntityType<CerverEntity>> CERVER = register("cerver", Builder.of(CerverEntity::new, MobCategory.CREATURE).sized(1.25F, 1.0F));
 	public static final RegistryObject<EntityType<GreekFireGrenadeEntity>> GREEK_FIRE_GRENADE = register("greek_fire_grenade", Builder.<GreekFireGrenadeEntity>of(GreekFireGrenadeEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
 	public static final RegistryObject<EntityType<MyrmekeDroneEntity>> MYRMEKE_DRONE = register("myrmeke_drone", Builder.of(MyrmekeDroneEntity::new, MobCategory.CREATURE).sized(1.0F, 0.5F));

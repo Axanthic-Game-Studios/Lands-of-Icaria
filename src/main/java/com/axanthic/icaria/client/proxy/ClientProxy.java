@@ -66,6 +66,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
 		event.put(IcariaEntities.ARGAN_HOUND.get(), ArganHoundEntity.registerAttributes().build());
+		event.put(IcariaEntities.CATOBLEPAS.get(), CatoblepasEntity.registerAttributes().build());
 		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
@@ -354,6 +355,7 @@ public class ClientProxy extends CommonProxy {
 		// ENTITY RENDERERS
 		EntityRenderers.register(IcariaEntities.ARGAN_HOUND.get(), ArganHoundRenderer::new);
 		EntityRenderers.register(IcariaEntities.BIDENT.get(), BidentRenderer::new);
+		EntityRenderers.register(IcariaEntities.CATOBLEPAS.get(), CatoblepasRenderer::new);
 		EntityRenderers.register(IcariaEntities.CERVER.get(), CerverRenderer::new);
 		EntityRenderers.register(IcariaEntities.GREEK_FIRE_GRENADE.get(), GreekFireGrenadeRenderer::new);
 		EntityRenderers.register(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneRenderer::new);
@@ -388,15 +390,17 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(ArganHoundModel.LAYER_LOCATION, ArganHoundModel::createLayer);
-		event.registerLayerDefinition(ArganHoundHeadModel.LAYER_LOCATION, ArganHoundHeadModel::createLayer);
+		event.registerLayerDefinition(ArganHoundSkullModel.LAYER_LOCATION, ArganHoundSkullModel::createLayer);
+		event.registerLayerDefinition(CatoblepasModel.LAYER_LOCATION, CatoblepasModel::createLayer);
+		event.registerLayerDefinition(CatoblepasSkullModel.LAYER_LOCATION, CatoblepasSkullModel::createLayer);
 		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
-		event.registerLayerDefinition(CerverHeadModel.LAYER_LOCATION, CerverHeadModel::createLayer);
+		event.registerLayerDefinition(CerverSkullModel.LAYER_LOCATION, CerverSkullModel::createLayer);
 		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
 		event.registerLayerDefinition(MyrmekeSoldierModel.LAYER_LOCATION, MyrmekeSoldierModel::createLayer);
 		event.registerLayerDefinition(MyrmekeQueenModel.LAYER_LOCATION, MyrmekeQueenModel::createLayer);
 		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
 		event.registerLayerDefinition(SowModel.LAYER_LOCATION, SowModel::createLayer);
-		event.registerLayerDefinition(SowHeadModel.LAYER_LOCATION, SowHeadModel::createLayer);
+		event.registerLayerDefinition(SowSkullModel.LAYER_LOCATION, SowSkullModel::createLayer);
 	}
 
 	@Override

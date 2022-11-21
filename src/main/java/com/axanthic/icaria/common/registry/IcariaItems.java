@@ -488,6 +488,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRAWBERRY_CAKE = registerBasic("strawberry_cake", () -> new BlockItem(IcariaBlocks.STRAWBERRY_CAKE.get(), propertiesBlocks()));
 
 	public static final RegistryObject<Item> ARGAN_HOUND_SKULL = register("argan_hound_skull", () -> new IcariaSkullItem(IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> CATOBLEPAS_SKULL = register("catoblepas_skull", () -> new IcariaSkullItem(IcariaBlocks.CATOBLEPAS_SKULL.get(), IcariaBlocks.CATOBLEPAS_WALL_SKULL.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> CERVER_SKULL = register("cerver_skull", () -> new IcariaSkullItem(IcariaBlocks.CERVER_SKULL.get(), IcariaBlocks.CERVER_WALL_SKULL.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> SOW_SKULL = register("sow_skull", () -> new IcariaSkullItem(IcariaBlocks.SOW_SKULL.get(), IcariaBlocks.SOW_WALL_SKULL.get(), propertiesBlocks()));
 
@@ -620,6 +621,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> PHYSALIS_SEEDS = registerBasic("physalis_seeds", () -> new ItemNameBlockItem(IcariaBlocks.PHYSALIS_CROP.get(), propertiesItems()));
 
 	public static final RegistryObject<Item> ARGAN_HOUND_SPAWN_EGG = register("argan_hound_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.ARGAN_HOUND, 0x4A3721, 0x211406, propertiesItems()));
+	public static final RegistryObject<Item> CATOBLEPAS_SPAWN_EGG = register("catoblepas_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.CATOBLEPAS, 0x615238, 0xDACCB7, propertiesItems()));
 	public static final RegistryObject<Item> CERVER_SPAWN_EGG = register("cerver_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.CERVER, 0x362923, 0x211916, propertiesItems()));
 	public static final RegistryObject<Item> MYRMEKE_DRONE_SPAWN_EGG = register("myrmeke_drone_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.MYRMEKE_DRONE, 0x472317, 0x26120C, propertiesItems()));
 	public static final RegistryObject<Item> MYRMEKE_SOLDIER_SPAWN_EGG = register("myrmeke_soldier_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.MYRMEKE_SOLDIER, 0x522116, 0x26120C, propertiesItems()));
