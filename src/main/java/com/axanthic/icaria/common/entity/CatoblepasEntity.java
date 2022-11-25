@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.goal.IcariaPanicGoal;
 import com.axanthic.icaria.common.registry.IcariaEntities;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
@@ -72,7 +73,7 @@ public class CatoblepasEntity extends Animal {
     @Override
     public void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new CatoblepasPanicGoal(this, 1.5D));
+        this.goalSelector.addGoal(2, new IcariaPanicGoal(this, 1.5D));
         this.goalSelector.addGoal(3, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.addGoal(5, new TemptGoal(this, 1.0D, Ingredient.of(IcariaItems.SPELT.get()), true));
@@ -117,17 +118,6 @@ public class CatoblepasEntity extends Animal {
     @Override
     public CatoblepasEntity getBreedOffspring(ServerLevel pLevel, AgeableMob pMob) {
         return IcariaEntities.CATOBLEPAS.get().create(pLevel);
-    }
-
-    public static class CatoblepasPanicGoal extends PanicGoal {
-        public CatoblepasPanicGoal(PathfinderMob pMob, double pSpeedModifier) {
-            super(pMob, pSpeedModifier);
-        }
-
-        @Override
-        public boolean shouldPanic() {
-            return this.mob.isOnFire();
-        }
     }
 
     public static class CatoblepasHurtByOtherGoal extends HurtByTargetGoal {

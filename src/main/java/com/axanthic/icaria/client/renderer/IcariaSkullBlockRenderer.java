@@ -1,9 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.model.ArganHoundSkullModel;
-import com.axanthic.icaria.client.model.CatoblepasSkullModel;
-import com.axanthic.icaria.client.model.CerverSkullModel;
-import com.axanthic.icaria.client.model.SowSkullModel;
+import com.axanthic.icaria.client.model.*;
 import com.axanthic.icaria.common.block.IcariaAbstractSkullBlock;
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
@@ -44,6 +41,7 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
     public Map<IcariaSkullBlockType, SkullModel> modelByType;
 
     public static Map<IcariaSkullBlockType, ResourceLocation> SKIN_BY_TYPE = Util.make(Maps.newHashMap(), (map) -> {
+        map.put(IcariaSkullBlockTypes.AETERNAE, new ResourceLocation(IcariaInfo.MODID, "textures/entity/aeternae.png"));
         map.put(IcariaSkullBlockTypes.ARGAN_HOUND, new ResourceLocation(IcariaInfo.MODID, "textures/entity/argan_hound.png"));
         map.put(IcariaSkullBlockTypes.CATOBLEPAS, new ResourceLocation(IcariaInfo.MODID, "textures/entity/catoblepas.png"));
         map.put(IcariaSkullBlockTypes.CERVER, new ResourceLocation(IcariaInfo.MODID, "textures/entity/cerver.png"));
@@ -91,6 +89,7 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
     public static Map<IcariaSkullBlockType, SkullModel> createSkullRenderers(EntityModelSet pSet) {
         ImmutableMap.Builder<IcariaSkullBlockType, SkullModel> builder = ImmutableMap.builder();
 
+        builder.put(IcariaSkullBlockTypes.AETERNAE, new AeternaeSkullModel(pSet.bakeLayer(AeternaeSkullModel.LAYER_LOCATION)));
         builder.put(IcariaSkullBlockTypes.ARGAN_HOUND, new ArganHoundSkullModel(pSet.bakeLayer(ArganHoundSkullModel.LAYER_LOCATION)));
         builder.put(IcariaSkullBlockTypes.CATOBLEPAS, new CatoblepasSkullModel(pSet.bakeLayer(CatoblepasSkullModel.LAYER_LOCATION)));
         builder.put(IcariaSkullBlockTypes.CERVER, new CerverSkullModel(pSet.bakeLayer(CerverSkullModel.LAYER_LOCATION)));

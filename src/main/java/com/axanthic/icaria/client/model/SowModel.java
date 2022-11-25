@@ -90,12 +90,6 @@ public class SowModel extends EntityModel<SowEntity> {
     }
 
     @Override
-    public void setupAnim(SowEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.lookAnim(pNetHeadYaw, pHeadPitch);
-        this.walkAnim(pLimbSwing, pLimbSwingAmount);
-    }
-
-    @Override
     public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
         if (this.young) {
             pPoseStack.pushPose();
@@ -114,6 +108,12 @@ public class SowModel extends EntityModel<SowEntity> {
             this.body_front.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
             pPoseStack.popPose();
         }
+    }
+
+    @Override
+    public void setupAnim(SowEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        this.lookAnim(pNetHeadYaw, pHeadPitch);
+        this.walkAnim(pLimbSwing, pLimbSwingAmount);
     }
 
     public void lookAnim(float pNetHeadYaw, float pHeadPitch) {

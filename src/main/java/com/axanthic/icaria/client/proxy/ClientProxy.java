@@ -65,6 +65,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
+		event.put(IcariaEntities.AETERNAE.get(), AeternaeEntity.registerAttributes().build());
 		event.put(IcariaEntities.ARGAN_HOUND.get(), ArganHoundEntity.registerAttributes().build());
 		event.put(IcariaEntities.CATOBLEPAS.get(), CatoblepasEntity.registerAttributes().build());
 		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
@@ -353,6 +354,7 @@ public class ClientProxy extends CommonProxy {
 		renderTranslucent(IcariaFluids.UPWARDS_FLUID_FLOWING.get());
 
 		// ENTITY RENDERERS
+		EntityRenderers.register(IcariaEntities.AETERNAE.get(), AeternaeRenderer::new);
 		EntityRenderers.register(IcariaEntities.ARGAN_HOUND.get(), ArganHoundRenderer::new);
 		EntityRenderers.register(IcariaEntities.BIDENT.get(), BidentRenderer::new);
 		EntityRenderers.register(IcariaEntities.CATOBLEPAS.get(), CatoblepasRenderer::new);
@@ -389,6 +391,8 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(AeternaeModel.LAYER_LOCATION, AeternaeModel::createLayer);
+		event.registerLayerDefinition(AeternaeSkullModel.LAYER_LOCATION, AeternaeSkullModel::createLayer);
 		event.registerLayerDefinition(ArganHoundModel.LAYER_LOCATION, ArganHoundModel::createLayer);
 		event.registerLayerDefinition(ArganHoundSkullModel.LAYER_LOCATION, ArganHoundSkullModel::createLayer);
 		event.registerLayerDefinition(CatoblepasModel.LAYER_LOCATION, CatoblepasModel::createLayer);

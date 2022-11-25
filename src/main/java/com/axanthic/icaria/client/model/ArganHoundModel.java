@@ -110,14 +110,14 @@ public class ArganHoundModel extends EntityModel<ArganHoundEntity> {
     }
 
     @Override
-    public void setupAnim(ArganHoundEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.lookAnim(pNetHeadYaw, pHeadPitch);
-        this.walkAnim(pLimbSwing, pLimbSwingAmount);
+    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
+        this.body_front.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
     }
 
     @Override
-    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
-        this.body_front.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+    public void setupAnim(ArganHoundEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        this.lookAnim(pNetHeadYaw, pHeadPitch);
+        this.walkAnim(pLimbSwing, pLimbSwingAmount);
     }
 
     public void lookAnim(float pNetHeadYaw, float pHeadPitch) {

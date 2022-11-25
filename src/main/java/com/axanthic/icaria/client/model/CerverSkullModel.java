@@ -29,14 +29,14 @@ public class CerverSkullModel extends SkullModel {
     }
 
     @Override
-    public void setupAnim(float x, float y, float z) {
-        this.head.xRot = z * ((float)Math.PI / 180F);
-        this.head.yRot = y * ((float)Math.PI / 180F);
+    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
+        this.head.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
     }
 
     @Override
-    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
-        this.head.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+    public void setupAnim(float x, float y, float z) {
+        this.head.xRot = z * ((float)Math.PI / 180F);
+        this.head.yRot = y * ((float)Math.PI / 180F);
     }
 
     public static LayerDefinition createLayer() {

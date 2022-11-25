@@ -143,12 +143,6 @@ public class CatoblepasModel extends EntityModel<CatoblepasEntity> {
     }
 
     @Override
-    public void setupAnim(CatoblepasEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.lookAnim(pNetHeadYaw, pHeadPitch);
-        this.walkAnim(pLimbSwing, pLimbSwingAmount);
-    }
-
-    @Override
     public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
         if (this.young) {
             pPoseStack.pushPose();
@@ -167,6 +161,12 @@ public class CatoblepasModel extends EntityModel<CatoblepasEntity> {
             this.body_center.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
             pPoseStack.popPose();
         }
+    }
+
+    @Override
+    public void setupAnim(CatoblepasEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        this.lookAnim(pNetHeadYaw, pHeadPitch);
+        this.walkAnim(pLimbSwing, pLimbSwingAmount);
     }
 
     public void lookAnim(float pNetHeadYaw, float pHeadPitch) {

@@ -115,12 +115,6 @@ public class MyrmekeSoldierModel extends EntityModel<MyrmekeSoldierEntity> {
     }
 
     @Override
-    public void setupAnim(MyrmekeSoldierEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.lookAnim(pNetHeadYaw, pHeadPitch);
-        this.walkAnim(pLimbSwing, pLimbSwingAmount);
-    }
-
-    @Override
     public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
         body_head.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
         body_thorax.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
@@ -132,6 +126,12 @@ public class MyrmekeSoldierModel extends EntityModel<MyrmekeSoldierEntity> {
         leg_left_front.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
         leg_left_center.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
         leg_left_rear.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+    }
+
+    @Override
+    public void setupAnim(MyrmekeSoldierEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        this.lookAnim(pNetHeadYaw, pHeadPitch);
+        this.walkAnim(pLimbSwing, pLimbSwingAmount);
     }
 
     public void lookAnim(float pNetHeadYaw, float pHeadPitch) {

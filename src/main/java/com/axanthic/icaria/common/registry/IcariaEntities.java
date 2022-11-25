@@ -15,6 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class IcariaEntities {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, IcariaInfo.MODID);
 
+	public static final RegistryObject<EntityType<AeternaeEntity>> AETERNAE = register("aeternae", Builder.of(AeternaeEntity::new, MobCategory.CREATURE).sized(1.25F, 1.75F));
 	public static final RegistryObject<EntityType<ArganHoundEntity>> ARGAN_HOUND = register("argan_hound", Builder.of(ArganHoundEntity::new, MobCategory.CREATURE).sized(1.25F, 1.0F));
 	public static final RegistryObject<EntityType<BidentEntity>> BIDENT = register("bident", Builder.<BidentEntity>of(BidentEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
 	public static final RegistryObject<EntityType<CatoblepasEntity>> CATOBLEPAS = register("catoblepas", Builder.of(CatoblepasEntity::new, MobCategory.CREATURE).sized(1.25F, 1.25F));

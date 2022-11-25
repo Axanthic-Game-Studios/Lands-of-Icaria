@@ -539,6 +539,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> STRAWBERRY_CAKE_RED_CANDLE = register("strawberry_cake_red_candle", () -> new StrawberryCandleCakeBlock(Blocks.RED_CANDLE, propertiesCake()));
 	public static final RegistryObject<Block> STRAWBERRY_CAKE_BLACK_CANDLE = register("strawberry_cake_black_candle", () -> new StrawberryCandleCakeBlock(Blocks.BLACK_CANDLE, propertiesCake()));
 
+	public static final RegistryObject<Block> AETERNAE_SKULL = register("aeternae_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.AETERNAE, propertiesSkulls()));
+	public static final RegistryObject<Block> AETERNAE_WALL_SKULL = register("aeternae_wall_skull", () -> new IcariaWallSkullBlock(0.055F, IcariaSkullBlockTypes.AETERNAE, propertiesSkulls()));
 	public static final RegistryObject<Block> ARGAN_HOUND_SKULL = register("argan_hound_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.ARGAN_HOUND, propertiesSkulls()));
 	public static final RegistryObject<Block> ARGAN_HOUND_WALL_SKULL = register("argan_hound_wall_skull", () -> new IcariaWallSkullBlock(0.055F, IcariaSkullBlockTypes.ARGAN_HOUND, propertiesSkulls()));
 	public static final RegistryObject<Block> CATOBLEPAS_SKULL = register("catoblepas_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.CATOBLEPAS, propertiesSkulls()));

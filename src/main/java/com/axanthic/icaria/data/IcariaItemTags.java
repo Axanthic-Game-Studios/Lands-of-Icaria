@@ -369,6 +369,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.ONION.get());
 
 		tag(Tags.Items.HEADS)
+			.add(IcariaItems.AETERNAE_SKULL.get())
 			.add(IcariaItems.ARGAN_HOUND_SKULL.get())
 			.add(IcariaItems.CATOBLEPAS_SKULL.get())
 			.add(IcariaItems.CERVER_SKULL.get())

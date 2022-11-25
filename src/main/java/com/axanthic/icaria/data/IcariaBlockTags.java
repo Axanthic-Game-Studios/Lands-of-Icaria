@@ -38,6 +38,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 	public static final TagKey<Block> ICARIA_PORTAL_BLOCKS = icariaTag("icaria_portal_blocks");
 
+	public static final TagKey<Block> ICARIA_GRASS_BLOCKS = icariaTag("icaria_grass_blocks");
+
 	// ITEMBLOCK TAGS
 	public static final TagKey<Block> ORES_ROTTEN_BONES = forgeTag("ores/rotten_bones");
 	public static final TagKey<Block> ORES_CHERT = forgeTag("ores/chert");
@@ -701,6 +703,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.DIM_TORCH.get())
 			.add(IcariaBlocks.LIGNITE_TORCH.get())
 			.add(IcariaBlocks.ANTHRACITE_TORCH.get());
+
+		tag(ICARIA_GRASS_BLOCKS)
+			.add(IcariaBlocks.SMALL_GRASS.get())
+			.add(IcariaBlocks.MEDIUM_GRASS.get())
+			.add(IcariaBlocks.LARGE_GRASS.get());
 
 		tag(BlockTags.SMALL_FLOWERS)
 			.add(IcariaBlocks.BLINDWEED.get())

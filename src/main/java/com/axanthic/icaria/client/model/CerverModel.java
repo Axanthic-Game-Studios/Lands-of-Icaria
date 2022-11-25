@@ -111,14 +111,14 @@ public class CerverModel extends EntityModel<CerverEntity> {
     }
 
     @Override
-    public void setupAnim(CerverEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.lookAnim(pNetHeadYaw, pHeadPitch);
-        this.walkAnim(pLimbSwing, pLimbSwingAmount);
+    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
+        this.body.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
     }
 
     @Override
-    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
-        this.body.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+    public void setupAnim(CerverEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        this.lookAnim(pNetHeadYaw, pHeadPitch);
+        this.walkAnim(pLimbSwing, pLimbSwingAmount);
     }
 
     public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
