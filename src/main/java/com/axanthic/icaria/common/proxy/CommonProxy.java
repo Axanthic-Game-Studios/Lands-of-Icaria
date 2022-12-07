@@ -82,7 +82,6 @@ public class CommonProxy {
 		event.enqueueWork(IcariaFlammables::setup);
 		event.enqueueWork(IcariaPottables::setup);
 		event.enqueueWork(IcariaStrippables::setup);
-		event.enqueueWork(IcariaTillables::setup);
 		event.enqueueWork(IcariaWoodTypes::setup);
 	}
 

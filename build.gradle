@@ -1,16 +1,27 @@
 buildscript {
     repositories {
-        maven { url 'https://maven.minecraftforge.net' }
-        maven { url 'https://repo.spongepowered.org/repository/maven-public/' }
+        maven {
+            url 'https://maven.minecraftforge.net'
+        }
+
+        maven {
+            url 'https://maven.parchmentmc.org'
+        }
+
+        maven {
+            url 'https://repo.spongepowered.org/repository/maven-public/'
+        }
     }
 
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'org.parchmentmc:librarian:1.+'
         classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'org.spongepowered.mixin'
 
 archivesBaseName = 'landsoficaria'
@@ -20,9 +31,7 @@ version = "${minecraft}-${icaria}"
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'official', version: "${minecraft}"
-
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    mappings channel: 'parchment', version: "${parchment}-${minecraft}"
 
     runs {
         client {

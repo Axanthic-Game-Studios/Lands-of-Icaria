@@ -31,7 +31,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.network.NetworkHooks;
 
 import java.util.Objects;
@@ -72,7 +72,7 @@ public class StorageVaseBlock extends Block implements EntityBlock, SimpleWaterl
 		if (!pState.is(pNewState.getBlock())) {
 			BlockEntity entity = pLevel.getBlockEntity(pPos);
 			if (entity instanceof StorageVaseBlockEntity) {
-				Objects.requireNonNull(pLevel.getBlockEntity(pPos)).getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
+				Objects.requireNonNull(pLevel.getBlockEntity(pPos)).getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
 					for (int i = 0; i < handler.getSlots(); i++) {
 						ItemStack stack = handler.getStackInSlot(i);
 						Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), stack);

@@ -10,6 +10,7 @@ import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -22,10 +23,12 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.lighting.LayerLightEngine;
-
 import net.minecraft.world.level.material.FluidState;
+
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
 
 import java.util.List;
 
@@ -156,6 +159,15 @@ public class MarlGrassBlock extends Block implements BonemealableBlock {
 				}
 			}
 		}
+	}
+
+	@Override
+	public BlockState getToolModifiedState(BlockState pState, UseOnContext pContext, ToolAction pAction, boolean pSimulate) {
+		if (pAction.equals(ToolActions.HOE_TILL) && pContext.getLevel().getBlockState(pContext.getClickedPos().above()).isAir()) {
+			return IcariaBlocks.FARMLAND.get().defaultBlockState();
+		}
+
+		return null;
 	}
 
 	@Override

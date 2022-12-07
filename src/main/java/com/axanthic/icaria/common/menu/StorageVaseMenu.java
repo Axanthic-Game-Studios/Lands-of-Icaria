@@ -11,7 +11,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
@@ -33,7 +33,7 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 		this.inventory = new InvWrapper(pInventory);
 		this.player = pPlayer;
 		if (entity != null) {
-			entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> layoutVaseInventorySlots(handler, 26, -10));
+			entity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> layoutVaseInventorySlots(handler, 26, -10));
 		}
 
 		layoutPlayerInventorySlots(8, 94);

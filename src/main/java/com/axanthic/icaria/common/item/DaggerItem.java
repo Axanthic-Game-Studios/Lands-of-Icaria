@@ -13,7 +13,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.SwordItem;
 
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.jarjar.util.Lazy;
+import net.minecraftforge.common.util.Lazy;
 
 import java.util.UUID;
 
