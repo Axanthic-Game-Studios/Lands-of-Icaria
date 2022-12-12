@@ -630,9 +630,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MYRMEKE_QUEEN_SPAWN_EGG = register("myrmeke_queen_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.MYRMEKE_QUEEN, 0x5A1F15, 0x26120C, propertiesItems()));
 	public static final RegistryObject<Item> SOW_SPAWN_EGG = register("sow_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.SOW, 0x625242, 0x27201A, propertiesItems()));
 
-	public static final RegistryObject<Item> HYLIASTRUM_FLUID_BUCKET = registerBasic("hyliastrum_fluid_bucket", () -> new BucketItem(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
 	public static final RegistryObject<Item> MEDITERRANEAN_WATER_BUCKET = registerBasic("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
-	public static final RegistryObject<Item> UPWARDS_FLUID_BUCKET = registerBasic("upwards_fluid_bucket", () -> new BucketItem(IcariaFluids.UPWARDS_FLUID_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
 
 	private static Properties propertiesBlocks() {
 		return new Properties().tab(IcariaTabs.creativeBlocks);

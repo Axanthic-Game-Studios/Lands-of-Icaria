@@ -1,12 +1,11 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.fluid.HyliastrumFluid;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.block.*;
 import com.axanthic.icaria.common.block.LayerBlock;
 import com.axanthic.icaria.common.block.SandTypeBlock;
-
 import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction.Axis;
 import net.minecraft.core.particles.ParticleTypes;
@@ -555,9 +554,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> PHYSALIS_CROP = register("physalis_crop", () -> new PhysalisCropBlock(propertiesCrop()));
 	public static final RegistryObject<Block> ONION_CROP = register("onion_crop", () -> new OnionCropBlock(propertiesCrop()));
 
-	public static final RegistryObject<LiquidBlock> HYLIASTRUM_FLUID = register("hyliastrum_fluid", () -> new HyliastrumFluid(IcariaFluids.HYLIASTRUM_FLUID_SOURCE, propertiesFluid(MaterialColor.COLOR_BLACK)));
 	public static final RegistryObject<LiquidBlock> MEDITERRANEAN_WATER = register("mediterranean_water", () -> new LiquidBlock(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesFluid(MaterialColor.WATER)));
-	public static final RegistryObject<LiquidBlock> UPWARDS_FLUID = register("upwards_fluid", () -> new LiquidBlock(IcariaFluids.UPWARDS_FLUID_SOURCE, propertiesFluid(MaterialColor.WATER)));
 
 	public static final RegistryObject<Block> GREEK_FIRE = register("greek_fire", () -> new GreekFireBlock(propertiesGreekFire()));
 	public static final RegistryObject<Block> ICARIA_PORTAL = register("icaria_portal", () -> new IcariaPortalBlock(propertiesPortal()));

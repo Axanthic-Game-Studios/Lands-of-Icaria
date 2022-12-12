@@ -345,12 +345,8 @@ public class ClientProxy extends CommonProxy {
 		renderTranslucent(IcariaBlocks.HALITE_BLOCK.get());
 		renderTranslucent(IcariaBlocks.ZIRCON_BLOCK.get());
 		renderTranslucent(IcariaBlocks.ICARIA_PORTAL.get());
-		renderTranslucent(IcariaFluids.HYLIASTRUM_FLUID_SOURCE.get());
-		renderTranslucent(IcariaFluids.HYLIASTRUM_FLUID_FLOWING.get());
 		renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER_SOURCE.get());
 		renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER_FLOWING.get());
-		renderTranslucent(IcariaFluids.UPWARDS_FLUID_SOURCE.get());
-		renderTranslucent(IcariaFluids.UPWARDS_FLUID_FLOWING.get());
 
 		// ENTITY RENDERERS
 		EntityRenderers.register(IcariaEntities.AETERNAE.get(), AeternaeRenderer::new);
