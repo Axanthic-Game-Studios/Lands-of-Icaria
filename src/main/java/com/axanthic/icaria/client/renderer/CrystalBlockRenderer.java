@@ -4,11 +4,14 @@ import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.CrystalBlockEntity;
 
 import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import com.mojang.math.Matrix4f;
 import com.mojang.math.Vector3f;
 
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -27,6 +30,31 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 	public boolean RENDER_RAYS = IcariaConfig.RENDER_RAYS.get();
 	public float HALF_SQRT_3 = (float)(Math.sqrt(3.0D) / 2.0D);
 
+	public static final RenderStateShard.ShaderStateShard LIGHTNING_SHADER = new RenderStateShard.ShaderStateShard(GameRenderer::getRendertypeLightningShader);
+
+	public static final RenderStateShard.TransparencyStateShard SUBTRACTIVE_LIGHTNING_TRANSPARENCY = new RenderStateShard.TransparencyStateShard("subtractive_lightning_transparency", () -> {
+		RenderSystem.depthMask(false);
+		RenderSystem.enableBlend();
+		RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.SRC_COLOR, GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE);
+	}, () -> {
+		RenderSystem.depthMask(true);
+		RenderSystem.disableBlend();
+		RenderSystem.defaultBlendFunc();
+	});
+
+	public static final RenderStateShard.TransparencyStateShard ADDITIVE_LIGHTNING_TRANSPARENCY = new RenderStateShard.TransparencyStateShard("additive_lightning_transparency", () -> {
+		RenderSystem.depthMask(false);
+		RenderSystem.enableBlend();
+		RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);
+	}, () -> {
+		RenderSystem.depthMask(true);
+		RenderSystem.disableBlend();
+		RenderSystem.defaultBlendFunc();
+	});
+
+	public static final RenderType SUBTRACTIVE_LIGHTNING = RenderType.create("subtractive_lightning", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(LIGHTNING_SHADER).setTransparencyState(SUBTRACTIVE_LIGHTNING_TRANSPARENCY).createCompositeState(false));
+	public static final RenderType ADDITIVE_LIGHTNING = RenderType.create("additive_lightning", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(LIGHTNING_SHADER).setTransparencyState(ADDITIVE_LIGHTNING_TRANSPARENCY).createCompositeState(false));
+
 	public CrystalBlockRenderer(BlockEntityRendererProvider.Context pContext) {
 
 	}
@@ -34,11 +62,11 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 	@Override
 	public void render(CrystalBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
 		if (RENDER_RAYS) {
-			VertexConsumer vertexConsumer = pBufferSource.getBuffer(RenderType.lightning());
-
 			Matrix4f matrix4f = pPoseStack.last().pose();
 
 			RandomSource randomSource = RandomSource.create(432L);
+
+			VertexConsumer vertexConsumer = pBufferSource.getBuffer(ADDITIVE_LIGHTNING);
 
 			double x = pBlockEntity.x;
 			double y = pBlockEntity.y;
@@ -52,8 +80,6 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 			int r = pBlockEntity.r;
 			int g = pBlockEntity.g;
 			int b = pBlockEntity.b;
-
-			GlStateManager._depthMask(false);
 
 			pPoseStack.translate(x, y, z);
 
