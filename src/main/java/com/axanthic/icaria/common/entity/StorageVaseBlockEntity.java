@@ -15,6 +15,8 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 
+import javax.annotation.Nonnull;
+
 public class StorageVaseBlockEntity extends BlockEntity {
 	public ItemStackHandler itemStackHandler = createHandler();
 	public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> itemStackHandler);
@@ -57,7 +59,7 @@ public class StorageVaseBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	public <T> LazyOptional<T> getCapability(Capability<T> capability, Direction direction) {
+	public @Nonnull <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, Direction direction) {
 		if (capability == ForgeCapabilities.ITEM_HANDLER) {
 			return itemHandler.cast();
 		}

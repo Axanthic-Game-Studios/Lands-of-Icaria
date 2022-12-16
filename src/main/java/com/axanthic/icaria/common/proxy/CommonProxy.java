@@ -120,7 +120,8 @@ public class CommonProxy {
 		event.registerLayerDefinition(HyliasterModel.OUTER_LAYER_LOCATION, HyliasterModel::createOuterLayer);
 		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
 		event.registerLayerDefinition(MyrmekeSoldierModel.LAYER_LOCATION, MyrmekeSoldierModel::createLayer);
-		event.registerLayerDefinition(MyrmekeQueenModel.LAYER_LOCATION, MyrmekeQueenModel::createLayer);
+		event.registerLayerDefinition(MyrmekeQueenModel.BODY_LAYER_LOCATION, MyrmekeQueenModel::createLayer);
+		event.registerLayerDefinition(MyrmekeQueenModel.RAYS_LAYER_LOCATION, MyrmekeQueenModel::createLayer);
 		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
 		event.registerLayerDefinition(SowModel.LAYER_LOCATION, SowModel::createLayer);
 		event.registerLayerDefinition(SowSkullModel.LAYER_LOCATION, SowSkullModel::createLayer);

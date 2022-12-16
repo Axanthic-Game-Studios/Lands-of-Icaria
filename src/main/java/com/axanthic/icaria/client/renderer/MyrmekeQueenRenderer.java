@@ -1,5 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.client.layer.MyrmekeQueenCrystalLayer;
 import com.axanthic.icaria.client.model.MyrmekeQueenModel;
 import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
 import com.axanthic.icaria.common.util.IcariaInfo;
@@ -18,7 +19,8 @@ public class MyrmekeQueenRenderer extends MobRenderer<MyrmekeQueenEntity, Myrmek
     public static ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/myrmeke_queen.png");
 
     public MyrmekeQueenRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new MyrmekeQueenModel(pContext.bakeLayer(MyrmekeQueenModel.LAYER_LOCATION)), 0.75F);
+        super(pContext, new MyrmekeQueenModel(pContext.bakeLayer(MyrmekeQueenModel.BODY_LAYER_LOCATION)), 0.75F);
+        this.addLayer(new MyrmekeQueenCrystalLayer(this, pContext.getModelSet()));
     }
 
     @Override

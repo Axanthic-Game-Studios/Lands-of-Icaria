@@ -28,8 +28,7 @@ public class MyrmekeDroneEntity extends MyrmekeQueenEntity {
         this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.25F));
         this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
-        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
-        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, (new MyrmekeDroneHurtByTargetGoal(this)).setAlertOthers());
     }
 
