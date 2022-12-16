@@ -50,8 +50,8 @@ public class AeternaeEntity extends Animal {
     }
 
     @Override
-    public float getEyeHeight(Pose pPose) {
-        return this.isBaby() ? 0.75F : 1.25F;
+    public float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
+        return this.isBaby() ? 0.75F : 1.5F;
     }
 
     @OnlyIn(Dist.CLIENT)

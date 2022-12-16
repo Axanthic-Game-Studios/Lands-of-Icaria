@@ -77,7 +77,7 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     @Override
-    public float getEyeHeight(Pose pPose) {
+    public float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
         return 0.25F;
     }
 

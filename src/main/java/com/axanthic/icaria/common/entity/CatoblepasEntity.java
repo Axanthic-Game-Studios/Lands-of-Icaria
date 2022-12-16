@@ -45,8 +45,8 @@ public class CatoblepasEntity extends Animal {
     }
 
     @Override
-    public float getEyeHeight(Pose pPose) {
-        return this.isBaby() ? 0.75F : 1.25F;
+    public float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
+        return this.isBaby() ? 0.6F : 1.2F;
     }
 
     @Override
