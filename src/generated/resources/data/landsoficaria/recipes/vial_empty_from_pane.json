@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "landsoficaria:grainglass_pane"
+    }
+  },
+  "pattern": [
+    "X X",
+    " X "
+  ],
+  "result": {
+    "count": 3,
+    "item": "landsoficaria:vial_empty"
+  }
+}

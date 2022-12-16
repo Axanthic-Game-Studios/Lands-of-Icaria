@@ -646,6 +646,20 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_item", has(IcariaItems.LOAM_LUMP.get()))
 			.save(consumer, IcariaItems.UNFIRED_STORAGE_VASE.getId());
 
+		ShapedRecipeBuilder.shaped(IcariaItems.VIAL_EMPTY.get(), 3)
+			.pattern("X X")
+			.pattern(" X ")
+			.define('X', IcariaItems.GRAINGLASS_PANE.get())
+			.unlockedBy("has_block", has(IcariaItems.GRAINGLASS_PANE.get()))
+			.save(consumer, ForgeRegistries.ITEMS.getKey(IcariaItems.VIAL_EMPTY.get()) + "_from_pane");
+
+		ShapedRecipeBuilder.shaped(IcariaItems.VIAL_EMPTY.get(), 3)
+			.pattern("X X")
+			.pattern(" X ")
+			.define('X', IcariaItems.GRAINGLASS_PANE_HORIZONTAL.get())
+			.unlockedBy("has_block", has(IcariaItems.GRAINGLASS_PANE_HORIZONTAL.get()))
+			.save(consumer, ForgeRegistries.ITEMS.getKey(IcariaItems.VIAL_EMPTY.get()) + "_from_horizontal_pane");
+
 		ShapedRecipeBuilder.shaped(IcariaItems.SPELT_BREAD.get())
 			.pattern("XXX")
 			.define('X', IcariaItems.SPELT.get())

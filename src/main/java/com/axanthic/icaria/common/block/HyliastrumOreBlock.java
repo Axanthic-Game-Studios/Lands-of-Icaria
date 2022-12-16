@@ -1,9 +1,12 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.entity.HyliasterEntity;
+import com.axanthic.icaria.common.registry.IcariaEntities;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.monster.Slime;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -25,12 +28,13 @@ public class HyliastrumOreBlock extends Block {
 	public void spawnAfterBreak(BlockState pState, ServerLevel pLevel, BlockPos pPos, ItemStack pStack, boolean pDropExperience) {
 		super.spawnAfterBreak(pState, pLevel, pPos, pStack, pDropExperience);
 		if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS) && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, pStack) == 0) {
-			Slime slime = EntityType.SLIME.create(pLevel); // TODO: replace with Icaria slime
-			if (slime != null) {
-				slime.moveTo((double)pPos.getX() + 0.5D, pPos.getY(), (double)pPos.getZ() + 0.5D, 0.0F, 0.0F);
-				pLevel.addFreshEntity(slime);
-				slime.setSize(1, true);
-				slime.spawnAnim();
+			HyliasterEntity entity = IcariaEntities.HYLIASTER.get().create(pLevel);
+			if (entity != null) {
+				entity.moveTo((double)pPos.getX() + 0.5D, pPos.getY(), (double)pPos.getZ() + 0.5D, 0.0F, 0.0F);
+				entity.setSize(4, true);
+				entity.spawnAnim();
+				pLevel.addFreshEntity(entity);
+				pLevel.playSound(null, pPos, SoundEvents.SLIME_SQUISH, SoundSource.NEUTRAL, 1.0F, 1.0F);
 			}
 		}
 	}

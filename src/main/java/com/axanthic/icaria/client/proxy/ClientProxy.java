@@ -69,6 +69,7 @@ public class ClientProxy extends CommonProxy {
 		event.put(IcariaEntities.ARGAN_HOUND.get(), ArganHoundEntity.registerAttributes().build());
 		event.put(IcariaEntities.CATOBLEPAS.get(), CatoblepasEntity.registerAttributes().build());
 		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
+		event.put(IcariaEntities.HYLIASTER.get(), HyliasterEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
 		event.put(IcariaEntities.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
@@ -355,6 +356,7 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntities.CATOBLEPAS.get(), CatoblepasRenderer::new);
 		EntityRenderers.register(IcariaEntities.CERVER.get(), CerverRenderer::new);
 		EntityRenderers.register(IcariaEntities.GREEK_FIRE_GRENADE.get(), GreekFireGrenadeRenderer::new);
+		EntityRenderers.register(IcariaEntities.HYLIASTER.get(), HyliasterRenderer::new);
 		EntityRenderers.register(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneRenderer::new);
 		EntityRenderers.register(IcariaEntities.MYRMEKE_SOLDIER.get(), MyrmekeSoldierRenderer::new);
 		EntityRenderers.register(IcariaEntities.MYRMEKE_QUEEN.get(), MyrmekeQueenRenderer::new);
@@ -394,6 +396,8 @@ public class ClientProxy extends CommonProxy {
 		event.registerLayerDefinition(CatoblepasSkullModel.LAYER_LOCATION, CatoblepasSkullModel::createLayer);
 		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
 		event.registerLayerDefinition(CerverSkullModel.LAYER_LOCATION, CerverSkullModel::createLayer);
+		event.registerLayerDefinition(HyliasterModel.INNER_LAYER_LOCATION, HyliasterModel::createInnerLayer);
+		event.registerLayerDefinition(HyliasterModel.OUTER_LAYER_LOCATION, HyliasterModel::createOuterLayer);
 		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
 		event.registerLayerDefinition(MyrmekeSoldierModel.LAYER_LOCATION, MyrmekeSoldierModel::createLayer);
 		event.registerLayerDefinition(MyrmekeQueenModel.LAYER_LOCATION, MyrmekeQueenModel::createLayer);
