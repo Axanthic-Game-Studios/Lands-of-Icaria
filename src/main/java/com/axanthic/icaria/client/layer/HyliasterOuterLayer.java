@@ -15,14 +15,10 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 
-@OnlyIn(Dist.CLIENT)
 public class HyliasterOuterLayer extends RenderLayer<HyliasterEntity, HyliasterModel<HyliasterEntity>> {
     public final EntityModel<HyliasterEntity> model;
 
