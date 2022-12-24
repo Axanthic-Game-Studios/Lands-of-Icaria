@@ -2,7 +2,7 @@
   "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "landsoficaria:block/platoshale_bricks_blurred",
-    "overlay": "landsoficaria:block/platoshale_bricks_blurred_overlay",
+    "overlay": "landsoficaria:block/platoshale_bricks_blurred_emissive",
     "particle": "#all"
   },
   "elements": [

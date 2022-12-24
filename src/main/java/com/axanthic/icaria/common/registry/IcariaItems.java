@@ -624,15 +624,15 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRAWBERRY_SEEDS = registerBasic("strawberry_seeds", () -> new ItemNameBlockItem(IcariaBlocks.STRAWBERRY_CROP.get(), propertiesItems()));
 	public static final RegistryObject<Item> PHYSALIS_SEEDS = registerBasic("physalis_seeds", () -> new ItemNameBlockItem(IcariaBlocks.PHYSALIS_CROP.get(), propertiesItems()));
 
-	public static final RegistryObject<Item> AETERNAE_SPAWN_EGG = register("aeternae_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.AETERNAE, 0xE27E1E, 0xF9BC0B, propertiesItems()));
-	public static final RegistryObject<Item> ARGAN_HOUND_SPAWN_EGG = register("argan_hound_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.ARGAN_HOUND, 0x4A3721, 0x211406, propertiesItems()));
-	public static final RegistryObject<Item> CATOBLEPAS_SPAWN_EGG = register("catoblepas_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.CATOBLEPAS, 0x615238, 0xDACCB7, propertiesItems()));
-	public static final RegistryObject<Item> CERVER_SPAWN_EGG = register("cerver_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.CERVER, 0x362923, 0x211916, propertiesItems()));
-	public static final RegistryObject<Item> HYLIASTER_SPAWN_EGG = register("hyliaster_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.HYLIASTER, 0x262E2E, 0xB8D9C8, propertiesItems()));
-	public static final RegistryObject<Item> MYRMEKE_DRONE_SPAWN_EGG = register("myrmeke_drone_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.MYRMEKE_DRONE, 0x472317, 0x26120C, propertiesItems()));
-	public static final RegistryObject<Item> MYRMEKE_SOLDIER_SPAWN_EGG = register("myrmeke_soldier_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.MYRMEKE_SOLDIER, 0x522116, 0x26120C, propertiesItems()));
-	public static final RegistryObject<Item> MYRMEKE_QUEEN_SPAWN_EGG = register("myrmeke_queen_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.MYRMEKE_QUEEN, 0x5A1F15, 0x26120C, propertiesItems()));
-	public static final RegistryObject<Item> SOW_SPAWN_EGG = register("sow_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.SOW, 0x625242, 0x27201A, propertiesItems()));
+	public static final RegistryObject<Item> AETERNAE_SPAWN_EGG = register("aeternae_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.AETERNAE, 0x40280B, 0x88581F, propertiesItems()));
+	public static final RegistryObject<Item> ARGAN_HOUND_SPAWN_EGG = register("argan_hound_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.ARGAN_HOUND, 0x0B0D0E, 0x2C2F36, propertiesItems()));
+	public static final RegistryObject<Item> CATOBLEPAS_SPAWN_EGG = register("catoblepas_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.CATOBLEPAS, 0x1D170E, 0x373024, propertiesItems()));
+	public static final RegistryObject<Item> CERVER_SPAWN_EGG = register("cerver_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.CERVER, 0x0E0A05, 0x302C26, propertiesItems()));
+	public static final RegistryObject<Item> HYLIASTER_SPAWN_EGG = register("hyliaster_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.HYLIASTER, 0x040706, 0x8B9590, propertiesItems()));
+	public static final RegistryObject<Item> MYRMEKE_DRONE_SPAWN_EGG = register("myrmeke_drone_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.MYRMEKE_DRONE, 0x501814, 0x241E19, propertiesItems()));
+	public static final RegistryObject<Item> MYRMEKE_SOLDIER_SPAWN_EGG = register("myrmeke_soldier_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.MYRMEKE_SOLDIER, 0x501814, 0x402816, propertiesItems()));
+	public static final RegistryObject<Item> MYRMEKE_QUEEN_SPAWN_EGG = register("myrmeke_queen_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.MYRMEKE_QUEEN, 0x501814, 0xAB7E17, propertiesItems()));
+	public static final RegistryObject<Item> SOW_SPAWN_EGG = register("sow_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.SOW, 0x231A13, 0x6E554B, propertiesItems()));
 
 	public static final RegistryObject<Item> MEDITERRANEAN_WATER_BUCKET = registerBasic("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
 

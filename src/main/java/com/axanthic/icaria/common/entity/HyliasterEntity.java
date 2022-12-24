@@ -52,7 +52,7 @@ public class HyliasterEntity extends Monster {
     }
 
     public float getDimensionFromSize() {
-        return ((this.getSize() + ((-this.getSize() + 5.0F) * 0.175F)) - 0.5F);
+        return ((this.getSize() + ((5.0F - this.getSize()) * 0.175F)) - 0.5F);
     }
 
     @Override
