@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.layer;
 
-import com.axanthic.icaria.client.model.MyrmekeQueenModel;
-import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
+import com.axanthic.icaria.client.model.ArachneDroneModel;
+import com.axanthic.icaria.common.entity.ArachneDroneEntity;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -19,15 +19,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class MyrmekeQueenEmissiveLayer extends RenderLayer<MyrmekeQueenEntity, MyrmekeQueenModel> {
-    public static final RenderType EMISSIVE = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.MODID, "textures/entity/myrmeke_queen_emissive.png"));
+public class ArachneDroneEmissiveLayer extends RenderLayer<ArachneDroneEntity, ArachneDroneModel> {
+    public static final RenderType EMISSIVE = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.MODID, "textures/entity/arachne_drone_emissive.png"));
 
-    public MyrmekeQueenEmissiveLayer(RenderLayerParent<MyrmekeQueenEntity, MyrmekeQueenModel> pRenderer) {
+    public ArachneDroneEmissiveLayer(RenderLayerParent<ArachneDroneEntity, ArachneDroneModel> pRenderer) {
         super(pRenderer);
     }
 
     @Override
-    public void render(PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, MyrmekeQueenEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+    public void render(PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, ArachneDroneEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
         this.getParentModel().renderToBuffer(pPoseStack, pBufferSource.getBuffer(EMISSIVE), 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
     }
 }

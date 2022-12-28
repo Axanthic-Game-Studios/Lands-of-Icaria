@@ -50,6 +50,8 @@ public class CommonProxy {
 
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
 		event.put(IcariaEntities.AETERNAE.get(), AeternaeEntity.registerAttributes().build());
+		event.put(IcariaEntities.ARACHNE.get(), ArachneEntity.registerAttributes().build());
+		event.put(IcariaEntities.ARACHNE_DRONE.get(), ArachneDroneEntity.registerAttributes().build());
 		event.put(IcariaEntities.ARGAN_HOUND.get(), ArganHoundEntity.registerAttributes().build());
 		event.put(IcariaEntities.CATOBLEPAS.get(), CatoblepasEntity.registerAttributes().build());
 		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
@@ -110,6 +112,8 @@ public class CommonProxy {
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(AeternaeModel.LAYER_LOCATION, AeternaeModel::createLayer);
 		event.registerLayerDefinition(AeternaeSkullModel.LAYER_LOCATION, AeternaeSkullModel::createLayer);
+		event.registerLayerDefinition(ArachneModel.LAYER_LOCATION, ArachneModel::createLayer);
+		event.registerLayerDefinition(ArachneDroneModel.LAYER_LOCATION, ArachneDroneModel::createLayer);
 		event.registerLayerDefinition(ArganHoundModel.LAYER_LOCATION, ArganHoundModel::createLayer);
 		event.registerLayerDefinition(ArganHoundSkullModel.LAYER_LOCATION, ArganHoundSkullModel::createLayer);
 		event.registerLayerDefinition(CatoblepasModel.LAYER_LOCATION, CatoblepasModel::createLayer);

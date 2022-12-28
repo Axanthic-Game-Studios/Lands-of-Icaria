@@ -27,7 +27,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
 
-public class MyrmekeQueenCrystalLayer extends RenderLayer<MyrmekeQueenEntity, MyrmekeQueenModel> {
+public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, MyrmekeQueenModel> {
     public boolean RENDER_RAYS = IcariaConfig.RENDER_RAYS.get();
     public float HALF_SQRT_3 = (float)(Math.sqrt(3.0D) / 2.0D);
 
@@ -58,7 +58,7 @@ public class MyrmekeQueenCrystalLayer extends RenderLayer<MyrmekeQueenEntity, My
     public static final RenderType ADDITIVE_LIGHTNING = RenderType.create("additive_lightning", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(LIGHTNING_SHADER).setTransparencyState(ADDITIVE_LIGHTNING_TRANSPARENCY).createCompositeState(false));
     public static final RenderType SUBTRACTIVE_LIGHTNING = RenderType.create("subtractive_lightning", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(LIGHTNING_SHADER).setTransparencyState(SUBTRACTIVE_LIGHTNING_TRANSPARENCY).createCompositeState(false));
 
-    public MyrmekeQueenCrystalLayer(RenderLayerParent<MyrmekeQueenEntity, MyrmekeQueenModel> pRenderer, EntityModelSet pSet) {
+    public MyrmekeQueenRaysLayer(RenderLayerParent<MyrmekeQueenEntity, MyrmekeQueenModel> pRenderer, EntityModelSet pSet) {
         super(pRenderer);
         this.model = new MyrmekeQueenModel(pSet.bakeLayer(MyrmekeQueenModel.RAYS_LAYER_LOCATION));
     }

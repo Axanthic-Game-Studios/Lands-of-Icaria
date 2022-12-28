@@ -18,24 +18,24 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class HyliasterRenderer extends MobRenderer<HyliasterEntity, HyliasterModel<HyliasterEntity>> {
+public class HyliasterRenderer extends MobRenderer<HyliasterEntity, HyliasterModel> {
     public static ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/hyliaster.png");
 
     public HyliasterRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new HyliasterModel<>(pContext.bakeLayer(HyliasterModel.INNER_LAYER_LOCATION)), 0.125F);
+        super(pContext, new HyliasterModel(pContext.bakeLayer(HyliasterModel.INNER_LAYER_LOCATION)), 0.125F);
         this.addLayer(new HyliasterOuterLayer(this, pContext.getModelSet()));
     }
 
     @Override
-    public void render(HyliasterEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(HyliasterEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight) {
         this.shadowRadius = pEntity.getDimensionFromSize() * 0.125F;
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+        super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBufferSource, pPackedLight);
     }
 
     @Override
-    public void scale(HyliasterEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+    public void scale(HyliasterEntity pLivingEntity, PoseStack pPoseStack, float pPartialTickTime) {
         float size = pLivingEntity.getDimensionFromSize() * 0.275F;
-        pMatrixStack.scale(size, size, size);
+        pPoseStack.scale(size, size, size);
     }
 
     @Override

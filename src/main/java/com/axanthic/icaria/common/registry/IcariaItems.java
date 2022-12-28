@@ -625,6 +625,8 @@ public class IcariaItems {
 	public static final RegistryObject<Item> PHYSALIS_SEEDS = registerBasic("physalis_seeds", () -> new ItemNameBlockItem(IcariaBlocks.PHYSALIS_CROP.get(), propertiesItems()));
 
 	public static final RegistryObject<Item> AETERNAE_SPAWN_EGG = register("aeternae_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.AETERNAE, 0x40280B, 0x88581F, propertiesItems()));
+	public static final RegistryObject<Item> ARACHNE_SPAWN_EGG = register("arachne_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.ARACHNE, 0x362E28, 0x6A8C97, propertiesItems()));
+	public static final RegistryObject<Item> ARACHNE_DRONE_SPAWN_EGG = register("arachne_drone_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.ARACHNE_DRONE, 0x382F28, 0x6A8C97, propertiesItems()));
 	public static final RegistryObject<Item> ARGAN_HOUND_SPAWN_EGG = register("argan_hound_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.ARGAN_HOUND, 0x0B0D0E, 0x2C2F36, propertiesItems()));
 	public static final RegistryObject<Item> CATOBLEPAS_SPAWN_EGG = register("catoblepas_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.CATOBLEPAS, 0x1D170E, 0x373024, propertiesItems()));
 	public static final RegistryObject<Item> CERVER_SPAWN_EGG = register("cerver_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.CERVER, 0x0E0A05, 0x302C26, propertiesItems()));

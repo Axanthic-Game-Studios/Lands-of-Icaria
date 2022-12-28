@@ -19,30 +19,30 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 
-public class HyliasterOuterLayer extends RenderLayer<HyliasterEntity, HyliasterModel<HyliasterEntity>> {
+public class HyliasterOuterLayer extends RenderLayer<HyliasterEntity, HyliasterModel> {
     public final EntityModel<HyliasterEntity> model;
 
-    public HyliasterOuterLayer(RenderLayerParent<HyliasterEntity, HyliasterModel<HyliasterEntity>> pRenderer, EntityModelSet pSet) {
+    public HyliasterOuterLayer(RenderLayerParent<HyliasterEntity, HyliasterModel> pRenderer, EntityModelSet pSet) {
         super(pRenderer);
-        this.model = new HyliasterModel<>(pSet.bakeLayer(HyliasterModel.OUTER_LAYER_LOCATION));
+        this.model = new HyliasterModel(pSet.bakeLayer(HyliasterModel.OUTER_LAYER_LOCATION));
     }
 
     @Override
-    public void render(PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight, HyliasterEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+    public void render(PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, HyliasterEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
         Minecraft minecraft = Minecraft.getInstance();
         boolean flag = minecraft.shouldEntityAppearGlowing(pLivingEntity) && pLivingEntity.isInvisible();
         if (!pLivingEntity.isInvisible() || flag) {
             VertexConsumer vertexConsumer;
             if (flag) {
-                vertexConsumer = pBuffer.getBuffer(RenderType.outline(this.getTextureLocation(pLivingEntity)));
+                vertexConsumer = pBufferSource.getBuffer(RenderType.outline(this.getTextureLocation(pLivingEntity)));
             } else {
-                vertexConsumer = pBuffer.getBuffer(RenderType.entityTranslucent(this.getTextureLocation(pLivingEntity)));
+                vertexConsumer = pBufferSource.getBuffer(RenderType.entityTranslucent(this.getTextureLocation(pLivingEntity)));
             }
 
             this.getParentModel().copyPropertiesTo(this.model);
             this.model.prepareMobModel(pLivingEntity, pLimbSwing, pLimbSwingAmount, pPartialTicks);
             this.model.setupAnim(pLivingEntity, pLimbSwing, pLimbSwingAmount, pAgeInTicks, pNetHeadYaw, pHeadPitch);
-            this.model.renderToBuffer(pMatrixStack, vertexConsumer, pPackedLight, LivingEntityRenderer.getOverlayCoords(pLivingEntity, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
+            this.model.renderToBuffer(pPoseStack, vertexConsumer, pPackedLight, LivingEntityRenderer.getOverlayCoords(pLivingEntity, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
         }
     }
 }
