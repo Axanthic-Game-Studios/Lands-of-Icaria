@@ -402,8 +402,8 @@ public class ClientProxy extends CommonProxy {
 		event.registerLayerDefinition(CatoblepasSkullModel.LAYER_LOCATION, CatoblepasSkullModel::createLayer);
 		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
 		event.registerLayerDefinition(CerverSkullModel.LAYER_LOCATION, CerverSkullModel::createLayer);
-		event.registerLayerDefinition(HyliasterModel.INNER_LAYER_LOCATION, HyliasterModel::createInnerLayer);
-		event.registerLayerDefinition(HyliasterModel.OUTER_LAYER_LOCATION, HyliasterModel::createOuterLayer);
+		event.registerLayerDefinition(HyliasterModel.LAYER_LOCATION, HyliasterModel::createLayer);
+		event.registerLayerDefinition(HyliasterModel.TRANSLUCENT_LAYER_LOCATION, HyliasterModel::createTranslucentLayer);
 		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
 		event.registerLayerDefinition(MyrmekeSoldierModel.LAYER_LOCATION, MyrmekeSoldierModel::createLayer);
 		event.registerLayerDefinition(MyrmekeQueenModel.BODY_LAYER_LOCATION, MyrmekeQueenModel::createLayer);

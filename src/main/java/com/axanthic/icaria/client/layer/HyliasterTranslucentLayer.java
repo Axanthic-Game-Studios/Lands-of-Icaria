@@ -19,12 +19,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 
-public class HyliasterOuterLayer extends RenderLayer<HyliasterEntity, HyliasterModel> {
+public class HyliasterTranslucentLayer extends RenderLayer<HyliasterEntity, HyliasterModel> {
     public final EntityModel<HyliasterEntity> model;
 
-    public HyliasterOuterLayer(RenderLayerParent<HyliasterEntity, HyliasterModel> pRenderer, EntityModelSet pSet) {
+    public HyliasterTranslucentLayer(RenderLayerParent<HyliasterEntity, HyliasterModel> pRenderer, EntityModelSet pSet) {
         super(pRenderer);
-        this.model = new HyliasterModel(pSet.bakeLayer(HyliasterModel.OUTER_LAYER_LOCATION));
+        this.model = new HyliasterModel(pSet.bakeLayer(HyliasterModel.TRANSLUCENT_LAYER_LOCATION));
     }
 
     @Override
