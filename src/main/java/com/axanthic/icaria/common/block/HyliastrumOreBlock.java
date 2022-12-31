@@ -31,7 +31,7 @@ public class HyliastrumOreBlock extends Block {
 			HyliasterEntity entity = IcariaEntities.HYLIASTER.get().create(pLevel);
 			if (entity != null) {
 				entity.moveTo((double)pPos.getX() + 0.5D, pPos.getY(), (double)pPos.getZ() + 0.5D, 0.0F, 0.0F);
-				entity.setSize(4, true);
+				entity.setSize(4);
 				entity.spawnAnim();
 				pLevel.addFreshEntity(entity);
 				pLevel.playSound(null, pPos, SoundEvents.SLIME_SQUISH, SoundSource.NEUTRAL, 1.0F, 1.0F);

@@ -43,7 +43,7 @@ public class HyliastrumVialItem extends Item {
         } else {
             if (entity != null) {
                 entity.moveTo(relative, 0.0F, 0.0F);
-                entity.setSize(1, true);
+                entity.setSize(1);
                 level.addFreshEntity(entity);
             }
 

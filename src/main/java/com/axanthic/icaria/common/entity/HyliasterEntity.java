@@ -31,8 +31,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.Objects;
-
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -40,54 +38,112 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class HyliasterEntity extends Monster {
+    public int maxSize = 4;
+    public int maxTick = 48000;
+    public int minSize = 1;
+    public int minTick = 0;
+
+    public float bboxMult;
+    public float eyesMult;
+    public float sizeMult;
+
     public final AnimationState walkAnimationState = new AnimationState();
-    public static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(HyliasterEntity.class, EntityDataSerializers.INT);
+
+    public static EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
+    public static EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
 
     public HyliasterEntity(EntityType<? extends Monster> pType, Level pLevel) {
         super(pType, pLevel);
+        this.bboxMult = 1.125F;
+        this.eyesMult = 0.125F;
+        this.sizeMult = 0.175F;
+    }
+
+    @Override
+    public boolean isBaby() {
+        return this.getSize() < this.maxSize;
     }
 
     public boolean isMovingOnLand() {
         return this.onGround && this.getDeltaMovement().horizontalDistanceSqr() > 0;
     }
 
-    public float getDimensionFromSize() {
-        return ((this.getSize() + ((5.0F - this.getSize()) * 0.175F)) - 0.5F);
+    public float getInverseSize() {
+        return (this.getSize() * -1.0F) + 5.0F;
+    }
+
+    @Override
+    public float getScale() {
+        return this.getScaleFromSize() * this.bboxMult;
+    }
+
+    public float getScaleFromSize() {
+        return (this.getSize() + (this.getInverseSize() * this.sizeMult)) - 0.5F;
     }
 
     @Override
     public float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
-        return getDimensionFromSize() * 0.125F;
+        return this.getScaleFromSize() * this.eyesMult;
+    }
+
+    @Override
+    public float getVoicePitch() {
+        return (this.getInverseSize() * 0.25F) + 0.75F;
     }
 
     public int getSize() {
-        return this.entityData.get(ID_SIZE);
+        return this.entityData.get(SIZE);
+    }
+
+    public int getTick() {
+        return this.entityData.get(TICK);
     }
 
     @Override
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
-        pCompound.putInt("Size", this.getSize() - 1);
+        pCompound.putInt("Size", this.getSize());
+        pCompound.putInt("Tick", this.getTick());
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (this.isAlive()) {
+            int tick = this.getTick();
+            if (tick < 16000) {
+                ++tick;
+                this.setTick(tick);
+                this.setSize(1);
+            } else if (tick < 32000) {
+                ++tick;
+                this.setTick(tick);
+                this.setSize(2);
+            } else if (tick < 48000) {
+                ++tick;
+                this.setTick(tick);
+                this.setSize(3);
+            } else {
+                ++tick;
+                this.setTick(tick);
+                this.setSize(4);
+            }
+        }
     }
 
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(ID_SIZE, 1);
+        this.entityData.define(SIZE, this.minSize);
+        this.entityData.define(TICK, this.minTick);
     }
 
     @Override
     public void onSyncedDataUpdated(EntityDataAccessor<?> pKey) {
-        if (ID_SIZE.equals(pKey)) {
-            this.refreshDimensions();
-            this.setYRot(this.yHeadRot);
-            this.yBodyRot = this.yHeadRot;
-            if (this.isInWater() && this.random.nextInt(20) == 0) {
-                this.doWaterSplashEffect();
-            }
-        }
-
         super.onSyncedDataUpdated(pKey);
+        if (SIZE.equals(pKey)) {
+            this.refreshDimensions();
+        }
     }
 
     @Override
@@ -97,8 +153,9 @@ public class HyliasterEntity extends Monster {
 
     @Override
     public void readAdditionalSaveData(CompoundTag pCompound) {
-        this.setSize(pCompound.getInt("Size") + 1, false);
         super.readAdditionalSaveData(pCompound);
+        this.setSize(pCompound.getInt("Size"));
+        this.setTick(pCompound.getInt("Tick"));
     }
 
     @Override
@@ -115,53 +172,51 @@ public class HyliasterEntity extends Monster {
 
     @Override
     public void remove(Entity.RemovalReason pReason) {
-        int size = this.getSize();
-        if (!this.level.isClientSide && size > 1 && this.isDeadOrDying()) {
-            for(int l = 0; l < size; ++l) {
-                float xOffset = ((float)(l % 2) - 0.5F) * size * 0.25F;
-                float zOffset = ((float)(l / 2) - 0.5F) * size * 0.25F;
+        super.remove(pReason);
+        if (!this.level.isClientSide) {
+            int size = this.getSize();
+            if (size > this.minSize) {
+                if (this.isDeadOrDying()) {
+                    for (int l = 0; l < size; ++l) {
+                        float xOffset = ((float)(l % 2) - 0.5F) * size * 0.25F;
+                        float zOffset = ((float)(l / 2) - 0.5F) * size * 0.25F;
+                        HyliasterEntity entity = IcariaEntities.HYLIASTER.get().create(this.level);
+                        if (entity != null) {
+                            if (this.isPersistenceRequired()) {
+                                entity.setPersistenceRequired();
+                            }
 
-                HyliasterEntity entity = IcariaEntities.HYLIASTER.get().create(this.level);
-
-                if (entity != null) {
-                    if (this.isPersistenceRequired()) {
-                        entity.setPersistenceRequired();
+                            entity.moveTo(this.getX() + (double)xOffset, this.getY() + 0.5D, this.getZ() + (double)zOffset, this.random.nextFloat() * 360.0F, 0.0F);
+                            entity.setCustomName(this.getCustomName());
+                            entity.setInvulnerable(this.isInvulnerable());
+                            entity.setNoAi(this.isNoAi());
+                            entity.setSize(this.minSize);
+                            this.level.addFreshEntity(entity);
+                        }
                     }
-
-                    entity.setCustomName(this.getCustomName());
-                    entity.setNoAi(this.isNoAi());
-                    entity.setInvulnerable(this.isInvulnerable());
-                    entity.setSize(1, true);
-                    entity.moveTo(this.getX() + (double)xOffset, this.getY() + 0.5D, this.getZ() + (double)zOffset, this.random.nextFloat() * 360.0F, 0.0F);
-                    this.level.addFreshEntity(entity);
                 }
             }
         }
-
-        super.remove(pReason);
     }
 
-    public void setSize(int pSize, boolean pResetHealth) {
-        int size = Mth.clamp(pSize, 0, 127);
-
-        this.entityData.set(ID_SIZE, size);
-
-        this.reapplyPosition();
+    public void setSize(int pSize) {
+        int size = Mth.clamp(pSize, this.minSize, this.maxSize);
         this.refreshDimensions();
+        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
+        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
+        this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1D + (size * 0.04D));
+        this.entityData.set(SIZE, size);
+        this.xpReward = size + 1;
+    }
 
-        Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
-        Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
-        Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue(0.1D + (size * 0.04D));
-
-        if (pResetHealth) {
-            this.setHealth(this.getMaxHealth());
-        }
-
-        this.xpReward = size;
+    public void setTick(int pSize) {
+        int tick = Mth.clamp(pSize, this.minTick, this.maxTick);
+        this.entityData.set(TICK, tick);
     }
 
     @Override
     public void tick() {
+        super.tick();
         if (this.level.isClientSide()) {
             if (this.isMovingOnLand()) {
                 this.walkAnimationState.startIfStopped(this.tickCount);
@@ -169,18 +224,10 @@ public class HyliasterEntity extends Monster {
                 this.walkAnimationState.stop();
             }
         }
-
-        super.tick();
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
         return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.1D);
-    }
-
-    @Override
-    public EntityDimensions getDimensions(Pose pPose) {
-        float size = this.getDimensionFromSize() * 1.125F;
-        return super.getDimensions(pPose).scale(size);
     }
 
     @Override
@@ -189,8 +236,8 @@ public class HyliasterEntity extends Monster {
         if (itemStack.getItem() == IcariaItems.VIAL_EMPTY.get()) {
             pPlayer.getLevel().playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
             if (!this.level.isClientSide) {
-                this.setSize(this.getSize() - 1, true);
-                if (this.getSize() < 1) {
+                this.setTick(this.getTick() - 16000);
+                if (this.getSize() == this.minSize) {
                     this.remove(RemovalReason.KILLED);
                 }
 
@@ -225,7 +272,8 @@ public class HyliasterEntity extends Monster {
 
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        this.setSize(4, true);
+        this.setSize(this.maxSize);
+        this.setTick(this.maxTick);
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
 }

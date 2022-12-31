@@ -28,13 +28,13 @@ public class HyliasterRenderer extends MobRenderer<HyliasterEntity, HyliasterMod
 
     @Override
     public void render(HyliasterEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight) {
-        this.shadowRadius = pEntity.getDimensionFromSize() * 0.125F;
+        this.shadowRadius = pEntity.getScaleFromSize() * 0.125F;
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBufferSource, pPackedLight);
     }
 
     @Override
     public void scale(HyliasterEntity pLivingEntity, PoseStack pPoseStack, float pPartialTickTime) {
-        float size = pLivingEntity.getDimensionFromSize() * 0.275F;
+        float size = pLivingEntity.getScaleFromSize() * 0.275F;
         pPoseStack.scale(size, size, size);
     }
 
