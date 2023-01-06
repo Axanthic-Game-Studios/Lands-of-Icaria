@@ -7,33 +7,27 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-
 @MethodsReturnNonnullByDefault
 
 public class IcariaTabs {
-	public static CreativeModeTab creativeBlocks = new CreativeModeTab(IcariaInfo.MODID + ".blocks") {
+	public static final CreativeModeTab BLOCKS = new CreativeModeTab(IcariaInfo.MODID + ".blocks") {
 		@Override
-		@OnlyIn(Dist.CLIENT)
 		public ItemStack makeIcon() {
 			return new ItemStack(IcariaItems.MARL_GRASS.get());
 		}
 	};
 
-	public static CreativeModeTab creativeFlora = new CreativeModeTab(IcariaInfo.MODID + ".flora") {
+	public static final CreativeModeTab FLORA = new CreativeModeTab(IcariaInfo.MODID + ".flora") {
 		@Override
-		@OnlyIn(Dist.CLIENT)
 		public ItemStack makeIcon() {
 			return new ItemStack(IcariaItems.LARGE_GRASS.get());
 		}
 	};
 
-	public static CreativeModeTab creativeItems = new CreativeModeTab(IcariaInfo.MODID + ".items") {
+	public static final CreativeModeTab ITEMS = new CreativeModeTab(IcariaInfo.MODID + ".items") {
 		@Override
-		@OnlyIn(Dist.CLIENT)
 		public ItemStack makeIcon() {
-			return new ItemStack(IcariaItems.ORICHALCUM_TOOLS.PICKAXE.get());
+			return new ItemStack(IcariaItems.ORICHALCUM_TOOLS.pickaxe.get());
 		}
 	};
 }

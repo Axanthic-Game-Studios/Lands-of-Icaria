@@ -18,35 +18,35 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 
 public class StorageVaseBlockEntity extends BlockEntity {
-	public ItemStackHandler itemStackHandler = createHandler();
-	public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> itemStackHandler);
+	public ItemStackHandler stackHandler = createHandler();
+	public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> this.stackHandler);
 
-	public StorageVaseBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
-		super(IcariaBlockEntities.STORAGE_VASE.get(), pWorldPosition, pBlockState);
+	public StorageVaseBlockEntity(BlockPos pPos, BlockState pBlockState) {
+		super(IcariaBlockEntities.STORAGE_VASE.get(), pPos, pBlockState);
 	}
 
 	public int getComparatorInput() {
-		return itemHandler.map(ItemHandlerHelper::calcRedstoneFromInventory).orElse(0);
+		return this.itemHandler.map(ItemHandlerHelper::calcRedstoneFromInventory).orElse(0);
 	}
 
 	@Override
-	public void load(CompoundTag pTag) {
-		if (pTag.contains("Inventory")) {
-			itemStackHandler.deserializeNBT(pTag.getCompound("Inventory"));
-		}
-
+	public void load(@Nonnull CompoundTag pTag) {
 		super.load(pTag);
+		if (pTag.contains("Inventory")) {
+			this.stackHandler.deserializeNBT(pTag.getCompound("Inventory"));
+		}
 	}
 
 	@Override
-	public void saveAdditional(CompoundTag pTag) {
-		pTag.put("Inventory", itemStackHandler.serializeNBT());
+	public void saveAdditional(@Nonnull CompoundTag pTag) {
+		super.saveAdditional(pTag);
+		pTag.put("Inventory", this.stackHandler.serializeNBT());
 	}
 
 	@Override
 	public void setRemoved() {
 		super.setRemoved();
-		itemHandler.invalidate();
+		this.itemHandler.invalidate();
 	}
 
 	public ItemStackHandler createHandler() {
@@ -59,11 +59,11 @@ public class StorageVaseBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	public @Nonnull <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, Direction direction) {
-		if (capability == ForgeCapabilities.ITEM_HANDLER) {
-			return itemHandler.cast();
+	public @Nonnull <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, Direction side) {
+		if (cap == ForgeCapabilities.ITEM_HANDLER) {
+			return this.itemHandler.cast();
 		}
 
-		return super.getCapability(capability, direction);
+		return super.getCapability(cap, side);
 	}
 }

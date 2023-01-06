@@ -49,8 +49,8 @@ public class LayerBlock extends Block {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		BlockState state = pLevel.getBlockState(pPos.below());
-		return Block.isFaceFull(state.getCollisionShape(pLevel, pPos.below()), Direction.UP) || state.is(this) && state.getValue(LAYERS) == 8;
+		BlockState blockState = pLevel.getBlockState(pPos.below());
+		return Block.isFaceFull(blockState.getCollisionShape(pLevel, pPos.below()), Direction.UP) || blockState.is(this) && blockState.getValue(LAYERS) == 8;
 	}
 
 	@Override
@@ -73,23 +73,23 @@ public class LayerBlock extends Block {
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pNeighborPos);
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		BlockState state = pContext.getLevel().getBlockState(pContext.getClickedPos());
-		if (state.is(this)) {
-			int i = state.getValue(LAYERS);
-			return state.setValue(LAYERS, Math.min(8, i + 1));
+		BlockState blockState = pContext.getLevel().getBlockState(pContext.getClickedPos());
+		if (blockState.is(this)) {
+			int i = blockState.getValue(LAYERS);
+			return blockState.setValue(LAYERS, Math.min(8, i + 1));
 		} else {
 			return super.getStateForPlacement(pContext);
 		}
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
 		return SHAPES[pState.getValue(LAYERS)];
 	}
 
@@ -99,7 +99,7 @@ public class LayerBlock extends Block {
 	}
 
 	@Override
-	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return SHAPES[pState.getValue(LAYERS)];
 	}
 

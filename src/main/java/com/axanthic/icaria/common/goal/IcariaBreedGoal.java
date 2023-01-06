@@ -10,15 +10,20 @@ import net.minecraft.world.level.Level;
 import java.util.EnumSet;
 import java.util.List;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+
 public class IcariaBreedGoal extends Goal {
     public double speedModifier;
+
     public int loveTime;
 
     public Class<? extends IcariaAnimalEntity> partnerClass;
     public IcariaAnimalEntity animal;
     public IcariaAnimalEntity partner;
     public Level level;
-    public static TargetingConditions PARTNER_TARGETING = TargetingConditions.forNonCombat().range(8.0D).ignoreLineOfSight();
+    public static final TargetingConditions PARTNER_TARGETING = TargetingConditions.forNonCombat().range(8.0D).ignoreLineOfSight();
 
     public IcariaBreedGoal(IcariaAnimalEntity pAnimal, double pSpeedModifier) {
         this(pAnimal, pSpeedModifier, pAnimal.getClass());
@@ -30,10 +35,6 @@ public class IcariaBreedGoal extends Goal {
         this.partnerClass = pPartnerClass;
         this.speedModifier = pSpeedModifier;
         this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
-    }
-
-    public void breed() {
-        this.animal.spawnChildFromBreeding((ServerLevel) this.level, this.partner);
     }
 
     @Override
@@ -49,6 +50,10 @@ public class IcariaBreedGoal extends Goal {
             this.partner = this.getFreePartner();
             return this.partner != null;
         }
+    }
+
+    public void breed() {
+        this.animal.spawnChildFromBreeding((ServerLevel) this.level, this.partner);
     }
 
     @Override
@@ -71,8 +76,7 @@ public class IcariaBreedGoal extends Goal {
         double d = Double.MAX_VALUE;
         IcariaAnimalEntity animal = null;
         List<? extends IcariaAnimalEntity> list = this.level.getNearbyEntities(this.partnerClass, PARTNER_TARGETING, this.animal, this.animal.getBoundingBox().inflate(8.0D));
-
-        for(IcariaAnimalEntity partner : list) {
+        for (IcariaAnimalEntity partner : list) {
             if (this.animal.canMate(partner) && this.animal.distanceToSqr(partner) < d) {
                 animal = partner;
                 d = this.animal.distanceToSqr(partner);

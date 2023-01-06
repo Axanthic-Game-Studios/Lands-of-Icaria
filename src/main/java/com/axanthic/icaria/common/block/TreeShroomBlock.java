@@ -38,7 +38,7 @@ public class TreeShroomBlock extends Block {
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		Direction direction = pState.getValue(FACING);
-		return direction.getAxis().isHorizontal() && mayPlaceOn(pLevel.getBlockState(pPos.relative(direction.getOpposite())));
+		return direction.getAxis().isHorizontal() && this.mayPlaceOn(pLevel.getBlockState(pPos.relative(direction.getOpposite())));
 	}
 
 	public boolean mayPlaceOn(BlockState pState) {
@@ -57,12 +57,12 @@ public class TreeShroomBlock extends Block {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		BlockState state = this.defaultBlockState();
-		for(Direction direction : pContext.getNearestLookingDirections()) {
+		BlockState blockState = this.defaultBlockState();
+		for (Direction direction : pContext.getNearestLookingDirections()) {
 			if (direction.getAxis().isHorizontal()) {
-				state = state.setValue(FACING, direction.getOpposite());
-				if (state.canSurvive(pContext.getLevel(), pContext.getClickedPos())) {
-					return state;
+				blockState = blockState.setValue(FACING, direction.getOpposite());
+				if (blockState.canSurvive(pContext.getLevel(), pContext.getClickedPos())) {
+					return blockState;
 				}
 			}
 		}
@@ -71,8 +71,8 @@ public class TreeShroomBlock extends Block {
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-		return pFacing.getOpposite() == pState.getValue(FACING) && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		return pDirection.getOpposite() == pState.getValue(FACING) && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 	}
 
 	@Override

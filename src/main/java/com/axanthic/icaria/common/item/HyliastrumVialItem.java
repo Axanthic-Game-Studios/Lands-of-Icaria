@@ -36,7 +36,6 @@ public class HyliastrumVialItem extends Item {
         Player player = pContext.getPlayer();
         BlockPos relative = blockPos.relative(direction);
         HyliasterEntity entity = IcariaEntities.HYLIASTER.get().create(level);
-
         if (!(level instanceof ServerLevel)) {
             level.playSound(player, blockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.NEUTRAL, 1.0F, 1.0F);
             return InteractionResult.SUCCESS;
@@ -56,7 +55,6 @@ public class HyliastrumVialItem extends Item {
             }
 
             itemStack.shrink(1);
-
             return InteractionResult.CONSUME;
         }
     }

@@ -539,13 +539,13 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> STRAWBERRY_CAKE_BLACK_CANDLE = register("strawberry_cake_black_candle", () -> new StrawberryCandleCakeBlock(Blocks.BLACK_CANDLE, propertiesCake()));
 
 	public static final RegistryObject<Block> AETERNAE_SKULL = register("aeternae_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.AETERNAE, propertiesSkulls()));
-	public static final RegistryObject<Block> AETERNAE_WALL_SKULL = register("aeternae_wall_skull", () -> new IcariaWallSkullBlock(0.055F, IcariaSkullBlockTypes.AETERNAE, propertiesSkulls()));
+	public static final RegistryObject<Block> AETERNAE_WALL_SKULL = register("aeternae_wall_skull", () -> new IcariaWallSkullBlock(0.03F, IcariaSkullBlockTypes.AETERNAE, propertiesSkulls()));
 	public static final RegistryObject<Block> ARGAN_HOUND_SKULL = register("argan_hound_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.ARGAN_HOUND, propertiesSkulls()));
-	public static final RegistryObject<Block> ARGAN_HOUND_WALL_SKULL = register("argan_hound_wall_skull", () -> new IcariaWallSkullBlock(0.055F, IcariaSkullBlockTypes.ARGAN_HOUND, propertiesSkulls()));
+	public static final RegistryObject<Block> ARGAN_HOUND_WALL_SKULL = register("argan_hound_wall_skull", () -> new IcariaWallSkullBlock(0.06F, IcariaSkullBlockTypes.ARGAN_HOUND, propertiesSkulls()));
 	public static final RegistryObject<Block> CATOBLEPAS_SKULL = register("catoblepas_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.CATOBLEPAS, propertiesSkulls()));
-	public static final RegistryObject<Block> CATOBLEPAS_WALL_SKULL = register("catoblepas_wall_skull", () -> new IcariaWallSkullBlock(0.055F, IcariaSkullBlockTypes.CATOBLEPAS, propertiesSkulls()));
+	public static final RegistryObject<Block> CATOBLEPAS_WALL_SKULL = register("catoblepas_wall_skull", () -> new IcariaWallSkullBlock(0.06F, IcariaSkullBlockTypes.CATOBLEPAS, propertiesSkulls()));
 	public static final RegistryObject<Block> CERVER_SKULL = register("cerver_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.CERVER, propertiesSkulls()));
-	public static final RegistryObject<Block> CERVER_WALL_SKULL = register("cerver_wall_skull", () -> new IcariaWallSkullBlock(0.055F, IcariaSkullBlockTypes.CERVER, propertiesSkulls()));
+	public static final RegistryObject<Block> CERVER_WALL_SKULL = register("cerver_wall_skull", () -> new IcariaWallSkullBlock(0.06F, IcariaSkullBlockTypes.CERVER, propertiesSkulls()));
 	public static final RegistryObject<Block> SOW_SKULL = register("sow_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.SOW, propertiesSkulls()));
 	public static final RegistryObject<Block> SOW_WALL_SKULL = register("sow_wall_skull", () -> new IcariaWallSkullBlock(0.0F, IcariaSkullBlockTypes.SOW, propertiesSkulls()));
 
@@ -559,222 +559,223 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> GREEK_FIRE = register("greek_fire", () -> new GreekFireBlock(propertiesGreekFire()));
 	public static final RegistryObject<Block> ICARIA_PORTAL = register("icaria_portal", () -> new IcariaPortalBlock(propertiesPortal()));
 
-	private static Properties propertiesGrass() {
+	public static Properties propertiesGrass() {
 		return Properties.of(Material.GRASS, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).strength(0.6F, 0.6F).randomTicks();
 	}
 
-	private static Properties propertiesMarl() {
+	public static Properties propertiesMarl() {
 		return Properties.of(Material.DIRT, MaterialColor.COLOR_BROWN).sound(SoundType.GRAVEL).strength(0.5F, 0.5F);
 	}
 
-	private static Properties propertiesFarmland() {
+	public static Properties propertiesFarmland() {
 		return Properties.of(Material.DIRT, MaterialColor.COLOR_BROWN).sound(SoundType.GRAVEL).strength(0.6F, 0.6F).randomTicks();
 	}
 
-	private static Properties propertiesLoam() {
+	public static Properties propertiesLoam() {
 		return Properties.of(Material.DIRT, MaterialColor.TERRACOTTA_LIGHT_GRAY).sound(SoundType.GRAVEL).strength(0.6F, 0.6F);
 	}
 
-	private static Properties propertiesGrainel() {
+	public static Properties propertiesGrainel() {
 		return Properties.of(Material.SAND, MaterialColor.TERRACOTTA_YELLOW).sound(SoundType.SAND).strength(0.5F, 0.5F);
 	}
 
-	private static Properties propertiesGlass() {
+	public static Properties propertiesGlass() {
 		return Properties.of(Material.GLASS, MaterialColor.NONE).sound(SoundType.GLASS).strength(0.3F, 0.3F).noOcclusion();
 	}
 
-	private static Properties propertiesSilksand() {
+	public static Properties propertiesSilksand() {
 		return Properties.of(Material.SAND, MaterialColor.TERRACOTTA_LIGHT_GRAY).sound(SoundType.SAND).strength(0.5F, 0.5F);
 	}
 
-	private static Properties propertiesStone(MaterialColor pMaterialColor) {
+	public static Properties propertiesStone(MaterialColor pMaterialColor) {
 		return Properties.of(Material.STONE, pMaterialColor).sound(SoundType.STONE).strength(1.5F, 6.0F).requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesRubble() {
+	public static Properties propertiesRubble() {
 		return Properties.of(Material.DECORATION, MaterialColor.NONE).sound(SoundType.STONE).instabreak().noCollission().noOcclusion();
 	}
 
-	private static Properties propertiesQuartz() {
+	public static Properties propertiesQuartz() {
 		return Properties.of(Material.STONE, MaterialColor.QUARTZ).sound(SoundType.STONE).strength(0.8F, 0.8F).requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesAristone() {
+	public static Properties propertiesAristone() {
 		return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GREEN).sound(IcariaSounds.ARISTONE).strength(0.5F, 0.5F).friction(0.98F).noOcclusion();
 	}
 
-	private static Properties propertiesGeodeBlock(MaterialColor pMaterialColor) {
+	public static Properties propertiesGeodeBlock(MaterialColor pMaterialColor) {
 		return Properties.of(Material.GLASS, pMaterialColor).sound(SoundType.AMETHYST).strength(1.5F, 1.5F).requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesCrystalBlock() {
+	public static Properties propertiesCrystalBlock() {
 		return Properties.of(Material.GLASS, MaterialColor.NONE).sound(SoundType.AMETHYST_CLUSTER).strength(1.5F, 1.5F).lightLevel((pLightEmission) -> 5).noOcclusion().requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesJellyfishJellyBlock() {
+	public static Properties propertiesJellyfishJellyBlock() {
 		return Properties.of(Material.CLAY, MaterialColor.COLOR_RED).sound(SoundType.SLIME_BLOCK).strength(0.5F, 0.5F).friction(0.8F).noOcclusion();
 	}
 
-	private static Properties propertiesArachneStringBlock() {
+	public static Properties propertiesArachneStringBlock() {
 		return Properties.of(Material.WOOL, MaterialColor.COLOR_BROWN).sound(SoundType.WOOL).strength(0.8F, 0.8F);
 	}
 
-	private static Properties propertiesSpeltBaleBlock() {
+	public static Properties propertiesSpeltBaleBlock() {
 		return Properties.of(Material.GRASS, MaterialColor.TERRACOTTA_YELLOW).sound(SoundType.GRASS).strength(0.5F, 0.5F);
 	}
 
-	private static Properties propertiesVineReedBlock() {
+	public static Properties propertiesVineReedBlock() {
 		return Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_GREEN).sound(SoundType.WOOD).strength(0.5F, 2.5F);
 	}
 
-	private static Properties propertiesRottenBonesBlock() {
+	public static Properties propertiesRottenBonesBlock() {
 		return Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_GRAY).sound(SoundType.BONE_BLOCK).strength(2.0F, 2.0F).requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesCrystalStorageBlock(MaterialColor pMaterialColor) {
+	public static Properties propertiesCrystalStorageBlock(MaterialColor pMaterialColor) {
 		return Properties.of(Material.GLASS, pMaterialColor).sound(SoundType.GLASS).strength(1.2F, 1.2F).lightLevel((pLightEmission) -> 6).noOcclusion().requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesGemStorageBlock(MaterialColor pMaterialColor) {
+	public static Properties propertiesGemStorageBlock(MaterialColor pMaterialColor) {
 		return Properties.of(Material.STONE, pMaterialColor).sound(SoundType.STONE).strength(5.0F, 6.0F).requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesMetalStorageBlock(MaterialColor pMaterialColor) {
+	public static Properties propertiesMetalStorageBlock(MaterialColor pMaterialColor) {
 		return Properties.of(Material.METAL, pMaterialColor).sound(SoundType.METAL).strength(5.0F, 6.0F).requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesBars() {
+	public static Properties propertiesBars() {
 		return Properties.of(Material.METAL, MaterialColor.NONE).sound(SoundType.METAL).strength(5.0F, 6.0F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesStorageVase(MaterialColor pMaterialColor) {
+	public static Properties propertiesStorageVase(MaterialColor pMaterialColor) {
 		return Properties.of(Material.STONE, pMaterialColor).sound(IcariaSounds.CERAMIC).strength(1.3F, 1.3F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
-	private static Properties propertiesSapling() {
+	public static Properties propertiesSapling() {
 		return Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).instabreak().noCollission().randomTicks();
 	}
 
-	private static Properties propertiesPot() {
+	public static Properties propertiesPot() {
 		return Properties.of(Material.DECORATION, MaterialColor.NONE).instabreak().noOcclusion();
 	}
 
-	private static Properties propertiesLeaves() {
+	public static Properties propertiesLeaves() {
 		return Properties.of(Material.LEAVES, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).strength(0.2F, 0.2F).isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).noOcclusion().randomTicks();
 	}
 
-	private static Properties propertiesTwigs() {
+	public static Properties propertiesTwigs() {
 		return Properties.of(Material.DECORATION, MaterialColor.NONE).sound(SoundType.WOOD).instabreak().noCollission().noOcclusion();
 	}
 
-	private static Properties propertiesWood(MaterialColor pMaterialColorEnd, MaterialColor pMaterialColorSide) {
+	public static Properties propertiesWood(MaterialColor pMaterialColorEnd, MaterialColor pMaterialColorSide) {
 		return Properties.of(Material.WOOD, (pState) -> pState.getValue(RotatedPillarBlock.AXIS) == Axis.Y ? pMaterialColorEnd : pMaterialColorSide).sound(SoundType.WOOD).strength(2.0F, 2.0F).noOcclusion();
 	}
 
-	private static Properties propertiesPlanks(MaterialColor pMaterialColor) {
+	public static Properties propertiesPlanks(MaterialColor pMaterialColor) {
 		return Properties.of(Material.WOOD, pMaterialColor).sound(SoundType.WOOD).strength(2.0F, 3.0F);
 	}
 
-	private static Properties propertiesCraftingTable(MaterialColor pMaterialColor) {
+	public static Properties propertiesCraftingTable(MaterialColor pMaterialColor) {
 		return Properties.of(Material.WOOD, pMaterialColor).sound(SoundType.WOOD).strength(2.5F, 2.5F);
 	}
 
-	private static Properties propertiesDoor(MaterialColor pMaterialColor) {
+	public static Properties propertiesDoor(MaterialColor pMaterialColor) {
 		return Properties.of(Material.WOOD, pMaterialColor).sound(SoundType.WOOD).strength(3.0F, 3.0F).noOcclusion();
 	}
 
-	private static Properties propertiesLadder() {
+	public static Properties propertiesLadder() {
 		return Properties.of(Material.DECORATION, MaterialColor.NONE).sound(SoundType.LADDER).strength(0.4F, 0.4F).noOcclusion();
 	}
 
-	private static Properties propertiesSign(MaterialColor pMaterialColor) {
+	public static Properties propertiesSign(MaterialColor pMaterialColor) {
 		return Properties.of(Material.WOOD, pMaterialColor).sound(SoundType.WOOD).strength(1.0F, 1.0F).noCollission();
 	}
 
-	private static Properties propertiesTorch() {
+	public static Properties propertiesTorch() {
 		return Properties.of(Material.DECORATION, MaterialColor.NONE).sound(SoundType.METAL).instabreak().noCollission();
 	}
 
-	private static Properties propertiesVine(MaterialColor pMaterialColor) {
+	public static Properties propertiesVine(MaterialColor pMaterialColor) {
 		return Properties.of(Material.PLANT, pMaterialColor).sound(SoundType.VINE).strength(0.2F, 0.2F).noCollission();
 	}
 
-	private static Properties propertiesBush(MaterialColor pMaterialColor) {
+	public static Properties propertiesBush(MaterialColor pMaterialColor) {
 		return Properties.of(Material.PLANT, pMaterialColor).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollission();
 	}
 
-	private static Properties propertiesPlant(MaterialColor pMaterialColor) {
+	public static Properties propertiesPlant(MaterialColor pMaterialColor) {
 		return Properties.of(Material.PLANT, pMaterialColor).sound(SoundType.GRASS).instabreak().noCollission();
 	}
 
-	private static Properties propertiesMoss() {
+	public static Properties propertiesMoss() {
 		return Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).strength(0.1F, 0.1F);
 	}
 
-	private static Properties propertiesShroom(MaterialColor pMaterialColor) {
+	public static Properties propertiesShroom(MaterialColor pMaterialColor) {
 		return Properties.of(Material.PLANT, pMaterialColor).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollission().randomTicks();
 	}
 
-	private static Properties propertiesCactus(MaterialColor pMaterialColor) {
+	public static Properties propertiesCactus(MaterialColor pMaterialColor) {
 		return Properties.of(Material.CACTUS, pMaterialColor).sound(SoundType.WOOL).strength(0.4F, 0.4F).randomTicks();
 	}
 
-	private static Properties propertiesCake() {
+	public static Properties propertiesCake() {
 		return Properties.of(Material.CAKE, MaterialColor.NONE).sound(SoundType.WOOL).strength(0.5F, 0.5F);
 	}
 
-	private static Properties propertiesSkulls() {
+	public static Properties propertiesSkulls() {
 		return Properties.of(Material.DECORATION, MaterialColor.NONE).strength(1.0F, 1.0F);
 	}
 
-	private static Properties propertiesCrop() {
+	public static Properties propertiesCrop() {
 		return Properties.of(Material.PLANT, MaterialColor.PLANT).sound(SoundType.CROP).instabreak().noCollission().randomTicks();
 	}
 
-	private static Properties propertiesFluid(MaterialColor pMaterialColor) {
+	public static Properties propertiesFluid(MaterialColor pMaterialColor) {
 		return Properties.of(Material.WATER, pMaterialColor).strength(100.0F, 100.0F).noCollission().noLootTable();
 	}
 
-	private static Properties propertiesGreekFire() {
+	public static Properties propertiesGreekFire() {
 		return Properties.of(Material.FIRE, MaterialColor.NONE).sound(SoundType.WOOL).lightLevel((pLightEmission) -> 15).instabreak().noCollission();
 	}
 
-	private static Properties propertiesPortal() {
+	public static Properties propertiesPortal() {
 		return Properties.of(Material.PORTAL, MaterialColor.NONE).sound(SoundType.GLASS).strength(-1.0F, -1.0F).lightLevel((pLightEmission) -> 11).noCollission();
 	}
 
-	private static <T extends Block> RegistryObject<T> register(final String name, final Supplier<? extends T> sup) {
+	public static <T extends Block> RegistryObject<T> register(final String name, final Supplier<? extends T> sup) {
 		return BLOCKS.register(name, sup);
 	}
 
-	private static <T extends Block> RegistryObject<T> registerBasic(final String name, final Supplier<? extends T> sup) {
+	public static <T extends Block> RegistryObject<T> registerBasic(final String name, final Supplier<? extends T> sup) {
 		RegistryObject<T> registryObject = register(name, sup);
 		BASIC_BLOCKS.add(registryObject);
 		return registryObject;
 	}
 
 	public static class StoneDecoBlocks {
-		public final String name;
-		public final RegistryObject<Block> original;
-		public final RegistryObject<SlabBlock> SLAB;
-		public final RegistryObject<StairBlock> STAIRS;
-		public final RegistryObject<WallBlock> WALL;
+		public String name;
+		public RegistryObject<Block> original;
+		public RegistryObject<SlabBlock> slab;
+		public RegistryObject<StairBlock> stairs;
+		public RegistryObject<WallBlock> wall;
 
 		public StoneDecoBlocks(String name, RegistryObject<Block> original, Properties properties, boolean slab, boolean stairs, boolean wall) {
 			this.name = name;
 			this.original = original;
+
 			if (slab)
-				SLAB = register(name + "_slab", () -> new SlabBlock(properties));
+				this.slab = register(name + "_slab", () -> new SlabBlock(properties));
 			else
-				SLAB = null;
+				this.slab = null;
 			if (stairs)
-				STAIRS = register(name + "_stairs", () -> new StairBlock(() -> original.get().defaultBlockState(), properties));
+				this.stairs = register(name + "_stairs", () -> new StairBlock(() -> original.get().defaultBlockState(), properties));
 			else
-				STAIRS = null;
+				this.stairs = null;
 			if (wall)
-				WALL = register(name + "_wall", () -> new WallBlock(properties));
+				this.wall = register(name + "_wall", () -> new WallBlock(properties));
 			else
-				WALL = null;
+				this.wall = null;
 		}
 
 		public StoneDecoBlocks(String name, RegistryObject<Block> original, Properties properties) {
@@ -783,32 +784,33 @@ public class IcariaBlocks {
 	}
 
 	public static class WoodDecoBlocks {
-		public final String name;
-		public final RegistryObject<Block> original;
-		public final RegistryObject<SlabBlock> SLAB;
-		public final RegistryObject<StairBlock> STAIRS;
-		public final RegistryObject<FenceBlock> FENCE;
-		public final RegistryObject<FenceGateBlock> GATE;
+		public String name;
+		public RegistryObject<Block> original;
+		public RegistryObject<SlabBlock> slab;
+		public RegistryObject<StairBlock> stairs;
+		public RegistryObject<FenceBlock> fence;
+		public RegistryObject<FenceGateBlock> gate;
 
 		public WoodDecoBlocks(String name, RegistryObject<Block> original, Properties properties, boolean slab, boolean stairs, boolean fence, boolean gate) {
 			this.name = name;
 			this.original = original;
+
 			if (slab)
-				SLAB = register(name + "_slab", () -> new SlabBlock(properties));
+				this.slab = register(name + "_slab", () -> new SlabBlock(properties));
 			else
-				SLAB = null;
+				this.slab = null;
 			if (stairs)
-				STAIRS = register(name + "_stairs", () -> new StairBlock(() -> original.get().defaultBlockState(), properties));
+				this.stairs = register(name + "_stairs", () -> new StairBlock(() -> original.get().defaultBlockState(), properties));
 			else
-				STAIRS = null;
+				this.stairs = null;
 			if (fence)
-				FENCE = register(name + "_fence", () -> new FenceBlock(properties));
+				this.fence = register(name + "_fence", () -> new FenceBlock(properties));
 			else
-				FENCE = null;
+				this.fence = null;
 			if (gate)
-				GATE = register(name + "_fence_gate", () -> new FenceGateBlock(properties));
+				this.gate = register(name + "_fence_gate", () -> new FenceGateBlock(properties));
 			else
-				GATE = null;
+				this.gate = null;
 		}
 
 		public WoodDecoBlocks(String name, RegistryObject<Block> original, Properties properties) {

@@ -35,233 +35,233 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 
 	@Override
 	public void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
-		smeltingRecipe(consumer, IcariaItems.CARDON_CACTUS.get(), Items.GREEN_DYE, 1.0F, 200);
-		smeltingRecipe(consumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BRICK.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.UNFIRED_STORAGE_VASE.get(), IcariaItems.STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get(), IcariaItems.WHITE_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get(), IcariaItems.ORANGE_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get(), IcariaItems.MAGENTA_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.LIGHT_BLUE_UNFIRED_STORAGE_VASE.get(), IcariaItems.LIGHT_BLUE_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.YELLOW_UNFIRED_STORAGE_VASE.get(), IcariaItems.YELLOW_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.LIME_UNFIRED_STORAGE_VASE.get(), IcariaItems.LIME_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.PINK_UNFIRED_STORAGE_VASE.get(), IcariaItems.PINK_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get(), IcariaItems.GRAY_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get(), IcariaItems.LIGHT_GRAY_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.CYAN_UNFIRED_STORAGE_VASE.get(), IcariaItems.CYAN_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get(), IcariaItems.PURPLE_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.BLUE_UNFIRED_STORAGE_VASE.get(), IcariaItems.BLUE_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.BROWN_UNFIRED_STORAGE_VASE.get(), IcariaItems.BROWN_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.GREEN_UNFIRED_STORAGE_VASE.get(), IcariaItems.GREEN_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.RED_UNFIRED_STORAGE_VASE.get(), IcariaItems.RED_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.BLACK_UNFIRED_STORAGE_VASE.get(), IcariaItems.BLACK_STORAGE_VASE.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.SPELT_FLOUR.get(), IcariaItems.SPELT_BREAD.get(), 0.3F, 200);
-		smeltingRecipe(consumer, IcariaItems.LOAM_BOWL_UNFIRED.get(), IcariaItems.LOAM_BOWL.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.CARDON_CACTUS.get(), Items.GREEN_DYE, 1.0F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BRICK.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.UNFIRED_STORAGE_VASE.get(), IcariaItems.STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get(), IcariaItems.WHITE_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get(), IcariaItems.ORANGE_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get(), IcariaItems.MAGENTA_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.LIGHT_BLUE_UNFIRED_STORAGE_VASE.get(), IcariaItems.LIGHT_BLUE_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.YELLOW_UNFIRED_STORAGE_VASE.get(), IcariaItems.YELLOW_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.LIME_UNFIRED_STORAGE_VASE.get(), IcariaItems.LIME_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.PINK_UNFIRED_STORAGE_VASE.get(), IcariaItems.PINK_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get(), IcariaItems.GRAY_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get(), IcariaItems.LIGHT_GRAY_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.CYAN_UNFIRED_STORAGE_VASE.get(), IcariaItems.CYAN_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get(), IcariaItems.PURPLE_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.BLUE_UNFIRED_STORAGE_VASE.get(), IcariaItems.BLUE_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.BROWN_UNFIRED_STORAGE_VASE.get(), IcariaItems.BROWN_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.GREEN_UNFIRED_STORAGE_VASE.get(), IcariaItems.GREEN_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.RED_UNFIRED_STORAGE_VASE.get(), IcariaItems.RED_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.BLACK_UNFIRED_STORAGE_VASE.get(), IcariaItems.BLACK_STORAGE_VASE.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.SPELT_FLOUR.get(), IcariaItems.SPELT_BREAD.get(), 0.3F, 200);
+		this.smeltingRecipe(consumer, IcariaItems.LOAM_BOWL_UNFIRED.get(), IcariaItems.LOAM_BOWL.get(), 0.3F, 200);
 
-		bowlFlaskTypeRecipe(consumer, IcariaItems.SILKGLASS.get(), IcariaItems.FLASK_EMPTY.get(), 3);
-		bowlFlaskTypeRecipe(consumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BOWL_UNFIRED.get(), 4);
+		this.bowlFlaskTypeRecipe(consumer, IcariaItems.SILKGLASS.get(), IcariaItems.FLASK_EMPTY.get(), 3);
+		this.bowlFlaskTypeRecipe(consumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BOWL_UNFIRED.get(), 4);
 
-		threeIngredientStewRecipe(consumer, IcariaItems.ONION.get(), IcariaItemTags.bind("forge:crops/onion"), IcariaItemTags.bind("forge:crops/onion"), IcariaItems.SOUP_ONION.get());
-		twoIngredientStewRecipe(consumer, IcariaItems.COOKED_AETERNAE_MEAT.get(), Items.BEETROOT, IcariaItems.STEW_AETERNAE.get());
-		twoIngredientStewRecipe(consumer, IcariaItems.COOKED_CERVER_MEAT.get(), Items.CARROT, IcariaItems.STEW_CERVER.get());
-		twoIngredientStewRecipe(consumer, IcariaItems.COOKED_CATOBLEPAS_MEAT.get(), IcariaItems.ONION.get(), IcariaItems.STEW_CATOBLEPAS.get());
-		threeIngredientStewRecipe(consumer, IcariaItems.COOKED_SOW_MEAT.get(), IcariaItemTags.bind("forge:mushrooms"), IcariaItemTags.bind("forge:mushrooms"), IcariaItems.STEW_SOW.get());
+		this.threeIngredientStewRecipe(consumer, IcariaItems.ONION.get(), IcariaItemTags.bind("forge:crops/onion"), IcariaItemTags.bind("forge:crops/onion"), IcariaItems.SOUP_ONION.get());
+		this.twoIngredientStewRecipe(consumer, IcariaItems.COOKED_AETERNAE_MEAT.get(), Items.BEETROOT, IcariaItems.STEW_AETERNAE.get());
+		this.twoIngredientStewRecipe(consumer, IcariaItems.COOKED_CERVER_MEAT.get(), Items.CARROT, IcariaItems.STEW_CERVER.get());
+		this.twoIngredientStewRecipe(consumer, IcariaItems.COOKED_CATOBLEPAS_MEAT.get(), IcariaItems.ONION.get(), IcariaItems.STEW_CATOBLEPAS.get());
+		this.threeIngredientStewRecipe(consumer, IcariaItems.COOKED_SOW_MEAT.get(), IcariaItemTags.bind("forge:mushrooms"), IcariaItemTags.bind("forge:mushrooms"), IcariaItems.STEW_SOW.get());
 
-		glassRecipes(consumer, IcariaItems.GRAINEL.get(), IcariaItems.GRAINGLASS.get(), IcariaItems.GRAINGLASS_PANE.get(), IcariaItems.GRAINGLASS_PANE_HORIZONTAL.get());
-		glassRecipes(consumer, IcariaItems.SILKSAND.get(), IcariaItems.SILKGLASS.get(), IcariaItems.SILKGLASS_PANE.get(), IcariaItems.SILKGLASS_PANE_HORIZONTAL.get());
+		this.glassRecipes(consumer, IcariaItems.GRAINEL.get(), IcariaItems.GRAINGLASS.get(), IcariaItems.GRAINGLASS_PANE.get(), IcariaItems.GRAINGLASS_PANE_HORIZONTAL.get());
+		this.glassRecipes(consumer, IcariaItems.SILKSAND.get(), IcariaItems.SILKGLASS.get(), IcariaItems.SILKGLASS_PANE.get(), IcariaItems.SILKGLASS_PANE_HORIZONTAL.get());
 
-		stoneRecipes(consumer, IcariaItems.YELLOWSTONE_COBBLE.get(), IcariaItems.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_BRICKS.get(), IcariaItems.YELLOWSTONE_CHISELED.get(), IcariaItems.YELLOWSTONE_BRICKS_DECO);
-		stoneRecipes(consumer, IcariaItems.SILKSTONE_COBBLE.get(), IcariaItems.SILKSTONE.get(), IcariaItems.SILKSTONE_BRICKS.get(), IcariaItems.SILKSTONE_CHISELED.get(), IcariaItems.SILKSTONE_BRICKS_DECO);
-		stoneRecipes(consumer, IcariaItems.SUNSTONE_COBBLE.get(), IcariaItems.SUNSTONE.get(), IcariaItems.SUNSTONE_BRICKS.get(), IcariaItems.SUNSTONE_CHISELED.get(), IcariaItems.SUNSTONE_BRICKS_DECO);
-		stoneRecipes(consumer, IcariaItems.VOIDSHALE_COBBLE.get(), IcariaItems.VOIDSHALE.get(), IcariaItems.VOIDSHALE_BRICKS.get(), IcariaItems.VOIDSHALE_CHISELED.get(), IcariaItems.VOIDSHALE_BRICKS_DECO);
-		stoneRecipes(consumer, IcariaItems.BAETYL_COBBLE.get(), IcariaItems.BAETYL.get(), IcariaItems.BAETYL_BRICKS.get(), IcariaItems.BAETYL_CHISELED.get(), IcariaItems.BAETYL_BRICKS_DECO);
+		this.stoneRecipes(consumer, IcariaItems.YELLOWSTONE_COBBLE.get(), IcariaItems.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_BRICKS.get(), IcariaItems.YELLOWSTONE_CHISELED.get(), IcariaItems.YELLOWSTONE_BRICKS_DECO);
+		this.stoneRecipes(consumer, IcariaItems.SILKSTONE_COBBLE.get(), IcariaItems.SILKSTONE.get(), IcariaItems.SILKSTONE_BRICKS.get(), IcariaItems.SILKSTONE_CHISELED.get(), IcariaItems.SILKSTONE_BRICKS_DECO);
+		this.stoneRecipes(consumer, IcariaItems.SUNSTONE_COBBLE.get(), IcariaItems.SUNSTONE.get(), IcariaItems.SUNSTONE_BRICKS.get(), IcariaItems.SUNSTONE_CHISELED.get(), IcariaItems.SUNSTONE_BRICKS_DECO);
+		this.stoneRecipes(consumer, IcariaItems.VOIDSHALE_COBBLE.get(), IcariaItems.VOIDSHALE.get(), IcariaItems.VOIDSHALE_BRICKS.get(), IcariaItems.VOIDSHALE_CHISELED.get(), IcariaItems.VOIDSHALE_BRICKS_DECO);
+		this.stoneRecipes(consumer, IcariaItems.BAETYL_COBBLE.get(), IcariaItems.BAETYL.get(), IcariaItems.BAETYL_BRICKS.get(), IcariaItems.BAETYL_CHISELED.get(), IcariaItems.BAETYL_BRICKS_DECO);
 
-		smallCompressRecipe(consumer, IcariaItems.LOAM_BRICKS.get(), IcariaItems.LOAM_BRICK.get());
-		smallCompressRecipe(consumer, IcariaItems.SILKSTONE.get(), IcariaItems.SILKSAND.get());
-		smallCompressRecipe(consumer, IcariaItems.CALCITE_GEODE_BLOCK.get(), IcariaItems.CALCITE.get());
-		smallCompressRecipe(consumer, IcariaItems.HALITE_GEODE_BLOCK.get(), IcariaItems.HALITE.get());
-		smallCompressRecipe(consumer, IcariaItems.JASPER_GEODE_BLOCK.get(), IcariaItems.JASPER.get());
-		smallCompressRecipe(consumer, IcariaItems.ZIRCON_GEODE_BLOCK.get(), IcariaItems.ZIRCON.get());
-		smallCompressRecipe(consumer, IcariaItems.CYPRESS_CRAFTING_TABLE.get(), IcariaItems.CYPRESS_PLANKS.get());
-		smallCompressRecipe(consumer, IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
-		smallCompressRecipe(consumer, IcariaItems.FIR_CRAFTING_TABLE.get(), IcariaItems.FIR_PLANKS.get());
-		smallCompressRecipe(consumer, IcariaItems.LAUREL_CRAFTING_TABLE.get(), IcariaItems.LAUREL_PLANKS.get());
-		smallCompressRecipe(consumer, IcariaItems.OLIVE_CRAFTING_TABLE.get(), IcariaItems.OLIVE_PLANKS.get());
-		smallCompressRecipe(consumer, IcariaItems.PLANE_CRAFTING_TABLE.get(), IcariaItems.PLANE_PLANKS.get());
-		smallCompressRecipe(consumer, IcariaItems.POPULUS_CRAFTING_TABLE.get(), IcariaItems.POPULUS_PLANKS.get());
+		this.smallCompressRecipe(consumer, IcariaItems.LOAM_BRICKS.get(), IcariaItems.LOAM_BRICK.get());
+		this.smallCompressRecipe(consumer, IcariaItems.SILKSTONE.get(), IcariaItems.SILKSAND.get());
+		this.smallCompressRecipe(consumer, IcariaItems.CALCITE_GEODE_BLOCK.get(), IcariaItems.CALCITE.get());
+		this.smallCompressRecipe(consumer, IcariaItems.HALITE_GEODE_BLOCK.get(), IcariaItems.HALITE.get());
+		this.smallCompressRecipe(consumer, IcariaItems.JASPER_GEODE_BLOCK.get(), IcariaItems.JASPER.get());
+		this.smallCompressRecipe(consumer, IcariaItems.ZIRCON_GEODE_BLOCK.get(), IcariaItems.ZIRCON.get());
+		this.smallCompressRecipe(consumer, IcariaItems.CYPRESS_CRAFTING_TABLE.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.smallCompressRecipe(consumer, IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.smallCompressRecipe(consumer, IcariaItems.FIR_CRAFTING_TABLE.get(), IcariaItems.FIR_PLANKS.get());
+		this.smallCompressRecipe(consumer, IcariaItems.LAUREL_CRAFTING_TABLE.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.smallCompressRecipe(consumer, IcariaItems.OLIVE_CRAFTING_TABLE.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.smallCompressRecipe(consumer, IcariaItems.PLANE_CRAFTING_TABLE.get(), IcariaItems.PLANE_PLANKS.get());
+		this.smallCompressRecipe(consumer, IcariaItems.POPULUS_CRAFTING_TABLE.get(), IcariaItems.POPULUS_PLANKS.get());
 
-		smallCompressDecompressRecipes(consumer, IcariaItems.LOAM.get(), IcariaItems.LOAM_LUMP.get());
-		smallCompressDecompressRecipes(consumer, IcariaItems.VINE_SPROUT_BLOCK.get(), IcariaItems.VINE_SPROUT.get());
+		this.smallCompressDecompressRecipes(consumer, IcariaItems.LOAM.get(), IcariaItems.LOAM_LUMP.get());
+		this.smallCompressDecompressRecipes(consumer, IcariaItems.VINE_SPROUT_BLOCK.get(), IcariaItems.VINE_SPROUT.get());
 
-		largeCompressDecompressRecipes(consumer, IcariaItems.JELLYFISH_JELLY_BLOCK.get(), IcariaItems.JELLYFISH_JELLY.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.ARACHNE_STRING_BLOCK.get(), IcariaItems.ARACHNE_STRING.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.SPELT_BALE_BLOCK.get(), IcariaItems.SPELT.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.VINE_REED_BLOCK.get(), IcariaItems.VINE_REED.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.ROTTEN_BONES_BLOCK.get(), IcariaItems.ROTTEN_BONES.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.CALCITE_BLOCK.get(), IcariaItems.CALCITE.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.HALITE_BLOCK.get(), IcariaItems.HALITE.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.JASPER_BLOCK.get(), IcariaItems.JASPER.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.ZIRCON_BLOCK.get(), IcariaItems.ZIRCON.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.CHALKOS_RAW_BLOCK.get(), IcariaItems.CHALKOS_RAW.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.KASSITEROS_RAW_BLOCK.get(), IcariaItems.KASSITEROS_RAW.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.VANADIUM_RAW_BLOCK.get(), IcariaItems.VANADIUM_RAW.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.SIDEROS_RAW_BLOCK.get(), IcariaItems.SIDEROS_RAW.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.MOLYBDENUM_RAW_BLOCK.get(), IcariaItems.MOLYBDENUM_RAW.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.CHERT_BLOCK.get(), IcariaItems.CHERT.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.LIGNITE_BLOCK.get(), IcariaItems.LIGNITE.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.SLIVER_BLOCK.get(), IcariaItems.SLIVER.get());
-		largeCompressDecompressRecipes(consumer, IcariaItems.ANTHRACITE_BLOCK.get(), IcariaItems.ANTHRACITE.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.JELLYFISH_JELLY_BLOCK.get(), IcariaItems.JELLYFISH_JELLY.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.ARACHNE_STRING_BLOCK.get(), IcariaItems.ARACHNE_STRING.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.SPELT_BALE_BLOCK.get(), IcariaItems.SPELT.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.VINE_REED_BLOCK.get(), IcariaItems.VINE_REED.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.ROTTEN_BONES_BLOCK.get(), IcariaItems.ROTTEN_BONES.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.CALCITE_BLOCK.get(), IcariaItems.CALCITE.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.HALITE_BLOCK.get(), IcariaItems.HALITE.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.JASPER_BLOCK.get(), IcariaItems.JASPER.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.ZIRCON_BLOCK.get(), IcariaItems.ZIRCON.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.CHALKOS_RAW_BLOCK.get(), IcariaItems.CHALKOS_RAW.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.KASSITEROS_RAW_BLOCK.get(), IcariaItems.KASSITEROS_RAW.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.VANADIUM_RAW_BLOCK.get(), IcariaItems.VANADIUM_RAW.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.SIDEROS_RAW_BLOCK.get(), IcariaItems.SIDEROS_RAW.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.MOLYBDENUM_RAW_BLOCK.get(), IcariaItems.MOLYBDENUM_RAW.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.CHERT_BLOCK.get(), IcariaItems.CHERT.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.LIGNITE_BLOCK.get(), IcariaItems.LIGNITE.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.SLIVER_BLOCK.get(), IcariaItems.SLIVER.get());
+		this.largeCompressDecompressRecipes(consumer, IcariaItems.ANTHRACITE_BLOCK.get(), IcariaItems.ANTHRACITE.get());
 
-		vaseRecipe(consumer, Items.WHITE_DYE, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.ORANGE_DYE, IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.MAGENTA_DYE, IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.LIGHT_BLUE_DYE, IcariaItems.LIGHT_BLUE_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.YELLOW_DYE, IcariaItems.YELLOW_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.LIME_DYE, IcariaItems.LIME_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.PINK_DYE, IcariaItems.PINK_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.GRAY_DYE, IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.LIGHT_GRAY_DYE, IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.CYAN_DYE, IcariaItems.CYAN_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.BLUE_DYE, IcariaItems.BLUE_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.BROWN_DYE, IcariaItems.BROWN_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.GREEN_DYE, IcariaItems.GREEN_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.RED_DYE, IcariaItems.RED_UNFIRED_STORAGE_VASE.get());
-		vaseRecipe(consumer, Items.BLACK_DYE, IcariaItems.BLACK_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.WHITE_DYE, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.ORANGE_DYE, IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.MAGENTA_DYE, IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.LIGHT_BLUE_DYE, IcariaItems.LIGHT_BLUE_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.YELLOW_DYE, IcariaItems.YELLOW_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.LIME_DYE, IcariaItems.LIME_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.PINK_DYE, IcariaItems.PINK_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.GRAY_DYE, IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.LIGHT_GRAY_DYE, IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.CYAN_DYE, IcariaItems.CYAN_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.BLUE_DYE, IcariaItems.BLUE_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.BROWN_DYE, IcariaItems.BROWN_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.GREEN_DYE, IcariaItems.GREEN_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.RED_DYE, IcariaItems.RED_UNFIRED_STORAGE_VASE.get());
+		this.vaseRecipe(consumer, Items.BLACK_DYE, IcariaItems.BLACK_UNFIRED_STORAGE_VASE.get());
 
-		woodRecipes(consumer, IcariaItems.CYPRESS_WOOD.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get());
-		woodRecipes(consumer, IcariaItems.DROUGHTROOT_WOOD.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get());
-		woodRecipes(consumer, IcariaItems.FIR_WOOD.get(), IcariaItems.STRIPPED_FIR_WOOD.get(), IcariaItems.FIR_LOG.get(), IcariaItems.STRIPPED_FIR_LOG.get());
-		woodRecipes(consumer, IcariaItems.LAUREL_WOOD.get(), IcariaItems.STRIPPED_LAUREL_WOOD.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.STRIPPED_LAUREL_LOG.get());
-		woodRecipes(consumer, IcariaItems.OLIVE_WOOD.get(), IcariaItems.STRIPPED_OLIVE_WOOD.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.STRIPPED_OLIVE_LOG.get());
-		woodRecipes(consumer, IcariaItems.PLANE_WOOD.get(), IcariaItems.STRIPPED_PLANE_WOOD.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get());
-		woodRecipes(consumer, IcariaItems.POPULUS_WOOD.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get());
+		this.woodRecipes(consumer, IcariaItems.CYPRESS_WOOD.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get());
+		this.woodRecipes(consumer, IcariaItems.DROUGHTROOT_WOOD.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get());
+		this.woodRecipes(consumer, IcariaItems.FIR_WOOD.get(), IcariaItems.STRIPPED_FIR_WOOD.get(), IcariaItems.FIR_LOG.get(), IcariaItems.STRIPPED_FIR_LOG.get());
+		this.woodRecipes(consumer, IcariaItems.LAUREL_WOOD.get(), IcariaItems.STRIPPED_LAUREL_WOOD.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.STRIPPED_LAUREL_LOG.get());
+		this.woodRecipes(consumer, IcariaItems.OLIVE_WOOD.get(), IcariaItems.STRIPPED_OLIVE_WOOD.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.STRIPPED_OLIVE_LOG.get());
+		this.woodRecipes(consumer, IcariaItems.PLANE_WOOD.get(), IcariaItems.STRIPPED_PLANE_WOOD.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get());
+		this.woodRecipes(consumer, IcariaItems.POPULUS_WOOD.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get());
 
-		planksRecipes(consumer, IcariaItems.CYPRESS_WOOD.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
-		planksRecipes(consumer, IcariaItems.DROUGHTROOT_WOOD.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
-		planksRecipes(consumer, IcariaItems.FIR_WOOD.get(), IcariaItems.STRIPPED_FIR_WOOD.get(), IcariaItems.FIR_LOG.get(), IcariaItems.STRIPPED_FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
-		planksRecipes(consumer, IcariaItems.LAUREL_WOOD.get(), IcariaItems.STRIPPED_LAUREL_WOOD.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.STRIPPED_LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
-		planksRecipes(consumer, IcariaItems.OLIVE_WOOD.get(), IcariaItems.STRIPPED_OLIVE_WOOD.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.STRIPPED_OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
-		planksRecipes(consumer, IcariaItems.PLANE_WOOD.get(), IcariaItems.STRIPPED_PLANE_WOOD.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
-		planksRecipes(consumer, IcariaItems.POPULUS_WOOD.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
+		this.planksRecipes(consumer, IcariaItems.CYPRESS_WOOD.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.planksRecipes(consumer, IcariaItems.DROUGHTROOT_WOOD.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.planksRecipes(consumer, IcariaItems.FIR_WOOD.get(), IcariaItems.STRIPPED_FIR_WOOD.get(), IcariaItems.FIR_LOG.get(), IcariaItems.STRIPPED_FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
+		this.planksRecipes(consumer, IcariaItems.LAUREL_WOOD.get(), IcariaItems.STRIPPED_LAUREL_WOOD.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.STRIPPED_LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.planksRecipes(consumer, IcariaItems.OLIVE_WOOD.get(), IcariaItems.STRIPPED_OLIVE_WOOD.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.STRIPPED_OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.planksRecipes(consumer, IcariaItems.PLANE_WOOD.get(), IcariaItems.STRIPPED_PLANE_WOOD.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
+		this.planksRecipes(consumer, IcariaItems.POPULUS_WOOD.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
 
-		doorRecipe(consumer, IcariaItems.CYPRESS_DOOR.get(), IcariaItems.CYPRESS_PLANKS.get());
-		doorRecipe(consumer, IcariaItems.DROUGHTROOT_DOOR.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
-		doorRecipe(consumer, IcariaItems.FIR_DOOR.get(), IcariaItems.FIR_PLANKS.get());
-		doorRecipe(consumer, IcariaItems.LAUREL_DOOR.get(), IcariaItems.LAUREL_PLANKS.get());
-		doorRecipe(consumer, IcariaItems.OLIVE_DOOR.get(), IcariaItems.OLIVE_PLANKS.get());
-		doorRecipe(consumer, IcariaItems.PLANE_DOOR.get(), IcariaItems.PLANE_PLANKS.get());
-		doorRecipe(consumer, IcariaItems.POPULUS_DOOR.get(), IcariaItems.POPULUS_PLANKS.get());
+		this.doorRecipe(consumer, IcariaItems.CYPRESS_DOOR.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.doorRecipe(consumer, IcariaItems.DROUGHTROOT_DOOR.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.doorRecipe(consumer, IcariaItems.FIR_DOOR.get(), IcariaItems.FIR_PLANKS.get());
+		this.doorRecipe(consumer, IcariaItems.LAUREL_DOOR.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.doorRecipe(consumer, IcariaItems.OLIVE_DOOR.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.doorRecipe(consumer, IcariaItems.PLANE_DOOR.get(), IcariaItems.PLANE_PLANKS.get());
+		this.doorRecipe(consumer, IcariaItems.POPULUS_DOOR.get(), IcariaItems.POPULUS_PLANKS.get());
 
-		trapdoorRecipe(consumer, IcariaItems.CYPRESS_TRAPDOOR.get(), IcariaItems.CYPRESS_PLANKS.get());
-		trapdoorRecipe(consumer, IcariaItems.DROUGHTROOT_TRAPDOOR.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
-		trapdoorRecipe(consumer, IcariaItems.FIR_TRAPDOOR.get(), IcariaItems.FIR_PLANKS.get());
-		trapdoorRecipe(consumer, IcariaItems.LAUREL_TRAPDOOR.get(), IcariaItems.LAUREL_PLANKS.get());
-		trapdoorRecipe(consumer, IcariaItems.OLIVE_TRAPDOOR.get(), IcariaItems.OLIVE_PLANKS.get());
-		trapdoorRecipe(consumer, IcariaItems.PLANE_TRAPDOOR.get(), IcariaItems.PLANE_PLANKS.get());
-		trapdoorRecipe(consumer, IcariaItems.POPULUS_TRAPDOOR.get(), IcariaItems.POPULUS_PLANKS.get());
+		this.trapdoorRecipe(consumer, IcariaItems.CYPRESS_TRAPDOOR.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.trapdoorRecipe(consumer, IcariaItems.DROUGHTROOT_TRAPDOOR.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.trapdoorRecipe(consumer, IcariaItems.FIR_TRAPDOOR.get(), IcariaItems.FIR_PLANKS.get());
+		this.trapdoorRecipe(consumer, IcariaItems.LAUREL_TRAPDOOR.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.trapdoorRecipe(consumer, IcariaItems.OLIVE_TRAPDOOR.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.trapdoorRecipe(consumer, IcariaItems.PLANE_TRAPDOOR.get(), IcariaItems.PLANE_PLANKS.get());
+		this.trapdoorRecipe(consumer, IcariaItems.POPULUS_TRAPDOOR.get(), IcariaItems.POPULUS_PLANKS.get());
 
-		ladderRecipe(consumer, IcariaItems.CYPRESS_LADDER.get(), IcariaItems.CYPRESS_PLANKS.get());
-		ladderRecipe(consumer, IcariaItems.DROUGHTROOT_LADDER.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
-		ladderRecipe(consumer, IcariaItems.FIR_LADDER.get(), IcariaItems.FIR_PLANKS.get());
-		ladderRecipe(consumer, IcariaItems.LAUREL_LADDER.get(), IcariaItems.LAUREL_PLANKS.get());
-		ladderRecipe(consumer, IcariaItems.OLIVE_LADDER.get(), IcariaItems.OLIVE_PLANKS.get());
-		ladderRecipe(consumer, IcariaItems.PLANE_LADDER.get(), IcariaItems.PLANE_PLANKS.get());
-		ladderRecipe(consumer, IcariaItems.POPULUS_LADDER.get(), IcariaItems.POPULUS_PLANKS.get());
+		this.ladderRecipe(consumer, IcariaItems.CYPRESS_LADDER.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.ladderRecipe(consumer, IcariaItems.DROUGHTROOT_LADDER.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.ladderRecipe(consumer, IcariaItems.FIR_LADDER.get(), IcariaItems.FIR_PLANKS.get());
+		this.ladderRecipe(consumer, IcariaItems.LAUREL_LADDER.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.ladderRecipe(consumer, IcariaItems.OLIVE_LADDER.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.ladderRecipe(consumer, IcariaItems.PLANE_LADDER.get(), IcariaItems.PLANE_PLANKS.get());
+		this.ladderRecipe(consumer, IcariaItems.POPULUS_LADDER.get(), IcariaItems.POPULUS_PLANKS.get());
 
-		signRecipe(consumer, IcariaItems.CYPRESS_SIGN.get(), IcariaItems.CYPRESS_PLANKS.get());
-		signRecipe(consumer, IcariaItems.DROUGHTROOT_SIGN.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
-		signRecipe(consumer, IcariaItems.FIR_SIGN.get(), IcariaItems.FIR_PLANKS.get());
-		signRecipe(consumer, IcariaItems.LAUREL_SIGN.get(), IcariaItems.LAUREL_PLANKS.get());
-		signRecipe(consumer, IcariaItems.OLIVE_SIGN.get(), IcariaItems.OLIVE_PLANKS.get());
-		signRecipe(consumer, IcariaItems.PLANE_SIGN.get(), IcariaItems.PLANE_PLANKS.get());
-		signRecipe(consumer, IcariaItems.POPULUS_SIGN.get(), IcariaItems.POPULUS_PLANKS.get());
+		this.signRecipe(consumer, IcariaItems.CYPRESS_SIGN.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.signRecipe(consumer, IcariaItems.DROUGHTROOT_SIGN.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.signRecipe(consumer, IcariaItems.FIR_SIGN.get(), IcariaItems.FIR_PLANKS.get());
+		this.signRecipe(consumer, IcariaItems.LAUREL_SIGN.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.signRecipe(consumer, IcariaItems.OLIVE_SIGN.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.signRecipe(consumer, IcariaItems.PLANE_SIGN.get(), IcariaItems.PLANE_PLANKS.get());
+		this.signRecipe(consumer, IcariaItems.POPULUS_SIGN.get(), IcariaItems.POPULUS_PLANKS.get());
 
-		torchRecipe(consumer, IcariaItems.LIGNITE_TORCH.get(), IcariaItems.LIGNITE.get());
-		torchRecipe(consumer, IcariaItems.ANTHRACITE_TORCH.get(), IcariaItems.ANTHRACITE.get());
+		this.torchRecipe(consumer, IcariaItems.LIGNITE_TORCH.get(), IcariaItems.LIGNITE.get());
+		this.torchRecipe(consumer, IcariaItems.ANTHRACITE_TORCH.get(), IcariaItems.ANTHRACITE.get());
 
-		dyesFromFlowerRecipe(consumer, Items.PINK_DYE, IcariaItems.BLINDWEED.get());
-		dyesFromFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.CHAMEOMILE.get());
-		dyesFromFlowerRecipe(consumer, Items.LIGHT_BLUE_DYE, IcariaItems.CHARMONDER.get());
-		dyesFromFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.CLOVER.get());
-		dyesFromFlowerRecipe(consumer, Items.RED_DYE, IcariaItems.FIREHILT.get());
-		dyesFromFlowerRecipe(consumer, Items.BLUE_DYE, IcariaItems.BLUE_HYDRACINTH.get());
-		dyesFromFlowerRecipe(consumer, Items.MAGENTA_DYE, IcariaItems.PURPLE_HYDRACINTH.get());
-		dyesFromFlowerRecipe(consumer, Items.PURPLE_DYE, IcariaItems.LIONFANGS.get());
-		dyesFromFlowerRecipe(consumer, Items.LIME_DYE, IcariaItems.SPEARDROPS.get());
-		dyesFromFlowerRecipe(consumer, Items.MAGENTA_DYE, IcariaItems.PURPLE_STAGHORN.get());
-		dyesFromFlowerRecipe(consumer, Items.YELLOW_DYE, IcariaItems.YELLOW_STAGHORN.get());
-		dyesFromFlowerRecipe(consumer, Items.BLUE_DYE, IcariaItems.BLUE_STORMCOTTON.get());
-		dyesFromFlowerRecipe(consumer, Items.MAGENTA_DYE, IcariaItems.PINK_STORMCOTTON.get());
-		dyesFromFlowerRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_STORMCOTTON.get());
-		dyesFromFlowerRecipe(consumer, Items.YELLOW_DYE, IcariaItems.SUNKETTLE.get());
-		dyesFromFlowerRecipe(consumer, Items.ORANGE_DYE, IcariaItems.SUNSPONGE.get());
-		dyesFromFlowerRecipe(consumer, Items.BLACK_DYE, IcariaItems.VOIDLILY.get());
-		dyesFromFlowerRecipe(consumer, Items.BLUE_DYE, IcariaItems.BLUE_GROUND_FLOWERS.get());
-		dyesFromFlowerRecipe(consumer, Items.CYAN_DYE, IcariaItems.CYAN_GROUND_FLOWERS.get());
-		dyesFromFlowerRecipe(consumer, Items.PINK_DYE, IcariaItems.PINK_GROUND_FLOWERS.get());
-		dyesFromFlowerRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_GROUND_FLOWERS.get());
-		dyesFromFlowerRecipe(consumer, Items.RED_DYE, IcariaItems.RED_GROUND_FLOWERS.get());
-		dyesFromFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.WHITE_GROUND_FLOWERS.get());
-		dyesFromFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.WHITE_BROMELIA.get());
-		dyesFromFlowerRecipe(consumer, Items.ORANGE_DYE, IcariaItems.ORANGE_BROMELIA.get());
-		dyesFromFlowerRecipe(consumer, Items.PINK_DYE, IcariaItems.PINK_BROMELIA.get());
-		dyesFromFlowerRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_BROMELIA.get());
+		this.dyesFromFlowerRecipe(consumer, Items.PINK_DYE, IcariaItems.BLINDWEED.get());
+		this.dyesFromFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.CHAMEOMILE.get());
+		this.dyesFromFlowerRecipe(consumer, Items.LIGHT_BLUE_DYE, IcariaItems.CHARMONDER.get());
+		this.dyesFromFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.CLOVER.get());
+		this.dyesFromFlowerRecipe(consumer, Items.RED_DYE, IcariaItems.FIREHILT.get());
+		this.dyesFromFlowerRecipe(consumer, Items.BLUE_DYE, IcariaItems.BLUE_HYDRACINTH.get());
+		this.dyesFromFlowerRecipe(consumer, Items.MAGENTA_DYE, IcariaItems.PURPLE_HYDRACINTH.get());
+		this.dyesFromFlowerRecipe(consumer, Items.PURPLE_DYE, IcariaItems.LIONFANGS.get());
+		this.dyesFromFlowerRecipe(consumer, Items.LIME_DYE, IcariaItems.SPEARDROPS.get());
+		this.dyesFromFlowerRecipe(consumer, Items.MAGENTA_DYE, IcariaItems.PURPLE_STAGHORN.get());
+		this.dyesFromFlowerRecipe(consumer, Items.YELLOW_DYE, IcariaItems.YELLOW_STAGHORN.get());
+		this.dyesFromFlowerRecipe(consumer, Items.BLUE_DYE, IcariaItems.BLUE_STORMCOTTON.get());
+		this.dyesFromFlowerRecipe(consumer, Items.MAGENTA_DYE, IcariaItems.PINK_STORMCOTTON.get());
+		this.dyesFromFlowerRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_STORMCOTTON.get());
+		this.dyesFromFlowerRecipe(consumer, Items.YELLOW_DYE, IcariaItems.SUNKETTLE.get());
+		this.dyesFromFlowerRecipe(consumer, Items.ORANGE_DYE, IcariaItems.SUNSPONGE.get());
+		this.dyesFromFlowerRecipe(consumer, Items.BLACK_DYE, IcariaItems.VOIDLILY.get());
+		this.dyesFromFlowerRecipe(consumer, Items.BLUE_DYE, IcariaItems.BLUE_GROUND_FLOWERS.get());
+		this.dyesFromFlowerRecipe(consumer, Items.CYAN_DYE, IcariaItems.CYAN_GROUND_FLOWERS.get());
+		this.dyesFromFlowerRecipe(consumer, Items.PINK_DYE, IcariaItems.PINK_GROUND_FLOWERS.get());
+		this.dyesFromFlowerRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_GROUND_FLOWERS.get());
+		this.dyesFromFlowerRecipe(consumer, Items.RED_DYE, IcariaItems.RED_GROUND_FLOWERS.get());
+		this.dyesFromFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.WHITE_GROUND_FLOWERS.get());
+		this.dyesFromFlowerRecipe(consumer, Items.WHITE_DYE, IcariaItems.WHITE_BROMELIA.get());
+		this.dyesFromFlowerRecipe(consumer, Items.ORANGE_DYE, IcariaItems.ORANGE_BROMELIA.get());
+		this.dyesFromFlowerRecipe(consumer, Items.PINK_DYE, IcariaItems.PINK_BROMELIA.get());
+		this.dyesFromFlowerRecipe(consumer, Items.PURPLE_DYE, IcariaItems.PURPLE_BROMELIA.get());
 
-		blockIngotNuggetRecipes(consumer, IcariaItems.CHALKOS_BLOCK.get(), IcariaItems.CHALKOS_INGOT.get(), IcariaItems.CHALKOS_NUGGET.get());
-		blockIngotNuggetRecipes(consumer, IcariaItems.KASSITEROS_BLOCK.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.KASSITEROS_NUGGET.get());
-		blockIngotNuggetRecipes(consumer, IcariaItems.ORICHALCUM_BLOCK.get(), IcariaItems.ORICHALCUM_INGOT.get(), IcariaItems.ORICHALCUM_NUGGET.get());
-		blockIngotNuggetRecipes(consumer, IcariaItems.VANADIUM_BLOCK.get(), IcariaItems.VANADIUM_INGOT.get(), IcariaItems.VANADIUM_NUGGET.get());
-		blockIngotNuggetRecipes(consumer, IcariaItems.VANADIUMSTEEL_BLOCK.get(), IcariaItems.VANADIUMSTEEL_INGOT.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get());
-		blockIngotNuggetRecipes(consumer, IcariaItems.SIDEROS_BLOCK.get(), IcariaItems.SIDEROS_INGOT.get(), IcariaItems.SIDEROS_NUGGET.get());
-		blockIngotNuggetRecipes(consumer, IcariaItems.MOLYBDENUM_BLOCK.get(), IcariaItems.MOLYBDENUM_INGOT.get(), IcariaItems.MOLYBDENUM_NUGGET.get());
-		blockIngotNuggetRecipes(consumer, IcariaItems.MOLYBDENUMSTEEL_BLOCK.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), IcariaItems.MOLYBDENUMSTEEL_NUGGET.get());
-		blockIngotNuggetRecipes(consumer, IcariaItems.BLURIDIUM_BLOCK.get(), IcariaItems.BLURIDIUM_INGOT.get(), IcariaItems.BLURIDIUM_NUGGET.get());
+		this.blockIngotNuggetRecipes(consumer, IcariaItems.CHALKOS_BLOCK.get(), IcariaItems.CHALKOS_INGOT.get(), IcariaItems.CHALKOS_NUGGET.get());
+		this.blockIngotNuggetRecipes(consumer, IcariaItems.KASSITEROS_BLOCK.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.KASSITEROS_NUGGET.get());
+		this.blockIngotNuggetRecipes(consumer, IcariaItems.ORICHALCUM_BLOCK.get(), IcariaItems.ORICHALCUM_INGOT.get(), IcariaItems.ORICHALCUM_NUGGET.get());
+		this.blockIngotNuggetRecipes(consumer, IcariaItems.VANADIUM_BLOCK.get(), IcariaItems.VANADIUM_INGOT.get(), IcariaItems.VANADIUM_NUGGET.get());
+		this.blockIngotNuggetRecipes(consumer, IcariaItems.VANADIUMSTEEL_BLOCK.get(), IcariaItems.VANADIUMSTEEL_INGOT.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get());
+		this.blockIngotNuggetRecipes(consumer, IcariaItems.SIDEROS_BLOCK.get(), IcariaItems.SIDEROS_INGOT.get(), IcariaItems.SIDEROS_NUGGET.get());
+		this.blockIngotNuggetRecipes(consumer, IcariaItems.MOLYBDENUM_BLOCK.get(), IcariaItems.MOLYBDENUM_INGOT.get(), IcariaItems.MOLYBDENUM_NUGGET.get());
+		this.blockIngotNuggetRecipes(consumer, IcariaItems.MOLYBDENUMSTEEL_BLOCK.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), IcariaItems.MOLYBDENUMSTEEL_NUGGET.get());
+		this.blockIngotNuggetRecipes(consumer, IcariaItems.BLURIDIUM_BLOCK.get(), IcariaItems.BLURIDIUM_INGOT.get(), IcariaItems.BLURIDIUM_NUGGET.get());
 
-		gemSmeltingRecipe(consumer, IcariaItems.LIGNITE_ORE.get(), IcariaItems.LIGNITE.get());
-		gemSmeltingRecipe(consumer, IcariaItems.DOLOMITE_ORE.get(), IcariaItems.DOLOMITE.get());
-		gemSmeltingRecipe(consumer, IcariaItems.SLIVER_ORE.get(), IcariaItems.SLIVER.get());
-		gemSmeltingRecipe(consumer, IcariaItems.ANTHRACITE_ORE.get(), IcariaItems.ANTHRACITE.get());
+		this.gemSmeltingRecipe(consumer, IcariaItems.LIGNITE_ORE.get(), IcariaItems.LIGNITE.get());
+		this.gemSmeltingRecipe(consumer, IcariaItems.DOLOMITE_ORE.get(), IcariaItems.DOLOMITE.get());
+		this.gemSmeltingRecipe(consumer, IcariaItems.SLIVER_ORE.get(), IcariaItems.SLIVER.get());
+		this.gemSmeltingRecipe(consumer, IcariaItems.ANTHRACITE_ORE.get(), IcariaItems.ANTHRACITE.get());
 
-		ingotSmeltingRecipes(consumer, IcariaItems.CHALKOS_ORE.get(), IcariaItems.CHALKOS_RAW.get(), IcariaItems.CHALKOS_INGOT.get());
-		ingotSmeltingRecipes(consumer, IcariaItems.KASSITEROS_ORE.get(), IcariaItems.KASSITEROS_RAW.get(), IcariaItems.KASSITEROS_INGOT.get());
-		ingotSmeltingRecipes(consumer, IcariaItems.VANADIUM_ORE.get(), IcariaItems.VANADIUM_RAW.get(), IcariaItems.VANADIUM_INGOT.get());
-		ingotSmeltingRecipes(consumer, IcariaItems.SIDEROS_ORE.get(), IcariaItems.SIDEROS_RAW.get(), IcariaItems.SIDEROS_INGOT.get());
-		ingotSmeltingRecipes(consumer, IcariaItems.MOLYBDENUM_ORE.get(), IcariaItems.MOLYBDENUM_RAW.get(), IcariaItems.MOLYBDENUM_INGOT.get());
+		this.ingotSmeltingRecipes(consumer, IcariaItems.CHALKOS_ORE.get(), IcariaItems.CHALKOS_RAW.get(), IcariaItems.CHALKOS_INGOT.get());
+		this.ingotSmeltingRecipes(consumer, IcariaItems.KASSITEROS_ORE.get(), IcariaItems.KASSITEROS_RAW.get(), IcariaItems.KASSITEROS_INGOT.get());
+		this.ingotSmeltingRecipes(consumer, IcariaItems.VANADIUM_ORE.get(), IcariaItems.VANADIUM_RAW.get(), IcariaItems.VANADIUM_INGOT.get());
+		this.ingotSmeltingRecipes(consumer, IcariaItems.SIDEROS_ORE.get(), IcariaItems.SIDEROS_RAW.get(), IcariaItems.SIDEROS_INGOT.get());
+		this.ingotSmeltingRecipes(consumer, IcariaItems.MOLYBDENUM_ORE.get(), IcariaItems.MOLYBDENUM_RAW.get(), IcariaItems.MOLYBDENUM_INGOT.get());
 
-		toolRecipes(consumer, IcariaItems.CHERT_TOOLS.SWORD.get(), IcariaItems.CHERT_TOOLS.DAGGER.get(), IcariaItems.CHERT_TOOLS.SHOVEL.get(), IcariaItems.CHERT_TOOLS.PICKAXE.get(), IcariaItems.CHERT_TOOLS.AXE.get(), IcariaItems.CHERT_TOOLS.SCYTHE.get(), IcariaItems.CHERT_TOOLS.BIDENT.get(), IcariaItems.CHERT.get());
-		toolRecipes(consumer, IcariaItems.CHALKOS_TOOLS.SWORD.get(), IcariaItems.CHALKOS_TOOLS.DAGGER.get(), IcariaItems.CHALKOS_TOOLS.SHOVEL.get(), IcariaItems.CHALKOS_TOOLS.PICKAXE.get(), IcariaItems.CHALKOS_TOOLS.AXE.get(), IcariaItems.CHALKOS_TOOLS.SCYTHE.get(), IcariaItems.CHALKOS_TOOLS.BIDENT.get(), IcariaItems.CHALKOS_INGOT.get());
-		toolRecipes(consumer, IcariaItems.KASSITEROS_TOOLS.SWORD.get(), IcariaItems.KASSITEROS_TOOLS.DAGGER.get(), IcariaItems.KASSITEROS_TOOLS.SHOVEL.get(), IcariaItems.KASSITEROS_TOOLS.PICKAXE.get(), IcariaItems.KASSITEROS_TOOLS.AXE.get(), IcariaItems.KASSITEROS_TOOLS.SCYTHE.get(), IcariaItems.KASSITEROS_TOOLS.BIDENT.get(), IcariaItems.KASSITEROS_INGOT.get());
-		toolRecipes(consumer, IcariaItems.ORICHALCUM_TOOLS.SWORD.get(), IcariaItems.ORICHALCUM_TOOLS.DAGGER.get(), IcariaItems.ORICHALCUM_TOOLS.SHOVEL.get(), IcariaItems.ORICHALCUM_TOOLS.PICKAXE.get(), IcariaItems.ORICHALCUM_TOOLS.AXE.get(), IcariaItems.ORICHALCUM_TOOLS.SCYTHE.get(), IcariaItems.ORICHALCUM_TOOLS.BIDENT.get(), IcariaItems.ORICHALCUM_INGOT.get());
-		toolRecipes(consumer, IcariaItems.VANADIUMSTEEL_TOOLS.SWORD.get(), IcariaItems.VANADIUMSTEEL_TOOLS.DAGGER.get(), IcariaItems.VANADIUMSTEEL_TOOLS.SHOVEL.get(), IcariaItems.VANADIUMSTEEL_TOOLS.PICKAXE.get(), IcariaItems.VANADIUMSTEEL_TOOLS.AXE.get(), IcariaItems.VANADIUMSTEEL_TOOLS.SCYTHE.get(), IcariaItems.VANADIUMSTEEL_TOOLS.BIDENT.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
-		toolRecipes(consumer, IcariaItems.SIDEROS_TOOLS.SWORD.get(), IcariaItems.SIDEROS_TOOLS.DAGGER.get(), IcariaItems.SIDEROS_TOOLS.SHOVEL.get(), IcariaItems.SIDEROS_TOOLS.PICKAXE.get(), IcariaItems.SIDEROS_TOOLS.AXE.get(), IcariaItems.SIDEROS_TOOLS.SCYTHE.get(), IcariaItems.SIDEROS_TOOLS.BIDENT.get(), IcariaItems.SIDEROS_INGOT.get());
-		toolRecipes(consumer, IcariaItems.MOLYBDENUMSTEEL_TOOLS.SWORD.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.DAGGER.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.SHOVEL.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.PICKAXE.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.AXE.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.SCYTHE.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.BIDENT.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get());
+		this.toolRecipes(consumer, IcariaItems.CHERT_TOOLS.sword.get(), IcariaItems.CHERT_TOOLS.dagger.get(), IcariaItems.CHERT_TOOLS.shovel.get(), IcariaItems.CHERT_TOOLS.pickaxe.get(), IcariaItems.CHERT_TOOLS.axe.get(), IcariaItems.CHERT_TOOLS.scythe.get(), IcariaItems.CHERT_TOOLS.bident.get(), IcariaItems.CHERT.get());
+		this.toolRecipes(consumer, IcariaItems.CHALKOS_TOOLS.sword.get(), IcariaItems.CHALKOS_TOOLS.dagger.get(), IcariaItems.CHALKOS_TOOLS.shovel.get(), IcariaItems.CHALKOS_TOOLS.pickaxe.get(), IcariaItems.CHALKOS_TOOLS.axe.get(), IcariaItems.CHALKOS_TOOLS.scythe.get(), IcariaItems.CHALKOS_TOOLS.bident.get(), IcariaItems.CHALKOS_INGOT.get());
+		this.toolRecipes(consumer, IcariaItems.KASSITEROS_TOOLS.sword.get(), IcariaItems.KASSITEROS_TOOLS.dagger.get(), IcariaItems.KASSITEROS_TOOLS.shovel.get(), IcariaItems.KASSITEROS_TOOLS.pickaxe.get(), IcariaItems.KASSITEROS_TOOLS.axe.get(), IcariaItems.KASSITEROS_TOOLS.scythe.get(), IcariaItems.KASSITEROS_TOOLS.bident.get(), IcariaItems.KASSITEROS_INGOT.get());
+		this.toolRecipes(consumer, IcariaItems.ORICHALCUM_TOOLS.sword.get(), IcariaItems.ORICHALCUM_TOOLS.dagger.get(), IcariaItems.ORICHALCUM_TOOLS.shovel.get(), IcariaItems.ORICHALCUM_TOOLS.pickaxe.get(), IcariaItems.ORICHALCUM_TOOLS.axe.get(), IcariaItems.ORICHALCUM_TOOLS.scythe.get(), IcariaItems.ORICHALCUM_TOOLS.bident.get(), IcariaItems.ORICHALCUM_INGOT.get());
+		this.toolRecipes(consumer, IcariaItems.VANADIUMSTEEL_TOOLS.sword.get(), IcariaItems.VANADIUMSTEEL_TOOLS.dagger.get(), IcariaItems.VANADIUMSTEEL_TOOLS.shovel.get(), IcariaItems.VANADIUMSTEEL_TOOLS.pickaxe.get(), IcariaItems.VANADIUMSTEEL_TOOLS.axe.get(), IcariaItems.VANADIUMSTEEL_TOOLS.scythe.get(), IcariaItems.VANADIUMSTEEL_TOOLS.bident.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
+		this.toolRecipes(consumer, IcariaItems.SIDEROS_TOOLS.sword.get(), IcariaItems.SIDEROS_TOOLS.dagger.get(), IcariaItems.SIDEROS_TOOLS.shovel.get(), IcariaItems.SIDEROS_TOOLS.pickaxe.get(), IcariaItems.SIDEROS_TOOLS.axe.get(), IcariaItems.SIDEROS_TOOLS.scythe.get(), IcariaItems.SIDEROS_TOOLS.bident.get(), IcariaItems.SIDEROS_INGOT.get());
+		this.toolRecipes(consumer, IcariaItems.MOLYBDENUMSTEEL_TOOLS.sword.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.dagger.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.shovel.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.pickaxe.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.axe.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.scythe.get(), IcariaItems.MOLYBDENUMSTEEL_TOOLS.bident.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get());
 
-		armorRecipes(consumer, IcariaItems.AETERNAE_HIDE_ARMOR.HELMET.get(), IcariaItems.AETERNAE_HIDE_ARMOR.CHESTPLATE.get(), IcariaItems.AETERNAE_HIDE_ARMOR.LEGGINGS.get(), IcariaItems.AETERNAE_HIDE_ARMOR.BOOTS.get(), IcariaItems.AETERNAE_HIDE.get());
-		armorRecipes(consumer, IcariaItems.CHALKOS_ARMOR.HELMET.get(), IcariaItems.CHALKOS_ARMOR.CHESTPLATE.get(), IcariaItems.CHALKOS_ARMOR.LEGGINGS.get(), IcariaItems.CHALKOS_ARMOR.BOOTS.get(), IcariaItems.CHALKOS_INGOT.get());
-		armorRecipes(consumer, IcariaItems.KASSITEROS_ARMOR.HELMET.get(), IcariaItems.KASSITEROS_ARMOR.CHESTPLATE.get(), IcariaItems.KASSITEROS_ARMOR.LEGGINGS.get(), IcariaItems.KASSITEROS_ARMOR.BOOTS.get(), IcariaItems.KASSITEROS_INGOT.get());
-		armorRecipes(consumer, IcariaItems.ORICHALCUM_HELMET.get(), IcariaItems.ORICHALCUM_CHESTPLATE.get(), IcariaItems.ORICHALCUM_LEGGINGS.get(), IcariaItems.ORICHALCUM_BOOTS.get(), IcariaItems.ORICHALCUM_INGOT.get());
-		armorRecipes(consumer, IcariaItems.VANADIUMSTEEL_ARMOR.HELMET.get(), IcariaItems.VANADIUMSTEEL_ARMOR.CHESTPLATE.get(), IcariaItems.VANADIUMSTEEL_ARMOR.LEGGINGS.get(), IcariaItems.VANADIUMSTEEL_ARMOR.BOOTS.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
+		this.armorRecipes(consumer, IcariaItems.AETERNAE_HIDE_ARMOR.helmet.get(), IcariaItems.AETERNAE_HIDE_ARMOR.chestplate.get(), IcariaItems.AETERNAE_HIDE_ARMOR.leggings.get(), IcariaItems.AETERNAE_HIDE_ARMOR.boots.get(), IcariaItems.AETERNAE_HIDE.get());
+		this.armorRecipes(consumer, IcariaItems.CHALKOS_ARMOR.helmet.get(), IcariaItems.CHALKOS_ARMOR.chestplate.get(), IcariaItems.CHALKOS_ARMOR.leggings.get(), IcariaItems.CHALKOS_ARMOR.boots.get(), IcariaItems.CHALKOS_INGOT.get());
+		this.armorRecipes(consumer, IcariaItems.KASSITEROS_ARMOR.helmet.get(), IcariaItems.KASSITEROS_ARMOR.chestplate.get(), IcariaItems.KASSITEROS_ARMOR.leggings.get(), IcariaItems.KASSITEROS_ARMOR.boots.get(), IcariaItems.KASSITEROS_INGOT.get());
+		this.armorRecipes(consumer, IcariaItems.ORICHALCUM_HELMET.get(), IcariaItems.ORICHALCUM_CHESTPLATE.get(), IcariaItems.ORICHALCUM_LEGGINGS.get(), IcariaItems.ORICHALCUM_BOOTS.get(), IcariaItems.ORICHALCUM_INGOT.get());
+		this.armorRecipes(consumer, IcariaItems.VANADIUMSTEEL_ARMOR.helmet.get(), IcariaItems.VANADIUMSTEEL_ARMOR.chestplate.get(), IcariaItems.VANADIUMSTEEL_ARMOR.leggings.get(), IcariaItems.VANADIUMSTEEL_ARMOR.boots.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
 
-		foodCookingRecipes(consumer, IcariaItems.RAW_AETERNAE_MEAT.get(), IcariaItems.COOKED_AETERNAE_MEAT.get());
-		foodCookingRecipes(consumer, IcariaItems.RAW_CATOBLEPAS_MEAT.get(), IcariaItems.COOKED_CATOBLEPAS_MEAT.get());
-		foodCookingRecipes(consumer, IcariaItems.RAW_CERVER_MEAT.get(), IcariaItems.COOKED_CERVER_MEAT.get());
-		foodCookingRecipes(consumer, IcariaItems.RAW_SOW_MEAT.get(), IcariaItems.COOKED_SOW_MEAT.get());
+		this.foodCookingRecipes(consumer, IcariaItems.RAW_AETERNAE_MEAT.get(), IcariaItems.COOKED_AETERNAE_MEAT.get());
+		this.foodCookingRecipes(consumer, IcariaItems.RAW_CATOBLEPAS_MEAT.get(), IcariaItems.COOKED_CATOBLEPAS_MEAT.get());
+		this.foodCookingRecipes(consumer, IcariaItems.RAW_CERVER_MEAT.get(), IcariaItems.COOKED_CERVER_MEAT.get());
+		this.foodCookingRecipes(consumer, IcariaItems.RAW_SOW_MEAT.get(), IcariaItems.COOKED_SOW_MEAT.get());
 
 		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_BLOCKS) {
-			if (deco.SLAB != null) {
-				ShapedRecipeBuilder.shaped(deco.SLAB.get(), 6)
+			if (deco.slab != null) {
+				ShapedRecipeBuilder.shaped(deco.slab.get(), 6)
 					.pattern("XXX")
 					.define('X', deco.originalItem.get())
 					.unlockedBy("has_block", has(deco.originalItem.get()))
 					.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_slab_crafting"));
 
-				SingleItemRecipeBuilder.stonecutting(Ingredient.of(deco.originalItem.get()), deco.SLAB.get(), 2)
+				SingleItemRecipeBuilder.stonecutting(Ingredient.of(deco.originalItem.get()), deco.slab.get(), 2)
 					.unlockedBy("has_block", has(deco.originalItem.get()))
 					.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_slab_cutting"));
 			}
 
-			if (deco.STAIRS != null) {
-				ShapedRecipeBuilder.shaped(deco.STAIRS.get(), 4)
+			if (deco.stairs != null) {
+				ShapedRecipeBuilder.shaped(deco.stairs.get(), 4)
 					.pattern("X  ")
 					.pattern("XX ")
 					.pattern("XXX")
@@ -269,36 +269,36 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 					.unlockedBy("has_block", has(deco.originalItem.get()))
 					.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_stairs_crafting"));
 
-				SingleItemRecipeBuilder.stonecutting(Ingredient.of(deco.originalItem.get()), deco.STAIRS.get())
+				SingleItemRecipeBuilder.stonecutting(Ingredient.of(deco.originalItem.get()), deco.stairs.get())
 					.unlockedBy("has_block", has(deco.originalItem.get()))
 					.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_stairs_cutting"));
 			}
 
-			if (deco.WALL != null) {
-				ShapedRecipeBuilder.shaped(deco.WALL.get(), 6)
+			if (deco.wall != null) {
+				ShapedRecipeBuilder.shaped(deco.wall.get(), 6)
 					.pattern("XXX")
 					.pattern("XXX")
 					.define('X', deco.originalItem.get())
 					.unlockedBy("has_block", has(deco.originalItem.get()))
 					.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_wall_crafting"));
 
-				SingleItemRecipeBuilder.stonecutting(Ingredient.of(deco.originalItem.get()), deco.WALL.get())
+				SingleItemRecipeBuilder.stonecutting(Ingredient.of(deco.originalItem.get()), deco.wall.get())
 					.unlockedBy("has_block", has(deco.originalItem.get()))
 					.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_wall_cutting"));
 			}
 		}
 
 		for (IcariaItems.WoodDecoItemBlocks deco : IcariaItems.WOOD_BLOCKS) {
-			if (deco.SLAB != null) {
-				ShapedRecipeBuilder.shaped(deco.SLAB.get(), 6)
+			if (deco.slab != null) {
+				ShapedRecipeBuilder.shaped(deco.slab.get(), 6)
 					.pattern("XXX")
 					.define('X', deco.originalItem.get())
 					.unlockedBy("has_block", has(deco.originalItem.get()))
 					.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_slab_crafting"));
 			}
 
-			if (deco.STAIRS != null) {
-				ShapedRecipeBuilder.shaped(deco.STAIRS.get(), 4)
+			if (deco.stairs != null) {
+				ShapedRecipeBuilder.shaped(deco.stairs.get(), 4)
 					.pattern("X  ")
 					.pattern("XX ")
 					.pattern("XXX")
@@ -307,8 +307,8 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 					.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_stairs_crafting"));
 			}
 
-			if (deco.FENCE != null) {
-				ShapedRecipeBuilder.shaped(deco.FENCE.get(), 3)
+			if (deco.fence != null) {
+				ShapedRecipeBuilder.shaped(deco.fence.get(), 3)
 					.pattern("XYX")
 					.pattern("XYX")
 					.define('X', deco.originalItem.get())
@@ -317,8 +317,8 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 					.save(consumer, new ResourceLocation(this.getName(), deco.originalItem.getId().getPath() + "_fence_crafting"));
 			}
 
-			if (deco.GATE != null) {
-				ShapedRecipeBuilder.shaped(deco.GATE.get(), 1)
+			if (deco.gate != null) {
+				ShapedRecipeBuilder.shaped(deco.gate.get(), 1)
 					.pattern("YXY")
 					.pattern("YXY")
 					.define('X', deco.originalItem.get())
@@ -400,8 +400,8 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		ShapedRecipeBuilder.shaped(IcariaItems.GRAINITE_CHISELED.get())
 			.pattern("X")
 			.pattern("X")
-			.define('X', Objects.requireNonNull(IcariaItems.GRAINITE_BRICKS_DECO.SLAB).get())
-			.unlockedBy("has_block", has(IcariaItems.GRAINITE_BRICKS_DECO.SLAB.get()))
+			.define('X', Objects.requireNonNull(IcariaItems.GRAINITE_BRICKS_DECO.slab).get())
+			.unlockedBy("has_block", has(IcariaItems.GRAINITE_BRICKS_DECO.slab.get()))
 			.save(consumer, appendResource(IcariaItems.GRAINITE_CHISELED.getId(), "_crafting"));
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.GRAINITE.get()), IcariaItems.GRAINITE_BRICKS.get())
@@ -458,8 +458,8 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		ShapedRecipeBuilder.shaped(IcariaItems.RELICSTONE_CHISELED.get())
 			.pattern("X")
 			.pattern("X")
-			.define('X', Objects.requireNonNull(IcariaItems.RELICSTONE_BRICKS_DECO.SLAB).get())
-			.unlockedBy("has_block", has(IcariaItems.RELICSTONE_BRICKS_DECO.SLAB.get()))
+			.define('X', Objects.requireNonNull(IcariaItems.RELICSTONE_BRICKS_DECO.slab).get())
+			.unlockedBy("has_block", has(IcariaItems.RELICSTONE_BRICKS_DECO.slab.get()))
 			.save(consumer, appendResource(IcariaItems.RELICSTONE_CHISELED.getId(), "_crafting"));
 
 		ShapedRecipeBuilder.shaped(IcariaItems.RELICSTONE_PILLAR.get(), 2)
@@ -540,8 +540,8 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		ShapedRecipeBuilder.shaped(IcariaItems.PLATOSHALE_CHISELED.get())
 			.pattern("X")
 			.pattern("X")
-			.define('X', Objects.requireNonNull(IcariaItems.PLATOSHALE_BRICKS_DECO.SLAB).get())
-			.unlockedBy("has_block", has(IcariaItems.PLATOSHALE_BRICKS_DECO.SLAB.get()))
+			.define('X', Objects.requireNonNull(IcariaItems.PLATOSHALE_BRICKS_DECO.slab).get())
+			.unlockedBy("has_block", has(IcariaItems.PLATOSHALE_BRICKS_DECO.slab.get()))
 			.save(consumer, appendResource(IcariaItems.PLATOSHALE_CHISELED.getId(), "_crafting"));
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.PLATOSHALE.get()), IcariaItems.PLATOSHALE_BRICKS.get())
@@ -989,8 +989,8 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 		ShapedRecipeBuilder.shaped(chiseled, 1)
 			.pattern("X")
 			.pattern("X")
-			.define('X', Objects.requireNonNull(deco.SLAB).get())
-			.unlockedBy("has_block", has(deco.SLAB.get()))
+			.define('X', Objects.requireNonNull(deco.slab).get())
+			.unlockedBy("has_block", has(deco.slab.get()))
 			.save(consumer, appendResource(Objects.requireNonNull((ForgeRegistries.ITEMS.getKey(chiseled))), "_crafting"));
 
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(cobble), stone, 0.1F, 200)

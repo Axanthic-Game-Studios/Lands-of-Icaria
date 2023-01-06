@@ -9,7 +9,7 @@ public class JellyfishJellyBlock extends SlimeBlock {
 	}
 
 	@Override
-	public boolean isStickyBlock(BlockState state) {
+	public boolean isStickyBlock(BlockState pState) {
 		return true;
 	}
 }

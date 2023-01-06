@@ -58,8 +58,8 @@ public class StrawberryCakeBlock extends Block {
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pPos) {
-		return getOutputSignal(pBlockState.getValue(BITES));
+	public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
+		return this.getOutputSignal(pState.getValue(BITES));
 	}
 
 	public int getOutputSignal(int pBites) {
@@ -72,8 +72,8 @@ public class StrawberryCakeBlock extends Block {
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-		return pFacing == Direction.DOWN && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		return pDirection == Direction.DOWN && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 	}
 
 	public static InteractionResult eat(LevelAccessor pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
@@ -97,13 +97,13 @@ public class StrawberryCakeBlock extends Block {
 
 	@Override
 	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-		ItemStack stack = pPlayer.getItemInHand(pHand);
-		Item item = stack.getItem();
-		if (stack.is(ItemTags.CANDLES) && pState.getValue(BITES) == 0) {
+		ItemStack itemStack = pPlayer.getItemInHand(pHand);
+		Item item = itemStack.getItem();
+		if (itemStack.is(ItemTags.CANDLES) && pState.getValue(BITES) == 0) {
 			Block block = Block.byItem(item);
 			if (block instanceof CandleBlock) {
 				if (!pPlayer.isCreative()) {
-					stack.shrink(1);
+					itemStack.shrink(1);
 				}
 
 				pLevel.playSound(null, pPos, SoundEvents.CAKE_ADD_CANDLE, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -119,7 +119,7 @@ public class StrawberryCakeBlock extends Block {
 				return InteractionResult.SUCCESS;
 			}
 
-			if (stack.isEmpty()) {
+			if (itemStack.isEmpty()) {
 				return InteractionResult.CONSUME;
 			}
 		}

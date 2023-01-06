@@ -25,8 +25,8 @@ public abstract class IcariaAgeableEntity extends PathfinderMob {
     public float eyesMult;
     public float sizeMult;
 
-    public static EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
-    public static EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
 
     public IcariaAgeableEntity(EntityType<? extends IcariaAgeableEntity> pEntityType, Level pLevel, float bboxMult, float eyesMult, float sizeMult) {
         super(pEntityType, pLevel);
@@ -54,7 +54,7 @@ public abstract class IcariaAgeableEntity extends PathfinderMob {
     }
 
     @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
+    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
         return this.getScaleFromSize() * this.eyesMult;
     }
 

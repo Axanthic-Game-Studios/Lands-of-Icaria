@@ -44,11 +44,11 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.FALSE).setValue(EAST, Boolean.FALSE).setValue(SOUTH, Boolean.FALSE).setValue(WEST, Boolean.FALSE).setValue(UP, Boolean.FALSE).setValue(DOWN, Boolean.FALSE));
 	}
 
-	public boolean canSpread(BlockGetter pBlockReader, BlockPos pPos) {
+	public boolean canSpread(BlockGetter pLevel, BlockPos pPos) {
 		Iterable<BlockPos> iterable = BlockPos.betweenClosed(pPos.getX() - 2, pPos.getY() - 8, pPos.getZ() - 2, pPos.getX() + 2, pPos.getY() + 8, pPos.getZ() + 2);
 		int j = 8;
-		for(BlockPos pos : iterable) {
-			if (pBlockReader.getBlockState(pos).is(this)) {
+		for (BlockPos pos : iterable) {
+			if (pLevel.getBlockState(pos).is(this)) {
 				--j;
 				if (j <= 0) {
 					return false;
@@ -61,23 +61,23 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		BlockState state = pLevel.getBlockState(pPos.below());
-		for(Direction direction : Direction.Plane.HORIZONTAL) {
-			BlockPos pos = pPos.relative(direction);
-			BlockState stateRelative = pLevel.getBlockState(pos);
+		BlockState blockState = pLevel.getBlockState(pPos.below());
+		for (Direction direction : Direction.Plane.HORIZONTAL) {
+			BlockPos blockPos = pPos.relative(direction);
+			BlockState stateRelative = pLevel.getBlockState(blockPos);
 			if (stateRelative.is(this)) {
-				BlockState stateBelow = pLevel.getBlockState(pos.below());
+				BlockState stateBelow = pLevel.getBlockState(blockPos.below());
 				if (stateBelow.is(this) || stateBelow.is(BlockTags.SAND)) {
 					return true;
 				}
 			}
 		}
 
-		return state.is(this) || state.is(BlockTags.SAND);
+		return blockState.is(this) || blockState.is(BlockTags.SAND);
 	}
 
-	public boolean shouldConnectDown(BlockState stateDown) {
-		return stateDown.getBlock().equals(this) || stateDown.is(BlockTags.SAND);
+	public boolean shouldConnectDown(BlockState pState) {
+		return pState.getBlock().equals(this) || pState.is(BlockTags.SAND);
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 
 	@Override
 	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (canSpread(pLevel, pPos)) {
+		if (this.canSpread(pLevel, pPos)) {
 			if (pLevel.isAreaLoaded(pPos, 4)) {
 				if (pRandom.nextInt(4) == 0) {
 					if (pLevel.getBlockState(pPos.above()).isAir()) {
@@ -148,10 +148,20 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 	}
 
 	@Override
-	public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRand) {
+	public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (!pState.canSurvive(pLevel, pPos)) {
 			pLevel.destroyBlock(pPos, true);
 		}
+	}
+
+	@Override
+	public BlockPathTypes getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
+		return BlockPathTypes.DAMAGE_CACTUS;
+	}
+
+	@Override
+	public BlockState getPlant(BlockGetter pLevel, BlockPos pPos) {
+		return pLevel.getBlockState(pPos);
 	}
 
 	@Override
@@ -166,19 +176,19 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
 		if (!pState.canSurvive(pLevel, pCurrentPos)) {
 			pLevel.scheduleTick(pCurrentPos, this, 1);
-			return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+			return super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 		}
 
-		BlockState state = pLevel.getBlockState(pCurrentPos.below());
+		BlockState blockState = pLevel.getBlockState(pCurrentPos.below());
 		boolean north = pLevel.getBlockState(pCurrentPos.north()).getBlock().equals(this);
 		boolean east = pLevel.getBlockState(pCurrentPos.east()).getBlock().equals(this);
 		boolean south = pLevel.getBlockState(pCurrentPos.south()).getBlock().equals(this);
 		boolean west = pLevel.getBlockState(pCurrentPos.west()).getBlock().equals(this);
 		boolean up = pLevel.getBlockState(pCurrentPos.above()).getBlock().equals(this);
-		boolean down = this.shouldConnectDown(state);
+		boolean down = this.shouldConnectDown(blockState);
 		if (down) {
 			north = north && !this.shouldConnectDown(pLevel.getBlockState(pCurrentPos.north().below()));
 			east = east && !this.shouldConnectDown(pLevel.getBlockState(pCurrentPos.east().below()));
@@ -190,17 +200,7 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 	}
 
 	@Override
-	public BlockState getPlant(BlockGetter level, BlockPos pos) {
-		return level.getBlockState(pos);
-	}
-
-	@Override
-	public PlantType getPlantType(BlockGetter world, BlockPos pos) {
+	public PlantType getPlantType(BlockGetter pLevel, BlockPos pPos) {
 		return PlantType.DESERT;
-	}
-
-	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob) {
-		return BlockPathTypes.DAMAGE_CACTUS;
 	}
 }

@@ -31,6 +31,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.Objects;
+
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -47,10 +49,10 @@ public class HyliasterEntity extends Monster {
     public float eyesMult;
     public float sizeMult;
 
-    public final AnimationState walkAnimationState = new AnimationState();
+    public AnimationState walkAnimationState = new AnimationState();
 
-    public static EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
-    public static EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
 
     public HyliasterEntity(EntityType<? extends Monster> pType, Level pLevel) {
         super(pType, pLevel);
@@ -82,7 +84,7 @@ public class HyliasterEntity extends Monster {
     }
 
     @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
+    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
         return this.getScaleFromSize() * this.eyesMult;
     }
 
@@ -178,15 +180,15 @@ public class HyliasterEntity extends Monster {
             if (size > this.minSize) {
                 if (this.isDeadOrDying()) {
                     for (int l = 0; l < size; ++l) {
-                        float xOffset = ((float)(l % 2) - 0.5F) * size * 0.25F;
-                        float zOffset = ((float)(l / 2) - 0.5F) * size * 0.25F;
+                        float xOffset = ((float) (l % 2) - 0.5F) * size * 0.25F;
+                        float zOffset = ((float) (l / 2) - 0.5F) * size * 0.25F;
                         HyliasterEntity entity = IcariaEntities.HYLIASTER.get().create(this.level);
                         if (entity != null) {
                             if (this.isPersistenceRequired()) {
                                 entity.setPersistenceRequired();
                             }
 
-                            entity.moveTo(this.getX() + (double)xOffset, this.getY() + 0.5D, this.getZ() + (double)zOffset, this.random.nextFloat() * 360.0F, 0.0F);
+                            entity.moveTo(this.getX() + xOffset, this.getY() + 0.5D, this.getZ() + zOffset, this.random.nextFloat() * 360.0F, 0.0F);
                             entity.setCustomName(this.getCustomName());
                             entity.setInvulnerable(this.isInvulnerable());
                             entity.setNoAi(this.isNoAi());
@@ -202,9 +204,9 @@ public class HyliasterEntity extends Monster {
     public void setSize(int pSize) {
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
         this.refreshDimensions();
-        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
-        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
-        this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1D + (size * 0.04D));
+        Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
+        Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
+        Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue((size * 0.04D) + 0.1D);
         this.entityData.set(SIZE, size);
         this.xpReward = size + 1;
     }

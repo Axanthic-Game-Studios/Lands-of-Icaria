@@ -27,7 +27,7 @@ public class ArachneEmissiveLayer extends RenderLayer<ArachneEntity, ArachneMode
     }
 
     @Override
-    public void render(PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, ArachneEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.getParentModel().renderToBuffer(pPoseStack, pBufferSource.getBuffer(EMISSIVE), 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+    public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, ArachneEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(EMISSIVE), 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
     }
 }

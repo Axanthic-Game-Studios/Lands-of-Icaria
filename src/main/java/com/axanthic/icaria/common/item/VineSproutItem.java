@@ -25,24 +25,24 @@ public class VineSproutItem extends Item {
 	}
 
 	@Override
-	public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pInventorySlot, boolean pIsCurrentItem) {
-		Player player = (Player)pEntity;
-		ItemStack stack = pStack.copy();
-		stack.setCount(1);
-		if(pStack.getCount() > 1) {
-			if(player.addItem(stack)) {
+	public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+		ItemStack itemStack = pStack.copy();
+		Player player = (Player) pEntity;
+		itemStack.setCount(1);
+		if (pStack.getCount() > 1) {
+			if (player.addItem(itemStack)) {
+				player.addItem(itemStack);
 				pStack.shrink(1);
-				player.addItem(stack);
 			} else {
-				pStack.shrink(1);
 				player.drop(pStack, true);
+				pStack.shrink(1);
 			}
 		}
 	}
 
 	@Override
 	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
-		Player player = (Player)pEntityLiving;
+		Player player = (Player) pEntityLiving;
 		player.awardStat(Stats.ITEM_USED.get(this));
 		if (!pLevel.isClientSide) {
 			player.getCooldowns().addCooldown(this, 400);

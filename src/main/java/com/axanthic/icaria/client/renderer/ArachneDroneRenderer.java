@@ -19,7 +19,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ArachneDroneRenderer extends MobRenderer<ArachneDroneEntity, ArachneDroneModel> {
-    public static ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/arachne_drone.png");
+    public float shdwMult = 0.3F;
+    public float sizeMult = 0.125F;
+
+    public static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/arachne_drone.png");
 
     public ArachneDroneRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new ArachneDroneModel(pContext.bakeLayer(ArachneDroneModel.LAYER_LOCATION)), 1.0F);
@@ -27,15 +30,15 @@ public class ArachneDroneRenderer extends MobRenderer<ArachneDroneEntity, Arachn
     }
 
     @Override
-    public void render(ArachneDroneEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight) {
-        this.shadowRadius = pEntity.getScaleFromSize() * 0.125F;
-        super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBufferSource, pPackedLight);
+    public void render(ArachneDroneEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+        this.shadowRadius = pEntity.isBaby() ? pEntity.getScaleFromSize() * this.shdwMult : 2.0F * this.shdwMult;
+        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
     }
 
     @Override
-    public void scale(ArachneDroneEntity pLivingEntity, PoseStack pPoseStack, float pPartialTickTime) {
-        float size = pLivingEntity.getScaleFromSize() * 0.125F;
-        pPoseStack.scale(size, size, size);
+    public void scale(ArachneDroneEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+        float size = pLivingEntity.getScaleFromSize() * this.sizeMult;
+        pMatrixStack.scale(size, size, size);
     }
 
     @Override

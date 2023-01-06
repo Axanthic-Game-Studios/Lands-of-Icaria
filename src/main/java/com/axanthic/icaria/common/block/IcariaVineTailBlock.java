@@ -6,9 +6,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
@@ -46,19 +44,19 @@ public class IcariaVineTailBlock extends Block {
 	public static final VoxelShape WEST_AABB = Block.box(0.0D, 0.0D, 0.0D, 1.0D, 16.0D, 16.0D);
 	public static final VoxelShape UP_AABB = Block.box(0.0D, 15.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
-	public final Map<BlockState, VoxelShape> shapesCache;
+	public Map<BlockState, VoxelShape> map;
 
 	public IcariaVineTailBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.FALSE).setValue(EAST, Boolean.FALSE).setValue(SOUTH, Boolean.FALSE).setValue(WEST, Boolean.FALSE).setValue(UP, Boolean.FALSE));
-		this.shapesCache = ImmutableMap.copyOf(this.stateDefinition.getPossibleStates().stream().collect(Collectors.toMap(Function.identity(), IcariaVineTailBlock::calculateShape)));
+		this.map = ImmutableMap.copyOf(this.stateDefinition.getPossibleStates().stream().collect(Collectors.toMap(Function.identity(), IcariaVineTailBlock::calculateShape)));
 	}
 
 	@Override
 	public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-		BlockState state = pUseContext.getLevel().getBlockState(pUseContext.getClickedPos());
-		if (state.is(this)) {
-			return this.countFaces(state) < PROPERTY_BY_DIRECTION.size();
+		BlockState blockState = pUseContext.getLevel().getBlockState(pUseContext.getClickedPos());
+		if (blockState.is(this)) {
+			return this.countFaces(blockState) < PROPERTY_BY_DIRECTION.size();
 		} else {
 			return super.canBeReplaced(pState, pUseContext);
 		}
@@ -68,13 +66,13 @@ public class IcariaVineTailBlock extends Block {
 		if (pDirection == Direction.DOWN) {
 			return false;
 		} else {
-			if (isAcceptableNeighbour(pLevel, pPos.relative(pDirection), pDirection)) {
+			if (this.isAcceptableNeighbour(pLevel, pPos.relative(pDirection), pDirection)) {
 				return true;
 			} else if (pDirection.getAxis() == Direction.Axis.Y) {
 				return false;
 			} else {
-				BlockState state = pLevel.getBlockState(pPos.above());
-				return state.is(BlockTags.CLIMBABLE) && state.getValue(PROPERTY_BY_DIRECTION.get(pDirection));
+				BlockState blockState = pLevel.getBlockState(pPos.above());
+				return blockState.is(BlockTags.CLIMBABLE) && blockState.getValue(PROPERTY_BY_DIRECTION.get(pDirection));
 			}
 		}
 	}
@@ -88,8 +86,8 @@ public class IcariaVineTailBlock extends Block {
 		return this.countFaces(pState) > 0;
 	}
 
-	public boolean isAcceptableNeighbour(BlockGetter pBlockReader, BlockPos pLevel, Direction pNeighborPos) {
-		return Block.isFaceFull(pBlockReader.getBlockState(pLevel).getCollisionShape(pBlockReader, pLevel), pNeighborPos.getOpposite());
+	public boolean isAcceptableNeighbour(BlockGetter pLevel, BlockPos pPos, Direction pDirection) {
+		return Block.isFaceFull(pLevel.getBlockState(pPos).getCollisionShape(pLevel, pPos), pDirection.getOpposite());
 	}
 
 	@Override
@@ -99,8 +97,8 @@ public class IcariaVineTailBlock extends Block {
 
 	public int countFaces(BlockState pState) {
 		int i = 0;
-		for(BooleanProperty booleanproperty : PROPERTY_BY_DIRECTION.values()) {
-			if (pState.getValue(booleanproperty)) {
+		for (BooleanProperty booleanProperty : PROPERTY_BY_DIRECTION.values()) {
+			if (pState.getValue(booleanProperty)) {
 				++i;
 			}
 		}
@@ -114,21 +112,16 @@ public class IcariaVineTailBlock extends Block {
 	}
 
 	@Override
-	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-
-	}
-
-	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
 		BlockState stateOne = pContext.getLevel().getBlockState(pContext.getClickedPos());
 		boolean flagOne = stateOne.is(this);
 		BlockState stateTwo = flagOne ? stateOne : this.defaultBlockState();
-		for(Direction direction : pContext.getNearestLookingDirections()) {
+		for (Direction direction : pContext.getNearestLookingDirections()) {
 			if (direction != Direction.DOWN) {
-				BooleanProperty property = getPropertyForFace(direction);
-				boolean flagTwo = flagOne && stateOne.getValue(property);
+				BooleanProperty booleanProperty = this.getPropertyForFace(direction);
+				boolean flagTwo = flagOne && stateOne.getValue(booleanProperty);
 				if (!flagTwo && this.canSupportAtFace(pContext.getLevel(), pContext.getClickedPos(), direction)) {
-					return stateTwo.setValue(property, Boolean.TRUE);
+					return stateTwo.setValue(booleanProperty, Boolean.TRUE);
 				}
 			}
 		}
@@ -136,25 +129,26 @@ public class IcariaVineTailBlock extends Block {
 		return flagOne ? stateTwo : null;
 	}
 
-	public BlockState getUpdatedState(BlockState pState, BlockGetter pBlockReader, BlockPos pPos) {
-		BlockPos pos = pPos.above();
+	public BlockState getUpdatedState(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+		BlockPos blockPos = pPos.above();
 		if (pState.getValue(UP)) {
-			pState = pState.setValue(UP, isAcceptableNeighbour(pBlockReader, pos, Direction.DOWN));
+			pState = pState.setValue(UP, this.isAcceptableNeighbour(pLevel, blockPos, Direction.DOWN));
 		}
-		BlockState state = null;
-		for(Direction direction : Direction.Plane.HORIZONTAL) {
-			BooleanProperty property = getPropertyForFace(direction);
-			if (pState.getValue(property)) {
-				boolean flag = this.canSupportAtFace(pBlockReader, pPos, direction);
+
+		BlockState blockState = null;
+		for (Direction direction : Direction.Plane.HORIZONTAL) {
+			BooleanProperty booleanProperty = this.getPropertyForFace(direction);
+			if (pState.getValue(booleanProperty)) {
+				boolean flag = this.canSupportAtFace(pLevel, pPos, direction);
 				if (!flag) {
-					if (state == null) {
-						state = pBlockReader.getBlockState(pos);
+					if (blockState == null) {
+						blockState = pLevel.getBlockState(blockPos);
 					}
 
-					flag = state.is(this) && state.getValue(property);
+					flag = blockState.is(this) && blockState.getValue(booleanProperty);
 				}
 
-				pState = pState.setValue(property, flag);
+				pState = pState.setValue(booleanProperty, flag);
 			}
 		}
 
@@ -188,12 +182,12 @@ public class IcariaVineTailBlock extends Block {
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-		if (pFacing == Direction.DOWN) {
-			return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		if (pDirection == Direction.DOWN) {
+			return super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 		} else {
-			BlockState blockstate = this.getUpdatedState(pState, pLevel, pCurrentPos);
-			return !this.hasFaces(blockstate) ? Blocks.AIR.defaultBlockState() : blockstate;
+			BlockState blockState = this.getUpdatedState(pState, pLevel, pCurrentPos);
+			return !this.hasFaces(blockState) ? Blocks.AIR.defaultBlockState() : blockState;
 		}
 	}
 
@@ -202,28 +196,24 @@ public class IcariaVineTailBlock extends Block {
 	}
 
 	public static VoxelShape calculateShape(BlockState pState) {
-		VoxelShape shape = Shapes.empty();
+		VoxelShape voxelShape = Shapes.empty();
 		if (pState.getValue(NORTH)) {
-			shape = Shapes.or(shape, NORTH_AABB);
-		}
-		if (pState.getValue(EAST)) {
-			shape = Shapes.or(shape, EAST_AABB);
-		}
-		if (pState.getValue(SOUTH)) {
-			shape = Shapes.or(shape, SOUTH_AABB);
-		}
-		if (pState.getValue(WEST)) {
-			shape = Shapes.or(shape, WEST_AABB);
-		}
-		if (pState.getValue(UP)) {
-			shape = UP_AABB;
+			voxelShape = Shapes.or(voxelShape, NORTH_AABB);
+		} else if (pState.getValue(EAST)) {
+			voxelShape = Shapes.or(voxelShape, EAST_AABB);
+		} else if (pState.getValue(SOUTH)) {
+			voxelShape = Shapes.or(voxelShape, SOUTH_AABB);
+		} else if (pState.getValue(WEST)) {
+			voxelShape = Shapes.or(voxelShape, WEST_AABB);
+		} else if (pState.getValue(UP)) {
+			voxelShape = UP_AABB;
 		}
 
-		return shape.isEmpty() ? Shapes.block() : shape;
+		return voxelShape.isEmpty() ? Shapes.block() : voxelShape;
 	}
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return this.shapesCache.get(pState);
+		return this.map.get(pState);
 	}
 }

@@ -20,17 +20,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaSkullItemRenderer extends BlockEntityWithoutLevelRenderer {
-    public Map<IcariaSkullBlockType, SkullModel> modelByType;
+    public Map<IcariaSkullBlockType, SkullModel> map;
 
     public IcariaSkullItemRenderer(BlockEntityRenderDispatcher pDispatcher, EntityModelSet pSet) {
         super(pDispatcher, pSet);
-        modelByType = IcariaSkullBlockRenderer.createSkullRenderers(pSet);
+        this.map = IcariaSkullBlockRenderer.createRenderers(pSet);
     }
 
     @Override
     public void renderByItem(ItemStack pItemStack, ItemTransforms.TransformType pTransformType, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pCombinedLight, int pCombinedOverlay) {
         if (pItemStack.getItem() instanceof IcariaSkullItem skullItem) {
-            IcariaSkullBlockRenderer.renderSkull(null, 180.0F, pPoseStack, pBufferSource, pCombinedLight, modelByType, skullItem.getBlock());
+            IcariaSkullBlockRenderer.renderSkull(null, 180.0F, pPoseStack, pBufferSource, pCombinedLight, this.map, skullItem.getBlock());
         }
     }
 }

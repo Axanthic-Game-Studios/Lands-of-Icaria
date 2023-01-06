@@ -31,8 +31,8 @@ public abstract class IcariaAnimalEntity extends IcariaAgeableEntity {
     public int maxDuration = 1200;
     public int minDuration = 0;
 
-    public static EntityDataAccessor<Integer> COOLDOWN = SynchedEntityData.defineId(IcariaAnimalEntity.class, EntityDataSerializers.INT);
-    public static EntityDataAccessor<Integer> DURATION = SynchedEntityData.defineId(IcariaAnimalEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> COOLDOWN = SynchedEntityData.defineId(IcariaAnimalEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> DURATION = SynchedEntityData.defineId(IcariaAnimalEntity.class, EntityDataSerializers.INT);
 
     public IcariaAnimalEntity(EntityType<? extends IcariaAgeableEntity> pEntityType, Level pLevel, float bboxMult, float eyesMult, float sizeMult) {
         super(pEntityType, pLevel, bboxMult, eyesMult, sizeMult);
@@ -132,7 +132,7 @@ public abstract class IcariaAnimalEntity extends IcariaAgeableEntity {
     @Override
     public void handleEntityEvent(byte pId) {
         if (pId == 18) {
-            for(int i = 0; i < 7; ++i) {
+            for (int i = 0; i < 7; ++i) {
                 double d = this.random.nextGaussian() * 0.025D;
                 this.level.addParticle(ParticleTypes.HEART, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), d, d, d);
             }
@@ -169,7 +169,7 @@ public abstract class IcariaAnimalEntity extends IcariaAgeableEntity {
             pMate.setDuration(this.minDuration);
             this.setDuration(this.minDuration);
             pLevel.addFreshEntityWithPassengers(ageableMob);
-            pLevel.broadcastEntityEvent(this, (byte)18);
+            pLevel.broadcastEntityEvent(this, (byte) 18);
             if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) {
                 pLevel.addFreshEntity(new ExperienceOrb(pLevel, this.getX(), this.getY(), this.getZ(), this.getRandom().nextInt(7) + 1));
             }
@@ -186,7 +186,7 @@ public abstract class IcariaAnimalEntity extends IcariaAgeableEntity {
                         if (!this.onCooldown()) {
                             itemStack.shrink(1);
                             pPlayer.awardStat(Stats.ANIMALS_BRED);
-                            this.level.broadcastEntityEvent(this, (byte)18);
+                            this.level.broadcastEntityEvent(this, (byte) 18);
                             this.setDuration(this.maxDuration);
                             return InteractionResult.SUCCESS;
                         }

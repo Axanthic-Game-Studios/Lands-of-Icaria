@@ -39,9 +39,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class MyrmekeQueenEntity extends Monster {
     public int spellCastTickCount;
-    public static EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(MyrmekeQueenEntity.class, EntityDataSerializers.BYTE);
-    public static EntityDataAccessor<Byte> SPELL = SynchedEntityData.defineId(MyrmekeQueenEntity.class, EntityDataSerializers.BYTE);
-    public MyrmekeQueenSpellEnum currentSpell = MyrmekeQueenSpellEnum.NONE;
+
+    public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(MyrmekeQueenEntity.class, EntityDataSerializers.BYTE);
+    public static final EntityDataAccessor<Byte> SPELL = SynchedEntityData.defineId(MyrmekeQueenEntity.class, EntityDataSerializers.BYTE);
+
+    public MyrmekeQueenSpellEnum spell = MyrmekeQueenSpellEnum.NONE;
 
     public MyrmekeQueenEntity(EntityType<? extends Monster> pType, Level pLevel) {
         super(pType, pLevel);
@@ -77,7 +79,7 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
+    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
         return 0.25F;
     }
 
@@ -98,8 +100,8 @@ public class MyrmekeQueenEntity extends Monster {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(CLIMBING, (byte)0);
-        this.entityData.define(SPELL, (byte)0);
+        this.entityData.define(CLIMBING, (byte) 0);
+        this.entityData.define(SPELL, (byte) 0);
     }
 
     @Override
@@ -124,16 +126,16 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     public void setCasting(MyrmekeQueenSpellEnum pSpell) {
-        this.currentSpell = pSpell;
-        this.entityData.set(SPELL, (byte)pSpell.id);
+        this.spell = pSpell;
+        this.entityData.set(SPELL, (byte) pSpell.id);
     }
 
     public void setClimbing(boolean pClimbing) {
         byte b = this.entityData.get(CLIMBING);
         if (pClimbing) {
-            b = (byte)(b | 1);
+            b = (byte) (b | 1);
         } else {
-            b = (byte)(b & -2);
+            b = (byte) (b & -2);
         }
 
         this.entityData.set(CLIMBING, b);
@@ -205,7 +207,7 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     public class MyrmekeQueenSummonGoal extends MyrmekeQueenSpellcastGoal {
-        public final TargetingConditions targetingConditions = TargetingConditions.forNonCombat().range(16.0D).ignoreLineOfSight().ignoreInvisibilityTesting();
+        public TargetingConditions targetingConditions = TargetingConditions.forNonCombat().range(16.0D).ignoreLineOfSight().ignoreInvisibilityTesting();
 
         @Override
         public boolean canUse() {
@@ -235,7 +237,7 @@ public class MyrmekeQueenEntity extends Monster {
         @Override
         public void performSpell() {
             ServerLevel serverLevel = (ServerLevel)MyrmekeQueenEntity.this.level;
-            for(int i = 0; i < MyrmekeQueenEntity.this.random.nextIntBetweenInclusive(2,4); ++i) {
+            for (int i = 0; i < MyrmekeQueenEntity.this.random.nextIntBetweenInclusive(2,4); ++i) {
                 BlockPos blockPos = MyrmekeQueenEntity.this.blockPosition().offset(-2 + MyrmekeQueenEntity.this.random.nextInt(5), 0, -2 + MyrmekeQueenEntity.this.random.nextInt(5));
                 MyrmekeSoldierEntity entity = IcariaEntities.MYRMEKE_SOLDIER.get().create(MyrmekeQueenEntity.this.level);
                 if (entity != null) {
@@ -264,11 +266,15 @@ public class MyrmekeQueenEntity extends Monster {
         @Override
         public boolean canUse() {
             LivingEntity livingEntity = MyrmekeQueenEntity.this.getTarget();
-            if (livingEntity != null && livingEntity.isAlive()) {
-                if (MyrmekeQueenEntity.this.isCasting()) {
-                    return false;
+            if (livingEntity != null) {
+                if (livingEntity.isAlive()) {
+                    if (MyrmekeQueenEntity.this.isCasting()) {
+                        return false;
+                    } else {
+                        return MyrmekeQueenEntity.this.tickCount >= this.nextAttackTickCount;
+                    }
                 } else {
-                    return MyrmekeQueenEntity.this.tickCount >= this.nextAttackTickCount;
+                    return false;
                 }
             } else {
                 return false;

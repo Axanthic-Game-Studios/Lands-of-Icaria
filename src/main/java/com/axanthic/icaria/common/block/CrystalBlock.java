@@ -61,12 +61,12 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Simpl
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		Direction direction = pState.getValue(FACING);
-		BlockPos pos = pPos.relative(direction.getOpposite());
-		return pLevel.getBlockState(pos).isSolidRender(pLevel, pos);
+		BlockPos blockPos = pPos.relative(direction.getOpposite());
+		return pLevel.getBlockState(blockPos).isSolidRender(pLevel, blockPos);
 	}
 
 	@Override
-	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
 		return true;
 	}
 
@@ -76,11 +76,11 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Simpl
 	}
 
 	@Override
-	public void onProjectileHit(Level pLevel, BlockState pState, BlockHitResult pResult, Projectile pProjectile) {
+	public void onProjectileHit(Level pLevel, BlockState pState, BlockHitResult pHit, Projectile pProjectile) {
 		if (!pLevel.isClientSide) {
-			BlockPos blockpos = pResult.getBlockPos();
-			pLevel.playSound(null, blockpos, SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS, 1.0F, 0.5F + pLevel.random.nextFloat() * 1.2F);
-			pLevel.playSound(null, blockpos, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 1.0F, 0.5F + pLevel.random.nextFloat() * 1.2F);
+			BlockPos blockPos = pHit.getBlockPos();
+			pLevel.playSound(null, blockPos, SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS, 1.0F, 0.5F + pLevel.random.nextFloat() * 1.2F);
+			pLevel.playSound(null, blockPos, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 1.0F, 0.5F + pLevel.random.nextFloat() * 1.2F);
 		}
 	}
 
@@ -89,17 +89,17 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Simpl
 		switch(pState.getValue(FACING)) {
 			case NORTH:
 			default:
-				return new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 1.0D, r, g, b);
+				return new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 1.0D, this.r, this.g, this.b);
 			case EAST:
-				return new CrystalBlockEntity(pPos, pState, 0.0D, 0.5D, 0.5D, r, g, b);
+				return new CrystalBlockEntity(pPos, pState, 0.0D, 0.5D, 0.5D, this.r, this.g, this.b);
 			case SOUTH:
-				return new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 0.0D, r, g, b);
+				return new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 0.0D, this.r, this.g, this.b);
 			case WEST:
-				return new CrystalBlockEntity(pPos, pState, 1.0D, 0.5D, 0.5D, r, g, b);
+				return new CrystalBlockEntity(pPos, pState, 1.0D, 0.5D, 0.5D, this.r, this.g, this.b);
 			case UP:
-				return new CrystalBlockEntity(pPos, pState, 0.5D, 0.0D, 0.5D, r, g, b);
+				return new CrystalBlockEntity(pPos, pState, 0.5D, 0.0D, 0.5D, this.r, this.g, this.b);
 			case DOWN:
-				return new CrystalBlockEntity(pPos, pState, 0.5D, 1.0D, 0.5D, r, g, b);
+				return new CrystalBlockEntity(pPos, pState, 0.5D, 1.0D, 0.5D, this.r, this.g, this.b);
 		}
 	}
 

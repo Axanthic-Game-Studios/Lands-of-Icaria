@@ -20,6 +20,7 @@ import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -28,10 +29,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, MyrmekeQueenModel> {
-    public boolean RENDER_RAYS = IcariaConfig.RENDER_RAYS.get();
-    public float HALF_SQRT_3 = (float)(Math.sqrt(3.0D) / 2.0D);
+    public static final boolean RENDER_RAYS = IcariaConfig.RENDER_RAYS.get();
 
-    public final MyrmekeQueenModel model;
+    public static final float HALF_SQRT_3 = Mth.sqrt(3.0F) / 2.0F;
+
+    public MyrmekeQueenModel model;
 
     public static final RenderStateShard.ShaderStateShard LIGHTNING_SHADER = new RenderStateShard.ShaderStateShard(GameRenderer::getRendertypeLightningShader);
 
@@ -64,13 +66,11 @@ public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, Myrme
     }
 
     @Override
-    public void render(PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, MyrmekeQueenEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+    public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, MyrmekeQueenEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
         if (RENDER_RAYS) {
             Matrix4f matrix4f = pPoseStack.last().pose();
-
             RandomSource randomSource = RandomSource.create(432L);
-
-            VertexConsumer vertexConsumer = pBufferSource.getBuffer(ADDITIVE_LIGHTNING);
+            VertexConsumer vertexConsumer = pBuffer.getBuffer(ADDITIVE_LIGHTNING);
 
             float length = randomSource.nextFloat() * 2.0F + 1.25F;
             float width = randomSource.nextFloat() * 0.5F + 0.25F;
@@ -87,20 +87,20 @@ public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, Myrme
             pPoseStack.translate(0.0F, -0.035F, -0.215F);
             pPoseStack.scale(0.5F, 0.5F, 0.5F);
 
-            for (int i = 0; (float)i < 96; ++i) {
+            for (int i = 0; i < 96; ++i) {
                 pPoseStack.mulPose(Vector3f.XP.rotationDegrees(randomSource.nextFloat() * 360.0F));
                 pPoseStack.mulPose(Vector3f.YP.rotationDegrees(randomSource.nextFloat() * 360.0F));
                 pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(randomSource.nextFloat() * 360.0F));
 
-                vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
-                vertexB(vertexConsumer, matrix4f, length, width);
-                vertexC(vertexConsumer, matrix4f, length, width);
-                vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
-                vertexC(vertexConsumer, matrix4f, length, width);
-                vertexD(vertexConsumer, matrix4f, length, width);
-                vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
-                vertexD(vertexConsumer, matrix4f, length, width);
-                vertexB(vertexConsumer, matrix4f, length, width);
+                this.vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
+                this.vertexB(vertexConsumer, matrix4f, length, width);
+                this.vertexC(vertexConsumer, matrix4f, length, width);
+                this.vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
+                this.vertexC(vertexConsumer, matrix4f, length, width);
+                this.vertexD(vertexConsumer, matrix4f, length, width);
+                this.vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
+                this.vertexD(vertexConsumer, matrix4f, length, width);
+                this.vertexB(vertexConsumer, matrix4f, length, width);
             }
         }
     }

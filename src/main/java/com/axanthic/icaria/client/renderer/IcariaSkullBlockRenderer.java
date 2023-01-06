@@ -14,7 +14,6 @@ import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.Util;
 import net.minecraft.client.model.SkullModel;
 import net.minecraft.client.model.geom.EntityModelSet;
@@ -34,13 +33,12 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkullBlockEntity> {
-    public Map<IcariaSkullBlockType, SkullModel> modelByType;
+    public Map<IcariaSkullBlockType, SkullModel> map;
 
-    public static Map<IcariaSkullBlockType, ResourceLocation> SKIN_BY_TYPE = Util.make(Maps.newHashMap(), (map) -> {
+    public static final Map<IcariaSkullBlockType, ResourceLocation> SKIN_BY_TYPE = Util.make(Maps.newHashMap(), (map) -> {
         map.put(IcariaSkullBlockTypes.AETERNAE, new ResourceLocation(IcariaInfo.MODID, "textures/entity/aeternae.png"));
         map.put(IcariaSkullBlockTypes.ARGAN_HOUND, new ResourceLocation(IcariaInfo.MODID, "textures/entity/argan_hound.png"));
         map.put(IcariaSkullBlockTypes.CATOBLEPAS, new ResourceLocation(IcariaInfo.MODID, "textures/entity/catoblepas.png"));
@@ -49,7 +47,7 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
     });
 
     public IcariaSkullBlockRenderer(BlockEntityRendererProvider.Context pContext) {
-        modelByType = createSkullRenderers(pContext.getModelSet());
+        this.map = createRenderers(pContext.getModelSet());
     }
 
     @Override
@@ -57,23 +55,24 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
         BlockState blockState = pBlockEntity.getBlockState();
         boolean wall = blockState.getBlock() instanceof IcariaWallSkullBlock;
         Direction direction = wall ? blockState.getValue(IcariaWallSkullBlock.FACING) : null;
-        float rotation = wall ? (float) (2 + direction.get2DDataValue()) * 4 : blockState.getValue(SkullBlock.ROTATION);
+        float rotation = wall ? (2 + direction.get2DDataValue()) * 4 : blockState.getValue(SkullBlock.ROTATION);
 
-        renderSkull(direction, 22.5F * rotation, pPoseStack, pBufferSource, pCombinedLight, modelByType, blockState.getBlock());
+        renderSkull(direction, 22.5F * rotation, pPoseStack, pBufferSource, pCombinedLight, this.map, blockState.getBlock());
     }
 
     public static void renderSkull(@Nullable Direction pDirection, float pRotation, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pCombinedLight, Map<IcariaSkullBlockType, SkullModel> pMap, Block pBlock) {
-        pPoseStack.pushPose();
+        float offset = ((IcariaAbstractSkullBlock) pBlock).getOffset();
 
-        float offset = ((IcariaAbstractSkullBlock)pBlock).getOffset();
-        IcariaSkullBlockType blockType = ((IcariaAbstractSkullBlock)pBlock).getType();
+        IcariaSkullBlockType blockType = ((IcariaAbstractSkullBlock) pBlock).getType();
         ResourceLocation resourceLocation = SKIN_BY_TYPE.get(blockType);
         SkullModel skullModel = pMap.get(blockType);
+
+        pPoseStack.pushPose();
 
         if (pDirection == null) {
             pPoseStack.translate(0.5D, 0.0D, 0.5D);
         } else {
-            pPoseStack.translate(0.5F - (float) pDirection.getStepX() * (0.25F + offset), 0.25D, 0.5F - (float) pDirection.getStepZ() * (0.25F + offset));
+            pPoseStack.translate(0.5F - pDirection.getStepX() * (0.25F + offset), 0.25D, 0.5F - pDirection.getStepZ() * (0.25F + offset));
         }
 
         pPoseStack.scale(-1.0F, -1.0F, 1.0F);
@@ -86,7 +85,7 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
         pPoseStack.popPose();
     }
 
-    public static Map<IcariaSkullBlockType, SkullModel> createSkullRenderers(EntityModelSet pSet) {
+    public static Map<IcariaSkullBlockType, SkullModel> createRenderers(EntityModelSet pSet) {
         ImmutableMap.Builder<IcariaSkullBlockType, SkullModel> builder = ImmutableMap.builder();
 
         builder.put(IcariaSkullBlockTypes.AETERNAE, new AeternaeSkullModel(pSet.bakeLayer(AeternaeSkullModel.LAYER_LOCATION)));

@@ -17,7 +17,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeQueenRenderer extends MobRenderer<MyrmekeQueenEntity, MyrmekeQueenModel> {
-    public static ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/myrmeke_queen.png");
+    public static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/myrmeke_queen.png");
 
     public MyrmekeQueenRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new MyrmekeQueenModel(pContext.bakeLayer(MyrmekeQueenModel.BODY_LAYER_LOCATION)), 0.75F);

@@ -20,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class HyliasterTranslucentLayer extends RenderLayer<HyliasterEntity, HyliasterModel> {
-    public final EntityModel<HyliasterEntity> model;
+    public EntityModel<HyliasterEntity> model;
 
     public HyliasterTranslucentLayer(RenderLayerParent<HyliasterEntity, HyliasterModel> pRenderer, EntityModelSet pSet) {
         super(pRenderer);
@@ -28,19 +28,19 @@ public class HyliasterTranslucentLayer extends RenderLayer<HyliasterEntity, Hyli
     }
 
     @Override
-    public void render(PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, HyliasterEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+    public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, HyliasterEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        VertexConsumer vertexConsumer;
         Minecraft minecraft = Minecraft.getInstance();
         boolean flag = minecraft.shouldEntityAppearGlowing(pLivingEntity) && pLivingEntity.isInvisible();
         if (!pLivingEntity.isInvisible() || flag) {
-            VertexConsumer vertexConsumer;
             if (flag) {
-                vertexConsumer = pBufferSource.getBuffer(RenderType.outline(this.getTextureLocation(pLivingEntity)));
+                vertexConsumer = pBuffer.getBuffer(RenderType.outline(this.getTextureLocation(pLivingEntity)));
             } else {
-                vertexConsumer = pBufferSource.getBuffer(RenderType.entityTranslucent(this.getTextureLocation(pLivingEntity)));
+                vertexConsumer = pBuffer.getBuffer(RenderType.entityTranslucent(this.getTextureLocation(pLivingEntity)));
             }
 
             this.getParentModel().copyPropertiesTo(this.model);
-            this.model.prepareMobModel(pLivingEntity, pLimbSwing, pLimbSwingAmount, pPartialTicks);
+            this.model.prepareMobModel(pLivingEntity, pLimbSwing, pLimbSwingAmount, pPartialTick);
             this.model.setupAnim(pLivingEntity, pLimbSwing, pLimbSwingAmount, pAgeInTicks, pNetHeadYaw, pHeadPitch);
             this.model.renderToBuffer(pPoseStack, vertexConsumer, pPackedLight, LivingEntityRenderer.getOverlayCoords(pLivingEntity, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
         }

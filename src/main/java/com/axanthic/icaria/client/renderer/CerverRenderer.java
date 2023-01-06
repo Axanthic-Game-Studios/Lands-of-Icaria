@@ -15,10 +15,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CerverRenderer extends MobRenderer<CerverEntity, CerverModel> {
-    public static ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/cerver.png");
+    public static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/cerver.png");
 
     public CerverRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new CerverModel(pContext.bakeLayer(CerverModel.LAYER_LOCATION)), 0.75F);
+        super(pContext, new CerverModel(pContext.bakeLayer(CerverModel.LAYER_LOCATION)), 1.0F);
     }
 
     @Override

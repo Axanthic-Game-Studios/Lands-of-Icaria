@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
@@ -24,8 +25,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaSkullBlock extends IcariaAbstractSkullBlock {
-    public static IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
-    public static VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
+    public static final IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
+    public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
 
     public IcariaSkullBlock(float pOffset, IcariaSkullBlockType pType, Properties pProperties) {
         super(pOffset, pType, pProperties);
@@ -39,7 +40,7 @@ public class IcariaSkullBlock extends IcariaAbstractSkullBlock {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(ROTATION, Mth.floor((double) (pContext.getRotation() * 16.0F / 360.0F) + 0.5D) & 15);
+        return this.defaultBlockState().setValue(ROTATION, Mth.floor((pContext.getRotation() * 16.0F / 360.0F) + 0.5D) & 15);
     }
 
     @Override

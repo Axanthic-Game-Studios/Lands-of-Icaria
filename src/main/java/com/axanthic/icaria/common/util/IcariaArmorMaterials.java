@@ -26,15 +26,17 @@ public enum IcariaArmorMaterials implements ArmorMaterial {
     ORICHALCUM("orichalcum", 24, new int[]{2, 4, 6, 2}, 19, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.0F, () -> Ingredient.of(IcariaItems.ORICHALCUM_INGOT.get())),
     VANADIUMSTEEL("vanadiumsteel", 27, new int[]{3, 5, 7, 3}, 11, SoundEvents.ARMOR_EQUIP_IRON, 1.5F, 0.0F, () -> Ingredient.of(IcariaItems.VANADIUMSTEEL_INGOT.get()));
 
-    public final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
-    public final String name;
-    public final int durabilityMultiplier;
-    public final int[] slotProtections;
-    public final int enchantmentValue;
-    public final SoundEvent sound;
     public final float toughness;
     public final float knockbackResistance;
+
+    public final int durabilityMultiplier;
+    public final int enchantmentValue;
+    public final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
+    public final int[] slotProtections;
+
     public final LazyLoadedValue<Ingredient> repairIngredient;
+    public final SoundEvent sound;
+    public final String name;
 
     IcariaArmorMaterials(String pName, int pDurabilityMultiplier, int[] pSlotProtections, int pEnchantmentValue, SoundEvent pSound, float pToughness, float pKnockbackResistance, Supplier<Ingredient> pRepairIngredient) {
         this.name = pName;
@@ -48,33 +50,8 @@ public enum IcariaArmorMaterials implements ArmorMaterial {
     }
 
     @Override
-    public int getDurabilityForSlot(EquipmentSlot pSlot) {
-        return HEALTH_PER_SLOT[pSlot.getIndex()] * this.durabilityMultiplier;
-    }
-
-    @Override
-    public int getDefenseForSlot(EquipmentSlot pSLot) {
-        return this.slotProtections[pSLot.getIndex()];
-    }
-
-    @Override
-    public int getEnchantmentValue() {
-        return this.enchantmentValue;
-    }
-
-    @Override
-    public SoundEvent getEquipSound() {
-        return this.sound;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient() {
-        return this.repairIngredient.get();
-    }
-
-    @Override
-    public String getName() {
-        return IcariaInfo.MODID + ":" + this.name;
+    public float getKnockbackResistance() {
+        return this.knockbackResistance;
     }
 
     @Override
@@ -83,7 +60,32 @@ public enum IcariaArmorMaterials implements ArmorMaterial {
     }
 
     @Override
-    public float getKnockbackResistance() {
-        return this.knockbackResistance;
+    public int getDefenseForSlot(EquipmentSlot pSlot) {
+        return this.slotProtections[pSlot.getIndex()];
+    }
+
+    @Override
+    public int getDurabilityForSlot(EquipmentSlot pSlot) {
+        return HEALTH_PER_SLOT[pSlot.getIndex()] * this.durabilityMultiplier;
+    }
+
+    @Override
+    public int getEnchantmentValue() {
+        return this.enchantmentValue;
+    }
+
+    @Override
+    public Ingredient getRepairIngredient() {
+        return this.repairIngredient.get();
+    }
+
+    @Override
+    public SoundEvent getEquipSound() {
+        return this.sound;
+    }
+
+    @Override
+    public String getName() {
+        return IcariaInfo.MODID + ":" + this.name;
     }
 }

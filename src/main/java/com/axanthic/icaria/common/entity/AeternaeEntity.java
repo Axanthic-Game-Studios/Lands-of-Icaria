@@ -27,8 +27,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import java.util.Objects;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -44,7 +43,12 @@ public class AeternaeEntity extends IcariaAnimalEntity {
 
     public AeternaeEntity(EntityType<? extends IcariaAnimalEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel, 0.25F, 0.35F, 0.25F);
-        this.xpReward = 5;
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity pEntity) {
+        this.level.broadcastEntityEvent(this, (byte) 4);
+        return super.doHurtTarget(pEntity);
     }
 
     @Override
@@ -52,25 +56,23 @@ public class AeternaeEntity extends IcariaAnimalEntity {
         return pStack.is(IcariaItems.SPELT.get());
     }
 
-    @OnlyIn(Dist.CLIENT)
     public float xRotMouth(float pPartialTicks) {
         if (this.eatAnimationTick > 10) {
             if (this.eatAnimationTick <= 30) {
                 float tick = this.eatAnimationTick - pPartialTicks;
-                return -Mth.cos((float)(tick * Math.PI / 5 + Math.PI)) - 1;
+                return -Mth.cos(tick * Mth.PI / 5 + Mth.PI) - 1;
             }
         }
 
         return 0;
     }
 
-    @OnlyIn(Dist.CLIENT)
     public float xRotNeck(float pPartialTicks) {
         float swing = this.swingTime;
         float tick = this.eatAnimationTick - pPartialTicks;
         if (this.eatAnimationTick > 0) {
             if (this.eatAnimationTick < 10 || this.eatAnimationTick > 30) {
-                return Mth.cos((float)(tick * Math.PI / 10)) - 1;
+                return Mth.cos(tick * Mth.PI / 10) - 1;
             } else {
                 return -2;
             }
@@ -130,12 +132,6 @@ public class AeternaeEntity extends IcariaAnimalEntity {
     }
 
     @Override
-    public boolean doHurtTarget(Entity pEntity) {
-        this.level.broadcastEntityEvent(this, (byte)4);
-        return super.doHurtTarget(pEntity);
-    }
-
-    @Override
     public void playStepSound(BlockPos pPos, BlockState pState) {
         this.playSound(SoundEvents.COW_STEP, 0.1F, 1.0F);
     }
@@ -156,20 +152,21 @@ public class AeternaeEntity extends IcariaAnimalEntity {
         this.targetSelector.addGoal(1, (new AeternaeHurtByOtherGoal(this, 1.5D)).setAlertOthers());
     }
 
-    public static AttributeSupplier.Builder registerAttributes() {
-        return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.ATTACK_KNOCKBACK, 1.0D).add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
-    }
-
+    @Override
     public void setSize(int pSize) {
-        int size = Mth.clamp(pSize, 1, 4);
-        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
-        this.getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(size * 0.5D);
-        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
+        int size = Mth.clamp(pSize, this.minSize, this.maxSize);
+        Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
+        Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_KNOCKBACK)).setBaseValue(size * 0.5D);
+        Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
         super.setSize(pSize);
     }
 
+    public static AttributeSupplier.Builder registerAttributes() {
+        return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.ATTACK_KNOCKBACK, 2.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+    }
+
     @Override
-    public AeternaeEntity getBreedOffspring(ServerLevel pLevel, IcariaAnimalEntity pMob) {
+    public AeternaeEntity getBreedOffspring(ServerLevel pLevel, IcariaAnimalEntity pEntity) {
         return IcariaEntities.AETERNAE.get().create(pLevel);
     }
 

@@ -26,9 +26,9 @@ public class FarmlandFertilizedBlock extends Block {
 	}
 
 	@Override
-	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pFacing, IPlantable pPlantable) {
-		PlantType type = pPlantable.getPlantType(pLevel, pPos.relative(pFacing));
-		return type == PlantType.CROP;
+	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pDirection, IPlantable pPlantable) {
+		PlantType plantType = pPlantable.getPlantType(pLevel, pPos.relative(pDirection));
+		return plantType == PlantType.CROP;
 	}
 
 	@Override

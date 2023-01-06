@@ -18,22 +18,25 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class AeternaeRenderer extends MobRenderer<AeternaeEntity, AeternaeModel> {
-    public static ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/aeternae.png");
+    public float shdwMult = 0.4F;
+    public float sizeMult = 0.25F;
+
+    public static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/aeternae.png");
 
     public AeternaeRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new AeternaeModel(pContext.bakeLayer(AeternaeModel.LAYER_LOCATION)), 1.0F);
     }
 
     @Override
-    public void render(AeternaeEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight) {
-        this.shadowRadius = pEntity.getScaleFromSize() * 0.25F;
-        super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBufferSource, pPackedLight);
+    public void render(AeternaeEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+        this.shadowRadius = pEntity.isBaby() ? pEntity.getScaleFromSize() * this.shdwMult : 2.0F * this.shdwMult;
+        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
     }
 
     @Override
-    public void scale(AeternaeEntity pLivingEntity, PoseStack pPoseStack, float pPartialTickTime) {
-        float size = pLivingEntity.getScaleFromSize() * 0.25F;
-        pPoseStack.scale(size, size, size);
+    public void scale(AeternaeEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+        float size = pLivingEntity.getScaleFromSize() * this.sizeMult;
+        pMatrixStack.scale(size, size, size);
     }
 
     @Override

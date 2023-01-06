@@ -17,10 +17,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaPanicGoal extends Goal {
     public boolean isRunning;
-    public double speedModifier;
+
     public double posX;
     public double posY;
     public double posZ;
+    public double speedModifier;
 
     public PathfinderMob mob;
 

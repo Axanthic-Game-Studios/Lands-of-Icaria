@@ -19,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaAxeItem extends AxeItem {
-	public TagKey<Block> blocks = BlockTags.MINEABLE_WITH_AXE;
+	public static final TagKey<Block> BLOCKS = BlockTags.MINEABLE_WITH_AXE;
 	public Tier equivalentTier;
 
 	public IcariaAxeItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
@@ -29,11 +29,11 @@ public class IcariaAxeItem extends AxeItem {
 
 	@Override
 	public boolean isCorrectToolForDrops(BlockState pBlock) {
-		return pBlock.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(pBlock.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, pBlock);
+		return pBlock.is(BLOCKS) && TierSortingRegistry.isCorrectTierForDrops(pBlock.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pBlock);
 	}
 
 	@Override
 	public boolean isCorrectToolForDrops(ItemStack pStack, BlockState pState) {
-		return pState.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, pState);
+		return pState.is(BLOCKS) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pState);
 	}
 }

@@ -30,7 +30,7 @@ public class DamagingFlowerPotBlock extends FlowerPotBlock {
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob) {
+	public BlockPathTypes getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
 		return BlockPathTypes.DAMAGE_CACTUS;
 	}
 }

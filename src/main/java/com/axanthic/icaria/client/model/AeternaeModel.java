@@ -31,9 +31,9 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
 
     public AeternaeEntity entity;
 
-    public static AnimationDefinition ATTACK = AnimationDefinition.Builder.withLength(0.5F).addAnimation("head", new AnimationChannel(AnimationChannel.Targets.ROTATION, new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.16766666F, KeyframeAnimations.degreeVec(15F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.5F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM))).addAnimation("neck", new AnimationChannel(AnimationChannel.Targets.ROTATION, new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.16766666F, KeyframeAnimations.degreeVec(45F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.5F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM))).build();
+    public static final AnimationDefinition ATTACK = AnimationDefinition.Builder.withLength(0.5F).addAnimation("head", new AnimationChannel(AnimationChannel.Targets.ROTATION, new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.16766666F, KeyframeAnimations.degreeVec(15F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.5F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM))).addAnimation("neck", new AnimationChannel(AnimationChannel.Targets.ROTATION, new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.16766666F, KeyframeAnimations.degreeVec(45F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.5F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM))).build();
 
-    public static ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "aeternae"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "aeternae"), "main");
 
     public ModelPart root;
     public ModelPart head;
@@ -92,11 +92,11 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
     }
 
     @Override
-    public void prepareMobModel(AeternaeEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks) {
-        super.prepareMobModel(pEntity, pLimbSwing, pLimbSwingAmount, pAgeInTicks);
+    public void prepareMobModel(AeternaeEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick) {
+        super.prepareMobModel(pEntity, pLimbSwing, pLimbSwingAmount, pPartialTick);
         this.entity = pEntity;
-        this.xRotMouth = -pEntity.xRotMouth(pAgeInTicks);
-        this.xRotNeck = -pEntity.xRotNeck(pAgeInTicks);
+        this.xRotMouth = -pEntity.xRotMouth(pPartialTick);
+        this.xRotNeck = -pEntity.xRotNeck(pPartialTick);
     }
 
     @Override
@@ -170,29 +170,29 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
 
     public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
         this.head.yRot = pNetHeadYaw * 0.003F;
+        this.neck.yRot = pNetHeadYaw * 0.005F;
         this.skull.xRot = pHeadPitch * 0.017453292F;
         this.skull.yRot = pNetHeadYaw * 0.005F;
-        this.neck.yRot = pNetHeadYaw * 0.005F;
     }
 
     public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
         pLimbSwing *= 1.8;
 
-        float rightFront = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing)) * 0.5F) * kneebend * pLimbSwingAmount + kneebend * pLimbSwingAmount;
-        float leftFront = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + (float) Math.PI * 0.5F)) * 0.5F + (float) Math.PI) * kneebend * pLimbSwingAmount + kneebend * pLimbSwingAmount;
-        float rightRear = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + (float) Math.PI * 0.75F)) * 0.5F + (float) Math.PI * 1.5F) * kneebend * pLimbSwingAmount + kneebend * pLimbSwingAmount;
-        float leftRear = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + (float) Math.PI * 0.25F)) * 0.5F + (float) Math.PI * 0.5F) * kneebend * pLimbSwingAmount + kneebend * pLimbSwingAmount;
+        float rightFront = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing)) * 0.5F) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount;
+        float leftFront = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount;
+        float rightRear = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount;
+        float leftRear = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount;
 
         this.legRightFront.xRot = Mth.cos(pLimbSwing * 0.5F) * 0.7F * pLimbSwingAmount + 0.18203784098300857F;
         this.legRightFrontUpper.xRot = -rightFront - 0.091106186954104F;
         this.legRightFrontLower.xRot = rightFront * 1.5F - 0.091106186954104F;
-        this.legLeftFront.xRot = Mth.cos(pLimbSwing * 0.5F + (float) Math.PI) * 0.7F * pLimbSwingAmount + 0.18203784098300857F;
+        this.legLeftFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI) * 0.7F * pLimbSwingAmount + 0.18203784098300857F;
         this.legLeftFrontUpper.xRot = -leftFront - 0.091106186954104F;
         this.legLeftFrontLower.xRot = leftFront * 1.5F - 0.091106186954104F;
-        this.legRightRear.xRot = Mth.cos(pLimbSwing * 0.5F + (float) Math.PI * 1.5F) * 0.7F * pLimbSwingAmount - 0.39269908169872414F;
+        this.legRightRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.5F) * 0.7F * pLimbSwingAmount - 0.39269908169872414F;
         this.legRightRearUpper.xRot = rightRear + 0.7285004297824331F;
         this.legRightRearLower.xRot = -rightRear - 0.22759093446006054F;
-        this.legLeftRear.xRot = Mth.cos(pLimbSwing * 0.5F + (float) Math.PI * 0.5F) * 0.7F * pLimbSwingAmount - 0.39269908169872414F;
+        this.legLeftRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.5F) * 0.7F * pLimbSwingAmount - 0.39269908169872414F;
         this.legLeftRearUpper.xRot = leftRear + 0.7285004297824331F;
         this.legLeftRearLower.xRot = -leftRear - 0.22759093446006054F;
     }
@@ -204,6 +204,8 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
         PartDefinition head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(96, 10).addBox(-3.5F, -2.8155F, -6.021F, 7.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 6.8543F, -1.388F, -0.5465F, 0.0F, 0.0F));
         PartDefinition neck = head.addOrReplaceChild("neck", CubeListBuilder.create().texOffs(104, 21).addBox(-2.5F, -8.0098F, -1.52F, 5.0F, 8.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.3595F, -4.921F, 0.9105F, 0.0F, 0.0F));
         PartDefinition skull = neck.addOrReplaceChild("skull", CubeListBuilder.create().texOffs(0, 22).addBox(-3.0F, -3.95F, -5.85F, 6.0F, 4.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -4.3598F, -0.07F));
+        skull.addOrReplaceChild("nose", CubeListBuilder.create().texOffs(19, 22).addBox(-2.0F, -2.5F, -4.0F, 4.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -0.95F, -5.85F));
+        skull.addOrReplaceChild("mouth", CubeListBuilder.create().texOffs(0, 8).addBox(-1.5F, -0.3F, -3.0F, 3.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -1.65F, -5.85F, 0.0456F, 0.0F, 0.0F));
         skull.addOrReplaceChild("beard", CubeListBuilder.create().texOffs(27, 22).addBox(-1.0F, 0.0F, -3.0F, 2.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.05F, -4.75F));
         skull.addOrReplaceChild("earRight", CubeListBuilder.create().texOffs(78, 25).addBox(-1.0F, -0.3F, 0.0F, 1.0F, 3.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, -3.65F, -0.85F, -0.7854F, 0.0F, 0.0F));
         skull.addOrReplaceChild("earLeft", CubeListBuilder.create().texOffs(56, 24).addBox(0.0F, -0.3F, 0.0F, 1.0F, 3.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, -3.65F, -0.85F, -0.7854F, 0.0F, 0.0F));
@@ -229,12 +231,9 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
         PartDefinition hornLeftAdultLower = hornLeftAdult.addOrReplaceChild("hornLeftAdultLower", CubeListBuilder.create().texOffs(116, 10).addBox(0.0F, -3.0F, 0.0F, 1.0F, 3.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.1F, -3.0F, 0.7F, -0.4554F, 0.0F, -0.0456F));
         PartDefinition hornLeftAdultCenter = hornLeftAdultLower.addOrReplaceChild("hornLeftAdultCenter", CubeListBuilder.create().texOffs(43, 0).addBox(0.0F, -3.0F, 0.0F, 1.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.1F, -3.0F, 0.7F, -0.4554F, 0.0F, -0.0456F));
         hornLeftAdultCenter.addOrReplaceChild("hornLeftAdultUpper", CubeListBuilder.create().texOffs(30, 0).addBox(0.0F, -3.0F, 0.0F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.1F, -3.0F, 0.7F, -0.5463F, 0.0F, -0.0456F));
-        skull.addOrReplaceChild("mouth", CubeListBuilder.create().texOffs(0, 8).addBox(-1.5F, -0.3F, -3.0F, 3.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -1.65F, -5.85F, 0.0456F, 0.0F, 0.0F));
-        skull.addOrReplaceChild("nose", CubeListBuilder.create().texOffs(19, 22).addBox(-2.0F, -2.5F, -4.0F, 4.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -0.95F, -5.85F));
-        PartDefinition body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 4.9188F, 8.9627F, -0.2731F, 0.0F, 0.0F));
-        body.addOrReplaceChild("B30C00", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -2.675F, -6.4F, 8.0F, 8.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 4.0F, -7.0F, 0.182F, 0.0F, 0.0F));
-        PartDefinition rump = body.addOrReplaceChild("rump", CubeListBuilder.create().texOffs(102, 0).addBox(-3.5F, -19.9F, 9.0F, 7.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 19.9F, -9.0F));
-        rump.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(84, 15).addBox(-1.0F, -1.0F, 0.0F, 2.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -18.4F, 12.5F, -0.182F, 0.0F, 0.0F));
+        PartDefinition body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -0.15F, -14.275F, 8.0F, 8.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 4.9188F, 8.9627F, -0.0873F, 0.0F, 0.0F));
+        PartDefinition rump = body.addOrReplaceChild("rump", CubeListBuilder.create().texOffs(102, 0).addBox(-3.5F, -3.0F, -2.0F, 7.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 3.15F, 1.175F, -0.1745F, 0.0F, 0.0F));
+        rump.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(84, 15).addBox(-1.0F, -0.7F, -0.425F, 2.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -1.8F, 2.3F, -0.1745F, 0.0F, 0.0F));
         PartDefinition legRightFront = partDefinition.addOrReplaceChild("legRightFront", CubeListBuilder.create().texOffs(48, 0).addBox(-2.0F, 0.0F, -2.5F, 4.0F, 8.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, 5.1303F, -4.1108F, 0.0909F, 0.0F, 0.0F));
         PartDefinition legRightFrontUpper = legRightFront.addOrReplaceChild("legRightFrontUpper", CubeListBuilder.create().texOffs(52, 13).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 5.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 7.0F, 0.0F, -0.0911F, 0.0F, 0.0F));
         legRightFrontUpper.addOrReplaceChild("legRightFrontLower", CubeListBuilder.create().texOffs(64, 13).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 4.0F, 0.0F, -0.0911F, 0.0F, 0.0F));

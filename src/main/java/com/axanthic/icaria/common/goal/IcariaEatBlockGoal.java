@@ -13,11 +13,15 @@ import net.minecraftforge.event.ForgeEventFactory;
 
 import java.util.EnumSet;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+
 public class IcariaEatBlockGoal extends Goal {
     public int eatAnimationTick;
 
-    public final IcariaAnimalEntity animal;
-    public final Level level;
+    public IcariaAnimalEntity animal;
+    public Level level;
 
     public IcariaEatBlockGoal(IcariaAnimalEntity pAnimal) {
         this.animal = pAnimal;
@@ -51,7 +55,7 @@ public class IcariaEatBlockGoal extends Goal {
     @Override
     public void start() {
         this.eatAnimationTick = this.adjustedTickDelay(40);
-        this.level.broadcastEntityEvent(this.animal, (byte)10);
+        this.level.broadcastEntityEvent(this.animal, (byte) 10);
         this.animal.getNavigation().stop();
     }
 

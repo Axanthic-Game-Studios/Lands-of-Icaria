@@ -45,17 +45,17 @@ public class GroundFlowerBlock extends Block implements IPlantable {
 	}
 
 	@Override
-	public BlockState getPlant(BlockGetter level, BlockPos pos) {
-		return level.getBlockState(pos);
+	public BlockState getPlant(BlockGetter pLevel, BlockPos pPos) {
+		return pLevel.getBlockState(pPos);
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 	}
 
 	@Override
-	public PlantType getPlantType(BlockGetter world, BlockPos pos) {
+	public PlantType getPlantType(BlockGetter pLevel, BlockPos pPos) {
 		return PlantType.PLAINS;
 	}
 

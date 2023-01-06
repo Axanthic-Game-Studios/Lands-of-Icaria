@@ -32,6 +32,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.Event;
 
+import java.util.Objects;
+
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -48,9 +50,9 @@ public class ArachneDroneEntity extends ArachneEntity {
     public float eyesMult;
     public float sizeMult;
 
-    public static EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.BYTE);
-    public static EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.INT);
-    public static EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.BYTE);
+    public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.INT);
 
     public ArachneDroneEntity(EntityType<? extends Monster> pType, Level pLevel) {
         super(pType, pLevel);
@@ -98,7 +100,7 @@ public class ArachneDroneEntity extends ArachneEntity {
     }
 
     @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
+    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
         return this.getScaleFromSize() * this.eyesMult;
     }
 
@@ -150,7 +152,7 @@ public class ArachneDroneEntity extends ArachneEntity {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(CLIMBING, (byte)0);
+        this.entityData.define(CLIMBING, (byte) 0);
         this.entityData.define(SIZE, this.minSize);
         this.entityData.define(TICK, this.minTick);
     }
@@ -196,9 +198,9 @@ public class ArachneDroneEntity extends ArachneEntity {
     public void setClimbing(boolean pClimbing) {
         byte b = this.entityData.get(CLIMBING);
         if (pClimbing) {
-            b = (byte)(b | 1);
+            b = (byte) (b | 1);
         } else {
-            b = (byte)(b & -2);
+            b = (byte) (b & -2);
         }
 
         this.entityData.set(CLIMBING, b);
@@ -207,9 +209,9 @@ public class ArachneDroneEntity extends ArachneEntity {
     public void setSize(int pSize) {
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
         this.refreshDimensions();
-        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
-        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
-        this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1D + (size * 0.04D));
+        Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
+        Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
+        Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue((size * 0.04D) + 0.1D);
         this.entityData.set(SIZE, size);
         this.xpReward = size + 1;
     }

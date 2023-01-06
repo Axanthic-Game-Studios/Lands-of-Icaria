@@ -16,7 +16,7 @@ public class IcariaEntities {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, IcariaInfo.MODID);
 
 	public static final RegistryObject<EntityType<AeternaeEntity>> AETERNAE = register("aeternae", Builder.of(AeternaeEntity::new, MobCategory.CREATURE).sized(1.25F, 1.75F));
-	public static final RegistryObject<EntityType<ArachneEntity>> ARACHNE = register("arachne", Builder.of(ArachneEntity::new, MobCategory.CREATURE).sized(2.25F, 2.25F));
+	public static final RegistryObject<EntityType<ArachneEntity>> ARACHNE = register("arachne", Builder.of(ArachneEntity::new, MobCategory.CREATURE).sized(2.0F, 2.0F));
 	public static final RegistryObject<EntityType<ArachneDroneEntity>> ARACHNE_DRONE = register("arachne_drone", Builder.of(ArachneDroneEntity::new, MobCategory.CREATURE).sized(1.0F, 0.5F));
 	public static final RegistryObject<EntityType<ArganHoundEntity>> ARGAN_HOUND = register("argan_hound", Builder.of(ArganHoundEntity::new, MobCategory.CREATURE).sized(1.25F, 1.0F));
 	public static final RegistryObject<EntityType<BidentEntity>> BIDENT = register("bident", Builder.<BidentEntity>of(BidentEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));

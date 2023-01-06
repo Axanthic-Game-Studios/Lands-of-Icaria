@@ -8,6 +8,7 @@ import java.util.List;
 
 public class IcariaFollowParentGoal extends Goal {
     public double speedModifier;
+
     public int timeToRecalcPath;
 
     public IcariaAnimalEntity animal;
@@ -38,8 +39,7 @@ public class IcariaFollowParentGoal extends Goal {
             double d0 = Double.MAX_VALUE;
             IcariaAnimalEntity animal = null;
             List<? extends IcariaAnimalEntity> list = this.animal.level.getEntitiesOfClass(this.animal.getClass(), this.animal.getBoundingBox().inflate(8.0D, 4.0D, 8.0D));
-
-            for(IcariaAnimalEntity parent : list) {
+            for (IcariaAnimalEntity parent : list) {
                 if (!parent.isBaby()) {
                     double d1 = this.animal.distanceToSqr(parent);
                     if (!(d1 > d0)) {

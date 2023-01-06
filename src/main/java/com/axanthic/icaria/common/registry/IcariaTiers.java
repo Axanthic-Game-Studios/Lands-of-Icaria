@@ -6,7 +6,6 @@ import com.axanthic.icaria.data.IcariaItemTags;
 import com.axanthic.icaria.common.util.IcariaTier;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
 

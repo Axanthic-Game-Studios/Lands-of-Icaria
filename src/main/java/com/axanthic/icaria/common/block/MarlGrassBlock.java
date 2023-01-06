@@ -49,27 +49,27 @@ public class MarlGrassBlock extends Block implements BonemealableBlock {
 	}
 
 	public boolean canBeGrass(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		BlockPos pos = pPos.above();
-		BlockState state = pLevel.getBlockState(pos);
-		if ((state.is(IcariaBlocks.MOSS_0.get()) || state.is(IcariaBlocks.MOSS_1.get()) || state.is(IcariaBlocks.MOSS_2.get())) && state.getValue(LayerBlock.LAYERS) == 1) {
+		BlockPos blockPos = pPos.above();
+		BlockState blockState = pLevel.getBlockState(blockPos);
+		if ((blockState.is(IcariaBlocks.MOSS_0.get()) || blockState.is(IcariaBlocks.MOSS_1.get()) || blockState.is(IcariaBlocks.MOSS_2.get())) && blockState.getValue(LayerBlock.LAYERS) == 1) {
 			return true;
-		} else if (state.getFluidState().getAmount() == 8) {
+		} else if (blockState.getFluidState().getAmount() == 8) {
 			return false;
 		} else {
-			int i = LayerLightEngine.getLightBlockInto(pLevel, pState, pPos, state, pos, Direction.UP, state.getLightBlock(pLevel, pos));
+			int i = LayerLightEngine.getLightBlockInto(pLevel, pState, pPos, blockState, blockPos, Direction.UP, blockState.getLightBlock(pLevel, blockPos));
 			return i < pLevel.getMaxLightLevel();
 		}
 	}
 
 	public boolean canPropagate(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		return canBeGrass(pState, pLevel, pPos) && !pLevel.getFluidState(pPos.above()).is(FluidTags.WATER);
+		return this.canBeGrass(pState, pLevel, pPos) && !pLevel.getFluidState(pPos.above()).is(FluidTags.WATER);
 	}
 
 	@Override
-	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pFacing, IPlantable pPlantable) {
-		PlantType type = pPlantable.getPlantType(pLevel, pPos.relative(pFacing));
-		BlockState plant = pPlantable.getPlant(pLevel, pPos.relative(pFacing));
-		if (type == PlantType.BEACH) {
+	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pDirection, IPlantable pPlantable) {
+		PlantType plantType = pPlantable.getPlantType(pLevel, pPos.relative(pDirection));
+		BlockState plant = pPlantable.getPlant(pLevel, pPos.relative(pDirection));
+		if (plantType == PlantType.BEACH) {
 			boolean water = false;
 			for (Direction direction : Direction.Plane.HORIZONTAL) {
 				BlockState blockState = pLevel.getBlockState(pPos.relative(direction));
@@ -80,9 +80,10 @@ public class MarlGrassBlock extends Block implements BonemealableBlock {
 					break;
 				}
 			}
+
 			return water;
 		} else {
-			return type == PlantType.CAVE || type == PlantType.PLAINS || plant.is(Blocks.DEAD_BUSH);
+			return plantType == PlantType.CAVE || plantType == PlantType.PLAINS || plant.is(Blocks.DEAD_BUSH);
 		}
 	}
 
@@ -103,58 +104,60 @@ public class MarlGrassBlock extends Block implements BonemealableBlock {
 
 	@Override
 	public void performBonemeal(ServerLevel pLevel, RandomSource pRand, BlockPos pPos, BlockState pState) {
-		BlockPos posOne = pPos.above();
-		BlockState stateOne = IcariaBlocks.MARL_GRASS.get().defaultBlockState();
-
+		BlockPos posAbove = pPos.above();
+		BlockState blockState = IcariaBlocks.MARL_GRASS.get().defaultBlockState();
 		label46:
-		for(int i = 0; i < 128; ++i) {
-			BlockPos posTwo = posOne;
-
-			for(int j = 0; j < i / 16; ++j) {
-				posTwo = posTwo.offset(pRand.nextInt(3) - 1, (pRand.nextInt(3) - 1) * pRand.nextInt(3) / 2, pRand.nextInt(3) - 1);
-				if (!pLevel.getBlockState(posTwo.below()).is(this) || pLevel.getBlockState(posTwo).isCollisionShapeFullBlock(pLevel, posTwo)) {
+		for (int i = 0; i < 128; ++i) {
+			BlockPos blockPos = posAbove;
+			for (int j = 0; j < i / 16; ++j) {
+				blockPos = blockPos.offset(pRand.nextInt(3) - 1, (pRand.nextInt(3) - 1) * pRand.nextInt(3) / 2, pRand.nextInt(3) - 1);
+				if (!pLevel.getBlockState(blockPos.below()).is(this) || pLevel.getBlockState(blockPos).isCollisionShapeFullBlock(pLevel, blockPos)) {
 					continue label46;
 				}
 			}
 
-			BlockState stateTwo = pLevel.getBlockState(posTwo);
-			if (stateTwo.is(stateOne.getBlock()) && pRand.nextInt(10) == 0) {
-				((BonemealableBlock)stateOne.getBlock()).performBonemeal(pLevel, pRand, posTwo, stateTwo);
+			BlockState stateAbove = pLevel.getBlockState(blockPos);
+			if (stateAbove.is(blockState.getBlock()) && pRand.nextInt(10) == 0) {
+				((BonemealableBlock) blockState.getBlock()).performBonemeal(pLevel, pRand, blockPos, stateAbove);
 			}
 
-			if (stateTwo.isAir()) {
+			if (stateAbove.isAir()) {
 				Holder<PlacedFeature> holder;
 				if (pRand.nextInt(8) == 0) {
-					List<ConfiguredFeature<?, ?>> list = pLevel.getBiome(posTwo).value().getGenerationSettings().getFlowerFeatures();
+					List<ConfiguredFeature<?, ?>> list = pLevel.getBiome(blockPos).value().getGenerationSettings().getFlowerFeatures();
 					if (list.isEmpty()) {
 						continue;
 					}
 
-					holder = ((RandomPatchConfiguration)list.get(0).config()).feature();
+					holder = ((RandomPatchConfiguration) list.get(0).config()).feature();
 				} else {
 					holder = VegetationPlacements.GRASS_BONEMEAL;
 				}
 
-				holder.value().place(pLevel, pLevel.getChunkSource().getGenerator(), pRand, posTwo);
+				holder.value().place(pLevel, pLevel.getChunkSource().getGenerator(), pRand, blockPos);
 			}
 		}
 	}
 
 	@Override
 	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (!canBeGrass(pState, pLevel, pPos)) {
-			if (!pLevel.isAreaLoaded(pPos, 1))
+		if (!this.canBeGrass(pState, pLevel, pPos)) {
+			if (!pLevel.isAreaLoaded(pPos, 1)) {
 				return;
+			}
+
 			pLevel.setBlockAndUpdate(pPos, IcariaBlocks.MARL.get().defaultBlockState());
 		} else {
-			if (!pLevel.isAreaLoaded(pPos, 3))
+			if (!pLevel.isAreaLoaded(pPos, 3)) {
 				return;
+			}
+
 			if (pLevel.getMaxLocalRawBrightness(pPos.above()) >= 9) {
-				BlockState state = this.defaultBlockState();
+				BlockState blockState = this.defaultBlockState();
 				for (int i = 0; i < 4; ++i) {
-					BlockPos pos = pPos.offset(pRandom.nextInt(3) - 1, pRandom.nextInt(5) - 3, pRandom.nextInt(3) - 1);
-					if (pLevel.getBlockState(pos).is(IcariaBlocks.MARL.get()) && canPropagate(state, pLevel, pos)) {
-						pLevel.setBlockAndUpdate(pos, state.setValue(MOSSY_0, pLevel.getBlockState(pos.above()).is(IcariaBlocks.MOSS_0.get())).setValue(MOSSY_1, pLevel.getBlockState(pos.above()).is(IcariaBlocks.MOSS_1.get())).setValue(MOSSY_2, pLevel.getBlockState(pos.above()).is(IcariaBlocks.MOSS_2.get())));
+					BlockPos blockPos = pPos.offset(pRandom.nextInt(3) - 1, pRandom.nextInt(5) - 3, pRandom.nextInt(3) - 1);
+					if (pLevel.getBlockState(blockPos).is(IcariaBlocks.MARL.get()) && this.canPropagate(blockState, pLevel, blockPos)) {
+						pLevel.setBlockAndUpdate(blockPos, blockState.setValue(MOSSY_0, pLevel.getBlockState(blockPos.above()).is(IcariaBlocks.MOSS_0.get())).setValue(MOSSY_1, pLevel.getBlockState(blockPos.above()).is(IcariaBlocks.MOSS_1.get())).setValue(MOSSY_2, pLevel.getBlockState(blockPos.above()).is(IcariaBlocks.MOSS_2.get())));
 					}
 				}
 			}
