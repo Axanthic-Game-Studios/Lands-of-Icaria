@@ -1,13 +1,54 @@
 package com.axanthic.icaria.common.proxy;
 
-import com.axanthic.icaria.client.model.*;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import com.axanthic.icaria.client.model.AeternaeModel;
+import com.axanthic.icaria.client.model.AeternaeSkullModel;
+import com.axanthic.icaria.client.model.ArganHoundModel;
+import com.axanthic.icaria.client.model.ArganHoundSkullModel;
+import com.axanthic.icaria.client.model.CatoblepasModel;
+import com.axanthic.icaria.client.model.CatoblepasSkullModel;
+import com.axanthic.icaria.client.model.CerverModel;
+import com.axanthic.icaria.client.model.CerverSkullModel;
+import com.axanthic.icaria.client.model.HyliasterModel;
+import com.axanthic.icaria.client.model.MyrmekeDroneModel;
+import com.axanthic.icaria.client.model.MyrmekeQueenModel;
+import com.axanthic.icaria.client.model.MyrmekeSoldierModel;
+import com.axanthic.icaria.client.model.OrichalcumHelmetModel;
+import com.axanthic.icaria.client.model.SowModel;
+import com.axanthic.icaria.client.model.SowSkullModel;
+import com.axanthic.icaria.client.screen.GrinderScreen;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
-import com.axanthic.icaria.common.entity.*;
+import com.axanthic.icaria.common.entity.AeternaeEntity;
+import com.axanthic.icaria.common.entity.ArganHoundEntity;
+import com.axanthic.icaria.common.entity.CatoblepasEntity;
+import com.axanthic.icaria.common.entity.CerverEntity;
+import com.axanthic.icaria.common.entity.HyliasterEntity;
+import com.axanthic.icaria.common.entity.MyrmekeDroneEntity;
+import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
+import com.axanthic.icaria.common.entity.MyrmekeSoldierEntity;
+import com.axanthic.icaria.common.entity.SowEntity;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.TotemItem;
-import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.registry.IcariaCompostables;
+import com.axanthic.icaria.common.registry.IcariaDimensions;
+import com.axanthic.icaria.common.registry.IcariaEffects;
+import com.axanthic.icaria.common.registry.IcariaEntities;
+import com.axanthic.icaria.common.registry.IcariaFlammables;
+import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaMenus;
+import com.axanthic.icaria.common.registry.IcariaPottables;
+import com.axanthic.icaria.common.registry.IcariaStrippables;
+import com.axanthic.icaria.common.registry.IcariaWoodTypes;
 import com.axanthic.icaria.common.util.IcariaInfo;
-import com.axanthic.icaria.data.*;
+import com.axanthic.icaria.data.IcariaBlockStates;
+import com.axanthic.icaria.data.IcariaBlockTags;
+import com.axanthic.icaria.data.IcariaFluidTags;
+import com.axanthic.icaria.data.IcariaItemModels;
+import com.axanthic.icaria.data.IcariaItemTags;
+import com.axanthic.icaria.data.IcariaLang;
+import com.axanthic.icaria.data.IcariaLootTables;
+import com.axanthic.icaria.data.IcariaRecipes;
 
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.Sheets;
@@ -23,8 +64,20 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
-
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.FishingRodItem;
+import net.minecraft.world.item.FlintAndSteelItem;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ShearsItem;
+import net.minecraft.world.item.ShieldItem;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.item.TridentItem;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeMod;
@@ -39,11 +92,9 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @ParametersAreNonnullByDefault
 
-public class CommonProxy {
+public class CommonProxy {	
 	public CommonProxy() {
 
 	}
@@ -70,6 +121,7 @@ public class CommonProxy {
 		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.POPULUS));
 
 		event.enqueueWork(() -> MenuScreens.register(IcariaMenus.STORAGE_VASE.get(), StorageVaseScreen::new));
+		event.enqueueWork(() -> MenuScreens.register(IcariaMenus.GRINDER.get(), GrinderScreen::new));
 
 		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
 

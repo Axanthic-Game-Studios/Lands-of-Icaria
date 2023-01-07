@@ -1,0 +1,16 @@
+{
+  "type": "landsoficaria:grinder",
+  "burnTime": 200,
+  "gear": {
+    "item": "minecraft:redstone"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:sandstone"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "item": "minecraft:sand"
+  }
+}

@@ -1,5 +1,6 @@
 package com.axanthic.icaria.integration;
 
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
@@ -7,12 +8,14 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.recipe.vanilla.IVanillaRecipeFactory;
+import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
-
+import mezz.jei.common.plugins.vanilla.crafting.VanillaRecipes;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
 
 import java.util.List;
 
@@ -109,6 +112,12 @@ public class JeiIntegration implements IModPlugin {
         anvilRecipes(registration, IcariaItems.TOTEM_OF_UNDYING.get(), IcariaItems.BLURIDIUM_NUGGET.get());
         anvilRecipes(registration, IcariaItems.TOTEM_OF_UNSHATTERING.get(), IcariaItems.BLURIDIUM_NUGGET.get());
         anvilRecipes(registration, IcariaItems.TOTEM_OF_UNSINKING.get(), IcariaItems.BLURIDIUM_NUGGET.get());
+    }
+    
+    @Override
+    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+    	IModPlugin.super.registerRecipeCatalysts(registration);
+    	registration.addRecipeCatalyst(new ItemStack(IcariaItems.LAUREL_CRAFTING_TABLE.get()), RecipeTypes.CRAFTING);
     }
 
     public void anvilRecipes(IRecipeRegistration registration, Item itemDamaged, Item itemRepair) {

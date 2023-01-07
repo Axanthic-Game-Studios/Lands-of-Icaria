@@ -26,6 +26,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.NewRegistryEvent;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -57,6 +58,7 @@ public class Icaria {
 		IcariaFluids.FLUID_TYPES.register(bus);
 		IcariaItems.ITEMS.register(bus);
 		IcariaPOIs.POIS.register(bus);
+		IcariaRecipeTypes.SERIALIZERS.register(bus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}

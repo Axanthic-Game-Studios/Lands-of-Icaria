@@ -1,0 +1,12 @@
+{
+	"variants": {
+		"facing=north": { "model": "landsoficaria:block/grinder", "y": 0 },
+    	"facing=east": { "model": "landsoficaria:block/grinder", "y": 90 },
+    	"facing=south": { "model": "landsoficaria:block/grinder", "y": 180 },
+		"facing=west": { "model": "landsoficaria:block/grinder", "y": 270 }
+	},
+  	"burning": {
+		"true": {},
+		"false": {}
+	}
+}

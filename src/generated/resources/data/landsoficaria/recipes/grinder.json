@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": [
+      {
+        "item": "landsoficaria:sunstone"
+      },
+      {
+        "item": "landsoficaria:sunstone_bricks"
+      }
+    ],
+    "Y": {
+      "item": "landsoficaria:orichalcum_ingot"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "result": {
+    "item": "landsoficaria:grinder"
+  }
+}

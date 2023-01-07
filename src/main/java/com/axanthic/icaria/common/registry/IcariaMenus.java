@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
+import com.axanthic.icaria.common.menu.GrinderMenu;
 import com.axanthic.icaria.common.menu.StorageVaseMenu;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
@@ -14,4 +15,5 @@ public class IcariaMenus {
 	public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.MENU_TYPES, IcariaInfo.MODID);
 
 	public static final RegistryObject<MenuType<StorageVaseMenu>> STORAGE_VASE = MENU_TYPES.register("storage_vase", () -> IForgeMenuType.create(((windowId, inv, data) -> new StorageVaseMenu(windowId, data.readBlockPos(), inv, inv.player))));
+	public static final RegistryObject<MenuType<GrinderMenu>> GRINDER = MENU_TYPES.register("grinder", () -> IForgeMenuType.create((windowId, inv, data) -> new GrinderMenu(windowId, data.readBlockPos(), inv, inv.player)));
 }

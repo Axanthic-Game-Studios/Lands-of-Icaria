@@ -636,6 +636,9 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> MEDITERRANEAN_WATER_BUCKET = registerBasic("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesItems().craftRemainder(Items.BUCKET).stacksTo(1)));
 
+	public static final RegistryObject<Item> GRINDER = register("grinder", () -> new BlockItem(IcariaBlocks.GRINDER.get(), propertiesBlocks()));
+	public static final RegistryObject<Item> GRINDER_TEST_GEAR = registerBasic("grinder_test_gear", () -> new Item(propertiesItems()));
+	
 	private static Properties propertiesBlocks() {
 		return new Properties().tab(IcariaTabs.creativeBlocks);
 	}

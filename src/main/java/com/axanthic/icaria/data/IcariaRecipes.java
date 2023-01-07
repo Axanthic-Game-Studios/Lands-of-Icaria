@@ -1,7 +1,13 @@
 package com.axanthic.icaria.data;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
+import java.util.Objects;
+import java.util.function.Consumer;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import com.axanthic.icaria.common.recipe.GrinderRecipeBuilder;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.DataGenerator;
@@ -16,14 +22,9 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-
+import net.minecraftforge.common.crafting.CompoundIngredient;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import java.util.Objects;
-import java.util.function.Consumer;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -917,6 +918,19 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.define('X', IcariaItems.ARACHNE_STRING.get())
 			.unlockedBy("has_string", has(IcariaItems.ARACHNE_STRING.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(Items.WHITE_WOOL)), "_from_arachne"));
+		
+		GrinderRecipeBuilder.grind(Items.REDSTONE, Ingredient.of(Items.SANDSTONE), Items.SAND, 4)
+			.unlockedBy("has_block", has(Items.SANDSTONE))
+			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(Items.SAND)), "_from_grinder"));
+		
+		ShapedRecipeBuilder.shaped(IcariaItems.GRINDER.get())
+			.pattern("XXX")
+			.pattern("XYX")
+			.pattern("XXX")
+			.define('X', CompoundIngredient.of(Ingredient.of(IcariaItems.SUNSTONE.get()),Ingredient.of(IcariaItems.SUNSTONE_BRICKS.get())))
+			.define('Y', IcariaItems.ORICHALCUM_INGOT.get())
+			.unlockedBy("has_item", has(IcariaItems.ORICHALCUM_INGOT.get()))
+			.save(consumer, IcariaItems.GRINDER.getId());
 	}
 
 	public void smeltingRecipe(Consumer<FinishedRecipe> consumer, Item resource, Item result, float experience, int cookingTime) {

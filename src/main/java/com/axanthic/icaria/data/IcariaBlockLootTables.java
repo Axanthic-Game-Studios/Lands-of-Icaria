@@ -286,6 +286,7 @@ public class IcariaBlockLootTables extends BlockLoot {
 		dropThis(IcariaBlocks.CATOBLEPAS_SKULL.get());
 		dropThis(IcariaBlocks.CERVER_SKULL.get());
 		dropThis(IcariaBlocks.SOW_SKULL.get());
+		dropThis(IcariaBlocks.GRINDER.get());
 
 		dropBlurredPlatoshale(IcariaBlocks.PLATOSHALE_BLURRED.get(), IcariaItems.BLURIDIUM_NUGGET.get());
 		dropBlurredPlatoshale(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get(), IcariaItems.BLURIDIUM_NUGGET.get());
