@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.Pose;
@@ -34,7 +35,7 @@ public class ArganHoundEntity extends Monster {
     }
 
     @Override
-    public float getEyeHeight(Pose pPose) {
+    public float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
         return 0.75F;
     }
 

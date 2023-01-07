@@ -17,7 +17,7 @@ public class IcariaConfig {
 		ForgeConfigSpec.Builder CLIENT = new ForgeConfigSpec.Builder();
 		CLIENT.comment("Render settings").push("renderSettings");
 
-		RENDER_RAYS = CLIENT.comment("Default: true. Whether crystals should render rays.").define("renderRays", true);
+		RENDER_RAYS = CLIENT.comment("Default: true. Whether crystals and the Myrmeke queen should render rays.").define("renderRays", true);
 
 		CLIENT.pop();
 		ModLoadingContext.get().registerConfig(Type.CLIENT, CLIENT.build());

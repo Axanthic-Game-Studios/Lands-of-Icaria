@@ -21,7 +21,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeQueenModel extends EntityModel<MyrmekeQueenEntity> {
-    public static ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "myrmeke_queen"), "main");
+    public static ModelLayerLocation BODY_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "myrmeke_queen"), "body");
+    public static ModelLayerLocation RAYS_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "myrmeke_queen"), "rays");
 
     public ModelPart body_head;
     public ModelPart head;

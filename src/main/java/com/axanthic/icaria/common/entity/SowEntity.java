@@ -41,8 +41,8 @@ public class SowEntity extends Animal {
     }
 
     @Override
-    public float getEyeHeight(Pose pPose) {
-        return this.isBaby() ? 0.25F : 0.5F;
+    public float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
+        return this.isBaby() ? 0.35F : 0.7F;
     }
 
     @Override

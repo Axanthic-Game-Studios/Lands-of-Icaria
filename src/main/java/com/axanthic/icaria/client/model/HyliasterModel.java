@@ -38,7 +38,7 @@ public class HyliasterModel<T extends HyliasterEntity> extends HierarchicalModel
 
     @Override
     public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        float animSpeed = -(pEntity.getSize() * 0.75F) + 5.0F;
+        float animSpeed = 5.0F - (pEntity.getSize() * 0.75F);
 
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.animate(pEntity.walkAnimationState, WALK, pAgeInTicks, animSpeed);
