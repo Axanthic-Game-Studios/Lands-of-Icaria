@@ -11,13 +11,15 @@ import java.util.function.Supplier;
 @MethodsReturnNonnullByDefault
 
 public class IcariaTier implements Tier {
+	public float attackDamageBonus;
+	public float speed;
+
+	public int enchantmentValue;
 	public int level;
 	public int uses;
-	public float speed;
-	public float attackDamageBonus;
-	public int enchantmentValue;
-	public TagKey<Block> tag;
+
 	public Supplier<Ingredient> repairIngredient;
+	public TagKey<Block> tag;
 	public Tier vanillaEquivalent;
 
 	public IcariaTier(int level, int uses, float speed, float attackDamageBonus, int enchantmentValue, TagKey<Block> tag, Supplier<Ingredient> repairIngredient, Tier vanillaEquivalent) {
@@ -32,8 +34,8 @@ public class IcariaTier implements Tier {
 	}
 
 	@Override
-	public int getUses() {
-		return this.uses;
+	public float getAttackDamageBonus() {
+		return this.attackDamageBonus;
 	}
 
 	@Override
@@ -42,8 +44,8 @@ public class IcariaTier implements Tier {
 	}
 
 	@Override
-	public float getAttackDamageBonus() {
-		return this.attackDamageBonus;
+	public int getEnchantmentValue() {
+		return this.enchantmentValue;
 	}
 
 	@Override
@@ -52,13 +54,8 @@ public class IcariaTier implements Tier {
 	}
 
 	@Override
-	public int getEnchantmentValue() {
-		return this.enchantmentValue;
-	}
-
-	@Override
-	public TagKey<Block> getTag() {
-		return this.tag;
+	public int getUses() {
+		return this.uses;
 	}
 
 	@Override
@@ -68,13 +65,11 @@ public class IcariaTier implements Tier {
 
 	@Override
 	public String toString() {
-		return "ForgeTier[" +
-			"level=" + level + ", " +
-			"uses=" + uses + ", " +
-			"speed=" + speed + ", " +
-			"attackDamageBonus=" + attackDamageBonus + ", " +
-			"enchantmentValue=" + enchantmentValue + ", " +
-			"tag=" + tag + ", " +
-			"repairIngredient=" + repairIngredient + ']';
+		return "ForgeTier[" + "level=" + this.level + ", " + "uses=" + this.uses + ", " + "speed=" + this.speed + ", " + "attackDamageBonus=" + this.attackDamageBonus + ", " + "enchantmentValue=" + this.enchantmentValue + ", " + "tag=" + this.tag + ", " + "repairIngredient=" + this.repairIngredient + ']';
+	}
+
+	@Override
+	public TagKey<Block> getTag() {
+		return this.tag;
 	}
 }

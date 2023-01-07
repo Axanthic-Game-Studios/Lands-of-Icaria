@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.IcariaSkullBlockEntity;
-
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.Wearable;
 import net.minecraft.world.level.BlockGetter;
@@ -31,13 +31,13 @@ public class IcariaAbstractSkullBlock extends BaseEntityBlock implements Wearabl
         return false;
     }
 
+    public float getOffset() {
+        return this.offset;
+    }
+
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new IcariaSkullBlockEntity(pPos, pState);
-    }
-
-    public float getOffset() {
-        return this.offset;
     }
 
     public IcariaSkullBlockType getType() {

@@ -15,10 +15,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeSoldierRenderer extends MobRenderer<MyrmekeSoldierEntity, MyrmekeSoldierModel> {
-    public static ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/myrmeke_soldier.png");
+    public static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/myrmeke_soldier.png");
 
     public MyrmekeSoldierRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new MyrmekeSoldierModel(pContext.bakeLayer(MyrmekeSoldierModel.LAYER_LOCATION)), 0.5F);
+        super(pContext, new MyrmekeSoldierModel(pContext.bakeLayer(MyrmekeSoldierModel.LAYER_LOCATION)), 0.75F);
     }
 
     @Override

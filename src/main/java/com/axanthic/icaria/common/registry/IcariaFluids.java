@@ -28,10 +28,10 @@ public class IcariaFluids {
 	public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, IcariaInfo.MODID);
 	public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, IcariaInfo.MODID);
 
-	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_FLOWING;
-	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_SOURCE;
+	public static RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_FLOWING;
+	public static RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_SOURCE;
 
-	public static final RegistryObject<FluidType> MEDITERRANEAN_WATER_TYPE;
+	public static RegistryObject<FluidType> MEDITERRANEAN_WATER_TYPE;
 
 	public static RegistryObject<FlowingFluid> registerMediterraneanWater(String name, NonNullFunction<ForgeFlowingFluid.Properties, FlowingFluid> factory) {
 		return FLUIDS.register(name, () -> factory.apply((new ForgeFlowingFluid.Properties(MEDITERRANEAN_WATER_TYPE, MEDITERRANEAN_WATER_SOURCE, MEDITERRANEAN_WATER_FLOWING)).bucket(IcariaItems.MEDITERRANEAN_WATER_BUCKET).block(IcariaBlocks.MEDITERRANEAN_WATER)));

@@ -29,26 +29,25 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaLootTables extends LootTableProvider {
-	public final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, Builder>>>, LootContextParamSet>> lootTables = ImmutableList.of(Pair.of(IcariaBlockLootTables::new, LootContextParamSets.BLOCK));
+	public static final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, Builder>>>, LootContextParamSet>> LOOT_TABLES = ImmutableList.of(Pair.of(IcariaBlockLootTables::new, LootContextParamSets.BLOCK));
 
 	public IcariaLootTables(DataGenerator generator) {
 		super(generator);
 	}
 
 	@Override
-	public void validate(Map<ResourceLocation, LootTable> map, ValidationContext context) {
-		map.forEach((loc, table) -> LootTables.validate(context, loc, table));
-		// Remove vanilla's tables, which we also loaded, so we can redirect stuff to them.
+	public void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationtracker) {
+		map.forEach((loc, table) -> LootTables.validate(validationtracker, loc, table));
+		// Remove vanilla tables, which we also loaded, so we can redirect stuff to them.
 		// This ensures the remaining generator logic doesn't write those to files.
 		map.keySet().removeIf((loc) -> !loc.getNamespace().equals(IcariaInfo.MODID));
 	}
 
 	@Override
 	public List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, Builder>>>, LootContextParamSet>> getTables() {
-		return lootTables;
+		return LOOT_TABLES;
 	}
 
-	// Gets a name for this provider, to use in logging.
 	@Override
 	public String getName() {
 		return IcariaInfo.MODID + " LootTables";

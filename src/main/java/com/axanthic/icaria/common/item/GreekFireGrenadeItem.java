@@ -19,8 +19,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class GreekFireGrenade extends TieredItem implements Vanishable {
-    public GreekFireGrenade(IcariaTier pTier, Properties pProperties) {
+public class GreekFireGrenadeItem extends TieredItem implements Vanishable {
+    public GreekFireGrenadeItem(IcariaTier pTier, Properties pProperties) {
         super(pTier, pProperties);
     }
 
@@ -37,7 +37,7 @@ public class GreekFireGrenade extends TieredItem implements Vanishable {
     @Override
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
         if (pLivingEntity instanceof Player player) {
-            int i = getUseDuration(pStack) - pTimeCharged;
+            int i = this.getUseDuration(pStack) - pTimeCharged;
             if (i >= 10) {
                 if (!pLevel.isClientSide) {
                     GreekFireGrenadeEntity greekFireGrenadeEntity = new GreekFireGrenadeEntity(pLevel, player, pStack);

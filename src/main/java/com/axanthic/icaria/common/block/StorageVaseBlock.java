@@ -44,7 +44,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class StorageVaseBlock extends Block implements EntityBlock, SimpleWaterloggedBlock {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-
 	public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
 	public StorageVaseBlock(Properties pProperties) {
@@ -70,8 +69,8 @@ public class StorageVaseBlock extends Block implements EntityBlock, SimpleWaterl
 	@Override
 	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
 		if (!pState.is(pNewState.getBlock())) {
-			BlockEntity entity = pLevel.getBlockEntity(pPos);
-			if (entity instanceof StorageVaseBlockEntity) {
+			BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+			if (blockEntity instanceof StorageVaseBlockEntity) {
 				Objects.requireNonNull(pLevel.getBlockEntity(pPos)).getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
 					for (int i = 0; i < handler.getSlots(); i++) {
 						ItemStack stack = handler.getStackInSlot(i);
@@ -102,23 +101,23 @@ public class StorageVaseBlock extends Block implements EntityBlock, SimpleWaterl
 	}
 
 	@Override
-	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pTrace) {
+	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
 		if (!pLevel.isClientSide) {
-			BlockEntity entity = pLevel.getBlockEntity(pPos);
-			if (entity instanceof StorageVaseBlockEntity) {
-				MenuProvider provider = new MenuProvider() {
+			BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+			if (blockEntity instanceof StorageVaseBlockEntity) {
+				MenuProvider menuProvider = new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
 						return Component.translatable("menu." + IcariaInfo.MODID + ".storage.vase");
 					}
 
 					@Override
-					public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-						return new StorageVaseMenu(pContainerId, pPos, pInventory, pPlayer);
+					public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+						return new StorageVaseMenu(pContainerId, pPos, pPlayerInventory, pPlayer);
 					}
 				};
 
-				NetworkHooks.openScreen((ServerPlayer) pPlayer, provider, entity.getBlockPos());
+				NetworkHooks.openScreen((ServerPlayer) pPlayer, menuProvider, blockEntity.getBlockPos());
 			}
 		}
 
@@ -126,12 +125,12 @@ public class StorageVaseBlock extends Block implements EntityBlock, SimpleWaterl
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPE;
+	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+		return Shapes.empty();
 	}
 
 	@Override
-	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-		return Shapes.empty();
+	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+		return SHAPE;
 	}
 }

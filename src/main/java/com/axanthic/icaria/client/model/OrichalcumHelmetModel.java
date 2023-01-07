@@ -19,13 +19,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class OrichalcumHelmetModel<T extends LivingEntity> extends HumanoidModel<T> {
-    public static ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID + "orichalcum_helmet"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID + "orichalcum_helmet"), "main");
 
     public ModelPart helmet;
 
-    public OrichalcumHelmetModel(ModelPart pModel) {
-        super(pModel);
-        this.helmet = pModel.getChild("helmet");
+    public OrichalcumHelmetModel(ModelPart pModelPart) {
+        super(pModelPart);
+        this.helmet = pModelPart.getChild("helmet");
     }
 
     @Override

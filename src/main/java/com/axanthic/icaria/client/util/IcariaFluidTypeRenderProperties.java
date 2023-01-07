@@ -14,6 +14,10 @@ import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 
 import java.util.Objects;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+
 public class IcariaFluidTypeRenderProperties implements IClientFluidTypeExtensions {
     public ResourceLocation stillTexture;
     public ResourceLocation flowingTexture;
@@ -41,27 +45,35 @@ public class IcariaFluidTypeRenderProperties implements IClientFluidTypeExtensio
     }
 
     @Override
-    public void renderOverlay(Minecraft mc, PoseStack stack) {
-        ResourceLocation texture = this.getRenderOverlayTexture(mc);
-        if (texture == null) return;
+    public void renderOverlay(Minecraft mc, PoseStack poseStack) {
+        BlockPos blockPos = new BlockPos(Objects.requireNonNull(mc.player).getX(), mc.player.getEyeY(), mc.player.getZ());
+        BufferBuilder bufferBuilder = Tesselator.getInstance().getBuilder();
+        Matrix4f matrix4f = poseStack.last().pose();
+        ResourceLocation resourceLocation = this.getRenderOverlayTexture(mc);
+
+        float brightness = LightTexture.getBrightness(mc.player.level.dimensionType(), mc.player.level.getMaxLocalRawBrightness(blockPos));
+        float uOffset = -mc.player.getYRot() / 64.0F;
+        float vOffset = mc.player.getXRot() / 64.0F;
+
+        if (resourceLocation == null) {
+            return;
+        }
+
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.enableTexture();
-        RenderSystem.setShaderTexture(0, texture);
-        BufferBuilder buffer = Tesselator.getInstance().getBuilder();
-        BlockPos playerEyePos = new BlockPos(Objects.requireNonNull(mc.player).getX(), mc.player.getEyeY(), mc.player.getZ());
-        float brightness = LightTexture.getBrightness(mc.player.level.dimensionType(), mc.player.level.getMaxLocalRawBrightness(playerEyePos));
+        RenderSystem.setShaderTexture(0, resourceLocation);
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
         RenderSystem.setShaderColor(brightness, brightness, brightness, 0.5F);
-        float uOffset = -mc.player.getYRot() / 64.0F;
-        float vOffset = mc.player.getXRot() / 64.0F;
-        Matrix4f pose = stack.last().pose();
-        buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-        buffer.vertex(pose, -1.0F, -1.0F, -0.5F).uv(4.0F + uOffset, 4.0F + vOffset).endVertex();
-        buffer.vertex(pose, 1.0F, -1.0F, -0.5F).uv(uOffset, 4.0F + vOffset).endVertex();
-        buffer.vertex(pose, 1.0F, 1.0F, -0.5F).uv(uOffset, vOffset).endVertex();
-        buffer.vertex(pose, -1.0F, 1.0F, -0.5F).uv(4.0F + uOffset, vOffset).endVertex();
-        BufferUploader.drawWithShader(buffer.end());
+
+        bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+        bufferBuilder.vertex(matrix4f, -1.0F, -1.0F, -0.5F).uv(4.0F + uOffset, 4.0F + vOffset).endVertex();
+        bufferBuilder.vertex(matrix4f, 1.0F, -1.0F, -0.5F).uv(uOffset, 4.0F + vOffset).endVertex();
+        bufferBuilder.vertex(matrix4f, 1.0F, 1.0F, -0.5F).uv(uOffset, vOffset).endVertex();
+        bufferBuilder.vertex(matrix4f, -1.0F, 1.0F, -0.5F).uv(4.0F + uOffset, vOffset).endVertex();
+
+        BufferUploader.drawWithShader(bufferBuilder.end());
+
         RenderSystem.disableBlend();
     }
 }

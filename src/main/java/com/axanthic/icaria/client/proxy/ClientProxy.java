@@ -67,6 +67,8 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
 		event.put(IcariaEntities.AETERNAE.get(), AeternaeEntity.registerAttributes().build());
+		event.put(IcariaEntities.ARACHNE.get(), ArachneEntity.registerAttributes().build());
+		event.put(IcariaEntities.ARACHNE_DRONE.get(), ArachneDroneEntity.registerAttributes().build());
 		event.put(IcariaEntities.ARGAN_HOUND.get(), ArganHoundEntity.registerAttributes().build());
 		event.put(IcariaEntities.CATOBLEPAS.get(), CatoblepasEntity.registerAttributes().build());
 		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
@@ -93,7 +95,7 @@ public class ClientProxy extends CommonProxy {
 		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
 
 		for (IcariaItems.ToolSet tools : IcariaItems.TOOLS) {
-			ItemProperties.register(tools.BIDENT.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
+			ItemProperties.register(tools.bident.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
 		}
 	}
 
@@ -109,250 +111,252 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void onFMLLoadComplete() {
 		// BLOCK COLOR
-		blockColor(IcariaBlocks.MARL_GRASS.get());
-		blockColor(IcariaBlocks.GROWING_BLOOMY_VINE.get());
-		blockColor(IcariaBlocks.BLOOMY_VINE.get());
-		blockColor(IcariaBlocks.BLOOMING_BLOOMY_VINE.get());
-		blockColor(IcariaBlocks.RIPE_BLOOMY_VINE.get());
-		blockColor(IcariaBlocks.GROWING_BRANCHY_VINE.get());
-		blockColor(IcariaBlocks.BRANCHY_VINE.get());
-		blockColor(IcariaBlocks.GROWING_BRUSHY_VINE.get());
-		blockColor(IcariaBlocks.RIPE_BRUSHY_VINE.get());
-		blockColor(IcariaBlocks.BRUSHY_VINE.get());
-		blockColor(IcariaBlocks.DEAD_DRY_VINE.get());
-		blockColor(IcariaBlocks.GROWING_DRY_VINE.get());
-		blockColor(IcariaBlocks.DRY_VINE.get());
-		blockColor(IcariaBlocks.GROWING_REEDY_VINE.get());
-		blockColor(IcariaBlocks.REEDY_VINE.get());
-		blockColor(IcariaBlocks.DEAD_SWIRLY_VINE.get());
-		blockColor(IcariaBlocks.GROWING_SWIRLY_VINE.get());
-		blockColor(IcariaBlocks.SWIRLY_VINE.get());
-		blockColor(IcariaBlocks.DEAD_THORNY_VINE.get());
-		blockColor(IcariaBlocks.GROWING_THORNY_VINE.get());
-		blockColor(IcariaBlocks.THORNY_VINE.get());
-		blockColor(IcariaBlocks.FERN.get());
-		blockColor(IcariaBlocks.POTTED_FERN.get());
-		blockColor(IcariaBlocks.SMALL_GRASS.get());
-		blockColor(IcariaBlocks.MEDIUM_GRASS.get());
-		blockColor(IcariaBlocks.LARGE_GRASS.get());
-		blockColor(IcariaBlocks.GRAIN_0.get());
-		blockColor(IcariaBlocks.GRAIN_1.get());
-		blockColor(IcariaBlocks.GRAIN_2.get());
-		blockColor(IcariaBlocks.GRAIN_3.get());
-		blockColor(IcariaBlocks.GRAIN_4.get());
-		blockColor(IcariaBlocks.GRAIN_5.get());
-		blockColor(IcariaBlocks.BLINDWEED.get());
-		blockColor(IcariaBlocks.POTTED_BLINDWEED.get());
-		blockColor(IcariaBlocks.CHAMEOMILE.get());
-		blockColor(IcariaBlocks.POTTED_CHAMEOMILE.get());
-		blockColor(IcariaBlocks.CHARMONDER.get());
-		blockColor(IcariaBlocks.POTTED_CHARMONDER.get());
-		blockColor(IcariaBlocks.CLOVER.get());
-		blockColor(IcariaBlocks.POTTED_CLOVER.get());
-		blockColor(IcariaBlocks.FIREHILT.get());
-		blockColor(IcariaBlocks.POTTED_FIREHILT.get());
-		blockColor(IcariaBlocks.BLUE_HYDRACINTH.get());
-		blockColor(IcariaBlocks.POTTED_BLUE_HYDRACINTH.get());
-		blockColor(IcariaBlocks.PURPLE_HYDRACINTH.get());
-		blockColor(IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get());
-		blockColor(IcariaBlocks.LIONFANGS.get());
-		blockColor(IcariaBlocks.POTTED_LIONFANGS.get());
-		blockColor(IcariaBlocks.SPEARDROPS.get());
-		blockColor(IcariaBlocks.POTTED_SPEARDROPS.get());
-		blockColor(IcariaBlocks.PURPLE_STAGHORN.get());
-		blockColor(IcariaBlocks.POTTED_PURPLE_STAGHORN.get());
-		blockColor(IcariaBlocks.YELLOW_STAGHORN.get());
-		blockColor(IcariaBlocks.POTTED_YELLOW_STAGHORN.get());
-		blockColor(IcariaBlocks.BLUE_STORMCOTTON.get());
-		blockColor(IcariaBlocks.POTTED_BLUE_STORMCOTTON.get());
-		blockColor(IcariaBlocks.PINK_STORMCOTTON.get());
-		blockColor(IcariaBlocks.POTTED_PINK_STORMCOTTON.get());
-		blockColor(IcariaBlocks.PURPLE_STORMCOTTON.get());
-		blockColor(IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get());
-		blockColor(IcariaBlocks.SUNKETTLE.get());
-		blockColor(IcariaBlocks.POTTED_SUNKETTLE.get());
-		blockColor(IcariaBlocks.SUNSPONGE.get());
-		blockColor(IcariaBlocks.POTTED_SUNSPONGE.get());
-		blockColor(IcariaBlocks.VOIDLILY.get());
-		blockColor(IcariaBlocks.POTTED_VOIDLILY.get());
-		blockColor(IcariaBlocks.WHITE_BROMELIA.get());
-		blockColor(IcariaBlocks.POTTED_WHITE_BROMELIA.get());
-		blockColor(IcariaBlocks.ORANGE_BROMELIA.get());
-		blockColor(IcariaBlocks.POTTED_ORANGE_BROMELIA.get());
-		blockColor(IcariaBlocks.PINK_BROMELIA.get());
-		blockColor(IcariaBlocks.POTTED_PINK_BROMELIA.get());
-		blockColor(IcariaBlocks.PURPLE_BROMELIA.get());
-		blockColor(IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
+		this.blockColor(IcariaBlocks.MARL_GRASS.get());
+		this.blockColor(IcariaBlocks.GROWING_BLOOMY_VINE.get());
+		this.blockColor(IcariaBlocks.BLOOMY_VINE.get());
+		this.blockColor(IcariaBlocks.BLOOMING_BLOOMY_VINE.get());
+		this.blockColor(IcariaBlocks.RIPE_BLOOMY_VINE.get());
+		this.blockColor(IcariaBlocks.GROWING_BRANCHY_VINE.get());
+		this.blockColor(IcariaBlocks.BRANCHY_VINE.get());
+		this.blockColor(IcariaBlocks.GROWING_BRUSHY_VINE.get());
+		this.blockColor(IcariaBlocks.RIPE_BRUSHY_VINE.get());
+		this.blockColor(IcariaBlocks.BRUSHY_VINE.get());
+		this.blockColor(IcariaBlocks.DEAD_DRY_VINE.get());
+		this.blockColor(IcariaBlocks.GROWING_DRY_VINE.get());
+		this.blockColor(IcariaBlocks.DRY_VINE.get());
+		this.blockColor(IcariaBlocks.GROWING_REEDY_VINE.get());
+		this.blockColor(IcariaBlocks.REEDY_VINE.get());
+		this.blockColor(IcariaBlocks.DEAD_SWIRLY_VINE.get());
+		this.blockColor(IcariaBlocks.GROWING_SWIRLY_VINE.get());
+		this.blockColor(IcariaBlocks.SWIRLY_VINE.get());
+		this.blockColor(IcariaBlocks.DEAD_THORNY_VINE.get());
+		this.blockColor(IcariaBlocks.GROWING_THORNY_VINE.get());
+		this.blockColor(IcariaBlocks.THORNY_VINE.get());
+		this.blockColor(IcariaBlocks.FERN.get());
+		this.blockColor(IcariaBlocks.POTTED_FERN.get());
+		this.blockColor(IcariaBlocks.SMALL_GRASS.get());
+		this.blockColor(IcariaBlocks.MEDIUM_GRASS.get());
+		this.blockColor(IcariaBlocks.LARGE_GRASS.get());
+		this.blockColor(IcariaBlocks.GRAIN_0.get());
+		this.blockColor(IcariaBlocks.GRAIN_1.get());
+		this.blockColor(IcariaBlocks.GRAIN_2.get());
+		this.blockColor(IcariaBlocks.GRAIN_3.get());
+		this.blockColor(IcariaBlocks.GRAIN_4.get());
+		this.blockColor(IcariaBlocks.GRAIN_5.get());
+		this.blockColor(IcariaBlocks.BLINDWEED.get());
+		this.blockColor(IcariaBlocks.POTTED_BLINDWEED.get());
+		this.blockColor(IcariaBlocks.CHAMEOMILE.get());
+		this.blockColor(IcariaBlocks.POTTED_CHAMEOMILE.get());
+		this.blockColor(IcariaBlocks.CHARMONDER.get());
+		this.blockColor(IcariaBlocks.POTTED_CHARMONDER.get());
+		this.blockColor(IcariaBlocks.CLOVER.get());
+		this.blockColor(IcariaBlocks.POTTED_CLOVER.get());
+		this.blockColor(IcariaBlocks.FIREHILT.get());
+		this.blockColor(IcariaBlocks.POTTED_FIREHILT.get());
+		this.blockColor(IcariaBlocks.BLUE_HYDRACINTH.get());
+		this.blockColor(IcariaBlocks.POTTED_BLUE_HYDRACINTH.get());
+		this.blockColor(IcariaBlocks.PURPLE_HYDRACINTH.get());
+		this.blockColor(IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get());
+		this.blockColor(IcariaBlocks.LIONFANGS.get());
+		this.blockColor(IcariaBlocks.POTTED_LIONFANGS.get());
+		this.blockColor(IcariaBlocks.SPEARDROPS.get());
+		this.blockColor(IcariaBlocks.POTTED_SPEARDROPS.get());
+		this.blockColor(IcariaBlocks.PURPLE_STAGHORN.get());
+		this.blockColor(IcariaBlocks.POTTED_PURPLE_STAGHORN.get());
+		this.blockColor(IcariaBlocks.YELLOW_STAGHORN.get());
+		this.blockColor(IcariaBlocks.POTTED_YELLOW_STAGHORN.get());
+		this.blockColor(IcariaBlocks.BLUE_STORMCOTTON.get());
+		this.blockColor(IcariaBlocks.POTTED_BLUE_STORMCOTTON.get());
+		this.blockColor(IcariaBlocks.PINK_STORMCOTTON.get());
+		this.blockColor(IcariaBlocks.POTTED_PINK_STORMCOTTON.get());
+		this.blockColor(IcariaBlocks.PURPLE_STORMCOTTON.get());
+		this.blockColor(IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get());
+		this.blockColor(IcariaBlocks.SUNKETTLE.get());
+		this.blockColor(IcariaBlocks.POTTED_SUNKETTLE.get());
+		this.blockColor(IcariaBlocks.SUNSPONGE.get());
+		this.blockColor(IcariaBlocks.POTTED_SUNSPONGE.get());
+		this.blockColor(IcariaBlocks.VOIDLILY.get());
+		this.blockColor(IcariaBlocks.POTTED_VOIDLILY.get());
+		this.blockColor(IcariaBlocks.WHITE_BROMELIA.get());
+		this.blockColor(IcariaBlocks.POTTED_WHITE_BROMELIA.get());
+		this.blockColor(IcariaBlocks.ORANGE_BROMELIA.get());
+		this.blockColor(IcariaBlocks.POTTED_ORANGE_BROMELIA.get());
+		this.blockColor(IcariaBlocks.PINK_BROMELIA.get());
+		this.blockColor(IcariaBlocks.POTTED_PINK_BROMELIA.get());
+		this.blockColor(IcariaBlocks.PURPLE_BROMELIA.get());
+		this.blockColor(IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
 
 		// ITEM COLOR
-		itemColor(IcariaItems.MARL_GRASS.get());
-		itemColor(IcariaItems.WHITE_BROMELIA.get());
-		itemColor(IcariaItems.ORANGE_BROMELIA.get());
-		itemColor(IcariaItems.PINK_BROMELIA.get());
-		itemColor(IcariaItems.PURPLE_BROMELIA.get());
+		this.itemColor(IcariaItems.MARL_GRASS.get());
+		this.itemColor(IcariaItems.WHITE_BROMELIA.get());
+		this.itemColor(IcariaItems.ORANGE_BROMELIA.get());
+		this.itemColor(IcariaItems.PINK_BROMELIA.get());
+		this.itemColor(IcariaItems.PURPLE_BROMELIA.get());
 
 		// RENDER CUTOUT
-		renderCutout(IcariaBlocks.MARL_GRASS.get());
-		renderCutout(IcariaBlocks.GRAINGLASS.get());
-		renderCutout(IcariaBlocks.GRAINGLASS_PANE.get());
-		renderCutout(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get());
-		renderCutout(IcariaBlocks.SILKGLASS.get());
-		renderCutout(IcariaBlocks.SILKGLASS_PANE.get());
-		renderCutout(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get());
-		renderCutout(IcariaBlocks.PLATOSHALE_BLURRED.get());
-		renderCutout(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get());
-		renderCutout(IcariaBlocks.VANADIUMSTEEL_BARS.get());
-		renderCutout(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get());
-		renderCutout(IcariaBlocks.CYPRESS_SAPLING.get());
-		renderCutout(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
-		renderCutout(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get());
-		renderCutout(IcariaBlocks.CYPRESS_DOOR.get());
-		renderCutout(IcariaBlocks.CYPRESS_TRAPDOOR.get());
-		renderCutout(IcariaBlocks.CYPRESS_LADDER.get());
-		renderCutout(IcariaBlocks.DROUGHTROOT_SAPLING.get());
-		renderCutout(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
-		renderCutout(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get());
-		renderCutout(IcariaBlocks.DROUGHTROOT_DOOR.get());
-		renderCutout(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
-		renderCutout(IcariaBlocks.DROUGHTROOT_LADDER.get());
-		renderCutout(IcariaBlocks.FIR_SAPLING.get());
-		renderCutout(IcariaBlocks.POTTED_FIR_SAPLING.get());
-		renderCutout(IcariaBlocks.FALLEN_FIR_LEAVES.get());
-		renderCutout(IcariaBlocks.FIR_DOOR.get());
-		renderCutout(IcariaBlocks.FIR_TRAPDOOR.get());
-		renderCutout(IcariaBlocks.FIR_LADDER.get());
-		renderCutout(IcariaBlocks.LAUREL_SAPLING.get());
-		renderCutout(IcariaBlocks.POTTED_LAUREL_SAPLING.get());
-		renderCutout(IcariaBlocks.FALLEN_LAUREL_LEAVES.get());
-		renderCutout(IcariaBlocks.LAUREL_DOOR.get());
-		renderCutout(IcariaBlocks.LAUREL_TRAPDOOR.get());
-		renderCutout(IcariaBlocks.LAUREL_LADDER.get());
-		renderCutout(IcariaBlocks.OLIVE_SAPLING.get());
-		renderCutout(IcariaBlocks.POTTED_OLIVE_SAPLING.get());
-		renderCutout(IcariaBlocks.FALLEN_OLIVE_LEAVES.get());
-		renderCutout(IcariaBlocks.OLIVE_DOOR.get());
-		renderCutout(IcariaBlocks.OLIVE_TRAPDOOR.get());
-		renderCutout(IcariaBlocks.OLIVE_LADDER.get());
-		renderCutout(IcariaBlocks.PLANE_SAPLING.get());
-		renderCutout(IcariaBlocks.POTTED_PLANE_SAPLING.get());
-		renderCutout(IcariaBlocks.FALLEN_PLANE_LEAVES.get());
-		renderCutout(IcariaBlocks.PLANE_DOOR.get());
-		renderCutout(IcariaBlocks.PLANE_TRAPDOOR.get());
-		renderCutout(IcariaBlocks.PLANE_LADDER.get());
-		renderCutout(IcariaBlocks.POPULUS_SAPLING.get());
-		renderCutout(IcariaBlocks.POTTED_POPULUS_SAPLING.get());
-		renderCutout(IcariaBlocks.FALLEN_POPULUS_LEAVES.get());
-		renderCutout(IcariaBlocks.POPULUS_DOOR.get());
-		renderCutout(IcariaBlocks.POPULUS_TRAPDOOR.get());
-		renderCutout(IcariaBlocks.POPULUS_LADDER.get());
-		renderCutout(IcariaBlocks.DIM_TORCH.get());
-		renderCutout(IcariaBlocks.DIM_WALL_TORCH.get());
-		renderCutout(IcariaBlocks.DEAD_BLOOMY_VINE.get());
-		renderCutout(IcariaBlocks.GROWING_BLOOMY_VINE.get());
-		renderCutout(IcariaBlocks.BLOOMY_VINE.get());
-		renderCutout(IcariaBlocks.BLOOMING_BLOOMY_VINE.get());
-		renderCutout(IcariaBlocks.RIPE_BLOOMY_VINE.get());
-		renderCutout(IcariaBlocks.DEAD_BRANCHY_VINE.get());
-		renderCutout(IcariaBlocks.GROWING_BRANCHY_VINE.get());
-		renderCutout(IcariaBlocks.BRANCHY_VINE.get());
-		renderCutout(IcariaBlocks.DEAD_BRUSHY_VINE.get());
-		renderCutout(IcariaBlocks.GROWING_BRUSHY_VINE.get());
-		renderCutout(IcariaBlocks.RIPE_BRUSHY_VINE.get());
-		renderCutout(IcariaBlocks.BRUSHY_VINE.get());
-		renderCutout(IcariaBlocks.DEAD_DRY_VINE.get());
-		renderCutout(IcariaBlocks.GROWING_DRY_VINE.get());
-		renderCutout(IcariaBlocks.DRY_VINE.get());
-		renderCutout(IcariaBlocks.DEAD_REEDY_VINE.get());
-		renderCutout(IcariaBlocks.GROWING_REEDY_VINE.get());
-		renderCutout(IcariaBlocks.REEDY_VINE.get());
-		renderCutout(IcariaBlocks.DEAD_SWIRLY_VINE.get());
-		renderCutout(IcariaBlocks.GROWING_SWIRLY_VINE.get());
-		renderCutout(IcariaBlocks.SWIRLY_VINE.get());
-		renderCutout(IcariaBlocks.DEAD_THORNY_VINE.get());
-		renderCutout(IcariaBlocks.GROWING_THORNY_VINE.get());
-		renderCutout(IcariaBlocks.THORNY_VINE.get());
-		renderCutout(IcariaBlocks.FERN.get());
-		renderCutout(IcariaBlocks.POTTED_FERN.get());
-		renderCutout(IcariaBlocks.SMALL_GRASS.get());
-		renderCutout(IcariaBlocks.MEDIUM_GRASS.get());
-		renderCutout(IcariaBlocks.LARGE_GRASS.get());
-		renderCutout(IcariaBlocks.GRAIN_0.get());
-		renderCutout(IcariaBlocks.GRAIN_1.get());
-		renderCutout(IcariaBlocks.GRAIN_2.get());
-		renderCutout(IcariaBlocks.GRAIN_3.get());
-		renderCutout(IcariaBlocks.GRAIN_4.get());
-		renderCutout(IcariaBlocks.GRAIN_5.get());
-		renderCutout(IcariaBlocks.BLINDWEED.get());
-		renderCutout(IcariaBlocks.POTTED_BLINDWEED.get());
-		renderCutout(IcariaBlocks.CHAMEOMILE.get());
-		renderCutout(IcariaBlocks.POTTED_CHAMEOMILE.get());
-		renderCutout(IcariaBlocks.CHARMONDER.get());
-		renderCutout(IcariaBlocks.POTTED_CHARMONDER.get());
-		renderCutout(IcariaBlocks.CLOVER.get());
-		renderCutout(IcariaBlocks.POTTED_CLOVER.get());
-		renderCutout(IcariaBlocks.FIREHILT.get());
-		renderCutout(IcariaBlocks.POTTED_FIREHILT.get());
-		renderCutout(IcariaBlocks.BLUE_HYDRACINTH.get());
-		renderCutout(IcariaBlocks.POTTED_BLUE_HYDRACINTH.get());
-		renderCutout(IcariaBlocks.PURPLE_HYDRACINTH.get());
-		renderCutout(IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get());
-		renderCutout(IcariaBlocks.LIONFANGS.get());
-		renderCutout(IcariaBlocks.POTTED_LIONFANGS.get());
-		renderCutout(IcariaBlocks.SPEARDROPS.get());
-		renderCutout(IcariaBlocks.POTTED_SPEARDROPS.get());
-		renderCutout(IcariaBlocks.PURPLE_STAGHORN.get());
-		renderCutout(IcariaBlocks.POTTED_PURPLE_STAGHORN.get());
-		renderCutout(IcariaBlocks.YELLOW_STAGHORN.get());
-		renderCutout(IcariaBlocks.POTTED_YELLOW_STAGHORN.get());
-		renderCutout(IcariaBlocks.BLUE_STORMCOTTON.get());
-		renderCutout(IcariaBlocks.POTTED_BLUE_STORMCOTTON.get());
-		renderCutout(IcariaBlocks.PINK_STORMCOTTON.get());
-		renderCutout(IcariaBlocks.POTTED_PINK_STORMCOTTON.get());
-		renderCutout(IcariaBlocks.PURPLE_STORMCOTTON.get());
-		renderCutout(IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get());
-		renderCutout(IcariaBlocks.SUNKETTLE.get());
-		renderCutout(IcariaBlocks.POTTED_SUNKETTLE.get());
-		renderCutout(IcariaBlocks.SUNSPONGE.get());
-		renderCutout(IcariaBlocks.POTTED_SUNSPONGE.get());
-		renderCutout(IcariaBlocks.VOIDLILY.get());
-		renderCutout(IcariaBlocks.POTTED_VOIDLILY.get());
-		renderCutout(IcariaBlocks.PSILOCYBOS.get());
-		renderCutout(IcariaBlocks.ROWAN.get());
-		renderCutout(IcariaBlocks.BLUE_GROUND_FLOWERS.get());
-		renderCutout(IcariaBlocks.CYAN_GROUND_FLOWERS.get());
-		renderCutout(IcariaBlocks.PINK_GROUND_FLOWERS.get());
-		renderCutout(IcariaBlocks.PURPLE_GROUND_FLOWERS.get());
-		renderCutout(IcariaBlocks.RED_GROUND_FLOWERS.get());
-		renderCutout(IcariaBlocks.WHITE_GROUND_FLOWERS.get());
-		renderCutout(IcariaBlocks.PALM_FERN.get());
-		renderCutout(IcariaBlocks.POTTED_PALM_FERN.get());
-		renderCutout(IcariaBlocks.WHITE_BROMELIA.get());
-		renderCutout(IcariaBlocks.POTTED_WHITE_BROMELIA.get());
-		renderCutout(IcariaBlocks.ORANGE_BROMELIA.get());
-		renderCutout(IcariaBlocks.POTTED_ORANGE_BROMELIA.get());
-		renderCutout(IcariaBlocks.PINK_BROMELIA.get());
-		renderCutout(IcariaBlocks.POTTED_PINK_BROMELIA.get());
-		renderCutout(IcariaBlocks.PURPLE_BROMELIA.get());
-		renderCutout(IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
-		renderCutout(IcariaBlocks.STRAWBERRY_BUSH.get());
-		renderCutout(IcariaBlocks.SPELT_CROP.get());
-		renderCutout(IcariaBlocks.STRAWBERRY_CROP.get());
-		renderCutout(IcariaBlocks.PHYSALIS_CROP.get());
-		renderCutout(IcariaBlocks.ONION_CROP.get());
-		renderCutout(IcariaBlocks.GREEK_FIRE.get());
+		this.renderCutout(IcariaBlocks.MARL_GRASS.get());
+		this.renderCutout(IcariaBlocks.GRAINGLASS.get());
+		this.renderCutout(IcariaBlocks.GRAINGLASS_PANE.get());
+		this.renderCutout(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get());
+		this.renderCutout(IcariaBlocks.SILKGLASS.get());
+		this.renderCutout(IcariaBlocks.SILKGLASS_PANE.get());
+		this.renderCutout(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get());
+		this.renderCutout(IcariaBlocks.PLATOSHALE_BLURRED.get());
+		this.renderCutout(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get());
+		this.renderCutout(IcariaBlocks.VANADIUMSTEEL_BARS.get());
+		this.renderCutout(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get());
+		this.renderCutout(IcariaBlocks.CYPRESS_SAPLING.get());
+		this.renderCutout(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
+		this.renderCutout(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get());
+		this.renderCutout(IcariaBlocks.CYPRESS_DOOR.get());
+		this.renderCutout(IcariaBlocks.CYPRESS_TRAPDOOR.get());
+		this.renderCutout(IcariaBlocks.CYPRESS_LADDER.get());
+		this.renderCutout(IcariaBlocks.DROUGHTROOT_SAPLING.get());
+		this.renderCutout(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
+		this.renderCutout(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get());
+		this.renderCutout(IcariaBlocks.DROUGHTROOT_DOOR.get());
+		this.renderCutout(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
+		this.renderCutout(IcariaBlocks.DROUGHTROOT_LADDER.get());
+		this.renderCutout(IcariaBlocks.FIR_SAPLING.get());
+		this.renderCutout(IcariaBlocks.POTTED_FIR_SAPLING.get());
+		this.renderCutout(IcariaBlocks.FALLEN_FIR_LEAVES.get());
+		this.renderCutout(IcariaBlocks.FIR_DOOR.get());
+		this.renderCutout(IcariaBlocks.FIR_TRAPDOOR.get());
+		this.renderCutout(IcariaBlocks.FIR_LADDER.get());
+		this.renderCutout(IcariaBlocks.LAUREL_SAPLING.get());
+		this.renderCutout(IcariaBlocks.POTTED_LAUREL_SAPLING.get());
+		this.renderCutout(IcariaBlocks.FALLEN_LAUREL_LEAVES.get());
+		this.renderCutout(IcariaBlocks.LAUREL_DOOR.get());
+		this.renderCutout(IcariaBlocks.LAUREL_TRAPDOOR.get());
+		this.renderCutout(IcariaBlocks.LAUREL_LADDER.get());
+		this.renderCutout(IcariaBlocks.OLIVE_SAPLING.get());
+		this.renderCutout(IcariaBlocks.POTTED_OLIVE_SAPLING.get());
+		this.renderCutout(IcariaBlocks.FALLEN_OLIVE_LEAVES.get());
+		this.renderCutout(IcariaBlocks.OLIVE_DOOR.get());
+		this.renderCutout(IcariaBlocks.OLIVE_TRAPDOOR.get());
+		this.renderCutout(IcariaBlocks.OLIVE_LADDER.get());
+		this.renderCutout(IcariaBlocks.PLANE_SAPLING.get());
+		this.renderCutout(IcariaBlocks.POTTED_PLANE_SAPLING.get());
+		this.renderCutout(IcariaBlocks.FALLEN_PLANE_LEAVES.get());
+		this.renderCutout(IcariaBlocks.PLANE_DOOR.get());
+		this.renderCutout(IcariaBlocks.PLANE_TRAPDOOR.get());
+		this.renderCutout(IcariaBlocks.PLANE_LADDER.get());
+		this.renderCutout(IcariaBlocks.POPULUS_SAPLING.get());
+		this.renderCutout(IcariaBlocks.POTTED_POPULUS_SAPLING.get());
+		this.renderCutout(IcariaBlocks.FALLEN_POPULUS_LEAVES.get());
+		this.renderCutout(IcariaBlocks.POPULUS_DOOR.get());
+		this.renderCutout(IcariaBlocks.POPULUS_TRAPDOOR.get());
+		this.renderCutout(IcariaBlocks.POPULUS_LADDER.get());
+		this.renderCutout(IcariaBlocks.DIM_TORCH.get());
+		this.renderCutout(IcariaBlocks.DIM_WALL_TORCH.get());
+		this.renderCutout(IcariaBlocks.DEAD_BLOOMY_VINE.get());
+		this.renderCutout(IcariaBlocks.GROWING_BLOOMY_VINE.get());
+		this.renderCutout(IcariaBlocks.BLOOMY_VINE.get());
+		this.renderCutout(IcariaBlocks.BLOOMING_BLOOMY_VINE.get());
+		this.renderCutout(IcariaBlocks.RIPE_BLOOMY_VINE.get());
+		this.renderCutout(IcariaBlocks.DEAD_BRANCHY_VINE.get());
+		this.renderCutout(IcariaBlocks.GROWING_BRANCHY_VINE.get());
+		this.renderCutout(IcariaBlocks.BRANCHY_VINE.get());
+		this.renderCutout(IcariaBlocks.DEAD_BRUSHY_VINE.get());
+		this.renderCutout(IcariaBlocks.GROWING_BRUSHY_VINE.get());
+		this.renderCutout(IcariaBlocks.RIPE_BRUSHY_VINE.get());
+		this.renderCutout(IcariaBlocks.BRUSHY_VINE.get());
+		this.renderCutout(IcariaBlocks.DEAD_DRY_VINE.get());
+		this.renderCutout(IcariaBlocks.GROWING_DRY_VINE.get());
+		this.renderCutout(IcariaBlocks.DRY_VINE.get());
+		this.renderCutout(IcariaBlocks.DEAD_REEDY_VINE.get());
+		this.renderCutout(IcariaBlocks.GROWING_REEDY_VINE.get());
+		this.renderCutout(IcariaBlocks.REEDY_VINE.get());
+		this.renderCutout(IcariaBlocks.DEAD_SWIRLY_VINE.get());
+		this.renderCutout(IcariaBlocks.GROWING_SWIRLY_VINE.get());
+		this.renderCutout(IcariaBlocks.SWIRLY_VINE.get());
+		this.renderCutout(IcariaBlocks.DEAD_THORNY_VINE.get());
+		this.renderCutout(IcariaBlocks.GROWING_THORNY_VINE.get());
+		this.renderCutout(IcariaBlocks.THORNY_VINE.get());
+		this.renderCutout(IcariaBlocks.FERN.get());
+		this.renderCutout(IcariaBlocks.POTTED_FERN.get());
+		this.renderCutout(IcariaBlocks.SMALL_GRASS.get());
+		this.renderCutout(IcariaBlocks.MEDIUM_GRASS.get());
+		this.renderCutout(IcariaBlocks.LARGE_GRASS.get());
+		this.renderCutout(IcariaBlocks.GRAIN_0.get());
+		this.renderCutout(IcariaBlocks.GRAIN_1.get());
+		this.renderCutout(IcariaBlocks.GRAIN_2.get());
+		this.renderCutout(IcariaBlocks.GRAIN_3.get());
+		this.renderCutout(IcariaBlocks.GRAIN_4.get());
+		this.renderCutout(IcariaBlocks.GRAIN_5.get());
+		this.renderCutout(IcariaBlocks.BLINDWEED.get());
+		this.renderCutout(IcariaBlocks.POTTED_BLINDWEED.get());
+		this.renderCutout(IcariaBlocks.CHAMEOMILE.get());
+		this.renderCutout(IcariaBlocks.POTTED_CHAMEOMILE.get());
+		this.renderCutout(IcariaBlocks.CHARMONDER.get());
+		this.renderCutout(IcariaBlocks.POTTED_CHARMONDER.get());
+		this.renderCutout(IcariaBlocks.CLOVER.get());
+		this.renderCutout(IcariaBlocks.POTTED_CLOVER.get());
+		this.renderCutout(IcariaBlocks.FIREHILT.get());
+		this.renderCutout(IcariaBlocks.POTTED_FIREHILT.get());
+		this.renderCutout(IcariaBlocks.BLUE_HYDRACINTH.get());
+		this.renderCutout(IcariaBlocks.POTTED_BLUE_HYDRACINTH.get());
+		this.renderCutout(IcariaBlocks.PURPLE_HYDRACINTH.get());
+		this.renderCutout(IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get());
+		this.renderCutout(IcariaBlocks.LIONFANGS.get());
+		this.renderCutout(IcariaBlocks.POTTED_LIONFANGS.get());
+		this.renderCutout(IcariaBlocks.SPEARDROPS.get());
+		this.renderCutout(IcariaBlocks.POTTED_SPEARDROPS.get());
+		this.renderCutout(IcariaBlocks.PURPLE_STAGHORN.get());
+		this.renderCutout(IcariaBlocks.POTTED_PURPLE_STAGHORN.get());
+		this.renderCutout(IcariaBlocks.YELLOW_STAGHORN.get());
+		this.renderCutout(IcariaBlocks.POTTED_YELLOW_STAGHORN.get());
+		this.renderCutout(IcariaBlocks.BLUE_STORMCOTTON.get());
+		this.renderCutout(IcariaBlocks.POTTED_BLUE_STORMCOTTON.get());
+		this.renderCutout(IcariaBlocks.PINK_STORMCOTTON.get());
+		this.renderCutout(IcariaBlocks.POTTED_PINK_STORMCOTTON.get());
+		this.renderCutout(IcariaBlocks.PURPLE_STORMCOTTON.get());
+		this.renderCutout(IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get());
+		this.renderCutout(IcariaBlocks.SUNKETTLE.get());
+		this.renderCutout(IcariaBlocks.POTTED_SUNKETTLE.get());
+		this.renderCutout(IcariaBlocks.SUNSPONGE.get());
+		this.renderCutout(IcariaBlocks.POTTED_SUNSPONGE.get());
+		this.renderCutout(IcariaBlocks.VOIDLILY.get());
+		this.renderCutout(IcariaBlocks.POTTED_VOIDLILY.get());
+		this.renderCutout(IcariaBlocks.PSILOCYBOS.get());
+		this.renderCutout(IcariaBlocks.ROWAN.get());
+		this.renderCutout(IcariaBlocks.BLUE_GROUND_FLOWERS.get());
+		this.renderCutout(IcariaBlocks.CYAN_GROUND_FLOWERS.get());
+		this.renderCutout(IcariaBlocks.PINK_GROUND_FLOWERS.get());
+		this.renderCutout(IcariaBlocks.PURPLE_GROUND_FLOWERS.get());
+		this.renderCutout(IcariaBlocks.RED_GROUND_FLOWERS.get());
+		this.renderCutout(IcariaBlocks.WHITE_GROUND_FLOWERS.get());
+		this.renderCutout(IcariaBlocks.PALM_FERN.get());
+		this.renderCutout(IcariaBlocks.POTTED_PALM_FERN.get());
+		this.renderCutout(IcariaBlocks.WHITE_BROMELIA.get());
+		this.renderCutout(IcariaBlocks.POTTED_WHITE_BROMELIA.get());
+		this.renderCutout(IcariaBlocks.ORANGE_BROMELIA.get());
+		this.renderCutout(IcariaBlocks.POTTED_ORANGE_BROMELIA.get());
+		this.renderCutout(IcariaBlocks.PINK_BROMELIA.get());
+		this.renderCutout(IcariaBlocks.POTTED_PINK_BROMELIA.get());
+		this.renderCutout(IcariaBlocks.PURPLE_BROMELIA.get());
+		this.renderCutout(IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
+		this.renderCutout(IcariaBlocks.STRAWBERRY_BUSH.get());
+		this.renderCutout(IcariaBlocks.SPELT_CROP.get());
+		this.renderCutout(IcariaBlocks.STRAWBERRY_CROP.get());
+		this.renderCutout(IcariaBlocks.PHYSALIS_CROP.get());
+		this.renderCutout(IcariaBlocks.ONION_CROP.get());
+		this.renderCutout(IcariaBlocks.GREEK_FIRE.get());
 
 		// RENDER TRANSLUCENT
-		renderTranslucent(IcariaBlocks.ARISTONE.get());
-		renderTranslucent(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get());
-		renderTranslucent(IcariaBlocks.CALCITE_BLOCK.get());
-		renderTranslucent(IcariaBlocks.HALITE_BLOCK.get());
-		renderTranslucent(IcariaBlocks.ZIRCON_BLOCK.get());
-		renderTranslucent(IcariaBlocks.ICARIA_PORTAL.get());
-		renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER_SOURCE.get());
-		renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER_FLOWING.get());
+		this.renderTranslucent(IcariaBlocks.ARISTONE.get());
+		this.renderTranslucent(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get());
+		this.renderTranslucent(IcariaBlocks.CALCITE_BLOCK.get());
+		this.renderTranslucent(IcariaBlocks.HALITE_BLOCK.get());
+		this.renderTranslucent(IcariaBlocks.ZIRCON_BLOCK.get());
+		this.renderTranslucent(IcariaBlocks.ICARIA_PORTAL.get());
+		this.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER_SOURCE.get());
+		this.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER_FLOWING.get());
 
 		// ENTITY RENDERERS
 		EntityRenderers.register(IcariaEntities.AETERNAE.get(), AeternaeRenderer::new);
+		EntityRenderers.register(IcariaEntities.ARACHNE.get(), ArachneRenderer::new);
+		EntityRenderers.register(IcariaEntities.ARACHNE_DRONE.get(), ArachneDroneRenderer::new);
 		EntityRenderers.register(IcariaEntities.ARGAN_HOUND.get(), ArganHoundRenderer::new);
 		EntityRenderers.register(IcariaEntities.BIDENT.get(), BidentRenderer::new);
 		EntityRenderers.register(IcariaEntities.CATOBLEPAS.get(), CatoblepasRenderer::new);
@@ -393,14 +397,16 @@ public class ClientProxy extends CommonProxy {
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(AeternaeModel.LAYER_LOCATION, AeternaeModel::createLayer);
 		event.registerLayerDefinition(AeternaeSkullModel.LAYER_LOCATION, AeternaeSkullModel::createLayer);
+		event.registerLayerDefinition(ArachneModel.LAYER_LOCATION, ArachneModel::createLayer);
+		event.registerLayerDefinition(ArachneDroneModel.LAYER_LOCATION, ArachneDroneModel::createLayer);
 		event.registerLayerDefinition(ArganHoundModel.LAYER_LOCATION, ArganHoundModel::createLayer);
 		event.registerLayerDefinition(ArganHoundSkullModel.LAYER_LOCATION, ArganHoundSkullModel::createLayer);
 		event.registerLayerDefinition(CatoblepasModel.LAYER_LOCATION, CatoblepasModel::createLayer);
 		event.registerLayerDefinition(CatoblepasSkullModel.LAYER_LOCATION, CatoblepasSkullModel::createLayer);
 		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
 		event.registerLayerDefinition(CerverSkullModel.LAYER_LOCATION, CerverSkullModel::createLayer);
-		event.registerLayerDefinition(HyliasterModel.INNER_LAYER_LOCATION, HyliasterModel::createInnerLayer);
-		event.registerLayerDefinition(HyliasterModel.OUTER_LAYER_LOCATION, HyliasterModel::createOuterLayer);
+		event.registerLayerDefinition(HyliasterModel.LAYER_LOCATION, HyliasterModel::createLayer);
+		event.registerLayerDefinition(HyliasterModel.TRANSLUCENT_LAYER_LOCATION, HyliasterModel::createTranslucentLayer);
 		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
 		event.registerLayerDefinition(MyrmekeSoldierModel.LAYER_LOCATION, MyrmekeSoldierModel::createLayer);
 		event.registerLayerDefinition(MyrmekeQueenModel.BODY_LAYER_LOCATION, MyrmekeQueenModel::createLayer);
@@ -421,29 +427,29 @@ public class ClientProxy extends CommonProxy {
 		Entity entity = event.getEntity();
 		if (entity instanceof Player player) {
 			float health = player.getHealth();
-			ItemStack mainHandItem = player.getMainHandItem();
-			ItemStack offhandItem = player.getOffhandItem();
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
 			TotemItem totem = IcariaItems.TOTEM_OF_STUFFING.get();
 			if (player.getFoodData().getFoodLevel() <= 0) {
-				if (offhandItem.getItem().equals(totem)) {
+				if (offHand.getItem().equals(totem)) {
 					player.setHealth(health + damage);
 					player.removeEffect(MobEffects.HUNGER);
 					player.getFoodData().setSaturation(20);
 					player.getFoodData().setFoodLevel(20);
 					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
-				if (mainHandItem.getItem().equals(totem)) {
+				if (mainHand.getItem().equals(totem)) {
 					player.setHealth(health + damage);
 					player.removeEffect(MobEffects.HUNGER);
 					player.getFoodData().setSaturation(20);
 					player.getFoodData().setFoodLevel(20);
 					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -451,25 +457,25 @@ public class ClientProxy extends CommonProxy {
 
 		if (entity instanceof Player player) {
 			float health = player.getHealth();
-			ItemStack mainHandItem = player.getMainHandItem();
-			ItemStack offhandItem = player.getOffhandItem();
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
 			TotemItem totem = IcariaItems.TOTEM_OF_UNDROWNING.get();
 			if (player.getAirSupply() <= 0) {
-				if (offhandItem.getItem().equals(totem)) {
+				if (offHand.getItem().equals(totem)) {
 					player.setHealth(health + damage);
 					player.setAirSupply(300);
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
-				if (mainHandItem.getItem().equals(totem)) {
+				if (mainHand.getItem().equals(totem)) {
 					player.setHealth(health + damage);
 					player.setAirSupply(300);
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -477,29 +483,29 @@ public class ClientProxy extends CommonProxy {
 
 		if (entity instanceof Player player) {
 			float health = player.getHealth();
-			ItemStack mainHandItem = player.getMainHandItem();
-			ItemStack offhandItem = player.getOffhandItem();
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
 			TotemItem totem = IcariaItems.TOTEM_OF_UNDYING.get();
 			if (damage >= health) {
-				if (offhandItem.getItem().equals(totem)) {
+				if (offHand.getItem().equals(totem)) {
 					event.setCanceled(true);
 					player.setHealth(1);
 					player.removeAllEffects();
 					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900));
 					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
-				if (mainHandItem.getItem().equals(totem)) {
+				if (mainHand.getItem().equals(totem)) {
 					event.setCanceled(true);
 					player.setHealth(1);
 					player.removeAllEffects();
 					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900));
 					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -509,15 +515,15 @@ public class ClientProxy extends CommonProxy {
 		if (source instanceof EntityDamageSource damageSource) {
 			Entity entitySource = damageSource.getEntity();
 			if (entitySource instanceof Player player) {
-				ItemStack mainHandItem = player.getMainHandItem();
-				ItemStack offhandItem = player.getOffhandItem();
+				ItemStack mainHand = player.getMainHandItem();
+				ItemStack offHand = player.getOffhandItem();
 				TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-				if (mainHandItem.getItem() instanceof TieredItem || mainHandItem.getItem() instanceof TridentItem) {
-					if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
-						if (offhandItem.getItem().equals(totem)) {
+				if (mainHand.getItem() instanceof TieredItem || mainHand.getItem() instanceof TridentItem) {
+					if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
+						if (offHand.getItem().equals(totem)) {
 							player.awardStat(Stats.ITEM_USED.get(totem));
-							mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
-							offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+							mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
+							offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 							totem.totemAnimation(player);
 						}
 					}
@@ -526,24 +532,24 @@ public class ClientProxy extends CommonProxy {
 		}
 
 		if (entity instanceof Player player) {
-			ItemStack mainHandItem = player.getMainHandItem();
-			ItemStack offhandItem = player.getOffhandItem();
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
 			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
 			for (int slot = 5; slot < 9; slot++) {
 				ItemStack armor = player.inventoryMenu.slots.get(slot).getItem();
 				if (armor.getItem() instanceof ArmorItem) {
 					if (armor.getDamageValue() >= (armor.getMaxDamage() * 0.9)) {
-						if (offhandItem.getItem().equals(totem)) {
+						if (offHand.getItem().equals(totem)) {
 							player.awardStat(Stats.ITEM_USED.get(totem));
 							armor.setDamageValue((int) (armor.getItem().getMaxDamage(armor) * 0.1));
-							offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+							offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 							totem.totemAnimation(player);
 						}
 
-						if (mainHandItem.getItem().equals(totem)) {
+						if (mainHand.getItem().equals(totem)) {
 							player.awardStat(Stats.ITEM_USED.get(totem));
 							armor.setDamageValue((int) (armor.getItem().getMaxDamage(armor) * 0.1));
-							mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+							mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 							totem.totemAnimation(player);
 						}
 					}
@@ -553,25 +559,25 @@ public class ClientProxy extends CommonProxy {
 
 		if (entity instanceof Player player) {
 			float health = player.getHealth();
-			ItemStack mainHandItem = player.getMainHandItem();
-			ItemStack offhandItem = player.getOffhandItem();
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
 			TotemItem totem = IcariaItems.TOTEM_OF_UNSINKING.get();
 			if (player.position().y <= -64) {
-				if (offhandItem.getItem().equals(totem)) {
+				if (offHand.getItem().equals(totem)) {
 					player.setHealth(health + damage);
 					player.setPos(player.position().x, 320, player.position().z);
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
-				if (mainHandItem.getItem().equals(totem)) {
+				if (mainHand.getItem().equals(totem)) {
 					player.setHealth(health + damage);
 					player.setPos(player.position().x, 320, player.position().z);
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -583,23 +589,23 @@ public class ClientProxy extends CommonProxy {
 		Entity entity = event.getEntity();
 		MobEffectInstance effect = event.getEffectInstance();
 		if (entity instanceof Player player) {
-			ItemStack mainHandItem = player.getMainHandItem();
-			ItemStack offhandItem = player.getOffhandItem();
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
 			TotemItem totem = IcariaItems.TOTEM_OF_UNBLINDING.get();
 			if (effect.getEffect().equals(MobEffects.BLINDNESS)) {
-				if (offhandItem.getItem().equals(totem)) {
+				if (offHand.getItem().equals(totem)) {
 					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
-				if (mainHandItem.getItem().equals(totem)) {
+				if (mainHand.getItem().equals(totem)) {
 					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -610,26 +616,26 @@ public class ClientProxy extends CommonProxy {
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		Entity entity = event.getEntity();
 		if (entity instanceof Player player) {
-			ItemStack mainHandItem = player.getMainHandItem();
-			ItemStack offhandItem = player.getOffhandItem();
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
 			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-			if (mainHandItem.getItem() instanceof FishingRodItem || mainHandItem.getItem() instanceof BowItem || mainHandItem.getItem() instanceof CrossbowItem || mainHandItem.getItem() instanceof ShieldItem || mainHandItem.getItem() instanceof TridentItem || mainHandItem.getItem() instanceof BidentItem) {
-				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
-					if (offhandItem.getItem().equals(totem)) {
+			if (mainHand.getItem() instanceof FishingRodItem || mainHand.getItem() instanceof BowItem || mainHand.getItem() instanceof CrossbowItem || mainHand.getItem() instanceof ShieldItem || mainHand.getItem() instanceof TridentItem || mainHand.getItem() instanceof BidentItem) {
+				if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
+					if (offHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
-						offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
+						offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
 			}
 
-			if (offhandItem.getItem() instanceof FishingRodItem || offhandItem.getItem() instanceof BowItem || offhandItem.getItem() instanceof CrossbowItem || offhandItem.getItem() instanceof ShieldItem || offhandItem.getItem() instanceof TridentItem || offhandItem.getItem() instanceof BidentItem) {
-				if (offhandItem.getDamageValue() >= (offhandItem.getMaxDamage() * 0.9)) {
-					if (mainHandItem.getItem().equals(totem)) {
+			if (offHand.getItem() instanceof FishingRodItem || offHand.getItem() instanceof BowItem || offHand.getItem() instanceof CrossbowItem || offHand.getItem() instanceof ShieldItem || offHand.getItem() instanceof TridentItem || offHand.getItem() instanceof BidentItem) {
+				if (offHand.getDamageValue() >= (offHand.getMaxDamage() * 0.9)) {
+					if (mainHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
-						mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						offHand.setDamageValue((int) (offHand.getItem().getMaxDamage(offHand) * 0.1));
+						mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -641,26 +647,26 @@ public class ClientProxy extends CommonProxy {
 	public void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
 		Entity entity = event.getEntity();
 		if (entity instanceof Player player) {
-			ItemStack mainHandItem = player.getMainHandItem();
-			ItemStack offhandItem = player.getOffhandItem();
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
 			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-			if (mainHandItem.getItem() instanceof ShearsItem) {
-				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
-					if (offhandItem.getItem().equals(totem)) {
+			if (mainHand.getItem() instanceof ShearsItem) {
+				if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
+					if (offHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
-						offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
+						offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
 			}
 
-			if (offhandItem.getItem() instanceof ShearsItem) {
-				if (offhandItem.getDamageValue() >= (offhandItem.getMaxDamage() * 0.9)) {
-					if (mainHandItem.getItem().equals(totem)) {
+			if (offHand.getItem() instanceof ShearsItem) {
+				if (offHand.getDamageValue() >= (offHand.getMaxDamage() * 0.9)) {
+					if (mainHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
-						mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						offHand.setDamageValue((int) (offHand.getItem().getMaxDamage(offHand) * 0.1));
+						mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -672,15 +678,15 @@ public class ClientProxy extends CommonProxy {
 	public void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
 		Entity entity = event.getEntity();
 		if (entity instanceof Player player) {
-			ItemStack mainHandItem = player.getMainHandItem();
-			ItemStack offhandItem = player.getOffhandItem();
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
 			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-			if (mainHandItem.getItem() instanceof TieredItem || mainHandItem.getItem() instanceof ShearsItem) {
-				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
-					if (offhandItem.getItem().equals(totem)) {
+			if (mainHand.getItem() instanceof TieredItem || mainHand.getItem() instanceof ShearsItem) {
+				if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
+					if (offHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
-						offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
+						offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -692,26 +698,26 @@ public class ClientProxy extends CommonProxy {
 	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
 		Entity entity = event.getEntity();
 		if (entity instanceof Player player) {
-			ItemStack mainHandItem = player.getMainHandItem();
-			ItemStack offhandItem = player.getOffhandItem();
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
 			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-			if (mainHandItem.getItem() instanceof AxeItem || mainHandItem.getItem() instanceof HoeItem || mainHandItem.getItem() instanceof ShovelItem || mainHandItem.getItem() instanceof FlintAndSteelItem) {
-				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
-					if (offhandItem.getItem().equals(totem)) {
+			if (mainHand.getItem() instanceof AxeItem || mainHand.getItem() instanceof HoeItem || mainHand.getItem() instanceof ShovelItem || mainHand.getItem() instanceof FlintAndSteelItem) {
+				if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
+					if (offHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
-						offhandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
+						offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
 			}
 
-			if (offhandItem.getItem() instanceof AxeItem || offhandItem.getItem() instanceof HoeItem || offhandItem.getItem() instanceof ShovelItem || offhandItem.getItem() instanceof FlintAndSteelItem) {
-				if (offhandItem.getDamageValue() >= (offhandItem.getMaxDamage() * 0.9)) {
-					if (mainHandItem.getItem().equals(totem)) {
+			if (offHand.getItem() instanceof AxeItem || offHand.getItem() instanceof HoeItem || offHand.getItem() instanceof ShovelItem || offHand.getItem() instanceof FlintAndSteelItem) {
+				if (offHand.getDamageValue() >= (offHand.getMaxDamage() * 0.9)) {
+					if (mainHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
-						mainHandItem.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						offHand.setDamageValue((int) (offHand.getItem().getMaxDamage(offHand) * 0.1));
+						mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -724,19 +730,19 @@ public class ClientProxy extends CommonProxy {
 		Player player = event.player;
 		if (player.level.dimension() == IcariaDimensions.ICARIA) {
 			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
-				ItemStack stack = player.getInventory().getItem(slot);
-				if (stack.getItem().equals(Items.TORCH)) {
-					int size = stack.getCount();
-					player.getInventory().removeItem(stack);
+				ItemStack itemStack = player.getInventory().getItem(slot);
+				if (itemStack.getItem().equals(Items.TORCH)) {
+					int size = itemStack.getCount();
+					player.getInventory().removeItem(itemStack);
 					player.getInventory().add(slot, new ItemStack(IcariaItems.DIM_TORCH.get(), size));
 				}
 			}
 		} else {
 			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
-				ItemStack stack = player.getInventory().getItem(slot);
-				if (stack.getItem().equals(IcariaItems.DIM_TORCH.get())) {
-					int size = stack.getCount();
-					player.getInventory().removeItem(stack);
+				ItemStack itemStack = player.getInventory().getItem(slot);
+				if (itemStack.getItem().equals(IcariaItems.DIM_TORCH.get())) {
+					int size = itemStack.getCount();
+					player.getInventory().removeItem(itemStack);
 					player.getInventory().add(slot, new ItemStack(Items.TORCH, size));
 				}
 			}

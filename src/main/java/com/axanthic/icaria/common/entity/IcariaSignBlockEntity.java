@@ -11,8 +11,8 @@ import net.minecraft.world.level.block.state.BlockState;
 @MethodsReturnNonnullByDefault
 
 public class IcariaSignBlockEntity extends SignBlockEntity {
-	public IcariaSignBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
-		super(pWorldPosition, pBlockState);
+	public IcariaSignBlockEntity(BlockPos pPos, BlockState pBlockState) {
+		super(pPos, pBlockState);
 	}
 
 	@Override

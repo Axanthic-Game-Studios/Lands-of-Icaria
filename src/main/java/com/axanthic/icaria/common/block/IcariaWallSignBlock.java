@@ -47,14 +47,14 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 		this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, Boolean.FALSE).setValue(FACING, Direction.NORTH).setValue(FACE, AttachFace.WALL));
 	}
 
-	public static boolean canAttach(LevelReader pReader, BlockPos pPos, Direction pDirection) {
+	public boolean canAttach(LevelReader pReader, BlockPos pPos, Direction pDirection) {
 		BlockPos blockpos = pPos.relative(pDirection);
 		return pReader.getBlockState(blockpos).isFaceSturdy(pReader, blockpos, pDirection.getOpposite());
 	}
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		return canAttach(pLevel, pPos, getConnectedDirection(pState).getOpposite());
+		return this.canAttach(pLevel, pPos, this.getConnectedDirection(pState).getOpposite());
 	}
 
 	@Override
@@ -69,16 +69,16 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		for(Direction direction : pContext.getNearestLookingDirections()) {
-			BlockState blockstate;
+		for (Direction direction : pContext.getNearestLookingDirections()) {
+			BlockState blockState;
 			if (direction.getAxis() == Direction.Axis.Y) {
-				blockstate = this.defaultBlockState().setValue(FACE, direction == Direction.UP ? AttachFace.CEILING : AttachFace.FLOOR).setValue(FACING, pContext.getHorizontalDirection()).setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
+				blockState = this.defaultBlockState().setValue(FACE, direction == Direction.UP ? AttachFace.CEILING : AttachFace.FLOOR).setValue(FACING, pContext.getHorizontalDirection()).setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
 			} else {
-				blockstate = this.defaultBlockState().setValue(FACE, AttachFace.WALL).setValue(FACING, direction.getOpposite()).setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
+				blockState = this.defaultBlockState().setValue(FACE, AttachFace.WALL).setValue(FACING, direction.getOpposite()).setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
 			}
 
-			if (blockstate.canSurvive(pContext.getLevel(), pContext.getClickedPos())) {
-				return blockstate;
+			if (blockState.canSurvive(pContext.getLevel(), pContext.getClickedPos())) {
+				return blockState;
 			}
 		}
 
@@ -87,7 +87,7 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 
 	@Override
 	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-		return getConnectedDirection(pState).getOpposite() == pFacing && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+		return this.getConnectedDirection(pState).getOpposite() == pFacing && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
 	}
 
 	public Direction getConnectedDirection(BlockState pState) {

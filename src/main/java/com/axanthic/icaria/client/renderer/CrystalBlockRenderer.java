@@ -15,20 +15,18 @@ import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
 
-@OnlyIn(Dist.CLIENT)
 public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEntity> {
-	public boolean RENDER_RAYS = IcariaConfig.RENDER_RAYS.get();
-	public float HALF_SQRT_3 = (float)(Math.sqrt(3.0D) / 2.0D);
+	public static final boolean RENDER_RAYS = IcariaConfig.RENDER_RAYS.get();
+
+	public static final float HALF_SQRT_3 = Mth.sqrt(3.0F) / 2.0F;
 
 	public static final RenderStateShard.ShaderStateShard LIGHTNING_SHADER = new RenderStateShard.ShaderStateShard(GameRenderer::getRendertypeLightningShader);
 
@@ -63,9 +61,7 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 	public void render(CrystalBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
 		if (RENDER_RAYS) {
 			Matrix4f matrix4f = pPoseStack.last().pose();
-
 			RandomSource randomSource = RandomSource.create(432L);
-
 			VertexConsumer vertexConsumer = pBufferSource.getBuffer(ADDITIVE_LIGHTNING);
 
 			double x = pBlockEntity.x;
@@ -83,20 +79,20 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 
 			pPoseStack.translate(x, y, z);
 
-			for (int i = 0; (float)i < 96; ++i) {
+			for (int i = 0; i < 96; ++i) {
 				pPoseStack.mulPose(Vector3f.XP.rotationDegrees(randomSource.nextFloat() * 360.0F));
 				pPoseStack.mulPose(Vector3f.YP.rotationDegrees(randomSource.nextFloat() * 360.0F));
 				pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(randomSource.nextFloat() * 360.0F));
 
-				vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
-				vertexB(vertexConsumer, matrix4f, length, width);
-				vertexC(vertexConsumer, matrix4f, length, width);
-				vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
-				vertexC(vertexConsumer, matrix4f, length, width);
-				vertexD(vertexConsumer, matrix4f, length, width);
-				vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
-				vertexD(vertexConsumer, matrix4f, length, width);
-				vertexB(vertexConsumer, matrix4f, length, width);
+				this.vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
+				this.vertexB(vertexConsumer, matrix4f, length, width);
+				this.vertexC(vertexConsumer, matrix4f, length, width);
+				this.vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
+				this.vertexC(vertexConsumer, matrix4f, length, width);
+				this.vertexD(vertexConsumer, matrix4f, length, width);
+				this.vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
+				this.vertexD(vertexConsumer, matrix4f, length, width);
+				this.vertexB(vertexConsumer, matrix4f, length, width);
 			}
 		}
 	}

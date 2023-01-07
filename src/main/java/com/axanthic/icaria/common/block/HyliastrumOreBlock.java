@@ -30,8 +30,8 @@ public class HyliastrumOreBlock extends Block {
 		if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS) && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, pStack) == 0) {
 			HyliasterEntity entity = IcariaEntities.HYLIASTER.get().create(pLevel);
 			if (entity != null) {
-				entity.moveTo((double)pPos.getX() + 0.5D, pPos.getY(), (double)pPos.getZ() + 0.5D, 0.0F, 0.0F);
-				entity.setSize(4, true);
+				entity.moveTo(pPos.getX() + 0.5D, pPos.getY(), pPos.getZ() + 0.5D, 0.0F, 0.0F);
+				entity.setTick(48000);
 				entity.spawnAnim();
 				pLevel.addFreshEntity(entity);
 				pLevel.playSound(null, pPos, SoundEvents.SLIME_SQUISH, SoundSource.NEUTRAL, 1.0F, 1.0F);

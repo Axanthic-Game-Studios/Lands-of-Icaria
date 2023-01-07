@@ -58,7 +58,7 @@ public class StrawberryCandleCakeBlock extends Block {
 	}
 
 	public boolean candleHit(BlockHitResult pHit) {
-		return pHit.getLocation().y - (double)pHit.getBlockPos().getY() > 0.5D;
+		return pHit.getLocation().y - pHit.getBlockPos().getY() > 0.5D;
 	}
 
 	@Override
@@ -96,7 +96,7 @@ public class StrawberryCandleCakeBlock extends Block {
 	@Override
 	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (pState.getValue(LIT)) {
-			this.getParticleOffsets().forEach((pVec3) -> addParticlesAndSound(pLevel, pVec3.add(pPos.getX(), pPos.getY(), pPos.getZ()), pRandom));
+			this.getParticleOffsets().forEach((pVec3) -> this.addParticlesAndSound(pLevel, pVec3.add(pPos.getX(), pPos.getY(), pPos.getZ()), pRandom));
 		}
 	}
 
@@ -110,28 +110,24 @@ public class StrawberryCandleCakeBlock extends Block {
 	}
 
 	public void extinguish(Player pPlayer, BlockState pState, LevelAccessor pLevel, BlockPos pPos) {
-		setLit(pLevel, pState, pPos, false);
+		this.setLit(pLevel, pState, pPos, false);
 		if (pState.getBlock() instanceof StrawberryCandleCakeBlock) {
-			((StrawberryCandleCakeBlock)pState.getBlock()).getParticleOffsets().forEach((pVec3) -> pLevel.addParticle(ParticleTypes.SMOKE, (double)pPos.getX() + pVec3.x(), (double)pPos.getY() + pVec3.y(), (double)pPos.getZ() + pVec3.z(), 0.0D, 0.1F, 0.0D));
+			((StrawberryCandleCakeBlock) pState.getBlock()).getParticleOffsets().forEach((pVec3) -> pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + pVec3.x(), pPos.getY() + pVec3.y(), pPos.getZ() + pVec3.z(), 0.0D, 0.1F, 0.0D));
 		}
 
 		pLevel.playSound(null, pPos, SoundEvents.CANDLE_EXTINGUISH, SoundSource.BLOCKS, 1.0F, 1.0F);
 		pLevel.gameEvent(pPlayer, GameEvent.BLOCK_CHANGE, pPos);
 	}
 
-	public void setLit(LevelAccessor pLevel, BlockState pState, BlockPos pPos, boolean pLit) {
-		pLevel.setBlock(pPos, pState.setValue(LIT, pLit), 11);
-	}
-
-	public Iterable<Vec3> getParticleOffsets() {
-		return PARTICLE_OFFSETS;
-	}
-
 	@Override
 	public void onProjectileHit(Level pLevel, BlockState pState, BlockHitResult pHit, Projectile pProjectile) {
 		if (!pLevel.isClientSide && pProjectile.isOnFire() && this.canBeLit(pState)) {
-			setLit(pLevel, pState, pHit.getBlockPos(), true);
+			this.setLit(pLevel, pState, pHit.getBlockPos(), true);
 		}
+	}
+
+	public void setLit(LevelAccessor pLevel, BlockState pState, BlockPos pPos, boolean pLit) {
+		pLevel.setBlock(pPos, pState.setValue(LIT, pLit), 11);
 	}
 
 	public static BlockState byCandle(Block pCandleBlock) {
@@ -139,49 +135,51 @@ public class StrawberryCandleCakeBlock extends Block {
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-		return pFacing == Direction.DOWN && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pNeighborPos);
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		return pDirection == Direction.DOWN && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 	}
 
 	@Override
 	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-		ItemStack stack = pPlayer.getItemInHand(pHand);
-		if (!stack.is(Items.FLINT_AND_STEEL) && !stack.is(Items.FIRE_CHARGE)) {
-			if (candleHit(pHit) && stack.isEmpty() && pState.getValue(LIT)) {
-				extinguish(pPlayer, pState, pLevel, pPos);
+		ItemStack itemStack = pPlayer.getItemInHand(pHand);
+		if (!itemStack.is(Items.FLINT_AND_STEEL) && !itemStack.is(Items.FIRE_CHARGE)) {
+			if (this.candleHit(pHit) && itemStack.isEmpty() && pState.getValue(LIT)) {
+				this.extinguish(pPlayer, pState, pLevel, pPos);
 				return InteractionResult.sidedSuccess(pLevel.isClientSide);
 			} else {
-				InteractionResult result = StrawberryCakeBlock.eat(pLevel, pPos, IcariaBlocks.STRAWBERRY_CAKE.get().defaultBlockState(), pPlayer);
-				if (result.consumesAction()) {
+				InteractionResult interactionResult = StrawberryCakeBlock.eat(pLevel, pPos, IcariaBlocks.STRAWBERRY_CAKE.get().defaultBlockState(), pPlayer);
+				if (interactionResult.consumesAction()) {
 					dropResources(pState, pLevel, pPos);
 				}
 
-				return result;
+				return interactionResult;
 			}
 		} else {
-			if (stack.is(Items.FLINT_AND_STEEL)) {
+			if (itemStack.is(Items.FLINT_AND_STEEL)) {
 				if (!pState.getValue(LIT)) {
 					pLevel.playSound(null, pPos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 				} else {
 					return InteractionResult.PASS;
 				}
+
 				if (!pLevel.isClientSide) {
 					if (!pPlayer.isCreative()) {
-						stack.hurtAndBreak(1, pPlayer, (playerUsing) -> playerUsing.broadcastBreakEvent(pHand));
+						itemStack.hurtAndBreak(1, pPlayer, (playerUsing) -> playerUsing.broadcastBreakEvent(pHand));
 					}
 				}
 			}
 
-			if (stack.is(Items.FIRE_CHARGE)) {
+			if (itemStack.is(Items.FIRE_CHARGE)) {
 				if (!pState.getValue(LIT)) {
 					pLevel.playSound(null, pPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 				} else {
 					return InteractionResult.PASS;
 				}
+
 				if (!pLevel.isClientSide) {
 					pLevel.setBlock(pPos, IcariaBlocks.FARMLAND_FERTILIZED.get().defaultBlockState(), 0);
 					if (!pPlayer.isCreative()) {
-						stack.shrink(1);
+						itemStack.shrink(1);
 					}
 				}
 			}
@@ -194,6 +192,10 @@ public class StrawberryCandleCakeBlock extends Block {
 	@Override
 	public ItemStack getCloneItemStack(BlockGetter pLevel, BlockPos pPos, BlockState pState) {
 		return new ItemStack(IcariaBlocks.STRAWBERRY_CAKE.get());
+	}
+
+	public Iterable<Vec3> getParticleOffsets() {
+		return PARTICLE_OFFSETS;
 	}
 
 	@Override

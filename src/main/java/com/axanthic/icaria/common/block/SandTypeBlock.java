@@ -22,9 +22,9 @@ public class SandTypeBlock extends Block {
 	}
 
 	@Override
-	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pFacing, IPlantable pPlantable) {
-		PlantType type = pPlantable.getPlantType(pLevel, pPos.relative(pFacing));
-		if (type == PlantType.BEACH) {
+	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pDirection, IPlantable pPlantable) {
+		PlantType plantType = pPlantable.getPlantType(pLevel, pPos.relative(pDirection));
+		if (plantType == PlantType.BEACH) {
 			boolean water = false;
 			for (Direction direction : Direction.Plane.HORIZONTAL) {
 				BlockState blockState = pLevel.getBlockState(pPos.relative(direction));
@@ -35,9 +35,10 @@ public class SandTypeBlock extends Block {
 					break;
 				}
 			}
+
 			return water;
 		} else {
-			return type == PlantType.CAVE || type == PlantType.DESERT;
+			return plantType == PlantType.CAVE || plantType == PlantType.DESERT;
 		}
 	}
 }

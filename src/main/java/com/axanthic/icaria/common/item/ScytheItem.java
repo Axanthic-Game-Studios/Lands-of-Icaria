@@ -36,9 +36,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ScytheItem extends HoeItem {
-	public TagKey<Block> blocks = IcariaBlockTags.MINEABLE_WITH_SCYTHE;
+	public static final TagKey<Block> BLOCKS = IcariaBlockTags.MINEABLE_WITH_SCYTHE;
 	public Tier equivalentTier;
-	public Set<ToolAction> SCYTHE_ACTIONS = Stream.of(ToolActions.HOE_TILL, ToolActions.SWORD_SWEEP).collect(Collectors.toCollection(Sets::newIdentityHashSet));
+	public static final Set<ToolAction> SCYTHE_ACTIONS = Stream.of(ToolActions.HOE_TILL, ToolActions.SWORD_SWEEP).collect(Collectors.toCollection(Sets::newIdentityHashSet));
 
 	public ScytheItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
 		super(pTier, pDamage, pAttackSpeed, pProperties);
@@ -56,28 +56,28 @@ public class ScytheItem extends HoeItem {
 	}
 
 	@Override
-	public boolean hurtEnemy(ItemStack pStack, LivingEntity pEntity, LivingEntity pPlayer) {
-		pStack.hurtAndBreak(1, pPlayer, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+	public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
+		pStack.hurtAndBreak(1, pAttacker, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		return true;
 	}
 
 	@Override
 	public boolean isCorrectToolForDrops(BlockState pState) {
-		return pState.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, pState);
+		return pState.is(BLOCKS) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pState);
 	}
 
 	@Override
 	public boolean isCorrectToolForDrops(ItemStack pStack, BlockState pState) {
-		return pState.is(blocks) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : equivalentTier, pState);
+		return pState.is(BLOCKS) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pState);
 	}
 
 	@Override
 	public boolean onBlockStartBreak(ItemStack pStack, BlockPos pPos, Player pPlayer) {
 		Level level = pPlayer.getLevel();
-		if (isCorrectToolForDrops(level.getBlockState(pPos))) {
-			for (BlockPos pos : BlockPos.withinManhattan(pPos, 1, 1, 1)) {
-				if (!pos.equals(pPos) && isCorrectToolForDrops(level.getBlockState(pos)))
-					level.destroyBlock(pos, true, pPlayer);
+		if (this.isCorrectToolForDrops(level.getBlockState(pPos))) {
+			for (BlockPos blockPos : BlockPos.withinManhattan(pPos, 1, 1, 1)) {
+				if (!blockPos.equals(pPos) && this.isCorrectToolForDrops(level.getBlockState(blockPos)))
+					level.destroyBlock(blockPos, true, pPlayer);
 			}
 		}
 

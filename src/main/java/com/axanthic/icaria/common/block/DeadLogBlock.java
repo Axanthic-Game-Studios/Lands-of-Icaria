@@ -63,7 +63,7 @@ public class DeadLogBlock extends RotatedPillarBlock implements SimpleWaterlogge
 	@Override
 	public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		Axis axis = pState.getValue(AXIS);
-		if(axis.isHorizontal()) {
+		if (axis.isHorizontal()) {
 			return Shapes.block();
 		}
 

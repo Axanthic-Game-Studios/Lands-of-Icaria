@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
+
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
@@ -26,8 +27,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaWallSkullBlock extends IcariaAbstractSkullBlock {
-    public static DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static Map<Direction, VoxelShape> SHAPES = Maps.newEnumMap(ImmutableMap.of(Direction.NORTH, Block.box(4.0D, 4.0D, 8.0D, 12.0D, 12.0D, 16.0D), Direction.SOUTH, Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 8.0D), Direction.EAST, Block.box(0.0D, 4.0D, 4.0D, 8.0D, 12.0D, 12.0D), Direction.WEST, Block.box(8.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D)));
+    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final Map<Direction, VoxelShape> SHAPES = Maps.newEnumMap(ImmutableMap.of(Direction.NORTH, Block.box(4.0D, 4.0D, 8.0D, 12.0D, 12.0D, 16.0D), Direction.SOUTH, Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 8.0D), Direction.EAST, Block.box(0.0D, 4.0D, 4.0D, 8.0D, 12.0D, 12.0D), Direction.WEST, Block.box(8.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D)));
 
     public IcariaWallSkullBlock(float pOffset, IcariaSkullBlockType pType, Properties pProperties) {
         super(pOffset, pType, pProperties);
@@ -42,14 +43,13 @@ public class IcariaWallSkullBlock extends IcariaAbstractSkullBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         Level level = pContext.getLevel();
-        BlockPos pos = pContext.getClickedPos();
-
-        for(Direction direction : pContext.getNearestLookingDirections()) {
+        BlockPos blockPos = pContext.getClickedPos();
+        for (Direction direction : pContext.getNearestLookingDirections()) {
             if (!direction.getAxis().isHorizontal()) {
                 continue;
             }
 
-            if (!level.getBlockState(pos.relative(direction)).canBeReplaced(pContext)) {
+            if (!level.getBlockState(blockPos.relative(direction)).canBeReplaced(pContext)) {
                 return this.defaultBlockState().setValue(FACING, direction.getOpposite());
             }
         }

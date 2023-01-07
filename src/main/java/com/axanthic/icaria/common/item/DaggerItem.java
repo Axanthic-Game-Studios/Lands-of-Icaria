@@ -26,10 +26,7 @@ public class DaggerItem extends SwordItem {
     public float damage;
     public float speed;
 
-    public Multimap<Attribute, AttributeModifier> defaultModifiers;
-    public UUID BASE_ATTACK_RANGE_UUID = UUID.fromString("971104f5-17b7-48d9-b16c-1109f0536884");
-
-    public final Lazy<Multimap<Attribute, AttributeModifier>> LAZY = Lazy.of(() -> {
+    public Lazy<Multimap<Attribute, AttributeModifier>> lazy = Lazy.of(() -> {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", this.damage, AttributeModifier.Operation.ADDITION));
         builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", this.speed, AttributeModifier.Operation.ADDITION));
@@ -40,15 +37,18 @@ public class DaggerItem extends SwordItem {
         return builder.build();
     });
 
+    public Multimap<Attribute, AttributeModifier> defaultModifiers;
+    public static final UUID BASE_ATTACK_RANGE_UUID = UUID.fromString("971104f5-17b7-48d9-b16c-1109f0536884");
+
     public DaggerItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
         super(pTier, pDamage, pAttackSpeed, pProperties);
         this.damage = pDamage + pTier.attackDamageBonus;
         this.speed = pAttackSpeed;
-        defaultModifiers = LAZY.get();
+        this.defaultModifiers = this.lazy.get();
     }
 
     @Override
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pSlot) {
-        return pSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pSlot);
+    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
+        return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
     }
 }

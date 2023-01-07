@@ -21,9 +21,9 @@ public class IcariaSignItem extends SignItem {
 
 	@Override
 	public BlockState getPlacementState(BlockPlaceContext pContext) {
-		Player player = pContext.getPlayer();
-		BlockState wallBlock = this.wallBlock.getStateForPlacement(pContext);
 		BlockState standingBlock = this.standingBlock.getStateForPlacement(pContext);
+		BlockState wallBlock = this.wallBlock.getStateForPlacement(pContext);
+		Player player = pContext.getPlayer();
 		if (pContext.getClickedFace() != Direction.UP) {
 			return wallBlock;
 		}

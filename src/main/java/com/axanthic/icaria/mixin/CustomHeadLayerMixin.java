@@ -31,31 +31,27 @@ import javax.annotation.Nonnull;
 
 @Mixin(CustomHeadLayer.class)
 public class CustomHeadLayerMixin<T extends LivingEntity, M extends EntityModel<T> & HeadedModel> {
-    private EntityModelSet modelSet;
-    private Map<IcariaSkullBlockType, SkullModel> modelByType;
+    private EntityModelSet set;
+    private Map<IcariaSkullBlockType, SkullModel> map;
 
     @Inject(at = @At(value = "TAIL"), method = "<init>(Lnet/minecraft/client/renderer/entity/RenderLayerParent;Lnet/minecraft/client/model/geom/EntityModelSet;FFFLnet/minecraft/client/renderer/ItemInHandRenderer;)V")
-    private void initMixin(RenderLayerParent<T, M> renderLayerParent, EntityModelSet modelSet, float scaleX, float scaleY, float scaleZ, ItemInHandRenderer renderer, CallbackInfo ci) {
-        this.modelSet = modelSet;
+    private void initMixin(RenderLayerParent<T, M> pRenderer, EntityModelSet pModelSet, float pScaleX, float pScaleY, float pScaleZ, ItemInHandRenderer pItemInHandRenderer, CallbackInfo ci) {
+        this.set = pModelSet;
     }
 
     @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/layers/CustomHeadLayer;translateToHead(Lcom/mojang/blaze3d/vertex/PoseStack;Z)V", shift = At.Shift.BEFORE), method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/LivingEntity;FFFFFF)V", cancellable = true)
-    private void renderHeadMixin(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, @Nonnull T entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
-        ItemStack stack = entity.getItemBySlot(EquipmentSlot.HEAD);
+    private void renderHeadMixin(PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight, @Nonnull T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch, CallbackInfo ci) {
+        ItemStack itemStack = pLivingEntity.getItemBySlot(EquipmentSlot.HEAD);
 
-        if (modelByType == null) {
-            modelByType = IcariaSkullBlockRenderer.createSkullRenderers(modelSet);
+        if (this.map == null) {
+            this.map = IcariaSkullBlockRenderer.createRenderers(this.set);
         }
 
-        if (stack.getItem() instanceof IcariaSkullItem skullItem) {
-            poseStack.scale(1.1875F, -1.1875F, -1.1875F);
-
-            poseStack.translate(-0.5D, 0.0D, -0.5D);
-
-            IcariaSkullBlockRenderer.renderSkull(null, 180.0F, poseStack, bufferSource, packedLight, modelByType, skullItem.getBlock());
-
-            poseStack.popPose();
-
+        if (itemStack.getItem() instanceof IcariaSkullItem skullItem) {
+            pMatrixStack.scale(1.1875F, -1.1875F, -1.1875F);
+            pMatrixStack.translate(-0.5D, 0.0D, -0.5D);
+            IcariaSkullBlockRenderer.renderSkull(null, 180.0F, pMatrixStack, pBuffer, pPackedLight, this.map, skullItem.getBlock());
+            pMatrixStack.popPose();
             ci.cancel();
         }
     }

@@ -9,16 +9,13 @@ import com.google.common.collect.Multimap;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -31,7 +28,6 @@ import net.minecraft.world.item.Vanishable;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -40,16 +36,18 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class BidentItem extends TieredItem implements Vanishable {
-	public int THROW_THRESHOLD_TIME = 10;
-	public float BASE_DAMAGE = 3.5F;
-	public float SHOOT_POWER = 1.5F;
+	public float attackDamage;
+	public float baseDamage = 3.5F;
+	public float shootPower = 1.5F;
+
+	public int throwThresholdTime = 10;
+
 	public Multimap<Attribute, AttributeModifier> defaultModifiers;
-	public Float attackDamage;
 
 	public BidentItem(IcariaTier pTier, Properties pProperties) {
 		super(pTier, pProperties);
+		this.attackDamage = this.baseDamage + pTier.getAttackDamageBonus();
 		Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-		this.attackDamage = BASE_DAMAGE + pTier.getAttackDamageBonus();
 		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", this.attackDamage, AttributeModifier.Operation.ADDITION));
 		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -2.5D, AttributeModifier.Operation.ADDITION));
 		this.defaultModifiers = builder.build();
@@ -61,16 +59,17 @@ public class BidentItem extends TieredItem implements Vanishable {
 	}
 
 	@Override
-	public boolean hurtEnemy(ItemStack pStack, LivingEntity pEntity, LivingEntity pPlayer) {
-		pStack.hurtAndBreak(1, pPlayer, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+	public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
+		pStack.hurtAndBreak(1, pAttacker, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		return true;
 	}
 
 	@Override
-	public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pPlayer) {
-		if ((double)pState.getDestroySpeed(pLevel, pPos) != 0.0D) {
-			pStack.hurtAndBreak(2, pPlayer, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+	public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pMiningEntity) {
+		if (pState.getDestroySpeed(pLevel, pPos) != 0.0D) {
+			pStack.hurtAndBreak(2, pMiningEntity, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		}
+
 		return true;
 	}
 
@@ -83,56 +82,19 @@ public class BidentItem extends TieredItem implements Vanishable {
 	public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
 		if (pLivingEntity instanceof Player player) {
 			int i = this.getUseDuration(pStack) - pTimeCharged;
-			if (i >= THROW_THRESHOLD_TIME) {
-				int j = EnchantmentHelper.getRiptide(pStack);
-				if (j <= 0 || player.isInWaterOrRain()) {
-					if (!pLevel.isClientSide) {
-						pStack.hurtAndBreak(1, player, (p_43388_) -> p_43388_.broadcastBreakEvent(pLivingEntity.getUsedItemHand()));
-						if (j == 0) {
-							BidentEntity bidentEntity = new BidentEntity(pLevel, player, pStack);
-							bidentEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, SHOOT_POWER + (float)j * 0.5F, 1.0F);
-							if (player.getAbilities().instabuild) {
-								bidentEntity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
-							}
-
-							pLevel.addFreshEntity(bidentEntity);
-							pLevel.playSound(null, bidentEntity, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
-							if (!player.getAbilities().instabuild) {
-								player.getInventory().removeItem(pStack);
-							}
-						}
+			if (i >= this.throwThresholdTime) {
+				player.awardStat(Stats.ITEM_USED.get(this));
+				if (!pLevel.isClientSide) {
+					pStack.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(pLivingEntity.getUsedItemHand()));
+					BidentEntity bidentEntity = new BidentEntity(pLevel, player, pStack);
+					bidentEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, this.shootPower, 1.0F);
+					pLevel.addFreshEntity(bidentEntity);
+					pLevel.playSound(null, bidentEntity, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+					if (player.getAbilities().instabuild) {
+						bidentEntity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+					} else {
+						player.getInventory().removeItem(pStack);
 					}
-
-					player.awardStat(Stats.ITEM_USED.get(this));
-					if (j > 0) {
-						float f7 = player.getYRot();
-						float f1 = player.getXRot();
-						float f2 = -Mth.sin(f7 * ((float)Math.PI / 180F)) * Mth.cos(f1 * ((float)Math.PI / 180F));
-						float f3 = -Mth.sin(f1 * ((float)Math.PI / 180F));
-						float f4 = Mth.cos(f7 * ((float)Math.PI / 180F)) * Mth.cos(f1 * ((float)Math.PI / 180F));
-						float f5 = Mth.sqrt(f2 * f2 + f3 * f3 + f4 * f4);
-						float f6 = 3.0F * ((1.0F + (float)j) / 4.0F);
-						f2 *= f6 / f5;
-						f3 *= f6 / f5;
-						f4 *= f6 / f5;
-						player.push(f2, f3, f4);
-						player.startAutoSpinAttack(20);
-						if (player.isOnGround()) {
-							player.move(MoverType.SELF, new Vec3(0.0D, 1.1999999F, 0.0D));
-						}
-
-						SoundEvent soundevent;
-						if (j >= 3) {
-							soundevent = SoundEvents.TRIDENT_RIPTIDE_3;
-						} else if (j == 2) {
-							soundevent = SoundEvents.TRIDENT_RIPTIDE_2;
-						} else {
-							soundevent = SoundEvents.TRIDENT_RIPTIDE_1;
-						}
-
-						pLevel.playSound(null, player, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
-					}
-
 				}
 			}
 		}
@@ -140,20 +102,20 @@ public class BidentItem extends TieredItem implements Vanishable {
 
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-		ItemStack stack = pPlayer.getItemInHand(pUsedHand);
-		if (stack.getDamageValue() >= stack.getMaxDamage() - 1) {
-			return InteractionResultHolder.fail(stack);
-		} else if (EnchantmentHelper.getRiptide(stack) > 0 && !pPlayer.isInWaterOrRain()) {
-			return InteractionResultHolder.fail(stack);
+		ItemStack itemStack = pPlayer.getItemInHand(pUsedHand);
+		if (itemStack.getDamageValue() >= itemStack.getMaxDamage() - 1) {
+			return InteractionResultHolder.fail(itemStack);
+		} else if (EnchantmentHelper.getRiptide(itemStack) > 0 && !pPlayer.isInWaterOrRain()) {
+			return InteractionResultHolder.fail(itemStack);
 		} else {
 			pPlayer.startUsingItem(pUsedHand);
-			return InteractionResultHolder.consume(stack);
+			return InteractionResultHolder.consume(itemStack);
 		}
 	}
 
 	@Override
-	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
-		return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
+	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pSlot) {
+		return pSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pSlot);
 	}
 
 	@Override

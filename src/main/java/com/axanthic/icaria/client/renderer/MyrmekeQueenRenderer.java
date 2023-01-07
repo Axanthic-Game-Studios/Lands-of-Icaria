@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.MyrmekeQueenCrystalLayer;
+import com.axanthic.icaria.client.layer.MyrmekeQueenRaysLayer;
 import com.axanthic.icaria.client.layer.MyrmekeQueenEmissiveLayer;
 import com.axanthic.icaria.client.model.MyrmekeQueenModel;
 import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
@@ -17,12 +17,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeQueenRenderer extends MobRenderer<MyrmekeQueenEntity, MyrmekeQueenModel> {
-    public static ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/myrmeke_queen.png");
+    public static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/myrmeke_queen.png");
 
     public MyrmekeQueenRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new MyrmekeQueenModel(pContext.bakeLayer(MyrmekeQueenModel.BODY_LAYER_LOCATION)), 0.75F);
         this.addLayer(new MyrmekeQueenEmissiveLayer(this));
-        this.addLayer(new MyrmekeQueenCrystalLayer(this, pContext.getModelSet()));
+        this.addLayer(new MyrmekeQueenRaysLayer(this, pContext.getModelSet()));
     }
 
     @Override

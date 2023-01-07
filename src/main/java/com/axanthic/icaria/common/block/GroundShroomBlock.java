@@ -48,7 +48,7 @@ public class GroundShroomBlock extends Block implements IPlantable {
 	}
 
 	@Override
-	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
 		return true;
 	}
 
@@ -56,8 +56,7 @@ public class GroundShroomBlock extends Block implements IPlantable {
 	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (pRandom.nextInt(25) == 0) {
 			int i = 5;
-
-			for(BlockPos posOne : BlockPos.betweenClosed(pPos.offset(-4, -1, -4), pPos.offset(4, 1, 4))) {
+			for (BlockPos posOne : BlockPos.betweenClosed(pPos.offset(-4, -1, -4), pPos.offset(4, 1, 4))) {
 				if (pLevel.getBlockState(posOne).is(this)) {
 					--i;
 					if (i <= 0) {
@@ -67,8 +66,7 @@ public class GroundShroomBlock extends Block implements IPlantable {
 			}
 
 			BlockPos posTwo = pPos.offset(pRandom.nextInt(3) - 1, pRandom.nextInt(2) - pRandom.nextInt(2), pRandom.nextInt(3) - 1);
-
-			for(int k = 0; k < 4; ++k) {
+			for (int k = 0; k < 4; ++k) {
 				if (pLevel.isEmptyBlock(posTwo) && pState.canSurvive(pLevel, posTwo)) {
 					pPos = posTwo;
 				}
@@ -83,17 +81,17 @@ public class GroundShroomBlock extends Block implements IPlantable {
 	}
 
 	@Override
-	public BlockState getPlant(BlockGetter level, BlockPos pos) {
-		return level.getBlockState(pos);
+	public BlockState getPlant(BlockGetter pLevel, BlockPos pPos) {
+		return pLevel.getBlockState(pPos);
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 	}
 
 	@Override
-	public PlantType getPlantType(BlockGetter world, BlockPos pos) {
+	public PlantType getPlantType(BlockGetter pLevel, BlockPos pPos) {
 		return PlantType.CAVE;
 	}
 

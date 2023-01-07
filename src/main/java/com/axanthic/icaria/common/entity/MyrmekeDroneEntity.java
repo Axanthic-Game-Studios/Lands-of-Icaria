@@ -1,14 +1,11 @@
 package com.axanthic.icaria.common.entity;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -17,9 +14,26 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeDroneEntity extends MyrmekeQueenEntity {
+    public AnimationState attackAnimationState = new AnimationState();
+
     public MyrmekeDroneEntity(EntityType<? extends Monster> pType, Level pLevel) {
         super(pType, pLevel);
         this.xpReward = 5;
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity pEntity) {
+        this.level.broadcastEntityEvent(this, (byte) 4);
+        return super.doHurtTarget(pEntity);
+    }
+
+    @Override
+    public void handleEntityEvent(byte pId) {
+        if (pId == 4) {
+            this.attackAnimationState.start(this.tickCount);
+        } else {
+            super.handleEntityEvent(pId);
+        }
     }
 
     @Override

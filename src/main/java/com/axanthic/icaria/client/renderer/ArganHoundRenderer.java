@@ -15,7 +15,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ArganHoundRenderer extends MobRenderer<ArganHoundEntity, ArganHoundModel> {
-    public static ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/argan_hound.png");
+    public static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/argan_hound.png");
 
     public ArganHoundRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new ArganHoundModel(pContext.bakeLayer(ArganHoundModel.LAYER_LOCATION)), 0.75F);

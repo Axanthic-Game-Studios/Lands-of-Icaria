@@ -7,10 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -29,13 +26,21 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ArganHoundEntity extends Monster {
+    public AnimationState attackAnimationState = new AnimationState();
+
     public ArganHoundEntity(EntityType<? extends Monster> pType, Level pLevel) {
         super(pType, pLevel);
         this.xpReward = 5;
     }
 
     @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
+    public boolean doHurtTarget(Entity pEntity) {
+        this.level.broadcastEntityEvent(this, (byte) 4);
+        return super.doHurtTarget(pEntity);
+    }
+
+    @Override
+    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
         return 0.75F;
     }
 
@@ -45,13 +50,24 @@ public class ArganHoundEntity extends Monster {
     }
 
     @Override
-    public void dropCustomDeathLoot(DamageSource pDamageSource, int i, boolean b) {
-        super.dropCustomDeathLoot(pDamageSource, i, b);
+    public void dropCustomDeathLoot(DamageSource pDamageSource, int pLooting, boolean pRecentlyHit) {
+        super.dropCustomDeathLoot(pDamageSource, pLooting, pRecentlyHit);
         if (pDamageSource.getEntity() instanceof Creeper creeper) {
-            if (creeper.isPowered() && creeper.canDropMobsSkull()) {
-                creeper.increaseDroppedSkulls();
-                this.spawnAtLocation(IcariaItems.ARGAN_HOUND_SKULL.get());
+            if (creeper.isPowered()) {
+                if (creeper.canDropMobsSkull()) {
+                    creeper.increaseDroppedSkulls();
+                    this.spawnAtLocation(IcariaItems.ARGAN_HOUND_SKULL.get());
+                }
             }
+        }
+    }
+
+    @Override
+    public void handleEntityEvent(byte pId) {
+        if (pId == 4) {
+            this.attackAnimationState.start(this.tickCount);
+        } else {
+            super.handleEntityEvent(pId);
         }
     }
 

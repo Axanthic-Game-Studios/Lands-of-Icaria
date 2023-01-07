@@ -14,24 +14,24 @@ public class IcariaConfig {
 	}
 
 	public static void registerClientConfigs() {
-		ForgeConfigSpec.Builder CLIENT = new ForgeConfigSpec.Builder();
-		CLIENT.comment("Render settings").push("renderSettings");
+		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+		builder.comment("Render settings").push("renderSettings");
 
-		RENDER_RAYS = CLIENT.comment("Default: true. Whether crystals and the Myrmeke queen should render rays.").define("renderRays", true);
+		RENDER_RAYS = builder.comment("Default: true. Whether crystals and the Myrmeke queen should render rays.").define("renderRays", true);
 
-		CLIENT.pop();
-		ModLoadingContext.get().registerConfig(Type.CLIENT, CLIENT.build());
+		builder.pop();
+		ModLoadingContext.get().registerConfig(Type.CLIENT, builder.build());
 	}
 
 	public static void registerCommonConfigs() {
-		ForgeConfigSpec.Builder COMMON = new ForgeConfigSpec.Builder();
+		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
-		ModLoadingContext.get().registerConfig(Type.COMMON, COMMON.build());
+		ModLoadingContext.get().registerConfig(Type.COMMON, builder.build());
 	}
 
 	public static void registerServerConfigs() {
-		ForgeConfigSpec.Builder SERVER = new ForgeConfigSpec.Builder();
+		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
-		ModLoadingContext.get().registerConfig(Type.SERVER, SERVER.build());
+		ModLoadingContext.get().registerConfig(Type.SERVER, builder.build());
 	}
 }

@@ -27,8 +27,8 @@ public class StrawberryCropBlock extends CropBlock {
 	}
 
 	@Override
-	public BlockState getPlant(BlockGetter level, BlockPos pos) {
-		return level.getBlockState(pos);
+	public BlockState getPlant(BlockGetter pLevel, BlockPos pPos) {
+		return pLevel.getBlockState(pPos);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class StrawberryCropBlock extends CropBlock {
 	}
 
 	@Override
-	public PlantType getPlantType(BlockGetter world, BlockPos pos) {
+	public PlantType getPlantType(BlockGetter pLevel, BlockPos pPos) {
 		return PlantType.CROP;
 	}
 

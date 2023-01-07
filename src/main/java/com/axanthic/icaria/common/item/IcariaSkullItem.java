@@ -9,8 +9,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.level.block.Block;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.common.util.NonNullLazy;
 
@@ -24,13 +22,11 @@ public class IcariaSkullItem extends StandingAndWallBlockItem {
     }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
     public void initializeClient(@Nonnull Consumer<IClientItemExtensions> pConsumer) {
         pConsumer.accept(new IClientItemExtensions() {
             public final NonNullLazy<BlockEntityWithoutLevelRenderer> renderer = NonNullLazy.of(() -> new IcariaSkullItemRenderer(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels()));
 
             @Override
-            @OnlyIn(Dist.CLIENT)
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
                 return this.renderer.get();
             }
@@ -38,7 +34,7 @@ public class IcariaSkullItem extends StandingAndWallBlockItem {
     }
 
     @Override
-    public EquipmentSlot getEquipmentSlot(ItemStack pItemStack) {
+    public EquipmentSlot getEquipmentSlot(ItemStack pStack) {
         return EquipmentSlot.HEAD;
     }
 }

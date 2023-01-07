@@ -24,36 +24,39 @@ public class IcariaItemModels extends ItemModelProvider {
 	@Override
 	public void registerModels() {
 		for (RegistryObject<? extends Item> registryObject : IcariaItems.BASIC_ITEMS) {
-			itemWithModel(registryObject, "item/generated");
+			this.itemWithModel(registryObject, "item/generated");
 		}
 
 		for (IcariaItems.ToolSet tools : IcariaItems.TOOLS) {
-			itemWithModel(tools.SWORD, "item/handheld");
-			itemWithModel(tools.DAGGER, "item/handheld");
-			itemWithModel(tools.SHOVEL, "item/handheld");
-			itemWithModel(tools.PICKAXE, "item/handheld");
-			itemWithModel(tools.AXE, "item/handheld");
-			itemWithModel(tools.SCYTHE, "item/handheld");
-			ResourceLocation id = tools.BIDENT.getId();
-			ItemModelBuilder throwingModel = singleTexture(id.getPath() + "_throwing", new ResourceLocation(IcariaInfo.MODID, "item/bident_throwing"), "layer0", new ResourceLocation(id.getNamespace(), "item/" + id.getPath()));
-			itemWithModel(tools.BIDENT, new ResourceLocation(IcariaInfo.MODID, "item/bident")).override().predicate(new ResourceLocation(IcariaInfo.MODID, "throwing"), 1.0F).model(throwingModel).end();
+			this.itemWithModel(tools.sword, "item/handheld");
+			this.itemWithModel(tools.dagger, "item/handheld");
+			this.itemWithModel(tools.shovel, "item/handheld");
+			this.itemWithModel(tools.pickaxe, "item/handheld");
+			this.itemWithModel(tools.axe, "item/handheld");
+			this.itemWithModel(tools.scythe, "item/handheld");
+
+			ResourceLocation id = tools.bident.getId();
+			ItemModelBuilder throwingModel = this.singleTexture(id.getPath() + "_throwing", new ResourceLocation(IcariaInfo.MODID, "item/bident_throwing"), "layer0", new ResourceLocation(id.getNamespace(), "item/" + id.getPath()));
+
+			this.itemWithModel(tools.bident, new ResourceLocation(IcariaInfo.MODID, "item/bident")).override().predicate(new ResourceLocation(IcariaInfo.MODID, "throwing"), 1.0F).model(throwingModel).end();
 		}
 
 		for (IcariaItems.ArmorSet armor : IcariaItems.ARMOR) {
-			itemWithModel(armor.HELMET, "item/generated");
-			itemWithModel(armor.CHESTPLATE, "item/generated");
-			itemWithModel(armor.LEGGINGS, "item/generated");
-			itemWithModel(armor.BOOTS, "item/generated");
+			this.itemWithModel(armor.helmet, "item/generated");
+			this.itemWithModel(armor.chestplate, "item/generated");
+			this.itemWithModel(armor.leggings, "item/generated");
+			this.itemWithModel(armor.boots, "item/generated");
 		}
 	}
 
 	public ItemModelBuilder itemWithModel(RegistryObject<? extends Item> registryObject, ResourceLocation resourceLocation) {
 		ResourceLocation id = registryObject.getId();
 		ResourceLocation textureLocation = new ResourceLocation(id.getNamespace(), "item/" + id.getPath());
-		return singleTexture(id.getPath(), resourceLocation, "layer0", textureLocation);
+
+		return this.singleTexture(id.getPath(), resourceLocation, "layer0", textureLocation);
 	}
 
 	public void itemWithModel(RegistryObject<? extends Item> registryObject, String model) {
-		itemWithModel(registryObject, new ResourceLocation(model));
+		this.itemWithModel(registryObject, new ResourceLocation(model));
 	}
 }

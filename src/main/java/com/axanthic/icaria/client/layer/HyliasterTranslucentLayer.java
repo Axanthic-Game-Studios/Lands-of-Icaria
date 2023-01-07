@@ -19,20 +19,20 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 
-public class HyliasterOuterLayer extends RenderLayer<HyliasterEntity, HyliasterModel<HyliasterEntity>> {
-    public final EntityModel<HyliasterEntity> model;
+public class HyliasterTranslucentLayer extends RenderLayer<HyliasterEntity, HyliasterModel> {
+    public EntityModel<HyliasterEntity> model;
 
-    public HyliasterOuterLayer(RenderLayerParent<HyliasterEntity, HyliasterModel<HyliasterEntity>> pRenderer, EntityModelSet pSet) {
+    public HyliasterTranslucentLayer(RenderLayerParent<HyliasterEntity, HyliasterModel> pRenderer, EntityModelSet pSet) {
         super(pRenderer);
-        this.model = new HyliasterModel<>(pSet.bakeLayer(HyliasterModel.OUTER_LAYER_LOCATION));
+        this.model = new HyliasterModel(pSet.bakeLayer(HyliasterModel.TRANSLUCENT_LAYER_LOCATION));
     }
 
     @Override
-    public void render(PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight, HyliasterEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+    public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, HyliasterEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        VertexConsumer vertexConsumer;
         Minecraft minecraft = Minecraft.getInstance();
         boolean flag = minecraft.shouldEntityAppearGlowing(pLivingEntity) && pLivingEntity.isInvisible();
         if (!pLivingEntity.isInvisible() || flag) {
-            VertexConsumer vertexConsumer;
             if (flag) {
                 vertexConsumer = pBuffer.getBuffer(RenderType.outline(this.getTextureLocation(pLivingEntity)));
             } else {
@@ -40,9 +40,9 @@ public class HyliasterOuterLayer extends RenderLayer<HyliasterEntity, HyliasterM
             }
 
             this.getParentModel().copyPropertiesTo(this.model);
-            this.model.prepareMobModel(pLivingEntity, pLimbSwing, pLimbSwingAmount, pPartialTicks);
+            this.model.prepareMobModel(pLivingEntity, pLimbSwing, pLimbSwingAmount, pPartialTick);
             this.model.setupAnim(pLivingEntity, pLimbSwing, pLimbSwingAmount, pAgeInTicks, pNetHeadYaw, pHeadPitch);
-            this.model.renderToBuffer(pMatrixStack, vertexConsumer, pPackedLight, LivingEntityRenderer.getOverlayCoords(pLivingEntity, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
+            this.model.renderToBuffer(pPoseStack, vertexConsumer, pPackedLight, LivingEntityRenderer.getOverlayCoords(pLivingEntity, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
         }
     }
 }

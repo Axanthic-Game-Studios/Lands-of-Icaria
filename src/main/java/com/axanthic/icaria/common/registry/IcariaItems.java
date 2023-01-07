@@ -557,7 +557,7 @@ public class IcariaItems {
 	public static final ArmorSet VANADIUMSTEEL_ARMOR = new ArmorSet(IcariaArmorMaterials.VANADIUMSTEEL);
 	public static final RegistryObject<Item> LAUREL_WREATH = registerBasic("laurel_wreath", () -> new ArmorItem(IcariaArmorMaterials.LAUREL, EquipmentSlot.HEAD, propertiesItems()));
 
-	public static final RegistryObject<Item> GREEK_FIRE_GRENADE = registerBasic("greek_fire_grenade", () -> new GreekFireGrenade(IcariaTiers.KASSITEROS, propertiesItems().stacksTo(1)));
+	public static final RegistryObject<Item> GREEK_FIRE_GRENADE = registerBasic("greek_fire_grenade", () -> new GreekFireGrenadeItem(IcariaTiers.KASSITEROS, propertiesItems().stacksTo(1)));
 
 	public static final RegistryObject<TotemItem> TOTEM_OF_PREVENTATION = registerBasic("totem_of_preventation", () -> new TotemItem(propertiesItems().durability(4)));
 	public static final RegistryObject<TotemItem> TOTEM_OF_STUFFING = registerBasic("totem_of_stuffing", () -> new TotemItem(propertiesItems().durability(4)));
@@ -625,6 +625,8 @@ public class IcariaItems {
 	public static final RegistryObject<Item> PHYSALIS_SEEDS = registerBasic("physalis_seeds", () -> new ItemNameBlockItem(IcariaBlocks.PHYSALIS_CROP.get(), propertiesItems()));
 
 	public static final RegistryObject<Item> AETERNAE_SPAWN_EGG = register("aeternae_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.AETERNAE, 0x40280B, 0x88581F, propertiesItems()));
+	public static final RegistryObject<Item> ARACHNE_SPAWN_EGG = register("arachne_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.ARACHNE, 0x362E28, 0x6A8C97, propertiesItems()));
+	public static final RegistryObject<Item> ARACHNE_DRONE_SPAWN_EGG = register("arachne_drone_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.ARACHNE_DRONE, 0x382F28, 0x6A8C97, propertiesItems()));
 	public static final RegistryObject<Item> ARGAN_HOUND_SPAWN_EGG = register("argan_hound_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.ARGAN_HOUND, 0x0B0D0E, 0x2C2F36, propertiesItems()));
 	public static final RegistryObject<Item> CATOBLEPAS_SPAWN_EGG = register("catoblepas_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.CATOBLEPAS, 0x1D170E, 0x373024, propertiesItems()));
 	public static final RegistryObject<Item> CERVER_SPAWN_EGG = register("cerver_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntities.CERVER, 0x0E0A05, 0x302C26, propertiesItems()));
@@ -639,145 +641,149 @@ public class IcariaItems {
 	public static final RegistryObject<Item> GRINDER = register("grinder", () -> new BlockItem(IcariaBlocks.GRINDER.get(), propertiesBlocks()));
 	public static final RegistryObject<Item> GRINDER_TEST_GEAR = registerBasic("grinder_test_gear", () -> new Item(propertiesItems()));
 	
-	private static Properties propertiesBlocks() {
-		return new Properties().tab(IcariaTabs.creativeBlocks);
+	public static Properties propertiesBlocks() {
+		return new Properties().tab(IcariaTabs.BLOCKS);
 	}
 
-	private static Properties propertiesFlora() {
-		return new Properties().tab(IcariaTabs.creativeFlora);
+	public static Properties propertiesFlora() {
+		return new Properties().tab(IcariaTabs.FLORA);
 	}
 
-	private static Properties propertiesItems() {
-		return new Properties().tab(IcariaTabs.creativeItems);
+	public static Properties propertiesItems() {
+		return new Properties().tab(IcariaTabs.ITEMS);
 	}
 
-	private static FoodProperties foodPropertiesVineSprout(int pNutrition, float pSaturation) {
+	public static FoodProperties foodPropertiesVineSprout(int pNutrition, float pSaturation) {
 		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).alwaysEat().build();
 	}
 
-	private static FoodProperties foodPropertiesEffect(int pNutrition, float pSaturation, MobEffect pEffect, int pDuration, int pAmplifier, float probability) {
+	public static FoodProperties foodPropertiesEffect(int pNutrition, float pSaturation, MobEffect pEffect, int pDuration, int pAmplifier, float probability) {
 		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).effect(() -> new MobEffectInstance(pEffect, pDuration, pAmplifier), probability).build();
 	}
 
-	private static FoodProperties foodProperties(int pNutrition, float pSaturation) {
+	public static FoodProperties foodProperties(int pNutrition, float pSaturation) {
 		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).build();
 	}
 
-	private static FoodProperties foodPropertiesMeatEffect(int pNutrition, float pSaturation, MobEffect pEffect, int pDuration, int pAmplifier, float probability) {
+	public static FoodProperties foodPropertiesMeatEffect(int pNutrition, float pSaturation, MobEffect pEffect, int pDuration, int pAmplifier, float probability) {
 		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).effect(() -> new MobEffectInstance(pEffect, pDuration, pAmplifier), probability).meat().build();
 	}
 
-	private static FoodProperties foodPropertiesMeat(int pNutrition, float pSaturation) {
+	public static FoodProperties foodPropertiesMeat(int pNutrition, float pSaturation) {
 		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).meat().build();
 	}
 
-	private static FoodProperties foodPropertiesSnullCream(int pNutrition, float pSaturation, MobEffect pEffectOne, int pDurationOne, int pAmplifierOne, float probabilityOne, MobEffect pEffectTwo, int pDurationTwo,int pAmplifierTwo, float probabilityTwo) {
+	public static FoodProperties foodPropertiesSnullCream(int pNutrition, float pSaturation, MobEffect pEffectOne, int pDurationOne, int pAmplifierOne, float probabilityOne, MobEffect pEffectTwo, int pDurationTwo,int pAmplifierTwo, float probabilityTwo) {
 		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).effect(() -> new MobEffectInstance(pEffectOne, pDurationOne, pAmplifierOne), probabilityOne).effect(() -> new MobEffectInstance(pEffectTwo, pDurationTwo, pAmplifierTwo), probabilityTwo).build();
 	}
 
-	private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> sup) {
+	public static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> sup) {
 		return ITEMS.register(name, sup);
 	}
 
-	private static <T extends Item> RegistryObject<T> registerBasic(final String name, final Supplier<T> sup) {
+	public static <T extends Item> RegistryObject<T> registerBasic(final String name, final Supplier<T> sup) {
 		RegistryObject<T> registryObject = register(name, sup);
 		BASIC_ITEMS.add(registryObject);
 		return registryObject;
 	}
 
 	public static class StoneDecoItemBlocks {
-		public final IcariaBlocks.StoneDecoBlocks block;
-		public final RegistryObject<Item> originalItem;
-		public final RegistryObject<Item> SLAB;
-		public final RegistryObject<Item> STAIRS;
-		public final RegistryObject<Item> WALL;
+		public IcariaBlocks.StoneDecoBlocks block;
+		public RegistryObject<Item> originalItem;
+		public RegistryObject<Item> slab;
+		public RegistryObject<Item> stairs;
+		public RegistryObject<Item> wall;
 
 		public StoneDecoItemBlocks(IcariaBlocks.StoneDecoBlocks block, RegistryObject<Item> originalItem) {
 			this.block = block;
 			this.originalItem = originalItem;
-			if (block.SLAB != null)
-				SLAB = register(block.name + "_slab", () -> new BlockItem(block.SLAB.get(), propertiesBlocks()));
+
+			if (block.slab != null)
+				this.slab = register(block.name + "_slab", () -> new BlockItem(block.slab.get(), propertiesBlocks()));
 			else
-				SLAB = null;
-			if (block.STAIRS != null)
-				STAIRS = register(block.name + "_stairs", () -> new BlockItem(block.STAIRS.get(), propertiesBlocks()));
+				this.slab = null;
+			if (block.stairs != null)
+				this.stairs = register(block.name + "_stairs", () -> new BlockItem(block.stairs.get(), propertiesBlocks()));
 			else
-				STAIRS = null;
-			if (block.WALL != null)
-				WALL = register(block.name + "_wall", () -> new BlockItem(block.WALL.get(), propertiesBlocks()));
+				this.stairs = null;
+			if (block.wall != null)
+				this.wall = register(block.name + "_wall", () -> new BlockItem(block.wall.get(), propertiesBlocks()));
 			else
-				WALL = null;
+				this.wall = null;
 			STONE_BLOCKS.add(this);
 		}
 	}
 
 	public static class WoodDecoItemBlocks {
-		public final IcariaBlocks.WoodDecoBlocks block;
-		public final RegistryObject<Item> originalItem;
-		public final RegistryObject<Item> SLAB;
-		public final RegistryObject<Item> STAIRS;
-		public final RegistryObject<Item> FENCE;
-		public final RegistryObject<Item> GATE;
+		public IcariaBlocks.WoodDecoBlocks block;
+		public RegistryObject<Item> originalItem;
+		public RegistryObject<Item> slab;
+		public RegistryObject<Item> stairs;
+		public RegistryObject<Item> fence;
+		public RegistryObject<Item> gate;
 
 		public WoodDecoItemBlocks(IcariaBlocks.WoodDecoBlocks block, RegistryObject<Item> originalItem) {
 			this.block = block;
 			this.originalItem = originalItem;
-			if (block.SLAB != null)
-				SLAB = register(block.name + "_slab", () -> new BlockItem(block.SLAB.get(), propertiesFlora()));
+
+			if (block.slab != null)
+				this.slab = register(block.name + "_slab", () -> new BlockItem(block.slab.get(), propertiesFlora()));
 			else
-				SLAB = null;
-			if (block.STAIRS != null)
-				STAIRS = register(block.name + "_stairs", () -> new BlockItem(block.STAIRS.get(), propertiesFlora()));
+				this.slab = null;
+			if (block.stairs != null)
+				this.stairs = register(block.name + "_stairs", () -> new BlockItem(block.stairs.get(), propertiesFlora()));
 			else
-				STAIRS = null;
-			if (block.FENCE != null)
-				FENCE = register(block.name + "_fence", () -> new FuelBlockItem(block.FENCE.get(), propertiesFlora(), 300));
+				this.stairs = null;
+			if (block.fence != null)
+				this.fence = register(block.name + "_fence", () -> new FuelBlockItem(block.fence.get(), propertiesFlora(), 300));
 			else
-				FENCE = null;
-			if (block.GATE != null)
-				GATE = register(block.name + "_fence_gate", () -> new FuelBlockItem(block.GATE.get(), propertiesFlora(), 300));
+				this.fence = null;
+			if (block.gate != null)
+				this.gate = register(block.name + "_fence_gate", () -> new FuelBlockItem(block.gate.get(), propertiesFlora(), 300));
 			else
-				GATE = null;
+				this.gate = null;
 			WOOD_BLOCKS.add(this);
 		}
 	}
 
 	public static class ToolSet {
-		public final IcariaTier tier;
-		public final RegistryObject<Item> SWORD;
-		public final RegistryObject<Item> DAGGER;
-		public final RegistryObject<Item> SHOVEL;
-		public final RegistryObject<Item> PICKAXE;
-		public final RegistryObject<Item> AXE;
-		public final RegistryObject<Item> SCYTHE;
-		public final RegistryObject<Item> BIDENT;
+		public IcariaTier tier;
+		public RegistryObject<Item> sword;
+		public RegistryObject<Item> dagger;
+		public RegistryObject<Item> shovel;
+		public RegistryObject<Item> pickaxe;
+		public RegistryObject<Item> axe;
+		public RegistryObject<Item> scythe;
+		public RegistryObject<Item> bident;
 
 		public ToolSet(IcariaTier tier) {
 			this.tier = tier;
 			String name = Objects.requireNonNull(TierSortingRegistry.getName(tier)).getPath();
-			SWORD = register(name + "_sword", () -> new SwordItem(tier, 3, -2.4F, propertiesItems()));
-			DAGGER = register(name + "_dagger", () -> new DaggerItem(tier, 2, -1.0F, propertiesItems()));
-			SHOVEL = register(name + "_shovel", () -> new IcariaShovelItem(tier, 1.5F, -3.0F, propertiesItems()));
-			PICKAXE = register(name + "_pickaxe", () -> new IcariaPickaxeItem(tier, 1, -2.8F, propertiesItems()));
-			AXE = register(name + "_axe", () -> new IcariaAxeItem(tier, 6, -3.0F, propertiesItems()));
-			SCYTHE = register(name + "_scythe", () -> new ScytheItem(tier, 4, -2.8F, propertiesItems()));
-			BIDENT = register(name + "_bident", () -> new BidentItem(tier, propertiesItems()));
+
+			this.sword = register(name + "_sword", () -> new SwordItem(tier, 3, -2.4F, propertiesItems()));
+			this.dagger = register(name + "_dagger", () -> new DaggerItem(tier, 2, -1.0F, propertiesItems()));
+			this.shovel = register(name + "_shovel", () -> new IcariaShovelItem(tier, 1.5F, -3.0F, propertiesItems()));
+			this.pickaxe = register(name + "_pickaxe", () -> new IcariaPickaxeItem(tier, 1, -2.8F, propertiesItems()));
+			this.axe = register(name + "_axe", () -> new IcariaAxeItem(tier, 6, -3.0F, propertiesItems()));
+			this.scythe = register(name + "_scythe", () -> new ScytheItem(tier, 4, -2.8F, propertiesItems()));
+			this.bident = register(name + "_bident", () -> new BidentItem(tier, propertiesItems()));
 			TOOLS.add(this);
 		}
 	}
 
 	public static class ArmorSet {
-		public final RegistryObject<Item> HELMET;
-		public final RegistryObject<Item> CHESTPLATE;
-		public final RegistryObject<Item> LEGGINGS;
-		public final RegistryObject<Item> BOOTS;
+		public RegistryObject<Item> helmet;
+		public RegistryObject<Item> chestplate;
+		public RegistryObject<Item> leggings;
+		public RegistryObject<Item> boots;
 
 		public ArmorSet(IcariaArmorMaterials material) {
 			String name = material.name;
-			HELMET = register(name + "_helmet", () -> new ArmorItem(material, EquipmentSlot.HEAD, (propertiesItems())));
-			CHESTPLATE = register(name + "_chestplate", () -> new ArmorItem(material, EquipmentSlot.CHEST, (propertiesItems())));
-			LEGGINGS = register(name + "_leggings", () -> new ArmorItem(material, EquipmentSlot.LEGS, (propertiesItems())));
-			BOOTS = register(name + "_boots", () -> new ArmorItem(material, EquipmentSlot.FEET, (propertiesItems())));
+
+			this.helmet = register(name + "_helmet", () -> new ArmorItem(material, EquipmentSlot.HEAD, (propertiesItems())));
+			this.chestplate = register(name + "_chestplate", () -> new ArmorItem(material, EquipmentSlot.CHEST, (propertiesItems())));
+			this.leggings = register(name + "_leggings", () -> new ArmorItem(material, EquipmentSlot.LEGS, (propertiesItems())));
+			this.boots = register(name + "_boots", () -> new ArmorItem(material, EquipmentSlot.FEET, (propertiesItems())));
 			ARMOR.add(this);
 		}
 	}

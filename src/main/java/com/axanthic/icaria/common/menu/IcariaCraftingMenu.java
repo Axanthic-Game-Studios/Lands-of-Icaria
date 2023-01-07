@@ -14,10 +14,10 @@ public class IcariaCraftingMenu extends CraftingMenu {
 	public Block block;
 	public ContainerLevelAccess access;
 
-	public IcariaCraftingMenu(int id, Inventory inventory, ContainerLevelAccess access, Block block) {
-		super(id, inventory, access);
-		this.block = block;
-		this.access = access;
+	public IcariaCraftingMenu(int pId, Inventory pInventory, ContainerLevelAccess pAccess, Block pBlock) {
+		super(pId, pInventory, pAccess);
+		this.block = pBlock;
+		this.access = pAccess;
 	}
 
 	@Override

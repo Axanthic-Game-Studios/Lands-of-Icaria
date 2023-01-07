@@ -34,17 +34,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaPortalBlock extends Block {
     public static BlockPos entrancePos;
-    public static EnumProperty<Direction.Axis> HORIZONTAL_AXIS = BlockStateProperties.HORIZONTAL_AXIS;
-    public static VoxelShape X_AXIS_AABB = Block.box(0.0D, 0.0D, 6.0D, 16.0D, 16.0D, 10.0D);
-    public static VoxelShape Z_AXIS_AABB = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
+    public static final EnumProperty<Direction.Axis> HORIZONTAL_AXIS = BlockStateProperties.HORIZONTAL_AXIS;
+    public static final VoxelShape X_AXIS_AABB = Block.box(0.0D, 0.0D, 6.0D, 16.0D, 16.0D, 10.0D);
+    public static final VoxelShape Z_AXIS_AABB = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
 
     public IcariaPortalBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(HORIZONTAL_AXIS, Direction.Axis.X));
-    }
-
-    public boolean spawnPortalEvent(LevelAccessor pLevel, BlockPos pPos, IcariaPortalShape pShape) {
-        return MinecraftForge.EVENT_BUS.post(new BlockEvent.PortalSpawnEvent(pLevel, pPos, pLevel.getBlockState(pPos), pShape));
     }
 
     @Override
@@ -57,13 +53,17 @@ public class IcariaPortalBlock extends Block {
     }
 
     public boolean spawnPortal(LevelAccessor pLevel, BlockPos pPos) {
-        IcariaPortalShape icariaPortalShape = this.isPortal(pLevel, pPos);
-        if (icariaPortalShape != null && !spawnPortalEvent(pLevel, pPos, icariaPortalShape)) {
-            icariaPortalShape.createPortalBlocks();
+        IcariaPortalShape portalShape = this.isPortal(pLevel, pPos);
+        if (portalShape != null && !this.spawnPortalEvent(pLevel, pPos, portalShape)) {
+            portalShape.createPortalBlocks();
             return true;
         } else {
             return false;
         }
+    }
+
+    public boolean spawnPortalEvent(LevelAccessor pLevel, BlockPos pPos, IcariaPortalShape pShape) {
+        return MinecraftForge.EVENT_BUS.post(new BlockEvent.PortalSpawnEvent(pLevel, pPos, pLevel.getBlockState(pPos), pShape));
     }
 
     @Override
@@ -73,22 +73,23 @@ public class IcariaPortalBlock extends Block {
 
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-        if(!pEntity.isPassenger() && !pEntity.isVehicle() && pEntity.canChangeDimensions()) {
-            if(pEntity.isOnPortalCooldown()) {
+        if (!pEntity.isPassenger() && !pEntity.isVehicle() && pEntity.canChangeDimensions()) {
+            if (pEntity.isOnPortalCooldown()) {
                 pEntity.setPortalCooldown();
             } else {
-                if(!pEntity.level.isClientSide && !pPos.equals(entrancePos)) {
+                if (!pEntity.level.isClientSide && !pPos.equals(entrancePos)) {
                     entrancePos = pPos.immutable();
                 }
-                Level entityLevel = pEntity.level;
-                MinecraftServer minecraftServer = entityLevel.getServer();
+
+                Level level = pEntity.level;
+                MinecraftServer minecraftServer = level.getServer();
                 ResourceKey<Level> destination = pEntity.level.dimension() == IcariaDimensions.ICARIA ? Level.OVERWORLD : IcariaDimensions.ICARIA;
-                if(minecraftServer != null) {
-                    ServerLevel destinationLevel = minecraftServer.getLevel(destination);
-                    if(destinationLevel != null && !pEntity.isPassenger()) {
+                if (minecraftServer != null) {
+                    ServerLevel serverLevel = minecraftServer.getLevel(destination);
+                    if (serverLevel != null && !pEntity.isPassenger()) {
                         pEntity.level.getProfiler().push(this.getName().toString());
+                        pEntity.changeDimension(serverLevel, new IcariaTeleporter(serverLevel));
                         pEntity.setPortalCooldown();
-                        pEntity.changeDimension(destinationLevel, new IcariaTeleporter(destinationLevel));
                         pEntity.level.getProfiler().pop();
                     }
                 }
@@ -97,11 +98,11 @@ public class IcariaPortalBlock extends Block {
     }
 
     @Override
-    public @Nonnull BlockState updateShape(BlockState pState, Direction pDirection, BlockState pFacingState, LevelAccessor pLevel, BlockPos pPos, BlockPos pFacingPos) {
-        Direction.Axis direction$axis = pDirection.getAxis();
-        Direction.Axis direction$axis1 = pState.getValue(HORIZONTAL_AXIS);
-        boolean flag = direction$axis1 != direction$axis && direction$axis.isHorizontal();
-        return !flag && !pFacingState.is(this) && !pFacingState.is(IcariaBlockTags.ICARIA_PORTAL_BLOCKS) && !(new IcariaPortalShape(pLevel, pPos, direction$axis1)).isComplete() ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pFacingState, pLevel, pPos, pFacingPos);
+    public @Nonnull BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos) {
+        Direction.Axis axis = pDirection.getAxis();
+        Direction.Axis horizontalAxis = pState.getValue(HORIZONTAL_AXIS);
+        boolean flag = horizontalAxis != axis && axis.isHorizontal();
+        return !flag && !pNeighborState.is(this) && !pNeighborState.is(IcariaBlockTags.ICARIA_PORTAL_BLOCKS) && !(new IcariaPortalShape(pLevel, pPos, horizontalAxis)).isComplete() ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
     }
 
     public IcariaPortalShape isPortal(LevelAccessor pLevel, BlockPos pPos) {
@@ -115,7 +116,7 @@ public class IcariaPortalBlock extends Block {
     }
 
     @Override
-    public @Nonnull VoxelShape getShape(BlockState pState, BlockGetter pGetter, BlockPos pPos, CollisionContext pContext) {
+    public @Nonnull VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         switch (pState.getValue(HORIZONTAL_AXIS)) {
             case X:
                 return X_AXIS_AABB;

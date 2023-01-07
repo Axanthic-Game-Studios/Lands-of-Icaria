@@ -14,10 +14,14 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
 
-public class IcariaPOIs {
-    public static DeferredRegister<PoiType> POIS = DeferredRegister.create(ForgeRegistries.POI_TYPES, IcariaInfo.MODID);
+import javax.annotation.ParametersAreNonnullByDefault;
 
-    public static RegistryObject<PoiType> ICARIA_PORTAL = POIS.register("icaria_portal", () -> new PoiType(getBlockStates(IcariaBlocks.ICARIA_PORTAL.get()), 0, 1));
+@ParametersAreNonnullByDefault
+
+public class IcariaPOIs {
+    public static final DeferredRegister<PoiType> POIS = DeferredRegister.create(ForgeRegistries.POI_TYPES, IcariaInfo.MODID);
+
+    public static final RegistryObject<PoiType> ICARIA_PORTAL = POIS.register("icaria_portal", () -> new PoiType(getBlockStates(IcariaBlocks.ICARIA_PORTAL.get()), 0, 1));
 
     public static Set<BlockState> getBlockStates(Block block) {
         return ImmutableSet.copyOf(block.getStateDefinition().getPossibleStates());

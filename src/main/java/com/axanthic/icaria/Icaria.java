@@ -64,72 +64,72 @@ public class Icaria {
 	}
 
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
-		proxy.onEntityAttributeCreation(event);
+		this.proxy.onEntityAttributeCreation(event);
 	}
 
 	public void onFMLClientSetup(FMLClientSetupEvent event) {
-		proxy.onFMLClientSetup(event);
+		this.proxy.onFMLClientSetup(event);
 	}
 
 	public void onFMLCommonSetup(FMLCommonSetupEvent event) {
-		proxy.onFMLCommonSetup(event);
+		this.proxy.onFMLCommonSetup(event);
 	}
 
 	public void onFMLLoadComplete(FMLLoadCompleteEvent event) {
-		proxy.onFMLLoadComplete();
+		this.proxy.onFMLLoadComplete();
 	}
 
 	public void onGatherData(GatherDataEvent event) {
-		proxy.onGatherData(event);
+		this.proxy.onGatherData(event);
 	}
 
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		proxy.onRegisterLayerDefinitions(event);
+		this.proxy.onRegisterLayerDefinitions(event);
 	}
 
 	@SubscribeEvent
 	public void onEntityAttributeModification(EntityAttributeModificationEvent event) {
-		proxy.onEntityAttributeModification(event);
+		this.proxy.onEntityAttributeModification(event);
 	}
 
 	@SubscribeEvent
 	public void onLivingAttack(LivingAttackEvent event) {
-		proxy.onLivingAttack(event);
+		this.proxy.onLivingAttack(event);
 	}
 
 	@SubscribeEvent
 	public void onMobEffectApplicable(MobEffectEvent.Applicable event) {
-		proxy.onMobEffectApplicable(event);
+		this.proxy.onMobEffectApplicable(event);
 	}
 
 	@SubscribeEvent
 	public void onPlayerInteract(PlayerInteractEvent event) {
-		proxy.onPlayerInteract(event);
+		this.proxy.onPlayerInteract(event);
 	}
 
 	@SubscribeEvent
 	public void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
-		proxy.onEntityInteract(event);
+		this.proxy.onEntityInteract(event);
 	}
 
 	@SubscribeEvent
 	public void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
-		proxy.onLeftClickBlock(event);
+		this.proxy.onLeftClickBlock(event);
 	}
 
 	@SubscribeEvent
 	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-		proxy.onRightClickBlock(event);
+		this.proxy.onRightClickBlock(event);
 	}
 
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
-		proxy.onPlayerTick(event);
+		this.proxy.onPlayerTick(event);
 	}
 
 	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
 	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> event) {
-		proxy.onRenderLivingPre(event);
+		this.proxy.onRenderLivingPre(event);
 	}
 }
