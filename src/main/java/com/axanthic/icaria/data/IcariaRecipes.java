@@ -919,10 +919,7 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.unlockedBy("has_string", has(IcariaItems.ARACHNE_STRING.get()))
 			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(Items.WHITE_WOOL)), "_from_arachne"));
 		
-		GrinderRecipeBuilder.grind(Items.REDSTONE, Ingredient.of(Items.SANDSTONE), Items.SAND, 4)
-			.unlockedBy("has_block", has(Items.SANDSTONE))
-			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(Items.SAND)), "_from_grinder"));
-		
+		//Workstations
 		ShapedRecipeBuilder.shaped(IcariaItems.GRINDER.get())
 			.pattern("XXX")
 			.pattern("XYX")
@@ -931,6 +928,12 @@ public class IcariaRecipes extends RecipeProvider implements IConditionBuilder {
 			.define('Y', IcariaItems.ORICHALCUM_INGOT.get())
 			.unlockedBy("has_item", has(IcariaItems.ORICHALCUM_INGOT.get()))
 			.save(consumer, IcariaItems.GRINDER.getId());
+		
+		//Grinder Recipes
+		
+		GrinderRecipeBuilder.grind(Items.REDSTONE, Ingredient.of(Items.SANDSTONE), Items.SAND, 4)
+			.unlockedBy("has_block", has(Items.SANDSTONE))
+			.save(consumer, appendResource(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(Items.SAND)), "_from_grinder"));
 	}
 
 	public void smeltingRecipe(Consumer<FinishedRecipe> consumer, Item resource, Item result, float experience, int cookingTime) {
