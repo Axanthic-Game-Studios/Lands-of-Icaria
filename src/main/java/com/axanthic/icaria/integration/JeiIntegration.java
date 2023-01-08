@@ -1,6 +1,9 @@
 package com.axanthic.icaria.integration;
 
-import com.axanthic.icaria.common.registry.IcariaBlocks;
+import java.util.List;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
@@ -10,16 +13,10 @@ import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.recipe.vanilla.IVanillaRecipeFactory;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
-import mezz.jei.common.plugins.vanilla.crafting.VanillaRecipes;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
-
-import java.util.List;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 @MethodsReturnNonnullByDefault
