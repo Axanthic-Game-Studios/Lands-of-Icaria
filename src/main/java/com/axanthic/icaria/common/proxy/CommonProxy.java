@@ -4,6 +4,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.axanthic.icaria.client.model.AeternaeModel;
 import com.axanthic.icaria.client.model.AeternaeSkullModel;
+import com.axanthic.icaria.client.model.ArachneDroneModel;
+import com.axanthic.icaria.client.model.ArachneModel;
 import com.axanthic.icaria.client.model.ArganHoundModel;
 import com.axanthic.icaria.client.model.ArganHoundSkullModel;
 import com.axanthic.icaria.client.model.CatoblepasModel;
@@ -20,6 +22,8 @@ import com.axanthic.icaria.client.model.SowSkullModel;
 import com.axanthic.icaria.client.screen.GrinderScreen;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.entity.AeternaeEntity;
+import com.axanthic.icaria.common.entity.ArachneDroneEntity;
+import com.axanthic.icaria.common.entity.ArachneEntity;
 import com.axanthic.icaria.common.entity.ArganHoundEntity;
 import com.axanthic.icaria.common.entity.CatoblepasEntity;
 import com.axanthic.icaria.common.entity.CerverEntity;
