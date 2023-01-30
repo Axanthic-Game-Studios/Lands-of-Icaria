@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": [
+    {
+      "item": "landsoficaria:chalkos_ore"
+    },
+    {
+      "item": "landsoficaria:chalkos_raw"
+    }
+  ],
+  "result": "landsoficaria:chalkos_ingot"
+}

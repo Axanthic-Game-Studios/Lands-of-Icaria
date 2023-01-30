@@ -1,11 +1,11 @@
 {
   "values": [
-    "#forge:saplings/cypress",
-    "#forge:saplings/droughtroot",
-    "#forge:saplings/fir",
-    "#forge:saplings/laurel",
-    "#forge:saplings/olive",
-    "#forge:saplings/plane",
-    "#forge:saplings/populus"
+    "landsoficaria:cypress_sapling",
+    "landsoficaria:droughtroot_sapling",
+    "landsoficaria:fir_sapling",
+    "landsoficaria:laurel_sapling",
+    "landsoficaria:olive_sapling",
+    "landsoficaria:plane_sapling",
+    "landsoficaria:populus_sapling"
   ]
 }

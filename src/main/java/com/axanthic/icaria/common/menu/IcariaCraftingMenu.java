@@ -12,6 +12,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaCraftingMenu extends CraftingMenu {
 	public Block block;
+
 	public ContainerLevelAccess access;
 
 	public IcariaCraftingMenu(int pId, Inventory pInventory, ContainerLevelAccess pAccess, Block pBlock) {

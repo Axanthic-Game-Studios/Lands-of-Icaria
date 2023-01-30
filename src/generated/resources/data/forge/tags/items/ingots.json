@@ -1,14 +1,14 @@
 {
   "values": [
-    "#forge:ingots/loam_brick",
-    "#forge:ingots/chalkos",
-    "#forge:ingots/kassiteros",
-    "#forge:ingots/orichalcum",
-    "#forge:ingots/vanadium",
-    "#forge:ingots/vanadiumsteel",
-    "#forge:ingots/sideros",
-    "#forge:ingots/molybdenum",
-    "#forge:ingots/molybdenumsteel",
-    "#forge:ingots/bluridium"
+    "landsoficaria:loam_brick",
+    "landsoficaria:chalkos_ingot",
+    "landsoficaria:kassiteros_ingot",
+    "landsoficaria:orichalcum_ingot",
+    "landsoficaria:vanadium_ingot",
+    "landsoficaria:vanadiumsteel_ingot",
+    "landsoficaria:sideros_ingot",
+    "landsoficaria:molybdenum_ingot",
+    "landsoficaria:molybdenumsteel_ingot",
+    "landsoficaria:bluridium_ingot"
   ]
 }

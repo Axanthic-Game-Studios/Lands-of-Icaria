@@ -66,14 +66,14 @@ public class SowModel extends HierarchicalModel<SowEntity> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
+    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pBuffer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
         if (this.entity.getSize() < 2) {
             pPoseStack.pushPose();
             this.tuskRightAdult.visible = false;
             this.tuskLeftAdult.visible = false;
             this.tuskRightTeen.visible = false;
             this.tuskLeftTeen.visible = false;
-            this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+            this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
             pPoseStack.popPose();
         } else if (this.entity.getSize() < 3) {
             pPoseStack.pushPose();
@@ -81,7 +81,7 @@ public class SowModel extends HierarchicalModel<SowEntity> {
             this.tuskLeftAdult.visible = false;
             this.tuskRightTeen.visible = false;
             this.tuskLeftTeen.visible = false;
-            this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+            this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
             pPoseStack.popPose();
         } else if (this.entity.getSize() < 4) {
             pPoseStack.pushPose();
@@ -89,7 +89,7 @@ public class SowModel extends HierarchicalModel<SowEntity> {
             this.tuskLeftAdult.visible = false;
             this.tuskRightTeen.visible = true;
             this.tuskLeftTeen.visible = true;
-            this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+            this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
             pPoseStack.popPose();
         } else {
             pPoseStack.pushPose();
@@ -97,7 +97,7 @@ public class SowModel extends HierarchicalModel<SowEntity> {
             this.tuskLeftAdult.visible = true;
             this.tuskRightTeen.visible = false;
             this.tuskLeftTeen.visible = false;
-            this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+            this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
             pPoseStack.popPose();
         }
     }

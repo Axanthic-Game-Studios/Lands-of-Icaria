@@ -28,6 +28,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaWallSkullBlock extends IcariaAbstractSkullBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+
     public static final Map<Direction, VoxelShape> SHAPES = Maps.newEnumMap(ImmutableMap.of(Direction.NORTH, Block.box(4.0D, 4.0D, 8.0D, 12.0D, 12.0D, 16.0D), Direction.SOUTH, Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 8.0D), Direction.EAST, Block.box(0.0D, 4.0D, 4.0D, 8.0D, 12.0D, 12.0D), Direction.WEST, Block.box(8.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D)));
 
     public IcariaWallSkullBlock(float pOffset, IcariaSkullBlockType pType, Properties pProperties) {

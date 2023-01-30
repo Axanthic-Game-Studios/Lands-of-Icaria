@@ -1,10 +1,45 @@
 {
-  "block.ceramic.break": {
+  "block.grinder.grind": {
     "sounds": [
-      "landsoficaria:block/ceramic/break1",
-      "landsoficaria:block/ceramic/break2",
-      "landsoficaria:block/ceramic/break3",
-      "landsoficaria:block/ceramic/break4"
+      "landsoficaria:block/grinder/grind01",
+      "landsoficaria:block/grinder/grind02",
+      "landsoficaria:block/grinder/grind03",
+      "landsoficaria:block/grinder/grind04",
+      "landsoficaria:block/grinder/grind05",
+      "landsoficaria:block/grinder/grind06",
+      "landsoficaria:block/grinder/grind07",
+      "landsoficaria:block/grinder/grind08",
+      "landsoficaria:block/grinder/grind09",
+      "landsoficaria:block/grinder/grind10",
+      "landsoficaria:block/grinder/grind11",
+      "landsoficaria:block/grinder/grind12",
+      "landsoficaria:block/grinder/grind13",
+      "landsoficaria:block/grinder/grind14",
+      "landsoficaria:block/grinder/grind15",
+      "landsoficaria:block/grinder/grind16",
+      "landsoficaria:block/grinder/grind17",
+      "landsoficaria:block/grinder/grind18",
+      "landsoficaria:block/grinder/grind19",
+      "landsoficaria:block/grinder/grind20",
+      "landsoficaria:block/grinder/grind21",
+      "landsoficaria:block/grinder/grind22",
+      "landsoficaria:block/grinder/grind23",
+      "landsoficaria:block/grinder/grind24",
+      "landsoficaria:block/grinder/grind25",
+      "landsoficaria:block/grinder/grind26",
+      "landsoficaria:block/grinder/grind27",
+      "landsoficaria:block/grinder/grind28",
+      "landsoficaria:block/grinder/grind29",
+      "landsoficaria:block/grinder/grind30",
+      "landsoficaria:block/grinder/grind31"
+    ]
+  },
+  "block.vase.break": {
+    "sounds": [
+      "landsoficaria:block/vase/break01",
+      "landsoficaria:block/vase/break02",
+      "landsoficaria:block/vase/break03",
+      "landsoficaria:block/vase/break04"
     ]
   }
 }

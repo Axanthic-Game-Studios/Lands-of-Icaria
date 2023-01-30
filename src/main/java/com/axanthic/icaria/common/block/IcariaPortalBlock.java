@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.util.IcariaPortalShape;
 import com.axanthic.icaria.common.util.IcariaTeleporter;
 import com.axanthic.icaria.common.registry.IcariaDimensions;
-import com.axanthic.icaria.data.IcariaBlockTags;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -34,9 +34,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaPortalBlock extends Block {
     public static BlockPos entrancePos;
+
     public static final EnumProperty<Direction.Axis> HORIZONTAL_AXIS = BlockStateProperties.HORIZONTAL_AXIS;
-    public static final VoxelShape X_AXIS_AABB = Block.box(0.0D, 0.0D, 6.0D, 16.0D, 16.0D, 10.0D);
-    public static final VoxelShape Z_AXIS_AABB = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
+
+    public static final VoxelShape SHAPE_X = Block.box(0.0D, 0.0D, 6.0D, 16.0D, 16.0D, 10.0D);
+    public static final VoxelShape SHAPE_Z = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
 
     public IcariaPortalBlock(Properties pProperties) {
         super(pProperties);
@@ -117,12 +119,6 @@ public class IcariaPortalBlock extends Block {
 
     @Override
     public @Nonnull VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        switch (pState.getValue(HORIZONTAL_AXIS)) {
-            case X:
-                return X_AXIS_AABB;
-            case Z:
-            default:
-                return Z_AXIS_AABB;
-        }
+        return pState.getValue(HORIZONTAL_AXIS) == Direction.Axis.X ? SHAPE_X : SHAPE_Z;
     }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "landsoficaria:spelt_flour"
+  },
+  "result": "landsoficaria:spelt_bread"
+}

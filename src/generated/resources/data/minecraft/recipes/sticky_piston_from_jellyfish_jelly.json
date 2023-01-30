@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:jellyfish_jelly"
+    },
+    "Y": {
+      "item": "minecraft:piston"
+    }
+  },
+  "pattern": [
+    "X",
+    "Y"
+  ],
+  "result": {
+    "item": "minecraft:sticky_piston"
+  }
+}

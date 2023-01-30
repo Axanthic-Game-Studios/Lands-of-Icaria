@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaEntities;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -51,8 +51,8 @@ public class HyliasterEntity extends Monster {
 
     public AnimationState walkAnimationState = new AnimationState();
 
-    public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
-    public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(HyliasterEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(HyliasterEntity.class, EntityDataSerializers.INT);
 
     public HyliasterEntity(EntityType<? extends Monster> pType, Level pLevel) {
         super(pType, pLevel);
@@ -182,7 +182,7 @@ public class HyliasterEntity extends Monster {
                     for (int l = 0; l < size; ++l) {
                         float xOffset = ((float) (l % 2) - 0.5F) * size * 0.25F;
                         float zOffset = ((float) (l / 2) - 0.5F) * size * 0.25F;
-                        HyliasterEntity entity = IcariaEntities.HYLIASTER.get().create(this.level);
+                        HyliasterEntity entity = IcariaEntityTypes.HYLIASTER.get().create(this.level);
                         if (entity != null) {
                             if (this.isPersistenceRequired()) {
                                 entity.setPersistenceRequired();

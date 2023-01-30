@@ -1,3 +1,10 @@
 {
-  "values": []
+  "values": [
+    "landsoficaria:plane_log",
+    "landsoficaria:stripped_plane_log",
+    "landsoficaria:plane_wood",
+    "landsoficaria:stripped_plane_wood",
+    "landsoficaria:dead_plane_log",
+    "landsoficaria:stripped_dead_plane_log"
+  ]
 }

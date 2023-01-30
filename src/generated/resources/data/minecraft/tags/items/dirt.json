@@ -2,6 +2,9 @@
   "values": [
     "landsoficaria:marl_grass",
     "landsoficaria:marl",
+    "landsoficaria:marl_chert",
+    "landsoficaria:marl_bones",
+    "landsoficaria:marl_lignite",
     "landsoficaria:marl_coarse",
     "landsoficaria:loam"
   ]

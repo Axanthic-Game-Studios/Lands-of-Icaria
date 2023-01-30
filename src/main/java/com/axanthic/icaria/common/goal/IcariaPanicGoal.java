@@ -84,6 +84,6 @@ public class IcariaPanicGoal extends Goal {
 
     public BlockPos lookForWater(BlockGetter pLevel, Entity pEntity, int pRange) {
         BlockPos blockPos = pEntity.blockPosition();
-        return !pLevel.getBlockState(blockPos).getCollisionShape(pLevel, blockPos).isEmpty() ? null : BlockPos.findClosestMatch(pEntity.blockPosition(), pRange, 1, (pPos) -> pLevel.getFluidState(pPos).is(FluidTags.WATER)).orElse(null);
+        return !pLevel.getBlockState(blockPos).getCollisionShape(pLevel, blockPos).isEmpty() ? null : BlockPos.findClosestMatch(pEntity.blockPosition(), pRange, 1, (pBlockPos) -> pLevel.getFluidState(pBlockPos).is(FluidTags.WATER)).orElse(null);
     }
 }

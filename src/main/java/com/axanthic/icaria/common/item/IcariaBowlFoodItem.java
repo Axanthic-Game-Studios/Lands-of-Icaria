@@ -25,8 +25,8 @@ public class IcariaBowlFoodItem extends Item {
 	}
 
 	@Override
-	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
-		ItemStack itemStack = super.finishUsingItem(pStack, pLevel, pEntityLiving);
-		return pEntityLiving instanceof Player && ((Player)pEntityLiving).getAbilities().instabuild ? itemStack : new ItemStack(IcariaItems.LOAM_BOWL.get());
+	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
+		ItemStack itemStack = super.finishUsingItem(pStack, pLevel, pLivingEntity);
+		return pLivingEntity instanceof Player && ((Player)pLivingEntity).getAbilities().instabuild ? itemStack : new ItemStack(IcariaItems.LOAM_BOWL.get());
 	}
 }

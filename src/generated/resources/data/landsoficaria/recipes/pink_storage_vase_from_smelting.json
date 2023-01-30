@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "landsoficaria:pink_unfired_storage_vase"
+  },
+  "result": "landsoficaria:pink_storage_vase"
+}

@@ -1,25 +1,46 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "A": {
       "item": "landsoficaria:cooked_sow_meat"
     },
-    "B": {
-      "tag": "forge:mushrooms"
-    },
+    "B": [
+      {
+        "item": "minecraft:brown_mushroom"
+      },
+      {
+        "item": "minecraft:red_mushroom"
+      },
+      {
+        "item": "landsoficaria:brown_ground_shrooms"
+      },
+      {
+        "item": "landsoficaria:green_ground_shrooms"
+      },
+      {
+        "item": "landsoficaria:large_brown_ground_shrooms"
+      },
+      {
+        "item": "landsoficaria:tinder_fungus_tree_shrooms"
+      },
+      {
+        "item": "landsoficaria:turkey_tail_tree_shrooms"
+      },
+      {
+        "item": "landsoficaria:unnamed_tree_shrooms"
+      }
+    ],
     "C": {
-      "tag": "forge:mushrooms"
+      "item": "landsoficaria:halite_dust"
     },
     "D": {
-      "item": "landsoficaria:rock_salt"
-    },
-    "E": {
       "item": "landsoficaria:loam_bowl"
     }
   },
   "pattern": [
-    "ABC",
-    "DE "
+    "ABB",
+    "CD "
   ],
   "result": {
     "item": "landsoficaria:stew_sow"

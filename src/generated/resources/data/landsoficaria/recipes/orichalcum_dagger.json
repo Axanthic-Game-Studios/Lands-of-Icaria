@@ -1,11 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "X": {
       "item": "landsoficaria:orichalcum_ingot"
     },
     "Y": {
-      "tag": "forge:bones"
+      "item": "minecraft:bone"
     }
   },
   "pattern": [

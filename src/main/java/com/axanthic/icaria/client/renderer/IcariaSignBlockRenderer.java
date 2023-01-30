@@ -8,7 +8,7 @@ import com.google.common.collect.ImmutableMap;
 import com.mojang.blaze3d.platform.NativeImage;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
@@ -24,6 +24,7 @@ import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
@@ -44,6 +45,7 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 	public static final int OUTLINE_RENDER_DISTANCE = Mth.square(16);
 
 	public Font font;
+
 	public Map<WoodType, SignModel> map;
 
 	public IcariaSignBlockRenderer(BlockEntityRendererProvider.Context pContext) {
@@ -78,7 +80,7 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 	@Override
 	public void render(SignBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
 		BlockState blockState = pBlockEntity.getBlockState();
-		WoodType woodType = getWoodType(blockState.getBlock());
+		WoodType woodType = SignBlock.getWoodType(blockState.getBlock());
 		Material material = Sheets.getSignMaterial(woodType);
 		SignModel signModel = this.map.get(woodType);
 		VertexConsumer vertexConsumer = material.buffer(pBufferSource, signModel::renderType);
@@ -98,29 +100,29 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 		if (blockState.getBlock() instanceof StandingSignBlock) {
 			pPoseStack.translate(0.5D, 0.5D, 0.5D);
 			float f0 = -((blockState.getValue(IcariaStandingSignBlock.ROTATION) * 360) / 16.0F);
-			pPoseStack.mulPose(Vector3f.YP.rotationDegrees(f0));
+			pPoseStack.mulPose(Axis.YP.rotationDegrees(f0));
 			signModel.stick.visible = true;
 		} else {
 			if (blockState.getValue(IcariaWallSignBlock.FACE) == AttachFace.WALL) {
 				pPoseStack.translate(0.5D, 0.5D, 0.5D);
 				float f1 = -blockState.getValue(WallSignBlock.FACING).toYRot();
-				pPoseStack.mulPose(Vector3f.YP.rotationDegrees(f1));
+				pPoseStack.mulPose(Axis.YP.rotationDegrees(f1));
 				pPoseStack.translate(0.0D, -0.3125D, -0.4375D);
 				signModel.stick.visible = false;
 			}
 			if (blockState.getValue(IcariaWallSignBlock.FACE) == AttachFace.CEILING) {
 				pPoseStack.translate(0.5D, 0.5D, 0.5D);
 				float f2 = -blockState.getValue(WallSignBlock.FACING).getOpposite().toYRot();
-				pPoseStack.mulPose(Vector3f.YP.rotationDegrees(f2));
-				pPoseStack.mulPose(Vector3f.XP.rotationDegrees(90));
+				pPoseStack.mulPose(Axis.YP.rotationDegrees(f2));
+				pPoseStack.mulPose(Axis.XP.rotationDegrees(90));
 				pPoseStack.translate(0.0D, -0.3125D, -0.4375D);
 				signModel.stick.visible = false;
 			}
 			if (blockState.getValue(IcariaWallSignBlock.FACE) == AttachFace.FLOOR) {
 				pPoseStack.translate(0.5D, 0.5D, 0.5D);
 				float f3 = -blockState.getValue(IcariaWallSignBlock.FACING).getOpposite().toYRot();
-				pPoseStack.mulPose(Vector3f.YP.rotationDegrees(f3));
-				pPoseStack.mulPose(Vector3f.XP.rotationDegrees(-90));
+				pPoseStack.mulPose(Axis.YP.rotationDegrees(f3));
+				pPoseStack.mulPose(Axis.XP.rotationDegrees(-90));
 				pPoseStack.translate(0.0D, -0.3125D, -0.4375D);
 				signModel.stick.visible = false;
 			}

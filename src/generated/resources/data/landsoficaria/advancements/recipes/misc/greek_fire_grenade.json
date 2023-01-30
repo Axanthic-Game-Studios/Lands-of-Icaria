@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_arachne_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:arachne_string"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_calcite_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:calcite_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_kassiteros_nugget": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:kassiteros_nugget"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:greek_fire_grenade"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_arachne_string",
+      "has_kassiteros_nugget",
+      "has_calcite_dust",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:greek_fire_grenade"
+    ]
+  }
+}

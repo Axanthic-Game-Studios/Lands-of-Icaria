@@ -16,13 +16,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> {
-	public int imageHeight = 222;
-	public int imageWidth = 176;
-
 	public static final ResourceLocation SCREEN = new ResourceLocation(IcariaInfo.MODID, "textures/screens/storage_vase.png");
 
 	public StorageVaseScreen(StorageVaseMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
 		super(pMenu, pPlayerInventory, pTitle);
+		this.imageHeight = 222;
+		this.imageWidth = 176;
 	}
 
 	@Override
@@ -33,16 +32,16 @@ public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> 
 	}
 
 	@Override
-	public void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
-		this.font.draw(pPoseStack, this.title, 7.0F, -22.0F, 5260599);
-		this.font.draw(pPoseStack, this.playerInventoryTitle, 7.0F, 100.0F, 5260599);
-	}
-
-	@Override
 	public void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
 		RenderSystem.setShaderTexture(0, SCREEN);
 		int relX = (this.width - this.imageWidth) / 2;
 		int relY = (this.height - this.imageHeight) / 2;
 		this.blit(pPoseStack, relX, relY, 0, 0, this.imageWidth, this.imageHeight);
+	}
+
+	@Override
+	public void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
+		this.font.draw(pPoseStack, this.title, 7.0F, 6.0F, 5260599);
+		this.font.draw(pPoseStack, this.playerInventoryTitle, 7.0F, 128.0F, 5260599);
 	}
 }

@@ -1,7 +1,8 @@
 {
   "values": [
-    "#forge:crops/spelt",
-    "#forge:crops/garlic",
-    "#forge:crops/onion"
+    "landsoficaria:spelt",
+    "landsoficaria:strawberries",
+    "landsoficaria:physalis",
+    "landsoficaria:onion"
   ]
 }

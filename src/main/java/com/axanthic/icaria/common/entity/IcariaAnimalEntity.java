@@ -34,19 +34,19 @@ public abstract class IcariaAnimalEntity extends IcariaAgeableEntity {
     public static final EntityDataAccessor<Integer> COOLDOWN = SynchedEntityData.defineId(IcariaAnimalEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> DURATION = SynchedEntityData.defineId(IcariaAnimalEntity.class, EntityDataSerializers.INT);
 
-    public IcariaAnimalEntity(EntityType<? extends IcariaAgeableEntity> pEntityType, Level pLevel, float bboxMult, float eyesMult, float sizeMult) {
-        super(pEntityType, pLevel, bboxMult, eyesMult, sizeMult);
+    public IcariaAnimalEntity(EntityType<? extends IcariaAgeableEntity> pType, Level pLevel, float pBboxMult, float pEyesMult, float pSizeMult) {
+        super(pType, pLevel, pBboxMult, pEyesMult, pSizeMult);
         this.setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, -1.0F);
         this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 16.0F);
     }
 
-    public boolean canMate(IcariaAnimalEntity pOtherAnimal) {
-        if (pOtherAnimal == this) {
+    public boolean canMate(IcariaAnimalEntity pEntity) {
+        if (pEntity == this) {
             return false;
-        } else if (pOtherAnimal.getClass() != this.getClass()) {
+        } else if (pEntity.getClass() != this.getClass()) {
             return false;
         } else {
-            return this.inLove() && pOtherAnimal.inLove();
+            return this.inLove() && pEntity.inLove();
         }
     }
 
@@ -158,15 +158,15 @@ public abstract class IcariaAnimalEntity extends IcariaAgeableEntity {
         this.entityData.set(DURATION, ticks);
     }
 
-    public void spawnChildFromBreeding(ServerLevel pLevel, IcariaAnimalEntity pMate) {
-        IcariaAgeableEntity ageableMob = this.getBreedOffspring(pLevel, pMate);
+    public void spawnChildFromBreeding(ServerLevel pLevel, IcariaAnimalEntity pEntity) {
+        IcariaAgeableEntity ageableMob = this.getBreedOffspring(pLevel, pEntity);
         if (ageableMob != null) {
             ageableMob.moveTo(this.getX(), this.getY(), this.getZ(), 0.0F, 0.0F);
             ageableMob.setSize(this.minSize);
             ageableMob.setTick(this.minTick);
-            pMate.setCooldown(this.maxCooldown);
+            pEntity.setCooldown(this.maxCooldown);
             this.setCooldown(this.maxCooldown);
-            pMate.setDuration(this.minDuration);
+            pEntity.setDuration(this.minDuration);
             this.setDuration(this.minDuration);
             pLevel.addFreshEntityWithPassengers(ageableMob);
             pLevel.broadcastEntityEvent(this, (byte) 18);
@@ -210,5 +210,5 @@ public abstract class IcariaAnimalEntity extends IcariaAgeableEntity {
     }
 
     @Nullable
-    public abstract IcariaAnimalEntity getBreedOffspring(ServerLevel pLevel, IcariaAnimalEntity pOtherParent);
+    public abstract IcariaAnimalEntity getBreedOffspring(ServerLevel pLevel, IcariaAnimalEntity pEntity);
 }

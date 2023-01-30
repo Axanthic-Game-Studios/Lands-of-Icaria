@@ -1,7 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_item": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:black_dye_from_voidlily"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_voidlily": {
       "conditions": {
         "items": [
           {
@@ -12,17 +18,11 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "minecraft:black_dye_from_voidlily"
-      },
-      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_item",
+      "has_voidlily",
       "has_the_recipe"
     ]
   ],

@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.data.IcariaBlockTags;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 import com.axanthic.icaria.common.util.IcariaTier;
 
 import net.minecraft.tags.BlockTags;
@@ -20,6 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaAxeItem extends AxeItem {
 	public static final TagKey<Block> BLOCKS = BlockTags.MINEABLE_WITH_AXE;
+
 	public Tier equivalentTier;
 
 	public IcariaAxeItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {

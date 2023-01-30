@@ -49,8 +49,8 @@ public class DirtTypeBlock extends Block {
 	}
 
 	@Override
-	public BlockState getToolModifiedState(BlockState pState, UseOnContext pContext, ToolAction pAction, boolean pSimulate) {
-		if (pAction.equals(ToolActions.HOE_TILL) && pContext.getLevel().getBlockState(pContext.getClickedPos().above()).isAir()) {
+	public BlockState getToolModifiedState(BlockState pState, UseOnContext pContext, ToolAction pToolAction, boolean pSimulate) {
+		if (pToolAction.equals(ToolActions.HOE_TILL) && pContext.getLevel().getBlockState(pContext.getClickedPos().above()).isAir()) {
 			return IcariaBlocks.FARMLAND.get().defaultBlockState();
 		}
 

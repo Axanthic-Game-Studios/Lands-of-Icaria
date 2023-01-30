@@ -25,7 +25,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.Vanishable;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -60,14 +59,14 @@ public class BidentItem extends TieredItem implements Vanishable {
 
 	@Override
 	public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-		pStack.hurtAndBreak(1, pAttacker, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+		pStack.hurtAndBreak(1, pAttacker, (pLivingEntity) -> pLivingEntity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		return true;
 	}
 
 	@Override
 	public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pMiningEntity) {
 		if (pState.getDestroySpeed(pLevel, pPos) != 0.0D) {
-			pStack.hurtAndBreak(2, pMiningEntity, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+			pStack.hurtAndBreak(2, pMiningEntity, (pLivingEntity) -> pLivingEntity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		}
 
 		return true;
@@ -104,8 +103,6 @@ public class BidentItem extends TieredItem implements Vanishable {
 	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
 		ItemStack itemStack = pPlayer.getItemInHand(pUsedHand);
 		if (itemStack.getDamageValue() >= itemStack.getMaxDamage() - 1) {
-			return InteractionResultHolder.fail(itemStack);
-		} else if (EnchantmentHelper.getRiptide(itemStack) > 0 && !pPlayer.isInWaterOrRain()) {
 			return InteractionResultHolder.fail(itemStack);
 		} else {
 			pPlayer.startUsingItem(pUsedHand);

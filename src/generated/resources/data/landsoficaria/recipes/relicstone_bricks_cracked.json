@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "cookingtime": 200,
-  "experience": 0.1,
-  "ingredient": {
-    "item": "landsoficaria:relicstone_bricks"
-  },
-  "result": "landsoficaria:relicstone_bricks_cracked"
-}

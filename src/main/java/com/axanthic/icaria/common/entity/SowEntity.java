@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.goal.IcariaBreedGoal;
 import com.axanthic.icaria.common.goal.IcariaFollowParentGoal;
 import com.axanthic.icaria.common.goal.IcariaPanicGoal;
-import com.axanthic.icaria.common.registry.IcariaEntities;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -96,11 +96,11 @@ public class SowEntity extends IcariaAnimalEntity {
 
     @Override
     public void setSize(int pSize) {
+        super.setSize(pSize);
         int size = Mth.clamp(pSize, 1, 4);
         Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
         Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_KNOCKBACK)).setBaseValue(size * 0.5D);
         Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
-        super.setSize(pSize);
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
@@ -124,7 +124,7 @@ public class SowEntity extends IcariaAnimalEntity {
 
     @Override
     public SowEntity getBreedOffspring(ServerLevel pLevel, IcariaAnimalEntity pEntity) {
-        return IcariaEntities.SOW.get().create(pLevel);
+        return IcariaEntityTypes.SOW.get().create(pLevel);
     }
 
     public static class SowHurtByOtherGoal extends HurtByTargetGoal {

@@ -11,7 +11,15 @@ import com.axanthic.icaria.common.item.TotemItem;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
-import com.axanthic.icaria.data.*;
+import com.axanthic.icaria.data.IcariaBlockStates;
+import com.axanthic.icaria.data.IcariaItemModels;
+import com.axanthic.icaria.data.IcariaRecipes;
+import com.axanthic.icaria.data.lang.IcariaGerman;
+import com.axanthic.icaria.data.lang.IcariaEnglish;
+import com.axanthic.icaria.data.loot.IcariaLoot;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
+import com.axanthic.icaria.data.tags.IcariaFluidTags;
+import com.axanthic.icaria.data.tags.IcariaItemTags;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
@@ -24,8 +32,7 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.damagesource.DamageSource;
@@ -43,8 +50,8 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
@@ -53,6 +60,8 @@ import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+
+import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -65,32 +74,796 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
-		event.put(IcariaEntities.AETERNAE.get(), AeternaeEntity.registerAttributes().build());
-		event.put(IcariaEntities.ARACHNE.get(), ArachneEntity.registerAttributes().build());
-		event.put(IcariaEntities.ARACHNE_DRONE.get(), ArachneDroneEntity.registerAttributes().build());
-		event.put(IcariaEntities.ARGAN_HOUND.get(), ArganHoundEntity.registerAttributes().build());
-		event.put(IcariaEntities.CATOBLEPAS.get(), CatoblepasEntity.registerAttributes().build());
-		event.put(IcariaEntities.CERVER.get(), CerverEntity.registerAttributes().build());
-		event.put(IcariaEntities.HYLIASTER.get(), HyliasterEntity.registerAttributes().build());
-		event.put(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
-		event.put(IcariaEntities.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
-		event.put(IcariaEntities.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
-		event.put(IcariaEntities.SOW.get(), SowEntity.registerAttributes().build());
+	public void onCreativeModeTabRegistration(CreativeModeTabEvent.Register pEvent) {
+		pEvent.registerCreativeModeTab(new ResourceLocation(IcariaInfo.MODID, "blocks"), pBuilder -> pBuilder.title(Component.translatable("itemgroup." + IcariaInfo.MODID + ".blocks")).icon(() -> new ItemStack(IcariaItems.MARL_GRASS.get())).displayItems((pSet, pOutput, pOperator) -> {
+			pOutput.accept(IcariaItems.MARL_GRASS.get());
+			pOutput.accept(IcariaItems.MARL.get());
+			pOutput.accept(IcariaItems.MARL_CHERT.get());
+			pOutput.accept(IcariaItems.SURFACE_CHERT.get());
+			pOutput.accept(IcariaItems.MARL_BONES.get());
+			pOutput.accept(IcariaItems.SURFACE_BONES.get());
+			pOutput.accept(IcariaItems.MARL_LIGNITE.get());
+			pOutput.accept(IcariaItems.MARL_COARSE.get());
+
+			pOutput.accept(IcariaItems.FARMLAND.get());
+			pOutput.accept(IcariaItems.FARMLAND_FERTILIZED.get());
+
+			pOutput.accept(IcariaItems.MARL_ADOBE.get());
+			pOutput.accept(IcariaItems.MARL_ADOBE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.MARL_ADOBE_DECO.slab.get());
+			pOutput.accept(IcariaItems.MARL_ADOBE_DECO.wall.get());
+
+			pOutput.accept(IcariaItems.LOAM.get());
+			pOutput.accept(IcariaItems.LOAM_BRICKS.get());
+			pOutput.accept(IcariaItems.LOAM_BRICKS_DECO.stairs.get());
+			pOutput.accept(IcariaItems.LOAM_BRICKS_DECO.slab.get());
+			pOutput.accept(IcariaItems.LOAM_BRICKS_DECO.wall.get());
+
+			pOutput.accept(IcariaItems.DOLOMITE_ADOBE.get());
+			pOutput.accept(IcariaItems.DOLOMITE_ADOBE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.DOLOMITE_ADOBE_DECO.slab.get());
+			pOutput.accept(IcariaItems.DOLOMITE_ADOBE_DECO.wall.get());
+			pOutput.accept(IcariaItems.DOLOMITE_SMOOTH.get());
+			pOutput.accept(IcariaItems.DOLOMITE_SMOOTH_DECO.stairs.get());
+			pOutput.accept(IcariaItems.DOLOMITE_SMOOTH_DECO.slab.get());
+			pOutput.accept(IcariaItems.DOLOMITE_SMOOTH_DECO.wall.get());
+			pOutput.accept(IcariaItems.DOLOMITE_BRICKS.get());
+			pOutput.accept(IcariaItems.DOLOMITE_PILLAR.get());
+			pOutput.accept(IcariaItems.DOLOMITE_PILLAR_HEAD.get());
+
+			pOutput.accept(IcariaItems.GRAINEL.get());
+			pOutput.accept(IcariaItems.GRAINEL_CHERT.get());
+			pOutput.accept(IcariaItems.GRAINGLASS.get());
+			pOutput.accept(IcariaItems.GRAINGLASS_PANE.get());
+			pOutput.accept(IcariaItems.GRAINGLASS_PANE_HORIZONTAL.get());
+			pOutput.accept(IcariaItems.GRAINITE_ADOBE.get());
+			pOutput.accept(IcariaItems.GRAINITE_ADOBE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.GRAINITE_ADOBE_DECO.slab.get());
+			pOutput.accept(IcariaItems.GRAINITE_ADOBE_DECO.wall.get());
+			pOutput.accept(IcariaItems.GRAINITE.get());
+			pOutput.accept(IcariaItems.GRAINITE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.GRAINITE_DECO.slab.get());
+			pOutput.accept(IcariaItems.GRAINITE_DECO.wall.get());
+			pOutput.accept(IcariaItems.GRAINITE_BRICKS.get());
+			pOutput.accept(IcariaItems.GRAINITE_BRICKS_DECO.stairs.get());
+			pOutput.accept(IcariaItems.GRAINITE_BRICKS_DECO.slab.get());
+			pOutput.accept(IcariaItems.GRAINITE_BRICKS_DECO.wall.get());
+			pOutput.accept(IcariaItems.GRAINITE_CHISELED.get());
+			pOutput.accept(IcariaItems.GRAINITE_RUBBLE.get());
+
+			pOutput.accept(IcariaItems.YELLOWSTONE_ADOBE.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_ADOBE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_ADOBE_DECO.slab.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_ADOBE_DECO.wall.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_COBBLE.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_COBBLE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_COBBLE_DECO.slab.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_COBBLE_DECO.wall.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_DECO.slab.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_DECO.wall.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_BRICKS.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_BRICKS_DECO.stairs.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_BRICKS_DECO.slab.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_BRICKS_DECO.wall.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_CHISELED.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_RUBBLE.get());
+
+			pOutput.accept(IcariaItems.SILKSAND.get());
+			pOutput.accept(IcariaItems.SILKGLASS.get());
+			pOutput.accept(IcariaItems.SILKGLASS_PANE.get());
+			pOutput.accept(IcariaItems.SILKGLASS_PANE_HORIZONTAL.get());
+			pOutput.accept(IcariaItems.SILKSTONE_ADOBE.get());
+			pOutput.accept(IcariaItems.SILKSTONE_ADOBE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.SILKSTONE_ADOBE_DECO.slab.get());
+			pOutput.accept(IcariaItems.SILKSTONE_ADOBE_DECO.wall.get());
+			pOutput.accept(IcariaItems.SILKSTONE_COBBLE.get());
+			pOutput.accept(IcariaItems.SILKSTONE_COBBLE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.SILKSTONE_COBBLE_DECO.slab.get());
+			pOutput.accept(IcariaItems.SILKSTONE_COBBLE_DECO.wall.get());
+			pOutput.accept(IcariaItems.SILKSTONE.get());
+			pOutput.accept(IcariaItems.SILKSTONE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.SILKSTONE_DECO.slab.get());
+			pOutput.accept(IcariaItems.SILKSTONE_DECO.wall.get());
+			pOutput.accept(IcariaItems.SILKSTONE_BRICKS.get());
+			pOutput.accept(IcariaItems.SILKSTONE_BRICKS_DECO.stairs.get());
+			pOutput.accept(IcariaItems.SILKSTONE_BRICKS_DECO.slab.get());
+			pOutput.accept(IcariaItems.SILKSTONE_BRICKS_DECO.wall.get());
+			pOutput.accept(IcariaItems.SILKSTONE_CHISELED.get());
+			pOutput.accept(IcariaItems.SILKSTONE_RUBBLE.get());
+
+			pOutput.accept(IcariaItems.SUNSTONE_ADOBE.get());
+			pOutput.accept(IcariaItems.SUNSTONE_ADOBE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.SUNSTONE_ADOBE_DECO.slab.get());
+			pOutput.accept(IcariaItems.SUNSTONE_ADOBE_DECO.wall.get());
+			pOutput.accept(IcariaItems.SUNSTONE_COBBLE.get());
+			pOutput.accept(IcariaItems.SUNSTONE_COBBLE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.SUNSTONE_COBBLE_DECO.slab.get());
+			pOutput.accept(IcariaItems.SUNSTONE_COBBLE_DECO.wall.get());
+			pOutput.accept(IcariaItems.SUNSTONE.get());
+			pOutput.accept(IcariaItems.SUNSTONE_DECO.slab.get());
+			pOutput.accept(IcariaItems.SUNSTONE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.SUNSTONE_DECO.wall.get());
+			pOutput.accept(IcariaItems.SUNSTONE_BRICKS.get());
+			pOutput.accept(IcariaItems.SUNSTONE_BRICKS_DECO.stairs.get());
+			pOutput.accept(IcariaItems.SUNSTONE_BRICKS_DECO.slab.get());
+			pOutput.accept(IcariaItems.SUNSTONE_BRICKS_DECO.wall.get());
+			pOutput.accept(IcariaItems.SUNSTONE_CHISELED.get());
+			pOutput.accept(IcariaItems.SUNSTONE_RUBBLE.get());
+
+			pOutput.accept(IcariaItems.VOIDSHALE_ADOBE.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_ADOBE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_ADOBE_DECO.slab.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_ADOBE_DECO.wall.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_COBBLE.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_COBBLE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_COBBLE_DECO.slab.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_COBBLE_DECO.wall.get());
+			pOutput.accept(IcariaItems.VOIDSHALE.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_DECO.slab.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_DECO.wall.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_BRICKS.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_BRICKS_DECO.stairs.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_BRICKS_DECO.slab.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_BRICKS_DECO.wall.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_CHISELED.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_RUBBLE.get());
+
+			pOutput.accept(IcariaItems.BAETYL_ADOBE.get());
+			pOutput.accept(IcariaItems.BAETYL_ADOBE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.BAETYL_ADOBE_DECO.slab.get());
+			pOutput.accept(IcariaItems.BAETYL_ADOBE_DECO.wall.get());
+			pOutput.accept(IcariaItems.BAETYL_COBBLE.get());
+			pOutput.accept(IcariaItems.BAETYL_COBBLE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.BAETYL_COBBLE_DECO.slab.get());
+			pOutput.accept(IcariaItems.BAETYL_COBBLE_DECO.wall.get());
+			pOutput.accept(IcariaItems.BAETYL.get());
+			pOutput.accept(IcariaItems.BAETYL_DECO.stairs.get());
+			pOutput.accept(IcariaItems.BAETYL_DECO.slab.get());
+			pOutput.accept(IcariaItems.BAETYL_DECO.wall.get());
+			pOutput.accept(IcariaItems.BAETYL_BRICKS.get());
+			pOutput.accept(IcariaItems.BAETYL_BRICKS_DECO.stairs.get());
+			pOutput.accept(IcariaItems.BAETYL_BRICKS_DECO.slab.get());
+			pOutput.accept(IcariaItems.BAETYL_BRICKS_DECO.wall.get());
+			pOutput.accept(IcariaItems.BAETYL_CHISELED.get());
+			pOutput.accept(IcariaItems.BAETYL_RUBBLE.get());
+
+			pOutput.accept(IcariaItems.RELICSTONE.get());
+			pOutput.accept(IcariaItems.RELICSTONE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.RELICSTONE_DECO.slab.get());
+			pOutput.accept(IcariaItems.RELICSTONE_DECO.wall.get());
+			pOutput.accept(IcariaItems.RELICSTONE_SMOOTH.get());
+			pOutput.accept(IcariaItems.RELICSTONE_SMOOTH_DECO.stairs.get());
+			pOutput.accept(IcariaItems.RELICSTONE_SMOOTH_DECO.slab.get());
+			pOutput.accept(IcariaItems.RELICSTONE_SMOOTH_DECO.wall.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICKS.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_DECO.stairs.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_DECO.slab.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_DECO.wall.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_CRACKED.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_CRACKED_DECO.stairs.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_CRACKED_DECO.slab.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_CRACKED_DECO.wall.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_MOSSY.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_MOSSY_DECO.stairs.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_MOSSY_DECO.slab.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_MOSSY_DECO.wall.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILES.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILES_DECO.stairs.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILES_DECO.slab.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILES_DECO.wall.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILES_CRACKED.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILES_CRACKED_DECO.stairs.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILES_CRACKED_DECO.slab.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILES_CRACKED_DECO.wall.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILES_MOSSY.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILES_MOSSY_DECO.stairs.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILES_MOSSY_DECO.slab.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILES_MOSSY_DECO.wall.get());
+			pOutput.accept(IcariaItems.RELICSTONE_CHISELED.get());
+			pOutput.accept(IcariaItems.RELICSTONE_PILLAR.get());
+			pOutput.accept(IcariaItems.RELICSTONE_PILLAR_HEAD.get());
+			pOutput.accept(IcariaItems.RELICSTONE_RUBBLE.get());
+
+			pOutput.accept(IcariaItems.PLATOSHALE.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_DECO.slab.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_DECO.wall.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_BLURRED.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_BRICKS.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_BRICKS_DECO.stairs.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_BRICKS_DECO.slab.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_BRICKS_DECO.wall.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_BRICKS_BLURRED.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_CHISELED.get());
+
+			pOutput.accept(IcariaItems.QUARTZ_PILLAR_HEAD.get());
+
+			pOutput.accept(IcariaItems.LIGNITE_ORE.get());
+			pOutput.accept(IcariaItems.CHALKOS_ORE.get());
+			pOutput.accept(IcariaItems.KASSITEROS_ORE.get());
+			pOutput.accept(IcariaItems.DOLOMITE_ORE.get());
+			pOutput.accept(IcariaItems.VANADIUM_ORE.get());
+			pOutput.accept(IcariaItems.SLIVER_ORE.get());
+			pOutput.accept(IcariaItems.SIDEROS_ORE.get());
+			pOutput.accept(IcariaItems.ANTHRACITE_ORE.get());
+			pOutput.accept(IcariaItems.MOLYBDENUM_ORE.get());
+			pOutput.accept(IcariaItems.HYLIASTRUM_ORE.get());
+
+			pOutput.accept(IcariaItems.CALCITE_GEODE_BLOCK.get());
+			pOutput.accept(IcariaItems.BUDDING_CALCITE_GEODE_BLOCK.get());
+			pOutput.accept(IcariaItems.HALITE_GEODE_BLOCK.get());
+			pOutput.accept(IcariaItems.BUDDING_HALITE_GEODE_BLOCK.get());
+			pOutput.accept(IcariaItems.JASPER_GEODE_BLOCK.get());
+			pOutput.accept(IcariaItems.BUDDING_JASPER_GEODE_BLOCK.get());
+			pOutput.accept(IcariaItems.ZIRCON_GEODE_BLOCK.get());
+			pOutput.accept(IcariaItems.BUDDING_ZIRCON_GEODE_BLOCK.get());
+
+			pOutput.accept(IcariaItems.CALCITE_CRYSTAL.get());
+			pOutput.accept(IcariaItems.HALITE_CRYSTAL.get());
+			pOutput.accept(IcariaItems.JASPER_CRYSTAL.get());
+			pOutput.accept(IcariaItems.ZIRCON_CRYSTAL.get());
+
+			pOutput.accept(IcariaItems.ARISTONE.get());
+			pOutput.accept(IcariaItems.ARISTONE_PACKED.get());
+
+			pOutput.accept(IcariaItems.JELLYFISH_JELLY_BLOCK.get());
+			pOutput.accept(IcariaItems.ARACHNE_STRING_BLOCK.get());
+			pOutput.accept(IcariaItems.SPELT_BALE_BLOCK.get());
+			pOutput.accept(IcariaItems.VINE_REED_BLOCK.get());
+			pOutput.accept(IcariaItems.VINE_SPROUT_BLOCK.get());
+			pOutput.accept(IcariaItems.ROTTEN_BONES_BLOCK.get());
+
+			pOutput.accept(IcariaItems.CHALKOS_RAW_BLOCK.get());
+			pOutput.accept(IcariaItems.KASSITEROS_RAW_BLOCK.get());
+			pOutput.accept(IcariaItems.VANADIUM_RAW_BLOCK.get());
+			pOutput.accept(IcariaItems.SLIVER_BLOCK.get());
+			pOutput.accept(IcariaItems.SIDEROS_RAW_BLOCK.get());
+			pOutput.accept(IcariaItems.MOLYBDENUM_RAW_BLOCK.get());
+
+			pOutput.accept(IcariaItems.CALCITE_BLOCK.get());
+			pOutput.accept(IcariaItems.HALITE_BLOCK.get());
+			pOutput.accept(IcariaItems.JASPER_BLOCK.get());
+			pOutput.accept(IcariaItems.ZIRCON_BLOCK.get());
+			pOutput.accept(IcariaItems.CHERT_BLOCK.get());
+			pOutput.accept(IcariaItems.LIGNITE_BLOCK.get());
+			pOutput.accept(IcariaItems.CHALKOS_BLOCK.get());
+			pOutput.accept(IcariaItems.KASSITEROS_BLOCK.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_BLOCK.get());
+			pOutput.accept(IcariaItems.VANADIUM_BLOCK.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_BLOCK.get());
+			pOutput.accept(IcariaItems.SIDEROS_BLOCK.get());
+			pOutput.accept(IcariaItems.ANTHRACITE_BLOCK.get());
+			pOutput.accept(IcariaItems.MOLYBDENUM_BLOCK.get());
+			pOutput.accept(IcariaItems.MOLYBDENUMSTEEL_BLOCK.get());
+			pOutput.accept(IcariaItems.BLURIDIUM_BLOCK.get());
+
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_BARS.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_BARS_HORIZONTAL.get());
+
+			pOutput.accept(IcariaItems.GRINDER.get());
+
+			pOutput.accept(IcariaItems.STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.WHITE_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.LIGHT_GRAY_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.GRAY_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.BLACK_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.BROWN_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.RED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.ORANGE_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.YELLOW_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.LIME_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.GREEN_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.CYAN_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.LIGHT_BLUE_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.BLUE_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.PURPLE_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.MAGENTA_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.PINK_STORAGE_VASE.get());
+
+			pOutput.accept(IcariaItems.AETERNAE_SKULL.get());
+			pOutput.accept(IcariaItems.ARGAN_HOUND_SKULL.get());
+			pOutput.accept(IcariaItems.CATOBLEPAS_SKULL.get());
+			pOutput.accept(IcariaItems.CERVER_SKULL.get());
+			pOutput.accept(IcariaItems.SOW_SKULL.get());
+
+			pOutput.accept(IcariaItems.DIM_TORCH.get());
+			pOutput.accept(IcariaItems.LIGNITE_TORCH.get());
+			pOutput.accept(IcariaItems.ANTHRACITE_TORCH.get());
+
+			pOutput.accept(IcariaItems.STRAWBERRY_CAKE.get());
+		}));
+
+		pEvent.registerCreativeModeTab(new ResourceLocation(IcariaInfo.MODID, "flora"), List.of(new ResourceLocation(IcariaInfo.MODID, "items")), List.of(new ResourceLocation(IcariaInfo.MODID, "blocks")), pBuilder -> pBuilder.title(Component.translatable("itemgroup." + IcariaInfo.MODID + ".flora")).icon(() -> new ItemStack(IcariaItems.OLIVE_LEAVES.get())).displayItems((pSet, pOutput, pOperator) -> {
+			pOutput.accept(IcariaItems.CYPRESS_SAPLING.get());
+			pOutput.accept(IcariaItems.CYPRESS_LEAVES.get());
+			pOutput.accept(IcariaItems.FALLEN_CYPRESS_LEAVES.get());
+			pOutput.accept(IcariaItems.CYPRESS_TWIGS.get());
+			pOutput.accept(IcariaItems.CYPRESS_WOOD.get());
+			pOutput.accept(IcariaItems.STRIPPED_CYPRESS_WOOD.get());
+			pOutput.accept(IcariaItems.CYPRESS_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_CYPRESS_LOG.get());
+			pOutput.accept(IcariaItems.DEAD_CYPRESS_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_DEAD_CYPRESS_LOG.get());
+			pOutput.accept(IcariaItems.CYPRESS_PLANKS.get());
+			pOutput.accept(IcariaItems.CYPRESS_DECO.stairs.get());
+			pOutput.accept(IcariaItems.CYPRESS_DECO.slab.get());
+			pOutput.accept(IcariaItems.CYPRESS_DECO.fence.get());
+			pOutput.accept(IcariaItems.CYPRESS_DECO.gate.get());
+			pOutput.accept(IcariaItems.CYPRESS_CRAFTING_TABLE.get());
+			pOutput.accept(IcariaItems.CYPRESS_DOOR.get());
+			pOutput.accept(IcariaItems.CYPRESS_TRAPDOOR.get());
+			pOutput.accept(IcariaItems.CYPRESS_LADDER.get());
+			pOutput.accept(IcariaItems.CYPRESS_SIGN.get());
+
+			pOutput.accept(IcariaItems.DROUGHTROOT_SAPLING.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_LEAVES.get());
+			pOutput.accept(IcariaItems.FALLEN_DROUGHTROOT_LEAVES.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_TWIGS.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_WOOD.get());
+			pOutput.accept(IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_DROUGHTROOT_LOG.get());
+			pOutput.accept(IcariaItems.DEAD_DROUGHTROOT_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_DEAD_DROUGHTROOT_LOG.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_PLANKS.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_DECO.stairs.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_DECO.slab.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_DECO.fence.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_DECO.gate.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_DOOR.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_TRAPDOOR.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_LADDER.get());
+			pOutput.accept(IcariaItems.DROUGHTROOT_SIGN.get());
+
+			pOutput.accept(IcariaItems.FIR_SAPLING.get());
+			pOutput.accept(IcariaItems.FIR_LEAVES.get());
+			pOutput.accept(IcariaItems.FALLEN_FIR_LEAVES.get());
+			pOutput.accept(IcariaItems.FIR_TWIGS.get());
+			pOutput.accept(IcariaItems.FIR_WOOD.get());
+			pOutput.accept(IcariaItems.STRIPPED_FIR_WOOD.get());
+			pOutput.accept(IcariaItems.FIR_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_FIR_LOG.get());
+			pOutput.accept(IcariaItems.DEAD_FIR_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_DEAD_FIR_LOG.get());
+			pOutput.accept(IcariaItems.FIR_PLANKS.get());
+			pOutput.accept(IcariaItems.FIR_DECO.stairs.get());
+			pOutput.accept(IcariaItems.FIR_DECO.slab.get());
+			pOutput.accept(IcariaItems.FIR_DECO.fence.get());
+			pOutput.accept(IcariaItems.FIR_DECO.gate.get());
+			pOutput.accept(IcariaItems.FIR_CRAFTING_TABLE.get());
+			pOutput.accept(IcariaItems.FIR_DOOR.get());
+			pOutput.accept(IcariaItems.FIR_TRAPDOOR.get());
+			pOutput.accept(IcariaItems.FIR_LADDER.get());
+			pOutput.accept(IcariaItems.FIR_SIGN.get());
+
+			pOutput.accept(IcariaItems.LAUREL_SAPLING.get());
+			pOutput.accept(IcariaItems.LAUREL_LEAVES.get());
+			pOutput.accept(IcariaItems.FALLEN_LAUREL_LEAVES.get());
+			pOutput.accept(IcariaItems.LAUREL_TWIGS.get());
+			pOutput.accept(IcariaItems.LAUREL_WOOD.get());
+			pOutput.accept(IcariaItems.STRIPPED_LAUREL_WOOD.get());
+			pOutput.accept(IcariaItems.LAUREL_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_LAUREL_LOG.get());
+			pOutput.accept(IcariaItems.DEAD_LAUREL_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_DEAD_LAUREL_LOG.get());
+			pOutput.accept(IcariaItems.LAUREL_PLANKS.get());
+			pOutput.accept(IcariaItems.LAUREL_DECO.stairs.get());
+			pOutput.accept(IcariaItems.LAUREL_DECO.slab.get());
+			pOutput.accept(IcariaItems.LAUREL_DECO.fence.get());
+			pOutput.accept(IcariaItems.LAUREL_DECO.gate.get());
+			pOutput.accept(IcariaItems.LAUREL_CRAFTING_TABLE.get());
+			pOutput.accept(IcariaItems.LAUREL_DOOR.get());
+			pOutput.accept(IcariaItems.LAUREL_TRAPDOOR.get());
+			pOutput.accept(IcariaItems.LAUREL_LADDER.get());
+			pOutput.accept(IcariaItems.LAUREL_SIGN.get());
+
+			pOutput.accept(IcariaItems.OLIVE_SAPLING.get());
+			pOutput.accept(IcariaItems.OLIVE_LEAVES.get());
+			pOutput.accept(IcariaItems.FALLEN_OLIVE_LEAVES.get());
+			pOutput.accept(IcariaItems.OLIVE_TWIGS.get());
+			pOutput.accept(IcariaItems.OLIVE_WOOD.get());
+			pOutput.accept(IcariaItems.STRIPPED_OLIVE_WOOD.get());
+			pOutput.accept(IcariaItems.OLIVE_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_OLIVE_LOG.get());
+			pOutput.accept(IcariaItems.DEAD_OLIVE_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_DEAD_OLIVE_LOG.get());
+			pOutput.accept(IcariaItems.OLIVE_PLANKS.get());
+			pOutput.accept(IcariaItems.OLIVE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.OLIVE_DECO.slab.get());
+			pOutput.accept(IcariaItems.OLIVE_DECO.fence.get());
+			pOutput.accept(IcariaItems.OLIVE_DECO.gate.get());
+			pOutput.accept(IcariaItems.OLIVE_CRAFTING_TABLE.get());
+			pOutput.accept(IcariaItems.OLIVE_DOOR.get());
+			pOutput.accept(IcariaItems.OLIVE_TRAPDOOR.get());
+			pOutput.accept(IcariaItems.OLIVE_LADDER.get());
+			pOutput.accept(IcariaItems.OLIVE_SIGN.get());
+
+			pOutput.accept(IcariaItems.PLANE_SAPLING.get());
+			pOutput.accept(IcariaItems.PLANE_LEAVES.get());
+			pOutput.accept(IcariaItems.FALLEN_PLANE_LEAVES.get());
+			pOutput.accept(IcariaItems.PLANE_TWIGS.get());
+			pOutput.accept(IcariaItems.PLANE_WOOD.get());
+			pOutput.accept(IcariaItems.STRIPPED_PLANE_WOOD.get());
+			pOutput.accept(IcariaItems.PLANE_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_PLANE_LOG.get());
+			pOutput.accept(IcariaItems.DEAD_PLANE_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_DEAD_PLANE_LOG.get());
+			pOutput.accept(IcariaItems.PLANE_PLANKS.get());
+			pOutput.accept(IcariaItems.PLANE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.PLANE_DECO.slab.get());
+			pOutput.accept(IcariaItems.PLANE_DECO.fence.get());
+			pOutput.accept(IcariaItems.PLANE_DECO.gate.get());
+			pOutput.accept(IcariaItems.PLANE_CRAFTING_TABLE.get());
+			pOutput.accept(IcariaItems.PLANE_DOOR.get());
+			pOutput.accept(IcariaItems.PLANE_TRAPDOOR.get());
+			pOutput.accept(IcariaItems.PLANE_LADDER.get());
+			pOutput.accept(IcariaItems.PLANE_SIGN.get());
+
+			pOutput.accept(IcariaItems.POPULUS_SAPLING.get());
+			pOutput.accept(IcariaItems.POPULUS_LEAVES.get());
+			pOutput.accept(IcariaItems.FALLEN_POPULUS_LEAVES.get());
+			pOutput.accept(IcariaItems.POPULUS_TWIGS.get());
+			pOutput.accept(IcariaItems.POPULUS_WOOD.get());
+			pOutput.accept(IcariaItems.STRIPPED_POPULUS_WOOD.get());
+			pOutput.accept(IcariaItems.POPULUS_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_POPULUS_LOG.get());
+			pOutput.accept(IcariaItems.DEAD_POPULUS_LOG.get());
+			pOutput.accept(IcariaItems.STRIPPED_DEAD_POPULUS_LOG.get());
+			pOutput.accept(IcariaItems.POPULUS_PLANKS.get());
+			pOutput.accept(IcariaItems.POPULUS_DECO.stairs.get());
+			pOutput.accept(IcariaItems.POPULUS_DECO.slab.get());
+			pOutput.accept(IcariaItems.POPULUS_DECO.fence.get());
+			pOutput.accept(IcariaItems.POPULUS_DECO.gate.get());
+			pOutput.accept(IcariaItems.POPULUS_CRAFTING_TABLE.get());
+			pOutput.accept(IcariaItems.POPULUS_DOOR.get());
+			pOutput.accept(IcariaItems.POPULUS_TRAPDOOR.get());
+			pOutput.accept(IcariaItems.POPULUS_LADDER.get());
+			pOutput.accept(IcariaItems.POPULUS_SIGN.get());
+
+			pOutput.accept(IcariaItems.DEAD_BLOOMY_VINE.get());
+			pOutput.accept(IcariaItems.GROWING_BLOOMY_VINE.get());
+			pOutput.accept(IcariaItems.BLOOMY_VINE.get());
+			pOutput.accept(IcariaItems.BLOOMING_BLOOMY_VINE.get());
+			pOutput.accept(IcariaItems.RIPE_BLOOMY_VINE.get());
+
+			pOutput.accept(IcariaItems.DEAD_BRANCHY_VINE.get());
+			pOutput.accept(IcariaItems.GROWING_BRANCHY_VINE.get());
+			pOutput.accept(IcariaItems.BRANCHY_VINE.get());
+
+			pOutput.accept(IcariaItems.DEAD_BRUSHY_VINE.get());
+			pOutput.accept(IcariaItems.GROWING_BRUSHY_VINE.get());
+			pOutput.accept(IcariaItems.BRUSHY_VINE.get());
+			pOutput.accept(IcariaItems.RIPE_BRUSHY_VINE.get());
+
+			pOutput.accept(IcariaItems.DEAD_DRY_VINE.get());
+			pOutput.accept(IcariaItems.GROWING_DRY_VINE.get());
+			pOutput.accept(IcariaItems.DRY_VINE.get());
+
+			pOutput.accept(IcariaItems.DEAD_REEDY_VINE.get());
+			pOutput.accept(IcariaItems.GROWING_REEDY_VINE.get());
+			pOutput.accept(IcariaItems.REEDY_VINE.get());
+
+			pOutput.accept(IcariaItems.DEAD_SWIRLY_VINE.get());
+			pOutput.accept(IcariaItems.GROWING_SWIRLY_VINE.get());
+			pOutput.accept(IcariaItems.SWIRLY_VINE.get());
+
+			pOutput.accept(IcariaItems.DEAD_THORNY_VINE.get());
+			pOutput.accept(IcariaItems.GROWING_THORNY_VINE.get());
+			pOutput.accept(IcariaItems.THORNY_VINE.get());
+
+			pOutput.accept(IcariaItems.FERN.get());
+
+			pOutput.accept(IcariaItems.SMALL_GRASS.get());
+			pOutput.accept(IcariaItems.MEDIUM_GRASS.get());
+			pOutput.accept(IcariaItems.LARGE_GRASS.get());
+
+			pOutput.accept(IcariaItems.GRAIN_0.get());
+			pOutput.accept(IcariaItems.GRAIN_1.get());
+			pOutput.accept(IcariaItems.GRAIN_2.get());
+			pOutput.accept(IcariaItems.GRAIN_3.get());
+			pOutput.accept(IcariaItems.GRAIN_4.get());
+			pOutput.accept(IcariaItems.GRAIN_5.get());
+
+			pOutput.accept(IcariaItems.BLINDWEED.get());
+			pOutput.accept(IcariaItems.CHAMEOMILE.get());
+			pOutput.accept(IcariaItems.CHARMONDER.get());
+			pOutput.accept(IcariaItems.CLOVER.get());
+			pOutput.accept(IcariaItems.FIREHILT.get());
+			pOutput.accept(IcariaItems.BLUE_HYDRACINTH.get());
+			pOutput.accept(IcariaItems.PURPLE_HYDRACINTH.get());
+			pOutput.accept(IcariaItems.LIONFANGS.get());
+			pOutput.accept(IcariaItems.SPEARDROPS.get());
+			pOutput.accept(IcariaItems.PURPLE_STAGHORN.get());
+			pOutput.accept(IcariaItems.YELLOW_STAGHORN.get());
+			pOutput.accept(IcariaItems.BLUE_STORMCOTTON.get());
+			pOutput.accept(IcariaItems.PINK_STORMCOTTON.get());
+			pOutput.accept(IcariaItems.PURPLE_STORMCOTTON.get());
+			pOutput.accept(IcariaItems.SUNKETTLE.get());
+			pOutput.accept(IcariaItems.SUNSPONGE.get());
+			pOutput.accept(IcariaItems.VOIDLILY.get());
+
+			pOutput.accept(IcariaItems.BOLBOS.get());
+			pOutput.accept(IcariaItems.DATHULLA.get());
+			pOutput.accept(IcariaItems.MONDANOS.get());
+			pOutput.accept(IcariaItems.MOTH_AGARIC.get());
+			pOutput.accept(IcariaItems.NAMDRAKE.get());
+			pOutput.accept(IcariaItems.PSILOCYBOS.get());
+			pOutput.accept(IcariaItems.ROWAN.get());
+
+			pOutput.accept(IcariaItems.BLUE_GROUND_FLOWERS.get());
+			pOutput.accept(IcariaItems.CYAN_GROUND_FLOWERS.get());
+			pOutput.accept(IcariaItems.PINK_GROUND_FLOWERS.get());
+			pOutput.accept(IcariaItems.PURPLE_GROUND_FLOWERS.get());
+			pOutput.accept(IcariaItems.RED_GROUND_FLOWERS.get());
+			pOutput.accept(IcariaItems.WHITE_GROUND_FLOWERS.get());
+
+			pOutput.accept(IcariaItems.MOSS_0.get());
+			pOutput.accept(IcariaItems.MOSS_1.get());
+			pOutput.accept(IcariaItems.MOSS_2.get());
+
+			pOutput.accept(IcariaItems.PALM_FERN.get());
+
+			pOutput.accept(IcariaItems.WHITE_BROMELIA.get());
+			pOutput.accept(IcariaItems.ORANGE_BROMELIA.get());
+			pOutput.accept(IcariaItems.PINK_BROMELIA.get());
+			pOutput.accept(IcariaItems.PURPLE_BROMELIA.get());
+
+			pOutput.accept(IcariaItems.GREEN_GROUND_SHROOMS.get());
+			pOutput.accept(IcariaItems.BROWN_GROUND_SHROOMS.get());
+			pOutput.accept(IcariaItems.LARGE_BROWN_GROUND_SHROOMS.get());
+
+			pOutput.accept(IcariaItems.TINDER_FUNGUS_TREE_SHROOMS.get());
+			pOutput.accept(IcariaItems.TURKEY_TAIL_TREE_SHROOMS.get());
+			pOutput.accept(IcariaItems.UNNAMED_TREE_SHROOMS.get());
+
+			pOutput.accept(IcariaItems.CARDON_CACTUS.get());
+
+			pOutput.accept(IcariaItems.STRAWBERRY_BUSH.get());
+		}));
+
+		pEvent.registerCreativeModeTab(new ResourceLocation(IcariaInfo.MODID, "items"), pBuilder -> pBuilder.title(Component.translatable("itemgroup." + IcariaInfo.MODID + ".items")).icon(() -> new ItemStack(IcariaItems.ORICHALCUM_TOOLS.pickaxe.get())).displayItems((pSet, pOutput, pOperator) -> {
+			pOutput.accept(IcariaItems.BONE_REMAINS.get());
+			pOutput.accept(IcariaItems.LOAM_LUMP.get());
+			pOutput.accept(IcariaItems.LOAM_BRICK.get());
+			pOutput.accept(IcariaItems.CHERT.get());
+			pOutput.accept(IcariaItems.JELLYFISH_JELLY.get());
+			pOutput.accept(IcariaItems.ARACHNE_STRING.get());
+			pOutput.accept(IcariaItems.SPELT.get());
+			pOutput.accept(IcariaItems.VINE_REED.get());
+			pOutput.accept(IcariaItems.VINE_SPROUT.get());
+			pOutput.accept(IcariaItems.ROTTEN_BONES.get());
+			pOutput.accept(IcariaItems.CALCITE.get());
+			pOutput.accept(IcariaItems.HALITE.get());
+			pOutput.accept(IcariaItems.JASPER.get());
+			pOutput.accept(IcariaItems.ZIRCON.get());
+			pOutput.accept(IcariaItems.CALCITE_DUST.get());
+			pOutput.accept(IcariaItems.HALITE_DUST.get());
+			pOutput.accept(IcariaItems.LIGNITE.get());
+			pOutput.accept(IcariaItems.CHALKOS_RAW.get());
+			pOutput.accept(IcariaItems.KASSITEROS_RAW.get());
+			pOutput.accept(IcariaItems.DOLOMITE.get());
+			pOutput.accept(IcariaItems.VANADIUM_RAW.get());
+			pOutput.accept(IcariaItems.SLIVER.get());
+			pOutput.accept(IcariaItems.SIDEROS_RAW.get());
+			pOutput.accept(IcariaItems.ANTHRACITE.get());
+			pOutput.accept(IcariaItems.MOLYBDENUM_RAW.get());
+
+			pOutput.accept(IcariaItems.CHALKOS_NUGGET.get());
+			pOutput.accept(IcariaItems.KASSITEROS_NUGGET.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_NUGGET.get());
+			pOutput.accept(IcariaItems.VANADIUM_NUGGET.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_NUGGET.get());
+			pOutput.accept(IcariaItems.SIDEROS_NUGGET.get());
+			pOutput.accept(IcariaItems.MOLYBDENUM_NUGGET.get());
+			pOutput.accept(IcariaItems.MOLYBDENUMSTEEL_NUGGET.get());
+			pOutput.accept(IcariaItems.BLURIDIUM_NUGGET.get());
+
+			pOutput.accept(IcariaItems.CHALKOS_INGOT.get());
+			pOutput.accept(IcariaItems.KASSITEROS_INGOT.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_INGOT.get());
+			pOutput.accept(IcariaItems.VANADIUM_INGOT.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_INGOT.get());
+			pOutput.accept(IcariaItems.SIDEROS_INGOT.get());
+			pOutput.accept(IcariaItems.MOLYBDENUM_INGOT.get());
+			pOutput.accept(IcariaItems.MOLYBDENUMSTEEL_INGOT.get());
+			pOutput.accept(IcariaItems.BLURIDIUM_INGOT.get());
+
+			pOutput.accept(IcariaItems.CHERT_TOOLS.sword.get());
+			pOutput.accept(IcariaItems.CHERT_TOOLS.dagger.get());
+			pOutput.accept(IcariaItems.CHERT_TOOLS.shovel.get());
+			pOutput.accept(IcariaItems.CHERT_TOOLS.pickaxe.get());
+			pOutput.accept(IcariaItems.CHERT_TOOLS.axe.get());
+			pOutput.accept(IcariaItems.CHERT_TOOLS.scythe.get());
+			pOutput.accept(IcariaItems.CHERT_TOOLS.bident.get());
+			pOutput.accept(IcariaItems.CHALKOS_TOOLS.sword.get());
+			pOutput.accept(IcariaItems.CHALKOS_TOOLS.dagger.get());
+			pOutput.accept(IcariaItems.CHALKOS_TOOLS.shovel.get());
+			pOutput.accept(IcariaItems.CHALKOS_TOOLS.pickaxe.get());
+			pOutput.accept(IcariaItems.CHALKOS_TOOLS.axe.get());
+			pOutput.accept(IcariaItems.CHALKOS_TOOLS.scythe.get());
+			pOutput.accept(IcariaItems.CHALKOS_TOOLS.bident.get());
+			pOutput.accept(IcariaItems.KASSITEROS_TOOLS.sword.get());
+			pOutput.accept(IcariaItems.KASSITEROS_TOOLS.dagger.get());
+			pOutput.accept(IcariaItems.KASSITEROS_TOOLS.shovel.get());
+			pOutput.accept(IcariaItems.KASSITEROS_TOOLS.pickaxe.get());
+			pOutput.accept(IcariaItems.KASSITEROS_TOOLS.axe.get());
+			pOutput.accept(IcariaItems.KASSITEROS_TOOLS.scythe.get());
+			pOutput.accept(IcariaItems.KASSITEROS_TOOLS.bident.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_TOOLS.sword.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_TOOLS.dagger.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_TOOLS.shovel.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_TOOLS.pickaxe.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_TOOLS.axe.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_TOOLS.scythe.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_TOOLS.bident.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_TOOLS.sword.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_TOOLS.dagger.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_TOOLS.shovel.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_TOOLS.pickaxe.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_TOOLS.axe.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_TOOLS.scythe.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_TOOLS.bident.get());
+			pOutput.accept(IcariaItems.SIDEROS_TOOLS.sword.get());
+			pOutput.accept(IcariaItems.SIDEROS_TOOLS.dagger.get());
+			pOutput.accept(IcariaItems.SIDEROS_TOOLS.shovel.get());
+			pOutput.accept(IcariaItems.SIDEROS_TOOLS.pickaxe.get());
+			pOutput.accept(IcariaItems.SIDEROS_TOOLS.axe.get());
+			pOutput.accept(IcariaItems.SIDEROS_TOOLS.scythe.get());
+			pOutput.accept(IcariaItems.SIDEROS_TOOLS.bident.get());
+			pOutput.accept(IcariaItems.MOLYBDENUMSTEEL_TOOLS.sword.get());
+			pOutput.accept(IcariaItems.MOLYBDENUMSTEEL_TOOLS.dagger.get());
+			pOutput.accept(IcariaItems.MOLYBDENUMSTEEL_TOOLS.shovel.get());
+			pOutput.accept(IcariaItems.MOLYBDENUMSTEEL_TOOLS.pickaxe.get());
+			pOutput.accept(IcariaItems.MOLYBDENUMSTEEL_TOOLS.axe.get());
+			pOutput.accept(IcariaItems.MOLYBDENUMSTEEL_TOOLS.scythe.get());
+			pOutput.accept(IcariaItems.MOLYBDENUMSTEEL_TOOLS.bident.get());
+
+			pOutput.accept(IcariaItems.AETERNAE_HIDE_ARMOR.helmet.get());
+			pOutput.accept(IcariaItems.AETERNAE_HIDE_ARMOR.chestplate.get());
+			pOutput.accept(IcariaItems.AETERNAE_HIDE_ARMOR.leggings.get());
+			pOutput.accept(IcariaItems.AETERNAE_HIDE_ARMOR.boots.get());
+			pOutput.accept(IcariaItems.CHALKOS_ARMOR.helmet.get());
+			pOutput.accept(IcariaItems.CHALKOS_ARMOR.chestplate.get());
+			pOutput.accept(IcariaItems.CHALKOS_ARMOR.leggings.get());
+			pOutput.accept(IcariaItems.CHALKOS_ARMOR.boots.get());
+			pOutput.accept(IcariaItems.KASSITEROS_ARMOR.helmet.get());
+			pOutput.accept(IcariaItems.KASSITEROS_ARMOR.chestplate.get());
+			pOutput.accept(IcariaItems.KASSITEROS_ARMOR.leggings.get());
+			pOutput.accept(IcariaItems.KASSITEROS_ARMOR.boots.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_HELMET.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_CHESTPLATE.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_LEGGINGS.get());
+			pOutput.accept(IcariaItems.ORICHALCUM_BOOTS.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_ARMOR.helmet.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_ARMOR.chestplate.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_ARMOR.leggings.get());
+			pOutput.accept(IcariaItems.VANADIUMSTEEL_ARMOR.boots.get());
+			pOutput.accept(IcariaItems.LAUREL_WREATH.get());
+
+			pOutput.accept(IcariaItems.GREEK_FIRE_GRENADE.get());
+
+			pOutput.accept(IcariaItems.TOTEM_OF_PREVENTATION.get());
+			pOutput.accept(IcariaItems.TOTEM_OF_STUFFING.get());
+			pOutput.accept(IcariaItems.TOTEM_OF_UNBLINDING.get());
+			pOutput.accept(IcariaItems.TOTEM_OF_UNDROWNING.get());
+			pOutput.accept(IcariaItems.TOTEM_OF_UNDYING.get());
+			pOutput.accept(IcariaItems.TOTEM_OF_UNSHATTERING.get());
+			pOutput.accept(IcariaItems.TOTEM_OF_UNSINKING.get());
+
+			pOutput.accept(IcariaItems.UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.BLACK_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.BROWN_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.RED_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.YELLOW_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.LIME_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.GREEN_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.CYAN_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.LIGHT_BLUE_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.BLUE_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get());
+			pOutput.accept(IcariaItems.PINK_UNFIRED_STORAGE_VASE.get());
+
+			pOutput.accept(IcariaItems.FLASK_EMPTY.get());
+
+			pOutput.accept(IcariaItems.VIAL_EMPTY.get());
+			pOutput.accept(IcariaItems.VIAL_HYLIASTRUM.get());
+
+			pOutput.accept(IcariaItems.GEAR_YELLOWSTONE.get());
+			pOutput.accept(IcariaItems.GEAR_LOAM_UNFIRED.get());
+			pOutput.accept(IcariaItems.GEAR_LOAM.get());
+			pOutput.accept(IcariaItems.GEAR_VOIDSHALE.get());
+			pOutput.accept(IcariaItems.GEAR_VANADIUM.get());
+			pOutput.accept(IcariaItems.GEARFRAGMENT_BLUE.get());
+			pOutput.accept(IcariaItems.GEARFRAGMENT_GREEN.get());
+			pOutput.accept(IcariaItems.GEARFRAGMENT_YELLOW.get());
+			pOutput.accept(IcariaItems.GEAR_DAEDALIAN.get());
+
+			pOutput.accept(IcariaItems.AETERNAE_HIDE.get());
+			pOutput.accept(IcariaItems.SPELT_FLOUR.get());
+			pOutput.accept(IcariaItems.SPELT_BREAD.get());
+			pOutput.accept(IcariaItems.VINEBERRIES.get());
+			pOutput.accept(IcariaItems.STRAWBERRIES.get());
+			pOutput.accept(IcariaItems.PHYSALIS.get());
+			pOutput.accept(IcariaItems.LAUREL_CHERRY.get());
+			pOutput.accept(IcariaItems.OLIVES_BLACK.get());
+			pOutput.accept(IcariaItems.OLIVES_GREEN.get());
+			pOutput.accept(IcariaItems.GARLIC.get());
+			pOutput.accept(IcariaItems.ONION.get());
+			pOutput.accept(IcariaItems.RAW_AETERNAE_MEAT.get());
+			pOutput.accept(IcariaItems.COOKED_AETERNAE_MEAT.get());
+			pOutput.accept(IcariaItems.RAW_CATOBLEPAS_MEAT.get());
+			pOutput.accept(IcariaItems.COOKED_CATOBLEPAS_MEAT.get());
+			pOutput.accept(IcariaItems.RAW_CERVER_MEAT.get());
+			pOutput.accept(IcariaItems.COOKED_CERVER_MEAT.get());
+			pOutput.accept(IcariaItems.RAW_SOW_MEAT.get());
+			pOutput.accept(IcariaItems.COOKED_SOW_MEAT.get());
+			pOutput.accept(IcariaItems.SNULL_CREAM.get());
+
+			pOutput.accept(IcariaItems.LOAM_BOWL_UNFIRED.get());
+			pOutput.accept(IcariaItems.LOAM_BOWL.get());
+			pOutput.accept(IcariaItems.SALAD_FRUIT.get());
+			pOutput.accept(IcariaItems.SOUP_ONION.get());
+			pOutput.accept(IcariaItems.STEW_AETERNAE.get());
+			pOutput.accept(IcariaItems.STEW_CATOBLEPAS.get());
+			pOutput.accept(IcariaItems.STEW_CERVER.get());
+			pOutput.accept(IcariaItems.STEW_SOW.get());
+
+			pOutput.accept(IcariaItems.SPELT_SEEDS.get());
+			pOutput.accept(IcariaItems.STRAWBERRY_SEEDS.get());
+			pOutput.accept(IcariaItems.PHYSALIS_SEEDS.get());
+
+			pOutput.accept(IcariaItems.AETERNAE_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.ARACHNE_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.ARACHNE_DRONE_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.ARGAN_HOUND_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.CATOBLEPAS_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.CERVER_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.HYLIASTER_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.SOW_SPAWN_EGG.get());
+
+			pOutput.accept(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get());
+		}));
 	}
 
 	@Override
-	public void onFMLClientSetup(FMLClientSetupEvent event) {
-		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.CYPRESS));
-		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.DROUGHTROOT));
-		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.FIR));
-		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.LAUREL));
-		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.OLIVE));
-		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.PLANE));
-		event.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.POPULUS));
+	public void onEntityAttributeCreation(EntityAttributeCreationEvent pEvent) {
+		pEvent.put(IcariaEntityTypes.AETERNAE.get(), AeternaeEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.ARACHNE.get(), ArachneEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.ARACHNE_DRONE.get(), ArachneDroneEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.ARGAN_HOUND.get(), ArganHoundEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.CATOBLEPAS.get(), CatoblepasEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.CERVER.get(), CerverEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.HYLIASTER.get(), HyliasterEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.SOW.get(), SowEntity.registerAttributes().build());
+	}
 
-		event.enqueueWork(() -> MenuScreens.register(IcariaMenus.STORAGE_VASE.get(), StorageVaseScreen::new));
-		event.enqueueWork(() -> MenuScreens.register(IcariaMenus.GRINDER.get(), GrinderScreen::new));
+	@Override
+	public void onFMLClientSetup(FMLClientSetupEvent pEvent) {
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.CYPRESS));
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.DROUGHTROOT));
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.FIR));
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.LAUREL));
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.OLIVE));
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.PLANE));
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.POPULUS));
+
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenuTypes.GRINDER.get(), GrinderScreen::new));
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenuTypes.STORAGE_VASE.get(), StorageVaseScreen::new));
 
 		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
 
@@ -100,12 +873,12 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void onFMLCommonSetup(FMLCommonSetupEvent event) {
-		event.enqueueWork(IcariaCompostables::setup);
-		event.enqueueWork(IcariaFlammables::setup);
-		event.enqueueWork(IcariaPottables::setup);
-		event.enqueueWork(IcariaStrippables::setup);
-		event.enqueueWork(IcariaWoodTypes::setup);
+	public void onFMLCommonSetup(FMLCommonSetupEvent pEvent) {
+		pEvent.enqueueWork(IcariaCompostables::setup);
+		pEvent.enqueueWork(IcariaFlammables::setup);
+		pEvent.enqueueWork(IcariaPottables::setup);
+		pEvent.enqueueWork(IcariaStrippables::setup);
+		pEvent.enqueueWork(IcariaWoodTypes::setup);
 	}
 
 	@Override
@@ -354,77 +1127,78 @@ public class ClientProxy extends CommonProxy {
 		this.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER_FLOWING.get());
 
 		// ENTITY RENDERERS
-		EntityRenderers.register(IcariaEntities.AETERNAE.get(), AeternaeRenderer::new);
-		EntityRenderers.register(IcariaEntities.ARACHNE.get(), ArachneRenderer::new);
-		EntityRenderers.register(IcariaEntities.ARACHNE_DRONE.get(), ArachneDroneRenderer::new);
-		EntityRenderers.register(IcariaEntities.ARGAN_HOUND.get(), ArganHoundRenderer::new);
-		EntityRenderers.register(IcariaEntities.BIDENT.get(), BidentRenderer::new);
-		EntityRenderers.register(IcariaEntities.CATOBLEPAS.get(), CatoblepasRenderer::new);
-		EntityRenderers.register(IcariaEntities.CERVER.get(), CerverRenderer::new);
-		EntityRenderers.register(IcariaEntities.GREEK_FIRE_GRENADE.get(), GreekFireGrenadeRenderer::new);
-		EntityRenderers.register(IcariaEntities.HYLIASTER.get(), HyliasterRenderer::new);
-		EntityRenderers.register(IcariaEntities.MYRMEKE_DRONE.get(), MyrmekeDroneRenderer::new);
-		EntityRenderers.register(IcariaEntities.MYRMEKE_SOLDIER.get(), MyrmekeSoldierRenderer::new);
-		EntityRenderers.register(IcariaEntities.MYRMEKE_QUEEN.get(), MyrmekeQueenRenderer::new);
-		EntityRenderers.register(IcariaEntities.SOW.get(), SowRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.AETERNAE.get(), AeternaeRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.ARACHNE.get(), ArachneRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.ARACHNE_DRONE.get(), ArachneDroneRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.ARGAN_HOUND.get(), ArganHoundRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.BIDENT.get(), BidentRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.CATOBLEPAS.get(), CatoblepasRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.CERVER.get(), CerverRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), GreekFireGrenadeRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.HYLIASTER.get(), HyliasterRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.MYRMEKE_DRONE.get(), MyrmekeDroneRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), MyrmekeSoldierRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.MYRMEKE_QUEEN.get(), MyrmekeQueenRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.SOW.get(), SowRenderer::new);
 
 		// BLOCK ENTITY RENDERERS
-		BlockEntityRenderers.register(IcariaBlockEntities.CRYSTAL.get(), CrystalBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntities.SIGN.get(), IcariaSignBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntities.SKULL.get(), IcariaSkullBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntities.GRINDER.get(), GrinderBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.CRYSTAL.get(), CrystalBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.SIGN.get(), IcariaSignBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.SKULL.get(), IcariaSkullBlockRenderer::new);
 	}
 
 	@Override
-	public void onGatherData(GatherDataEvent event) {
-		DataGenerator generator = event.getGenerator();
-		ExistingFileHelper helper = event.getExistingFileHelper();
+	public void onGatherData(GatherDataEvent pEvent) {
+		var generator = pEvent.getGenerator();
+		var helper = pEvent.getExistingFileHelper();
+		var output = generator.getPackOutput();
+		var provider = pEvent.getLookupProvider();
 
-		generator.addProvider(event.includeClient(), new IcariaLang(generator));
-		generator.addProvider(event.includeClient(), new IcariaItemModels(generator, helper));
-		generator.addProvider(event.includeClient(), new IcariaBlockStates(generator, helper));
+		generator.addProvider(pEvent.includeClient(), new IcariaEnglish(output, IcariaInfo.MODID, "en_us"));
+		generator.addProvider(pEvent.includeClient(), new IcariaGerman(output, IcariaInfo.MODID, "de_de"));
+		generator.addProvider(pEvent.includeClient(), new IcariaBlockStates(output, IcariaInfo.MODID, helper));
+		generator.addProvider(pEvent.includeClient(), new IcariaItemModels(output, IcariaInfo.MODID, helper));
 
-		BlockTagsProvider tags = new IcariaBlockTags(generator, helper);
-
-		generator.addProvider(event.includeServer(), new IcariaLootTables(generator));
-		generator.addProvider(event.includeServer(), new IcariaRecipes(generator));
-		generator.addProvider(event.includeServer(), new IcariaBlockTags(generator, helper));
-		generator.addProvider(event.includeServer(), new IcariaItemTags(generator, tags, helper));
-		generator.addProvider(event.includeServer(), new IcariaFluidTags(generator, helper));
+		generator.addProvider(pEvent.includeServer(), new IcariaLoot(output));
+		generator.addProvider(pEvent.includeServer(), new IcariaBlockTags(output, provider, IcariaInfo.MODID, helper));
+		generator.addProvider(pEvent.includeServer(), new IcariaFluidTags(output, provider, IcariaInfo.MODID, helper));
+		generator.addProvider(pEvent.includeServer(), new IcariaItemTags(output, provider, IcariaInfo.MODID, helper));
+		generator.addProvider(pEvent.includeServer(), new IcariaRecipes(output));
 	}
 
 	@Override
-	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		event.registerLayerDefinition(AeternaeModel.LAYER_LOCATION, AeternaeModel::createLayer);
-		event.registerLayerDefinition(AeternaeSkullModel.LAYER_LOCATION, AeternaeSkullModel::createLayer);
-		event.registerLayerDefinition(ArachneModel.LAYER_LOCATION, ArachneModel::createLayer);
-		event.registerLayerDefinition(ArachneDroneModel.LAYER_LOCATION, ArachneDroneModel::createLayer);
-		event.registerLayerDefinition(ArganHoundModel.LAYER_LOCATION, ArganHoundModel::createLayer);
-		event.registerLayerDefinition(ArganHoundSkullModel.LAYER_LOCATION, ArganHoundSkullModel::createLayer);
-		event.registerLayerDefinition(CatoblepasModel.LAYER_LOCATION, CatoblepasModel::createLayer);
-		event.registerLayerDefinition(CatoblepasSkullModel.LAYER_LOCATION, CatoblepasSkullModel::createLayer);
-		event.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
-		event.registerLayerDefinition(CerverSkullModel.LAYER_LOCATION, CerverSkullModel::createLayer);
-		event.registerLayerDefinition(HyliasterModel.LAYER_LOCATION, HyliasterModel::createLayer);
-		event.registerLayerDefinition(HyliasterModel.TRANSLUCENT_LAYER_LOCATION, HyliasterModel::createTranslucentLayer);
-		event.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
-		event.registerLayerDefinition(MyrmekeSoldierModel.LAYER_LOCATION, MyrmekeSoldierModel::createLayer);
-		event.registerLayerDefinition(MyrmekeQueenModel.BODY_LAYER_LOCATION, MyrmekeQueenModel::createLayer);
-		event.registerLayerDefinition(MyrmekeQueenModel.RAYS_LAYER_LOCATION, MyrmekeQueenModel::createLayer);
-		event.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
-		event.registerLayerDefinition(SowModel.LAYER_LOCATION, SowModel::createLayer);
-		event.registerLayerDefinition(SowSkullModel.LAYER_LOCATION, SowSkullModel::createLayer);
+	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions pEvent) {
+		pEvent.registerLayerDefinition(AeternaeModel.LAYER_LOCATION, AeternaeModel::createLayer);
+		pEvent.registerLayerDefinition(AeternaeSkullModel.LAYER_LOCATION, AeternaeSkullModel::createLayer);
+		pEvent.registerLayerDefinition(ArachneModel.LAYER_LOCATION, ArachneModel::createLayer);
+		pEvent.registerLayerDefinition(ArachneDroneModel.LAYER_LOCATION, ArachneDroneModel::createLayer);
+		pEvent.registerLayerDefinition(ArganHoundModel.LAYER_LOCATION, ArganHoundModel::createLayer);
+		pEvent.registerLayerDefinition(ArganHoundSkullModel.LAYER_LOCATION, ArganHoundSkullModel::createLayer);
+		pEvent.registerLayerDefinition(CatoblepasModel.LAYER_LOCATION, CatoblepasModel::createLayer);
+		pEvent.registerLayerDefinition(CatoblepasSkullModel.LAYER_LOCATION, CatoblepasSkullModel::createLayer);
+		pEvent.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
+		pEvent.registerLayerDefinition(CerverSkullModel.LAYER_LOCATION, CerverSkullModel::createLayer);
+		pEvent.registerLayerDefinition(HyliasterModel.LAYER_LOCATION, HyliasterModel::createLayer);
+		pEvent.registerLayerDefinition(HyliasterModel.TRANSLUCENT_LAYER_LOCATION, HyliasterModel::createTranslucentLayer);
+		pEvent.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
+		pEvent.registerLayerDefinition(MyrmekeSoldierModel.LAYER_LOCATION, MyrmekeSoldierModel::createLayer);
+		pEvent.registerLayerDefinition(MyrmekeQueenModel.BODY_LAYER_LOCATION, MyrmekeQueenModel::createLayer);
+		pEvent.registerLayerDefinition(MyrmekeQueenModel.RAYS_LAYER_LOCATION, MyrmekeQueenModel::createLayer);
+		pEvent.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
+		pEvent.registerLayerDefinition(SowModel.LAYER_LOCATION, SowModel::createLayer);
+		pEvent.registerLayerDefinition(SowSkullModel.LAYER_LOCATION, SowSkullModel::createLayer);
 	}
 
 	@Override
-	public void onEntityAttributeModification(EntityAttributeModificationEvent event) {
-		event.add(EntityType.PLAYER, ForgeMod.ATTACK_RANGE.get());
+	public void onEntityAttributeModification(EntityAttributeModificationEvent pEvent) {
+		pEvent.add(EntityType.PLAYER, ForgeMod.ATTACK_RANGE.get());
 	}
 
 	@Override
-	public void onLivingAttack(LivingAttackEvent event) {
-		float damage = event.getAmount();
-		Entity entity = event.getEntity();
+	public void onLivingAttack(LivingAttackEvent pEvent) {
+		float damage = pEvent.getAmount();
+		Entity entity = pEvent.getEntity();
 		if (entity instanceof Player player) {
 			float health = player.getHealth();
 			ItemStack mainHand = player.getMainHandItem();
@@ -438,7 +1212,7 @@ public class ClientProxy extends CommonProxy {
 					player.getFoodData().setFoodLevel(20);
 					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
@@ -449,7 +1223,7 @@ public class ClientProxy extends CommonProxy {
 					player.getFoodData().setFoodLevel(20);
 					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -466,7 +1240,7 @@ public class ClientProxy extends CommonProxy {
 					player.setAirSupply(300);
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
@@ -475,7 +1249,7 @@ public class ClientProxy extends CommonProxy {
 					player.setAirSupply(300);
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -488,30 +1262,30 @@ public class ClientProxy extends CommonProxy {
 			TotemItem totem = IcariaItems.TOTEM_OF_UNDYING.get();
 			if (damage >= health) {
 				if (offHand.getItem().equals(totem)) {
-					event.setCanceled(true);
+					pEvent.setCanceled(true);
 					player.setHealth(1);
 					player.removeAllEffects();
 					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900));
 					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
 				if (mainHand.getItem().equals(totem)) {
-					event.setCanceled(true);
+					pEvent.setCanceled(true);
 					player.setHealth(1);
 					player.removeAllEffects();
 					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900));
 					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
 		}
 
-		DamageSource source = event.getSource();
+		DamageSource source = pEvent.getSource();
 		if (source instanceof EntityDamageSource damageSource) {
 			Entity entitySource = damageSource.getEntity();
 			if (entitySource instanceof Player player) {
@@ -523,7 +1297,7 @@ public class ClientProxy extends CommonProxy {
 						if (offHand.getItem().equals(totem)) {
 							player.awardStat(Stats.ITEM_USED.get(totem));
 							mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
-							offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+							offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 							totem.totemAnimation(player);
 						}
 					}
@@ -542,14 +1316,14 @@ public class ClientProxy extends CommonProxy {
 						if (offHand.getItem().equals(totem)) {
 							player.awardStat(Stats.ITEM_USED.get(totem));
 							armor.setDamageValue((int) (armor.getItem().getMaxDamage(armor) * 0.1));
-							offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+							offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 							totem.totemAnimation(player);
 						}
 
 						if (mainHand.getItem().equals(totem)) {
 							player.awardStat(Stats.ITEM_USED.get(totem));
 							armor.setDamageValue((int) (armor.getItem().getMaxDamage(armor) * 0.1));
-							mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+							mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 							totem.totemAnimation(player);
 						}
 					}
@@ -568,7 +1342,7 @@ public class ClientProxy extends CommonProxy {
 					player.setPos(player.position().x, 320, player.position().z);
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
@@ -577,7 +1351,7 @@ public class ClientProxy extends CommonProxy {
 					player.setPos(player.position().x, 320, player.position().z);
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -585,9 +1359,9 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void onMobEffectApplicable(MobEffectEvent.Applicable event) {
-		Entity entity = event.getEntity();
-		MobEffectInstance effect = event.getEffectInstance();
+	public void onMobEffectApplicable(MobEffectEvent.Applicable pEvent) {
+		Entity entity = pEvent.getEntity();
+		MobEffectInstance effect = pEvent.getEffectInstance();
 		if (entity instanceof Player player) {
 			ItemStack mainHand = player.getMainHandItem();
 			ItemStack offHand = player.getOffhandItem();
@@ -597,7 +1371,7 @@ public class ClientProxy extends CommonProxy {
 					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
@@ -605,7 +1379,7 @@ public class ClientProxy extends CommonProxy {
 					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -613,8 +1387,8 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void onPlayerInteract(PlayerInteractEvent event) {
-		Entity entity = event.getEntity();
+	public void onPlayerInteract(PlayerInteractEvent pEvent) {
+		Entity entity = pEvent.getEntity();
 		if (entity instanceof Player player) {
 			ItemStack mainHand = player.getMainHandItem();
 			ItemStack offHand = player.getOffhandItem();
@@ -624,7 +1398,7 @@ public class ClientProxy extends CommonProxy {
 					if (offHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
-						offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -635,7 +1409,7 @@ public class ClientProxy extends CommonProxy {
 					if (mainHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						offHand.setDamageValue((int) (offHand.getItem().getMaxDamage(offHand) * 0.1));
-						mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -644,8 +1418,8 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
-		Entity entity = event.getEntity();
+	public void onEntityInteract(PlayerInteractEvent.EntityInteract pEvent) {
+		Entity entity = pEvent.getEntity();
 		if (entity instanceof Player player) {
 			ItemStack mainHand = player.getMainHandItem();
 			ItemStack offHand = player.getOffhandItem();
@@ -655,7 +1429,7 @@ public class ClientProxy extends CommonProxy {
 					if (offHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
-						offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -666,7 +1440,7 @@ public class ClientProxy extends CommonProxy {
 					if (mainHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						offHand.setDamageValue((int) (offHand.getItem().getMaxDamage(offHand) * 0.1));
-						mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -675,8 +1449,8 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
-		Entity entity = event.getEntity();
+	public void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock pEvent) {
+		Entity entity = pEvent.getEntity();
 		if (entity instanceof Player player) {
 			ItemStack mainHand = player.getMainHandItem();
 			ItemStack offHand = player.getOffhandItem();
@@ -686,7 +1460,7 @@ public class ClientProxy extends CommonProxy {
 					if (offHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
-						offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -695,8 +1469,8 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-		Entity entity = event.getEntity();
+	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock pEvent) {
+		Entity entity = pEvent.getEntity();
 		if (entity instanceof Player player) {
 			ItemStack mainHand = player.getMainHandItem();
 			ItemStack offHand = player.getOffhandItem();
@@ -706,7 +1480,7 @@ public class ClientProxy extends CommonProxy {
 					if (offHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
-						offHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -717,7 +1491,7 @@ public class ClientProxy extends CommonProxy {
 					if (mainHand.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
 						offHand.setDamageValue((int) (offHand.getItem().getMaxDamage(offHand) * 0.1));
-						mainHand.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+						mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -726,63 +1500,63 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
-		Player player = event.player;
+	public void onPlayerTick(TickEvent.PlayerTickEvent pEvent) {
+		Player player = pEvent.player;
 		if (player.level.dimension() == IcariaDimensions.ICARIA) {
 			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
 				ItemStack itemStack = player.getInventory().getItem(slot);
 				if (itemStack.getItem().equals(Items.TORCH)) {
-					int size = itemStack.getCount();
+					int count = itemStack.getCount();
 					player.getInventory().removeItem(itemStack);
-					player.getInventory().add(slot, new ItemStack(IcariaItems.DIM_TORCH.get(), size));
+					player.getInventory().add(slot, new ItemStack(IcariaItems.DIM_TORCH.get(), count));
 				}
 			}
 		} else {
 			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
 				ItemStack itemStack = player.getInventory().getItem(slot);
 				if (itemStack.getItem().equals(IcariaItems.DIM_TORCH.get())) {
-					int size = itemStack.getCount();
+					int count = itemStack.getCount();
 					player.getInventory().removeItem(itemStack);
-					player.getInventory().add(slot, new ItemStack(Items.TORCH, size));
+					player.getInventory().add(slot, new ItemStack(Items.TORCH, count));
 				}
 			}
 		}
 	}
 
 	@Override
-	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> event) {
-		if (event.getRenderer().getModel() instanceof PlayerModel<?>) {
-			for (ItemStack itemStack : event.getEntity().getArmorSlots()) {
+	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> pEvent) {
+		if (pEvent.getRenderer().getModel() instanceof PlayerModel<?>) {
+			for (ItemStack itemStack : pEvent.getEntity().getArmorSlots()) {
 				if (itemStack.getItem() instanceof IcariaSkullItem) {
-					((PlayerModel<?>) event.getRenderer().getModel()).hat.visible = false;
-					((PlayerModel<?>) event.getRenderer().getModel()).head.visible = false;
+					((PlayerModel<?>) pEvent.getRenderer().getModel()).hat.visible = false;
+					((PlayerModel<?>) pEvent.getRenderer().getModel()).head.visible = false;
 					return;
 				}
 			}
 		}
 	}
 
-	public void blockColor(Block block) {
+	public void blockColor(Block pBlock) {
 		Minecraft minecraft = Minecraft.getInstance();
 		BlockColors blockColors = minecraft.getBlockColors();
-		blockColors.register((pState, pGetter, pPos, pIndex) -> GrassColor.get(0.6D, 0.1D), block);
+		blockColors.register((pState, pLevel, pPos, pIndex) -> GrassColor.get(0.6D, 0.1D), pBlock);
 	}
 
-	public void itemColor(Item item) {
+	public void itemColor(Item pItem) {
 		Minecraft minecraft = Minecraft.getInstance();
 		ItemColors itemColors = minecraft.getItemColors();
-		itemColors.register((pStack, pIndex) -> GrassColor.get(0.6D, 0.1D), item);
+		itemColors.register((pStack, pIndex) -> GrassColor.get(0.6D, 0.1D), pItem);
 	}
 
-	public void renderCutout(Block block) {
-		ItemBlockRenderTypes.setRenderLayer(block, RenderType.cutout());
+	public void renderCutout(Block pBlock) {
+		ItemBlockRenderTypes.setRenderLayer(pBlock, RenderType.cutout());
 	}
 
-	public void renderTranslucent(Block block) {
-		ItemBlockRenderTypes.setRenderLayer(block, RenderType.translucent());
+	public void renderTranslucent(Block pBlock) {
+		ItemBlockRenderTypes.setRenderLayer(pBlock, RenderType.translucent());
 	}
 
-	public void renderTranslucent(Fluid fluid) {
-		ItemBlockRenderTypes.setRenderLayer(fluid, RenderType.translucent());
+	public void renderTranslucent(Fluid pFluid) {
+		ItemBlockRenderTypes.setRenderLayer(pFluid, RenderType.translucent());
 	}
 }

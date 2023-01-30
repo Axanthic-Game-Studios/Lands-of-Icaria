@@ -35,9 +35,9 @@ public class CerverSkullModel extends SkullModel {
     }
 
     @Override
-    public void setupAnim(float x, float y, float z) {
-        this.head.xRot = z * (Mth.PI / 180F);
-        this.head.yRot = y * (Mth.PI / 180F);
+    public void setupAnim(float pX, float pY, float pZ) {
+        this.head.xRot = pZ * (Mth.PI / 180F);
+        this.head.yRot = pY * (Mth.PI / 180F);
     }
 
     public static LayerDefinition createLayer() {

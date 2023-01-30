@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.common.entity.HyliasterEntity;
-import com.axanthic.icaria.common.registry.IcariaEntities;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -35,7 +35,7 @@ public class HyliastrumVialItem extends Item {
         Level level = pContext.getLevel();
         Player player = pContext.getPlayer();
         BlockPos relative = blockPos.relative(direction);
-        HyliasterEntity entity = IcariaEntities.HYLIASTER.get().create(level);
+        HyliasterEntity entity = IcariaEntityTypes.HYLIASTER.get().create(level);
         if (!(level instanceof ServerLevel)) {
             level.playSound(player, blockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.NEUTRAL, 1.0F, 1.0F);
             return InteractionResult.SUCCESS;

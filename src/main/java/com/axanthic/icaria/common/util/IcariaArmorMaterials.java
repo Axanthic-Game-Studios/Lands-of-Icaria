@@ -35,7 +35,9 @@ public enum IcariaArmorMaterials implements ArmorMaterial {
     public final int[] slotProtections;
 
     public final LazyLoadedValue<Ingredient> repairIngredient;
+
     public final SoundEvent sound;
+
     public final String name;
 
     IcariaArmorMaterials(String pName, int pDurabilityMultiplier, int[] pSlotProtections, int pEnchantmentValue, SoundEvent pSound, float pToughness, float pKnockbackResistance, Supplier<Ingredient> pRepairIngredient) {

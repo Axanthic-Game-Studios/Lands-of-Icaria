@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "landsoficaria:purple_staghorn"
+    }
+  ],
+  "result": {
+    "item": "minecraft:purple_dye"
+  }
+}

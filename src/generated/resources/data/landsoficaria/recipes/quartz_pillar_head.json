@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "minecraft:quartz_bricks"
+    },
+    "Y": {
+      "item": "minecraft:quartz_pillar"
+    }
+  },
+  "pattern": [
+    "X",
+    "Y"
+  ],
+  "result": {
+    "count": 2,
+    "item": "landsoficaria:quartz_pillar_head"
+  }
+}

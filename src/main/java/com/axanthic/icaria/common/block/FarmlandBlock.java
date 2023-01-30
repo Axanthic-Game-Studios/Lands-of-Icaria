@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.data.IcariaItemTags;
+import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -44,6 +44,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class FarmlandBlock extends Block {
 	public static final IntegerProperty MOISTURE = BlockStateProperties.MOISTURE;
+
 	public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D);
 
 	public FarmlandBlock(Properties pProperties) {
@@ -90,11 +91,10 @@ public class FarmlandBlock extends Block {
 
 	@Override
 	public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
+		super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
 		if (!pLevel.isClientSide && ForgeHooks.onFarmlandTrample(pLevel, pPos, IcariaBlocks.MARL.get().defaultBlockState(), pFallDistance, pEntity)) {
 			this.turnToMarl(pState, pLevel, pPos);
 		}
-
-		super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
 	}
 
 	@Override
@@ -134,7 +134,7 @@ public class FarmlandBlock extends Block {
 	@Override
 	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
 		ItemStack itemStack = pPlayer.getItemInHand(pHand);
-		if (itemStack.is(IcariaItemTags.SMALL_DUST_CALCITE)) {
+		if (itemStack.is(IcariaItems.CALCITE_DUST.get())) {
 			if (pState.getValue(MOISTURE) == 7) {
 				pLevel.playSound(pPlayer, pPos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
 				if (!pLevel.isClientSide) {

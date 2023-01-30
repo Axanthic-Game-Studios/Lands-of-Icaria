@@ -2,7 +2,6 @@ package com.axanthic.icaria.client.util;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Matrix4f;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GameRenderer;
@@ -11,6 +10,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
+
+import org.joml.Matrix4f;
 
 import java.util.Objects;
 
@@ -23,10 +24,10 @@ public class IcariaFluidTypeRenderProperties implements IClientFluidTypeExtensio
     public ResourceLocation flowingTexture;
     public ResourceLocation renderOverlayTexture;
 
-    public IcariaFluidTypeRenderProperties(ResourceLocation stillTexture, ResourceLocation flowingTexture, ResourceLocation renderOverlayTexture) {
-        this.stillTexture = stillTexture;
-        this.flowingTexture = flowingTexture;
-        this.renderOverlayTexture = renderOverlayTexture;
+    public IcariaFluidTypeRenderProperties(ResourceLocation pStillTexture, ResourceLocation pFlowingTexture, ResourceLocation pRenderOverlayTexture) {
+        this.stillTexture = pStillTexture;
+        this.flowingTexture = pFlowingTexture;
+        this.renderOverlayTexture = pRenderOverlayTexture;
     }
 
     @Override
@@ -40,20 +41,20 @@ public class IcariaFluidTypeRenderProperties implements IClientFluidTypeExtensio
     }
 
     @Override
-    public ResourceLocation getRenderOverlayTexture(Minecraft mc) {
+    public ResourceLocation getRenderOverlayTexture(Minecraft pMinecraft) {
         return this.renderOverlayTexture;
     }
 
     @Override
-    public void renderOverlay(Minecraft mc, PoseStack poseStack) {
-        BlockPos blockPos = new BlockPos(Objects.requireNonNull(mc.player).getX(), mc.player.getEyeY(), mc.player.getZ());
+    public void renderOverlay(Minecraft pMinecraft, PoseStack pPoseStack) {
+        BlockPos blockPos = new BlockPos(Objects.requireNonNull(pMinecraft.player).getX(), pMinecraft.player.getEyeY(), pMinecraft.player.getZ());
         BufferBuilder bufferBuilder = Tesselator.getInstance().getBuilder();
-        Matrix4f matrix4f = poseStack.last().pose();
-        ResourceLocation resourceLocation = this.getRenderOverlayTexture(mc);
+        Matrix4f matrix4f = pPoseStack.last().pose();
+        ResourceLocation resourceLocation = this.getRenderOverlayTexture(pMinecraft);
 
-        float brightness = LightTexture.getBrightness(mc.player.level.dimensionType(), mc.player.level.getMaxLocalRawBrightness(blockPos));
-        float uOffset = -mc.player.getYRot() / 64.0F;
-        float vOffset = mc.player.getXRot() / 64.0F;
+        float brightness = LightTexture.getBrightness(pMinecraft.player.level.dimensionType(), pMinecraft.player.level.getMaxLocalRawBrightness(blockPos));
+        float uOffset = -pMinecraft.player.getYRot() / 64.0F;
+        float vOffset = pMinecraft.player.getXRot() / 64.0F;
 
         if (resourceLocation == null) {
             return;

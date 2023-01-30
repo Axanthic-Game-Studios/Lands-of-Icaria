@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_orichalcum_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:orichalcum_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sunstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:sunstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sunstone_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:sunstone_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:grinder"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_sunstone",
+      "has_sunstone_bricks",
+      "has_orichalcum_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:grinder"
+    ]
+  }
+}

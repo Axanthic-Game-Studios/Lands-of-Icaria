@@ -28,11 +28,11 @@ public abstract class IcariaAgeableEntity extends PathfinderMob {
     public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
 
-    public IcariaAgeableEntity(EntityType<? extends IcariaAgeableEntity> pEntityType, Level pLevel, float bboxMult, float eyesMult, float sizeMult) {
-        super(pEntityType, pLevel);
-        this.bboxMult = bboxMult;
-        this.eyesMult = eyesMult;
-        this.sizeMult = sizeMult;
+    public IcariaAgeableEntity(EntityType<? extends IcariaAgeableEntity> pType, Level pLevel, float pBboxMult, float pEyesMult, float pSizeMult) {
+        super(pType, pLevel);
+        this.bboxMult = pBboxMult;
+        this.eyesMult = pEyesMult;
+        this.sizeMult = pSizeMult;
     }
 
     @Override

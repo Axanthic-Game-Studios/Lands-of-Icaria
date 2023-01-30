@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaEntities;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -236,10 +236,10 @@ public class MyrmekeQueenEntity extends Monster {
 
         @Override
         public void performSpell() {
-            ServerLevel serverLevel = (ServerLevel)MyrmekeQueenEntity.this.level;
+            ServerLevel serverLevel = (ServerLevel) MyrmekeQueenEntity.this.level;
             for (int i = 0; i < MyrmekeQueenEntity.this.random.nextIntBetweenInclusive(2,4); ++i) {
                 BlockPos blockPos = MyrmekeQueenEntity.this.blockPosition().offset(-2 + MyrmekeQueenEntity.this.random.nextInt(5), 0, -2 + MyrmekeQueenEntity.this.random.nextInt(5));
-                MyrmekeSoldierEntity entity = IcariaEntities.MYRMEKE_SOLDIER.get().create(MyrmekeQueenEntity.this.level);
+                MyrmekeSoldierEntity entity = IcariaEntityTypes.MYRMEKE_SOLDIER.get().create(MyrmekeQueenEntity.this.level);
                 if (entity != null) {
                     entity.moveTo(blockPos, 0.0F, 0.0F);
                     entity.finalizeSpawn(serverLevel, MyrmekeQueenEntity.this.level.getCurrentDifficultyAt(blockPos), MobSpawnType.MOB_SUMMONED, null, null);

@@ -1,9 +1,9 @@
 {
   "values": [
-    "#forge:raw_materials/chalkos",
-    "#forge:raw_materials/kassiteros",
-    "#forge:raw_materials/vanadium",
-    "#forge:raw_materials/sideros",
-    "#forge:raw_materials/molybdenum"
+    "landsoficaria:chalkos_raw",
+    "landsoficaria:kassiteros_raw",
+    "landsoficaria:vanadium_raw",
+    "landsoficaria:sideros_raw",
+    "landsoficaria:molybdenum_raw"
   ]
 }

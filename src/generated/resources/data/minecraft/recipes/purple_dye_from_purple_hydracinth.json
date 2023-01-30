@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "landsoficaria:purple_hydracinth"
+    }
+  ],
+  "result": {
+    "item": "minecraft:purple_dye"
+  }
+}

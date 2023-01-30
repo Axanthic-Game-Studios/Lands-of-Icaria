@@ -38,6 +38,7 @@ public class DaggerItem extends SwordItem {
     });
 
     public Multimap<Attribute, AttributeModifier> defaultModifiers;
+
     public static final UUID BASE_ATTACK_RANGE_UUID = UUID.fromString("971104f5-17b7-48d9-b16c-1109f0536884");
 
     public DaggerItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {

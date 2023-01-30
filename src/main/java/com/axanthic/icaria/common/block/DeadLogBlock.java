@@ -27,12 +27,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class DeadLogBlock extends RotatedPillarBlock implements SimpleWaterloggedBlock {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+
 	public static final VoxelShape INSIDE_SHAPE = box(2.0D, 8.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 	public static final VoxelShape SHAPE = Shapes.join(Shapes.block(), Shapes.or(INSIDE_SHAPE), BooleanOp.ONLY_FIRST);
 
 	public DeadLogBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Axis.Y).setValue(WATERLOGGED, Boolean.FALSE));
+		this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Axis.Y).setValue(WATERLOGGED, false));
 	}
 
 	@Override

@@ -32,17 +32,17 @@ import javax.annotation.Nonnull;
 @Mixin(CustomHeadLayer.class)
 public class CustomHeadLayerMixin<T extends LivingEntity, M extends EntityModel<T> & HeadedModel> {
     private EntityModelSet set;
+
     private Map<IcariaSkullBlockType, SkullModel> map;
 
     @Inject(at = @At(value = "TAIL"), method = "<init>(Lnet/minecraft/client/renderer/entity/RenderLayerParent;Lnet/minecraft/client/model/geom/EntityModelSet;FFFLnet/minecraft/client/renderer/ItemInHandRenderer;)V")
-    private void initMixin(RenderLayerParent<T, M> pRenderer, EntityModelSet pModelSet, float pScaleX, float pScaleY, float pScaleZ, ItemInHandRenderer pItemInHandRenderer, CallbackInfo ci) {
+    private void initMixin(RenderLayerParent<T, M> pRenderer, EntityModelSet pModelSet, float pScaleX, float pScaleY, float pScaleZ, ItemInHandRenderer pItemInHandRenderer, CallbackInfo pCallbackInfo) {
         this.set = pModelSet;
     }
 
     @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/layers/CustomHeadLayer;translateToHead(Lcom/mojang/blaze3d/vertex/PoseStack;Z)V", shift = At.Shift.BEFORE), method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/LivingEntity;FFFFFF)V", cancellable = true)
-    private void renderHeadMixin(PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight, @Nonnull T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch, CallbackInfo ci) {
+    private void renderHeadMixin(PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight, @Nonnull T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch, CallbackInfo pCallbackInfo) {
         ItemStack itemStack = pLivingEntity.getItemBySlot(EquipmentSlot.HEAD);
-
         if (this.map == null) {
             this.map = IcariaSkullBlockRenderer.createRenderers(this.set);
         }
@@ -52,7 +52,7 @@ public class CustomHeadLayerMixin<T extends LivingEntity, M extends EntityModel<
             pMatrixStack.translate(-0.5D, 0.0D, -0.5D);
             IcariaSkullBlockRenderer.renderSkull(null, 180.0F, pMatrixStack, pBuffer, pPackedLight, this.map, skullItem.getBlock());
             pMatrixStack.popPose();
-            ci.cancel();
+            pCallbackInfo.cancel();
         }
     }
 }

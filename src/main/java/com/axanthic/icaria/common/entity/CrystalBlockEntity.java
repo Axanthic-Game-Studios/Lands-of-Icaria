@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaBlockEntities;
+import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -18,18 +18,18 @@ public class CrystalBlockEntity extends BlockEntity {
 	public int g;
 	public int b;
 
-	public CrystalBlockEntity(BlockPos pPos, BlockState pBlockState) {
-		super(IcariaBlockEntities.CRYSTAL.get(), pPos, pBlockState);
+	public CrystalBlockEntity(BlockPos pPos, BlockState pState) {
+		super(IcariaBlockEntityTypes.CRYSTAL.get(), pPos, pState);
 	}
 
-	public CrystalBlockEntity(BlockPos pPos, BlockState pBlockState, double x, double y, double z, int r, int g, int b) {
+	public CrystalBlockEntity(BlockPos pPos, BlockState pBlockState, double pX, double pY, double pZ, int pRed, int pGreen, int pBlue) {
 		this(pPos, pBlockState);
-		this.x = x;
-		this.y = y;
-		this.z = z;
-		this.r = r;
-		this.g = g;
-		this.b = b;
+		this.x = pX;
+		this.y = pY;
+		this.z = pZ;
+		this.r = pRed;
+		this.g = pGreen;
+		this.b = pBlue;
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import com.axanthic.icaria.client.renderer.IcariaSkullItemRenderer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.StandingAndWallBlockItem;
@@ -17,8 +18,8 @@ import java.util.function.Consumer;
 import javax.annotation.Nonnull;
 
 public class IcariaSkullItem extends StandingAndWallBlockItem {
-    public IcariaSkullItem(Block pBlock, Block pWallBlock, Properties pProperties) {
-        super(pBlock, pWallBlock, pProperties);
+    public IcariaSkullItem(Block pBlock, Block pWallBlock, Properties pProperties, Direction pAttachmentDirection) {
+        super(pBlock, pWallBlock, pProperties, pAttachmentDirection);
     }
 
     @Override

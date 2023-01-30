@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaBlockEntities;
+import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -19,10 +19,11 @@ import javax.annotation.Nonnull;
 
 public class StorageVaseBlockEntity extends BlockEntity {
 	public ItemStackHandler stackHandler = createHandler();
+
 	public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> this.stackHandler);
 
-	public StorageVaseBlockEntity(BlockPos pPos, BlockState pBlockState) {
-		super(IcariaBlockEntities.STORAGE_VASE.get(), pPos, pBlockState);
+	public StorageVaseBlockEntity(BlockPos pPos, BlockState pState) {
+		super(IcariaBlockEntityTypes.STORAGE_VASE.get(), pPos, pState);
 	}
 
 	public int getComparatorInput() {
@@ -59,11 +60,11 @@ public class StorageVaseBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	public @Nonnull <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, Direction side) {
-		if (cap == ForgeCapabilities.ITEM_HANDLER) {
+	public @Nonnull <T> LazyOptional<T> getCapability(@Nonnull Capability<T> pCapability, Direction pDirection) {
+		if (pCapability == ForgeCapabilities.ITEM_HANDLER) {
 			return this.itemHandler.cast();
 		}
 
-		return super.getCapability(cap, side);
+		return super.getCapability(pCapability, pDirection);
 	}
 }

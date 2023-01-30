@@ -1,0 +1,16 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "gear": {
+    "item": "landsoficaria:gear_yellowstone"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:sandstone"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:sand"
+  }
+}

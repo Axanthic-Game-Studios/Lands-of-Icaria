@@ -1,3 +1,10 @@
 {
-  "values": []
+  "values": [
+    "landsoficaria:fir_log",
+    "landsoficaria:stripped_fir_log",
+    "landsoficaria:fir_wood",
+    "landsoficaria:stripped_fir_wood",
+    "landsoficaria:dead_fir_log",
+    "landsoficaria:stripped_dead_fir_log"
+  ]
 }

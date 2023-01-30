@@ -4,7 +4,7 @@ import com.axanthic.icaria.common.goal.IcariaBreedGoal;
 import com.axanthic.icaria.common.goal.IcariaEatBlockGoal;
 import com.axanthic.icaria.common.goal.IcariaFollowParentGoal;
 import com.axanthic.icaria.common.goal.IcariaPanicGoal;
-import com.axanthic.icaria.common.registry.IcariaEntities;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -41,8 +41,8 @@ public class AeternaeEntity extends IcariaAnimalEntity {
 
     public IcariaEatBlockGoal eatBlockGoal;
 
-    public AeternaeEntity(EntityType<? extends IcariaAnimalEntity> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel, 0.25F, 0.35F, 0.25F);
+    public AeternaeEntity(EntityType<? extends IcariaAnimalEntity> pType, Level pLevel) {
+        super(pType, pLevel, 0.25F, 0.35F, 0.25F);
     }
 
     @Override
@@ -154,11 +154,11 @@ public class AeternaeEntity extends IcariaAnimalEntity {
 
     @Override
     public void setSize(int pSize) {
+        super.setSize(pSize);
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
         Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
         Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_KNOCKBACK)).setBaseValue(size * 0.5D);
         Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
-        super.setSize(pSize);
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
@@ -167,7 +167,7 @@ public class AeternaeEntity extends IcariaAnimalEntity {
 
     @Override
     public AeternaeEntity getBreedOffspring(ServerLevel pLevel, IcariaAnimalEntity pEntity) {
-        return IcariaEntities.AETERNAE.get().create(pLevel);
+        return IcariaEntityTypes.AETERNAE.get().create(pLevel);
     }
 
     @Override

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "X": {
       "item": "landsoficaria:arachne_string"
@@ -8,7 +9,7 @@
       "item": "landsoficaria:kassiteros_nugget"
     },
     "Z": {
-      "item": "landsoficaria:calcite_powder"
+      "item": "landsoficaria:calcite_dust"
     }
   },
   "pattern": [

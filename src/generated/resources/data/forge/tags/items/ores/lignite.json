@@ -1,3 +1,6 @@
 {
-  "values": []
+  "values": [
+    "landsoficaria:marl_lignite",
+    "landsoficaria:lignite_ore"
+  ]
 }

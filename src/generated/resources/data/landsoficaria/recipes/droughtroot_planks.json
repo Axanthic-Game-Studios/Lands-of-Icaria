@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": [
+      {
+        "item": "landsoficaria:droughtroot_wood"
+      },
+      {
+        "item": "landsoficaria:stripped_droughtroot_wood"
+      },
+      {
+        "item": "landsoficaria:droughtroot_log"
+      },
+      {
+        "item": "landsoficaria:stripped_droughtroot_log"
+      }
+    ]
+  },
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "result": {
+    "count": 4,
+    "item": "landsoficaria:droughtroot_planks"
+  }
+}

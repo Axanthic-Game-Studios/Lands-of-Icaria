@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:fir_planks"
+    },
+    "Y": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "YXY",
+    "YXY"
+  ],
+  "result": {
+    "item": "landsoficaria:fir_fence_gate"
+  }
+}

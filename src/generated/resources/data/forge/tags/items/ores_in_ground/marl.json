@@ -1,3 +1,7 @@
 {
-  "values": []
+  "values": [
+    "landsoficaria:marl_chert",
+    "landsoficaria:marl_bones",
+    "landsoficaria:marl_lignite"
+  ]
 }

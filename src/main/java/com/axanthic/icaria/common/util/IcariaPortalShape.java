@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.util;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.data.IcariaBlockTags;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -28,9 +28,11 @@ public class IcariaPortalShape extends PortalShape {
     public int width;
 
     public BlockPos bottomLeft;
+
     public Direction rightDir;
     public Direction leftDir;
     public Direction.Axis axis;
+
     public LevelAccessor level;
 
     public IcariaPortalShape(LevelAccessor pLevel, BlockPos pPos, Direction.Axis pAxis) {

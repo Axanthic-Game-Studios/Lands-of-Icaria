@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": [
+      {
+        "item": "landsoficaria:fir_wood"
+      },
+      {
+        "item": "landsoficaria:stripped_fir_wood"
+      },
+      {
+        "item": "landsoficaria:fir_log"
+      },
+      {
+        "item": "landsoficaria:stripped_fir_log"
+      }
+    ]
+  },
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "result": {
+    "count": 4,
+    "item": "landsoficaria:fir_planks"
+  }
+}

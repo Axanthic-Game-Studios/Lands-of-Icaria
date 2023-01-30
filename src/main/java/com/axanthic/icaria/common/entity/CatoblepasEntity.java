@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.goal.IcariaBreedGoal;
 import com.axanthic.icaria.common.goal.IcariaFollowParentGoal;
 import com.axanthic.icaria.common.goal.IcariaPanicGoal;
-import com.axanthic.icaria.common.registry.IcariaEntities;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -101,11 +101,11 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
 
     @Override
     public void setSize(int pSize) {
+        super.setSize(pSize);
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
         Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
         Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_KNOCKBACK)).setBaseValue(size * 0.5D);
         Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
-        super.setSize(pSize);
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
@@ -114,7 +114,7 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
 
     @Override
     public CatoblepasEntity getBreedOffspring(ServerLevel pLevel, IcariaAnimalEntity pEntity) {
-        return IcariaEntities.CATOBLEPAS.get().create(pLevel);
+        return IcariaEntityTypes.CATOBLEPAS.get().create(pLevel);
     }
 
     @Override

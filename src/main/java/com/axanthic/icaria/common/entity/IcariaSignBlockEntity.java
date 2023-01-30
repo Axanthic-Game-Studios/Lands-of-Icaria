@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaBlockEntities;
+import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -11,12 +11,12 @@ import net.minecraft.world.level.block.state.BlockState;
 @MethodsReturnNonnullByDefault
 
 public class IcariaSignBlockEntity extends SignBlockEntity {
-	public IcariaSignBlockEntity(BlockPos pPos, BlockState pBlockState) {
-		super(pPos, pBlockState);
+	public IcariaSignBlockEntity(BlockPos pPos, BlockState pState) {
+		super(pPos, pState);
 	}
 
 	@Override
 	public BlockEntityType<?> getType() {
-		return IcariaBlockEntities.SIGN.get();
+		return IcariaBlockEntityTypes.SIGN.get();
 	}
 }

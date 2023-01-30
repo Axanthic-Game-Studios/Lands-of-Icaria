@@ -12,6 +12,7 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
@@ -26,12 +27,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.NewRegistryEvent;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
-@ParametersAreNonnullByDefault
 
 @Mod(IcariaInfo.MODID)
 public class Icaria {
@@ -40,6 +37,7 @@ public class Icaria {
 	public Icaria() {
 		IcariaConfig.register();
 
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCreativeModeTabRegistration);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onEntityAttributeCreation);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLClientSetup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLCommonSetup);
@@ -50,86 +48,90 @@ public class Icaria {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		IcariaBlocks.BLOCKS.register(bus);
-		IcariaBlockEntities.BLOCK_ENTITY_TYPES.register(bus);
-		IcariaMenus.MENU_TYPES.register(bus);
+		IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
+		IcariaMenuTypes.MENU_TYPES.register(bus);
 		IcariaEffects.EFFECTS.register(bus);
-		IcariaEntities.ENTITY_TYPES.register(bus);
+		IcariaEntityTypes.ENTITY_TYPES.register(bus);
 		IcariaFluids.FLUIDS.register(bus);
-		IcariaFluids.FLUID_TYPES.register(bus);
+		IcariaFluidTypes.FLUID_TYPES.register(bus);
 		IcariaItems.ITEMS.register(bus);
-		IcariaPOIs.POIS.register(bus);
-		IcariaRecipeTypes.SERIALIZERS.register(bus);
+		IcariaPoiTypes.POI_TYPES.register(bus);
+		IcariaRecipeTypes.RECIPE_TYPES.register(bus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
-	public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
-		this.proxy.onEntityAttributeCreation(event);
+	public void onCreativeModeTabRegistration(CreativeModeTabEvent.Register pEvent) {
+		this.proxy.onCreativeModeTabRegistration(pEvent);
 	}
 
-	public void onFMLClientSetup(FMLClientSetupEvent event) {
-		this.proxy.onFMLClientSetup(event);
+	public void onEntityAttributeCreation(EntityAttributeCreationEvent pEvent) {
+		this.proxy.onEntityAttributeCreation(pEvent);
 	}
 
-	public void onFMLCommonSetup(FMLCommonSetupEvent event) {
-		this.proxy.onFMLCommonSetup(event);
+	public void onFMLClientSetup(FMLClientSetupEvent pEvent) {
+		this.proxy.onFMLClientSetup(pEvent);
 	}
 
-	public void onFMLLoadComplete(FMLLoadCompleteEvent event) {
+	public void onFMLCommonSetup(FMLCommonSetupEvent pEvent) {
+		this.proxy.onFMLCommonSetup(pEvent);
+	}
+
+	public void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {
 		this.proxy.onFMLLoadComplete();
 	}
 
-	public void onGatherData(GatherDataEvent event) {
-		this.proxy.onGatherData(event);
+	public void onGatherData(GatherDataEvent pEvent) {
+		this.proxy.onGatherData(pEvent);
 	}
 
-	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		this.proxy.onRegisterLayerDefinitions(event);
-	}
-
-	@SubscribeEvent
-	public void onEntityAttributeModification(EntityAttributeModificationEvent event) {
-		this.proxy.onEntityAttributeModification(event);
+	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions pEvent) {
+		this.proxy.onRegisterLayerDefinitions(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onLivingAttack(LivingAttackEvent event) {
-		this.proxy.onLivingAttack(event);
+	public void onEntityAttributeModification(EntityAttributeModificationEvent pEvent) {
+		this.proxy.onEntityAttributeModification(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onMobEffectApplicable(MobEffectEvent.Applicable event) {
-		this.proxy.onMobEffectApplicable(event);
+	public void onLivingAttack(LivingAttackEvent pEvent) {
+		this.proxy.onLivingAttack(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onPlayerInteract(PlayerInteractEvent event) {
-		this.proxy.onPlayerInteract(event);
+	public void onMobEffectApplicable(MobEffectEvent.Applicable pEvent) {
+		this.proxy.onMobEffectApplicable(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
-		this.proxy.onEntityInteract(event);
+	public void onPlayerInteract(PlayerInteractEvent pEvent) {
+		this.proxy.onPlayerInteract(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
-		this.proxy.onLeftClickBlock(event);
+	public void onEntityInteract(PlayerInteractEvent.EntityInteract pEvent) {
+		this.proxy.onEntityInteract(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-		this.proxy.onRightClickBlock(event);
+	public void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock pEvent) {
+		this.proxy.onLeftClickBlock(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
-		this.proxy.onPlayerTick(event);
+	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock pEvent) {
+		this.proxy.onRightClickBlock(pEvent);
+	}
+
+	@SubscribeEvent
+	public void onPlayerTick(TickEvent.PlayerTickEvent pEvent) {
+		this.proxy.onPlayerTick(pEvent);
 	}
 
 	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
-	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> event) {
-		this.proxy.onRenderLivingPre(event);
+	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> pEvent) {
+		this.proxy.onRenderLivingPre(pEvent);
 	}
 }

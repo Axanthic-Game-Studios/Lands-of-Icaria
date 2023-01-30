@@ -22,6 +22,6 @@ public class IcariaCraftingTableBlock extends CraftingTableBlock {
 
 	@Override
 	public MenuProvider getMenuProvider(BlockState pState, Level pLevel, BlockPos pPos) {
-		return new SimpleMenuProvider((id, inventory, player) -> new IcariaCraftingMenu(id, inventory, ContainerLevelAccess.create(pLevel, pPos), this), Component.translatable("container.crafting"));
+		return new SimpleMenuProvider((pId, pInventory, pPlayer) -> new IcariaCraftingMenu(pId, pInventory, ContainerLevelAccess.create(pLevel, pPos), this), Component.translatable("container.crafting"));
 	}
 }

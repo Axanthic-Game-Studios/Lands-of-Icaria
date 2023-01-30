@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.block.IcariaPortalBlock;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaEntities;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -13,7 +13,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 
@@ -30,7 +29,7 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
     }
 
     public GreekFireGrenadeEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
-        super(IcariaEntities.GREEK_FIRE_GRENADE.get(), pEntity, pLevel);
+        super(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), pEntity, pLevel);
         this.stack = pStack.copy();
     }
 
@@ -54,7 +53,7 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
         }
 
         if (!this.level.isClientSide) {
-            this.level.explode(null, this.getX(), this.getY(), this.getZ(), 1.5F, false, Explosion.BlockInteraction.NONE);
+            this.level.explode(null, this.getX(), this.getY(), this.getZ(), 1.5F, false, Level.ExplosionInteraction.NONE);
             this.discard();
             for (int i = -2; i <= 2; i++) {
                 BlockPos posNeg = new BlockPos(this.getX() - i, this.getY() - i, this.getZ() - i);

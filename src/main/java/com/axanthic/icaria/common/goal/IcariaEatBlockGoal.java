@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.goal;
 
 import com.axanthic.icaria.common.entity.IcariaAnimalEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.data.IcariaBlockTags;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -20,12 +20,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaEatBlockGoal extends Goal {
     public int eatAnimationTick;
 
-    public IcariaAnimalEntity animal;
+    public IcariaAnimalEntity entity;
+
     public Level level;
 
-    public IcariaEatBlockGoal(IcariaAnimalEntity pAnimal) {
-        this.animal = pAnimal;
-        this.level = pAnimal.level;
+    public IcariaEatBlockGoal(IcariaAnimalEntity pEntity) {
+        this.entity = pEntity;
+        this.level = pEntity.level;
         this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK, Goal.Flag.JUMP));
     }
 
@@ -36,8 +37,8 @@ public class IcariaEatBlockGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        BlockPos blockPos = this.animal.blockPosition();
-        if (this.animal.getRandom().nextInt(this.animal.isBaby() ? 50 : 1000) != 0) {
+        BlockPos blockPos = this.entity.blockPosition();
+        if (this.entity.getRandom().nextInt(this.entity.isBaby() ? 50 : 1000) != 0) {
             return false;
         } else {
             if (this.level.getBlockState(blockPos).is(IcariaBlockTags.ICARIA_GRASS_BLOCKS)) {
@@ -55,8 +56,8 @@ public class IcariaEatBlockGoal extends Goal {
     @Override
     public void start() {
         this.eatAnimationTick = this.adjustedTickDelay(40);
-        this.level.broadcastEntityEvent(this.animal, (byte) 10);
-        this.animal.getNavigation().stop();
+        this.level.broadcastEntityEvent(this.entity, (byte) 10);
+        this.entity.getNavigation().stop();
     }
 
     @Override
@@ -68,22 +69,22 @@ public class IcariaEatBlockGoal extends Goal {
     public void tick() {
         this.eatAnimationTick = Math.max(0, this.eatAnimationTick - 1);
         if (this.eatAnimationTick == this.adjustedTickDelay(4)) {
-            BlockPos blockPos = this.animal.blockPosition();
+            BlockPos blockPos = this.entity.blockPosition();
             if (this.level.getBlockState(blockPos).is(IcariaBlockTags.ICARIA_GRASS_BLOCKS)) {
-                if (ForgeEventFactory.getMobGriefingEvent(this.level, this.animal)) {
+                if (ForgeEventFactory.getMobGriefingEvent(this.level, this.entity)) {
                     this.level.destroyBlock(blockPos, false);
                 }
 
-                this.animal.ate();
+                this.entity.ate();
             } else {
                 BlockPos below = blockPos.below();
                 if (this.level.getBlockState(below).is(IcariaBlocks.MARL_GRASS.get())) {
-                    if (ForgeEventFactory.getMobGriefingEvent(this.level, this.animal)) {
+                    if (ForgeEventFactory.getMobGriefingEvent(this.level, this.entity)) {
                         this.level.levelEvent(2001, below, Block.getId(IcariaBlocks.MARL_GRASS.get().defaultBlockState()));
                         this.level.setBlock(below, IcariaBlocks.MARL.get().defaultBlockState(), 2);
                     }
 
-                    this.animal.ate();
+                    this.entity.ate();
                 }
             }
         }

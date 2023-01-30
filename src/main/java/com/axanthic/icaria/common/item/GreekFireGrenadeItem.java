@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.common.entity.GreekFireGrenadeEntity;
-import com.axanthic.icaria.common.util.IcariaTier;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.sounds.SoundEvents;
@@ -19,9 +18,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class GreekFireGrenadeItem extends TieredItem implements Vanishable {
-    public GreekFireGrenadeItem(IcariaTier pTier, Properties pProperties) {
-        super(pTier, pProperties);
+public class GreekFireGrenadeItem extends Item implements Vanishable {
+    public GreekFireGrenadeItem(Properties pProperties) {
+        super(pProperties);
     }
 
     @Override

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "landsoficaria:physalis"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:physalis_seeds"
+  }
+}

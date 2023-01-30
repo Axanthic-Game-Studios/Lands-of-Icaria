@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "A": {
       "item": "landsoficaria:cooked_aeternae_meat"
@@ -8,7 +9,7 @@
       "item": "minecraft:beetroot"
     },
     "C": {
-      "item": "landsoficaria:rock_salt"
+      "item": "landsoficaria:halite_dust"
     },
     "D": {
       "item": "landsoficaria:loam_bowl"

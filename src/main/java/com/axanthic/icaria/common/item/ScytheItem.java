@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.data.IcariaBlockTags;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 import com.axanthic.icaria.common.util.IcariaTier;
 
 import com.google.common.collect.Sets;
@@ -37,7 +37,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class ScytheItem extends HoeItem {
 	public static final TagKey<Block> BLOCKS = IcariaBlockTags.MINEABLE_WITH_SCYTHE;
+
 	public Tier equivalentTier;
+
 	public static final Set<ToolAction> SCYTHE_ACTIONS = Stream.of(ToolActions.HOE_TILL, ToolActions.SWORD_SWEEP).collect(Collectors.toCollection(Sets::newIdentityHashSet));
 
 	public ScytheItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
@@ -57,7 +59,7 @@ public class ScytheItem extends HoeItem {
 
 	@Override
 	public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-		pStack.hurtAndBreak(1, pAttacker, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+		pStack.hurtAndBreak(1, pAttacker, (pLivingEntity) -> pLivingEntity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		return true;
 	}
 

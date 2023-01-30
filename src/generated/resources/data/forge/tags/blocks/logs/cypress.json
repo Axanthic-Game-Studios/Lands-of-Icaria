@@ -3,6 +3,8 @@
     "landsoficaria:cypress_log",
     "landsoficaria:stripped_cypress_log",
     "landsoficaria:cypress_wood",
-    "landsoficaria:stripped_cypress_wood"
+    "landsoficaria:stripped_cypress_wood",
+    "landsoficaria:dead_cypress_log",
+    "landsoficaria:stripped_dead_cypress_log"
   ]
 }

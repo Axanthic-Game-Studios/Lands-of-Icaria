@@ -25,18 +25,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+
 	public static final EnumProperty<AttachFace> FACE = BlockStateProperties.ATTACH_FACE;
 
 	public static final VoxelShape CEILING_NORTH = Block.box(0.0D, 14.0D, 4.5D, 16.0D, 16.0D, 12.5D);
 	public static final VoxelShape CEILING_EAST = Block.box(3.5D, 14.0D, 0.0D, 11.5D, 16.0D, 16.0D);
 	public static final VoxelShape CEILING_SOUTH = Block.box(0.0D, 14.0D, 3.5D, 16.0D, 16.0D, 11.5D);
 	public static final VoxelShape CEILING_WEST = Block.box(4.5D, 14.0D, 0.0D, 12.5D, 16.0D, 16.0D);
-
 	public static final VoxelShape FLOOR_NORTH = Block.box(0.0D, 0.0D, 3.5D, 16.0D, 2.0D, 11.5D);
 	public static final VoxelShape FLOOR_EAST = Block.box(4.5D, 0.0D, 0.0D, 12.5D, 2.0D, 16.0D);
 	public static final VoxelShape FLOOR_SOUTH = Block.box(0.0D, 0.0D, 4.5D, 16.0D, 2.0D, 12.5D);
 	public static final VoxelShape FLOOR_WEST = Block.box(3.5D, 0.0D, 0.0D, 11.5D, 2.0D, 16.0D);
-
 	public static final VoxelShape WALL_NORTH = Block.box(0.0D, 4.5D, 14.0D, 16.0D, 12.5D, 16.0D);
 	public static final VoxelShape WALL_EAST = Block.box(0.0D, 4.5D, 0.0D, 2.0D, 12.5D, 16.0D);
 	public static final VoxelShape WALL_SOUTH = Block.box(0.0D, 4.5D, 0.0D, 16.0D, 12.5D, 2.0D);
@@ -44,12 +43,12 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 
 	public IcariaWallSignBlock(Properties pProperties, WoodType pWoodType) {
 		super(pProperties, pWoodType);
-		this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, Boolean.FALSE).setValue(FACING, Direction.NORTH).setValue(FACE, AttachFace.WALL));
+		this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false).setValue(FACING, Direction.NORTH).setValue(FACE, AttachFace.WALL));
 	}
 
-	public boolean canAttach(LevelReader pReader, BlockPos pPos, Direction pDirection) {
+	public boolean canAttach(LevelReader pLevel, BlockPos pPos, Direction pDirection) {
 		BlockPos blockpos = pPos.relative(pDirection);
-		return pReader.getBlockState(blockpos).isFaceSturdy(pReader, blockpos, pDirection.getOpposite());
+		return pLevel.getBlockState(blockpos).isFaceSturdy(pLevel, blockpos, pDirection.getOpposite());
 	}
 
 	@Override
@@ -91,57 +90,36 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 	}
 
 	public Direction getConnectedDirection(BlockState pState) {
-		switch(pState.getValue(FACE)) {
-			case CEILING:
-				return Direction.DOWN;
-			case FLOOR:
-				return Direction.UP;
-			default:
-				return pState.getValue(FACING);
-		}
+		return switch (pState.getValue(FACE)) {
+			default -> pState.getValue(FACING);
+			case CEILING -> Direction.DOWN;
+			case FLOOR -> Direction.UP;
+		};
 	}
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		switch(pState.getValue(FACE)) {
-			case CEILING:
-			default:
-				switch(pState.getValue(FACING)) {
-					case NORTH:
-					default:
-						return CEILING_NORTH;
-					case EAST:
-						return CEILING_EAST;
-					case SOUTH:
-						return CEILING_SOUTH;
-					case WEST:
-						return CEILING_WEST;
-				}
-			case FLOOR:
-				switch(pState.getValue(FACING)) {
-					case NORTH:
-					default:
-						return FLOOR_NORTH;
-					case EAST:
-						return FLOOR_EAST;
-					case SOUTH:
-						return FLOOR_SOUTH;
-					case WEST:
-						return FLOOR_WEST;
-				}
-			case WALL:
-				switch(pState.getValue(FACING)) {
-					case NORTH:
-					default:
-						return WALL_NORTH;
-					case EAST:
-						return WALL_EAST;
-					case SOUTH:
-						return WALL_SOUTH;
-					case WEST:
-						return WALL_WEST;
-				}
+		return switch (pState.getValue(FACE)) {
+			default -> switch (pState.getValue(FACING)) {
+				default -> CEILING_NORTH;
+				case EAST -> CEILING_EAST;
+				case SOUTH -> CEILING_SOUTH;
+				case WEST -> CEILING_WEST;
+			};
 
-		}
+			case FLOOR -> switch (pState.getValue(FACING)) {
+				default -> FLOOR_NORTH;
+				case EAST -> FLOOR_EAST;
+				case SOUTH -> FLOOR_SOUTH;
+				case WEST -> FLOOR_WEST;
+			};
+
+			case WALL -> switch (pState.getValue(FACING)) {
+				default -> WALL_NORTH;
+				case EAST -> WALL_EAST;
+				case SOUTH -> WALL_SOUTH;
+				case WEST -> WALL_WEST;
+			};
+		};
 	}
 }

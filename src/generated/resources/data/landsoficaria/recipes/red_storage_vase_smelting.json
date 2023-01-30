@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "cookingtime": 200,
-  "experience": 0.3,
-  "ingredient": {
-    "item": "landsoficaria:red_unfired_storage_vase"
-  },
-  "result": "landsoficaria:red_storage_vase"
-}

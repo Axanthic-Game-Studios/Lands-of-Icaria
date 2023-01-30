@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": [
+      {
+        "item": "landsoficaria:laurel_wood"
+      },
+      {
+        "item": "landsoficaria:stripped_laurel_wood"
+      },
+      {
+        "item": "landsoficaria:laurel_log"
+      },
+      {
+        "item": "landsoficaria:stripped_laurel_log"
+      }
+    ]
+  },
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "result": {
+    "count": 4,
+    "item": "landsoficaria:laurel_planks"
+  }
+}

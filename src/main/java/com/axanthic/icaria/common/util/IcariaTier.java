@@ -19,18 +19,20 @@ public class IcariaTier implements Tier {
 	public int uses;
 
 	public Supplier<Ingredient> repairIngredient;
+
 	public TagKey<Block> tag;
+
 	public Tier vanillaEquivalent;
 
-	public IcariaTier(int level, int uses, float speed, float attackDamageBonus, int enchantmentValue, TagKey<Block> tag, Supplier<Ingredient> repairIngredient, Tier vanillaEquivalent) {
-		this.level = level;
-		this.uses = uses;
-		this.speed = speed;
-		this.attackDamageBonus = attackDamageBonus;
-		this.enchantmentValue = enchantmentValue;
-		this.tag = tag;
-		this.repairIngredient = repairIngredient;
-		this.vanillaEquivalent = vanillaEquivalent;
+	public IcariaTier(int pLevel, int pUses, float pSpeed, float pAttackDamageBonus, int pEnchantmentValue, TagKey<Block> pTag, Supplier<Ingredient> pRepairIngredient, Tier pVanillaEquivalent) {
+		this.level = pLevel;
+		this.uses = pUses;
+		this.speed = pSpeed;
+		this.attackDamageBonus = pAttackDamageBonus;
+		this.enchantmentValue = pEnchantmentValue;
+		this.tag = pTag;
+		this.repairIngredient = pRepairIngredient;
+		this.vanillaEquivalent = pVanillaEquivalent;
 	}
 
 	@Override

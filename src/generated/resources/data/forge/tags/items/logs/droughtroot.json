@@ -1,3 +1,10 @@
 {
-  "values": []
+  "values": [
+    "landsoficaria:droughtroot_log",
+    "landsoficaria:stripped_droughtroot_log",
+    "landsoficaria:droughtroot_wood",
+    "landsoficaria:stripped_droughtroot_wood",
+    "landsoficaria:dead_droughtroot_log",
+    "landsoficaria:stripped_dead_droughtroot_log"
+  ]
 }

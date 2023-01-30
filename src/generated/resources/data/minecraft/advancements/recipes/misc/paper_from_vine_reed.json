@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:paper_from_vine_reed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vine_reed": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:vine_reed"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_vine_reed",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:paper_from_vine_reed"
+    ]
+  }
+}

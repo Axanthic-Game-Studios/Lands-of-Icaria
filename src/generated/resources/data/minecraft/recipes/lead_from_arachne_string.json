@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:arachne_string"
+    },
+    "Y": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "pattern": [
+    "XX ",
+    "XY ",
+    "  X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:lead"
+  }
+}

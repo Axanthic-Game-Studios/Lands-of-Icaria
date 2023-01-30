@@ -20,7 +20,7 @@ public interface AxeItemMixin {
 
 	@Mutable
 	@Accessor("STRIPPABLES")
-	static void setIcariaStrippables(Map<Block, Block> newMap) {
+	static void setIcariaStrippables(Map<Block, Block> pMap) {
 		throw new Error("Mixin did not apply.");
 	}
 }

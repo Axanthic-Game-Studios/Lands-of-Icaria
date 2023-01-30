@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": [
+    {
+      "item": "landsoficaria:baetyl"
+    },
+    {
+      "item": "landsoficaria:baetyl_bricks"
+    }
+  ],
+  "result": "landsoficaria:baetyl_chiseled"
+}

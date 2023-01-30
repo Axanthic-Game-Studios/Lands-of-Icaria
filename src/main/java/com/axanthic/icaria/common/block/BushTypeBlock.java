@@ -4,6 +4,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -28,6 +29,11 @@ public class BushTypeBlock extends Block implements IPlantable {
 
 	public BushTypeBlock(Properties pProperties) {
 		super(pProperties);
+	}
+
+	@Override
+	public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
+		return pState.is(BlockTags.REPLACEABLE_PLANTS);
 	}
 
 	@Override

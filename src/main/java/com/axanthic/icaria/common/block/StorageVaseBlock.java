@@ -44,11 +44,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class StorageVaseBlock extends Block implements EntityBlock, SimpleWaterloggedBlock {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+
 	public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
 	public StorageVaseBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, Boolean.FALSE));
+		this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false));
 	}
 
 	@Override
@@ -73,8 +74,8 @@ public class StorageVaseBlock extends Block implements EntityBlock, SimpleWaterl
 			if (blockEntity instanceof StorageVaseBlockEntity) {
 				Objects.requireNonNull(pLevel.getBlockEntity(pPos)).getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
 					for (int i = 0; i < handler.getSlots(); i++) {
-						ItemStack stack = handler.getStackInSlot(i);
-						Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), stack);
+						ItemStack itemStack = handler.getStackInSlot(i);
+						Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), itemStack);
 					}
 				});
 
@@ -108,7 +109,7 @@ public class StorageVaseBlock extends Block implements EntityBlock, SimpleWaterl
 				MenuProvider menuProvider = new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return Component.translatable("menu." + IcariaInfo.MODID + ".storage.vase");
+						return Component.translatable("menu." + IcariaInfo.MODID + ".storage_vase");
 					}
 
 					@Override

@@ -47,7 +47,7 @@ public class VineSproutItem extends Item {
 		if (!pLevel.isClientSide) {
 			player.getCooldowns().addCooldown(this, 400);
 			if (!player.isCreative()) {
-				pStack.hurtAndBreak(1, player, (playerUsing) -> playerUsing.broadcastBreakEvent(player.getUsedItemHand()));
+				pStack.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 			}
 		}
 

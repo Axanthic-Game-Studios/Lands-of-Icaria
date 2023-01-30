@@ -32,33 +32,32 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaVineStagedBlock extends Block {
+	public Block growing;
+	public Block vine;
+	public Block dead;
+
 	public static final BooleanProperty NORTH = PipeBlock.NORTH;
 	public static final BooleanProperty EAST = PipeBlock.EAST;
 	public static final BooleanProperty SOUTH = PipeBlock.SOUTH;
 	public static final BooleanProperty WEST = PipeBlock.WEST;
 	public static final BooleanProperty UP = PipeBlock.UP;
 
-	public static final Map<Direction, BooleanProperty> PROPERTY_BY_DIRECTION = PipeBlock.PROPERTY_BY_DIRECTION.entrySet().stream().filter((entry) -> entry.getKey() != Direction.DOWN).collect(Util.toMap());
-
-	public static final VoxelShape NORTH_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 1.0D);
-	public static final VoxelShape EAST_AABB = Block.box(15.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-	public static final VoxelShape SOUTH_AABB = Block.box(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D);
-	public static final VoxelShape WEST_AABB = Block.box(0.0D, 0.0D, 0.0D, 1.0D, 16.0D, 16.0D);
-	public static final VoxelShape UP_AABB = Block.box(0.0D, 15.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-
 	public Map<BlockState, VoxelShape> map;
+	public static final Map<Direction, BooleanProperty> PROPERTY_BY_DIRECTION = PipeBlock.PROPERTY_BY_DIRECTION.entrySet().stream().filter((pEntry) -> pEntry.getKey() != Direction.DOWN).collect(Util.toMap());
 
-	public Block growing;
-	public Block vine;
-	public Block dead;
+	public static final VoxelShape SHAPE_NORTH = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 1.0D);
+	public static final VoxelShape SHAPE_EAST = Block.box(15.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+	public static final VoxelShape SHAPE_SOUTH = Block.box(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D);
+	public static final VoxelShape SHAPE_WEST = Block.box(0.0D, 0.0D, 0.0D, 1.0D, 16.0D, 16.0D);
+	public static final VoxelShape SHAPE_UP = Block.box(0.0D, 15.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
-	public IcariaVineStagedBlock(Properties pProperties, Block growing, Block vine, Block dead) {
+	public IcariaVineStagedBlock(Properties pProperties, Block pGrowing, Block pVine, Block pDead) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.FALSE).setValue(EAST, Boolean.FALSE).setValue(SOUTH, Boolean.FALSE).setValue(WEST, Boolean.FALSE).setValue(UP, Boolean.FALSE));
+		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false).setValue(UP, false));
 		this.map = ImmutableMap.copyOf(this.stateDefinition.getPossibleStates().stream().collect(Collectors.toMap(Function.identity(), IcariaVineStagedBlock::calculateShape)));
-		this.growing = growing;
-		this.vine = vine;
-		this.dead = dead;
+		this.growing = pGrowing;
+		this.vine = pVine;
+		this.dead = pDead;
 	}
 
 	@Override
@@ -158,28 +157,28 @@ public class IcariaVineStagedBlock extends Block {
 							boolean flagClockWise = pState.getValue(this.getPropertyForFace(directionClockWise));
 							boolean flagCounterClockWise = pState.getValue(this.getPropertyForFace(directionCounterClockWise));
 							if (flagClockWise && this.isAcceptableNeighbour(pLevel, posClockWise, directionClockWise)) {
-								pLevel.setBlock(posRelative, this.defaultBlockState().setValue(this.getPropertyForFace(directionClockWise), Boolean.TRUE), 2);
+								pLevel.setBlock(posRelative, this.defaultBlockState().setValue(this.getPropertyForFace(directionClockWise), true), 2);
 							} else if (flagCounterClockWise && this.isAcceptableNeighbour(pLevel, posCounterClockWise, directionCounterClockWise)) {
-								pLevel.setBlock(posRelative, this.defaultBlockState().setValue(this.getPropertyForFace(directionCounterClockWise), Boolean.TRUE), 2);
+								pLevel.setBlock(posRelative, this.defaultBlockState().setValue(this.getPropertyForFace(directionCounterClockWise), true), 2);
 							} else {
 								Direction directionOpposite = directionRandom.getOpposite();
 								if (flagClockWise && pLevel.isEmptyBlock(posClockWise) && this.isAcceptableNeighbour(pLevel, pPos.relative(directionClockWise), directionOpposite)) {
-									pLevel.setBlock(posClockWise, this.defaultBlockState().setValue(this.getPropertyForFace(directionOpposite), Boolean.TRUE), 2);
+									pLevel.setBlock(posClockWise, this.defaultBlockState().setValue(this.getPropertyForFace(directionOpposite), true), 2);
 								} else if (flagCounterClockWise && pLevel.isEmptyBlock(posCounterClockWise) && this.isAcceptableNeighbour(pLevel, pPos.relative(directionCounterClockWise), directionOpposite)) {
-									pLevel.setBlock(posCounterClockWise, this.defaultBlockState().setValue(this.getPropertyForFace(directionOpposite), Boolean.TRUE), 2);
+									pLevel.setBlock(posCounterClockWise, this.defaultBlockState().setValue(this.getPropertyForFace(directionOpposite), true), 2);
 								} else if (pRandom.nextFloat() < 0.05D && this.isAcceptableNeighbour(pLevel, posRelative.above(), Direction.UP)) {
-									pLevel.setBlock(posRelative, this.defaultBlockState().setValue(UP, Boolean.TRUE), 2);
+									pLevel.setBlock(posRelative, this.defaultBlockState().setValue(UP, true), 2);
 								}
 							}
 						} else if (this.isAcceptableNeighbour(pLevel, posRelative, directionRandom)) {
-							pLevel.setBlock(pPos, pState.setValue(this.getPropertyForFace(directionRandom), Boolean.TRUE), 2);
+							pLevel.setBlock(pPos, pState.setValue(this.getPropertyForFace(directionRandom), true), 2);
 						}
 					}
 				} else {
 					if (directionRandom == Direction.UP) {
 						if (pPos.getY() < pLevel.getMaxBuildHeight() - 1) {
 							if (this.canSupportAtFace(pLevel, pPos, directionRandom)) {
-								pLevel.setBlock(pPos, pState.setValue(UP, Boolean.TRUE), 2);
+								pLevel.setBlock(pPos, pState.setValue(UP, true), 2);
 								return;
 							}
 
@@ -191,7 +190,7 @@ public class IcariaVineStagedBlock extends Block {
 
 								for (Direction direction : Direction.Plane.HORIZONTAL) {
 									if (pRandom.nextBoolean() || !this.isAcceptableNeighbour(pLevel, posAbove.relative(direction), direction)) {
-										blockState = blockState.setValue(this.getPropertyForFace(direction), Boolean.FALSE);
+										blockState = blockState.setValue(this.getPropertyForFace(direction), false);
 									}
 								}
 
@@ -246,7 +245,7 @@ public class IcariaVineStagedBlock extends Block {
 				BooleanProperty booleanProperty = this.getPropertyForFace(direction);
 				boolean flagTwo = flagOne && stateOne.getValue(booleanProperty);
 				if (!flagTwo && this.canSupportAtFace(pContext.getLevel(), pContext.getClickedPos(), direction)) {
-					return stateTwo.setValue(booleanProperty, Boolean.TRUE);
+					return stateTwo.setValue(booleanProperty, true);
 				}
 			}
 		}
@@ -282,28 +281,21 @@ public class IcariaVineStagedBlock extends Block {
 
 	@Override
 	public BlockState mirror(BlockState pState, Mirror pMirror) {
-		switch(pMirror) {
-			case LEFT_RIGHT:
-				return pState.setValue(NORTH, pState.getValue(SOUTH)).setValue(SOUTH, pState.getValue(NORTH));
-			case FRONT_BACK:
-				return pState.setValue(EAST, pState.getValue(WEST)).setValue(WEST, pState.getValue(EAST));
-			default:
-				return super.mirror(pState, pMirror);
-		}
+		return switch (pMirror) {
+			default -> super.mirror(pState, pMirror);
+			case LEFT_RIGHT -> pState.setValue(NORTH, pState.getValue(SOUTH)).setValue(SOUTH, pState.getValue(NORTH));
+			case FRONT_BACK -> pState.setValue(EAST, pState.getValue(WEST)).setValue(WEST, pState.getValue(EAST));
+		};
 	}
 
 	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotate) {
-		switch(pRotate) {
-			case CLOCKWISE_180:
-				return pState.setValue(NORTH, pState.getValue(SOUTH)).setValue(EAST, pState.getValue(WEST)).setValue(SOUTH, pState.getValue(NORTH)).setValue(WEST, pState.getValue(EAST));
-			case COUNTERCLOCKWISE_90:
-				return pState.setValue(NORTH, pState.getValue(EAST)).setValue(EAST, pState.getValue(SOUTH)).setValue(SOUTH, pState.getValue(WEST)).setValue(WEST, pState.getValue(NORTH));
-			case CLOCKWISE_90:
-				return pState.setValue(NORTH, pState.getValue(WEST)).setValue(EAST, pState.getValue(NORTH)).setValue(SOUTH, pState.getValue(EAST)).setValue(WEST, pState.getValue(SOUTH));
-			default:
-				return pState;
-		}
+	public BlockState rotate(BlockState pState, Rotation pRotation) {
+		return switch (pRotation) {
+			default -> pState;
+			case CLOCKWISE_90 -> pState.setValue(NORTH, pState.getValue(WEST)).setValue(EAST, pState.getValue(NORTH)).setValue(SOUTH, pState.getValue(EAST)).setValue(WEST, pState.getValue(SOUTH));
+			case CLOCKWISE_180 -> pState.setValue(NORTH, pState.getValue(SOUTH)).setValue(EAST, pState.getValue(WEST)).setValue(SOUTH, pState.getValue(NORTH)).setValue(WEST, pState.getValue(EAST));
+			case COUNTERCLOCKWISE_90 -> pState.setValue(NORTH, pState.getValue(EAST)).setValue(EAST, pState.getValue(SOUTH)).setValue(SOUTH, pState.getValue(WEST)).setValue(WEST, pState.getValue(NORTH));
+		};
 	}
 
 	@Override
@@ -316,22 +308,22 @@ public class IcariaVineStagedBlock extends Block {
 		}
 	}
 
-	public BooleanProperty getPropertyForFace(Direction pFace) {
-		return PROPERTY_BY_DIRECTION.get(pFace);
+	public BooleanProperty getPropertyForFace(Direction pDirection) {
+		return PROPERTY_BY_DIRECTION.get(pDirection);
 	}
 
 	public static VoxelShape calculateShape(BlockState pState) {
 		VoxelShape voxelShape = Shapes.empty();
 		if (pState.getValue(NORTH)) {
-			voxelShape = Shapes.or(voxelShape, NORTH_AABB);
+			voxelShape = Shapes.or(voxelShape, SHAPE_NORTH);
 		} else if (pState.getValue(EAST)) {
-			voxelShape = Shapes.or(voxelShape, EAST_AABB);
+			voxelShape = Shapes.or(voxelShape, SHAPE_EAST);
 		} else if (pState.getValue(SOUTH)) {
-			voxelShape = Shapes.or(voxelShape, SOUTH_AABB);
+			voxelShape = Shapes.or(voxelShape, SHAPE_SOUTH);
 		} else if (pState.getValue(WEST)) {
-			voxelShape = Shapes.or(voxelShape, WEST_AABB);
+			voxelShape = Shapes.or(voxelShape, SHAPE_WEST);
 		} else if (pState.getValue(UP)) {
-			voxelShape = UP_AABB;
+			voxelShape = SHAPE_UP;
 		}
 
 		return voxelShape.isEmpty() ? Shapes.block() : voxelShape;

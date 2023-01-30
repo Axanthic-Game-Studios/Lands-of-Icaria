@@ -3,7 +3,7 @@ package com.axanthic.icaria.client.renderer;
 import com.axanthic.icaria.common.entity.GreekFireGrenadeEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -37,8 +37,8 @@ public class GreekFireGrenadeRenderer extends EntityRenderer<GreekFireGrenadeEnt
         BakedModel bakedModel = this.renderer.getModel(pEntity.getItem(), pEntity.level, null, pEntity.getId());
 
         pMatrixStack.pushPose();
-        pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot()) - 90.0F));
-        pMatrixStack.mulPose(Vector3f.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot()) - 45.0F));
+        pMatrixStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot()) - 90.0F));
+        pMatrixStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot()) - 45.0F));
         pMatrixStack.translate(-0.15, -0.15, 0);
 
         this.renderer.render(pEntity.getItem(), ItemTransforms.TransformType.NONE, false, pMatrixStack, pBuffer, pPackedLight, OverlayTexture.NO_OVERLAY, bakedModel);

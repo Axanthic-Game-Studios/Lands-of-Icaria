@@ -38,12 +38,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkullBlockEntity> {
     public Map<IcariaSkullBlockType, SkullModel> map;
 
-    public static final Map<IcariaSkullBlockType, ResourceLocation> SKIN_BY_TYPE = Util.make(Maps.newHashMap(), (map) -> {
-        map.put(IcariaSkullBlockTypes.AETERNAE, new ResourceLocation(IcariaInfo.MODID, "textures/entity/aeternae.png"));
-        map.put(IcariaSkullBlockTypes.ARGAN_HOUND, new ResourceLocation(IcariaInfo.MODID, "textures/entity/argan_hound.png"));
-        map.put(IcariaSkullBlockTypes.CATOBLEPAS, new ResourceLocation(IcariaInfo.MODID, "textures/entity/catoblepas.png"));
-        map.put(IcariaSkullBlockTypes.CERVER, new ResourceLocation(IcariaInfo.MODID, "textures/entity/cerver.png"));
-        map.put(IcariaSkullBlockTypes.SOW, new ResourceLocation(IcariaInfo.MODID, "textures/entity/sow.png"));
+    public static final Map<IcariaSkullBlockType, ResourceLocation> SKIN_BY_TYPE = Util.make(Maps.newHashMap(), (pMap) -> {
+        pMap.put(IcariaSkullBlockTypes.AETERNAE, new ResourceLocation(IcariaInfo.MODID, "textures/entity/aeternae.png"));
+        pMap.put(IcariaSkullBlockTypes.ARGAN_HOUND, new ResourceLocation(IcariaInfo.MODID, "textures/entity/argan_hound.png"));
+        pMap.put(IcariaSkullBlockTypes.CATOBLEPAS, new ResourceLocation(IcariaInfo.MODID, "textures/entity/catoblepas.png"));
+        pMap.put(IcariaSkullBlockTypes.CERVER, new ResourceLocation(IcariaInfo.MODID, "textures/entity/cerver.png"));
+        pMap.put(IcariaSkullBlockTypes.SOW, new ResourceLocation(IcariaInfo.MODID, "textures/entity/sow.png"));
     });
 
     public IcariaSkullBlockRenderer(BlockEntityRendererProvider.Context pContext) {

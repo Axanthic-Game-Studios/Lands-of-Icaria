@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": [
+    {
+      "item": "landsoficaria:sunstone"
+    },
+    {
+      "item": "landsoficaria:sunstone_bricks"
+    }
+  ],
+  "result": "landsoficaria:sunstone_chiseled"
+}

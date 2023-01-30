@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "minecraft:bamboo"
+    },
+    "Y": {
+      "item": "landsoficaria:arachne_string"
+    }
+  },
+  "pattern": [
+    "XYX",
+    "X X",
+    "X X"
+  ],
+  "result": {
+    "item": "minecraft:scaffolding"
+  }
+}

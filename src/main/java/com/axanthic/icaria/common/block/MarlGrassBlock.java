@@ -6,6 +6,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
@@ -31,6 +32,7 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -45,7 +47,7 @@ public class MarlGrassBlock extends Block implements BonemealableBlock {
 
 	public MarlGrassBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(MOSSY_0, Boolean.FALSE).setValue(MOSSY_1, Boolean.FALSE).setValue(MOSSY_2, Boolean.FALSE));
+		this.registerDefaultState(this.stateDefinition.any().setValue(MOSSY_0, false).setValue(MOSSY_1, false).setValue(MOSSY_2, false));
 	}
 
 	public boolean canBeGrass(BlockState pState, LevelReader pLevel, BlockPos pPos) {
@@ -93,7 +95,7 @@ public class MarlGrassBlock extends Block implements BonemealableBlock {
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(BlockGetter pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
+	public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
 		return pLevel.getBlockState(pPos.above()).isAir();
 	}
 
@@ -103,27 +105,28 @@ public class MarlGrassBlock extends Block implements BonemealableBlock {
 	}
 
 	@Override
-	public void performBonemeal(ServerLevel pLevel, RandomSource pRand, BlockPos pPos, BlockState pState) {
+	public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
 		BlockPos posAbove = pPos.above();
 		BlockState blockState = IcariaBlocks.MARL_GRASS.get().defaultBlockState();
+		Optional<Holder.Reference<PlacedFeature>> optional = pLevel.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(VegetationPlacements.GRASS_BONEMEAL);
 		label46:
 		for (int i = 0; i < 128; ++i) {
 			BlockPos blockPos = posAbove;
 			for (int j = 0; j < i / 16; ++j) {
-				blockPos = blockPos.offset(pRand.nextInt(3) - 1, (pRand.nextInt(3) - 1) * pRand.nextInt(3) / 2, pRand.nextInt(3) - 1);
+				blockPos = blockPos.offset(pRandom.nextInt(3) - 1, (pRandom.nextInt(3) - 1) * pRandom.nextInt(3) / 2, pRandom.nextInt(3) - 1);
 				if (!pLevel.getBlockState(blockPos.below()).is(this) || pLevel.getBlockState(blockPos).isCollisionShapeFullBlock(pLevel, blockPos)) {
 					continue label46;
 				}
 			}
 
 			BlockState stateAbove = pLevel.getBlockState(blockPos);
-			if (stateAbove.is(blockState.getBlock()) && pRand.nextInt(10) == 0) {
-				((BonemealableBlock) blockState.getBlock()).performBonemeal(pLevel, pRand, blockPos, stateAbove);
+			if (stateAbove.is(blockState.getBlock()) && pRandom.nextInt(10) == 0) {
+				((BonemealableBlock) blockState.getBlock()).performBonemeal(pLevel, pRandom, blockPos, stateAbove);
 			}
 
 			if (stateAbove.isAir()) {
 				Holder<PlacedFeature> holder;
-				if (pRand.nextInt(8) == 0) {
+				if (pRandom.nextInt(8) == 0) {
 					List<ConfiguredFeature<?, ?>> list = pLevel.getBiome(blockPos).value().getGenerationSettings().getFlowerFeatures();
 					if (list.isEmpty()) {
 						continue;
@@ -131,10 +134,14 @@ public class MarlGrassBlock extends Block implements BonemealableBlock {
 
 					holder = ((RandomPatchConfiguration) list.get(0).config()).feature();
 				} else {
-					holder = VegetationPlacements.GRASS_BONEMEAL;
+					if (optional.isEmpty()) {
+						continue;
+					}
+
+					holder = optional.get();
 				}
 
-				holder.value().place(pLevel, pLevel.getChunkSource().getGenerator(), pRand, blockPos);
+				holder.value().place(pLevel, pLevel.getChunkSource().getGenerator(), pRandom, blockPos);
 			}
 		}
 	}
@@ -165,8 +172,8 @@ public class MarlGrassBlock extends Block implements BonemealableBlock {
 	}
 
 	@Override
-	public BlockState getToolModifiedState(BlockState pState, UseOnContext pContext, ToolAction pAction, boolean pSimulate) {
-		if (pAction.equals(ToolActions.HOE_TILL) && pContext.getLevel().getBlockState(pContext.getClickedPos().above()).isAir()) {
+	public BlockState getToolModifiedState(BlockState pState, UseOnContext pContext, ToolAction pToolAction, boolean pSimulate) {
+		if (pToolAction.equals(ToolActions.HOE_TILL) && pContext.getLevel().getBlockState(pContext.getClickedPos().above()).isAir()) {
 			return IcariaBlocks.FARMLAND.get().defaultBlockState();
 		}
 

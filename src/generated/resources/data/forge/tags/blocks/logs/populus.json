@@ -3,6 +3,8 @@
     "landsoficaria:populus_log",
     "landsoficaria:stripped_populus_log",
     "landsoficaria:populus_wood",
-    "landsoficaria:stripped_populus_wood"
+    "landsoficaria:stripped_populus_wood",
+    "landsoficaria:dead_populus_log",
+    "landsoficaria:stripped_dead_populus_log"
   ]
 }

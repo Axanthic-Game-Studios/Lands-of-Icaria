@@ -25,10 +25,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class TreeShroomBlock extends Block {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-	public static final VoxelShape NORTH_AABB = Block.box(4.0D, 4.0D, 12.0D, 12.0D, 12.0D, 16.0D);
-	public static final VoxelShape EAST_AABB = Block.box(0.0D, 4.0D, 4.0D, 4.0D, 12.0D, 12.0D);
-	public static final VoxelShape SOUTH_AABB = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 4.0D);
-	public static final VoxelShape WEST_AABB = Block.box(12.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
+
+	public static final VoxelShape SHAPE_NORTH = Block.box(4.0D, 4.0D, 12.0D, 12.0D, 12.0D, 16.0D);
+	public static final VoxelShape SHAPE_EAST = Block.box(0.0D, 4.0D, 4.0D, 4.0D, 12.0D, 12.0D);
+	public static final VoxelShape SHAPE_SOUTH = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 4.0D);
+	public static final VoxelShape SHAPE_WEST = Block.box(12.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
 
 	public TreeShroomBlock(Properties pProperties) {
 		super(pProperties);
@@ -77,16 +78,11 @@ public class TreeShroomBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		switch(pState.getValue(FACING)) {
-			case NORTH:
-			default:
-				return NORTH_AABB;
-			case EAST:
-				return EAST_AABB;
-			case SOUTH:
-				return SOUTH_AABB;
-			case WEST:
-				return WEST_AABB;
-		}
+		return switch (pState.getValue(FACING)) {
+			default -> SHAPE_NORTH;
+			case EAST -> SHAPE_EAST;
+			case SOUTH -> SHAPE_SOUTH;
+			case WEST -> SHAPE_WEST;
+		};
 	}
 }

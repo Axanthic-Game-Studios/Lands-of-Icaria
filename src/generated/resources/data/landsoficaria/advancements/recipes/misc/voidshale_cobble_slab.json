@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:voidshale_cobble_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_voidshale_cobble": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:voidshale_cobble"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_voidshale_cobble",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:voidshale_cobble_slab"
+    ]
+  }
+}

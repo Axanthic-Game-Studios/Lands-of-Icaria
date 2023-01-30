@@ -30,7 +30,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class GreekFireBlock extends Block {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_15;
-    public static final VoxelShape DOWN_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
+
+    public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 
     public GreekFireBlock(Properties pProperties) {
         super(pProperties);
@@ -72,6 +73,7 @@ public class GreekFireBlock extends Block {
 
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+        super.entityInside(pState, pLevel, pPos, pEntity);
         if (!pEntity.fireImmune()) {
             pEntity.setRemainingFireTicks(pEntity.getRemainingFireTicks() + 1);
             if (pEntity.getRemainingFireTicks() == 0) {
@@ -80,7 +82,6 @@ public class GreekFireBlock extends Block {
         }
 
         pEntity.hurt(DamageSource.IN_FIRE, 1.5F);
-        super.entityInside(pState, pLevel, pPos, pEntity);
     }
 
     @Override
@@ -91,11 +92,10 @@ public class GreekFireBlock extends Block {
 
     @Override
     public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
         if (!pLevel.isClientSide()) {
             pLevel.levelEvent(null, 1009, pPos, 0);
         }
-
-        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
     }
 
     @Override
@@ -123,9 +123,9 @@ public class GreekFireBlock extends Block {
         }
     }
 
-    public BlockState getStateWithAge(int i) {
+    public BlockState getStateWithAge(int pAge) {
         BlockState blockState = IcariaBlocks.GREEK_FIRE.get().defaultBlockState();
-        return blockState.is(IcariaBlocks.GREEK_FIRE.get()) ? blockState.setValue(AGE, i) : blockState;
+        return blockState.is(IcariaBlocks.GREEK_FIRE.get()) ? blockState.setValue(AGE, pAge) : blockState;
     }
 
     @Override
@@ -135,6 +135,6 @@ public class GreekFireBlock extends Block {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return DOWN_AABB;
+        return SHAPE;
     }
 }

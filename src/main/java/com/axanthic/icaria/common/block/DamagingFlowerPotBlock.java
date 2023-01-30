@@ -20,8 +20,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DamagingFlowerPotBlock extends FlowerPotBlock {
-	public DamagingFlowerPotBlock(Supplier<FlowerPotBlock> emptyPot, Supplier<? extends Block> pContent, Properties properties) {
-		super(emptyPot, pContent, properties);
+	public DamagingFlowerPotBlock(Supplier<FlowerPotBlock> pEmpty, Supplier<? extends Block> pContent, Properties pProperties) {
+		super(pEmpty, pContent, pProperties);
 	}
 
 	@Override

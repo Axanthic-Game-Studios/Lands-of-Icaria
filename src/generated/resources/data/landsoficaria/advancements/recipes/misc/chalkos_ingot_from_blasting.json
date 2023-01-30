@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chalkos_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:chalkos_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_chalkos_raw": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:chalkos_raw"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:chalkos_ingot_from_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_chalkos_ore",
+      "has_chalkos_raw",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:chalkos_ingot_from_blasting"
+    ]
+  }
+}

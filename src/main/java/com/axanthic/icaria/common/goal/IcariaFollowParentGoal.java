@@ -11,50 +11,50 @@ public class IcariaFollowParentGoal extends Goal {
 
     public int timeToRecalcPath;
 
-    public IcariaAnimalEntity animal;
+    public IcariaAnimalEntity entity;
     public IcariaAnimalEntity parent;
 
-    public IcariaFollowParentGoal(IcariaAnimalEntity pAnimal, double pSpeedModifier) {
-        this.animal = pAnimal;
+    public IcariaFollowParentGoal(IcariaAnimalEntity pEntity, double pSpeedModifier) {
+        this.entity = pEntity;
         this.speedModifier = pSpeedModifier;
     }
 
     @Override
     public boolean canContinueToUse() {
-        if (!this.animal.isBaby()) {
+        if (!this.entity.isBaby()) {
             return false;
         } else if (!this.parent.isAlive()) {
             return false;
         } else {
-            double d = this.animal.distanceToSqr(this.parent);
+            double d = this.entity.distanceToSqr(this.parent);
             return !(d <= 8.0D) && !(d >= 256.0D);
         }
     }
 
     @Override
     public boolean canUse() {
-        if (!this.animal.isBaby()) {
+        if (!this.entity.isBaby()) {
             return false;
         } else {
             double d0 = Double.MAX_VALUE;
-            IcariaAnimalEntity animal = null;
-            List<? extends IcariaAnimalEntity> list = this.animal.level.getEntitiesOfClass(this.animal.getClass(), this.animal.getBoundingBox().inflate(8.0D, 4.0D, 8.0D));
+            IcariaAnimalEntity entity = null;
+            List<? extends IcariaAnimalEntity> list = this.entity.level.getEntitiesOfClass(this.entity.getClass(), this.entity.getBoundingBox().inflate(8.0D, 4.0D, 8.0D));
             for (IcariaAnimalEntity parent : list) {
                 if (!parent.isBaby()) {
-                    double d1 = this.animal.distanceToSqr(parent);
+                    double d1 = this.entity.distanceToSqr(parent);
                     if (!(d1 > d0)) {
                         d0 = d1;
-                        animal = parent;
+                        entity = parent;
                     }
                 }
             }
 
-            if (animal == null) {
+            if (entity == null) {
                 return false;
             } else if (d0 <= 8.0D) {
                 return false;
             } else {
-                this.parent = animal;
+                this.parent = entity;
                 return true;
             }
         }
@@ -74,7 +74,7 @@ public class IcariaFollowParentGoal extends Goal {
     public void tick() {
         if (--this.timeToRecalcPath <= 0) {
             this.timeToRecalcPath = 10;
-            this.animal.getNavigation().moveTo(this.parent, this.speedModifier);
+            this.entity.getNavigation().moveTo(this.parent, this.speedModifier);
         }
     }
 }

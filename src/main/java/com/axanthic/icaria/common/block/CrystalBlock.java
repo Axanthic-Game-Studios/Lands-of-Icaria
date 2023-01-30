@@ -32,36 +32,35 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CrystalBlock extends DirectionalBlock implements EntityBlock, SimpleWaterloggedBlock {
-	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-
-	public static final VoxelShape NORTH_AABB = Block.box(4.0D, 4.0D, 8.0D, 12.0D, 12.0D, 16.0D);
-	public static final VoxelShape EAST_AABB = Block.box(0.0D, 4.0D, 4.0D, 8.0D, 12.0D, 12.0D);
-	public static final VoxelShape SOUTH_AABB = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 8.0D);
-	public static final VoxelShape WEST_AABB = Block.box(8.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
-	public static final VoxelShape UP_AABB = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
-	public static final VoxelShape DOWN_AABB = Block.box(4.0D, 8.0D, 4.0D, 12.0D, 16.0D, 12.0D);
-
 	public int r;
 	public int g;
 	public int b;
 
+	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+
+	public static final VoxelShape SHAPE_NORTH = Block.box(4.0D, 4.0D, 8.0D, 12.0D, 12.0D, 16.0D);
+	public static final VoxelShape SHAPE_EAST = Block.box(0.0D, 4.0D, 4.0D, 8.0D, 12.0D, 12.0D);
+	public static final VoxelShape SHAPE_SOUTH = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 8.0D);
+	public static final VoxelShape SHAPE_WEST = Block.box(8.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
+	public static final VoxelShape SHAPE_UP = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
+	public static final VoxelShape SHAPE_DOWN = Block.box(4.0D, 8.0D, 4.0D, 12.0D, 16.0D, 12.0D);
+
 	public CrystalBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
 
-	public CrystalBlock(Properties pProperties, int r, int g, int b) {
+	public CrystalBlock(Properties pProperties, int pRed, int pGreen, int pBlue) {
 		this(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
-		this.r = r;
-		this.g = g;
-		this.b = b;
+		this.r = pRed;
+		this.g = pGreen;
+		this.b = pBlue;
 	}
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		Direction direction = pState.getValue(FACING);
-		BlockPos blockPos = pPos.relative(direction.getOpposite());
+		BlockPos blockPos = pPos.relative(pState.getValue(FACING).getOpposite());
 		return pLevel.getBlockState(blockPos).isSolidRender(pLevel, blockPos);
 	}
 
@@ -86,21 +85,14 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Simpl
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		switch(pState.getValue(FACING)) {
-			case NORTH:
-			default:
-				return new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 1.0D, this.r, this.g, this.b);
-			case EAST:
-				return new CrystalBlockEntity(pPos, pState, 0.0D, 0.5D, 0.5D, this.r, this.g, this.b);
-			case SOUTH:
-				return new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 0.0D, this.r, this.g, this.b);
-			case WEST:
-				return new CrystalBlockEntity(pPos, pState, 1.0D, 0.5D, 0.5D, this.r, this.g, this.b);
-			case UP:
-				return new CrystalBlockEntity(pPos, pState, 0.5D, 0.0D, 0.5D, this.r, this.g, this.b);
-			case DOWN:
-				return new CrystalBlockEntity(pPos, pState, 0.5D, 1.0D, 0.5D, this.r, this.g, this.b);
-		}
+		return switch (pState.getValue(FACING)) {
+			case NORTH -> new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 1.0D, this.r, this.g, this.b);
+			case EAST -> new CrystalBlockEntity(pPos, pState, 0.0D, 0.5D, 0.5D, this.r, this.g, this.b);
+			case SOUTH -> new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 0.0D, this.r, this.g, this.b);
+			case WEST -> new CrystalBlockEntity(pPos, pState, 1.0D, 0.5D, 0.5D, this.r, this.g, this.b);
+			case UP -> new CrystalBlockEntity(pPos, pState, 0.5D, 0.0D, 0.5D, this.r, this.g, this.b);
+			case DOWN -> new CrystalBlockEntity(pPos, pState, 0.5D, 1.0D, 0.5D, this.r, this.g, this.b);
+		};
 	}
 
 	@Override
@@ -120,20 +112,13 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Simpl
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		switch(pState.getValue(FACING)) {
-			case NORTH:
-			default:
-				return NORTH_AABB;
-			case EAST:
-				return EAST_AABB;
-			case SOUTH:
-				return SOUTH_AABB;
-			case WEST:
-				return WEST_AABB;
-			case UP:
-				return UP_AABB;
-			case DOWN:
-				return DOWN_AABB;
-		}
+		return switch (pState.getValue(FACING)) {
+			case NORTH -> SHAPE_NORTH;
+			case EAST -> SHAPE_EAST;
+			case SOUTH -> SHAPE_SOUTH;
+			case WEST -> SHAPE_WEST;
+			case UP -> SHAPE_UP;
+			case DOWN -> SHAPE_DOWN;
+		};
 	}
 }

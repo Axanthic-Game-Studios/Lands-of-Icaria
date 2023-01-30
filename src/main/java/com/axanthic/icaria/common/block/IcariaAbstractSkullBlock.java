@@ -17,8 +17,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaAbstractSkullBlock extends BaseEntityBlock implements Wearable {
-    public IcariaSkullBlockType type;
     public float offset;
+
+    public IcariaSkullBlockType type;
 
     public IcariaAbstractSkullBlock(float pOffset, IcariaSkullBlockType pType, Properties pProperties) {
         super(pProperties);

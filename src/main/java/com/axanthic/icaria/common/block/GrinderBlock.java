@@ -1,16 +1,19 @@
 package com.axanthic.icaria.common.block;
 
-import java.util.Objects;
-
+import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 import com.axanthic.icaria.common.menu.GrinderMenu;
-import com.axanthic.icaria.common.registry.IcariaBlockEntities;
+import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -25,6 +28,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -33,51 +37,72 @@ import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.network.NetworkHooks;
 
-public class GrinderBlock extends BaseEntityBlock {
+import java.util.Objects;
 
-	public static final VoxelShape GRINDER_AABB = Block.box(1D, 0.0D, 1D, 15D, 14D, 15D);
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
+public class GrinderBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
+	public static final BooleanProperty GRINDING = BooleanProperty.create("grinding");
+	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+
 	public static final DirectionProperty FACING = BlockStateProperties.FACING;
-	public static final BooleanProperty BURNING = BooleanProperty.create("burning");
+
+	public static final IntegerProperty ROTATION = IntegerProperty.create("rotation", 0, 90);
+
+	public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
 
 	public GrinderBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(
-				this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(BURNING, false));
+		this.registerDefaultState(this.stateDefinition.any().setValue(GRINDING, false).setValue(WATERLOGGED, false).setValue(FACING, Direction.NORTH).setValue(ROTATION, 0));
+	}
+
+	@Override
+	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+		if (IcariaConfig.RENDER_GEARS.get()) {
+			if (pState.getValue(GRINDING)) {
+				GrinderBlockEntity blockEntity = (GrinderBlockEntity) pLevel.getBlockEntity(pPos);
+				if (blockEntity != null) {
+					ItemStack itemStack = blockEntity.itemStackHandler.getStackInSlot(0);
+					if (!itemStack.isEmpty()) {
+						if (pLevel.isClientSide) {
+							pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pPos.getX() + 0.5D, pPos.getY() + 1.0D, pPos.getZ() + 0.5D, 0.0D, 0.25D, 0.0D);
+						}
+					}
+				}
+			}
+		}
 	}
 
 	@Override
 	protected void createBlockStateDefinition(Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(FACING, BURNING);
-	}
-
-	@Override
-	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		return new GrinderBlockEntity(pPos, pState);
-	}
-
-	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection());
+		pBuilder.add(GRINDING, WATERLOGGED, FACING, ROTATION);
 	}
 
 	@Override
 	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
 		if (!pState.is(pNewState.getBlock())) {
-			BlockEntity entity = pLevel.getBlockEntity(pPos);
-			if (entity instanceof GrinderBlockEntity) {
-				Objects.requireNonNull(pLevel.getBlockEntity(pPos)).getCapability(ForgeCapabilities.ITEM_HANDLER)
-						.ifPresent(handler -> {
-							for (int i = 0; i < handler.getSlots(); i++) {
-								ItemStack stack = handler.getStackInSlot(i);
-								Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), stack);
-							}
-						});
+			BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+			if (blockEntity instanceof GrinderBlockEntity) {
+				Objects.requireNonNull(pLevel.getBlockEntity(pPos)).getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(pItemHandler -> {
+					for (int i = 0; i < pItemHandler.getSlots(); i++) {
+						ItemStack itemStack = pItemHandler.getStackInSlot(i);
+						Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), itemStack);
+					}
+				});
 
 				pLevel.updateNeighbourForOutputSignal(pPos, this);
 			}
@@ -87,15 +112,29 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand,
-			BlockHitResult pTrace) {
+	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+		return new GrinderBlockEntity(pPos, pState);
+	}
+
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+		return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection()).setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
+	}
+
+	@Override
+	public FluidState getFluidState(BlockState pState) {
+		return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+	}
+
+	@Override
+	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
 		if (!pLevel.isClientSide) {
-			BlockEntity entity = pLevel.getBlockEntity(pPos);
-			if (entity instanceof GrinderBlockEntity) {
-				MenuProvider provider = new MenuProvider() {
+			BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+			if (blockEntity instanceof GrinderBlockEntity) {
+				MenuProvider menuProvider = new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return Component.translatable("menu." + IcariaInfo.MODID + ".crafting.grinder");
+						return Component.translatable("menu." + IcariaInfo.MODID + ".grinder");
 					}
 
 					@Override
@@ -104,16 +143,11 @@ public class GrinderBlock extends BaseEntityBlock {
 					}
 				};
 
-				NetworkHooks.openScreen((ServerPlayer) pPlayer, provider, entity.getBlockPos());
+				NetworkHooks.openScreen((ServerPlayer) pPlayer, menuProvider, blockEntity.getBlockPos());
 			}
 		}
 
 		return InteractionResult.SUCCESS;
-	}
-
-	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return GRINDER_AABB;
 	}
 
 	@Override
@@ -122,12 +156,12 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState,
-			BlockEntityType<T> pBlockEntityType) {
-		if (!pLevel.isClientSide) {
-			return createTickerHelper(pBlockEntityType, IcariaBlockEntities.GRINDER.get(),
-					GrinderBlockEntity::tick);
-		}
-		return null;
+	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+		return SHAPE;
+	}
+
+	@Override
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+		return !pLevel.isClientSide ? createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockEntity::tick) : null;
 	}
 }

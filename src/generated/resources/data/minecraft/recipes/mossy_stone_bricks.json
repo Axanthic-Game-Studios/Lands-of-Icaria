@@ -1,12 +1,36 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "minecraft:stone_bricks"
     },
-    {
-      "tag": "forge:vines"
-    }
+    [
+      {
+        "item": "minecraft:vine"
+      },
+      {
+        "item": "landsoficaria:bloomy_vine"
+      },
+      {
+        "item": "landsoficaria:branchy_vine"
+      },
+      {
+        "item": "landsoficaria:brushy_vine"
+      },
+      {
+        "item": "landsoficaria:dry_vine"
+      },
+      {
+        "item": "landsoficaria:reedy_vine"
+      },
+      {
+        "item": "landsoficaria:swirly_vine"
+      },
+      {
+        "item": "landsoficaria:thorny_vine"
+      }
+    ]
   ],
   "result": {
     "item": "minecraft:mossy_stone_bricks"

@@ -1,3 +1,15 @@
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
+apply plugin: 'org.spongepowered.mixin'
+
+archivesBaseName = 'landsoficaria'
+group = 'com.axanthic.loi'
+version = "${minecraft}-${icaria}"
+
+compileJava.options.encoding = 'UTF-8'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
 buildscript {
     repositories {
         maven {
@@ -20,58 +32,71 @@ buildscript {
     }
 }
 
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'org.parchmentmc.librarian.forgegradle'
-apply plugin: 'org.spongepowered.mixin'
+dependencies {
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    implementation fg.deobf("curse.maven:jade-324717:${jade}")
+    implementation fg.deobf("curse.maven:jei-238222:${jei}")
+    minecraft "net.minecraftforge:forge:${minecraft}-${forge}"
+}
 
-archivesBaseName = 'landsoficaria'
-group = 'com.axanthic.loi'
-version = "${minecraft}-${icaria}"
+jar {
+    manifest {
+        attributes([
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "Implementation-Title"    : project.name,
+                "Implementation-Vendor"   : "axanthic",
+                "Implementation-Version"  : project.version,
+                "Specification-Title"     : "landsoficaria",
+                "Specification-Vendor"    : "axanthic",
+                "Specification-Version"   : "${minecraft}-${icaria}"
+        ])
+    }
+}
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+jar.finalizedBy('reobfJar')
 
 minecraft {
     mappings channel: 'parchment', version: "${parchment}-${minecraft}"
-
     runs {
         client {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
             mods {
                 landsoficaria {
                     source sourceSets.main
                 }
             }
-        }
-
-        server {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            mods {
-                landsoficaria {
-                    source sourceSets.main
-                }
-            }
+            property 'forge.logging.markers', 'REGISTRIES'
+            workingDirectory project.file('run')
         }
 
         data {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            args '--mod', 'landsoficaria', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             mods {
                 landsoficaria {
                     source sourceSets.main
                 }
+            }
+            args '--mod', 'landsoficaria', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.logging.markers', 'REGISTRIES'
+            workingDirectory project.file('run')
+        }
+
+        server {
+            mods {
+                landsoficaria {
+                    source sourceSets.main
+                }
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.logging.markers', 'REGISTRIES'
+            workingDirectory project.file('run')
             }
         }
     }
 }
 
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
+mixin {
+    add sourceSets.main, "landsoficaria.refmap.json"
+    config "landsoficaria.mixins.json"
 }
 
 repositories {
@@ -81,29 +106,6 @@ repositories {
     }
 }
 
-dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft}-${forge}"
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    implementation fg.deobf("curse.maven:jei-238222:${jei}")
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
 }
-
-mixin {
-    add sourceSets.main, "landsoficaria.refmap.json"
-    config "landsoficaria.mixins.json"
-}
-
-jar {
-    manifest {
-        attributes([
-                "Specification-Title"     : "landsoficaria",
-                "Specification-Vendor"    : "axanthic",
-                "Specification-Version"   : "${minecraft}-${icaria}",
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.version,
-                "Implementation-Vendor"   : "axanthic",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
-}
-
-jar.finalizedBy('reobfJar')

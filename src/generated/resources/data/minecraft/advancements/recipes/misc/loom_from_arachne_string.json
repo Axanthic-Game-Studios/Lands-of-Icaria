@@ -1,0 +1,242 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_acacia_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:acacia_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_arachne_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:arachne_string"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_birch_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:birch_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_crimson_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:crimson_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cypress_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:cypress_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_dark_oak_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:dark_oak_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_droughtroot_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:droughtroot_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_fir_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:fir_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_jungle_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:jungle_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_laurel_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:laurel_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_mangrove_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:mangrove_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_oak_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oak_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_olive_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:olive_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_plane_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:plane_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_populus_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:populus_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_spruce_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:spruce_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:loom_from_arachne_string"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:warped_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_arachne_string",
+      "has_oak_planks",
+      "has_spruce_planks",
+      "has_birch_planks",
+      "has_jungle_planks",
+      "has_acacia_planks",
+      "has_dark_oak_planks",
+      "has_mangrove_planks",
+      "has_crimson_planks",
+      "has_warped_planks",
+      "has_cypress_planks",
+      "has_droughtroot_planks",
+      "has_fir_planks",
+      "has_laurel_planks",
+      "has_olive_planks",
+      "has_plane_planks",
+      "has_populus_planks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:loom_from_arachne_string"
+    ]
+  }
+}

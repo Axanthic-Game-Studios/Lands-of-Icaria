@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.data.IcariaBlockTags;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 import com.axanthic.icaria.common.util.IcariaTier;
 
 import net.minecraft.tags.BlockTags;
@@ -20,6 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaShovelItem extends ShovelItem {
 	public static final TagKey<Block> BLOCKS = BlockTags.MINEABLE_WITH_SHOVEL;
+
 	public Tier equivalentTier;
 
 	public IcariaShovelItem(IcariaTier pTier, float pDamage, float pAttackSpeed, Properties pProperties) {

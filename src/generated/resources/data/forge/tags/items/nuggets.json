@@ -1,13 +1,13 @@
 {
   "values": [
-    "#forge:nuggets/chalkos",
-    "#forge:nuggets/kassiteros",
-    "#forge:nuggets/orichalcum",
-    "#forge:nuggets/vanadium",
-    "#forge:nuggets/vanadiumsteel",
-    "#forge:nuggets/sideros",
-    "#forge:nuggets/molybdenum",
-    "#forge:nuggets/molybdenumsteel",
-    "#forge:nuggets/bluridium"
+    "landsoficaria:chalkos_nugget",
+    "landsoficaria:kassiteros_nugget",
+    "landsoficaria:orichalcum_nugget",
+    "landsoficaria:vanadium_nugget",
+    "landsoficaria:vanadiumsteel_nugget",
+    "landsoficaria:sideros_nugget",
+    "landsoficaria:molybdenum_nugget",
+    "landsoficaria:molybdenumsteel_nugget",
+    "landsoficaria:bluridium_nugget"
   ]
 }

@@ -1,11 +1,13 @@
 {
   "values": [
-    "#forge:leaves/cypress",
-    "#forge:leaves/droughtroot",
-    "#forge:leaves/fir",
-    "#forge:leaves/laurel",
-    "#forge:leaves/olive",
-    "#forge:leaves/plane",
-    "#forge:leaves/populus"
+    "landsoficaria:cypress_leaves",
+    "landsoficaria:droughtroot_leaves",
+    "landsoficaria:fir_leaves",
+    "landsoficaria:laurel_leaves",
+    "landsoficaria:olive_leaves",
+    "landsoficaria:olive_leaves_black",
+    "landsoficaria:olive_leaves_green",
+    "landsoficaria:plane_leaves",
+    "landsoficaria:populus_leaves"
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": [
+      {
+        "item": "landsoficaria:olive_wood"
+      },
+      {
+        "item": "landsoficaria:stripped_olive_wood"
+      },
+      {
+        "item": "landsoficaria:olive_log"
+      },
+      {
+        "item": "landsoficaria:stripped_olive_log"
+      }
+    ]
+  },
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "result": {
+    "count": 4,
+    "item": "landsoficaria:olive_planks"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": [
+      {
+        "item": "landsoficaria:plane_wood"
+      },
+      {
+        "item": "landsoficaria:stripped_plane_wood"
+      },
+      {
+        "item": "landsoficaria:plane_log"
+      },
+      {
+        "item": "landsoficaria:stripped_plane_log"
+      }
+    ]
+  },
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "result": {
+    "count": 4,
+    "item": "landsoficaria:plane_planks"
+  }
+}

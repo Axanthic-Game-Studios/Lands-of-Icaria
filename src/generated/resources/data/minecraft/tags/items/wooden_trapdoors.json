@@ -1,11 +1,11 @@
 {
   "values": [
-    "#forge:wooden_trapdoors/cypress",
-    "#forge:wooden_trapdoors/droughtroot",
-    "#forge:wooden_trapdoors/fir",
-    "#forge:wooden_trapdoors/laurel",
-    "#forge:wooden_trapdoors/olive",
-    "#forge:wooden_trapdoors/plane",
-    "#forge:wooden_trapdoors/populus"
+    "landsoficaria:cypress_trapdoor",
+    "landsoficaria:droughtroot_trapdoor",
+    "landsoficaria:fir_trapdoor",
+    "landsoficaria:laurel_trapdoor",
+    "landsoficaria:olive_trapdoor",
+    "landsoficaria:plane_trapdoor",
+    "landsoficaria:populus_trapdoor"
   ]
 }

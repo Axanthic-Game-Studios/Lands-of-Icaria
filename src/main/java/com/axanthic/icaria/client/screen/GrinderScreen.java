@@ -1,9 +1,8 @@
 package com.axanthic.icaria.client.screen;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import com.axanthic.icaria.common.menu.GrinderMenu;
 import com.axanthic.icaria.common.util.IcariaInfo;
+
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 
@@ -11,24 +10,18 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 
-@OnlyIn(Dist.CLIENT)
 public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
-	public ResourceLocation SCREEN = new ResourceLocation(IcariaInfo.MODID, "textures/screens/grinder.png");
+	public static final ResourceLocation SCREEN = new ResourceLocation(IcariaInfo.MODID, "textures/screens/grinder.png");
 
 	public GrinderScreen(GrinderMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
 		super(pMenu, pPlayerInventory, pTitle);
 		this.imageHeight = 173;
 		this.imageWidth = 176;
-	}
-
-	@Override
-	protected void init() {
-		super.init();
 	}
 
 	@Override
@@ -39,49 +32,38 @@ public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
 	}
 
 	@Override
-	public void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
-		this.font.draw(pPoseStack, this.title, (this.getXSize() / 2) - (this.font.width(this.title) / 2), 6, 0x504537);
-		this.font.draw(pPoseStack, this.playerInventoryTitle, 8, 78, 0x504537);
+	public void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
+		RenderSystem.setShaderTexture(0, SCREEN);
+		int x = (this.width - this.imageWidth) / 2;
+		int y = (this.height - this.imageHeight) / 2;
+		this.blit(pPoseStack, x, y, 0, 0, this.imageWidth, this.imageHeight);
+		this.renderFuel(pPoseStack, x, y);
+		this.renderProgress(pPoseStack, x, y);
 	}
 
 	@Override
-	public void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
-		RenderSystem.setShaderTexture(0, SCREEN);
-		int relX = (this.width - this.imageWidth) / 2;
-		int relY = (this.height - this.imageHeight) / 2;
-		this.blit(pPoseStack, relX, relY, 0, 0, this.imageWidth, this.imageHeight);
-
-		renderProgresBar(pPoseStack, relX, relY);
-		renderFullBar(pPoseStack, relX, relY);
+	public void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
+		this.font.draw(pPoseStack, this.title, (this.getXSize() / 2.0F) - (this.font.width(this.title) / 2.0F), 6.0F, 5260599);
+		this.font.draw(pPoseStack, this.playerInventoryTitle, 7.0F, 80.0F, 5260599);
 	}
 
-	public void renderProgresBar(PoseStack pPoseStack, int x, int y) {
-		int progressArrowSize = 23;
-		int progress = menu.getCurrentProgressTime();
-		int maxProgress = menu.getTotalProgressTime(); // Max Progress
+	public void renderFuel(PoseStack pPoseStack, int pX, int pY) {
+		int heightFuel = 52;
+		int fuel = this.menu.getFuel();
+		int maxFuel = this.menu.getMaxFuel();
+		if (maxFuel != 0) {
+			int height = fuel * heightFuel / maxFuel;
+			this.blit(pPoseStack, pX + 85, pY + 20 + heightFuel - height, this.imageWidth, 17 + heightFuel - height, 4, height);
+		}
+	}
 
+	public void renderProgress(PoseStack pPoseStack, int pX, int pY) {
+		int widthProgress = 23;
+		int progress = this.menu.getProgress();
+		int maxProgress = this.menu.getMaxProgress();
 		if (maxProgress != 0) {
-
-			int width = progress * progressArrowSize / maxProgress;
-
-			blit(pPoseStack, x + 95, y + 21, 176, 0, width, 17);
+			int width = progress * widthProgress / maxProgress;
+			this.blit(pPoseStack, pX + 95, pY + 21, this.imageWidth, 0, width, 17);
 		}
-		return;
-
 	}
-
-	public void renderFullBar(PoseStack pPoseStack, int x, int y) {
-		int fuelSize = 52;
-		int fuel = menu.getCurrentFuelTime();
-		int maxfuel = menu.getTotalFuelTime(); // Max Fuel
-
-		if (maxfuel != 0) {
-
-			int height = fuel * fuelSize / maxfuel;
-
-			blit(pPoseStack, x + 85, y + 20 + (fuelSize - height), 176, 17 + (fuelSize - height), 4, height);
-		}
-		return;
-	}
-
 }

@@ -1,7 +1,7 @@
 {
 	"parent": "block/block",
 	"textures": {
-		"0": "landsoficaria:block/grinder_model",
+		"0": "landsoficaria:block/grinder",
 		"particle": "landsoficaria:block/sunstone"
 	},
     "elements": [

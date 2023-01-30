@@ -45,15 +45,18 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class StrawberryCandleCakeBlock extends Block {
 	public static final BooleanProperty LIT = BlockStateProperties.LIT;
+
 	public static final Iterable<Vec3> PARTICLE_OFFSETS = ImmutableList.of(new Vec3(0.5D, 1.0D, 0.5D));
+
 	public static final Map<Block, StrawberryCandleCakeBlock> BY_CANDLE = Maps.newHashMap();
-	public static final VoxelShape CAKE_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 8.0D, 15.0D);
-	public static final VoxelShape CANDLE_SHAPE = Block.box(7.0D, 8.0D, 7.0D, 9.0D, 14.0D, 9.0D);
-	public static final VoxelShape SHAPE = Shapes.or(CAKE_SHAPE, CANDLE_SHAPE);
+
+	public static final VoxelShape SHAPE_CAKE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 8.0D, 15.0D);
+	public static final VoxelShape SHAPE_CANDLE = Block.box(7.0D, 8.0D, 7.0D, 9.0D, 14.0D, 9.0D);
+	public static final VoxelShape SHAPE = Shapes.or(SHAPE_CAKE, SHAPE_CANDLE);
 
 	public StrawberryCandleCakeBlock(Block pCandleBlock, Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(LIT, Boolean.FALSE));
+		this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false));
 		BY_CANDLE.put(pCandleBlock, this);
 	}
 
@@ -164,7 +167,7 @@ public class StrawberryCandleCakeBlock extends Block {
 
 				if (!pLevel.isClientSide) {
 					if (!pPlayer.isCreative()) {
-						itemStack.hurtAndBreak(1, pPlayer, (playerUsing) -> playerUsing.broadcastBreakEvent(pHand));
+						itemStack.hurtAndBreak(1, pPlayer, (player) -> player.broadcastBreakEvent(pHand));
 					}
 				}
 			}
@@ -184,7 +187,7 @@ public class StrawberryCandleCakeBlock extends Block {
 				}
 			}
 
-			pLevel.setBlockAndUpdate(pPos, this.defaultBlockState().setValue(LIT, Boolean.TRUE));
+			pLevel.setBlockAndUpdate(pPos, this.defaultBlockState().setValue(LIT, true));
 			return InteractionResult.CONSUME;
 		}
 	}

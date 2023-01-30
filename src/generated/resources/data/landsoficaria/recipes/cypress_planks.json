@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": [
+      {
+        "item": "landsoficaria:cypress_wood"
+      },
+      {
+        "item": "landsoficaria:stripped_cypress_wood"
+      },
+      {
+        "item": "landsoficaria:cypress_log"
+      },
+      {
+        "item": "landsoficaria:stripped_cypress_log"
+      }
+    ]
+  },
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "result": {
+    "count": 4,
+    "item": "landsoficaria:cypress_planks"
+  }
+}

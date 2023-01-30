@@ -26,6 +26,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaSkullBlock extends IcariaAbstractSkullBlock {
     public static final IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
+
     public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
 
     public IcariaSkullBlock(float pOffset, IcariaSkullBlockType pType, Properties pProperties) {

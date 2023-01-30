@@ -41,7 +41,7 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 
 	public CardonCactusBlock(Properties pProperties) {
 		super(0.3125F, pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.FALSE).setValue(EAST, Boolean.FALSE).setValue(SOUTH, Boolean.FALSE).setValue(WEST, Boolean.FALSE).setValue(UP, Boolean.FALSE).setValue(DOWN, Boolean.FALSE));
+		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false).setValue(UP, false).setValue(DOWN, false));
 	}
 
 	public boolean canSpread(BlockGetter pLevel, BlockPos pPos) {

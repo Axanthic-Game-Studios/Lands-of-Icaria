@@ -1,15 +1,16 @@
 {
   "values": [
-    "#forge:ores/chert",
-    "#forge:ores/lignite",
-    "#forge:ores/chalkos",
-    "#forge:ores/kassiteros",
-    "#forge:ores/dolomite",
-    "#forge:ores/vanadium",
-    "#forge:ores/sliver",
-    "#forge:ores/sideros",
-    "#forge:ores/anthracite",
-    "#forge:ores/molybdenum",
-    "#forge:ores/bluridium"
+    "landsoficaria:marl_chert",
+    "landsoficaria:marl_lignite",
+    "landsoficaria:grainel_chert",
+    "landsoficaria:lignite_ore",
+    "landsoficaria:chalkos_ore",
+    "landsoficaria:kassiteros_ore",
+    "landsoficaria:dolomite_ore",
+    "landsoficaria:vanadium_ore",
+    "landsoficaria:sliver_ore",
+    "landsoficaria:sideros_ore",
+    "landsoficaria:anthracite_ore",
+    "landsoficaria:molybdenum_ore"
   ]
 }

@@ -100,7 +100,7 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
+    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pBuffer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
         if (this.entity.getSize() < 2) {
             pPoseStack.pushPose();
             this.hornRightBaby.visible = true;
@@ -111,7 +111,7 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
             this.hornLeftTeen.visible = false;
             this.hornRightAdult.visible = false;
             this.hornLeftAdult.visible = false;
-            this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+            this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
             pPoseStack.popPose();
         } else if (this.entity.getSize() < 3) {
             pPoseStack.pushPose();
@@ -123,7 +123,7 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
             this.hornLeftTeen.visible = false;
             this.hornRightAdult.visible = false;
             this.hornLeftAdult.visible = false;
-            this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+            this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
             pPoseStack.popPose();
         } else if (this.entity.getSize() < 4) {
             pPoseStack.pushPose();
@@ -135,7 +135,7 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
             this.hornLeftTeen.visible = true;
             this.hornRightAdult.visible = false;
             this.hornLeftAdult.visible = false;
-            this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+            this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
             pPoseStack.popPose();
         } else {
             pPoseStack.pushPose();
@@ -147,7 +147,7 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
             this.hornLeftTeen.visible = false;
             this.hornRightAdult.visible = true;
             this.hornLeftAdult.visible = true;
-            this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+            this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
             pPoseStack.popPose();
         }
     }

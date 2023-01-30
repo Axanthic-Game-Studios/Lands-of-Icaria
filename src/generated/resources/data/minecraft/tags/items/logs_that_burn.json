@@ -1,0 +1,32 @@
+{
+  "values": [
+    "landsoficaria:cypress_log",
+    "landsoficaria:stripped_cypress_log",
+    "landsoficaria:cypress_wood",
+    "landsoficaria:stripped_cypress_wood",
+    "landsoficaria:droughtroot_log",
+    "landsoficaria:stripped_droughtroot_log",
+    "landsoficaria:droughtroot_wood",
+    "landsoficaria:stripped_droughtroot_wood",
+    "landsoficaria:fir_log",
+    "landsoficaria:stripped_fir_log",
+    "landsoficaria:fir_wood",
+    "landsoficaria:stripped_fir_wood",
+    "landsoficaria:laurel_log",
+    "landsoficaria:stripped_laurel_log",
+    "landsoficaria:laurel_wood",
+    "landsoficaria:stripped_laurel_wood",
+    "landsoficaria:olive_log",
+    "landsoficaria:stripped_olive_log",
+    "landsoficaria:olive_wood",
+    "landsoficaria:stripped_olive_wood",
+    "landsoficaria:plane_log",
+    "landsoficaria:stripped_plane_log",
+    "landsoficaria:plane_wood",
+    "landsoficaria:stripped_plane_wood",
+    "landsoficaria:populus_log",
+    "landsoficaria:stripped_populus_log",
+    "landsoficaria:populus_wood",
+    "landsoficaria:stripped_populus_wood"
+  ]
+}
