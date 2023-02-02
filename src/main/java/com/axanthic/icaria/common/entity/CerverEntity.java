@@ -40,6 +40,11 @@ public class CerverEntity extends Monster {
     }
 
     @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return false;
+    }
+
+    @Override
     public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
         return 0.85F;
     }

@@ -234,11 +234,6 @@ public class ArachneDroneEntity extends ArachneEntity {
     }
 
     @Override
-    public MobType getMobType() {
-        return MobType.ARTHROPOD;
-    }
-
-    @Override
     public PathNavigation createNavigation(Level pLevel) {
         return new WallClimberNavigation(this, pLevel);
     }

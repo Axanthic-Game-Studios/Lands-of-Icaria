@@ -70,6 +70,11 @@ public class HyliasterEntity extends Monster {
         return this.onGround && this.getDeltaMovement().horizontalDistanceSqr() > 0;
     }
 
+    @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return false;
+    }
+
     public float getInverseSize() {
         return (this.getSize() * -1.0F) + 5.0F;
     }

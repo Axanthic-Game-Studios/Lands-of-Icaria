@@ -67,17 +67,17 @@ public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, Myrme
     @Override
     public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, MyrmekeQueenEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
         if (IcariaConfig.RENDER_RAYS.get()) {
-            float random = RandomSource.create(432L).nextFloat();
-            float length = random * 2.0F + 1.25F;
-            float width = random * 0.5F + 0.25F;
+            Matrix4f matrix4f = pPoseStack.last().pose();
+            RandomSource randomSource = RandomSource.create(432L);
+            VertexConsumer vertexConsumer = pBuffer.getBuffer(ADDITIVE_LIGHTNING);
+
+            float length = randomSource.nextFloat() * 2.0F + 1.25F;
+            float width = randomSource.nextFloat() * 0.5F + 0.25F;
 
             int alpha = (int) (16.0F * (1.0F - Math.min(0.0F, 1.0F)));
             int r = 255;
             int g = 0;
             int b = 0;
-
-            Matrix4f matrix4f = pPoseStack.last().pose();
-            VertexConsumer vertexConsumer = pBuffer.getBuffer(ADDITIVE_LIGHTNING);
 
             pPoseStack.translate(0.0F, 1.225F, -0.365F);
             pPoseStack.mulPose(Axis.XP.rotationDegrees(pHeadPitch));
@@ -86,9 +86,9 @@ public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, Myrme
             pPoseStack.scale(0.5F, 0.5F, 0.5F);
 
             for (int i = 0; i < 96; ++i) {
-                pPoseStack.mulPose(Axis.XP.rotationDegrees(random * 360.0F));
-                pPoseStack.mulPose(Axis.YP.rotationDegrees(random * 360.0F));
-                pPoseStack.mulPose(Axis.ZP.rotationDegrees(random * 360.0F));
+                pPoseStack.mulPose(Axis.XP.rotationDegrees(randomSource.nextFloat() * 360.0F));
+                pPoseStack.mulPose(Axis.YP.rotationDegrees(randomSource.nextFloat() * 360.0F));
+                pPoseStack.mulPose(Axis.ZP.rotationDegrees(randomSource.nextFloat() * 360.0F));
 
                 this.vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
                 this.vertexB(vertexConsumer, matrix4f, length, width);

@@ -64,24 +64,24 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 	@Override
 	public void render(CrystalBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
 		if (IcariaConfig.RENDER_RAYS.get()) {
-			float random = RandomSource.create(432L).nextFloat();
-			float length = random * 2.0F + 1.25F;
-			float width = random * 0.5F + 0.25F;
+			Matrix4f matrix4f = pPoseStack.last().pose();
+			RandomSource randomSource = RandomSource.create(432L);
+			VertexConsumer vertexConsumer = pBufferSource.getBuffer(ADDITIVE_LIGHTNING);
+
+			float length = randomSource.nextFloat() * 2.0F + 1.25F;
+			float width = randomSource.nextFloat() * 0.5F + 0.25F;
 
 			int alpha = (int) (16.0F * (1.0F - Math.min(0.0F, 1.0F)));
 			int r = pBlockEntity.r;
 			int g = pBlockEntity.g;
 			int b = pBlockEntity.b;
 
-			Matrix4f matrix4f = pPoseStack.last().pose();
-			VertexConsumer vertexConsumer = pBufferSource.getBuffer(ADDITIVE_LIGHTNING);
-
 			pPoseStack.translate(pBlockEntity.x, pBlockEntity.y, pBlockEntity.z);
 
 			for (int i = 0; i < 96; ++i) {
-				pPoseStack.mulPose(Axis.XP.rotationDegrees(random * 360.0F));
-				pPoseStack.mulPose(Axis.YP.rotationDegrees(random * 360.0F));
-				pPoseStack.mulPose(Axis.ZP.rotationDegrees(random * 360.0F));
+				pPoseStack.mulPose(Axis.XP.rotationDegrees(randomSource.nextFloat() * 360.0F));
+				pPoseStack.mulPose(Axis.YP.rotationDegrees(randomSource.nextFloat() * 360.0F));
+				pPoseStack.mulPose(Axis.ZP.rotationDegrees(randomSource.nextFloat() * 360.0F));
 
 				this.vertexA(vertexConsumer, matrix4f, r, g, b, alpha);
 				this.vertexB(vertexConsumer, matrix4f, length, width);

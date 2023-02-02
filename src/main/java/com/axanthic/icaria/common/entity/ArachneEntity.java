@@ -55,6 +55,11 @@ public class ArachneEntity extends Monster {
     }
 
     @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return false;
+    }
+
+    @Override
     public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
         return 2.0F;
     }
@@ -92,6 +97,11 @@ public class ArachneEntity extends Monster {
 
     public static AttributeSupplier.Builder registerAttributes() {
         return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 8.0D).add(Attributes.FOLLOW_RANGE, 64.0D).add(Attributes.MAX_HEALTH, 32.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+    }
+
+    @Override
+    public MobType getMobType() {
+        return MobType.ARTHROPOD;
     }
 
     @Override

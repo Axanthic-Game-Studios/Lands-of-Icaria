@@ -79,6 +79,11 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return false;
+    }
+
+    @Override
     public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
         return 0.25F;
     }
@@ -168,7 +173,7 @@ public class MyrmekeQueenEntity extends Monster {
         return SoundEvents.SPIDER_AMBIENT;
     }
 
-    public SoundEvent getCastingSoundEvent() {
+    public SoundEvent getCastingSound() {
         return SoundEvents.EVOKER_CAST_SPELL;
     }
 
@@ -301,7 +306,7 @@ public class MyrmekeQueenEntity extends Monster {
             --this.warmupDelay;
             if (this.warmupDelay == 0) {
                 this.performSpell();
-                MyrmekeQueenEntity.this.playSound(MyrmekeQueenEntity.this.getCastingSoundEvent(), 1.0F, 1.0F);
+                MyrmekeQueenEntity.this.playSound(MyrmekeQueenEntity.this.getCastingSound(), 1.0F, 1.0F);
             }
         }
 
