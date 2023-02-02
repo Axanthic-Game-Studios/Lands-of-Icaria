@@ -28,6 +28,7 @@ import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -68,7 +69,7 @@ public class CommonProxy {
 		pEvent.enqueueWork(IcariaWoodTypes::setup);
 	}
 
-	public void onFMLLoadComplete() {
+	public void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {
 
 	}
 

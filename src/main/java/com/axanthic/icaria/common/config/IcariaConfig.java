@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig.Type;
+import net.minecraftforge.fml.config.ModConfig;
 
 public class IcariaConfig {
 	public static ForgeConfigSpec.IntValue RENDER_DISTANCE_GEARS;
@@ -12,13 +12,7 @@ public class IcariaConfig {
 	public static ForgeConfigSpec.BooleanValue RENDER_RAYS;
 	public static ForgeConfigSpec.BooleanValue SOUND_GRINDER;
 
-	public static void register() {
-		registerClientConfigs();
-		registerCommonConfigs();
-		registerServerConfigs();
-	}
-
-	public static void registerClientConfigs() {
+	public static void registerClientConfig() {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 		builder.comment("Render settings").push("renderSettings");
 
@@ -28,10 +22,10 @@ public class IcariaConfig {
 		RENDER_DISTANCE_RAYS = builder.comment("Default: 64. Whether crystals should render their rays based on range to players.").defineInRange("raysDistance", 64, 16, 256);
 
 		builder.pop();
-		ModLoadingContext.get().registerConfig(Type.CLIENT, builder.build());
+		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, builder.build());
 	}
 
-	public static void registerCommonConfigs() {
+	public static void registerCommonConfig() {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 		builder.comment("Sound settings").push("soundSettings");
 
@@ -39,12 +33,12 @@ public class IcariaConfig {
 		SOUND_VOLUME_GRINDER = builder.comment("Default: 1.0. Whether grinders should play sound based on volume.").defineInRange("volumeGrinder", 1.0D, 0.0D, 1.0D);
 
 		builder.pop();
-		ModLoadingContext.get().registerConfig(Type.COMMON, builder.build());
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, builder.build());
 	}
 
-	public static void registerServerConfigs() {
+	public static void registerServerConfig() {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
-		ModLoadingContext.get().registerConfig(Type.SERVER, builder.build());
+		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, builder.build());
 	}
 }

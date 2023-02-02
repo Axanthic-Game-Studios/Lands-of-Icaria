@@ -35,28 +35,30 @@ public class Icaria {
 	public CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
 	public Icaria() {
-		IcariaConfig.register();
+		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCreativeModeTabRegistration);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onEntityAttributeCreation);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLClientSetup);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLCommonSetup);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onFMLLoadComplete);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onGatherData);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onRegisterLayerDefinitions);
+		IcariaConfig.registerClientConfig();
+		IcariaConfig.registerCommonConfig();
+		IcariaConfig.registerServerConfig();
 
-		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		eventBus.addListener(this::onCreativeModeTabRegistration);
+		eventBus.addListener(this::onEntityAttributeCreation);
+		eventBus.addListener(this::onFMLClientSetup);
+		eventBus.addListener(this::onFMLCommonSetup);
+		eventBus.addListener(this::onFMLLoadComplete);
+		eventBus.addListener(this::onGatherData);
+		eventBus.addListener(this::onRegisterLayerDefinitions);
 
-		IcariaBlocks.BLOCKS.register(bus);
-		IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
-		IcariaMenuTypes.MENU_TYPES.register(bus);
-		IcariaEffects.EFFECTS.register(bus);
-		IcariaEntityTypes.ENTITY_TYPES.register(bus);
-		IcariaFluids.FLUIDS.register(bus);
-		IcariaFluidTypes.FLUID_TYPES.register(bus);
-		IcariaItems.ITEMS.register(bus);
-		IcariaPoiTypes.POI_TYPES.register(bus);
-		IcariaRecipeTypes.RECIPE_TYPES.register(bus);
+		IcariaBlocks.BLOCKS.register(eventBus);
+		IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(eventBus);
+		IcariaMenuTypes.MENU_TYPES.register(eventBus);
+		IcariaEffects.EFFECTS.register(eventBus);
+		IcariaEntityTypes.ENTITY_TYPES.register(eventBus);
+		IcariaFluids.FLUIDS.register(eventBus);
+		IcariaFluidTypes.FLUID_TYPES.register(eventBus);
+		IcariaItems.ITEMS.register(eventBus);
+		IcariaPoiTypes.POI_TYPES.register(eventBus);
+		IcariaRecipeTypes.RECIPE_TYPES.register(eventBus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}
@@ -78,7 +80,7 @@ public class Icaria {
 	}
 
 	public void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {
-		this.proxy.onFMLLoadComplete();
+		this.proxy.onFMLLoadComplete(pEvent);
 	}
 
 	public void onGatherData(GatherDataEvent pEvent) {

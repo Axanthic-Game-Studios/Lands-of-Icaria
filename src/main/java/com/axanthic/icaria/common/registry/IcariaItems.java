@@ -658,31 +658,31 @@ public class IcariaItems {
 		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).alwaysEat().build();
 	}
 
-	public static FoodProperties foodPropertiesEffect(int pNutrition, float pSaturation, MobEffect pEffect, int pDuration, int pAmplifier, float probability) {
-		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).effect(() -> new MobEffectInstance(pEffect, pDuration, pAmplifier), probability).build();
+	public static FoodProperties foodPropertiesEffect(int pNutrition, float pSaturation, MobEffect pEffect, int pDuration, int pAmplifier, float pProbability) {
+		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).effect(() -> new MobEffectInstance(pEffect, pDuration, pAmplifier), pProbability).build();
 	}
 
 	public static FoodProperties foodProperties(int pNutrition, float pSaturation) {
 		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).build();
 	}
 
-	public static FoodProperties foodPropertiesMeatEffect(int pNutrition, float pSaturation, MobEffect pEffect, int pDuration, int pAmplifier, float probability) {
-		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).effect(() -> new MobEffectInstance(pEffect, pDuration, pAmplifier), probability).meat().build();
+	public static FoodProperties foodPropertiesMeatEffect(int pNutrition, float pSaturation, MobEffect pEffect, int pDuration, int pAmplifier, float pProbability) {
+		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).effect(() -> new MobEffectInstance(pEffect, pDuration, pAmplifier), pProbability).meat().build();
 	}
 
 	public static FoodProperties foodPropertiesMeat(int pNutrition, float pSaturation) {
 		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).meat().build();
 	}
 
-	public static FoodProperties foodPropertiesSnullCream(int pNutrition, float pSaturation, MobEffect pEffectOne, int pDurationOne, int pAmplifierOne, float probabilityOne, MobEffect pEffectTwo, int pDurationTwo,int pAmplifierTwo, float probabilityTwo) {
-		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).effect(() -> new MobEffectInstance(pEffectOne, pDurationOne, pAmplifierOne), probabilityOne).effect(() -> new MobEffectInstance(pEffectTwo, pDurationTwo, pAmplifierTwo), probabilityTwo).build();
+	public static FoodProperties foodPropertiesSnullCream(int pNutrition, float pSaturation, MobEffect pEffectOne, int pDurationOne, int pAmplifierOne, float pProbabilityOne, MobEffect pEffectTwo, int pDurationTwo,int pAmplifierTwo, float pProbabilityTwo) {
+		return new Builder().nutrition(pNutrition).saturationMod(pSaturation).effect(() -> new MobEffectInstance(pEffectOne, pDurationOne, pAmplifierOne), pProbabilityOne).effect(() -> new MobEffectInstance(pEffectTwo, pDurationTwo, pAmplifierTwo), pProbabilityTwo).build();
 	}
 
-	public static <T extends Item> RegistryObject<T> register(final String pName, final Supplier<T> pSupplier) {
+	public static <T extends Item> RegistryObject<T> register(String pName, Supplier<T> pSupplier) {
 		return ITEMS.register(pName, pSupplier);
 	}
 
-	public static <T extends Item> RegistryObject<T> registerBasic(final String pName, final Supplier<T> pSupplier) {
+	public static <T extends Item> RegistryObject<T> registerBasic(String pName, Supplier<T> pSupplier) {
 		RegistryObject<T> registryObject = register(pName, pSupplier);
 		BASIC_ITEMS.add(registryObject);
 		return registryObject;

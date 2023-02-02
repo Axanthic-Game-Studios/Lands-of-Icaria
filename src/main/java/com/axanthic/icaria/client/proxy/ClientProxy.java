@@ -60,6 +60,7 @@ import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 
 import java.util.List;
 
@@ -882,7 +883,7 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void onFMLLoadComplete() {
+	public void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {
 		// BLOCK COLOR
 		this.blockColor(IcariaBlocks.MARL_GRASS.get());
 		this.blockColor(IcariaBlocks.GROWING_BLOOMY_VINE.get());
