@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "bites=0": { "model": "landsoficaria:block/vine_sprout_cake_slice_0" },
+    "bites=1": { "model": "landsoficaria:block/vine_sprout_cake_slice_1" },
+    "bites=2": { "model": "landsoficaria:block/vine_sprout_cake_slice_2" },
+    "bites=3": { "model": "landsoficaria:block/vine_sprout_cake_slice_3" }
+  }
+}

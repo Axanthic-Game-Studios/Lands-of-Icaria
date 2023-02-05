@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "lit=false": { "model": "landsoficaria:block/strawberry_cake_pink_candle" },
-    "lit=true": { "model": "landsoficaria:block/strawberry_cake_pink_candle_lit" }
-  }
-}

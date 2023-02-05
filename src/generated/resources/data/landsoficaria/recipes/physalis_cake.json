@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "landsoficaria:nature_jellyfish_jelly"
+    },
+    "B": {
+      "item": "landsoficaria:physalis"
+    },
+    "C": {
+      "item": "minecraft:sugar"
+    },
+    "D": {
+      "item": "minecraft:milk_bucket"
+    },
+    "E": {
+      "item": "landsoficaria:spelt_flour"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "CDC",
+    "EEE"
+  ],
+  "result": {
+    "item": "landsoficaria:physalis_cake"
+  }
+}

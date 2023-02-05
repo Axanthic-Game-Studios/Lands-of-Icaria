@@ -47,7 +47,11 @@ public class IcariaBlockStates extends BlockStateProvider {
 		ROTATED.add(IcariaBlocks.SUNSTONE_ADOBE);
 		ROTATED.add(IcariaBlocks.VOIDSHALE_ADOBE);
 		ROTATED.add(IcariaBlocks.BAETYL_ADOBE);
-		ROTATED.add(IcariaBlocks.JELLYFISH_JELLY_BLOCK);
+		ROTATED.add(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK);
+		ROTATED.add(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK);
+		ROTATED.add(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK);
+		ROTATED.add(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK);
+		ROTATED.add(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK);
 
 		this.baseBlockWithItem(IcariaBlocks.MARL_CHERT);
 		this.baseBlockWithItem(IcariaBlocks.MARL_BONES);

@@ -12,7 +12,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -158,8 +157,8 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
         @Override
         public void alertOther(Mob pMob, LivingEntity pEntity) {
             if (pMob instanceof CatoblepasEntity) {
-                double randomSource = RandomSource.create().nextInt(8, 16);
-                pMob.getNavigation().moveTo(pEntity.getX() + randomSource, 0.0D, pEntity.getX() + randomSource, speedModifier);
+                double random = pEntity.getRandom().nextInt(16) - 8;
+                pMob.getNavigation().moveTo(pEntity.getX() + random, 0.0D, pEntity.getZ() + random, speedModifier);
             }
         }
     }

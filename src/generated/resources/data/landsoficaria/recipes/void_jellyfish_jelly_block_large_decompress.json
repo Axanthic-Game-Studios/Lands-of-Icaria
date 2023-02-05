@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "landsoficaria:void_jellyfish_jelly_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "landsoficaria:void_jellyfish_jelly"
+  }
+}

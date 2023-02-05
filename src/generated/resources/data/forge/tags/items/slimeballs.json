@@ -1,5 +1,9 @@
 {
   "values": [
-    "landsoficaria:jellyfish_jelly"
+    "landsoficaria:ender_jellyfish_jelly",
+    "landsoficaria:fire_jellyfish_jelly",
+    "landsoficaria:nature_jellyfish_jelly",
+    "landsoficaria:void_jellyfish_jelly",
+    "landsoficaria:water_jellyfish_jelly"
   ]
 }

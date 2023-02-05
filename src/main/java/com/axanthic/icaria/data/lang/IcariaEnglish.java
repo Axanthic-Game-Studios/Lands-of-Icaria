@@ -1,7 +1,7 @@
 package com.axanthic.icaria.data.lang;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaEffects;
+import com.axanthic.icaria.common.registry.IcariaMobEffects;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.util.IcariaInfo;
@@ -251,7 +251,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.ARISTONE.get(), "Aristone");
 		this.add(IcariaBlocks.ARISTONE_PACKED.get(), "Packed Aristone");
 
-		this.add(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get(), "Block of Jellyfish Jelly");
+		this.add(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK.get(), "Block of Ender Jellyfish Jelly");
+		this.add(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK.get(), "Block of Fire Jellyfish Jelly");
+		this.add(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get(), "Block of Nature Jellyfish Jelly");
+		this.add(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get(), "Block of Void Jellyfish Jelly");
+		this.add(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get(), "Block of Water Jellyfish Jelly");
 		this.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), "Block of Arachne String");
 		this.add(IcariaBlocks.SPELT_BALE_BLOCK.get(), "Spelt Bale");
 		this.add(IcariaBlocks.VINE_REED_BLOCK.get(), "Block of Vine Reed");
@@ -315,24 +319,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.LIGNITE_TORCH.get(), "Lignite Torch");
 		this.add(IcariaBlocks.ANTHRACITE_TORCH.get(), "Anthracite Torch");
 
+		this.add(IcariaBlocks.LAUREL_CHERRY_CAKE.get(), "Laurel Cherry Cake");
 		this.add(IcariaBlocks.STRAWBERRY_CAKE.get(), "Strawberry Cake");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get(), "Strawberry Cake with Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_WHITE_CANDLE.get(), "Strawberry Cake with White Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_GRAY_CANDLE.get(), "Strawberry Cake with Light Gray Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_GRAY_CANDLE.get(), "Strawberry Cake with Gray Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_BLACK_CANDLE.get(), "Strawberry Cake with Black Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_BROWN_CANDLE.get(), "Strawberry Cake with Brown Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_RED_CANDLE.get(), "Strawberry Cake with Red Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_ORANGE_CANDLE.get(), "Strawberry Cake with Orange Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_YELLOW_CANDLE.get(), "Strawberry Cake with Yellow Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_LIME_CANDLE.get(), "Strawberry Cake with Lime Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_GREEN_CANDLE.get(), "Strawberry Cake with Green Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_CYAN_CANDLE.get(), "Strawberry Cake with Cyan Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_BLUE_CANDLE.get(), "Strawberry Cake with Light Blue Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_BLUE_CANDLE.get(), "Strawberry Cake with Blue Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_PURPLE_CANDLE.get(), "Strawberry Cake with Purple Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_MAGENTA_CANDLE.get(), "Strawberry Cake with Magenta Candle");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_PINK_CANDLE.get(), "Strawberry Cake with Pink Candle");
+		this.add(IcariaBlocks.PHYSALIS_CAKE.get(), "Physalis Cake");
+		this.add(IcariaBlocks.VINE_BERRY_CAKE.get(), "Vine Berry Cake");
+		this.add(IcariaBlocks.VINE_SPROUT_CAKE.get(), "Vine Sprout Cake");
 
 		this.add(IcariaBlocks.CYPRESS_SAPLING.get(), "Cypress Sapling");
 		this.add(IcariaBlocks.POTTED_CYPRESS_SAPLING.get(), "Potted Cypress Sapling");
@@ -627,7 +618,8 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
 		// EFFECTS
-		this.add(IcariaEffects.BLINDNESS_IMMUNITY.get(), "Blindness Immunity");
+		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), "Blindness Immunity");
+		this.add(IcariaMobEffects.LIFESTEAL.get(), "Lifesteal");
 
 		// ENTITY TYPES
 		this.add(IcariaEntityTypes.AETERNAE.get(), "Aeternae");
@@ -652,7 +644,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.LOAM_LUMP.get(), "Loam Lump");
 		this.add(IcariaItems.LOAM_BRICK.get(), "Loam Brick");
 		this.add(IcariaItems.CHERT.get(), "Chert");
-		this.add(IcariaItems.JELLYFISH_JELLY.get(), "Jellyfish Jelly");
+		this.add(IcariaItems.ENDER_JELLYFISH_JELLY.get(), "Ender Jellyfish Jelly");
+		this.add(IcariaItems.FIRE_JELLYFISH_JELLY.get(), "Fire Jellyfish Jelly");
+		this.add(IcariaItems.NATURE_JELLYFISH_JELLY.get(), "Nature Jellyfish Jelly");
+		this.add(IcariaItems.VOID_JELLYFISH_JELLY.get(), "Void Jellyfish Jelly");
+		this.add(IcariaItems.WATER_JELLYFISH_JELLY.get(), "Water Jellyfish Jelly");
 		this.add(IcariaItems.ARACHNE_STRING.get(), "Arachne String");
 		this.add(IcariaItems.SPELT.get(), "Spelt");
 		this.add(IcariaItems.VINE_REED.get(), "Vine Reed");

@@ -192,7 +192,11 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> ARISTONE = registerBasic("aristone", () -> new GlassBlock(propertiesAristone()));
 	public static final RegistryObject<Block> ARISTONE_PACKED = registerBasic("aristone_packed", () -> new Block(propertiesAristone()));
 
-	public static final RegistryObject<Block> JELLYFISH_JELLY_BLOCK = registerBasic("jellyfish_jelly_block", () -> new JellyfishJellyBlock(propertiesJellyfishJellyBlock()));
+	public static final RegistryObject<Block> ENDER_JELLYFISH_JELLY_BLOCK = registerBasic("ender_jellyfish_jelly_block", () -> new JellyfishJellyBlock(propertiesJellyfishJellyBlock()));
+	public static final RegistryObject<Block> FIRE_JELLYFISH_JELLY_BLOCK = registerBasic("fire_jellyfish_jelly_block", () -> new JellyfishJellyBlock(propertiesJellyfishJellyBlock()));
+	public static final RegistryObject<Block> NATURE_JELLYFISH_JELLY_BLOCK = registerBasic("nature_jellyfish_jelly_block", () -> new JellyfishJellyBlock(propertiesJellyfishJellyBlock()));
+	public static final RegistryObject<Block> VOID_JELLYFISH_JELLY_BLOCK = registerBasic("void_jellyfish_jelly_block", () -> new JellyfishJellyBlock(propertiesJellyfishJellyBlock()));
+	public static final RegistryObject<Block> WATER_JELLYFISH_JELLY_BLOCK = registerBasic("water_jellyfish_jelly_block", () -> new JellyfishJellyBlock(propertiesJellyfishJellyBlock()));
 	public static final RegistryObject<Block> ARACHNE_STRING_BLOCK = registerBasic("arachne_string_block", () -> new Block(propertiesArachneStringBlock()));
 	public static final RegistryObject<RotatedPillarBlock> SPELT_BALE_BLOCK = register("spelt_bale_block", () -> new SpeltBaleBlock(propertiesSpeltBaleBlock()));
 	public static final RegistryObject<Block> VINE_REED_BLOCK = registerBasic("vine_reed_block", () -> new Block(propertiesVineReedBlock()));
@@ -264,24 +268,11 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> ANTHRACITE_TORCH = register("anthracite_torch", () -> new TorchBlock(propertiesTorch().lightLevel((pBlockState) -> 14), ParticleTypes.FLAME));
 	public static final RegistryObject<Block> ANTHRACITE_WALL_TORCH = register("anthracite_wall_torch", () -> new WallTorchBlock(propertiesTorch().lightLevel((pBlockState) -> 14), ParticleTypes.FLAME));
 
-	public static final RegistryObject<Block> STRAWBERRY_CAKE = register("strawberry_cake", () -> new StrawberryCakeBlock(propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_CANDLE = register("strawberry_cake_candle", () -> new StrawberryCandleCakeBlock(Blocks.CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_WHITE_CANDLE = register("strawberry_cake_white_candle", () -> new StrawberryCandleCakeBlock(Blocks.WHITE_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_LIGHT_GRAY_CANDLE = register("strawberry_cake_light_gray_candle", () -> new StrawberryCandleCakeBlock(Blocks.LIGHT_GRAY_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_GRAY_CANDLE = register("strawberry_cake_gray_candle", () -> new StrawberryCandleCakeBlock(Blocks.GRAY_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_BLACK_CANDLE = register("strawberry_cake_black_candle", () -> new StrawberryCandleCakeBlock(Blocks.BLACK_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_BROWN_CANDLE = register("strawberry_cake_brown_candle", () -> new StrawberryCandleCakeBlock(Blocks.BROWN_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_RED_CANDLE = register("strawberry_cake_red_candle", () -> new StrawberryCandleCakeBlock(Blocks.RED_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_ORANGE_CANDLE = register("strawberry_cake_orange_candle", () -> new StrawberryCandleCakeBlock(Blocks.ORANGE_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_YELLOW_CANDLE = register("strawberry_cake_yellow_candle", () -> new StrawberryCandleCakeBlock(Blocks.YELLOW_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_LIME_CANDLE = register("strawberry_cake_lime_candle", () -> new StrawberryCandleCakeBlock(Blocks.LIME_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_GREEN_CANDLE = register("strawberry_cake_green_candle", () -> new StrawberryCandleCakeBlock(Blocks.GREEN_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_CYAN_CANDLE = register("strawberry_cake_cyan_candle", () -> new StrawberryCandleCakeBlock(Blocks.CYAN_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_LIGHT_BLUE_CANDLE = register("strawberry_cake_light_blue_candle", () -> new StrawberryCandleCakeBlock(Blocks.LIGHT_BLUE_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_BLUE_CANDLE = register("strawberry_cake_blue_candle", () -> new StrawberryCandleCakeBlock(Blocks.BLUE_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_PURPLE_CANDLE = register("strawberry_cake_purple_candle", () -> new StrawberryCandleCakeBlock(Blocks.PURPLE_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_MAGENTA_CANDLE = register("strawberry_cake_magenta_candle", () -> new StrawberryCandleCakeBlock(Blocks.MAGENTA_CANDLE, propertiesCake()));
-	public static final RegistryObject<Block> STRAWBERRY_CAKE_PINK_CANDLE = register("strawberry_cake_pink_candle", () -> new StrawberryCandleCakeBlock(Blocks.PINK_CANDLE, propertiesCake()));
+	public static final RegistryObject<Block> LAUREL_CHERRY_CAKE = register("laurel_cherry_cake", () -> new IcariaCakeBlock(propertiesCake()));
+	public static final RegistryObject<Block> STRAWBERRY_CAKE = register("strawberry_cake", () -> new IcariaCakeBlock(propertiesCake()));
+	public static final RegistryObject<Block> PHYSALIS_CAKE = register("physalis_cake", () -> new IcariaCakeBlock(propertiesCake()));
+	public static final RegistryObject<Block> VINE_BERRY_CAKE = register("vine_berry_cake", () -> new IcariaCakeBlock(propertiesCake()));
+	public static final RegistryObject<Block> VINE_SPROUT_CAKE = register("vine_sprout_cake", () -> new IcariaCakeBlock(propertiesCake()));
 
 	public static final RegistryObject<Block> CYPRESS_SAPLING = register("cypress_sapling", () -> new SaplingBlock(new OakTreeGrower(), propertiesSapling()));
 	public static final RegistryObject<Block> POTTED_CYPRESS_SAPLING = register("potted_cypress_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CYPRESS_SAPLING, propertiesPot()));

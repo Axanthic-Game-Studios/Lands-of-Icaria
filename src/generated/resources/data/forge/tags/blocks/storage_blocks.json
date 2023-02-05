@@ -1,7 +1,11 @@
 {
   "values": [
     "landsoficaria:aristone_packed",
-    "landsoficaria:jellyfish_jelly_block",
+    "landsoficaria:ender_jellyfish_jelly_block",
+    "landsoficaria:fire_jellyfish_jelly_block",
+    "landsoficaria:nature_jellyfish_jelly_block",
+    "landsoficaria:void_jellyfish_jelly_block",
+    "landsoficaria:water_jellyfish_jelly_block",
     "landsoficaria:arachne_string_block",
     "landsoficaria:spelt_bale_block",
     "landsoficaria:vine_reed_block",

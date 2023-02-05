@@ -87,6 +87,7 @@ public class CommonProxy {
 
 	public void onLivingAttack(LivingAttackEvent pEvent) {
 		float damage = pEvent.getAmount();
+		DamageSource source = pEvent.getSource();
 		Entity entity = pEvent.getEntity();
 		if (entity instanceof Player player) {
 			float health = player.getHealth();
@@ -168,7 +169,6 @@ public class CommonProxy {
 			}
 		}
 
-		DamageSource source = pEvent.getSource();
 		if (source instanceof EntityDamageSource damageSource) {
 			Entity entitySource = damageSource.getEntity();
 			if (entitySource instanceof Player player) {
@@ -234,6 +234,15 @@ public class CommonProxy {
 				}
 			}
 		}
+
+		if (source instanceof EntityDamageSource damageSource) {
+			Entity entitySource = damageSource.getEntity();
+			if (entitySource instanceof Player player) {
+				if (player.hasEffect(IcariaMobEffects.LIFESTEAL.get())) {
+					player.heal(damage);
+				}
+			}
+		}
 	}
 
 	public void onMobEffectApplicable(MobEffectEvent.Applicable pEvent) {
@@ -245,14 +254,14 @@ public class CommonProxy {
 			TotemItem totem = IcariaItems.TOTEM_OF_UNBLINDING.get();
 			if (effect.getEffect().equals(MobEffects.BLINDNESS)) {
 				if (offHand.getItem().equals(totem)) {
-					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
+					player.addEffect(new MobEffectInstance(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
 					offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 				}
 
 				if (mainHand.getItem().equals(totem)) {
-					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
+					player.addEffect(new MobEffectInstance(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
 					mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));

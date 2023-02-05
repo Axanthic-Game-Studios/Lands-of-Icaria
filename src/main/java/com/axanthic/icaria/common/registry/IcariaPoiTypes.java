@@ -14,6 +14,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
@@ -23,7 +24,7 @@ public class IcariaPoiTypes {
 
     public static final RegistryObject<PoiType> ICARIA_PORTAL = POI_TYPES.register("icaria_portal", () -> new PoiType(getBlockStates(IcariaBlocks.ICARIA_PORTAL.get()), 0, 1));
 
-    public static Set<BlockState> getBlockStates(Block pBlock) {
+    public static @Nonnull Set<BlockState> getBlockStates(Block pBlock) {
         return ImmutableSet.copyOf(pBlock.getStateDefinition().getPossibleStates());
     }
 }

@@ -1,7 +1,7 @@
 package com.axanthic.icaria.data.lang;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaEffects;
+import com.axanthic.icaria.common.registry.IcariaMobEffects;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.util.IcariaInfo;
@@ -251,7 +251,11 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.ARISTONE.get(), "Aristein");
 		this.add(IcariaBlocks.ARISTONE_PACKED.get(), "Komprimierter Aristein");
 
-		this.add(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get(), "Quallengeleeblock");
+		this.add(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK.get(), "Ender-Quallengeleeblock");
+		this.add(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK.get(), "Feuer-Quallengeleeblock");
+		this.add(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get(), "Natur-Quallengeleeblock");
+		this.add(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get(), "Leeren-Quallengeleeblock");
+		this.add(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get(), "Wasser-Quallengeleeblock");
 		this.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), "Arachnefadenblock");
 		this.add(IcariaBlocks.SPELT_BALE_BLOCK.get(), "Dinkelballen");
 		this.add(IcariaBlocks.VINE_REED_BLOCK.get(), "Weinschilfblock");
@@ -315,24 +319,11 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.LIGNITE_TORCH.get(), "Braunkohlefackel");
 		this.add(IcariaBlocks.ANTHRACITE_TORCH.get(), "Schwarzkohlefackel");
 
+		this.add(IcariaBlocks.LAUREL_CHERRY_CAKE.get(), "Lorbeerkirschkuchen");
 		this.add(IcariaBlocks.STRAWBERRY_CAKE.get(), "Erdbeerkuchen");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get(), "Erdbeerkuchen mit Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_WHITE_CANDLE.get(), "Erdbeerkuchen mit weißer Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_GRAY_CANDLE.get(), "Erdbeerkuchen mit hellgrauer Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_GRAY_CANDLE.get(), "Erdbeerkuchen mit grauer Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_BLACK_CANDLE.get(), "Erdbeerkuchen mit schwarzer Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_BROWN_CANDLE.get(), "Erdbeerkuchen mit brauner Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_RED_CANDLE.get(), "Erdbeerkuchen mit roter Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_ORANGE_CANDLE.get(), "Erdbeerkuchen mit oranger Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_YELLOW_CANDLE.get(), "Erdbeerkuchen mit gelber Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_LIME_CANDLE.get(), "Erdbeerkuchen mit hellgrüner Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_GREEN_CANDLE.get(), "Erdbeerkuchen mit grüner Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_CYAN_CANDLE.get(), "Erdbeerkuchen mit türkiser Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_BLUE_CANDLE.get(), "Erdbeerkuchen mit hellblauer Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_BLUE_CANDLE.get(), "Erdbeerkuchen mit blauer Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_PURPLE_CANDLE.get(), "Erdbeerkuchen mit violetter Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_MAGENTA_CANDLE.get(), "Erdbeerkuchen mit magenta Kerze");
-		this.add(IcariaBlocks.STRAWBERRY_CAKE_PINK_CANDLE.get(), "Erdbeerkuchen mit rosa Kerze");
+		this.add(IcariaBlocks.PHYSALIS_CAKE.get(), "Physaliskuchen");
+		this.add(IcariaBlocks.VINE_BERRY_CAKE.get(), "Rankenbeerenkuchen");
+		this.add(IcariaBlocks.VINE_SPROUT_CAKE.get(), "Rankensprossenkuchen");
 
 		this.add(IcariaBlocks.CYPRESS_SAPLING.get(), "Zypressensetzling");
 		this.add(IcariaBlocks.POTTED_CYPRESS_SAPLING.get(), "Eingetopfter Zypressensetzling");
@@ -627,7 +618,8 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
 		// EFFECTS
-		this.add(IcariaEffects.BLINDNESS_IMMUNITY.get(), "Erblindungsimmunität");
+		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), "Erblindungsimmunität");
+		this.add(IcariaMobEffects.LIFESTEAL.get(), "Lebensraub");
 
 		// ENTITY TYPES
 		this.add(IcariaEntityTypes.AETERNAE.get(), "Ätern");
@@ -652,7 +644,11 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.LOAM_LUMP.get(), "Lehmklumpen");
 		this.add(IcariaItems.LOAM_BRICK.get(), "Lehmziegel");
 		this.add(IcariaItems.CHERT.get(), "Hornstein");
-		this.add(IcariaItems.JELLYFISH_JELLY.get(), "Quallengelee");
+		this.add(IcariaItems.ENDER_JELLYFISH_JELLY.get(), "Ender-Quallengelee");
+		this.add(IcariaItems.FIRE_JELLYFISH_JELLY.get(), "Feuer-Quallengelee");
+		this.add(IcariaItems.NATURE_JELLYFISH_JELLY.get(), "Natur-Quallengelee");
+		this.add(IcariaItems.VOID_JELLYFISH_JELLY.get(), "Leeren-Quallengelee");
+		this.add(IcariaItems.WATER_JELLYFISH_JELLY.get(), "Wasser-Quallengelee");
 		this.add(IcariaItems.ARACHNE_STRING.get(), "Arachnenfaden");
 		this.add(IcariaItems.SPELT.get(), "Dinkel");
 		this.add(IcariaItems.VINE_REED.get(), "Weinschilf");

@@ -2,9 +2,23 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "landsoficaria:jellyfish_jelly"
-    },
+    [
+      {
+        "item": "landsoficaria:ender_jellyfish_jelly"
+      },
+      {
+        "item": "landsoficaria:fire_jellyfish_jelly"
+      },
+      {
+        "item": "landsoficaria:nature_jellyfish_jelly"
+      },
+      {
+        "item": "landsoficaria:void_jellyfish_jelly"
+      },
+      {
+        "item": "landsoficaria:water_jellyfish_jelly"
+      }
+    ],
     {
       "item": "minecraft:blaze_powder"
     }

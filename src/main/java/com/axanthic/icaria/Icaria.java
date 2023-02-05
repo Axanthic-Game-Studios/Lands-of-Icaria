@@ -51,12 +51,12 @@ public class Icaria {
 
 		IcariaBlocks.BLOCKS.register(eventBus);
 		IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(eventBus);
-		IcariaMenuTypes.MENU_TYPES.register(eventBus);
-		IcariaEffects.EFFECTS.register(eventBus);
 		IcariaEntityTypes.ENTITY_TYPES.register(eventBus);
 		IcariaFluids.FLUIDS.register(eventBus);
 		IcariaFluidTypes.FLUID_TYPES.register(eventBus);
 		IcariaItems.ITEMS.register(eventBus);
+		IcariaMenuTypes.MENU_TYPES.register(eventBus);
+		IcariaMobEffects.MOB_EFFECTS.register(eventBus);
 		IcariaPoiTypes.POI_TYPES.register(eventBus);
 		IcariaRecipeTypes.RECIPE_TYPES.register(eventBus);
 

@@ -310,7 +310,11 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.ARISTONE.get());
 			pOutput.accept(IcariaItems.ARISTONE_PACKED.get());
 
-			pOutput.accept(IcariaItems.JELLYFISH_JELLY_BLOCK.get());
+			pOutput.accept(IcariaItems.ENDER_JELLYFISH_JELLY_BLOCK.get());
+			pOutput.accept(IcariaItems.FIRE_JELLYFISH_JELLY_BLOCK.get());
+			pOutput.accept(IcariaItems.NATURE_JELLYFISH_JELLY_BLOCK.get());
+			pOutput.accept(IcariaItems.VOID_JELLYFISH_JELLY_BLOCK.get());
+			pOutput.accept(IcariaItems.WATER_JELLYFISH_JELLY_BLOCK.get());
 			pOutput.accept(IcariaItems.ARACHNE_STRING_BLOCK.get());
 			pOutput.accept(IcariaItems.SPELT_BALE_BLOCK.get());
 			pOutput.accept(IcariaItems.VINE_REED_BLOCK.get());
@@ -374,7 +378,11 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.LIGNITE_TORCH.get());
 			pOutput.accept(IcariaItems.ANTHRACITE_TORCH.get());
 
+			pOutput.accept(IcariaItems.LAUREL_CHERRY_CAKE.get());
 			pOutput.accept(IcariaItems.STRAWBERRY_CAKE.get());
+			pOutput.accept(IcariaItems.PHYSALIS_CAKE.get());
+			pOutput.accept(IcariaItems.VINE_BERRY_CAKE.get());
+			pOutput.accept(IcariaItems.VINE_SPROUT_CAKE.get());
 		}));
 
 		pEvent.registerCreativeModeTab(new ResourceLocation(IcariaInfo.MODID, "flora"), List.of(new ResourceLocation(IcariaInfo.MODID, "items")), List.of(new ResourceLocation(IcariaInfo.MODID, "blocks")), pBuilder -> pBuilder.title(Component.translatable("itemgroup." + IcariaInfo.MODID + ".flora")).icon(() -> new ItemStack(IcariaItems.OLIVE_LEAVES.get())).displayItems((pSet, pOutput, pOperator) -> {
@@ -631,7 +639,11 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.LOAM_LUMP.get());
 			pOutput.accept(IcariaItems.LOAM_BRICK.get());
 			pOutput.accept(IcariaItems.CHERT.get());
-			pOutput.accept(IcariaItems.JELLYFISH_JELLY.get());
+			pOutput.accept(IcariaItems.ENDER_JELLYFISH_JELLY.get());
+			pOutput.accept(IcariaItems.FIRE_JELLYFISH_JELLY.get());
+			pOutput.accept(IcariaItems.NATURE_JELLYFISH_JELLY.get());
+			pOutput.accept(IcariaItems.VOID_JELLYFISH_JELLY.get());
+			pOutput.accept(IcariaItems.WATER_JELLYFISH_JELLY.get());
 			pOutput.accept(IcariaItems.ARACHNE_STRING.get());
 			pOutput.accept(IcariaItems.SPELT.get());
 			pOutput.accept(IcariaItems.VINE_REED.get());
@@ -1119,7 +1131,11 @@ public class ClientProxy extends CommonProxy {
 
 		// RENDER TRANSLUCENT
 		this.renderTranslucent(IcariaBlocks.ARISTONE.get());
-		this.renderTranslucent(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get());
+		this.renderTranslucent(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK.get());
+		this.renderTranslucent(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK.get());
+		this.renderTranslucent(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get());
+		this.renderTranslucent(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get());
+		this.renderTranslucent(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.CALCITE_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.HALITE_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.ZIRCON_BLOCK.get());
@@ -1357,6 +1373,15 @@ public class ClientProxy extends CommonProxy {
 				}
 			}
 		}
+
+		if (source instanceof EntityDamageSource damageSource) {
+			Entity entitySource = damageSource.getEntity();
+			if (entitySource instanceof Player player) {
+				if (player.hasEffect(IcariaMobEffects.LIFESTEAL.get())) {
+					player.heal(damage);
+				}
+			}
+		}
 	}
 
 	@Override
@@ -1369,7 +1394,7 @@ public class ClientProxy extends CommonProxy {
 			TotemItem totem = IcariaItems.TOTEM_OF_UNBLINDING.get();
 			if (effect.getEffect().equals(MobEffects.BLINDNESS)) {
 				if (offHand.getItem().equals(totem)) {
-					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
+					player.addEffect(new MobEffectInstance(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
 					offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
@@ -1377,7 +1402,7 @@ public class ClientProxy extends CommonProxy {
 				}
 
 				if (mainHand.getItem().equals(totem)) {
-					player.addEffect(new MobEffectInstance(IcariaEffects.BLINDNESS_IMMUNITY.get(), 600));
+					player.addEffect(new MobEffectInstance(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
 					mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));

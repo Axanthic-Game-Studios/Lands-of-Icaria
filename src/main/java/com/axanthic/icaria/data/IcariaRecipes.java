@@ -76,7 +76,11 @@ public class IcariaRecipes extends RecipeProvider {
 		this.stoneRecipes(pConsumer, IcariaItems.VOIDSHALE_COBBLE.get(), IcariaItems.VOIDSHALE.get(), IcariaItems.VOIDSHALE_BRICKS.get(), IcariaItems.VOIDSHALE_CHISELED.get(), IcariaItems.VOIDSHALE_BRICKS_DECO);
 		this.stoneRecipes(pConsumer, IcariaItems.BAETYL_COBBLE.get(), IcariaItems.BAETYL.get(), IcariaItems.BAETYL_BRICKS.get(), IcariaItems.BAETYL_CHISELED.get(), IcariaItems.BAETYL_BRICKS_DECO);
 
-		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.JELLYFISH_JELLY.get(), IcariaItems.JELLYFISH_JELLY_BLOCK.get());
+		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.ENDER_JELLYFISH_JELLY_BLOCK.get());
+		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY_BLOCK.get());
+		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY_BLOCK.get());
+		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY_BLOCK.get());
+		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.WATER_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY_BLOCK.get());
 		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.ARACHNE_STRING.get(), IcariaItems.ARACHNE_STRING_BLOCK.get());
 		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.SPELT.get(), IcariaItems.SPELT_BALE_BLOCK.get());
 		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.VINE_REED.get(), IcariaItems.VINE_REED_BLOCK.get());
@@ -107,6 +111,12 @@ public class IcariaRecipes extends RecipeProvider {
 
 		this.torchRecipe(pConsumer, IcariaItems.LIGNITE.get(), IcariaItems.LIGNITE_TORCH.get());
 		this.torchRecipe(pConsumer, IcariaItems.ANTHRACITE.get(), IcariaItems.ANTHRACITE_TORCH.get());
+
+		this.cakeRecipe(pConsumer, IcariaItems.LAUREL_CHERRY.get(), IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.LAUREL_CHERRY_CAKE.get());
+		this.cakeRecipe(pConsumer, IcariaItems.STRAWBERRIES.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.STRAWBERRY_CAKE.get());
+		this.cakeRecipe(pConsumer, IcariaItems.PHYSALIS.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.PHYSALIS_CAKE.get());
+		this.cakeRecipe(pConsumer, IcariaItems.VINEBERRIES.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.VINE_BERRY_CAKE.get());
+		this.cakeRecipe(pConsumer, IcariaItems.VINE_SPROUT.get(), IcariaItems.WATER_JELLYFISH_JELLY.get(), IcariaItems.VINE_SPROUT_CAKE.get());
 
 		this.woodRecipes(pConsumer, IcariaItems.CYPRESS_WOOD.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get());
 		this.woodRecipes(pConsumer, IcariaItems.DROUGHTROOT_WOOD.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get());
@@ -591,22 +601,6 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.ORICHALCUM_INGOT.get(), has(IcariaItems.ORICHALCUM_INGOT.get()))
 			.save(pConsumer, IcariaItems.GRINDER.getId());
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.STRAWBERRY_CAKE.get())
-			.pattern("ABA")
-			.pattern("CDC")
-			.pattern("EEE")
-			.define('A', IcariaItems.STRAWBERRIES.get())
-			.define('B', Items.MILK_BUCKET)
-			.define('C', Items.SUGAR)
-			.define('D', IcariaItems.JELLYFISH_JELLY.get())
-			.define('E', IcariaItems.SPELT_FLOUR.get())
-			.unlockedBy("has_" + IcariaItems.STRAWBERRIES.get(), has(IcariaItems.STRAWBERRIES.get()))
-			.unlockedBy("has_" + Items.MILK_BUCKET, has(Items.MILK_BUCKET))
-			.unlockedBy("has_" + Items.SUGAR, has(Items.SUGAR))
-			.unlockedBy("has_" + IcariaItems.JELLYFISH_JELLY.get(), has(IcariaItems.JELLYFISH_JELLY.get()))
-			.unlockedBy("has_" + IcariaItems.SPELT_FLOUR.get(), has(IcariaItems.SPELT_FLOUR.get()))
-			.save(pConsumer, IcariaItems.STRAWBERRY_CAKE.getId());
-
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.LAUREL_WREATH.get(), 1)
 			.pattern("XXX")
 			.pattern("X X")
@@ -835,9 +829,13 @@ public class IcariaRecipes extends RecipeProvider {
 			.pattern("XY ")
 			.pattern("  X")
 			.define('X', Items.STRING)
-			.define('Y', IcariaItems.JELLYFISH_JELLY.get())
+			.define('Y', Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
 			.unlockedBy("has_" + Items.STRING, has(Items.STRING))
-			.unlockedBy("has_" + IcariaItems.JELLYFISH_JELLY.get(), has(IcariaItems.JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.ENDER_JELLYFISH_JELLY.get(), has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.FIRE_JELLYFISH_JELLY.get(), has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.NATURE_JELLYFISH_JELLY.get(), has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.VOID_JELLYFISH_JELLY.get(), has(IcariaItems.VOID_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.WATER_JELLYFISH_JELLY.get(), has(IcariaItems.WATER_JELLYFISH_JELLY.get()))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.LEAD) + "_from_jellyfish_jelly");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.LEAD, 2)
@@ -845,9 +843,13 @@ public class IcariaRecipes extends RecipeProvider {
 			.pattern("XY ")
 			.pattern("  X")
 			.define('X', IcariaItems.ARACHNE_STRING.get())
-			.define('Y', IcariaItems.JELLYFISH_JELLY.get())
+			.define('Y', Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
 			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), has(IcariaItems.ARACHNE_STRING.get()))
-			.unlockedBy("has_" + IcariaItems.JELLYFISH_JELLY.get(), has(IcariaItems.JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.ENDER_JELLYFISH_JELLY.get(), has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.FIRE_JELLYFISH_JELLY.get(), has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.NATURE_JELLYFISH_JELLY.get(), has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.VOID_JELLYFISH_JELLY.get(), has(IcariaItems.VOID_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.WATER_JELLYFISH_JELLY.get(), has(IcariaItems.WATER_JELLYFISH_JELLY.get()))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.LEAD) + "_from_arachne_string_and_jellyfish_jelly");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.LEATHER_HORSE_ARMOR)
@@ -912,9 +914,13 @@ public class IcariaRecipes extends RecipeProvider {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STICKY_PISTON)
 			.pattern("X")
 			.pattern("Y")
-			.define('X', IcariaItems.JELLYFISH_JELLY.get())
+			.define('X', Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
 			.define('Y', Items.PISTON)
-			.unlockedBy("has_" + IcariaItems.JELLYFISH_JELLY.get(), has(IcariaItems.JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.ENDER_JELLYFISH_JELLY.get(), has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.FIRE_JELLYFISH_JELLY.get(), has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.NATURE_JELLYFISH_JELLY.get(), has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.VOID_JELLYFISH_JELLY.get(), has(IcariaItems.VOID_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.WATER_JELLYFISH_JELLY.get(), has(IcariaItems.WATER_JELLYFISH_JELLY.get()))
 			.unlockedBy("has_" + Items.PISTON, has(Items.PISTON))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.STICKY_PISTON) + "_from_jellyfish_jelly");
 
@@ -956,9 +962,13 @@ public class IcariaRecipes extends RecipeProvider {
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.FLINT_AND_STEEL) + "_from_chert");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.MAGMA_CREAM)
-			.requires(IcariaItems.JELLYFISH_JELLY.get())
+			.requires(Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
 			.requires(Items.BLAZE_POWDER)
-			.unlockedBy("has_" + IcariaItems.JELLYFISH_JELLY.get(), has(IcariaItems.JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.ENDER_JELLYFISH_JELLY.get(), has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.FIRE_JELLYFISH_JELLY.get(), has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.NATURE_JELLYFISH_JELLY.get(), has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.VOID_JELLYFISH_JELLY.get(), has(IcariaItems.VOID_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.WATER_JELLYFISH_JELLY.get(), has(IcariaItems.WATER_JELLYFISH_JELLY.get()))
 			.unlockedBy("has_" + Items.BLAZE_POWDER, has(Items.BLAZE_POWDER))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.MAGMA_CREAM) + "_from_jellyfish_jelly");
 
@@ -1117,6 +1127,24 @@ public class IcariaRecipes extends RecipeProvider {
 			.define('Y', Items.BONE)
 			.unlockedBy("has_" + pResource, has(pResource))
 			.unlockedBy("has_" + Items.BONE, has(Items.BONE))
+			.save(pConsumer, Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(pResult)));
+	}
+
+	public void cakeRecipe(Consumer<FinishedRecipe> pConsumer, Item pFruit, Item pJelly, Item pResult) {
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult)
+			.pattern("ABA")
+			.pattern("CDC")
+			.pattern("EEE")
+			.define('A', pJelly)
+			.define('B', pFruit)
+			.define('C', Items.SUGAR)
+			.define('D', Items.MILK_BUCKET)
+			.define('E', IcariaItems.SPELT_FLOUR.get())
+			.unlockedBy("has_" + pJelly, has(pJelly))
+			.unlockedBy("has_" + pFruit, has(pFruit))
+			.unlockedBy("has_" + Items.SUGAR, has(Items.SUGAR))
+			.unlockedBy("has_" + Items.MILK_BUCKET, has(Items.MILK_BUCKET))
+			.unlockedBy("has_" + IcariaItems.SPELT_FLOUR.get(), has(IcariaItems.SPELT_FLOUR.get()))
 			.save(pConsumer, Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(pResult)));
 	}
 

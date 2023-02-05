@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:void_jellyfish_jelly_large_compress"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_void_jellyfish_jelly": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:void_jellyfish_jelly"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_void_jellyfish_jelly",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:void_jellyfish_jelly_large_compress"
+    ]
+  }
+}

@@ -97,23 +97,6 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropElse(IcariaBlocks.DIM_WALL_TORCH.get(), IcariaItems.DIM_TORCH.get());
 		this.dropElse(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
 		this.dropElse(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get(), Items.CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_WHITE_CANDLE.get(), Items.WHITE_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_GRAY_CANDLE.get(), Items.LIGHT_GRAY_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_GRAY_CANDLE.get(), Items.GRAY_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_BLACK_CANDLE.get(), Items.BLACK_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_BROWN_CANDLE.get(), Items.BROWN_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_RED_CANDLE.get(), Items.RED_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_ORANGE_CANDLE.get(), Items.ORANGE_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_YELLOW_CANDLE.get(), Items.YELLOW_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_LIME_CANDLE.get(), Items.LIME_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_GREEN_CANDLE.get(), Items.GREEN_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_CYAN_CANDLE.get(), Items.CYAN_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_BLUE_CANDLE.get(), Items.LIGHT_BLUE_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_BLUE_CANDLE.get(), Items.BLUE_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_PURPLE_CANDLE.get(), Items.PURPLE_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_MAGENTA_CANDLE.get(), Items.MAGENTA_CANDLE);
-		this.dropElse(IcariaBlocks.STRAWBERRY_CAKE_PINK_CANDLE.get(), Items.PINK_CANDLE);
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_SIGN.get(), IcariaItems.CYPRESS_SIGN.get());
 		this.dropElse(IcariaBlocks.DROUGHTROOT_WALL_SIGN.get(), IcariaItems.DROUGHTROOT_SIGN.get());
 		this.dropElse(IcariaBlocks.FIR_WALL_SIGN.get(), IcariaItems.FIR_SIGN.get());
@@ -408,7 +391,11 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropNone(IcariaBlocks.GROWING_SWIRLY_VINE.get());
 		this.dropNone(IcariaBlocks.DEAD_THORNY_VINE.get());
 		this.dropNone(IcariaBlocks.GROWING_THORNY_VINE.get());
+		this.dropNone(IcariaBlocks.LAUREL_CHERRY_CAKE.get());
 		this.dropNone(IcariaBlocks.STRAWBERRY_CAKE.get());
+		this.dropNone(IcariaBlocks.PHYSALIS_CAKE.get());
+		this.dropNone(IcariaBlocks.VINE_BERRY_CAKE.get());
+		this.dropNone(IcariaBlocks.VINE_SPROUT_CAKE.get());
 		this.dropNone(IcariaBlocks.GREEK_FIRE.get());
 		this.dropNone(IcariaBlocks.ICARIA_PORTAL.get());
 

@@ -101,7 +101,11 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final TagKey<Item> ORE_BEARING_GROUND_PLATOSHALE_BRICKS = forgeTag("ore_bearing_ground/platoshale_bricks");
 
 	public static final TagKey<Item> STORAGE_BLOCKS_ARISTONE_PACKED = forgeTag("storage_blocks/aristone_packed");
-	public static final TagKey<Item> STORAGE_BLOCKS_JELLYFISH_JELLY = forgeTag("storage_blocks/jellyfish_jelly");
+	public static final TagKey<Item> STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY = forgeTag("storage_blocks/ender_jellyfish_jelly");
+	public static final TagKey<Item> STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY = forgeTag("storage_blocks/fire_jellyfish_jelly");
+	public static final TagKey<Item> STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY = forgeTag("storage_blocks/nature_jellyfish_jelly");
+	public static final TagKey<Item> STORAGE_BLOCKS_VOID_JELLYFISH_JELLY = forgeTag("storage_blocks/void_jellyfish_jelly");
+	public static final TagKey<Item> STORAGE_BLOCKS_WATER_JELLYFISH_JELLY = forgeTag("storage_blocks/water_jellyfish_jelly");
 	public static final TagKey<Item> STORAGE_BLOCKS_ARACHNE_STRING = forgeTag("storage_blocks/arachne_string");
 	public static final TagKey<Item> STORAGE_BLOCKS_SPELT = forgeTag("storage_blocks/spelt");
 	public static final TagKey<Item> STORAGE_BLOCKS_VINE_REED = forgeTag("storage_blocks/vine_reed");
@@ -209,7 +213,11 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.ZIRCON.get());
 
 		this.tag(Tags.Items.SLIMEBALLS)
-			.add(IcariaItems.JELLYFISH_JELLY.get());
+			.add(IcariaItems.ENDER_JELLYFISH_JELLY.get())
+			.add(IcariaItems.FIRE_JELLYFISH_JELLY.get())
+			.add(IcariaItems.NATURE_JELLYFISH_JELLY.get())
+			.add(IcariaItems.VOID_JELLYFISH_JELLY.get())
+			.add(IcariaItems.WATER_JELLYFISH_JELLY.get());
 
 		this.tag(Tags.Items.STRING)
 			.add(IcariaItems.ARACHNE_STRING.get());
@@ -539,7 +547,11 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.PLATOSHALE_BRICKS.get());
 
 		this.tag(IcariaItemTags.STORAGE_BLOCKS_ARISTONE_PACKED).add(IcariaItems.ARISTONE_PACKED.get());
-		this.tag(IcariaItemTags.STORAGE_BLOCKS_JELLYFISH_JELLY).add(IcariaItems.JELLYFISH_JELLY_BLOCK.get());
+		this.tag(IcariaItemTags.STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY).add(IcariaItems.ENDER_JELLYFISH_JELLY_BLOCK.get());
+		this.tag(IcariaItemTags.STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY).add(IcariaItems.FIRE_JELLYFISH_JELLY_BLOCK.get());
+		this.tag(IcariaItemTags.STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY).add(IcariaItems.NATURE_JELLYFISH_JELLY_BLOCK.get());
+		this.tag(IcariaItemTags.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY).add(IcariaItems.VOID_JELLYFISH_JELLY_BLOCK.get());
+		this.tag(IcariaItemTags.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY).add(IcariaItems.WATER_JELLYFISH_JELLY_BLOCK.get());
 		this.tag(IcariaItemTags.STORAGE_BLOCKS_ARACHNE_STRING).add(IcariaItems.ARACHNE_STRING_BLOCK.get());
 		this.tag(IcariaItemTags.STORAGE_BLOCKS_SPELT).add(IcariaItems.SPELT_BALE_BLOCK.get());
 		this.tag(IcariaItemTags.STORAGE_BLOCKS_VINE_REED).add(IcariaItems.VINE_REED_BLOCK.get());
@@ -570,7 +582,11 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 		this.tag(Tags.Items.STORAGE_BLOCKS)
 			.add(IcariaItems.ARISTONE_PACKED.get())
-			.add(IcariaItems.JELLYFISH_JELLY_BLOCK.get())
+			.add(IcariaItems.ENDER_JELLYFISH_JELLY_BLOCK.get())
+			.add(IcariaItems.FIRE_JELLYFISH_JELLY_BLOCK.get())
+			.add(IcariaItems.NATURE_JELLYFISH_JELLY_BLOCK.get())
+			.add(IcariaItems.VOID_JELLYFISH_JELLY_BLOCK.get())
+			.add(IcariaItems.WATER_JELLYFISH_JELLY_BLOCK.get())
 			.add(IcariaItems.ARACHNE_STRING_BLOCK.get())
 			.add(IcariaItems.SPELT_BALE_BLOCK.get())
 			.add(IcariaItems.VINE_REED_BLOCK.get())

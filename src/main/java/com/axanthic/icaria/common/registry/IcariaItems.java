@@ -200,7 +200,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> ARISTONE = register("aristone", () -> new BlockItem(IcariaBlocks.ARISTONE.get(), new Properties()));
 	public static final RegistryObject<Item> ARISTONE_PACKED = register("aristone_packed", () -> new BlockItem(IcariaBlocks.ARISTONE_PACKED.get(), new Properties()));
 
-	public static final RegistryObject<Item> JELLYFISH_JELLY_BLOCK = register("jellyfish_jelly_block", () -> new BlockItem(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get(), new Properties()));
+	public static final RegistryObject<Item> ENDER_JELLYFISH_JELLY_BLOCK = register("ender_jellyfish_jelly_block", () -> new BlockItem(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK.get(), new Properties()));
+	public static final RegistryObject<Item> FIRE_JELLYFISH_JELLY_BLOCK = register("fire_jellyfish_jelly_block", () -> new BlockItem(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK.get(), new Properties()));
+	public static final RegistryObject<Item> NATURE_JELLYFISH_JELLY_BLOCK = register("nature_jellyfish_jelly_block", () -> new BlockItem(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get(), new Properties()));
+	public static final RegistryObject<Item> VOID_JELLYFISH_JELLY_BLOCK = register("void_jellyfish_jelly_block", () -> new BlockItem(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get(), new Properties()));
+	public static final RegistryObject<Item> WATER_JELLYFISH_JELLY_BLOCK = register("water_jellyfish_jelly_block", () -> new BlockItem(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get(), new Properties()));
 	public static final RegistryObject<Item> ARACHNE_STRING_BLOCK = register("arachne_string_block", () -> new FuelBlockItem(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), new Properties(), 100));
 	public static final RegistryObject<Item> SPELT_BALE_BLOCK = register("spelt_bale_block", () -> new BlockItem(IcariaBlocks.SPELT_BALE_BLOCK.get(), new Properties()));
 	public static final RegistryObject<Item> VINE_REED_BLOCK = register("vine_reed_block", () -> new BlockItem(IcariaBlocks.VINE_REED_BLOCK.get(), new Properties()));
@@ -264,7 +268,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> LIGNITE_TORCH = registerBasic("lignite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.LIGNITE_TORCH.get(), IcariaBlocks.LIGNITE_WALL_TORCH.get(), new Properties(), Direction.DOWN));
 	public static final RegistryObject<Item> ANTHRACITE_TORCH = registerBasic("anthracite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.ANTHRACITE_TORCH.get(), IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), new Properties(), Direction.DOWN));
 
+	public static final RegistryObject<Item> LAUREL_CHERRY_CAKE = registerBasic("laurel_cherry_cake", () -> new BlockItem(IcariaBlocks.LAUREL_CHERRY_CAKE.get(), new Properties()));
 	public static final RegistryObject<Item> STRAWBERRY_CAKE = registerBasic("strawberry_cake", () -> new BlockItem(IcariaBlocks.STRAWBERRY_CAKE.get(), new Properties()));
+	public static final RegistryObject<Item> PHYSALIS_CAKE = registerBasic("physalis_cake", () -> new BlockItem(IcariaBlocks.PHYSALIS_CAKE.get(), new Properties()));
+	public static final RegistryObject<Item> VINE_BERRY_CAKE = registerBasic("vine_berry_cake", () -> new BlockItem(IcariaBlocks.VINE_BERRY_CAKE.get(), new Properties()));
+	public static final RegistryObject<Item> VINE_SPROUT_CAKE = registerBasic("vine_sprout_cake", () -> new BlockItem(IcariaBlocks.VINE_SPROUT_CAKE.get(), new Properties()));
 
 	public static final RegistryObject<Item> CYPRESS_SAPLING = register("cypress_sapling", () -> new FuelBlockItem(IcariaBlocks.CYPRESS_SAPLING.get(), new Properties(), 100));
 	public static final RegistryObject<Item> CYPRESS_LEAVES = register("cypress_leaves", () -> new BlockItem(IcariaBlocks.CYPRESS_LEAVES.get(), new Properties()));
@@ -498,7 +506,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> LOAM_LUMP = registerBasic("loam_lump", () -> new Item(new Properties()));
 	public static final RegistryObject<Item> LOAM_BRICK = registerBasic("loam_brick", () -> new Item(new Properties()));
 	public static final RegistryObject<Item> CHERT = registerBasic("chert", () -> new Item(new Properties()));
-	public static final RegistryObject<Item> JELLYFISH_JELLY = registerBasic("jellyfish_jelly", () -> new Item(new Properties()));
+	public static final RegistryObject<Item> ENDER_JELLYFISH_JELLY = registerBasic("ender_jellyfish_jelly", () -> new Item(new Properties()));
+	public static final RegistryObject<Item> FIRE_JELLYFISH_JELLY = registerBasic("fire_jellyfish_jelly", () -> new Item(new Properties()));
+	public static final RegistryObject<Item> NATURE_JELLYFISH_JELLY = registerBasic("nature_jellyfish_jelly", () -> new Item(new Properties()));
+	public static final RegistryObject<Item> VOID_JELLYFISH_JELLY = registerBasic("void_jellyfish_jelly", () -> new Item(new Properties()));
+	public static final RegistryObject<Item> WATER_JELLYFISH_JELLY = registerBasic("water_jellyfish_jelly", () -> new Item(new Properties()));
 	public static final RegistryObject<Item> ARACHNE_STRING = registerBasic("arachne_string", () -> new Item(new Properties()));
 	public static final RegistryObject<Item> SPELT = registerBasic("spelt", () -> new Item(new Properties()));
 	public static final RegistryObject<Item> VINE_REED = registerBasic("vine_reed", () -> new Item(new Properties()));

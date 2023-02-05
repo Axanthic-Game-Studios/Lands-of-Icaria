@@ -2,9 +2,23 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:jellyfish_jelly"
-    },
+    "X": [
+      {
+        "item": "landsoficaria:ender_jellyfish_jelly"
+      },
+      {
+        "item": "landsoficaria:fire_jellyfish_jelly"
+      },
+      {
+        "item": "landsoficaria:nature_jellyfish_jelly"
+      },
+      {
+        "item": "landsoficaria:void_jellyfish_jelly"
+      },
+      {
+        "item": "landsoficaria:water_jellyfish_jelly"
+      }
+    ],
     "Y": {
       "item": "minecraft:piston"
     }

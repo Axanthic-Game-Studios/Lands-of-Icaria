@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "landsoficaria:block/water_jellyfish_jelly_block"
+  }
+}

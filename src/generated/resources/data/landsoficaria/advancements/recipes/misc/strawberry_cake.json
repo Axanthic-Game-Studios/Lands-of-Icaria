@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_jellyfish_jelly": {
+    "has_fire_jellyfish_jelly": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:jellyfish_jelly"
+              "landsoficaria:fire_jellyfish_jelly"
             ]
           }
         ]
@@ -70,10 +70,10 @@
   },
   "requirements": [
     [
+      "has_fire_jellyfish_jelly",
       "has_strawberries",
-      "has_milk_bucket",
       "has_sugar",
-      "has_jellyfish_jelly",
+      "has_milk_bucket",
       "has_spelt_flour",
       "has_the_recipe"
     ]

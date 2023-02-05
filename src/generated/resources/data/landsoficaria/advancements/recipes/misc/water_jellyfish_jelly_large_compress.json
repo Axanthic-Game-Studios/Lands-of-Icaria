@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:water_jellyfish_jelly_large_compress"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_water_jellyfish_jelly": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:water_jellyfish_jelly"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_water_jellyfish_jelly",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:water_jellyfish_jelly_large_compress"
+    ]
+  }
+}

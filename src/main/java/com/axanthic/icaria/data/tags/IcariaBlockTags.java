@@ -68,7 +68,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> ORE_BEARING_GROUND_PLATOSHALE_BRICKS = forgeTag("ore_bearing_ground/platoshale_bricks");
 
 	public static final TagKey<Block> STORAGE_BLOCKS_ARISTONE_PACKED = forgeTag("storage_blocks/aristone_packed");
-	public static final TagKey<Block> STORAGE_BLOCKS_JELLYFISH_JELLY = forgeTag("storage_blocks/jellyfish_jelly");
+	public static final TagKey<Block> STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY = forgeTag("storage_blocks/ender_jellyfish_jelly");
+	public static final TagKey<Block> STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY = forgeTag("storage_blocks/fire_jellyfish_jelly");
+	public static final TagKey<Block> STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY = forgeTag("storage_blocks/nature_jellyfish_jelly");
+	public static final TagKey<Block> STORAGE_BLOCKS_VOID_JELLYFISH_JELLY = forgeTag("storage_blocks/void_jellyfish_jelly");
+	public static final TagKey<Block> STORAGE_BLOCKS_WATER_JELLYFISH_JELLY = forgeTag("storage_blocks/water_jellyfish_jelly");
 	public static final TagKey<Block> STORAGE_BLOCKS_ARACHNE_STRING = forgeTag("storage_blocks/arachne_string");
 	public static final TagKey<Block> STORAGE_BLOCKS_SPELT = forgeTag("storage_blocks/spelt");
 	public static final TagKey<Block> STORAGE_BLOCKS_VINE_REED = forgeTag("storage_blocks/vine_reed");
@@ -589,25 +593,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.LIGNITE_TORCH.get())
 			.add(IcariaBlocks.ANTHRACITE_TORCH.get());
 
-		this.tag(BlockTags.CANDLE_CAKES)
-			.add(IcariaBlocks.STRAWBERRY_CAKE_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_WHITE_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_ORANGE_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_MAGENTA_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_BLUE_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_YELLOW_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_LIME_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_PINK_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_GRAY_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_LIGHT_GRAY_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_CYAN_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_PURPLE_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_BLUE_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_BROWN_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_GREEN_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_RED_CANDLE.get())
-			.add(IcariaBlocks.STRAWBERRY_CAKE_BLACK_CANDLE.get());
-
 		this.tag(BlockTags.FLOWER_POTS)
 			.add(IcariaBlocks.POTTED_CYPRESS_SAPLING.get())
 			.add(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get())
@@ -901,7 +886,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.PLATOSHALE_BRICKS.get());
 
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_ARISTONE_PACKED).add(IcariaBlocks.ARISTONE_PACKED.get());
-		this.tag(IcariaBlockTags.STORAGE_BLOCKS_JELLYFISH_JELLY).add(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get());
+		this.tag(IcariaBlockTags.STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY).add(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK.get());
+		this.tag(IcariaBlockTags.STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY).add(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK.get());
+		this.tag(IcariaBlockTags.STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY).add(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get());
+		this.tag(IcariaBlockTags.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY).add(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get());
+		this.tag(IcariaBlockTags.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY).add(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get());
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_ARACHNE_STRING).add(IcariaBlocks.ARACHNE_STRING_BLOCK.get());
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_SPELT).add(IcariaBlocks.SPELT_BALE_BLOCK.get());
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_VINE_REED).add(IcariaBlocks.VINE_REED_BLOCK.get());
@@ -932,7 +921,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 		this.tag(Tags.Blocks.STORAGE_BLOCKS)
 			.add(IcariaBlocks.ARISTONE_PACKED.get())
-			.add(IcariaBlocks.JELLYFISH_JELLY_BLOCK.get())
+			.add(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK.get())
+			.add(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK.get())
+			.add(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get())
+			.add(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get())
+			.add(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get())
 			.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get())
 			.add(IcariaBlocks.SPELT_BALE_BLOCK.get())
 			.add(IcariaBlocks.VINE_REED_BLOCK.get())

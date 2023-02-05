@@ -13,7 +13,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -196,8 +195,8 @@ public class AeternaeEntity extends IcariaAnimalEntity {
         @Override
         public void alertOther(Mob pMob, LivingEntity pEntity) {
             if (pMob instanceof AeternaeEntity) {
-                double d = RandomSource.create().nextInt(8, 16);
-                pMob.getNavigation().moveTo(pEntity.getX() + d, 0.0D, pEntity.getX() + d, speedModifier);
+                double random = pEntity.getRandom().nextInt(16) - 8;
+                pMob.getNavigation().moveTo(pEntity.getX() + random, 0.0D, pEntity.getZ() + random, speedModifier);
             }
         }
     }

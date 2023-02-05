@@ -5,9 +5,23 @@
     "X": {
       "item": "landsoficaria:arachne_string"
     },
-    "Y": {
-      "item": "landsoficaria:jellyfish_jelly"
-    }
+    "Y": [
+      {
+        "item": "landsoficaria:ender_jellyfish_jelly"
+      },
+      {
+        "item": "landsoficaria:fire_jellyfish_jelly"
+      },
+      {
+        "item": "landsoficaria:nature_jellyfish_jelly"
+      },
+      {
+        "item": "landsoficaria:void_jellyfish_jelly"
+      },
+      {
+        "item": "landsoficaria:water_jellyfish_jelly"
+      }
+    ]
   },
   "pattern": [
     "XX ",
