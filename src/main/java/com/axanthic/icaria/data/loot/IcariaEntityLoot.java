@@ -9,6 +9,7 @@ import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -38,6 +39,11 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
 
         this.dropItem(IcariaEntityTypes.ARACHNE.get(), IcariaItems.ARACHNE_STRING.get());
         this.dropItem(IcariaEntityTypes.ARACHNE_DRONE.get(), IcariaItems.ARACHNE_STRING.get());
+        this.dropItemPlusItem(IcariaEntityTypes.ENDER_JELLYFISH.get(), IcariaItems.ENDER_JELLYFISH_JELLY.get(), Items.ENDER_PEARL);
+        this.dropItem(IcariaEntityTypes.FIRE_JELLYFISH.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get());
+        this.dropItem(IcariaEntityTypes.NATURE_JELLYFISH.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get());
+        this.dropItem(IcariaEntityTypes.VOID_JELLYFISH.get(), IcariaItems.VOID_JELLYFISH_JELLY.get());
+        this.dropItem(IcariaEntityTypes.WATER_JELLYFISH.get(), IcariaItems.WATER_JELLYFISH_JELLY.get());
 
         this.dropNone(IcariaEntityTypes.ARGAN_HOUND.get());
         this.dropNone(IcariaEntityTypes.HYLIASTER.get());
@@ -56,6 +62,10 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
 
     public void dropItem(EntityType<?> pEntity, Item pItem) {
         this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
+    }
+
+    public void dropItemPlusItem(EntityType<?> pEntity, Item pItem, Item pScnd) {
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
     }
 
     public void dropMeat(EntityType<?> pEntity, Item pMeat) {

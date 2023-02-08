@@ -32,7 +32,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class ArachneEntity extends Monster {
     public AnimationState attackAnimationState = new AnimationState();
 
-    public ArachneEntity(EntityType<? extends Monster> pType, Level pLevel) {
+    public ArachneEntity(EntityType<? extends ArachneEntity> pType, Level pLevel) {
         super(pType, pLevel);
         this.xpReward = 10;
     }

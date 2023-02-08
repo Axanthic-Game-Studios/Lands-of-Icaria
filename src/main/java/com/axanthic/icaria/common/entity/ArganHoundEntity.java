@@ -28,7 +28,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class ArganHoundEntity extends Monster {
     public AnimationState attackAnimationState = new AnimationState();
 
-    public ArganHoundEntity(EntityType<? extends Monster> pType, Level pLevel) {
+    public ArganHoundEntity(EntityType<? extends ArganHoundEntity> pType, Level pLevel) {
         super(pType, pLevel);
         this.xpReward = 5;
     }

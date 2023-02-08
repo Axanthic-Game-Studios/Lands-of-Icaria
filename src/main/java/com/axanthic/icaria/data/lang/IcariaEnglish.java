@@ -631,6 +631,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.CERVER.get(), "Cerver");
 		this.add(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), "Greek Fire Grenade");
 		this.add(IcariaEntityTypes.HYLIASTER.get(), "Hyliaster");
+		this.add(IcariaEntityTypes.ENDER_JELLYFISH.get(), "Ender Jellyfish");
+		this.add(IcariaEntityTypes.FIRE_JELLYFISH.get(), "Fire Jellyfish");
+		this.add(IcariaEntityTypes.NATURE_JELLYFISH.get(), "Nature Jellyfish");
+		this.add(IcariaEntityTypes.VOID_JELLYFISH.get(), "Void Jellyfish");
+		this.add(IcariaEntityTypes.WATER_JELLYFISH.get(), "Water Jellyfish");
 		this.add(IcariaEntityTypes.MYRMEKE_DRONE.get(), "Myrmeke Drone");
 		this.add(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), "Myrmeke Soldier");
 		this.add(IcariaEntityTypes.MYRMEKE_QUEEN.get(), "Myrmeke Queen");
@@ -851,6 +856,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.CATOBLEPAS_SPAWN_EGG.get(), "Catoblepas Spawn Egg");
 		this.add(IcariaItems.CERVER_SPAWN_EGG.get(), "Cerver Spawn Egg");
 		this.add(IcariaItems.HYLIASTER_SPAWN_EGG.get(), "Hyliaster Spawn Egg");
+		this.add(IcariaItems.ENDER_JELLYFISH_SPAWN_EGG.get(), "Ender Jellyfish Spawn Egg");
+		this.add(IcariaItems.FIRE_JELLYFISH_SPAWN_EGG.get(), "Fire Jellyfish Spawn Egg");
+		this.add(IcariaItems.NATURE_JELLYFISH_SPAWN_EGG.get(), "Nature Jellyfish Spawn Egg");
+		this.add(IcariaItems.VOID_JELLYFISH_SPAWN_EGG.get(), "Void Jellyfish Spawn Egg");
+		this.add(IcariaItems.WATER_JELLYFISH_SPAWN_EGG.get(), "Water Jellyfish Spawn Egg");
 		this.add(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get(), "Myrmeke Drone Spawn Egg");
 		this.add(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get(), "Myrmeke Soldier Spawn Egg");
 		this.add(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get(), "Myrmeke Queen Spawn Egg");

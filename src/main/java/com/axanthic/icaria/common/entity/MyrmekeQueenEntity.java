@@ -45,7 +45,7 @@ public class MyrmekeQueenEntity extends Monster {
 
     public MyrmekeQueenSpellEnum spell = MyrmekeQueenSpellEnum.NONE;
 
-    public MyrmekeQueenEntity(EntityType<? extends Monster> pType, Level pLevel) {
+    public MyrmekeQueenEntity(EntityType<? extends MyrmekeQueenEntity> pType, Level pLevel) {
         super(pType, pLevel);
         this.xpReward = 10;
     }

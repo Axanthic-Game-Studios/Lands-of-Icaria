@@ -54,7 +54,7 @@ public class ArachneDroneEntity extends ArachneEntity {
     public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.INT);
 
-    public ArachneDroneEntity(EntityType<? extends Monster> pType, Level pLevel) {
+    public ArachneDroneEntity(EntityType<? extends ArachneDroneEntity> pType, Level pLevel) {
         super(pType, pLevel);
         this.bboxMult = 0.25F;
         this.eyesMult = 0.1F;

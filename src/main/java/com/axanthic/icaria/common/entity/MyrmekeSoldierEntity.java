@@ -16,7 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeSoldierEntity extends MyrmekeDroneEntity {
-    public MyrmekeSoldierEntity(EntityType<? extends Monster> pType, Level pLevel) {
+    public MyrmekeSoldierEntity(EntityType<? extends MyrmekeSoldierEntity> pType, Level pLevel) {
         super(pType, pLevel);
         this.xpReward = 5;
     }

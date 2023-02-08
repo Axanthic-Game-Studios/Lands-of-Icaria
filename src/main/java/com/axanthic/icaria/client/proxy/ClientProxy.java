@@ -841,6 +841,11 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.CATOBLEPAS_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.CERVER_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.HYLIASTER_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.ENDER_JELLYFISH_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.FIRE_JELLYFISH_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.NATURE_JELLYFISH_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.VOID_JELLYFISH_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.WATER_JELLYFISH_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get());
@@ -859,6 +864,11 @@ public class ClientProxy extends CommonProxy {
 		pEvent.put(IcariaEntityTypes.CATOBLEPAS.get(), CatoblepasEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.CERVER.get(), CerverEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.HYLIASTER.get(), HyliasterEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.ENDER_JELLYFISH.get(), JellyfishEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.FIRE_JELLYFISH.get(), JellyfishEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.NATURE_JELLYFISH.get(), JellyfishEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.VOID_JELLYFISH.get(), JellyfishEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.WATER_JELLYFISH.get(), JellyfishEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
@@ -1153,6 +1163,11 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntityTypes.CERVER.get(), CerverRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), GreekFireGrenadeRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.HYLIASTER.get(), HyliasterRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.ENDER_JELLYFISH.get(), EnderJellyfishRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.FIRE_JELLYFISH.get(), FireJellyfishRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.NATURE_JELLYFISH.get(), NatureJellyfishRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.VOID_JELLYFISH.get(), VoidJellyfishRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.WATER_JELLYFISH.get(), WaterJellyfishRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.MYRMEKE_DRONE.get(), MyrmekeDroneRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), MyrmekeSoldierRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.MYRMEKE_QUEEN.get(), MyrmekeQueenRenderer::new);
@@ -1198,6 +1213,11 @@ public class ClientProxy extends CommonProxy {
 		pEvent.registerLayerDefinition(CerverSkullModel.LAYER_LOCATION, CerverSkullModel::createLayer);
 		pEvent.registerLayerDefinition(HyliasterModel.LAYER_LOCATION, HyliasterModel::createLayer);
 		pEvent.registerLayerDefinition(HyliasterModel.TRANSLUCENT_LAYER_LOCATION, HyliasterModel::createTranslucentLayer);
+		pEvent.registerLayerDefinition(EnderJellyfishModel.LAYER_LOCATION, EnderJellyfishModel::createLayer);
+		pEvent.registerLayerDefinition(FireJellyfishModel.LAYER_LOCATION, FireJellyfishModel::createLayer);
+		pEvent.registerLayerDefinition(NatureJellyfishModel.LAYER_LOCATION, NatureJellyfishModel::createLayer);
+		pEvent.registerLayerDefinition(VoidJellyfishModel.LAYER_LOCATION, VoidJellyfishModel::createLayer);
+		pEvent.registerLayerDefinition(WaterJellyfishModel.LAYER_LOCATION, WaterJellyfishModel::createLayer);
 		pEvent.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
 		pEvent.registerLayerDefinition(MyrmekeSoldierModel.LAYER_LOCATION, MyrmekeSoldierModel::createLayer);
 		pEvent.registerLayerDefinition(MyrmekeQueenModel.BODY_LAYER_LOCATION, MyrmekeQueenModel::createLayer);

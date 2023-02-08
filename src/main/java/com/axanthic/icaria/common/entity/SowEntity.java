@@ -35,7 +35,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class SowEntity extends IcariaAnimalEntity {
     public AnimationState attackAnimationState = new AnimationState();
 
-    public SowEntity(EntityType<? extends IcariaAnimalEntity> pType, Level pLevel) {
+    public SowEntity(EntityType<? extends SowEntity> pType, Level pLevel) {
         super(pType, pLevel, 0.25F, 0.15F, 0.25F);
     }
 
@@ -96,7 +96,7 @@ public class SowEntity extends IcariaAnimalEntity {
     @Override
     public void setSize(int pSize) {
         super.setSize(pSize);
-        int size = Mth.clamp(pSize, 1, 4);
+        int size = Mth.clamp(pSize, this.minSize, this.maxSize);
         Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
         Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_KNOCKBACK)).setBaseValue(size * 0.5D);
         Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);

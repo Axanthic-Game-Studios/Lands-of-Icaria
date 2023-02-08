@@ -54,7 +54,7 @@ public class HyliasterEntity extends Monster {
     public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(HyliasterEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(HyliasterEntity.class, EntityDataSerializers.INT);
 
-    public HyliasterEntity(EntityType<? extends Monster> pType, Level pLevel) {
+    public HyliasterEntity(EntityType<? extends HyliasterEntity> pType, Level pLevel) {
         super(pType, pLevel);
         this.bboxMult = 1.125F;
         this.eyesMult = 0.125F;

@@ -15,20 +15,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 
-public abstract class IcariaAgeableEntity extends PathfinderMob {
+public class SizedPathfinderMobEntity extends PathfinderMob {
     public int maxSize = 4;
-    public int maxTick = 48000;
     public int minSize = 1;
-    public int minTick = 0;
 
     public float bboxMult;
     public float eyesMult;
     public float sizeMult;
 
-    public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
-    public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(IcariaAgeableEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(SizedPathfinderMobEntity.class, EntityDataSerializers.INT);
 
-    public IcariaAgeableEntity(EntityType<? extends IcariaAgeableEntity> pType, Level pLevel, float pBboxMult, float pEyesMult, float pSizeMult) {
+    public SizedPathfinderMobEntity(EntityType<? extends SizedPathfinderMobEntity> pType, Level pLevel, float pBboxMult, float pEyesMult, float pSizeMult) {
         super(pType, pLevel);
         this.bboxMult = pBboxMult;
         this.eyesMult = pEyesMult;
@@ -67,39 +64,17 @@ public abstract class IcariaAgeableEntity extends PathfinderMob {
         return this.entityData.get(SIZE);
     }
 
-    public int getTick() {
-        return this.entityData.get(TICK);
-    }
-
     @Override
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
         pCompound.putInt("Size", this.getSize());
-        pCompound.putInt("Tick", this.getTick());
     }
 
     @Override
     public void aiStep() {
         super.aiStep();
         if (this.isAlive()) {
-            int tick = this.getTick();
-            if (tick < 16000) {
-                ++tick;
-                this.setTick(tick);
-                this.setSize(1);
-            } else if (tick < 32000) {
-                ++tick;
-                this.setTick(tick);
-                this.setSize(2);
-            } else if (tick < 48000) {
-                ++tick;
-                this.setTick(tick);
-                this.setSize(3);
-            } else {
-                ++tick;
-                this.setTick(tick);
-                this.setSize(4);
-            }
+            this.setSize(this.getSize());
         }
     }
 
@@ -107,7 +82,6 @@ public abstract class IcariaAgeableEntity extends PathfinderMob {
     public void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(SIZE, this.minSize);
-        this.entityData.define(TICK, this.minTick);
     }
 
     @Override
@@ -122,7 +96,6 @@ public abstract class IcariaAgeableEntity extends PathfinderMob {
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         this.setSize(pCompound.getInt("Size"));
-        this.setTick(pCompound.getInt("Tick"));
     }
 
     public void setSize(int pSize) {
@@ -132,15 +105,9 @@ public abstract class IcariaAgeableEntity extends PathfinderMob {
         this.xpReward = size + 1;
     }
 
-    public void setTick(int pSize) {
-        int tick = Mth.clamp(pSize, this.minTick, this.maxTick);
-        this.entityData.set(TICK, tick);
-    }
-
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
         this.setSize(this.maxSize);
-        this.setTick(this.maxTick);
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
 }

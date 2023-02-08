@@ -40,7 +40,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class CatoblepasEntity extends IcariaAnimalEntity {
     public AnimationState attackAnimationState = new AnimationState();
 
-    public CatoblepasEntity(EntityType<? extends IcariaAnimalEntity> pType, Level pLevel) {
+    public CatoblepasEntity(EntityType<? extends CatoblepasEntity> pType, Level pLevel) {
         super(pType, pLevel, 0.25F, 0.3F, 0.25F);
     }
 

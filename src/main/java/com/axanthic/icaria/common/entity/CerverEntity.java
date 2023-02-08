@@ -28,7 +28,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class CerverEntity extends Monster {
     public AnimationState attackAnimationState = new AnimationState();
 
-    public CerverEntity(EntityType<? extends Monster> pType, Level pLevel) {
+    public CerverEntity(EntityType<? extends CerverEntity> pType, Level pLevel) {
         super(pType, pLevel);
         this.xpReward = 5;
     }
