@@ -834,6 +834,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.COOKED_CERVER_MEAT.get(), "Gekochtes Raubkatzenfleisch");
 		this.add(IcariaItems.RAW_SOW_MEAT.get(), "Roher Schweinrücken");
 		this.add(IcariaItems.COOKED_SOW_MEAT.get(), "Gekochter Schweinrücken");
+		this.add(IcariaItems.MYRMEKE_SCALES.get(), "Ameisenschuppen");
 		this.add(IcariaItems.SNULL_CREAM.get(), "Snull Creme");
 
 		this.add(IcariaItems.LOAM_BOWL_UNFIRED.get(), "Ungebrannte Lehmschüssel");

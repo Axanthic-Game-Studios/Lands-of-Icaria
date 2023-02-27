@@ -637,6 +637,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> COOKED_CERVER_MEAT = registerBasic("cooked_cerver_meat", () -> new Item(new Properties().food(foodPropertiesMeat(5, 0.8F))));
 	public static final RegistryObject<Item> RAW_SOW_MEAT = registerBasic("raw_sow_meat", () -> new Item(new Properties().food(foodPropertiesMeatEffect(2, 0.3F, MobEffects.HUNGER, 400, 0, 1.0F))));
 	public static final RegistryObject<Item> COOKED_SOW_MEAT = registerBasic("cooked_sow_meat", () -> new Item(new Properties().food(foodPropertiesMeat(5, 0.8F))));
+	public static final RegistryObject<Item> MYRMEKE_SCALES = registerBasic("myrmeke_scales", () -> new Item(new Properties()));
 	public static final RegistryObject<Item> SNULL_CREAM = registerBasic("snull_cream", () -> new Item(new Properties().food(foodPropertiesSnullCream(3, 0.1F, MobEffects.HUNGER, 100, 0, 0.5F, MobEffects.CONFUSION, 200, 0, 0.5F))));
 
 	public static final RegistryObject<Item> LOAM_BOWL_UNFIRED = registerBasic("loam_bowl_unfired", () -> new Item(new Properties()));

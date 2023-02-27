@@ -834,6 +834,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.COOKED_CERVER_MEAT.get(), "Cooked Cerver Meat");
 		this.add(IcariaItems.RAW_SOW_MEAT.get(), "Raw Sow Meat");
 		this.add(IcariaItems.COOKED_SOW_MEAT.get(), "Cooked Sow Meat");
+		this.add(IcariaItems.MYRMEKE_SCALES.get(), "Myrmeke Scales");
 		this.add(IcariaItems.SNULL_CREAM.get(), "Snull Cream");
 
 		this.add(IcariaItems.LOAM_BOWL_UNFIRED.get(), "Unfired Loam Bowl");

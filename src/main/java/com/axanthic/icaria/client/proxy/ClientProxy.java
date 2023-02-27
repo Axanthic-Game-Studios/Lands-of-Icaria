@@ -819,6 +819,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.COOKED_CERVER_MEAT.get());
 			pOutput.accept(IcariaItems.RAW_SOW_MEAT.get());
 			pOutput.accept(IcariaItems.COOKED_SOW_MEAT.get());
+			pOutput.accept(IcariaItems.MYRMEKE_SCALES.get());
 			pOutput.accept(IcariaItems.SNULL_CREAM.get());
 
 			pOutput.accept(IcariaItems.LOAM_BOWL_UNFIRED.get());
