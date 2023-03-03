@@ -639,6 +639,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.MYRMEKE_DRONE.get(), "Myrmeke Drone");
 		this.add(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), "Myrmeke Soldier");
 		this.add(IcariaEntityTypes.MYRMEKE_QUEEN.get(), "Myrmeke Queen");
+		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
 		this.add(IcariaEntityTypes.SOW.get(), "Sow");
 
 		// FLUIDS
@@ -865,6 +866,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get(), "Myrmeke Drone Spawn Egg");
 		this.add(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get(), "Myrmeke Soldier Spawn Egg");
 		this.add(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get(), "Myrmeke Queen Spawn Egg");
+		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn Egg");
 		this.add(IcariaItems.SOW_SPAWN_EGG.get(), "Sow Spawn Egg");
 
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Mediterranean Water Bucket");

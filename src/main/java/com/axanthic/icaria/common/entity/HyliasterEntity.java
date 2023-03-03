@@ -224,7 +224,7 @@ public class HyliasterEntity extends Monster {
     @Override
     public void tick() {
         super.tick();
-        if (this.level.isClientSide()) {
+        if (this.level.isClientSide) {
             if (this.isMovingOnLand()) {
                 this.walkAnimationState.startIfStopped(this.tickCount);
             } else {

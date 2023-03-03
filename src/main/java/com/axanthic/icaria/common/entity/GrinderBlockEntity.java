@@ -213,7 +213,7 @@ public class GrinderBlockEntity extends BlockEntity {
 		ItemStackHandler itemStackHandler = pBlockEntity.itemStackHandler;
 		ItemStack fuelSlot = itemStackHandler.getStackInSlot(1);
 		ItemStack gearSlot = itemStackHandler.getStackInSlot(2);
-		if (pLevel.isClientSide()) {
+		if (pLevel.isClientSide) {
 			return;
 		}
 

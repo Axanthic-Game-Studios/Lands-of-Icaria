@@ -59,6 +59,7 @@ public class CommonProxy {
 		pEvent.put(IcariaEntityTypes.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.SNULL.get(), SnullEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.SOW.get(), SowEntity.registerAttributes().build());
 	}
 

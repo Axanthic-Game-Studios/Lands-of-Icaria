@@ -37,6 +37,11 @@ public class SizedFlyingMobEntity extends FlyingMob {
         return this.getSize() < this.maxSize;
     }
 
+    @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return false;
+    }
+
     public float getInverseSize() {
         return (this.getSize() * -1.0F) + 5.0F;
     }

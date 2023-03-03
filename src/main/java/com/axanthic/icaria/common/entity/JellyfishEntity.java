@@ -60,11 +60,6 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
         this.tentacleSpeed = 1.0F / (this.random.nextFloat() + 1.0F) * 0.2F;
     }
 
-    @Override
-    public boolean canBeLeashed(Player pPlayer) {
-        return false;
-    }
-
     public boolean hasMovementVector() {
         return this.tx != 0.0F || this.ty != 0.0F || this.tz != 0.0F;
     }
@@ -91,7 +86,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
 
                 return flag;
             } else {
-                if (!this.level.isClientSide()) {
+                if (!this.level.isClientSide) {
                     if (this.random.nextInt(10) != 0) {
                         if (!(pSource.getEntity() instanceof LivingEntity)) {
                             this.teleport();
@@ -120,13 +115,8 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
         return this.getType() == IcariaEntityTypes.ENDER_JELLYFISH.get();
     }
 
-    @Override
-    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-        return false;
-    }
-
     public boolean teleport() {
-        if (!this.level.isClientSide() && this.isAlive()) {
+        if (!this.level.isClientSide && this.isAlive()) {
             return this.teleport(this.getX() + (this.random.nextDouble() - 0.5D) * 64.0D, this.getY() + (this.random.nextInt(64) - 32), this.getZ() + (this.random.nextDouble() - 0.5D) * 64.0D);
         } else {
             return false;

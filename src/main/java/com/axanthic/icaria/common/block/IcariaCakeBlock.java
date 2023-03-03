@@ -104,7 +104,7 @@ public class IcariaCakeBlock extends Block {
 			}
 
 			if (pState.is(IcariaBlocks.LAUREL_CHERRY_CAKE.get())) {
-				if (!pLevel.isClientSide()) {
+				if (!pLevel.isClientSide) {
 					for (int i = 0; i < 16; ++i) {
 						double playerX = pPlayer.getX();
 						double playerY = pPlayer.getY();
