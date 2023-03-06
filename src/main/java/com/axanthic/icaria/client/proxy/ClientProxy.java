@@ -850,6 +850,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.FOREST_SNULL_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.SNULL_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.SOW_SPAWN_EGG.get());
 
@@ -874,6 +875,7 @@ public class ClientProxy extends CommonProxy {
 		pEvent.put(IcariaEntityTypes.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.FOREST_SNULL.get(), SnullEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.SNULL.get(), SnullEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.SOW.get(), SowEntity.registerAttributes().build());
 	}
@@ -1174,6 +1176,7 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntityTypes.MYRMEKE_DRONE.get(), MyrmekeDroneRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), MyrmekeSoldierRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.MYRMEKE_QUEEN.get(), MyrmekeQueenRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.FOREST_SNULL.get(), ForestSnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SNULL.get(), SnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SOW.get(), SowRenderer::new);
 
@@ -1227,6 +1230,7 @@ public class ClientProxy extends CommonProxy {
 		pEvent.registerLayerDefinition(MyrmekeQueenModel.BODY_LAYER_LOCATION, MyrmekeQueenModel::createLayer);
 		pEvent.registerLayerDefinition(MyrmekeQueenModel.RAYS_LAYER_LOCATION, MyrmekeQueenModel::createLayer);
 		pEvent.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
+		pEvent.registerLayerDefinition(ForestSnullModel.LAYER_LOCATION, ForestSnullModel::createLayer);
 		pEvent.registerLayerDefinition(SnullModel.LAYER_LOCATION, SnullModel::createLayer);
 		pEvent.registerLayerDefinition(SowModel.LAYER_LOCATION, SowModel::createLayer);
 		pEvent.registerLayerDefinition(SowSkullModel.LAYER_LOCATION, SowSkullModel::createLayer);

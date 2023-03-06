@@ -32,6 +32,7 @@ public class IcariaEntityTypes {
 	public static final RegistryObject<EntityType<MyrmekeDroneEntity>> MYRMEKE_DRONE = register("myrmeke_drone", Builder.of(MyrmekeDroneEntity::new, MobCategory.CREATURE).sized(1.0F, 0.5F));
 	public static final RegistryObject<EntityType<MyrmekeSoldierEntity>> MYRMEKE_SOLDIER = register("myrmeke_soldier", Builder.of(MyrmekeSoldierEntity::new, MobCategory.CREATURE).sized(1.0F, 0.5F));
 	public static final RegistryObject<EntityType<MyrmekeQueenEntity>> MYRMEKE_QUEEN = register("myrmeke_queen", Builder.of(MyrmekeQueenEntity::new, MobCategory.CREATURE).sized(1.25F, 0.5F));
+	public static final RegistryObject<EntityType<SnullEntity>> FOREST_SNULL = register("forest_snull", Builder.of(SnullEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
 	public static final RegistryObject<EntityType<SnullEntity>> SNULL = register("snull", Builder.of(SnullEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
 	public static final RegistryObject<EntityType<SowEntity>> SOW = register("sow", Builder.of(SowEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
 

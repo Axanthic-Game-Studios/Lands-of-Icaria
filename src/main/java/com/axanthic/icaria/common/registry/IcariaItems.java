@@ -668,6 +668,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MYRMEKE_DRONE_SPAWN_EGG = register("myrmeke_drone_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.MYRMEKE_DRONE, 0x501814, 0x241E19, new Properties()));
 	public static final RegistryObject<Item> MYRMEKE_SOLDIER_SPAWN_EGG = register("myrmeke_soldier_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.MYRMEKE_SOLDIER, 0x501814, 0x402816, new Properties()));
 	public static final RegistryObject<Item> MYRMEKE_QUEEN_SPAWN_EGG = register("myrmeke_queen_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.MYRMEKE_QUEEN, 0x501814, 0xAB7E17, new Properties()));
+	public static final RegistryObject<Item> FOREST_SNULL_SPAWN_EGG = register("forest_snull_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.FOREST_SNULL, 0x291306, 0x53641E, new Properties()));
 	public static final RegistryObject<Item> SNULL_SPAWN_EGG = register("snull_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SNULL, 0x291306, 0x8D694F, new Properties()));
 	public static final RegistryObject<Item> SOW_SPAWN_EGG = register("sow_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SOW, 0x231A13, 0x6E554B, new Properties()));
 

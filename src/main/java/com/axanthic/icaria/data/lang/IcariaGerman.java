@@ -639,6 +639,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.MYRMEKE_DRONE.get(), "Ameisendrohne");
 		this.add(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), "Ameisensoldat");
 		this.add(IcariaEntityTypes.MYRMEKE_QUEEN.get(), "Ameisenkönigin");
+		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Wald Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
 		this.add(IcariaEntityTypes.SOW.get(), "Krommyonische Sau");
 
@@ -866,6 +867,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get(), "Ameisendrohnen-Spawn-Ei");
 		this.add(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get(), "Ameisensoldat-Spawn-Ei");
 		this.add(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get(), "Ameisenkönigin-Spawn-Ei");
+		this.add(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), "Wald Snull Spawn Egg");
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn-Ei");
 		this.add(IcariaItems.SOW_SPAWN_EGG.get(), "Krommyonische Sau-Spawn-Ei");
 

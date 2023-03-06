@@ -46,6 +46,7 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
         this.dropItem(IcariaEntityTypes.MYRMEKE_DRONE.get(), IcariaItems.MYRMEKE_SCALES.get());
         this.dropItem(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), IcariaItems.MYRMEKE_SCALES.get());
         this.dropItem(IcariaEntityTypes.MYRMEKE_QUEEN.get(), IcariaItems.MYRMEKE_SCALES.get());
+        this.dropItem(IcariaEntityTypes.FOREST_SNULL.get(), IcariaItems.SNULL_CREAM.get());
         this.dropItem(IcariaEntityTypes.SNULL.get(), IcariaItems.SNULL_CREAM.get());
 
         this.dropNone(IcariaEntityTypes.ARGAN_HOUND.get());

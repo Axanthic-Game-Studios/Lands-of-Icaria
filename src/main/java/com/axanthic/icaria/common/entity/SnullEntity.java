@@ -123,7 +123,7 @@ public class SnullEntity extends SizedPathfinderMobEntity {
                 if (creeper.isPowered()) {
                     if (creeper.canDropMobsSkull()) {
                         creeper.increaseDroppedSkulls();
-                        this.spawnAtLocation(IcariaItems.SOW_SKULL.get()); // TODO: change to revenant skull
+                        this.spawnAtLocation(IcariaItems.SOW_SKULL.get()); // TODO: change to revenant skull or forest hag skull respectively
                     }
                 }
             }
