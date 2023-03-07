@@ -184,10 +184,10 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> ZIRCON_GEODE_BLOCK = registerBasic("zircon_geode_block", () -> new AmethystBlock(propertiesGeodeBlock(MaterialColor.COLOR_BLUE)));
 	public static final RegistryObject<Block> BUDDING_ZIRCON_GEODE_BLOCK = registerBasic("budding_zircon_geode_block", () -> new AmethystBlock(propertiesGeodeBlock(MaterialColor.COLOR_BLUE)));
 
-	public static final RegistryObject<Block> CALCITE_CRYSTAL = register("calcite_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 255, 255, 128));
-	public static final RegistryObject<Block> HALITE_CRYSTAL = register("halite_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 0, 255, 128));
-	public static final RegistryObject<Block> JASPER_CRYSTAL = register("jasper_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 255, 0, 0));
-	public static final RegistryObject<Block> ZIRCON_CRYSTAL = register("zircon_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 0, 0, 255));
+	public static final RegistryObject<Block> CALCITE_CRYSTAL = register("calcite_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 1.0F, 1.0F, 0.5F));
+	public static final RegistryObject<Block> HALITE_CRYSTAL = register("halite_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 0.0F, 1.0F, 0.5F));
+	public static final RegistryObject<Block> JASPER_CRYSTAL = register("jasper_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 1.0F, 0.0F, 0.0F));
+	public static final RegistryObject<Block> ZIRCON_CRYSTAL = register("zircon_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 0.0F, 0.0F, 1.0F));
 
 	public static final RegistryObject<Block> ARISTONE = registerBasic("aristone", () -> new GlassBlock(propertiesAristone()));
 	public static final RegistryObject<Block> ARISTONE_PACKED = registerBasic("aristone_packed", () -> new Block(propertiesAristone()));

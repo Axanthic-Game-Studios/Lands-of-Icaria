@@ -638,6 +638,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> RAW_SOW_MEAT = registerBasic("raw_sow_meat", () -> new Item(new Properties().food(foodPropertiesMeatEffect(2, 0.3F, MobEffects.HUNGER, 400, 0, 1.0F))));
 	public static final RegistryObject<Item> COOKED_SOW_MEAT = registerBasic("cooked_sow_meat", () -> new Item(new Properties().food(foodPropertiesMeat(5, 0.8F))));
 	public static final RegistryObject<Item> MYRMEKE_SCALES = registerBasic("myrmeke_scales", () -> new Item(new Properties()));
+	public static final RegistryObject<Item> SLUG_SCALES = registerBasic("slug_scales", () -> new Item(new Properties()));
 	public static final RegistryObject<Item> SNULL_CREAM = registerBasic("snull_cream", () -> new Item(new Properties().food(foodPropertiesSnullCream(3, 0.1F, MobEffects.HUNGER, 100, 0, 0.5F, MobEffects.CONFUSION, 200, 0, 0.5F))));
 
 	public static final RegistryObject<Item> LOAM_BOWL_UNFIRED = registerBasic("loam_bowl_unfired", () -> new Item(new Properties()));
@@ -668,6 +669,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MYRMEKE_DRONE_SPAWN_EGG = register("myrmeke_drone_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.MYRMEKE_DRONE, 0x501814, 0x241E19, new Properties()));
 	public static final RegistryObject<Item> MYRMEKE_SOLDIER_SPAWN_EGG = register("myrmeke_soldier_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.MYRMEKE_SOLDIER, 0x501814, 0x402816, new Properties()));
 	public static final RegistryObject<Item> MYRMEKE_QUEEN_SPAWN_EGG = register("myrmeke_queen_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.MYRMEKE_QUEEN, 0x501814, 0xAB7E17, new Properties()));
+	public static final RegistryObject<Item> CRYSTAL_SLUG_SPAWN_EGG = register("crystal_slug_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.CRYSTAL_SLUG, 0x24141A, 0x653D48, new Properties()));
 	public static final RegistryObject<Item> FOREST_SNULL_SPAWN_EGG = register("forest_snull_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.FOREST_SNULL, 0x291306, 0x53641E, new Properties()));
 	public static final RegistryObject<Item> SNULL_SPAWN_EGG = register("snull_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SNULL, 0x291306, 0x8D694F, new Properties()));
 	public static final RegistryObject<Item> SOW_SPAWN_EGG = register("sow_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SOW, 0x231A13, 0x6E554B, new Properties()));

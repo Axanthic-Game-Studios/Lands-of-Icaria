@@ -639,6 +639,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.MYRMEKE_DRONE.get(), "Ameisendrohne");
 		this.add(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), "Ameisensoldat");
 		this.add(IcariaEntityTypes.MYRMEKE_QUEEN.get(), "Ameisenkönigin");
+		this.add(IcariaEntityTypes.CRYSTAL_SLUG.get(), "Kristall-Nacktschnecke");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Wald Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
 		this.add(IcariaEntityTypes.SOW.get(), "Krommyonische Sau");
@@ -837,6 +838,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.RAW_SOW_MEAT.get(), "Roher Schweinrücken");
 		this.add(IcariaItems.COOKED_SOW_MEAT.get(), "Gekochter Schweinrücken");
 		this.add(IcariaItems.MYRMEKE_SCALES.get(), "Ameisenschuppen");
+		this.add(IcariaItems.SLUG_SCALES.get(), "Nacktschneckenschuppen");
 		this.add(IcariaItems.SNULL_CREAM.get(), "Snull Creme");
 
 		this.add(IcariaItems.LOAM_BOWL_UNFIRED.get(), "Ungebrannte Lehmschüssel");
@@ -867,6 +869,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get(), "Ameisendrohnen-Spawn-Ei");
 		this.add(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get(), "Ameisensoldat-Spawn-Ei");
 		this.add(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get(), "Ameisenkönigin-Spawn-Ei");
+		this.add(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), "Kristall-Nacktschnecken-Spawn-Ei");
 		this.add(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), "Wald Snull Spawn Egg");
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn-Ei");
 		this.add(IcariaItems.SOW_SPAWN_EGG.get(), "Krommyonische Sau-Spawn-Ei");

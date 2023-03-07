@@ -68,13 +68,12 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 			RandomSource randomSource = RandomSource.create(432L);
 			VertexConsumer vertexConsumer = pBufferSource.getBuffer(ADDITIVE_LIGHTNING);
 
+			float r = pBlockEntity.r;
+			float g = pBlockEntity.g;
+			float b = pBlockEntity.b;
+			float alpha = (0.1F * (1.0F - Math.min(0.0F, 1.0F)));
 			float length = randomSource.nextFloat() * 2.0F + 1.25F;
 			float width = randomSource.nextFloat() * 0.5F + 0.25F;
-
-			int alpha = (int) (16.0F * (1.0F - Math.min(0.0F, 1.0F)));
-			int r = pBlockEntity.r;
-			int g = pBlockEntity.g;
-			int b = pBlockEntity.b;
 
 			pPoseStack.translate(pBlockEntity.x, pBlockEntity.y, pBlockEntity.z);
 
@@ -96,19 +95,19 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 		}
 	}
 
-	public void vertexA(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, int pRed, int pGreen, int pBlue, int pAlpha) {
+	public void vertexA(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pRed, float pGreen, float pBlue, float pAlpha) {
 		pVertexConsumer.vertex(pMatrix4f, 0.0F, 0.0F, 0.0F).color(pRed, pGreen, pBlue, pAlpha).endVertex();
 	}
 
 	public void vertexB(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pLength, float pWidth) {
-		pVertexConsumer.vertex(pMatrix4f, -HALF_SQRT_3 * pWidth, pLength, -0.5F * pWidth).color(255, 255, 255, 0).endVertex();
+		pVertexConsumer.vertex(pMatrix4f, -HALF_SQRT_3 * pWidth, pLength, -0.5F * pWidth).color(0.0F, 0.0F, 0.0F, 0.0F).endVertex();
 	}
 
 	public void vertexC(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pLength, float pWidth) {
-		pVertexConsumer.vertex(pMatrix4f, HALF_SQRT_3 * pWidth, pLength, -0.5F * pWidth).color(255, 255, 255, 0).endVertex();
+		pVertexConsumer.vertex(pMatrix4f, HALF_SQRT_3 * pWidth, pLength, -0.5F * pWidth).color(0.0F, 0.0F, 0.0F, 0.0F).endVertex();
 	}
 
 	public void vertexD(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pLength, float pWidth) {
-		pVertexConsumer.vertex(pMatrix4f, 0.0F, pLength, pWidth).color(255, 255, 255, 0).endVertex();
+		pVertexConsumer.vertex(pMatrix4f, 0.0F, pLength, pWidth).color(0.0F, 0.0F, 0.0F, 0.0F).endVertex();
 	}
 }

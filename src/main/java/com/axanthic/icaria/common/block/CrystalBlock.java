@@ -32,9 +32,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CrystalBlock extends DirectionalBlock implements EntityBlock, SimpleWaterloggedBlock {
-	public int r;
-	public int g;
-	public int b;
+	public float r;
+	public float g;
+	public float b;
 
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
@@ -50,7 +50,7 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Simpl
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
 
-	public CrystalBlock(Properties pProperties, int pRed, int pGreen, int pBlue) {
+	public CrystalBlock(Properties pProperties, float pRed, float pGreen, float pBlue) {
 		this(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 		this.r = pRed;

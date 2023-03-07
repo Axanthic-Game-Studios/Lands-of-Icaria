@@ -639,6 +639,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.MYRMEKE_DRONE.get(), "Myrmeke Drone");
 		this.add(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), "Myrmeke Soldier");
 		this.add(IcariaEntityTypes.MYRMEKE_QUEEN.get(), "Myrmeke Queen");
+		this.add(IcariaEntityTypes.CRYSTAL_SLUG.get(), "Crystal Slug");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Forest Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
 		this.add(IcariaEntityTypes.SOW.get(), "Sow");
@@ -837,6 +838,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.RAW_SOW_MEAT.get(), "Raw Sow Meat");
 		this.add(IcariaItems.COOKED_SOW_MEAT.get(), "Cooked Sow Meat");
 		this.add(IcariaItems.MYRMEKE_SCALES.get(), "Myrmeke Scales");
+		this.add(IcariaItems.SLUG_SCALES.get(), "Slug Scales");
 		this.add(IcariaItems.SNULL_CREAM.get(), "Snull Cream");
 
 		this.add(IcariaItems.LOAM_BOWL_UNFIRED.get(), "Unfired Loam Bowl");
@@ -867,6 +869,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get(), "Myrmeke Drone Spawn Egg");
 		this.add(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get(), "Myrmeke Soldier Spawn Egg");
 		this.add(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get(), "Myrmeke Queen Spawn Egg");
+		this.add(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), "Crystal Slug Spawn Egg");
 		this.add(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), "Forest Snull Spawn Egg");
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn Egg");
 		this.add(IcariaItems.SOW_SPAWN_EGG.get(), "Sow Spawn Egg");

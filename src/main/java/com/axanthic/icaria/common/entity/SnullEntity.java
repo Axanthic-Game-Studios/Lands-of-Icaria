@@ -37,11 +37,11 @@ public class SnullEntity extends SizedPathfinderMobEntity {
     public int maxCooldown = 400;
     public int minCooldown = 0;
 
-    public AnimationState attackedAnimationState = new AnimationState();
     public AnimationState hideAnimationState = new AnimationState();
+    public AnimationState hurtAnimationState = new AnimationState();
     public AnimationState idleAnimationState = new AnimationState();
     public AnimationState moveAnimationState = new AnimationState();
-    public AnimationState unhideAnimationState = new AnimationState();
+    public AnimationState showAnimationState = new AnimationState();
 
     public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(SnullEntity.class, EntityDataSerializers.BYTE);
     public static final EntityDataAccessor<Integer> COOLDOWN = SynchedEntityData.defineId(SnullEntity.class, EntityDataSerializers.INT);
@@ -184,16 +184,16 @@ public class SnullEntity extends SizedPathfinderMobEntity {
 
             if (this.onCooldown()) {
                 this.hideAnimationState.startIfStopped(this.tickCount);
-                this.unhideAnimationState.stop();
+                this.showAnimationState.stop();
             } else {
-                this.unhideAnimationState.startIfStopped(this.tickCount);
+                this.showAnimationState.startIfStopped(this.tickCount);
                 this.hideAnimationState.stop();
             }
 
             if (this.onHurt()) {
-                this.attackedAnimationState.startIfStopped(this.tickCount);
+                this.hurtAnimationState.startIfStopped(this.tickCount);
             } else {
-                this.attackedAnimationState.stop();
+                this.hurtAnimationState.stop();
             }
         } else {
             this.setClimbing(this.horizontalCollision);

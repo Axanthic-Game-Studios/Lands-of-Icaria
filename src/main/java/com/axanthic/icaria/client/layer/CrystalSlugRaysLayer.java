@@ -1,8 +1,8 @@
 package com.axanthic.icaria.client.layer;
 
-import com.axanthic.icaria.client.model.MyrmekeQueenModel;
+import com.axanthic.icaria.client.model.CrystalSlugModel;
 import com.axanthic.icaria.common.config.IcariaConfig;
-import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
+import com.axanthic.icaria.common.entity.SlugEntity;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -29,7 +29,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
 
-public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, MyrmekeQueenModel> {
+public class CrystalSlugRaysLayer extends RenderLayer<SlugEntity, CrystalSlugModel> {
     public static final float HALF_SQRT_3 = Mth.sqrt(3.0F) / 2.0F;
 
     public float duskInit = 12000.0F;
@@ -37,7 +37,14 @@ public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, Myrme
     public float dawnInit = 23000.0F;
     public float dawnExit = 24000.0F;
 
-    public MyrmekeQueenModel model;
+    public float x;
+    public float y;
+    public float z;
+    public float multX;
+    public float multY;
+    public float multZ;
+
+    public CrystalSlugModel model;
 
     public static final RenderStateShard.ShaderStateShard LIGHTNING_SHADER = new RenderStateShard.ShaderStateShard(GameRenderer::getRendertypeLightningShader);
 
@@ -64,9 +71,15 @@ public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, Myrme
     public static final RenderType ADDITIVE_LIGHTNING = RenderType.create("additive_lightning", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(LIGHTNING_SHADER).setTransparencyState(ADDITIVE_LIGHTNING_TRANSPARENCY).createCompositeState(false));
     public static final RenderType SUBTRACTIVE_LIGHTNING = RenderType.create("subtractive_lightning", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(LIGHTNING_SHADER).setTransparencyState(SUBTRACTIVE_LIGHTNING_TRANSPARENCY).createCompositeState(false));
 
-    public MyrmekeQueenRaysLayer(RenderLayerParent<MyrmekeQueenEntity, MyrmekeQueenModel> pRenderer, EntityModelSet pSet) {
+    public CrystalSlugRaysLayer(RenderLayerParent<SlugEntity, CrystalSlugModel> pRenderer, EntityModelSet pSet, float pX, float pY, float pZ, float pMultX, float pMultY, float pMultZ) {
         super(pRenderer);
-        this.model = new MyrmekeQueenModel(pSet.bakeLayer(MyrmekeQueenModel.RAYS_LAYER_LOCATION));
+        this.model = new CrystalSlugModel(pSet.bakeLayer(CrystalSlugModel.RAYS_LAYER_LOCATION));
+        this.x = pX;
+        this.y = pY;
+        this.z = pZ;
+        this.multX = pMultX;
+        this.multY = pMultY;
+        this.multZ = pMultZ;
     }
 
     public float lightBasedAlpha(float pTime) {
@@ -82,7 +95,8 @@ public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, Myrme
     }
 
     @Override
-    public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, MyrmekeQueenEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+    public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, SlugEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        pPoseStack.pushPose();
         if (IcariaConfig.RENDER_RAYS.get()) {
             Matrix4f matrix4f = pPoseStack.last().pose();
             RandomSource randomSource = RandomSource.create(432L);
@@ -90,15 +104,12 @@ public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, Myrme
 
             float r = 1.0F;
             float g = 0.0F;
-            float b = 0.0F;
+            float b = 0.1F;
             float alpha = (0.1F - Math.min(0.0F, 0.1F)) * this.lightBasedAlpha(pLivingEntity.level.getDayTime());
             float length = randomSource.nextFloat() * 2.0F + 1.25F;
             float width = randomSource.nextFloat() * 0.5F + 0.25F;
 
-            pPoseStack.translate(0.0F, 1.225F, -0.365F);
-            pPoseStack.mulPose(Axis.XP.rotationDegrees(pHeadPitch));
-            pPoseStack.mulPose(Axis.YP.rotationDegrees(pNetHeadYaw));
-            pPoseStack.translate(0.0F, -0.035F, -0.215F);
+            pPoseStack.translate((Mth.sin(pLimbSwing * this.model.mult) * pLimbSwingAmount * this.multX) + this.x, (Mth.sin(pLimbSwing * this.model.mult) * pLimbSwingAmount * this.multY) + this.y, (Mth.sin(pLimbSwing * this.model.mult) * pLimbSwingAmount * this.multZ) + this.z);
             pPoseStack.scale(0.375F, 0.375F, 0.375F);
 
             for (int i = 0; i < 96; ++i) {
@@ -117,6 +128,8 @@ public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, Myrme
                 this.vertexB(vertexConsumer, matrix4f, length, width);
             }
         }
+
+        pPoseStack.popPose();
     }
 
     public void vertexA(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pRed, float pGreen, float pBlue, float pAlpha) {

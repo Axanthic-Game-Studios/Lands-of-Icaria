@@ -33,6 +33,18 @@ public class SnullEmissiveLayer extends RenderLayer<SnullEntity, SnullModel> {
         super(pRenderer);
     }
 
+    public float lightBasedAlpha(float pTime) {
+        if (pTime >= duskInit && pTime < duskExit) {
+            return ((pTime - duskInit) / (duskExit - duskInit));
+        } else if (pTime >= duskExit && pTime < dawnInit) {
+            return 1.0F;
+        } else if (pTime >= dawnInit && pTime < dawnExit) {
+            return ((dawnExit - pTime) / (dawnExit - dawnInit));
+        } else {
+            return 0.0F;
+        }
+    }
+
     @Override
     public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, SnullEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
         if (pLivingEntity.getCustomName() != null && pLivingEntity.getCustomName().getString().equals("Pro")) {
@@ -43,18 +55,6 @@ public class SnullEmissiveLayer extends RenderLayer<SnullEntity, SnullModel> {
             this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(SANS), 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, lightBasedAlpha(pLivingEntity.level.getDayTime()));
         } else {
             this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(EMISSIVE), 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, lightBasedAlpha(pLivingEntity.level.getDayTime()));
-        }
-    }
-
-    public float lightBasedAlpha(float pTime) {
-        if (pTime >= duskInit && pTime < duskExit) {
-            return ((pTime - duskInit) / (duskExit - duskInit));
-        } else if (pTime >= duskExit && pTime < dawnInit) {
-            return 1.0F;
-        } else if (pTime >= dawnInit && pTime < dawnExit) {
-            return ((dawnExit - pTime) / (dawnExit - dawnInit));
-        } else {
-            return 0.0F;
         }
     }
 }
