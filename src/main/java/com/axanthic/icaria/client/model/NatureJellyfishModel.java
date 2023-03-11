@@ -52,7 +52,6 @@ public class NatureJellyfishModel extends HierarchicalModel<JellyfishEntity> {
 
     @Override
     public void setupAnim(JellyfishEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.root().getAllParts().forEach(ModelPart::resetPose);
         this.swimAnim(pAgeInTicks);
     }
 

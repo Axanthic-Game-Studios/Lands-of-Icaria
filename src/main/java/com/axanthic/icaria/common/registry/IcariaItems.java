@@ -262,6 +262,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> ARGAN_HOUND_SKULL = register("argan_hound_skull", () -> new IcariaSkullItem(IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), new Properties(), Direction.DOWN));
 	public static final RegistryObject<Item> CATOBLEPAS_SKULL = register("catoblepas_skull", () -> new IcariaSkullItem(IcariaBlocks.CATOBLEPAS_SKULL.get(), IcariaBlocks.CATOBLEPAS_WALL_SKULL.get(), new Properties(), Direction.DOWN));
 	public static final RegistryObject<Item> CERVER_SKULL = register("cerver_skull", () -> new IcariaSkullItem(IcariaBlocks.CERVER_SKULL.get(), IcariaBlocks.CERVER_WALL_SKULL.get(), new Properties(), Direction.DOWN));
+	public static final RegistryObject<Item> CYPRESS_FOREST_HAG_SKULL = register("cypress_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get(), new Properties(), Direction.DOWN));
 	public static final RegistryObject<Item> SOW_SKULL = register("sow_skull", () -> new IcariaSkullItem(IcariaBlocks.SOW_SKULL.get(), IcariaBlocks.SOW_WALL_SKULL.get(), new Properties(), Direction.DOWN));
 
 	public static final RegistryObject<Item> DIM_TORCH = registerBasic("dim_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.DIM_TORCH.get(), IcariaBlocks.DIM_WALL_TORCH.get(), new Properties(), Direction.DOWN));
@@ -660,6 +661,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> ARGAN_HOUND_SPAWN_EGG = register("argan_hound_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.ARGAN_HOUND, 0x0B0D0E, 0x2C2F36, new Properties()));
 	public static final RegistryObject<Item> CATOBLEPAS_SPAWN_EGG = register("catoblepas_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.CATOBLEPAS, 0x1D170E, 0x373024, new Properties()));
 	public static final RegistryObject<Item> CERVER_SPAWN_EGG = register("cerver_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.CERVER, 0x0E0A05, 0x302C26, new Properties()));
+	public static final RegistryObject<Item> CYPRESS_FOREST_HAG_SPAWN_EGG = register("cypress_forest_hag_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.CYPRESS_FOREST_HAG, 0x615A52, 0x4F6712, new Properties()));
 	public static final RegistryObject<Item> HYLIASTER_SPAWN_EGG = register("hyliaster_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.HYLIASTER, 0x040706, 0x8B9590, new Properties()));
 	public static final RegistryObject<Item> ENDER_JELLYFISH_SPAWN_EGG = register("ender_jellyfish_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.ENDER_JELLYFISH, 0X000000, 0xE079FA, new Properties()));
 	public static final RegistryObject<Item> FIRE_JELLYFISH_SPAWN_EGG = register("fire_jellyfish_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.FIRE_JELLYFISH, 0XF07D2A, 0xFFA531, new Properties()));

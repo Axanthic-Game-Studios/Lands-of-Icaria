@@ -36,6 +36,7 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
     @Override
     public void generate() {
         this.dropItemPlusMeat(IcariaEntityTypes.AETERNAE.get(), IcariaItems.AETERNAE_HIDE.get(), IcariaItems.RAW_AETERNAE_MEAT.get());
+        this.dropItemPlusMeat(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), IcariaItems.CYPRESS_SAPLING.get(), IcariaItems.CYPRESS_LOG.get());
 
         this.dropItem(IcariaEntityTypes.ARACHNE.get(), IcariaItems.ARACHNE_STRING.get());
         this.dropItem(IcariaEntityTypes.ARACHNE_DRONE.get(), IcariaItems.ARACHNE_STRING.get());

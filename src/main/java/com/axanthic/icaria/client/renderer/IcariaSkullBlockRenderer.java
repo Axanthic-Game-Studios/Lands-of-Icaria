@@ -43,6 +43,7 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
         pMap.put(IcariaSkullBlockTypes.ARGAN_HOUND, new ResourceLocation(IcariaInfo.MODID, "textures/entity/argan_hound.png"));
         pMap.put(IcariaSkullBlockTypes.CATOBLEPAS, new ResourceLocation(IcariaInfo.MODID, "textures/entity/catoblepas.png"));
         pMap.put(IcariaSkullBlockTypes.CERVER, new ResourceLocation(IcariaInfo.MODID, "textures/entity/cerver.png"));
+        pMap.put(IcariaSkullBlockTypes.CYPRESS_FOREST_HAG, new ResourceLocation(IcariaInfo.MODID, "textures/entity/cypress_forest_hag.png"));
         pMap.put(IcariaSkullBlockTypes.SOW, new ResourceLocation(IcariaInfo.MODID, "textures/entity/sow.png"));
     });
 
@@ -92,6 +93,7 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
         builder.put(IcariaSkullBlockTypes.ARGAN_HOUND, new ArganHoundSkullModel(pSet.bakeLayer(ArganHoundSkullModel.LAYER_LOCATION)));
         builder.put(IcariaSkullBlockTypes.CATOBLEPAS, new CatoblepasSkullModel(pSet.bakeLayer(CatoblepasSkullModel.LAYER_LOCATION)));
         builder.put(IcariaSkullBlockTypes.CERVER, new CerverSkullModel(pSet.bakeLayer(CerverSkullModel.LAYER_LOCATION)));
+        builder.put(IcariaSkullBlockTypes.CYPRESS_FOREST_HAG, new CypressForestHagSkullModel(pSet.bakeLayer(CypressForestHagSkullModel.LAYER_LOCATION)));
         builder.put(IcariaSkullBlockTypes.SOW, new SowSkullModel(pSet.bakeLayer(SowSkullModel.LAYER_LOCATION)));
 
         return builder.build();

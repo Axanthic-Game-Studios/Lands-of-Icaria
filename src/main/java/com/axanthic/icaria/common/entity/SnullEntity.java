@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -123,7 +124,11 @@ public class SnullEntity extends SizedPathfinderMobEntity {
                 if (creeper.isPowered()) {
                     if (creeper.canDropMobsSkull()) {
                         creeper.increaseDroppedSkulls();
-                        this.spawnAtLocation(IcariaItems.SOW_SKULL.get()); // TODO: change to revenant skull or forest hag skull respectively
+                        if (this.getType() == IcariaEntityTypes.SNULL.get()) {
+                            this.spawnAtLocation(IcariaItems.SOW_SKULL.get()); // TODO: replace with revenant skull
+                        } else if (this.getType() == IcariaEntityTypes.FOREST_SNULL.get()) {
+                            this.spawnAtLocation(IcariaItems.SOW_SKULL.get()); // TODO: replace with laurel forest hag skull
+                        }
                     }
                 }
             }

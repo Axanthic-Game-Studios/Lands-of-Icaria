@@ -36,8 +36,8 @@ public class AeternaeSkullModel extends SkullModel {
 
     @Override
     public void setupAnim(float pX, float pY, float pZ) {
-        this.head.xRot = pZ * (Mth.PI / 180F);
-        this.head.yRot = pY * (Mth.PI / 180F);
+        this.head.xRot = pZ * (Mth.PI / 180.0F);
+        this.head.yRot = pY * (Mth.PI / 180.0F);
     }
 
     public static LayerDefinition createLayer() {

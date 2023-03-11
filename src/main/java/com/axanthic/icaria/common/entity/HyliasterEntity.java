@@ -49,7 +49,7 @@ public class HyliasterEntity extends Monster {
     public float eyesMult;
     public float sizeMult;
 
-    public AnimationState walkAnimationState = new AnimationState();
+    public AnimationState moveAnimationState = new AnimationState();
 
     public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(HyliasterEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(HyliasterEntity.class, EntityDataSerializers.INT);
@@ -226,9 +226,9 @@ public class HyliasterEntity extends Monster {
         super.tick();
         if (this.level.isClientSide) {
             if (this.isMovingOnLand()) {
-                this.walkAnimationState.startIfStopped(this.tickCount);
+                this.moveAnimationState.startIfStopped(this.tickCount);
             } else {
-                this.walkAnimationState.stop();
+                this.moveAnimationState.stop();
             }
         }
     }

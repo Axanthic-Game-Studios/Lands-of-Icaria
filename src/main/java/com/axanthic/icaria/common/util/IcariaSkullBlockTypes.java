@@ -5,5 +5,6 @@ public enum IcariaSkullBlockTypes implements IcariaSkullBlockType{
     ARGAN_HOUND,
     CATOBLEPAS,
     CERVER,
+    CYPRESS_FOREST_HAG,
     SOW
 }

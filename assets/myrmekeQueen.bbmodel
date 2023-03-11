@@ -12,6 +12,7 @@
 	"variable_placeholders": "",
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
+	"unhandled_root_fields": {},
 	"resolution": {
 		"width": 64,
 		"height": 64
@@ -2575,13 +2576,14 @@
 	],
 	"textures": [
 		{
-			"path": "D:\\repositories\\axanthic-game-studios\\lands-of-icaria\\1.19.2\\src\\main\\resources\\assets\\landsoficaria\\textures\\entity\\myrmeke_queen.png",
+			"path": "D:\\repositories\\axanthic-game-studios\\lands-of-icaria\\1.19.3\\src\\main\\resources\\assets\\landsoficaria\\textures\\entity\\myrmeke_queen.png",
 			"name": "myrmeke_queen.png",
 			"folder": "",
 			"namespace": "",
 			"id": "0",
 			"particle": false,
 			"render_mode": "layered",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
@@ -2590,17 +2592,18 @@
 			"mode": "bitmap",
 			"saved": true,
 			"uuid": "4c54d24d-54a5-16e4-6e0f-052811ecd3ea",
-			"relative_path": "D:/repositories/axanthic-game-studios/lands-of-icaria/1.19.2/src/main/resources/assets/landsoficaria/textures/entity/myrmeke_queen.png",
-			"source": "data:image/png;base64,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"
+			"relative_path": "../../src/main/resources/assets/landsoficaria/textures/entity/myrmeke_queen.png",
+			"source": "data:image/png;base64,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"
 		},
 		{
-			"path": "D:\\repositories\\axanthic-game-studios\\lands-of-icaria\\1.19.2\\src\\main\\resources\\assets\\landsoficaria\\textures\\entity\\myrmeke_queen_emissive.png",
+			"path": "D:\\repositories\\axanthic-game-studios\\lands-of-icaria\\1.19.3\\src\\main\\resources\\assets\\landsoficaria\\textures\\entity\\myrmeke_queen_emissive.png",
 			"name": "myrmeke_queen_emissive.png",
 			"folder": "",
 			"namespace": "",
 			"id": "1",
 			"particle": false,
 			"render_mode": "layered",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
@@ -2609,7 +2612,7 @@
 			"mode": "bitmap",
 			"saved": true,
 			"uuid": "dddb9e36-8e28-0941-e2a7-af4f185eb038",
-			"relative_path": "D:/repositories/axanthic-game-studios/lands-of-icaria/1.19.2/src/main/resources/assets/landsoficaria/textures/entity/myrmeke_queen_emissive.png",
+			"relative_path": "../../src/main/resources/assets/landsoficaria/textures/entity/myrmeke_queen_emissive.png",
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAdVJREFUeF7tl6FOA0EQhqeKKtIcCOpKMFRCFbpPgMbCC/QBEDwADkUdQSEQGBxPUJBNSsidKwbSEARVS2aTTS4IujPNbvZm50xXzPT2///v9uZakPnVylw/qAFKQOYOiHoErtqF6ez2YFFWgL8n0+eV+lYWNAUQJ/7m5xteyxmM2gUMj4aw/3T3r0YxBtz2D81gZw8m72+WgIfuts3usZzlYQCXVDEEqAFMB5QApnFi2pQAMVEyhSgBTOPEtCkBYqJkClECmMaJaVMCxETJFKIEMI0T06YEiImSKSRZAsajwqCm08vPoHsM+ufMUGxbtga8XPfMZPplTRj0N8GtQ5GQLAHr0EPpVQMobkmsVQIkpkrRpARQ3JJYG4UAHGrwnX5wVkW5HyWoKBtyw02oYYYi+G9tUAPcOFuf6FIjIagB6yQTq1cNiOV0qvdRAnySwcNsq7MBH4ul/USt5ku7TvFU99FTr2ETcH/RNcfnc3Y/daOh6r0EoFhM3F2YPFKRDQH1tN0ah5sUJzsqKV4EuLTrE12WBNRFZ3UGONxRNCKG5wG+FbI5BKnPVZPqvc6AJgmi7lUNoDomrV4JkJYoVY8SQHVMWr0SIC1Rqh4lgOqYtPrsCfgFxcKOQQMQbmIAAAAASUVORK5CYII="
 		}
 	]

@@ -12,6 +12,7 @@
 	"variable_placeholders": "",
 	"variable_placeholder_buttons": [],
 	"timeline_setups": [],
+	"unhandled_root_fields": {},
 	"resolution": {
 		"width": 64,
 		"height": 64
@@ -2532,13 +2533,14 @@
 	],
 	"textures": [
 		{
-			"path": "D:\\repositories\\axanthic-game-studios\\lands-of-icaria\\1.19.2\\src\\main\\resources\\assets\\landsoficaria\\textures\\entity\\myrmeke_drone.png",
+			"path": "D:\\repositories\\axanthic-game-studios\\lands-of-icaria\\1.19.3\\src\\main\\resources\\assets\\landsoficaria\\textures\\entity\\myrmeke_drone.png",
 			"name": "myrmeke_drone.png",
 			"folder": "",
 			"namespace": "",
 			"id": "0",
 			"particle": false,
 			"render_mode": "default",
+			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
 			"frame_order": "",
@@ -2547,7 +2549,7 @@
 			"mode": "bitmap",
 			"saved": true,
 			"uuid": "804dbb5e-0a71-0499-1dbd-a5500a5e5977",
-			"relative_path": "D:/repositories/axanthic-game-studios/lands-of-icaria/1.19.2/src/main/resources/assets/landsoficaria/textures/entity/myrmeke_drone.png",
+			"relative_path": "../../src/main/resources/assets/landsoficaria/textures/entity/myrmeke_drone.png",
 			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABNpJREFUeF7tWbtuE1EQXT9xTIKiiITIgBKn4VGA0iDRwg9QIiq+DlHyA9BSIlEgaOIgQQSEIjhgjL220Vx7rNnx7H3sw15tdpv17s59zJlzZ869Lnme5z1t7Uzg/vLkRwnuBzemz7Vq1Rv6vrrT69PxibJ7sntV2dler779LOFY2KY/HnuNcjnQBbwDW9t+49ipCdFJAAitna1JrVpR/Q79kbfRbCQCAHcUOsWxJSAwIHEcNLUVAQAGYPSRCbSjO/2BqV/t9ywxIUBlpJ2JAXEByBITSnwdAwgmBmAOkMLcbret8kKn01FjS+ufv0tzKShn+wPfa9SrHt4lx7hNWGK0BeD+33M1jMQGPn6aSbF0a7816Q+GXqNe8+BeKU+TLzqIVYDagC2/BqVLkfICMCFSw4QalfZa24qyHADaP4BhAkC3LGhfWaA9nY9Cn+sAYAU1oloAfh99meoFVx2Afa6a9gEAJB3AAYDo0+vzyWkkAFzEDRdMOH7SCVHUASYG3PPHsVbg+2p5IcfQDg8HfqB/LpKSBEHUASYGHI6tKl0oSO9miXa+JFhStc0nsaIwayzqABMDMAfQCUgaf7NW9fqjsZK7qC9G44lKuPSi1Ye+l8ZJwulADpB0AK/xkPhMWuEBWxVI20al7J0NfQUALbkSAGHaImmnF6oAZnOYJPymkVMlcrZb0wkSqSLo2mWlHC4sAVqqwGEEgEYSbZ5dvqKSQW+jPreDH7Qd2pZ/9efAc3tdhNNUgTDuQhLEyKDDYMTXclj9r8zODUZ+MIsDEygAL/50F9TfssoeBzuUAbbrDmu7rShC+4cH1xV73h59DYgxPm6SJU/ySXtCg1SmDcN2aq4APL69rwDY7vZErNOs/YEkGEY9WwZIINm0/d6cbp6AAVHKrs0YNjYiA3QR551GBeB8c1111fndWzhz1J1D2jjlYhNIRpQN1DEsj0B/XJMmynPdD2u+Wa95vcHQgzte+Iz31x+Pl7o91gIADksRRkDACW6DzzYbnyycEFszACOGkZeOshAQSkEAEMooqEHTNngVJ8QLOcC0fqTja2wTdsaPrKAAwFLKghqMBEBYpHXv+TdJLYaBn6YanC8BXor4ZHCLygWMNGnX0pq22NGx2hkAFDCQrV2TmAvlH93dUELpzYfzVKuCcYsKk6AnxNdmJWyvHzwmAztdEnOlfHfrnwrcUgCQKBJ2RN5ebypzqV67MkIaFyPPv6UFhJFetgJG0vQ6RkiKchX/Es+3wy5/UZmSnCmpSe1XoQEgCPPtsEmk4BrHyIWdGuF3BOH5zd0JnAvyi4Kkk+AmXRL3e2gVCDuZpUqQHprYbJO5EILJx2XTSgGgrLBhUJTJmpZTlD5pm4W9OO8Q/qSgEhd/48T4P0tJf4/roKn9/DhKchIbc42/rOe0o6+SIK5BnVM6BlBlCB3yZ3gnqTq+9imjaNTSBkGrA0zgnF6ZiqKwC8USB8CU+HQVw0Rp1+9GIaTrEDdGYTZrja74aedszWmeabIgFgBIdxMDnLxdsnEsAEwMwDP/JfvkNFwsAC48A5ygzqhxLAZk1CenaRUAOMGVQ+OCATkMqpNLBQOc4MqhccGAHAbVyaWCAU5w5dC4YEAOg+rkUsEAJ7hyaFwwIIdBdXKpYIATXDk0vvAM+A8S5cxuzggWoAAAAABJRU5ErkJggg=="
 		}
 	],
@@ -2581,7 +2583,12 @@
 							"uuid": "75ba5cc7-07e8-43c2-e18e-9b9774794b72",
 							"time": 0,
 							"color": -1,
-							"interpolation": "catmullrom"
+							"interpolation": "catmullrom",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -2595,7 +2602,12 @@
 							"uuid": "e4b86799-b7b3-5f60-5eb5-03cedbe86ede",
 							"time": 0.25,
 							"color": -1,
-							"interpolation": "catmullrom"
+							"interpolation": "catmullrom",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -2609,7 +2621,12 @@
 							"uuid": "73b29374-f3b2-0a56-aaf4-6d27bdf973ef",
 							"time": 0.08333,
 							"color": -1,
-							"interpolation": "catmullrom"
+							"interpolation": "catmullrom",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						}
 					]
 				},
@@ -2629,7 +2646,12 @@
 							"uuid": "ee526b1d-32bb-c9e6-8a5c-99d094d0096e",
 							"time": 0,
 							"color": -1,
-							"interpolation": "catmullrom"
+							"interpolation": "catmullrom",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -2643,7 +2665,12 @@
 							"uuid": "203e6133-4031-b7ba-a9b9-df6b746b9b9b",
 							"time": 0.25,
 							"color": -1,
-							"interpolation": "catmullrom"
+							"interpolation": "catmullrom",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						},
 						{
 							"channel": "rotation",
@@ -2657,7 +2684,12 @@
 							"uuid": "075fddc8-a9da-bd59-e1bc-965dbde89dbe",
 							"time": 0.08333,
 							"color": -1,
-							"interpolation": "catmullrom"
+							"interpolation": "catmullrom",
+							"bezier_linked": true,
+							"bezier_left_time": [-0.1, -0.1, -0.1],
+							"bezier_left_value": [0, 0, 0],
+							"bezier_right_time": [0.1, 0.1, 0.1],
+							"bezier_right_value": [0, 0, 0]
 						}
 					]
 				}

@@ -1,5 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.client.layer.ArganHoundEmissiveLayer;
 import com.axanthic.icaria.client.model.ArganHoundModel;
 import com.axanthic.icaria.common.entity.ArganHoundEntity;
 import com.axanthic.icaria.common.util.IcariaInfo;
@@ -19,6 +20,7 @@ public class ArganHoundRenderer extends MobRenderer<ArganHoundEntity, ArganHound
 
     public ArganHoundRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new ArganHoundModel(pContext.bakeLayer(ArganHoundModel.LAYER_LOCATION)), 0.75F);
+        this.addLayer(new ArganHoundEmissiveLayer(this));
     }
 
     @Override
