@@ -79,6 +79,8 @@ public class ForestHagEntity extends Monster {
             return 2.375F;
         } else if (this.getType() == IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get()) {
             return 2.125F;
+        } else if (this.getType() == IcariaEntityTypes.FIR_FOREST_HAG.get()) {
+            return 2.125F;
         } else {
             return 0.0F;
         }
@@ -118,6 +120,8 @@ public class ForestHagEntity extends Monster {
                         this.spawnAtLocation(IcariaItems.CYPRESS_FOREST_HAG_SKULL.get());
                     } else if (this.getType() == IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get()) {
                         this.spawnAtLocation(IcariaItems.DROUGHTROOT_FOREST_HAG_SKULL.get());
+                    } else if (this.getType() == IcariaEntityTypes.FIR_FOREST_HAG.get()) {
+                        this.spawnAtLocation(IcariaItems.FIR_FOREST_HAG_SKULL.get());
                     }
                 }
             }
@@ -196,7 +200,7 @@ public class ForestHagEntity extends Monster {
 
         @Override
         public boolean canUse() {
-            return this.entity.getRandom().nextInt(reducedTickDelay(5000)) == 0 && ForgeEventFactory.getMobGriefingEvent(this.entity.level, this.entity);
+            return this.entity.getRandom().nextInt(reducedTickDelay(5000)) == 0 && !this.entity.isAggressive() && ForgeEventFactory.getMobGriefingEvent(this.entity.level, this.entity);
         }
 
         @Override
@@ -211,6 +215,8 @@ public class ForestHagEntity extends Monster {
                 sapling = IcariaBlocks.CYPRESS_SAPLING.get();
             } else if (this.entity.getType() == IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get()) {
                 sapling = IcariaBlocks.DROUGHTROOT_SAPLING.get();
+            } else if (this.entity.getType() == IcariaEntityTypes.FIR_FOREST_HAG.get()) {
+                sapling = IcariaBlocks.FIR_SAPLING.get();
             }
 
             if (sapling != null) {

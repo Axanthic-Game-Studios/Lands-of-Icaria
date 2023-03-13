@@ -80,7 +80,9 @@ public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity
     @Override
     public void setupAnim(ForestHagEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
         this.bodyBase.y = -Mth.cos(pLimbSwing * 1.25F + 2.75F) * pLimbSwingAmount + 4.0F;
+        this.armRightUpper.xRot = -0.3491F;
         this.armRightUpper.zRot = 0.4427F;
+        this.armLeftUpper.xRot = -0.1745F;
         this.armLeftUpper.zRot = -0.1745F;
 
         this.attackAnim();
@@ -92,8 +94,8 @@ public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity
     public void attackAnim() {
         float f = Mth.sin(this.attackTime * Mth.PI);
         if (this.attackTime > 0.0F)  {
-            this.armRightUpper.xRot -= f;
-            this.armLeftUpper.xRot -= f;
+            this.armRightUpper.zRot -= f;
+            this.armLeftUpper.zRot += f;
         }
     }
 
@@ -124,14 +126,14 @@ public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity
     }
 
     public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-        this.armRightUpper.xRot = Mth.cos(pLimbSwing * 0.6662F) * armBend * pLimbSwingAmount - 0.3490658503988659F;
-        this.armRightLower.xRot = Mth.cos(pLimbSwing * 0.6662F) * ulnaBend * pLimbSwingAmount - ulnaBend * pLimbSwingAmount - 0.17453292519943295F;
-        this.thighRight.xRot = Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * legBend * pLimbSwingAmount;
-        this.legRight.xRot = Mth.sin(pLimbSwing * 0.6662F + Mth.PI) * kneeBend * pLimbSwingAmount + kneeBend * pLimbSwingAmount + 0.08726646259971647F;
-        this.armLeftUpper.xRot = Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * armBend * pLimbSwingAmount - 0.17453292519943295F;
-        this.armLeftLower.xRot = Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * ulnaBend * pLimbSwingAmount - ulnaBend * pLimbSwingAmount - 0.3490658503988659F;
-        this.thighLeft.xRot = Mth.cos(pLimbSwing * 0.6662F) * legBend * pLimbSwingAmount;
-        this.legLeft.xRot = Mth.sin(pLimbSwing * 0.6662F) * kneeBend * pLimbSwingAmount + kneeBend * pLimbSwingAmount + 0.08726646259971647F;
+        this.armRightUpper.xRot = Mth.cos(pLimbSwing * 0.6662F) * this.armBend * pLimbSwingAmount - 0.3490658503988659F;
+        this.armRightLower.xRot = Mth.cos(pLimbSwing * 0.6662F) * this.ulnaBend * pLimbSwingAmount - this.ulnaBend * pLimbSwingAmount - 0.17453292519943295F;
+        this.thighRight.xRot = Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * this.legBend * pLimbSwingAmount;
+        this.legRight.xRot = Mth.sin(pLimbSwing * 0.6662F + Mth.PI) * this.kneeBend * pLimbSwingAmount + this.kneeBend * pLimbSwingAmount + 0.08726646259971647F;
+        this.armLeftUpper.xRot = Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * this.armBend * pLimbSwingAmount - 0.17453292519943295F;
+        this.armLeftLower.xRot = Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * this.ulnaBend * pLimbSwingAmount - this.ulnaBend * pLimbSwingAmount - 0.3490658503988659F;
+        this.thighLeft.xRot = Mth.cos(pLimbSwing * 0.6662F) * this.legBend * pLimbSwingAmount;
+        this.legLeft.xRot = Mth.sin(pLimbSwing * 0.6662F) * this.kneeBend * pLimbSwingAmount + this.kneeBend * pLimbSwingAmount + 0.08726646259971647F;
     }
 
     public void wiggleRotateAngles(ModelPart pModelPart, float pX, float pY, float pZ, float pAgeInTicks) {
