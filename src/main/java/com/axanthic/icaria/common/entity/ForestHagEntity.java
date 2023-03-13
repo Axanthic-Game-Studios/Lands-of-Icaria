@@ -75,7 +75,13 @@ public class ForestHagEntity extends Monster {
 
     @Override
     public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
-        return 2.5F;
+        if (this.getType() == IcariaEntityTypes.CYPRESS_FOREST_HAG.get()) {
+            return 2.375F;
+        } else if (this.getType() == IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get()) {
+            return 2.125F;
+        } else {
+            return 0.0F;
+        }
     }
 
     @Override
@@ -110,6 +116,8 @@ public class ForestHagEntity extends Monster {
                     creeper.increaseDroppedSkulls();
                     if (this.getType() == IcariaEntityTypes.CYPRESS_FOREST_HAG.get()) {
                         this.spawnAtLocation(IcariaItems.CYPRESS_FOREST_HAG_SKULL.get());
+                    } else if (this.getType() == IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get()) {
+                        this.spawnAtLocation(IcariaItems.DROUGHTROOT_FOREST_HAG_SKULL.get());
                     }
                 }
             }
@@ -201,6 +209,8 @@ public class ForestHagEntity extends Monster {
             BlockState belowState = level.getBlockState(belowPos);
             if (this.entity.getType() == IcariaEntityTypes.CYPRESS_FOREST_HAG.get()) {
                 sapling = IcariaBlocks.CYPRESS_SAPLING.get();
+            } else if (this.entity.getType() == IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get()) {
+                sapling = IcariaBlocks.DROUGHTROOT_SAPLING.get();
             }
 
             if (sapling != null) {

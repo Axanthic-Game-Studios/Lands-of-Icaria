@@ -24,6 +24,7 @@ public class IcariaEntityTypes {
 	public static final RegistryObject<EntityType<CerverEntity>> CERVER = register("cerver", Builder.of(CerverEntity::new, MobCategory.CREATURE).sized(1.25F, 1.0F));
 	public static final RegistryObject<EntityType<GreekFireGrenadeEntity>> GREEK_FIRE_GRENADE = register("greek_fire_grenade", Builder.<GreekFireGrenadeEntity>of(GreekFireGrenadeEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
 	public static final RegistryObject<EntityType<ForestHagEntity>> CYPRESS_FOREST_HAG = register("cypress_forest_hag", Builder.of(ForestHagEntity::new, MobCategory.CREATURE).sized(1.0F, 3.0F));
+	public static final RegistryObject<EntityType<ForestHagEntity>> DROUGHTROOT_FOREST_HAG = register("droughtroot_forest_hag", Builder.of(ForestHagEntity::new, MobCategory.CREATURE).sized(1.0F, 3.0F));
 	public static final RegistryObject<EntityType<HyliasterEntity>> HYLIASTER = register("hyliaster", Builder.of(HyliasterEntity::new, MobCategory.CREATURE).sized(0.1875F, 0.1875F));
 	public static final RegistryObject<EntityType<JellyfishEntity>> ENDER_JELLYFISH = register("ender_jellyfish", Builder.of(JellyfishEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
 	public static final RegistryObject<EntityType<JellyfishEntity>> FIRE_JELLYFISH = register("fire_jellyfish", Builder.of(JellyfishEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));

@@ -314,6 +314,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.CATOBLEPAS_SKULL.get(), "Catoblepas Skull");
 		this.add(IcariaBlocks.CERVER_SKULL.get(), "Cerver Skull");
 		this.add(IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), "Cypress Forest Hag Skull");
+		this.add(IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get(), "Droughtroot Forest Hag Skull");
 		this.add(IcariaBlocks.SOW_SKULL.get(), "Sow Skull");
 
 		this.add(IcariaBlocks.DIM_TORCH.get(), "Dim Torch");
@@ -631,6 +632,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.CATOBLEPAS.get(), "Catoblepas");
 		this.add(IcariaEntityTypes.CERVER.get(), "Cerver");
 		this.add(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), "Cypress Forest Hag");
+		this.add(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), "Droughtroot Forest Hag");
 		this.add(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), "Greek Fire Grenade");
 		this.add(IcariaEntityTypes.HYLIASTER.get(), "Hyliaster");
 		this.add(IcariaEntityTypes.ENDER_JELLYFISH.get(), "Ender Jellyfish");
@@ -863,6 +865,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.CATOBLEPAS_SPAWN_EGG.get(), "Catoblepas Spawn Egg");
 		this.add(IcariaItems.CERVER_SPAWN_EGG.get(), "Cerver Spawn Egg");
 		this.add(IcariaItems.CYPRESS_FOREST_HAG_SPAWN_EGG.get(), "Cypress Forest Hag Spawn Egg");
+		this.add(IcariaItems.DROUGHTROOT_FOREST_HAG_SPAWN_EGG.get(), "Droughtroot Forest Hag Spawn Egg");
 		this.add(IcariaItems.HYLIASTER_SPAWN_EGG.get(), "Hyliaster Spawn Egg");
 		this.add(IcariaItems.ENDER_JELLYFISH_SPAWN_EGG.get(), "Ender Jellyfish Spawn Egg");
 		this.add(IcariaItems.FIRE_JELLYFISH_SPAWN_EGG.get(), "Fire Jellyfish Spawn Egg");

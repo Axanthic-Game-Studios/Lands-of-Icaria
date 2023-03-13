@@ -19,12 +19,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CypressForestHagSkullModel extends SkullModel {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "cypress_forest_hag_skull"), "main");
+public class DroughtrootForestHagSkullModel extends SkullModel {
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "droughtroot_forest_hag_skull"), "main");
 
     public ModelPart head;
 
-    public CypressForestHagSkullModel(ModelPart pModelPart) {
+    public DroughtrootForestHagSkullModel(ModelPart pModelPart) {
         super(pModelPart);
         this.head = pModelPart.getChild("head");
     }
@@ -44,7 +44,7 @@ public class CypressForestHagSkullModel extends SkullModel {
         MeshDefinition meshDefinition = new MeshDefinition();
         PartDefinition partDefinition = meshDefinition.getRoot();
 
-        partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 44).addBox(-3.0F, -8.0F, -3.0F, 6.0F, 8.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+        partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(24, 55).addBox(-3.0F, -8.0F, -3.0F, 6.0F, 8.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
         return LayerDefinition.create(meshDefinition, 128, 128);
     }
