@@ -127,7 +127,7 @@ public class SnullEntity extends SizedPathfinderMobEntity {
                         if (this.getType() == IcariaEntityTypes.SNULL.get()) {
                             this.spawnAtLocation(IcariaItems.SOW_SKULL.get()); // TODO: replace with revenant skull
                         } else if (this.getType() == IcariaEntityTypes.FOREST_SNULL.get()) {
-                            this.spawnAtLocation(IcariaItems.SOW_SKULL.get()); // TODO: replace with laurel forest hag skull
+                            this.spawnAtLocation(IcariaItems.LAUREL_FOREST_HAG_SKULL.get());
                         }
                     }
                 }

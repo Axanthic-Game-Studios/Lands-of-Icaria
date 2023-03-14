@@ -375,6 +375,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.CYPRESS_FOREST_HAG_SKULL.get());
 			pOutput.accept(IcariaItems.DROUGHTROOT_FOREST_HAG_SKULL.get());
 			pOutput.accept(IcariaItems.FIR_FOREST_HAG_SKULL.get());
+			pOutput.accept(IcariaItems.LAUREL_FOREST_HAG_SKULL.get());
 			pOutput.accept(IcariaItems.SOW_SKULL.get());
 
 			pOutput.accept(IcariaItems.DIM_TORCH.get());
@@ -848,6 +849,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.CYPRESS_FOREST_HAG_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.DROUGHTROOT_FOREST_HAG_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.FIR_FOREST_HAG_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.LAUREL_FOREST_HAG_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.HYLIASTER_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.ENDER_JELLYFISH_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.FIRE_JELLYFISH_SPAWN_EGG.get());
@@ -877,6 +879,7 @@ public class ClientProxy extends CommonProxy {
 		pEvent.put(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.FIR_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.HYLIASTER.get(), HyliasterEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.ENDER_JELLYFISH.get(), JellyfishEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.FIRE_JELLYFISH.get(), JellyfishEntity.registerAttributes().build());
@@ -1182,6 +1185,7 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), CypressForestHagRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), DroughtrootForestHagRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FIR_FOREST_HAG.get(), FirForestHagRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), LaurelForestHagRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.HYLIASTER.get(), HyliasterRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.ENDER_JELLYFISH.get(), EnderJellyfishRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FIRE_JELLYFISH.get(), FireJellyfishRenderer::new);
@@ -1240,6 +1244,8 @@ public class ClientProxy extends CommonProxy {
 		pEvent.registerLayerDefinition(DroughtrootForestHagSkullModel.LAYER_LOCATION, DroughtrootForestHagSkullModel::createLayer);
 		pEvent.registerLayerDefinition(FirForestHagModel.LAYER_LOCATION, FirForestHagModel::createLayer);
 		pEvent.registerLayerDefinition(FirForestHagSkullModel.LAYER_LOCATION, FirForestHagSkullModel::createLayer);
+		pEvent.registerLayerDefinition(LaurelForestHagModel.LAYER_LOCATION, LaurelForestHagModel::createLayer);
+		pEvent.registerLayerDefinition(LaurelForestHagSkullModel.LAYER_LOCATION, LaurelForestHagSkullModel::createLayer);
 		pEvent.registerLayerDefinition(HyliasterModel.LAYER_LOCATION, HyliasterModel::createLayer);
 		pEvent.registerLayerDefinition(HyliasterModel.TRANSLUCENT_LAYER_LOCATION, HyliasterModel::createTranslucentLayer);
 		pEvent.registerLayerDefinition(EnderJellyfishModel.LAYER_LOCATION, EnderJellyfishModel::createLayer);
