@@ -85,6 +85,8 @@ public class ForestHagEntity extends Monster {
             return 2.125F;
         } else if (this.getType() == IcariaEntityTypes.OLIVE_FOREST_HAG.get()) {
             return 2.125F;
+        } else if (this.getType() == IcariaEntityTypes.PLANE_FOREST_HAG.get()) {
+            return 2.375F;
         } else {
             return 0.0F;
         }
@@ -130,6 +132,8 @@ public class ForestHagEntity extends Monster {
                         this.spawnAtLocation(IcariaItems.LAUREL_FOREST_HAG_SKULL.get());
                     } else if (this.getType() == IcariaEntityTypes.OLIVE_FOREST_HAG.get()) {
                         this.spawnAtLocation(IcariaItems.OLIVE_FOREST_HAG_SKULL.get());
+                    } else if (this.getType() == IcariaEntityTypes.PLANE_FOREST_HAG.get()) {
+                        this.spawnAtLocation(IcariaItems.PLANE_FOREST_HAG_SKULL.get());
                     }
                 }
             }
@@ -229,6 +233,8 @@ public class ForestHagEntity extends Monster {
                 sapling = IcariaBlocks.LAUREL_SAPLING.get();
             } else if (this.entity.getType() == IcariaEntityTypes.OLIVE_FOREST_HAG.get()) {
                 sapling = IcariaBlocks.OLIVE_SAPLING.get();
+            } else if (this.entity.getType() == IcariaEntityTypes.PLANE_FOREST_HAG.get()) {
+                sapling = IcariaBlocks.PLANE_SAPLING.get();
             }
 
             if (sapling != null) {

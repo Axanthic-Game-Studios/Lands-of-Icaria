@@ -268,6 +268,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> LAUREL_FOREST_HAG_WALL_SKULL = register("laurel_forest_hag_wall_skull", () -> new IcariaWallSkullBlock(0.06F, IcariaSkullBlockTypes.LAUREL_FOREST_HAG, propertiesSkull()));
 	public static final RegistryObject<Block> OLIVE_FOREST_HAG_SKULL = register("olive_forest_hag_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.OLIVE_FOREST_HAG, propertiesSkull()));
 	public static final RegistryObject<Block> OLIVE_FOREST_HAG_WALL_SKULL = register("olive_forest_hag_wall_skull", () -> new IcariaWallSkullBlock(0.06F, IcariaSkullBlockTypes.OLIVE_FOREST_HAG, propertiesSkull()));
+	public static final RegistryObject<Block> PLANE_FOREST_HAG_SKULL = register("plane_forest_hag_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.PLANE_FOREST_HAG, propertiesSkull()));
+	public static final RegistryObject<Block> PLANE_FOREST_HAG_WALL_SKULL = register("plane_forest_hag_wall_skull", () -> new IcariaWallSkullBlock(0.06F, IcariaSkullBlockTypes.PLANE_FOREST_HAG, propertiesSkull()));
 	public static final RegistryObject<Block> SOW_SKULL = register("sow_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.SOW, propertiesSkull()));
 	public static final RegistryObject<Block> SOW_WALL_SKULL = register("sow_wall_skull", () -> new IcariaWallSkullBlock(0.0F, IcariaSkullBlockTypes.SOW, propertiesSkull()));
 

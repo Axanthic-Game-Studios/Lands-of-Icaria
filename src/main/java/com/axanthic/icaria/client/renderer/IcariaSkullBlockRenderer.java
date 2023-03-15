@@ -48,6 +48,7 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
         pMap.put(IcariaSkullBlockTypes.FIR_FOREST_HAG, new ResourceLocation(IcariaInfo.MODID, "textures/entity/fir_forest_hag.png"));
         pMap.put(IcariaSkullBlockTypes.LAUREL_FOREST_HAG, new ResourceLocation(IcariaInfo.MODID, "textures/entity/laurel_forest_hag.png"));
         pMap.put(IcariaSkullBlockTypes.OLIVE_FOREST_HAG, new ResourceLocation(IcariaInfo.MODID, "textures/entity/olive_forest_hag.png"));
+        pMap.put(IcariaSkullBlockTypes.PLANE_FOREST_HAG, new ResourceLocation(IcariaInfo.MODID, "textures/entity/plane_forest_hag.png"));
         pMap.put(IcariaSkullBlockTypes.SOW, new ResourceLocation(IcariaInfo.MODID, "textures/entity/sow.png"));
     });
 
@@ -102,6 +103,7 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
         builder.put(IcariaSkullBlockTypes.FIR_FOREST_HAG, new FirForestHagSkullModel(pSet.bakeLayer(FirForestHagSkullModel.LAYER_LOCATION)));
         builder.put(IcariaSkullBlockTypes.LAUREL_FOREST_HAG, new LaurelForestHagSkullModel(pSet.bakeLayer(LaurelForestHagSkullModel.LAYER_LOCATION)));
         builder.put(IcariaSkullBlockTypes.OLIVE_FOREST_HAG, new OliveForestHagSkullModel(pSet.bakeLayer(OliveForestHagSkullModel.LAYER_LOCATION)));
+        builder.put(IcariaSkullBlockTypes.PLANE_FOREST_HAG, new PlaneForestHagSkullModel(pSet.bakeLayer(PlaneForestHagSkullModel.LAYER_LOCATION)));
         builder.put(IcariaSkullBlockTypes.SOW, new SowSkullModel(pSet.bakeLayer(SowSkullModel.LAYER_LOCATION)));
 
         return builder.build();
