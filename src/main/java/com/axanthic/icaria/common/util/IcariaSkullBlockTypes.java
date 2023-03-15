@@ -9,5 +9,6 @@ public enum IcariaSkullBlockTypes implements IcariaSkullBlockType{
     DROUGHTROOT_FOREST_HAG,
     FIR_FOREST_HAG,
     LAUREL_FOREST_HAG,
+    OLIVE_FOREST_HAG,
     SOW
 }

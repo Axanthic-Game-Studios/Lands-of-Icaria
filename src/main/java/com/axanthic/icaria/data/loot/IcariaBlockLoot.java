@@ -97,6 +97,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropElse(IcariaBlocks.DROUGHTROOT_FOREST_HAG_WALL_SKULL.get(), IcariaItems.DROUGHTROOT_FOREST_HAG_SKULL.get());
 		this.dropElse(IcariaBlocks.FIR_FOREST_HAG_WALL_SKULL.get(), IcariaItems.FIR_FOREST_HAG_SKULL.get());
 		this.dropElse(IcariaBlocks.LAUREL_FOREST_HAG_WALL_SKULL.get(), IcariaItems.LAUREL_FOREST_HAG_SKULL.get());
+		this.dropElse(IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get(), IcariaItems.OLIVE_FOREST_HAG_SKULL.get());
 		this.dropElse(IcariaBlocks.SOW_WALL_SKULL.get(), IcariaItems.SOW_SKULL.get());
 		this.dropElse(IcariaBlocks.DIM_WALL_TORCH.get(), IcariaItems.DIM_TORCH.get());
 		this.dropElse(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
@@ -166,6 +167,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get());
 		this.dropThis(IcariaBlocks.FIR_FOREST_HAG_SKULL.get());
 		this.dropThis(IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get());
+		this.dropThis(IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get());
 		this.dropThis(IcariaBlocks.SOW_SKULL.get());
 		this.dropThis(IcariaBlocks.DIM_TORCH.get());
 		this.dropThis(IcariaBlocks.LIGNITE_TORCH.get());

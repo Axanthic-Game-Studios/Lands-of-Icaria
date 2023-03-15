@@ -19,12 +19,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class LaurelForestHagSkullModel extends SkullModel {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "laurel_forest_hag_skull"), "main");
+public class OliveForestHagSkullModel extends SkullModel {
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "olive_forest_hag_skull"), "main");
 
     public ModelPart head;
 
-    public LaurelForestHagSkullModel(ModelPart pModelPart) {
+    public OliveForestHagSkullModel(ModelPart pModelPart) {
         super(pModelPart);
         this.head = pModelPart.getChild("head");
     }
@@ -44,7 +44,7 @@ public class LaurelForestHagSkullModel extends SkullModel {
         MeshDefinition meshDefinition = new MeshDefinition();
         PartDefinition partDefinition = meshDefinition.getRoot();
 
-        partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(49, 45).addBox(-3.0F, -8.0F, -3.0F, 6.0F, 8.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+        partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 48).addBox(-3.0F, -8.0F, -3.0F, 6.0F, 8.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
         return LayerDefinition.create(meshDefinition, 128, 128);
     }

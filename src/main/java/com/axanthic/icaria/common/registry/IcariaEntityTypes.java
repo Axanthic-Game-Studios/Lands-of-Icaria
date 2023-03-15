@@ -27,6 +27,7 @@ public class IcariaEntityTypes {
 	public static final RegistryObject<EntityType<ForestHagEntity>> DROUGHTROOT_FOREST_HAG = register("droughtroot_forest_hag", Builder.of(ForestHagEntity::new, MobCategory.CREATURE).sized(1.0F, 3.0F));
 	public static final RegistryObject<EntityType<ForestHagEntity>> FIR_FOREST_HAG = register("fir_forest_hag", Builder.of(ForestHagEntity::new, MobCategory.CREATURE).sized(1.0F, 3.0F));
 	public static final RegistryObject<EntityType<ForestHagEntity>> LAUREL_FOREST_HAG = register("laurel_forest_hag", Builder.of(ForestHagEntity::new, MobCategory.CREATURE).sized(1.0F, 3.0F));
+	public static final RegistryObject<EntityType<ForestHagEntity>> OLIVE_FOREST_HAG = register("olive_forest_hag", Builder.of(ForestHagEntity::new, MobCategory.CREATURE).sized(1.0F, 3.0F));
 	public static final RegistryObject<EntityType<HyliasterEntity>> HYLIASTER = register("hyliaster", Builder.of(HyliasterEntity::new, MobCategory.CREATURE).sized(0.1875F, 0.1875F));
 	public static final RegistryObject<EntityType<JellyfishEntity>> ENDER_JELLYFISH = register("ender_jellyfish", Builder.of(JellyfishEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
 	public static final RegistryObject<EntityType<JellyfishEntity>> FIRE_JELLYFISH = register("fire_jellyfish", Builder.of(JellyfishEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
