@@ -42,6 +42,7 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
         this.dropItemPlusMeat(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), IcariaItems.LAUREL_SAPLING.get(), IcariaItems.LAUREL_LOG.get());
         this.dropItemPlusMeat(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), IcariaItems.OLIVE_SAPLING.get(), IcariaItems.OLIVE_LOG.get());
         this.dropItemPlusMeat(IcariaEntityTypes.PLANE_FOREST_HAG.get(), IcariaItems.PLANE_SAPLING.get(), IcariaItems.PLANE_LOG.get());
+        this.dropItemPlusMeat(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), IcariaItems.POPULUS_SAPLING.get(), IcariaItems.POPULUS_LOG.get());
 
         this.dropItem(IcariaEntityTypes.ARACHNE.get(), IcariaItems.ARACHNE_STRING.get());
         this.dropItem(IcariaEntityTypes.ARACHNE_DRONE.get(), IcariaItems.ARACHNE_STRING.get());

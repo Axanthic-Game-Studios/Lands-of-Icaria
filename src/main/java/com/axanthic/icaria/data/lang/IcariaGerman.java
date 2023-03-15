@@ -319,6 +319,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get(), "Lorbeer-Baumwächterschädel");
 		this.add(IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get(), "Oliven-Baumwächterschädel");
 		this.add(IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), "Plantanen-Baumwächterschädel");
+		this.add(IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), "Pappel-Baumwächterschädel");
 		this.add(IcariaBlocks.SOW_SKULL.get(), "Krommyonischer Sauschädel");
 
 		this.add(IcariaBlocks.DIM_TORCH.get(), "Schwache Fackel");
@@ -641,6 +642,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), "Lorbeer-Baumwächter");
 		this.add(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), "Oliven-Baumwächter");
 		this.add(IcariaEntityTypes.PLANE_FOREST_HAG.get(), "Plantanen-Baumwächter");
+		this.add(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), "Pappel-Baumwächter");
 		this.add(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), "Griechische Feuergranate");
 		this.add(IcariaEntityTypes.HYLIASTER.get(), "Hyliaster");
 		this.add(IcariaEntityTypes.ENDER_JELLYFISH.get(), "Enderqualle");
@@ -878,6 +880,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.LAUREL_FOREST_HAG_SPAWN_EGG.get(), "Lorbeer-Baumwächter-Spawn-Ei");
 		this.add(IcariaItems.OLIVE_FOREST_HAG_SPAWN_EGG.get(), "Oliven-Baumwächter-Spawn-Ei");
 		this.add(IcariaItems.PLANE_FOREST_HAG_SPAWN_EGG.get(), "Plantanen-Baumwächter-Spawn-Ei");
+		this.add(IcariaItems.POPULUS_FOREST_HAG_SPAWN_EGG.get(), "Pappel-Baumwächter-Spawn-Ei");
 		this.add(IcariaItems.HYLIASTER_SPAWN_EGG.get(), "Hyliaster-Spawn-Ei");
 		this.add(IcariaItems.ENDER_JELLYFISH_SPAWN_EGG.get(), "Ender-Quallen-Spawn-Ei");
 		this.add(IcariaItems.FIRE_JELLYFISH_SPAWN_EGG.get(), "Feuer-Quallen-Spawn-Ei");

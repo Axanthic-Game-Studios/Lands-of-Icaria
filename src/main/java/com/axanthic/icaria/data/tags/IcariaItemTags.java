@@ -178,6 +178,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.LAUREL_FOREST_HAG_SKULL.get())
 			.add(IcariaItems.OLIVE_FOREST_HAG_SKULL.get())
 			.add(IcariaItems.PLANE_FOREST_HAG_SKULL.get())
+			.add(IcariaItems.POPULUS_FOREST_HAG_SKULL.get())
 			.add(IcariaItems.SOW_SKULL.get());
 
 		this.tag(ItemTags.SIGNS)
