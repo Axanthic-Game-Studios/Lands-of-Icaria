@@ -1,15 +1,12 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.common.entity.ForestHagEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.HierarchicalModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -22,8 +19,6 @@ public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity
     public float ulnaBend = 1.00F;
     public float legBend = 1.50F;
     public float kneeBend = 1.25F;
-
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "droughtroot_forest_hag"), "main");
 
     public ModelPart root;
     public ModelPart bodyBase;

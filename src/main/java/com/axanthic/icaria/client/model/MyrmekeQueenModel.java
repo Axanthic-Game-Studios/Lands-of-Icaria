@@ -1,15 +1,14 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
+
+import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.HierarchicalModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -18,9 +17,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeQueenModel extends HierarchicalModel<MyrmekeQueenEntity> {
-    public static final ModelLayerLocation BODY_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "myrmeke_queen"), "body");
-    public static final ModelLayerLocation RAYS_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "myrmeke_queen"), "rays");
-
     public ModelPart root;
     public ModelPart head;
     public ModelPart body;
@@ -76,6 +72,10 @@ public class MyrmekeQueenModel extends HierarchicalModel<MyrmekeQueenEntity> {
         this.legLeftCenter.zRot = -0F - f6 * 2;
         this.legRightRear.zRot = 0F + f4 * 2;
         this.legLeftRear.zRot = -0F - f5 * 2;
+    }
+
+    public void translateToHead(PoseStack pPoseStack) {
+        this.head.translateAndRotate(pPoseStack);
     }
 
     public static LayerDefinition createLayer() {

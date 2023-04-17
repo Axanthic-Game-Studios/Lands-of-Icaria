@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "landsoficaria:jasper_geode_block"
-  }
+  },
+  "show_notification": true
 }

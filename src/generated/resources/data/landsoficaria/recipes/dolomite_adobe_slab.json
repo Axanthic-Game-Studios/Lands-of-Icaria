@@ -12,5 +12,6 @@
   "result": {
     "count": 6,
     "item": "landsoficaria:dolomite_adobe_slab"
-  }
+  },
+  "show_notification": true
 }

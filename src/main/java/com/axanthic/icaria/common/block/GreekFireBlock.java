@@ -10,7 +10,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
@@ -81,7 +80,7 @@ public class GreekFireBlock extends Block {
             }
         }
 
-        pEntity.hurt(DamageSource.IN_FIRE, 1.5F);
+        pEntity.hurt(pLevel.damageSources().inFire(), 1.5F);
     }
 
     @Override

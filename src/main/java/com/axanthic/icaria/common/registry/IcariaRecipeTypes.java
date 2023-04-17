@@ -10,7 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class IcariaRecipeTypes {
-	public static final DeferredRegister<RecipeSerializer<?>> RECIPE_TYPES = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, IcariaInfo.MODID);
+	public static final DeferredRegister<RecipeSerializer<?>> RECIPE_TYPES = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, IcariaInfo.ID);
 
 	public static final RegistryObject<RecipeSerializer<GrindingRecipe>> GRINDING_RECIPE = RECIPE_TYPES.register("grinding", () -> GrindingRecipe.Serializer.INSTANCE);
 }

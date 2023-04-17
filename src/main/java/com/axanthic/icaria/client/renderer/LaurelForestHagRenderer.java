@@ -1,9 +1,10 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaResourceLocations;
 import com.axanthic.icaria.client.layer.LaurelForestHagEmissiveLayer;
 import com.axanthic.icaria.client.model.LaurelForestHagModel;
 import com.axanthic.icaria.common.entity.ForestHagEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -16,15 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class LaurelForestHagRenderer extends MobRenderer<ForestHagEntity, LaurelForestHagModel> {
-    public static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/laurel_forest_hag.png");
-
     public LaurelForestHagRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new LaurelForestHagModel(pContext.bakeLayer(LaurelForestHagModel.LAYER_LOCATION)), 0.75F);
+        super(pContext, new LaurelForestHagModel(pContext.bakeLayer(IcariaLayerLocations.LAUREL_FOREST_HAG)), 0.75F);
         this.addLayer(new LaurelForestHagEmissiveLayer(this));
     }
 
     @Override
     public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
-        return RESOURCE_LOCATION;
+        return IcariaResourceLocations.LAUREL_FOREST_HAG;
     }
 }

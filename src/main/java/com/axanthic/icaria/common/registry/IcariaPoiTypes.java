@@ -20,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaPoiTypes {
-    public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, IcariaInfo.MODID);
+    public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, IcariaInfo.ID);
 
     public static final RegistryObject<PoiType> ICARIA_PORTAL = POI_TYPES.register("icaria_portal", () -> new PoiType(getBlockStates(IcariaBlocks.ICARIA_PORTAL.get()), 0, 1));
 

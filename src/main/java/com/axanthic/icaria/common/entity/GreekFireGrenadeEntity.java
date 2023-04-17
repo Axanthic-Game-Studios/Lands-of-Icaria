@@ -9,6 +9,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -34,6 +35,11 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
     }
 
     @Override
+    public boolean canHitEntity(Entity pEntity) {
+        return false;
+    }
+
+    @Override
     public boolean shouldRender(double pX, double pY, double pZ) {
         return true;
     }
@@ -46,7 +52,7 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
     @Override
     public void onHit(HitResult pResult) {
         super.onHit(pResult);
-        BlockPos thisPos = new BlockPos(this.getX(), this.getY(), this.getZ());
+        BlockPos thisPos = BlockPos.containing(this.getX(), this.getY(), this.getZ());
         if (((IcariaPortalBlock) IcariaBlocks.ICARIA_PORTAL.get()).spawnPortal(this.level, thisPos)) {
             this.discard();
             return;
@@ -56,8 +62,8 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
             this.level.explode(null, this.getX(), this.getY(), this.getZ(), 1.5F, false, Level.ExplosionInteraction.NONE);
             this.discard();
             for (int i = -2; i <= 2; i++) {
-                BlockPos posNeg = new BlockPos(this.getX() - i, this.getY() - i, this.getZ() - i);
-                BlockPos posPos = new BlockPos(this.getX() + i, this.getY() + i, this.getZ() + i);
+                BlockPos posNeg = BlockPos.containing(this.getX() - i, this.getY() - i, this.getZ() - i);
+                BlockPos posPos = BlockPos.containing(this.getX() + i, this.getY() + i, this.getZ() + i);
                 for (BlockPos blockPos : BlockPos.betweenClosed(posNeg, posPos)) {
                     if (this.random.nextInt(10) == 0) {
                         if (this.level.getBlockState(blockPos).isAir()) {

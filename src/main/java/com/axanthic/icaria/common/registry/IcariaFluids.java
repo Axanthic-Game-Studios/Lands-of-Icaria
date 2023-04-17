@@ -12,7 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class IcariaFluids {
-	public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, IcariaInfo.MODID);
+	public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, IcariaInfo.ID);
 
 	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_FLOWING = registerMediterraneanWater("mediterranean_water_flowing", ForgeFlowingFluid.Flowing::new);
 	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_SOURCE = registerMediterraneanWater("mediterranean_water", ForgeFlowingFluid.Source::new);

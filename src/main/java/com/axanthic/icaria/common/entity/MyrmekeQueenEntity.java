@@ -1,14 +1,13 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -38,12 +37,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeQueenEntity extends Monster {
-    public int spellCastTickCount;
-
     public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(MyrmekeQueenEntity.class, EntityDataSerializers.BYTE);
     public static final EntityDataAccessor<Byte> SPELL = SynchedEntityData.defineId(MyrmekeQueenEntity.class, EntityDataSerializers.BYTE);
-
-    public MyrmekeQueenSpellEnum spell = MyrmekeQueenSpellEnum.NONE;
 
     public MyrmekeQueenEntity(EntityType<? extends MyrmekeQueenEntity> pType, Level pLevel) {
         super(pType, pLevel);
@@ -59,14 +54,6 @@ public class MyrmekeQueenEntity extends Monster {
         }
 
         return super.canBeAffected(pEffectInstance);
-    }
-
-    public boolean isCasting() {
-        if (this.level.isClientSide) {
-            return this.entityData.get(SPELL) > 0;
-        } else {
-            return this.spellCastTickCount > 0;
-        }
     }
 
     public boolean isClimbing() {
@@ -89,20 +76,6 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag pTag) {
-        super.addAdditionalSaveData(pTag);
-        pTag.putInt("SpellTicks", this.spellCastTickCount);
-    }
-
-    @Override
-    public void customServerAiStep() {
-        super.customServerAiStep();
-        if (this.spellCastTickCount > 0) {
-            --this.spellCastTickCount;
-        }
-    }
-
-    @Override
     public void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(CLIMBING, (byte) 0);
@@ -115,15 +88,9 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag pTag) {
-        super.readAdditionalSaveData(pTag);
-        this.spellCastTickCount = pTag.getInt("SpellTicks");
-    }
-
-    @Override
     public void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new MyrmekeQueenSummonGoal());
+        this.goalSelector.addGoal(2, new MyrmekeQueenSummonGoal(this));
         this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, (new MyrmekeQueenHurtByTargetGoal(this)).setAlertOthers());
@@ -131,7 +98,6 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     public void setCasting(MyrmekeQueenSpellEnum pSpell) {
-        this.spell = pSpell;
         this.entityData.set(SPELL, (byte) pSpell.id);
     }
 
@@ -173,10 +139,6 @@ public class MyrmekeQueenEntity extends Monster {
         return SoundEvents.SPIDER_AMBIENT;
     }
 
-    public SoundEvent getCastingSound() {
-        return SoundEvents.EVOKER_CAST_SPELL;
-    }
-
     @Override
     public SoundEvent getDeathSound() {
         return SoundEvents.SPIDER_DEATH;
@@ -211,115 +173,44 @@ public class MyrmekeQueenEntity extends Monster {
         }
     }
 
-    public class MyrmekeQueenSummonGoal extends MyrmekeQueenSpellcastGoal {
+    public static class MyrmekeQueenSummonGoal extends Goal {
+        public MyrmekeQueenEntity entity;
+
         public TargetingConditions targetingConditions = TargetingConditions.forNonCombat().range(16.0D).ignoreLineOfSight().ignoreInvisibilityTesting();
 
-        @Override
-        public boolean canUse() {
-            if (!super.canUse()) {
-                return false;
-            } else {
-                int i = MyrmekeQueenEntity.this.level.getNearbyEntities(MyrmekeSoldierEntity.class, this.targetingConditions, MyrmekeQueenEntity.this, MyrmekeQueenEntity.this.getBoundingBox().inflate(16.0D)).size();
-                return i < 2;
-            }
+        MyrmekeQueenSummonGoal(MyrmekeQueenEntity pEntity) {
+            super();
+            this.entity = pEntity;
         }
-
-        @Override
-        public int getSpellCastInterval() {
-            return 340;
-        }
-
-        @Override
-        public int getSpellCastTime() {
-            return 100;
-        }
-
-        @Override
-        public int getSpellWarmupTime() {
-            return 20;
-        }
-
-        @Override
-        public void performSpell() {
-            ServerLevel serverLevel = (ServerLevel) MyrmekeQueenEntity.this.level;
-            for (int i = 0; i < MyrmekeQueenEntity.this.random.nextIntBetweenInclusive(2,4); ++i) {
-                BlockPos blockPos = MyrmekeQueenEntity.this.blockPosition().offset(-2 + MyrmekeQueenEntity.this.random.nextInt(5), 0, -2 + MyrmekeQueenEntity.this.random.nextInt(5));
-                MyrmekeSoldierEntity entity = IcariaEntityTypes.MYRMEKE_SOLDIER.get().create(MyrmekeQueenEntity.this.level);
-                if (entity != null) {
-                    entity.moveTo(blockPos, 0.0F, 0.0F);
-                    entity.finalizeSpawn(serverLevel, MyrmekeQueenEntity.this.level.getCurrentDifficultyAt(blockPos), MobSpawnType.MOB_SUMMONED, null, null);
-                    serverLevel.addFreshEntityWithPassengers(entity);
-                }
-            }
-        }
-
-        @Override
-        public MyrmekeQueenSpellEnum getSpell() {
-            return MyrmekeQueenSpellEnum.SUMMON;
-        }
-
-        @Override
-        public SoundEvent getSpellPrepareSound() {
-            return SoundEvents.EVOKER_PREPARE_SUMMON;
-        }
-    }
-
-    public abstract class MyrmekeQueenSpellcastGoal extends Goal {
-        public int nextAttackTickCount;
-        public int warmupDelay;
 
         @Override
         public boolean canUse() {
-            LivingEntity livingEntity = MyrmekeQueenEntity.this.getTarget();
-            if (livingEntity != null) {
-                if (livingEntity.isAlive()) {
-                    if (MyrmekeQueenEntity.this.isCasting()) {
-                        return false;
-                    } else {
-                        return MyrmekeQueenEntity.this.tickCount >= this.nextAttackTickCount;
-                    }
-                } else {
-                    return false;
-                }
-            } else {
+            LivingEntity livingEntity = this.entity.getTarget();
+            if (livingEntity != this.entity.getLastHurtByMob()) {
                 return false;
+            } else if (!this.entity.getBlockStateOn().is(IcariaBlockTags.MYRMEKE_SUMMONS_ON)) {
+                return false;
+            } else {
+                return this.entity.level.getNearbyEntities(MyrmekeSoldierEntity.class, this.targetingConditions, this.entity, this.entity.getBoundingBox().inflate(32.0D)).size() <= 2;
             }
-        }
-
-        @Override
-        public boolean canContinueToUse() {
-            LivingEntity livingEntity = MyrmekeQueenEntity.this.getTarget();
-            return livingEntity != null && livingEntity.isAlive() && this.warmupDelay > 0;
         }
 
         @Override
         public void start() {
-            this.warmupDelay = this.adjustedTickDelay(this.getSpellWarmupTime());
-            MyrmekeQueenEntity.this.spellCastTickCount = this.getSpellCastTime();
-            this.nextAttackTickCount = MyrmekeQueenEntity.this.tickCount + this.getSpellCastInterval();
-            MyrmekeQueenEntity.this.playSound(this.getSpellPrepareSound(), 1.0F, 1.0F);
-            MyrmekeQueenEntity.this.setCasting(this.getSpell());
+            this.entity.setCasting(MyrmekeQueenSpellEnum.SUMMON);
         }
 
         @Override
         public void tick() {
-            --this.warmupDelay;
-            if (this.warmupDelay == 0) {
-                this.performSpell();
-                MyrmekeQueenEntity.this.playSound(MyrmekeQueenEntity.this.getCastingSound(), 1.0F, 1.0F);
+            MyrmekeSoldierEntity entity = IcariaEntityTypes.MYRMEKE_SOLDIER.get().create(this.entity.level);
+            for (int i = 0; i < this.entity.random.nextIntBetweenInclusive(3,4); ++i) {
+                if (entity != null) {
+                    int random = this.entity.random.nextIntBetweenInclusive(-4, 4);
+                    this.entity.level.addFreshEntity(entity);
+                    this.entity.playSound(SoundEvents.EVOKER_PREPARE_SUMMON, 1.0F, 1.0F);
+                    entity.moveTo(this.entity.blockPosition().offset(random, 0, random), 0.0F, 0.0F);
+                }
             }
         }
-
-        public abstract int getSpellCastInterval();
-
-        public abstract int getSpellCastTime();
-
-        public abstract int getSpellWarmupTime();
-
-        public abstract void performSpell();
-
-        public abstract MyrmekeQueenSpellEnum getSpell();
-
-        public abstract SoundEvent getSpellPrepareSound();
     }
 }

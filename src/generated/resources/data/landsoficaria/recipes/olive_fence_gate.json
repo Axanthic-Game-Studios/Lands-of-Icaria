@@ -15,5 +15,6 @@
   ],
   "result": {
     "item": "landsoficaria:olive_fence_gate"
-  }
+  },
+  "show_notification": true
 }

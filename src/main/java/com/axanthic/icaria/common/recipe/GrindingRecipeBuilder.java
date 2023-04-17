@@ -57,7 +57,7 @@ public class GrindingRecipeBuilder implements RecipeBuilder {
 	public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
 		this.advancement.parent(ROOT_RECIPE_ADVANCEMENT).addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
 		this.ensureValid(pRecipeId);
-		pFinishedRecipeConsumer.accept(new Result(pRecipeId, /*this.category, */this.result, this.count, this.ingredient, this.gear, this.burnTime, this.advancement, new ResourceLocation(pRecipeId.getNamespace(),"recipes/" + pRecipeId.getPath())));
+		pFinishedRecipeConsumer.accept(new Result(pRecipeId, this.result, this.count, this.ingredient, this.gear, this.burnTime, this.advancement, new ResourceLocation(pRecipeId.getNamespace(),"recipes/" + pRecipeId.getPath())));
 	}
 
 	public void ensureValid(ResourceLocation pId) {

@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.BlockGetter;
@@ -26,11 +25,11 @@ public class DamagingFlowerPotBlock extends FlowerPotBlock {
 
 	@Override
 	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-		pEntity.hurt(DamageSource.CACTUS, 1.0F);
+		pEntity.hurt(pLevel.damageSources().cactus(), 1.0F);
 	}
 
 	@Override
 	public BlockPathTypes getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
-		return BlockPathTypes.DAMAGE_CACTUS;
+		return BlockPathTypes.DAMAGE_OTHER;
 	}
 }

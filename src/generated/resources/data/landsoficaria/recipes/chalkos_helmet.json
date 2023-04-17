@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "landsoficaria:chalkos_helmet"
-  }
+  },
+  "show_notification": true
 }

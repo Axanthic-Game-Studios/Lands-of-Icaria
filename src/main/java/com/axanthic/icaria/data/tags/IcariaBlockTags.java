@@ -43,6 +43,12 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 	public static final TagKey<Block> ICARIA_GRASS_BLOCKS = icariaTag("icaria_grass_blocks");
 
+	public static final TagKey<Block> MYRMEKE_SUMMONS_ON = icariaTag("myrmeke_summons_on");
+
+	public static final TagKey<Block> CAPTAIN_SUMMONS_ON = icariaTag("captain_summons_on");
+
+	public static final TagKey<Block> SLUG_HIDE_BLOCKS = icariaTag("slug_hide_blocks");
+
 	// ITEMBLOCK TAGS
 	public static final TagKey<Block> ORES_CHERT = forgeTag("ores/chert");
 	public static final TagKey<Block> ORES_LIGNITE = forgeTag("ores/lignite");
@@ -116,6 +122,37 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
 		// BLOCK TAGS
+		this.tag(IcariaBlockTags.MYRMEKE_SUMMONS_ON)
+			.add(IcariaBlocks.MARL_GRASS.get())
+			.add(IcariaBlocks.MARL.get())
+			.add(IcariaBlocks.MARL_CHERT.get())
+			.add(IcariaBlocks.MARL_BONES.get())
+			.add(IcariaBlocks.MARL_LIGNITE.get())
+			.add(IcariaBlocks.MARL_COARSE.get())
+			.add(IcariaBlocks.LOAM.get())
+			.add(IcariaBlocks.GRAINEL.get())
+			.add(IcariaBlocks.SILKSAND.get());
+
+		this.tag(IcariaBlockTags.CAPTAIN_SUMMONS_ON)
+			.add(IcariaBlocks.MARL_GRASS.get())
+			.add(IcariaBlocks.MARL.get())
+			.add(IcariaBlocks.MARL_CHERT.get())
+			.add(IcariaBlocks.MARL_BONES.get())
+			.add(IcariaBlocks.MARL_LIGNITE.get())
+			.add(IcariaBlocks.MARL_COARSE.get())
+			.add(IcariaBlocks.LOAM.get())
+			.add(IcariaBlocks.GRAINEL.get())
+			.add(IcariaBlocks.SILKSAND.get());
+
+		this.tag(IcariaBlockTags.SLUG_HIDE_BLOCKS)
+			.add(IcariaBlocks.MARL_GRASS.get())
+			.add(IcariaBlocks.MARL.get())
+			.add(IcariaBlocks.MARL_CHERT.get())
+			.add(IcariaBlocks.MARL_BONES.get())
+			.add(IcariaBlocks.MARL_LIGNITE.get())
+			.add(IcariaBlocks.MARL_COARSE.get())
+			.add(IcariaBlocks.LOAM.get());
+
 		this.tag(IcariaBlockTags.ICARIA_TIER)
 			.addTag(IcariaBlockTags.NEEDS_CHERT_TOOL)
 			.addTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL)
@@ -1175,6 +1212,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	}
 
 	public static TagKey<Block> icariaTag(String pName) {
-		return IcariaBlockTags.bind(IcariaInfo.MODID + ":" + pName);
+		return IcariaBlockTags.bind(IcariaInfo.ID + ":" + pName);
 	}
 }

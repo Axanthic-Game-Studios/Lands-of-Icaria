@@ -29,14 +29,14 @@ public class IcariaItemModels extends ItemModelProvider {
 
 		for (IcariaItems.ToolSet tools : IcariaItems.TOOLS) {
 			ResourceLocation name = tools.bident.getId();
-			ItemModelBuilder model = this.singleTexture(name.getPath() + "_throwing", new ResourceLocation(IcariaInfo.MODID, "item/bident_throwing"), "layer0", new ResourceLocation(name.getNamespace(), "item/" + name.getPath()));
+			ItemModelBuilder model = this.singleTexture(name.getPath() + "_throwing", new ResourceLocation(IcariaInfo.ID, "item/bident_throwing"), "layer0", new ResourceLocation(name.getNamespace(), "item/" + name.getPath()));
 			this.itemWithModel(tools.sword, "item/handheld");
 			this.itemWithModel(tools.dagger, "item/handheld");
 			this.itemWithModel(tools.shovel, "item/handheld");
 			this.itemWithModel(tools.pickaxe, "item/handheld");
 			this.itemWithModel(tools.axe, "item/handheld");
 			this.itemWithModel(tools.scythe, "item/handheld");
-			this.itemWithModel(tools.bident, new ResourceLocation(IcariaInfo.MODID, "item/bident")).override().predicate(new ResourceLocation(IcariaInfo.MODID, "throwing"), 1.0F).model(model).end();
+			this.itemWithModel(tools.bident, new ResourceLocation(IcariaInfo.ID, "item/bident")).override().predicate(new ResourceLocation(IcariaInfo.ID, "throwing"), 1.0F).model(model).end();
 		}
 
 		for (IcariaItems.ArmorSet armor : IcariaItems.ARMOR) {

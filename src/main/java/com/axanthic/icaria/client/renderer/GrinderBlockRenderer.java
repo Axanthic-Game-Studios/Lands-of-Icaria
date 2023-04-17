@@ -9,13 +9,12 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.core.Direction;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -27,7 +26,7 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 	public int rotationModifier = -16;
 
 	public GrinderBlockRenderer(BlockEntityRendererProvider.Context pContext) {
-
+		// NOOP
 	}
 
 	@Override
@@ -45,7 +44,6 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 			ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 			ItemStack mainGear = pBlockEntity.getGear();
 			ItemStack sideGear = ItemStack.EMPTY;
-			LocalPlayer localPlayer = Minecraft.getInstance().player;
 
 			if (!mainGear.isEmpty()) {
 				if (mainGear.is(IcariaItems.GEAR_YELLOWSTONE.get())) {
@@ -70,7 +68,7 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 					pPoseStack.mulPose(Axis.ZP.rotationDegrees(rotation * rotationModifier));
 				}
 
-				itemRenderer.renderStatic(mainGear, ItemTransforms.TransformType.FIXED, pPackedLight, pPackedOverlay, pPoseStack, pBufferSource, 1);
+				itemRenderer.renderStatic(mainGear, ItemDisplayContext.FIXED, pPackedLight, pPackedOverlay, pPoseStack, pBufferSource, pBlockEntity.getLevel(), 1);
 				pPoseStack.popPose();
 
 				pPoseStack.pushPose();
@@ -100,7 +98,7 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 					pPoseStack.mulPose(Axis.ZP.rotationDegrees(rotation * rotationModifier));
 				}
 
-				itemRenderer.renderStatic(sideGear, ItemTransforms.TransformType.FIXED, pPackedLight, pPackedOverlay, pPoseStack, pBufferSource, 1);
+				itemRenderer.renderStatic(sideGear, ItemDisplayContext.FIXED, pPackedLight, pPackedOverlay, pPoseStack, pBufferSource, pBlockEntity.getLevel(), 1);
 				pPoseStack.popPose();
 
 				pPoseStack.pushPose();
@@ -130,7 +128,7 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 					pPoseStack.mulPose(Axis.ZP.rotationDegrees(rotation * rotationModifier));
 				}
 
-				itemRenderer.renderStatic(sideGear, ItemTransforms.TransformType.FIXED, pPackedLight, pPackedOverlay, pPoseStack, pBufferSource, 1);
+				itemRenderer.renderStatic(sideGear, ItemDisplayContext.FIXED, pPackedLight, pPackedOverlay, pPoseStack, pBufferSource, pBlockEntity.getLevel(), 1);
 				pPoseStack.popPose();
 			}
 		}

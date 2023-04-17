@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "landsoficaria:unfired_storage_vase"
-  }
+  },
+  "show_notification": true
 }

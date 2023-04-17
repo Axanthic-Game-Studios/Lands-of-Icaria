@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "landsoficaria:silkstone_chiseled"
-  }
+  },
+  "show_notification": true
 }

@@ -11,5 +11,6 @@
   ],
   "result": {
     "item": "landsoficaria:spelt_bread"
-  }
+  },
+  "show_notification": true
 }

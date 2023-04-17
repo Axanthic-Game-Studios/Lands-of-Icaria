@@ -143,7 +143,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final TagKey<Item> LOGS_POPULUS = forgeTag("logs/populus");
 
 	public IcariaItemTags(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId, ExistingFileHelper pHelper) {
-		super(pOutput, pProvider, new IcariaBlockTags(pOutput, pProvider, pId, pHelper), pId, pHelper);
+		super(pOutput, pProvider, new IcariaBlockTags(pOutput, pProvider, pId, pHelper).contentsGetter(), pId, pHelper);
 	}
 
 	@Override
@@ -179,6 +179,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.OLIVE_FOREST_HAG_SKULL.get())
 			.add(IcariaItems.PLANE_FOREST_HAG_SKULL.get())
 			.add(IcariaItems.POPULUS_FOREST_HAG_SKULL.get())
+			.add(IcariaItems.REVENANT_SKULL.get())
 			.add(IcariaItems.SOW_SKULL.get());
 
 		this.tag(ItemTags.SIGNS)
@@ -308,7 +309,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.MOLYBDENUMSTEEL_INGOT.get())
 			.add(IcariaItems.BLURIDIUM_INGOT.get());
 
-		this.tag(Tags.Items.TOOLS_SWORDS)
+		this.tag(ItemTags.SWORDS)
 			.add(IcariaItems.CHERT_TOOLS.sword.get())
 			.add(IcariaItems.CHALKOS_TOOLS.sword.get())
 			.add(IcariaItems.KASSITEROS_TOOLS.sword.get())
@@ -317,7 +318,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.SIDEROS_TOOLS.sword.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.sword.get());
 
-		this.tag(Tags.Items.TOOLS_AXES)
+		this.tag(ItemTags.AXES)
 			.add(IcariaItems.CHERT_TOOLS.axe.get())
 			.add(IcariaItems.CHALKOS_TOOLS.axe.get())
 			.add(IcariaItems.KASSITEROS_TOOLS.axe.get())
@@ -326,7 +327,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.SIDEROS_TOOLS.axe.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.axe.get());
 
-		this.tag(Tags.Items.TOOLS_PICKAXES)
+		this.tag(ItemTags.PICKAXES)
 			.add(IcariaItems.CHERT_TOOLS.pickaxe.get())
 			.add(IcariaItems.CHALKOS_TOOLS.pickaxe.get())
 			.add(IcariaItems.KASSITEROS_TOOLS.pickaxe.get())
@@ -335,7 +336,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.SIDEROS_TOOLS.pickaxe.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.pickaxe.get());
 
-		this.tag(Tags.Items.TOOLS_SHOVELS)
+		this.tag(ItemTags.SHOVELS)
 			.add(IcariaItems.CHERT_TOOLS.shovel.get())
 			.add(IcariaItems.CHALKOS_TOOLS.shovel.get())
 			.add(IcariaItems.KASSITEROS_TOOLS.shovel.get())
@@ -344,7 +345,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.SIDEROS_TOOLS.shovel.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.shovel.get());
 
-		this.tag(Tags.Items.TOOLS_HOES)
+		this.tag(ItemTags.HOES)
 			.add(IcariaItems.CHERT_TOOLS.scythe.get())
 			.add(IcariaItems.CHALKOS_TOOLS.scythe.get())
 			.add(IcariaItems.KASSITEROS_TOOLS.scythe.get())
@@ -835,6 +836,6 @@ public class IcariaItemTags extends ItemTagsProvider {
 	}
 
 	public static TagKey<Item> icariaTag(String pName) {
-		return IcariaItemTags.bind(IcariaInfo.MODID + ":" + pName);
+		return IcariaItemTags.bind(IcariaInfo.ID + ":" + pName);
 	}
 }

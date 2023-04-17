@@ -31,5 +31,6 @@
   ],
   "result": {
     "item": "landsoficaria:salad_fruit"
-  }
+  },
+  "show_notification": true
 }

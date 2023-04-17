@@ -1,9 +1,10 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaResourceLocations;
 import com.axanthic.icaria.client.layer.SnullEmissiveLayer;
 import com.axanthic.icaria.client.model.SnullModel;
 import com.axanthic.icaria.common.entity.SnullEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -23,22 +24,20 @@ public class SnullRenderer extends MobRenderer<SnullEntity, SnullModel> {
     public float shdwMult = 0.35F;
     public float sizeMult = 0.25F;
 
-    public static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/snull.png");
-
     public SnullRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new SnullModel(pContext.bakeLayer(SnullModel.LAYER_LOCATION)), 1.0F);
+        super(pContext, new SnullModel(pContext.bakeLayer(IcariaLayerLocations.SNULL)), 1.0F);
         this.addLayer(new SnullEmissiveLayer(this));
     }
 
     @Override
     public void render(SnullEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-        this.shadowRadius = pEntity.isBaby() ? pEntity.getScaleFromSize() * this.shdwMult : 2.0F * this.shdwMult;
+        this.shadowRadius = pEntity.isBaby() ? this.shdwMult * pEntity.getScaleFromSize() : this.shdwMult * 2.0F;
     }
 
     @Override
     public void scale(SnullEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        float size = pLivingEntity.getScaleFromSize() * this.sizeMult;
+        float size = this.sizeMult * pLivingEntity.getScaleFromSize();
         pMatrixStack.scale(size, size, size);
         pMatrixStack.translate(0.0F, 0.0F, -0.25F);
         if (pLivingEntity.onClimbable()) {
@@ -49,6 +48,6 @@ public class SnullRenderer extends MobRenderer<SnullEntity, SnullModel> {
 
     @Override
     public ResourceLocation getTextureLocation(SnullEntity pEntity) {
-        return RESOURCE_LOCATION;
+        return IcariaResourceLocations.SNULL;
     }
 }

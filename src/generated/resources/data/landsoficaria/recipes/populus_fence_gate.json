@@ -15,5 +15,6 @@
   ],
   "result": {
     "item": "landsoficaria:populus_fence_gate"
-  }
+  },
+  "show_notification": true
 }

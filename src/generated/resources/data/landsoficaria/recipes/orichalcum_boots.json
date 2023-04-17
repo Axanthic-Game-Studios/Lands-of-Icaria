@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "landsoficaria:orichalcum_boots"
-  }
+  },
+  "show_notification": true
 }

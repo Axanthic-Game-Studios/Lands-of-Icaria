@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "landsoficaria:vanadium_raw_block"
-  }
+  },
+  "show_notification": true
 }

@@ -12,5 +12,6 @@
   "result": {
     "count": 6,
     "item": "landsoficaria:relicstone_bricks_mossy_slab"
-  }
+  },
+  "show_notification": true
 }

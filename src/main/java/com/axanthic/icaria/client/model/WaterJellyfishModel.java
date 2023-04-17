@@ -2,15 +2,12 @@ package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.common.util.IcariaMath;
 import com.axanthic.icaria.common.entity.JellyfishEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.HierarchicalModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -18,8 +15,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class WaterJellyfishModel extends HierarchicalModel<JellyfishEntity> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "water_jellyfish"), "main");
-
     public ModelPart root;
     public ModelPart body;
     public ModelPart bell;

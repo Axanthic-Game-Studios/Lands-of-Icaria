@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "landsoficaria:fir_crafting_table"
-  }
+  },
+  "show_notification": true
 }

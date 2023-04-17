@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "landsoficaria:grainite"
-  }
+  },
+  "show_notification": true
 }

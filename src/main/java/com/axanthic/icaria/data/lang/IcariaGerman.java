@@ -320,6 +320,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get(), "Oliven-Baumwächterschädel");
 		this.add(IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), "Plantanen-Baumwächterschädel");
 		this.add(IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), "Pappel-Baumwächterschädel");
+		this.add(IcariaBlocks.REVENANT_SKULL.get(), "Wiedergängerschädel");
 		this.add(IcariaBlocks.SOW_SKULL.get(), "Krommyonischer Sauschädel");
 
 		this.add(IcariaBlocks.DIM_TORCH.get(), "Schwache Fackel");
@@ -653,13 +654,20 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.MYRMEKE_DRONE.get(), "Ameisendrohne");
 		this.add(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), "Ameisensoldat");
 		this.add(IcariaEntityTypes.MYRMEKE_QUEEN.get(), "Ameisenkönigin");
+		this.add(IcariaEntityTypes.CAPTAIN_REVENANT.get(), "Kommandanten-Wiedergänger");
+		this.add(IcariaEntityTypes.CIVILIAN_REVENANT.get(), "Zivilisten-Wiedergänger");
+		this.add(IcariaEntityTypes.CRAWLER_REVENANT.get(), "Kriechender Wiedergänger");
+		this.add(IcariaEntityTypes.OVERGROWN_REVENANT.get(), "Bewachsener Wiedergänger");
+		this.add(IcariaEntityTypes.PYROMANCER_REVENANT.get(), "Pyromanen-Wiedergänger");
+		this.add(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), "Netherpyromanen-Wiedergänger");
+		this.add(IcariaEntityTypes.SOLDIER_REVENANT.get(), "Soldaten-Wiedergänger");
 		this.add(IcariaEntityTypes.CRYSTAL_SLUG.get(), "Kristall-Nacktschnecke");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Wald Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
 		this.add(IcariaEntityTypes.SOW.get(), "Krommyonische Sau");
 
 		// FLUIDS
-		this.add("fluid." + IcariaInfo.MODID + ".mediterranean_water", "Mediterranes Wasser");
+		this.add("fluid." + IcariaInfo.ID + ".mediterranean_water", "Mediterranes Wasser");
 
 		// ITEMS
 		this.add(IcariaItems.BONE_REMAINS.get(), "Knochenreste");
@@ -890,6 +898,13 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get(), "Ameisendrohnen-Spawn-Ei");
 		this.add(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get(), "Ameisensoldat-Spawn-Ei");
 		this.add(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get(), "Ameisenkönigin-Spawn-Ei");
+		this.add(IcariaItems.CAPTAIN_REVENANT_SPAWN_EGG.get(), "Kommandanten-Wiedergänger-Spawn-Ei");
+		this.add(IcariaItems.CIVILIAN_REVENANT_SPAWN_EGG.get(), "Zivilisten-Wiedergänger-Spawn-Ei");
+		this.add(IcariaItems.CRAWLER_REVENANT_SPAWN_EGG.get(), "Kriechender-Wiedergänger-Spawn-Ei");
+		this.add(IcariaItems.OVERGROWN_REVENANT_SPAWN_EGG.get(), "Bewachsener-Wiedergänger-Spawn-Ei");
+		this.add(IcariaItems.PYROMANCER_REVENANT_SPAWN_EGG.get(), "Pyromanen-Wiedergänger-Spawn-Ei");
+		this.add(IcariaItems.NETHER_PYROMANCER_REVENANT_SPAWN_EGG.get(), "Netherpyromanen-Wiedergänger-Spawn-Ei");
+		this.add(IcariaItems.SOLDIER_REVENANT_SPAWN_EGG.get(), "Soldaten-Wiedergänger-Spawn-Ei");
 		this.add(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), "Kristall-Nacktschnecken-Spawn-Ei");
 		this.add(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), "Wald Snull Spawn Egg");
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn-Ei");
@@ -898,12 +913,12 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Eimer mit mediterranem Wasser");
 
 		// ITEM GROUPS
-		this.add("itemgroup." + IcariaInfo.MODID + ".blocks", "Lands of Icaria Blöcke");
-		this.add("itemgroup." + IcariaInfo.MODID + ".flora", "Lands of Icaria Flora");
-		this.add("itemgroup." + IcariaInfo.MODID + ".items", "Lands of Icaria Gegenstände");
+		this.add("itemgroup." + IcariaInfo.ID + ".blocks", "Lands of Icaria Blöcke");
+		this.add("itemgroup." + IcariaInfo.ID + ".flora", "Lands of Icaria Flora");
+		this.add("itemgroup." + IcariaInfo.ID + ".items", "Lands of Icaria Gegenstände");
 
 		// MENU TYPES
-		this.add("menu." + IcariaInfo.MODID + ".grinder", "Mühle");
-		this.add("menu." + IcariaInfo.MODID + ".storage_vase", "Speichervase");
+		this.add("menu." + IcariaInfo.ID + ".grinder", "Mühle");
+		this.add("menu." + IcariaInfo.ID + ".storage_vase", "Speichervase");
 	}
 }

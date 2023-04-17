@@ -85,7 +85,6 @@ public class ArganHoundEntity extends Monster {
     public void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.25F));
-        // TODO: this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, RevenantPyromancerEntity.class, 10.0F, 1.0D, 2.0D));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
@@ -94,11 +93,11 @@ public class ArganHoundEntity extends Monster {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, CerverEntity.class, true, true));
-        // TODO: this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, RevenantCaptainEntity.class, true, true));
-        // TODO: this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, RevenantCivilianEntity.class, true, true));
-        // TODO: this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, RevenantCrawlerEntity.class, true, true));
-        // TODO: this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, RevenantOvergrownEntity.class, true, true));
-        // TODO: this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, RevenantSoldierEntity.class, true, true));
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, CaptainRevenantEntity.class, true, true));
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, CivilianRevenantEntity.class, true, true));
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, CrawlerRevenantEntity.class, true, true));
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, OvergrownRevenantEntity.class, true, true));
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, SoldierRevenantEntity.class, true, true));
     }
 
     public static AttributeSupplier.Builder registerAttributes() {

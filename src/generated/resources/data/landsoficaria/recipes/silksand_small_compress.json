@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "landsoficaria:silkstone"
-  }
+  },
+  "show_notification": true
 }

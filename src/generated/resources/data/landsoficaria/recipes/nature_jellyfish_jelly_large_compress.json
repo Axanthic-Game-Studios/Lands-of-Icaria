@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "landsoficaria:nature_jellyfish_jelly_block"
-  }
+  },
+  "show_notification": true
 }

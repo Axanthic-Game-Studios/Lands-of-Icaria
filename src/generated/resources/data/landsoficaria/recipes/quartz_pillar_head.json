@@ -16,5 +16,6 @@
   "result": {
     "count": 2,
     "item": "landsoficaria:quartz_pillar_head"
-  }
+  },
+  "show_notification": true
 }

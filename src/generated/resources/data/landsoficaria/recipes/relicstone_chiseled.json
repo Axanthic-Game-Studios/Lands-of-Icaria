@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "landsoficaria:relicstone_chiseled"
-  }
+  },
+  "show_notification": true
 }

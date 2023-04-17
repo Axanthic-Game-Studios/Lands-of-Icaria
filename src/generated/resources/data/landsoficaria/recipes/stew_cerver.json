@@ -21,5 +21,6 @@
   ],
   "result": {
     "item": "landsoficaria:stew_cerver"
-  }
+  },
+  "show_notification": true
 }

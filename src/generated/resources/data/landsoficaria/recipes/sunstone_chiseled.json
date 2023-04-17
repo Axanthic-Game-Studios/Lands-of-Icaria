@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "landsoficaria:sunstone_chiseled"
-  }
+  },
+  "show_notification": true
 }

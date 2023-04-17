@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "landsoficaria:orichalcum_block"
-  }
+  },
+  "show_notification": true
 }

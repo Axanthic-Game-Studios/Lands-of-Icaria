@@ -14,5 +14,6 @@
   "result": {
     "count": 6,
     "item": "landsoficaria:cypress_ladder"
-  }
+  },
+  "show_notification": true
 }

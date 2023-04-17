@@ -71,6 +71,11 @@ public class HyliasterEntity extends Monster {
     }
 
     @Override
+    public boolean isPushable() {
+        return false;
+    }
+
+    @Override
     public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
         return false;
     }
@@ -189,14 +194,8 @@ public class HyliasterEntity extends Monster {
                         float zOffset = ((float) (l / 2) - 0.5F) * size * 0.25F;
                         HyliasterEntity entity = IcariaEntityTypes.HYLIASTER.get().create(this.level);
                         if (entity != null) {
-                            if (this.isPersistenceRequired()) {
-                                entity.setPersistenceRequired();
-                            }
-
                             entity.moveTo(this.getX() + xOffset, this.getY() + 0.5D, this.getZ() + zOffset, this.random.nextFloat() * 360.0F, 0.0F);
                             entity.setCustomName(this.getCustomName());
-                            entity.setInvulnerable(this.isInvulnerable());
-                            entity.setNoAi(this.isNoAi());
                             entity.setSize(this.minSize);
                             this.level.addFreshEntity(entity);
                         }

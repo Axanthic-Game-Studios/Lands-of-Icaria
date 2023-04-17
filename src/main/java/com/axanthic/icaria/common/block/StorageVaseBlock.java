@@ -109,7 +109,7 @@ public class StorageVaseBlock extends Block implements EntityBlock, SimpleWaterl
 				MenuProvider menuProvider = new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return Component.translatable("menu." + IcariaInfo.MODID + ".storage_vase");
+						return Component.translatable("menu." + IcariaInfo.ID + ".storage_vase");
 					}
 
 					@Override

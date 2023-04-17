@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[41,)"
+loaderVersion="[45,)"
 license="Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License, GNU General Public License"
 [[mods]]
 modId="landsoficaria"
@@ -12,13 +12,13 @@ description='''A new floating dimension inspired by greek mythology.'''
 [[dependencies.landsoficaria]]
     modId="forge"
     mandatory=true
-    versionRange="[41,)"
+    versionRange="[45,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.landsoficaria]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19,)"
+    versionRange="[1.19.4,)"
     ordering="NONE"
     side="BOTH"

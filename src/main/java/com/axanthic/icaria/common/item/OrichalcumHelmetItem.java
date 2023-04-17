@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.client.model.OrichalcumHelmetModel;
+import com.axanthic.icaria.client.registry.IcariaLayerLocations;
 import com.axanthic.icaria.common.util.IcariaArmorMaterials;
 
 import net.minecraft.client.Minecraft;
@@ -22,8 +23,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class OrichalcumHelmetItem extends ArmorItem {
-    public OrichalcumHelmetItem(IcariaArmorMaterials pMaterial, EquipmentSlot pSlot, Properties pProperties) {
-        super(pMaterial, pSlot, pProperties);
+    public OrichalcumHelmetItem(IcariaArmorMaterials pMaterial, ArmorItem.Type pType, Properties pProperties) {
+        super(pMaterial, pType, pProperties);
     }
 
     @Override
@@ -34,7 +35,7 @@ public class OrichalcumHelmetItem extends ArmorItem {
     public static class Rendering implements IClientItemExtensions {
         public static final Rendering INSTANCE = new OrichalcumHelmetItem.Rendering();
 
-        public NonNullLazy<OrichalcumHelmetModel<LivingEntity>> helmet = NonNullLazy.of(() -> new OrichalcumHelmetModel<>(getModel().bakeLayer(OrichalcumHelmetModel.LAYER_LOCATION)));
+        public NonNullLazy<OrichalcumHelmetModel<LivingEntity>> helmet = NonNullLazy.of(() -> new OrichalcumHelmetModel<>(getModel().bakeLayer(IcariaLayerLocations.ORICHALCUM_HELMET)));
 
         public Rendering() {
 

@@ -2623,9 +2623,9 @@
 			"name": "HURT",
 			"loop": "once",
 			"override": false,
-			"length": 1,
+			"length": 0.5,
 			"snapping": 24,
-			"selected": false,
+			"selected": true,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
@@ -2664,7 +2664,7 @@
 								}
 							],
 							"uuid": "150ec9d3-913f-9352-e9e4-b3c1d65b3f05",
-							"time": 0.5,
+							"time": 0.25,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -2683,7 +2683,7 @@
 								}
 							],
 							"uuid": "978a3127-a1e1-b559-810f-6beaff18b3aa",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -2721,7 +2721,7 @@
 								}
 							],
 							"uuid": "68fa71ce-4261-bb3e-d222-3a606ffc1303",
-							"time": 0.5,
+							"time": 0.25,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -2740,7 +2740,7 @@
 								}
 							],
 							"uuid": "0800c738-e444-542e-c363-90d30427209e",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -2784,7 +2784,7 @@
 								}
 							],
 							"uuid": "d36bf2b3-ec51-f89f-1983-e81dbe254a7b",
-							"time": 0.41667,
+							"time": 0.25,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -2803,7 +2803,7 @@
 								}
 							],
 							"uuid": "0542ce25-d821-0551-3976-d8c49662a8ce",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -2841,7 +2841,7 @@
 								}
 							],
 							"uuid": "ff7162f5-ae8c-ad47-bf44-69f7a3589ec9",
-							"time": 0.41667,
+							"time": 0.25,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -2860,7 +2860,7 @@
 								}
 							],
 							"uuid": "d304be0d-9ab0-d563-3afb-6efe96cef1c7",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -2904,7 +2904,7 @@
 								}
 							],
 							"uuid": "3a975064-0e28-13d2-d860-dbc88ab20fb3",
-							"time": 0.33333,
+							"time": 0.16667,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -2923,7 +2923,7 @@
 								}
 							],
 							"uuid": "342720f1-7138-4992-a498-6232014d6d8f",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -2961,7 +2961,7 @@
 								}
 							],
 							"uuid": "83513b3c-bcdf-101f-5ed8-d800bbbeb512",
-							"time": 0.33333,
+							"time": 0.16667,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -2980,7 +2980,7 @@
 								}
 							],
 							"uuid": "a3cdda00-25a6-c1b0-b70e-5df33b312770",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -3024,7 +3024,7 @@
 								}
 							],
 							"uuid": "c5a57c3f-be6b-8d67-af77-89d5399202a3",
-							"time": 0.25,
+							"time": 0.16667,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -3043,7 +3043,7 @@
 								}
 							],
 							"uuid": "0414677a-5cf0-d6d6-2d23-3055c2a65fb5",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -3081,7 +3081,7 @@
 								}
 							],
 							"uuid": "8dbcbc88-9746-bb0c-e1e2-0fe23a104d87",
-							"time": 0.25,
+							"time": 0.16667,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -3100,7 +3100,7 @@
 								}
 							],
 							"uuid": "7cf5b844-e08e-6963-3b95-f8ea06ac3813",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -3163,7 +3163,7 @@
 								}
 							],
 							"uuid": "592ded9a-01ab-6b65-c4a9-4daa6e9beba1",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -3222,7 +3222,7 @@
 								}
 							],
 							"uuid": "d7361f9e-b9d5-b212-b6cc-6beab62b385a",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"uniform": true,
 							"interpolation": "catmullrom",
@@ -3267,7 +3267,7 @@
 								}
 							],
 							"uuid": "8471bb52-d802-e2cf-d4bd-3233f2d06640",
-							"time": 0.16667,
+							"time": 0.08333,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -3286,7 +3286,7 @@
 								}
 							],
 							"uuid": "d2b5750e-4b6c-84a3-723f-454d24421ffe",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -3325,7 +3325,7 @@
 								}
 							],
 							"uuid": "bc1b12f6-0270-06b9-faeb-91649bcfbb56",
-							"time": 0.16667,
+							"time": 0.08333,
 							"color": -1,
 							"uniform": true,
 							"interpolation": "catmullrom",
@@ -3345,7 +3345,7 @@
 								}
 							],
 							"uuid": "1afb2f2f-c719-0f88-3cef-f54362b54821",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"uniform": true,
 							"interpolation": "catmullrom",
@@ -3390,7 +3390,7 @@
 								}
 							],
 							"uuid": "6040e1eb-ef11-554d-7fea-1a130832830d",
-							"time": 0.33333,
+							"time": 0.25,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -3409,7 +3409,7 @@
 								}
 							],
 							"uuid": "fe4adc68-ed2f-49c5-49cf-c5503887dead",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -3472,7 +3472,7 @@
 								}
 							],
 							"uuid": "9213051f-982b-6b82-72f5-41b3374704ca",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -4588,7 +4588,7 @@
 			"override": false,
 			"length": 4,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",

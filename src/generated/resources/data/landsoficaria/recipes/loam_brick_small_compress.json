@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "landsoficaria:loam_bricks"
-  }
+  },
+  "show_notification": true
 }

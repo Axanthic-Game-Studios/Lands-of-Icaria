@@ -1,9 +1,10 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaResourceLocations;
 import com.axanthic.icaria.client.layer.FireJellyfishEmissiveLayer;
 import com.axanthic.icaria.client.model.FireJellyfishModel;
 import com.axanthic.icaria.common.entity.JellyfishEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -24,10 +25,8 @@ public class FireJellyfishRenderer extends MobRenderer<JellyfishEntity, FireJell
     public float shdwMult = 0.25F;
     public float sizeMult = 0.25F;
 
-    public static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/fire_jellyfish.png");
-
     public FireJellyfishRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new FireJellyfishModel(pContext.bakeLayer(FireJellyfishModel.LAYER_LOCATION)), 1.0F);
+        super(pContext, new FireJellyfishModel(pContext.bakeLayer(IcariaLayerLocations.FIRE_JELLYFISH)), 1.0F);
         this.addLayer(new FireJellyfishEmissiveLayer(this));
     }
 
@@ -39,12 +38,12 @@ public class FireJellyfishRenderer extends MobRenderer<JellyfishEntity, FireJell
     @Override
     public void render(JellyfishEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-        this.shadowRadius = pEntity.isBaby() ? pEntity.getScaleFromSize() * this.shdwMult : 2.0F * this.shdwMult;
+        this.shadowRadius = pEntity.isBaby() ? this.shdwMult * pEntity.getScaleFromSize() : this.shdwMult * 2.0F;
     }
 
     @Override
     public void scale(JellyfishEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        float size = pLivingEntity.getScaleFromSize() * this.sizeMult;
+        float size = this.sizeMult * pLivingEntity.getScaleFromSize();
         pMatrixStack.scale(size, size, size);
     }
 
@@ -63,6 +62,6 @@ public class FireJellyfishRenderer extends MobRenderer<JellyfishEntity, FireJell
 
     @Override
     public ResourceLocation getTextureLocation(JellyfishEntity pEntity) {
-        return RESOURCE_LOCATION;
+        return IcariaResourceLocations.FIRE_JELLYFISH;
     }
 }

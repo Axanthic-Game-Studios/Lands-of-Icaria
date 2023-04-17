@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "landsoficaria:aristone_packed"
-  }
+  },
+  "show_notification": true
 }

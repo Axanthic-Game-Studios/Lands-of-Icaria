@@ -12,7 +12,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -89,7 +88,7 @@ public class BidentEntity extends AbstractArrow {
 			damage += EnchantmentHelper.getDamageBonus(this.stack, livingEntity.getMobType());
 		}
 
-		if (target.hurt(DamageSource.trident(this, owner == null ? this : owner), damage)) {
+		if (target.hurt(this.damageSources().trident(this, owner == null ? this : owner), damage)) {
 			if (target.getType() == EntityType.ENDERMAN) {
 				return;
 			}

@@ -44,5 +44,6 @@
   ],
   "result": {
     "item": "landsoficaria:stew_sow"
-  }
+  },
+  "show_notification": true
 }

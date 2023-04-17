@@ -5,7 +5,6 @@ import com.axanthic.icaria.common.block.IcariaWallSignBlock;
 
 import com.google.common.collect.ImmutableMap;
 
-import com.mojang.blaze3d.platform.NativeImage;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -20,6 +19,7 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.resources.model.Material;
+import net.minecraft.util.FastColor;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -71,10 +71,10 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 
 	public int getDarkColor(SignBlockEntity pBlockEntity) {
 		int i = pBlockEntity.getColor().getTextColor();
-		int j = (int) (NativeImage.getR(i) * 0.4D);
-		int k = (int) (NativeImage.getG(i) * 0.4D);
-		int l = (int) (NativeImage.getB(i) * 0.4D);
-		return i == DyeColor.BLACK.getTextColor() && pBlockEntity.hasGlowingText() ? -988212 : NativeImage.combine(0, l, k, j);
+		int j = (int) (FastColor.ARGB32.red(i) * 0.4D);
+		int k = (int) (FastColor.ARGB32.green(i) * 0.4D);
+		int l = (int) (FastColor.ARGB32.blue(i) * 0.4D);
+		return i == DyeColor.BLACK.getTextColor() && pBlockEntity.hasGlowingText() ? -988212 : FastColor.ARGB32.color(0, j, k, l);
 	}
 
 	@Override
@@ -153,7 +153,7 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 			if (flag) {
 				this.font.drawInBatch8xOutline(formattedCharSequence, f4, (m * 10 - 20), j, i, pPoseStack.last().pose(), pBufferSource, k);
 			} else {
-				this.font.drawInBatch(formattedCharSequence, f4, (m * 10 - 20), j, false, pPoseStack.last().pose(), pBufferSource, false, 0, k);
+				this.font.drawInBatch(formattedCharSequence, f4, (m * 10 - 20), j, false, pPoseStack.last().pose(), pBufferSource, Font.DisplayMode.NORMAL, 0, k);
 			}
 		}
 

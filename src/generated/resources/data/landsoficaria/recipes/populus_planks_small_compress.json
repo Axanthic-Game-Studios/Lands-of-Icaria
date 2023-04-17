@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "landsoficaria:populus_crafting_table"
-  }
+  },
+  "show_notification": true
 }

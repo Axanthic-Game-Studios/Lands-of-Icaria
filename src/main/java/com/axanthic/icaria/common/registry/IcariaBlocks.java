@@ -29,7 +29,7 @@ import java.util.function.Supplier;
 @MethodsReturnNonnullByDefault
 
 public class IcariaBlocks {
-	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, IcariaInfo.MODID);
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, IcariaInfo.ID);
 
 	public static final List<RegistryObject<? extends Block>> BASIC_BLOCKS = new ArrayList<>();
 
@@ -272,6 +272,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> PLANE_FOREST_HAG_WALL_SKULL = register("plane_forest_hag_wall_skull", () -> new IcariaWallSkullBlock(0.06F, IcariaSkullBlockTypes.PLANE_FOREST_HAG, propertiesSkull()));
 	public static final RegistryObject<Block> POPULUS_FOREST_HAG_SKULL = register("populus_forest_hag_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.POPULUS_FOREST_HAG, propertiesSkull()));
 	public static final RegistryObject<Block> POPULUS_FOREST_HAG_WALL_SKULL = register("populus_forest_hag_wall_skull", () -> new IcariaWallSkullBlock(0.06F, IcariaSkullBlockTypes.POPULUS_FOREST_HAG, propertiesSkull()));
+	public static final RegistryObject<Block> REVENANT_SKULL = register("revenant_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.REVENANT, propertiesSkull()));
+	public static final RegistryObject<Block> REVENANT_WALL_SKULL = register("revenant_wall_skull", () -> new IcariaWallSkullBlock(0.0F, IcariaSkullBlockTypes.REVENANT, propertiesSkull()));
 	public static final RegistryObject<Block> SOW_SKULL = register("sow_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.SOW, propertiesSkull()));
 	public static final RegistryObject<Block> SOW_WALL_SKULL = register("sow_wall_skull", () -> new IcariaWallSkullBlock(0.0F, IcariaSkullBlockTypes.SOW, propertiesSkull()));
 
@@ -302,8 +304,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> CYPRESS_PLANKS = registerBasic("cypress_planks", () -> new Block(propertiesPlanks(MaterialColor.COLOR_BROWN)));
 	public static final WoodDecoBlocks CYPRESS_DECO = new WoodDecoBlocks("cypress", CYPRESS_PLANKS, propertiesPlanks(MaterialColor.COLOR_BROWN));
 	public static final RegistryObject<Block> CYPRESS_CRAFTING_TABLE = register("cypress_crafting_table", () -> new IcariaCraftingTableBlock(propertiesCraftingTable(MaterialColor.COLOR_BROWN)));
-	public static final RegistryObject<DoorBlock> CYPRESS_DOOR = register("cypress_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
-	public static final RegistryObject<TrapDoorBlock> CYPRESS_TRAPDOOR = register("cypress_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
+	public static final RegistryObject<DoorBlock> CYPRESS_DOOR = register("cypress_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), IcariaBlockSetTypes.CYPRESS));
+	public static final RegistryObject<TrapDoorBlock> CYPRESS_TRAPDOOR = register("cypress_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), IcariaBlockSetTypes.CYPRESS));
 	public static final RegistryObject<Block> CYPRESS_LADDER = register("cypress_ladder", () -> new LadderBlock(propertiesLadder()));
 	public static final RegistryObject<Block> CYPRESS_SIGN = register("cypress_sign", () -> new IcariaStandingSignBlock(propertiesSign(MaterialColor.COLOR_ORANGE), IcariaWoodTypes.CYPRESS));
 	public static final RegistryObject<Block> CYPRESS_WALL_SIGN = register("cypress_wall_sign", () -> new IcariaWallSignBlock(propertiesSign(MaterialColor.COLOR_ORANGE), IcariaWoodTypes.CYPRESS));
@@ -322,8 +324,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> DROUGHTROOT_PLANKS = registerBasic("droughtroot_planks", () -> new Block(propertiesPlanks(MaterialColor.COLOR_GRAY)));
 	public static final WoodDecoBlocks DROUGHTROOT_DECO = new WoodDecoBlocks("droughtroot", DROUGHTROOT_PLANKS, propertiesPlanks(MaterialColor.COLOR_GRAY));
 	public static final RegistryObject<Block> DROUGHTROOT_CRAFTING_TABLE = register("droughtroot_crafting_table", () -> new IcariaCraftingTableBlock(propertiesCraftingTable(MaterialColor.COLOR_GRAY)));
-	public static final RegistryObject<DoorBlock> DROUGHTROOT_DOOR = register("droughtroot_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_GRAY), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
-	public static final RegistryObject<TrapDoorBlock> DROUGHTROOT_TRAPDOOR = register("droughtroot_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_GRAY), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
+	public static final RegistryObject<DoorBlock> DROUGHTROOT_DOOR = register("droughtroot_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_GRAY), IcariaBlockSetTypes.DROUGHTROOT));
+	public static final RegistryObject<TrapDoorBlock> DROUGHTROOT_TRAPDOOR = register("droughtroot_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_GRAY), IcariaBlockSetTypes.DROUGHTROOT));
 	public static final RegistryObject<Block> DROUGHTROOT_LADDER = register("droughtroot_ladder", () -> new LadderBlock(propertiesLadder()));
 	public static final RegistryObject<Block> DROUGHTROOT_SIGN = register("droughtroot_sign", () -> new IcariaStandingSignBlock(propertiesSign(MaterialColor.COLOR_GRAY), IcariaWoodTypes.DROUGHTROOT));
 	public static final RegistryObject<Block> DROUGHTROOT_WALL_SIGN = register("droughtroot_wall_sign", () -> new IcariaWallSignBlock(propertiesSign(MaterialColor.COLOR_GRAY), IcariaWoodTypes.DROUGHTROOT));
@@ -342,8 +344,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> FIR_PLANKS = registerBasic("fir_planks", () -> new Block(propertiesPlanks(MaterialColor.COLOR_ORANGE)));
 	public static final WoodDecoBlocks FIR_DECO = new WoodDecoBlocks("fir", FIR_PLANKS, propertiesPlanks(MaterialColor.COLOR_ORANGE));
 	public static final RegistryObject<Block> FIR_CRAFTING_TABLE = register("fir_crafting_table", () -> new IcariaCraftingTableBlock(propertiesCraftingTable(MaterialColor.COLOR_ORANGE)));
-	public static final RegistryObject<DoorBlock> FIR_DOOR = register("fir_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
-	public static final RegistryObject<TrapDoorBlock> FIR_TRAPDOOR = register("fir_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
+	public static final RegistryObject<DoorBlock> FIR_DOOR = register("fir_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), IcariaBlockSetTypes.FIR));
+	public static final RegistryObject<TrapDoorBlock> FIR_TRAPDOOR = register("fir_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), IcariaBlockSetTypes.FIR));
 	public static final RegistryObject<Block> FIR_LADDER = register("fir_ladder", () -> new LadderBlock(propertiesLadder()));
 	public static final RegistryObject<Block> FIR_SIGN = register("fir_sign", () -> new IcariaStandingSignBlock(propertiesSign(MaterialColor.COLOR_ORANGE), IcariaWoodTypes.FIR));
 	public static final RegistryObject<Block> FIR_WALL_SIGN = register("fir_wall_sign", () -> new IcariaWallSignBlock(propertiesSign(MaterialColor.COLOR_ORANGE), IcariaWoodTypes.FIR));
@@ -362,8 +364,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> LAUREL_PLANKS = registerBasic("laurel_planks", () -> new Block(propertiesPlanks(MaterialColor.COLOR_BROWN)));
 	public static final WoodDecoBlocks LAUREL_DECO = new WoodDecoBlocks("laurel", LAUREL_PLANKS, propertiesPlanks(MaterialColor.COLOR_BROWN));
 	public static final RegistryObject<Block> LAUREL_CRAFTING_TABLE = register("laurel_crafting_table", () -> new IcariaCraftingTableBlock(propertiesCraftingTable(MaterialColor.COLOR_BROWN)));
-	public static final RegistryObject<DoorBlock> LAUREL_DOOR = register("laurel_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_BROWN), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
-	public static final RegistryObject<TrapDoorBlock> LAUREL_TRAPDOOR = register("laurel_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_BROWN), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
+	public static final RegistryObject<DoorBlock> LAUREL_DOOR = register("laurel_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_BROWN), IcariaBlockSetTypes.LAUREL));
+	public static final RegistryObject<TrapDoorBlock> LAUREL_TRAPDOOR = register("laurel_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_BROWN), IcariaBlockSetTypes.LAUREL));
 	public static final RegistryObject<Block> LAUREL_LADDER = register("laurel_ladder", () -> new LadderBlock(propertiesLadder()));
 	public static final RegistryObject<Block> LAUREL_SIGN = register("laurel_sign", () -> new IcariaStandingSignBlock(propertiesSign(MaterialColor.COLOR_BROWN), IcariaWoodTypes.LAUREL));
 	public static final RegistryObject<Block> LAUREL_WALL_SIGN = register("laurel_wall_sign", () -> new IcariaWallSignBlock(propertiesSign(MaterialColor.COLOR_BROWN), IcariaWoodTypes.LAUREL));
@@ -384,8 +386,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> OLIVE_PLANKS = registerBasic("olive_planks", () -> new Block(propertiesPlanks(MaterialColor.COLOR_ORANGE)));
 	public static final WoodDecoBlocks OLIVE_DECO = new WoodDecoBlocks("olive", OLIVE_PLANKS, propertiesPlanks(MaterialColor.COLOR_ORANGE));
 	public static final RegistryObject<Block> OLIVE_CRAFTING_TABLE = register("olive_crafting_table", () -> new IcariaCraftingTableBlock(propertiesCraftingTable(MaterialColor.COLOR_ORANGE)));
-	public static final RegistryObject<DoorBlock> OLIVE_DOOR = register("olive_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
-	public static final RegistryObject<TrapDoorBlock> OLIVE_TRAPDOOR = register("olive_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
+	public static final RegistryObject<DoorBlock> OLIVE_DOOR = register("olive_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), IcariaBlockSetTypes.OLIVE));
+	public static final RegistryObject<TrapDoorBlock> OLIVE_TRAPDOOR = register("olive_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), IcariaBlockSetTypes.OLIVE));
 	public static final RegistryObject<Block> OLIVE_LADDER = register("olive_ladder", () -> new LadderBlock(propertiesLadder()));
 	public static final RegistryObject<Block> OLIVE_SIGN = register("olive_sign", () -> new IcariaStandingSignBlock(propertiesSign(MaterialColor.COLOR_ORANGE), IcariaWoodTypes.OLIVE));
 	public static final RegistryObject<Block> OLIVE_WALL_SIGN = register("olive_wall_sign", () -> new IcariaWallSignBlock(propertiesSign(MaterialColor.COLOR_ORANGE), IcariaWoodTypes.OLIVE));
@@ -404,8 +406,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> PLANE_PLANKS = registerBasic("plane_planks", () -> new Block(propertiesPlanks(MaterialColor.COLOR_BROWN)));
 	public static final WoodDecoBlocks PLANE_DECO = new WoodDecoBlocks("plane", PLANE_PLANKS, propertiesPlanks(MaterialColor.COLOR_BROWN));
 	public static final RegistryObject<Block> PLANE_CRAFTING_TABLE = register("plane_crafting_table", () -> new IcariaCraftingTableBlock(propertiesCraftingTable(MaterialColor.COLOR_BROWN)));
-	public static final RegistryObject<DoorBlock> PLANE_DOOR = register("plane_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
-	public static final RegistryObject<TrapDoorBlock> PLANE_TRAPDOOR = register("plane_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
+	public static final RegistryObject<DoorBlock> PLANE_DOOR = register("plane_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), IcariaBlockSetTypes.PLANE));
+	public static final RegistryObject<TrapDoorBlock> PLANE_TRAPDOOR = register("plane_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_ORANGE), IcariaBlockSetTypes.PLANE));
 	public static final RegistryObject<Block> PLANE_LADDER = register("plane_ladder", () -> new LadderBlock(propertiesLadder()));
 	public static final RegistryObject<Block> PLANE_SIGN = register("plane_sign", () -> new IcariaStandingSignBlock(propertiesSign(MaterialColor.COLOR_ORANGE), IcariaWoodTypes.PLANE));
 	public static final RegistryObject<Block> PLANE_WALL_SIGN = register("plane_wall_sign", () -> new IcariaWallSignBlock(propertiesSign(MaterialColor.COLOR_ORANGE), IcariaWoodTypes.PLANE));
@@ -424,8 +426,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> POPULUS_PLANKS = registerBasic("populus_planks", () -> new Block(propertiesPlanks(MaterialColor.COLOR_GREEN)));
 	public static final WoodDecoBlocks POPULUS_DECO = new WoodDecoBlocks("populus", POPULUS_PLANKS, propertiesPlanks(MaterialColor.COLOR_GREEN));
 	public static final RegistryObject<Block> POPULUS_CRAFTING_TABLE = register("populus_crafting_table", () -> new IcariaCraftingTableBlock(propertiesCraftingTable(MaterialColor.COLOR_GREEN)));
-	public static final RegistryObject<DoorBlock> POPULUS_DOOR = register("populus_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_YELLOW), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
-	public static final RegistryObject<TrapDoorBlock> POPULUS_TRAPDOOR = register("populus_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_YELLOW), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
+	public static final RegistryObject<DoorBlock> POPULUS_DOOR = register("populus_door", ()-> new DoorBlock(propertiesDoor(MaterialColor.COLOR_YELLOW), IcariaBlockSetTypes.POPULUS));
+	public static final RegistryObject<TrapDoorBlock> POPULUS_TRAPDOOR = register("populus_trapdoor", ()-> new TrapDoorBlock(propertiesDoor(MaterialColor.COLOR_YELLOW), IcariaBlockSetTypes.POPULUS));
 	public static final RegistryObject<Block> POPULUS_LADDER = register("populus_ladder", () -> new LadderBlock(propertiesLadder()));
 	public static final RegistryObject<Block> POPULUS_SIGN = register("populus_sign", () -> new IcariaStandingSignBlock(propertiesSign(MaterialColor.COLOR_GRAY), IcariaWoodTypes.POPULUS));
 	public static final RegistryObject<Block> POPULUS_WALL_SIGN = register("populus_wall_sign", () -> new IcariaWallSignBlock(propertiesSign(MaterialColor.COLOR_GRAY), IcariaWoodTypes.POPULUS));
@@ -609,7 +611,7 @@ public class IcariaBlocks {
 	}
 
 	public static Properties propertiesAristone() {
-		return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GREEN).sound(IcariaSounds.ARISTONE).strength(0.5F, 0.5F).friction(0.98F).noOcclusion();
+		return Properties.of(Material.STONE, MaterialColor.TERRACOTTA_LIGHT_GREEN).sound(IcariaSoundTypes.ARISTONE).strength(0.5F, 0.5F).friction(0.98F).noOcclusion();
 	}
 
 	public static Properties propertiesGeodeBlock(MaterialColor pColor) {
@@ -661,7 +663,7 @@ public class IcariaBlocks {
 	}
 
 	public static Properties propertiesStorageVase(MaterialColor pColor) {
-		return Properties.of(Material.STONE, pColor).sound(IcariaSounds.VASE).strength(1.3F, 1.3F).noOcclusion().requiresCorrectToolForDrops();
+		return Properties.of(Material.STONE, pColor).sound(IcariaSoundTypes.VASE).strength(1.3F, 1.3F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static Properties propertiesSkull() {

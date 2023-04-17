@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "landsoficaria:rotten_bones_block"
-  }
+  },
+  "show_notification": true
 }

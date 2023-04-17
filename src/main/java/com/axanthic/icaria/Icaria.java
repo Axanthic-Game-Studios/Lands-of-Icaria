@@ -30,7 +30,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @SuppressWarnings("unused")
 
-@Mod(IcariaInfo.MODID)
+@Mod(IcariaInfo.ID)
 public class Icaria {
 	public CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 

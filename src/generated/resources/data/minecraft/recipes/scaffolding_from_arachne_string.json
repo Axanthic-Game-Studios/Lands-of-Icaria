@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "minecraft:scaffolding"
-  }
+  },
+  "show_notification": true
 }

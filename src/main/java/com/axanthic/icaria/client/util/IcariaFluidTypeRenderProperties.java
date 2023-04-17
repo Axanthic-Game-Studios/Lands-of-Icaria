@@ -47,7 +47,7 @@ public class IcariaFluidTypeRenderProperties implements IClientFluidTypeExtensio
 
     @Override
     public void renderOverlay(Minecraft pMinecraft, PoseStack pPoseStack) {
-        BlockPos blockPos = new BlockPos(Objects.requireNonNull(pMinecraft.player).getX(), pMinecraft.player.getEyeY(), pMinecraft.player.getZ());
+        BlockPos blockPos = BlockPos.containing(Objects.requireNonNull(pMinecraft.player).getX(), pMinecraft.player.getEyeY(), pMinecraft.player.getZ());
         BufferBuilder bufferBuilder = Tesselator.getInstance().getBuilder();
         Matrix4f matrix4f = pPoseStack.last().pose();
         ResourceLocation resourceLocation = this.getRenderOverlayTexture(pMinecraft);
@@ -61,7 +61,6 @@ public class IcariaFluidTypeRenderProperties implements IClientFluidTypeExtensio
         }
 
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.enableTexture();
         RenderSystem.setShaderTexture(0, resourceLocation);
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();

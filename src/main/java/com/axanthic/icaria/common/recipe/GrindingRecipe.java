@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -58,13 +59,13 @@ public class GrindingRecipe implements Recipe<SimpleContainer> {
 	}
 
 	@Override
-	public ItemStack assemble(SimpleContainer pContainer) {
-		return this.result.copy();
+	public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pAccess) {
+		return ItemStack.EMPTY;
 	}
 
 	@Override
-	public ItemStack getResultItem() {
-		return this.result.copy();
+	public ItemStack getResultItem(RegistryAccess pAccess) {
+		return ItemStack.EMPTY;
 	}
 
 	@Override
@@ -118,7 +119,7 @@ public class GrindingRecipe implements Recipe<SimpleContainer> {
 		public void toNetwork(FriendlyByteBuf pBuffer, GrindingRecipe pRecipe) {
 			pBuffer.writeInt(pRecipe.burnTime);
 			pBuffer.writeInt(pRecipe.getIngredients().size());
-			pBuffer.writeItemStack(pRecipe.getResultItem(), false);
+			pBuffer.writeItemStack(pRecipe.result.copy(), false);
 			pRecipe.gear.toNetwork(pBuffer);
 			for (Ingredient ingredient : pRecipe.getIngredients()) {
 				ingredient.toNetwork(pBuffer);
@@ -130,7 +131,7 @@ public class GrindingRecipe implements Recipe<SimpleContainer> {
 		public static final Type INSTANCE = new Type();
 
 		public Type() {
-
+			// NOOP
 		}
 	}
 }

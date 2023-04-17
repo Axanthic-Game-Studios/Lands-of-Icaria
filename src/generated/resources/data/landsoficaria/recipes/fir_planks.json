@@ -24,5 +24,6 @@
   "result": {
     "count": 4,
     "item": "landsoficaria:fir_planks"
-  }
+  },
+  "show_notification": true
 }

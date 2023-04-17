@@ -15,5 +15,6 @@
   ],
   "result": {
     "item": "landsoficaria:orichalcum_dagger"
-  }
+  },
+  "show_notification": true
 }

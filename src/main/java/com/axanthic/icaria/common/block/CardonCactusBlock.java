@@ -6,7 +6,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -87,7 +86,7 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 
 	@Override
 	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-		pEntity.hurt(DamageSource.CACTUS, 1.0F);
+		pEntity.hurt(pLevel.damageSources().cactus(), 1.0F);
 	}
 
 	@Override
@@ -156,7 +155,7 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 
 	@Override
 	public BlockPathTypes getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
-		return BlockPathTypes.DAMAGE_CACTUS;
+		return BlockPathTypes.DAMAGE_OTHER;
 	}
 
 	@Override

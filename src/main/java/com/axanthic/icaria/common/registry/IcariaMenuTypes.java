@@ -12,7 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class IcariaMenuTypes {
-	public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.MENU_TYPES, IcariaInfo.MODID);
+	public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.MENU_TYPES, IcariaInfo.ID);
 
 	public static final RegistryObject<MenuType<GrinderMenu>> GRINDER = MENU_TYPES.register("grinder", () -> IForgeMenuType.create((pId, pInventory, pBuffer) -> new GrinderMenu(pId, pBuffer.readBlockPos(), pInventory, pInventory.player)));
 	public static final RegistryObject<MenuType<StorageVaseMenu>> STORAGE_VASE = MENU_TYPES.register("storage_vase", () -> IForgeMenuType.create(((pId, pInventory, pBuffer) -> new StorageVaseMenu(pId, pBuffer.readBlockPos(), pInventory, pInventory.player))));

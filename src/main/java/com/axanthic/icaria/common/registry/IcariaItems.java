@@ -10,7 +10,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.FoodProperties.Builder;
 import net.minecraft.world.item.*;
@@ -33,7 +32,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaItems {
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, IcariaInfo.MODID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, IcariaInfo.ID);
 
 	public static final List<RegistryObject<? extends Item>> BASIC_ITEMS = new ArrayList<>();
 	public static final List<StoneDecoItemBlocks> STONE_DECO = new ArrayList<>();
@@ -269,6 +268,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> OLIVE_FOREST_HAG_SKULL = register("olive_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get(), new Properties(), Direction.DOWN));
 	public static final RegistryObject<Item> PLANE_FOREST_HAG_SKULL = register("plane_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_WALL_SKULL.get(), new Properties(), Direction.DOWN));
 	public static final RegistryObject<Item> POPULUS_FOREST_HAG_SKULL = register("populus_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get(), new Properties(), Direction.DOWN));
+	public static final RegistryObject<Item> REVENANT_SKULL = register("revenant_skull", () -> new IcariaSkullItem(IcariaBlocks.REVENANT_SKULL.get(), IcariaBlocks.REVENANT_WALL_SKULL.get(), new Properties(), Direction.DOWN));
 	public static final RegistryObject<Item> SOW_SKULL = register("sow_skull", () -> new IcariaSkullItem(IcariaBlocks.SOW_SKULL.get(), IcariaBlocks.SOW_WALL_SKULL.get(), new Properties(), Direction.DOWN));
 
 	public static final RegistryObject<Item> DIM_TORCH = registerBasic("dim_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.DIM_TORCH.get(), IcariaBlocks.DIM_WALL_TORCH.get(), new Properties(), Direction.DOWN));
@@ -570,12 +570,12 @@ public class IcariaItems {
 	public static final ArmorSet AETERNAE_HIDE_ARMOR = new ArmorSet(IcariaArmorMaterials.AETERNAE_HIDE);
 	public static final ArmorSet CHALKOS_ARMOR = new ArmorSet(IcariaArmorMaterials.CHALKOS);
 	public static final ArmorSet KASSITEROS_ARMOR = new ArmorSet(IcariaArmorMaterials.KASSITEROS);
-	public static final RegistryObject<Item> ORICHALCUM_HELMET = registerBasic("orichalcum_helmet", () -> new OrichalcumHelmetItem(IcariaArmorMaterials.ORICHALCUM, EquipmentSlot.HEAD, new Properties()));
-	public static final RegistryObject<Item> ORICHALCUM_CHESTPLATE = registerBasic("orichalcum_chestplate", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, EquipmentSlot.CHEST, new Properties()));
-	public static final RegistryObject<Item> ORICHALCUM_LEGGINGS = registerBasic("orichalcum_leggings", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, EquipmentSlot.LEGS, new Properties()));
-	public static final RegistryObject<Item> ORICHALCUM_BOOTS = registerBasic("orichalcum_boots", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, EquipmentSlot.FEET, new Properties()));
+	public static final RegistryObject<Item> ORICHALCUM_HELMET = registerBasic("orichalcum_helmet", () -> new OrichalcumHelmetItem(IcariaArmorMaterials.ORICHALCUM, ArmorItem.Type.HELMET, new Properties()));
+	public static final RegistryObject<Item> ORICHALCUM_CHESTPLATE = registerBasic("orichalcum_chestplate", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorItem.Type.CHESTPLATE, new Properties()));
+	public static final RegistryObject<Item> ORICHALCUM_LEGGINGS = registerBasic("orichalcum_leggings", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorItem.Type.LEGGINGS, new Properties()));
+	public static final RegistryObject<Item> ORICHALCUM_BOOTS = registerBasic("orichalcum_boots", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorItem.Type.BOOTS, new Properties()));
 	public static final ArmorSet VANADIUMSTEEL_ARMOR = new ArmorSet(IcariaArmorMaterials.VANADIUMSTEEL);
-	public static final RegistryObject<Item> LAUREL_WREATH = registerBasic("laurel_wreath", () -> new ArmorItem(IcariaArmorMaterials.LAUREL, EquipmentSlot.HEAD, new Properties()));
+	public static final RegistryObject<Item> LAUREL_WREATH = registerBasic("laurel_wreath", () -> new ArmorItem(IcariaArmorMaterials.LAUREL, ArmorItem.Type.HELMET, new Properties()));
 
 	public static final RegistryObject<Item> GREEK_FIRE_GRENADE = registerBasic("greek_fire_grenade", () -> new GreekFireGrenadeItem(new Properties().stacksTo(1)));
 
@@ -683,6 +683,13 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MYRMEKE_DRONE_SPAWN_EGG = register("myrmeke_drone_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.MYRMEKE_DRONE, 0x501814, 0x241E19, new Properties()));
 	public static final RegistryObject<Item> MYRMEKE_SOLDIER_SPAWN_EGG = register("myrmeke_soldier_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.MYRMEKE_SOLDIER, 0x501814, 0x402816, new Properties()));
 	public static final RegistryObject<Item> MYRMEKE_QUEEN_SPAWN_EGG = register("myrmeke_queen_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.MYRMEKE_QUEEN, 0x501814, 0xAB7E17, new Properties()));
+	public static final RegistryObject<Item> CAPTAIN_REVENANT_SPAWN_EGG = register("captain_revenant_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.CAPTAIN_REVENANT, 0xCFA919, 0x636363, new Properties()));
+	public static final RegistryObject<Item> CIVILIAN_REVENANT_SPAWN_EGG = register("civilian_revenant_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.CIVILIAN_REVENANT, 0x9C9C9C, 0x636363, new Properties()));
+	public static final RegistryObject<Item> CRAWLER_REVENANT_SPAWN_EGG = register("crawler_revenant_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.CRAWLER_REVENANT, 0x2D2D19, 0x636363, new Properties()));
+	public static final RegistryObject<Item> OVERGROWN_REVENANT_SPAWN_EGG = register("overgrown_revenant_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.OVERGROWN_REVENANT, 0x535C32, 0x636363, new Properties()));
+	public static final RegistryObject<Item> PYROMANCER_REVENANT_SPAWN_EGG = register("pyromancer_revenant_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.PYROMANCER_REVENANT, 0x3C5E26, 0x636363, new Properties()));
+	public static final RegistryObject<Item> NETHER_PYROMANCER_REVENANT_SPAWN_EGG = register("nether_pyromancer_revenant_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT, 0x5A2017, 0x636363, new Properties()));
+	public static final RegistryObject<Item> SOLDIER_REVENANT_SPAWN_EGG = register("soldier_revenant_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SOLDIER_REVENANT, 0x6C5757, 0x636363, new Properties()));
 	public static final RegistryObject<Item> CRYSTAL_SLUG_SPAWN_EGG = register("crystal_slug_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.CRYSTAL_SLUG, 0x24141A, 0x653D48, new Properties()));
 	public static final RegistryObject<Item> FOREST_SNULL_SPAWN_EGG = register("forest_snull_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.FOREST_SNULL, 0x291306, 0x53641E, new Properties()));
 	public static final RegistryObject<Item> SNULL_SPAWN_EGG = register("snull_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SNULL, 0x291306, 0x8D694F, new Properties()));
@@ -795,10 +802,10 @@ public class IcariaItems {
 
 		public ArmorSet(IcariaArmorMaterials pMaterial) {
 			String name = pMaterial.name;
-			this.helmet = register(name + "_helmet", () -> new ArmorItem(pMaterial, EquipmentSlot.HEAD, (new Properties())));
-			this.chestplate = register(name + "_chestplate", () -> new ArmorItem(pMaterial, EquipmentSlot.CHEST, (new Properties())));
-			this.leggings = register(name + "_leggings", () -> new ArmorItem(pMaterial, EquipmentSlot.LEGS, (new Properties())));
-			this.boots = register(name + "_boots", () -> new ArmorItem(pMaterial, EquipmentSlot.FEET, (new Properties())));
+			this.helmet = register(name + "_helmet", () -> new ArmorItem(pMaterial, ArmorItem.Type.HELMET, (new Properties())));
+			this.chestplate = register(name + "_chestplate", () -> new ArmorItem(pMaterial, ArmorItem.Type.CHESTPLATE, (new Properties())));
+			this.leggings = register(name + "_leggings", () -> new ArmorItem(pMaterial, ArmorItem.Type.LEGGINGS, (new Properties())));
+			this.boots = register(name + "_boots", () -> new ArmorItem(pMaterial, ArmorItem.Type.BOOTS, (new Properties())));
 			ARMOR.add(this);
 		}
 	}

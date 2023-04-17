@@ -3,18 +3,17 @@ package com.axanthic.icaria.common.proxy;
 import com.axanthic.icaria.common.entity.*;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.TotemItem;
-
 import com.axanthic.icaria.common.registry.*;
+
 import net.minecraft.stats.Stats;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.EntityDamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
-
 import net.minecraft.world.item.*;
+
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeMod;
@@ -36,11 +35,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class CommonProxy {
 	public CommonProxy() {
-
+		// NOOP
 	}
 
 	public void onCreativeModeTabRegistration(CreativeModeTabEvent.Register pEvent) {
-
+		// NOOP
 	}
 
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent pEvent) {
@@ -66,6 +65,13 @@ public class CommonProxy {
 		pEvent.put(IcariaEntityTypes.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.CAPTAIN_REVENANT.get(), CaptainRevenantEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.CIVILIAN_REVENANT.get(), CivilianRevenantEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.CRAWLER_REVENANT.get(), CrawlerRevenantEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.OVERGROWN_REVENANT.get(), OvergrownRevenantEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.PYROMANCER_REVENANT.get(), PyromancerRevenantEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), NetherPyromancerRevenantEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.SOLDIER_REVENANT.get(), SoldierRevenantEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.CRYSTAL_SLUG.get(), SlugEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.FOREST_SNULL.get(), SnullEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.SNULL.get(), SnullEntity.registerAttributes().build());
@@ -73,7 +79,7 @@ public class CommonProxy {
 	}
 
 	public void onFMLClientSetup(FMLClientSetupEvent pEvent) {
-
+		// NOOP
 	}
 
 	public void onFMLCommonSetup(FMLCommonSetupEvent pEvent) {
@@ -85,19 +91,19 @@ public class CommonProxy {
 	}
 
 	public void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {
-
+		// NOOP
 	}
 
 	public void onGatherData(GatherDataEvent pEvent) {
-
+		// NOOP
 	}
 
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions pEvent) {
-
+		// NOOP
 	}
 
 	public void onEntityAttributeModification(EntityAttributeModificationEvent pEvent) {
-		pEvent.add(EntityType.PLAYER, ForgeMod.ATTACK_RANGE.get());
+		pEvent.add(EntityType.PLAYER, ForgeMod.ENTITY_REACH.get());
 	}
 
 	public void onLivingAttack(LivingAttackEvent pEvent) {
@@ -184,19 +190,17 @@ public class CommonProxy {
 			}
 		}
 
-		if (source instanceof EntityDamageSource damageSource) {
-			Entity entitySource = damageSource.getEntity();
-			if (entitySource instanceof Player player) {
-				ItemStack mainHand = player.getMainHandItem();
-				ItemStack offHand = player.getOffhandItem();
-				TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-				if (mainHand.getItem() instanceof TieredItem || mainHand.getItem() instanceof TridentItem) {
-					if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
-						if (offHand.getItem().equals(totem)) {
-							player.awardStat(Stats.ITEM_USED.get(totem));
-							mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
-							offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
-						}
+		Entity entitySource = source.getEntity();
+		if (entitySource instanceof Player player) {
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
+			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+			if (mainHand.getItem() instanceof TieredItem || mainHand.getItem() instanceof TridentItem) {
+				if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
+					if (offHand.getItem().equals(totem)) {
+						player.awardStat(Stats.ITEM_USED.get(totem));
+						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
+						offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					}
 				}
 			}
@@ -250,12 +254,9 @@ public class CommonProxy {
 			}
 		}
 
-		if (source instanceof EntityDamageSource damageSource) {
-			Entity entitySource = damageSource.getEntity();
-			if (entitySource instanceof Player player) {
-				if (player.hasEffect(IcariaMobEffects.LIFESTEAL.get())) {
-					player.heal(damage);
-				}
+		if (entitySource instanceof Player player) {
+			if (player.hasEffect(IcariaMobEffects.LIFESTEAL.get())) {
+				player.heal(damage);
 			}
 		}
 	}
@@ -411,6 +412,6 @@ public class CommonProxy {
 	}
 
 	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> pEvent) {
-
+		// NOOP
 	}
 }

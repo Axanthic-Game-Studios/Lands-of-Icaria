@@ -37,6 +37,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class SnullEntity extends SizedPathfinderMobEntity {
     public int maxCooldown = 400;
     public int minCooldown = 0;
+    public int maxHide = 80;
+    public int minHide = 0;
+    public int maxShow = 80;
+    public int minShow = 0;
 
     public AnimationState hideAnimationState = new AnimationState();
     public AnimationState hurtAnimationState = new AnimationState();
@@ -46,18 +50,24 @@ public class SnullEntity extends SizedPathfinderMobEntity {
 
     public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(SnullEntity.class, EntityDataSerializers.BYTE);
     public static final EntityDataAccessor<Integer> COOLDOWN = SynchedEntityData.defineId(SnullEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> HIDE = SynchedEntityData.defineId(SnullEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> SHOW = SynchedEntityData.defineId(SnullEntity.class, EntityDataSerializers.INT);
 
     public SnullEntity(EntityType<? extends SnullEntity> pType, Level pLevel) {
         super(pType, pLevel, 0.25F, 0.125F, 0.25F);
     }
 
-    public boolean isClimbing() {
-        return (this.entityData.get(CLIMBING) & 1) != 0;
+    @Override
+    public boolean hurt(DamageSource pSource, float pAmount) {
+        if (this.getHealth() < 4.0F) {
+            this.setHide(this.maxHide);
+        }
+
+        return super.hurt(pSource, pAmount);
     }
 
-    @Override
-    public boolean onClimbable() {
-        return this.isClimbing();
+    public boolean isClimbing() {
+        return (this.entityData.get(CLIMBING) & 1) != 0;
     }
 
     public boolean isMovingOnLand() {
@@ -65,20 +75,29 @@ public class SnullEntity extends SizedPathfinderMobEntity {
     }
 
     @Override
-    public boolean hurt(DamageSource pSource, float pAmount) {
-        if (this.getHealth() < 4.0F) {
-            this.setCooldown(this.maxCooldown);
-        }
-
-        return super.hurt(pSource, pAmount);
+    public boolean isPushable() {
+        return false;
     }
 
-    public boolean onHurt() {
-        return this.getLastDamageSource() == DamageSource.GENERIC;
+    @Override
+    public boolean onClimbable() {
+        return this.isClimbing();
     }
 
     public boolean onCooldown() {
         return this.getCooldown() > this.minCooldown;
+    }
+
+    public boolean onHide() {
+        return this.getHide() > this.minHide;
+    }
+
+    public boolean onHurt() {
+        return this.hurtTime > 0;
+    }
+
+    public boolean onShow() {
+        return this.getShow() > this.minShow;
     }
 
     @Override
@@ -90,21 +109,45 @@ public class SnullEntity extends SizedPathfinderMobEntity {
         return this.entityData.get(COOLDOWN);
     }
 
+    public int getHide() {
+        return this.entityData.get(HIDE);
+    }
+
+    public int getShow() {
+        return this.entityData.get(SHOW);
+    }
+
     @Override
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
         pCompound.putInt("Cooldown", this.getCooldown());
+        pCompound.putInt("Hide", this.getHide());
+        pCompound.putInt("Show", this.getShow());
     }
 
     @Override
     public void aiStep() {
         super.aiStep();
-        if (this.isAlive()) {
+        if (this.onHide()) {
+            int hide = this.getHide();
+            if (hide > this.minHide) {
+                --hide;
+                this.setHide(hide);
+                this.setCooldown(this.maxCooldown);
+            }
+        } else if (this.onCooldown()) {
             int cooldown = this.getCooldown();
             if (cooldown > this.minCooldown) {
                 --cooldown;
                 this.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, cooldown, 3, false, false));
                 this.setCooldown(cooldown);
+                this.setShow(this.maxShow);
+            }
+        } else if (this.onShow()) {
+            int show = this.getShow();
+            if (show > this.minShow) {
+                --show;
+                this.setShow(show);
             }
         }
     }
@@ -114,6 +157,8 @@ public class SnullEntity extends SizedPathfinderMobEntity {
         super.defineSynchedData();
         this.entityData.define(CLIMBING, (byte) 0);
         this.entityData.define(COOLDOWN, this.minCooldown);
+        this.entityData.define(HIDE, this.minHide);
+        this.entityData.define(SHOW, this.minShow);
     }
 
     @Override
@@ -125,7 +170,7 @@ public class SnullEntity extends SizedPathfinderMobEntity {
                     if (creeper.canDropMobsSkull()) {
                         creeper.increaseDroppedSkulls();
                         if (this.getType() == IcariaEntityTypes.SNULL.get()) {
-                            this.spawnAtLocation(IcariaItems.SOW_SKULL.get()); // TODO: replace with revenant skull
+                            this.spawnAtLocation(IcariaItems.REVENANT_SKULL.get());
                         } else if (this.getType() == IcariaEntityTypes.FOREST_SNULL.get()) {
                             this.spawnAtLocation(IcariaItems.LAUREL_FOREST_HAG_SKULL.get());
                         }
@@ -139,6 +184,8 @@ public class SnullEntity extends SizedPathfinderMobEntity {
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         this.setCooldown(pCompound.getInt("Cooldown"));
+        this.setHide(pCompound.getInt("Hide"));
+        this.setShow(pCompound.getInt("Show"));
     }
 
     @Override
@@ -164,11 +211,29 @@ public class SnullEntity extends SizedPathfinderMobEntity {
         this.entityData.set(COOLDOWN, ticks);
     }
 
+    public void setHide(int pCooldown) {
+        int ticks = Mth.clamp(pCooldown, this.minHide, this.maxHide);
+        this.entityData.set(HIDE, ticks);
+    }
+
+    public void setShow(int pCooldown) {
+        int ticks = Mth.clamp(pCooldown, this.minShow, this.maxShow);
+        this.entityData.set(SHOW, ticks);
+    }
+
     @Override
     public void setSize(int pSize) {
         super.setSize(pSize);
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
         Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
+    }
+
+    public void stopMove() {
+        if (this.onHide() || this.onCooldown() || this.onShow()) {
+            Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue(0.0D);
+        } else {
+            Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue(0.125D);
+        }
     }
 
     @Override
@@ -187,7 +252,7 @@ public class SnullEntity extends SizedPathfinderMobEntity {
                 this.moveAnimationState.stop();
             }
 
-            if (this.onCooldown()) {
+            if (this.onHide() || this.onCooldown()) {
                 this.hideAnimationState.startIfStopped(this.tickCount);
                 this.showAnimationState.stop();
             } else {
@@ -202,7 +267,12 @@ public class SnullEntity extends SizedPathfinderMobEntity {
             }
         } else {
             this.setClimbing(this.horizontalCollision);
+            this.stopMove();
         }
+    }
+
+    public static AttributeSupplier.Builder registerAttributes() {
+        return Mob.createMobAttributes().add(Attributes.KNOCKBACK_RESISTANCE, 1.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.125D);
     }
 
     @Override
@@ -210,8 +280,8 @@ public class SnullEntity extends SizedPathfinderMobEntity {
         ItemStack itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() == IcariaItems.HALITE_DUST.get()) {
             if (!this.level.isClientSide) {
-                this.hurt(DamageSource.GENERIC, 1.0F);
-                this.setCooldown(this.maxCooldown);
+                this.hurt(this.damageSources().generic(), 1.0F);
+                this.setHide(this.maxHide);
                 if (!pPlayer.isCreative()) {
                     itemStack.shrink(1);
                 }
@@ -223,10 +293,6 @@ public class SnullEntity extends SizedPathfinderMobEntity {
         } else {
             return super.mobInteract(pPlayer, pHand);
         }
-    }
-
-    public static AttributeSupplier.Builder registerAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.125D);
     }
 
     @Override

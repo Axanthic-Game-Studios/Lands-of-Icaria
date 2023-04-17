@@ -1,8 +1,9 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaResourceLocations;
 import com.axanthic.icaria.client.model.CerverModel;
 import com.axanthic.icaria.common.entity.CerverEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -15,14 +16,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CerverRenderer extends MobRenderer<CerverEntity, CerverModel> {
-    public static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/cerver.png");
-
     public CerverRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new CerverModel(pContext.bakeLayer(CerverModel.LAYER_LOCATION)), 1.0F);
+        super(pContext, new CerverModel(pContext.bakeLayer(IcariaLayerLocations.CERVER)), 1.0F);
     }
 
     @Override
     public ResourceLocation getTextureLocation(CerverEntity pEntity) {
-        return RESOURCE_LOCATION;
+        return IcariaResourceLocations.CERVER;
     }
 }

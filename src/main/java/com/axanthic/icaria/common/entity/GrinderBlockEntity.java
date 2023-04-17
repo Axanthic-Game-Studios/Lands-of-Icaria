@@ -6,7 +6,7 @@ import com.axanthic.icaria.common.item.GearItem;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaSounds;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
@@ -115,7 +115,7 @@ public class GrinderBlockEntity extends BlockEntity {
 		boolean canOutput = false;
 		if (recipe.isPresent()) {
 			burnTime = recipe.get().getBurnTime();
-			canOutput = this.canOutput(outputs, recipe.get().getResultItem());
+			canOutput = this.canOutput(outputs, recipe.get().result.copy());
 		}
 
 		if (canOutput) {
@@ -143,7 +143,7 @@ public class GrinderBlockEntity extends BlockEntity {
 		if (this.level != null) {
 			recipe = this.level.getRecipeManager().getRecipeFor(GrindingRecipe.Type.INSTANCE, inputs, this.level);
 			if (recipe.isPresent()) {
-				output = recipe.get().getResultItem();
+				output = recipe.get().result.copy();
 			}
 
 			if (this.hasRecipe()) {
@@ -243,7 +243,7 @@ public class GrinderBlockEntity extends BlockEntity {
 			if (IcariaConfig.SOUND_GRINDER.get()) {
 				if (pBlockEntity.lastSound >= 6) {
 					pBlockEntity.lastSound = 0;
-					pLevel.playSound(null, pPos, IcariaSounds.GRINDER_GRIND, SoundSource.BLOCKS, IcariaConfig.SOUND_VOLUME_GRINDER.get().floatValue(), 1.0F);
+					pLevel.playSound(null, pPos, IcariaSoundEvents.GRINDER_GRIND, SoundSource.BLOCKS, IcariaConfig.SOUND_VOLUME_GRINDER.get().floatValue(), 1.0F);
 				} else {
 					pBlockEntity.lastSound++;
 				}

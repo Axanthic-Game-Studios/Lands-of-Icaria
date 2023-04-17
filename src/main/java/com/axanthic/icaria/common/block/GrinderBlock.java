@@ -134,7 +134,7 @@ public class GrinderBlock extends BaseEntityBlock implements SimpleWaterloggedBl
 				MenuProvider menuProvider = new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return Component.translatable("menu." + IcariaInfo.MODID + ".grinder");
+						return Component.translatable("menu." + IcariaInfo.ID + ".grinder");
 					}
 
 					@Override

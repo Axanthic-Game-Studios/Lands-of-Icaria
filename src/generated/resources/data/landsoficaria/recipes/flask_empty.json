@@ -13,5 +13,6 @@
   "result": {
     "count": 3,
     "item": "landsoficaria:flask_empty"
-  }
+  },
+  "show_notification": true
 }

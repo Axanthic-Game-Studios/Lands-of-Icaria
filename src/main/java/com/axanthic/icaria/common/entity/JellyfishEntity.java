@@ -9,10 +9,10 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.IndirectEntityDamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -69,7 +69,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
         if (this.getType() == IcariaEntityTypes.ENDER_JELLYFISH.get()) {
             if (this.isInvulnerableTo(pSource)) {
                 return false;
-            } else if (pSource instanceof IndirectEntityDamageSource) {
+            } else if (pSource.is(DamageTypeTags.IS_PROJECTILE)) {
                 boolean flag;
                 Entity entity = pSource.getDirectEntity();
                 if (entity instanceof ThrownPotion) {
@@ -226,7 +226,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
     @Override
     public void playerTouch(Player pPlayer) {
         if (pPlayer instanceof ServerPlayer) {
-            pPlayer.hurt(DamageSource.mobAttack(this), this.getSize());
+            pPlayer.hurt(this.damageSources().mobAttack(this), this.getSize());
             if (!pPlayer.isCreative()) {
                 if (this.getType() == IcariaEntityTypes.ENDER_JELLYFISH.get()) {
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, this.getSize() * 100, 0), this);
@@ -246,7 +246,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
     @Override
     public void registerGoals() {
         this.goalSelector.addGoal(1, new JellyfishRandomMovementGoal(this));
-        this.goalSelector.addGoal(2, new JellyfishFleeGoal());
+        this.goalSelector.addGoal(2, new JellyfishFleeGoal(this));
     }
 
     public void setMovementVector(float pTx, float pTy, float pTz) {
@@ -319,14 +319,20 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
         }
     }
 
-    public class JellyfishFleeGoal extends Goal {
+    public static class JellyfishFleeGoal extends Goal {
         public int fleeTicks;
+
+        public JellyfishEntity entity;
+
+        public JellyfishFleeGoal(JellyfishEntity pEntity) {
+            this.entity = pEntity;
+        }
 
         @Override
         public boolean canUse() {
-            LivingEntity livingEntity = JellyfishEntity.this.getLastHurtByMob();
+            LivingEntity livingEntity = this.entity.getLastHurtByMob();
             if (livingEntity != null) {
-                return JellyfishEntity.this.distanceToSqr(livingEntity) < 100.0D;
+                return this.entity.distanceToSqr(livingEntity) < 100.0D;
             } else {
                 return false;
             }
@@ -345,10 +351,10 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
         @Override
         public void tick() {
             ++this.fleeTicks;
-            LivingEntity livingEntity = JellyfishEntity.this.getLastHurtByMob();
+            LivingEntity livingEntity = this.entity.getLastHurtByMob();
             if (livingEntity != null) {
-                Vec3 vec3 = new Vec3(JellyfishEntity.this.getX() - livingEntity.getX(), JellyfishEntity.this.getY() - livingEntity.getY(), JellyfishEntity.this.getZ() - livingEntity.getZ());
-                BlockState blockState = JellyfishEntity.this.level.getBlockState(new BlockPos(JellyfishEntity.this.getX() + vec3.x, JellyfishEntity.this.getY() + vec3.y, JellyfishEntity.this.getZ() + vec3.z));
+                Vec3 vec3 = new Vec3(this.entity.getX() - livingEntity.getX(), this.entity.getY() - livingEntity.getY(), this.entity.getZ() - livingEntity.getZ());
+                BlockState blockState = this.entity.level.getBlockState(BlockPos.containing(this.entity.getX() + vec3.x, this.entity.getY() + vec3.y, this.entity.getZ() + vec3.z));
                 if (blockState.isAir()) {
                     double length = vec3.length();
                     if (length > 0.0D) {
@@ -363,11 +369,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
                         }
                     }
 
-                    JellyfishEntity.this.setMovementVector((float) vec3.x / 20.0F, (float) vec3.y / 20.0F, (float) vec3.z / 20.0F);
-                }
-
-                if (this.fleeTicks % 10 == 5) {
-                    JellyfishEntity.this.level.addParticle(ParticleTypes.BUBBLE, JellyfishEntity.this.getX(), JellyfishEntity.this.getY(), JellyfishEntity.this.getZ(), 0.0D, 0.0D, 0.0D);
+                    this.entity.setMovementVector((float) vec3.x / 20.0F, (float) vec3.y / 20.0F, (float) vec3.z / 20.0F);
                 }
             }
         }

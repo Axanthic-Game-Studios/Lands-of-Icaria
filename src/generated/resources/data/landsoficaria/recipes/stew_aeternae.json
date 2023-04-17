@@ -21,5 +21,6 @@
   ],
   "result": {
     "item": "landsoficaria:stew_aeternae"
-  }
+  },
+  "show_notification": true
 }

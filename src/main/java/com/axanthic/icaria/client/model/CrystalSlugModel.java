@@ -1,15 +1,15 @@
 package com.axanthic.icaria.client.model;
 
+import com.axanthic.icaria.client.registry.IcariaAnimations;
 import com.axanthic.icaria.common.entity.SlugEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
+
+import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.HierarchicalModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -18,14 +18,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CrystalSlugModel extends HierarchicalModel<SlugEntity> {
-    public float mult = 1.5F;
-
-    public static final ModelLayerLocation BODY_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "crystal_slug"), "body");
-    public static final ModelLayerLocation RAYS_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "crystal_slug"), "rays");
-
     public ModelPart root;
     public ModelPart bodyFront;
     public ModelPart neck;
+    public ModelPart neckCrystalCenter;
     public ModelPart head;
     public ModelPart feelerRight;
     public ModelPart feelerLeft;
@@ -38,6 +34,7 @@ public class CrystalSlugModel extends HierarchicalModel<SlugEntity> {
         this.root = pModelPart;
         this.bodyFront = this.root.getChild("bodyFront");
         this.neck = this.bodyFront.getChild("neck");
+        this.neckCrystalCenter = this.neck.getChild("neckCrystalCenter");
         this.head = this.neck.getChild("head");
         this.feelerRight = this.head.getChild("feelerRight");
         this.feelerLeft = this.head.getChild("feelerLeft");
@@ -49,18 +46,12 @@ public class CrystalSlugModel extends HierarchicalModel<SlugEntity> {
 
     @Override
     public void setupAnim(SlugEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        this.root().getAllParts().forEach(ModelPart::resetPose);
         this.idleAnim(pAgeInTicks);
-        this.moveAnim(pLimbSwing, pLimbSwingAmount);
-    }
-
-    public void moveAnim(float pLimbSwing, float pLimbSwingAmount) {
-        this.bodyFront.z = (Mth.sin(pLimbSwing * this.mult) * pLimbSwingAmount * 16.0F) - 12.0F;
-        this.bodyFront.xRot = (Mth.sin(pLimbSwing * this.mult) * pLimbSwingAmount * 0.5F) - 0.3927F;
-        this.head.xRot = (-Mth.sin(pLimbSwing * this.mult) * pLimbSwingAmount * 0.5F) - 0.3927F;
-        this.bodyCenter.zScale = (-Mth.sin(pLimbSwing * this.mult) * pLimbSwingAmount) + 1.0F;
-        this.bodyCenterCrystal.z = (Mth.sin(pLimbSwing * this.mult) * pLimbSwingAmount * 8.0F) + 2.0F;
-        this.bodyRear.zScale = (-Mth.sin(pLimbSwing * this.mult) * pLimbSwingAmount) + 1.0F;
-        this.bodyRearCrystal.z = (-Mth.sin(pLimbSwing * this.mult) * pLimbSwingAmount * 10.0F) + 10.0F;
+        this.animate(pEntity.hideAnimationState, IcariaAnimations.CRYSTAL_SLUG_HIDE, pAgeInTicks);
+        this.animate(pEntity.hurtAnimationState, IcariaAnimations.CRYSTAL_SLUG_HURT, pAgeInTicks);
+        this.animate(pEntity.moveAnimationState, IcariaAnimations.CRYSTAL_SLUG_MOVE, pAgeInTicks);
+        this.animate(pEntity.showAnimationState, IcariaAnimations.CRYSTAL_SLUG_SHOW, pAgeInTicks);
     }
 
     public void idleAnim(float pAgeInTicks) {
@@ -68,6 +59,20 @@ public class CrystalSlugModel extends HierarchicalModel<SlugEntity> {
         this.feelerRight.zRot = Mth.cos(pAgeInTicks * 0.075F + 2.0F) * 0.075F + 0.7854F;
         this.feelerLeft.xRot = -Mth.sin(pAgeInTicks * 0.05F + 3.0F) * 0.075F + 0.2618F;
         this.feelerLeft.zRot = -Mth.cos(pAgeInTicks * 0.075F + 4.0F) * 0.075F - 0.7854F;
+    }
+
+    public void translateToNeck(PoseStack pPoseStack) {
+        this.bodyFront.translateAndRotate(pPoseStack);
+        this.neck.translateAndRotate(pPoseStack);
+        this.neckCrystalCenter.translateAndRotate(pPoseStack);
+    }
+
+    public void translateToCenter(PoseStack pPoseStack) {
+        this.bodyCenterCrystal.translateAndRotate(pPoseStack);
+    }
+
+    public void translateToRear(PoseStack pPoseStack) {
+        this.bodyRearCrystal.translateAndRotate(pPoseStack);
     }
 
     public static LayerDefinition createLayer() {

@@ -53,6 +53,10 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
         this.dropItem(IcariaEntityTypes.MYRMEKE_DRONE.get(), IcariaItems.MYRMEKE_SCALES.get());
         this.dropItem(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), IcariaItems.MYRMEKE_SCALES.get());
         this.dropItem(IcariaEntityTypes.MYRMEKE_QUEEN.get(), IcariaItems.MYRMEKE_SCALES.get());
+        this.dropItem(IcariaEntityTypes.CAPTAIN_REVENANT.get(), Items.BONE);
+        this.dropItem(IcariaEntityTypes.CIVILIAN_REVENANT.get(), Items.BONE);
+        this.dropItem(IcariaEntityTypes.CRAWLER_REVENANT.get(), Items.BONE);
+        this.dropItem(IcariaEntityTypes.SOLDIER_REVENANT.get(), Items.BONE);
         this.dropItem(IcariaEntityTypes.FOREST_SNULL.get(), IcariaItems.SNULL_CREAM.get());
         this.dropItem(IcariaEntityTypes.SNULL.get(), IcariaItems.SNULL_CREAM.get());
 
@@ -64,6 +68,9 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
         this.dropMeat(IcariaEntityTypes.SOW.get(), IcariaItems.RAW_SOW_MEAT.get());
 
         this.dropItemPlusScnd(IcariaEntityTypes.ENDER_JELLYFISH.get(), IcariaItems.ENDER_JELLYFISH_JELLY.get(), Items.ENDER_PEARL);
+        this.dropItemPlusScnd(IcariaEntityTypes.OVERGROWN_REVENANT.get(), IcariaItems.CALCITE.get(), Items.BONE);
+        this.dropItemPlusScnd(IcariaEntityTypes.PYROMANCER_REVENANT.get(), IcariaItems.GREEK_FIRE_GRENADE.get(), Items.BONE);
+        this.dropItemPlusScnd(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), IcariaItems.GREEK_FIRE_GRENADE.get(), Items.BONE);
 
         this.dropItemPlusThrd(IcariaEntityTypes.CRYSTAL_SLUG.get(), IcariaItems.SNULL_CREAM.get(), IcariaItems.SLUG_SCALES.get(), IcariaItems.JASPER.get());
     }
@@ -94,6 +101,6 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
 
     @Override
     public Stream<EntityType<?>> getKnownEntityTypes() {
-        return ForgeRegistries.ENTITY_TYPES.getValues().stream().filter(pEntityType -> Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(pEntityType)).getNamespace().equals(IcariaInfo.MODID));
+        return ForgeRegistries.ENTITY_TYPES.getValues().stream().filter(pEntityType -> Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(pEntityType)).getNamespace().equals(IcariaInfo.ID));
     }
 }

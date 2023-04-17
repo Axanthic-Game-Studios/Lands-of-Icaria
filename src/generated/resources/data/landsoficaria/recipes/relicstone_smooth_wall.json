@@ -13,5 +13,6 @@
   "result": {
     "count": 6,
     "item": "landsoficaria:relicstone_smooth_wall"
-  }
+  },
+  "show_notification": true
 }

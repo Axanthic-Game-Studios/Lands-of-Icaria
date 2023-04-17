@@ -1,14 +1,14 @@
 package com.axanthic.icaria.client.screen;
 
+import com.axanthic.icaria.client.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.menu.GrinderMenu;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -16,8 +16,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
-	public static final ResourceLocation SCREEN = new ResourceLocation(IcariaInfo.MODID, "textures/screens/grinder.png");
-
 	public GrinderScreen(GrinderMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
 		super(pMenu, pPlayerInventory, pTitle);
 		this.imageHeight = 173;
@@ -33,10 +31,10 @@ public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
 
 	@Override
 	public void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
-		RenderSystem.setShaderTexture(0, SCREEN);
+		RenderSystem.setShaderTexture(0, IcariaResourceLocations.GRINDER);
 		int x = (this.width - this.imageWidth) / 2;
 		int y = (this.height - this.imageHeight) / 2;
-		this.blit(pPoseStack, x, y, 0, 0, this.imageWidth, this.imageHeight);
+		GuiComponent.blit(pPoseStack, x, y, 0, 0, this.imageWidth, this.imageHeight);
 		this.renderFuel(pPoseStack, x, y);
 		this.renderProgress(pPoseStack, x, y);
 	}
@@ -53,7 +51,7 @@ public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
 		int maxFuel = this.menu.getMaxFuel();
 		if (maxFuel != 0) {
 			int height = fuel * heightFuel / maxFuel;
-			this.blit(pPoseStack, pX + 85, pY + 20 + heightFuel - height, this.imageWidth, 17 + heightFuel - height, 4, height);
+			GuiComponent.blit(pPoseStack, pX + 85, pY + 20 + heightFuel - height, this.imageWidth, 17 + heightFuel - height, 4, height);
 		}
 	}
 
@@ -63,7 +61,7 @@ public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
 		int maxProgress = this.menu.getMaxProgress();
 		if (maxProgress != 0) {
 			int width = progress * widthProgress / maxProgress;
-			this.blit(pPoseStack, pX + 95, pY + 21, this.imageWidth, 0, width, 17);
+			GuiComponent.blit(pPoseStack, pX + 95, pY + 21, this.imageWidth, 0, width, 17);
 		}
 	}
 }

@@ -32,27 +32,27 @@
 			"faces": {
 				"north": {
 					"uv": [36, 3, 39, 6],
-					"texture": 0
+					"texture": 1
 				},
 				"east": {
 					"uv": [33, 3, 36, 6],
-					"texture": 0
+					"texture": 1
 				},
 				"south": {
 					"uv": [42, 3, 45, 6],
-					"texture": 0
+					"texture": 1
 				},
 				"west": {
 					"uv": [39, 3, 42, 6],
-					"texture": 0
+					"texture": 1
 				},
 				"up": {
 					"uv": [39, 3, 36, 0],
-					"texture": 0
+					"texture": 1
 				},
 				"down": {
 					"uv": [42, 0, 39, 3],
-					"texture": 0
+					"texture": 1
 				}
 			},
 			"type": "cube",
@@ -71,27 +71,27 @@
 			"faces": {
 				"north": {
 					"uv": [7, 7, 14, 14],
-					"texture": 0
+					"texture": 1
 				},
 				"east": {
 					"uv": [0, 7, 7, 14],
-					"texture": 0
+					"texture": 1
 				},
 				"south": {
 					"uv": [21, 7, 28, 14],
-					"texture": 0
+					"texture": 1
 				},
 				"west": {
 					"uv": [14, 7, 21, 14],
-					"texture": 0
+					"texture": 1
 				},
 				"up": {
 					"uv": [14, 7, 7, 0],
-					"texture": 0
+					"texture": 1
 				},
 				"down": {
 					"uv": [21, 0, 14, 7],
-					"texture": 0
+					"texture": 1
 				}
 			},
 			"type": "cube",
@@ -111,27 +111,27 @@
 			"faces": {
 				"north": {
 					"uv": [24, 3, 27, 6],
-					"texture": 0
+					"texture": 1
 				},
 				"east": {
 					"uv": [21, 3, 24, 6],
-					"texture": 0
+					"texture": 1
 				},
 				"south": {
 					"uv": [30, 3, 33, 6],
-					"texture": 0
+					"texture": 1
 				},
 				"west": {
 					"uv": [27, 3, 30, 6],
-					"texture": 0
+					"texture": 1
 				},
 				"up": {
 					"uv": [27, 3, 24, 0],
-					"texture": 0
+					"texture": 1
 				},
 				"down": {
 					"uv": [30, 0, 27, 3],
-					"texture": 0
+					"texture": 1
 				}
 			},
 			"type": "cube",
@@ -151,27 +151,27 @@
 			"faces": {
 				"north": {
 					"uv": [12, 26, 24, 38],
-					"texture": 0
+					"texture": 1
 				},
 				"east": {
 					"uv": [0, 26, 12, 38],
-					"texture": 0
+					"texture": 1
 				},
 				"south": {
 					"uv": [36, 26, 48, 38],
-					"texture": 0
+					"texture": 1
 				},
 				"west": {
 					"uv": [24, 26, 36, 38],
-					"texture": 0
+					"texture": 1
 				},
 				"up": {
 					"uv": [24, 26, 12, 14],
-					"texture": 0
+					"texture": 1
 				},
 				"down": {
 					"uv": [36, 14, 24, 26],
-					"texture": 0
+					"texture": 1
 				}
 			},
 			"type": "cube",
@@ -242,7 +242,7 @@
 			"namespace": "",
 			"id": "0",
 			"particle": false,
-			"render_mode": "default",
+			"render_mode": "layered",
 			"render_sides": "auto",
 			"frame_time": 1,
 			"frame_order_type": "loop",
@@ -253,7 +253,27 @@
 			"saved": true,
 			"uuid": "876e678d-07d9-6d0d-003a-446cc1a47c1c",
 			"relative_path": "../../src/main/resources/assets/landsoficaria/textures/entity/hyliaster.png",
-			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAwCAYAAAChS3wfAAAAAXNSR0IArs4c6QAABG1JREFUaEPtWr9v20YYfXc86pfVoG3sSIaddutSoFunLm2AAt0yZUuGjJ2KoFOBpjHgpUCRoVO3Dp36Z+jPyBAUSB3BVpJRscnj8S74jj5GCkpKR4Iqq/oAw5TvHcV7fN/3ve9ghpLBAm4Y4wiCAEolgDZgQQCTpgBnKJozxjB324fHR8Zdv7/7Ac7PLyDPIxw/PMoxi4+wiKe/dwY9DAZ9fP/td/+IL3v+deZKb8qFMFwE9j6MMUsEDSmlJaNoTsskv+/x458NbZjGJ599itnsDK9fz/HowQ+lBNDGNTfY2RliNBrj3u07myeAFNDv9yGVshvg9CME4osL+7lozqQ6f9jHv/1q3Fu/9c3XePHqJc7nc9y/c7eQAPfWP9y9jsFwiBu7e/jq8y/+HQJ23htCygTGGKsCwTkuLgkomvvx6KdcukSUI2AdSS7KvmhtUfise/9F3MoQEJ3QbtwSYAAWcMgotvcomnv0y3EuXcI52dO1mmdr3RDDbv43uqbhZF+0dmMEsICZIOxYAmikaQohBJKYNmFQNPf7n3/k0qV1TvZ0/ffzk6UNf3R4E389eQraPF3TcLIvWrtBArjhnIPzAFqn0Frbt64iaavAu3P26bUhtTQSr1UkvmoNq1rqysrguiVy1cNtYp5VLXVlZXDdErmJDa76DquAKqWOblxl3WKJXPVwm5i3BFQpdTZbVyiRrSOAQqBKqSsrg2VzWqlWJUhWtdSVlcGyudYpgEKgqJyVlbqqc20rkd5y3NsfT7gBRFcAyJoj8ghkl+k3GSXOGXTmB6yJ8sG/Opt9uYnk577Dm4DRwf5ExRIyyRokUkKnE1q/TxsmAowBwlAgDENLhg/+5enZf4AApRBFMn/T5JSdXXYtM3HT7fdIHlAe+NnJtN0E7N88nMznc2hFhyLcyp6ssiWBjj54JipSAh1kUCj44KfPTtpNAIVATL0ANUdKQbtg0vqyN+DQMOh2uzYEiCAf/OnJ85YTMB5P7PEYtcUyuUyCxh6W2JTAORjnCBjAKQcYZMdpa+JbnwPGBweTRErEibQyp/imYbM9lnNqfzCwcz74s2nLc8DBx4eTOEoQy+xgw5W6gAcwWtuW2eWBa9eGFuODnz5reQiQD6CSl9fRywpARCwOUoRLgj742fS03Tng+mhvkpme5Q2nqVo6OaYESCHy1iSth299DtgdjyaG6nosMRjuIIoiGwYuF/R6PSSxRNjtWAJsmHjgW+8EKQQo3gMhIESW+5XSUKmCSsgcZfb43fywLn7jBDTt7X17AV98XcJY097etxfwxdfNGRkBHl7d19s3ja/bO7Cmvb1vL+CLr9s7WAX4eHVfb980vm7vwEYNe3vfXsAXXzsHNO3tfXsBX3zd3oE17e19ewFffN3egTXt7Smp+fQCvvi6vQNr2tv79gK++No5oGlv79sL+OJrO8Gmvb3936IW9w7ex+JLTf8WfLgiYAteYq0tXCmgFn1bsPhKAVvwEmtt4UoBtejbgsX/ewW8AcQuqHwHCiTUAAAAAElFTkSuQmCC"
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAwCAYAAAChS3wfAAAAAXNSR0IArs4c6QAAApRJREFUaEPtlb+LFDEUx7/5cau7O4I/Vs9CLW0EOysrBcHO6jotLK1ErATPW9hGkCus7Cys/JMsxMKz8NRyb3/MziTyojOsh8kOA04emMBBbl+S9/J9n8xXIDCEklYICaUUimIFGAuhFGxZAlLAF7PWiurY3cnYVvPTozOYzebIZwtMdsf1mvUS1tfT773BSQwGfTx99Piv60P1N4kFD5VaW6mVO0cI4YSgkee5E8MXM/mqPney/9LShWlcvX4Nh4dfcXQ0xd6TZ0EB6OJGWgyHGba3L+LBvZ3uBSAC+v0+8qJwF5D0pzWW87n73xezpamL3X/z2lZdv333Dr79+I7ZdIqHO/e9AlRdPzs6h0GW4cLoPG7duBlHgOGpDHm+grXWUaClxPy3AL7Y8/GLGl0SqhKgCZLr2Pv2+p5P0/PX1218Arq35S7uBLCAUBL5YunO8MX2Xk1qdGldhT3Ni+mvvdXQ2Yn6N5rTqLD37e1MAKGEVVs9JwCNsiyhtcZqSZew8MXevn9Xo0v7Kuxp/vnLwR8XvnLpMj59+Ai6PM1pVNj79nYogLRSSkipYEwJY4zrerHInQscj7nqjSVa/sl7bYP4pj2irdWFbLCpRW4qrou4aGt1IRtsapFdXHBTDkdAG6ujg9vsW7fITcV1EXcCtLE697VuYZHsBKAn0MbqQjYYipmiYPWBFG2tLmSDoRg7AugJ+OwsZHVtY9wskhWOXXz0judIAsRQnVPORACnbsSoJREQQ3VOORMBnLoRo5ZEQAzVOeVMBHDqRoxaEgExVOeUMxHAqRsxakkExFCdU85EAKduxKglERBDdU45EwGcuhGjlkRADNU55UwEcOpGjFoSATFU55QzEcCpGzFq+e8J+AnvrtBANiqb5wAAAABJRU5ErkJggg=="
+		},
+		{
+			"path": "D:\\repositories\\axanthic-game-studios\\lands-of-icaria\\1.19.3\\src\\main\\resources\\assets\\landsoficaria\\textures\\entity\\hyliaster_translucent.png",
+			"name": "hyliaster_translucent.png",
+			"folder": "",
+			"namespace": "",
+			"id": "1",
+			"particle": false,
+			"render_mode": "layered",
+			"render_sides": "auto",
+			"frame_time": 1,
+			"frame_order_type": "loop",
+			"frame_order": "",
+			"frame_interpolate": false,
+			"visible": true,
+			"mode": "bitmap",
+			"saved": true,
+			"uuid": "efb504ff-e521-5dbb-a51f-129b7da191fd",
+			"relative_path": "../../src/main/resources/assets/landsoficaria/textures/entity/hyliaster_translucent.png",
+			"source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAwCAYAAAChS3wfAAAAAXNSR0IArs4c6QAAAn1JREFUaEPtWNuO2jAUHDsJAbral3YFiK36K/30/MqKIkDtI9pNHMdenZNmL33aI8urNLElhBATCY/njGdQmPlSM98/EgFJATNnII3AzAWQTDCNQBqBmTOQRmDmAki3gHgE7nbbSnsgL3MAGQvIuQ7GtPye5zm0VnDOw3sPpRQk+D/ny8/PVKWYgM1+V9nGwLS2/51aYbEo8Pj4xBsmArwHiiJHURRMhgT/+3T+DwiwFnVtXk5aKfBJ08qyXhW0ytWS5AErwF8Ox3ETsPt+X12vVzjbAVqz7LXOwCT4XhG0SAnr9YpHQYI/PhzGTQCNQFMb3mRnLdxw3M5Ba80vB4+yLHkEiCAJ/nT4NXICttvK2hbINBtfb4Ie+i8RRIDSGpkCNHmAByT40XvAdr+vWmPQtIZlTvNNi93+n1t1tV7zdxL8+ThyD9j/uK+aukVjGt7ccNVlOoN3Ds65Fx+4vb1hjAR/fBj5CFAOoCtvWMMNQES8XaSIwQQl+MvxNG4P+Lq5q/rQ837DXWd5DIZrkAyQRuQ1JH0MP3oP+LbdVJ7u9cZgffMFdV3zGAxesFwu0TYGRblgAnhMBPjRJ0EaAZr3LM+R5733W+tgOwvbUjh6DUJv/eGj+E8nIHa2l3YBKT6UMBU720u7gBQf6hk9AYKsLs32sfGh3UHFzvbSLiDFh3YHVoAkq0uzfWx8aHdQm8jZXtoFpPhgD4id7aVdQIoP7Q4qdraXdgEpPrQ7qNjZnkxN0gWk+NDuoGJne2kXkOKDPSB2tpd2ASk+OAnGzvbcEEfcHcR/i78r/RP4kAiYwCEGbSEpIIi+CTycFDCBQwzaQlJAEH0TeHj2CngGoYTYXixTDD0AAAAASUVORK5CYII="
 		}
 	],
 	"animations": [
@@ -262,7 +282,7 @@
 			"name": "MOVE",
 			"loop": "loop",
 			"override": false,
-			"length": 1,
+			"length": 0.5,
 			"snapping": 24,
 			"selected": true,
 			"anim_time_update": "",
@@ -303,7 +323,7 @@
 								}
 							],
 							"uuid": "eadb02a4-4b12-b7f4-7014-46f0c48a9e07",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -322,7 +342,7 @@
 								}
 							],
 							"uuid": "ea6009ae-f7b3-37a9-e27b-cb8cdc01d80f",
-							"time": 0.16667,
+							"time": 0.08333,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -341,7 +361,7 @@
 								}
 							],
 							"uuid": "d1a71366-0edb-a59f-3f41-56f45b49712d",
-							"time": 0.83333,
+							"time": 0.41667,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -379,7 +399,7 @@
 								}
 							],
 							"uuid": "f0cc4e43-b555-fe9b-fb43-9b96b93b07ea",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -398,7 +418,7 @@
 								}
 							],
 							"uuid": "518cfe37-2fd7-f772-a1a2-1a0a5899a20b",
-							"time": 0.5,
+							"time": 0.25,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -437,7 +457,7 @@
 								}
 							],
 							"uuid": "197d1a0c-cb69-99dc-34b0-c6055c1a6b3c",
-							"time": 0.16667,
+							"time": 0.08333,
 							"color": -1,
 							"uniform": false,
 							"interpolation": "catmullrom",
@@ -457,7 +477,7 @@
 								}
 							],
 							"uuid": "d7f8e2b9-3565-7267-158f-a79f57f6b30b",
-							"time": 0.83333,
+							"time": 0.41667,
 							"color": -1,
 							"uniform": false,
 							"interpolation": "catmullrom",
@@ -477,7 +497,7 @@
 								}
 							],
 							"uuid": "4c4f4127-fafe-15bf-70d4-46520d508089",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"uniform": false,
 							"interpolation": "catmullrom",
@@ -522,7 +542,7 @@
 								}
 							],
 							"uuid": "1addbf3c-e91a-9d7d-204d-b362ad2811b3",
-							"time": 0.5,
+							"time": 0.25,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -541,7 +561,7 @@
 								}
 							],
 							"uuid": "b443a21a-574c-3a91-121b-e1aefc05cb70",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -579,7 +599,7 @@
 								}
 							],
 							"uuid": "7f4a37fd-07f6-4618-704c-a6174c1b0e0e",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -598,7 +618,7 @@
 								}
 							],
 							"uuid": "0066afff-a3d8-8913-ee41-dbcab9d1d18c",
-							"time": 0.5,
+							"time": 0.25,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -617,7 +637,7 @@
 								}
 							],
 							"uuid": "6712621c-b62f-998e-3a21-72c0055775ff",
-							"time": 0.83333,
+							"time": 0.41667,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -636,7 +656,7 @@
 								}
 							],
 							"uuid": "f3c71a07-1300-2d52-8d83-85fd6b54a071",
-							"time": 0.16667,
+							"time": 0.08333,
 							"color": -1,
 							"interpolation": "catmullrom",
 							"bezier_linked": true,
@@ -655,7 +675,7 @@
 								}
 							],
 							"uuid": "c7fb7441-5710-5d16-fa7b-179d83c14128",
-							"time": 1,
+							"time": 0.5,
 							"color": -1,
 							"uniform": false,
 							"interpolation": "catmullrom",
@@ -675,7 +695,7 @@
 								}
 							],
 							"uuid": "7b640c07-60f8-d981-09af-47d75fd182fb",
-							"time": 0.83333,
+							"time": 0.41667,
 							"color": -1,
 							"uniform": false,
 							"interpolation": "catmullrom",
@@ -695,7 +715,7 @@
 								}
 							],
 							"uuid": "c10ccb4c-b097-540a-5203-bc6459a146c7",
-							"time": 0.16667,
+							"time": 0.08333,
 							"color": -1,
 							"uniform": false,
 							"interpolation": "catmullrom",

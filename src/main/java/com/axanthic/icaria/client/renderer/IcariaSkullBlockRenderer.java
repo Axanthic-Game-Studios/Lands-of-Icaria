@@ -1,12 +1,13 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaResourceLocations;
 import com.axanthic.icaria.client.model.*;
 import com.axanthic.icaria.common.block.IcariaAbstractSkullBlock;
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
 import com.axanthic.icaria.common.block.IcariaWallSkullBlock;
 import com.axanthic.icaria.common.entity.IcariaSkullBlockEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
@@ -39,18 +40,19 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
     public Map<IcariaSkullBlockType, SkullModel> map;
 
     public static final Map<IcariaSkullBlockType, ResourceLocation> SKIN_BY_TYPE = Util.make(Maps.newHashMap(), (pMap) -> {
-        pMap.put(IcariaSkullBlockTypes.AETERNAE, new ResourceLocation(IcariaInfo.MODID, "textures/entity/aeternae.png"));
-        pMap.put(IcariaSkullBlockTypes.ARGAN_HOUND, new ResourceLocation(IcariaInfo.MODID, "textures/entity/argan_hound.png"));
-        pMap.put(IcariaSkullBlockTypes.CATOBLEPAS, new ResourceLocation(IcariaInfo.MODID, "textures/entity/catoblepas.png"));
-        pMap.put(IcariaSkullBlockTypes.CERVER, new ResourceLocation(IcariaInfo.MODID, "textures/entity/cerver.png"));
-        pMap.put(IcariaSkullBlockTypes.CYPRESS_FOREST_HAG, new ResourceLocation(IcariaInfo.MODID, "textures/entity/cypress_forest_hag.png"));
-        pMap.put(IcariaSkullBlockTypes.DROUGHTROOT_FOREST_HAG, new ResourceLocation(IcariaInfo.MODID, "textures/entity/droughtroot_forest_hag.png"));
-        pMap.put(IcariaSkullBlockTypes.FIR_FOREST_HAG, new ResourceLocation(IcariaInfo.MODID, "textures/entity/fir_forest_hag.png"));
-        pMap.put(IcariaSkullBlockTypes.LAUREL_FOREST_HAG, new ResourceLocation(IcariaInfo.MODID, "textures/entity/laurel_forest_hag.png"));
-        pMap.put(IcariaSkullBlockTypes.OLIVE_FOREST_HAG, new ResourceLocation(IcariaInfo.MODID, "textures/entity/olive_forest_hag.png"));
-        pMap.put(IcariaSkullBlockTypes.PLANE_FOREST_HAG, new ResourceLocation(IcariaInfo.MODID, "textures/entity/plane_forest_hag.png"));
-        pMap.put(IcariaSkullBlockTypes.POPULUS_FOREST_HAG, new ResourceLocation(IcariaInfo.MODID, "textures/entity/populus_forest_hag.png"));
-        pMap.put(IcariaSkullBlockTypes.SOW, new ResourceLocation(IcariaInfo.MODID, "textures/entity/sow.png"));
+        pMap.put(IcariaSkullBlockTypes.AETERNAE, IcariaResourceLocations.AETERNAE);
+        pMap.put(IcariaSkullBlockTypes.ARGAN_HOUND, IcariaResourceLocations.ARGAN_HOUND);
+        pMap.put(IcariaSkullBlockTypes.CATOBLEPAS, IcariaResourceLocations.CATOBLEPAS);
+        pMap.put(IcariaSkullBlockTypes.CERVER, IcariaResourceLocations.CERVER);
+        pMap.put(IcariaSkullBlockTypes.CYPRESS_FOREST_HAG, IcariaResourceLocations.CYPRESS_FOREST_HAG);
+        pMap.put(IcariaSkullBlockTypes.DROUGHTROOT_FOREST_HAG, IcariaResourceLocations.DROUGHTROOT_FOREST_HAG);
+        pMap.put(IcariaSkullBlockTypes.FIR_FOREST_HAG, IcariaResourceLocations.FIR_FOREST_HAG);
+        pMap.put(IcariaSkullBlockTypes.LAUREL_FOREST_HAG, IcariaResourceLocations.LAUREL_FOREST_HAG);
+        pMap.put(IcariaSkullBlockTypes.OLIVE_FOREST_HAG, IcariaResourceLocations.OLIVE_FOREST_HAG);
+        pMap.put(IcariaSkullBlockTypes.PLANE_FOREST_HAG, IcariaResourceLocations.PLANE_FOREST_HAG);
+        pMap.put(IcariaSkullBlockTypes.POPULUS_FOREST_HAG, IcariaResourceLocations.POPULUS_FOREST_HAG);
+        pMap.put(IcariaSkullBlockTypes.REVENANT, IcariaResourceLocations.CAPTAIN_REVENANT);
+        pMap.put(IcariaSkullBlockTypes.SOW, IcariaResourceLocations.SOW);
     });
 
     public IcariaSkullBlockRenderer(BlockEntityRendererProvider.Context pContext) {
@@ -95,18 +97,19 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
     public static Map<IcariaSkullBlockType, SkullModel> createRenderers(EntityModelSet pSet) {
         ImmutableMap.Builder<IcariaSkullBlockType, SkullModel> builder = ImmutableMap.builder();
 
-        builder.put(IcariaSkullBlockTypes.AETERNAE, new AeternaeSkullModel(pSet.bakeLayer(AeternaeSkullModel.LAYER_LOCATION)));
-        builder.put(IcariaSkullBlockTypes.ARGAN_HOUND, new ArganHoundSkullModel(pSet.bakeLayer(ArganHoundSkullModel.LAYER_LOCATION)));
-        builder.put(IcariaSkullBlockTypes.CATOBLEPAS, new CatoblepasSkullModel(pSet.bakeLayer(CatoblepasSkullModel.LAYER_LOCATION)));
-        builder.put(IcariaSkullBlockTypes.CERVER, new CerverSkullModel(pSet.bakeLayer(CerverSkullModel.LAYER_LOCATION)));
-        builder.put(IcariaSkullBlockTypes.CYPRESS_FOREST_HAG, new CypressForestHagSkullModel(pSet.bakeLayer(CypressForestHagSkullModel.LAYER_LOCATION)));
-        builder.put(IcariaSkullBlockTypes.DROUGHTROOT_FOREST_HAG, new DroughtrootForestHagSkullModel(pSet.bakeLayer(DroughtrootForestHagSkullModel.LAYER_LOCATION)));
-        builder.put(IcariaSkullBlockTypes.FIR_FOREST_HAG, new FirForestHagSkullModel(pSet.bakeLayer(FirForestHagSkullModel.LAYER_LOCATION)));
-        builder.put(IcariaSkullBlockTypes.LAUREL_FOREST_HAG, new LaurelForestHagSkullModel(pSet.bakeLayer(LaurelForestHagSkullModel.LAYER_LOCATION)));
-        builder.put(IcariaSkullBlockTypes.OLIVE_FOREST_HAG, new OliveForestHagSkullModel(pSet.bakeLayer(OliveForestHagSkullModel.LAYER_LOCATION)));
-        builder.put(IcariaSkullBlockTypes.PLANE_FOREST_HAG, new PlaneForestHagSkullModel(pSet.bakeLayer(PlaneForestHagSkullModel.LAYER_LOCATION)));
-        builder.put(IcariaSkullBlockTypes.POPULUS_FOREST_HAG, new PopulusForestHagSkullModel(pSet.bakeLayer(PopulusForestHagSkullModel.LAYER_LOCATION)));
-        builder.put(IcariaSkullBlockTypes.SOW, new SowSkullModel(pSet.bakeLayer(SowSkullModel.LAYER_LOCATION)));
+        builder.put(IcariaSkullBlockTypes.AETERNAE, new AeternaeSkullModel(pSet.bakeLayer(IcariaLayerLocations.AETERNAE_SKULL)));
+        builder.put(IcariaSkullBlockTypes.ARGAN_HOUND, new ArganHoundSkullModel(pSet.bakeLayer(IcariaLayerLocations.ARGAN_HOUND_SKULL)));
+        builder.put(IcariaSkullBlockTypes.CATOBLEPAS, new CatoblepasSkullModel(pSet.bakeLayer(IcariaLayerLocations.CATOBLEPAS_SKULL)));
+        builder.put(IcariaSkullBlockTypes.CERVER, new CerverSkullModel(pSet.bakeLayer(IcariaLayerLocations.CERVER_SKULL)));
+        builder.put(IcariaSkullBlockTypes.CYPRESS_FOREST_HAG, new CypressForestHagSkullModel(pSet.bakeLayer(IcariaLayerLocations.CYPRESS_FOREST_HAG_SKULL)));
+        builder.put(IcariaSkullBlockTypes.DROUGHTROOT_FOREST_HAG, new DroughtrootForestHagSkullModel(pSet.bakeLayer(IcariaLayerLocations.DROUGHTROOT_FOREST_HAG_SKULL)));
+        builder.put(IcariaSkullBlockTypes.FIR_FOREST_HAG, new FirForestHagSkullModel(pSet.bakeLayer(IcariaLayerLocations.FIR_FOREST_HAG_SKULL)));
+        builder.put(IcariaSkullBlockTypes.LAUREL_FOREST_HAG, new LaurelForestHagSkullModel(pSet.bakeLayer(IcariaLayerLocations.LAUREL_FOREST_HAG_SKULL)));
+        builder.put(IcariaSkullBlockTypes.OLIVE_FOREST_HAG, new OliveForestHagSkullModel(pSet.bakeLayer(IcariaLayerLocations.OLIVE_FOREST_HAG_SKULL)));
+        builder.put(IcariaSkullBlockTypes.PLANE_FOREST_HAG, new PlaneForestHagSkullModel(pSet.bakeLayer(IcariaLayerLocations.PLANE_FOREST_HAG_SKULL)));
+        builder.put(IcariaSkullBlockTypes.POPULUS_FOREST_HAG, new PopulusForestHagSkullModel(pSet.bakeLayer(IcariaLayerLocations.POPULUS_FOREST_HAG_SKULL)));
+        builder.put(IcariaSkullBlockTypes.REVENANT, new RevenantSkullModel(pSet.bakeLayer(IcariaLayerLocations.REVENANT_SKULL)));
+        builder.put(IcariaSkullBlockTypes.SOW, new SowSkullModel(pSet.bakeLayer(IcariaLayerLocations.SOW_SKULL)));
 
         return builder.build();
     }

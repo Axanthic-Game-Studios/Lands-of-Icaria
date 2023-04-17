@@ -112,7 +112,7 @@ public class IcariaCakeBlock extends Block {
 						double randomX = playerX + (pPlayer.getRandom().nextDouble() - 0.5D) * 16.0D;
 						double randomY = Mth.clamp(playerY + (pPlayer.getRandom().nextInt(16) - 8), pLevel.getMinBuildHeight(), pLevel.getMaxBuildHeight());
 						double randomZ = playerZ + (pPlayer.getRandom().nextDouble() - 0.5D) * 16.0D;
-						pLevel.playSound(null, new BlockPos(playerX, playerY, playerZ), SoundEvents.CHORUS_FRUIT_TELEPORT, SoundSource.PLAYERS, 1.0F, 1.0F);
+						pLevel.playSound(null, BlockPos.containing(playerX, playerY, playerZ), SoundEvents.CHORUS_FRUIT_TELEPORT, SoundSource.PLAYERS, 1.0F, 1.0F);
 						pPlayer.randomTeleport(randomX, randomY, randomZ, true);
 						if (pPlayer.isPassenger()) {
 							pPlayer.stopRiding();

@@ -13,5 +13,6 @@
   "result": {
     "count": 4,
     "item": "landsoficaria:loam_bowl_unfired"
-  }
+  },
+  "show_notification": true
 }

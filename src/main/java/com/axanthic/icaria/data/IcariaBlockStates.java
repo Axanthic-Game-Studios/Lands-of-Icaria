@@ -186,7 +186,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 	}
 
 	public void doorBlock(RegistryObject<? extends DoorBlock> pBlock) {
-		this.doorBlock(pBlock.getId().getPath(), pBlock.get(), new ResourceLocation(IcariaInfo.MODID + ":block/" + pBlock.getId().getPath() + "_bottom"), new ResourceLocation(IcariaInfo.MODID + ":block/" + pBlock.getId().getPath() + "_top"));
+		this.doorBlock(pBlock.getId().getPath(), pBlock.get(), new ResourceLocation(IcariaInfo.ID + ":block/" + pBlock.getId().getPath() + "_bottom"), new ResourceLocation(IcariaInfo.ID + ":block/" + pBlock.getId().getPath() + "_top"));
 	}
 
 	public void doorBlock(String pName, Block pDoor, ResourceLocation pBottom, ResourceLocation pTop) {
@@ -224,7 +224,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 	}
 
 	public void trapDoorWithItem(RegistryObject<? extends TrapDoorBlock> pBlock) {
-		this.trapdoorBlock(pBlock.get(), new ResourceLocation(IcariaInfo.MODID + ":block/" + pBlock.getId().getPath()), true);
+		this.trapdoorBlock(pBlock.get(), new ResourceLocation(IcariaInfo.ID + ":block/" + pBlock.getId().getPath()), true);
 		this.itemBlockTrapDoor(pBlock);
 	}
 

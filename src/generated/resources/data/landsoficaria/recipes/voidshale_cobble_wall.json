@@ -13,5 +13,6 @@
   "result": {
     "count": 6,
     "item": "landsoficaria:voidshale_cobble_wall"
-  }
+  },
+  "show_notification": true
 }

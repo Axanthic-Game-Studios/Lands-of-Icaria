@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "landsoficaria:zircon_block"
-  }
+  },
+  "show_notification": true
 }

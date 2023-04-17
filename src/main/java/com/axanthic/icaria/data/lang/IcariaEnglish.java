@@ -320,6 +320,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get(), "Olive Forest Hag Skull");
 		this.add(IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), "Plane Forest Hag Skull");
 		this.add(IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), "Populus Forest Hag Skull");
+		this.add(IcariaBlocks.REVENANT_SKULL.get(), "Revenant Skull");
 		this.add(IcariaBlocks.SOW_SKULL.get(), "Sow Skull");
 
 		this.add(IcariaBlocks.DIM_TORCH.get(), "Dim Torch");
@@ -653,13 +654,20 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.MYRMEKE_DRONE.get(), "Myrmeke Drone");
 		this.add(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), "Myrmeke Soldier");
 		this.add(IcariaEntityTypes.MYRMEKE_QUEEN.get(), "Myrmeke Queen");
+		this.add(IcariaEntityTypes.CAPTAIN_REVENANT.get(), "Captain Revenant");
+		this.add(IcariaEntityTypes.CIVILIAN_REVENANT.get(), "Civilian Revenant");
+		this.add(IcariaEntityTypes.CRAWLER_REVENANT.get(), "Crawler Revenant");
+		this.add(IcariaEntityTypes.OVERGROWN_REVENANT.get(), "Overgrown Revenant");
+		this.add(IcariaEntityTypes.PYROMANCER_REVENANT.get(), "Pyromancer Revenant");
+		this.add(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), "Nether Pyromancer Revenant");
+		this.add(IcariaEntityTypes.SOLDIER_REVENANT.get(), "Soldier Revenant");
 		this.add(IcariaEntityTypes.CRYSTAL_SLUG.get(), "Crystal Slug");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Forest Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
 		this.add(IcariaEntityTypes.SOW.get(), "Sow");
 
 		// FLUIDS
-		this.add("fluid." + IcariaInfo.MODID + ".mediterranean_water", "Mediterranean Water");
+		this.add("fluid." + IcariaInfo.ID + ".mediterranean_water", "Mediterranean Water");
 
 		// ITEMS
 		this.add(IcariaItems.BONE_REMAINS.get(), "Bone Remains");
@@ -890,6 +898,13 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get(), "Myrmeke Drone Spawn Egg");
 		this.add(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get(), "Myrmeke Soldier Spawn Egg");
 		this.add(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get(), "Myrmeke Queen Spawn Egg");
+		this.add(IcariaItems.CAPTAIN_REVENANT_SPAWN_EGG.get(), "Captain Revenant Spawn Egg");
+		this.add(IcariaItems.CIVILIAN_REVENANT_SPAWN_EGG.get(), "Civilian Revenant Spawn Egg");
+		this.add(IcariaItems.CRAWLER_REVENANT_SPAWN_EGG.get(), "Crawler Revenant Spawn Egg");
+		this.add(IcariaItems.OVERGROWN_REVENANT_SPAWN_EGG.get(), "Overgrown Revenant Spawn Egg");
+		this.add(IcariaItems.PYROMANCER_REVENANT_SPAWN_EGG.get(), "Pyromancer Revenant Spawn Egg");
+		this.add(IcariaItems.NETHER_PYROMANCER_REVENANT_SPAWN_EGG.get(), "Nether Pyromancer Revenant Spawn Egg");
+		this.add(IcariaItems.SOLDIER_REVENANT_SPAWN_EGG.get(), "Soldier Revenant Spawn Egg");
 		this.add(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), "Crystal Slug Spawn Egg");
 		this.add(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), "Forest Snull Spawn Egg");
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn Egg");
@@ -898,12 +913,12 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Mediterranean Water Bucket");
 
 		// ITEM GROUPS
-		this.add("itemgroup." + IcariaInfo.MODID + ".blocks", "Lands of Icaria Blocks");
-		this.add("itemgroup." + IcariaInfo.MODID + ".flora", "Lands of Icaria Flora");
-		this.add("itemgroup." + IcariaInfo.MODID + ".items", "Lands of Icaria Items");
+		this.add("itemgroup." + IcariaInfo.ID + ".blocks", "Lands of Icaria Blocks");
+		this.add("itemgroup." + IcariaInfo.ID + ".flora", "Lands of Icaria Flora");
+		this.add("itemgroup." + IcariaInfo.ID + ".items", "Lands of Icaria Items");
 
 		// MENU TYPES
-		this.add("menu." + IcariaInfo.MODID + ".grinder", "Grinder");
-		this.add("menu." + IcariaInfo.MODID + ".storage_vase", "Storage Vase");
+		this.add("menu." + IcariaInfo.ID + ".grinder", "Grinder");
+		this.add("menu." + IcariaInfo.ID + ".storage_vase", "Storage Vase");
 	}
 }

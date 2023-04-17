@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "landsoficaria:molybdenumsteel_ingot"
-  }
+  },
+  "show_notification": true
 }

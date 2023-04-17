@@ -1,7 +1,7 @@
 package com.axanthic.icaria.integration;
 
+import com.axanthic.icaria.client.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -25,11 +25,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @JeiPlugin
 public class JeiIntegration implements IModPlugin {
-    public static final ResourceLocation ID = new ResourceLocation(IcariaInfo.MODID, "main");
-
     @Override
-    public ResourceLocation getPluginUid() {
-        return ID;
+    public void registerRecipeCatalysts(IRecipeCatalystRegistration pRegistration) {
+        pRegistration.addRecipeCatalyst(new ItemStack(IcariaItems.LAUREL_CRAFTING_TABLE.get()), RecipeTypes.CRAFTING);
     }
 
     @Override
@@ -130,7 +128,7 @@ public class JeiIntegration implements IModPlugin {
     }
 
     @Override
-    public void registerRecipeCatalysts(IRecipeCatalystRegistration pRegistration) {
-        pRegistration.addRecipeCatalyst(new ItemStack(IcariaItems.LAUREL_CRAFTING_TABLE.get()), RecipeTypes.CRAFTING);
+    public ResourceLocation getPluginUid() {
+        return IcariaResourceLocations.ID;
     }
 }

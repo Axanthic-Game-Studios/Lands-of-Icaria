@@ -1,22 +1,16 @@
 package com.axanthic.icaria.client.model;
 
+import com.axanthic.icaria.client.registry.IcariaAnimations;
 import com.axanthic.icaria.common.entity.SowEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.animation.AnimationChannel;
-import net.minecraft.client.animation.AnimationDefinition;
-import net.minecraft.client.animation.Keyframe;
-import net.minecraft.client.animation.KeyframeAnimations;
 import net.minecraft.client.model.HierarchicalModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -25,10 +19,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class SowModel extends HierarchicalModel<SowEntity> {
-    public static final AnimationDefinition ATTACK = AnimationDefinition.Builder.withLength(0.5F).addAnimation("head", new AnimationChannel(AnimationChannel.Targets.ROTATION, new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.16766666F, KeyframeAnimations.degreeVec(-15.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.5F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0F), AnimationChannel.Interpolations.CATMULLROM))).addAnimation("mouth", new AnimationChannel(AnimationChannel.Targets.ROTATION, new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.08343333F, KeyframeAnimations.degreeVec(30.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.16766666F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM))).build();
-
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "sow"), "main");
-
     public SowEntity entity;
 
     public ModelPart root;
@@ -107,7 +97,7 @@ public class SowModel extends HierarchicalModel<SowEntity> {
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.lookAnim(pNetHeadYaw, pHeadPitch);
         this.walkAnim(pLimbSwing, pLimbSwingAmount);
-        this.animate(pEntity.attackAnimationState, ATTACK, pAgeInTicks);
+        this.animate(pEntity.attackAnimationState, IcariaAnimations.SOW_ATTACK, pAgeInTicks);
     }
 
     public void lookAnim(float pNetHeadYaw, float pHeadPitch) {

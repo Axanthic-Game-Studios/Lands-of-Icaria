@@ -9,7 +9,6 @@ import net.minecraft.BlockUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.TicketType;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -59,11 +58,6 @@ public class IcariaTeleporter implements ITeleporter {
         }
 
         return this.level.getBlockState(pPos.below()).getMaterial().isSolid();
-    }
-
-    @Override
-    public boolean playTeleportSound(ServerPlayer pPlayer, ServerLevel pLevel, ServerLevel pDestination) {
-        return true;
     }
 
     public Optional<BlockUtil.FoundRectangle> makePortal(BlockPos pPos, Direction.Axis pAxis) {
@@ -246,7 +240,7 @@ public class IcariaTeleporter implements ITeleporter {
             double maxZ = Math.min(2.9999872E7D, worldBorder.getMaxZ() - 16.0D);
             double minX = Math.max(-2.9999872E7D, worldBorder.getMinX() + 16.0D);
             double minZ = Math.max(-2.9999872E7D, worldBorder.getMinZ() + 16.0D);
-            BlockPos blockPos = new BlockPos(Mth.clamp(pEntity.getX() * coordinateDifference, minX, maxX), pEntity.getY(), Mth.clamp(pEntity.getZ() * coordinateDifference, minZ, maxZ));
+            BlockPos blockPos = BlockPos.containing(Mth.clamp(pEntity.getX() * coordinateDifference, minX, maxX), pEntity.getY(), Mth.clamp(pEntity.getZ() * coordinateDifference, minZ, maxZ));
             return this.getOrMakePortal(blockPos).map((pFoundRectangle) -> {
                 BlockState blockState = pEntity.level.getBlockState(IcariaPortalBlock.entrancePos);
                 Direction.Axis axis;

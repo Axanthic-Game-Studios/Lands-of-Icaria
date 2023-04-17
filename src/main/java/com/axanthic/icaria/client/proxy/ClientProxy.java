@@ -1,10 +1,10 @@
 package com.axanthic.icaria.client.proxy;
 
 import com.axanthic.icaria.client.model.*;
+import com.axanthic.icaria.client.registry.IcariaLayerLocations;
 import com.axanthic.icaria.client.renderer.*;
 import com.axanthic.icaria.client.screen.GrinderScreen;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
-import com.axanthic.icaria.common.entity.*;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.IcariaSkullItem;
 import com.axanthic.icaria.common.item.TotemItem;
@@ -36,11 +36,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.EntityDamageSource;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.GrassColor;
@@ -49,7 +47,6 @@ import net.minecraft.world.level.material.Fluid;
 
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.event.TickEvent;
@@ -71,12 +68,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class ClientProxy extends CommonProxy {
 	public ClientProxy() {
-
+		// NOOP
 	}
 
 	@Override
 	public void onCreativeModeTabRegistration(CreativeModeTabEvent.Register pEvent) {
-		pEvent.registerCreativeModeTab(new ResourceLocation(IcariaInfo.MODID, "blocks"), pBuilder -> pBuilder.title(Component.translatable("itemgroup." + IcariaInfo.MODID + ".blocks")).icon(() -> new ItemStack(IcariaItems.MARL_GRASS.get())).displayItems((pSet, pOutput, pOperator) -> {
+		pEvent.registerCreativeModeTab(new ResourceLocation(IcariaInfo.ID, "blocks"), pBuilder -> pBuilder.title(Component.translatable("itemgroup." + IcariaInfo.ID + ".blocks")).icon(() -> new ItemStack(IcariaItems.MARL_GRASS.get())).displayItems((pParameters, pOutput) -> {
 			pOutput.accept(IcariaItems.MARL_GRASS.get());
 			pOutput.accept(IcariaItems.MARL.get());
 			pOutput.accept(IcariaItems.MARL_CHERT.get());
@@ -379,6 +376,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.OLIVE_FOREST_HAG_SKULL.get());
 			pOutput.accept(IcariaItems.PLANE_FOREST_HAG_SKULL.get());
 			pOutput.accept(IcariaItems.POPULUS_FOREST_HAG_SKULL.get());
+			pOutput.accept(IcariaItems.REVENANT_SKULL.get());
 			pOutput.accept(IcariaItems.SOW_SKULL.get());
 
 			pOutput.accept(IcariaItems.DIM_TORCH.get());
@@ -392,7 +390,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.VINE_SPROUT_CAKE.get());
 		}));
 
-		pEvent.registerCreativeModeTab(new ResourceLocation(IcariaInfo.MODID, "flora"), List.of(new ResourceLocation(IcariaInfo.MODID, "items")), List.of(new ResourceLocation(IcariaInfo.MODID, "blocks")), pBuilder -> pBuilder.title(Component.translatable("itemgroup." + IcariaInfo.MODID + ".flora")).icon(() -> new ItemStack(IcariaItems.OLIVE_LEAVES.get())).displayItems((pSet, pOutput, pOperator) -> {
+		pEvent.registerCreativeModeTab(new ResourceLocation(IcariaInfo.ID, "flora"), List.of(new ResourceLocation(IcariaInfo.ID, "items")), List.of(new ResourceLocation(IcariaInfo.ID, "blocks")), pBuilder -> pBuilder.title(Component.translatable("itemgroup." + IcariaInfo.ID + ".flora")).icon(() -> new ItemStack(IcariaItems.OLIVE_LEAVES.get())).displayItems((pParameters, pOutput) -> {
 			pOutput.accept(IcariaItems.CYPRESS_SAPLING.get());
 			pOutput.accept(IcariaItems.CYPRESS_LEAVES.get());
 			pOutput.accept(IcariaItems.FALLEN_CYPRESS_LEAVES.get());
@@ -641,7 +639,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.STRAWBERRY_BUSH.get());
 		}));
 
-		pEvent.registerCreativeModeTab(new ResourceLocation(IcariaInfo.MODID, "items"), pBuilder -> pBuilder.title(Component.translatable("itemgroup." + IcariaInfo.MODID + ".items")).icon(() -> new ItemStack(IcariaItems.ORICHALCUM_TOOLS.pickaxe.get())).displayItems((pSet, pOutput, pOperator) -> {
+		pEvent.registerCreativeModeTab(new ResourceLocation(IcariaInfo.ID, "items"), pBuilder -> pBuilder.title(Component.translatable("itemgroup." + IcariaInfo.ID + ".items")).icon(() -> new ItemStack(IcariaItems.ORICHALCUM_TOOLS.pickaxe.get())).displayItems((pParameters, pOutput) -> {
 			pOutput.accept(IcariaItems.BONE_REMAINS.get());
 			pOutput.accept(IcariaItems.LOAM_LUMP.get());
 			pOutput.accept(IcariaItems.LOAM_BRICK.get());
@@ -865,6 +863,13 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.CAPTAIN_REVENANT_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.CIVILIAN_REVENANT_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.CRAWLER_REVENANT_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.OVERGROWN_REVENANT_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.PYROMANCER_REVENANT_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.NETHER_PYROMANCER_REVENANT_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.SOLDIER_REVENANT_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.FOREST_SNULL_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.SNULL_SPAWN_EGG.get());
@@ -876,32 +881,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onEntityAttributeCreation(EntityAttributeCreationEvent pEvent) {
-		pEvent.put(IcariaEntityTypes.AETERNAE.get(), AeternaeEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.ARACHNE.get(), ArachneEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.ARACHNE_DRONE.get(), ArachneDroneEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.ARGAN_HOUND.get(), ArganHoundEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.CATOBLEPAS.get(), CatoblepasEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.CERVER.get(), CerverEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.FIR_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.PLANE_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.HYLIASTER.get(), HyliasterEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.ENDER_JELLYFISH.get(), JellyfishEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.FIRE_JELLYFISH.get(), JellyfishEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.NATURE_JELLYFISH.get(), JellyfishEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.VOID_JELLYFISH.get(), JellyfishEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.WATER_JELLYFISH.get(), JellyfishEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.MYRMEKE_DRONE.get(), MyrmekeDroneEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), MyrmekeSoldierEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.MYRMEKE_QUEEN.get(), MyrmekeQueenEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.CRYSTAL_SLUG.get(), SlugEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.FOREST_SNULL.get(), SnullEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.SNULL.get(), SnullEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.SOW.get(), SowEntity.registerAttributes().build());
+		super.onEntityAttributeCreation(pEvent);
 	}
 
 	@Override
@@ -917,20 +897,16 @@ public class ClientProxy extends CommonProxy {
 		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenuTypes.GRINDER.get(), GrinderScreen::new));
 		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenuTypes.STORAGE_VASE.get(), StorageVaseScreen::new));
 
-		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
+		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), new ResourceLocation(IcariaInfo.ID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
 
 		for (IcariaItems.ToolSet tools : IcariaItems.TOOLS) {
-			ItemProperties.register(tools.bident.get(), new ResourceLocation(IcariaInfo.MODID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
+			ItemProperties.register(tools.bident.get(), new ResourceLocation(IcariaInfo.ID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
 		}
 	}
 
 	@Override
 	public void onFMLCommonSetup(FMLCommonSetupEvent pEvent) {
-		pEvent.enqueueWork(IcariaCompostables::setup);
-		pEvent.enqueueWork(IcariaFlammables::setup);
-		pEvent.enqueueWork(IcariaPottables::setup);
-		pEvent.enqueueWork(IcariaStrippables::setup);
-		pEvent.enqueueWork(IcariaWoodTypes::setup);
+		super.onFMLCommonSetup(pEvent);
 	}
 
 	@Override
@@ -1207,6 +1183,13 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntityTypes.MYRMEKE_DRONE.get(), MyrmekeDroneRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), MyrmekeSoldierRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.MYRMEKE_QUEEN.get(), MyrmekeQueenRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.CAPTAIN_REVENANT.get(), CaptainRevenantRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.CIVILIAN_REVENANT.get(), CivilianRevenantRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.CRAWLER_REVENANT.get(), CrawlerRevenantRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.OVERGROWN_REVENANT.get(), OvergrownRevenantRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.PYROMANCER_REVENANT.get(), PyromancerRevenantRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), NetherPyromancerRevenantRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.SOLDIER_REVENANT.get(), SoldierRevenantRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CRYSTAL_SLUG.get(), CrystalSlugRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FOREST_SNULL.get(), ForestSnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SNULL.get(), SnullRenderer::new);
@@ -1226,67 +1209,82 @@ public class ClientProxy extends CommonProxy {
 		var output = generator.getPackOutput();
 		var provider = pEvent.getLookupProvider();
 
-		generator.addProvider(pEvent.includeClient(), new IcariaEnglish(output, IcariaInfo.MODID, "en_us"));
-		generator.addProvider(pEvent.includeClient(), new IcariaGerman(output, IcariaInfo.MODID, "de_de"));
-		generator.addProvider(pEvent.includeClient(), new IcariaBlockStates(output, IcariaInfo.MODID, helper));
-		generator.addProvider(pEvent.includeClient(), new IcariaItemModels(output, IcariaInfo.MODID, helper));
+		generator.addProvider(pEvent.includeClient(), new IcariaEnglish(output, IcariaInfo.ID, "en_us"));
+		generator.addProvider(pEvent.includeClient(), new IcariaGerman(output, IcariaInfo.ID, "de_de"));
+		generator.addProvider(pEvent.includeClient(), new IcariaBlockStates(output, IcariaInfo.ID, helper));
+		generator.addProvider(pEvent.includeClient(), new IcariaItemModels(output, IcariaInfo.ID, helper));
 
 		generator.addProvider(pEvent.includeServer(), new IcariaLoot(output));
-		generator.addProvider(pEvent.includeServer(), new IcariaBlockTags(output, provider, IcariaInfo.MODID, helper));
-		generator.addProvider(pEvent.includeServer(), new IcariaFluidTags(output, provider, IcariaInfo.MODID, helper));
-		generator.addProvider(pEvent.includeServer(), new IcariaItemTags(output, provider, IcariaInfo.MODID, helper));
+		generator.addProvider(pEvent.includeServer(), new IcariaBlockTags(output, provider, IcariaInfo.ID, helper));
+		generator.addProvider(pEvent.includeServer(), new IcariaFluidTags(output, provider, IcariaInfo.ID, helper));
+		generator.addProvider(pEvent.includeServer(), new IcariaItemTags(output, provider, IcariaInfo.ID, helper));
 		generator.addProvider(pEvent.includeServer(), new IcariaRecipes(output));
 	}
 
 	@Override
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions pEvent) {
-		pEvent.registerLayerDefinition(AeternaeModel.LAYER_LOCATION, AeternaeModel::createLayer);
-		pEvent.registerLayerDefinition(AeternaeSkullModel.LAYER_LOCATION, AeternaeSkullModel::createLayer);
-		pEvent.registerLayerDefinition(ArachneModel.LAYER_LOCATION, ArachneModel::createLayer);
-		pEvent.registerLayerDefinition(ArachneDroneModel.LAYER_LOCATION, ArachneDroneModel::createLayer);
-		pEvent.registerLayerDefinition(ArganHoundModel.LAYER_LOCATION, ArganHoundModel::createLayer);
-		pEvent.registerLayerDefinition(ArganHoundSkullModel.LAYER_LOCATION, ArganHoundSkullModel::createLayer);
-		pEvent.registerLayerDefinition(CatoblepasModel.LAYER_LOCATION, CatoblepasModel::createLayer);
-		pEvent.registerLayerDefinition(CatoblepasSkullModel.LAYER_LOCATION, CatoblepasSkullModel::createLayer);
-		pEvent.registerLayerDefinition(CerverModel.LAYER_LOCATION, CerverModel::createLayer);
-		pEvent.registerLayerDefinition(CerverSkullModel.LAYER_LOCATION, CerverSkullModel::createLayer);
-		pEvent.registerLayerDefinition(CypressForestHagModel.LAYER_LOCATION, CypressForestHagModel::createLayer);
-		pEvent.registerLayerDefinition(CypressForestHagSkullModel.LAYER_LOCATION, CypressForestHagSkullModel::createLayer);
-		pEvent.registerLayerDefinition(DroughtrootForestHagModel.LAYER_LOCATION, DroughtrootForestHagModel::createLayer);
-		pEvent.registerLayerDefinition(DroughtrootForestHagSkullModel.LAYER_LOCATION, DroughtrootForestHagSkullModel::createLayer);
-		pEvent.registerLayerDefinition(FirForestHagModel.LAYER_LOCATION, FirForestHagModel::createLayer);
-		pEvent.registerLayerDefinition(FirForestHagSkullModel.LAYER_LOCATION, FirForestHagSkullModel::createLayer);
-		pEvent.registerLayerDefinition(LaurelForestHagModel.LAYER_LOCATION, LaurelForestHagModel::createLayer);
-		pEvent.registerLayerDefinition(LaurelForestHagSkullModel.LAYER_LOCATION, LaurelForestHagSkullModel::createLayer);
-		pEvent.registerLayerDefinition(OliveForestHagModel.LAYER_LOCATION, OliveForestHagModel::createLayer);
-		pEvent.registerLayerDefinition(OliveForestHagSkullModel.LAYER_LOCATION, OliveForestHagSkullModel::createLayer);
-		pEvent.registerLayerDefinition(PlaneForestHagModel.LAYER_LOCATION, PlaneForestHagModel::createLayer);
-		pEvent.registerLayerDefinition(PlaneForestHagSkullModel.LAYER_LOCATION, PlaneForestHagSkullModel::createLayer);
-		pEvent.registerLayerDefinition(PopulusForestHagModel.LAYER_LOCATION, PopulusForestHagModel::createLayer);
-		pEvent.registerLayerDefinition(PopulusForestHagSkullModel.LAYER_LOCATION, PopulusForestHagSkullModel::createLayer);
-		pEvent.registerLayerDefinition(HyliasterModel.LAYER_LOCATION, HyliasterModel::createLayer);
-		pEvent.registerLayerDefinition(HyliasterModel.TRANSLUCENT_LAYER_LOCATION, HyliasterModel::createTranslucentLayer);
-		pEvent.registerLayerDefinition(EnderJellyfishModel.LAYER_LOCATION, EnderJellyfishModel::createLayer);
-		pEvent.registerLayerDefinition(FireJellyfishModel.LAYER_LOCATION, FireJellyfishModel::createLayer);
-		pEvent.registerLayerDefinition(NatureJellyfishModel.LAYER_LOCATION, NatureJellyfishModel::createLayer);
-		pEvent.registerLayerDefinition(VoidJellyfishModel.LAYER_LOCATION, VoidJellyfishModel::createLayer);
-		pEvent.registerLayerDefinition(WaterJellyfishModel.LAYER_LOCATION, WaterJellyfishModel::createLayer);
-		pEvent.registerLayerDefinition(MyrmekeDroneModel.LAYER_LOCATION, MyrmekeDroneModel::createLayer);
-		pEvent.registerLayerDefinition(MyrmekeSoldierModel.LAYER_LOCATION, MyrmekeSoldierModel::createLayer);
-		pEvent.registerLayerDefinition(MyrmekeQueenModel.BODY_LAYER_LOCATION, MyrmekeQueenModel::createLayer);
-		pEvent.registerLayerDefinition(MyrmekeQueenModel.RAYS_LAYER_LOCATION, MyrmekeQueenModel::createLayer);
-		pEvent.registerLayerDefinition(OrichalcumHelmetModel.LAYER_LOCATION, OrichalcumHelmetModel::createLayer);
-		pEvent.registerLayerDefinition(CrystalSlugModel.BODY_LAYER_LOCATION, CrystalSlugModel::createLayer);
-		pEvent.registerLayerDefinition(CrystalSlugModel.RAYS_LAYER_LOCATION, CrystalSlugModel::createLayer);
-		pEvent.registerLayerDefinition(ForestSnullModel.LAYER_LOCATION, ForestSnullModel::createLayer);
-		pEvent.registerLayerDefinition(SnullModel.LAYER_LOCATION, SnullModel::createLayer);
-		pEvent.registerLayerDefinition(SowModel.LAYER_LOCATION, SowModel::createLayer);
-		pEvent.registerLayerDefinition(SowSkullModel.LAYER_LOCATION, SowSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.AETERNAE, AeternaeModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.AETERNAE_SKULL, AeternaeSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.ARACHNE, ArachneModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.ARACHNE_DRONE, ArachneDroneModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.ARGAN_HOUND, ArganHoundModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.ARGAN_HOUND_SKULL, ArganHoundSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CATOBLEPAS, CatoblepasModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CATOBLEPAS_SKULL, CatoblepasSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CERVER, CerverModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CERVER_SKULL, CerverSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CYPRESS_FOREST_HAG, CypressForestHagModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CYPRESS_FOREST_HAG_SKULL, CypressForestHagSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.DROUGHTROOT_FOREST_HAG, DroughtrootForestHagModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.DROUGHTROOT_FOREST_HAG_SKULL, DroughtrootForestHagSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.FIR_FOREST_HAG, FirForestHagModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.FIR_FOREST_HAG_SKULL, FirForestHagSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.LAUREL_FOREST_HAG, LaurelForestHagModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.LAUREL_FOREST_HAG_SKULL, LaurelForestHagSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.OLIVE_FOREST_HAG, OliveForestHagModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.OLIVE_FOREST_HAG_SKULL, OliveForestHagSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.PLANE_FOREST_HAG, PlaneForestHagModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.PLANE_FOREST_HAG_SKULL, PlaneForestHagSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.POPULUS_FOREST_HAG, PopulusForestHagModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.POPULUS_FOREST_HAG_SKULL, PopulusForestHagSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.HYLIASTER, HyliasterModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.ENDER_JELLYFISH, EnderJellyfishModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.FIRE_JELLYFISH, FireJellyfishModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.NATURE_JELLYFISH, NatureJellyfishModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.VOID_JELLYFISH, VoidJellyfishModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.WATER_JELLYFISH, WaterJellyfishModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.MYRMEKE_DRONE, MyrmekeDroneModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.MYRMEKE_SOLDIER, MyrmekeSoldierModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.MYRMEKE_QUEEN_BODY, MyrmekeQueenModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.MYRMEKE_QUEEN_RAYS, MyrmekeQueenModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.ORICHALCUM_HELMET, OrichalcumHelmetModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CAPTAIN_REVENANT_BODY, CaptainRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CAPTAIN_REVENANT_ITEM, CaptainRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CIVILIAN_REVENANT_BODY, CivilianRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CIVILIAN_REVENANT_ITEM, CivilianRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CRAWLER_REVENANT_BODY, CrawlerRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CRAWLER_REVENANT_ITEM, CrawlerRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.OVERGROWN_REVENANT_BODY, OvergrownRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.OVERGROWN_REVENANT_ITEM, OvergrownRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.OVERGROWN_REVENANT_RAYS, OvergrownRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.PYROMANCER_REVENANT_BODY, PyromancerRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.PYROMANCER_REVENANT_ITEM, PyromancerRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.NETHER_PYROMANCER_REVENANT_BODY, NetherPyromancerRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.NETHER_PYROMANCER_REVENANT_ITEM, NetherPyromancerRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.SOLDIER_REVENANT_BODY, SoldierRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.SOLDIER_REVENANT_ITEM, SoldierRevenantModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.REVENANT_SKULL, RevenantSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CRYSTAL_SLUG_BODY, CrystalSlugModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CRYSTAL_SLUG_RAYS, CrystalSlugModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.FOREST_SNULL, ForestSnullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.SNULL, SnullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.SOW, SowModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.SOW_SKULL, SowSkullModel::createLayer);
 	}
 
 	@Override
 	public void onEntityAttributeModification(EntityAttributeModificationEvent pEvent) {
-		pEvent.add(EntityType.PLAYER, ForgeMod.ATTACK_RANGE.get());
+		super.onEntityAttributeModification(pEvent);
 	}
 
 	@Override
@@ -1380,20 +1378,18 @@ public class ClientProxy extends CommonProxy {
 		}
 
 		DamageSource source = pEvent.getSource();
-		if (source instanceof EntityDamageSource damageSource) {
-			Entity entitySource = damageSource.getEntity();
-			if (entitySource instanceof Player player) {
-				ItemStack mainHand = player.getMainHandItem();
-				ItemStack offHand = player.getOffhandItem();
-				TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-				if (mainHand.getItem() instanceof TieredItem || mainHand.getItem() instanceof TridentItem) {
-					if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
-						if (offHand.getItem().equals(totem)) {
-							player.awardStat(Stats.ITEM_USED.get(totem));
-							mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
-							offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
-							totem.totemAnimation(player);
-						}
+		Entity entitySource = source.getEntity();
+		if (entitySource instanceof Player player) {
+			ItemStack mainHand = player.getMainHandItem();
+			ItemStack offHand = player.getOffhandItem();
+			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+			if (mainHand.getItem() instanceof TieredItem || mainHand.getItem() instanceof TridentItem) {
+				if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
+					if (offHand.getItem().equals(totem)) {
+						player.awardStat(Stats.ITEM_USED.get(totem));
+						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
+						offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+						totem.totemAnimation(player);
 					}
 				}
 			}
@@ -1451,12 +1447,9 @@ public class ClientProxy extends CommonProxy {
 			}
 		}
 
-		if (source instanceof EntityDamageSource damageSource) {
-			Entity entitySource = damageSource.getEntity();
-			if (entitySource instanceof Player player) {
-				if (player.hasEffect(IcariaMobEffects.LIFESTEAL.get())) {
-					player.heal(damage);
-				}
+		if (entitySource instanceof Player player) {
+			if (player.hasEffect(IcariaMobEffects.LIFESTEAL.get())) {
+				player.heal(damage);
 			}
 		}
 	}
@@ -1604,26 +1597,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onPlayerTick(TickEvent.PlayerTickEvent pEvent) {
-		Player player = pEvent.player;
-		if (player.level.dimension() == IcariaDimensions.ICARIA) {
-			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
-				ItemStack itemStack = player.getInventory().getItem(slot);
-				if (itemStack.getItem().equals(Items.TORCH)) {
-					int count = itemStack.getCount();
-					player.getInventory().removeItem(itemStack);
-					player.getInventory().add(slot, new ItemStack(IcariaItems.DIM_TORCH.get(), count));
-				}
-			}
-		} else {
-			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
-				ItemStack itemStack = player.getInventory().getItem(slot);
-				if (itemStack.getItem().equals(IcariaItems.DIM_TORCH.get())) {
-					int count = itemStack.getCount();
-					player.getInventory().removeItem(itemStack);
-					player.getInventory().add(slot, new ItemStack(Items.TORCH, count));
-				}
-			}
-		}
+		super.onPlayerTick(pEvent);
 	}
 
 	@Override

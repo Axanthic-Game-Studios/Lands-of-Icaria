@@ -173,11 +173,6 @@ public class ArachneDroneEntity extends ArachneEntity {
     }
 
     @Override
-    public void playStepSound(BlockPos pPos, BlockState pState) {
-        this.playSound(SoundEvents.SPIDER_STEP, 0.1F, 1.0F);
-    }
-
-    @Override
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         this.setSize(pCompound.getInt("Size"));
@@ -236,21 +231,6 @@ public class ArachneDroneEntity extends ArachneEntity {
     @Override
     public PathNavigation createNavigation(Level pLevel) {
         return new WallClimberNavigation(this, pLevel);
-    }
-
-    @Override
-    public SoundEvent getAmbientSound() {
-        return SoundEvents.SPIDER_AMBIENT;
-    }
-
-    @Override
-    public SoundEvent getDeathSound() {
-        return SoundEvents.SPIDER_DEATH;
-    }
-
-    @Override
-    public SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return SoundEvents.SPIDER_HURT;
     }
 
     @Override

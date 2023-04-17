@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "landsoficaria:chalkos_pickaxe"
-  }
+  },
+  "show_notification": true
 }

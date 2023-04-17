@@ -37,6 +37,7 @@ public class AeternaeEntity extends IcariaAnimalEntity {
     public int eatAnimationTick;
 
     public AnimationState attackAnimationState = new AnimationState();
+    public AnimationState eatingAnimationState = new AnimationState();
 
     public IcariaEatBlockGoal eatBlockGoal;
 
@@ -53,41 +54,6 @@ public class AeternaeEntity extends IcariaAnimalEntity {
     @Override
     public boolean isFood(ItemStack pStack) {
         return pStack.is(IcariaItems.SPELT.get());
-    }
-
-    public float xRotMouth(float pPartialTicks) {
-        if (this.eatAnimationTick > 10) {
-            if (this.eatAnimationTick <= 30) {
-                float tick = this.eatAnimationTick - pPartialTicks;
-                return -Mth.cos(tick * Mth.PI / 5 + Mth.PI) - 1;
-            }
-        }
-
-        return 0;
-    }
-
-    public float xRotNeck(float pPartialTicks) {
-        float swing = this.swingTime;
-        float tick = this.eatAnimationTick - pPartialTicks;
-        if (this.eatAnimationTick > 0) {
-            if (this.eatAnimationTick < 10 || this.eatAnimationTick > 30) {
-                return Mth.cos(tick * Mth.PI / 10) - 1;
-            } else {
-                return -2;
-            }
-        }
-
-        if (swing > 0) {
-            if (swing != 1) {
-                if (swing < 0.5F) {
-                    return -swing * 4;
-                }
-            }
-
-            return (swing - 0.5F) * 4 - 2;
-        }
-
-        return 0;
     }
 
     @Override
@@ -125,6 +91,7 @@ public class AeternaeEntity extends IcariaAnimalEntity {
             this.attackAnimationState.start(this.tickCount);
         } else if (pId == 10) {
             this.eatAnimationTick = 40;
+            this.eatingAnimationState.start(this.tickCount);
         } else {
             super.handleEntityEvent(pId);
         }

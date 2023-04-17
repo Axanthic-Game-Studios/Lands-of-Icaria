@@ -14,6 +14,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -50,7 +51,7 @@ public class ForestHagEntity extends Monster {
 
     @Override
     public boolean doHurtTarget(Entity pEntity) {
-        boolean flag = pEntity.hurt(DamageSource.mobAttack(this), (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
+        boolean flag = pEntity.hurt(this.damageSources().mobAttack(this), (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
         this.level.broadcastEntityEvent(this, (byte) 4);
         if (pEntity instanceof LivingEntity livingEntity) {
             double knockback = this.getAttributeValue(Attributes.ATTACK_KNOCKBACK) - livingEntity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
@@ -104,7 +105,7 @@ public class ForestHagEntity extends Monster {
             }
         }
 
-        if (pDamageSource.isFire()) {
+        if (pDamageSource.is(DamageTypes.ON_FIRE)) {
             pDamageAmount *= 2;
         }
 
@@ -223,7 +224,7 @@ public class ForestHagEntity extends Monster {
         public void tick() {
             Level level = this.entity.level;
             Block sapling = null;
-            BlockPos blockPos = new BlockPos(this.entity.getX(), this.entity.getY(), this.entity.getZ());
+            BlockPos blockPos = BlockPos.containing(this.entity.getX(), this.entity.getY(), this.entity.getZ());
             BlockPos belowPos = blockPos.below();
             BlockState blockState = level.getBlockState(blockPos);
             BlockState belowState = level.getBlockState(belowPos);

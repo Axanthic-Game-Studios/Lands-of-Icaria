@@ -14,5 +14,6 @@
   "result": {
     "count": 4,
     "item": "landsoficaria:dolomite_smooth_stairs"
-  }
+  },
+  "show_notification": true
 }

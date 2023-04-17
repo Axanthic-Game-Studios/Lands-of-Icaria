@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "landsoficaria:aeternae_hide_chestplate"
-  }
+  },
+  "show_notification": true
 }

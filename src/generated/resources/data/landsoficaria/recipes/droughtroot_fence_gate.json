@@ -15,5 +15,6 @@
   ],
   "result": {
     "item": "landsoficaria:droughtroot_fence_gate"
-  }
+  },
+  "show_notification": true
 }

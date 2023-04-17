@@ -1,9 +1,10 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaResourceLocations;
 import com.axanthic.icaria.client.layer.DroughtrootForestHagEmissiveLayer;
 import com.axanthic.icaria.client.model.DroughtrootForestHagModel;
 import com.axanthic.icaria.common.entity.ForestHagEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -16,15 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DroughtrootForestHagRenderer extends MobRenderer<ForestHagEntity, DroughtrootForestHagModel> {
-    public static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(IcariaInfo.MODID, "textures/entity/droughtroot_forest_hag.png");
-
     public DroughtrootForestHagRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new DroughtrootForestHagModel(pContext.bakeLayer(DroughtrootForestHagModel.LAYER_LOCATION)), 0.75F);
+        super(pContext, new DroughtrootForestHagModel(pContext.bakeLayer(IcariaLayerLocations.DROUGHTROOT_FOREST_HAG)), 0.75F);
         this.addLayer(new DroughtrootForestHagEmissiveLayer(this));
     }
 
     @Override
     public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
-        return RESOURCE_LOCATION;
+        return IcariaResourceLocations.DROUGHTROOT_FOREST_HAG;
     }
 }

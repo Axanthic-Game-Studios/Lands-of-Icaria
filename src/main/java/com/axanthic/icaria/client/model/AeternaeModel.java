@@ -1,22 +1,16 @@
 package com.axanthic.icaria.client.model;
 
+import com.axanthic.icaria.client.registry.IcariaAnimations;
 import com.axanthic.icaria.common.entity.AeternaeEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.animation.AnimationChannel;
-import net.minecraft.client.animation.AnimationDefinition;
-import net.minecraft.client.animation.Keyframe;
-import net.minecraft.client.animation.KeyframeAnimations;
 import net.minecraft.client.model.HierarchicalModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -26,14 +20,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
     public float kneebend = 1.0F;
-    public float xRotMouth;
-    public float xRotNeck;
 
     public AeternaeEntity entity;
-
-    public static final AnimationDefinition ATTACK = AnimationDefinition.Builder.withLength(0.5F).addAnimation("head", new AnimationChannel(AnimationChannel.Targets.ROTATION, new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.16766666F, KeyframeAnimations.degreeVec(15F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.5F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM))).addAnimation("neck", new AnimationChannel(AnimationChannel.Targets.ROTATION, new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.16766666F, KeyframeAnimations.degreeVec(45F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.5F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM))).build();
-
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "aeternae"), "main");
 
     public ModelPart root;
     public ModelPart head;
@@ -95,8 +83,6 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
     public void prepareMobModel(AeternaeEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick) {
         super.prepareMobModel(pEntity, pLimbSwing, pLimbSwingAmount, pPartialTick);
         this.entity = pEntity;
-        this.xRotMouth = -pEntity.xRotMouth(pPartialTick);
-        this.xRotNeck = -pEntity.xRotNeck(pPartialTick);
     }
 
     @Override
@@ -155,17 +141,10 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
     @Override
     public void setupAnim(AeternaeEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
         this.root().getAllParts().forEach(ModelPart::resetPose);
-        this.eatAnim();
         this.lookAnim(pNetHeadYaw, pHeadPitch);
         this.walkAnim(pLimbSwing, pLimbSwingAmount);
-        this.animate(pEntity.attackAnimationState, ATTACK, pAgeInTicks);
-    }
-
-    public void eatAnim() {
-        this.head.xRot = this.xRotNeck * 0.45F - 0.4553564018453205F;
-        this.neck.xRot = this.xRotNeck * 0.3F + 0.9105382707654417F;
-        this.skull.xRot -= this.xRotNeck * 0.3F;
-        this.mouth.xRot = this.xRotMouth * 0.25F + 0.045553093477052F;
+        this.animate(pEntity.attackAnimationState, IcariaAnimations.AETERNAE_ATTACK, pAgeInTicks);
+        this.animate(pEntity.eatingAnimationState, IcariaAnimations.AETERNAE_EATING, pAgeInTicks);
     }
 
     public void lookAnim(float pNetHeadYaw, float pHeadPitch) {

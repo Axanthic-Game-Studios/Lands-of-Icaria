@@ -1,19 +1,13 @@
 package com.axanthic.icaria.client.model;
 
+import com.axanthic.icaria.client.registry.IcariaAnimations;
 import com.axanthic.icaria.common.entity.MyrmekeSoldierEntity;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.animation.AnimationChannel;
-import net.minecraft.client.animation.AnimationDefinition;
-import net.minecraft.client.animation.Keyframe;
-import net.minecraft.client.animation.KeyframeAnimations;
 import net.minecraft.client.model.HierarchicalModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -22,10 +16,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeSoldierModel extends HierarchicalModel<MyrmekeSoldierEntity> {
-    public static final AnimationDefinition ATTACK = AnimationDefinition.Builder.withLength(0.25F).addAnimation("toothRight", new AnimationChannel(AnimationChannel.Targets.ROTATION, new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.16766666F, KeyframeAnimations.degreeVec(0.0F, 45.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.25F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM))).addAnimation("toothLeft", new AnimationChannel(AnimationChannel.Targets.ROTATION, new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.16766666F, KeyframeAnimations.degreeVec(0.0F, -45.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM), new Keyframe(0.25F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM))).build();
-
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IcariaInfo.MODID, "myrmeke_soldier"), "main");
-
     public ModelPart root;
     public ModelPart head;
     public ModelPart body;
@@ -53,7 +43,9 @@ public class MyrmekeSoldierModel extends HierarchicalModel<MyrmekeSoldierEntity>
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.lookAnim(pNetHeadYaw, pHeadPitch);
         this.walkAnim(pLimbSwing, pLimbSwingAmount);
-        this.animate(pEntity.attackAnimationState, ATTACK, pAgeInTicks);
+        this.animate(pEntity.attackAnimationState, IcariaAnimations.MYRMEKE_SOLDIER_ATTACK, pAgeInTicks);
+
+        this.root.y -= pEntity.getTick() - pEntity.maxTick;
     }
 
     public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
