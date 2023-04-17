@@ -1209,15 +1209,17 @@ public class ClientProxy extends CommonProxy {
 		var output = generator.getPackOutput();
 		var provider = pEvent.getLookupProvider();
 
+		IcariaBlockTags blockTags = new IcariaBlockTags(output, provider, IcariaInfo.ID, helper);
+
 		generator.addProvider(pEvent.includeClient(), new IcariaEnglish(output, IcariaInfo.ID, "en_us"));
 		generator.addProvider(pEvent.includeClient(), new IcariaGerman(output, IcariaInfo.ID, "de_de"));
 		generator.addProvider(pEvent.includeClient(), new IcariaBlockStates(output, IcariaInfo.ID, helper));
 		generator.addProvider(pEvent.includeClient(), new IcariaItemModels(output, IcariaInfo.ID, helper));
 
 		generator.addProvider(pEvent.includeServer(), new IcariaLoot(output));
-		generator.addProvider(pEvent.includeServer(), new IcariaBlockTags(output, provider, IcariaInfo.ID, helper));
+		generator.addProvider(pEvent.includeServer(), blockTags);
 		generator.addProvider(pEvent.includeServer(), new IcariaFluidTags(output, provider, IcariaInfo.ID, helper));
-		generator.addProvider(pEvent.includeServer(), new IcariaItemTags(output, provider, IcariaInfo.ID, helper));
+		generator.addProvider(pEvent.includeServer(), new IcariaItemTags(output, provider, blockTags.contentsGetter(), IcariaInfo.ID, helper));
 		generator.addProvider(pEvent.includeServer(), new IcariaRecipes(output));
 	}
 

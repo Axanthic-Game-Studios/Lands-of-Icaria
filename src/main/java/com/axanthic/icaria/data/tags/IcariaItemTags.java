@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -142,8 +143,8 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final TagKey<Item> LOGS_PLANE = forgeTag("logs/plane");
 	public static final TagKey<Item> LOGS_POPULUS = forgeTag("logs/populus");
 
-	public IcariaItemTags(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId, ExistingFileHelper pHelper) {
-		super(pOutput, pProvider, new IcariaBlockTags(pOutput, pProvider, pId, pHelper).contentsGetter(), pId, pHelper);
+	public IcariaItemTags(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, CompletableFuture<TagLookup<Block>> pTags, String pId, ExistingFileHelper pHelper) {
+		super(pOutput, pProvider, pTags, pId, pHelper);
 	}
 
 	@Override
