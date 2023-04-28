@@ -661,6 +661,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.PYROMANCER_REVENANT.get(), "Pyromanen-Wiedergänger");
 		this.add(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), "Netherpyromanen-Wiedergänger");
 		this.add(IcariaEntityTypes.SOLDIER_REVENANT.get(), "Soldaten-Wiedergänger");
+		this.add(IcariaEntityTypes.SCORPION.get(), "Skorpion");
 		this.add(IcariaEntityTypes.CRYSTAL_SLUG.get(), "Kristall-Nacktschnecke");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Wald Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
@@ -905,6 +906,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.PYROMANCER_REVENANT_SPAWN_EGG.get(), "Pyromanen-Wiedergänger-Spawn-Ei");
 		this.add(IcariaItems.NETHER_PYROMANCER_REVENANT_SPAWN_EGG.get(), "Netherpyromanen-Wiedergänger-Spawn-Ei");
 		this.add(IcariaItems.SOLDIER_REVENANT_SPAWN_EGG.get(), "Soldaten-Wiedergänger-Spawn-Ei");
+		this.add(IcariaItems.SCORPION_SPAWN_EGG.get(), "Skorpion-Spawn-Ei");
 		this.add(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), "Kristall-Nacktschnecken-Spawn-Ei");
 		this.add(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), "Wald Snull Spawn Egg");
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn-Ei");

@@ -41,5 +41,25 @@
       "landsoficaria:block/vase/break03",
       "landsoficaria:block/vase/break04"
     ]
+  },
+  "entity.scorpion.ambient": {
+    "sounds": [
+      "landsoficaria:entity/scorpion/ambient01",
+      "landsoficaria:entity/scorpion/ambient02",
+      "landsoficaria:entity/scorpion/ambient03",
+      "landsoficaria:entity/scorpion/ambient04"
+    ]
+  },
+  "entity.scorpion.death": {
+    "sounds": [
+      "landsoficaria:entity/scorpion/death01"
+    ]
+  },
+  "entity.scorpion.hurt": {
+    "sounds": [
+      "landsoficaria:entity/scorpion/hurt01",
+      "landsoficaria:entity/scorpion/hurt02",
+      "landsoficaria:entity/scorpion/hurt03"
+    ]
   }
 }

@@ -661,6 +661,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.PYROMANCER_REVENANT.get(), "Pyromancer Revenant");
 		this.add(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), "Nether Pyromancer Revenant");
 		this.add(IcariaEntityTypes.SOLDIER_REVENANT.get(), "Soldier Revenant");
+		this.add(IcariaEntityTypes.SCORPION.get(), "Scorpion");
 		this.add(IcariaEntityTypes.CRYSTAL_SLUG.get(), "Crystal Slug");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Forest Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
@@ -905,6 +906,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.PYROMANCER_REVENANT_SPAWN_EGG.get(), "Pyromancer Revenant Spawn Egg");
 		this.add(IcariaItems.NETHER_PYROMANCER_REVENANT_SPAWN_EGG.get(), "Nether Pyromancer Revenant Spawn Egg");
 		this.add(IcariaItems.SOLDIER_REVENANT_SPAWN_EGG.get(), "Soldier Revenant Spawn Egg");
+		this.add(IcariaItems.SCORPION_SPAWN_EGG.get(), "Scorpion Spawn Egg");
 		this.add(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), "Crystal Slug Spawn Egg");
 		this.add(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), "Forest Snull Spawn Egg");
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn Egg");

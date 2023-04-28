@@ -870,6 +870,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.PYROMANCER_REVENANT_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.NETHER_PYROMANCER_REVENANT_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.SOLDIER_REVENANT_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.SCORPION_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.FOREST_SNULL_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.SNULL_SPAWN_EGG.get());
@@ -1190,6 +1191,7 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntityTypes.PYROMANCER_REVENANT.get(), PyromancerRevenantRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), NetherPyromancerRevenantRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SOLDIER_REVENANT.get(), SoldierRevenantRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.SCORPION.get(), ScorpionRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CRYSTAL_SLUG.get(), CrystalSlugRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FOREST_SNULL.get(), ForestSnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SNULL.get(), SnullRenderer::new);
@@ -1276,6 +1278,7 @@ public class ClientProxy extends CommonProxy {
 		pEvent.registerLayerDefinition(IcariaLayerLocations.SOLDIER_REVENANT_BODY, SoldierRevenantModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.SOLDIER_REVENANT_ITEM, SoldierRevenantModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.REVENANT_SKULL, RevenantSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.SCORPION, ScorpionModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.CRYSTAL_SLUG_BODY, CrystalSlugModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.CRYSTAL_SLUG_RAYS, CrystalSlugModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.FOREST_SNULL, ForestSnullModel::createLayer);

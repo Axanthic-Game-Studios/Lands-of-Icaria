@@ -54,6 +54,7 @@ public class IcariaLayerLocations {
     public static final ModelLayerLocation SOLDIER_REVENANT_BODY = new ModelLayerLocation(IcariaResourceLocations.SOLDIER_REVENANT_LAYER, "body");
     public static final ModelLayerLocation SOLDIER_REVENANT_ITEM = new ModelLayerLocation(IcariaResourceLocations.SOLDIER_REVENANT_LAYER, "item");
     public static final ModelLayerLocation REVENANT_SKULL = new ModelLayerLocation(IcariaResourceLocations.REVENANT_SKULL_LAYER, "main");
+    public static final ModelLayerLocation SCORPION = new ModelLayerLocation(IcariaResourceLocations.SCORPION_LAYER, "main");
     public static final ModelLayerLocation CRYSTAL_SLUG_BODY = new ModelLayerLocation(IcariaResourceLocations.CRYSTAL_SLUG_LAYER, "body");
     public static final ModelLayerLocation CRYSTAL_SLUG_RAYS = new ModelLayerLocation(IcariaResourceLocations.CRYSTAL_SLUG_LAYER, "rays");
     public static final ModelLayerLocation FOREST_SNULL = new ModelLayerLocation(IcariaResourceLocations.FOREST_SNULL_LAYER, "main");

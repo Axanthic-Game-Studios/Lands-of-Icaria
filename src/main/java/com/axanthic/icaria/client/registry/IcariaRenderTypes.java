@@ -35,6 +35,7 @@ public class IcariaRenderTypes {
     public static final RenderType PYROMANCER_REVENANT_EMISSIVE = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.ID, "textures/entity/pyromancer_revenant_emissive.png"));
     public static final RenderType NETHER_PYROMANCER_REVENANT_EMISSIVE = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.ID, "textures/entity/nether_pyromancer_revenant_emissive.png"));
     public static final RenderType SOLDIER_REVENANT_EMISSIVE = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.ID, "textures/entity/soldier_revenant_emissive.png"));
+    public static final RenderType SCORPION_EMISSIVE = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.ID, "textures/entity/scorpion_emissive.png"));
     public static final RenderType CRYSTAL_SLUG_EMISSIVE = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.ID, "textures/entity/crystal_slug_emissive.png"));
     public static final RenderType FOREST_SNULL_EMISSIVE = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.ID, "textures/entity/forest_snull_emissive.png"));
     public static final RenderType SNULL_EMISSIVE = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.ID, "textures/entity/snull_emissive.png"));

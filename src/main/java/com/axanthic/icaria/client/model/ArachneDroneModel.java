@@ -77,11 +77,11 @@ public class ArachneDroneModel extends HierarchicalModel<ArachneDroneEntity> {
         this.legLeftRear.yRot = -0.7854F - f0;
         this.legRightFront.zRot = 0.3927F + f7;
         this.legRightCenterFront.zRot = 0.3927F + f6;
-        this.legLeftCenterRear.zRot = -0.3927F - f5;
+        this.legRightCenterRear.zRot = 0.3927F + f5;
         this.legRightRear.zRot = 0.3927F + f4;
         this.legLeftFront.zRot = -0.3927F - f7;
         this.legLeftCenterFront.zRot = -0.3927F - f6;
-        this.legRightCenterRear.zRot = 0.3927F + f5;
+        this.legLeftCenterRear.zRot = -0.3927F - f5;
         this.legLeftRear.zRot = -0.3927F - f4;
     }
 

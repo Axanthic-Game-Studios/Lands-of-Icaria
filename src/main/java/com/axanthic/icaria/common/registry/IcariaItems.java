@@ -690,6 +690,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> PYROMANCER_REVENANT_SPAWN_EGG = register("pyromancer_revenant_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.PYROMANCER_REVENANT, 0x3C5E26, 0x636363, new Properties()));
 	public static final RegistryObject<Item> NETHER_PYROMANCER_REVENANT_SPAWN_EGG = register("nether_pyromancer_revenant_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT, 0x5A2017, 0x636363, new Properties()));
 	public static final RegistryObject<Item> SOLDIER_REVENANT_SPAWN_EGG = register("soldier_revenant_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SOLDIER_REVENANT, 0x6C5757, 0x636363, new Properties()));
+	public static final RegistryObject<Item> SCORPION_SPAWN_EGG = register("scorpion_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SCORPION, 0x513B24, 0xD8A161, new Properties()));
 	public static final RegistryObject<Item> CRYSTAL_SLUG_SPAWN_EGG = register("crystal_slug_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.CRYSTAL_SLUG, 0x24141A, 0x653D48, new Properties()));
 	public static final RegistryObject<Item> FOREST_SNULL_SPAWN_EGG = register("forest_snull_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.FOREST_SNULL, 0x291306, 0x53641E, new Properties()));
 	public static final RegistryObject<Item> SNULL_SPAWN_EGG = register("snull_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SNULL, 0x291306, 0x8D694F, new Properties()));

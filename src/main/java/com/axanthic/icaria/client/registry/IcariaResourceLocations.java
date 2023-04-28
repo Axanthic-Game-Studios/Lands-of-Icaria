@@ -42,6 +42,7 @@ public class IcariaResourceLocations {
     public static final ResourceLocation PYROMANCER_REVENANT = new ResourceLocation(IcariaInfo.ID, "textures/entity/pyromancer_revenant.png");
     public static final ResourceLocation NETHER_PYROMANCER_REVENANT = new ResourceLocation(IcariaInfo.ID, "textures/entity/nether_pyromancer_revenant.png");
     public static final ResourceLocation SOLDIER_REVENANT = new ResourceLocation(IcariaInfo.ID, "textures/entity/soldier_revenant.png");
+    public static final ResourceLocation SCORPION = new ResourceLocation(IcariaInfo.ID, "textures/entity/scorpion.png");
     public static final ResourceLocation CRYSTAL_SLUG = new ResourceLocation(IcariaInfo.ID, "textures/entity/crystal_slug.png");
     public static final ResourceLocation FOREST_SNULL = new ResourceLocation(IcariaInfo.ID, "textures/entity/forest_snull.png");
     public static final ResourceLocation SNULL = new ResourceLocation(IcariaInfo.ID, "textures/entity/snull.png");
@@ -90,6 +91,7 @@ public class IcariaResourceLocations {
     public static final ResourceLocation NETHER_PYROMANCER_REVENANT_LAYER = new ResourceLocation(IcariaInfo.ID, "nether_pyromancer_revenant");
     public static final ResourceLocation SOLDIER_REVENANT_LAYER = new ResourceLocation(IcariaInfo.ID, "soldier_revenant");
     public static final ResourceLocation REVENANT_SKULL_LAYER = new ResourceLocation(IcariaInfo.ID, "revenant_skull");
+    public static final ResourceLocation SCORPION_LAYER = new ResourceLocation(IcariaInfo.ID, "scorpion");
     public static final ResourceLocation CRYSTAL_SLUG_LAYER = new ResourceLocation(IcariaInfo.ID, "crystal_slug");
     public static final ResourceLocation FOREST_SNULL_LAYER = new ResourceLocation(IcariaInfo.ID, "forest_snull");
     public static final ResourceLocation SNULL_LAYER = new ResourceLocation(IcariaInfo.ID, "snull");
@@ -102,5 +104,8 @@ public class IcariaResourceLocations {
 
     // SOUNDS
     public static final ResourceLocation GRINDER_GRIND = new ResourceLocation(IcariaInfo.ID, "block.grinder.grind");
+    public static final ResourceLocation SCORPION_AMBIENT = new ResourceLocation(IcariaInfo.ID, "entity.scorpion.ambient");
+    public static final ResourceLocation SCORPION_DEATH = new ResourceLocation(IcariaInfo.ID, "entity.scorpion.death");
+    public static final ResourceLocation SCORPION_HURT = new ResourceLocation(IcariaInfo.ID, "entity.scorpion.hurt");
     public static final ResourceLocation VASE_BREAK = new ResourceLocation(IcariaInfo.ID, "block.vase.break");
 }

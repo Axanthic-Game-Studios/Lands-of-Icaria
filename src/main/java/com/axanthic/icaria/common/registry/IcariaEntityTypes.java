@@ -46,6 +46,7 @@ public class IcariaEntityTypes {
 	public static final RegistryObject<EntityType<PyromancerRevenantEntity>> PYROMANCER_REVENANT = register("pyromancer_revenant", Builder.of(PyromancerRevenantEntity::new, MobCategory.CREATURE).sized(0.75F, 2.0F));
 	public static final RegistryObject<EntityType<NetherPyromancerRevenantEntity>> NETHER_PYROMANCER_REVENANT = register("nether_pyromancer_revenant", Builder.of(NetherPyromancerRevenantEntity::new, MobCategory.CREATURE).sized(0.75F, 2.0F));
 	public static final RegistryObject<EntityType<SoldierRevenantEntity>> SOLDIER_REVENANT = register("soldier_revenant", Builder.of(SoldierRevenantEntity::new, MobCategory.CREATURE).sized(0.75F, 2.0F));
+	public static final RegistryObject<EntityType<ScorpionEntity>> SCORPION = register("scorpion", Builder.of(ScorpionEntity::new, MobCategory.CREATURE).sized(1.5F, 1.0F));
 	public static final RegistryObject<EntityType<SlugEntity>> CRYSTAL_SLUG = register("crystal_slug", Builder.of(SlugEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
 	public static final RegistryObject<EntityType<SnullEntity>> FOREST_SNULL = register("forest_snull", Builder.of(SnullEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
 	public static final RegistryObject<EntityType<SnullEntity>> SNULL = register("snull", Builder.of(SnullEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));

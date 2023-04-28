@@ -123,6 +123,12 @@ public class IcariaClientHelper {
         pPoseStack.scale(pSize, pSize, pSize);
     }
 
+    public static void setRotateAngles(ModelPart pModelPart, float pX, float pY, float pZ) {
+        pModelPart.xRot = pX;
+        pModelPart.yRot = pY;
+        pModelPart.zRot = pZ;
+    }
+
     public static void vertexA(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pRed, float pGreen, float pBlue, float pAlpha) {
         pVertexConsumer.vertex(pMatrix4f, 0.0F, 0.0F, 0.0F).color(pRed, pGreen, pBlue, pAlpha).endVertex();
     }
