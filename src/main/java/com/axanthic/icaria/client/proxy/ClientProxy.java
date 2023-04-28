@@ -874,6 +874,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.FOREST_SNULL_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.SNULL_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.SOLIFUGAE_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.SOW_SPAWN_EGG.get());
 
 			pOutput.accept(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get());
@@ -1195,6 +1196,7 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntityTypes.CRYSTAL_SLUG.get(), CrystalSlugRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FOREST_SNULL.get(), ForestSnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SNULL.get(), SnullRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.SOLIFUGAE.get(), SolifugaeRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SOW.get(), SowRenderer::new);
 
 		// BLOCK ENTITY RENDERERS
@@ -1283,6 +1285,7 @@ public class ClientProxy extends CommonProxy {
 		pEvent.registerLayerDefinition(IcariaLayerLocations.CRYSTAL_SLUG_RAYS, CrystalSlugModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.FOREST_SNULL, ForestSnullModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.SNULL, SnullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.SOLIFUGAE, SolifugaeModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.SOW, SowModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.SOW_SKULL, SowSkullModel::createLayer);
 	}

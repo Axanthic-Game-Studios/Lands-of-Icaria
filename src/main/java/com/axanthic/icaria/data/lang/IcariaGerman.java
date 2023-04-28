@@ -665,6 +665,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.CRYSTAL_SLUG.get(), "Kristall-Nacktschnecke");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Wald Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
+		this.add(IcariaEntityTypes.SOLIFUGAE.get(), "Solifugae");
 		this.add(IcariaEntityTypes.SOW.get(), "Krommyonische Sau");
 
 		// FLUIDS
@@ -910,6 +911,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), "Kristall-Nacktschnecken-Spawn-Ei");
 		this.add(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), "Wald Snull Spawn Egg");
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn-Ei");
+		this.add(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), "Solifugae Spawn-Ei");
 		this.add(IcariaItems.SOW_SPAWN_EGG.get(), "Krommyonische Sau-Spawn-Ei");
 
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Eimer mit mediterranem Wasser");

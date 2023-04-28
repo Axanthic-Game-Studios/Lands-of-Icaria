@@ -694,6 +694,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> CRYSTAL_SLUG_SPAWN_EGG = register("crystal_slug_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.CRYSTAL_SLUG, 0x24141A, 0x653D48, new Properties()));
 	public static final RegistryObject<Item> FOREST_SNULL_SPAWN_EGG = register("forest_snull_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.FOREST_SNULL, 0x291306, 0x53641E, new Properties()));
 	public static final RegistryObject<Item> SNULL_SPAWN_EGG = register("snull_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SNULL, 0x291306, 0x8D694F, new Properties()));
+	public static final RegistryObject<Item> SOLIFUGAE_SPAWN_EGG = register("solifugae_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SOLIFUGAE, 0xE0CDBC, 0x91673F, new Properties()));
 	public static final RegistryObject<Item> SOW_SPAWN_EGG = register("sow_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SOW, 0x231A13, 0x6E554B, new Properties()));
 
 	public static final RegistryObject<Item> MEDITERRANEAN_WATER_BUCKET = registerBasic("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, new Properties().craftRemainder(Items.BUCKET).stacksTo(1)));

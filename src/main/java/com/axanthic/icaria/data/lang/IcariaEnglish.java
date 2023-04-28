@@ -665,6 +665,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.CRYSTAL_SLUG.get(), "Crystal Slug");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Forest Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
+		this.add(IcariaEntityTypes.SOLIFUGAE.get(), "Solifugae");
 		this.add(IcariaEntityTypes.SOW.get(), "Sow");
 
 		// FLUIDS
@@ -910,6 +911,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), "Crystal Slug Spawn Egg");
 		this.add(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), "Forest Snull Spawn Egg");
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn Egg");
+		this.add(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), "Solifugae Spawn Egg");
 		this.add(IcariaItems.SOW_SPAWN_EGG.get(), "Sow Spawn Egg");
 
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Mediterranean Water Bucket");

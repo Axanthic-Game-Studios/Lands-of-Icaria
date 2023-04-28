@@ -59,6 +59,7 @@ public class IcariaLayerLocations {
     public static final ModelLayerLocation CRYSTAL_SLUG_RAYS = new ModelLayerLocation(IcariaResourceLocations.CRYSTAL_SLUG_LAYER, "rays");
     public static final ModelLayerLocation FOREST_SNULL = new ModelLayerLocation(IcariaResourceLocations.FOREST_SNULL_LAYER, "main");
     public static final ModelLayerLocation SNULL = new ModelLayerLocation(IcariaResourceLocations.SNULL_LAYER, "main");
+    public static final ModelLayerLocation SOLIFUGAE = new ModelLayerLocation(IcariaResourceLocations.SOLIFUGAE_LAYER, "main");
     public static final ModelLayerLocation SOW = new ModelLayerLocation(IcariaResourceLocations.SOW_LAYER, "main");
     public static final ModelLayerLocation SOW_SKULL = new ModelLayerLocation(IcariaResourceLocations.SOW_SKULL_LAYER, "main");
 }

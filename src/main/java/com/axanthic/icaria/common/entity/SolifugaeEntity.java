@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -34,12 +32,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class ScorpionEntity extends Monster {
-    public AnimationState attackAnimationState = new AnimationState();
+public class SolifugaeEntity extends Monster {
+    public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(SolifugaeEntity.class, EntityDataSerializers.BYTE);
 
-    public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(ScorpionEntity.class, EntityDataSerializers.BYTE);
-
-    public ScorpionEntity(EntityType<? extends ScorpionEntity> pType, Level pLevel) {
+    public SolifugaeEntity(EntityType<? extends SolifugaeEntity> pType, Level pLevel) {
         super(pType, pLevel);
         this.xpReward = 5;
     }
@@ -53,16 +49,6 @@ public class ScorpionEntity extends Monster {
         }
 
         return super.canBeAffected(pEffectInstance);
-    }
-
-    @Override
-    public boolean doHurtTarget(Entity pEntity) {
-        this.level.broadcastEntityEvent(this, (byte) 4);
-        if (pEntity instanceof LivingEntity livingEntity) {
-            livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 120, 0), this);
-        }
-
-        return super.doHurtTarget(pEntity);
     }
 
     public boolean isClimbing() {
@@ -81,22 +67,13 @@ public class ScorpionEntity extends Monster {
 
     @Override
     public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
-        return 0.625F;
+        return 0.5F;
     }
 
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(CLIMBING, (byte) 0);
-    }
-
-    @Override
-    public void handleEntityEvent(byte pId) {
-        if (pId == 4) {
-            this.attackAnimationState.start(this.tickCount);
-        } else {
-            super.handleEntityEvent(pId);
-        }
     }
 
     @Override
@@ -113,7 +90,6 @@ public class ScorpionEntity extends Monster {
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, SowEntity.class, true, true));
     }
 
     public void setClimbing(boolean pClimbing) {
@@ -136,7 +112,7 @@ public class ScorpionEntity extends Monster {
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
-        return Mob.createMobAttributes().add(Attributes.ARMOR, 6.0D).add(Attributes.ATTACK_DAMAGE, 6.0D).add(Attributes.MAX_HEALTH, 32.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+        return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.MAX_HEALTH, 24.0D).add(Attributes.MOVEMENT_SPEED, 0.375D);
     }
 
     @Override
@@ -151,16 +127,16 @@ public class ScorpionEntity extends Monster {
 
     @Override
     public SoundEvent getAmbientSound() {
-        return IcariaSoundEvents.SCORPION_AMBIENT;
+        return SoundEvents.SPIDER_AMBIENT;
     }
 
     @Override
     public SoundEvent getDeathSound() {
-        return IcariaSoundEvents.SCORPION_DEATH;
+        return SoundEvents.SPIDER_DEATH;
     }
 
     @Override
     public SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return IcariaSoundEvents.SCORPION_HURT;
+        return SoundEvents.SPIDER_HURT;
     }
 }

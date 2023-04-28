@@ -46,6 +46,7 @@ public class IcariaResourceLocations {
     public static final ResourceLocation CRYSTAL_SLUG = new ResourceLocation(IcariaInfo.ID, "textures/entity/crystal_slug.png");
     public static final ResourceLocation FOREST_SNULL = new ResourceLocation(IcariaInfo.ID, "textures/entity/forest_snull.png");
     public static final ResourceLocation SNULL = new ResourceLocation(IcariaInfo.ID, "textures/entity/snull.png");
+    public static final ResourceLocation SOLIFUGAE = new ResourceLocation(IcariaInfo.ID, "textures/entity/solifugae.png");
     public static final ResourceLocation SOW = new ResourceLocation(IcariaInfo.ID, "textures/entity/sow.png");
 
     // LAYERS
@@ -95,6 +96,7 @@ public class IcariaResourceLocations {
     public static final ResourceLocation CRYSTAL_SLUG_LAYER = new ResourceLocation(IcariaInfo.ID, "crystal_slug");
     public static final ResourceLocation FOREST_SNULL_LAYER = new ResourceLocation(IcariaInfo.ID, "forest_snull");
     public static final ResourceLocation SNULL_LAYER = new ResourceLocation(IcariaInfo.ID, "snull");
+    public static final ResourceLocation SOLIFUGAE_LAYER = new ResourceLocation(IcariaInfo.ID, "solifugae");
     public static final ResourceLocation SOW_LAYER = new ResourceLocation(IcariaInfo.ID, "sow");
     public static final ResourceLocation SOW_SKULL_LAYER = new ResourceLocation(IcariaInfo.ID, "sow_skull");
 
