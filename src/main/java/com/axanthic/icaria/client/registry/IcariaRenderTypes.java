@@ -42,6 +42,7 @@ public class IcariaRenderTypes {
     public static final RenderType SNULL_EYES = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.ID, "textures/entity/snull_eyes.png"));
     public static final RenderType SNULL_SANS = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.ID, "textures/entity/snull_sans.png"));
     public static final RenderType SOLIFUGAE_EMISSIVE = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.ID, "textures/entity/solifugae_emissive.png"));
+    public static final RenderType VINEGAROON_EMISSIVE = RenderType.entityTranslucentEmissive(new ResourceLocation(IcariaInfo.ID, "textures/entity/vinegaroon_emissive.png"));
 
     // TRANSLUCENT
     public static final RenderType HYLIASTER_TRANSLUCENT = RenderType.entityTranslucent(new ResourceLocation(IcariaInfo.ID, "textures/entity/hyliaster_translucent.png"));

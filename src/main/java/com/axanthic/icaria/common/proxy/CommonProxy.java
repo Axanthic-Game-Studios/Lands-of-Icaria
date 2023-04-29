@@ -78,6 +78,7 @@ public class CommonProxy {
 		pEvent.put(IcariaEntityTypes.SNULL.get(), SnullEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.SOLIFUGAE.get(), SolifugaeEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.SOW.get(), SowEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.VINEGAROON.get(), VinegaroonEntity.registerAttributes().build());
 	}
 
 	public void onFMLClientSetup(FMLClientSetupEvent pEvent) {

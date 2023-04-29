@@ -62,4 +62,5 @@ public class IcariaLayerLocations {
     public static final ModelLayerLocation SOLIFUGAE = new ModelLayerLocation(IcariaResourceLocations.SOLIFUGAE_LAYER, "main");
     public static final ModelLayerLocation SOW = new ModelLayerLocation(IcariaResourceLocations.SOW_LAYER, "main");
     public static final ModelLayerLocation SOW_SKULL = new ModelLayerLocation(IcariaResourceLocations.SOW_SKULL_LAYER, "main");
+    public static final ModelLayerLocation VINEGAROON = new ModelLayerLocation(IcariaResourceLocations.VINEGAROON_LAYER, "main");
 }

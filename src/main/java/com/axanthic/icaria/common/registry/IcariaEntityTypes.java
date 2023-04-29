@@ -52,6 +52,8 @@ public class IcariaEntityTypes {
 	public static final RegistryObject<EntityType<SnullEntity>> SNULL = register("snull", Builder.of(SnullEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
 	public static final RegistryObject<EntityType<SolifugaeEntity>> SOLIFUGAE = register("solifugae", Builder.of(SolifugaeEntity::new, MobCategory.CREATURE).sized(1.0F, 0.5F));
 	public static final RegistryObject<EntityType<SowEntity>> SOW = register("sow", Builder.of(SowEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
+	public static final RegistryObject<EntityType<VinegarEntity>> VINEGAR = register("vinegar", Builder.<VinegarEntity>of(VinegarEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
+	public static final RegistryObject<EntityType<VinegaroonEntity>> VINEGAROON = register("vinegaroon", Builder.of(VinegaroonEntity::new, MobCategory.CREATURE).sized(2.0F, 0.75F));
 
 	public static <T extends Entity> RegistryObject<EntityType<T>> register(String pName, Builder<T> pBuilder) {
 		return ENTITY_TYPES.register(pName, () -> pBuilder.build(IcariaInfo.ID + ":" + pName));

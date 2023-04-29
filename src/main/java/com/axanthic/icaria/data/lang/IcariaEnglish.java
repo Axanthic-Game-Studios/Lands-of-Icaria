@@ -667,6 +667,8 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
 		this.add(IcariaEntityTypes.SOLIFUGAE.get(), "Solifugae");
 		this.add(IcariaEntityTypes.SOW.get(), "Sow");
+		this.add(IcariaEntityTypes.VINEGAR.get(), "Vinegar");
+		this.add(IcariaEntityTypes.VINEGAROON.get(), "Vinegaroon");
 
 		// FLUIDS
 		this.add("fluid." + IcariaInfo.ID + ".mediterranean_water", "Mediterranean Water");
@@ -864,6 +866,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.MYRMEKE_SCALES.get(), "Myrmeke Scales");
 		this.add(IcariaItems.SLUG_SCALES.get(), "Slug Scales");
 		this.add(IcariaItems.SNULL_CREAM.get(), "Snull Cream");
+		this.add(IcariaItems.VINEGAR.get(), "Vinegar");
 
 		this.add(IcariaItems.LOAM_BOWL_UNFIRED.get(), "Unfired Loam Bowl");
 		this.add(IcariaItems.LOAM_BOWL.get(), "Loam Bowl");
@@ -913,6 +916,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn Egg");
 		this.add(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), "Solifugae Spawn Egg");
 		this.add(IcariaItems.SOW_SPAWN_EGG.get(), "Sow Spawn Egg");
+		this.add(IcariaItems.VINEGAROON_SPAWN_EGG.get(), "Vinegaroon Spawn Egg");
 
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Mediterranean Water Bucket");
 

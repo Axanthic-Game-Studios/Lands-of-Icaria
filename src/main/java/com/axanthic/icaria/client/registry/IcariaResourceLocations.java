@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class IcariaResourceLocations {
     public static final ResourceLocation ID = new ResourceLocation(IcariaInfo.ID, "main");
+    public static final ResourceLocation THROWING = new ResourceLocation(IcariaInfo.ID, "throwing");
 
     // BLOCK
     public static final ResourceLocation MEDITERRANEAN_WATER_TEXTURE_FLOWING = new ResourceLocation(IcariaInfo.ID + ":block/mediterranean_water_flowing");
@@ -48,6 +49,7 @@ public class IcariaResourceLocations {
     public static final ResourceLocation SNULL = new ResourceLocation(IcariaInfo.ID, "textures/entity/snull.png");
     public static final ResourceLocation SOLIFUGAE = new ResourceLocation(IcariaInfo.ID, "textures/entity/solifugae.png");
     public static final ResourceLocation SOW = new ResourceLocation(IcariaInfo.ID, "textures/entity/sow.png");
+    public static final ResourceLocation VINEGAROON = new ResourceLocation(IcariaInfo.ID, "textures/entity/vinegaroon.png");
 
     // LAYERS
     public static final ResourceLocation AETERNAE_LAYER = new ResourceLocation(IcariaInfo.ID, "aeternae");
@@ -99,6 +101,7 @@ public class IcariaResourceLocations {
     public static final ResourceLocation SOLIFUGAE_LAYER = new ResourceLocation(IcariaInfo.ID, "solifugae");
     public static final ResourceLocation SOW_LAYER = new ResourceLocation(IcariaInfo.ID, "sow");
     public static final ResourceLocation SOW_SKULL_LAYER = new ResourceLocation(IcariaInfo.ID, "sow_skull");
+    public static final ResourceLocation VINEGAROON_LAYER = new ResourceLocation(IcariaInfo.ID, "vinegaroon");
 
     // SCREENS
     public static final ResourceLocation GRINDER = new ResourceLocation(IcariaInfo.ID, "textures/screens/grinder.png");

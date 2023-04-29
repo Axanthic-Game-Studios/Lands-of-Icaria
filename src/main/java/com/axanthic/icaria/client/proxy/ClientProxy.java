@@ -2,6 +2,7 @@ package com.axanthic.icaria.client.proxy;
 
 import com.axanthic.icaria.client.model.*;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaResourceLocations;
 import com.axanthic.icaria.client.renderer.*;
 import com.axanthic.icaria.client.screen.GrinderScreen;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
@@ -876,6 +877,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.SNULL_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.SOLIFUGAE_SPAWN_EGG.get());
 			pOutput.accept(IcariaItems.SOW_SPAWN_EGG.get());
+			pOutput.accept(IcariaItems.VINEGAROON_SPAWN_EGG.get());
 
 			pOutput.accept(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get());
 		}));
@@ -899,10 +901,11 @@ public class ClientProxy extends CommonProxy {
 		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenuTypes.GRINDER.get(), GrinderScreen::new));
 		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenuTypes.STORAGE_VASE.get(), StorageVaseScreen::new));
 
-		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), new ResourceLocation(IcariaInfo.ID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
+		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), IcariaResourceLocations.THROWING, (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
+		ItemProperties.register(IcariaItems.VINEGAR.get(), IcariaResourceLocations.THROWING, (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
 
 		for (IcariaItems.ToolSet tools : IcariaItems.TOOLS) {
-			ItemProperties.register(tools.bident.get(), new ResourceLocation(IcariaInfo.ID, "throwing"), (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
+			ItemProperties.register(tools.bident.get(), IcariaResourceLocations.THROWING, (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
 		}
 	}
 
@@ -1198,6 +1201,8 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntityTypes.SNULL.get(), SnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SOLIFUGAE.get(), SolifugaeRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SOW.get(), SowRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.VINEGAR.get(), VinegarRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.VINEGAROON.get(), VinegaroonRenderer::new);
 
 		// BLOCK ENTITY RENDERERS
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.CRYSTAL.get(), CrystalBlockRenderer::new);
@@ -1288,6 +1293,7 @@ public class ClientProxy extends CommonProxy {
 		pEvent.registerLayerDefinition(IcariaLayerLocations.SOLIFUGAE, SolifugaeModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.SOW, SowModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.SOW_SKULL, SowSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.VINEGAROON, VinegaroonModel::createLayer);
 	}
 
 	@Override

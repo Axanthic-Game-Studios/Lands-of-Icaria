@@ -665,8 +665,10 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.CRYSTAL_SLUG.get(), "Kristall-Nacktschnecke");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Wald Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
-		this.add(IcariaEntityTypes.SOLIFUGAE.get(), "Solifugae");
+		this.add(IcariaEntityTypes.SOLIFUGAE.get(), "Walzenspinne");
 		this.add(IcariaEntityTypes.SOW.get(), "Krommyonische Sau");
+		this.add(IcariaEntityTypes.VINEGAR.get(), "Essig");
+		this.add(IcariaEntityTypes.VINEGAROON.get(), "Geißelskorpion");
 
 		// FLUIDS
 		this.add("fluid." + IcariaInfo.ID + ".mediterranean_water", "Mediterranes Wasser");
@@ -864,6 +866,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.MYRMEKE_SCALES.get(), "Ameisenschuppen");
 		this.add(IcariaItems.SLUG_SCALES.get(), "Nacktschneckenschuppen");
 		this.add(IcariaItems.SNULL_CREAM.get(), "Snull Creme");
+		this.add(IcariaItems.VINEGAR.get(), "Essig");
 
 		this.add(IcariaItems.LOAM_BOWL_UNFIRED.get(), "Ungebrannte Lehmschüssel");
 		this.add(IcariaItems.LOAM_BOWL.get(), "Lehmschüssel");
@@ -911,8 +914,9 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), "Kristall-Nacktschnecken-Spawn-Ei");
 		this.add(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), "Wald Snull Spawn Egg");
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn-Ei");
-		this.add(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), "Solifugae Spawn-Ei");
+		this.add(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), "Walzenspinnen-Spawn-Ei");
 		this.add(IcariaItems.SOW_SPAWN_EGG.get(), "Krommyonische Sau-Spawn-Ei");
+		this.add(IcariaItems.VINEGAROON_SPAWN_EGG.get(), "Geißelskorpion-Spawn-Ei");
 
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Eimer mit mediterranem Wasser");
 

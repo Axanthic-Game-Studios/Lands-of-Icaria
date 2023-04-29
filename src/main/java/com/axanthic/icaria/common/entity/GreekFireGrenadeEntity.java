@@ -9,7 +9,6 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -35,23 +34,7 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
     }
 
     @Override
-    public boolean canHitEntity(Entity pEntity) {
-        return false;
-    }
-
-    @Override
-    public boolean shouldRender(double pX, double pY, double pZ) {
-        return true;
-    }
-
-    @Override
-    public float getWaterInertia() {
-        return 0.99F;
-    }
-
-    @Override
     public void onHit(HitResult pResult) {
-        super.onHit(pResult);
         BlockPos thisPos = BlockPos.containing(this.getX(), this.getY(), this.getZ());
         if (((IcariaPortalBlock) IcariaBlocks.ICARIA_PORTAL.get()).spawnPortal(this.level, thisPos)) {
             this.discard();

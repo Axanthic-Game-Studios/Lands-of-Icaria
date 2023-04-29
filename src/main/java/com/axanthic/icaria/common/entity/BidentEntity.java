@@ -47,18 +47,8 @@ public class BidentEntity extends AbstractArrow {
 	}
 
 	@Override
-	public boolean shouldRender(double pX, double pY, double pZ) {
-		return true;
-	}
-
-	@Override
 	public boolean tryPickup(Player pPlayer) {
 		return super.tryPickup(pPlayer) || this.isNoPhysics() && this.ownedBy(pPlayer) && pPlayer.getInventory().add(this.getPickupItem());
-	}
-
-	@Override
-	public float getWaterInertia() {
-		return 0.99F;
 	}
 
 	@Override

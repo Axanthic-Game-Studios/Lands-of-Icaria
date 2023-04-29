@@ -647,6 +647,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MYRMEKE_SCALES = registerBasic("myrmeke_scales", () -> new Item(new Properties()));
 	public static final RegistryObject<Item> SLUG_SCALES = registerBasic("slug_scales", () -> new Item(new Properties()));
 	public static final RegistryObject<Item> SNULL_CREAM = registerBasic("snull_cream", () -> new Item(new Properties().food(foodPropertiesSnullCream(3, 0.1F, MobEffects.HUNGER, 100, 0, 0.5F, MobEffects.CONFUSION, 200, 0, 0.5F))));
+	public static final RegistryObject<Item> VINEGAR = registerBasic("vinegar", () -> new Item(new Properties()));
 
 	public static final RegistryObject<Item> LOAM_BOWL_UNFIRED = registerBasic("loam_bowl_unfired", () -> new Item(new Properties()));
 	public static final RegistryObject<Item> LOAM_BOWL = registerBasic("loam_bowl", () -> new Item(new Properties()));
@@ -696,6 +697,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> SNULL_SPAWN_EGG = register("snull_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SNULL, 0x291306, 0x8D694F, new Properties()));
 	public static final RegistryObject<Item> SOLIFUGAE_SPAWN_EGG = register("solifugae_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SOLIFUGAE, 0xE0CDBC, 0x91673F, new Properties()));
 	public static final RegistryObject<Item> SOW_SPAWN_EGG = register("sow_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.SOW, 0x231A13, 0x6E554B, new Properties()));
+	public static final RegistryObject<Item> VINEGAROON_SPAWN_EGG = register("vinegaroon_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.VINEGAROON, 0x382819, 0xC99559, new Properties()));
 
 	public static final RegistryObject<Item> MEDITERRANEAN_WATER_BUCKET = registerBasic("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, new Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
