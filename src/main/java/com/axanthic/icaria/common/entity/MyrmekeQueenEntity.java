@@ -26,6 +26,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
@@ -80,6 +81,13 @@ public class MyrmekeQueenEntity extends Monster {
         super.defineSynchedData();
         this.entityData.define(CLIMBING, (byte) 0);
         this.entityData.define(SPELL, (byte) 0);
+    }
+
+    @Override
+    public void makeStuckInBlock(BlockState pState, Vec3 pMotionMultiplier) {
+        if (!pState.is(IcariaBlockTags.ICARIA_COBWEB_BLOCKS)) {
+            super.makeStuckInBlock(pState, pMotionMultiplier);
+        }
     }
 
     @Override

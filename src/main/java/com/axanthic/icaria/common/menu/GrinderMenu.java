@@ -98,7 +98,7 @@ public class GrinderMenu extends AbstractContainerMenu {
 	}
 
 	@Override
-	public ItemStack quickMoveStack(Player pPlayer, int pIndex) { // TODO
+	public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
 		return ItemStack.EMPTY;
 	}
 }

@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
@@ -75,7 +77,7 @@ public class ArachneEntity extends Monster {
 
     @Override
     public void makeStuckInBlock(BlockState pState, Vec3 pMotionMultiplier) {
-        if (!pState.is(Blocks.COBWEB)) { // TODO: replace with Arachne web
+        if (!pState.is(IcariaBlockTags.ICARIA_COBWEB_BLOCKS)) {
             super.makeStuckInBlock(pState, pMotionMultiplier);
         }
     }

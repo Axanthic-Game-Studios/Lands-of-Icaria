@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -27,6 +28,7 @@ import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
@@ -96,6 +98,10 @@ public class VinegaroonEntity extends Monster implements RangedAttackMob {
         return false;
     }
 
+    public float getHalfHealth() {
+        return this.getMaxHealth() * 0.5F;
+    }
+
     @Override
     public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
         return 0.75F;
@@ -128,6 +134,13 @@ public class VinegaroonEntity extends Monster implements RangedAttackMob {
         super.defineSynchedData();
         this.entityData.define(CLIMBING, (byte) 0);
         this.entityData.define(COOLDOWN, this.minCooldown);
+    }
+
+    @Override
+    public void makeStuckInBlock(BlockState pState, Vec3 pMotionMultiplier) {
+        if (!pState.is(IcariaBlockTags.ICARIA_COBWEB_BLOCKS)) {
+            super.makeStuckInBlock(pState, pMotionMultiplier);
+        }
     }
 
     @Override
@@ -206,16 +219,17 @@ public class VinegaroonEntity extends Monster implements RangedAttackMob {
                 if (this.getFirstPassenger() instanceof Player player) {
                     if (!player.isCreative()) {
                         player.setShiftKeyDown(false);
+                        if (this.getHealth() < this.getHalfHealth()) {
+                            player.stopRiding();
+                        }
                     }
                 }
-            }
-
-            if (this.getTarget() != null) {
+            } else if (this.getTarget() != null) {
                 float distance = this.distanceTo(this.getTarget());
-                if (distance > 4.0F) {
+                if (distance >= 4.0F) {
                     if (!this.onCooldown()) {
-                        this.setCooldown(this.maxCooldown);
                         this.performRangedAttack(this.getTarget(), distance);
+                        this.setCooldown(this.maxCooldown);
                     }
                 }
             }

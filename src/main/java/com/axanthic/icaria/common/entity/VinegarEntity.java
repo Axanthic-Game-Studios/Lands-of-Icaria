@@ -32,7 +32,7 @@ public class VinegarEntity extends AbstractArrow {
     }
 
     @Override
-    protected void onHit(HitResult pResult) {
+    public void onHit(HitResult pResult) {
         this.discard();
     }
 
@@ -47,7 +47,7 @@ public class VinegarEntity extends AbstractArrow {
     }
 
     @Override
-    protected ItemStack getPickupItem() {
+    public ItemStack getPickupItem() {
         return ItemStack.EMPTY;
     }
 }

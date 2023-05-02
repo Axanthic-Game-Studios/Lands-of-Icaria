@@ -41,6 +41,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 	public static final TagKey<Block> ICARIA_PORTAL_BLOCKS = icariaTag("icaria_portal_blocks");
 
+	public static final TagKey<Block> ICARIA_COBWEB_BLOCKS = icariaTag("icaria_cobweb_blocks");
+
 	public static final TagKey<Block> ICARIA_GRASS_BLOCKS = icariaTag("icaria_grass_blocks");
 
 	public static final TagKey<Block> MYRMEKE_SUMMONS_ON = icariaTag("myrmeke_summons_on");
@@ -605,6 +607,9 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.RELICSTONE_TILES_DECO.slab.get())
 			.add(IcariaBlocks.RELICSTONE_TILES_CRACKED_DECO.slab.get())
 			.add(IcariaBlocks.RELICSTONE_TILES_MOSSY_DECO.slab.get());
+
+		this.tag(IcariaBlockTags.ICARIA_COBWEB_BLOCKS) // TODO: add Arachne web block
+			.add(Blocks.COBWEB);
 
 		this.tag(BlockTags.SAND)
 			.add(IcariaBlocks.LOAM.get())
