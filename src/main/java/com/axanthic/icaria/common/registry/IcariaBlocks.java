@@ -253,6 +253,11 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> RED_LOOT_VASE = register("red_loot_vase", () -> new LootVaseBlock(propertiesLootVase(MaterialColor.COLOR_RED)));
 	public static final RegistryObject<Block> CYAN_LOOT_VASE = register("cyan_loot_vase", () -> new LootVaseBlock(propertiesLootVase(MaterialColor.COLOR_CYAN)));
 
+	public static final RegistryObject<Block> DUNGEON_SPAWNER = register("dungeon_spawner", () -> new IcariaSpawnerBlock(propertiesSpawners(MaterialColor.COLOR_GRAY, SoundType.METAL)));
+	public static final RegistryObject<Block> MYRMEKE_SPAWNER = register("myrmeke_spawner", () -> new IcariaSpawnerBlock(propertiesSpawners(MaterialColor.COLOR_BROWN, SoundType.WOOD)));
+	public static final RegistryObject<Block> RUIN_SPAWNER = register("ruin_spawner", () -> new IcariaSpawnerBlock(propertiesSpawners(MaterialColor.COLOR_LIGHT_GRAY, SoundType.METAL)));
+	public static final RegistryObject<Block> VILLAGE_SPAWNER = register("village_spawner", () -> new IcariaSpawnerBlock(propertiesSpawners(MaterialColor.COLOR_GREEN, SoundType.METAL)));
+
 	public static final RegistryObject<Block> AETERNAE_SKULL = register("aeternae_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.AETERNAE, propertiesSkull()));
 	public static final RegistryObject<Block> AETERNAE_WALL_SKULL = register("aeternae_wall_skull", () -> new IcariaWallSkullBlock(0.03F, IcariaSkullBlockTypes.AETERNAE, propertiesSkull()));
 	public static final RegistryObject<Block> ARGAN_HOUND_SKULL = register("argan_hound_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.ARGAN_HOUND, propertiesSkull()));
@@ -671,6 +676,10 @@ public class IcariaBlocks {
 
 	public static Properties propertiesLootVase(MaterialColor pColor) {
 		return Properties.of(Material.STONE, pColor).sound(IcariaSoundTypes.VASE).instabreak().noOcclusion();
+	}
+
+	public static Properties propertiesSpawners(MaterialColor pColor, SoundType pSound) {
+		return Properties.of(Material.STONE, pColor).sound(pSound).strength(5.0F, 5.0F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static Properties propertiesSkull() {

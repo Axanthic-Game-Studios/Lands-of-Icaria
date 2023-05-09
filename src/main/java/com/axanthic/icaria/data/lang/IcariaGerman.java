@@ -312,6 +312,11 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.RED_LOOT_VASE.get(), "Rote Beutevase");
 		this.add(IcariaBlocks.CYAN_LOOT_VASE.get(), "Türkise Beutevase");
 
+		this.add(IcariaBlocks.DUNGEON_SPAWNER.get(), "Verlies-Spawner");
+		this.add(IcariaBlocks.MYRMEKE_SPAWNER.get(), "Ameisen-Spawner");
+		this.add(IcariaBlocks.RUIN_SPAWNER.get(), "Ruinen-Spawner");
+		this.add(IcariaBlocks.VILLAGE_SPAWNER.get(), "Dorf-Spawner");
+
 		this.add(IcariaBlocks.AETERNAE_SKULL.get(), "Äternschädel");
 		this.add(IcariaBlocks.ARGAN_HOUND_SKULL.get(), "Arganischer Hundeschädel");
 		this.add(IcariaBlocks.CATOBLEPAS_SKULL.get(), "Katoblepasschädel");

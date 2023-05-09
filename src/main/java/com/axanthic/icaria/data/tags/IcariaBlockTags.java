@@ -416,7 +416,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.BLUE_STORAGE_VASE.get())
 			.add(IcariaBlocks.PURPLE_STORAGE_VASE.get())
 			.add(IcariaBlocks.MAGENTA_STORAGE_VASE.get())
-			.add(IcariaBlocks.PINK_STORAGE_VASE.get());
+			.add(IcariaBlocks.PINK_STORAGE_VASE.get())
+			.add(IcariaBlocks.DUNGEON_SPAWNER.get())
+			.add(IcariaBlocks.RUIN_SPAWNER.get())
+			.add(IcariaBlocks.VILLAGE_SPAWNER.get());
 
 		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.MARL_ADOBE_DECO);
 		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.LOAM_BRICKS_DECO);
@@ -459,6 +462,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		this.tag(BlockTags.MINEABLE_WITH_AXE)
 			.add(IcariaBlocks.VINE_REED_BLOCK.get())
 			.add(IcariaBlocks.VINE_SPROUT_BLOCK.get())
+			.add(IcariaBlocks.MYRMEKE_SPAWNER.get())
 			.add(IcariaBlocks.CYPRESS_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get())
 			.add(IcariaBlocks.CYPRESS_LOG.get())

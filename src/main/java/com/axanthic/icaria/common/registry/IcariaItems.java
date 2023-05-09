@@ -260,6 +260,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> RED_LOOT_VASE = register("red_loot_vase", () -> new BlockItem(IcariaBlocks.RED_LOOT_VASE.get(), new Properties()));
 	public static final RegistryObject<Item> CYAN_LOOT_VASE = register("cyan_loot_vase", () -> new BlockItem(IcariaBlocks.CYAN_LOOT_VASE.get(), new Properties()));
 
+	public static final RegistryObject<Item> DUNGEON_SPAWNER = register("dungeon_spawner", () -> new BlockItem(IcariaBlocks.DUNGEON_SPAWNER.get(), new Properties()));
+	public static final RegistryObject<Item> MYRMEKE_SPAWNER = register("myrmeke_spawner", () -> new BlockItem(IcariaBlocks.MYRMEKE_SPAWNER.get(), new Properties()));
+	public static final RegistryObject<Item> RUIN_SPAWNER = register("ruin_spawner", () -> new BlockItem(IcariaBlocks.RUIN_SPAWNER.get(), new Properties()));
+	public static final RegistryObject<Item> VILLAGE_SPAWNER = register("village_spawner", () -> new BlockItem(IcariaBlocks.VILLAGE_SPAWNER.get(), new Properties()));
+
 	public static final RegistryObject<Item> AETERNAE_SKULL = register("aeternae_skull", () -> new IcariaSkullItem(IcariaBlocks.AETERNAE_SKULL.get(), IcariaBlocks.AETERNAE_WALL_SKULL.get(), new Properties(), Direction.DOWN));
 	public static final RegistryObject<Item> ARGAN_HOUND_SKULL = register("argan_hound_skull", () -> new IcariaSkullItem(IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), new Properties(), Direction.DOWN));
 	public static final RegistryObject<Item> CATOBLEPAS_SKULL = register("catoblepas_skull", () -> new IcariaSkullItem(IcariaBlocks.CATOBLEPAS_SKULL.get(), IcariaBlocks.CATOBLEPAS_WALL_SKULL.get(), new Properties(), Direction.DOWN));
