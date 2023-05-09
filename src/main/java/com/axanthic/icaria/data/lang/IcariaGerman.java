@@ -309,6 +309,9 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.MAGENTA_STORAGE_VASE.get(), "Magenta Speichervase");
 		this.add(IcariaBlocks.PINK_STORAGE_VASE.get(), "Rosa Speichervase");
 
+		this.add(IcariaBlocks.RED_LOOT_VASE.get(), "Rote Beutevase");
+		this.add(IcariaBlocks.CYAN_LOOT_VASE.get(), "Türkise Beutevase");
+
 		this.add(IcariaBlocks.AETERNAE_SKULL.get(), "Äternschädel");
 		this.add(IcariaBlocks.ARGAN_HOUND_SKULL.get(), "Arganischer Hundeschädel");
 		this.add(IcariaBlocks.CATOBLEPAS_SKULL.get(), "Katoblepasschädel");
@@ -630,6 +633,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaMobEffects.LIFESTEAL.get(), "Lebensraub");
 
 		// ENTITY TYPES
+		this.add(IcariaEntityTypes.LOOT_VASE.get(), "Beutevase");
 		this.add(IcariaEntityTypes.AETERNAE.get(), "Ätern");
 		this.add(IcariaEntityTypes.ARACHNE.get(), "Arachne");
 		this.add(IcariaEntityTypes.ARACHNE_DRONE.get(), "Arachnendrohne");
@@ -928,5 +932,8 @@ public class IcariaGerman extends LanguageProvider {
 		// MENU TYPES
 		this.add("menu." + IcariaInfo.ID + ".grinder", "Mühle");
 		this.add("menu." + IcariaInfo.ID + ".storage_vase", "Speichervase");
+
+		// MESSAGES
+		this.add("message." + IcariaInfo.ID + ".loot_vase", "Schleichen zum Werfen der Beutevase");
 	}
 }

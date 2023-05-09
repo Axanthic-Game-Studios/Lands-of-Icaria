@@ -309,6 +309,9 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.MAGENTA_STORAGE_VASE.get(), "Magenta Storage Vase");
 		this.add(IcariaBlocks.PINK_STORAGE_VASE.get(), "Pink Storage Vase");
 
+		this.add(IcariaBlocks.RED_LOOT_VASE.get(), "Red Loot Vase");
+		this.add(IcariaBlocks.CYAN_LOOT_VASE.get(), "Cyan Loot Vase");
+
 		this.add(IcariaBlocks.AETERNAE_SKULL.get(), "Aeternae Skull");
 		this.add(IcariaBlocks.ARGAN_HOUND_SKULL.get(), "Argan Hound Skull");
 		this.add(IcariaBlocks.CATOBLEPAS_SKULL.get(), "Catoblepas Skull");
@@ -630,6 +633,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaMobEffects.LIFESTEAL.get(), "Lifesteal");
 
 		// ENTITY TYPES
+		this.add(IcariaEntityTypes.LOOT_VASE.get(), "Loot Vase");
 		this.add(IcariaEntityTypes.AETERNAE.get(), "Aeternae");
 		this.add(IcariaEntityTypes.ARACHNE.get(), "Arachne");
 		this.add(IcariaEntityTypes.ARACHNE_DRONE.get(), "Arachne Drone");
@@ -928,5 +932,8 @@ public class IcariaEnglish extends LanguageProvider {
 		// MENU TYPES
 		this.add("menu." + IcariaInfo.ID + ".grinder", "Grinder");
 		this.add("menu." + IcariaInfo.ID + ".storage_vase", "Storage Vase");
+
+		// MESSAGES
+		this.add("message." + IcariaInfo.ID + ".loot_vase", "Sneak to throw loot vase");
 	}
 }

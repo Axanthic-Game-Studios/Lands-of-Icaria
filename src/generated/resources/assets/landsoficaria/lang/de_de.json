@@ -57,6 +57,7 @@
   "block.landsoficaria.chert_block": "Hornsteinblock",
   "block.landsoficaria.clover": "Klee",
   "block.landsoficaria.cyan_ground_flowers": "Türkise Bodenblüten",
+  "block.landsoficaria.cyan_loot_vase": "Türkise Beutevase",
   "block.landsoficaria.cyan_storage_vase": "Türkise Speichervase",
   "block.landsoficaria.cypress_crafting_table": "Zypressenholzwerkbank",
   "block.landsoficaria.cypress_door": "Zypressenholztür",
@@ -364,6 +365,7 @@
   "block.landsoficaria.purple_stormcotton": "Violettes Sturmgarn",
   "block.landsoficaria.quartz_pillar_head": "Quartzsäulenende",
   "block.landsoficaria.red_ground_flowers": "Rote Bodenblüten",
+  "block.landsoficaria.red_loot_vase": "Rote Beutevase",
   "block.landsoficaria.red_storage_vase": "Rote Speichervase",
   "block.landsoficaria.reedy_vine": "Schilfige Ranken",
   "block.landsoficaria.relicstone": "Reliktenstein",
@@ -570,6 +572,7 @@
   "entity.landsoficaria.greek_fire_grenade": "Griechische Feuergranate",
   "entity.landsoficaria.hyliaster": "Hyliaster",
   "entity.landsoficaria.laurel_forest_hag": "Lorbeer-Baumwächter",
+  "entity.landsoficaria.loot_vase": "Beutevase",
   "entity.landsoficaria.myrmeke_drone": "Ameisendrohne",
   "entity.landsoficaria.myrmeke_queen": "Ameisenkönigin",
   "entity.landsoficaria.myrmeke_soldier": "Ameisensoldat",
@@ -824,5 +827,6 @@
   "itemgroup.landsoficaria.flora": "Lands of Icaria Flora",
   "itemgroup.landsoficaria.items": "Lands of Icaria Gegenstände",
   "menu.landsoficaria.grinder": "Mühle",
-  "menu.landsoficaria.storage_vase": "Speichervase"
+  "menu.landsoficaria.storage_vase": "Speichervase",
+  "message.landsoficaria.loot_vase": "Schleichen zum Werfen der Beutevase"
 }

@@ -393,6 +393,8 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 
 		this.dropBush(IcariaBlocks.STRAWBERRY_BUSH.get(), IcariaItems.STRAWBERRIES.get(), 2.0F, 5.0F);
 
+		this.dropNone(IcariaBlocks.RED_LOOT_VASE.get());
+		this.dropNone(IcariaBlocks.CYAN_LOOT_VASE.get());
 		this.dropNone(IcariaBlocks.DEAD_BLOOMY_VINE.get());
 		this.dropNone(IcariaBlocks.GROWING_BLOOMY_VINE.get());
 		this.dropNone(IcariaBlocks.DEAD_BRANCHY_VINE.get());

@@ -57,6 +57,7 @@
   "block.landsoficaria.chert_block": "Block of Chert",
   "block.landsoficaria.clover": "Clover",
   "block.landsoficaria.cyan_ground_flowers": "Cyan Ground Flowers",
+  "block.landsoficaria.cyan_loot_vase": "Cyan Loot Vase",
   "block.landsoficaria.cyan_storage_vase": "Cyan Storage Vase",
   "block.landsoficaria.cypress_crafting_table": "Cypress Crafting Table",
   "block.landsoficaria.cypress_door": "Cypress Door",
@@ -364,6 +365,7 @@
   "block.landsoficaria.purple_stormcotton": "Purple Stormcotton",
   "block.landsoficaria.quartz_pillar_head": "Quartz Pillar Head",
   "block.landsoficaria.red_ground_flowers": "Red Ground Flowers",
+  "block.landsoficaria.red_loot_vase": "Red Loot Vase",
   "block.landsoficaria.red_storage_vase": "Red Storage Vase",
   "block.landsoficaria.reedy_vine": "Reedy Vine",
   "block.landsoficaria.relicstone": "Relicstone",
@@ -570,6 +572,7 @@
   "entity.landsoficaria.greek_fire_grenade": "Greek Fire Grenade",
   "entity.landsoficaria.hyliaster": "Hyliaster",
   "entity.landsoficaria.laurel_forest_hag": "Laurel Forest Hag",
+  "entity.landsoficaria.loot_vase": "Loot Vase",
   "entity.landsoficaria.myrmeke_drone": "Myrmeke Drone",
   "entity.landsoficaria.myrmeke_queen": "Myrmeke Queen",
   "entity.landsoficaria.myrmeke_soldier": "Myrmeke Soldier",
@@ -824,5 +827,6 @@
   "itemgroup.landsoficaria.flora": "Lands of Icaria Flora",
   "itemgroup.landsoficaria.items": "Lands of Icaria Items",
   "menu.landsoficaria.grinder": "Grinder",
-  "menu.landsoficaria.storage_vase": "Storage Vase"
+  "menu.landsoficaria.storage_vase": "Storage Vase",
+  "message.landsoficaria.loot_vase": "Sneak to throw loot vase"
 }

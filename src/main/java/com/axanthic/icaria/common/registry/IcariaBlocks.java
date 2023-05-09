@@ -250,6 +250,9 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MAGENTA_STORAGE_VASE = register("magenta_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_MAGENTA)));
 	public static final RegistryObject<Block> PINK_STORAGE_VASE = register("pink_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.COLOR_PINK)));
 
+	public static final RegistryObject<Block> RED_LOOT_VASE = register("red_loot_vase", () -> new LootVaseBlock(propertiesLootVase(MaterialColor.COLOR_RED)));
+	public static final RegistryObject<Block> CYAN_LOOT_VASE = register("cyan_loot_vase", () -> new LootVaseBlock(propertiesLootVase(MaterialColor.COLOR_CYAN)));
+
 	public static final RegistryObject<Block> AETERNAE_SKULL = register("aeternae_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.AETERNAE, propertiesSkull()));
 	public static final RegistryObject<Block> AETERNAE_WALL_SKULL = register("aeternae_wall_skull", () -> new IcariaWallSkullBlock(0.03F, IcariaSkullBlockTypes.AETERNAE, propertiesSkull()));
 	public static final RegistryObject<Block> ARGAN_HOUND_SKULL = register("argan_hound_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.ARGAN_HOUND, propertiesSkull()));
@@ -664,6 +667,10 @@ public class IcariaBlocks {
 
 	public static Properties propertiesStorageVase(MaterialColor pColor) {
 		return Properties.of(Material.STONE, pColor).sound(IcariaSoundTypes.VASE).strength(1.3F, 1.3F).noOcclusion().requiresCorrectToolForDrops();
+	}
+
+	public static Properties propertiesLootVase(MaterialColor pColor) {
+		return Properties.of(Material.STONE, pColor).sound(IcariaSoundTypes.VASE).instabreak().noOcclusion();
 	}
 
 	public static Properties propertiesSkull() {

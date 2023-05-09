@@ -366,6 +366,9 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.MAGENTA_STORAGE_VASE.get());
 			pOutput.accept(IcariaItems.PINK_STORAGE_VASE.get());
 
+			pOutput.accept(IcariaItems.RED_LOOT_VASE.get());
+			pOutput.accept(IcariaItems.CYAN_LOOT_VASE.get());
+
 			pOutput.accept(IcariaItems.AETERNAE_SKULL.get());
 			pOutput.accept(IcariaItems.ARGAN_HOUND_SKULL.get());
 			pOutput.accept(IcariaItems.CATOBLEPAS_SKULL.get());
@@ -1164,6 +1167,7 @@ public class ClientProxy extends CommonProxy {
 		this.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER_FLOWING.get());
 
 		// ENTITY RENDERERS
+		EntityRenderers.register(IcariaEntityTypes.LOOT_VASE.get(), LootVaseRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.AETERNAE.get(), AeternaeRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.ARACHNE.get(), ArachneRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.ARACHNE_DRONE.get(), ArachneDroneRenderer::new);

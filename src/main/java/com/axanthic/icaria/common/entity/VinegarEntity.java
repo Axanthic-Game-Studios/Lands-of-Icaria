@@ -39,7 +39,7 @@ public class VinegarEntity extends AbstractArrow {
     @Override
     public void playerTouch(Player pEntity) {
         pEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 120, 0), this);
-        pEntity.hurt(this.damageSources().mobProjectile(this, pEntity), 1.0F);
+        pEntity.hurt(this.damageSources().mobProjectile(this, pEntity), 2.0F);
     }
 
     public ItemStack getItem() {

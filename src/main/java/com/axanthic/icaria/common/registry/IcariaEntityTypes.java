@@ -15,6 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class IcariaEntityTypes {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, IcariaInfo.ID);
 
+	public static final RegistryObject<EntityType<LootVaseEntity>> LOOT_VASE = register("loot_vase", Builder.<LootVaseEntity>of(LootVaseEntity::new, MobCategory.MISC).sized(1.0F, 1.0F).clientTrackingRange(10).updateInterval(20));
 	public static final RegistryObject<EntityType<AeternaeEntity>> AETERNAE = register("aeternae", Builder.of(AeternaeEntity::new, MobCategory.CREATURE).sized(1.25F, 1.75F));
 	public static final RegistryObject<EntityType<ArachneEntity>> ARACHNE = register("arachne", Builder.of(ArachneEntity::new, MobCategory.CREATURE).sized(2.0F, 2.0F));
 	public static final RegistryObject<EntityType<ArachneDroneEntity>> ARACHNE_DRONE = register("arachne_drone", Builder.of(ArachneDroneEntity::new, MobCategory.CREATURE).sized(1.0F, 0.5F));

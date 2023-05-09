@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "": [
+      { "model": "landsoficaria:block/cyan_loot_vase_band" },
+      { "model": "landsoficaria:block/cyan_loot_vase_bars" },
+      { "model": "landsoficaria:block/cyan_loot_vase_carved" },
+      { "model": "landsoficaria:block/cyan_loot_vase_checkers" },
+      { "model": "landsoficaria:block/cyan_loot_vase_dots" },
+      { "model": "landsoficaria:block/cyan_loot_vase_gold" },
+      { "model": "landsoficaria:block/cyan_loot_vase_obsidian" },
+      { "model": "landsoficaria:block/cyan_loot_vase_stripe" },
+      { "model": "landsoficaria:block/cyan_loot_vase_symbol" },
+      { "model": "landsoficaria:block/cyan_loot_vase_zigzag" }
+    ]
+  }
+}
