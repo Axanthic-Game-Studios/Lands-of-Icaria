@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -27,6 +28,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
+@SuppressWarnings("deprecation")
 
 public class RevenantEntity extends Monster {
     public RevenantEntity(EntityType<? extends RevenantEntity> pType, Level pLevel) {
@@ -83,17 +85,17 @@ public class RevenantEntity extends Monster {
 
     @Override
     public SoundEvent getAmbientSound() {
-        return SoundEvents.SKELETON_AMBIENT;
+        return IcariaSoundEvents.REVENANT_AMBIENT;
     }
 
     @Override
     public SoundEvent getDeathSound() {
-        return SoundEvents.SKELETON_DEATH;
+        return IcariaSoundEvents.REVENANT_DEATH;
     }
 
     @Override
     public SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return SoundEvents.SKELETON_HURT;
+        return IcariaSoundEvents.REVENANT_HURT;
     }
 
     @Override

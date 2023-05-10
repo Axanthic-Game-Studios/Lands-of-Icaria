@@ -1,12 +1,14 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
@@ -190,5 +192,10 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
 
     public static AttributeSupplier.Builder registerAttributes() {
         return Mob.createMobAttributes().add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+    }
+
+    @Override
+    public SoundEvent getAmbientSound() {
+        return IcariaSoundEvents.PYROMANCER_REVENANT_AMBIENT;
     }
 }

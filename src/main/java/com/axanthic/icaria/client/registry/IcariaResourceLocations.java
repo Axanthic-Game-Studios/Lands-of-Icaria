@@ -109,6 +109,17 @@ public class IcariaResourceLocations {
 
     // SOUNDS
     public static final ResourceLocation GRINDER_GRIND = new ResourceLocation(IcariaInfo.ID, "block.grinder.grind");
+    public static final ResourceLocation CAPTAIN_REVENANT_DEATH = new ResourceLocation(IcariaInfo.ID, "entity.captain_revenant.death");
+    public static final ResourceLocation CAPTAIN_REVENANT_HURT = new ResourceLocation(IcariaInfo.ID, "entity.captain_revenant.hurt");
+    public static final ResourceLocation CAPTAIN_REVENANT_RALLY = new ResourceLocation(IcariaInfo.ID, "entity.captain_revenant.rally");
+    public static final ResourceLocation CAPTAIN_REVENANT_STEP = new ResourceLocation(IcariaInfo.ID, "entity.captain_revenant.step");
+    public static final ResourceLocation PYROMANCER_REVENANT_AMBIENT = new ResourceLocation(IcariaInfo.ID, "entity.pyromancer_revenant.ambient");
+    public static final ResourceLocation SOLDIER_REVENANT_DEATH = new ResourceLocation(IcariaInfo.ID, "entity.soldier_revenant.death");
+    public static final ResourceLocation SOLDIER_REVENANT_HURT = new ResourceLocation(IcariaInfo.ID, "entity.soldier_revenant.hurt");
+    public static final ResourceLocation SOLDIER_REVENANT_STEP = new ResourceLocation(IcariaInfo.ID, "entity.soldier_revenant.step");
+    public static final ResourceLocation REVENANT_AMBIENT = new ResourceLocation(IcariaInfo.ID, "entity.revenant.ambient");
+    public static final ResourceLocation REVENANT_DEATH = new ResourceLocation(IcariaInfo.ID, "entity.revenant.death");
+    public static final ResourceLocation REVENANT_HURT = new ResourceLocation(IcariaInfo.ID, "entity.revenant.hurt");
     public static final ResourceLocation SCORPION_AMBIENT = new ResourceLocation(IcariaInfo.ID, "entity.scorpion.ambient");
     public static final ResourceLocation SCORPION_DEATH = new ResourceLocation(IcariaInfo.ID, "entity.scorpion.death");
     public static final ResourceLocation SCORPION_HURT = new ResourceLocation(IcariaInfo.ID, "entity.scorpion.hurt");

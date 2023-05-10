@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -11,6 +12,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
@@ -26,6 +28,7 @@ import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Objects;
 
@@ -142,6 +145,11 @@ public class CaptainRevenantEntity extends RevenantEntity {
     }
 
     @Override
+    public void playStepSound(BlockPos pPos, BlockState pState) {
+        this.playSound(IcariaSoundEvents.CAPTAIN_REVENANT_STEP, 0.1F, 1.0F);
+    }
+
+    @Override
     public void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
         this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(IcariaItems.ORICHALCUM_HELMET.get()));
         this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(IcariaItems.ORICHALCUM_CHESTPLATE.get()));
@@ -225,6 +233,16 @@ public class CaptainRevenantEntity extends RevenantEntity {
         return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 40.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
+    @Override
+    public SoundEvent getDeathSound() {
+        return IcariaSoundEvents.CAPTAIN_REVENANT_DEATH;
+    }
+
+    @Override
+    public SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return IcariaSoundEvents.CAPTAIN_REVENANT_HURT;
+    }
+
     public enum CaptainRevenantSpellEnum {
         NONE(0),
         SUMMON(1);
@@ -262,6 +280,7 @@ public class CaptainRevenantEntity extends RevenantEntity {
 
         @Override
         public void start() {
+            this.entity.playSound(IcariaSoundEvents.CAPTAIN_REVENANT_RALLY);
             this.entity.setCasting(CaptainRevenantSpellEnum.SUMMON);
         }
 
