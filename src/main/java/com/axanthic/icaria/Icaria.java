@@ -3,7 +3,21 @@ package com.axanthic.icaria;
 import com.axanthic.icaria.client.proxy.ClientProxy;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.proxy.CommonProxy;
-import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.registry.IcariaBiomes;
+import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaCarvers;
+import com.axanthic.icaria.common.registry.IcariaDimensions;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaFeatures;
+import com.axanthic.icaria.common.registry.IcariaFluidTypes;
+import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaMenuTypes;
+import com.axanthic.icaria.common.registry.IcariaMobEffects;
+import com.axanthic.icaria.common.registry.IcariaPlacements;
+import com.axanthic.icaria.common.registry.IcariaPoiTypes;
+import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraftforge.api.distmarker.Dist;
@@ -35,7 +49,7 @@ public class Icaria {
 	public CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
 	public Icaria() {
-		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		final IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		IcariaConfig.registerClientConfig();
 		IcariaConfig.registerCommonConfig();
@@ -49,91 +63,96 @@ public class Icaria {
 		eventBus.addListener(this::onGatherData);
 		eventBus.addListener(this::onRegisterLayerDefinitions);
 
+		IcariaBiomes.BIOMES.register(eventBus);
 		IcariaBlocks.BLOCKS.register(eventBus);
 		IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(eventBus);
+		IcariaCarvers.CARVERS.register(eventBus);
+		IcariaDimensions.CHUNK_GENERATORS.register(eventBus);
 		IcariaEntityTypes.ENTITY_TYPES.register(eventBus);
+		IcariaFeatures.FEATURE_REGISTER.register(eventBus);
 		IcariaFluids.FLUIDS.register(eventBus);
 		IcariaFluidTypes.FLUID_TYPES.register(eventBus);
 		IcariaItems.ITEMS.register(eventBus);
 		IcariaMenuTypes.MENU_TYPES.register(eventBus);
 		IcariaMobEffects.MOB_EFFECTS.register(eventBus);
+		IcariaPlacements.PLACED_FEATURE_REGISTER.register(eventBus);
 		IcariaPoiTypes.POI_TYPES.register(eventBus);
 		IcariaRecipeTypes.RECIPE_TYPES.register(eventBus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
-	public void onCreativeModeTabRegistration(CreativeModeTabEvent.Register pEvent) {
+	public void onCreativeModeTabRegistration(final CreativeModeTabEvent.Register pEvent) {
 		this.proxy.onCreativeModeTabRegistration(pEvent);
 	}
 
-	public void onEntityAttributeCreation(EntityAttributeCreationEvent pEvent) {
+	public void onEntityAttributeCreation(final EntityAttributeCreationEvent pEvent) {
 		this.proxy.onEntityAttributeCreation(pEvent);
 	}
 
-	public void onFMLClientSetup(FMLClientSetupEvent pEvent) {
+	public void onFMLClientSetup(final FMLClientSetupEvent pEvent) {
 		this.proxy.onFMLClientSetup(pEvent);
 	}
 
-	public void onFMLCommonSetup(FMLCommonSetupEvent pEvent) {
+	public void onFMLCommonSetup(final FMLCommonSetupEvent pEvent) {
 		this.proxy.onFMLCommonSetup(pEvent);
 	}
 
-	public void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {
+	public void onFMLLoadComplete(final FMLLoadCompleteEvent pEvent) {
 		this.proxy.onFMLLoadComplete(pEvent);
 	}
 
-	public void onGatherData(GatherDataEvent pEvent) {
+	public void onGatherData(final GatherDataEvent pEvent) {
 		this.proxy.onGatherData(pEvent);
 	}
 
-	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions pEvent) {
+	public void onRegisterLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions pEvent) {
 		this.proxy.onRegisterLayerDefinitions(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onEntityAttributeModification(EntityAttributeModificationEvent pEvent) {
+	public void onEntityAttributeModification(final EntityAttributeModificationEvent pEvent) {
 		this.proxy.onEntityAttributeModification(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onLivingAttack(LivingAttackEvent pEvent) {
+	public void onLivingAttack(final LivingAttackEvent pEvent) {
 		this.proxy.onLivingAttack(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onMobEffectApplicable(MobEffectEvent.Applicable pEvent) {
+	public void onMobEffectApplicable(final MobEffectEvent.Applicable pEvent) {
 		this.proxy.onMobEffectApplicable(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onPlayerInteract(PlayerInteractEvent pEvent) {
+	public void onPlayerInteract(final PlayerInteractEvent pEvent) {
 		this.proxy.onPlayerInteract(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onEntityInteract(PlayerInteractEvent.EntityInteract pEvent) {
+	public void onEntityInteract(final PlayerInteractEvent.EntityInteract pEvent) {
 		this.proxy.onEntityInteract(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock pEvent) {
+	public void onLeftClickBlock(final PlayerInteractEvent.LeftClickBlock pEvent) {
 		this.proxy.onLeftClickBlock(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock pEvent) {
+	public void onRightClickBlock(final PlayerInteractEvent.RightClickBlock pEvent) {
 		this.proxy.onRightClickBlock(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onPlayerTick(TickEvent.PlayerTickEvent pEvent) {
+	public void onPlayerTick(final TickEvent.PlayerTickEvent pEvent) {
 		this.proxy.onPlayerTick(pEvent);
 	}
 
 	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
-	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> pEvent) {
+	public void onRenderLivingPre(final RenderLivingEvent.Pre<?, ?> pEvent) {
 		this.proxy.onRenderLivingPre(pEvent);
 	}
 }
