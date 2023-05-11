@@ -1,6 +1,7 @@
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
-apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'org.spongepowered.mixin'            
+apply plugin: 'eclipse'
 
 archivesBaseName = 'landsoficaria'
 group = 'com.axanthic.loi'
@@ -28,7 +29,7 @@ buildscript {
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.parchmentmc:librarian:1.+'
-        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
+        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7.+'
     }
 }
 
@@ -75,7 +76,7 @@ minecraft {
                     source sourceSets.main
                 }
             }
-            args '--mod', 'landsoficaria', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'landsoficaria', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             property 'forge.logging.console.level', 'debug'
             property 'forge.logging.markers', 'REGISTRIES'
             workingDirectory project.file('run')
@@ -106,6 +107,16 @@ repositories {
     }
 }
 
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
+// Configure the source folders
+sourceSets {
+    main {
+        java {
+            srcDir "src/main/java"
+        }
+        resources {
+            srcDir "src/main/resources"
+            srcDir 'src/generated/resources'
+        }
+    }
 }
+

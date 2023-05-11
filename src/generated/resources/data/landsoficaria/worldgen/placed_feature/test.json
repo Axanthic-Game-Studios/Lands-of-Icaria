@@ -1,0 +1,8 @@
+{
+  "feature": "landsoficaria:test",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

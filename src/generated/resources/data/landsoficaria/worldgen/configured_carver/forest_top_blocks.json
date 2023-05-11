@@ -1,0 +1,81 @@
+{
+  "type": "landsoficaria:forest_top_blocks",
+  "config": {
+    "debug_settings": {
+      "air_state": {
+        "Name": "minecraft:warped_button",
+        "Properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "false"
+        }
+      },
+      "barrier_state": {
+        "Name": "minecraft:glass"
+      },
+      "lava_state": {
+        "Name": "minecraft:orange_stained_glass"
+      },
+      "water_state": {
+        "Name": "minecraft:candle",
+        "Properties": {
+          "candles": "1",
+          "lit": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "fillerBlockPrimary": {
+      "Name": "landsoficaria:anthracite_ore"
+    },
+    "fillerBlockSecondary": {
+      "Name": "landsoficaria:marl"
+    },
+    "fillerBlockTertiary": {
+      "Name": "landsoficaria:marl"
+    },
+    "lava_level": {
+      "above_bottom": 8
+    },
+    "probability": 0.0,
+    "replaceable": "#minecraft:overworld_carver_replaceables",
+    "topBlockPrimary": {
+      "Name": "landsoficaria:marl_grass",
+      "Properties": {
+        "mossy_0": "false",
+        "mossy_1": "false",
+        "mossy_2": "false"
+      }
+    },
+    "topBlockSecondary": {
+      "Name": "landsoficaria:marl_grass",
+      "Properties": {
+        "mossy_0": "false",
+        "mossy_1": "false",
+        "mossy_2": "false"
+      }
+    },
+    "topBlockTertiary": {
+      "Name": "landsoficaria:marl"
+    },
+    "upperBlockPrimary": {
+      "Name": "landsoficaria:marl"
+    },
+    "upperBlockSecondary": {
+      "Name": "landsoficaria:marl"
+    },
+    "upperBlockTertiary": {
+      "Name": "landsoficaria:marl"
+    },
+    "y": {
+      "type": "minecraft:uniform",
+      "max_inclusive": {
+        "absolute": 67
+      },
+      "min_inclusive": {
+        "absolute": 10
+      }
+    },
+    "yScale": 0.0
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "type": "landsoficaria:desert_top_blocks",
+  "config": {
+    "debug_settings": {
+      "air_state": {
+        "Name": "minecraft:warped_button",
+        "Properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "false"
+        }
+      },
+      "barrier_state": {
+        "Name": "minecraft:glass"
+      },
+      "lava_state": {
+        "Name": "minecraft:orange_stained_glass"
+      },
+      "water_state": {
+        "Name": "minecraft:candle",
+        "Properties": {
+          "candles": "1",
+          "lit": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "fillerBlockPrimary": {
+      "Name": "landsoficaria:grainel"
+    },
+    "fillerBlockSecondary": {
+      "Name": "landsoficaria:silkstone"
+    },
+    "fillerBlockTertiary": {
+      "Name": "landsoficaria:silkstone"
+    },
+    "lava_level": {
+      "above_bottom": 8
+    },
+    "probability": 0.0,
+    "replaceable": "#minecraft:overworld_carver_replaceables",
+    "topBlockPrimary": {
+      "Name": "landsoficaria:grainel"
+    },
+    "topBlockSecondary": {
+      "Name": "landsoficaria:silkstone"
+    },
+    "topBlockTertiary": {
+      "Name": "landsoficaria:silkstone"
+    },
+    "upperBlockPrimary": {
+      "Name": "landsoficaria:silkstone"
+    },
+    "upperBlockSecondary": {
+      "Name": "landsoficaria:silkstone"
+    },
+    "upperBlockTertiary": {
+      "Name": "landsoficaria:silkstone"
+    },
+    "y": {
+      "type": "minecraft:uniform",
+      "max_inclusive": {
+        "absolute": 67
+      },
+      "min_inclusive": {
+        "absolute": 10
+      }
+    },
+    "yScale": 0.0
+  }
+}
