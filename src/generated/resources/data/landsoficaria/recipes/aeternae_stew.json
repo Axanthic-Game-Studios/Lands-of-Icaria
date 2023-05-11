@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "landsoficaria:cooked_aeternae_meat"
+    },
+    "B": {
+      "item": "minecraft:beetroot"
+    },
+    "C": {
+      "item": "landsoficaria:halite_dust"
+    },
+    "D": {
+      "item": "landsoficaria:loam_bowl"
+    }
+  },
+  "pattern": [
+    "AB",
+    "CD"
+  ],
+  "result": {
+    "item": "landsoficaria:aeternae_stew"
+  },
+  "show_notification": true
+}

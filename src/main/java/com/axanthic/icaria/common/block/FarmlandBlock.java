@@ -138,7 +138,7 @@ public class FarmlandBlock extends Block {
 			if (pState.getValue(MOISTURE) == 7) {
 				pLevel.playSound(pPlayer, pPos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
 				if (!pLevel.isClientSide) {
-					pLevel.setBlock(pPos, IcariaBlocks.FARMLAND_FERTILIZED.get().defaultBlockState(), 0);
+					pLevel.setBlock(pPos, IcariaBlocks.FERTILIZED_FARMLAND.get().defaultBlockState(), 0);
 					if (!pPlayer.isCreative()) {
 						itemStack.shrink(1);
 					}

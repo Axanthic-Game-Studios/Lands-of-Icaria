@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "landsoficaria:block/silkstone_cobble",
-    "side": "landsoficaria:block/silkstone_cobble",
-    "top": "landsoficaria:block/silkstone_cobble"
-  }
-}

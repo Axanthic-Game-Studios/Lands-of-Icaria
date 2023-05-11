@@ -39,7 +39,7 @@ public class IcariaFluidTypes {
         .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)) {
         @Override
         public void initializeClient(Consumer<IClientFluidTypeExtensions> pConsumer) {
-            pConsumer.accept(new IcariaFluidTypeRenderProperties(IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE_STILL, IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE_FLOWING, IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE_OVERLAY));
+            pConsumer.accept(new IcariaFluidTypeRenderProperties(IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE, IcariaResourceLocations.FLOWING_MEDITERRANEAN_WATER_TEXTURE, IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE_OVERLAY));
         }
     });
 }

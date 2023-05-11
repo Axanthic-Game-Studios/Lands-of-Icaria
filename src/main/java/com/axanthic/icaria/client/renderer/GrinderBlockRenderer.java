@@ -46,16 +46,16 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 			ItemStack sideGear = ItemStack.EMPTY;
 
 			if (!mainGear.isEmpty()) {
-				if (mainGear.is(IcariaItems.GEAR_YELLOWSTONE.get())) {
-					sideGear = new ItemStack(IcariaItems.GEAR_YELLOWSTONE_SMALL.get());
-				} else if (mainGear.is(IcariaItems.GEAR_LOAM.get())) {
-					sideGear = new ItemStack(IcariaItems.GEAR_LOAM_SMALL.get());
-				} else if (mainGear.is(IcariaItems.GEAR_VOIDSHALE.get())) {
-					sideGear = new ItemStack(IcariaItems.GEAR_VOIDSHALE_SMALL.get());
-				} else if (mainGear.is(IcariaItems.GEAR_VANADIUM.get())) {
-					sideGear = new ItemStack(IcariaItems.GEAR_VANADIUM_SMALL.get());
-				} else if (mainGear.is(IcariaItems.GEAR_DAEDALIAN.get())) {
-					sideGear = new ItemStack(IcariaItems.GEAR_DAEDALIAN_SMALL.get());
+				if (mainGear.is(IcariaItems.YELLOWSTONE_GEAR.get())) {
+					sideGear = new ItemStack(IcariaItems.SMALL_YELLOWSTONE_GEAR.get());
+				} else if (mainGear.is(IcariaItems.LOAM_GEAR.get())) {
+					sideGear = new ItemStack(IcariaItems.SMALL_LOAM_GEAR.get());
+				} else if (mainGear.is(IcariaItems.VOIDSHALE_GEAR.get())) {
+					sideGear = new ItemStack(IcariaItems.SMALL_VOIDSHALE_GEAR.get());
+				} else if (mainGear.is(IcariaItems.VANADIUM_GEAR.get())) {
+					sideGear = new ItemStack(IcariaItems.SMALL_VANADIUM_GEAR.get());
+				} else if (mainGear.is(IcariaItems.DAEDALIAN_GEAR.get())) {
+					sideGear = new ItemStack(IcariaItems.SMALL_DAEDALIAN_GEAR.get());
 				}
 
 				pPoseStack.pushPose();

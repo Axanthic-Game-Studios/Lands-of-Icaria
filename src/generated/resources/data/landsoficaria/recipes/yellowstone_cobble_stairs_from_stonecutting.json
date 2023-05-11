@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "landsoficaria:yellowstone_cobble"
-  },
-  "result": "landsoficaria:yellowstone_cobble_stairs"
-}

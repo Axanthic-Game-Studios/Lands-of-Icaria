@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "landsoficaria:dolomite_smooth"
-  },
-  "result": "landsoficaria:dolomite_smooth_slab"
-}

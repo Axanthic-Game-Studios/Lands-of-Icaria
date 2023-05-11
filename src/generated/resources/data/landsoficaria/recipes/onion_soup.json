@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:onion"
+    },
+    "Y": {
+      "item": "landsoficaria:halite_dust"
+    },
+    "Z": {
+      "item": "landsoficaria:loam_bowl"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "YZ "
+  ],
+  "result": {
+    "item": "landsoficaria:onion_soup"
+  },
+  "show_notification": true
+}

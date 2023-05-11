@@ -2,7 +2,7 @@
   "type": "landsoficaria:grinding",
   "burnTime": 200,
   "gear": {
-    "item": "landsoficaria:gear_yellowstone"
+    "item": "landsoficaria:yellowstone_gear"
   },
   "ingredients": [
     {

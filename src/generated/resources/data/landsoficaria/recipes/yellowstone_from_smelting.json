@@ -4,7 +4,7 @@
   "cookingtime": 200,
   "experience": 0.1,
   "ingredient": {
-    "item": "landsoficaria:yellowstone_cobble"
+    "item": "landsoficaria:cobbled_yellowstone"
   },
   "result": "landsoficaria:yellowstone"
 }

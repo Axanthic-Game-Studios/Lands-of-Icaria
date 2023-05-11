@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/cobbled_baetyl_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/cobbled_baetyl"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/cobbled_baetyl_slab_top"
+    }
+  }
+}

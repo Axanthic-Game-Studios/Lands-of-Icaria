@@ -120,7 +120,7 @@ public class IcariaTeleporter implements ITeleporter {
                 for (int k2 = -1; k2 < 4; ++k2) {
                     for (int i3 = -1; i3 < 3; ++i3) {
                         mutablePos0.setWithOffset(blockPos0, k2 * direction.getStepX() + l1 * clockWise.getStepX(), i3, k2 * direction.getStepZ() + l1 * clockWise.getStepZ());
-                        this.level.setBlockAndUpdate(mutablePos0, i3 < 0 ? IcariaBlocks.DOLOMITE_SMOOTH.get().defaultBlockState() : Blocks.AIR.defaultBlockState());
+                        this.level.setBlockAndUpdate(mutablePos0, i3 < 0 ? IcariaBlocks.SMOOTH_DOLOMITE.get().defaultBlockState() : Blocks.AIR.defaultBlockState());
                     }
                 }
             }
@@ -162,7 +162,7 @@ public class IcariaTeleporter implements ITeleporter {
         for (int k1 = -1; k1 < 1; ++k1) {
             for (int i2 = 4; i2 < 5; ++i2) {
                 mutablePos0.setWithOffset(blockPos0, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
-                this.level.setBlock(mutablePos0, IcariaBlocks.DOLOMITE_SMOOTH_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM), 3);
+                this.level.setBlock(mutablePos0, IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM), 3);
             }
         }
 
@@ -170,7 +170,7 @@ public class IcariaTeleporter implements ITeleporter {
         for (int k1 = 2; k1 < 4; ++k1) {
             for (int i2 = 4; i2 < 5; ++i2) {
                 mutablePos0.setWithOffset(blockPos0, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
-                this.level.setBlock(mutablePos0, IcariaBlocks.DOLOMITE_SMOOTH_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM), 3);
+                this.level.setBlock(mutablePos0, IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM), 3);
             }
         }
 
@@ -178,7 +178,7 @@ public class IcariaTeleporter implements ITeleporter {
         for (int k1 = -2; k1 < -1; ++k1) {
             for (int i2 = 3; i2 < 4; ++i2) {
                 mutablePos0.setWithOffset(blockPos0, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
-                this.level.setBlock(mutablePos0, IcariaBlocks.DOLOMITE_SMOOTH_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP), 3);
+                this.level.setBlock(mutablePos0, IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP), 3);
             }
         }
 
@@ -186,7 +186,7 @@ public class IcariaTeleporter implements ITeleporter {
         for (int k1 = 4; k1 < 5; ++k1) {
             for (int i2 = 3; i2 < 4; ++i2) {
                 mutablePos0.setWithOffset(blockPos0, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
-                this.level.setBlock(mutablePos0, IcariaBlocks.DOLOMITE_SMOOTH_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP), 3);
+                this.level.setBlock(mutablePos0, IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP), 3);
             }
         }
 

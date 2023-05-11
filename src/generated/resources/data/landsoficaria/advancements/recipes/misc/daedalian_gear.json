@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blue_gearfragment": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:blue_gearfragment"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_green_gearfragment": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:green_gearfragment"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:daedalian_gear"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_gearfragment": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:yellow_gearfragment"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_blue_gearfragment",
+      "has_green_gearfragment",
+      "has_yellow_gearfragment",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:daedalian_gear"
+    ]
+  }
+}

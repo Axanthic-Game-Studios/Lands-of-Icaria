@@ -182,7 +182,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:chalkos_raw"
+          "name": "landsoficaria:raw_chalkos"
         },
         {
           "type": "minecraft:item",
@@ -197,7 +197,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:kassiteros_raw"
+          "name": "landsoficaria:raw_kassiteros"
         },
         {
           "type": "minecraft:item",
@@ -555,15 +555,15 @@
         },
         {
           "type": "minecraft:item",
-          "name": "landsoficaria:gearfragment_blue"
+          "name": "landsoficaria:blue_gearfragment"
         },
         {
           "type": "minecraft:item",
-          "name": "landsoficaria:gearfragment_green"
+          "name": "landsoficaria:green_gearfragment"
         },
         {
           "type": "minecraft:item",
-          "name": "landsoficaria:gearfragment_yellow"
+          "name": "landsoficaria:yellow_gearfragment"
         }
       ],
       "rolls": 1.0

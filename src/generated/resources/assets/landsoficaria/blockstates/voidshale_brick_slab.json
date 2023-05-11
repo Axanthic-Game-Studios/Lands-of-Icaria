@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/voidshale_brick_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/voidshale_bricks"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/voidshale_brick_slab_top"
+    }
+  }
+}

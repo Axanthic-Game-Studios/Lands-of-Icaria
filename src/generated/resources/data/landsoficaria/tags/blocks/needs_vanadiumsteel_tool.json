@@ -1,26 +1,26 @@
 {
   "values": [
     "landsoficaria:voidshale_adobe",
-    "landsoficaria:voidshale_cobble",
+    "landsoficaria:cobbled_voidshale",
     "landsoficaria:voidshale",
     "landsoficaria:voidshale_bricks",
-    "landsoficaria:voidshale_chiseled",
+    "landsoficaria:chiseled_voidshale",
     "landsoficaria:sideros_ore",
     "landsoficaria:anthracite_ore",
-    "landsoficaria:sideros_raw_block",
+    "landsoficaria:raw_sideros_block",
     "landsoficaria:sideros_block",
     "landsoficaria:anthracite_block",
     "landsoficaria:voidshale_adobe_slab",
     "landsoficaria:voidshale_adobe_stairs",
     "landsoficaria:voidshale_adobe_wall",
-    "landsoficaria:voidshale_cobble_slab",
-    "landsoficaria:voidshale_cobble_stairs",
-    "landsoficaria:voidshale_cobble_wall",
+    "landsoficaria:cobbled_voidshale_slab",
+    "landsoficaria:cobbled_voidshale_stairs",
+    "landsoficaria:cobbled_voidshale_wall",
     "landsoficaria:voidshale_slab",
     "landsoficaria:voidshale_stairs",
     "landsoficaria:voidshale_wall",
-    "landsoficaria:voidshale_bricks_slab",
-    "landsoficaria:voidshale_bricks_stairs",
-    "landsoficaria:voidshale_bricks_wall"
+    "landsoficaria:voidshale_brick_slab",
+    "landsoficaria:voidshale_brick_stairs",
+    "landsoficaria:voidshale_brick_wall"
   ]
 }

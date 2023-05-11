@@ -1,28 +1,28 @@
 {
   "values": [
     "landsoficaria:yellowstone_adobe",
-    "landsoficaria:yellowstone_cobble",
+    "landsoficaria:cobbled_yellowstone",
     "landsoficaria:yellowstone",
     "landsoficaria:yellowstone_bricks",
-    "landsoficaria:yellowstone_chiseled",
+    "landsoficaria:chiseled_yellowstone",
     "landsoficaria:lignite_ore",
     "landsoficaria:chalkos_ore",
     "landsoficaria:calcite_crystal",
     "landsoficaria:calcite_geode_block",
     "landsoficaria:budding_calcite_geode_block",
-    "landsoficaria:chalkos_raw_block",
+    "landsoficaria:raw_chalkos_block",
     "landsoficaria:chalkos_block",
     "landsoficaria:yellowstone_adobe_slab",
     "landsoficaria:yellowstone_adobe_stairs",
     "landsoficaria:yellowstone_adobe_wall",
-    "landsoficaria:yellowstone_cobble_slab",
-    "landsoficaria:yellowstone_cobble_stairs",
-    "landsoficaria:yellowstone_cobble_wall",
+    "landsoficaria:cobbled_yellowstone_slab",
+    "landsoficaria:cobbled_yellowstone_stairs",
+    "landsoficaria:cobbled_yellowstone_wall",
     "landsoficaria:yellowstone_slab",
     "landsoficaria:yellowstone_stairs",
     "landsoficaria:yellowstone_wall",
-    "landsoficaria:yellowstone_bricks_slab",
-    "landsoficaria:yellowstone_bricks_stairs",
-    "landsoficaria:yellowstone_bricks_wall"
+    "landsoficaria:yellowstone_brick_slab",
+    "landsoficaria:yellowstone_brick_stairs",
+    "landsoficaria:yellowstone_brick_wall"
   ]
 }

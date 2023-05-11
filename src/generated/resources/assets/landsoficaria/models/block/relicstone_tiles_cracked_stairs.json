@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "landsoficaria:block/relicstone_tiles_cracked",
-    "side": "landsoficaria:block/relicstone_tiles_cracked",
-    "top": "landsoficaria:block/relicstone_tiles_cracked"
-  }
-}

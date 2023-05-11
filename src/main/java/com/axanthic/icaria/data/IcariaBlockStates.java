@@ -36,7 +36,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		MIRRORED.add(IcariaBlocks.ARACHNE_STRING_BLOCK);
 
 		ROTATED.add(IcariaBlocks.MARL);
-		ROTATED.add(IcariaBlocks.MARL_COARSE);
+		ROTATED.add(IcariaBlocks.COARSE_MARL);
 		ROTATED.add(IcariaBlocks.MARL_ADOBE);
 		ROTATED.add(IcariaBlocks.DOLOMITE_ADOBE);
 		ROTATED.add(IcariaBlocks.GRAINEL);
@@ -79,13 +79,13 @@ public class IcariaBlockStates extends BlockStateProvider {
 		this.baseBlockWithItem(IcariaBlocks.FIR_LEAVES);
 		this.baseBlockWithItem(IcariaBlocks.LAUREL_LEAVES);
 		this.baseBlockWithItem(IcariaBlocks.OLIVE_LEAVES);
-		this.baseBlockWithItem(IcariaBlocks.OLIVE_LEAVES_BLACK);
-		this.baseBlockWithItem(IcariaBlocks.OLIVE_LEAVES_GREEN);
+		this.baseBlockWithItem(IcariaBlocks.BLACK_OLIVE_LEAVES);
+		this.baseBlockWithItem(IcariaBlocks.GREEN_OLIVE_LEAVES);
 		this.baseBlockWithItem(IcariaBlocks.PLANE_LEAVES);
 		this.baseBlockWithItem(IcariaBlocks.POPULUS_LEAVES);
 
 		this.mirroredBlockWithItem(IcariaBlocks.LOAM);
-		this.mirroredBlockWithItem(IcariaBlocks.RELICSTONE_SMOOTH);
+		this.mirroredBlockWithItem(IcariaBlocks.SMOOTH_RELICSTONE);
 
 		this.axisBlockWithItem(IcariaBlocks.DOLOMITE_PILLAR);
 		this.axisBlockWithItem(IcariaBlocks.RELICSTONE_PILLAR);

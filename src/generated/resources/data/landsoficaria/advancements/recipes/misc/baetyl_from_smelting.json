@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_baetyl_cobble": {
+    "has_cobbled_baetyl": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:baetyl_cobble"
+              "landsoficaria:cobbled_baetyl"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_baetyl_cobble",
+      "has_cobbled_baetyl",
       "has_the_recipe"
     ]
   ],

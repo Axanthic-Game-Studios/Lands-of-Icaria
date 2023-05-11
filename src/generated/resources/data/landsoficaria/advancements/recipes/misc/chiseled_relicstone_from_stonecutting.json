@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_relicstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:relicstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_relicstone_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:relicstone_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:chiseled_relicstone_from_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_relicstone",
+      "has_relicstone_bricks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:chiseled_relicstone_from_stonecutting"
+    ]
+  }
+}

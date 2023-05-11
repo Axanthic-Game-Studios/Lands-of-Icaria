@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:yellowstone_gear"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellowstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:yellowstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_yellowstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:yellowstone_gear"
+    ]
+  }
+}

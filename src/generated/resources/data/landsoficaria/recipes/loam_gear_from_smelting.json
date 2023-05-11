@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 3.0,
+  "ingredient": {
+    "item": "landsoficaria:unfired_loam_gear"
+  },
+  "result": "landsoficaria:loam_gear"
+}

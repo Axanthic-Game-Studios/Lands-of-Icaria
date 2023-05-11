@@ -1,6 +1,18 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_raw_vanadium": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:raw_vanadium"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "landsoficaria:vanadium_ingot_from_blasting"
@@ -18,24 +30,12 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "has_vanadium_raw": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:vanadium_raw"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_vanadium_ore",
-      "has_vanadium_raw",
+      "has_raw_vanadium",
       "has_the_recipe"
     ]
   ],

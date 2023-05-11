@@ -14,10 +14,10 @@ import net.minecraftforge.registries.RegistryObject;
 public class IcariaFluids {
 	public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, IcariaInfo.ID);
 
-	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_FLOWING = registerMediterraneanWater("mediterranean_water_flowing", ForgeFlowingFluid.Flowing::new);
-	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER_SOURCE = registerMediterraneanWater("mediterranean_water", ForgeFlowingFluid.Source::new);
+	public static final RegistryObject<FlowingFluid> FLOWING_MEDITERRANEAN_WATER = registerMediterraneanWater("flowing_mediterranean_water", ForgeFlowingFluid.Flowing::new);
+	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER = registerMediterraneanWater("mediterranean_water", ForgeFlowingFluid.Source::new);
 
 	public static RegistryObject<FlowingFluid> registerMediterraneanWater(String pName, NonNullFunction<ForgeFlowingFluid.Properties, FlowingFluid> pFunction) {
-		return FLUIDS.register(pName, () -> pFunction.apply((new ForgeFlowingFluid.Properties(IcariaFluidTypes.MEDITERRANEAN_WATER_TYPE, MEDITERRANEAN_WATER_SOURCE, MEDITERRANEAN_WATER_FLOWING)).bucket(IcariaItems.MEDITERRANEAN_WATER_BUCKET).block(IcariaBlocks.MEDITERRANEAN_WATER)));
+		return FLUIDS.register(pName, () -> pFunction.apply((new ForgeFlowingFluid.Properties(IcariaFluidTypes.MEDITERRANEAN_WATER_TYPE, MEDITERRANEAN_WATER, FLOWING_MEDITERRANEAN_WATER)).bucket(IcariaItems.MEDITERRANEAN_WATER_BUCKET).block(IcariaBlocks.MEDITERRANEAN_WATER)));
 	}
 }

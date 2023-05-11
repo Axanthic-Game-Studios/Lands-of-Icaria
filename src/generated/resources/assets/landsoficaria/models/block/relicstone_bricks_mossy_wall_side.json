@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_wall_side",
-  "textures": {
-    "wall": "landsoficaria:block/relicstone_bricks_mossy"
-  }
-}

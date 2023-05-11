@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "landsoficaria:block/relicstone_bricks_cracked",
-    "side": "landsoficaria:block/relicstone_bricks_cracked",
-    "top": "landsoficaria:block/relicstone_bricks_cracked"
-  }
-}

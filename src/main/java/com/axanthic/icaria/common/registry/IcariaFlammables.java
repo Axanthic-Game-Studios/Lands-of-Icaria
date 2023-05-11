@@ -74,8 +74,8 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.LAUREL_DECO.fence.get(), 5, 20);
 		flammableBlock(IcariaBlocks.LAUREL_DECO.gate.get(), 5, 20);
 		flammableBlock(IcariaBlocks.OLIVE_LEAVES.get(), 30, 60);
-		flammableBlock(IcariaBlocks.OLIVE_LEAVES_BLACK.get(), 30, 60);
-		flammableBlock(IcariaBlocks.OLIVE_LEAVES_GREEN.get(), 30, 60);
+		flammableBlock(IcariaBlocks.BLACK_OLIVE_LEAVES.get(), 30, 60);
+		flammableBlock(IcariaBlocks.GREEN_OLIVE_LEAVES.get(), 30, 60);
 		flammableBlock(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), 30, 60);
 		flammableBlock(IcariaBlocks.OLIVE_TWIGS.get(), 30, 60);
 		flammableBlock(IcariaBlocks.OLIVE_WOOD.get(), 5 ,5);

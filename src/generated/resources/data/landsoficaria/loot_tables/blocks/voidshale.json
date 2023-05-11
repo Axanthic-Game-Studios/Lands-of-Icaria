@@ -42,7 +42,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "landsoficaria:voidshale_cobble"
+              "name": "landsoficaria:cobbled_voidshale"
             }
           ]
         }

@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "landsoficaria:relicstone_bricks"
+    },
+    [
+      {
+        "item": "minecraft:vine"
+      },
+      {
+        "item": "landsoficaria:bloomy_vine"
+      },
+      {
+        "item": "landsoficaria:branchy_vine"
+      },
+      {
+        "item": "landsoficaria:brushy_vine"
+      },
+      {
+        "item": "landsoficaria:dry_vine"
+      },
+      {
+        "item": "landsoficaria:reedy_vine"
+      },
+      {
+        "item": "landsoficaria:swirly_vine"
+      },
+      {
+        "item": "landsoficaria:thorny_vine"
+      }
+    ]
+  ],
+  "result": {
+    "item": "landsoficaria:mossy_relicstone_bricks"
+  }
+}

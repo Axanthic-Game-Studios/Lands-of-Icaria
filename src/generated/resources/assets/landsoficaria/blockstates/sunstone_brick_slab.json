@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/sunstone_brick_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/sunstone_bricks"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/sunstone_brick_slab_top"
+    }
+  }
+}

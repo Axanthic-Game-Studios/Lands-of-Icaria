@@ -1,24 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sideros_ore": {
+    "has_raw_sideros": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:sideros_ore"
+              "landsoficaria:raw_sideros"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_sideros_raw": {
+    "has_sideros_ore": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:sideros_raw"
+              "landsoficaria:sideros_ore"
             ]
           }
         ]
@@ -35,7 +35,7 @@
   "requirements": [
     [
       "has_sideros_ore",
-      "has_sideros_raw",
+      "has_raw_sideros",
       "has_the_recipe"
     ]
   ],

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "landsoficaria:block/voidshale_cobble",
-    "side": "landsoficaria:block/voidshale_cobble",
-    "top": "landsoficaria:block/voidshale_cobble"
-  }
-}

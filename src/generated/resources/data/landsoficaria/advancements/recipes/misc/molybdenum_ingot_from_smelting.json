@@ -13,12 +13,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_molybdenum_raw": {
+    "has_raw_molybdenum": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:molybdenum_raw"
+              "landsoficaria:raw_molybdenum"
             ]
           }
         ]
@@ -35,7 +35,7 @@
   "requirements": [
     [
       "has_molybdenum_ore",
-      "has_molybdenum_raw",
+      "has_raw_molybdenum",
       "has_the_recipe"
     ]
   ],

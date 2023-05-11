@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/smooth_relicstone_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/smooth_relicstone"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/smooth_relicstone_slab_top"
+    }
+  }
+}

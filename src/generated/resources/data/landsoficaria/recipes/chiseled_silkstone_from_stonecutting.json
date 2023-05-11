@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": [
+    {
+      "item": "landsoficaria:silkstone"
+    },
+    {
+      "item": "landsoficaria:silkstone_bricks"
+    }
+  ],
+  "result": "landsoficaria:chiseled_silkstone"
+}

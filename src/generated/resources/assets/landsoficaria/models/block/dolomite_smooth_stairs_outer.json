@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "landsoficaria:block/dolomite_smooth",
-    "side": "landsoficaria:block/dolomite_smooth",
-    "top": "landsoficaria:block/dolomite_smooth"
-  }
-}

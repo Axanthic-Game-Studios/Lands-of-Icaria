@@ -4,7 +4,7 @@
   "cookingtime": 200,
   "experience": 0.3,
   "ingredient": {
-    "item": "landsoficaria:loam_bowl_unfired"
+    "item": "landsoficaria:unfired_loam_bowl"
   },
   "result": "landsoficaria:loam_bowl"
 }

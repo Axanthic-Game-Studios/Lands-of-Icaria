@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:chiseled_voidshale_from_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_voidshale": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:voidshale"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_voidshale_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:voidshale_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_voidshale",
+      "has_voidshale_bricks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:chiseled_voidshale_from_stonecutting"
+    ]
+  }
+}

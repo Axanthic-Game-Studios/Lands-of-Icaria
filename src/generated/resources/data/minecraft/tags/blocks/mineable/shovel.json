@@ -1,13 +1,13 @@
 {
   "values": [
-    "landsoficaria:marl_grass",
+    "landsoficaria:grassy_marl",
     "landsoficaria:marl",
     "landsoficaria:marl_chert",
     "landsoficaria:marl_bones",
     "landsoficaria:marl_lignite",
-    "landsoficaria:marl_coarse",
+    "landsoficaria:coarse_marl",
     "landsoficaria:farmland",
-    "landsoficaria:farmland_fertilized",
+    "landsoficaria:fertilized_farmland",
     "landsoficaria:loam",
     "landsoficaria:grainel",
     "landsoficaria:grainel_chert"

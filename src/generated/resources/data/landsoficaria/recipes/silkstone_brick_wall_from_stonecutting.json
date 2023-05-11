@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "landsoficaria:silkstone_bricks"
+  },
+  "result": "landsoficaria:silkstone_brick_wall"
+}

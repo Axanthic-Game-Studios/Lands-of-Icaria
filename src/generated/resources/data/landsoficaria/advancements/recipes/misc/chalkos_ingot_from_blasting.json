@@ -13,12 +13,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_chalkos_raw": {
+    "has_raw_chalkos": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:chalkos_raw"
+              "landsoficaria:raw_chalkos"
             ]
           }
         ]
@@ -35,7 +35,7 @@
   "requirements": [
     [
       "has_chalkos_ore",
-      "has_chalkos_raw",
+      "has_raw_chalkos",
       "has_the_recipe"
     ]
   ],

@@ -1,8 +1,8 @@
 {
   "values": [
     "landsoficaria:grainglass_pane",
-    "landsoficaria:grainglass_pane_horizontal",
+    "landsoficaria:horizontal_grainglass_pane",
     "landsoficaria:silkglass_pane",
-    "landsoficaria:silkglass_pane_horizontal"
+    "landsoficaria:horizontal_silkglass_pane"
   ]
 }

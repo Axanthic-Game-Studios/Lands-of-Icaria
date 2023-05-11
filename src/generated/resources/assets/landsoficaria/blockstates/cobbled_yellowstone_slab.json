@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/cobbled_yellowstone_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/cobbled_yellowstone"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/cobbled_yellowstone_slab_top"
+    }
+  }
+}

@@ -4,7 +4,7 @@
     "particle": "landsoficaria:block/dolomite_pillar_head_side",
     "bottom": "landsoficaria:block/dolomite_pillar_end",
     "side": "landsoficaria:block/dolomite_pillar_head_side",
-    "top": "landsoficaria:block/dolomite_smooth"
+    "top": "landsoficaria:block/smooth_dolomite"
   },
   "elements": [
     {

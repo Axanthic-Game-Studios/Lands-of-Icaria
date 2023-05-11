@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sunstone_cobble": {
+    "has_cobbled_sunstone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:sunstone_cobble"
+              "landsoficaria:cobbled_sunstone"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_sunstone_cobble",
+      "has_cobbled_sunstone",
       "has_the_recipe"
     ]
   ],

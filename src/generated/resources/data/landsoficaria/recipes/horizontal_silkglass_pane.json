@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:silkglass_pane"
+    }
+  },
+  "pattern": [
+    "XX"
+  ],
+  "result": {
+    "count": 2,
+    "item": "landsoficaria:horizontal_silkglass_pane"
+  },
+  "show_notification": true
+}

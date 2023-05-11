@@ -1,10 +1,10 @@
 {
   "values": [
-    "landsoficaria:yellowstone_cobble",
-    "landsoficaria:silkstone_cobble",
-    "landsoficaria:sunstone_cobble",
-    "landsoficaria:voidshale_cobble",
-    "landsoficaria:baetyl_cobble",
+    "landsoficaria:cobbled_yellowstone",
+    "landsoficaria:cobbled_silkstone",
+    "landsoficaria:cobbled_sunstone",
+    "landsoficaria:cobbled_voidshale",
+    "landsoficaria:cobbled_baetyl",
     "landsoficaria:relicstone",
     "landsoficaria:platoshale"
   ]

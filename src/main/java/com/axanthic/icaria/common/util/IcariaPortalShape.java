@@ -144,15 +144,15 @@ public class IcariaPortalShape extends PortalShape {
             BlockPos blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height);
             if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
                 !(this.level.getBlockState(blockPos).equals(Blocks.SMOOTH_QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.DOLOMITE_SMOOTH_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
                 !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_SMOOTH_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICKS_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICKS_CRACKED_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICKS_MOSSY_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILES_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILES_CRACKED_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILES_MOSSY_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM)))) {
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_RELICSTONE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICK_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.CRACKED_RELICSTONE_BRICK_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.MOSSY_RELICSTONE_BRICK_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM)))) {
                 this.height = 0;
                 break;
             }
@@ -163,15 +163,15 @@ public class IcariaPortalShape extends PortalShape {
             BlockPos blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height);
             if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
                 !(this.level.getBlockState(blockPos).equals(Blocks.SMOOTH_QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.DOLOMITE_SMOOTH_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
                 !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_SMOOTH_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICKS_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICKS_CRACKED_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICKS_MOSSY_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILES_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILES_CRACKED_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILES_MOSSY_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM)))) {
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_RELICSTONE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICK_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.CRACKED_RELICSTONE_BRICK_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.MOSSY_RELICSTONE_BRICK_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM)))) {
                 this.height = 0;
                 break;
             }
@@ -182,15 +182,15 @@ public class IcariaPortalShape extends PortalShape {
             BlockPos blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height - 1);
             if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
                 !(this.level.getBlockState(blockPos).equals(Blocks.SMOOTH_QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.DOLOMITE_SMOOTH_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
                 !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_SMOOTH_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICKS_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICKS_CRACKED_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICKS_MOSSY_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILES_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILES_CRACKED_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILES_MOSSY_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP)))) {
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_RELICSTONE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICK_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.CRACKED_RELICSTONE_BRICK_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.MOSSY_RELICSTONE_BRICK_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP)))) {
                 this.height = 0;
                 break;
             }
@@ -201,15 +201,15 @@ public class IcariaPortalShape extends PortalShape {
             BlockPos blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height - 1);
             if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
                 !(this.level.getBlockState(blockPos).equals(Blocks.SMOOTH_QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.DOLOMITE_SMOOTH_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
                 !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_SMOOTH_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICKS_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICKS_CRACKED_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICKS_MOSSY_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILES_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILES_CRACKED_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILES_MOSSY_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP)))) {
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_RELICSTONE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_BRICK_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.CRACKED_RELICSTONE_BRICK_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.MOSSY_RELICSTONE_BRICK_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.RELICSTONE_TILE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+                !(this.level.getBlockState(blockPos).equals(IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP)))) {
                 this.height = 0;
                 break;
             }

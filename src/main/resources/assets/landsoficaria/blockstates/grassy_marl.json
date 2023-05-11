@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "mossy_0=false,mossy_1=false,mossy_2=false": [
+      { "model": "landsoficaria:block/grassy_marl", "y": 0 },
+      { "model": "landsoficaria:block/grassy_marl", "y": 90 },
+      { "model": "landsoficaria:block/grassy_marl", "y": 180 },
+      { "model": "landsoficaria:block/grassy_marl", "y": 270 }
+    ],
+    "mossy_0=true,mossy_1=false,mossy_2=false": [
+      { "model": "landsoficaria:block/mossy_marl_0", "y": 0 },
+      { "model": "landsoficaria:block/mossy_marl_0", "y": 90 },
+      { "model": "landsoficaria:block/mossy_marl_0", "y": 180 },
+      { "model": "landsoficaria:block/mossy_marl_0", "y": 270 }
+    ],
+    "mossy_0=false,mossy_1=true,mossy_2=false": [
+      { "model": "landsoficaria:block/mossy_marl_1", "y": 0 },
+      { "model": "landsoficaria:block/mossy_marl_1", "y": 90 },
+      { "model": "landsoficaria:block/mossy_marl_1", "y": 180 },
+      { "model": "landsoficaria:block/mossy_marl_1", "y": 270 }
+    ],
+    "mossy_0=false,mossy_1=false,mossy_2=true": [
+      { "model": "landsoficaria:block/mossy_marl_2", "y": 0 },
+      { "model": "landsoficaria:block/mossy_marl_2", "y": 90 },
+      { "model": "landsoficaria:block/mossy_marl_2", "y": 180 },
+      { "model": "landsoficaria:block/mossy_marl_2", "y": 270 }
+    ]
+  }
+}

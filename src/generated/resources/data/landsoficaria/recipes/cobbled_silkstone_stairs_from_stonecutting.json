@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "landsoficaria:cobbled_silkstone"
+  },
+  "result": "landsoficaria:cobbled_silkstone_stairs"
+}

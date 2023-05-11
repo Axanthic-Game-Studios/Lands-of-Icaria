@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "landsoficaria:cracked_relicstone_tiles"
+  },
+  "result": "landsoficaria:cracked_relicstone_tile_slab"
+}

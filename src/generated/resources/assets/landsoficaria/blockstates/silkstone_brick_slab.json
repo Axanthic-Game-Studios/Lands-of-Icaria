@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/silkstone_brick_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/silkstone_bricks"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/silkstone_brick_slab_top"
+    }
+  }
+}

@@ -13,12 +13,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_kassiteros_raw": {
+    "has_raw_kassiteros": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:kassiteros_raw"
+              "landsoficaria:raw_kassiteros"
             ]
           }
         ]
@@ -35,7 +35,7 @@
   "requirements": [
     [
       "has_kassiteros_ore",
-      "has_kassiteros_raw",
+      "has_raw_kassiteros",
       "has_the_recipe"
     ]
   ],

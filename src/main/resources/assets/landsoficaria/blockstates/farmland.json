@@ -1,12 +1,12 @@
 {
   "variants": {
-    "moisture=0": { "model": "landsoficaria:block/farmland_dry" },
-    "moisture=1": { "model": "landsoficaria:block/farmland_dry" },
-    "moisture=2": { "model": "landsoficaria:block/farmland_dry" },
-    "moisture=3": { "model": "landsoficaria:block/farmland_dry" },
-    "moisture=4": { "model": "landsoficaria:block/farmland_dry" },
-    "moisture=5": { "model": "landsoficaria:block/farmland_dry" },
-    "moisture=6": { "model": "landsoficaria:block/farmland_dry" },
-    "moisture=7": { "model": "landsoficaria:block/farmland_wet" }
+    "moisture=0": { "model": "landsoficaria:block/dry_farmland" },
+    "moisture=1": { "model": "landsoficaria:block/dry_farmland" },
+    "moisture=2": { "model": "landsoficaria:block/dry_farmland" },
+    "moisture=3": { "model": "landsoficaria:block/dry_farmland" },
+    "moisture=4": { "model": "landsoficaria:block/dry_farmland" },
+    "moisture=5": { "model": "landsoficaria:block/dry_farmland" },
+    "moisture=6": { "model": "landsoficaria:block/dry_farmland" },
+    "moisture=7": { "model": "landsoficaria:block/wet_farmland" }
   }
 }

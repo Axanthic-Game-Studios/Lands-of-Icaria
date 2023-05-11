@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dolomite_smooth": {
+    "has_smooth_dolomite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:dolomite_smooth"
+              "landsoficaria:smooth_dolomite"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_dolomite_smooth",
+      "has_smooth_dolomite",
       "has_the_recipe"
     ]
   ],

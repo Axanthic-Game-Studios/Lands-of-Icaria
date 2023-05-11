@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:vanadium_gear"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vanadium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:vanadium_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_vanadium_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:vanadium_gear"
+    ]
+  }
+}

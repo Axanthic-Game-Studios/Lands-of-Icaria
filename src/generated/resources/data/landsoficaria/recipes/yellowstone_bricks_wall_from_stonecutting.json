@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "landsoficaria:yellowstone_bricks"
-  },
-  "result": "landsoficaria:yellowstone_bricks_wall"
-}

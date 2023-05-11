@@ -1,0 +1,78 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/coarse_marl"
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "x": 90
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "x": 90,
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "x": 90,
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "x": 180
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "x": 180,
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "x": 180,
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "x": 180,
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "x": 270
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "x": 270,
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "x": 270,
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/coarse_marl",
+        "x": 270,
+        "y": 270
+      }
+    ]
+  }
+}

@@ -48,9 +48,9 @@ public class HyliastrumVialItem extends Item {
 
             if (player != null) {
                 if (itemStack.isEmpty()) {
-                    player.setItemInHand(player.getUsedItemHand(), new ItemStack(IcariaItems.VIAL_EMPTY.get()));
-                } else if (!player.getInventory().add(new ItemStack(IcariaItems.VIAL_EMPTY.get()))) {
-                    player.drop(new ItemStack(IcariaItems.VIAL_EMPTY.get()), false);
+                    player.setItemInHand(player.getUsedItemHand(), new ItemStack(IcariaItems.EMPTY_VIAL.get()));
+                } else if (!player.getInventory().add(new ItemStack(IcariaItems.EMPTY_VIAL.get()))) {
+                    player.drop(new ItemStack(IcariaItems.EMPTY_VIAL.get()), false);
                 }
             }
 

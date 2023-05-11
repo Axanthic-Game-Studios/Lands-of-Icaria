@@ -74,18 +74,18 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onCreativeModeTabRegistration(CreativeModeTabEvent.Register pEvent) {
-		pEvent.registerCreativeModeTab(new ResourceLocation(IcariaInfo.ID, "blocks"), pBuilder -> pBuilder.title(Component.translatable("itemgroup." + IcariaInfo.ID + ".blocks")).icon(() -> new ItemStack(IcariaItems.MARL_GRASS.get())).displayItems((pParameters, pOutput) -> {
-			pOutput.accept(IcariaItems.MARL_GRASS.get());
+		pEvent.registerCreativeModeTab(new ResourceLocation(IcariaInfo.ID, "blocks"), pBuilder -> pBuilder.title(Component.translatable("itemgroup." + IcariaInfo.ID + ".blocks")).icon(() -> new ItemStack(IcariaItems.GRASSY_MARL.get())).displayItems((pParameters, pOutput) -> {
+			pOutput.accept(IcariaItems.GRASSY_MARL.get());
 			pOutput.accept(IcariaItems.MARL.get());
 			pOutput.accept(IcariaItems.MARL_CHERT.get());
 			pOutput.accept(IcariaItems.SURFACE_CHERT.get());
 			pOutput.accept(IcariaItems.MARL_BONES.get());
 			pOutput.accept(IcariaItems.SURFACE_BONES.get());
 			pOutput.accept(IcariaItems.MARL_LIGNITE.get());
-			pOutput.accept(IcariaItems.MARL_COARSE.get());
+			pOutput.accept(IcariaItems.COARSE_MARL.get());
 
 			pOutput.accept(IcariaItems.FARMLAND.get());
-			pOutput.accept(IcariaItems.FARMLAND_FERTILIZED.get());
+			pOutput.accept(IcariaItems.FERTILIZED_FARMLAND.get());
 
 			pOutput.accept(IcariaItems.MARL_ADOBE.get());
 			pOutput.accept(IcariaItems.MARL_ADOBE_DECO.stairs.get());
@@ -94,18 +94,18 @@ public class ClientProxy extends CommonProxy {
 
 			pOutput.accept(IcariaItems.LOAM.get());
 			pOutput.accept(IcariaItems.LOAM_BRICKS.get());
-			pOutput.accept(IcariaItems.LOAM_BRICKS_DECO.stairs.get());
-			pOutput.accept(IcariaItems.LOAM_BRICKS_DECO.slab.get());
-			pOutput.accept(IcariaItems.LOAM_BRICKS_DECO.wall.get());
+			pOutput.accept(IcariaItems.LOAM_BRICK_DECO.stairs.get());
+			pOutput.accept(IcariaItems.LOAM_BRICK_DECO.slab.get());
+			pOutput.accept(IcariaItems.LOAM_BRICK_DECO.wall.get());
 
 			pOutput.accept(IcariaItems.DOLOMITE_ADOBE.get());
 			pOutput.accept(IcariaItems.DOLOMITE_ADOBE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.DOLOMITE_ADOBE_DECO.slab.get());
 			pOutput.accept(IcariaItems.DOLOMITE_ADOBE_DECO.wall.get());
-			pOutput.accept(IcariaItems.DOLOMITE_SMOOTH.get());
-			pOutput.accept(IcariaItems.DOLOMITE_SMOOTH_DECO.stairs.get());
-			pOutput.accept(IcariaItems.DOLOMITE_SMOOTH_DECO.slab.get());
-			pOutput.accept(IcariaItems.DOLOMITE_SMOOTH_DECO.wall.get());
+			pOutput.accept(IcariaItems.SMOOTH_DOLOMITE.get());
+			pOutput.accept(IcariaItems.SMOOTH_DOLOMITE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.SMOOTH_DOLOMITE_DECO.slab.get());
+			pOutput.accept(IcariaItems.SMOOTH_DOLOMITE_DECO.wall.get());
 			pOutput.accept(IcariaItems.DOLOMITE_BRICKS.get());
 			pOutput.accept(IcariaItems.DOLOMITE_PILLAR.get());
 			pOutput.accept(IcariaItems.DOLOMITE_PILLAR_HEAD.get());
@@ -114,7 +114,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.GRAINEL_CHERT.get());
 			pOutput.accept(IcariaItems.GRAINGLASS.get());
 			pOutput.accept(IcariaItems.GRAINGLASS_PANE.get());
-			pOutput.accept(IcariaItems.GRAINGLASS_PANE_HORIZONTAL.get());
+			pOutput.accept(IcariaItems.HORIZONTAL_GRAINGLASS_PANE.get());
 			pOutput.accept(IcariaItems.GRAINITE_ADOBE.get());
 			pOutput.accept(IcariaItems.GRAINITE_ADOBE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.GRAINITE_ADOBE_DECO.slab.get());
@@ -124,144 +124,144 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.GRAINITE_DECO.slab.get());
 			pOutput.accept(IcariaItems.GRAINITE_DECO.wall.get());
 			pOutput.accept(IcariaItems.GRAINITE_BRICKS.get());
-			pOutput.accept(IcariaItems.GRAINITE_BRICKS_DECO.stairs.get());
-			pOutput.accept(IcariaItems.GRAINITE_BRICKS_DECO.slab.get());
-			pOutput.accept(IcariaItems.GRAINITE_BRICKS_DECO.wall.get());
-			pOutput.accept(IcariaItems.GRAINITE_CHISELED.get());
+			pOutput.accept(IcariaItems.GRAINITE_BRICK_DECO.stairs.get());
+			pOutput.accept(IcariaItems.GRAINITE_BRICK_DECO.slab.get());
+			pOutput.accept(IcariaItems.GRAINITE_BRICK_DECO.wall.get());
+			pOutput.accept(IcariaItems.CHISELED_GRAINITE.get());
 			pOutput.accept(IcariaItems.GRAINITE_RUBBLE.get());
 
 			pOutput.accept(IcariaItems.YELLOWSTONE_ADOBE.get());
 			pOutput.accept(IcariaItems.YELLOWSTONE_ADOBE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.YELLOWSTONE_ADOBE_DECO.slab.get());
 			pOutput.accept(IcariaItems.YELLOWSTONE_ADOBE_DECO.wall.get());
-			pOutput.accept(IcariaItems.YELLOWSTONE_COBBLE.get());
-			pOutput.accept(IcariaItems.YELLOWSTONE_COBBLE_DECO.stairs.get());
-			pOutput.accept(IcariaItems.YELLOWSTONE_COBBLE_DECO.slab.get());
-			pOutput.accept(IcariaItems.YELLOWSTONE_COBBLE_DECO.wall.get());
+			pOutput.accept(IcariaItems.COBBLED_YELLOWSTONE.get());
+			pOutput.accept(IcariaItems.COBBLED_YELLOWSTONE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.COBBLED_YELLOWSTONE_DECO.slab.get());
+			pOutput.accept(IcariaItems.COBBLED_YELLOWSTONE_DECO.wall.get());
 			pOutput.accept(IcariaItems.YELLOWSTONE.get());
 			pOutput.accept(IcariaItems.YELLOWSTONE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.YELLOWSTONE_DECO.slab.get());
 			pOutput.accept(IcariaItems.YELLOWSTONE_DECO.wall.get());
 			pOutput.accept(IcariaItems.YELLOWSTONE_BRICKS.get());
-			pOutput.accept(IcariaItems.YELLOWSTONE_BRICKS_DECO.stairs.get());
-			pOutput.accept(IcariaItems.YELLOWSTONE_BRICKS_DECO.slab.get());
-			pOutput.accept(IcariaItems.YELLOWSTONE_BRICKS_DECO.wall.get());
-			pOutput.accept(IcariaItems.YELLOWSTONE_CHISELED.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_BRICK_DECO.stairs.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_BRICK_DECO.slab.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_BRICK_DECO.wall.get());
+			pOutput.accept(IcariaItems.CHISELED_YELLOWSTONE.get());
 			pOutput.accept(IcariaItems.YELLOWSTONE_RUBBLE.get());
 
 			pOutput.accept(IcariaItems.SILKSAND.get());
 			pOutput.accept(IcariaItems.SILKGLASS.get());
 			pOutput.accept(IcariaItems.SILKGLASS_PANE.get());
-			pOutput.accept(IcariaItems.SILKGLASS_PANE_HORIZONTAL.get());
+			pOutput.accept(IcariaItems.HORIZONTAL_SILKGLASS_PANE.get());
 			pOutput.accept(IcariaItems.SILKSTONE_ADOBE.get());
 			pOutput.accept(IcariaItems.SILKSTONE_ADOBE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.SILKSTONE_ADOBE_DECO.slab.get());
 			pOutput.accept(IcariaItems.SILKSTONE_ADOBE_DECO.wall.get());
-			pOutput.accept(IcariaItems.SILKSTONE_COBBLE.get());
-			pOutput.accept(IcariaItems.SILKSTONE_COBBLE_DECO.stairs.get());
-			pOutput.accept(IcariaItems.SILKSTONE_COBBLE_DECO.slab.get());
-			pOutput.accept(IcariaItems.SILKSTONE_COBBLE_DECO.wall.get());
+			pOutput.accept(IcariaItems.COBBLED_SILKSTONE.get());
+			pOutput.accept(IcariaItems.COBBLED_SILKSTONE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.COBBLED_SILKSTONE_DECO.slab.get());
+			pOutput.accept(IcariaItems.COBBLED_SILKSTONE_DECO.wall.get());
 			pOutput.accept(IcariaItems.SILKSTONE.get());
 			pOutput.accept(IcariaItems.SILKSTONE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.SILKSTONE_DECO.slab.get());
 			pOutput.accept(IcariaItems.SILKSTONE_DECO.wall.get());
 			pOutput.accept(IcariaItems.SILKSTONE_BRICKS.get());
-			pOutput.accept(IcariaItems.SILKSTONE_BRICKS_DECO.stairs.get());
-			pOutput.accept(IcariaItems.SILKSTONE_BRICKS_DECO.slab.get());
-			pOutput.accept(IcariaItems.SILKSTONE_BRICKS_DECO.wall.get());
-			pOutput.accept(IcariaItems.SILKSTONE_CHISELED.get());
+			pOutput.accept(IcariaItems.SILKSTONE_BRICK_DECO.stairs.get());
+			pOutput.accept(IcariaItems.SILKSTONE_BRICK_DECO.slab.get());
+			pOutput.accept(IcariaItems.SILKSTONE_BRICK_DECO.wall.get());
+			pOutput.accept(IcariaItems.CHISELED_SILKSTONE.get());
 			pOutput.accept(IcariaItems.SILKSTONE_RUBBLE.get());
 
 			pOutput.accept(IcariaItems.SUNSTONE_ADOBE.get());
 			pOutput.accept(IcariaItems.SUNSTONE_ADOBE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.SUNSTONE_ADOBE_DECO.slab.get());
 			pOutput.accept(IcariaItems.SUNSTONE_ADOBE_DECO.wall.get());
-			pOutput.accept(IcariaItems.SUNSTONE_COBBLE.get());
-			pOutput.accept(IcariaItems.SUNSTONE_COBBLE_DECO.stairs.get());
-			pOutput.accept(IcariaItems.SUNSTONE_COBBLE_DECO.slab.get());
-			pOutput.accept(IcariaItems.SUNSTONE_COBBLE_DECO.wall.get());
+			pOutput.accept(IcariaItems.COBBLED_SUNSTONE.get());
+			pOutput.accept(IcariaItems.COBBLED_SUNSTONE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.COBBLED_SUNSTONE_DECO.slab.get());
+			pOutput.accept(IcariaItems.COBBLED_SUNSTONE_DECO.wall.get());
 			pOutput.accept(IcariaItems.SUNSTONE.get());
 			pOutput.accept(IcariaItems.SUNSTONE_DECO.slab.get());
 			pOutput.accept(IcariaItems.SUNSTONE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.SUNSTONE_DECO.wall.get());
 			pOutput.accept(IcariaItems.SUNSTONE_BRICKS.get());
-			pOutput.accept(IcariaItems.SUNSTONE_BRICKS_DECO.stairs.get());
-			pOutput.accept(IcariaItems.SUNSTONE_BRICKS_DECO.slab.get());
-			pOutput.accept(IcariaItems.SUNSTONE_BRICKS_DECO.wall.get());
-			pOutput.accept(IcariaItems.SUNSTONE_CHISELED.get());
+			pOutput.accept(IcariaItems.SUNSTONE_BRICK_DECO.stairs.get());
+			pOutput.accept(IcariaItems.SUNSTONE_BRICK_DECO.slab.get());
+			pOutput.accept(IcariaItems.SUNSTONE_BRICK_DECO.wall.get());
+			pOutput.accept(IcariaItems.CHISELED_SUNSTONE.get());
 			pOutput.accept(IcariaItems.SUNSTONE_RUBBLE.get());
 
 			pOutput.accept(IcariaItems.VOIDSHALE_ADOBE.get());
 			pOutput.accept(IcariaItems.VOIDSHALE_ADOBE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.VOIDSHALE_ADOBE_DECO.slab.get());
 			pOutput.accept(IcariaItems.VOIDSHALE_ADOBE_DECO.wall.get());
-			pOutput.accept(IcariaItems.VOIDSHALE_COBBLE.get());
-			pOutput.accept(IcariaItems.VOIDSHALE_COBBLE_DECO.stairs.get());
-			pOutput.accept(IcariaItems.VOIDSHALE_COBBLE_DECO.slab.get());
-			pOutput.accept(IcariaItems.VOIDSHALE_COBBLE_DECO.wall.get());
+			pOutput.accept(IcariaItems.COBBLED_VOIDSHALE.get());
+			pOutput.accept(IcariaItems.COBBLED_VOIDSHALE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.COBBLED_VOIDSHALE_DECO.slab.get());
+			pOutput.accept(IcariaItems.COBBLED_VOIDSHALE_DECO.wall.get());
 			pOutput.accept(IcariaItems.VOIDSHALE.get());
 			pOutput.accept(IcariaItems.VOIDSHALE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.VOIDSHALE_DECO.slab.get());
 			pOutput.accept(IcariaItems.VOIDSHALE_DECO.wall.get());
 			pOutput.accept(IcariaItems.VOIDSHALE_BRICKS.get());
-			pOutput.accept(IcariaItems.VOIDSHALE_BRICKS_DECO.stairs.get());
-			pOutput.accept(IcariaItems.VOIDSHALE_BRICKS_DECO.slab.get());
-			pOutput.accept(IcariaItems.VOIDSHALE_BRICKS_DECO.wall.get());
-			pOutput.accept(IcariaItems.VOIDSHALE_CHISELED.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_BRICK_DECO.stairs.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_BRICK_DECO.slab.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_BRICK_DECO.wall.get());
+			pOutput.accept(IcariaItems.CHISELED_VOIDSHALE.get());
 			pOutput.accept(IcariaItems.VOIDSHALE_RUBBLE.get());
 
 			pOutput.accept(IcariaItems.BAETYL_ADOBE.get());
 			pOutput.accept(IcariaItems.BAETYL_ADOBE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.BAETYL_ADOBE_DECO.slab.get());
 			pOutput.accept(IcariaItems.BAETYL_ADOBE_DECO.wall.get());
-			pOutput.accept(IcariaItems.BAETYL_COBBLE.get());
-			pOutput.accept(IcariaItems.BAETYL_COBBLE_DECO.stairs.get());
-			pOutput.accept(IcariaItems.BAETYL_COBBLE_DECO.slab.get());
-			pOutput.accept(IcariaItems.BAETYL_COBBLE_DECO.wall.get());
+			pOutput.accept(IcariaItems.COBBLED_BAETYL.get());
+			pOutput.accept(IcariaItems.COBBLED_BAETYL_DECO.stairs.get());
+			pOutput.accept(IcariaItems.COBBLED_BAETYL_DECO.slab.get());
+			pOutput.accept(IcariaItems.COBBLED_BAETYL_DECO.wall.get());
 			pOutput.accept(IcariaItems.BAETYL.get());
 			pOutput.accept(IcariaItems.BAETYL_DECO.stairs.get());
 			pOutput.accept(IcariaItems.BAETYL_DECO.slab.get());
 			pOutput.accept(IcariaItems.BAETYL_DECO.wall.get());
 			pOutput.accept(IcariaItems.BAETYL_BRICKS.get());
-			pOutput.accept(IcariaItems.BAETYL_BRICKS_DECO.stairs.get());
-			pOutput.accept(IcariaItems.BAETYL_BRICKS_DECO.slab.get());
-			pOutput.accept(IcariaItems.BAETYL_BRICKS_DECO.wall.get());
-			pOutput.accept(IcariaItems.BAETYL_CHISELED.get());
+			pOutput.accept(IcariaItems.BAETYL_BRICK_DECO.stairs.get());
+			pOutput.accept(IcariaItems.BAETYL_BRICK_DECO.slab.get());
+			pOutput.accept(IcariaItems.BAETYL_BRICK_DECO.wall.get());
+			pOutput.accept(IcariaItems.CHISELED_BAETYL.get());
 			pOutput.accept(IcariaItems.BAETYL_RUBBLE.get());
 
 			pOutput.accept(IcariaItems.RELICSTONE.get());
 			pOutput.accept(IcariaItems.RELICSTONE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.RELICSTONE_DECO.slab.get());
 			pOutput.accept(IcariaItems.RELICSTONE_DECO.wall.get());
-			pOutput.accept(IcariaItems.RELICSTONE_SMOOTH.get());
-			pOutput.accept(IcariaItems.RELICSTONE_SMOOTH_DECO.stairs.get());
-			pOutput.accept(IcariaItems.RELICSTONE_SMOOTH_DECO.slab.get());
-			pOutput.accept(IcariaItems.RELICSTONE_SMOOTH_DECO.wall.get());
+			pOutput.accept(IcariaItems.SMOOTH_RELICSTONE.get());
+			pOutput.accept(IcariaItems.SMOOTH_RELICSTONE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.SMOOTH_RELICSTONE_DECO.slab.get());
+			pOutput.accept(IcariaItems.SMOOTH_RELICSTONE_DECO.wall.get());
 			pOutput.accept(IcariaItems.RELICSTONE_BRICKS.get());
-			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_DECO.stairs.get());
-			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_DECO.slab.get());
-			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_DECO.wall.get());
-			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_CRACKED.get());
-			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_CRACKED_DECO.stairs.get());
-			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_CRACKED_DECO.slab.get());
-			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_CRACKED_DECO.wall.get());
-			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_MOSSY.get());
-			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_MOSSY_DECO.stairs.get());
-			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_MOSSY_DECO.slab.get());
-			pOutput.accept(IcariaItems.RELICSTONE_BRICKS_MOSSY_DECO.wall.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICK_DECO.stairs.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICK_DECO.slab.get());
+			pOutput.accept(IcariaItems.RELICSTONE_BRICK_DECO.wall.get());
+			pOutput.accept(IcariaItems.CRACKED_RELICSTONE_BRICKS.get());
+			pOutput.accept(IcariaItems.CRACKED_RELICSTONE_BRICK_DECO.stairs.get());
+			pOutput.accept(IcariaItems.CRACKED_RELICSTONE_BRICK_DECO.slab.get());
+			pOutput.accept(IcariaItems.CRACKED_RELICSTONE_BRICK_DECO.wall.get());
+			pOutput.accept(IcariaItems.MOSSY_RELICSTONE_BRICKS.get());
+			pOutput.accept(IcariaItems.MOSSY_RELICSTONE_BRICK_DECO.stairs.get());
+			pOutput.accept(IcariaItems.MOSSY_RELICSTONE_BRICK_DECO.slab.get());
+			pOutput.accept(IcariaItems.MOSSY_RELICSTONE_BRICK_DECO.wall.get());
 			pOutput.accept(IcariaItems.RELICSTONE_TILES.get());
-			pOutput.accept(IcariaItems.RELICSTONE_TILES_DECO.stairs.get());
-			pOutput.accept(IcariaItems.RELICSTONE_TILES_DECO.slab.get());
-			pOutput.accept(IcariaItems.RELICSTONE_TILES_DECO.wall.get());
-			pOutput.accept(IcariaItems.RELICSTONE_TILES_CRACKED.get());
-			pOutput.accept(IcariaItems.RELICSTONE_TILES_CRACKED_DECO.stairs.get());
-			pOutput.accept(IcariaItems.RELICSTONE_TILES_CRACKED_DECO.slab.get());
-			pOutput.accept(IcariaItems.RELICSTONE_TILES_CRACKED_DECO.wall.get());
-			pOutput.accept(IcariaItems.RELICSTONE_TILES_MOSSY.get());
-			pOutput.accept(IcariaItems.RELICSTONE_TILES_MOSSY_DECO.stairs.get());
-			pOutput.accept(IcariaItems.RELICSTONE_TILES_MOSSY_DECO.slab.get());
-			pOutput.accept(IcariaItems.RELICSTONE_TILES_MOSSY_DECO.wall.get());
-			pOutput.accept(IcariaItems.RELICSTONE_CHISELED.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILE_DECO.slab.get());
+			pOutput.accept(IcariaItems.RELICSTONE_TILE_DECO.wall.get());
+			pOutput.accept(IcariaItems.CRACKED_RELICSTONE_TILES.get());
+			pOutput.accept(IcariaItems.CRACKED_RELICSTONE_TILE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.CRACKED_RELICSTONE_TILE_DECO.slab.get());
+			pOutput.accept(IcariaItems.CRACKED_RELICSTONE_TILE_DECO.wall.get());
+			pOutput.accept(IcariaItems.MOSSY_RELICSTONE_TILES.get());
+			pOutput.accept(IcariaItems.MOSSY_RELICSTONE_TILE_DECO.stairs.get());
+			pOutput.accept(IcariaItems.MOSSY_RELICSTONE_TILE_DECO.slab.get());
+			pOutput.accept(IcariaItems.MOSSY_RELICSTONE_TILE_DECO.wall.get());
+			pOutput.accept(IcariaItems.CHISELED_RELICSTONE.get());
 			pOutput.accept(IcariaItems.RELICSTONE_PILLAR.get());
 			pOutput.accept(IcariaItems.RELICSTONE_PILLAR_HEAD.get());
 			pOutput.accept(IcariaItems.RELICSTONE_RUBBLE.get());
@@ -270,13 +270,13 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.PLATOSHALE_DECO.stairs.get());
 			pOutput.accept(IcariaItems.PLATOSHALE_DECO.slab.get());
 			pOutput.accept(IcariaItems.PLATOSHALE_DECO.wall.get());
-			pOutput.accept(IcariaItems.PLATOSHALE_BLURRED.get());
+			pOutput.accept(IcariaItems.BLURRED_PLATOSHALE.get());
 			pOutput.accept(IcariaItems.PLATOSHALE_BRICKS.get());
-			pOutput.accept(IcariaItems.PLATOSHALE_BRICKS_DECO.stairs.get());
-			pOutput.accept(IcariaItems.PLATOSHALE_BRICKS_DECO.slab.get());
-			pOutput.accept(IcariaItems.PLATOSHALE_BRICKS_DECO.wall.get());
-			pOutput.accept(IcariaItems.PLATOSHALE_BRICKS_BLURRED.get());
-			pOutput.accept(IcariaItems.PLATOSHALE_CHISELED.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_BRICK_DECO.stairs.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_BRICK_DECO.slab.get());
+			pOutput.accept(IcariaItems.PLATOSHALE_BRICK_DECO.wall.get());
+			pOutput.accept(IcariaItems.BLURRED_PLATOSHALE_BRICKS.get());
+			pOutput.accept(IcariaItems.CHISELED_PLATOSHALE.get());
 
 			pOutput.accept(IcariaItems.QUARTZ_PILLAR_HEAD.get());
 
@@ -306,7 +306,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.ZIRCON_CRYSTAL.get());
 
 			pOutput.accept(IcariaItems.ARISTONE.get());
-			pOutput.accept(IcariaItems.ARISTONE_PACKED.get());
+			pOutput.accept(IcariaItems.PACKED_ARISTONE.get());
 
 			pOutput.accept(IcariaItems.ENDER_JELLYFISH_JELLY_BLOCK.get());
 			pOutput.accept(IcariaItems.FIRE_JELLYFISH_JELLY_BLOCK.get());
@@ -319,12 +319,12 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.VINE_SPROUT_BLOCK.get());
 			pOutput.accept(IcariaItems.ROTTEN_BONES_BLOCK.get());
 
-			pOutput.accept(IcariaItems.CHALKOS_RAW_BLOCK.get());
-			pOutput.accept(IcariaItems.KASSITEROS_RAW_BLOCK.get());
-			pOutput.accept(IcariaItems.VANADIUM_RAW_BLOCK.get());
+			pOutput.accept(IcariaItems.RAW_CHALKOS_BLOCK.get());
+			pOutput.accept(IcariaItems.RAW_KASSITEROS_BLOCK.get());
+			pOutput.accept(IcariaItems.RAW_VANADIUM_BLOCK.get());
 			pOutput.accept(IcariaItems.SLIVER_BLOCK.get());
-			pOutput.accept(IcariaItems.SIDEROS_RAW_BLOCK.get());
-			pOutput.accept(IcariaItems.MOLYBDENUM_RAW_BLOCK.get());
+			pOutput.accept(IcariaItems.RAW_SIDEROS_BLOCK.get());
+			pOutput.accept(IcariaItems.RAW_MOLYBDENUM_BLOCK.get());
 
 			pOutput.accept(IcariaItems.CALCITE_BLOCK.get());
 			pOutput.accept(IcariaItems.HALITE_BLOCK.get());
@@ -344,9 +344,15 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.BLURIDIUM_BLOCK.get());
 
 			pOutput.accept(IcariaItems.VANADIUMSTEEL_BARS.get());
-			pOutput.accept(IcariaItems.VANADIUMSTEEL_BARS_HORIZONTAL.get());
+			pOutput.accept(IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 
+			pOutput.accept(IcariaItems.KETTLE.get());
 			pOutput.accept(IcariaItems.GRINDER.get());
+			pOutput.accept(IcariaItems.KILN.get());
+			pOutput.accept(IcariaItems.FORGE.get());
+
+			pOutput.accept(IcariaItems.ICARIA_CHEST.get());
+			pOutput.accept(IcariaItems.ICARIA_TRAPPED_CHEST.get());
 
 			pOutput.accept(IcariaItems.STORAGE_VASE.get());
 			pOutput.accept(IcariaItems.WHITE_STORAGE_VASE.get());
@@ -486,6 +492,8 @@ public class ClientProxy extends CommonProxy {
 
 			pOutput.accept(IcariaItems.OLIVE_SAPLING.get());
 			pOutput.accept(IcariaItems.OLIVE_LEAVES.get());
+			pOutput.accept(IcariaItems.BLACK_OLIVE_LEAVES.get());
+			pOutput.accept(IcariaItems.GREEN_OLIVE_LEAVES.get());
 			pOutput.accept(IcariaItems.FALLEN_OLIVE_LEAVES.get());
 			pOutput.accept(IcariaItems.OLIVE_TWIGS.get());
 			pOutput.accept(IcariaItems.OLIVE_WOOD.get());
@@ -670,14 +678,14 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.CALCITE_DUST.get());
 			pOutput.accept(IcariaItems.HALITE_DUST.get());
 			pOutput.accept(IcariaItems.LIGNITE.get());
-			pOutput.accept(IcariaItems.CHALKOS_RAW.get());
-			pOutput.accept(IcariaItems.KASSITEROS_RAW.get());
+			pOutput.accept(IcariaItems.RAW_CHALKOS.get());
+			pOutput.accept(IcariaItems.RAW_KASSITEROS.get());
 			pOutput.accept(IcariaItems.DOLOMITE.get());
-			pOutput.accept(IcariaItems.VANADIUM_RAW.get());
+			pOutput.accept(IcariaItems.RAW_VANADIUM.get());
 			pOutput.accept(IcariaItems.SLIVER.get());
-			pOutput.accept(IcariaItems.SIDEROS_RAW.get());
+			pOutput.accept(IcariaItems.RAW_SIDEROS.get());
 			pOutput.accept(IcariaItems.ANTHRACITE.get());
-			pOutput.accept(IcariaItems.MOLYBDENUM_RAW.get());
+			pOutput.accept(IcariaItems.RAW_MOLYBDENUM.get());
 
 			pOutput.accept(IcariaItems.CHALKOS_NUGGET.get());
 			pOutput.accept(IcariaItems.KASSITEROS_NUGGET.get());
@@ -799,20 +807,20 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get());
 			pOutput.accept(IcariaItems.PINK_UNFIRED_STORAGE_VASE.get());
 
-			pOutput.accept(IcariaItems.FLASK_EMPTY.get());
+			pOutput.accept(IcariaItems.EMPTY_FLASK.get());
 
-			pOutput.accept(IcariaItems.VIAL_EMPTY.get());
-			pOutput.accept(IcariaItems.VIAL_HYLIASTRUM.get());
+			pOutput.accept(IcariaItems.EMPTY_VIAL.get());
+			pOutput.accept(IcariaItems.HYLIASTRUM_VIAL.get());
 
-			pOutput.accept(IcariaItems.GEAR_YELLOWSTONE.get());
-			pOutput.accept(IcariaItems.GEAR_LOAM_UNFIRED.get());
-			pOutput.accept(IcariaItems.GEAR_LOAM.get());
-			pOutput.accept(IcariaItems.GEAR_VOIDSHALE.get());
-			pOutput.accept(IcariaItems.GEAR_VANADIUM.get());
-			pOutput.accept(IcariaItems.GEARFRAGMENT_BLUE.get());
-			pOutput.accept(IcariaItems.GEARFRAGMENT_GREEN.get());
-			pOutput.accept(IcariaItems.GEARFRAGMENT_YELLOW.get());
-			pOutput.accept(IcariaItems.GEAR_DAEDALIAN.get());
+			pOutput.accept(IcariaItems.YELLOWSTONE_GEAR.get());
+			pOutput.accept(IcariaItems.UNFIRED_LOAM_GEAR.get());
+			pOutput.accept(IcariaItems.LOAM_GEAR.get());
+			pOutput.accept(IcariaItems.VOIDSHALE_GEAR.get());
+			pOutput.accept(IcariaItems.VANADIUM_GEAR.get());
+			pOutput.accept(IcariaItems.BLUE_GEARFRAGMENT.get());
+			pOutput.accept(IcariaItems.GREEN_GEARFRAGMENT.get());
+			pOutput.accept(IcariaItems.YELLOW_GEARFRAGMENT.get());
+			pOutput.accept(IcariaItems.DAEDALIAN_GEAR.get());
 
 			pOutput.accept(IcariaItems.AETERNAE_HIDE.get());
 			pOutput.accept(IcariaItems.SPELT_FLOUR.get());
@@ -821,8 +829,8 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.STRAWBERRIES.get());
 			pOutput.accept(IcariaItems.PHYSALIS.get());
 			pOutput.accept(IcariaItems.LAUREL_CHERRY.get());
-			pOutput.accept(IcariaItems.OLIVES_BLACK.get());
-			pOutput.accept(IcariaItems.OLIVES_GREEN.get());
+			pOutput.accept(IcariaItems.BLACK_OLIVES.get());
+			pOutput.accept(IcariaItems.GREEN_OLIVES.get());
 			pOutput.accept(IcariaItems.GARLIC.get());
 			pOutput.accept(IcariaItems.ONION.get());
 			pOutput.accept(IcariaItems.RAW_AETERNAE_MEAT.get());
@@ -837,14 +845,14 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.SLUG_SCALES.get());
 			pOutput.accept(IcariaItems.SNULL_CREAM.get());
 
-			pOutput.accept(IcariaItems.LOAM_BOWL_UNFIRED.get());
+			pOutput.accept(IcariaItems.UNFIRED_LOAM_BOWL.get());
 			pOutput.accept(IcariaItems.LOAM_BOWL.get());
-			pOutput.accept(IcariaItems.SALAD_FRUIT.get());
-			pOutput.accept(IcariaItems.SOUP_ONION.get());
-			pOutput.accept(IcariaItems.STEW_AETERNAE.get());
-			pOutput.accept(IcariaItems.STEW_CATOBLEPAS.get());
-			pOutput.accept(IcariaItems.STEW_CERVER.get());
-			pOutput.accept(IcariaItems.STEW_SOW.get());
+			pOutput.accept(IcariaItems.FRUIT_SALAD.get());
+			pOutput.accept(IcariaItems.ONION_SOUP.get());
+			pOutput.accept(IcariaItems.AETERNAE_STEW.get());
+			pOutput.accept(IcariaItems.CATOBLEPAS_STEW.get());
+			pOutput.accept(IcariaItems.CERVER_STEW.get());
+			pOutput.accept(IcariaItems.SOW_STEW.get());
 
 			pOutput.accept(IcariaItems.SPELT_SEEDS.get());
 			pOutput.accept(IcariaItems.STRAWBERRY_SEEDS.get());
@@ -925,7 +933,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {
 		// BLOCK COLOR
-		this.blockColor(IcariaBlocks.MARL_GRASS.get());
+		this.blockColor(IcariaBlocks.GRASSY_MARL.get());
 		this.blockColor(IcariaBlocks.GROWING_BLOOMY_VINE.get());
 		this.blockColor(IcariaBlocks.BLOOMY_VINE.get());
 		this.blockColor(IcariaBlocks.BLOOMING_BLOOMY_VINE.get());
@@ -1001,24 +1009,24 @@ public class ClientProxy extends CommonProxy {
 		this.blockColor(IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
 
 		// ITEM COLOR
-		this.itemColor(IcariaItems.MARL_GRASS.get());
+		this.itemColor(IcariaItems.GRASSY_MARL.get());
 		this.itemColor(IcariaItems.WHITE_BROMELIA.get());
 		this.itemColor(IcariaItems.ORANGE_BROMELIA.get());
 		this.itemColor(IcariaItems.PINK_BROMELIA.get());
 		this.itemColor(IcariaItems.PURPLE_BROMELIA.get());
 
 		// RENDER CUTOUT
-		this.renderCutout(IcariaBlocks.MARL_GRASS.get());
+		this.renderCutout(IcariaBlocks.GRASSY_MARL.get());
 		this.renderCutout(IcariaBlocks.GRAINGLASS.get());
 		this.renderCutout(IcariaBlocks.GRAINGLASS_PANE.get());
-		this.renderCutout(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get());
+		this.renderCutout(IcariaBlocks.HORIZONTAL_GRAINGLASS_PANE.get());
 		this.renderCutout(IcariaBlocks.SILKGLASS.get());
 		this.renderCutout(IcariaBlocks.SILKGLASS_PANE.get());
-		this.renderCutout(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get());
-		this.renderCutout(IcariaBlocks.PLATOSHALE_BLURRED.get());
-		this.renderCutout(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get());
+		this.renderCutout(IcariaBlocks.HORIZONTAL_SILKGLASS_PANE.get());
+		this.renderCutout(IcariaBlocks.BLURRED_PLATOSHALE.get());
+		this.renderCutout(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get());
 		this.renderCutout(IcariaBlocks.VANADIUMSTEEL_BARS.get());
-		this.renderCutout(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get());
+		this.renderCutout(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 		this.renderCutout(IcariaBlocks.DUNGEON_SPAWNER.get());
 		this.renderCutout(IcariaBlocks.MYRMEKE_SPAWNER.get());
 		this.renderCutout(IcariaBlocks.RUIN_SPAWNER.get());
@@ -1172,8 +1180,8 @@ public class ClientProxy extends CommonProxy {
 		this.renderTranslucent(IcariaBlocks.HALITE_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.ZIRCON_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.ICARIA_PORTAL.get());
-		this.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER_SOURCE.get());
-		this.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER_FLOWING.get());
+		this.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER.get());
+		this.renderTranslucent(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get());
 
 		// ENTITY RENDERERS
 		EntityRenderers.register(IcariaEntityTypes.LOOT_VASE.get(), LootVaseRenderer::new);

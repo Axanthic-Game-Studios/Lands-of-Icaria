@@ -100,7 +100,7 @@ public class IcariaCarvers {
 		final HolderGetter<Block> blockGetter = context.lookup(Registries.BLOCK);
 
 		final CarverConfiguration configuration = defaultConfiguration(context);
-		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.MARL_GRASS.getKey()).get()
+		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.GRASSY_MARL.getKey()).get()
 				.defaultBlockState();
 		final BlockState fillerBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
 				.defaultBlockState();
@@ -129,7 +129,7 @@ public class IcariaCarvers {
 		final HolderGetter<Block> blockGetter = context.lookup(Registries.BLOCK);
 
 		final CarverConfiguration configuration = defaultConfiguration(context);
-		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.MARL_GRASS.getKey()).get()
+		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.GRASSY_MARL.getKey()).get()
 				.defaultBlockState();
 		final BlockState fillerBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
 				.defaultBlockState();
@@ -183,11 +183,11 @@ public class IcariaCarvers {
 		final HolderGetter<Block> blockGetter = context.lookup(Registries.BLOCK);
 
 		final CarverConfiguration configuration = defaultConfiguration(context);
-		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.MARL_GRASS.getKey()).get()
+		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.GRASSY_MARL.getKey()).get()
 				.defaultBlockState();
 		final BlockState fillerBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
 				.defaultBlockState();
-		final BlockState topBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.MARL_GRASS.getKey()).get()
+		final BlockState topBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.GRASSY_MARL.getKey()).get()
 				.defaultBlockState();
 		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
 				.defaultBlockState();

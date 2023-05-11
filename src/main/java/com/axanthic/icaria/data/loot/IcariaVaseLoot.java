@@ -37,8 +37,8 @@ public class IcariaVaseLoot implements LootTableSubProvider {
                     .add(LootItem.lootTableItem(IcariaItems.CALCITE_DUST.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                     .add(LootItem.lootTableItem(IcariaItems.HALITE_DUST.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                     .add(LootItem.lootTableItem(IcariaItems.LIGNITE.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-                    .add(LootItem.lootTableItem(IcariaItems.CHALKOS_RAW.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-                    .add(LootItem.lootTableItem(IcariaItems.KASSITEROS_RAW.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+                    .add(LootItem.lootTableItem(IcariaItems.RAW_CHALKOS.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+                    .add(LootItem.lootTableItem(IcariaItems.RAW_KASSITEROS.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                     .add(LootItem.lootTableItem(IcariaItems.DOLOMITE.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                     .add(LootItem.lootTableItem(IcariaItems.SLIVER.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                     .add(LootItem.lootTableItem(IcariaItems.ANTHRACITE.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
@@ -71,8 +71,8 @@ public class IcariaVaseLoot implements LootTableSubProvider {
                     // TODO: .add(LootItem.lootTableItem(IcariaItems.SCROLL_FREEZING.get()))
                     // TODO: .add(LootItem.lootTableItem(IcariaItems.SCROLL_HEALING.get()))
                     // TODO: .add(LootItem.lootTableItem(IcariaItems.SCROLL_MAGIC_MISSILE.get()))
-                    .add(LootItem.lootTableItem(IcariaItems.GEARFRAGMENT_BLUE.get()))
-                    .add(LootItem.lootTableItem(IcariaItems.GEARFRAGMENT_GREEN.get()))
-                    .add(LootItem.lootTableItem(IcariaItems.GEARFRAGMENT_YELLOW.get()))));
+                    .add(LootItem.lootTableItem(IcariaItems.BLUE_GEARFRAGMENT.get()))
+                    .add(LootItem.lootTableItem(IcariaItems.GREEN_GEARFRAGMENT.get()))
+                    .add(LootItem.lootTableItem(IcariaItems.YELLOW_GEARFRAGMENT.get()))));
     }
 }

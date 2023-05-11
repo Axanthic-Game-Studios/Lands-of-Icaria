@@ -11,6 +11,7 @@ import net.minecraft.core.Direction.Axis;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.grower.OakTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
@@ -33,29 +34,29 @@ public class IcariaBlocks {
 
 	public static final List<RegistryObject<? extends Block>> BASIC_BLOCKS = new ArrayList<>();
 
-	public static final RegistryObject<Block> MARL_GRASS = register("marl_grass", () -> new MarlGrassBlock(propertiesGrass()));
+	public static final RegistryObject<Block> GRASSY_MARL = register("grassy_marl", () -> new GrassyMarlBlock(propertiesGrass()));
 	public static final RegistryObject<Block> MARL = registerBasic("marl", () -> new DirtTypeBlock(propertiesMarl()));
 	public static final RegistryObject<Block> MARL_CHERT = register("marl_chert", () -> new Block(propertiesMarl().requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> SURFACE_CHERT = register("surface_chert", () -> new GroundDecoBlock(propertiesRubble()));
 	public static final RegistryObject<Block> MARL_BONES = register("marl_bones", () -> new Block(propertiesMarl().requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> SURFACE_BONES = register("surface_bones", () -> new GroundDecoBlock(propertiesRubble()));
 	public static final RegistryObject<Block> MARL_LIGNITE = register("marl_lignite", () -> new Block(propertiesMarl().requiresCorrectToolForDrops()));
-	public static final RegistryObject<Block> MARL_COARSE = registerBasic("marl_coarse", () -> new DirtTypeBlock(propertiesMarl()));
+	public static final RegistryObject<Block> COARSE_MARL = registerBasic("coarse_marl", () -> new DirtTypeBlock(propertiesMarl()));
 
 	public static final RegistryObject<Block> FARMLAND = register("farmland", () -> new FarmlandBlock(propertiesFarmland()));
-	public static final RegistryObject<Block> FARMLAND_FERTILIZED = register("farmland_fertilized", () -> new FarmlandFertilizedBlock(propertiesFarmland()));
+	public static final RegistryObject<Block> FERTILIZED_FARMLAND = register("fertilized_farmland", () -> new FertilizedFarmlandBlock(propertiesFarmland()));
 
 	public static final RegistryObject<Block> MARL_ADOBE = registerBasic("marl_adobe", () -> new Block(propertiesStone(MaterialColor.COLOR_BROWN)));
 	public static final StoneDecoBlocks MARL_ADOBE_DECO = new StoneDecoBlocks("marl_adobe", MARL_ADOBE, propertiesStone(MaterialColor.COLOR_BROWN));
 
 	public static final RegistryObject<Block> LOAM = register("loam", () -> new LoamTypeBlock(propertiesLoam()));
 	public static final RegistryObject<Block> LOAM_BRICKS = registerBasic("loam_bricks", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_PINK)));
-	public static final StoneDecoBlocks LOAM_BRICKS_DECO = new StoneDecoBlocks("loam_bricks", LOAM_BRICKS, propertiesStone(MaterialColor.TERRACOTTA_PINK));
+	public static final StoneDecoBlocks LOAM_BRICK_DECO = new StoneDecoBlocks("loam_brick", LOAM_BRICKS, propertiesStone(MaterialColor.TERRACOTTA_PINK));
 
 	public static final RegistryObject<Block> DOLOMITE_ADOBE = registerBasic("dolomite_adobe", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_WHITE)));
 	public static final StoneDecoBlocks DOLOMITE_ADOBE_DECO = new StoneDecoBlocks("dolomite_adobe", DOLOMITE_ADOBE, propertiesStone(MaterialColor.TERRACOTTA_WHITE));
-	public static final RegistryObject<Block> DOLOMITE_SMOOTH = registerBasic("dolomite_smooth", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_WHITE)));
-	public static final StoneDecoBlocks DOLOMITE_SMOOTH_DECO = new StoneDecoBlocks("dolomite_smooth", DOLOMITE_SMOOTH, propertiesStone(MaterialColor.TERRACOTTA_WHITE));
+	public static final RegistryObject<Block> SMOOTH_DOLOMITE = registerBasic("smooth_dolomite", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_WHITE)));
+	public static final StoneDecoBlocks SMOOTH_DOLOMITE_DECO = new StoneDecoBlocks("smooth_dolomite", SMOOTH_DOLOMITE, propertiesStone(MaterialColor.TERRACOTTA_WHITE));
 	public static final RegistryObject<Block> DOLOMITE_BRICKS = registerBasic("dolomite_bricks", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_WHITE)));
 	public static final RegistryObject<RotatedPillarBlock> DOLOMITE_PILLAR = register("dolomite_pillar", () -> new RotatedPillarBlock(propertiesStone(MaterialColor.TERRACOTTA_WHITE)));
 	public static final RegistryObject<PillarHeadBlock> DOLOMITE_PILLAR_HEAD = register("dolomite_pillar_head", () -> new PillarHeadBlock(propertiesStone(MaterialColor.TERRACOTTA_WHITE)));
@@ -64,103 +65,103 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> GRAINEL_CHERT = register("grainel_chert", () -> new Block(propertiesGrainel().requiresCorrectToolForDrops()));
 	public static final RegistryObject<GlassBlock> GRAINGLASS = register("grainglass", () -> new GlassBlock(propertiesGlass()));
 	public static final RegistryObject<IronBarsBlock> GRAINGLASS_PANE = register("grainglass_pane", () -> new IronBarsBlock(propertiesGlass()));
-	public static final RegistryObject<Block> GRAINGLASS_PANE_HORIZONTAL = register("grainglass_pane_horizontal", () -> new HorizontalPaneBlock(propertiesGlass()));
+	public static final RegistryObject<Block> HORIZONTAL_GRAINGLASS_PANE = register("horizontal_grainglass_pane", () -> new HorizontalPaneBlock(propertiesGlass()));
 	public static final RegistryObject<Block> GRAINITE_ADOBE = registerBasic("grainite_adobe", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_YELLOW)));
 	public static final StoneDecoBlocks GRAINITE_ADOBE_DECO = new StoneDecoBlocks("grainite_adobe", GRAINITE_ADOBE, propertiesStone(MaterialColor.TERRACOTTA_YELLOW));
 	public static final RegistryObject<Block> GRAINITE = registerBasic("grainite", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_YELLOW)));
 	public static final StoneDecoBlocks GRAINITE_DECO = new StoneDecoBlocks("grainite", GRAINITE, propertiesStone(MaterialColor.TERRACOTTA_YELLOW));
 	public static final RegistryObject<Block> GRAINITE_BRICKS = registerBasic("grainite_bricks", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_YELLOW)));
-	public static final StoneDecoBlocks GRAINITE_BRICKS_DECO = new StoneDecoBlocks("grainite_bricks", GRAINITE_BRICKS, propertiesStone(MaterialColor.TERRACOTTA_YELLOW));
-	public static final RegistryObject<Block> GRAINITE_CHISELED = registerBasic("grainite_chiseled", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_YELLOW)));
+	public static final StoneDecoBlocks GRAINITE_BRICK_DECO = new StoneDecoBlocks("grainite_brick", GRAINITE_BRICKS, propertiesStone(MaterialColor.TERRACOTTA_YELLOW));
+	public static final RegistryObject<Block> CHISELED_GRAINITE = registerBasic("chiseled_grainite", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_YELLOW)));
 	public static final RegistryObject<Block> GRAINITE_RUBBLE = register("grainite_rubble", () -> new GroundDecoBlock(propertiesRubble()));
 
 	public static final RegistryObject<Block> YELLOWSTONE_ADOBE = registerBasic("yellowstone_adobe", () -> new Block(propertiesStone(MaterialColor.WOOD)));
 	public static final StoneDecoBlocks YELLOWSTONE_ADOBE_DECO = new StoneDecoBlocks("yellowstone_adobe", YELLOWSTONE_ADOBE, propertiesStone(MaterialColor.WOOD));
-	public static final RegistryObject<Block> YELLOWSTONE_COBBLE = registerBasic("yellowstone_cobble", () -> new Block(propertiesStone(MaterialColor.WOOD)));
-	public static final StoneDecoBlocks YELLOWSTONE_COBBLE_DECO = new StoneDecoBlocks("yellowstone_cobble", YELLOWSTONE_COBBLE, propertiesStone(MaterialColor.WOOD));
+	public static final RegistryObject<Block> COBBLED_YELLOWSTONE = registerBasic("cobbled_yellowstone", () -> new Block(propertiesStone(MaterialColor.WOOD)));
+	public static final StoneDecoBlocks COBBLED_YELLOWSTONE_DECO = new StoneDecoBlocks("cobbled_yellowstone", COBBLED_YELLOWSTONE, propertiesStone(MaterialColor.WOOD));
 	public static final RegistryObject<Block> YELLOWSTONE = register("yellowstone", () -> new Block(propertiesStone(MaterialColor.WOOD)));
 	public static final StoneDecoBlocks YELLOWSTONE_DECO = new StoneDecoBlocks("yellowstone", YELLOWSTONE, propertiesStone(MaterialColor.WOOD));
 	public static final RegistryObject<Block> YELLOWSTONE_BRICKS = registerBasic("yellowstone_bricks", () -> new Block(propertiesStone(MaterialColor.WOOD)));
-	public static final StoneDecoBlocks YELLOWSTONE_BRICKS_DECO = new StoneDecoBlocks("yellowstone_bricks", YELLOWSTONE_BRICKS, propertiesStone(MaterialColor.WOOD));
-	public static final RegistryObject<Block> YELLOWSTONE_CHISELED = registerBasic("yellowstone_chiseled", () -> new Block(propertiesStone(MaterialColor.WOOD)));
+	public static final StoneDecoBlocks YELLOWSTONE_BRICK_DECO = new StoneDecoBlocks("yellowstone_brick", YELLOWSTONE_BRICKS, propertiesStone(MaterialColor.WOOD));
+	public static final RegistryObject<Block> CHISELED_YELLOWSTONE = registerBasic("chiseled_yellowstone", () -> new Block(propertiesStone(MaterialColor.WOOD)));
 	public static final RegistryObject<Block> YELLOWSTONE_RUBBLE = register("yellowstone_rubble", () -> new GroundDecoBlock(propertiesRubble()));
 
 	public static final RegistryObject<Block> SILKSAND = registerBasic("silksand", () -> new SandTypeBlock(propertiesSilksand()));
 	public static final RegistryObject<GlassBlock> SILKGLASS = register("silkglass", () -> new GlassBlock(propertiesGlass()));
 	public static final RegistryObject<IronBarsBlock> SILKGLASS_PANE = register("silkglass_pane", () -> new IronBarsBlock(propertiesGlass()));
-	public static final RegistryObject<Block> SILKGLASS_PANE_HORIZONTAL = register("silkglass_pane_horizontal", () -> new HorizontalPaneBlock(propertiesGlass()));
+	public static final RegistryObject<Block> HORIZONTAL_SILKGLASS_PANE = register("horizontal_silkglass_pane", () -> new HorizontalPaneBlock(propertiesGlass()));
 	public static final RegistryObject<Block> SILKSTONE_ADOBE = registerBasic("silkstone_adobe", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_PINK)));
 	public static final StoneDecoBlocks SILKSTONE_ADOBE_DECO = new StoneDecoBlocks("silkstone_adobe", SILKSTONE_ADOBE, propertiesStone(MaterialColor.TERRACOTTA_PINK));
-	public static final RegistryObject<Block> SILKSTONE_COBBLE = registerBasic("silkstone_cobble", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_PINK)));
-	public static final StoneDecoBlocks SILKSTONE_COBBLE_DECO = new StoneDecoBlocks("silkstone_cobble", SILKSTONE_COBBLE, propertiesStone(MaterialColor.TERRACOTTA_PINK));
+	public static final RegistryObject<Block> COBBLED_SILKSTONE = registerBasic("cobbled_silkstone", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_PINK)));
+	public static final StoneDecoBlocks COBBLED_SILKSTONE_DECO = new StoneDecoBlocks("cobbled_silkstone", COBBLED_SILKSTONE, propertiesStone(MaterialColor.TERRACOTTA_PINK));
 	public static final RegistryObject<Block> SILKSTONE = register("silkstone", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_PINK)));
 	public static final StoneDecoBlocks SILKSTONE_DECO = new StoneDecoBlocks("silkstone", SILKSTONE, propertiesStone(MaterialColor.TERRACOTTA_PINK));
 	public static final RegistryObject<Block> SILKSTONE_BRICKS = registerBasic("silkstone_bricks", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_PINK)));
-	public static final StoneDecoBlocks SILKSTONE_BRICKS_DECO = new StoneDecoBlocks("silkstone_bricks", SILKSTONE_BRICKS, propertiesStone(MaterialColor.TERRACOTTA_PINK));
-	public static final RegistryObject<Block> SILKSTONE_CHISELED = registerBasic("silkstone_chiseled", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_PINK)));
+	public static final StoneDecoBlocks SILKSTONE_BRICK_DECO = new StoneDecoBlocks("silkstone_brick", SILKSTONE_BRICKS, propertiesStone(MaterialColor.TERRACOTTA_PINK));
+	public static final RegistryObject<Block> CHISELED_SILKSTONE = registerBasic("chiseled_silkstone", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_PINK)));
 	public static final RegistryObject<Block> SILKSTONE_RUBBLE = register("silkstone_rubble", () -> new GroundDecoBlock(propertiesRubble()));
 
 	public static final RegistryObject<Block> SUNSTONE_ADOBE = registerBasic("sunstone_adobe", () -> new Block(propertiesStone(MaterialColor.WOOD)));
 	public static final StoneDecoBlocks SUNSTONE_ADOBE_DECO = new StoneDecoBlocks("sunstone_adobe", SUNSTONE_ADOBE, propertiesStone(MaterialColor.WOOD));
-	public static final RegistryObject<Block> SUNSTONE_COBBLE = registerBasic("sunstone_cobble", () -> new Block(propertiesStone(MaterialColor.WOOD)));
-	public static final StoneDecoBlocks SUNSTONE_COBBLE_DECO = new StoneDecoBlocks("sunstone_cobble", SUNSTONE_COBBLE, propertiesStone(MaterialColor.WOOD));
+	public static final RegistryObject<Block> COBBLED_SUNSTONE = registerBasic("cobbled_sunstone", () -> new Block(propertiesStone(MaterialColor.WOOD)));
+	public static final StoneDecoBlocks COBBLED_SUNSTONE_DECO = new StoneDecoBlocks("cobbled_sunstone", COBBLED_SUNSTONE, propertiesStone(MaterialColor.WOOD));
 	public static final RegistryObject<Block> SUNSTONE = register("sunstone", () -> new Block(propertiesStone(MaterialColor.WOOD)));
 	public static final StoneDecoBlocks SUNSTONE_DECO = new StoneDecoBlocks("sunstone", SUNSTONE, propertiesStone(MaterialColor.WOOD));
 	public static final RegistryObject<Block> SUNSTONE_BRICKS = registerBasic("sunstone_bricks", () -> new Block(propertiesStone(MaterialColor.WOOD)));
-	public static final StoneDecoBlocks SUNSTONE_BRICKS_DECO = new StoneDecoBlocks("sunstone_bricks", SUNSTONE_BRICKS, propertiesStone(MaterialColor.WOOD));
-	public static final RegistryObject<Block> SUNSTONE_CHISELED = registerBasic("sunstone_chiseled", () -> new Block(propertiesStone(MaterialColor.WOOD)));
+	public static final StoneDecoBlocks SUNSTONE_BRICK_DECO = new StoneDecoBlocks("sunstone_brick", SUNSTONE_BRICKS, propertiesStone(MaterialColor.WOOD));
+	public static final RegistryObject<Block> CHISELED_SUNSTONE = registerBasic("chiseled_sunstone", () -> new Block(propertiesStone(MaterialColor.WOOD)));
 	public static final RegistryObject<Block> SUNSTONE_RUBBLE = register("sunstone_rubble", () -> new GroundDecoBlock(propertiesRubble()));
 
 	public static final RegistryObject<Block> VOIDSHALE_ADOBE = registerBasic("voidshale_adobe", () -> new Block(propertiesStone(MaterialColor.COLOR_GRAY)));
 	public static final StoneDecoBlocks VOIDSHALE_ADOBE_DECO = new StoneDecoBlocks("voidshale_adobe", VOIDSHALE_ADOBE, propertiesStone(MaterialColor.COLOR_GRAY));
-	public static final RegistryObject<Block> VOIDSHALE_COBBLE = registerBasic("voidshale_cobble", () -> new Block(propertiesStone(MaterialColor.COLOR_GRAY)));
-	public static final StoneDecoBlocks VOIDSHALE_COBBLE_DECO = new StoneDecoBlocks("voidshale_cobble", VOIDSHALE_COBBLE, propertiesStone(MaterialColor.COLOR_GRAY));
+	public static final RegistryObject<Block> COBBLED_VOIDSHALE = registerBasic("cobbled_voidshale", () -> new Block(propertiesStone(MaterialColor.COLOR_GRAY)));
+	public static final StoneDecoBlocks COBBLED_VOIDSHALE_DECO = new StoneDecoBlocks("cobbled_voidshale", COBBLED_VOIDSHALE, propertiesStone(MaterialColor.COLOR_GRAY));
 	public static final RegistryObject<Block> VOIDSHALE = register("voidshale", () -> new Block(propertiesStone(MaterialColor.COLOR_GRAY)));
 	public static final StoneDecoBlocks VOIDSHALE_DECO = new StoneDecoBlocks("voidshale", VOIDSHALE, propertiesStone(MaterialColor.COLOR_GRAY));
 	public static final RegistryObject<Block> VOIDSHALE_BRICKS = registerBasic("voidshale_bricks", () -> new Block(propertiesStone(MaterialColor.COLOR_GRAY)));
-	public static final StoneDecoBlocks VOIDSHALE_BRICKS_DECO = new StoneDecoBlocks("voidshale_bricks", VOIDSHALE_BRICKS, propertiesStone(MaterialColor.COLOR_GRAY));
-	public static final RegistryObject<Block> VOIDSHALE_CHISELED = registerBasic("voidshale_chiseled", () -> new Block(propertiesStone(MaterialColor.COLOR_GRAY)));
+	public static final StoneDecoBlocks VOIDSHALE_BRICK_DECO = new StoneDecoBlocks("voidshale_brick", VOIDSHALE_BRICKS, propertiesStone(MaterialColor.COLOR_GRAY));
+	public static final RegistryObject<Block> CHISELED_VOIDSHALE = registerBasic("chiseled_voidshale", () -> new Block(propertiesStone(MaterialColor.COLOR_GRAY)));
 	public static final RegistryObject<Block> VOIDSHALE_RUBBLE = register("voidshale_rubble", () -> new GroundDecoBlock(propertiesRubble()));
 
 	public static final RegistryObject<Block> BAETYL_ADOBE = registerBasic("baetyl_adobe", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_CYAN)));
 	public static final StoneDecoBlocks BAETYL_ADOBE_DECO = new StoneDecoBlocks("baetyl_adobe", BAETYL_ADOBE, propertiesStone(MaterialColor.TERRACOTTA_CYAN));
-	public static final RegistryObject<Block> BAETYL_COBBLE = registerBasic("baetyl_cobble", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_CYAN)));
-	public static final StoneDecoBlocks BAETYL_COBBLE_DECO = new StoneDecoBlocks("baetyl_cobble", BAETYL_COBBLE, propertiesStone(MaterialColor.TERRACOTTA_CYAN));
+	public static final RegistryObject<Block> COBBLED_BAETYL = registerBasic("cobbled_baetyl", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_CYAN)));
+	public static final StoneDecoBlocks COBBLED_BAETYL_DECO = new StoneDecoBlocks("cobbled_baetyl", COBBLED_BAETYL, propertiesStone(MaterialColor.TERRACOTTA_CYAN));
 	public static final RegistryObject<Block> BAETYL = register("baetyl", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_CYAN)));
 	public static final StoneDecoBlocks BAETYL_DECO = new StoneDecoBlocks("baetyl", BAETYL, propertiesStone(MaterialColor.TERRACOTTA_CYAN));
 	public static final RegistryObject<Block> BAETYL_BRICKS = registerBasic("baetyl_bricks", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_CYAN)));
-	public static final StoneDecoBlocks BAETYL_BRICKS_DECO = new StoneDecoBlocks("baetyl_bricks", BAETYL_BRICKS, propertiesStone(MaterialColor.TERRACOTTA_CYAN));
-	public static final RegistryObject<Block> BAETYL_CHISELED = registerBasic("baetyl_chiseled", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_CYAN)));
+	public static final StoneDecoBlocks BAETYL_BRICK_DECO = new StoneDecoBlocks("baetyl_brick", BAETYL_BRICKS, propertiesStone(MaterialColor.TERRACOTTA_CYAN));
+	public static final RegistryObject<Block> CHISELED_BAETYL = registerBasic("chiseled_baetyl", () -> new Block(propertiesStone(MaterialColor.TERRACOTTA_CYAN)));
 	public static final RegistryObject<Block> BAETYL_RUBBLE = register("baetyl_rubble", () -> new GroundDecoBlock(propertiesStone(MaterialColor.TERRACOTTA_CYAN)));
 
 	public static final RegistryObject<Block> RELICSTONE = registerBasic("relicstone", () -> new Block(propertiesStone(MaterialColor.WOOD)));
 	public static final StoneDecoBlocks RELICSTONE_DECO = new StoneDecoBlocks("relicstone", RELICSTONE, propertiesStone(MaterialColor.WOOD));
-	public static final RegistryObject<Block> RELICSTONE_SMOOTH = register("relicstone_smooth", () -> new Block(propertiesStone(MaterialColor.WOOD)));
-	public static final StoneDecoBlocks RELICSTONE_SMOOTH_DECO = new StoneDecoBlocks("relicstone_smooth", RELICSTONE_SMOOTH, propertiesStone(MaterialColor.WOOD));
+	public static final RegistryObject<Block> SMOOTH_RELICSTONE = register("smooth_relicstone", () -> new Block(propertiesStone(MaterialColor.WOOD)));
+	public static final StoneDecoBlocks SMOOTH_RELICSTONE_DECO = new StoneDecoBlocks("smooth_relicstone", SMOOTH_RELICSTONE, propertiesStone(MaterialColor.WOOD));
 	public static final RegistryObject<Block> RELICSTONE_BRICKS = registerBasic("relicstone_bricks", () -> new Block(propertiesStone(MaterialColor.WOOD)));
-	public static final StoneDecoBlocks RELICSTONE_BRICKS_DECO = new StoneDecoBlocks("relicstone_bricks", RELICSTONE_BRICKS, propertiesStone(MaterialColor.WOOD));
-	public static final RegistryObject<Block> RELICSTONE_BRICKS_CRACKED = registerBasic("relicstone_bricks_cracked", () -> new Block(propertiesStone(MaterialColor.WOOD)));
-	public static final StoneDecoBlocks RELICSTONE_BRICKS_CRACKED_DECO = new StoneDecoBlocks("relicstone_bricks_cracked", RELICSTONE_BRICKS_CRACKED, propertiesStone(MaterialColor.WOOD));
-	public static final RegistryObject<Block> RELICSTONE_BRICKS_MOSSY = registerBasic("relicstone_bricks_mossy", () -> new Block(propertiesStone(MaterialColor.WOOD)));
-	public static final StoneDecoBlocks RELICSTONE_BRICKS_MOSSY_DECO = new StoneDecoBlocks("relicstone_bricks_mossy", RELICSTONE_BRICKS_MOSSY, propertiesStone(MaterialColor.WOOD));
+	public static final StoneDecoBlocks RELICSTONE_BRICK_DECO = new StoneDecoBlocks("relicstone_brick", RELICSTONE_BRICKS, propertiesStone(MaterialColor.WOOD));
+	public static final RegistryObject<Block> CRACKED_RELICSTONE_BRICKS = registerBasic("cracked_relicstone_bricks", () -> new Block(propertiesStone(MaterialColor.WOOD)));
+	public static final StoneDecoBlocks CRACKED_RELICSTONE_BRICK_DECO = new StoneDecoBlocks("cracked_relicstone_brick", CRACKED_RELICSTONE_BRICKS, propertiesStone(MaterialColor.WOOD));
+	public static final RegistryObject<Block> MOSSY_RELICSTONE_BRICKS = registerBasic("mossy_relicstone_bricks", () -> new Block(propertiesStone(MaterialColor.WOOD)));
+	public static final StoneDecoBlocks MOSSY_RELICSTONE_BRICK_DECO = new StoneDecoBlocks("mossy_relicstone_brick", MOSSY_RELICSTONE_BRICKS, propertiesStone(MaterialColor.WOOD));
 	public static final RegistryObject<Block> RELICSTONE_TILES = registerBasic("relicstone_tiles", () -> new Block(propertiesStone(MaterialColor.WOOD)));
-	public static final StoneDecoBlocks RELICSTONE_TILES_DECO = new StoneDecoBlocks("relicstone_tiles", RELICSTONE_TILES, propertiesStone(MaterialColor.WOOD));
-	public static final RegistryObject<Block> RELICSTONE_TILES_CRACKED = registerBasic("relicstone_tiles_cracked", () -> new Block(propertiesStone(MaterialColor.WOOD)));
-	public static final StoneDecoBlocks RELICSTONE_TILES_CRACKED_DECO = new StoneDecoBlocks("relicstone_tiles_cracked", RELICSTONE_TILES_CRACKED, propertiesStone(MaterialColor.WOOD));
-	public static final RegistryObject<Block> RELICSTONE_TILES_MOSSY = registerBasic("relicstone_tiles_mossy", () -> new Block(propertiesStone(MaterialColor.WOOD)));
-	public static final StoneDecoBlocks RELICSTONE_TILES_MOSSY_DECO = new StoneDecoBlocks("relicstone_tiles_mossy", RELICSTONE_TILES_MOSSY, propertiesStone(MaterialColor.WOOD));
-	public static final RegistryObject<Block> RELICSTONE_CHISELED = registerBasic("relicstone_chiseled", () -> new Block(propertiesStone(MaterialColor.WOOD)));
+	public static final StoneDecoBlocks RELICSTONE_TILE_DECO = new StoneDecoBlocks("relicstone_tile", RELICSTONE_TILES, propertiesStone(MaterialColor.WOOD));
+	public static final RegistryObject<Block> CRACKED_RELICSTONE_TILES = registerBasic("cracked_relicstone_tiles", () -> new Block(propertiesStone(MaterialColor.WOOD)));
+	public static final StoneDecoBlocks CRACKED_RELICSTONE_TILE_DECO = new StoneDecoBlocks("cracked_relicstone_tile", CRACKED_RELICSTONE_TILES, propertiesStone(MaterialColor.WOOD));
+	public static final RegistryObject<Block> MOSSY_RELICSTONE_TILES = registerBasic("mossy_relicstone_tiles", () -> new Block(propertiesStone(MaterialColor.WOOD)));
+	public static final StoneDecoBlocks MOSSY_RELICSTONE_TILE_DECO = new StoneDecoBlocks("mossy_relicstone_tile", MOSSY_RELICSTONE_TILES, propertiesStone(MaterialColor.WOOD));
+	public static final RegistryObject<Block> CHISELED_RELICSTONE = registerBasic("chiseled_relicstone", () -> new Block(propertiesStone(MaterialColor.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> RELICSTONE_PILLAR = register("relicstone_pillar", () -> new RotatedPillarBlock(propertiesStone(MaterialColor.WOOD)));
 	public static final RegistryObject<Block> RELICSTONE_PILLAR_HEAD = register("relicstone_pillar_head", () -> new PillarHeadBlock(propertiesStone(MaterialColor.WOOD)));
 	public static final RegistryObject<Block> RELICSTONE_RUBBLE = register("relicstone_rubble", () -> new GroundDecoBlock(propertiesRubble()));
 
 	public static final RegistryObject<Block> PLATOSHALE = registerBasic("platoshale", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
 	public static final StoneDecoBlocks PLATOSHALE_DECO = new StoneDecoBlocks("platoshale", PLATOSHALE, propertiesStone(MaterialColor.COLOR_BLACK));
-	public static final RegistryObject<Block> PLATOSHALE_BLURRED = register("platoshale_blurred", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
+	public static final RegistryObject<Block> BLURRED_PLATOSHALE = register("blurred_platoshale", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
 	public static final RegistryObject<Block> PLATOSHALE_BRICKS = registerBasic("platoshale_bricks", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
-	public static final StoneDecoBlocks PLATOSHALE_BRICKS_DECO = new StoneDecoBlocks("platoshale_bricks", PLATOSHALE_BRICKS, propertiesStone(MaterialColor.COLOR_BLACK));
-	public static final RegistryObject<Block> PLATOSHALE_BRICKS_BLURRED = register("platoshale_bricks_blurred", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
-	public static final RegistryObject<Block> PLATOSHALE_CHISELED = registerBasic("platoshale_chiseled", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
+	public static final StoneDecoBlocks PLATOSHALE_BRICK_DECO = new StoneDecoBlocks("platoshale_brick", PLATOSHALE_BRICKS, propertiesStone(MaterialColor.COLOR_BLACK));
+	public static final RegistryObject<Block> BLURRED_PLATOSHALE_BRICKS = register("blurred_platoshale_bricks", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
+	public static final RegistryObject<Block> CHISELED_PLATOSHALE = registerBasic("chiseled_platoshale", () -> new Block(propertiesStone(MaterialColor.COLOR_BLACK)));
 
 	public static final RegistryObject<Block> QUARTZ_PILLAR_HEAD = register("quartz_pillar_head", () -> new PillarHeadBlock(propertiesQuartz()));
 
@@ -190,7 +191,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> ZIRCON_CRYSTAL = register("zircon_crystal", () -> new CrystalBlock(propertiesCrystalBlock(), 0.0F, 0.0F, 1.0F));
 
 	public static final RegistryObject<Block> ARISTONE = registerBasic("aristone", () -> new GlassBlock(propertiesAristone()));
-	public static final RegistryObject<Block> ARISTONE_PACKED = registerBasic("aristone_packed", () -> new Block(propertiesAristone()));
+	public static final RegistryObject<Block> PACKED_ARISTONE = registerBasic("packed_aristone", () -> new Block(propertiesAristone()));
 
 	public static final RegistryObject<Block> ENDER_JELLYFISH_JELLY_BLOCK = registerBasic("ender_jellyfish_jelly_block", () -> new JellyfishJellyBlock(propertiesJellyfishJellyBlock()));
 	public static final RegistryObject<Block> FIRE_JELLYFISH_JELLY_BLOCK = registerBasic("fire_jellyfish_jelly_block", () -> new JellyfishJellyBlock(propertiesJellyfishJellyBlock()));
@@ -203,12 +204,12 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> VINE_SPROUT_BLOCK = registerBasic("vine_sprout_block", () -> new Block(propertiesVineReedBlock()));
 	public static final RegistryObject<Block> ROTTEN_BONES_BLOCK = registerBasic("rotten_bones_block", () -> new Block(propertiesRottenBonesBlock()));
 
-	public static final RegistryObject<Block> CHALKOS_RAW_BLOCK = registerBasic("chalkos_raw_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_GREEN)));
-	public static final RegistryObject<Block> KASSITEROS_RAW_BLOCK = registerBasic("kassiteros_raw_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_BLUE)));
-	public static final RegistryObject<Block> VANADIUM_RAW_BLOCK = registerBasic("vanadium_raw_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_YELLOW)));
+	public static final RegistryObject<Block> RAW_CHALKOS_BLOCK = registerBasic("raw_chalkos_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_GREEN)));
+	public static final RegistryObject<Block> RAW_KASSITEROS_BLOCK = registerBasic("raw_kassiteros_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_BLUE)));
+	public static final RegistryObject<Block> RAW_VANADIUM_BLOCK = registerBasic("raw_vanadium_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_YELLOW)));
 	public static final RegistryObject<Block> SLIVER_BLOCK = registerBasic("sliver_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.WOOD)));
-	public static final RegistryObject<Block> SIDEROS_RAW_BLOCK = registerBasic("sideros_raw_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_ORANGE)));
-	public static final RegistryObject<Block> MOLYBDENUM_RAW_BLOCK = registerBasic("molybdenum_raw_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_GRAY)));
+	public static final RegistryObject<Block> RAW_SIDEROS_BLOCK = registerBasic("raw_sideros_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_ORANGE)));
+	public static final RegistryObject<Block> RAW_MOLYBDENUM_BLOCK = registerBasic("raw_molybdenum_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_GRAY)));
 
 	public static final RegistryObject<Block> CALCITE_BLOCK = registerBasic("calcite_block", () -> new HalfTransparentBlock(propertiesCrystalStorageBlock(MaterialColor.COLOR_LIGHT_GRAY)));
 	public static final RegistryObject<Block> HALITE_BLOCK = registerBasic("halite_block", () -> new HalfTransparentBlock(propertiesCrystalStorageBlock(MaterialColor.COLOR_GREEN)));
@@ -228,9 +229,15 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> BLURIDIUM_BLOCK = registerBasic("bluridium_block", () -> new Block(propertiesMetalStorageBlock(MaterialColor.COLOR_LIGHT_BLUE)));
 
 	public static final RegistryObject<IronBarsBlock> VANADIUMSTEEL_BARS = register("vanadiumsteel_bars", () -> new IronBarsBlock(propertiesBars()));
-	public static final RegistryObject<Block> VANADIUMSTEEL_BARS_HORIZONTAL = register("vanadiumsteel_bars_horizontal", () -> new HorizontalPaneBlock(propertiesBars()));
+	public static final RegistryObject<Block> HORIZONTAL_VANADIUMSTEEL_BARS = register("horizontal_vanadiumsteel_bars", () -> new HorizontalPaneBlock(propertiesBars()));
 
+	public static final RegistryObject<Block> KETTLE = register("kettle", () -> new KettleBlock(propertiesGrinder()));
 	public static final RegistryObject<Block> GRINDER = register("grinder", () -> new GrinderBlock(propertiesGrinder()));
+	public static final RegistryObject<Block> KILN = register("kiln", () -> new KilnBlock(propertiesGrinder()));
+	public static final RegistryObject<Block> FORGE = register("forge", () -> new ForgeBlock(propertiesGrinder()));
+
+	public static final RegistryObject<Block> ICARIA_CHEST = register("icaria_chest", () -> new ChestBlock(propertiesGrinder(), () -> BlockEntityType.CHEST));
+	public static final RegistryObject<Block> ICARIA_TRAPPED_CHEST = register("icaria_trapped_chest", () -> new TrappedChestBlock(propertiesGrinder()));
 
 	public static final RegistryObject<Block> STORAGE_VASE = register("storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.TERRACOTTA_PINK)));
 	public static final RegistryObject<Block> WHITE_STORAGE_VASE = register("white_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.SNOW)));
@@ -381,8 +388,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> OLIVE_SAPLING = register("olive_sapling", () -> new SaplingBlock(new OakTreeGrower(), propertiesSapling()));
 	public static final RegistryObject<Block> POTTED_OLIVE_SAPLING = register("potted_olive_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, OLIVE_SAPLING, propertiesPot()));
 	public static final RegistryObject<Block> OLIVE_LEAVES = register("olive_leaves", () -> new LeavesBlock(propertiesLeaves()));
-	public static final RegistryObject<Block> OLIVE_LEAVES_BLACK = register("olive_leaves_black", () -> new LeavesBlock(propertiesLeaves()));
-	public static final RegistryObject<Block> OLIVE_LEAVES_GREEN = register("olive_leaves_green", () -> new LeavesBlock(propertiesLeaves()));
+	public static final RegistryObject<Block> BLACK_OLIVE_LEAVES = register("black_olive_leaves", () -> new LeavesBlock(propertiesLeaves()));
+	public static final RegistryObject<Block> GREEN_OLIVE_LEAVES = register("green_olive_leaves", () -> new LeavesBlock(propertiesLeaves()));
 	public static final RegistryObject<Block> FALLEN_OLIVE_LEAVES = register("fallen_olive_leaves", () -> new LayerBlock(propertiesLeaves()));
 	public static final RegistryObject<Block> OLIVE_TWIGS = register("olive_twigs", () -> new GroundDecoBlock(propertiesTwigs()));
 	public static final RegistryObject<RotatedPillarBlock> OLIVE_WOOD = register("olive_wood", () -> new RotatedPillarBlock(propertiesWood(MaterialColor.COLOR_GRAY, MaterialColor.COLOR_GRAY)));
@@ -572,7 +579,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> PHYSALIS_CROP = register("physalis_crop", () -> new PhysalisCropBlock(propertiesCrop()));
 	public static final RegistryObject<Block> ONION_CROP = register("onion_crop", () -> new OnionCropBlock(propertiesCrop()));
 
-	public static final RegistryObject<LiquidBlock> MEDITERRANEAN_WATER = register("mediterranean_water", () -> new LiquidBlock(IcariaFluids.MEDITERRANEAN_WATER_SOURCE, propertiesFluid(MaterialColor.WATER)));
+	public static final RegistryObject<LiquidBlock> MEDITERRANEAN_WATER = register("mediterranean_water", () -> new LiquidBlock(IcariaFluids.MEDITERRANEAN_WATER, propertiesFluid(MaterialColor.WATER)));
 
 	public static final RegistryObject<Block> GREEK_FIRE = register("greek_fire", () -> new GreekFireBlock(propertiesGreekFire()));
 

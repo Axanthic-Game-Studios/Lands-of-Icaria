@@ -239,7 +239,7 @@ public class HyliasterEntity extends Monster {
     @Override
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack itemStack = pPlayer.getItemInHand(pHand);
-        if (itemStack.getItem() == IcariaItems.VIAL_EMPTY.get()) {
+        if (itemStack.getItem() == IcariaItems.EMPTY_VIAL.get()) {
             pPlayer.getLevel().playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
             if (!this.level.isClientSide) {
                 this.setTick(this.getTick() - 16000);
@@ -252,9 +252,9 @@ public class HyliasterEntity extends Monster {
                 }
 
                 if (itemStack.isEmpty()) {
-                    pPlayer.setItemInHand(pHand, new ItemStack(IcariaItems.VIAL_HYLIASTRUM.get()));
-                } else if (!pPlayer.getInventory().add(new ItemStack(IcariaItems.VIAL_HYLIASTRUM.get()))) {
-                    pPlayer.drop(new ItemStack(IcariaItems.VIAL_HYLIASTRUM.get()), false);
+                    pPlayer.setItemInHand(pHand, new ItemStack(IcariaItems.HYLIASTRUM_VIAL.get()));
+                } else if (!pPlayer.getInventory().add(new ItemStack(IcariaItems.HYLIASTRUM_VIAL.get()))) {
+                    pPlayer.drop(new ItemStack(IcariaItems.HYLIASTRUM_VIAL.get()), false);
                 }
 
                 return InteractionResult.SUCCESS;

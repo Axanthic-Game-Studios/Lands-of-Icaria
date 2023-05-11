@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/loam_brick_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/loam_bricks"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/loam_brick_slab_top"
+    }
+  }
+}

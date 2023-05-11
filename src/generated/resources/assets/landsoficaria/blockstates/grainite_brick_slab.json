@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/grainite_brick_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/grainite_bricks"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/grainite_brick_slab_top"
+    }
+  }
+}

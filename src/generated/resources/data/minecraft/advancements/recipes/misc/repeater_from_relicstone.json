@@ -25,12 +25,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_relicstone_smooth": {
+    "has_smooth_relicstone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:relicstone_smooth"
+              "landsoficaria:smooth_relicstone"
             ]
           }
         ]
@@ -48,7 +48,7 @@
     [
       "has_redstone_torch",
       "has_redstone",
-      "has_relicstone_smooth",
+      "has_smooth_relicstone",
       "has_the_recipe"
     ]
   ],

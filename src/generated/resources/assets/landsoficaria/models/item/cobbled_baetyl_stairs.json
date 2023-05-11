@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "landsoficaria:block/cobbled_baetyl",
+    "side": "landsoficaria:block/cobbled_baetyl",
+    "top": "landsoficaria:block/cobbled_baetyl"
+  }
+}

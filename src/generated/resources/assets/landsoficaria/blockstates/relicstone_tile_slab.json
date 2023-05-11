@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/relicstone_tile_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/relicstone_tiles"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/relicstone_tile_slab_top"
+    }
+  }
+}

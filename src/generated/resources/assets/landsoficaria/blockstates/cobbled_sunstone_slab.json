@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/cobbled_sunstone_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/cobbled_sunstone"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/cobbled_sunstone_slab_top"
+    }
+  }
+}

@@ -18,6 +18,6 @@ public class GrinderGearSlot extends SlotItemHandler {
 
     @Override
     public boolean mayPlace(ItemStack pStack) {
-        return pStack.getItem() == IcariaItems.GEAR_YELLOWSTONE.get() || pStack.getItem() == IcariaItems.GEAR_LOAM.get() || pStack.getItem() == IcariaItems.GEAR_VOIDSHALE.get() || pStack.getItem() == IcariaItems.GEAR_VANADIUM.get() || pStack.getItem() == IcariaItems.GEAR_DAEDALIAN.get();
+        return pStack.getItem() == IcariaItems.YELLOWSTONE_GEAR.get() || pStack.getItem() == IcariaItems.LOAM_GEAR.get() || pStack.getItem() == IcariaItems.VOIDSHALE_GEAR.get() || pStack.getItem() == IcariaItems.VANADIUM_GEAR.get() || pStack.getItem() == IcariaItems.DAEDALIAN_GEAR.get();
     }
 }

@@ -77,10 +77,10 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 	protected static final BlockState VOIDSHALE = IcariaBlocks.VOIDSHALE.get().defaultBlockState();
 	protected static final BlockState BAETYL = IcariaBlocks.BAETYL.get().defaultBlockState();
 
-	protected static final BlockState MARLGRASS = IcariaBlocks.MARL_GRASS.get().defaultBlockState();
+	protected static final BlockState MARLGRASS = IcariaBlocks.GRASSY_MARL.get().defaultBlockState();
 	protected static final BlockState LOAM = IcariaBlocks.LOAM.get().defaultBlockState();
 	protected static final BlockState MARL = IcariaBlocks.MARL.get().defaultBlockState();
-	protected static final BlockState MARL_COARSE = IcariaBlocks.MARL_COARSE.get().defaultBlockState();
+	protected static final BlockState MARL_COARSE = IcariaBlocks.COARSE_MARL.get().defaultBlockState();
 
 	protected static final BlockState BEDROCK = Blocks.BEDROCK.defaultBlockState();
 

@@ -44,7 +44,7 @@ public class IcariaEatBlockGoal extends Goal {
             if (this.level.getBlockState(blockPos).is(IcariaBlockTags.ICARIA_GRASS_BLOCKS)) {
                 return true;
             } else {
-                return this.level.getBlockState(blockPos.below()).is(IcariaBlocks.MARL_GRASS.get());
+                return this.level.getBlockState(blockPos.below()).is(IcariaBlocks.GRASSY_MARL.get());
             }
         }
     }
@@ -78,9 +78,9 @@ public class IcariaEatBlockGoal extends Goal {
                 this.entity.ate();
             } else {
                 BlockPos below = blockPos.below();
-                if (this.level.getBlockState(below).is(IcariaBlocks.MARL_GRASS.get())) {
+                if (this.level.getBlockState(below).is(IcariaBlocks.GRASSY_MARL.get())) {
                     if (ForgeEventFactory.getMobGriefingEvent(this.level, this.entity)) {
-                        this.level.levelEvent(2001, below, Block.getId(IcariaBlocks.MARL_GRASS.get().defaultBlockState()));
+                        this.level.levelEvent(2001, below, Block.getId(IcariaBlocks.GRASSY_MARL.get().defaultBlockState()));
                         this.level.setBlock(below, IcariaBlocks.MARL.get().defaultBlockState(), 2);
                     }
 

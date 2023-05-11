@@ -50,16 +50,16 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 
 	@Override
 	public void generate() {
-		this.dropWithSilk(IcariaBlocks.MARL_GRASS.get(), IcariaItems.MARL.get(), 1.0F, 1.0F);
+		this.dropWithSilk(IcariaBlocks.GRASSY_MARL.get(), IcariaItems.MARL.get(), 1.0F, 1.0F);
 		this.dropWithSilk(IcariaBlocks.SURFACE_CHERT.get(), IcariaItems.CHERT.get(), 1.0F, 4.0F);
 		this.dropWithSilk(IcariaBlocks.SURFACE_BONES.get(), Items.BONE, 1.0F, 4.0F);
 		this.dropWithSilk(IcariaBlocks.LOAM.get(), IcariaItems.LOAM_LUMP.get(), 4.0F, 4.0F);
-		this.dropWithSilk(IcariaBlocks.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_COBBLE.get(), 1.0F, 1.0F);
-		this.dropWithSilk(IcariaBlocks.SILKSTONE.get(), IcariaItems.SILKSTONE_COBBLE.get(), 1.0F, 1.0F);
-		this.dropWithSilk(IcariaBlocks.SUNSTONE.get(), IcariaItems.SUNSTONE_COBBLE.get(), 1.0F, 1.0F);
-		this.dropWithSilk(IcariaBlocks.VOIDSHALE.get(), IcariaItems.VOIDSHALE_COBBLE.get(), 1.0F, 1.0F);
-		this.dropWithSilk(IcariaBlocks.BAETYL.get(), IcariaItems.BAETYL_COBBLE.get(), 1.0F, 1.0F);
-		this.dropWithSilk(IcariaBlocks.RELICSTONE_SMOOTH.get(), IcariaItems.RELICSTONE.get(), 1.0F, 1.0F);
+		this.dropWithSilk(IcariaBlocks.YELLOWSTONE.get(), IcariaItems.COBBLED_YELLOWSTONE.get(), 1.0F, 1.0F);
+		this.dropWithSilk(IcariaBlocks.SILKSTONE.get(), IcariaItems.COBBLED_SILKSTONE.get(), 1.0F, 1.0F);
+		this.dropWithSilk(IcariaBlocks.SUNSTONE.get(), IcariaItems.COBBLED_SUNSTONE.get(), 1.0F, 1.0F);
+		this.dropWithSilk(IcariaBlocks.VOIDSHALE.get(), IcariaItems.COBBLED_VOIDSHALE.get(), 1.0F, 1.0F);
+		this.dropWithSilk(IcariaBlocks.BAETYL.get(), IcariaItems.COBBLED_BAETYL.get(), 1.0F, 1.0F);
+		this.dropWithSilk(IcariaBlocks.SMOOTH_RELICSTONE.get(), IcariaItems.RELICSTONE.get(), 1.0F, 1.0F);
 		this.dropWithSilk(IcariaBlocks.CYPRESS_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
 		this.dropWithSilk(IcariaBlocks.DROUGHTROOT_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
 		this.dropWithSilk(IcariaBlocks.FIR_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
@@ -72,19 +72,19 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropOres(IcariaBlocks.MARL_LIGNITE.get(), IcariaItems.LIGNITE.get());
 		this.dropOres(IcariaBlocks.GRAINEL_CHERT.get(), IcariaItems.CHERT.get());
 		this.dropOres(IcariaBlocks.LIGNITE_ORE.get(), IcariaItems.LIGNITE.get());
-		this.dropOres(IcariaBlocks.CHALKOS_ORE.get(), IcariaItems.CHALKOS_RAW.get());
-		this.dropOres(IcariaBlocks.KASSITEROS_ORE.get(), IcariaItems.KASSITEROS_RAW.get());
+		this.dropOres(IcariaBlocks.CHALKOS_ORE.get(), IcariaItems.RAW_CHALKOS.get());
+		this.dropOres(IcariaBlocks.KASSITEROS_ORE.get(), IcariaItems.RAW_KASSITEROS.get());
 		this.dropOres(IcariaBlocks.DOLOMITE_ORE.get(), IcariaItems.DOLOMITE.get());
-		this.dropOres(IcariaBlocks.VANADIUM_ORE.get(), IcariaItems.VANADIUM_RAW.get());
+		this.dropOres(IcariaBlocks.VANADIUM_ORE.get(), IcariaItems.RAW_VANADIUM.get());
 		this.dropOres(IcariaBlocks.SLIVER_ORE.get(), IcariaItems.SLIVER.get());
-		this.dropOres(IcariaBlocks.SIDEROS_ORE.get(), IcariaItems.SIDEROS_RAW.get());
+		this.dropOres(IcariaBlocks.SIDEROS_ORE.get(), IcariaItems.RAW_SIDEROS.get());
 		this.dropOres(IcariaBlocks.ANTHRACITE_ORE.get(), IcariaItems.ANTHRACITE.get());
-		this.dropOres(IcariaBlocks.MOLYBDENUM_ORE.get(), IcariaItems.MOLYBDENUM_RAW.get());
+		this.dropOres(IcariaBlocks.MOLYBDENUM_ORE.get(), IcariaItems.RAW_MOLYBDENUM.get());
 
 		this.dropBone(IcariaBlocks.MARL_BONES.get(), Items.BONE, IcariaItems.ROTTEN_BONES.get(), IcariaItems.BONE_REMAINS.get());
 
 		this.dropElse(IcariaBlocks.FARMLAND.get(), IcariaItems.MARL.get());
-		this.dropElse(IcariaBlocks.FARMLAND_FERTILIZED.get(), IcariaItems.MARL.get());
+		this.dropElse(IcariaBlocks.FERTILIZED_FARMLAND.get(), IcariaItems.MARL.get());
 		this.dropElse(IcariaBlocks.CALCITE_CRYSTAL.get(), IcariaItems.CALCITE.get());
 		this.dropElse(IcariaBlocks.HALITE_CRYSTAL.get(), IcariaItems.HALITE.get());
 		this.dropElse(IcariaBlocks.JASPER_CRYSTAL.get(), IcariaItems.JASPER.get());
@@ -115,10 +115,10 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 
 		this.dropWhenSilk(IcariaBlocks.GRAINGLASS.get());
 		this.dropWhenSilk(IcariaBlocks.GRAINGLASS_PANE.get());
-		this.dropWhenSilk(IcariaBlocks.GRAINGLASS_PANE_HORIZONTAL.get());
+		this.dropWhenSilk(IcariaBlocks.HORIZONTAL_GRAINGLASS_PANE.get());
 		this.dropWhenSilk(IcariaBlocks.SILKGLASS.get());
 		this.dropWhenSilk(IcariaBlocks.SILKGLASS_PANE.get());
-		this.dropWhenSilk(IcariaBlocks.SILKGLASS_PANE_HORIZONTAL.get());
+		this.dropWhenSilk(IcariaBlocks.HORIZONTAL_SILKGLASS_PANE.get());
 		this.dropWhenSilk(IcariaBlocks.HYLIASTRUM_ORE.get());
 		this.dropWhenSilk(IcariaBlocks.GRAINITE_RUBBLE.get());
 		this.dropWhenSilk(IcariaBlocks.YELLOWSTONE_RUBBLE.get());
@@ -143,8 +143,13 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.BUDDING_ZIRCON_GEODE_BLOCK.get());
 		this.dropThis(IcariaBlocks.SPELT_BALE_BLOCK.get());
 		this.dropThis(IcariaBlocks.VANADIUMSTEEL_BARS.get());
-		this.dropThis(IcariaBlocks.VANADIUMSTEEL_BARS_HORIZONTAL.get());
+		this.dropThis(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
+		this.dropThis(IcariaBlocks.KETTLE.get());
 		this.dropThis(IcariaBlocks.GRINDER.get());
+		this.dropThis(IcariaBlocks.KILN.get());
+		this.dropThis(IcariaBlocks.FORGE.get());
+		this.dropThis(IcariaBlocks.ICARIA_CHEST.get());
+		this.dropThis(IcariaBlocks.ICARIA_TRAPPED_CHEST.get());
 		this.dropThis(IcariaBlocks.STORAGE_VASE.get());
 		this.dropThis(IcariaBlocks.WHITE_STORAGE_VASE.get());
 		this.dropThis(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get());
@@ -291,8 +296,8 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.UNNAMED_TREE_SHROOMS.get());
 		this.dropThis(IcariaBlocks.CARDON_CACTUS.get());
 
-		this.dropBlurredPlatoshale(IcariaBlocks.PLATOSHALE_BLURRED.get(), IcariaItems.BLURIDIUM_NUGGET.get());
-		this.dropBlurredPlatoshale(IcariaBlocks.PLATOSHALE_BRICKS_BLURRED.get(), IcariaItems.BLURIDIUM_NUGGET.get());
+		this.dropBlurredPlatoshale(IcariaBlocks.BLURRED_PLATOSHALE.get(), IcariaItems.BLURIDIUM_NUGGET.get());
+		this.dropBlurredPlatoshale(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get(), IcariaItems.BLURIDIUM_NUGGET.get());
 
 		this.dropPots(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
 		this.dropPots(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
@@ -338,8 +343,8 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 
 		this.dropLaurelsLeaves(IcariaBlocks.LAUREL_LEAVES.get(), IcariaBlocks.LAUREL_SAPLING.get());
 
-		this.dropOlivesLeaves(IcariaBlocks.OLIVE_LEAVES_BLACK.get(), IcariaItems.OLIVES_BLACK.get());
-		this.dropOlivesLeaves(IcariaBlocks.OLIVE_LEAVES_GREEN.get(), IcariaItems.OLIVES_GREEN.get());
+		this.dropOlivesLeaves(IcariaBlocks.BLACK_OLIVE_LEAVES.get(), IcariaItems.BLACK_OLIVES.get());
+		this.dropOlivesLeaves(IcariaBlocks.GREEN_OLIVE_LEAVES.get(), IcariaItems.GREEN_OLIVES.get());
 
 		this.dropLayers(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get());
 		this.dropLayers(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get());

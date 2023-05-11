@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_silkstone_cobble": {
+    "has_cobbled_silkstone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:silkstone_cobble"
+              "landsoficaria:cobbled_silkstone"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_silkstone_cobble",
+      "has_cobbled_silkstone",
       "has_the_recipe"
     ]
   ],
