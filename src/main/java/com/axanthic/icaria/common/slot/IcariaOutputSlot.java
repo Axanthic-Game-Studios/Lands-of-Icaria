@@ -10,8 +10,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaOutputSlot extends SlotItemHandler {
-	public IcariaOutputSlot(IItemHandler pItemHandler, int pIndex, int pX, int pY) {
-		super(pItemHandler, pIndex, pX, pY);
+	public IcariaOutputSlot(IItemHandler pHandler, int pIndex, int pX, int pY) {
+		super(pHandler, pIndex, pX, pY);
 	}
 
 	@Override

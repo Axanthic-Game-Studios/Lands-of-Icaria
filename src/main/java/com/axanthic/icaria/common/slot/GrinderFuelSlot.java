@@ -12,8 +12,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrinderFuelSlot extends SlotItemHandler {
-	public GrinderFuelSlot(IItemHandler pItemHandler, int pIndex, int pX, int pY) {
-		super(pItemHandler, pIndex, pX, pY);
+	public GrinderFuelSlot(IItemHandler pHandler, int pIndex, int pX, int pY) {
+		super(pHandler, pIndex, pX, pY);
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.menu;
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaMenuTypes;
 import com.axanthic.icaria.common.slot.GrinderFuelSlot;
+import com.axanthic.icaria.common.slot.GrinderGearSlot;
 import com.axanthic.icaria.common.slot.IcariaOutputSlot;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -43,14 +45,14 @@ public class GrinderMenu extends AbstractContainerMenu {
 			this.entity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(pItemHandler -> {
 				this.addSlot(new SlotItemHandler(pItemHandler, 0, 37, 20)); // INPUT
 				this.addSlot(new GrinderFuelSlot(pItemHandler, 1, 37, 56)); // FUEL
-				this.addSlot(new SlotItemHandler(pItemHandler, 2, 97, 47)); // GEAR
+				this.addSlot(new GrinderGearSlot(pItemHandler, 2, 97, 47)); // GEAR
 				this.addSlot(new IcariaOutputSlot(pItemHandler, 3, 123, 20)); // OUTPUT 1
 				this.addSlot(new IcariaOutputSlot(pItemHandler, 4, 123, 38)); // OUTPUT 2
 				this.addSlot(new IcariaOutputSlot(pItemHandler, 5, 123, 56)); // OUTPUT 3
 			});
 		}
 
-		layoutPlayerInventorySlots(8, 73);
+		this.layoutPlayerInventorySlots(8, 73);
 	}
 
 	@Override
@@ -99,6 +101,30 @@ public class GrinderMenu extends AbstractContainerMenu {
 
 	@Override
 	public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
-		return ItemStack.EMPTY;
+		ItemStack emptyStack = ItemStack.EMPTY;
+		Slot slot = this.slots.get(pIndex);
+		if (slot.hasItem()) {
+			ItemStack itemStack = slot.getItem();
+			emptyStack = itemStack.copy();
+			if (pIndex < 6) {
+				this.moveItemStackTo(itemStack, 6, 42, true);
+			} else {
+				this.moveItemStackTo(itemStack, 0, 6, false);
+			}
+
+			if (pIndex > 5 && pIndex < 33) {
+				this.moveItemStackTo(itemStack, 33, 42, true);
+			} else {
+				this.moveItemStackTo(itemStack, 6, 33, false);
+			}
+		}
+
+		return emptyStack;
 	}
+
+	// TODO: finish quick move
+	// TODO: recipe xp
+	// TODO: hopper interactions
+	// TODO: redstone interactions
+	// TODO: remaining recipes
 }
