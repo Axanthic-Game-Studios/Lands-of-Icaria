@@ -12,9 +12,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-@SuppressWarnings("deprecation")
 
-public class ForgeBlock extends Block {
+public class ForgeBlock extends GrinderBlock {
     public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 32.0D, 32.0D, 32.0D);
 
     public ForgeBlock(Properties pProperties) {

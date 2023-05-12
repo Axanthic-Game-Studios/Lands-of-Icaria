@@ -242,8 +242,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> KILN = register("kiln", () -> new BlockItem(IcariaBlocks.KILN.get(), new Properties()));
 	public static final RegistryObject<Item> FORGE = register("forge", () -> new BlockItem(IcariaBlocks.FORGE.get(), new Properties()));
 
-	public static final RegistryObject<Item> ICARIA_CHEST = register("icaria_chest", () -> new BlockItem(IcariaBlocks.ICARIA_CHEST.get(), new Properties()));
-	public static final RegistryObject<Item> ICARIA_TRAPPED_CHEST = register("icaria_trapped_chest", () -> new BlockItem(IcariaBlocks.ICARIA_TRAPPED_CHEST.get(), new Properties()));
+	public static final RegistryObject<Item> CHEST = register("chest", () -> new BlockItem(IcariaBlocks.CHEST.get(), new Properties()));
+	public static final RegistryObject<Item> TRAPPED_CHEST = register("trapped_chest", () -> new BlockItem(IcariaBlocks.TRAPPED_CHEST.get(), new Properties()));
+
+	public static final RegistryObject<Item> BARREL = register("barrel", () -> new BlockItem(IcariaBlocks.BARREL.get(), new Properties()));
+	public static final RegistryObject<Item> BARREL_RACK = register("barrel_rack", () -> new BlockItem(IcariaBlocks.BARREL_RACK.get(), new Properties()));
 
 	public static final RegistryObject<Item> STORAGE_VASE = register("storage_vase", () -> new BlockItem(IcariaBlocks.STORAGE_VASE.get(), new Properties()));
 	public static final RegistryObject<Item> WHITE_STORAGE_VASE = register("white_storage_vase", () -> new BlockItem(IcariaBlocks.WHITE_STORAGE_VASE.get(), new Properties()));

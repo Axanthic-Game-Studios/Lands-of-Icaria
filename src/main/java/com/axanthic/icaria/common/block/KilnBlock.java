@@ -12,9 +12,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-@SuppressWarnings("deprecation")
 
-public class KilnBlock extends Block {
+public class KilnBlock extends GrinderBlock {
     public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 32.0D, 16.0D);
 
     public KilnBlock(Properties pProperties) {

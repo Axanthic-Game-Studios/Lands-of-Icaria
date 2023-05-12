@@ -148,8 +148,10 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.GRINDER.get());
 		this.dropThis(IcariaBlocks.KILN.get());
 		this.dropThis(IcariaBlocks.FORGE.get());
-		this.dropThis(IcariaBlocks.ICARIA_CHEST.get());
-		this.dropThis(IcariaBlocks.ICARIA_TRAPPED_CHEST.get());
+		this.dropThis(IcariaBlocks.CHEST.get());
+		this.dropThis(IcariaBlocks.TRAPPED_CHEST.get());
+		this.dropThis(IcariaBlocks.BARREL.get());
+		this.dropThis(IcariaBlocks.BARREL_RACK.get());
 		this.dropThis(IcariaBlocks.STORAGE_VASE.get());
 		this.dropThis(IcariaBlocks.WHITE_STORAGE_VASE.get());
 		this.dropThis(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get());
@@ -424,7 +426,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropNone(IcariaBlocks.VINE_BERRY_CAKE.get());
 		this.dropNone(IcariaBlocks.VINE_SPROUT_CAKE.get());
 		this.dropNone(IcariaBlocks.GREEK_FIRE.get());
-		this.dropNone(IcariaBlocks.ICARIA_PORTAL.get());
+		this.dropNone(IcariaBlocks.PORTAL.get());
 
 		this.dropCrop(IcariaBlocks.SPELT_CROP.get(), IcariaItems.SPELT.get(), IcariaItems.SPELT_SEEDS.get());
 		this.dropCrop(IcariaBlocks.STRAWBERRY_CROP.get(), IcariaItems.STRAWBERRIES.get(), IcariaItems.STRAWBERRY_SEEDS.get());

@@ -236,8 +236,11 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> KILN = register("kiln", () -> new KilnBlock(propertiesGrinder()));
 	public static final RegistryObject<Block> FORGE = register("forge", () -> new ForgeBlock(propertiesGrinder()));
 
-	public static final RegistryObject<Block> ICARIA_CHEST = register("icaria_chest", () -> new ChestBlock(propertiesGrinder(), () -> BlockEntityType.CHEST));
-	public static final RegistryObject<Block> ICARIA_TRAPPED_CHEST = register("icaria_trapped_chest", () -> new TrappedChestBlock(propertiesGrinder()));
+	public static final RegistryObject<Block> CHEST = register("chest", () -> new ChestBlock(propertiesGrinder(), () -> BlockEntityType.CHEST));
+	public static final RegistryObject<Block> TRAPPED_CHEST = register("trapped_chest", () -> new TrappedChestBlock(propertiesGrinder()));
+
+	public static final RegistryObject<Block> BARREL = register("barrel", () -> new BarrelBlock(propertiesGrinder()));
+	public static final RegistryObject<Block> BARREL_RACK = register("barrel_rack", () -> new BarrelRackBlock(propertiesGrinder()));
 
 	public static final RegistryObject<Block> STORAGE_VASE = register("storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.TERRACOTTA_PINK)));
 	public static final RegistryObject<Block> WHITE_STORAGE_VASE = register("white_storage_vase", () -> new StorageVaseBlock(propertiesStorageVase(MaterialColor.SNOW)));
@@ -583,7 +586,7 @@ public class IcariaBlocks {
 
 	public static final RegistryObject<Block> GREEK_FIRE = register("greek_fire", () -> new GreekFireBlock(propertiesGreekFire()));
 
-	public static final RegistryObject<Block> ICARIA_PORTAL = register("icaria_portal", () -> new IcariaPortalBlock(propertiesPortal()));
+	public static final RegistryObject<Block> PORTAL = register("portal", () -> new IcariaPortalBlock(propertiesPortal()));
 
 	public static Properties propertiesGrass() {
 		return Properties.of(Material.GRASS, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).strength(0.6F, 0.6F).randomTicks();
@@ -674,7 +677,7 @@ public class IcariaBlocks {
 	}
 
 	public static Properties propertiesGrinder() {
-		return Properties.of(Material.STONE, MaterialColor.WOOD).sound(SoundType.STONE).strength(1.3F, 1.3F);
+		return Properties.of(Material.STONE, MaterialColor.WOOD).sound(SoundType.STONE).strength(1.3F, 1.3F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static Properties propertiesStorageVase(MaterialColor pColor) {

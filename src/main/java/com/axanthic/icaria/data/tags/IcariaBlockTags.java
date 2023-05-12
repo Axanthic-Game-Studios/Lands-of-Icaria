@@ -232,8 +232,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.VANADIUM_BLOCK.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_BLOCK.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
-			.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get())
-			.add(IcariaBlocks.GRINDER.get());
+			.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 
 		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.SUNSTONE_ADOBE_DECO);
 		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.COBBLED_SUNSTONE_DECO);
@@ -400,6 +399,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.BLURIDIUM_BLOCK.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
 			.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get())
+			.add(IcariaBlocks.KETTLE.get())
+			.add(IcariaBlocks.GRINDER.get())
+			.add(IcariaBlocks.KILN.get())
+			.add(IcariaBlocks.FORGE.get())
 			.add(IcariaBlocks.STORAGE_VASE.get())
 			.add(IcariaBlocks.WHITE_STORAGE_VASE.get())
 			.add(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get())
@@ -462,6 +465,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		this.tag(BlockTags.MINEABLE_WITH_AXE)
 			.add(IcariaBlocks.VINE_REED_BLOCK.get())
 			.add(IcariaBlocks.VINE_SPROUT_BLOCK.get())
+			.add(IcariaBlocks.CHEST.get())
+			.add(IcariaBlocks.TRAPPED_CHEST.get())
+			.add(IcariaBlocks.BARREL.get())
+			.add(IcariaBlocks.BARREL_RACK.get())
 			.add(IcariaBlocks.MYRMEKE_SPAWNER.get())
 			.add(IcariaBlocks.CYPRESS_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get())
@@ -777,7 +784,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.GREEK_FIRE.get());
 
 		this.tag(BlockTags.PORTALS)
-			.add(IcariaBlocks.ICARIA_PORTAL.get());
+			.add(IcariaBlocks.PORTAL.get());
 
 		// ITEMBLOCK TAGS
 		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_DECO) {
@@ -1002,6 +1009,16 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 		this.tag(BlockTags.DAMPENS_VIBRATIONS)
 			.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get());
+
+		this.tag(Tags.Blocks.CHESTS_WOODEN)
+			.add(IcariaBlocks.CHEST.get())
+			.add(IcariaBlocks.TRAPPED_CHEST.get());
+
+		this.tag(Tags.Blocks.CHESTS_TRAPPED)
+			.add(IcariaBlocks.TRAPPED_CHEST.get());
+
+		this.tag(Tags.Blocks.BARRELS_WOODEN)
+			.add(IcariaBlocks.BARREL.get());
 
 		this.tag(BlockTags.SAPLINGS)
 			.add(IcariaBlocks.CYPRESS_SAPLING.get())

@@ -87,7 +87,7 @@ public class IcariaPortalShape extends PortalShape {
                 }
 
                 Block block = blockState.getBlock();
-                if (block == IcariaBlocks.ICARIA_PORTAL.get()) {
+                if (block == IcariaBlocks.PORTAL.get()) {
                     ++this.numPortalBlocks;
                 }
             }
@@ -243,7 +243,7 @@ public class IcariaPortalShape extends PortalShape {
         for (int w = 0; w < this.width; ++w) {
             BlockPos blockPos = this.bottomLeft.relative(this.rightDir, w);
             for (int h = 0; h < this.height; ++h) {
-                this.level.setBlock(blockPos.above(h), IcariaBlocks.ICARIA_PORTAL.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, this.axis), 18);
+                this.level.setBlock(blockPos.above(h), IcariaBlocks.PORTAL.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, this.axis), 18);
             }
         }
     }

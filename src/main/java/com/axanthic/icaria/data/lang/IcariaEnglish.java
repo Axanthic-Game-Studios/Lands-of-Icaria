@@ -289,7 +289,16 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.VANADIUMSTEEL_BARS.get(), "Vanadiumsteel Bars");
 		this.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get(), "Horizontal Vanadiumsteel Bars");
 
+		this.add(IcariaBlocks.KETTLE.get(), "Kettle");
 		this.add(IcariaBlocks.GRINDER.get(), "Grinder");
+		this.add(IcariaBlocks.KILN.get(), "Kiln");
+		this.add(IcariaBlocks.FORGE.get(), "Forge");
+
+		this.add(IcariaBlocks.CHEST.get(), "Chest");
+		this.add(IcariaBlocks.TRAPPED_CHEST.get(), "Trapped Chest");
+
+		this.add(IcariaBlocks.BARREL.get(), "Barrel");
+		this.add(IcariaBlocks.BARREL_RACK.get(), "Barrel Rack");
 
 		this.add(IcariaBlocks.STORAGE_VASE.get(), "Storage Vase");
 		this.add(IcariaBlocks.WHITE_STORAGE_VASE.get(), "White Storage Vase");
@@ -633,7 +642,7 @@ public class IcariaEnglish extends LanguageProvider {
 
 		this.add(IcariaBlocks.GREEK_FIRE.get(), "Greek Fire");
 
-		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
+		this.add(IcariaBlocks.PORTAL.get(), "Portal");
 
 		// EFFECTS
 		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), "Blindness Immunity");

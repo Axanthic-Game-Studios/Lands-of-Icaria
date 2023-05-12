@@ -59,7 +59,7 @@ public class GrinderBlock extends BaseEntityBlock implements SimpleWaterloggedBl
 	public static final BooleanProperty GRINDING = BooleanProperty.create("grinding");
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-	public static final DirectionProperty FACING = BlockStateProperties.FACING;
+	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
 	public static final IntegerProperty ROTATION = IntegerProperty.create("rotation", 0, 90);
 

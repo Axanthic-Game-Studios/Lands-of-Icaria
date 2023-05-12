@@ -351,8 +351,11 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.KILN.get());
 			pOutput.accept(IcariaItems.FORGE.get());
 
-			pOutput.accept(IcariaItems.ICARIA_CHEST.get());
-			pOutput.accept(IcariaItems.ICARIA_TRAPPED_CHEST.get());
+			pOutput.accept(IcariaItems.CHEST.get());
+			pOutput.accept(IcariaItems.TRAPPED_CHEST.get());
+
+			pOutput.accept(IcariaItems.BARREL.get());
+			pOutput.accept(IcariaItems.BARREL_RACK.get());
 
 			pOutput.accept(IcariaItems.STORAGE_VASE.get());
 			pOutput.accept(IcariaItems.WHITE_STORAGE_VASE.get());
@@ -1179,7 +1182,7 @@ public class ClientProxy extends CommonProxy {
 		this.renderTranslucent(IcariaBlocks.CALCITE_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.HALITE_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.ZIRCON_BLOCK.get());
-		this.renderTranslucent(IcariaBlocks.ICARIA_PORTAL.get());
+		this.renderTranslucent(IcariaBlocks.PORTAL.get());
 		this.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER.get());
 		this.renderTranslucent(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get());
 

@@ -193,7 +193,7 @@ public class IcariaTeleporter implements ITeleporter {
         for (int j2 = 0; j2 < 3; ++j2) {
             for (int l2 = 0; l2 < 4; ++l2) {
                 mutablePos0.setWithOffset(blockPos0, j2 * direction.getStepX(), l2, j2 * direction.getStepZ());
-                this.level.setBlock(mutablePos0, IcariaBlocks.ICARIA_PORTAL.get().defaultBlockState().setValue(HORIZONTAL_AXIS, pAxis), 18);
+                this.level.setBlock(mutablePos0, IcariaBlocks.PORTAL.get().defaultBlockState().setValue(HORIZONTAL_AXIS, pAxis), 18);
             }
         }
 
@@ -214,7 +214,7 @@ public class IcariaTeleporter implements ITeleporter {
         PoiManager poiManager = this.level.getPoiManager();
         poiManager.ensureLoadedAndValid(this.level, pPos, 64);
         Optional<PoiRecord> optional = poiManager.getInSquare((pPoiType) ->
-            pPoiType.is(Objects.requireNonNull(IcariaPoiTypes.ICARIA_PORTAL.getKey())), pPos, 64, PoiManager.Occupancy.ANY).sorted(Comparator.<PoiRecord>comparingDouble((pPoiRecord) ->
+            pPoiType.is(Objects.requireNonNull(IcariaPoiTypes.PORTAL.getKey())), pPos, 64, PoiManager.Occupancy.ANY).sorted(Comparator.<PoiRecord>comparingDouble((pPoiRecord) ->
             pPoiRecord.getPos().distSqr(pPos)).thenComparingInt((pPoiRecord) ->
             pPoiRecord.getPos().getY())).filter((pPoiRecord) ->
             this.level.getBlockState(pPoiRecord.getPos()).hasProperty(HORIZONTAL_AXIS)).findFirst();

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "landsoficaria:icaria_chest"
+          "name": "landsoficaria:trapped_chest"
         }
       ],
       "rolls": 1.0
