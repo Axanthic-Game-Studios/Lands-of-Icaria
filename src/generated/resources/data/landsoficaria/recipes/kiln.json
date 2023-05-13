@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": [
+      {
+        "item": "landsoficaria:yellowstone"
+      },
+      {
+        "item": "landsoficaria:yellowstone_bricks"
+      }
+    ]
+  },
+  "pattern": [
+    "XXX",
+    "X X",
+    "XXX"
+  ],
+  "result": {
+    "item": "landsoficaria:kiln"
+  },
+  "show_notification": true
+}

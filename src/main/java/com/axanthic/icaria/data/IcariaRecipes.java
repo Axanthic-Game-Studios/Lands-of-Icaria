@@ -590,6 +590,16 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_BARS.get(), has(IcariaItems.VANADIUMSTEEL_BARS.get()))
 			.save(pConsumer, IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.getId());
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.KETTLE.get())
+			.pattern("X X")
+			.pattern("Y Y")
+			.pattern("XYX")
+			.define('X', IcariaItems.ORICHALCUM_INGOT.get())
+			.define('Y', IcariaItems.VANADIUMSTEEL_BLOCK.get())
+			.unlockedBy("has_" + IcariaItems.ORICHALCUM_INGOT.get(), has(IcariaItems.ORICHALCUM_INGOT.get()))
+			.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_BLOCK.get(), has(IcariaItems.VANADIUMSTEEL_BLOCK.get()))
+			.save(pConsumer, IcariaItems.KETTLE.getId());
+
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.GRINDER.get())
 			.pattern("XXX")
 			.pattern("XYX")
@@ -600,6 +610,25 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.SUNSTONE_BRICKS.get(), has(IcariaItems.SUNSTONE_BRICKS.get()))
 			.unlockedBy("has_" + IcariaItems.ORICHALCUM_INGOT.get(), has(IcariaItems.ORICHALCUM_INGOT.get()))
 			.save(pConsumer, IcariaItems.GRINDER.getId());
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.KILN.get())
+			.pattern("XXX")
+			.pattern("X X")
+			.pattern("XXX")
+			.define('X', Ingredient.of(IcariaItems.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_BRICKS.get()))
+			.unlockedBy("has_" + IcariaItems.YELLOWSTONE.get(), has(IcariaItems.YELLOWSTONE.get()))
+			.unlockedBy("has_" + IcariaItems.YELLOWSTONE_BRICKS.get(), has(IcariaItems.YELLOWSTONE_BRICKS.get()))
+			.save(pConsumer, IcariaItems.KILN.getId());
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.FORGE.get())
+			.pattern("XYX")
+			.pattern("X X")
+			.pattern("XYX")
+			.define('X', IcariaItems.GRAINITE_BRICKS.get())
+			.define('Y', IcariaItems.LOAM_BRICKS.get())
+			.unlockedBy("has_" + IcariaItems.GRAINITE_BRICKS.get(), has(IcariaItems.GRAINITE_BRICKS.get()))
+			.unlockedBy("has_" + IcariaItems.LOAM_BRICKS.get(), has(IcariaItems.LOAM_BRICKS.get()))
+			.save(pConsumer, IcariaItems.FORGE.getId());
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.LAUREL_WREATH.get(), 1)
 			.pattern("XXX")

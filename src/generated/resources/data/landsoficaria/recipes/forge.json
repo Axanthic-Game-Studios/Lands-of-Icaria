@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:grainite_bricks"
+    },
+    "Y": {
+      "item": "landsoficaria:loam_bricks"
+    }
+  },
+  "pattern": [
+    "XYX",
+    "X X",
+    "XYX"
+  ],
+  "result": {
+    "item": "landsoficaria:forge"
+  },
+  "show_notification": true
+}

@@ -42,7 +42,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "minecraft:bone"
+              "name": "landsoficaria:bone_remains"
             }
           ]
         }
