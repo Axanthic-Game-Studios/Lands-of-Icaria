@@ -53,15 +53,6 @@
     "topBlockTertiary": {
       "Name": "landsoficaria:marl"
     },
-    "upperBlockPrimary": {
-      "Name": "landsoficaria:marl"
-    },
-    "upperBlockSecondary": {
-      "Name": "landsoficaria:marl"
-    },
-    "upperBlockTertiary": {
-      "Name": "landsoficaria:marl"
-    },
     "y": {
       "type": "minecraft:uniform",
       "max_inclusive": {

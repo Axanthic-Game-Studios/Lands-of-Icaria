@@ -233,10 +233,10 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 		this._rand.setSeed(x * 341873128712L + z * 132897987541L);
 
 		// Compute biomes
-		final BlockPos worldPos = chunkpos.getWorldPosition();
 		final BiomeManager biomemanager = region.getBiomeManager()
 				.withDifferentSource((bx, by, bz) -> this.biomeSource.getNoiseBiome(bx, by, bz, random.sampler()));
-		this.calculateBiomesForGeneration(biomemanager, worldPos.getX() - 2, worldPos.getZ() - 2, 20, 20);
+		this.calculateBiomesForGeneration(region.getBiomeManager(), chunkpos.getMinBlockX() - 2,
+				chunkpos.getMinBlockZ() - 2, 20, 20);
 		this.calculateBiomesForGeneration();
 
 		// Prepare heights.
@@ -515,14 +515,14 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 			wx = x * CHUNK_WIDTH + cx;
 			for (int cz = 0; cz < CHUNK_WIDTH; cz++) {
 				final TopBlockCarverConfiguration config = this.topBlockConfigurations[cx + cz * 16];
-				final BlockState upperBlockPrimary = config.upperBlockPrimary;
+				final BlockState upperBlockPrimary = config.upperBlockPrimary.orElse(null);
+				final BlockState upperBlockSecondary = config.upperBlockSecondary.orElse(null);
+				final BlockState upperBlockTertiary = config.upperBlockTertiary.orElse(null);
 				final BlockState topBlockPrimary = config.topBlockPrimary;
-				final BlockState fillerBlockPrimary = config.fillerBlockPrimary;
-				final BlockState upperBlockSecondary = config.upperBlockSecondary;
 				final BlockState topBlockSecondary = config.topBlockSecondary;
-				final BlockState fillerBlockSecondary = config.fillerBlockSecondary;
-				final BlockState upperBlockTertiary = config.upperBlockTertiary;
 				final BlockState topBlockTertiary = config.topBlockTertiary;
+				final BlockState fillerBlockPrimary = config.fillerBlockPrimary;
+				final BlockState fillerBlockSecondary = config.fillerBlockSecondary;
 				final BlockState fillerBlockTertiary = config.fillerBlockTertiary;
 
 				wz = z * CHUNK_WIDTH + cz;

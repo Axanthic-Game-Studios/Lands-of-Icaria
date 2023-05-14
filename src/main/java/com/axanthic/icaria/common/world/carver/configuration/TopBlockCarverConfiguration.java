@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.world.carver.configuration;
 
+import java.util.Optional;
+
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -13,9 +15,9 @@ public class TopBlockCarverConfiguration extends CarverConfiguration {
 	public BlockState topBlockSecondary;
 	public BlockState fillerBlockSecondary;
 
-	public BlockState upperBlockPrimary;
-	public BlockState upperBlockSecondary;
-	public BlockState upperBlockTertiary;
+	public Optional<BlockState> upperBlockPrimary;
+	public Optional<BlockState> upperBlockSecondary;
+	public Optional<BlockState> upperBlockTertiary;
 	public BlockState topBlockTertiary;
 	public BlockState fillerBlockTertiary;
 
@@ -28,20 +30,21 @@ public class TopBlockCarverConfiguration extends CarverConfiguration {
 			BlockState.CODEC.fieldOf("fillerBlockSecondary")
 					.forGetter(configuration -> configuration.fillerBlockSecondary),
 			// OPTIONAL
-			BlockState.CODEC.fieldOf("upperBlockPrimary").forGetter(configuration -> configuration.upperBlockPrimary),
-			BlockState.CODEC.fieldOf("upperBlockSecondary")
+			BlockState.CODEC.optionalFieldOf("upperBlockPrimary")
+					.forGetter(configuration -> configuration.upperBlockPrimary),
+			BlockState.CODEC.optionalFieldOf("upperBlockSecondary")
 					.forGetter(configuration -> configuration.upperBlockSecondary),
-			BlockState.CODEC.fieldOf("upperBlockTertiary").forGetter(configuration -> configuration.upperBlockTertiary),
+			BlockState.CODEC.optionalFieldOf("upperBlockTertiary")
+					.forGetter(configuration -> configuration.upperBlockTertiary),
 			BlockState.CODEC.fieldOf("topBlockTertiary").forGetter(configuration -> configuration.topBlockTertiary),
 			BlockState.CODEC.fieldOf("fillerBlockTertiary")
-					.forGetter(configuration -> configuration.fillerBlockTertiary)
-
-	).apply(instance, TopBlockCarverConfiguration::new));
+					.forGetter(configuration -> configuration.fillerBlockTertiary))
+			.apply(instance, TopBlockCarverConfiguration::new));
 
 	public TopBlockCarverConfiguration(final CarverConfiguration conf, final BlockState topBlock,
 			final BlockState fillerBlockPrimary, final BlockState topBlockSecondary,
-			final BlockState fillerBlockSecondary, final BlockState upperBlockPrimary,
-			final BlockState upperBlockSecondary, final BlockState upperBlockTertiary,
+			final BlockState fillerBlockSecondary, final Optional<BlockState> upperBlockPrimary,
+			final Optional<BlockState> upperBlockSecondary, final Optional<BlockState> upperBlockTertiary,
 			final BlockState topBlockTertiary, final BlockState fillerBlockTertiary) {
 		super(conf.probability, conf.y, conf.yScale, conf.lavaLevel, conf.debugSettings, conf.replaceable);
 		this.topBlockPrimary = topBlock;
@@ -49,10 +52,10 @@ public class TopBlockCarverConfiguration extends CarverConfiguration {
 		this.topBlockSecondary = topBlockSecondary;
 		this.fillerBlockSecondary = fillerBlockSecondary;
 
-		this.upperBlockPrimary = fillerBlockSecondary;
-		this.upperBlockSecondary = fillerBlockSecondary;
-		this.upperBlockTertiary = fillerBlockSecondary;
-		this.topBlockTertiary = fillerBlockSecondary;
-		this.fillerBlockTertiary = fillerBlockSecondary;
+		this.upperBlockPrimary = upperBlockPrimary;
+		this.upperBlockSecondary = upperBlockSecondary;
+		this.upperBlockTertiary = upperBlockTertiary;
+		this.topBlockTertiary = topBlockTertiary;
+		this.fillerBlockTertiary = fillerBlockTertiary;
 	}
 }

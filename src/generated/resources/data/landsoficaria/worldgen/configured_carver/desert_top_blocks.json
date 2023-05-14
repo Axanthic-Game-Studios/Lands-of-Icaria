@@ -32,7 +32,7 @@
       "Name": "landsoficaria:silkstone"
     },
     "fillerBlockTertiary": {
-      "Name": "landsoficaria:silkstone"
+      "Name": "landsoficaria:marl"
     },
     "lava_level": {
       "above_bottom": 8
@@ -46,16 +46,7 @@
       "Name": "landsoficaria:silkstone"
     },
     "topBlockTertiary": {
-      "Name": "landsoficaria:silkstone"
-    },
-    "upperBlockPrimary": {
-      "Name": "landsoficaria:silkstone"
-    },
-    "upperBlockSecondary": {
-      "Name": "landsoficaria:silkstone"
-    },
-    "upperBlockTertiary": {
-      "Name": "landsoficaria:silkstone"
+      "Name": "landsoficaria:marl"
     },
     "y": {
       "type": "minecraft:uniform",
