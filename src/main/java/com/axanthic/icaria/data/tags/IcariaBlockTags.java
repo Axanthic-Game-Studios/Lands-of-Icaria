@@ -131,6 +131,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.MARL_BONES.get())
 			.add(IcariaBlocks.MARL_LIGNITE.get())
 			.add(IcariaBlocks.COARSE_MARL.get())
+			.add(IcariaBlocks.DRY_LAKE_BED.get())
 			.add(IcariaBlocks.LOAM.get())
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.SILKSAND.get());
@@ -142,6 +143,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.MARL_BONES.get())
 			.add(IcariaBlocks.MARL_LIGNITE.get())
 			.add(IcariaBlocks.COARSE_MARL.get())
+			.add(IcariaBlocks.DRY_LAKE_BED.get())
 			.add(IcariaBlocks.LOAM.get())
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.SILKSAND.get());
@@ -153,6 +155,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.MARL_BONES.get())
 			.add(IcariaBlocks.MARL_LIGNITE.get())
 			.add(IcariaBlocks.COARSE_MARL.get())
+			.add(IcariaBlocks.DRY_LAKE_BED.get())
 			.add(IcariaBlocks.LOAM.get());
 
 		this.tag(IcariaBlockTags.ICARIA_TIER)
@@ -293,6 +296,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.MARL_BONES.get())
 			.add(IcariaBlocks.MARL_LIGNITE.get())
 			.add(IcariaBlocks.COARSE_MARL.get())
+			.add(IcariaBlocks.DRY_LAKE_BED.get())
 			.add(IcariaBlocks.FARMLAND.get())
 			.add(IcariaBlocks.FERTILIZED_FARMLAND.get())
 			.add(IcariaBlocks.LOAM.get())
@@ -807,6 +811,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.MARL_BONES.get())
 			.add(IcariaBlocks.MARL_LIGNITE.get())
 			.add(IcariaBlocks.COARSE_MARL.get())
+			.add(IcariaBlocks.DRY_LAKE_BED.get())
 			.add(IcariaBlocks.LOAM.get());
 
 		this.tag(IcariaBlockTags.ORES_CHERT)

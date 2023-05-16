@@ -83,6 +83,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.SURFACE_BONES.get());
 			pOutput.accept(IcariaItems.MARL_LIGNITE.get());
 			pOutput.accept(IcariaItems.COARSE_MARL.get());
+			pOutput.accept(IcariaItems.DRY_LAKE_BED.get());
 
 			pOutput.accept(IcariaItems.FARMLAND.get());
 			pOutput.accept(IcariaItems.FERTILIZED_FARMLAND.get());

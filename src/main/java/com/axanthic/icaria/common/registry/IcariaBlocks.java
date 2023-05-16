@@ -42,6 +42,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> SURFACE_BONES = register("surface_bones", () -> new GroundDecoBlock(propertiesRubble()));
 	public static final RegistryObject<Block> MARL_LIGNITE = register("marl_lignite", () -> new Block(propertiesMarl().requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> COARSE_MARL = registerBasic("coarse_marl", () -> new DirtTypeBlock(propertiesMarl()));
+	public static final RegistryObject<Block> DRY_LAKE_BED = registerBasic("dry_lake_bed", () -> new DirtTypeBlock(propertiesMarl()));
 
 	public static final RegistryObject<Block> FARMLAND = register("farmland", () -> new FarmlandBlock(propertiesFarmland()));
 	public static final RegistryObject<Block> FERTILIZED_FARMLAND = register("fertilized_farmland", () -> new FertilizedFarmlandBlock(propertiesFarmland()));

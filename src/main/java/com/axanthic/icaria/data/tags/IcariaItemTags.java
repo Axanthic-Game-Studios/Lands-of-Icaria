@@ -424,6 +424,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.MARL_BONES.get())
 			.add(IcariaItems.MARL_LIGNITE.get())
 			.add(IcariaItems.COARSE_MARL.get())
+			.add(IcariaItems.DRY_LAKE_BED.get())
 			.add(IcariaItems.LOAM.get());
 
 		this.tag(IcariaItemTags.ORES_CHERT)

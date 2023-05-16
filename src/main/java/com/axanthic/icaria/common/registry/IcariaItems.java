@@ -48,6 +48,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> SURFACE_BONES = register("surface_bones", () -> new BlockItem(IcariaBlocks.SURFACE_BONES.get(), new Properties()));
 	public static final RegistryObject<Item> MARL_LIGNITE = register("marl_lignite", () -> new BlockItem(IcariaBlocks.MARL_LIGNITE.get(), new Properties()));
 	public static final RegistryObject<Item> COARSE_MARL = register("coarse_marl", () -> new BlockItem(IcariaBlocks.COARSE_MARL.get(), new Properties()));
+	public static final RegistryObject<Item> DRY_LAKE_BED = register("dry_lake_bed", () -> new BlockItem(IcariaBlocks.DRY_LAKE_BED.get(), new Properties()));
 
 	public static final RegistryObject<Item> FARMLAND = register("farmland", () -> new BlockItem(IcariaBlocks.FARMLAND.get(), new Properties()));
 	public static final RegistryObject<Item> FERTILIZED_FARMLAND = register("fertilized_farmland", () -> new BlockItem(IcariaBlocks.FERTILIZED_FARMLAND.get(), new Properties()));

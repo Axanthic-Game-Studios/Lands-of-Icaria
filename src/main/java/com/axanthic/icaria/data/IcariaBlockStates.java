@@ -37,6 +37,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 
 		ROTATED.add(IcariaBlocks.MARL);
 		ROTATED.add(IcariaBlocks.COARSE_MARL);
+		ROTATED.add(IcariaBlocks.DRY_LAKE_BED);
 		ROTATED.add(IcariaBlocks.MARL_ADOBE);
 		ROTATED.add(IcariaBlocks.DOLOMITE_ADOBE);
 		ROTATED.add(IcariaBlocks.GRAINEL);
