@@ -495,6 +495,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> NAMDRAKE = registerBasic("namdrake", () -> new BlockItem(IcariaBlocks.NAMDRAKE.get(), new Properties()));
 	public static final RegistryObject<Item> PSILOCYBOS = registerBasic("psilocybos", () -> new BlockItem(IcariaBlocks.PSILOCYBOS.get(), new Properties()));
 	public static final RegistryObject<Item> ROWAN = registerBasic("rowan", () -> new BlockItem(IcariaBlocks.ROWAN.get(), new Properties()));
+	public static final RegistryObject<Item> WILTED_ELM = registerBasic("wilted_elm", () -> new BlockItem(IcariaBlocks.WILTED_ELM.get(), new Properties()));
 
 	public static final RegistryObject<Item> BLUE_GROUND_FLOWERS = register("blue_ground_flowers", () -> new BlockItem(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), new Properties()));
 	public static final RegistryObject<Item> CYAN_GROUND_FLOWERS = register("cyan_ground_flowers", () -> new BlockItem(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), new Properties()));

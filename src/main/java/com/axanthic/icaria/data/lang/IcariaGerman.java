@@ -593,6 +593,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.NAMDRAKE.get(), "Aalraune");
 		this.add(IcariaBlocks.PSILOCYBOS.get(), "Psilocybinschilf");
 		this.add(IcariaBlocks.ROWAN.get(), "Aschstrauch");
+		this.add(IcariaBlocks.WILTED_ELM.get(), "Verwelkte Ulme");
 
 		this.add(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), "Blaue Bodenblüten");
 		this.add(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), "Türkise Bodenblüten");

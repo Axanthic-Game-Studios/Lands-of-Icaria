@@ -593,6 +593,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.NAMDRAKE.get(), "Namdrake");
 		this.add(IcariaBlocks.PSILOCYBOS.get(), "Psilocybos");
 		this.add(IcariaBlocks.ROWAN.get(), "Rowan");
+		this.add(IcariaBlocks.WILTED_ELM.get(), "Wilted Elm");
 
 		this.add(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), "Blue Ground Flowers");
 		this.add(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), "Cyan Ground Flowers");

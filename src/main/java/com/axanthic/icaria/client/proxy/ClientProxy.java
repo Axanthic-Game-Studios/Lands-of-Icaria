@@ -627,6 +627,7 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.NAMDRAKE.get());
 			pOutput.accept(IcariaItems.PSILOCYBOS.get());
 			pOutput.accept(IcariaItems.ROWAN.get());
+			pOutput.accept(IcariaItems.WILTED_ELM.get());
 
 			pOutput.accept(IcariaItems.BLUE_GROUND_FLOWERS.get());
 			pOutput.accept(IcariaItems.CYAN_GROUND_FLOWERS.get());

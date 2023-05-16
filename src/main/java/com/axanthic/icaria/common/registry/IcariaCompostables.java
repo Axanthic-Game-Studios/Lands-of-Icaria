@@ -95,6 +95,7 @@ public class IcariaCompostables {
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.NAMDRAKE.get(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.PSILOCYBOS.get(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.ROWAN.get(), 0.65F);
+		ComposterBlock.COMPOSTABLES.put(IcariaItems.WILTED_ELM.get(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.BLUE_GROUND_FLOWERS.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.CYAN_GROUND_FLOWERS.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.PINK_GROUND_FLOWERS.get(), 0.3F);

@@ -537,6 +537,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> NAMDRAKE = register("namdrake", () -> new BushTypeBlock(propertiesBush(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> PSILOCYBOS = register("psilocybos", () -> new BushTypeBlock(propertiesBush(MaterialColor.PLANT)));
 	public static final RegistryObject<Block> ROWAN = register("rowan", () -> new BushTypeBlock(propertiesBush(MaterialColor.PLANT)));
+	public static final RegistryObject<Block> WILTED_ELM = register("wilted_elm", () -> new BushTypeBlock(propertiesBush(MaterialColor.PLANT)));
 
 	public static final RegistryObject<Block> BLUE_GROUND_FLOWERS = register("blue_ground_flowers", () -> new GroundFlowerBlock(propertiesPlant(MaterialColor.NONE)));
 	public static final RegistryObject<Block> CYAN_GROUND_FLOWERS = register("cyan_ground_flowers", () -> new GroundFlowerBlock(propertiesPlant(MaterialColor.NONE)));

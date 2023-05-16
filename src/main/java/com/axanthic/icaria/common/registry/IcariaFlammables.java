@@ -175,6 +175,7 @@ public class IcariaFlammables {
 		flammableBlock(IcariaBlocks.NAMDRAKE.get(), 60, 100);
 		flammableBlock(IcariaBlocks.PSILOCYBOS.get(), 60, 100);
 		flammableBlock(IcariaBlocks.ROWAN.get(), 60, 100);
+		flammableBlock(IcariaBlocks.WILTED_ELM.get(), 60, 100);
 		flammableBlock(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), 60, 100);
 		flammableBlock(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), 60, 100);
 		flammableBlock(IcariaBlocks.PINK_GROUND_FLOWERS.get(), 60, 100);

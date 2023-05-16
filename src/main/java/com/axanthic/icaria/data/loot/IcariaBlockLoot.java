@@ -286,6 +286,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.NAMDRAKE.get());
 		this.dropThis(IcariaBlocks.PSILOCYBOS.get());
 		this.dropThis(IcariaBlocks.ROWAN.get());
+		this.dropThis(IcariaBlocks.WILTED_ELM.get());
 		this.dropThis(IcariaBlocks.WHITE_BROMELIA.get());
 		this.dropThis(IcariaBlocks.ORANGE_BROMELIA.get());
 		this.dropThis(IcariaBlocks.PINK_BROMELIA.get());
