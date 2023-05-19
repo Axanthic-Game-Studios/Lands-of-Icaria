@@ -1,8 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import java.util.Optional;
-import java.util.function.Supplier;
-
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.world.carver.TopBlockWorldCarver;
 import com.axanthic.icaria.common.world.carver.configuration.TopBlockCarverConfiguration;
@@ -24,10 +21,12 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.levelgen.heightproviders.HeightProvider;
 import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
+
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-public class IcariaCarvers {
+import java.util.Optional;
+import java.util.function.Supplier;
 
 	public static final DeferredRegister<WorldCarver<?>> CARVERS = DeferredRegister.create(Registries.CARVER,
 			IcariaInfo.ID);

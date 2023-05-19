@@ -6,7 +6,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.stream.StreamSupport;
 
-import com.axanthic.icaria.common.registry.IcariaBiomeTags;
+import com.axanthic.icaria.data.tags.IcariaBiomeTags;
 import com.axanthic.icaria.common.registry.IcariaBiomes;
 import com.axanthic.icaria.common.registry.IcariaBiomes.BiomeConfiguration;
 import com.axanthic.icaria.common.registry.IcariaBlocks;

@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.menu;
 
 import com.axanthic.icaria.common.entity.StorageVaseBlockEntity;
-import com.axanthic.icaria.common.registry.IcariaMenuTypes;
+import com.axanthic.icaria.common.registry.IcariaMenus;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -29,7 +29,7 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 	public Player player;
 
 	public StorageVaseMenu(int pId, BlockPos pPos, Inventory pInventory, Player pPlayer) {
-		super(IcariaMenuTypes.STORAGE_VASE.get(), pId);
+		super(IcariaMenus.STORAGE_VASE.get(), pId);
 		this.entity = (StorageVaseBlockEntity) pPlayer.getCommandSenderWorld().getBlockEntity(pPos);
 		this.handler = new InvWrapper(pInventory);
 		this.player = pPlayer;

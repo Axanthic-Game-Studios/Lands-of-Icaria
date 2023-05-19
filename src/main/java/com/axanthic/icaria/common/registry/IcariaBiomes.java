@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import java.util.Map;
-
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.core.HolderGetter;
@@ -9,6 +7,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.AmbientMoodSettings;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
@@ -17,7 +16,10 @@ import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+
 import net.minecraftforge.registries.DeferredRegister;
+
+import java.util.Map;
 
 public class IcariaBiomes {
 	public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(Registries.BIOME, IcariaInfo.ID);

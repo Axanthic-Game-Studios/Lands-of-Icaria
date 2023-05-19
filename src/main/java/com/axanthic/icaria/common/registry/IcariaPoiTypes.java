@@ -4,12 +4,12 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 
 import com.google.common.collect.ImmutableSet;
 
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
@@ -20,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaPoiTypes {
-    public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, IcariaInfo.ID);
+    public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(Registries.POINT_OF_INTEREST_TYPE, IcariaInfo.ID);
 
     public static final RegistryObject<PoiType> PORTAL = POI_TYPES.register("portal", () -> new PoiType(getBlockStates(IcariaBlocks.PORTAL.get()), 0, 1));
 

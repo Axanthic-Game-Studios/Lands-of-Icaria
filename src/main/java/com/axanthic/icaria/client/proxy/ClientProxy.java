@@ -13,11 +13,13 @@ import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.data.IcariaBlockStates;
+import com.axanthic.icaria.data.IcariaBuiltinEntries;
 import com.axanthic.icaria.data.IcariaItemModels;
 import com.axanthic.icaria.data.IcariaRecipes;
 import com.axanthic.icaria.data.lang.IcariaGerman;
 import com.axanthic.icaria.data.lang.IcariaEnglish;
 import com.axanthic.icaria.data.loot.IcariaLoot;
+import com.axanthic.icaria.data.tags.IcariaBiomeTags;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 import com.axanthic.icaria.data.tags.IcariaFluidTags;
 import com.axanthic.icaria.data.tags.IcariaItemTags;
@@ -920,8 +922,8 @@ public class ClientProxy extends CommonProxy {
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.PLANE));
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.POPULUS));
 
-		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenuTypes.GRINDER.get(), GrinderScreen::new));
-		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenuTypes.STORAGE_VASE.get(), StorageVaseScreen::new));
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.GRINDER.get(), GrinderScreen::new));
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.STORAGE_VASE.get(), StorageVaseScreen::new));
 
 		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), IcariaResourceLocations.THROWING, (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
 		ItemProperties.register(IcariaItems.VINEGAR.get(), IcariaResourceLocations.THROWING, (pStack, pLevel, pEntity, pId) -> pEntity != null && pEntity.isUsingItem() && pEntity.getUseItem() == pStack ? 1.0F : 0.0F);
@@ -1246,7 +1248,8 @@ public class ClientProxy extends CommonProxy {
 		var output = generator.getPackOutput();
 		var provider = pEvent.getLookupProvider();
 
-		IcariaBlockTags blockTags = new IcariaBlockTags(output, provider, IcariaInfo.ID, helper);
+		var blockTags = new IcariaBlockTags(output, provider, IcariaInfo.ID, helper);
+		var registrySet = new IcariaRegistrySetBuilder();
 
 		generator.addProvider(pEvent.includeClient(), new IcariaEnglish(output, IcariaInfo.ID, "en_us"));
 		generator.addProvider(pEvent.includeClient(), new IcariaGerman(output, IcariaInfo.ID, "de_de"));
@@ -1254,10 +1257,12 @@ public class ClientProxy extends CommonProxy {
 		generator.addProvider(pEvent.includeClient(), new IcariaItemModels(output, IcariaInfo.ID, helper));
 
 		generator.addProvider(pEvent.includeServer(), new IcariaLoot(output));
+		generator.addProvider(pEvent.includeServer(), new IcariaBiomeTags(output, provider, registrySet, IcariaInfo.ID, helper));
 		generator.addProvider(pEvent.includeServer(), blockTags);
 		generator.addProvider(pEvent.includeServer(), new IcariaFluidTags(output, provider, IcariaInfo.ID, helper));
 		generator.addProvider(pEvent.includeServer(), new IcariaItemTags(output, provider, blockTags.contentsGetter(), IcariaInfo.ID, helper));
 		generator.addProvider(pEvent.includeServer(), new IcariaRecipes(output));
+		generator.addProvider(pEvent.includeServer(), new IcariaBuiltinEntries(output, provider, registrySet, IcariaInfo.ID));
 	}
 
 	@Override

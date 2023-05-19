@@ -56,16 +56,16 @@ public class Icaria {
 		IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(eventBus);
 		IcariaCarvers.CARVERS.register(eventBus);
 		IcariaDimensions.CHUNK_GENERATORS.register(eventBus);
+		IcariaConfiguredFeatures.CONFIGURED_FEATURES.register(eventBus);
 		IcariaEntityTypes.ENTITY_TYPES.register(eventBus);
-		IcariaFeatures.FEATURE_REGISTER.register(eventBus);
 		IcariaFluids.FLUIDS.register(eventBus);
 		IcariaFluidTypes.FLUID_TYPES.register(eventBus);
 		IcariaItems.ITEMS.register(eventBus);
-		IcariaMenuTypes.MENU_TYPES.register(eventBus);
+		IcariaMenus.MENUS.register(eventBus);
 		IcariaMobEffects.MOB_EFFECTS.register(eventBus);
-		IcariaPlacements.PLACED_FEATURE_REGISTER.register(eventBus);
+		IcariaPlacedFeatures.PLACED_FEATURES.register(eventBus);
 		IcariaPoiTypes.POI_TYPES.register(eventBus);
-		IcariaRecipeTypes.RECIPE_TYPES.register(eventBus);
+		IcariaRecipeSerializers.RECIPE_SERIALIZERS.register(eventBus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}

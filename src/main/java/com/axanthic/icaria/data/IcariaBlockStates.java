@@ -33,26 +33,26 @@ public class IcariaBlockStates extends BlockStateProvider {
 
 	@Override
 	public void registerStatesAndModels() {
-		MIRRORED.add(IcariaBlocks.ARACHNE_STRING_BLOCK);
+		IcariaBlockStates.MIRRORED.add(IcariaBlocks.ARACHNE_STRING_BLOCK);
 
-		ROTATED.add(IcariaBlocks.MARL);
-		ROTATED.add(IcariaBlocks.COARSE_MARL);
-		ROTATED.add(IcariaBlocks.DRY_LAKE_BED);
-		ROTATED.add(IcariaBlocks.MARL_ADOBE);
-		ROTATED.add(IcariaBlocks.DOLOMITE_ADOBE);
-		ROTATED.add(IcariaBlocks.GRAINEL);
-		ROTATED.add(IcariaBlocks.GRAINITE_ADOBE);
-		ROTATED.add(IcariaBlocks.YELLOWSTONE_ADOBE);
-		ROTATED.add(IcariaBlocks.SILKSAND);
-		ROTATED.add(IcariaBlocks.SILKSTONE_ADOBE);
-		ROTATED.add(IcariaBlocks.SUNSTONE_ADOBE);
-		ROTATED.add(IcariaBlocks.VOIDSHALE_ADOBE);
-		ROTATED.add(IcariaBlocks.BAETYL_ADOBE);
-		ROTATED.add(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK);
-		ROTATED.add(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK);
-		ROTATED.add(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK);
-		ROTATED.add(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK);
-		ROTATED.add(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.MARL);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.COARSE_MARL);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.DRY_LAKE_BED);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.MARL_ADOBE);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.DOLOMITE_ADOBE);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.GRAINEL);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.GRAINITE_ADOBE);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.YELLOWSTONE_ADOBE);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.SILKSAND);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.SILKSTONE_ADOBE);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.SUNSTONE_ADOBE);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.VOIDSHALE_ADOBE);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.BAETYL_ADOBE);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK);
+		IcariaBlockStates.ROTATED.add(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK);
 
 		this.baseBlockWithItem(IcariaBlocks.MARL_CHERT);
 		this.baseBlockWithItem(IcariaBlocks.MARL_BONES);
@@ -140,9 +140,9 @@ public class IcariaBlockStates extends BlockStateProvider {
 		this.trapDoorWithItem(IcariaBlocks.POPULUS_TRAPDOOR);
 
 		for (RegistryObject<? extends Block> basicBlocks : IcariaBlocks.BASIC_BLOCKS) {
-			if (MIRRORED.contains(basicBlocks)) {
+			if (IcariaBlockStates.MIRRORED.contains(basicBlocks)) {
 				this.mirroredBlockWithItem(basicBlocks);
-			} else if (ROTATED.contains(basicBlocks)) {
+			} else if (IcariaBlockStates.ROTATED.contains(basicBlocks)) {
 				this.rotatedBlockWithItem(basicBlocks);
 			} else {
 				this.baseBlockWithItem(basicBlocks);

@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.menu;
 
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
-import com.axanthic.icaria.common.registry.IcariaMenuTypes;
+import com.axanthic.icaria.common.registry.IcariaMenus;
 import com.axanthic.icaria.common.slot.GrinderFuelSlot;
 import com.axanthic.icaria.common.slot.GrinderGearSlot;
 import com.axanthic.icaria.common.slot.IcariaOutputSlot;
@@ -35,7 +35,7 @@ public class GrinderMenu extends AbstractContainerMenu {
 	public Player player;
 
 	public GrinderMenu(int pContainerId, BlockPos pPos, Inventory pInventory, Player pPlayer) {
-		super(IcariaMenuTypes.GRINDER.get(), pContainerId);
+		super(IcariaMenus.GRINDER.get(), pContainerId);
 		this.entity = (GrinderBlockEntity) pPlayer.getCommandSenderWorld().getBlockEntity(pPos);
 		this.handler = new InvWrapper(pInventory);
 		this.player = pPlayer;
@@ -121,10 +121,4 @@ public class GrinderMenu extends AbstractContainerMenu {
 
 		return emptyStack;
 	}
-
-	// TODO: finish quick move
-	// TODO: recipe xp
-	// TODO: hopper interactions
-	// TODO: redstone interactions
-	// TODO: remaining recipes
 }

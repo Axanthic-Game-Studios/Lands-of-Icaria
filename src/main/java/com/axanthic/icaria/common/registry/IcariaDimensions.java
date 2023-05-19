@@ -1,10 +1,8 @@
 package com.axanthic.icaria.common.registry;
 
-import java.util.List;
-import java.util.OptionalLong;
-
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.world.gen.IcariaChunkGenerator;
+
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 
@@ -31,8 +29,12 @@ import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.NoiseRouter;
 import net.minecraft.world.level.levelgen.NoiseSettings;
 import net.minecraft.world.level.levelgen.SurfaceRules;
+
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.List;
+import java.util.OptionalLong;
 
 public class IcariaDimensions {
 	/*****************************************************************************/

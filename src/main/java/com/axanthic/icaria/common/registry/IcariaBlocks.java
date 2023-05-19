@@ -9,6 +9,7 @@ import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction.Axis;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -30,7 +31,7 @@ import java.util.function.Supplier;
 @MethodsReturnNonnullByDefault
 
 public class IcariaBlocks {
-	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, IcariaInfo.ID);
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, IcariaInfo.ID);
 
 	public static final List<RegistryObject<? extends Block>> BASIC_BLOCKS = new ArrayList<>();
 

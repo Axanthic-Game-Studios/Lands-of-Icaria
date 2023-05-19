@@ -3,17 +3,17 @@ package com.axanthic.icaria.common.registry;
 import com.axanthic.icaria.common.entity.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityType.Builder;
 import net.minecraft.world.entity.MobCategory;
 
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class IcariaEntityTypes {
-	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, IcariaInfo.ID);
+	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, IcariaInfo.ID);
 
 	public static final RegistryObject<EntityType<AeternaeEntity>> AETERNAE = register("aeternae", Builder.of(AeternaeEntity::new, MobCategory.CREATURE).sized(1.25F, 1.75F));
 	public static final RegistryObject<EntityType<ArachneEntity>> ARACHNE = register("arachne", Builder.of(ArachneEntity::new, MobCategory.MONSTER).sized(2.0F, 2.0F));

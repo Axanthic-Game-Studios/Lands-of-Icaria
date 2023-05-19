@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.recipe;
 
-import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -133,7 +133,7 @@ public class GrindingRecipeBuilder implements RecipeBuilder {
 
 		@Override
 		public RecipeSerializer<?> getType() {
-			return IcariaRecipeTypes.GRINDING_RECIPE.get();
+			return IcariaRecipeSerializers.GRINDING_RECIPE.get();
 		}
 
 		@Override

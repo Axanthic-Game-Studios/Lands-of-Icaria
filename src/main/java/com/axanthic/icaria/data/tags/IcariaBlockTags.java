@@ -27,95 +27,95 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaBlockTags extends BlockTagsProvider {
 	// BLOCK TAGS
-	public static final TagKey<Block> ICARIA_TIER = icariaTag("icaria_tier");
+	public static final TagKey<Block> ICARIA_TIER = IcariaBlockTags.icariaTag("icaria_tier");
 
-	public static final TagKey<Block> NEEDS_CHERT_TOOL = icariaTag("needs_chert_tool");
-	public static final TagKey<Block> NEEDS_CHALKOS_TOOL = icariaTag("needs_chalkos_tool");
-	public static final TagKey<Block> NEEDS_KASSITEROS_TOOL = icariaTag("needs_kassiteros_tool");
-	public static final TagKey<Block> NEEDS_ORICHALCUM_TOOL = icariaTag("needs_orichalcum_tool");
-	public static final TagKey<Block> NEEDS_VANADIUMSTEEL_TOOL = icariaTag("needs_vanadiumsteel_tool");
-	public static final TagKey<Block> NEEDS_SIDEROS_TOOL = icariaTag("needs_sideros_tool");
-	public static final TagKey<Block> NEEDS_MOLYBDENUMSTEEL_TOOL = icariaTag("needs_molybdenumsteel_tool");
+	public static final TagKey<Block> NEEDS_CHERT_TOOL = IcariaBlockTags.icariaTag("needs_chert_tool");
+	public static final TagKey<Block> NEEDS_CHALKOS_TOOL = IcariaBlockTags.icariaTag("needs_chalkos_tool");
+	public static final TagKey<Block> NEEDS_KASSITEROS_TOOL = IcariaBlockTags.icariaTag("needs_kassiteros_tool");
+	public static final TagKey<Block> NEEDS_ORICHALCUM_TOOL = IcariaBlockTags.icariaTag("needs_orichalcum_tool");
+	public static final TagKey<Block> NEEDS_VANADIUMSTEEL_TOOL = IcariaBlockTags.icariaTag("needs_vanadiumsteel_tool");
+	public static final TagKey<Block> NEEDS_SIDEROS_TOOL = IcariaBlockTags.icariaTag("needs_sideros_tool");
+	public static final TagKey<Block> NEEDS_MOLYBDENUMSTEEL_TOOL = IcariaBlockTags.icariaTag("needs_molybdenumsteel_tool");
 
-	public static final TagKey<Block> MINEABLE_WITH_SCYTHE = icariaTag("mineable/scythe");
+	public static final TagKey<Block> MINEABLE_WITH_SCYTHE = IcariaBlockTags.icariaTag("mineable/scythe");
 
-	public static final TagKey<Block> ICARIA_PORTAL_BLOCKS = icariaTag("icaria_portal_blocks");
+	public static final TagKey<Block> ICARIA_PORTAL_BLOCKS = IcariaBlockTags.icariaTag("icaria_portal_blocks");
 
-	public static final TagKey<Block> ICARIA_COBWEB_BLOCKS = icariaTag("icaria_cobweb_blocks");
+	public static final TagKey<Block> ICARIA_COBWEB_BLOCKS = IcariaBlockTags.icariaTag("icaria_cobweb_blocks");
 
-	public static final TagKey<Block> ICARIA_GRASS_BLOCKS = icariaTag("icaria_grass_blocks");
+	public static final TagKey<Block> ICARIA_GRASS_BLOCKS = IcariaBlockTags.icariaTag("icaria_grass_blocks");
 
-	public static final TagKey<Block> MYRMEKE_SUMMONS_ON = icariaTag("myrmeke_summons_on");
+	public static final TagKey<Block> MYRMEKE_SUMMONS_ON = IcariaBlockTags.icariaTag("myrmeke_summons_on");
 
-	public static final TagKey<Block> CAPTAIN_SUMMONS_ON = icariaTag("captain_summons_on");
+	public static final TagKey<Block> CAPTAIN_SUMMONS_ON = IcariaBlockTags.icariaTag("captain_summons_on");
 
-	public static final TagKey<Block> SLUG_HIDE_BLOCKS = icariaTag("slug_hide_blocks");
+	public static final TagKey<Block> SLUG_HIDE_BLOCKS = IcariaBlockTags.icariaTag("slug_hide_blocks");
 
 	// ITEMBLOCK TAGS
-	public static final TagKey<Block> ORES_CHERT = forgeTag("ores/chert");
-	public static final TagKey<Block> ORES_LIGNITE = forgeTag("ores/lignite");
-	public static final TagKey<Block> ORES_BLURIDIUM = forgeTag("ores/bluridium");
+	public static final TagKey<Block> ORES_CHERT = IcariaBlockTags.forgeTag("ores/chert");
+	public static final TagKey<Block> ORES_LIGNITE = IcariaBlockTags.forgeTag("ores/lignite");
+	public static final TagKey<Block> ORES_BLURIDIUM = IcariaBlockTags.forgeTag("ores/bluridium");
 
-	public static final TagKey<Block> ORES_IN_GROUND_MARL = forgeTag("ores_in_ground/marl");
-	public static final TagKey<Block> ORES_IN_GROUND_GRAINEL = forgeTag("ores_in_ground/grainel");
-	public static final TagKey<Block> ORES_IN_GROUND_YELLOWSTONE = forgeTag("ores_in_ground/yellowstone");
-	public static final TagKey<Block> ORES_IN_GROUND_SILKSTONE = forgeTag("ores_in_ground/silkstone");
-	public static final TagKey<Block> ORES_IN_GROUND_SUNSTONE = forgeTag("ores_in_ground/sunstone");
-	public static final TagKey<Block> ORES_IN_GROUND_VOIDSHALE = forgeTag("ores_in_ground/voidshale");
-	public static final TagKey<Block> ORES_IN_GROUND_BAETYL = forgeTag("ores_in_ground/baetyl");
-	public static final TagKey<Block> ORES_IN_GROUND_PLATOSHALE = forgeTag("ores_in_ground/platoshale");
+	public static final TagKey<Block> ORES_IN_GROUND_MARL = IcariaBlockTags.forgeTag("ores_in_ground/marl");
+	public static final TagKey<Block> ORES_IN_GROUND_GRAINEL = IcariaBlockTags.forgeTag("ores_in_ground/grainel");
+	public static final TagKey<Block> ORES_IN_GROUND_YELLOWSTONE = IcariaBlockTags.forgeTag("ores_in_ground/yellowstone");
+	public static final TagKey<Block> ORES_IN_GROUND_SILKSTONE = IcariaBlockTags.forgeTag("ores_in_ground/silkstone");
+	public static final TagKey<Block> ORES_IN_GROUND_SUNSTONE = IcariaBlockTags.forgeTag("ores_in_ground/sunstone");
+	public static final TagKey<Block> ORES_IN_GROUND_VOIDSHALE = IcariaBlockTags.forgeTag("ores_in_ground/voidshale");
+	public static final TagKey<Block> ORES_IN_GROUND_BAETYL = IcariaBlockTags.forgeTag("ores_in_ground/baetyl");
+	public static final TagKey<Block> ORES_IN_GROUND_PLATOSHALE = IcariaBlockTags.forgeTag("ores_in_ground/platoshale");
 
-	public static final TagKey<Block> ORE_BEARING_GROUND_MARL = forgeTag("ore_bearing_ground/marl");
-	public static final TagKey<Block> ORE_BEARING_GROUND_GRAINEL = forgeTag("ore_bearing_ground/grainel");
-	public static final TagKey<Block> ORE_BEARING_GROUND_YELLOWSTONE = forgeTag("ore_bearing_ground/yellowstone");
-	public static final TagKey<Block> ORE_BEARING_GROUND_SILKSTONE = forgeTag("ore_bearing_ground/silkstone");
-	public static final TagKey<Block> ORE_BEARING_GROUND_SUNSTONE = forgeTag("ore_bearing_ground/sunstone");
-	public static final TagKey<Block> ORE_BEARING_GROUND_VOIDSHALE = forgeTag("ore_bearing_ground/voidshale");
-	public static final TagKey<Block> ORE_BEARING_GROUND_BAETYL = forgeTag("ore_bearing_ground/baetyl");
-	public static final TagKey<Block> ORE_BEARING_GROUND_PLATOSHALE = forgeTag("ore_bearing_ground/platoshale");
-	public static final TagKey<Block> ORE_BEARING_GROUND_PLATOSHALE_BRICKS = forgeTag("ore_bearing_ground/platoshale_bricks");
+	public static final TagKey<Block> ORE_BEARING_GROUND_MARL = IcariaBlockTags.forgeTag("ore_bearing_ground/marl");
+	public static final TagKey<Block> ORE_BEARING_GROUND_GRAINEL = IcariaBlockTags.forgeTag("ore_bearing_ground/grainel");
+	public static final TagKey<Block> ORE_BEARING_GROUND_YELLOWSTONE = IcariaBlockTags.forgeTag("ore_bearing_ground/yellowstone");
+	public static final TagKey<Block> ORE_BEARING_GROUND_SILKSTONE = IcariaBlockTags.forgeTag("ore_bearing_ground/silkstone");
+	public static final TagKey<Block> ORE_BEARING_GROUND_SUNSTONE = IcariaBlockTags.forgeTag("ore_bearing_ground/sunstone");
+	public static final TagKey<Block> ORE_BEARING_GROUND_VOIDSHALE = IcariaBlockTags.forgeTag("ore_bearing_ground/voidshale");
+	public static final TagKey<Block> ORE_BEARING_GROUND_BAETYL = IcariaBlockTags.forgeTag("ore_bearing_ground/baetyl");
+	public static final TagKey<Block> ORE_BEARING_GROUND_PLATOSHALE = IcariaBlockTags.forgeTag("ore_bearing_ground/platoshale");
+	public static final TagKey<Block> ORE_BEARING_GROUND_PLATOSHALE_BRICKS = IcariaBlockTags.forgeTag("ore_bearing_ground/platoshale_bricks");
 
-	public static final TagKey<Block> STORAGE_BLOCKS_PACKED_ARISTONE = forgeTag("storage_blocks/packed_aristone");
-	public static final TagKey<Block> STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY = forgeTag("storage_blocks/ender_jellyfish_jelly");
-	public static final TagKey<Block> STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY = forgeTag("storage_blocks/fire_jellyfish_jelly");
-	public static final TagKey<Block> STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY = forgeTag("storage_blocks/nature_jellyfish_jelly");
-	public static final TagKey<Block> STORAGE_BLOCKS_VOID_JELLYFISH_JELLY = forgeTag("storage_blocks/void_jellyfish_jelly");
-	public static final TagKey<Block> STORAGE_BLOCKS_WATER_JELLYFISH_JELLY = forgeTag("storage_blocks/water_jellyfish_jelly");
-	public static final TagKey<Block> STORAGE_BLOCKS_ARACHNE_STRING = forgeTag("storage_blocks/arachne_string");
-	public static final TagKey<Block> STORAGE_BLOCKS_SPELT = forgeTag("storage_blocks/spelt");
-	public static final TagKey<Block> STORAGE_BLOCKS_VINE_REED = forgeTag("storage_blocks/vine_reed");
-	public static final TagKey<Block> STORAGE_BLOCKS_VINE_SPROUT = forgeTag("storage_blocks/vine_sprout");
-	public static final TagKey<Block> STORAGE_BLOCKS_ROTTEN_BONES = forgeTag("storage_blocks/rotten_bones");
-	public static final TagKey<Block> STORAGE_BLOCKS_RAW_CHALKOS = forgeTag("storage_blocks/raw_chalkos");
-	public static final TagKey<Block> STORAGE_BLOCKS_RAW_KASSITEROS = forgeTag("storage_blocks/raw_kassiteros");
-	public static final TagKey<Block> STORAGE_BLOCKS_RAW_VANADIUM = forgeTag("storage_blocks/raw_vanadium");
-	public static final TagKey<Block> STORAGE_BLOCKS_RAW_SIDEROS = forgeTag("storage_blocks/raw_sideros");
-	public static final TagKey<Block> STORAGE_BLOCKS_RAW_MOLYBDENUM = forgeTag("storage_blocks/raw_molybdenum");
-	public static final TagKey<Block> STORAGE_BLOCKS_CALCITE = forgeTag("storage_blocks/calcite");
-	public static final TagKey<Block> STORAGE_BLOCKS_HALITE = forgeTag("storage_blocks/halite");
-	public static final TagKey<Block> STORAGE_BLOCKS_JASPER = forgeTag("storage_blocks/jasper");
-	public static final TagKey<Block> STORAGE_BLOCKS_ZIRCON = forgeTag("storage_blocks/zircon");
-	public static final TagKey<Block> STORAGE_BLOCKS_CHERT = forgeTag("storage_blocks/chert");
-	public static final TagKey<Block> STORAGE_BLOCKS_LIGNITE = forgeTag("storage_blocks/lignite");
-	public static final TagKey<Block> STORAGE_BLOCKS_CHALKOS = forgeTag("storage_blocks/chalkos");
-	public static final TagKey<Block> STORAGE_BLOCKS_KASSITEROS = forgeTag("storage_blocks/kassiteros");
-	public static final TagKey<Block> STORAGE_BLOCKS_ORICHALCUM = forgeTag("storage_blocks/orichalcum");
-	public static final TagKey<Block> STORAGE_BLOCKS_VANADIUM = forgeTag("storage_blocks/vanadium");
-	public static final TagKey<Block> STORAGE_BLOCKS_VANADIUMSTEEL = forgeTag("storage_blocks/vanadiumsteel");
-	public static final TagKey<Block> STORAGE_BLOCKS_SLIVER = forgeTag("storage_blocks/sliver");
-	public static final TagKey<Block> STORAGE_BLOCKS_SIDEROS = forgeTag("storage_blocks/sideros");
-	public static final TagKey<Block> STORAGE_BLOCKS_ANTHRACITE = forgeTag("storage_blocks/anthracite");
-	public static final TagKey<Block> STORAGE_BLOCKS_MOLYBDENUM = forgeTag("storage_blocks/molybdenum");
-	public static final TagKey<Block> STORAGE_BLOCKS_MOLYBDENUMSTEEL = forgeTag("storage_blocks/molybdenumsteel");
-	public static final TagKey<Block> STORAGE_BLOCKS_BLURIDIUM = forgeTag("storage_blocks/bluridium");
+	public static final TagKey<Block> STORAGE_BLOCKS_PACKED_ARISTONE = IcariaBlockTags.forgeTag("storage_blocks/packed_aristone");
+	public static final TagKey<Block> STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY = IcariaBlockTags.forgeTag("storage_blocks/ender_jellyfish_jelly");
+	public static final TagKey<Block> STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY = IcariaBlockTags.forgeTag("storage_blocks/fire_jellyfish_jelly");
+	public static final TagKey<Block> STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY = IcariaBlockTags.forgeTag("storage_blocks/nature_jellyfish_jelly");
+	public static final TagKey<Block> STORAGE_BLOCKS_VOID_JELLYFISH_JELLY = IcariaBlockTags.forgeTag("storage_blocks/void_jellyfish_jelly");
+	public static final TagKey<Block> STORAGE_BLOCKS_WATER_JELLYFISH_JELLY = IcariaBlockTags.forgeTag("storage_blocks/water_jellyfish_jelly");
+	public static final TagKey<Block> STORAGE_BLOCKS_ARACHNE_STRING = IcariaBlockTags.forgeTag("storage_blocks/arachne_string");
+	public static final TagKey<Block> STORAGE_BLOCKS_SPELT = IcariaBlockTags.forgeTag("storage_blocks/spelt");
+	public static final TagKey<Block> STORAGE_BLOCKS_VINE_REED = IcariaBlockTags.forgeTag("storage_blocks/vine_reed");
+	public static final TagKey<Block> STORAGE_BLOCKS_VINE_SPROUT = IcariaBlockTags.forgeTag("storage_blocks/vine_sprout");
+	public static final TagKey<Block> STORAGE_BLOCKS_ROTTEN_BONES = IcariaBlockTags.forgeTag("storage_blocks/rotten_bones");
+	public static final TagKey<Block> STORAGE_BLOCKS_RAW_CHALKOS = IcariaBlockTags.forgeTag("storage_blocks/raw_chalkos");
+	public static final TagKey<Block> STORAGE_BLOCKS_RAW_KASSITEROS = IcariaBlockTags.forgeTag("storage_blocks/raw_kassiteros");
+	public static final TagKey<Block> STORAGE_BLOCKS_RAW_VANADIUM = IcariaBlockTags.forgeTag("storage_blocks/raw_vanadium");
+	public static final TagKey<Block> STORAGE_BLOCKS_RAW_SIDEROS = IcariaBlockTags.forgeTag("storage_blocks/raw_sideros");
+	public static final TagKey<Block> STORAGE_BLOCKS_RAW_MOLYBDENUM = IcariaBlockTags.forgeTag("storage_blocks/raw_molybdenum");
+	public static final TagKey<Block> STORAGE_BLOCKS_CALCITE = IcariaBlockTags.forgeTag("storage_blocks/calcite");
+	public static final TagKey<Block> STORAGE_BLOCKS_HALITE = IcariaBlockTags.forgeTag("storage_blocks/halite");
+	public static final TagKey<Block> STORAGE_BLOCKS_JASPER = IcariaBlockTags.forgeTag("storage_blocks/jasper");
+	public static final TagKey<Block> STORAGE_BLOCKS_ZIRCON = IcariaBlockTags.forgeTag("storage_blocks/zircon");
+	public static final TagKey<Block> STORAGE_BLOCKS_CHERT = IcariaBlockTags.forgeTag("storage_blocks/chert");
+	public static final TagKey<Block> STORAGE_BLOCKS_LIGNITE = IcariaBlockTags.forgeTag("storage_blocks/lignite");
+	public static final TagKey<Block> STORAGE_BLOCKS_CHALKOS = IcariaBlockTags.forgeTag("storage_blocks/chalkos");
+	public static final TagKey<Block> STORAGE_BLOCKS_KASSITEROS = IcariaBlockTags.forgeTag("storage_blocks/kassiteros");
+	public static final TagKey<Block> STORAGE_BLOCKS_ORICHALCUM = IcariaBlockTags.forgeTag("storage_blocks/orichalcum");
+	public static final TagKey<Block> STORAGE_BLOCKS_VANADIUM = IcariaBlockTags.forgeTag("storage_blocks/vanadium");
+	public static final TagKey<Block> STORAGE_BLOCKS_VANADIUMSTEEL = IcariaBlockTags.forgeTag("storage_blocks/vanadiumsteel");
+	public static final TagKey<Block> STORAGE_BLOCKS_SLIVER = IcariaBlockTags.forgeTag("storage_blocks/sliver");
+	public static final TagKey<Block> STORAGE_BLOCKS_SIDEROS = IcariaBlockTags.forgeTag("storage_blocks/sideros");
+	public static final TagKey<Block> STORAGE_BLOCKS_ANTHRACITE = IcariaBlockTags.forgeTag("storage_blocks/anthracite");
+	public static final TagKey<Block> STORAGE_BLOCKS_MOLYBDENUM = IcariaBlockTags.forgeTag("storage_blocks/molybdenum");
+	public static final TagKey<Block> STORAGE_BLOCKS_MOLYBDENUMSTEEL = IcariaBlockTags.forgeTag("storage_blocks/molybdenumsteel");
+	public static final TagKey<Block> STORAGE_BLOCKS_BLURIDIUM = IcariaBlockTags.forgeTag("storage_blocks/bluridium");
 
-	public static final TagKey<Block> LOGS_CYPRESS = forgeTag("logs/cypress");
-	public static final TagKey<Block> LOGS_DROUGHTROOT = forgeTag("logs/droughtroot");
-	public static final TagKey<Block> LOGS_FIR = forgeTag("logs/fir");
-	public static final TagKey<Block> LOGS_LAUREL = forgeTag("logs/laurel");
-	public static final TagKey<Block> LOGS_OLIVE = forgeTag("logs/olive");
-	public static final TagKey<Block> LOGS_PLANE = forgeTag("logs/plane");
-	public static final TagKey<Block> LOGS_POPULUS = forgeTag("logs/populus");
+	public static final TagKey<Block> LOGS_CYPRESS = IcariaBlockTags.forgeTag("logs/cypress");
+	public static final TagKey<Block> LOGS_DROUGHTROOT = IcariaBlockTags.forgeTag("logs/droughtroot");
+	public static final TagKey<Block> LOGS_FIR = IcariaBlockTags.forgeTag("logs/fir");
+	public static final TagKey<Block> LOGS_LAUREL = IcariaBlockTags.forgeTag("logs/laurel");
+	public static final TagKey<Block> LOGS_OLIVE = IcariaBlockTags.forgeTag("logs/olive");
+	public static final TagKey<Block> LOGS_PLANE = IcariaBlockTags.forgeTag("logs/plane");
+	public static final TagKey<Block> LOGS_POPULUS = IcariaBlockTags.forgeTag("logs/populus");
 
 	public IcariaBlockTags(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId, ExistingFileHelper pHelper) {
 		super(pOutput, pProvider, pId, pHelper);
@@ -1239,7 +1239,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	}
 
 	public static TagKey<Block> forgeTag(String pName) {
-		return IcariaBlockTags.bind("forge:" + pName);
+		return IcariaBlockTags.bind(IcariaInfo.FORGE + ":" + pName);
 	}
 
 	public static TagKey<Block> icariaTag(String pName) {
