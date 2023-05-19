@@ -16,6 +16,7 @@ import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -35,7 +36,7 @@ public class Icaria {
 	public CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
 	public Icaria() {
-		final IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		IcariaConfig.registerClientConfig();
 		IcariaConfig.registerCommonConfig();
@@ -48,6 +49,7 @@ public class Icaria {
 		eventBus.addListener(this::onFMLLoadComplete);
 		eventBus.addListener(this::onGatherData);
 		eventBus.addListener(this::onRegisterLayerDefinitions);
+		eventBus.addListener(this::onSpawnPlacementRegister);
 
 		IcariaBiomes.BIOMES.register(eventBus);
 		IcariaBlocks.BLOCKS.register(eventBus);
@@ -68,77 +70,81 @@ public class Icaria {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
-	public void onCreativeModeTabRegistration(final CreativeModeTabEvent.Register pEvent) {
+	public void onCreativeModeTabRegistration(CreativeModeTabEvent.Register pEvent) {
 		this.proxy.onCreativeModeTabRegistration(pEvent);
 	}
 
-	public void onEntityAttributeCreation(final EntityAttributeCreationEvent pEvent) {
+	public void onEntityAttributeCreation(EntityAttributeCreationEvent pEvent) {
 		this.proxy.onEntityAttributeCreation(pEvent);
 	}
 
-	public void onFMLClientSetup(final FMLClientSetupEvent pEvent) {
+	public void onFMLClientSetup(FMLClientSetupEvent pEvent) {
 		this.proxy.onFMLClientSetup(pEvent);
 	}
 
-	public void onFMLCommonSetup(final FMLCommonSetupEvent pEvent) {
+	public void onFMLCommonSetup(FMLCommonSetupEvent pEvent) {
 		this.proxy.onFMLCommonSetup(pEvent);
 	}
 
-	public void onFMLLoadComplete(final FMLLoadCompleteEvent pEvent) {
+	public void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {
 		this.proxy.onFMLLoadComplete(pEvent);
 	}
 
-	public void onGatherData(final GatherDataEvent pEvent) {
+	public void onGatherData(GatherDataEvent pEvent) {
 		this.proxy.onGatherData(pEvent);
 	}
 
-	public void onRegisterLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions pEvent) {
+	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions pEvent) {
 		this.proxy.onRegisterLayerDefinitions(pEvent);
 	}
 
+	public void onSpawnPlacementRegister(SpawnPlacementRegisterEvent pEvent) {
+		this.proxy.onSpawnPlacementRegister(pEvent);
+	}
+
 	@SubscribeEvent
-	public void onEntityAttributeModification(final EntityAttributeModificationEvent pEvent) {
+	public void onEntityAttributeModification(EntityAttributeModificationEvent pEvent) {
 		this.proxy.onEntityAttributeModification(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onLivingAttack(final LivingAttackEvent pEvent) {
+	public void onLivingAttack(LivingAttackEvent pEvent) {
 		this.proxy.onLivingAttack(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onMobEffectApplicable(final MobEffectEvent.Applicable pEvent) {
+	public void onMobEffectApplicable(MobEffectEvent.Applicable pEvent) {
 		this.proxy.onMobEffectApplicable(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onPlayerInteract(final PlayerInteractEvent pEvent) {
+	public void onPlayerInteract(PlayerInteractEvent pEvent) {
 		this.proxy.onPlayerInteract(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onEntityInteract(final PlayerInteractEvent.EntityInteract pEvent) {
+	public void onEntityInteract(PlayerInteractEvent.EntityInteract pEvent) {
 		this.proxy.onEntityInteract(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onLeftClickBlock(final PlayerInteractEvent.LeftClickBlock pEvent) {
+	public void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock pEvent) {
 		this.proxy.onLeftClickBlock(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onRightClickBlock(final PlayerInteractEvent.RightClickBlock pEvent) {
+	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock pEvent) {
 		this.proxy.onRightClickBlock(pEvent);
 	}
 
 	@SubscribeEvent
-	public void onPlayerTick(final TickEvent.PlayerTickEvent pEvent) {
+	public void onPlayerTick(TickEvent.PlayerTickEvent pEvent) {
 		this.proxy.onPlayerTick(pEvent);
 	}
 
 	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
-	public void onRenderLivingPre(final RenderLivingEvent.Pre<?, ?> pEvent) {
+	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> pEvent) {
 		this.proxy.onRenderLivingPre(pEvent);
 	}
 }

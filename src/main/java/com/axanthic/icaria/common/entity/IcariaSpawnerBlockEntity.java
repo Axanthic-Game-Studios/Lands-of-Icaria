@@ -17,9 +17,9 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("unused")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-@SuppressWarnings("unused")
 
 public class IcariaSpawnerBlockEntity extends BlockEntity {
     public IcariaBaseSpawner baseSpawner;

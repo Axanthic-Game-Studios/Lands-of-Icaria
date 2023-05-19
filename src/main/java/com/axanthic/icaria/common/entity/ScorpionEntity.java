@@ -21,7 +21,6 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -36,7 +35,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class ScorpionEntity extends Monster {
+public class ScorpionEntity extends IcariaArachnidEntity {
     public AnimationState attackAnimationState = new AnimationState();
 
     public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(ScorpionEntity.class, EntityDataSerializers.BYTE);

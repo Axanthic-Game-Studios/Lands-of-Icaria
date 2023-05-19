@@ -651,7 +651,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaMobEffects.LIFESTEAL.get(), "Lebensraub");
 
 		// ENTITY TYPES
-		this.add(IcariaEntityTypes.LOOT_VASE.get(), "Beutevase");
 		this.add(IcariaEntityTypes.AETERNAE.get(), "Ätern");
 		this.add(IcariaEntityTypes.ARACHNE.get(), "Arachne");
 		this.add(IcariaEntityTypes.ARACHNE_DRONE.get(), "Arachnendrohne");
@@ -673,6 +672,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.NATURE_JELLYFISH.get(), "Naturqualle");
 		this.add(IcariaEntityTypes.VOID_JELLYFISH.get(), "Leerenqualle");
 		this.add(IcariaEntityTypes.WATER_JELLYFISH.get(), "Wasserqualle");
+		this.add(IcariaEntityTypes.LOOT_VASE.get(), "Beutevase");
 		this.add(IcariaEntityTypes.MYRMEKE_DRONE.get(), "Ameisendrohne");
 		this.add(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), "Ameisensoldat");
 		this.add(IcariaEntityTypes.MYRMEKE_QUEEN.get(), "Ameisenkönigin");

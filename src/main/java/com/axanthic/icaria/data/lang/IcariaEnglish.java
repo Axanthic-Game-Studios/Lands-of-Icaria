@@ -651,7 +651,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaMobEffects.LIFESTEAL.get(), "Lifesteal");
 
 		// ENTITY TYPES
-		this.add(IcariaEntityTypes.LOOT_VASE.get(), "Loot Vase");
 		this.add(IcariaEntityTypes.AETERNAE.get(), "Aeternae");
 		this.add(IcariaEntityTypes.ARACHNE.get(), "Arachne");
 		this.add(IcariaEntityTypes.ARACHNE_DRONE.get(), "Arachne Drone");
@@ -673,6 +672,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.NATURE_JELLYFISH.get(), "Nature Jellyfish");
 		this.add(IcariaEntityTypes.VOID_JELLYFISH.get(), "Void Jellyfish");
 		this.add(IcariaEntityTypes.WATER_JELLYFISH.get(), "Water Jellyfish");
+		this.add(IcariaEntityTypes.LOOT_VASE.get(), "Loot Vase");
 		this.add(IcariaEntityTypes.MYRMEKE_DRONE.get(), "Myrmeke Drone");
 		this.add(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), "Myrmeke Soldier");
 		this.add(IcariaEntityTypes.MYRMEKE_QUEEN.get(), "Myrmeke Queen");

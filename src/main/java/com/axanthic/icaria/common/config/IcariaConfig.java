@@ -11,6 +11,7 @@ public class IcariaConfig {
 	public static ForgeConfigSpec.BooleanValue RENDER_GEARS;
 	public static ForgeConfigSpec.BooleanValue RENDER_RAYS;
 	public static ForgeConfigSpec.BooleanValue SOUND_GRINDER;
+	public static ForgeConfigSpec.BooleanValue SPAWN_ARACHNIDS;
 
 	public static void registerClientConfig() {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -31,6 +32,11 @@ public class IcariaConfig {
 
 		SOUND_GRINDER = builder.comment("Default: true. Whether grinders should play sound.").define("soundGrinder", true);
 		SOUND_VOLUME_GRINDER = builder.comment("Default: 1.0. Whether grinders should play sound based on volume.").defineInRange("volumeGrinder", 1.0D, 0.0D, 1.0D);
+
+		builder.pop();
+		builder.comment("Spawn settings").push("spawnSettings");
+
+		SPAWN_ARACHNIDS = builder.comment("Default: true. Whether arachnids should do spawn.").define("spawnArachnids", true);
 
 		builder.pop();
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, builder.build());
