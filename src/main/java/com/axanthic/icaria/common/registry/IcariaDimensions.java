@@ -49,7 +49,7 @@ public class IcariaDimensions {
 	}
 
 	private static DimensionType dimensionType() {
-		return new DimensionType(OptionalLong.of(13000L), // fixed time
+		return new DimensionType(OptionalLong.empty(), // fixed time
 				true, // skylight
 				false, // ceiling
 				false, // ultrawarm
@@ -69,16 +69,12 @@ public class IcariaDimensions {
 	public static List<Climate.ParameterPoint> spawnTarget() {
 		final Climate.Parameter temperature = FULL_RANGE;
 		final Climate.Parameter humidity = FULL_RANGE;
-		final Climate.Parameter continentalness = Climate.Parameter.span(Climate.Parameter.span(-0.11F, 0.55F),
-				FULL_RANGE);
-		final Climate.Parameter erosion = FULL_RANGE;
+		final Climate.Parameter continentalness = FULL_RANGE;
+		final Climate.Parameter erosion = Climate.Parameter.point(0.0F);
 		final Climate.Parameter depth = Climate.Parameter.point(0.0F);
-		final Climate.Parameter weirdness1 = Climate.Parameter.span(-1.0F, -0.16F);
-		final Climate.Parameter weirdness2 = Climate.Parameter.span(0.16F, 1.0F);
+		final Climate.Parameter weirdness = Climate.Parameter.point(0.0F);
 
-		return List.of(
-				new Climate.ParameterPoint(temperature, humidity, continentalness, erosion, depth, weirdness1, 0L),
-				new Climate.ParameterPoint(temperature, humidity, continentalness, erosion, depth, weirdness2, 0L));
+		return List.of(new Climate.ParameterPoint(temperature, humidity, continentalness, erosion, depth, weirdness, 0L));
 	}
 
 	/*****************************************************************************/
@@ -130,17 +126,15 @@ public class IcariaDimensions {
 	}
 
 	private static Climate.ParameterList<Holder<Biome>> biomeList(final HolderGetter<Biome> biomeRegistry) {
-		final List<Pair<Climate.ParameterPoint, Holder<Biome>>> parameters = List.of(voidParameters(biomeRegistry),
-				scrublandParameters(biomeRegistry), desertParameters(biomeRegistry), forestParameters(biomeRegistry),
-				steppeParameters(biomeRegistry));
+		final List<Pair<Climate.ParameterPoint, Holder<Biome>>> parameters = List.of(forestParameters(biomeRegistry), steppeParameters(biomeRegistry), scrublandParameters(biomeRegistry), desertParameters(biomeRegistry), voidParameters(biomeRegistry));
 		return new Climate.ParameterList<Holder<Biome>>(parameters);
 	}
 
 	private final static Climate.Parameter FULL_RANGE = Climate.Parameter.span(-1.0F, 1.0F);
 
 	// Continentalness: to separate the void from "continents".
-	private final static Climate.Parameter CONTINENTAL = Climate.Parameter.span(0.19F, 1.05F);
-	private final static Climate.Parameter VOID = Climate.Parameter.span(-1.05F, -0.19F);
+	private final static Climate.Parameter CONTINENTAL = Climate.Parameter.span(0.0F, 1.0F);
+	private final static Climate.Parameter VOID = Climate.Parameter.span(-1.0F, 0.0F);
 
 	// Temperatures TODO: add more options than just HOT/COLD like WARM
 	private final static Climate.Parameter COLD = Climate.Parameter.span(-1F, 0F);
@@ -154,9 +148,9 @@ public class IcariaDimensions {
 		final Climate.Parameter temperature = FULL_RANGE;
 		final Climate.Parameter humidity = FULL_RANGE;
 		final Climate.Parameter continentalness = VOID;
-		final Climate.Parameter erosion = FULL_RANGE;
-		final Climate.Parameter depth = FULL_RANGE;
-		final Climate.Parameter weirdness = Climate.Parameter.point(0.0f);
+		final Climate.Parameter erosion = Climate.Parameter.point(0.0F);
+		final Climate.Parameter depth = Climate.Parameter.point(0.0F);
+		final Climate.Parameter weirdness = Climate.Parameter.point(0.0F);
 		final Climate.ParameterPoint parameters = new Climate.ParameterPoint(temperature, humidity, continentalness,
 				erosion, depth, weirdness, 0);
 		return new Pair<>(parameters, biomeRegistry.getOrThrow(IcariaBiomes.VOID));
@@ -164,12 +158,12 @@ public class IcariaDimensions {
 
 	private static Pair<Climate.ParameterPoint, Holder<Biome>> scrublandParameters(
 			final HolderGetter<Biome> biomeRegistry) {
-		final Climate.Parameter temperature = FULL_RANGE;
-		final Climate.Parameter humidity = DRY;
+		final Climate.Parameter temperature = Climate.Parameter.span(0.0F, 0.25F);
+		final Climate.Parameter humidity = Climate.Parameter.span(-0.25F, 0.0F);
 		final Climate.Parameter continentalness = CONTINENTAL;
-		final Climate.Parameter erosion = Climate.Parameter.point(0.0f);
-		final Climate.Parameter depth = Climate.Parameter.point(0.0f);
-		final Climate.Parameter weirdness = Climate.Parameter.point(0.0f);
+		final Climate.Parameter erosion = Climate.Parameter.point(0.0F);
+		final Climate.Parameter depth = Climate.Parameter.point(0.0F);
+		final Climate.Parameter weirdness = Climate.Parameter.point(0.0F);
 		final Climate.ParameterPoint parameters = new Climate.ParameterPoint(temperature, humidity, continentalness,
 				erosion, depth, weirdness, 0);
 		return new Pair<>(parameters, biomeRegistry.getOrThrow(IcariaBiomes.SCRUBLAND));
@@ -177,12 +171,12 @@ public class IcariaDimensions {
 
 	private static Pair<Climate.ParameterPoint, Holder<Biome>> desertParameters(
 			final HolderGetter<Biome> biomeRegistry) {
-		final Climate.Parameter temperature = HOT;
-		final Climate.Parameter humidity = DRY;
+		final Climate.Parameter temperature = Climate.Parameter.span(0.25F, 1.0F);
+		final Climate.Parameter humidity = Climate.Parameter.span(-1.0F, -0.25F);
 		final Climate.Parameter continentalness = CONTINENTAL;
-		final Climate.Parameter erosion = Climate.Parameter.point(0.0f);
-		final Climate.Parameter depth = Climate.Parameter.point(0.0f);
-		final Climate.Parameter weirdness = Climate.Parameter.point(0.0f);
+		final Climate.Parameter erosion = Climate.Parameter.point(0.0F);
+		final Climate.Parameter depth = Climate.Parameter.point(0.0F);
+		final Climate.Parameter weirdness = Climate.Parameter.point(0.0F);
 		final Climate.ParameterPoint parameters = new Climate.ParameterPoint(temperature, humidity, continentalness,
 				erosion, depth, weirdness, 0);
 		return new Pair<>(parameters, biomeRegistry.getOrThrow(IcariaBiomes.DESERT));
@@ -190,12 +184,12 @@ public class IcariaDimensions {
 
 	private static Pair<Climate.ParameterPoint, Holder<Biome>> forestParameters(
 			final HolderGetter<Biome> biomeRegistry) {
-		final Climate.Parameter temperature = FULL_RANGE;
-		final Climate.Parameter humidity = WET;
+		final Climate.Parameter temperature = Climate.Parameter.span(-1.0F, -0.25F);
+		final Climate.Parameter humidity = Climate.Parameter.span(0.25F, 1.0F);
 		final Climate.Parameter continentalness = CONTINENTAL;
-		final Climate.Parameter erosion = Climate.Parameter.point(0.0f);
-		final Climate.Parameter depth = Climate.Parameter.point(0.0f);
-		final Climate.Parameter weirdness = Climate.Parameter.point(0.0f);
+		final Climate.Parameter erosion = Climate.Parameter.point(0.0F);
+		final Climate.Parameter depth = Climate.Parameter.point(0.0F);
+		final Climate.Parameter weirdness = Climate.Parameter.point(0.0F);
 		final Climate.ParameterPoint parameters = new Climate.ParameterPoint(temperature, humidity, continentalness,
 				erosion, depth, weirdness, 0);
 		return new Pair<>(parameters, biomeRegistry.getOrThrow(IcariaBiomes.FOREST));
@@ -203,14 +197,14 @@ public class IcariaDimensions {
 
 	private static Pair<Climate.ParameterPoint, Holder<Biome>> steppeParameters(
 			final HolderGetter<Biome> biomeRegistry) {
-		final Climate.Parameter temperature = COLD;
-		final Climate.Parameter humidity = DRY;
+		final Climate.Parameter temperature = Climate.Parameter.span(-0.25F, 0.0F);
+		final Climate.Parameter humidity = Climate.Parameter.span(0.0F, 0.25F);
 		final Climate.Parameter continentalness = CONTINENTAL;
-		final Climate.Parameter erosion = Climate.Parameter.point(0.0f);
-		final Climate.Parameter depth = Climate.Parameter.point(0.0f);
-		final Climate.Parameter weirdness = Climate.Parameter.point(0.0f);
+		final Climate.Parameter erosion = Climate.Parameter.point(0.0F);
+		final Climate.Parameter depth = Climate.Parameter.point(0.0F);
+		final Climate.Parameter weirdness = Climate.Parameter.point(0.0F);
 		final Climate.ParameterPoint parameters = new Climate.ParameterPoint(temperature, humidity, continentalness,
 				erosion, depth, weirdness, 0);
-		return new Pair<>(parameters, biomeRegistry.getOrThrow(IcariaBiomes.DESERT));
+		return new Pair<>(parameters, biomeRegistry.getOrThrow(IcariaBiomes.STEPPE));
 	}
 }

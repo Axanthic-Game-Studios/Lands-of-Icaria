@@ -32,7 +32,7 @@
       "Name": "landsoficaria:marl"
     },
     "fillerBlockTertiary": {
-      "Name": "landsoficaria:marl"
+      "Name": "landsoficaria:coarse_marl"
     },
     "lava_level": {
       "above_bottom": 8
@@ -56,13 +56,7 @@
       }
     },
     "topBlockTertiary": {
-      "Name": "landsoficaria:marl"
-    },
-    "upperBlockPrimary": {
-      "Name": "landsoficaria:moss_0",
-      "Properties": {
-        "layers": "1"
-      }
+      "Name": "landsoficaria:coarse_marl"
     },
     "y": {
       "type": "minecraft:uniform",

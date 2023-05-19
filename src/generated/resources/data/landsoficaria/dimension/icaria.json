@@ -6,28 +6,43 @@
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "landsoficaria:void",
+          "biome": "landsoficaria:forest",
           "parameters": {
             "continentalness": [
-              -1.05,
-              -0.19
-            ],
-            "depth": [
-              -1.0,
+              0.0,
               1.0
             ],
-            "erosion": [
-              -1.0,
-              1.0
-            ],
+            "depth": 0.0,
+            "erosion": 0.0,
             "humidity": [
-              -1.0,
+              0.25,
               1.0
             ],
             "offset": 0.0,
             "temperature": [
               -1.0,
+              -0.25
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:steppe",
+          "parameters": {
+            "continentalness": [
+              0.0,
               1.0
+            ],
+            "depth": 0.0,
+            "erosion": 0.0,
+            "humidity": [
+              0.0,
+              0.25
+            ],
+            "offset": 0.0,
+            "temperature": [
+              -0.25,
+              0.0
             ],
             "weirdness": 0.0
           }
@@ -36,19 +51,19 @@
           "biome": "landsoficaria:scrubland",
           "parameters": {
             "continentalness": [
-              0.19,
-              1.05
+              0.0,
+              1.0
             ],
             "depth": 0.0,
             "erosion": 0.0,
             "humidity": [
-              -1.0,
+              -0.25,
               0.0
             ],
             "offset": 0.0,
             "temperature": [
-              -1.0,
-              1.0
+              0.0,
+              0.25
             ],
             "weirdness": 0.0
           }
@@ -57,61 +72,40 @@
           "biome": "landsoficaria:desert",
           "parameters": {
             "continentalness": [
-              0.19,
-              1.05
+              0.0,
+              1.0
             ],
             "depth": 0.0,
             "erosion": 0.0,
             "humidity": [
               -1.0,
-              0.0
+              -0.25
             ],
             "offset": 0.0,
             "temperature": [
-              0.0,
+              0.25,
               1.0
             ],
             "weirdness": 0.0
           }
         },
         {
-          "biome": "landsoficaria:forest",
+          "biome": "landsoficaria:void",
           "parameters": {
             "continentalness": [
-              0.19,
-              1.05
+              -1.0,
+              0.0
             ],
             "depth": 0.0,
             "erosion": 0.0,
             "humidity": [
-              0.0,
+              -1.0,
               1.0
             ],
             "offset": 0.0,
             "temperature": [
               -1.0,
               1.0
-            ],
-            "weirdness": 0.0
-          }
-        },
-        {
-          "biome": "landsoficaria:desert",
-          "parameters": {
-            "continentalness": [
-              0.19,
-              1.05
-            ],
-            "depth": 0.0,
-            "erosion": 0.0,
-            "humidity": [
-              -1.0,
-              0.0
-            ],
-            "offset": 0.0,
-            "temperature": [
-              -1.0,
-              0.0
             ],
             "weirdness": 0.0
           }

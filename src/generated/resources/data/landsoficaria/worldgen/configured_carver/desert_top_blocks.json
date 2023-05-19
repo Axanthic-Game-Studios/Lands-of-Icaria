@@ -29,10 +29,10 @@
       "Name": "landsoficaria:grainel"
     },
     "fillerBlockSecondary": {
-      "Name": "landsoficaria:silkstone"
+      "Name": "landsoficaria:silksand"
     },
     "fillerBlockTertiary": {
-      "Name": "landsoficaria:marl"
+      "Name": "landsoficaria:loam"
     },
     "lava_level": {
       "above_bottom": 8
@@ -43,10 +43,10 @@
       "Name": "landsoficaria:grainel"
     },
     "topBlockSecondary": {
-      "Name": "landsoficaria:silkstone"
+      "Name": "landsoficaria:silksand"
     },
     "topBlockTertiary": {
-      "Name": "landsoficaria:marl"
+      "Name": "landsoficaria:loam"
     },
     "y": {
       "type": "minecraft:uniform",

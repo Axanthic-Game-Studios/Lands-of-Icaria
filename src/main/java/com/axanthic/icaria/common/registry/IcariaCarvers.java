@@ -28,8 +28,8 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-	public static final DeferredRegister<WorldCarver<?>> CARVERS = DeferredRegister.create(Registries.CARVER,
-			IcariaInfo.ID);
+public class IcariaCarvers {
+	public static final DeferredRegister<WorldCarver<?>> CARVERS = DeferredRegister.create(Registries.CARVER, IcariaInfo.ID);
 
 	/***********************************************************************************************/
 	// REGISTER
@@ -95,56 +95,41 @@ import java.util.function.Supplier;
 		registerSteppeTopBlocksCarver(context);
 	}
 
-	protected static TopBlockCarverConfiguration defaultTopBlockConfiguration(
-			final BootstapContext<ConfiguredWorldCarver<?>> context) {
+	protected static void registerVoidTopBlocksCarver(final BootstapContext<ConfiguredWorldCarver<?>> context) {
 		final HolderGetter<Block> blockGetter = context.lookup(Registries.BLOCK);
 
 		final CarverConfiguration configuration = defaultConfiguration(context);
-		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.GRASSY_MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState fillerBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState topBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
+		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
+		final BlockState topBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
 
 		final Optional<BlockState> upperBlockPrimary = Optional.empty();
 		final Optional<BlockState> upperBlockSecondary = Optional.empty();
 		final Optional<BlockState> upperBlockTertiary = Optional.empty();
-		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
-		return new TopBlockCarverConfiguration(configuration, topBlockPrimary, fillerBlockPrimary, topBlockSecondary,
-				fillerBlockSecondary, upperBlockPrimary, upperBlockSecondary, upperBlockTertiary, topBlockTertiary,
-				fillerBlockTertiary);
-	}
-
-	protected static void registerVoidTopBlocksCarver(final BootstapContext<ConfiguredWorldCarver<?>> context) {
-		context.register(VOID_TB_KEY, VOID_TB.get().configured(defaultTopBlockConfiguration(context)));
+		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
+		context.register(VOID_TB_KEY,
+				VOID_TB.get()
+						.configured(new TopBlockCarverConfiguration(configuration, topBlockPrimary, fillerBlockPrimary,
+								topBlockSecondary, fillerBlockSecondary, upperBlockPrimary, upperBlockSecondary,
+								upperBlockTertiary, topBlockTertiary, fillerBlockTertiary)));
 	}
 
 	protected static void registerScrublandTopBlocksCarver(final BootstapContext<ConfiguredWorldCarver<?>> context) {
 		final HolderGetter<Block> blockGetter = context.lookup(Registries.BLOCK);
 
 		final CarverConfiguration configuration = defaultConfiguration(context);
-		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.GRASSY_MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState fillerBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState topBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
+		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
+		final BlockState topBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
 
 		final Optional<BlockState> upperBlockPrimary = Optional.empty();
 		final Optional<BlockState> upperBlockSecondary = Optional.empty();
 		final Optional<BlockState> upperBlockTertiary = Optional.empty();
-		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
+		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.GRAINEL.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.GRAINEL.getKey()).get().defaultBlockState();
 		context.register(SCRUBLAND_TB_KEY,
 				SCRUBLAND_TB.get()
 						.configured(new TopBlockCarverConfiguration(configuration, topBlockPrimary, fillerBlockPrimary,
@@ -156,22 +141,16 @@ import java.util.function.Supplier;
 		final HolderGetter<Block> blockGetter = context.lookup(Registries.BLOCK);
 
 		final CarverConfiguration configuration = defaultConfiguration(context);
-		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.GRAINEL.getKey()).get()
-				.defaultBlockState();
-		final BlockState fillerBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.GRAINEL.getKey()).get()
-				.defaultBlockState();
-		final BlockState topBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.SILKSTONE.getKey()).get()
-				.defaultBlockState();
-		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.SILKSTONE.getKey()).get()
-				.defaultBlockState();
+		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.GRAINEL.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.GRAINEL.getKey()).get().defaultBlockState();
+		final BlockState topBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.SILKSAND.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.SILKSAND.getKey()).get().defaultBlockState();
 
 		final Optional<BlockState> upperBlockPrimary = Optional.empty();
 		final Optional<BlockState> upperBlockSecondary = Optional.empty();
 		final Optional<BlockState> upperBlockTertiary = Optional.empty();
-		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
+		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
 		context.register(DESERT_TB_KEY,
 				DESERT_TB.get()
 						.configured(new TopBlockCarverConfiguration(configuration, topBlockPrimary, fillerBlockPrimary,
@@ -183,31 +162,40 @@ import java.util.function.Supplier;
 		final HolderGetter<Block> blockGetter = context.lookup(Registries.BLOCK);
 
 		final CarverConfiguration configuration = defaultConfiguration(context);
-		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.GRASSY_MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState fillerBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState topBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.GRASSY_MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
+		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.GRASSY_MARL.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get().defaultBlockState();
+		final BlockState topBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.GRASSY_MARL.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get().defaultBlockState();
 
-		final Optional<BlockState> upperBlockPrimary = Optional
-				.of(blockGetter.getOrThrow(IcariaBlocks.MOSS_0.getKey()).get().defaultBlockState());
+		final Optional<BlockState> upperBlockPrimary = Optional.empty();
 		final Optional<BlockState> upperBlockSecondary = Optional.empty();
 		final Optional<BlockState> upperBlockTertiary = Optional.empty();
-		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
-		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get()
-				.defaultBlockState();
-		context.register(FOREST_TB_KEY,
-				FOREST_TB.get()
+		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
+		context.register(FOREST_TB_KEY, FOREST_TB.get()
 						.configured(new TopBlockCarverConfiguration(configuration, topBlockPrimary, fillerBlockPrimary,
 								topBlockSecondary, fillerBlockSecondary, upperBlockPrimary, upperBlockSecondary,
 								upperBlockTertiary, topBlockTertiary, fillerBlockTertiary)));
 	}
 
 	protected static void registerSteppeTopBlocksCarver(final BootstapContext<ConfiguredWorldCarver<?>> context) {
-		context.register(STEPPE_TB_KEY, STEPPE_TB.get().configured(defaultTopBlockConfiguration(context)));
+		final HolderGetter<Block> blockGetter = context.lookup(Registries.BLOCK);
+
+		final CarverConfiguration configuration = defaultConfiguration(context);
+		final BlockState topBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.GRASSY_MARL.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockPrimary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get().defaultBlockState();
+		final BlockState topBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
+
+		final Optional<BlockState> upperBlockPrimary = Optional.empty();
+		final Optional<BlockState> upperBlockSecondary = Optional.empty();
+		final Optional<BlockState> upperBlockTertiary = Optional.empty();
+		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
+		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
+		context.register(STEPPE_TB_KEY,
+				STEPPE_TB.get()
+						.configured(new TopBlockCarverConfiguration(configuration, topBlockPrimary, fillerBlockPrimary,
+								topBlockSecondary, fillerBlockSecondary, upperBlockPrimary, upperBlockSecondary,
+								upperBlockTertiary, topBlockTertiary, fillerBlockTertiary)));
 	}
 }
