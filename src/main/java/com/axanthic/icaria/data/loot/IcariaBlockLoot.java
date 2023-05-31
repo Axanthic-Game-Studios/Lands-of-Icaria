@@ -368,17 +368,17 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropDoor(IcariaBlocks.PLANE_DOOR.get());
 		this.dropDoor(IcariaBlocks.POPULUS_DOOR.get());
 
-		this.dropVine(IcariaBlocks.RIPE_BLOOMY_VINE.get(), IcariaItems.BLOOMY_VINE.get());
 		this.dropVine(IcariaBlocks.BLOOMING_BLOOMY_VINE.get(), IcariaItems.BLOOMY_VINE.get());
 		this.dropVine(IcariaBlocks.BLOOMY_VINE.get(), IcariaItems.BLOOMY_VINE.get());
 		this.dropVine(IcariaBlocks.BRANCHY_VINE.get(), IcariaItems.BRANCHY_VINE.get());
-		this.dropVine(IcariaBlocks.RIPE_BRUSHY_VINE.get(), IcariaItems.BRUSHY_VINE.get());
 		this.dropVine(IcariaBlocks.BRUSHY_VINE.get(), IcariaItems.BRUSHY_VINE.get());
 		this.dropVine(IcariaBlocks.DRY_VINE.get(), IcariaItems.DRY_VINE.get());
 		this.dropVine(IcariaBlocks.SWIRLY_VINE.get(), IcariaItems.SWIRLY_VINE.get());
 		this.dropVine(IcariaBlocks.THORNY_VINE.get(), IcariaItems.THORNY_VINE.get());
 
-		this.dropVineReed(IcariaBlocks.REEDY_VINE.get(), IcariaItems.VINE_REED.get());
+		this.dropVineLoot(IcariaBlocks.RIPE_BLOOMY_VINE.get(), IcariaItems.VINEBERRIES.get());
+		this.dropVineLoot(IcariaBlocks.RIPE_BRUSHY_VINE.get(), IcariaItems.VINE_SPROUT.get());
+		this.dropVineLoot(IcariaBlocks.REEDY_VINE.get(), IcariaItems.VINE_REED.get());
 
 		this.dropSeed(IcariaBlocks.FERN.get());
 		this.dropSeed(IcariaBlocks.SMALL_GRASS.get());
@@ -509,7 +509,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.add(pBlock, createVineDrop(pItem));
 	}
 
-	public void dropVineReed(Block pBlock, Item pItem) {
+	public void dropVineLoot(Block pBlock, Item pItem) {
 		this.add(pBlock, createSilkTouchOrShearsDispatchTable(pBlock, applyExplosionDecay(pBlock, LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
 	}
 
