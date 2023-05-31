@@ -470,7 +470,7 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 				if (biome.containsTag(IcariaBiomeTags.IS_VOID)) {
 					value += 0.375d; // Note: the higher this value, the more rough the change between land & void.
 				} else {
-					final double density = configuration.density();
+					final double density = configuration.pDensity();
 					value += (1 - density) / (4 * 4);
 				}
 
@@ -487,7 +487,7 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 				final int cz = (z << 2) + subZ;
 				final int biomeIndex = cx + cz * 20;
 				final BiomeConfiguration configuration = this.biomeConfiguration[biomeIndex];
-				final double topCrazyness = configuration.craziness();
+				final double topCrazyness = configuration.pCraziness();
 				value += 1 / topCrazyness / (4 * 4);
 			}
 		}

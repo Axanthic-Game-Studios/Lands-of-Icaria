@@ -499,8 +499,6 @@ public class ClientProxy extends CommonProxy {
 
 			pOutput.accept(IcariaItems.OLIVE_SAPLING.get());
 			pOutput.accept(IcariaItems.OLIVE_LEAVES.get());
-			pOutput.accept(IcariaItems.BLACK_OLIVE_LEAVES.get());
-			pOutput.accept(IcariaItems.GREEN_OLIVE_LEAVES.get());
 			pOutput.accept(IcariaItems.FALLEN_OLIVE_LEAVES.get());
 			pOutput.accept(IcariaItems.OLIVE_TWIGS.get());
 			pOutput.accept(IcariaItems.OLIVE_WOOD.get());

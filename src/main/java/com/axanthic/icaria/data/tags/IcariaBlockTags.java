@@ -585,8 +585,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.LAUREL_LEAVES.get())
 			.add(IcariaBlocks.FALLEN_LAUREL_LEAVES.get())
 			.add(IcariaBlocks.OLIVE_LEAVES.get())
-			.add(IcariaBlocks.BLACK_OLIVE_LEAVES.get())
-			.add(IcariaBlocks.GREEN_OLIVE_LEAVES.get())
 			.add(IcariaBlocks.FALLEN_OLIVE_LEAVES.get())
 			.add(IcariaBlocks.PLANE_LEAVES.get())
 			.add(IcariaBlocks.FALLEN_PLANE_LEAVES.get())
@@ -1040,8 +1038,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.FIR_LEAVES.get())
 			.add(IcariaBlocks.LAUREL_LEAVES.get())
 			.add(IcariaBlocks.OLIVE_LEAVES.get())
-			.add(IcariaBlocks.BLACK_OLIVE_LEAVES.get())
-			.add(IcariaBlocks.GREEN_OLIVE_LEAVES.get())
 			.add(IcariaBlocks.PLANE_LEAVES.get())
 			.add(IcariaBlocks.POPULUS_LEAVES.get());
 

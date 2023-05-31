@@ -79,9 +79,6 @@ public class IcariaBlockStates extends BlockStateProvider {
 		this.baseBlockWithItem(IcariaBlocks.DROUGHTROOT_LEAVES);
 		this.baseBlockWithItem(IcariaBlocks.FIR_LEAVES);
 		this.baseBlockWithItem(IcariaBlocks.LAUREL_LEAVES);
-		this.baseBlockWithItem(IcariaBlocks.OLIVE_LEAVES);
-		this.baseBlockWithItem(IcariaBlocks.BLACK_OLIVE_LEAVES);
-		this.baseBlockWithItem(IcariaBlocks.GREEN_OLIVE_LEAVES);
 		this.baseBlockWithItem(IcariaBlocks.PLANE_LEAVES);
 		this.baseBlockWithItem(IcariaBlocks.POPULUS_LEAVES);
 

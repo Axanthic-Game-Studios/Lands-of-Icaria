@@ -22,7 +22,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaPoiTypes {
     public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(Registries.POINT_OF_INTEREST_TYPE, IcariaInfo.ID);
 
-    public static final RegistryObject<PoiType> PORTAL = POI_TYPES.register("portal", () -> new PoiType(getBlockStates(IcariaBlocks.PORTAL.get()), 0, 1));
+    public static final RegistryObject<PoiType> PORTAL = IcariaPoiTypes.POI_TYPES.register("portal", () -> new PoiType(IcariaPoiTypes.getBlockStates(IcariaBlocks.PORTAL.get()), 0, 1));
 
     public static @Nonnull Set<BlockState> getBlockStates(Block pBlock) {
         return ImmutableSet.copyOf(pBlock.getStateDefinition().getPossibleStates());

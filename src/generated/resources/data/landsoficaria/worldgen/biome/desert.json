@@ -2,7 +2,7 @@
   "carvers": {
     "air": "landsoficaria:desert_top_blocks"
   },
-  "downfall": 0.5,
+  "downfall": 0.0,
   "effects": {
     "fog_color": 10518688,
     "mood_sound": {
@@ -21,12 +21,19 @@
   "spawners": {
     "ambient": [],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "landsoficaria:aeternae",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 100
+      }
+    ],
     "misc": [],
     "monster": [],
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 1.2
+  "temperature": 1.0
 }

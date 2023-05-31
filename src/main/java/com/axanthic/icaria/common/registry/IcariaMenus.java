@@ -14,6 +14,6 @@ import net.minecraftforge.registries.RegistryObject;
 public class IcariaMenus {
 	public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, IcariaInfo.ID);
 
-	public static final RegistryObject<MenuType<GrinderMenu>> GRINDER = MENUS.register("grinder", () -> IForgeMenuType.create((pId, pInventory, pBuffer) -> new GrinderMenu(pId, pBuffer.readBlockPos(), pInventory, pInventory.player)));
-	public static final RegistryObject<MenuType<StorageVaseMenu>> STORAGE_VASE = MENUS.register("storage_vase", () -> IForgeMenuType.create(((pId, pInventory, pBuffer) -> new StorageVaseMenu(pId, pBuffer.readBlockPos(), pInventory, pInventory.player))));
+	public static final RegistryObject<MenuType<GrinderMenu>> GRINDER = IcariaMenus.MENUS.register("grinder", () -> IForgeMenuType.create((pId, pInventory, pBuffer) -> new GrinderMenu(pId, pBuffer.readBlockPos(), pInventory, pInventory.player)));
+	public static final RegistryObject<MenuType<StorageVaseMenu>> STORAGE_VASE = IcariaMenus.MENUS.register("storage_vase", () -> IForgeMenuType.create(((pId, pInventory, pBuffer) -> new StorageVaseMenu(pId, pBuffer.readBlockPos(), pInventory, pInventory.player))));
 }

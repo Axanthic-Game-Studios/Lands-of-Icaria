@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "ripe=false": { "model": "landsoficaria:block/olive_leaves" },
+    "ripe=true": { "model": "landsoficaria:block/black_olive_leaves" }
+  }
+}

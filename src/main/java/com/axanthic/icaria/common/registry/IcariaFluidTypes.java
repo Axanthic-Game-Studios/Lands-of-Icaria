@@ -19,7 +19,7 @@ import java.util.function.Consumer;
 public class IcariaFluidTypes {
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, IcariaInfo.ID);
 
-    public static final RegistryObject<FluidType> MEDITERRANEAN_WATER_TYPE = FLUID_TYPES.register("mediterranean_water", () -> new FluidType(FluidType.Properties.create()
+    public static final RegistryObject<FluidType> MEDITERRANEAN_WATER_TYPE = IcariaFluidTypes.FLUID_TYPES.register("mediterranean_water", () -> new FluidType(FluidType.Properties.create()
         .descriptionId("fluid." + IcariaInfo.ID + ".mediterranean_water")
         .motionScale(0.014)
         .canPushEntity(true)

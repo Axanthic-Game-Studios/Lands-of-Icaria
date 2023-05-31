@@ -25,8 +25,6 @@ public class IcariaCompostables {
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.LAUREL_TWIGS.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.OLIVE_SAPLING.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.OLIVE_LEAVES.get(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.BLACK_OLIVE_LEAVES.get(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.GREEN_OLIVE_LEAVES.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.FALLEN_OLIVE_LEAVES.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.OLIVE_TWIGS.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.PLANE_SAPLING.get(), 0.3F);

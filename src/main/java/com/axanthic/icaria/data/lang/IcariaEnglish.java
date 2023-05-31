@@ -442,8 +442,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_SAPLING.get(), "Olive Sapling");
 		this.add(IcariaBlocks.POTTED_OLIVE_SAPLING.get(), "Potted Olive Sapling");
 		this.add(IcariaBlocks.OLIVE_LEAVES.get(), "Olive Leaves");
-		this.add(IcariaBlocks.BLACK_OLIVE_LEAVES.get(), "Black Olive Leaves");
-		this.add(IcariaBlocks.GREEN_OLIVE_LEAVES.get(), "Green Olive Leaves");
 		this.add(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), "Fallen Olive Leaves");
 		this.add(IcariaBlocks.OLIVE_TWIGS.get(), "Olive Twigs");
 		this.add(IcariaBlocks.OLIVE_WOOD.get(), "Olive Wood");

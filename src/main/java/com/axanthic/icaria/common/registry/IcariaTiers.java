@@ -22,12 +22,12 @@ public class IcariaTiers {
 	public static final IcariaTier MOLYBDENUMSTEEL = new IcariaTier(5, 673, 7.5F, 2.0F, 12, IcariaBlockTags.NEEDS_MOLYBDENUMSTEEL_TOOL, () -> Ingredient.of(IcariaItems.MOLYBDENUMSTEEL_INGOT.get()), Tiers.NETHERITE);
 
 	static {
-		TierSortingRegistry.registerTier(CHERT, new ResourceLocation(IcariaInfo.ID + ":chert"), List.of(Tiers.IRON), List.of(Tiers.DIAMOND, IcariaInfo.ID + ":chalkos"));
-		TierSortingRegistry.registerTier(CHALKOS, new ResourceLocation(IcariaInfo.ID + ":chalkos"), List.of(Tiers.DIAMOND, CHERT), List.of(Tiers.NETHERITE, IcariaInfo.ID + ":kassiteros"));
-		TierSortingRegistry.registerTier(KASSITEROS, new ResourceLocation(IcariaInfo.ID + ":kassiteros"), List.of(Tiers.DIAMOND, CHALKOS), List.of(Tiers.NETHERITE, IcariaInfo.ID + ":orichalcum"));
-		TierSortingRegistry.registerTier(ORICHALCUM, new ResourceLocation(IcariaInfo.ID + ":orichalcum"), List.of(Tiers.NETHERITE, CHALKOS), List.of(IcariaInfo.ID + ":vanadiumsteel"));
-		TierSortingRegistry.registerTier(VANADIUMSTEEL, new ResourceLocation(IcariaInfo.ID + ":vanadiumsteel"), List.of(ORICHALCUM), List.of(IcariaInfo.ID + ":sideros"));
-		TierSortingRegistry.registerTier(SIDEROS, new ResourceLocation(IcariaInfo.ID + ":sideros"), List.of(VANADIUMSTEEL), List.of(IcariaInfo.ID + ":molybdenumsteel"));
-		TierSortingRegistry.registerTier(MOLYBDENUMSTEEL, new ResourceLocation(IcariaInfo.ID + ":molybdenumsteel"), List.of(SIDEROS), List.of());
+		TierSortingRegistry.registerTier(IcariaTiers.CHERT, new ResourceLocation(IcariaInfo.ID + ":chert"), List.of(Tiers.IRON), List.of(Tiers.DIAMOND, IcariaInfo.ID + ":chalkos"));
+		TierSortingRegistry.registerTier(IcariaTiers.CHALKOS, new ResourceLocation(IcariaInfo.ID + ":chalkos"), List.of(Tiers.DIAMOND, IcariaTiers.CHERT), List.of(Tiers.NETHERITE, IcariaInfo.ID + ":kassiteros"));
+		TierSortingRegistry.registerTier(IcariaTiers.KASSITEROS, new ResourceLocation(IcariaInfo.ID + ":kassiteros"), List.of(Tiers.DIAMOND, IcariaTiers.CHALKOS), List.of(Tiers.NETHERITE, IcariaInfo.ID + ":orichalcum"));
+		TierSortingRegistry.registerTier(IcariaTiers.ORICHALCUM, new ResourceLocation(IcariaInfo.ID + ":orichalcum"), List.of(Tiers.NETHERITE, IcariaTiers.CHALKOS), List.of(IcariaInfo.ID + ":vanadiumsteel"));
+		TierSortingRegistry.registerTier(IcariaTiers.VANADIUMSTEEL, new ResourceLocation(IcariaInfo.ID + ":vanadiumsteel"), List.of(IcariaTiers.ORICHALCUM), List.of(IcariaInfo.ID + ":sideros"));
+		TierSortingRegistry.registerTier(IcariaTiers.SIDEROS, new ResourceLocation(IcariaInfo.ID + ":sideros"), List.of(IcariaTiers.VANADIUMSTEEL), List.of(IcariaInfo.ID + ":molybdenumsteel"));
+		TierSortingRegistry.registerTier(IcariaTiers.MOLYBDENUMSTEEL, new ResourceLocation(IcariaInfo.ID + ":molybdenumsteel"), List.of(IcariaTiers.SIDEROS), List.of());
 	}
 }

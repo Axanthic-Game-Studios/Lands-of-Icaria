@@ -19,7 +19,6 @@ import net.minecraft.world.item.Item.Properties;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.TierSortingRegistry;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
@@ -374,8 +373,6 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> OLIVE_SAPLING = register("olive_sapling", () -> new FuelBlockItem(IcariaBlocks.OLIVE_SAPLING.get(), new Properties(), 100));
 	public static final RegistryObject<Item> OLIVE_LEAVES = register("olive_leaves", () -> new BlockItem(IcariaBlocks.OLIVE_LEAVES.get(), new Properties()));
-	public static final RegistryObject<Item> BLACK_OLIVE_LEAVES = register("black_olive_leaves", () -> new BlockItem(IcariaBlocks.BLACK_OLIVE_LEAVES.get(), new Properties()));
-	public static final RegistryObject<Item> GREEN_OLIVE_LEAVES = register("green_olive_leaves", () -> new BlockItem(IcariaBlocks.GREEN_OLIVE_LEAVES.get(), new Properties()));
 	public static final RegistryObject<Item> FALLEN_OLIVE_LEAVES = register("fallen_olive_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), new Properties()));
 	public static final RegistryObject<Item> OLIVE_TWIGS = register("olive_twigs", () -> new FuelBlockItem(IcariaBlocks.OLIVE_TWIGS.get(), new Properties(), 100));
 	public static final RegistryObject<Item> OLIVE_WOOD = register("olive_wood", () -> new FuelBlockItem(IcariaBlocks.OLIVE_WOOD.get(), new Properties(), 300));
@@ -746,12 +743,12 @@ public class IcariaItems {
 	}
 
 	public static <T extends Item> RegistryObject<T> register(String pName, Supplier<T> pSupplier) {
-		return ITEMS.register(pName, pSupplier);
+		return IcariaItems.ITEMS.register(pName, pSupplier);
 	}
 
 	public static <T extends Item> RegistryObject<T> registerBasic(String pName, Supplier<T> pSupplier) {
 		RegistryObject<T> registryObject = register(pName, pSupplier);
-		BASIC_ITEMS.add(registryObject);
+		IcariaItems.BASIC_ITEMS.add(registryObject);
 		return registryObject;
 	}
 
@@ -769,7 +766,7 @@ public class IcariaItems {
 			this.stairs = register(pBlock.name + "_stairs", () -> new BlockItem(pBlock.stairs.get(), new Properties()));
 			this.slab = register(pBlock.name + "_slab", () -> new BlockItem(pBlock.slab.get(), new Properties()));
 			this.wall = register(pBlock.name + "_wall", () -> new BlockItem(pBlock.wall.get(), new Properties()));
-			STONE_DECO.add(this);
+			IcariaItems.STONE_DECO.add(this);
 		}
 	}
 
@@ -789,7 +786,7 @@ public class IcariaItems {
 			this.slab = register(pBlock.name + "_slab", () -> new BlockItem(pBlock.slab.get(), new Properties()));
 			this.fence = register(pBlock.name + "_fence", () -> new FuelBlockItem(pBlock.fence.get(), new Properties(), 300));
 			this.gate = register(pBlock.name + "_fence_gate", () -> new FuelBlockItem(pBlock.gate.get(), new Properties(), 300));
-			WOOD_DECO.add(this);
+			IcariaItems.WOOD_DECO.add(this);
 		}
 	}
 
@@ -814,7 +811,7 @@ public class IcariaItems {
 			this.axe = register(name + "_axe", () -> new IcariaAxeItem(pTier, 6, -3.0F, new Properties()));
 			this.scythe = register(name + "_scythe", () -> new ScytheItem(pTier, 4, -2.8F, new Properties()));
 			this.bident = register(name + "_bident", () -> new BidentItem(pTier, new Properties()));
-			TOOLS.add(this);
+			IcariaItems.TOOLS.add(this);
 		}
 	}
 
@@ -830,7 +827,7 @@ public class IcariaItems {
 			this.chestplate = register(name + "_chestplate", () -> new ArmorItem(pMaterial, ArmorItem.Type.CHESTPLATE, (new Properties())));
 			this.leggings = register(name + "_leggings", () -> new ArmorItem(pMaterial, ArmorItem.Type.LEGGINGS, (new Properties())));
 			this.boots = register(name + "_boots", () -> new ArmorItem(pMaterial, ArmorItem.Type.BOOTS, (new Properties())));
-			ARMOR.add(this);
+			IcariaItems.ARMOR.add(this);
 		}
 	}
 }

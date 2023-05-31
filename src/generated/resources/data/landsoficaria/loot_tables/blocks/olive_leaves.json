@@ -127,6 +127,52 @@
             }
           ],
           "name": "minecraft:stick"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:olive_leaves",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "stage": "1"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "landsoficaria:green_olives"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:olive_leaves",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "stage": "2"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "landsoficaria:black_olives"
         }
       ],
       "rolls": 1.0

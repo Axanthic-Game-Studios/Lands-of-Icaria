@@ -57,6 +57,6 @@ public class IcariaEntityTypes {
 	public static final RegistryObject<EntityType<VinegaroonEntity>> VINEGAROON = register("vinegaroon", Builder.of(VinegaroonEntity::new, MobCategory.MONSTER).sized(2.0F, 0.75F));
 
 	public static <T extends Entity> RegistryObject<EntityType<T>> register(String pName, Builder<T> pBuilder) {
-		return ENTITY_TYPES.register(pName, () -> pBuilder.build(IcariaInfo.ID + ":" + pName));
+		return IcariaEntityTypes.ENTITY_TYPES.register(pName, () -> pBuilder.build(IcariaInfo.ID + ":" + pName));
 	}
 }

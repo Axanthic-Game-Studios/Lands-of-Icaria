@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "stage=0": { "model": "landsoficaria:block/olive_leaves" },
+    "stage=1": { "model": "landsoficaria:block/green_olive_leaves" },
+    "stage=2": { "model": "landsoficaria:block/black_olive_leaves" }
+  }
+}

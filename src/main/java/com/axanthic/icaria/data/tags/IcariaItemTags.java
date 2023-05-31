@@ -653,8 +653,6 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.FIR_LEAVES.get())
 			.add(IcariaItems.LAUREL_LEAVES.get())
 			.add(IcariaItems.OLIVE_LEAVES.get())
-			.add(IcariaItems.BLACK_OLIVE_LEAVES.get())
-			.add(IcariaItems.GREEN_OLIVE_LEAVES.get())
 			.add(IcariaItems.PLANE_LEAVES.get())
 			.add(IcariaItems.POPULUS_LEAVES.get());
 

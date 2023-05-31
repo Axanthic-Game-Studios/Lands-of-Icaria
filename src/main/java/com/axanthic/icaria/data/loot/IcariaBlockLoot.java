@@ -1,5 +1,6 @@
 package com.axanthic.icaria.data.loot;
 
+import com.axanthic.icaria.common.block.OliveLeavesBlock;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
@@ -38,6 +39,7 @@ import java.util.stream.Collectors;
 
 public class IcariaBlockLoot extends BlockLootSubProvider {
 	public static final float[] SAPLING_CHANCES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};
+	public static final float[] STICK_CHANCES = new float[]{0.02F, 0.022222223F, 0.025F, 0.033333335F, 0.1F};
 
 	public static final LootItemCondition.Builder HAS_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
 	public static final LootItemCondition.Builder HAS_SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1))));
@@ -340,14 +342,12 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropLeaves(IcariaBlocks.CYPRESS_LEAVES.get(), IcariaBlocks.CYPRESS_SAPLING.get());
 		this.dropLeaves(IcariaBlocks.DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_SAPLING.get());
 		this.dropLeaves(IcariaBlocks.FIR_LEAVES.get(), IcariaBlocks.FIR_SAPLING.get());
-		this.dropLeaves(IcariaBlocks.OLIVE_LEAVES.get(), IcariaBlocks.OLIVE_SAPLING.get());
 		this.dropLeaves(IcariaBlocks.PLANE_LEAVES.get(), IcariaBlocks.PLANE_SAPLING.get());
 		this.dropLeaves(IcariaBlocks.POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_SAPLING.get());
 
 		this.dropLaurelsLeaves(IcariaBlocks.LAUREL_LEAVES.get(), IcariaBlocks.LAUREL_SAPLING.get());
 
-		this.dropOlivesLeaves(IcariaBlocks.BLACK_OLIVE_LEAVES.get(), IcariaItems.BLACK_OLIVES.get());
-		this.dropOlivesLeaves(IcariaBlocks.GREEN_OLIVE_LEAVES.get(), IcariaItems.GREEN_OLIVES.get());
+		this.dropOlivesLeaves(IcariaBlocks.OLIVE_LEAVES.get(), IcariaBlocks.OLIVE_SAPLING.get(), IcariaItems.GREEN_OLIVES.get(), IcariaItems.BLACK_OLIVES.get());
 
 		this.dropLayers(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get());
 		this.dropLayers(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get());
@@ -493,8 +493,8 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.add(pLeavesBlock, createLaurelLeavesDrop(pLeavesBlock, pSaplingBlock, SAPLING_CHANCES));
 	}
 
-	public void dropOlivesLeaves(Block pBlock, Item pItem) {
-		this.add(pBlock, createSilkTouchOrShearsDispatchTable(pBlock, applyExplosionDecay(pBlock, LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))));
+	public void dropOlivesLeaves(Block pLeavesBlock, Block pSaplingBlock, Item pGreenOlive, Item pBlackOlive) {
+		this.add(pLeavesBlock, createSilkTouchOrShearsDispatchTable(pLeavesBlock, this.applyExplosionCondition(pLeavesBlock, LootItem.lootTableItem(pSaplingBlock)).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, SAPLING_CHANCES))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(this.applyExplosionDecay(pLeavesBlock, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, STICK_CHANCES))).add(this.applyExplosionDecay(pLeavesBlock, LootItem.lootTableItem(pGreenOlive).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OliveLeavesBlock.STAGE, 1)))).add(this.applyExplosionDecay(pLeavesBlock, LootItem.lootTableItem(pBlackOlive).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OliveLeavesBlock.STAGE, 2))))));
 	}
 
 	public void dropLayers(Block pBlock) {

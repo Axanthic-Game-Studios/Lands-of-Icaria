@@ -58,6 +58,7 @@ public class Icaria {
 		IcariaDimensions.CHUNK_GENERATORS.register(eventBus);
 		IcariaConfiguredFeatures.CONFIGURED_FEATURES.register(eventBus);
 		IcariaEntityTypes.ENTITY_TYPES.register(eventBus);
+		IcariaFeatures.FEATURES.register(eventBus);
 		IcariaFluids.FLUIDS.register(eventBus);
 		IcariaFluidTypes.FLUID_TYPES.register(eventBus);
 		IcariaItems.ITEMS.register(eventBus);
