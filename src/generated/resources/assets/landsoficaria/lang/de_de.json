@@ -1,4 +1,9 @@
 {
+  "biome.landsoficaria.desert": "Ikarische Wüste",
+  "biome.landsoficaria.forest": "Ikarischer Wald",
+  "biome.landsoficaria.scrubland": "Ikarisches Buschland",
+  "biome.landsoficaria.steppe": "Ikarische Steppe",
+  "biome.landsoficaria.void": "Ikarische Leere",
   "block.landsoficaria.aeternae_skull": "Äternschädel",
   "block.landsoficaria.anthracite_block": "Schwarzkohleblock",
   "block.landsoficaria.anthracite_ore": "Schwarzkohleerz",

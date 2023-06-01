@@ -1,4 +1,9 @@
 {
+  "biome.landsoficaria.desert": "Icarian Desert",
+  "biome.landsoficaria.forest": "Icarian Forest",
+  "biome.landsoficaria.scrubland": "Icarian Scrubland",
+  "biome.landsoficaria.steppe": "Icarian Steppe",
+  "biome.landsoficaria.void": "Icarian Void",
   "block.landsoficaria.aeternae_skull": "Aeternae Skull",
   "block.landsoficaria.anthracite_block": "Block of Anthracite",
   "block.landsoficaria.anthracite_ore": "Anthracite Ore",

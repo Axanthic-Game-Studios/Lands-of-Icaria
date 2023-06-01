@@ -17,6 +17,13 @@ public class IcariaGerman extends LanguageProvider {
 
 	@Override
 	public void addTranslations() {
+		// BIOMES
+		this.add("biome." + IcariaInfo.ID + ".desert", "Ikarische Wüste");
+		this.add("biome." + IcariaInfo.ID + ".forest", "Ikarischer Wald");
+		this.add("biome." + IcariaInfo.ID + ".scrubland", "Ikarisches Buschland");
+		this.add("biome." + IcariaInfo.ID + ".steppe", "Ikarische Steppe");
+		this.add("biome." + IcariaInfo.ID + ".void", "Ikarische Leere");
+
 		// BLOCKS
 		this.add(IcariaBlocks.GRASSY_MARL.get(), "Begraster Mergel");
 		this.add(IcariaBlocks.MARL.get(), "Mergel");

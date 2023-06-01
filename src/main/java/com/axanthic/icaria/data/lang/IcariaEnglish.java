@@ -17,6 +17,13 @@ public class IcariaEnglish extends LanguageProvider {
 
 	@Override
 	public void addTranslations() {
+		// BIOMES
+		this.add("biome." + IcariaInfo.ID + ".desert", "Icarian Desert");
+		this.add("biome." + IcariaInfo.ID + ".forest", "Icarian Forest");
+		this.add("biome." + IcariaInfo.ID + ".scrubland", "Icarian Scrubland");
+		this.add("biome." + IcariaInfo.ID + ".steppe", "Icarian Steppe");
+		this.add("biome." + IcariaInfo.ID + ".void", "Icarian Void");
+
 		// BLOCKS
 		this.add(IcariaBlocks.GRASSY_MARL.get(), "Grassy Marl");
 		this.add(IcariaBlocks.MARL.get(), "Marl");
