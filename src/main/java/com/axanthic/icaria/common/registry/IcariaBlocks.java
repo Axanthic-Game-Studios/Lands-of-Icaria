@@ -8,14 +8,17 @@ import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
 import com.axanthic.icaria.common.world.tree.*;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction.Axis;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 
@@ -588,6 +591,10 @@ public class IcariaBlocks {
 
 	public static final RegistryObject<Block> PORTAL = register("portal", () -> new IcariaPortalBlock(propertiesPortal()));
 
+	public static boolean always(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+		return true;
+	}
+
 	public static Properties propertiesGrass() {
 		return Properties.of(Material.GRASS, MaterialColor.COLOR_GREEN).sound(SoundType.GRASS).strength(0.6F, 0.6F).randomTicks();
 	}
@@ -761,7 +768,7 @@ public class IcariaBlocks {
 	}
 
 	public static Properties propertiesShroom(MaterialColor pColor) {
-		return Properties.of(Material.PLANT, pColor).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollission().randomTicks();
+		return Properties.of(Material.PLANT, pColor).sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess(IcariaBlocks::always).instabreak().noCollission().randomTicks();
 	}
 
 	public static Properties propertiesCactus(MaterialColor pColor) {

@@ -99,7 +99,7 @@ public class IcariaVineBaseBlock extends Block {
 			return false;
 		} else {
 			BlockPos blockPos = pPos.relative(pDirection);
-			if (this.isAcceptableNeighbour(pLevel, blockPos, pDirection)) {
+			if (IcariaVineBaseBlock.isAcceptableNeighbour(pLevel, blockPos, pDirection)) {
 				return true;
 			} else if (pDirection.getAxis() == Direction.Axis.Y) {
 				return false;
@@ -123,7 +123,7 @@ public class IcariaVineBaseBlock extends Block {
 		return pState.getValue(NORTH) || pState.getValue(EAST) || pState.getValue(SOUTH) || pState.getValue(WEST);
 	}
 
-	public boolean isAcceptableNeighbour(BlockGetter pLevel, BlockPos pPos, Direction pDirection) {
+	public static boolean isAcceptableNeighbour(BlockGetter pLevel, BlockPos pPos, Direction pDirection) {
 		return Block.isFaceFull(pLevel.getBlockState(pPos).getCollisionShape(pLevel, pPos), pDirection.getOpposite());
 	}
 
@@ -154,7 +154,7 @@ public class IcariaVineBaseBlock extends Block {
 			if (pLevel.isAreaLoaded(pPos, 4)) {
 				BlockPos posAbove = pPos.above();
 				Direction directionRandom = Direction.getRandom(pRandom);
-				if (directionRandom.getAxis().isHorizontal() && !pState.getValue(this.getPropertyForFace(directionRandom))) {
+				if (directionRandom.getAxis().isHorizontal() && !pState.getValue(IcariaVineBaseBlock.getPropertyForFace(directionRandom))) {
 					if (this.canSpread(pLevel, pPos)) {
 						BlockPos posRelative = pPos.relative(directionRandom);
 						BlockState stateRelative = pLevel.getBlockState(posRelative);
@@ -163,24 +163,24 @@ public class IcariaVineBaseBlock extends Block {
 							Direction directionCounterClockWise = directionRandom.getCounterClockWise();
 							BlockPos posClockWise = posRelative.relative(directionClockWise);
 							BlockPos posCounterClockwise = posRelative.relative(directionCounterClockWise);
-							boolean flagClockWise = pState.getValue(this.getPropertyForFace(directionClockWise));
-							boolean flagCounterClockwise = pState.getValue(this.getPropertyForFace(directionCounterClockWise));
-							if (flagClockWise && this.isAcceptableNeighbour(pLevel, posClockWise, directionClockWise)) {
-								pLevel.setBlock(posRelative, this.defaultBlockState().setValue(this.getPropertyForFace(directionClockWise), true), 2);
-							} else if (flagCounterClockwise && this.isAcceptableNeighbour(pLevel, posCounterClockwise, directionCounterClockWise)) {
-								pLevel.setBlock(posRelative, this.defaultBlockState().setValue(this.getPropertyForFace(directionCounterClockWise), true), 2);
+							boolean flagClockWise = pState.getValue(IcariaVineBaseBlock.getPropertyForFace(directionClockWise));
+							boolean flagCounterClockwise = pState.getValue(IcariaVineBaseBlock.getPropertyForFace(directionCounterClockWise));
+							if (flagClockWise && IcariaVineBaseBlock.isAcceptableNeighbour(pLevel, posClockWise, directionClockWise)) {
+								pLevel.setBlock(posRelative, this.defaultBlockState().setValue(IcariaVineBaseBlock.getPropertyForFace(directionClockWise), true), 2);
+							} else if (flagCounterClockwise && IcariaVineBaseBlock.isAcceptableNeighbour(pLevel, posCounterClockwise, directionCounterClockWise)) {
+								pLevel.setBlock(posRelative, this.defaultBlockState().setValue(IcariaVineBaseBlock.getPropertyForFace(directionCounterClockWise), true), 2);
 							} else {
 								Direction directionOpposite = directionRandom.getOpposite();
-								if (flagClockWise && pLevel.isEmptyBlock(posClockWise) && this.isAcceptableNeighbour(pLevel, pPos.relative(directionClockWise), directionOpposite)) {
-									pLevel.setBlock(posClockWise, this.defaultBlockState().setValue(this.getPropertyForFace(directionOpposite), true), 2);
-								} else if (flagCounterClockwise && pLevel.isEmptyBlock(posCounterClockwise) && this.isAcceptableNeighbour(pLevel, pPos.relative(directionCounterClockWise), directionOpposite)) {
-									pLevel.setBlock(posCounterClockwise, this.defaultBlockState().setValue(this.getPropertyForFace(directionOpposite), true), 2);
-								} else if (pRandom.nextFloat() < 0.05D && this.isAcceptableNeighbour(pLevel, posRelative.above(), Direction.UP)) {
+								if (flagClockWise && pLevel.isEmptyBlock(posClockWise) && IcariaVineBaseBlock.isAcceptableNeighbour(pLevel, pPos.relative(directionClockWise), directionOpposite)) {
+									pLevel.setBlock(posClockWise, this.defaultBlockState().setValue(IcariaVineBaseBlock.getPropertyForFace(directionOpposite), true), 2);
+								} else if (flagCounterClockwise && pLevel.isEmptyBlock(posCounterClockwise) && IcariaVineBaseBlock.isAcceptableNeighbour(pLevel, pPos.relative(directionCounterClockWise), directionOpposite)) {
+									pLevel.setBlock(posCounterClockwise, this.defaultBlockState().setValue(IcariaVineBaseBlock.getPropertyForFace(directionOpposite), true), 2);
+								} else if (pRandom.nextFloat() < 0.05D && IcariaVineBaseBlock.isAcceptableNeighbour(pLevel, posRelative.above(), Direction.UP)) {
 									pLevel.setBlock(posRelative, this.defaultBlockState().setValue(UP, true), 2);
 								}
 							}
-						} else if (this.isAcceptableNeighbour(pLevel, posRelative, directionRandom)) {
-							pLevel.setBlock(pPos, pState.setValue(this.getPropertyForFace(directionRandom), true), 2);
+						} else if (IcariaVineBaseBlock.isAcceptableNeighbour(pLevel, posRelative, directionRandom)) {
+							pLevel.setBlock(pPos, pState.setValue(IcariaVineBaseBlock.getPropertyForFace(directionRandom), true), 2);
 						}
 					}
 				} else {
@@ -198,8 +198,8 @@ public class IcariaVineBaseBlock extends Block {
 								}
 
 								for (Direction direction : Direction.Plane.HORIZONTAL) {
-									if (pRandom.nextBoolean() || !this.isAcceptableNeighbour(pLevel, posAbove.relative(direction), direction)) {
-										blockState = blockState.setValue(this.getPropertyForFace(direction), false);
+									if (pRandom.nextBoolean() || !IcariaVineBaseBlock.isAcceptableNeighbour(pLevel, posAbove.relative(direction), direction)) {
+										blockState = blockState.setValue(IcariaVineBaseBlock.getPropertyForFace(direction), false);
 									}
 								}
 
@@ -245,7 +245,7 @@ public class IcariaVineBaseBlock extends Block {
 		BlockState stateTwo = flagOne ? stateOne : this.defaultBlockState();
 		for (Direction direction : pContext.getNearestLookingDirections()) {
 			if (direction != Direction.DOWN) {
-				BooleanProperty booleanProperty = this.getPropertyForFace(direction);
+				BooleanProperty booleanProperty = IcariaVineBaseBlock.getPropertyForFace(direction);
 				boolean flagTwo = flagOne && stateOne.getValue(booleanProperty);
 				if (!flagTwo && this.canSupportAtFace(pContext.getLevel(), pContext.getClickedPos(), direction)) {
 					return stateTwo.setValue(booleanProperty, true);
@@ -259,12 +259,12 @@ public class IcariaVineBaseBlock extends Block {
 	public BlockState getUpdatedState(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
 		BlockPos blockPos = pPos.above();
 		if (pState.getValue(UP)) {
-			pState = pState.setValue(UP, this.isAcceptableNeighbour(pLevel, blockPos, Direction.DOWN));
+			pState = pState.setValue(UP, IcariaVineBaseBlock.isAcceptableNeighbour(pLevel, blockPos, Direction.DOWN));
 		}
 
 		BlockState blockState = null;
 		for (Direction direction : Direction.Plane.HORIZONTAL) {
-			BooleanProperty booleanProperty = this.getPropertyForFace(direction);
+			BooleanProperty booleanProperty = IcariaVineBaseBlock.getPropertyForFace(direction);
 			if (pState.getValue(booleanProperty)) {
 				boolean flag = this.canSupportAtFace(pLevel, pPos, direction);
 				if (!flag) {
@@ -311,7 +311,7 @@ public class IcariaVineBaseBlock extends Block {
 		}
 	}
 
-	public BooleanProperty getPropertyForFace(Direction pDirection) {
+	public static BooleanProperty getPropertyForFace(Direction pDirection) {
 		return PROPERTY_BY_DIRECTION.get(pDirection);
 	}
 

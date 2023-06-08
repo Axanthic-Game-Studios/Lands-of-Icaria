@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.registry.IcariaBlocks;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -42,7 +44,7 @@ public class BushTypeBlock extends Block implements IPlantable {
 	}
 
 	public boolean mayPlaceOn(BlockState pState) {
-		return pState.is(BlockTags.DIRT);
+		return this.equals(IcariaBlocks.BOLBOS.get())|| this.equals(IcariaBlocks.MONDANOS.get()) ? pState.is(BlockTags.SAND) : pState.is(BlockTags.DIRT);
 	}
 
 	@Override

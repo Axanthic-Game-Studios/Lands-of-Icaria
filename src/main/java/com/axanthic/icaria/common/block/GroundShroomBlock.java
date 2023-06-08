@@ -34,17 +34,13 @@ public class GroundShroomBlock extends Block implements IPlantable {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		return this.mayPlaceOn(pLevel.getBlockState(pPos.below()), pLevel, pPos);
-	}
-
-	public boolean mayPlaceOn(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		if (pState.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
+		var pos = pPos.below();
+		var state = pLevel.getBlockState(pos);
+		if (state.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
 			return true;
-		} else if (Block.isFaceFull(pLevel.getBlockState(pPos.below()).getCollisionShape(pLevel, pPos.below()), Direction.UP)) {
-			return pLevel.getRawBrightness(pPos, 0) < 13 && pState.canSustainPlant(pLevel, pPos, Direction.UP, this);
+		} else {
+			return pLevel.getRawBrightness(pPos, 0) <= 12 && state.canSustainPlant(pLevel, pos, Direction.UP, this);
 		}
-
-		return false;
 	}
 
 	@Override

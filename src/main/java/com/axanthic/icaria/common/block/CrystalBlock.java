@@ -47,12 +47,12 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Simpl
 
 	public CrystalBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.DOWN).setValue(WATERLOGGED, false));
 	}
 
 	public CrystalBlock(Properties pProperties, float pRed, float pGreen, float pBlue) {
 		this(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.DOWN).setValue(WATERLOGGED, false));
 		this.r = pRed;
 		this.g = pGreen;
 		this.b = pBlue;

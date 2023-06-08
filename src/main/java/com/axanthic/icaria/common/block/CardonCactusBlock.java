@@ -43,21 +43,6 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false).setValue(UP, false).setValue(DOWN, false));
 	}
 
-	public boolean canSpread(BlockGetter pLevel, BlockPos pPos) {
-		Iterable<BlockPos> iterable = BlockPos.betweenClosed(pPos.getX() - 2, pPos.getY() - 8, pPos.getZ() - 2, pPos.getX() + 2, pPos.getY() + 8, pPos.getZ() + 2);
-		int j = 8;
-		for (BlockPos pos : iterable) {
-			if (pLevel.getBlockState(pos).is(this)) {
-				--j;
-				if (j <= 0) {
-					return false;
-				}
-			}
-		}
-
-		return true;
-	}
-
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		BlockState blockState = pLevel.getBlockState(pPos.below());
@@ -91,55 +76,19 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 
 	@Override
 	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (this.canSpread(pLevel, pPos)) {
-			if (pLevel.isAreaLoaded(pPos, 4)) {
-				if (pRandom.nextInt(4) == 0) {
-					if (pLevel.getBlockState(pPos.above()).isAir()) {
-						pLevel.setBlock(pPos.above(), this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)), 2);
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(pRandom);
+		if (pLevel.isAreaLoaded(pPos, 1)) {
+			if (pRandom.nextInt(4) == 0) {
+				if (pLevel.getBlockState(pPos.above()).isAir()) {
+					if (!pLevel.getBlockState(pPos.below(4)).is(this) && !pLevel.getBlockState(pPos.north()).is(this) && !pLevel.getBlockState(pPos.east()).is(this) && !pLevel.getBlockState(pPos.south()).is(this) && !pLevel.getBlockState(pPos.west()).is(this)) {
+						pLevel.setBlock(pPos.above(), this.defaultBlockState().setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)).setValue(UP, pState.getValue(UP)).setValue(DOWN, pState.getValue(DOWN)), 2);
 					}
 				}
 
-				if (!pLevel.getBlockState(pPos.above(2)).equals(this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)))) {
-					if (!pLevel.getBlockState(pPos.below(2)).equals(this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)))) {
-						if (pLevel.getBlockState(pPos.above()).equals(this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)))) {
-							if (pLevel.getBlockState(pPos.below()).equals(this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)))) {
-								if (pRandom.nextInt(4) == 0) {
-									if (pLevel.getBlockState(pPos.north()).isAir()) {
-										if (pLevel.getBlockState(pPos.north().above()).isAir()) {
-											pLevel.setBlock(pPos.north(), this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)), 2);
-											pLevel.setBlock(pPos.north().above(), this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)), 2);
-										}
-									}
-								}
-
-								if (pRandom.nextInt(4) == 0) {
-									if (pLevel.getBlockState(pPos.east()).isAir()) {
-										if (pLevel.getBlockState(pPos.east().above()).isAir()) {
-											pLevel.setBlock(pPos.east(), this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)), 2);
-											pLevel.setBlock(pPos.east().above(), this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)), 2);
-										}
-									}
-								}
-
-								if (pRandom.nextInt(4) == 0) {
-									if (pLevel.getBlockState(pPos.south()).isAir()) {
-										if (pLevel.getBlockState(pPos.south().above()).isAir()) {
-											pLevel.setBlock(pPos.south(), this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)), 2);
-											pLevel.setBlock(pPos.south().above(), this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)), 2);
-										}
-									}
-								}
-
-								if (pRandom.nextInt(4) == 0) {
-									if (pLevel.getBlockState(pPos.west()).isAir()) {
-										if (pLevel.getBlockState(pPos.west().above()).isAir()) {
-											pLevel.setBlock(pPos.west(), this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)), 2);
-											pLevel.setBlock(pPos.west().above(), this.defaultBlockState().setValue(DOWN, pState.getValue(DOWN)).setValue(UP, pState.getValue(UP)).setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)), 2);
-										}
-									}
-								}
-							}
-						}
+				if (pLevel.getBlockState(pPos.relative(direction)).isAir() && pLevel.getBlockState(pPos.above().relative(direction)).isAir()) {
+					if (pLevel.getBlockState(pPos.above(2)).is(this) && pLevel.getBlockState(pPos.below()).is(this)) {
+						pLevel.setBlock(pPos.relative(direction), this.defaultBlockState().setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)).setValue(UP, pState.getValue(UP)).setValue(DOWN, pState.getValue(DOWN)), 2);
+						pLevel.setBlock(pPos.above().relative(direction), this.defaultBlockState().setValue(NORTH, pState.getValue(NORTH)).setValue(EAST, pState.getValue(EAST)).setValue(SOUTH, pState.getValue(SOUTH)).setValue(WEST, pState.getValue(WEST)).setValue(UP, pState.getValue(UP)).setValue(DOWN, pState.getValue(DOWN)), 2);
 					}
 				}
 			}
