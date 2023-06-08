@@ -1,0 +1,50 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "landsoficaria:grainite_rubble",
+              "Properties": {
+                "waterlogged": "false"
+              }
+            }
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:grainel",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ]
+              },
+              {
+                "type": "minecraft:matching_fluids",
+                "fluids": "minecraft:empty"
+              },
+              {
+                "type": "minecraft:replaceable"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "tries": 16,
+    "xz_spread": 4,
+    "y_spread": 4
+  }
+}
