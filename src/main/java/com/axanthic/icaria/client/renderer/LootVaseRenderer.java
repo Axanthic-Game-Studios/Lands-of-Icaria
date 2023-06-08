@@ -20,9 +20,9 @@ import net.minecraftforge.client.model.data.ModelData;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("deprecation")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-@SuppressWarnings("deprecation")
 
 public class LootVaseRenderer extends EntityRenderer<LootVaseEntity> {
     public BlockRenderDispatcher dispatcher;

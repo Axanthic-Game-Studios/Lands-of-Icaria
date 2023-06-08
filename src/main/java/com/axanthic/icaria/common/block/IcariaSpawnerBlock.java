@@ -23,9 +23,9 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("deprecation")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-@SuppressWarnings("deprecation")
 
 public class IcariaSpawnerBlock extends BaseEntityBlock {
     public IcariaSpawnerBlock(Properties pProperties) {

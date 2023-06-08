@@ -25,9 +25,9 @@ import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("deprecation")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-@SuppressWarnings("deprecation")
 
 public class LootVaseBlock extends Block {
     public LootVaseBlock(Properties pProperties) {

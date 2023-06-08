@@ -26,9 +26,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("deprecation")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-@SuppressWarnings("deprecation")
 
 public class RevenantEntity extends Monster {
     public RevenantEntity(EntityType<? extends RevenantEntity> pType, Level pLevel) {
