@@ -9,10 +9,14 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -24,7 +28,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class LayerBlock extends Block {
+public class LayerBlock extends Block implements SimpleWaterloggedBlock {
+	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+
 	public static final IntegerProperty LAYERS = BlockStateProperties.LAYERS;
 
 	public static final VoxelShape[] SHAPES = new VoxelShape[] {
@@ -33,12 +39,12 @@ public class LayerBlock extends Block {
 
 	public LayerBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(LAYERS, 1));
+		this.registerDefaultState(this.stateDefinition.any().setValue(LayerBlock.LAYERS, 1).setValue(LayerBlock.WATERLOGGED, false));
 	}
 
 	@Override
 	public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-		int i = pState.getValue(LAYERS);
+		int i = pState.getValue(LayerBlock.LAYERS);
 		if (pUseContext.getItemInHand().is(this.asItem()) && i < 8) {
 			if (pUseContext.replacingClickedOnBlock()) {
 				return pUseContext.getClickedFace() == Direction.UP;
@@ -53,13 +59,13 @@ public class LayerBlock extends Block {
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		BlockState blockState = pLevel.getBlockState(pPos.below());
-		return Block.isFaceFull(blockState.getCollisionShape(pLevel, pPos.below()), Direction.UP) || blockState.is(this) && blockState.getValue(LAYERS) == 8;
+		return Block.isFaceFull(blockState.getCollisionShape(pLevel, pPos.below()), Direction.UP) || blockState.is(this) && blockState.getValue(LayerBlock.LAYERS) == 8;
 	}
 
 	@Override
 	public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
 		if (pType == PathComputationType.LAND) {
-			return pState.getValue(LAYERS) < 5;
+			return pState.getValue(LayerBlock.LAYERS) < 5;
 		}
 
 		return false;
@@ -72,7 +78,7 @@ public class LayerBlock extends Block {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(LAYERS);
+		pBuilder.add(LayerBlock.LAYERS, LayerBlock.WATERLOGGED);
 	}
 
 	@Override
@@ -84,30 +90,35 @@ public class LayerBlock extends Block {
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
 		BlockState blockState = pContext.getLevel().getBlockState(pContext.getClickedPos());
 		if (blockState.is(this)) {
-			int i = blockState.getValue(LAYERS);
-			return blockState.setValue(LAYERS, Math.min(8, i + 1));
+			int i = blockState.getValue(LayerBlock.LAYERS);
+			return blockState.setValue(LayerBlock.LAYERS, Math.min(8, i + 1));
 		} else {
-			return super.getStateForPlacement(pContext);
+			return super.getStateForPlacement(pContext).setValue(LootVaseBlock.WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
 		}
 	}
 
 	@Override
+	public FluidState getFluidState(BlockState pState) {
+		return pState.getValue(LootVaseBlock.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+	}
+
+	@Override
 	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
-		return SHAPES[pState.getValue(LAYERS)];
+		return SHAPES[pState.getValue(LayerBlock.LAYERS)];
 	}
 
 	@Override
 	public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPES[pState.getValue(LAYERS) - 1];
+		return SHAPES[pState.getValue(LayerBlock.LAYERS) - 1];
 	}
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPES[pState.getValue(LAYERS)];
+		return SHAPES[pState.getValue(LayerBlock.LAYERS)];
 	}
 
 	@Override
 	public VoxelShape getVisualShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPES[pState.getValue(LAYERS)];
+		return SHAPES[pState.getValue(LayerBlock.LAYERS)];
 	}
 }
