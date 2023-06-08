@@ -76,11 +76,6 @@ public class ScorpionEntity extends IcariaArachnidEntity {
     }
 
     @Override
-    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-        return false;
-    }
-
-    @Override
     public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
         return 0.625F;
     }

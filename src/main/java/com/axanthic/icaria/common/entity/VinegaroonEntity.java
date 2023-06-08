@@ -88,11 +88,6 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     }
 
     @Override
-    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-        return false;
-    }
-
-    @Override
     public boolean shouldRiderSit() {
         return false;
     }
