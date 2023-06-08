@@ -54,16 +54,16 @@ public class IcariaDimensions {
 				false, // ceiling
 				false, // ultrawarm
 				true, // natural
-				1D, // coordinate scale
-				true, // bed works
-				true, // respawn anchor works
+				1.0D, // coordinate scale
+				false, // bed works
+				false, // respawn anchor works
 				-64, // Minimum Y Level
 				384, // Height + Min Y = Max Y
 				384, // Logical Height
 				BlockTags.INFINIBURN_OVERWORLD, // infiburn
 				BuiltinDimensionTypes.OVERWORLD_EFFECTS, // DimensionRenderInfo
-				0f, // ambient light
-				new DimensionType.MonsterSettings(false, false, UniformInt.of(0, 7), 7));
+				0.0F, // ambient light
+				new DimensionType.MonsterSettings(false, false, UniformInt.of(0, 7), 0));
 	}
 
 	public static List<Climate.ParameterPoint> spawnTarget() {
