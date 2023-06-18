@@ -52,8 +52,9 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 	@Override
 	public void generate() {
 		this.dropWithSilk(IcariaBlocks.GRASSY_MARL.get(), IcariaItems.MARL.get(), 1.0F, 1.0F);
-		this.dropWithSilk(IcariaBlocks.SURFACE_CHERT.get(), IcariaItems.CHERT.get(), 1.0F, 4.0F);
-		this.dropWithSilk(IcariaBlocks.SURFACE_BONES.get(), IcariaItems.BONE_REMAINS.get(), 1.0F, 4.0F);
+		this.dropWithSilk(IcariaBlocks.SURFACE_CHERT.get(), IcariaItems.CHERT.get(), 1.0F, 2.0F);
+		this.dropWithSilk(IcariaBlocks.SURFACE_BONES.get(), IcariaItems.BONE_REMAINS.get(), 1.0F, 1.0F);
+		this.dropWithSilk(IcariaBlocks.SURFACE_LIGNITE.get(), IcariaItems.LIGNITE.get(), 1.0F, 2.0F);
 		this.dropWithSilk(IcariaBlocks.LOAM.get(), IcariaItems.LOAM_LUMP.get(), 4.0F, 4.0F);
 		this.dropWithSilk(IcariaBlocks.YELLOWSTONE.get(), IcariaItems.COBBLED_YELLOWSTONE.get(), 1.0F, 1.0F);
 		this.dropWithSilk(IcariaBlocks.SILKSTONE.get(), IcariaItems.COBBLED_SILKSTONE.get(), 1.0F, 1.0F);
@@ -61,13 +62,13 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropWithSilk(IcariaBlocks.VOIDSHALE.get(), IcariaItems.COBBLED_VOIDSHALE.get(), 1.0F, 1.0F);
 		this.dropWithSilk(IcariaBlocks.BAETYL.get(), IcariaItems.COBBLED_BAETYL.get(), 1.0F, 1.0F);
 		this.dropWithSilk(IcariaBlocks.SMOOTH_RELICSTONE.get(), IcariaItems.RELICSTONE.get(), 1.0F, 1.0F);
-		this.dropWithSilk(IcariaBlocks.CYPRESS_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
-		this.dropWithSilk(IcariaBlocks.DROUGHTROOT_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
-		this.dropWithSilk(IcariaBlocks.FIR_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
-		this.dropWithSilk(IcariaBlocks.LAUREL_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
-		this.dropWithSilk(IcariaBlocks.OLIVE_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
-		this.dropWithSilk(IcariaBlocks.PLANE_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
-		this.dropWithSilk(IcariaBlocks.POPULUS_TWIGS.get(), Items.STICK, 1.0F, 4.0F);
+		this.dropWithSilk(IcariaBlocks.CYPRESS_TWIGS.get(), Items.STICK, 1.0F, 2.0F);
+		this.dropWithSilk(IcariaBlocks.DROUGHTROOT_TWIGS.get(), Items.STICK, 1.0F, 2.0F);
+		this.dropWithSilk(IcariaBlocks.FIR_TWIGS.get(), Items.STICK, 1.0F, 2.0F);
+		this.dropWithSilk(IcariaBlocks.LAUREL_TWIGS.get(), Items.STICK, 1.0F, 2.0F);
+		this.dropWithSilk(IcariaBlocks.OLIVE_TWIGS.get(), Items.STICK, 1.0F, 2.0F);
+		this.dropWithSilk(IcariaBlocks.PLANE_TWIGS.get(), Items.STICK, 1.0F, 2.0F);
+		this.dropWithSilk(IcariaBlocks.POPULUS_TWIGS.get(), Items.STICK, 1.0F, 2.0F);
 
 		this.dropOres(IcariaBlocks.MARL_CHERT.get(), IcariaItems.CHERT.get());
 		this.dropOres(IcariaBlocks.MARL_LIGNITE.get(), IcariaItems.LIGNITE.get());

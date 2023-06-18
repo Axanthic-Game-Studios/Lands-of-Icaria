@@ -32,6 +32,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.MARL_BONES.get(), "Rotten Bones");
 		this.add(IcariaBlocks.SURFACE_BONES.get(), "Bone Remains");
 		this.add(IcariaBlocks.MARL_LIGNITE.get(), "Lignite Ore");
+		this.add(IcariaBlocks.SURFACE_LIGNITE.get(), "Lignite Rubble");
 		this.add(IcariaBlocks.COARSE_MARL.get(), "Coarse Marl");
 		this.add(IcariaBlocks.DRY_LAKE_BED.get(), "Dry Lake Bed");
 

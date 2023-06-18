@@ -33,10 +33,9 @@ import java.util.List;
 public class IcariaConfiguredFeatures {
 	public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registries.CONFIGURED_FEATURE, IcariaInfo.ID);
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_LIGNITE = IcariaConfiguredFeatures.registerKey("marl_lignite");
-
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_CHERT = IcariaConfiguredFeatures.registerKey("marl_chert");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_BONES = IcariaConfiguredFeatures.registerKey("marl_bones");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_LIGNITE = IcariaConfiguredFeatures.registerKey("marl_lignite");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAINEL_CHERT = IcariaConfiguredFeatures.registerKey("grainel_chert");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAINITE_SPIKE = IcariaConfiguredFeatures.registerKey("grainite_spike");
@@ -152,10 +151,9 @@ public class IcariaConfiguredFeatures {
 		var voidshale = new TagMatchTest(IcariaBlockTags.ORE_BEARING_GROUND_VOIDSHALE);
 		var baetyl = new TagMatchTest(IcariaBlockTags.ORE_BEARING_GROUND_BAETYL);
 
-		pContext.register(IcariaConfiguredFeatures.MARL_LIGNITE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(marl, IcariaBlocks.MARL_LIGNITE.get().defaultBlockState(), 9)));
-
 		pContext.register(IcariaConfiguredFeatures.MARL_CHERT, new ConfiguredFeature<>(IcariaFeatures.MARL_CHERT.get(), FeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.MARL_BONES, new ConfiguredFeature<>(IcariaFeatures.MARL_BONES.get(), FeatureConfiguration.NONE));
+		pContext.register(IcariaConfiguredFeatures.MARL_LIGNITE, new ConfiguredFeature<>(IcariaFeatures.MARL_LIGNITE.get(), FeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.GRAINEL_CHERT, new ConfiguredFeature<>(IcariaFeatures.GRAINEL_CHERT.get(), FeatureConfiguration.NONE));
 
 		pContext.register(IcariaConfiguredFeatures.GRAINITE_SPIKE, new ConfiguredFeature<>(IcariaFeatures.GRAINITE_SPIKE.get(), NoneFeatureConfiguration.NONE));

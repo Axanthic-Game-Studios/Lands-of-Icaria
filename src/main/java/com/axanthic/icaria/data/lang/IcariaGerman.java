@@ -32,6 +32,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.MARL_BONES.get(), "Verrottete Knochen");
 		this.add(IcariaBlocks.SURFACE_BONES.get(), "Knochenreste");
 		this.add(IcariaBlocks.MARL_LIGNITE.get(), "Braunkohleerz");
+		this.add(IcariaBlocks.SURFACE_LIGNITE.get(), "Braunkohlegeröll");
 		this.add(IcariaBlocks.COARSE_MARL.get(), "Grober Mergel");
 		this.add(IcariaBlocks.DRY_LAKE_BED.get(), "Trockenes Seebett");
 

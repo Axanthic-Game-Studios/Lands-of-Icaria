@@ -3,7 +3,7 @@
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 64
+      "count": 4
     },
     {
       "type": "minecraft:in_square"
@@ -19,6 +19,23 @@
           "absolute": 0
         }
       }
+    },
+    {
+      "type": "minecraft:environment_scan",
+      "allowed_search_condition": {
+        "type": "minecraft:replaceable"
+      },
+      "direction_of_search": "down",
+      "max_steps": 16,
+      "target_condition": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "landsoficaria:grassy_marl"
+      }
+    },
+    {
+      "type": "minecraft:random_offset",
+      "xz_spread": 0,
+      "y_spread": 1
     },
     {
       "type": "minecraft:biome"

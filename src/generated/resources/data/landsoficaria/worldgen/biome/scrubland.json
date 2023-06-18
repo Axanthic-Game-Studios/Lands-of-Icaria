@@ -31,7 +31,6 @@
     ],
     [],
     [
-      "landsoficaria:marl_lignite",
       "landsoficaria:lignite_ore",
       "landsoficaria:chalkos_ore",
       "landsoficaria:kassiteros_ore",
@@ -48,6 +47,7 @@
     [
       "landsoficaria:marl_chert",
       "landsoficaria:marl_bones",
+      "landsoficaria:marl_lignite",
       "landsoficaria:yellowstone_rubble",
       "landsoficaria:silkstone_rubble",
       "landsoficaria:sunstone_rubble",

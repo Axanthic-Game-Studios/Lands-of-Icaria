@@ -27,10 +27,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaPlacedFeatures {
 	public static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister.create(Registries.PLACED_FEATURE, IcariaInfo.ID);
 
-	public static final ResourceKey<PlacedFeature> MARL_LIGNITE = IcariaPlacedFeatures.registerKey("marl_lignite");
-
 	public static final ResourceKey<PlacedFeature> MARL_CHERT = IcariaPlacedFeatures.registerKey("marl_chert");
 	public static final ResourceKey<PlacedFeature> MARL_BONES = IcariaPlacedFeatures.registerKey("marl_bones");
+	public static final ResourceKey<PlacedFeature> MARL_LIGNITE = IcariaPlacedFeatures.registerKey("marl_lignite");
 	public static final ResourceKey<PlacedFeature> GRAINEL_CHERT = IcariaPlacedFeatures.registerKey("grainel_chert");
 
 	public static final ResourceKey<PlacedFeature> GRAINITE_SPIKE = IcariaPlacedFeatures.registerKey("grainite_spike");
@@ -141,10 +140,9 @@ public class IcariaPlacedFeatures {
 	public static void bootstrapPlacedFeatures(BootstapContext<PlacedFeature> pContext) {
 		var configuredFeatures = pContext.lookup(Registries.CONFIGURED_FEATURE);
 
-		pContext.register(IcariaPlacedFeatures.MARL_LIGNITE, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.MARL_LIGNITE), List.of(CountPlacement.of(64), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), BiomeFilter.biome())));
-
 		pContext.register(IcariaPlacedFeatures.MARL_CHERT, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.MARL_CHERT), List.of(CountPlacement.of(4), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(IcariaBlocks.GRASSY_MARL.get()), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 		pContext.register(IcariaPlacedFeatures.MARL_BONES, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.MARL_BONES), List.of(CountPlacement.of(4), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(IcariaBlocks.GRASSY_MARL.get()), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
+		pContext.register(IcariaPlacedFeatures.MARL_LIGNITE, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.MARL_LIGNITE), List.of(CountPlacement.of(4), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(IcariaBlocks.GRASSY_MARL.get()), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 		pContext.register(IcariaPlacedFeatures.GRAINEL_CHERT, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.GRAINEL_CHERT), List.of(CountPlacement.of(4), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(IcariaBlocks.GRAINEL.get()), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 
 		pContext.register(IcariaPlacedFeatures.GRAINITE_SPIKE, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.GRAINITE_SPIKE), List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(96), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(IcariaBlocks.GRAINEL.get()), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));

@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.registry;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.world.feature.*;
 import com.axanthic.icaria.common.world.feature.dead.*;
+import com.axanthic.icaria.common.world.feature.hidden.MarlLigniteFeature;
 import com.axanthic.icaria.common.world.feature.shrooms.BrownGroundShroomsFeature;
 import com.axanthic.icaria.common.world.feature.shrooms.GreenGroundShroomsFeature;
 import com.axanthic.icaria.common.world.feature.shrooms.LargeBrownGroundShroomsFeature;
@@ -24,6 +25,7 @@ public class IcariaFeatures {
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> MARL_CHERT = IcariaFeatures.FEATURES.register("marl_chert", () -> new MarlChertFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> MARL_BONES = IcariaFeatures.FEATURES.register("marl_bones", () -> new MarlBonesFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> MARL_LIGNITE = IcariaFeatures.FEATURES.register("marl_lignite", () -> new MarlLigniteFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> GRAINEL_CHERT = IcariaFeatures.FEATURES.register("grainel_chert", () -> new GrainelChertFeature(NoneFeatureConfiguration.CODEC));
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> GRAINITE_SPIKE = IcariaFeatures.FEATURES.register("grainite_spike", () -> new GrainiteSpikeFeature(NoneFeatureConfiguration.CODEC));
