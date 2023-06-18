@@ -48,7 +48,7 @@ public class ScorpionEntity extends IcariaArachnidEntity {
     @Override
     public boolean canBeAffected(MobEffectInstance pEffectInstance) {
         if (pEffectInstance.getEffect() == MobEffects.POISON) {
-            MobEffectEvent.Applicable event = new MobEffectEvent.Applicable(this, pEffectInstance);
+            var event = new MobEffectEvent.Applicable(this, pEffectInstance);
             MinecraftForge.EVENT_BUS.post(event);
             return event.getResult() == Event.Result.ALLOW;
         }
@@ -67,7 +67,7 @@ public class ScorpionEntity extends IcariaArachnidEntity {
     }
 
     public boolean isClimbing() {
-        return (this.entityData.get(CLIMBING) & 1) != 0;
+        return (this.entityData.get(ScorpionEntity.CLIMBING) & 1) != 0;
     }
 
     @Override
@@ -83,7 +83,7 @@ public class ScorpionEntity extends IcariaArachnidEntity {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(CLIMBING, (byte) 0);
+        this.entityData.define(ScorpionEntity.CLIMBING, (byte) 0);
     }
 
     @Override
@@ -119,14 +119,14 @@ public class ScorpionEntity extends IcariaArachnidEntity {
     }
 
     public void setClimbing(boolean pClimbing) {
-        byte b = this.entityData.get(CLIMBING);
+        byte b = this.entityData.get(ScorpionEntity.CLIMBING);
         if (pClimbing) {
             b = (byte) (b | 1);
         } else {
             b = (byte) (b & -2);
         }
 
-        this.entityData.set(CLIMBING, b);
+        this.entityData.set(ScorpionEntity.CLIMBING, b);
     }
 
     @Override

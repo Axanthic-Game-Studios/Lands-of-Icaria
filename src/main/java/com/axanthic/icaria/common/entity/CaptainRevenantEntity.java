@@ -1,8 +1,9 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.goal.CaptainRevenantSummonGoal;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+import com.axanthic.icaria.common.spell.IcariaSummonSpell;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -11,7 +12,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -29,8 +29,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-
-import java.util.Objects;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -90,15 +88,15 @@ public class CaptainRevenantEntity extends RevenantEntity {
     }
 
     public int getRallying() {
-        return this.entityData.get(RALLYING);
+        return this.entityData.get(CaptainRevenantEntity.RALLYING);
     }
 
     public int getReequips() {
-        return this.entityData.get(REEQUIPS);
+        return this.entityData.get(CaptainRevenantEntity.REEQUIPS);
     }
 
     public int getUnequips() {
-        return this.entityData.get(UNEQUIPS);
+        return this.entityData.get(CaptainRevenantEntity.UNEQUIPS);
     }
 
     @Override
@@ -138,10 +136,10 @@ public class CaptainRevenantEntity extends RevenantEntity {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(SPELL, (byte) 0);
-        this.entityData.define(UNEQUIPS, this.minUnequips);
-        this.entityData.define(RALLYING, this.minRallying);
-        this.entityData.define(REEQUIPS, this.minReequips);
+        this.entityData.define(CaptainRevenantEntity.SPELL, (byte) 0);
+        this.entityData.define(CaptainRevenantEntity.UNEQUIPS, this.minUnequips);
+        this.entityData.define(CaptainRevenantEntity.RALLYING, this.minRallying);
+        this.entityData.define(CaptainRevenantEntity.REEQUIPS, this.minReequips);
     }
 
     @Override
@@ -183,30 +181,30 @@ public class CaptainRevenantEntity extends RevenantEntity {
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, ArganHoundEntity.class, true, true));
     }
 
-    public void setCasting(CaptainRevenantSpellEnum pSpell) {
-        this.entityData.set(SPELL, (byte) pSpell.id);
+    public void setCasting(IcariaSummonSpell pSpell) {
+        this.entityData.set(CaptainRevenantEntity.SPELL, (byte) pSpell.id);
     }
 
     public void setRallying(int pCooldown) {
         int ticks = Mth.clamp(pCooldown, this.minRallying, this.maxRallying);
-        this.entityData.set(RALLYING, ticks);
+        this.entityData.set(CaptainRevenantEntity.RALLYING, ticks);
     }
 
     public void setReequips(int pCooldown) {
         int ticks = Mth.clamp(pCooldown, this.minReequips, this.maxReequips);
-        this.entityData.set(REEQUIPS, ticks);
+        this.entityData.set(CaptainRevenantEntity.REEQUIPS, ticks);
     }
 
     public void setUnequips(int pCooldown) {
         int ticks = Mth.clamp(pCooldown, this.minUnequips, this.maxUnequips);
-        this.entityData.set(UNEQUIPS, ticks);
+        this.entityData.set(CaptainRevenantEntity.UNEQUIPS, ticks);
     }
 
     public void stopMove() {
         if (this.onUnequips() || this.onRallying() || this.onReequips()) {
-            Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue(0.0D);
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0D);
         } else {
-            Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue(0.25D);
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.25D);
         }
     }
 
@@ -241,61 +239,5 @@ public class CaptainRevenantEntity extends RevenantEntity {
     @Override
     public SoundEvent getHurtSound(DamageSource pDamageSource) {
         return IcariaSoundEvents.CAPTAIN_REVENANT_HURT;
-    }
-
-    public enum CaptainRevenantSpellEnum {
-        NONE(0),
-        SUMMON(1);
-
-        public final int id;
-
-        CaptainRevenantSpellEnum(int pId) {
-            this.id = pId;
-        }
-    }
-
-    public static class CaptainRevenantSummonGoal extends Goal {
-        public CaptainRevenantEntity entity;
-
-        CaptainRevenantSummonGoal(CaptainRevenantEntity pEntity) {
-            super();
-            this.entity = pEntity;
-        }
-
-        @Override
-        public boolean canUse() {
-            LivingEntity livingEntity = this.entity.getTarget();
-            if (livingEntity != this.entity.getLastHurtByMob()) {
-                return false;
-            } else if (this.entity.onUnequips()) {
-                return false;
-            } else if (!this.entity.onRallying()) {
-                return false;
-            }  else if (!this.entity.getBlockStateOn().is(IcariaBlockTags.CAPTAIN_SUMMONS_ON)) {
-                return false;
-            } else {
-                return this.entity.level.getNearbyEntities(CrawlerRevenantEntity.class, this.entity.targetingConditions, this.entity, this.entity.getBoundingBox().inflate(16.0D)).size() <= 2;
-            }
-        }
-
-        @Override
-        public void start() {
-            this.entity.playSound(IcariaSoundEvents.CAPTAIN_REVENANT_RALLY);
-            this.entity.setCasting(CaptainRevenantSpellEnum.SUMMON);
-        }
-
-        @Override
-        public void tick() {
-            ServerLevel serverLevel = (ServerLevel) this.entity.level;
-            for (int i = 0; i < this.entity.random.nextIntBetweenInclusive(6, 8); ++i) {
-                BlockPos blockPos = this.entity.blockPosition().offset(-8 + this.entity.random.nextInt(16), 0, -8 + this.entity.random.nextInt(16));
-                CrawlerRevenantEntity entity = IcariaEntityTypes.CRAWLER_REVENANT.get().create(this.entity.level);
-                if (entity != null) {
-                    entity.moveTo(blockPos, 0.0F, 0.0F);
-                    entity.finalizeSpawn(serverLevel, this.entity.level.getCurrentDifficultyAt(blockPos), MobSpawnType.MOB_SUMMONED, null, null);
-                    serverLevel.addFreshEntityWithPassengers(entity);
-                }
-            }
-        }
     }
 }

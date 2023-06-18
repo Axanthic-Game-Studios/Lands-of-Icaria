@@ -7,6 +7,9 @@ import com.axanthic.icaria.common.world.feature.shrooms.BrownGroundShroomsFeatur
 import com.axanthic.icaria.common.world.feature.shrooms.GreenGroundShroomsFeature;
 import com.axanthic.icaria.common.world.feature.shrooms.LargeBrownGroundShroomsFeature;
 import com.axanthic.icaria.common.world.feature.tree.*;
+import com.axanthic.icaria.common.world.feature.hidden.GrainelChertFeature;
+import com.axanthic.icaria.common.world.feature.hidden.MarlBonesFeature;
+import com.axanthic.icaria.common.world.feature.hidden.MarlChertFeature;
 import com.axanthic.icaria.common.world.feature.vine.*;
 
 import net.minecraft.core.registries.Registries;
@@ -19,9 +22,13 @@ import net.minecraftforge.registries.RegistryObject;
 public class IcariaFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, IcariaInfo.ID);
 
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> MARL_CHERT = IcariaFeatures.FEATURES.register("marl_chert", () -> new MarlChertFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> MARL_BONES = IcariaFeatures.FEATURES.register("marl_bones", () -> new MarlBonesFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> GRAINEL_CHERT = IcariaFeatures.FEATURES.register("grainel_chert", () -> new GrainelChertFeature(NoneFeatureConfiguration.CODEC));
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> GRAINITE_SPIKE = IcariaFeatures.FEATURES.register("grainite_spike", () -> new GrainiteSpikeFeature(NoneFeatureConfiguration.CODEC));
+
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> YELLOWSTONE_BOULDER = IcariaFeatures.FEATURES.register("yellowstone_boulder", () -> new YellowstoneBoulderFeature(NoneFeatureConfiguration.CODEC));
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> FALLEN_RELICSTONE_PILLAR = IcariaFeatures.FEATURES.register("fallen_relicstone_pillar", () -> new FallenRelicstonePillarFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> HORIZONTAL_RELICSTONE_PILLAR = IcariaFeatures.FEATURES.register("horizontal_relicstone_pillar", () -> new HorizontalRelicstonePillarFeature(NoneFeatureConfiguration.CODEC));
@@ -52,6 +59,10 @@ public class IcariaFeatures {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> THORNY_VINE = IcariaFeatures.FEATURES.register("thorny_vine", () -> new ThornyVineFeature(NoneFeatureConfiguration.CODEC));
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> MONDANOS = IcariaFeatures.FEATURES.register("mondanos", () -> new MondanosFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> NAMDRAKE = IcariaFeatures.FEATURES.register("namdrake", () -> new NamdrakeFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> PSILOCYBOS = IcariaFeatures.FEATURES.register("psilocybos", () -> new PsilocybosFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> ROWAN = IcariaFeatures.FEATURES.register("rowan", () -> new RowanFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> WILTED_ELM = IcariaFeatures.FEATURES.register("wilted_elm", () -> new WiltedElmFeature(NoneFeatureConfiguration.CODEC));
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> GREEN_GROUND_SHROOMS = IcariaFeatures.FEATURES.register("green_ground_shrooms", () -> new GreenGroundShroomsFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> BROWN_GROUND_SHROOMS = IcariaFeatures.FEATURES.register("brown_ground_shrooms", () -> new BrownGroundShroomsFeature(NoneFeatureConfiguration.CODEC));

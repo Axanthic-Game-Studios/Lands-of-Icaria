@@ -550,12 +550,12 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.MEDIUM_GRASS.get(), "Medium Grass");
 		this.add(IcariaBlocks.LARGE_GRASS.get(), "Large Grass");
 
-		this.add(IcariaBlocks.GRAIN_0.get(), "Grain");
-		this.add(IcariaBlocks.GRAIN_1.get(), "Grain");
-		this.add(IcariaBlocks.GRAIN_2.get(), "Grain");
-		this.add(IcariaBlocks.GRAIN_3.get(), "Grain");
-		this.add(IcariaBlocks.GRAIN_4.get(), "Grain");
-		this.add(IcariaBlocks.GRAIN_5.get(), "Grain");
+		this.add(IcariaBlocks.SMALL_MIXED_GRAIN.get(), "Small Mixed Grain");
+		this.add(IcariaBlocks.MEDIUM_MIXED_GRAIN.get(), "Medium Mixed Grain");
+		this.add(IcariaBlocks.MEDIUM_BROWN_GRAIN.get(), "Medium Brown Grain");
+		this.add(IcariaBlocks.MEDIUM_WHITE_GRAIN.get(), "Medium White Grain");
+		this.add(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get(), "Medium Yellow Grain");
+		this.add(IcariaBlocks.LARGE_BROWN_GRAIN.get(), "Large Brown Grain");
 
 		this.add(IcariaBlocks.BLINDWEED.get(), "Blindweed");
 		this.add(IcariaBlocks.POTTED_BLINDWEED.get(), "Potted Blindweed");
@@ -608,9 +608,9 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.RED_GROUND_FLOWERS.get(), "Red Ground Flowers");
 		this.add(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), "White Ground Flowers");
 
-		this.add(IcariaBlocks.MOSS_0.get(), "Moss");
-		this.add(IcariaBlocks.MOSS_1.get(), "Moss");
-		this.add(IcariaBlocks.MOSS_2.get(), "Moss");
+		this.add(IcariaBlocks.FOREST_MOSS.get(), "Forest Moss");
+		this.add(IcariaBlocks.SCRUBLAND_MOSS.get(), "Scrubland Moss");
+		this.add(IcariaBlocks.STEPPE_MOSS.get(), "Steppe Moss");
 
 		this.add(IcariaBlocks.PALM_FERN.get(), "Palm Fern");
 		this.add(IcariaBlocks.POTTED_PALM_FERN.get(), "Potted Palm Fern");

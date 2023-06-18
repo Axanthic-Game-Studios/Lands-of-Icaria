@@ -17,7 +17,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.PlantType;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -34,12 +33,12 @@ public class GroundShroomBlock extends Block implements IPlantable {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		var pos = pPos.below();
-		var state = pLevel.getBlockState(pos);
-		if (state.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
+		var belowPos = pPos.below();
+		var belowState = pLevel.getBlockState(belowPos);
+		if (belowState.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
 			return true;
 		} else {
-			return pLevel.getRawBrightness(pPos, 0) <= 12 && state.canSustainPlant(pLevel, pos, Direction.UP, this);
+			return pLevel.getRawBrightness(pPos, 0) <= 12 && belowState.canSustainPlant(pLevel, belowPos, Direction.UP, this);
 		}
 	}
 
@@ -52,8 +51,8 @@ public class GroundShroomBlock extends Block implements IPlantable {
 	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (pRandom.nextInt(25) == 0) {
 			int i = 5;
-			for (BlockPos posOne : BlockPos.betweenClosed(pPos.offset(-4, -1, -4), pPos.offset(4, 1, 4))) {
-				if (pLevel.getBlockState(posOne).is(this)) {
+			for (BlockPos blockPos : BlockPos.betweenClosed(pPos.offset(-4, -1, -4), pPos.offset(4, 1, 4))) {
+				if (pLevel.getBlockState(blockPos).is(this)) {
 					--i;
 					if (i <= 0) {
 						return;
@@ -61,17 +60,17 @@ public class GroundShroomBlock extends Block implements IPlantable {
 				}
 			}
 
-			BlockPos posTwo = pPos.offset(pRandom.nextInt(3) - 1, pRandom.nextInt(2) - pRandom.nextInt(2), pRandom.nextInt(3) - 1);
+			var offsetPos = pPos.offset(pRandom.nextInt(3) - 1, pRandom.nextInt(2) - pRandom.nextInt(2), pRandom.nextInt(3) - 1);
 			for (int k = 0; k < 4; ++k) {
-				if (pLevel.isEmptyBlock(posTwo) && pState.canSurvive(pLevel, posTwo)) {
-					pPos = posTwo;
+				if (pLevel.isEmptyBlock(offsetPos) && pState.canSurvive(pLevel, offsetPos)) {
+					pPos = offsetPos;
 				}
 
-				posTwo = pPos.offset(pRandom.nextInt(3) - 1, pRandom.nextInt(2) - pRandom.nextInt(2), pRandom.nextInt(3) - 1);
+				offsetPos = pPos.offset(pRandom.nextInt(3) - 1, pRandom.nextInt(2) - pRandom.nextInt(2), pRandom.nextInt(3) - 1);
 			}
 
-			if (pLevel.isEmptyBlock(posTwo) && pState.canSurvive(pLevel, posTwo)) {
-				pLevel.setBlock(posTwo, pState, 2);
+			if (pLevel.isEmptyBlock(offsetPos) && pState.canSurvive(pLevel, offsetPos)) {
+				pLevel.setBlock(offsetPos, pState, 2);
 			}
 		}
 	}
@@ -87,13 +86,8 @@ public class GroundShroomBlock extends Block implements IPlantable {
 	}
 
 	@Override
-	public PlantType getPlantType(BlockGetter pLevel, BlockPos pPos) {
-		return PlantType.CAVE;
-	}
-
-	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		Vec3 vec3 = pState.getOffset(pLevel, pPos);
-		return SHAPE.move(vec3.x, vec3.y, vec3.z);
+		return GroundShroomBlock.SHAPE.move(vec3.x, vec3.y, vec3.z);
 	}
 }

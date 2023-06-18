@@ -55,7 +55,7 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     @Override
     public boolean canBeAffected(MobEffectInstance pEffectInstance) {
         if (pEffectInstance.getEffect() == MobEffects.POISON) {
-            MobEffectEvent.Applicable event = new MobEffectEvent.Applicable(this, pEffectInstance);
+            var event = new MobEffectEvent.Applicable(this, pEffectInstance);
             MinecraftForge.EVENT_BUS.post(event);
             return event.getResult() == Event.Result.ALLOW;
         }
@@ -75,7 +75,7 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     }
 
     public boolean isClimbing() {
-        return (this.entityData.get(CLIMBING) & 1) != 0;
+        return (this.entityData.get(VinegaroonEntity.CLIMBING) & 1) != 0;
     }
 
     @Override
@@ -102,7 +102,7 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     }
 
     public int getCooldown() {
-        return this.entityData.get(COOLDOWN);
+        return this.entityData.get(VinegaroonEntity.COOLDOWN);
     }
 
     @Override
@@ -126,8 +126,8 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(CLIMBING, (byte) 0);
-        this.entityData.define(COOLDOWN, this.minCooldown);
+        this.entityData.define(VinegaroonEntity.CLIMBING, (byte) 0);
+        this.entityData.define(VinegaroonEntity.COOLDOWN, this.minCooldown);
     }
 
     @Override
@@ -139,16 +139,16 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
 
     @Override
     public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
-        VinegarEntity vinegarEntity = new VinegarEntity(this.level, this, this.useItem);
+        var entity = new VinegarEntity(this.level, this, this.useItem);
 
         double d0 = pTarget.getX() - this.getX();
-        double d1 = pTarget.getY() - vinegarEntity.getY();
+        double d1 = pTarget.getY() - entity.getY();
         double d2 = pTarget.getZ() - this.getZ();
         double d3 = Math.sqrt(d0 * d0 + d2 * d2);
 
-        vinegarEntity.shoot(d0, d1 + d3 * 0.2D, d2, 2.0F, 2.0F);
+        entity.shoot(d0, d1 + d3 * 0.2D, d2, 2.0F, 2.0F);
 
-        this.level.addFreshEntity(vinegarEntity);
+        this.level.addFreshEntity(entity);
         if (!this.isSilent()) {
             this.level.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ARROW_SHOOT, this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
         }
@@ -183,19 +183,19 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     }
 
     public void setClimbing(boolean pClimbing) {
-        byte b = this.entityData.get(CLIMBING);
+        byte b = this.entityData.get(VinegaroonEntity.CLIMBING);
         if (pClimbing) {
             b = (byte) (b | 1);
         } else {
             b = (byte) (b & -2);
         }
 
-        this.entityData.set(CLIMBING, b);
+        this.entityData.set(VinegaroonEntity.CLIMBING, b);
     }
 
     public void setCooldown(int pCooldown) {
         int ticks = Mth.clamp(pCooldown, this.minCooldown, this.maxCooldown);
-        this.entityData.set(COOLDOWN, ticks);
+        this.entityData.set(VinegaroonEntity.COOLDOWN, ticks);
     }
 
     @Override

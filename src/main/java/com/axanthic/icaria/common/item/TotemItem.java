@@ -9,7 +9,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -35,8 +34,8 @@ public class TotemItem extends Item {
 
     @OnlyIn(Dist.CLIENT)
     public void totemAnimation(Entity pEntity) {
-        Minecraft minecraft = Minecraft.getInstance();
-        Level level = minecraft.level;
+        var minecraft = Minecraft.getInstance();
+        var level = minecraft.level;
         if (pEntity instanceof Player) {
             minecraft.gameRenderer.displayItemActivation(new ItemStack(this));
             minecraft.particleEngine.createTrackingEmitter(pEntity, ParticleTypes.TOTEM_OF_UNDYING, 30);

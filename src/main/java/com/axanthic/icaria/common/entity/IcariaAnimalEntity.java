@@ -30,7 +30,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
 
-public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity {
+public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implements IcariaBreedableEntity {
     public int maxCooldown = 16000;
     public int minCooldown = 0;
     public int maxDuration = 1200;
@@ -89,15 +89,15 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity {
     }
 
     public int getCooldown() {
-        return this.entityData.get(COOLDOWN);
+        return this.entityData.get(IcariaAnimalEntity.COOLDOWN);
     }
 
     public int getDuration() {
-        return this.entityData.get(DURATION);
+        return this.entityData.get(IcariaAnimalEntity.DURATION);
     }
 
     public int getTick() {
-        return this.entityData.get(TICK);
+        return this.entityData.get(IcariaAnimalEntity.TICK);
     }
 
     @Override
@@ -160,9 +160,9 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(COOLDOWN, this.minCooldown);
-        this.entityData.define(DURATION, this.minDuration);
-        this.entityData.define(TICK, this.minTick);
+        this.entityData.define(IcariaAnimalEntity.COOLDOWN, this.minCooldown);
+        this.entityData.define(IcariaAnimalEntity.DURATION, this.minDuration);
+        this.entityData.define(IcariaAnimalEntity.TICK, this.minTick);
     }
 
     @Override
@@ -187,21 +187,21 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity {
 
     public void setCooldown(int pSize) {
         int ticks = Mth.clamp(pSize, this.minCooldown, this.maxCooldown);
-        this.entityData.set(COOLDOWN, ticks);
+        this.entityData.set(IcariaAnimalEntity.COOLDOWN, ticks);
     }
 
     public void setDuration(int pSize) {
         int ticks = Mth.clamp(pSize, this.minDuration, this.maxDuration);
-        this.entityData.set(DURATION, ticks);
+        this.entityData.set(IcariaAnimalEntity.DURATION, ticks);
     }
 
     public void setTick(int pSize) {
         int tick = Mth.clamp(pSize, this.minTick, this.maxTick);
-        this.entityData.set(TICK, tick);
+        this.entityData.set(IcariaAnimalEntity.TICK, tick);
     }
 
     public void spawnChildFromBreeding(ServerLevel pLevel, IcariaAnimalEntity pEntity) {
-        IcariaAnimalEntity entity = this.getBreedOffspring(pLevel, pEntity);
+        var entity = this.getBreedOffspring(pLevel, pEntity);
         if (entity != null) {
             entity.moveTo(this.getX(), this.getY(), this.getZ(), 0.0F, 0.0F);
             entity.setSize(this.minSize);
@@ -220,7 +220,7 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity {
 
     @Override
     public @Nonnull InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
-        ItemStack itemStack = pPlayer.getItemInHand(pHand);
+        var itemStack = pPlayer.getItemInHand(pHand);
         if (this.isFood(itemStack)) {
             if (!this.level.isClientSide) {
                 if (!this.isBaby()) {
@@ -256,7 +256,4 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity {
         this.setTick(this.maxTick);
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
-
-    @Nullable
-    public abstract IcariaAnimalEntity getBreedOffspring(ServerLevel pLevel, IcariaAnimalEntity pEntity);
 }

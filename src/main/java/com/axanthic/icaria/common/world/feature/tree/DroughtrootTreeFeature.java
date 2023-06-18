@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class DroughtrootTreeFeature extends IcariaTreeFeature {
     public DroughtrootTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_SAPLING.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.DROUGHTROOT_TWIGS.get());
+        super(pCodec, IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_SAPLING.get(), IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.DROUGHTROOT_TWIGS.get());
     }
 
     @Override
@@ -32,10 +32,6 @@ public class DroughtrootTreeFeature extends IcariaTreeFeature {
         int heightAxisY = heightTotal + origin.getY();
 
         if (heightAxisY < level.getMaxBuildHeight()) {
-            this.placeTwigsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
-            this.placeFallenPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
-            this.placeShroomsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
-
             for (int i = 1; i <= heightTrunk; ++i) {
                 this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
             }
@@ -67,6 +63,10 @@ public class DroughtrootTreeFeature extends IcariaTreeFeature {
                 this.placeLeaves(level, origin.below().above(heightTrunk));
                 this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction));
             }
+
+            this.placeTwigsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+            this.placeFallenPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+            this.placeShroomsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
 
             return true;
         } else {

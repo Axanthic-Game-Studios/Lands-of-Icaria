@@ -12,8 +12,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.minecraftforge.common.PlantType;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
@@ -39,12 +37,7 @@ public class OnionCropBlock extends CropBlock {
 	}
 
 	@Override
-	public PlantType getPlantType(BlockGetter pLevel, BlockPos pPos) {
-		return PlantType.CROP;
-	}
-
-	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPES[pState.getValue(this.getAgeProperty())];
+		return OnionCropBlock.SHAPES[pState.getValue(this.getAgeProperty())];
 	}
 }

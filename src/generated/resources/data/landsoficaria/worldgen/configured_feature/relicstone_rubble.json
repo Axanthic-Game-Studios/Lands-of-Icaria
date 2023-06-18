@@ -10,6 +10,7 @@
             "state": {
               "Name": "landsoficaria:relicstone_rubble",
               "Properties": {
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             }

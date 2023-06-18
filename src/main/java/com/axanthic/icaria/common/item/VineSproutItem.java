@@ -26,8 +26,8 @@ public class VineSproutItem extends Item {
 
 	@Override
 	public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-		ItemStack itemStack = pStack.copy();
-		Player player = (Player) pEntity;
+		var itemStack = pStack.copy();
+		var player = (Player) pEntity;
 		itemStack.setCount(1);
 		if (pStack.getCount() > 1) {
 			if (player.addItem(itemStack)) {
@@ -42,7 +42,7 @@ public class VineSproutItem extends Item {
 
 	@Override
 	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
-		Player player = (Player) pEntityLiving;
+		var player = (Player) pEntityLiving;
 		player.awardStat(Stats.ITEM_USED.get(this));
 		if (!pLevel.isClientSide) {
 			player.getCooldowns().addCooldown(this, 400);

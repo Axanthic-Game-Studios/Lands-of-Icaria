@@ -158,8 +158,8 @@ public class IcariaDimensions {
 
 	private static Pair<Climate.ParameterPoint, Holder<Biome>> scrublandParameters(
 			final HolderGetter<Biome> biomeRegistry) {
-		final Climate.Parameter temperature = Climate.Parameter.span(0.0F, 0.25F);
-		final Climate.Parameter humidity = Climate.Parameter.span(-0.25F, 0.0F);
+		final Climate.Parameter temperature = Climate.Parameter.span(-0.25F, 0.0F);
+		final Climate.Parameter humidity = Climate.Parameter.span(0.0F, 0.25F);
 		final Climate.Parameter continentalness = CONTINENTAL;
 		final Climate.Parameter erosion = Climate.Parameter.point(0.0F);
 		final Climate.Parameter depth = Climate.Parameter.point(0.0F);
@@ -197,8 +197,8 @@ public class IcariaDimensions {
 
 	private static Pair<Climate.ParameterPoint, Holder<Biome>> steppeParameters(
 			final HolderGetter<Biome> biomeRegistry) {
-		final Climate.Parameter temperature = Climate.Parameter.span(-0.25F, 0.0F);
-		final Climate.Parameter humidity = Climate.Parameter.span(0.0F, 0.25F);
+		final Climate.Parameter temperature = Climate.Parameter.span(0.0F, 0.25F);
+		final Climate.Parameter humidity = Climate.Parameter.span(-0.25F, 0.0F);
 		final Climate.Parameter continentalness = CONTINENTAL;
 		final Climate.Parameter erosion = Climate.Parameter.point(0.0F);
 		final Climate.Parameter depth = Climate.Parameter.point(0.0F);

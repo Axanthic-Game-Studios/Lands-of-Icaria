@@ -1,8 +1,8 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.common.block.GrinderBlock;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -12,10 +12,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -37,13 +37,14 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 	@Override
 	public void render(GrinderBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
 		if (IcariaConfig.RENDER_GEARS.get()) {
-			boolean grinding = pBlockEntity.getBlockState().getValue(GrinderBlock.GRINDING);
-			int rotation = pBlockEntity.getBlockState().getValue(GrinderBlock.ROTATION);
+			boolean grinding = pBlockEntity.getBlockState().getValue(IcariaBlockStateProperties.GRINDING);
 
-			Direction direction = pBlockEntity.getBlockState().getValue(GrinderBlock.FACING);
-			ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-			ItemStack mainGear = pBlockEntity.getGear();
-			ItemStack sideGear = ItemStack.EMPTY;
+			int rotation = pBlockEntity.getBlockState().getValue(IcariaBlockStateProperties.GRINDER_ROTATION);
+
+			var direction = pBlockEntity.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);
+			var itemRenderer = Minecraft.getInstance().getItemRenderer();
+			var mainGear = pBlockEntity.getGear();
+			var sideGear = ItemStack.EMPTY;
 
 			if (!mainGear.isEmpty()) {
 				if (mainGear.is(IcariaItems.YELLOWSTONE_GEAR.get())) {

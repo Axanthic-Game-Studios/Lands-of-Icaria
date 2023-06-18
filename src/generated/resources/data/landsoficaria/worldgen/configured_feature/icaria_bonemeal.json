@@ -1,0 +1,84 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:noise_provider",
+            "noise": {
+              "amplitudes": [
+                1.0
+              ],
+              "firstOctave": 0
+            },
+            "scale": 0.5,
+            "seed": 2345,
+            "states": [
+              {
+                "Name": "landsoficaria:fern"
+              },
+              {
+                "Name": "landsoficaria:small_grass"
+              },
+              {
+                "Name": "landsoficaria:medium_grass"
+              },
+              {
+                "Name": "landsoficaria:large_grass"
+              },
+              {
+                "Name": "landsoficaria:small_mixed_grain"
+              },
+              {
+                "Name": "landsoficaria:medium_mixed_grain"
+              },
+              {
+                "Name": "landsoficaria:medium_brown_grain"
+              },
+              {
+                "Name": "landsoficaria:medium_white_grain"
+              },
+              {
+                "Name": "landsoficaria:medium_yellow_grain"
+              },
+              {
+                "Name": "landsoficaria:large_brown_grain"
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_block_tag",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "tag": "minecraft:dirt"
+              },
+              {
+                "type": "minecraft:matching_fluids",
+                "fluids": "minecraft:empty"
+              },
+              {
+                "type": "minecraft:replaceable"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "tries": 16,
+    "xz_spread": 4,
+    "y_spread": 4
+  }
+}

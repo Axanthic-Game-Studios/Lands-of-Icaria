@@ -6,15 +6,16 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.stream.StreamSupport;
 
+import com.axanthic.icaria.common.util.BiomeConfiguration;
 import com.axanthic.icaria.data.tags.IcariaBiomeTags;
 import com.axanthic.icaria.common.registry.IcariaBiomes;
-import com.axanthic.icaria.common.registry.IcariaBiomes.BiomeConfiguration;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.world.carver.configuration.TopBlockCarverConfiguration;
 import com.axanthic.icaria.common.world.noise.CellNoise;
 import com.axanthic.icaria.common.world.noise.NoiseGeneratorOctaves;
 import com.axanthic.icaria.common.world.noise.NoiseGeneratorPerlin;
 import com.axanthic.icaria.common.world.noise.PerlinNoise;
+
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -257,7 +258,7 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 
 				final Holder<Biome> biome = manager.getBiome(pos.set(wx + cx, 0, wz + cz));
 				this.biomesForHeights[biomeIndex] = biome;
-				this.biomeConfiguration[biomeIndex] = IcariaBiomes.configurations.get(biome.unwrapKey().get());
+				this.biomeConfiguration[biomeIndex] = IcariaBiomes.CONFIGURATIONS.get(biome.unwrapKey().get());
 			}
 		}
 	}

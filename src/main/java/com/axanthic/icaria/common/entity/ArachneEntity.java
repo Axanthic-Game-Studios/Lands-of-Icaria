@@ -1,12 +1,12 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.goal.ArachneHurtByTargetGoal;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -14,10 +14,8 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
@@ -41,7 +39,7 @@ public class ArachneEntity extends IcariaArachnidEntity {
     @Override
     public boolean canBeAffected(MobEffectInstance pEffectInstance) {
         if (pEffectInstance.getEffect() == MobEffects.POISON) {
-            MobEffectEvent.Applicable event = new MobEffectEvent.Applicable(this, pEffectInstance);
+            var event = new MobEffectEvent.Applicable(this, pEffectInstance);
             MinecraftForge.EVENT_BUS.post(event);
             return event.getResult() == Event.Result.ALLOW;
         }
@@ -93,7 +91,7 @@ public class ArachneEntity extends IcariaArachnidEntity {
         this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 5.0F, 0.025F, false));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, (new ArachneHurtByTargetGoal(this)).setAlertOthers());
+        this.targetSelector.addGoal(1, new ArachneHurtByTargetGoal(this).setAlertOthers());
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
@@ -118,32 +116,5 @@ public class ArachneEntity extends IcariaArachnidEntity {
     @Override
     public SoundEvent getHurtSound(DamageSource pDamageSource) {
         return SoundEvents.SPIDER_HURT;
-    }
-
-    public static class ArachneHurtByTargetGoal extends HurtByTargetGoal {
-        ArachneHurtByTargetGoal(ArachneEntity pEntity) {
-            super(pEntity);
-        }
-
-        @Override
-        public void alertOther(Mob pMob, LivingEntity pEntity) {
-            if (pMob instanceof ArachneDroneEntity) {
-                pMob.setTarget(pEntity);
-            }
-        }
-
-        @Override
-        public void tick() {
-            super.tick();
-            if (RandomSource.create().nextInt(100) == 0) {
-                LivingEntity livingEntity = this.mob.getTarget();
-                if (livingEntity != null) {
-                    BlockPos blockPos = livingEntity.blockPosition();
-                    if (this.mob.distanceTo(this.mob.getTarget()) <= 10.0D) {
-                        this.mob.level.setBlockAndUpdate(blockPos, Blocks.COBWEB.defaultBlockState()); // TODO: replace with Arachne web
-                    }
-                }
-            }
-        }
     }
 }

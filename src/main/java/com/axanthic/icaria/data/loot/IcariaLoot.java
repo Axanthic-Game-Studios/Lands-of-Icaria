@@ -29,8 +29,7 @@ public class IcariaLoot extends LootTableProvider {
     }
 
     public static ResourceLocation register(String pId) {
-        var resourceLocation = new ResourceLocation(IcariaInfo.ID, pId);
-        return register(resourceLocation);
+        return IcariaLoot.register(new ResourceLocation(IcariaInfo.ID, pId));
     }
 
     public static Set<ResourceLocation> internTables() {

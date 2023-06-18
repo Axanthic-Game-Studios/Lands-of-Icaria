@@ -35,12 +35,12 @@ public class SowSkullModel extends SkullModel {
     }
 
     public static LayerDefinition createLayer() {
-        MeshDefinition meshDefinition = new MeshDefinition();
-        PartDefinition partDefinition = meshDefinition.getRoot();
+        var meshDefinition = new MeshDefinition();
+        var partDefinition = meshDefinition.getRoot();
 
-        PartDefinition head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(30, 11).addBox(-2.5F, -6.0F, -4.0F, 5.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+        var head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(30, 11).addBox(-2.5F, -6.0F, -4.0F, 5.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
         head.addOrReplaceChild("nose", CubeListBuilder.create().texOffs(47, 0).addBox(-1.5F, 0.0F, -4.0F, 3.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -3.0019F, -3.4354F, 0.182F, 0.0F, 0.0F));
-        PartDefinition mouth = head.addOrReplaceChild("mouth", CubeListBuilder.create().texOffs(0, 3).addBox(-1.0F, -0.5375F, -3.0125F, 2.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -0.4644F, -3.9229F));
+        var mouth = head.addOrReplaceChild("mouth", CubeListBuilder.create().texOffs(0, 3).addBox(-1.0F, -0.5375F, -3.0125F, 2.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -0.4644F, -3.9229F));
         mouth.addOrReplaceChild("tuskRight", CubeListBuilder.create().texOffs(47, 0).addBox(-0.5F, -2.0F, -1.0F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.5F, -0.5375F, -1.7125F, 0.0F, 0.0F, -0.3927F));
         mouth.addOrReplaceChild("tuskLeft", CubeListBuilder.create().texOffs(7, 0).addBox(-0.5F, -2.0F, -1.0F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.5F, -0.5375F, -1.7125F, 0.0F, 0.0F, 0.3927F));
         head.addOrReplaceChild("hair", CubeListBuilder.create().texOffs(42, 26).addBox(-1.0F, -2.0106F, -3.0646F, 2.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -5.5019F, -0.9354F, 0.0094F, 0.0F, 0.0F));

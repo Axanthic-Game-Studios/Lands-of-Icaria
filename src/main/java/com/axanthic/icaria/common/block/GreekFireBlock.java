@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -28,19 +27,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GreekFireBlock extends Block {
-    public static final IntegerProperty AGE = BlockStateProperties.AGE_15;
-
     public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 
     public GreekFireBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
+        this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.AGE_15, 0));
     }
 
     @Override
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        BlockPos blockPos = pPos.below();
-        return pLevel.getBlockState(blockPos).isFaceSturdy(pLevel, blockPos, Direction.UP);
+        var belowPos = pPos.below();
+        return pLevel.getBlockState(belowPos).isFaceSturdy(pLevel, belowPos, Direction.UP);
     }
 
     public boolean isNearRain(Level pLevel, BlockPos pPos) {
@@ -48,7 +45,7 @@ public class GreekFireBlock extends Block {
     }
 
     public int getFireTickDelay(RandomSource pRandom) {
-        return 30 + pRandom.nextInt(10);
+        return pRandom.nextInt(10) + 30;
     }
 
     @Override
@@ -58,16 +55,16 @@ public class GreekFireBlock extends Block {
         }
 
         for (int i = 0; i < 3; ++i) {
-            double d0 = pPos.getX() + pRandom.nextDouble();
-            double d1 = pPos.getY() + pRandom.nextDouble() * 0.5D + 0.5D;
-            double d2 = pPos.getZ() + pRandom.nextDouble();
-            pLevel.addParticle(ParticleTypes.LARGE_SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+            double x = pPos.getX() + pRandom.nextDouble();
+            double y = pPos.getY() + pRandom.nextDouble() * 0.5D + 0.5D;
+            double z = pPos.getZ() + pRandom.nextDouble();
+            pLevel.addParticle(ParticleTypes.LARGE_SMOKE, x, y, z, 0.0D, 0.0D, 0.0D);
         }
     }
 
     @Override
     public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(AGE);
+        pBuilder.add(BlockStateProperties.AGE_15);
     }
 
     @Override
@@ -106,13 +103,13 @@ public class GreekFireBlock extends Block {
     public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         pLevel.scheduleTick(pPos, this, this.getFireTickDelay(pLevel.random));
         if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOFIRETICK)) {
-            int i = pState.getValue(AGE);
+            int i = pState.getValue(BlockStateProperties.AGE_15);
             if (pLevel.isRaining() && this.isNearRain(pLevel, pPos) && pRandom.nextFloat() < 0.2F + i * 0.03F) {
                 pLevel.removeBlock(pPos, false);
             } else {
                 int j = Math.min(15, i + pRandom.nextInt(3) / 2);
                 if (i != j) {
-                    pLevel.setBlock(pPos, pState.setValue(AGE, j), 4);
+                    pLevel.setBlock(pPos, pState.setValue(BlockStateProperties.AGE_15, j), 4);
                 }
 
                 if (i > 3) {
@@ -123,17 +120,17 @@ public class GreekFireBlock extends Block {
     }
 
     public BlockState getStateWithAge(int pAge) {
-        BlockState blockState = IcariaBlocks.GREEK_FIRE.get().defaultBlockState();
-        return blockState.is(IcariaBlocks.GREEK_FIRE.get()) ? blockState.setValue(AGE, pAge) : blockState;
+        var blockState = IcariaBlocks.GREEK_FIRE.get().defaultBlockState();
+        return blockState.is(IcariaBlocks.GREEK_FIRE.get()) ? blockState.setValue(BlockStateProperties.AGE_15, pAge) : blockState;
     }
 
     @Override
     public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-        return this.canSurvive(pState, pLevel, pCurrentPos) ? this.getStateWithAge(pState.getValue(AGE)) : Blocks.AIR.defaultBlockState();
+        return this.canSurvive(pState, pLevel, pCurrentPos) ? this.getStateWithAge(pState.getValue(BlockStateProperties.AGE_15)) : Blocks.AIR.defaultBlockState();
     }
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE;
+        return GreekFireBlock.SHAPE;
     }
 }

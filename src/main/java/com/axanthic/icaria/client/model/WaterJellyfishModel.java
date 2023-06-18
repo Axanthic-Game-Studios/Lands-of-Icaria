@@ -155,12 +155,12 @@ public class WaterJellyfishModel extends HierarchicalModel<JellyfishEntity> {
     }
 
     public static LayerDefinition createLayer() {
-        MeshDefinition meshdefinition = new MeshDefinition();
-        PartDefinition partdefinition = meshdefinition.getRoot();
+        var meshDefinition = new MeshDefinition();
+        var partDefinition = meshDefinition.getRoot();
 
-        PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(32, 0).addBox(-4.0F, -25.0F, -4.0F, 8.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
-        PartDefinition bell = body.addOrReplaceChild("bell", CubeListBuilder.create().texOffs(0, 36).addBox(-7.0F, -24.0F, -7.0F, 14.0F, 4.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
-        PartDefinition bellNorth = bell.addOrReplaceChild("bellNorth", CubeListBuilder.create().texOffs(32, 30).addBox(-7.0F, -2.0F, -9.0F, 14.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -22.0F, 0.0F));
+        var body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(32, 0).addBox(-4.0F, -25.0F, -4.0F, 8.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+        var bell = body.addOrReplaceChild("bell", CubeListBuilder.create().texOffs(0, 36).addBox(-7.0F, -24.0F, -7.0F, 14.0F, 4.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+        var bellNorth = bell.addOrReplaceChild("bellNorth", CubeListBuilder.create().texOffs(32, 30).addBox(-7.0F, -2.0F, -9.0F, 14.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -22.0F, 0.0F));
         bellNorth.addOrReplaceChild("tentacleNorthLeftOuter", CubeListBuilder.create().texOffs(14, 54).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-6.0F, 2.0F, -8.0F, -0.0873F, 0.0F, 0.0F));
         bellNorth.addOrReplaceChild("tentacleNorthLeftCenter", CubeListBuilder.create().texOffs(16, 54).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 9.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.0F, 2.0F, -8.0F, -0.1745F, 0.0F, 0.0F));
         bellNorth.addOrReplaceChild("tentacleNorthLeftInner", CubeListBuilder.create().texOffs(18, 54).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 10.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.0F, 2.0F, -8.0F, -0.2618F, 0.0F, 0.0F));
@@ -168,7 +168,7 @@ public class WaterJellyfishModel extends HierarchicalModel<JellyfishEntity> {
         bellNorth.addOrReplaceChild("tentacleNorthRightInner", CubeListBuilder.create().texOffs(22, 54).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 10.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.0F, 2.0F, -8.0F, -0.2618F, 0.0F, 0.0F));
         bellNorth.addOrReplaceChild("tentacleNorthRightCenter", CubeListBuilder.create().texOffs(24, 54).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 9.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, 2.0F, -8.0F, -0.1745F, 0.0F, 0.0F));
         bellNorth.addOrReplaceChild("tentacleNorthRightOuter", CubeListBuilder.create().texOffs(26, 54).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(6.0F, 2.0F, -8.0F, -0.0873F, 0.0F, 0.0F));
-        PartDefinition bellEast = bell.addOrReplaceChild("bellEast", CubeListBuilder.create().texOffs(0, 18).addBox(7.0F, -2.0F, -7.0F, 2.0F, 4.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -22.0F, 0.0F));
+        var bellEast = bell.addOrReplaceChild("bellEast", CubeListBuilder.create().texOffs(0, 18).addBox(7.0F, -2.0F, -7.0F, 2.0F, 4.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -22.0F, 0.0F));
         bellEast.addOrReplaceChild("tentacleEastLeftOuter", CubeListBuilder.create().texOffs(28, 53).addBox(0.0F, 0.0F, -0.5F, 0.0F, 8.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(8.0F, 2.0F, -6.0F, 0.0F, 0.0F, -0.0873F));
         bellEast.addOrReplaceChild("tentacleEastLeftCenter", CubeListBuilder.create().texOffs(30, 53).addBox(0.0F, 0.0F, -0.5F, 0.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(8.0F, 2.0F, -4.0F, 0.0F, 0.0F, -0.1745F));
         bellEast.addOrReplaceChild("tentacleEastLeftInner", CubeListBuilder.create().texOffs(32, 53).addBox(0.0F, 0.0F, -0.5F, 0.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(8.0F, 2.0F, -2.0F, 0.0F, 0.0F, -0.2618F));
@@ -176,7 +176,7 @@ public class WaterJellyfishModel extends HierarchicalModel<JellyfishEntity> {
         bellEast.addOrReplaceChild("tentacleEastRightInner", CubeListBuilder.create().texOffs(36, 53).addBox(0.0F, 0.0F, -0.5F, 0.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(8.0F, 2.0F, 2.0F, 0.0F, 0.0F, -0.2618F));
         bellEast.addOrReplaceChild("tentacleEastRightCenter", CubeListBuilder.create().texOffs(38, 53).addBox(0.0F, 0.0F, -0.5F, 0.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(8.0F, 2.0F, 4.0F, 0.0F, 0.0F, -0.1745F));
         bellEast.addOrReplaceChild("tentacleEastRightOuter", CubeListBuilder.create().texOffs(40, 53).addBox(0.0F, 0.0F, -0.5F, 0.0F, 8.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(8.0F, 2.0F, 6.0F, 0.0F, 0.0F, -0.0873F));
-        PartDefinition bellSouth = bell.addOrReplaceChild("bellSouth", CubeListBuilder.create().texOffs(32, 30).addBox(-7.0F, -2.0F, 7.0F, 14.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -22.0F, 0.0F));
+        var bellSouth = bell.addOrReplaceChild("bellSouth", CubeListBuilder.create().texOffs(32, 30).addBox(-7.0F, -2.0F, 7.0F, 14.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -22.0F, 0.0F));
         bellSouth.addOrReplaceChild("tentacleSouthLeftOuter", CubeListBuilder.create().texOffs(42, 54).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(6.0F, 2.0F, 8.0F, 0.0873F, 0.0F, 0.0F));
         bellSouth.addOrReplaceChild("tentacleSouthLeftCenter", CubeListBuilder.create().texOffs(44, 54).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 9.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, 2.0F, 8.0F, 0.1745F, 0.0F, 0.0F));
         bellSouth.addOrReplaceChild("tentacleSouthLeftInner", CubeListBuilder.create().texOffs(46, 54).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 10.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.0F, 2.0F, 8.0F, 0.2618F, 0.0F, 0.0F));
@@ -184,7 +184,7 @@ public class WaterJellyfishModel extends HierarchicalModel<JellyfishEntity> {
         bellSouth.addOrReplaceChild("tentacleSouthRightInner", CubeListBuilder.create().texOffs(50, 54).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 10.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.0F, 2.0F, 8.0F, 0.2618F, 0.0F, 0.0F));
         bellSouth.addOrReplaceChild("tentacleSouthRightCenter", CubeListBuilder.create().texOffs(52, 54).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 9.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.0F, 2.0F, 8.0F, 0.1745F, 0.0F, 0.0F));
         bellSouth.addOrReplaceChild("tentacleSouthRightOuter", CubeListBuilder.create().texOffs(54, 54).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-6.0F, 2.0F, 8.0F, 0.0873F, 0.0F, 0.0F));
-        PartDefinition bellWest = bell.addOrReplaceChild("bellWest", CubeListBuilder.create().texOffs(0, 18).addBox(-9.0F, -2.0F, -7.0F, 2.0F, 4.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -22.0F, 0.0F));
+        var bellWest = bell.addOrReplaceChild("bellWest", CubeListBuilder.create().texOffs(0, 18).addBox(-9.0F, -2.0F, -7.0F, 2.0F, 4.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -22.0F, 0.0F));
         bellWest.addOrReplaceChild("tentacleWestLeftOuter", CubeListBuilder.create().texOffs(0, 53).addBox(0.0F, 0.0F, -0.5F, 0.0F, 8.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-8.0F, 2.0F, 6.0F, 0.0F, 0.0F, 0.0873F));
         bellWest.addOrReplaceChild("tentacleWestLeftCenter", CubeListBuilder.create().texOffs(2, 53).addBox(0.0F, 0.0F, -0.5F, 0.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-8.0F, 2.0F, 4.0F, 0.0F, 0.0F, 0.1745F));
         bellWest.addOrReplaceChild("tentacleWestLeftInner", CubeListBuilder.create().texOffs(4, 53).addBox(0.0F, 0.0F, -0.5F, 0.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-8.0F, 2.0F, 2.0F, 0.0F, 0.0F, 0.2618F));
@@ -192,7 +192,7 @@ public class WaterJellyfishModel extends HierarchicalModel<JellyfishEntity> {
         bellWest.addOrReplaceChild("tentacleWestRightInner", CubeListBuilder.create().texOffs(8, 53).addBox(0.0F, 0.0F, -0.5F, 0.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-8.0F, 2.0F, -2.0F, 0.0F, 0.0F, 0.2618F));
         bellWest.addOrReplaceChild("tentacleWestRightCenter", CubeListBuilder.create().texOffs(10, 53).addBox(0.0F, 0.0F, -0.5F, 0.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-8.0F, 2.0F, -4.0F, 0.0F, 0.0F, 0.1745F));
         bellWest.addOrReplaceChild("tentacleWestRightOuter", CubeListBuilder.create().texOffs(12, 53).addBox(0.0F, 0.0F, -0.5F, 0.0F, 8.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-8.0F, 2.0F, -6.0F, 0.0F, 0.0F, 0.0873F));
-        PartDefinition head = body.addOrReplaceChild("head", CubeListBuilder.create().texOffs(32, 10).addBox(-4.0F, -20.0F, -4.0F, 8.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+        var head = body.addOrReplaceChild("head", CubeListBuilder.create().texOffs(32, 10).addBox(-4.0F, -20.0F, -4.0F, 8.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
         head.addOrReplaceChild("armNorth", CubeListBuilder.create().texOffs(8, 0).addBox(-1.0F, 0.0F, -2.5F, 2.0F, 12.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -14.0F, 0.0F, -0.3927F, 0.0F, 0.0F));
         head.addOrReplaceChild("armNorthEast", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, 0.0F, -2.5F, 2.0F, 12.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -14.0F, 0.0F, -0.3927F, -0.7854F, 0.0F));
         head.addOrReplaceChild("armEast", CubeListBuilder.create().texOffs(8, 0).addBox(-1.0F, 0.0F, -2.5F, 2.0F, 12.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -14.0F, 0.0F, -0.3927F, -1.5708F, 0.0F));
@@ -202,7 +202,7 @@ public class WaterJellyfishModel extends HierarchicalModel<JellyfishEntity> {
         head.addOrReplaceChild("armWest", CubeListBuilder.create().texOffs(8, 0).addBox(-1.0F, 0.0F, -2.5F, 2.0F, 12.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -14.0F, 0.0F, -0.3927F, 1.5708F, 0.0F));
         head.addOrReplaceChild("armNorthWest", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, 0.0F, -2.5F, 2.0F, 12.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -14.0F, 0.0F, -0.3927F, 0.7854F, 0.0F));
 
-        return LayerDefinition.create(meshdefinition, 64, 64);
+        return LayerDefinition.create(meshDefinition, 64, 64);
     }
 
     @Override

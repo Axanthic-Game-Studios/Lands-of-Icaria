@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "landsoficaria:block/portal_x"
+    },
+    "axis=z": {
+      "model": "landsoficaria:block/portal_y"
+    }
+  }
+}

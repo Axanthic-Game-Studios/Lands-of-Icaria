@@ -115,22 +115,22 @@ public class SowModel extends HierarchicalModel<SowEntity> {
     }
 
     public static LayerDefinition createLayer() {
-        MeshDefinition meshDefinition = new MeshDefinition();
-        PartDefinition partDefinition = meshDefinition.getRoot();
+        var meshDefinition = new MeshDefinition();
+        var partDefinition = meshDefinition.getRoot();
 
-        PartDefinition body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -4.5F, -7.0F, 8.0F, 8.0F, 11.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 15.0F, 0.0F, -0.0911F, 0.0F, 0.0F));
-        PartDefinition rump = body.addOrReplaceChild("rump", CubeListBuilder.create().texOffs(27, 0).addBox(-3.5F, 0.0F, 0.0F, 7.0F, 7.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -4.5F, 4.0F, -0.1553F, 0.0F, 0.0F));
+        var body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -4.5F, -7.0F, 8.0F, 8.0F, 11.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 15.0F, 0.0F, -0.0911F, 0.0F, 0.0F));
+        var rump = body.addOrReplaceChild("rump", CubeListBuilder.create().texOffs(27, 0).addBox(-3.5F, 0.0F, 0.0F, 7.0F, 7.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -4.5F, 4.0F, -0.1553F, 0.0F, 0.0F));
         rump.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, 0.0F, 0.0F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 2.5F, 2.0F, 0.5918F, 0.0F, 0.0F));
         body.addOrReplaceChild("thighsFront", CubeListBuilder.create().texOffs(0, 19).addBox(-5.0F, -4.5F, -7.0F, 10.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 3.25F, 0.5F, 0.0911F, 0.0F, 0.0F));
         body.addOrReplaceChild("thighsRear", CubeListBuilder.create().texOffs(24, 25).addBox(-4.5F, -4.5F, 1.0F, 9.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 3.25F, 0.9F, 0.0911F, 0.0F, 0.0F));
-        PartDefinition head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(30, 11).addBox(-2.5F, -2.9991F, -7.4391F, 5.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 14.0097F, -4.4963F, 0.0834F, 0.0F, 0.0F));
+        var head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(30, 11).addBox(-2.5F, -2.9991F, -7.4391F, 5.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 14.0097F, -4.4963F, 0.0834F, 0.0F, 0.0F));
         head.addOrReplaceChild("nose", CubeListBuilder.create().texOffs(47, 0).addBox(-1.5F, 0.0F, -4.0F, 3.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0009F, -6.9391F, 0.182F, 0.0F, 0.0F));
-        PartDefinition mouth = head.addOrReplaceChild("mouth", CubeListBuilder.create().texOffs(0, 3).addBox(-1.0F, -0.5375F, -3.0125F, 2.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.5384F, -7.4266F));
+        var mouth = head.addOrReplaceChild("mouth", CubeListBuilder.create().texOffs(0, 3).addBox(-1.0F, -0.5375F, -3.0125F, 2.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.5384F, -7.4266F));
         mouth.addOrReplaceChild("tuskRightAdult", CubeListBuilder.create().texOffs(47, 0).addBox(-0.5F, -2.0F, -1.0F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.5F, -0.5375F, -1.7125F, 0.0F, 0.0F, -0.3927F));
         mouth.addOrReplaceChild("tuskLeftAdult", CubeListBuilder.create().texOffs(7, 0).addBox(-0.5F, -2.0F, -1.0F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.5F, -0.5375F, -1.7125F, 0.0F, 0.0F, 0.3927F));
         mouth.addOrReplaceChild("tuskRightTeen", CubeListBuilder.create().texOffs(47, 0).addBox(-0.5F, -1.0F, -1.0F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.5F, -0.5375F, -1.7125F, 0.0F, 0.0F, -0.3927F));
         mouth.addOrReplaceChild("tuskLeftTeen", CubeListBuilder.create().texOffs(7, 0).addBox(-0.5F, -1.0F, -1.0F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.5F, -0.5375F, -1.7125F, 0.0F, 0.0F, 0.3927F));
-        PartDefinition hair = head.addOrReplaceChild("hair", CubeListBuilder.create().texOffs(42, 26).addBox(-1.0F, -2.0F, -3.0F, 2.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -2.4991F, -4.5391F, 0.0094F, 0.0F, 0.0F));
+        var hair = head.addOrReplaceChild("hair", CubeListBuilder.create().texOffs(42, 26).addBox(-1.0F, -2.0F, -3.0F, 2.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -2.4991F, -4.5391F, 0.0094F, 0.0F, 0.0F));
         hair.addOrReplaceChild("hairRear", CubeListBuilder.create().texOffs(0, 28).addBox(-1.0F, 0.0F, 0.0F, 2.0F, 2.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.01F, -2.0F, 5.0F, -0.3927F, 0.0F, 0.0F));
         head.addOrReplaceChild("earRight", CubeListBuilder.create().texOffs(47, 6).addBox(-1.5F, -1.0F, -0.5F, 3.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.3125F, -0.7491F, -2.9391F, 0.3927F, 0.0F, 2.0944F));
         head.addOrReplaceChild("earLeft", CubeListBuilder.create().texOffs(55, 6).addBox(-1.5F, -1.0F, -0.5F, 3.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.25F, -0.7491F, -2.9391F, -0.3927F, 0.0F, 1.0472F));

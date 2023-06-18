@@ -137,7 +137,7 @@ public class GrainiteSpikeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeGrainel(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).canBeReplaced()) {
+        if (pLevel.getBlockState(pPos).isAir()) {
             this.setBlock(pLevel, pPos, IcariaBlocks.GRAINEL.get().defaultBlockState());
         }
     }
@@ -149,7 +149,7 @@ public class GrainiteSpikeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeGrainite(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).canBeReplaced()) {
+        if (pLevel.getBlockState(pPos).isAir()) {
             this.setBlock(pLevel, pPos, IcariaBlocks.GRAINITE.get().defaultBlockState());
         }
     }
@@ -161,7 +161,7 @@ public class GrainiteSpikeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).is(BlockTags.SAND)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.SAND)) {
             this.setBlock(pLevel, pPos, IcariaBlocks.BOLBOS.get().defaultBlockState());
         }
     }

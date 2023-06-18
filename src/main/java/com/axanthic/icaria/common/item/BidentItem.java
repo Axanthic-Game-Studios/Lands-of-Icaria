@@ -80,17 +80,16 @@ public class BidentItem extends TieredItem implements Vanishable {
 	@Override
 	public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
 		if (pLivingEntity instanceof Player player) {
-			int i = this.getUseDuration(pStack) - pTimeCharged;
-			if (i >= this.throwThresholdTime) {
+			if (this.getUseDuration(pStack) - pTimeCharged >= this.throwThresholdTime) {
 				player.awardStat(Stats.ITEM_USED.get(this));
 				if (!pLevel.isClientSide) {
 					pStack.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(pLivingEntity.getUsedItemHand()));
-					BidentEntity bidentEntity = new BidentEntity(pLevel, player, pStack);
-					bidentEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, this.shootPower, 1.0F);
-					pLevel.addFreshEntity(bidentEntity);
-					pLevel.playSound(null, bidentEntity, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+					var entity = new BidentEntity(pLevel, player, pStack);
+					entity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, this.shootPower, 1.0F);
+					pLevel.addFreshEntity(entity);
+					pLevel.playSound(null, entity, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
 					if (player.getAbilities().instabuild) {
-						bidentEntity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+						entity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
 					} else {
 						player.getInventory().removeItem(pStack);
 					}
@@ -101,7 +100,7 @@ public class BidentItem extends TieredItem implements Vanishable {
 
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-		ItemStack itemStack = pPlayer.getItemInHand(pUsedHand);
+		var itemStack = pPlayer.getItemInHand(pUsedHand);
 		if (itemStack.getDamageValue() >= itemStack.getMaxDamage() - 1) {
 			return InteractionResultHolder.fail(itemStack);
 		} else {

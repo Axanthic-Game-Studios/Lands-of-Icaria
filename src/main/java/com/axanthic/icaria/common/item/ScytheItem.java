@@ -6,7 +6,6 @@ import com.axanthic.icaria.common.util.IcariaTier;
 import com.google.common.collect.Sets;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -16,8 +15,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
@@ -36,8 +33,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ScytheItem extends HoeItem {
-	public static final TagKey<Block> BLOCKS = IcariaBlockTags.MINEABLE_WITH_SCYTHE;
-
 	public Tier equivalentTier;
 
 	public static final Set<ToolAction> SCYTHE_ACTIONS = Stream.of(ToolActions.HOE_TILL, ToolActions.SWORD_SWEEP).collect(Collectors.toCollection(Sets::newIdentityHashSet));
@@ -54,7 +49,7 @@ public class ScytheItem extends HoeItem {
 
 	@Override
 	public boolean canPerformAction(ItemStack pStack, ToolAction pAction) {
-		return SCYTHE_ACTIONS.contains(pAction);
+		return ScytheItem.SCYTHE_ACTIONS.contains(pAction);
 	}
 
 	@Override
@@ -65,17 +60,17 @@ public class ScytheItem extends HoeItem {
 
 	@Override
 	public boolean isCorrectToolForDrops(BlockState pState) {
-		return pState.is(BLOCKS) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pState);
+		return pState.is(IcariaBlockTags.MINEABLE_WITH_SCYTHE) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pState);
 	}
 
 	@Override
 	public boolean isCorrectToolForDrops(ItemStack pStack, BlockState pState) {
-		return pState.is(BLOCKS) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pState);
+		return pState.is(IcariaBlockTags.MINEABLE_WITH_SCYTHE) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pState);
 	}
 
 	@Override
 	public boolean onBlockStartBreak(ItemStack pStack, BlockPos pPos, Player pPlayer) {
-		Level level = pPlayer.getLevel();
+		var level = pPlayer.getLevel();
 		if (this.isCorrectToolForDrops(level.getBlockState(pPos))) {
 			for (BlockPos blockPos : BlockPos.withinManhattan(pPos, 1, 1, 1)) {
 				if (!blockPos.equals(pPos) && this.isCorrectToolForDrops(level.getBlockState(blockPos)))

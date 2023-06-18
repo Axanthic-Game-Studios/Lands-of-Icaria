@@ -8,7 +8,7 @@
     "shroom_ground": "landsoficaria:block/shroom_ground_3",
     "shroom_ground_stem": "landsoficaria:block/shroom_ground_stem",
     "soil_marl": "landsoficaria:block/marl",
-    "soil_moss": "landsoficaria:block/moss_0"
+    "soil_moss": "landsoficaria:block/scrubland_moss"
   },
   "elements": [
     {

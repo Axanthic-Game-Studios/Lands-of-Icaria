@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.goal.MyrmekeSoldierHurtByTargetGoal;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -41,7 +43,7 @@ public class MyrmekeSoldierEntity extends MyrmekeDroneEntity {
     }
 
     public int getTick() {
-        return this.entityData.get(TICK);
+        return this.entityData.get(MyrmekeSoldierEntity.TICK);
     }
 
     @Override
@@ -65,7 +67,7 @@ public class MyrmekeSoldierEntity extends MyrmekeDroneEntity {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(TICK, this.minTick);
+        this.entityData.define(MyrmekeSoldierEntity.TICK, this.minTick);
     }
 
     @Override
@@ -81,12 +83,12 @@ public class MyrmekeSoldierEntity extends MyrmekeDroneEntity {
         this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, (new MyrmekeSoldierHurtByTargetGoal(this)).setAlertOthers());
+        this.targetSelector.addGoal(1, new MyrmekeSoldierHurtByTargetGoal(this).setAlertOthers());
     }
 
     public void setTick(int pSize) {
         int tick = Mth.clamp(pSize, this.minTick, this.maxTick);
-        this.entityData.set(TICK, tick);
+        this.entityData.set(MyrmekeSoldierEntity.TICK, tick);
     }
 
     @Override
@@ -111,11 +113,5 @@ public class MyrmekeSoldierEntity extends MyrmekeDroneEntity {
 
     public static AttributeSupplier.Builder registerAttributes() {
         return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
-    }
-
-    public static class MyrmekeSoldierHurtByTargetGoal extends MyrmekeDroneHurtByTargetGoal {
-        MyrmekeSoldierHurtByTargetGoal(MyrmekeSoldierEntity pEntity) {
-            super(pEntity);
-        }
     }
 }

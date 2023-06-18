@@ -8,7 +8,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -79,10 +78,10 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 
 	@Override
 	public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
-		ItemStack emptyStack = ItemStack.EMPTY;
-		Slot slot = this.slots.get(pIndex);
+		var emptyStack = ItemStack.EMPTY;
+		var slot = this.slots.get(pIndex);
 		if (slot.hasItem()) {
-			ItemStack itemStack = slot.getItem();
+			var itemStack = slot.getItem();
 			emptyStack = itemStack.copy();
 			if (pIndex < 32) {
 				this.moveItemStackTo(itemStack, 32, 68, true);

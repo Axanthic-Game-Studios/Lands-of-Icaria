@@ -7,7 +7,6 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.util.DefaultRandomPos;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.phys.Vec3;
 
 import java.util.EnumSet;
 
@@ -42,7 +41,7 @@ public class IcariaPanicGoal extends Goal {
             return false;
         } else {
             if (this.mob.isOnFire()) {
-                BlockPos blockPos = this.lookForWater(this.mob.level, this.mob, 5);
+                var blockPos = this.lookForWater(this.mob.level, this.mob, 5);
                 if (blockPos != null) {
                     this.posX = blockPos.getX();
                     this.posY = blockPos.getY();
@@ -56,7 +55,7 @@ public class IcariaPanicGoal extends Goal {
     }
 
     public boolean findRandomPosition() {
-        Vec3 vec3 = DefaultRandomPos.getPos(this.mob, 5, 4);
+        var vec3 = DefaultRandomPos.getPos(this.mob, 5, 4);
         if (vec3 == null) {
             return false;
         } else {
@@ -83,7 +82,7 @@ public class IcariaPanicGoal extends Goal {
     }
 
     public BlockPos lookForWater(BlockGetter pLevel, Entity pEntity, int pRange) {
-        BlockPos blockPos = pEntity.blockPosition();
+        var blockPos = pEntity.blockPosition();
         return !pLevel.getBlockState(blockPos).getCollisionShape(pLevel, blockPos).isEmpty() ? null : BlockPos.findClosestMatch(pEntity.blockPosition(), pRange, 1, (pBlockPos) -> pLevel.getFluidState(pBlockPos).is(FluidTags.WATER)).orElse(null);
     }
 }

@@ -18,7 +18,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class PlaneTreeFeature extends IcariaTreeFeature {
     public PlaneTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.FALLEN_PLANE_LEAVES.get(), IcariaBlocks.PLANE_LEAVES.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.PLANE_SAPLING.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.PLANE_TWIGS.get());
+        super(pCodec, IcariaBlocks.FALLEN_PLANE_LEAVES.get(), IcariaBlocks.PLANE_LEAVES.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.PLANE_SAPLING.get(), IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaBlocks.PLANE_TWIGS.get());
     }
 
     @Override
@@ -81,6 +81,10 @@ public class PlaneTreeFeature extends IcariaTreeFeature {
                 this.placeLeaves(level, pos.below().relative(back).relative(left), 4);
                 this.placeLeaves(level, pos.below().relative(left), 2);
             }
+
+            this.placeTwigsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+            this.placeFallenPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+            this.placeShroomsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
 
             return true;
         } else {

@@ -15,7 +15,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.PlantType;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -37,11 +36,7 @@ public class GroundFlowerBlock extends Block implements IPlantable {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		return this.mayPlaceOn(pLevel.getBlockState(pPos.below()));
-	}
-
-	public boolean mayPlaceOn(BlockState pState) {
-		return pState.is(BlockTags.DIRT);
+		return pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT);
 	}
 
 	@Override
@@ -55,12 +50,7 @@ public class GroundFlowerBlock extends Block implements IPlantable {
 	}
 
 	@Override
-	public PlantType getPlantType(BlockGetter pLevel, BlockPos pPos) {
-		return PlantType.PLAINS;
-	}
-
-	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPE;
+		return GroundFlowerBlock.SHAPE;
 	}
 }

@@ -29,7 +29,7 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 	public void render(CrystalBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
 		pPoseStack.pushPose();
 		IcariaClientHelper.setPositionAndSize(pPoseStack, pBlockEntity.x, pBlockEntity.y, pBlockEntity.z, 1.0F);
-		IcariaClientHelper.renderRays(pPoseStack, pBufferSource, pBlockEntity.r, pBlockEntity.g, pBlockEntity.b);
+		IcariaClientHelper.renderRays(pPoseStack, pBufferSource, pBlockEntity.red, pBlockEntity.green, pBlockEntity.blue);
 		pPoseStack.popPose();
 	}
 }

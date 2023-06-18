@@ -31,8 +31,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.Objects;
-
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -104,11 +102,11 @@ public class HyliasterEntity extends Monster {
     }
 
     public int getSize() {
-        return this.entityData.get(SIZE);
+        return this.entityData.get(HyliasterEntity.SIZE);
     }
 
     public int getTick() {
-        return this.entityData.get(TICK);
+        return this.entityData.get(HyliasterEntity.TICK);
     }
 
     @Override
@@ -146,14 +144,14 @@ public class HyliasterEntity extends Monster {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(SIZE, this.minSize);
-        this.entityData.define(TICK, this.minTick);
+        this.entityData.define(HyliasterEntity.SIZE, this.minSize);
+        this.entityData.define(HyliasterEntity.TICK, this.minTick);
     }
 
     @Override
     public void onSyncedDataUpdated(EntityDataAccessor<?> pKey) {
         super.onSyncedDataUpdated(pKey);
-        if (SIZE.equals(pKey)) {
+        if (HyliasterEntity.SIZE.equals(pKey)) {
             this.refreshDimensions();
         }
     }
@@ -192,7 +190,7 @@ public class HyliasterEntity extends Monster {
                     for (int l = 0; l < size; ++l) {
                         float xOffset = ((float) (l % 2) - 0.5F) * size * 0.25F;
                         float zOffset = ((float) (l / 2) - 0.5F) * size * 0.25F;
-                        HyliasterEntity entity = IcariaEntityTypes.HYLIASTER.get().create(this.level);
+                        var entity = IcariaEntityTypes.HYLIASTER.get().create(this.level);
                         if (entity != null) {
                             entity.moveTo(this.getX() + xOffset, this.getY() + 0.5D, this.getZ() + zOffset, this.random.nextFloat() * 360.0F, 0.0F);
                             entity.setCustomName(this.getCustomName());
@@ -208,16 +206,16 @@ public class HyliasterEntity extends Monster {
     public void setSize(int pSize) {
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
         this.refreshDimensions();
-        Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
-        Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
-        Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue((size * 0.04D) + 0.1D);
+        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
+        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
+        this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((size * 0.04D) + 0.1D);
         this.entityData.set(SIZE, size);
         this.xpReward = size + 1;
     }
 
     public void setTick(int pSize) {
         int tick = Mth.clamp(pSize, this.minTick, this.maxTick);
-        this.entityData.set(TICK, tick);
+        this.entityData.set(HyliasterEntity.TICK, tick);
     }
 
     @Override
@@ -238,7 +236,7 @@ public class HyliasterEntity extends Monster {
 
     @Override
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
-        ItemStack itemStack = pPlayer.getItemInHand(pHand);
+        var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() == IcariaItems.EMPTY_VIAL.get()) {
             pPlayer.getLevel().playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
             if (!this.level.isClientSide) {

@@ -1,6 +1,8 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.IcariaSignBlockEntity;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
+import com.axanthic.icaria.common.registry.IcariaFluids;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -14,6 +16,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -24,10 +27,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
-	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-
-	public static final EnumProperty<AttachFace> FACE = BlockStateProperties.ATTACH_FACE;
-
 	public static final VoxelShape CEILING_NORTH = Block.box(0.0D, 14.0D, 4.5D, 16.0D, 16.0D, 12.5D);
 	public static final VoxelShape CEILING_EAST = Block.box(3.5D, 14.0D, 0.0D, 11.5D, 16.0D, 16.0D);
 	public static final VoxelShape CEILING_SOUTH = Block.box(0.0D, 14.0D, 3.5D, 16.0D, 16.0D, 11.5D);
@@ -43,12 +42,12 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 
 	public IcariaWallSignBlock(Properties pProperties, WoodType pWoodType) {
 		super(pProperties, pWoodType);
-		this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false).setValue(FACING, Direction.NORTH).setValue(FACE, AttachFace.WALL));
+		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.ATTACH_FACE, AttachFace.WALL).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	public boolean canAttach(LevelReader pLevel, BlockPos pPos, Direction pDirection) {
-		BlockPos blockpos = pPos.relative(pDirection);
-		return pLevel.getBlockState(blockpos).isFaceSturdy(pLevel, blockpos, pDirection.getOpposite());
+		var relativePos = pPos.relative(pDirection);
+		return pLevel.getBlockState(relativePos).isFaceSturdy(pLevel, relativePos, pDirection.getOpposite());
 	}
 
 	@Override
@@ -58,7 +57,7 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(FACE, FACING, WATERLOGGED);
+		pBuilder.add(BlockStateProperties.ATTACH_FACE, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
 	}
 
 	@Override
@@ -68,12 +67,14 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+		var clickedPos = pContext.getClickedPos();
+		var level = pContext.getLevel();
 		for (Direction direction : pContext.getNearestLookingDirections()) {
 			BlockState blockState;
 			if (direction.getAxis() == Direction.Axis.Y) {
-				blockState = this.defaultBlockState().setValue(FACE, direction == Direction.UP ? AttachFace.CEILING : AttachFace.FLOOR).setValue(FACING, pContext.getHorizontalDirection()).setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
+				blockState = this.defaultBlockState().setValue(BlockStateProperties.ATTACH_FACE, direction == Direction.UP ? AttachFace.CEILING : AttachFace.FLOOR).setValue(BlockStateProperties.HORIZONTAL_FACING, pContext.getHorizontalDirection()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, level.getFluidState(clickedPos).getType() == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(clickedPos).getType() == Fluids.WATER);
 			} else {
-				blockState = this.defaultBlockState().setValue(FACE, AttachFace.WALL).setValue(FACING, direction.getOpposite()).setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
+				blockState = this.defaultBlockState().setValue(BlockStateProperties.ATTACH_FACE, AttachFace.WALL).setValue(BlockStateProperties.HORIZONTAL_FACING, direction.getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, level.getFluidState(clickedPos).getType() == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(clickedPos).getType() == Fluids.WATER);
 			}
 
 			if (blockState.canSurvive(pContext.getLevel(), pContext.getClickedPos())) {
@@ -85,13 +86,18 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 	}
 
 	@Override
+	public FluidState getFluidState(BlockState pState) {
+		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : super.getFluidState(pState);
+	}
+
+	@Override
 	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
 		return this.getConnectedDirection(pState).getOpposite() == pFacing && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
 	}
 
 	public Direction getConnectedDirection(BlockState pState) {
-		return switch (pState.getValue(FACE)) {
-			default -> pState.getValue(FACING);
+		return switch (pState.getValue(BlockStateProperties.ATTACH_FACE)) {
+			default -> pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 			case CEILING -> Direction.DOWN;
 			case FLOOR -> Direction.UP;
 		};
@@ -99,26 +105,26 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return switch (pState.getValue(FACE)) {
-			default -> switch (pState.getValue(FACING)) {
-				default -> CEILING_NORTH;
-				case EAST -> CEILING_EAST;
-				case SOUTH -> CEILING_SOUTH;
-				case WEST -> CEILING_WEST;
+		return switch (pState.getValue(BlockStateProperties.ATTACH_FACE)) {
+			default -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+				default -> IcariaWallSignBlock.CEILING_NORTH;
+				case EAST -> IcariaWallSignBlock.CEILING_EAST;
+				case SOUTH -> IcariaWallSignBlock.CEILING_SOUTH;
+				case WEST -> IcariaWallSignBlock.CEILING_WEST;
 			};
 
-			case FLOOR -> switch (pState.getValue(FACING)) {
-				default -> FLOOR_NORTH;
-				case EAST -> FLOOR_EAST;
-				case SOUTH -> FLOOR_SOUTH;
-				case WEST -> FLOOR_WEST;
+			case FLOOR -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+				default -> IcariaWallSignBlock.FLOOR_NORTH;
+				case EAST -> IcariaWallSignBlock.FLOOR_EAST;
+				case SOUTH -> IcariaWallSignBlock.FLOOR_SOUTH;
+				case WEST -> IcariaWallSignBlock.FLOOR_WEST;
 			};
 
-			case WALL -> switch (pState.getValue(FACING)) {
-				default -> WALL_NORTH;
-				case EAST -> WALL_EAST;
-				case SOUTH -> WALL_SOUTH;
-				case WEST -> WALL_WEST;
+			case WALL -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+				default -> IcariaWallSignBlock.WALL_NORTH;
+				case EAST -> IcariaWallSignBlock.WALL_EAST;
+				case SOUTH -> IcariaWallSignBlock.WALL_SOUTH;
+				case WEST -> IcariaWallSignBlock.WALL_WEST;
 			};
 		};
 	}

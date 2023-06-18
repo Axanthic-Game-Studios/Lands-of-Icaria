@@ -48,7 +48,7 @@ public class CrawlerRevenantEntity extends RevenantEntity {
     }
 
     public int getTick() {
-        return this.entityData.get(TICK);
+        return this.entityData.get(CrawlerRevenantEntity.TICK);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class CrawlerRevenantEntity extends RevenantEntity {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(TICK, this.minTick);
+        this.entityData.define(CrawlerRevenantEntity.TICK, this.minTick);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class CrawlerRevenantEntity extends RevenantEntity {
 
     public void setTick(int pSize) {
         int tick = Mth.clamp(pSize, this.minTick, this.maxTick);
-        this.entityData.set(TICK, tick);
+        this.entityData.set(CrawlerRevenantEntity.TICK, tick);
     }
 
     @Override

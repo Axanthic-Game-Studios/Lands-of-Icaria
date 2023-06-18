@@ -79,30 +79,30 @@ public class EnderJellyfishModel extends HierarchicalModel<JellyfishEntity> {
     }
 
     public static LayerDefinition createLayer() {
-        MeshDefinition meshDefinition = new MeshDefinition();
-        PartDefinition partDefinition = meshDefinition.getRoot();
+        var meshDefinition = new MeshDefinition();
+        var partDefinition = meshDefinition.getRoot();
 
-        PartDefinition body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 9).addBox(-3.0F, -1.0F, -3.0F, 6.0F, 2.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -2.0F, 0.0F));
-        PartDefinition bell = body.addOrReplaceChild("bell", CubeListBuilder.create().texOffs(0, 30).addBox(-5.0F, -26.0F, -4.0F, 10.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 26.0F, 0.0F));
-        PartDefinition bellNorth = bell.addOrReplaceChild("bellNorth", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, 0.0F, -5.0F, 8.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -26.0F, 0.0F));
+        var body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 9).addBox(-3.0F, -1.0F, -3.0F, 6.0F, 2.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -2.0F, 0.0F));
+        var bell = body.addOrReplaceChild("bell", CubeListBuilder.create().texOffs(0, 30).addBox(-5.0F, -26.0F, -4.0F, 10.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 26.0F, 0.0F));
+        var bellNorth = bell.addOrReplaceChild("bellNorth", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, 0.0F, -5.0F, 8.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -26.0F, 0.0F));
         bellNorth.addOrReplaceChild("tentacleNorth", CubeListBuilder.create().texOffs(32, 3).addBox(-4.0F, 0.0F, 0.0F, 8.0F, 6.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.0F, -4.5F));
         bell.addOrReplaceChild("tentacleEast", CubeListBuilder.create().texOffs(0, 3).addBox(-4.0F, 0.0F, 0.0F, 8.0F, 6.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.5F, -24.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
-        PartDefinition bellSouth = bell.addOrReplaceChild("bellSouth", CubeListBuilder.create().texOffs(18, 0).addBox(-4.0F, 0.0F, 4.0F, 8.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -26.0F, 0.0F));
+        var bellSouth = bell.addOrReplaceChild("bellSouth", CubeListBuilder.create().texOffs(18, 0).addBox(-4.0F, 0.0F, 4.0F, 8.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -26.0F, 0.0F));
         bellSouth.addOrReplaceChild("tentacleSouth", CubeListBuilder.create().texOffs(48, 3).addBox(-4.0F, 0.0F, 0.0F, 8.0F, 6.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.0F, 4.5F));
         bell.addOrReplaceChild("tentacleWest", CubeListBuilder.create().texOffs(16, 3).addBox(-4.0F, 0.0F, 0.0F, 8.0F, 6.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.5F, -24.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
-        PartDefinition head = body.addOrReplaceChild("head", CubeListBuilder.create().texOffs(18, 9).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.0F, 0.0F));
-        PartDefinition torso = head.addOrReplaceChild("torso", CubeListBuilder.create().texOffs(0, 17).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 6.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.0F, 0.0F));
+        var head = body.addOrReplaceChild("head", CubeListBuilder.create().texOffs(18, 9).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.0F, 0.0F));
+        var torso = head.addOrReplaceChild("torso", CubeListBuilder.create().texOffs(0, 17).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 6.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.0F, 0.0F));
         torso.addOrReplaceChild("armInnerNorth", CubeListBuilder.create().texOffs(20, 20).addBox(-0.5F, 0.0F, -1.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 6.0F, 0.0F, -0.2007F, 0.0F, 0.0F));
         torso.addOrReplaceChild("armInnerEast", CubeListBuilder.create().texOffs(8, 20).addBox(-1.0F, 0.0F, -0.5F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 6.0F, 0.0F, 0.0F, 0.0F, 0.2007F));
         torso.addOrReplaceChild("armInnerSouth", CubeListBuilder.create().texOffs(16, 20).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 6.0F, 0.0F, 0.2007F, 0.0F, 0.0F));
         torso.addOrReplaceChild("armInnerWest", CubeListBuilder.create().texOffs(12, 20).addBox(0.0F, 0.0F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 6.0F, 0.0F, 0.0F, 0.0175F, -0.2007F));
-        PartDefinition armOuterNorthEastUpper = head.addOrReplaceChild("armOuterNorthEastUpper", CubeListBuilder.create().texOffs(0, 51).addBox(-0.5F, 0.0F, -1.5F, 1.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 3.5F, 0.0F, -0.1963F, 0.7854F, 0.0F));
+        var armOuterNorthEastUpper = head.addOrReplaceChild("armOuterNorthEastUpper", CubeListBuilder.create().texOffs(0, 51).addBox(-0.5F, 0.0F, -1.5F, 1.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 3.5F, 0.0F, -0.1963F, 0.7854F, 0.0F));
         armOuterNorthEastUpper.addOrReplaceChild("armOuterNorthEastLower", CubeListBuilder.create().texOffs(0, 40).addBox(-0.5F, 0.0F, -0.5F, 1.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 9.9F, -1.0F, 0.1963F, 0.0F, 0.0F));
-        PartDefinition armOuterSouthEastUpper = head.addOrReplaceChild("armOuterSouthEastUpper", CubeListBuilder.create().texOffs(4, 51).addBox(-0.5F, 0.0F, -1.5F, 1.0F, 11.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.5F, 0.0F, -0.1963F, 2.3562F, 0.0F));
+        var armOuterSouthEastUpper = head.addOrReplaceChild("armOuterSouthEastUpper", CubeListBuilder.create().texOffs(4, 51).addBox(-0.5F, 0.0F, -1.5F, 1.0F, 11.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.5F, 0.0F, -0.1963F, 2.3562F, 0.0F));
         armOuterSouthEastUpper.addOrReplaceChild("armOuterSouthEastLower", CubeListBuilder.create().texOffs(4, 40).addBox(-0.5F, 0.0F, -0.5F, 1.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 10.9F, -1.0F, 0.1963F, 0.0F, 0.0F));
-        PartDefinition armOuterSouthWestUpper = head.addOrReplaceChild("armOuterSouthWestUpper", CubeListBuilder.create().texOffs(8, 51).addBox(-0.5F, 0.0F, -1.5F, 1.0F, 12.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.5F, 0.0F, -0.1963F, -2.3562F, 0.0F));
+        var armOuterSouthWestUpper = head.addOrReplaceChild("armOuterSouthWestUpper", CubeListBuilder.create().texOffs(8, 51).addBox(-0.5F, 0.0F, -1.5F, 1.0F, 12.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.5F, 0.0F, -0.1963F, -2.3562F, 0.0F));
         armOuterSouthWestUpper.addOrReplaceChild("armOuterSouthWestLower", CubeListBuilder.create().texOffs(8, 40).addBox(-0.5F, 0.0F, -0.5F, 1.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 11.9F, -1.0F, 0.1963F, 0.0F, 0.0F));
-        PartDefinition armOuterNorthWestUpper = head.addOrReplaceChild("armOuterNorthWestUpper", CubeListBuilder.create().texOffs(12, 51).addBox(-0.5F, 0.0F, -1.5F, 1.0F, 11.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.5F, 0.0F, -0.1963F, -0.7854F, 0.0F));
+        var armOuterNorthWestUpper = head.addOrReplaceChild("armOuterNorthWestUpper", CubeListBuilder.create().texOffs(12, 51).addBox(-0.5F, 0.0F, -1.5F, 1.0F, 11.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.5F, 0.0F, -0.1963F, -0.7854F, 0.0F));
         armOuterNorthWestUpper.addOrReplaceChild("armOuterNorthWestLower", CubeListBuilder.create().texOffs(12, 40).addBox(-0.5F, 0.0F, -0.5F, 1.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 10.9F, -1.0F, 0.1963F, 0.0F, 0.0F));
 
         return LayerDefinition.create(meshDefinition, 64, 64);

@@ -69,6 +69,10 @@ public class LaurelTreeFeature extends IcariaTreeFeature {
                 }
             }
 
+            this.placeTwigsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+            this.placeFallenPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+            this.placeShroomsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+
             return true;
         } else {
             return false;

@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.menu;
 
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.level.block.Block;
@@ -23,6 +24,6 @@ public class IcariaCraftingMenu extends CraftingMenu {
 
 	@Override
 	public boolean stillValid(Player pPlayer) {
-		return stillValid(this.access, pPlayer, this.block);
+		return AbstractContainerMenu.stillValid(this.access, pPlayer, this.block);
 	}
 }

@@ -10,6 +10,7 @@
             "state": {
               "Name": "landsoficaria:grainite_rubble",
               "Properties": {
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             }

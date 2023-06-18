@@ -23,6 +23,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaSpawnerBlockEntity extends BlockEntity {
     public IcariaBaseSpawner baseSpawner;
+
     public BlockState blockState;
 
     public IcariaSpawnerBlockEntity(BlockPos pPos, BlockState pState) {

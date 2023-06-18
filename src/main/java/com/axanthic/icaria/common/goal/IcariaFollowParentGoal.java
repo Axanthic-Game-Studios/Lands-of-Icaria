@@ -4,8 +4,6 @@ import com.axanthic.icaria.common.entity.IcariaAnimalEntity;
 
 import net.minecraft.world.entity.ai.goal.Goal;
 
-import java.util.List;
-
 public class IcariaFollowParentGoal extends Goal {
     public double speedModifier;
 
@@ -38,8 +36,7 @@ public class IcariaFollowParentGoal extends Goal {
         } else {
             double d0 = Double.MAX_VALUE;
             IcariaAnimalEntity entity = null;
-            List<? extends IcariaAnimalEntity> list = this.entity.level.getEntitiesOfClass(this.entity.getClass(), this.entity.getBoundingBox().inflate(8.0D, 4.0D, 8.0D));
-            for (IcariaAnimalEntity parent : list) {
+            for (IcariaAnimalEntity parent : this.entity.level.getEntitiesOfClass(this.entity.getClass(), this.entity.getBoundingBox().inflate(8.0D, 4.0D, 8.0D))) {
                 if (!parent.isBaby()) {
                     double d1 = this.entity.distanceToSqr(parent);
                     if (!(d1 > d0)) {

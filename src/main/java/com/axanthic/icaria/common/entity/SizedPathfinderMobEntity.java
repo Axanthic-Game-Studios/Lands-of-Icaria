@@ -66,7 +66,7 @@ public class SizedPathfinderMobEntity extends PathfinderMob {
     }
 
     public int getSize() {
-        return this.entityData.get(SIZE);
+        return this.entityData.get(SizedPathfinderMobEntity.SIZE);
     }
 
     @Override
@@ -86,13 +86,13 @@ public class SizedPathfinderMobEntity extends PathfinderMob {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(SIZE, this.minSize);
+        this.entityData.define(SizedPathfinderMobEntity.SIZE, this.minSize);
     }
 
     @Override
     public void onSyncedDataUpdated(EntityDataAccessor<?> pKey) {
         super.onSyncedDataUpdated(pKey);
-        if (SIZE.equals(pKey)) {
+        if (SizedPathfinderMobEntity.SIZE.equals(pKey)) {
             this.refreshDimensions();
         }
     }
@@ -106,7 +106,7 @@ public class SizedPathfinderMobEntity extends PathfinderMob {
     public void setSize(int pSize) {
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
         this.refreshDimensions();
-        this.entityData.set(SIZE, size);
+        this.entityData.set(SizedPathfinderMobEntity.SIZE, size);
         this.xpReward = size + 1;
     }
 

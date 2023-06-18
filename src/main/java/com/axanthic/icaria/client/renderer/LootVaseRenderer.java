@@ -39,11 +39,11 @@ public class LootVaseRenderer extends EntityRenderer<LootVaseEntity> {
             var level = pEntity.getLevel();
             if (blockState != level.getBlockState(pEntity.blockPosition()) && blockState.getRenderShape() != RenderShape.INVISIBLE) {
                 var blockPos = BlockPos.containing(pEntity.getX(), pEntity.getBoundingBox().maxY, pEntity.getZ());
-                var model = this.dispatcher.getBlockModel(blockState);
+                var bakedModel = this.dispatcher.getBlockModel(blockState);
                 pMatrixStack.pushPose();
                 pMatrixStack.translate(-0.5D, 0.0D, -0.5D);
-                for (var renderType : model.getRenderTypes(blockState, RandomSource.create(blockState.getSeed(pEntity.getStartPos())), ModelData.EMPTY)) {
-                    this.dispatcher.getModelRenderer().tesselateBlock(level, model, blockState, blockPos, pMatrixStack, pBuffer.getBuffer(renderType), false, RandomSource.create(), blockState.getSeed(pEntity.getStartPos()), OverlayTexture.NO_OVERLAY, ModelData.EMPTY, renderType);
+                for (var renderType : bakedModel.getRenderTypes(blockState, RandomSource.create(blockState.getSeed(pEntity.getStartPos())), ModelData.EMPTY)) {
+                    this.dispatcher.getModelRenderer().tesselateBlock(level, bakedModel, blockState, blockPos, pMatrixStack, pBuffer.getBuffer(renderType), false, RandomSource.create(), blockState.getSeed(pEntity.getStartPos()), OverlayTexture.NO_OVERLAY, ModelData.EMPTY, renderType);
                 }
 
                 pMatrixStack.popPose();

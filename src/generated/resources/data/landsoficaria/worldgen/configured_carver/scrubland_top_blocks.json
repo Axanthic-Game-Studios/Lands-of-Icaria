@@ -26,13 +26,13 @@
       }
     },
     "fillerBlockPrimary": {
-      "Name": "landsoficaria:coarse_marl"
+      "Name": "landsoficaria:marl"
     },
     "fillerBlockSecondary": {
-      "Name": "landsoficaria:loam"
+      "Name": "landsoficaria:coarse_marl"
     },
     "fillerBlockTertiary": {
-      "Name": "landsoficaria:grainel"
+      "Name": "landsoficaria:loam"
     },
     "lava_level": {
       "above_bottom": 8
@@ -40,13 +40,18 @@
     "probability": 0.0,
     "replaceable": "#minecraft:overworld_carver_replaceables",
     "topBlockPrimary": {
-      "Name": "landsoficaria:coarse_marl"
+      "Name": "landsoficaria:grassy_marl",
+      "Properties": {
+        "forest_moss": "false",
+        "scrubland_moss": "false",
+        "steppe_moss": "false"
+      }
     },
     "topBlockSecondary": {
-      "Name": "landsoficaria:loam"
+      "Name": "landsoficaria:coarse_marl"
     },
     "topBlockTertiary": {
-      "Name": "landsoficaria:grainel"
+      "Name": "landsoficaria:loam"
     },
     "y": {
       "type": "minecraft:uniform",

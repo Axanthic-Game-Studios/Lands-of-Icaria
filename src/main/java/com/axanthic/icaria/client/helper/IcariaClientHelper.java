@@ -39,9 +39,9 @@ public class IcariaClientHelper {
 
     public static void renderRays(PoseStack pPoseStack, MultiBufferSource pBuffer, LivingEntity pLivingEntity, float pRed, float pGreen, float pBlue) {
         if (IcariaConfig.RENDER_RAYS.get()) {
-            Matrix4f matrix4f = pPoseStack.last().pose();
-            RandomSource randomSource = RandomSource.create(432L);
-            VertexConsumer vertexConsumer = pBuffer.getBuffer(IcariaRenderTypes.ADDITIVE_LIGHTNING);
+            var matrix4f = pPoseStack.last().pose();
+            var randomSource = RandomSource.create(432L);
+            var vertexConsumer = pBuffer.getBuffer(IcariaRenderTypes.ADDITIVE_LIGHTNING);
 
             float alpha = (0.1F - Math.min(0.0F, 0.1F)) * (!pLivingEntity.isInvisible() ? IcariaClientHelper.getLightBasedAlpha(pLivingEntity) : 0.0F);
             float length = randomSource.nextFloat() * 2.0F + 1.25F;
@@ -67,9 +67,9 @@ public class IcariaClientHelper {
 
     public static void renderRays(PoseStack pPoseStack, MultiBufferSource pBuffer, float pRed, float pGreen, float pBlue) {
         if (IcariaConfig.RENDER_RAYS.get()) {
-            Matrix4f matrix4f = pPoseStack.last().pose();
-            RandomSource randomSource = RandomSource.create(432L);
-            VertexConsumer vertexConsumer = pBuffer.getBuffer(IcariaRenderTypes.ADDITIVE_LIGHTNING);
+            var matrix4f = pPoseStack.last().pose();
+            var randomSource = RandomSource.create(432L);
+            var vertexConsumer = pBuffer.getBuffer(IcariaRenderTypes.ADDITIVE_LIGHTNING);
 
             float alpha = (0.1F - Math.min(0.0F, 0.1F));
             float length = randomSource.nextFloat() * 2.0F + 1.25F;

@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.menu.StorageVaseItemStackHandler;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
 import net.minecraft.core.BlockPos;
@@ -18,7 +19,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 
 public class StorageVaseBlockEntity extends BlockEntity {
-	public ItemStackHandler stackHandler = createHandler();
+	public ItemStackHandler stackHandler = this.createHandler();
 
 	public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> this.stackHandler);
 
@@ -51,12 +52,7 @@ public class StorageVaseBlockEntity extends BlockEntity {
 	}
 
 	public ItemStackHandler createHandler() {
-		return new ItemStackHandler(32) {
-			@Override
-			public void onContentsChanged(int slot) {
-				setChanged();
-			}
-		};
+		return new StorageVaseItemStackHandler(this, 32);
 	}
 
 	@Override

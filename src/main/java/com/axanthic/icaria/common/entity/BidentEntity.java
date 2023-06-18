@@ -12,7 +12,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -54,7 +53,7 @@ public class BidentEntity extends AbstractArrow {
 	@Override
 	public void addAdditionalSaveData(CompoundTag pCompound) {
 		super.addAdditionalSaveData(pCompound);
-		ItemStack itemStack = this.getRawItem();
+		var itemStack = this.getRawItem();
 		pCompound.putBoolean("DealtDamage", this.dealtDamage);
 		if (!itemStack.isEmpty()) {
 			pCompound.put("Bident", itemStack.save(new CompoundTag()));
@@ -71,8 +70,8 @@ public class BidentEntity extends AbstractArrow {
 	public void onHitEntity(EntityHitResult pResult) {
 		float damage = ((BidentItem) this.stack.getItem()).attackDamage;
 
-		Entity owner = this.getOwner();
-		Entity target = pResult.getEntity();
+		var owner = this.getOwner();
+		var target = pResult.getEntity();
 
 		if (target instanceof LivingEntity livingEntity) {
 			damage += EnchantmentHelper.getDamageBonus(this.stack, livingEntity.getMobType());
@@ -126,7 +125,7 @@ public class BidentEntity extends AbstractArrow {
 	}
 
 	public ItemStack getItem() {
-		ItemStack itemStack = this.getRawItem();
+		var itemStack = this.getRawItem();
 		return itemStack.isEmpty() ? new ItemStack(this.getDefaultItem()) : itemStack;
 	}
 

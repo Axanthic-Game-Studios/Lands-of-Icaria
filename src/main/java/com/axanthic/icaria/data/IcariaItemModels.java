@@ -28,8 +28,8 @@ public class IcariaItemModels extends ItemModelProvider {
 		}
 
 		for (IcariaItems.ToolSet tools : IcariaItems.TOOLS) {
-			ResourceLocation name = tools.bident.getId();
-			ItemModelBuilder model = this.singleTexture(name.getPath() + "_throwing", new ResourceLocation(IcariaInfo.ID, "item/bident_throwing"), "layer0", new ResourceLocation(name.getNamespace(), "item/" + name.getPath()));
+			var name = tools.bident.getId();
+			var model = this.singleTexture(name.getPath() + "_throwing", new ResourceLocation(IcariaInfo.ID, "item/bident_throwing"), "layer0", new ResourceLocation(name.getNamespace(), "item/" + name.getPath()));
 			this.itemWithModel(tools.sword, "item/handheld");
 			this.itemWithModel(tools.dagger, "item/handheld");
 			this.itemWithModel(tools.shovel, "item/handheld");
@@ -52,8 +52,8 @@ public class IcariaItemModels extends ItemModelProvider {
 	}
 
 	public ItemModelBuilder itemWithModel(RegistryObject<? extends Item> pItem, ResourceLocation pModel) {
-		ResourceLocation name = pItem.getId();
-		ResourceLocation texture = new ResourceLocation(name.getNamespace(), "item/" + name.getPath());
+		var name = pItem.getId();
+		var texture = new ResourceLocation(name.getNamespace(), "item/" + name.getPath());
 		return this.singleTexture(name.getPath(), pModel, "layer0", texture);
 	}
 }

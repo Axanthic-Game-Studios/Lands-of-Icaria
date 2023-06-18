@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.client.registry.IcariaResourceLocations;
-import com.axanthic.icaria.client.util.IcariaFluidTypeRenderProperties;
+import com.axanthic.icaria.client.extensions.IcariaClientFluidTypeExtensions;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.sounds.SoundEvents;
@@ -39,7 +39,7 @@ public class IcariaFluidTypes {
         .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)) {
         @Override
         public void initializeClient(Consumer<IClientFluidTypeExtensions> pConsumer) {
-            pConsumer.accept(new IcariaFluidTypeRenderProperties(IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE, IcariaResourceLocations.FLOWING_MEDITERRANEAN_WATER_TEXTURE, IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE_OVERLAY));
+            pConsumer.accept(new IcariaClientFluidTypeExtensions(IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE, IcariaResourceLocations.FLOWING_MEDITERRANEAN_WATER_TEXTURE, IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE_OVERLAY));
         }
     });
 }

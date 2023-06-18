@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.goal.IcariaAnimalHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.IcariaBreedGoal;
 import com.axanthic.icaria.common.goal.IcariaFollowParentGoal;
 import com.axanthic.icaria.common.goal.IcariaPanicGoal;
@@ -19,7 +20,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -28,8 +28,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-
-import java.util.Objects;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -95,16 +93,16 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 5.0F, 0.025F, false));
         this.goalSelector.addGoal(9, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, (new CatoblepasHurtByOtherGoal(this, 1.5D)).setAlertOthers());
+        this.targetSelector.addGoal(1, new IcariaAnimalHurtByTargetGoal(this, 1.5D).setAlertOthers());
     }
 
     @Override
     public void setSize(int pSize) {
         super.setSize(pSize);
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
-        Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
-        Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_KNOCKBACK)).setBaseValue(size * 0.5D);
-        Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
+        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
+        this.getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(size * 0.5D);
+        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
@@ -118,10 +116,10 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
 
     @Override
     public @Nonnull InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
-        ItemStack itemStack = pPlayer.getItemInHand(pHand);
+        var inHand = pPlayer.getItemInHand(pHand);
         if (!this.isBaby()) {
-            if (itemStack.is(Items.BUCKET)) {
-                ItemStack filledResult = ItemUtils.createFilledResult(itemStack, pPlayer, Items.MILK_BUCKET.getDefaultInstance());
+            if (inHand.is(Items.BUCKET)) {
+                var filledResult = ItemUtils.createFilledResult(inHand, pPlayer, Items.MILK_BUCKET.getDefaultInstance());
                 pPlayer.playSound(SoundEvents.COW_MILK, 1.0F, 1.0F);
                 pPlayer.setItemInHand(pHand, filledResult);
                 return InteractionResult.sidedSuccess(this.level.isClientSide);
@@ -144,22 +142,5 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
     @Override
     public SoundEvent getHurtSound(DamageSource pDamageSource) {
         return SoundEvents.COW_HURT;
-    }
-
-    public static class CatoblepasHurtByOtherGoal extends HurtByTargetGoal {
-        public double speedModifier;
-
-        CatoblepasHurtByOtherGoal(CatoblepasEntity pMob, double pSpeedModifier) {
-            super(pMob);
-            this.speedModifier = pSpeedModifier;
-        }
-
-        @Override
-        public void alertOther(Mob pMob, LivingEntity pEntity) {
-            if (pMob instanceof CatoblepasEntity) {
-                double random = pEntity.getRandom().nextInt(16) - 8;
-                pMob.getNavigation().moveTo(pEntity.getX() + random, 0.0D, pEntity.getZ() + random, speedModifier);
-            }
-        }
     }
 }

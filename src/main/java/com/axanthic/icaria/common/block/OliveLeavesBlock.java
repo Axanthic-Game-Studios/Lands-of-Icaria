@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -14,10 +15,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -26,12 +26,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class OliveLeavesBlock extends LeavesBlock {
-    public static final IntegerProperty STAGE = IntegerProperty.create("stage", 0, 2);
-
+public class OliveLeavesBlock extends IcariaLeavesBlock {
     public OliveLeavesBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(DISTANCE, 7).setValue(PERSISTENT, false).setValue(STAGE, 0).setValue(WATERLOGGED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.DISTANCE, 7).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.OLIVE_STAGE, 0).setValue(BlockStateProperties.PERSISTENT, false).setValue(BlockStateProperties.WATERLOGGED, false));
+
     }
 
     @Override
@@ -41,18 +40,18 @@ public class OliveLeavesBlock extends LeavesBlock {
 
     @Override
     public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(DISTANCE, PERSISTENT, STAGE, WATERLOGGED);
+        pBuilder.add(BlockStateProperties.DISTANCE, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, IcariaBlockStateProperties.OLIVE_STAGE, BlockStateProperties.PERSISTENT, BlockStateProperties.WATERLOGGED);
     }
 
     @Override
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         super.randomTick(pState, pLevel, pPos, pRandom);
         if (pRandom.nextInt(100) == 0) {
-            if (!pState.getValue(OliveLeavesBlock.PERSISTENT)) {
-                if (pState.getValue(OliveLeavesBlock.STAGE) == 0) {
-                    pLevel.setBlock(pPos, pState.setValue(OliveLeavesBlock.STAGE, 1), 2);
-                } else if (pState.getValue(OliveLeavesBlock.STAGE) == 1) {
-                    pLevel.setBlock(pPos, pState.setValue(OliveLeavesBlock.STAGE, 2), 2);
+            if (!pState.getValue(BlockStateProperties.PERSISTENT)) {
+                if (pState.getValue(IcariaBlockStateProperties.OLIVE_STAGE) == 0) {
+                    pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.OLIVE_STAGE, 1), 2);
+                } else if (pState.getValue(IcariaBlockStateProperties.OLIVE_STAGE) == 1) {
+                    pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.OLIVE_STAGE, 2), 2);
                 }
             }
         }
@@ -60,14 +59,14 @@ public class OliveLeavesBlock extends LeavesBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (pState.getValue(OliveLeavesBlock.STAGE) == 1) {
+        if (pState.getValue(IcariaBlockStateProperties.OLIVE_STAGE) == 1) {
             pLevel.playSound(pPlayer, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 1.0F);
-            pLevel.setBlock(pPos, this.defaultBlockState().setValue(OliveLeavesBlock.STAGE, 0), 0);
+            pLevel.setBlock(pPos, this.defaultBlockState().setValue(IcariaBlockStateProperties.OLIVE_STAGE, 0), 0);
             Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.GREEN_OLIVES.get(), 1));
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
-        } else if (pState.getValue(OliveLeavesBlock.STAGE) == 2) {
+        } else if (pState.getValue(IcariaBlockStateProperties.OLIVE_STAGE) == 2) {
             pLevel.playSound(pPlayer, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 1.0F);
-            pLevel.setBlock(pPos, this.defaultBlockState().setValue(OliveLeavesBlock.STAGE, 0), 0);
+            pLevel.setBlock(pPos, this.defaultBlockState().setValue(IcariaBlockStateProperties.OLIVE_STAGE, 0), 0);
             Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.BLACK_OLIVES.get(), 1));
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
         }

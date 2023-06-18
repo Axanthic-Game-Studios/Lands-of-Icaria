@@ -21,7 +21,6 @@ import net.minecraft.world.level.ItemLike;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.Objects;
 import java.util.function.Consumer;
 
 import javax.annotation.Nullable;
@@ -118,7 +117,7 @@ public class GrindingRecipeBuilder implements RecipeBuilder {
 				jsonObject.addProperty("count", this.count);
 			}
 
-			jsonObject.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.result)).toString());
+			jsonObject.addProperty("item", ForgeRegistries.ITEMS.getKey(this.result).toString());
 
 			pJson.addProperty("burnTime", this.burnTime);
 			pJson.add("gear", this.gear.toJson());

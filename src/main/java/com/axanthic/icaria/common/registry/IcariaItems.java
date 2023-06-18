@@ -23,7 +23,6 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Supplier;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -462,12 +461,12 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MEDIUM_GRASS = registerBasic("medium_grass", () -> new BlockItem(IcariaBlocks.MEDIUM_GRASS.get(), new Properties()));
 	public static final RegistryObject<Item> LARGE_GRASS = registerBasic("large_grass", () -> new BlockItem(IcariaBlocks.LARGE_GRASS.get(), new Properties()));
 
-	public static final RegistryObject<Item> GRAIN_0 = registerBasic("grain_0", () -> new BlockItem(IcariaBlocks.GRAIN_0.get(), new Properties()));
-	public static final RegistryObject<Item> GRAIN_1 = registerBasic("grain_1", () -> new BlockItem(IcariaBlocks.GRAIN_1.get(), new Properties()));
-	public static final RegistryObject<Item> GRAIN_2 = registerBasic("grain_2", () -> new BlockItem(IcariaBlocks.GRAIN_2.get(), new Properties()));
-	public static final RegistryObject<Item> GRAIN_3 = registerBasic("grain_3", () -> new BlockItem(IcariaBlocks.GRAIN_3.get(), new Properties()));
-	public static final RegistryObject<Item> GRAIN_4 = registerBasic("grain_4", () -> new BlockItem(IcariaBlocks.GRAIN_4.get(), new Properties()));
-	public static final RegistryObject<Item> GRAIN_5 = registerBasic("grain_5", () -> new BlockItem(IcariaBlocks.GRAIN_5.get(), new Properties()));
+	public static final RegistryObject<Item> SMALL_MIXED_GRAIN = registerBasic("small_mixed_grain", () -> new BlockItem(IcariaBlocks.SMALL_MIXED_GRAIN.get(), new Properties()));
+	public static final RegistryObject<Item> MEDIUM_MIXED_GRAIN = registerBasic("medium_mixed_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_MIXED_GRAIN.get(), new Properties()));
+	public static final RegistryObject<Item> MEDIUM_BROWN_GRAIN = registerBasic("medium_brown_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_BROWN_GRAIN.get(), new Properties()));
+	public static final RegistryObject<Item> MEDIUM_WHITE_GRAIN = registerBasic("medium_white_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_WHITE_GRAIN.get(), new Properties()));
+	public static final RegistryObject<Item> MEDIUM_YELLOW_GRAIN = registerBasic("medium_yellow_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get(), new Properties()));
+	public static final RegistryObject<Item> LARGE_BROWN_GRAIN = registerBasic("large_brown_grain", () -> new BlockItem(IcariaBlocks.LARGE_BROWN_GRAIN.get(), new Properties()));
 
 	public static final RegistryObject<Item> BLINDWEED = registerBasic("blindweed", () -> new BlockItem(IcariaBlocks.BLINDWEED.get(), new Properties()));
 	public static final RegistryObject<Item> CHAMEOMILE = registerBasic("chameomile", () -> new BlockItem(IcariaBlocks.CHAMEOMILE.get(), new Properties()));
@@ -503,9 +502,9 @@ public class IcariaItems {
 	public static final RegistryObject<Item> RED_GROUND_FLOWERS = register("red_ground_flowers", () -> new BlockItem(IcariaBlocks.RED_GROUND_FLOWERS.get(), new Properties()));
 	public static final RegistryObject<Item> WHITE_GROUND_FLOWERS = register("white_ground_flowers", () -> new BlockItem(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), new Properties()));
 
-	public static final RegistryObject<Item> MOSS_0 = register("moss_0", () -> new BlockItem(IcariaBlocks.MOSS_0.get(), new Properties()));
-	public static final RegistryObject<Item> MOSS_1 = register("moss_1", () -> new BlockItem(IcariaBlocks.MOSS_1.get(), new Properties()));
-	public static final RegistryObject<Item> MOSS_2 = register("moss_2", () -> new BlockItem(IcariaBlocks.MOSS_2.get(), new Properties()));
+	public static final RegistryObject<Item> FOREST_MOSS = register("forest_moss", () -> new BlockItem(IcariaBlocks.FOREST_MOSS.get(), new Properties()));
+	public static final RegistryObject<Item> SCRUBLAND_MOSS = register("scrubland_moss", () -> new BlockItem(IcariaBlocks.SCRUBLAND_MOSS.get(), new Properties()));
+	public static final RegistryObject<Item> STEPPE_MOSS = register("steppe_moss", () -> new BlockItem(IcariaBlocks.STEPPE_MOSS.get(), new Properties()));
 
 	public static final RegistryObject<Item> PALM_FERN = register("palm_fern", () -> new BlockItem(IcariaBlocks.PALM_FERN.get(), new Properties()));
 
@@ -803,7 +802,7 @@ public class IcariaItems {
 
 		public ToolSet(IcariaTier pTier) {
 			this.tier = pTier;
-			String name = Objects.requireNonNull(TierSortingRegistry.getName(pTier)).getPath();
+			String name = TierSortingRegistry.getName(pTier).getPath();
 			this.sword = register(name + "_sword", () -> new SwordItem(pTier, 3, -2.4F, new Properties()));
 			this.dagger = register(name + "_dagger", () -> new DaggerItem(pTier, 2, -1.0F, new Properties()));
 			this.shovel = register(name + "_shovel", () -> new IcariaShovelItem(pTier, 1.5F, -3.0F, new Properties()));

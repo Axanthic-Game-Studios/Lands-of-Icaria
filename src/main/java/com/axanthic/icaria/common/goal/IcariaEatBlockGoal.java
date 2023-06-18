@@ -4,7 +4,6 @@ import com.axanthic.icaria.common.entity.IcariaAnimalEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -37,7 +36,7 @@ public class IcariaEatBlockGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        BlockPos blockPos = this.entity.blockPosition();
+        var blockPos = this.entity.blockPosition();
         if (this.entity.getRandom().nextInt(this.entity.isBaby() ? 50 : 1000) != 0) {
             return false;
         } else {
@@ -69,7 +68,7 @@ public class IcariaEatBlockGoal extends Goal {
     public void tick() {
         this.eatAnimationTick = Math.max(0, this.eatAnimationTick - 1);
         if (this.eatAnimationTick == this.adjustedTickDelay(4)) {
-            BlockPos blockPos = this.entity.blockPosition();
+            var blockPos = this.entity.blockPosition();
             if (this.level.getBlockState(blockPos).is(IcariaBlockTags.ICARIA_GRASS_BLOCKS)) {
                 if (ForgeEventFactory.getMobGriefingEvent(this.level, this.entity)) {
                     this.level.destroyBlock(blockPos, false);
@@ -77,11 +76,11 @@ public class IcariaEatBlockGoal extends Goal {
 
                 this.entity.ate();
             } else {
-                BlockPos below = blockPos.below();
-                if (this.level.getBlockState(below).is(IcariaBlocks.GRASSY_MARL.get())) {
+                var belowPos = blockPos.below();
+                if (this.level.getBlockState(belowPos).is(IcariaBlocks.GRASSY_MARL.get())) {
                     if (ForgeEventFactory.getMobGriefingEvent(this.level, this.entity)) {
-                        this.level.levelEvent(2001, below, Block.getId(IcariaBlocks.GRASSY_MARL.get().defaultBlockState()));
-                        this.level.setBlock(below, IcariaBlocks.MARL.get().defaultBlockState(), 2);
+                        this.level.levelEvent(2001, belowPos, Block.getId(IcariaBlocks.GRASSY_MARL.get().defaultBlockState()));
+                        this.level.setBlock(belowPos, IcariaBlocks.MARL.get().defaultBlockState(), 2);
                     }
 
                     this.entity.ate();

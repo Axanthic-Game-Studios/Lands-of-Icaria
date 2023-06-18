@@ -71,16 +71,14 @@ public class LootVaseEntity extends Entity {
 
     @Override
     public void defineSynchedData() {
-        this.entityData.define(BLOCK_POS, BlockPos.ZERO);
-        this.entityData.define(BLOCK_STATE, Blocks.AIR.defaultBlockState());
+        this.entityData.define(LootVaseEntity.BLOCK_POS, BlockPos.ZERO);
+        this.entityData.define(LootVaseEntity.BLOCK_STATE, Blocks.AIR.defaultBlockState());
     }
 
     public void dropFromLootTable(DamageSource pDamageSource) {
         if (this.level.getServer() != null) {
-            var lootContextBuilder = new LootContext.Builder((ServerLevel) this.level).withOptionalParameter(LootContextParams.DIRECT_KILLER_ENTITY, pDamageSource.getDirectEntity()).withOptionalParameter(LootContextParams.KILLER_ENTITY, pDamageSource.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, pDamageSource).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).withRandom(this.random);
-            var lootContext = lootContextBuilder.create(LootContextParamSets.ENTITY);
-            var lootTable = lootContext.getLevel().getServer().getLootTables().get(IcariaVaseLoot.LOOT_VASE);
-            lootTable.getRandomItems(lootContext).forEach(this::spawnAtLocation);
+            var lootContext = new LootContext.Builder((ServerLevel) this.level).withOptionalParameter(LootContextParams.DIRECT_KILLER_ENTITY, pDamageSource.getDirectEntity()).withOptionalParameter(LootContextParams.KILLER_ENTITY, pDamageSource.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, pDamageSource).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).withRandom(this.random).create(LootContextParamSets.ENTITY);
+            lootContext.getLevel().getServer().getLootTables().get(IcariaVaseLoot.LOOT_VASE).getRandomItems(lootContext).forEach(this::spawnAtLocation);
         }
     }
 
@@ -102,11 +100,11 @@ public class LootVaseEntity extends Entity {
     }
 
     public void setBlockPos(BlockPos pStartPos) {
-        this.entityData.set(BLOCK_POS, pStartPos);
+        this.entityData.set(LootVaseEntity.BLOCK_POS, pStartPos);
     }
 
     public void setBlockState(BlockState pState) {
-        this.entityData.set(BLOCK_STATE, pState);
+        this.entityData.set(LootVaseEntity.BLOCK_STATE, pState);
     }
 
     @Override
@@ -122,11 +120,11 @@ public class LootVaseEntity extends Entity {
     }
 
     public BlockPos getStartPos() {
-        return this.entityData.get(BLOCK_POS);
+        return this.entityData.get(LootVaseEntity.BLOCK_POS);
     }
 
     public BlockState getBlockState() {
-        return this.entityData.get(BLOCK_STATE);
+        return this.entityData.get(LootVaseEntity.BLOCK_STATE);
     }
 
     @Override

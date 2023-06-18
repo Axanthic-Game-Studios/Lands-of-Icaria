@@ -16,6 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaBaseSpawner extends BaseSpawner {
     public IcariaSpawnerBlockEntity blockEntity;
+
     public BlockState blockState;
 
     public IcariaBaseSpawner(IcariaSpawnerBlockEntity pBlockEntity, BlockState pBlockState) {

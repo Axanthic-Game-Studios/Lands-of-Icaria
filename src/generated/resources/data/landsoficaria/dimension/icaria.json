@@ -36,13 +36,13 @@
             "depth": 0.0,
             "erosion": 0.0,
             "humidity": [
-              0.0,
-              0.25
+              -0.25,
+              0.0
             ],
             "offset": 0.0,
             "temperature": [
-              -0.25,
-              0.0
+              0.0,
+              0.25
             ],
             "weirdness": 0.0
           }
@@ -57,13 +57,13 @@
             "depth": 0.0,
             "erosion": 0.0,
             "humidity": [
-              -0.25,
-              0.0
+              0.0,
+              0.25
             ],
             "offset": 0.0,
             "temperature": [
-              0.0,
-              0.25
+              -0.25,
+              0.0
             ],
             "weirdness": 0.0
           }

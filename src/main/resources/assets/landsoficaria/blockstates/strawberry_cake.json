@@ -1,8 +1,8 @@
 {
   "variants": {
-    "bites=0": { "model": "landsoficaria:block/strawberry_cake_slice_0" },
-    "bites=1": { "model": "landsoficaria:block/strawberry_cake_slice_1" },
-    "bites=2": { "model": "landsoficaria:block/strawberry_cake_slice_2" },
-    "bites=3": { "model": "landsoficaria:block/strawberry_cake_slice_3" }
+    "cake_bite=0": { "model": "landsoficaria:block/strawberry_cake_slice_0" },
+    "cake_bite=1": { "model": "landsoficaria:block/strawberry_cake_slice_1" },
+    "cake_bite=2": { "model": "landsoficaria:block/strawberry_cake_slice_2" },
+    "cake_bite=3": { "model": "landsoficaria:block/strawberry_cake_slice_3" }
   }
 }

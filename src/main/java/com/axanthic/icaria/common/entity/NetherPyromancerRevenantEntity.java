@@ -61,15 +61,15 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
     }
 
     public int getAiming() {
-        return this.entityData.get(AIMING);
+        return this.entityData.get(NetherPyromancerRevenantEntity.AIMING);
     }
 
     public int getReload() {
-        return this.entityData.get(RELOAD);
+        return this.entityData.get(NetherPyromancerRevenantEntity.RELOAD);
     }
 
     public int getThrown() {
-        return this.entityData.get(THROWN);
+        return this.entityData.get(NetherPyromancerRevenantEntity.THROWN);
     }
 
     @Override
@@ -112,24 +112,24 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(AIMING, this.minAiming);
-        this.entityData.define(RELOAD, this.minReload);
-        this.entityData.define(THROWN, this.minThrown);
+        this.entityData.define(NetherPyromancerRevenantEntity.AIMING, this.minAiming);
+        this.entityData.define(NetherPyromancerRevenantEntity.RELOAD, this.minReload);
+        this.entityData.define(NetherPyromancerRevenantEntity.THROWN, this.minThrown);
     }
 
     @Override
     public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
         if (!this.onAiming()) {
-            GreekFireGrenadeEntity greekFireGrenadeEntity = new GreekFireGrenadeEntity(this.level, this, this.useItem);
+            var entity = new GreekFireGrenadeEntity(this.level, this, this.useItem);
 
             double d0 = pTarget.getX() - this.getX();
-            double d1 = pTarget.getY(0.3D) - greekFireGrenadeEntity.getY();
+            double d1 = pTarget.getY(0.3D) - entity.getY();
             double d2 = pTarget.getZ() - this.getZ();
             double d3 = Math.sqrt(d0 * d0 + d2 * d2);
 
-            greekFireGrenadeEntity.shoot(d0, d1 + d3 * 0.2D, d2, 1.0F, 8.0F);
+            entity.shoot(d0, d1 + d3 * 0.2D, d2, 1.0F, 8.0F);
 
-            this.level.addFreshEntity(greekFireGrenadeEntity);
+            this.level.addFreshEntity(entity);
             this.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
             this.setThrown(this.maxThrown);
             if (!this.isSilent()) {
@@ -165,15 +165,15 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
     }
 
     public void setAiming(int pTick) {
-        this.entityData.set(AIMING, pTick);
+        this.entityData.set(NetherPyromancerRevenantEntity.AIMING, pTick);
     }
 
     public void setReload(int pTick) {
-        this.entityData.set(RELOAD, pTick);
+        this.entityData.set(NetherPyromancerRevenantEntity.RELOAD, pTick);
     }
 
     public void setThrown(int pTick) {
-        this.entityData.set(THROWN, pTick);
+        this.entityData.set(NetherPyromancerRevenantEntity.THROWN, pTick);
     }
 
     @Override

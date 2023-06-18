@@ -1,9 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.goal.IcariaBreedGoal;
-import com.axanthic.icaria.common.goal.IcariaEatBlockGoal;
-import com.axanthic.icaria.common.goal.IcariaFollowParentGoal;
-import com.axanthic.icaria.common.goal.IcariaPanicGoal;
+import com.axanthic.icaria.common.goal.*;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
@@ -14,19 +11,19 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.AnimationState;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-
-import java.util.Objects;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -115,16 +112,16 @@ public class AeternaeEntity extends IcariaAnimalEntity {
         this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
         this.goalSelector.addGoal(9, new LookAtPlayerGoal(this, Player.class, 5.0F, 0.025F, false));
         this.goalSelector.addGoal(10, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, (new AeternaeHurtByOtherGoal(this, 1.5D)).setAlertOthers());
+        this.targetSelector.addGoal(1, new IcariaAnimalHurtByTargetGoal(this, 1.5D).setAlertOthers());
     }
 
     @Override
     public void setSize(int pSize) {
         super.setSize(pSize);
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
-        Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
-        Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_KNOCKBACK)).setBaseValue(size * 0.5D);
-        Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
+        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
+        this.getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(size * 0.5D);
+        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
@@ -149,22 +146,5 @@ public class AeternaeEntity extends IcariaAnimalEntity {
     @Override
     public SoundEvent getHurtSound(DamageSource pDamageSource) {
         return SoundEvents.COW_HURT;
-    }
-
-    public static class AeternaeHurtByOtherGoal extends HurtByTargetGoal {
-        public double speedModifier;
-
-        AeternaeHurtByOtherGoal(AeternaeEntity pMob, double pSpeedModifier) {
-            super(pMob);
-            this.speedModifier = pSpeedModifier;
-        }
-
-        @Override
-        public void alertOther(Mob pMob, LivingEntity pEntity) {
-            if (pMob instanceof AeternaeEntity) {
-                double random = pEntity.getRandom().nextInt(16) - 8;
-                pMob.getNavigation().moveTo(pEntity.getX() + random, 0.0D, pEntity.getZ() + random, speedModifier);
-            }
-        }
     }
 }

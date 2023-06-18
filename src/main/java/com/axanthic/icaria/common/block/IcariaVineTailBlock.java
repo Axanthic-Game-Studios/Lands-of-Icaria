@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.Util;
@@ -11,9 +12,13 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -30,14 +35,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaVineTailBlock extends Block {
-	public static final BooleanProperty NORTH = PipeBlock.NORTH;
-	public static final BooleanProperty EAST = PipeBlock.EAST;
-	public static final BooleanProperty SOUTH = PipeBlock.SOUTH;
-	public static final BooleanProperty WEST = PipeBlock.WEST;
-	public static final BooleanProperty UP = PipeBlock.UP;
-
 	public Map<BlockState, VoxelShape> map;
-	public static final Map<Direction, BooleanProperty> PROPERTY_BY_DIRECTION = PipeBlock.PROPERTY_BY_DIRECTION.entrySet().stream().filter((pEntry) -> pEntry.getKey() != Direction.DOWN).collect(Util.toMap());
+
+	public static final Map<Direction, BooleanProperty> PROPERTY_BY_DIRECTION = ImmutableMap.copyOf(Util.make(Maps.newEnumMap(Direction.class), (enumMap) -> {
+		enumMap.put(Direction.NORTH, BlockStateProperties.NORTH);
+		enumMap.put(Direction.EAST, BlockStateProperties.EAST);
+		enumMap.put(Direction.SOUTH, BlockStateProperties.SOUTH);
+		enumMap.put(Direction.WEST, BlockStateProperties.WEST);
+		enumMap.put(Direction.UP, BlockStateProperties.UP);
+	}));
 
 	public static final VoxelShape SHAPE_NORTH = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 1.0D);
 	public static final VoxelShape SHAPE_EAST = Block.box(15.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
@@ -47,15 +53,15 @@ public class IcariaVineTailBlock extends Block {
 
 	public IcariaVineTailBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false).setValue(UP, false));
+		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.NORTH, false).setValue(BlockStateProperties.EAST, false).setValue(BlockStateProperties.SOUTH, false).setValue(BlockStateProperties.WEST, false).setValue(BlockStateProperties.UP, false));
 		this.map = ImmutableMap.copyOf(this.stateDefinition.getPossibleStates().stream().collect(Collectors.toMap(Function.identity(), IcariaVineTailBlock::calculateShape)));
 	}
 
 	@Override
 	public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-		BlockState blockState = pUseContext.getLevel().getBlockState(pUseContext.getClickedPos());
-		if (blockState.is(this)) {
-			return this.countFaces(blockState) < PROPERTY_BY_DIRECTION.size();
+		var clickedState = pUseContext.getLevel().getBlockState(pUseContext.getClickedPos());
+		if (clickedState.is(this)) {
+			return this.countFaces(clickedState) < IcariaVineTailBlock.PROPERTY_BY_DIRECTION.size();
 		} else {
 			return super.canBeReplaced(pState, pUseContext);
 		}
@@ -70,8 +76,8 @@ public class IcariaVineTailBlock extends Block {
 			} else if (pDirection.getAxis() == Direction.Axis.Y) {
 				return false;
 			} else {
-				BlockState blockState = pLevel.getBlockState(pPos.above());
-				return blockState.is(BlockTags.CLIMBABLE) && blockState.getValue(PROPERTY_BY_DIRECTION.get(pDirection));
+				var aboveState = pLevel.getBlockState(pPos.above());
+				return aboveState.is(BlockTags.CLIMBABLE) && aboveState.getValue(IcariaVineTailBlock.PROPERTY_BY_DIRECTION.get(pDirection));
 			}
 		}
 	}
@@ -96,7 +102,7 @@ public class IcariaVineTailBlock extends Block {
 
 	public int countFaces(BlockState pState) {
 		int i = 0;
-		for (BooleanProperty booleanProperty : PROPERTY_BY_DIRECTION.values()) {
+		for (BooleanProperty booleanProperty : IcariaVineTailBlock.PROPERTY_BY_DIRECTION.values()) {
 			if (pState.getValue(booleanProperty)) {
 				++i;
 			}
@@ -107,41 +113,41 @@ public class IcariaVineTailBlock extends Block {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(NORTH, EAST, SOUTH, WEST, UP);
+		pBuilder.add(BlockStateProperties.NORTH, BlockStateProperties.EAST, BlockStateProperties.SOUTH, BlockStateProperties.WEST, BlockStateProperties.UP);
 	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		BlockState stateOne = pContext.getLevel().getBlockState(pContext.getClickedPos());
-		boolean flagOne = stateOne.is(this);
-		BlockState stateTwo = flagOne ? stateOne : this.defaultBlockState();
+		var clickedState = pContext.getLevel().getBlockState(pContext.getClickedPos());
+		boolean clickedFlag = clickedState.is(this);
+		var blockState = clickedFlag ? clickedState : this.defaultBlockState();
 		for (Direction direction : pContext.getNearestLookingDirections()) {
 			if (direction != Direction.DOWN) {
-				BooleanProperty booleanProperty = this.getPropertyForFace(direction);
-				boolean flagTwo = flagOne && stateOne.getValue(booleanProperty);
-				if (!flagTwo && this.canSupportAtFace(pContext.getLevel(), pContext.getClickedPos(), direction)) {
-					return stateTwo.setValue(booleanProperty, true);
+				var booleanProperty = this.getPropertyForFace(direction);
+				boolean flag = clickedFlag && clickedState.getValue(booleanProperty);
+				if (!flag && this.canSupportAtFace(pContext.getLevel(), pContext.getClickedPos(), direction)) {
+					return blockState.setValue(booleanProperty, true);
 				}
 			}
 		}
 
-		return flagOne ? stateTwo : null;
+		return clickedFlag ? blockState : null;
 	}
 
 	public BlockState getUpdatedState(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-		BlockPos blockPos = pPos.above();
-		if (pState.getValue(UP)) {
-			pState = pState.setValue(UP, this.isAcceptableNeighbour(pLevel, blockPos, Direction.DOWN));
+		var abovePos = pPos.above();
+		if (pState.getValue(BlockStateProperties.UP)) {
+			pState = pState.setValue(BlockStateProperties.UP, this.isAcceptableNeighbour(pLevel, abovePos, Direction.DOWN));
 		}
 
 		BlockState blockState = null;
 		for (Direction direction : Direction.Plane.HORIZONTAL) {
-			BooleanProperty booleanProperty = this.getPropertyForFace(direction);
+			var booleanProperty = this.getPropertyForFace(direction);
 			if (pState.getValue(booleanProperty)) {
 				boolean flag = this.canSupportAtFace(pLevel, pPos, direction);
 				if (!flag) {
 					if (blockState == null) {
-						blockState = pLevel.getBlockState(blockPos);
+						blockState = pLevel.getBlockState(abovePos);
 					}
 
 					flag = blockState.is(this) && blockState.getValue(booleanProperty);
@@ -158,8 +164,8 @@ public class IcariaVineTailBlock extends Block {
 	public BlockState mirror(BlockState pState, Mirror pMirror) {
 		return switch (pMirror) {
 			default -> super.mirror(pState, pMirror);
-			case LEFT_RIGHT -> pState.setValue(NORTH, pState.getValue(SOUTH)).setValue(SOUTH, pState.getValue(NORTH));
-			case FRONT_BACK -> pState.setValue(EAST, pState.getValue(WEST)).setValue(WEST, pState.getValue(EAST));
+			case LEFT_RIGHT -> pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.NORTH));
+			case FRONT_BACK -> pState.setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.EAST));
 		};
 	}
 
@@ -167,9 +173,9 @@ public class IcariaVineTailBlock extends Block {
 	public BlockState rotate(BlockState pState, Rotation pRotation) {
 		return switch (pRotation) {
 			default -> pState;
-			case CLOCKWISE_90 -> pState.setValue(NORTH, pState.getValue(WEST)).setValue(EAST, pState.getValue(NORTH)).setValue(SOUTH, pState.getValue(EAST)).setValue(WEST, pState.getValue(SOUTH));
-			case CLOCKWISE_180 -> pState.setValue(NORTH, pState.getValue(SOUTH)).setValue(EAST, pState.getValue(WEST)).setValue(SOUTH, pState.getValue(NORTH)).setValue(WEST, pState.getValue(EAST));
-			case COUNTERCLOCKWISE_90 -> pState.setValue(NORTH, pState.getValue(EAST)).setValue(EAST, pState.getValue(SOUTH)).setValue(SOUTH, pState.getValue(WEST)).setValue(WEST, pState.getValue(NORTH));
+			case CLOCKWISE_90 -> pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.SOUTH));
+			case CLOCKWISE_180 -> pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.EAST));
+			case COUNTERCLOCKWISE_90 -> pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.NORTH));
 		};
 	}
 
@@ -178,27 +184,27 @@ public class IcariaVineTailBlock extends Block {
 		if (pDirection == Direction.DOWN) {
 			return super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 		} else {
-			BlockState blockState = this.getUpdatedState(pState, pLevel, pCurrentPos);
+			var blockState = this.getUpdatedState(pState, pLevel, pCurrentPos);
 			return !this.hasFaces(blockState) ? Blocks.AIR.defaultBlockState() : blockState;
 		}
 	}
 
 	public BooleanProperty getPropertyForFace(Direction pDirection) {
-		return PROPERTY_BY_DIRECTION.get(pDirection);
+		return IcariaVineTailBlock.PROPERTY_BY_DIRECTION.get(pDirection);
 	}
 
 	public static VoxelShape calculateShape(BlockState pState) {
-		VoxelShape voxelShape = Shapes.empty();
-		if (pState.getValue(NORTH)) {
-			voxelShape = Shapes.or(voxelShape, SHAPE_NORTH);
-		} else if (pState.getValue(EAST)) {
-			voxelShape = Shapes.or(voxelShape, SHAPE_EAST);
-		} else if (pState.getValue(SOUTH)) {
-			voxelShape = Shapes.or(voxelShape, SHAPE_SOUTH);
-		} else if (pState.getValue(WEST)) {
-			voxelShape = Shapes.or(voxelShape, SHAPE_WEST);
-		} else if (pState.getValue(UP)) {
-			voxelShape = SHAPE_UP;
+		var voxelShape = Shapes.empty();
+		if (pState.getValue(BlockStateProperties.NORTH)) {
+			voxelShape = Shapes.or(voxelShape, IcariaVineTailBlock.SHAPE_NORTH);
+		} else if (pState.getValue(BlockStateProperties.EAST)) {
+			voxelShape = Shapes.or(voxelShape, IcariaVineTailBlock.SHAPE_EAST);
+		} else if (pState.getValue(BlockStateProperties.SOUTH)) {
+			voxelShape = Shapes.or(voxelShape, IcariaVineTailBlock.SHAPE_SOUTH);
+		} else if (pState.getValue(BlockStateProperties.WEST)) {
+			voxelShape = Shapes.or(voxelShape, IcariaVineTailBlock.SHAPE_WEST);
+		} else if (pState.getValue(BlockStateProperties.UP)) {
+			voxelShape = IcariaVineTailBlock.SHAPE_UP;
 		}
 
 		return voxelShape.isEmpty() ? Shapes.block() : voxelShape;

@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaMobEffects;
 
@@ -22,7 +23,6 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -36,15 +36,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaCakeBlock extends Block {
-	public static final IntegerProperty BITES = IntegerProperty.create("bites", 0, 3);
-
 	public static final VoxelShape[] SHAPES = new VoxelShape[] {
 		Block.box(1.0D, 0.0D, 1.0D, 15.0D, 8.0D, 15.0D), Shapes.or(Block.box(1.0D, 0.0D, 8.0D, 15.0D, 8.0D, 15.0D), Block.box(8.0D, 0.0D, 1.0D, 15.0D, 8.0D, 8.0D)), Block.box(1.0D, 0.0D, 8.0D, 15.0D, 8.0D, 15.0D), Block.box(1.0D, 0.0D, 8.0D, 8.0D, 8.0D, 15.0D)
 	};
 
 	public IcariaCakeBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BITES, 0));
+		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.CAKE_BITE, 0));
 	}
 
 	@Override
@@ -64,12 +62,12 @@ public class IcariaCakeBlock extends Block {
 
 	@Override
 	public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
-		return (4 - pState.getValue(BITES)) * 3;
+		return (4 - pState.getValue(IcariaBlockStateProperties.CAKE_BITE)) * 3;
 	}
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(BITES);
+		pBuilder.add(IcariaBlockStateProperties.CAKE_BITE);
 	}
 
 	@Override
@@ -82,11 +80,11 @@ public class IcariaCakeBlock extends Block {
 		if (!pPlayer.canEat(false)) {
 			return InteractionResult.PASS;
 		} else {
-			int bites = pState.getValue(BITES);
+			int bites = pState.getValue(IcariaBlockStateProperties.CAKE_BITE);
 			pPlayer.awardStat(Stats.EAT_CAKE_SLICE);
 			pPlayer.getFoodData().eat(2, 0.1F);
 			if (bites < 3) {
-				pLevel.setBlock(pPos, pState.setValue(BITES, bites + 1), 3);
+				pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.CAKE_BITE, bites + 1), 3);
 			} else {
 				pLevel.removeBlock(pPos, false);
 			}
@@ -127,6 +125,6 @@ public class IcariaCakeBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPES[pState.getValue(BITES)];
+		return IcariaCakeBlock.SHAPES[pState.getValue(IcariaBlockStateProperties.CAKE_BITE)];
 	}
 }

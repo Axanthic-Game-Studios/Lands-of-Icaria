@@ -8,7 +8,6 @@ import com.axanthic.icaria.client.screen.GrinderScreen;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.IcariaSkullItem;
-import com.axanthic.icaria.common.item.TotemItem;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
@@ -25,8 +24,6 @@ import com.axanthic.icaria.data.tags.IcariaFluidTags;
 import com.axanthic.icaria.data.tags.IcariaItemTags;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.color.block.BlockColors;
-import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -38,10 +35,8 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.stats.Stats;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.GrassColor;
@@ -597,12 +592,12 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.MEDIUM_GRASS.get());
 			pOutput.accept(IcariaItems.LARGE_GRASS.get());
 
-			pOutput.accept(IcariaItems.GRAIN_0.get());
-			pOutput.accept(IcariaItems.GRAIN_1.get());
-			pOutput.accept(IcariaItems.GRAIN_2.get());
-			pOutput.accept(IcariaItems.GRAIN_3.get());
-			pOutput.accept(IcariaItems.GRAIN_4.get());
-			pOutput.accept(IcariaItems.GRAIN_5.get());
+			pOutput.accept(IcariaItems.SMALL_MIXED_GRAIN.get());
+			pOutput.accept(IcariaItems.MEDIUM_MIXED_GRAIN.get());
+			pOutput.accept(IcariaItems.MEDIUM_BROWN_GRAIN.get());
+			pOutput.accept(IcariaItems.MEDIUM_WHITE_GRAIN.get());
+			pOutput.accept(IcariaItems.MEDIUM_YELLOW_GRAIN.get());
+			pOutput.accept(IcariaItems.LARGE_BROWN_GRAIN.get());
 
 			pOutput.accept(IcariaItems.BLINDWEED.get());
 			pOutput.accept(IcariaItems.CHAMEOMILE.get());
@@ -638,9 +633,9 @@ public class ClientProxy extends CommonProxy {
 			pOutput.accept(IcariaItems.RED_GROUND_FLOWERS.get());
 			pOutput.accept(IcariaItems.WHITE_GROUND_FLOWERS.get());
 
-			pOutput.accept(IcariaItems.MOSS_0.get());
-			pOutput.accept(IcariaItems.MOSS_1.get());
-			pOutput.accept(IcariaItems.MOSS_2.get());
+			pOutput.accept(IcariaItems.FOREST_MOSS.get());
+			pOutput.accept(IcariaItems.SCRUBLAND_MOSS.get());
+			pOutput.accept(IcariaItems.STEPPE_MOSS.get());
 
 			pOutput.accept(IcariaItems.PALM_FERN.get());
 
@@ -965,12 +960,12 @@ public class ClientProxy extends CommonProxy {
 		this.blockColor(IcariaBlocks.SMALL_GRASS.get());
 		this.blockColor(IcariaBlocks.MEDIUM_GRASS.get());
 		this.blockColor(IcariaBlocks.LARGE_GRASS.get());
-		this.blockColor(IcariaBlocks.GRAIN_0.get());
-		this.blockColor(IcariaBlocks.GRAIN_1.get());
-		this.blockColor(IcariaBlocks.GRAIN_2.get());
-		this.blockColor(IcariaBlocks.GRAIN_3.get());
-		this.blockColor(IcariaBlocks.GRAIN_4.get());
-		this.blockColor(IcariaBlocks.GRAIN_5.get());
+		this.blockColor(IcariaBlocks.SMALL_MIXED_GRAIN.get());
+		this.blockColor(IcariaBlocks.MEDIUM_MIXED_GRAIN.get());
+		this.blockColor(IcariaBlocks.MEDIUM_BROWN_GRAIN.get());
+		this.blockColor(IcariaBlocks.MEDIUM_WHITE_GRAIN.get());
+		this.blockColor(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get());
+		this.blockColor(IcariaBlocks.LARGE_BROWN_GRAIN.get());
 		this.blockColor(IcariaBlocks.BLINDWEED.get());
 		this.blockColor(IcariaBlocks.POTTED_BLINDWEED.get());
 		this.blockColor(IcariaBlocks.CHAMEOMILE.get());
@@ -1110,12 +1105,12 @@ public class ClientProxy extends CommonProxy {
 		this.renderCutout(IcariaBlocks.SMALL_GRASS.get());
 		this.renderCutout(IcariaBlocks.MEDIUM_GRASS.get());
 		this.renderCutout(IcariaBlocks.LARGE_GRASS.get());
-		this.renderCutout(IcariaBlocks.GRAIN_0.get());
-		this.renderCutout(IcariaBlocks.GRAIN_1.get());
-		this.renderCutout(IcariaBlocks.GRAIN_2.get());
-		this.renderCutout(IcariaBlocks.GRAIN_3.get());
-		this.renderCutout(IcariaBlocks.GRAIN_4.get());
-		this.renderCutout(IcariaBlocks.GRAIN_5.get());
+		this.renderCutout(IcariaBlocks.SMALL_MIXED_GRAIN.get());
+		this.renderCutout(IcariaBlocks.MEDIUM_MIXED_GRAIN.get());
+		this.renderCutout(IcariaBlocks.MEDIUM_BROWN_GRAIN.get());
+		this.renderCutout(IcariaBlocks.MEDIUM_WHITE_GRAIN.get());
+		this.renderCutout(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get());
+		this.renderCutout(IcariaBlocks.LARGE_BROWN_GRAIN.get());
 		this.renderCutout(IcariaBlocks.BLINDWEED.get());
 		this.renderCutout(IcariaBlocks.POTTED_BLINDWEED.get());
 		this.renderCutout(IcariaBlocks.CHAMEOMILE.get());
@@ -1339,131 +1334,131 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onLivingAttack(LivingAttackEvent pEvent) {
-		float damage = pEvent.getAmount();
-		Entity entity = pEvent.getEntity();
-		if (entity instanceof Player player) {
+		float amount = pEvent.getAmount();
+		var livingEntity = pEvent.getEntity();
+		if (livingEntity instanceof Player player) {
 			float health = player.getHealth();
-			ItemStack mainHand = player.getMainHandItem();
-			ItemStack offHand = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_STUFFING.get();
+			var mainHandItem = player.getMainHandItem();
+			var offhandItem = player.getOffhandItem();
+			var totem = IcariaItems.TOTEM_OF_STUFFING.get();
 			if (player.getFoodData().getFoodLevel() <= 0) {
-				if (offHand.getItem().equals(totem)) {
-					player.setHealth(health + damage);
+				if (offhandItem.getItem().equals(totem)) {
+					player.setHealth(health + amount);
 					player.removeEffect(MobEffects.HUNGER);
 					player.getFoodData().setSaturation(20);
 					player.getFoodData().setFoodLevel(20);
 					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+					offhandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
-				if (mainHand.getItem().equals(totem)) {
-					player.setHealth(health + damage);
+				if (mainHandItem.getItem().equals(totem)) {
+					player.setHealth(health + amount);
 					player.removeEffect(MobEffects.HUNGER);
 					player.getFoodData().setSaturation(20);
 					player.getFoodData().setFoodLevel(20);
 					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
 		}
 
-		if (entity instanceof Player player) {
+		if (livingEntity instanceof Player player) {
 			float health = player.getHealth();
-			ItemStack mainHand = player.getMainHandItem();
-			ItemStack offHand = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_UNDROWNING.get();
+			var mainHandItem = player.getMainHandItem();
+			var offhandItem = player.getOffhandItem();
+			var totem = IcariaItems.TOTEM_OF_UNDROWNING.get();
 			if (player.getAirSupply() <= 0) {
-				if (offHand.getItem().equals(totem)) {
-					player.setHealth(health + damage);
+				if (offhandItem.getItem().equals(totem)) {
+					player.setHealth(health + amount);
 					player.setAirSupply(300);
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+					offhandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
-				if (mainHand.getItem().equals(totem)) {
-					player.setHealth(health + damage);
+				if (mainHandItem.getItem().equals(totem)) {
+					player.setHealth(health + amount);
 					player.setAirSupply(300);
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
 		}
 
-		if (entity instanceof Player player) {
+		if (livingEntity instanceof Player player) {
 			float health = player.getHealth();
-			ItemStack mainHand = player.getMainHandItem();
-			ItemStack offHand = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_UNDYING.get();
-			if (damage >= health) {
-				if (offHand.getItem().equals(totem)) {
+			var mainHandItem = player.getMainHandItem();
+			var offhandItem = player.getOffhandItem();
+			var totem = IcariaItems.TOTEM_OF_UNDYING.get();
+			if (amount >= health) {
+				if (offhandItem.getItem().equals(totem)) {
 					pEvent.setCanceled(true);
 					player.setHealth(1);
 					player.removeAllEffects();
 					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900));
 					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+					offhandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
-				if (mainHand.getItem().equals(totem)) {
+				if (mainHandItem.getItem().equals(totem)) {
 					pEvent.setCanceled(true);
 					player.setHealth(1);
 					player.removeAllEffects();
 					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900));
 					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
 		}
 
-		DamageSource source = pEvent.getSource();
-		Entity entitySource = source.getEntity();
-		if (entitySource instanceof Player player) {
-			ItemStack mainHand = player.getMainHandItem();
-			ItemStack offHand = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-			if (mainHand.getItem() instanceof TieredItem || mainHand.getItem() instanceof TridentItem) {
-				if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
-					if (offHand.getItem().equals(totem)) {
+		var source = pEvent.getSource();
+		var entity = source.getEntity();
+		if (entity instanceof Player player) {
+			var mainHandItem = player.getMainHandItem();
+			var offhandItem = player.getOffhandItem();
+			var totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+			if (mainHandItem.getItem() instanceof TieredItem || mainHandItem.getItem() instanceof TridentItem) {
+				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
+					if (offhandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
-						offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
+						offhandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
 			}
 		}
 
-		if (entity instanceof Player player) {
-			ItemStack mainHand = player.getMainHandItem();
-			ItemStack offHand = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+		if (livingEntity instanceof Player player) {
+			var mainHandItem = player.getMainHandItem();
+			var offhandItem = player.getOffhandItem();
+			var totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
 			for (int slot = 5; slot < 9; slot++) {
-				ItemStack armor = player.inventoryMenu.slots.get(slot).getItem();
+				var armor = player.inventoryMenu.slots.get(slot).getItem();
 				if (armor.getItem() instanceof ArmorItem) {
 					if (armor.getDamageValue() >= (armor.getMaxDamage() * 0.9)) {
-						if (offHand.getItem().equals(totem)) {
+						if (offhandItem.getItem().equals(totem)) {
 							player.awardStat(Stats.ITEM_USED.get(totem));
 							armor.setDamageValue((int) (armor.getItem().getMaxDamage(armor) * 0.1));
-							offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+							offhandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 							totem.totemAnimation(player);
 						}
 
-						if (mainHand.getItem().equals(totem)) {
+						if (mainHandItem.getItem().equals(totem)) {
 							player.awardStat(Stats.ITEM_USED.get(totem));
 							armor.setDamageValue((int) (armor.getItem().getMaxDamage(armor) * 0.1));
-							mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+							mainHandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 							totem.totemAnimation(player);
 						}
 					}
@@ -1471,61 +1466,61 @@ public class ClientProxy extends CommonProxy {
 			}
 		}
 
-		if (entity instanceof Player player) {
+		if (livingEntity instanceof Player player) {
 			float health = player.getHealth();
-			ItemStack mainHand = player.getMainHandItem();
-			ItemStack offHand = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_UNSINKING.get();
+			var mainHandItem = player.getMainHandItem();
+			var offhandItem = player.getOffhandItem();
+			var totem = IcariaItems.TOTEM_OF_UNSINKING.get();
 			if (player.position().y <= -64) {
-				if (offHand.getItem().equals(totem)) {
-					player.setHealth(health + damage);
+				if (offhandItem.getItem().equals(totem)) {
+					player.setHealth(health + amount);
 					player.setPos(player.position().x, 320, player.position().z);
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+					offhandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
-				if (mainHand.getItem().equals(totem)) {
-					player.setHealth(health + damage);
+				if (mainHandItem.getItem().equals(totem)) {
+					player.setHealth(health + amount);
 					player.setPos(player.position().x, 320, player.position().z);
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
 		}
 
-		if (entitySource instanceof Player player) {
+		if (entity instanceof Player player) {
 			if (player.hasEffect(IcariaMobEffects.LIFESTEAL.get())) {
-				player.heal(damage);
+				player.heal(amount);
 			}
 		}
 	}
 
 	@Override
 	public void onMobEffectApplicable(MobEffectEvent.Applicable pEvent) {
-		Entity entity = pEvent.getEntity();
-		MobEffectInstance effect = pEvent.getEffectInstance();
-		if (entity instanceof Player player) {
-			ItemStack mainHand = player.getMainHandItem();
-			ItemStack offHand = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_UNBLINDING.get();
-			if (effect.getEffect().equals(MobEffects.BLINDNESS)) {
-				if (offHand.getItem().equals(totem)) {
+		var livingEntity = pEvent.getEntity();
+		var effectInstance = pEvent.getEffectInstance();
+		if (livingEntity instanceof Player player) {
+			var mainHandItem = player.getMainHandItem();
+			var offhandItem = player.getOffhandItem();
+			var totem = IcariaItems.TOTEM_OF_UNBLINDING.get();
+			if (effectInstance.getEffect().equals(MobEffects.BLINDNESS)) {
+				if (offhandItem.getItem().equals(totem)) {
 					player.addEffect(new MobEffectInstance(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+					offhandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 
-				if (mainHand.getItem().equals(totem)) {
+				if (mainHandItem.getItem().equals(totem)) {
 					player.addEffect(new MobEffectInstance(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+					mainHandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					totem.totemAnimation(player);
 				}
 			}
@@ -1534,28 +1529,28 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onPlayerInteract(PlayerInteractEvent pEvent) {
-		Entity entity = pEvent.getEntity();
-		if (entity instanceof Player player) {
-			ItemStack mainHand = player.getMainHandItem();
-			ItemStack offHand = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-			if (mainHand.getItem() instanceof FishingRodItem || mainHand.getItem() instanceof BowItem || mainHand.getItem() instanceof CrossbowItem || mainHand.getItem() instanceof ShieldItem || mainHand.getItem() instanceof TridentItem || mainHand.getItem() instanceof BidentItem) {
-				if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
-					if (offHand.getItem().equals(totem)) {
+		var player = pEvent.getEntity();
+		if (player != null) {
+			var mainHandItem = player.getMainHandItem();
+			var offhandItem = player.getOffhandItem();
+			var totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+			if (mainHandItem.getItem() instanceof FishingRodItem || mainHandItem.getItem() instanceof BowItem || mainHandItem.getItem() instanceof CrossbowItem || mainHandItem.getItem() instanceof ShieldItem || mainHandItem.getItem() instanceof TridentItem || mainHandItem.getItem() instanceof BidentItem) {
+				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
+					if (offhandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
-						offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
+						offhandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
 			}
 
-			if (offHand.getItem() instanceof FishingRodItem || offHand.getItem() instanceof BowItem || offHand.getItem() instanceof CrossbowItem || offHand.getItem() instanceof ShieldItem || offHand.getItem() instanceof TridentItem || offHand.getItem() instanceof BidentItem) {
-				if (offHand.getDamageValue() >= (offHand.getMaxDamage() * 0.9)) {
-					if (mainHand.getItem().equals(totem)) {
+			if (offhandItem.getItem() instanceof FishingRodItem || offhandItem.getItem() instanceof BowItem || offhandItem.getItem() instanceof CrossbowItem || offhandItem.getItem() instanceof ShieldItem || offhandItem.getItem() instanceof TridentItem || offhandItem.getItem() instanceof BidentItem) {
+				if (offhandItem.getDamageValue() >= (offhandItem.getMaxDamage() * 0.9)) {
+					if (mainHandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						offHand.setDamageValue((int) (offHand.getItem().getMaxDamage(offHand) * 0.1));
-						mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
+						mainHandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -1565,28 +1560,28 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onEntityInteract(PlayerInteractEvent.EntityInteract pEvent) {
-		Entity entity = pEvent.getEntity();
-		if (entity instanceof Player player) {
-			ItemStack mainHand = player.getMainHandItem();
-			ItemStack offHand = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-			if (mainHand.getItem() instanceof ShearsItem) {
-				if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
-					if (offHand.getItem().equals(totem)) {
+		var player = pEvent.getEntity();
+		if (player != null) {
+			var mainHandItem = player.getMainHandItem();
+			var offhandItem = player.getOffhandItem();
+			var totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+			if (mainHandItem.getItem() instanceof ShearsItem) {
+				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
+					if (offhandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
-						offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
+						offhandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
 			}
 
-			if (offHand.getItem() instanceof ShearsItem) {
-				if (offHand.getDamageValue() >= (offHand.getMaxDamage() * 0.9)) {
-					if (mainHand.getItem().equals(totem)) {
+			if (offhandItem.getItem() instanceof ShearsItem) {
+				if (offhandItem.getDamageValue() >= (offhandItem.getMaxDamage() * 0.9)) {
+					if (mainHandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						offHand.setDamageValue((int) (offHand.getItem().getMaxDamage(offHand) * 0.1));
-						mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
+						mainHandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -1596,17 +1591,17 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock pEvent) {
-		Entity entity = pEvent.getEntity();
-		if (entity instanceof Player player) {
-			ItemStack mainHand = player.getMainHandItem();
-			ItemStack offHand = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-			if (mainHand.getItem() instanceof TieredItem || mainHand.getItem() instanceof ShearsItem) {
-				if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
-					if (offHand.getItem().equals(totem)) {
+		var player = pEvent.getEntity();
+		if (player != null) {
+			var mainHandItem = player.getMainHandItem();
+			var offhandItem = player.getOffhandItem();
+			var totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+			if (mainHandItem.getItem() instanceof TieredItem || mainHandItem.getItem() instanceof ShearsItem) {
+				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
+					if (offhandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
-						offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
+						offhandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -1616,28 +1611,28 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock pEvent) {
-		Entity entity = pEvent.getEntity();
-		if (entity instanceof Player player) {
-			ItemStack mainHand = player.getMainHandItem();
-			ItemStack offHand = player.getOffhandItem();
-			TotemItem totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
-			if (mainHand.getItem() instanceof AxeItem || mainHand.getItem() instanceof HoeItem || mainHand.getItem() instanceof ShovelItem || mainHand.getItem() instanceof FlintAndSteelItem) {
-				if (mainHand.getDamageValue() >= (mainHand.getMaxDamage() * 0.9)) {
-					if (offHand.getItem().equals(totem)) {
+		var player = pEvent.getEntity();
+		if (player != null) {
+			var mainHandItem = player.getMainHandItem();
+			var offhandItem = player.getOffhandItem();
+			var totem = IcariaItems.TOTEM_OF_UNSHATTERING.get();
+			if (mainHandItem.getItem() instanceof AxeItem || mainHandItem.getItem() instanceof HoeItem || mainHandItem.getItem() instanceof ShovelItem || mainHandItem.getItem() instanceof FlintAndSteelItem) {
+				if (mainHandItem.getDamageValue() >= (mainHandItem.getMaxDamage() * 0.9)) {
+					if (offhandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						mainHand.setDamageValue((int) (mainHand.getItem().getMaxDamage(mainHand) * 0.1));
-						offHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1));
+						offhandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
 			}
 
-			if (offHand.getItem() instanceof AxeItem || offHand.getItem() instanceof HoeItem || offHand.getItem() instanceof ShovelItem || offHand.getItem() instanceof FlintAndSteelItem) {
-				if (offHand.getDamageValue() >= (offHand.getMaxDamage() * 0.9)) {
-					if (mainHand.getItem().equals(totem)) {
+			if (offhandItem.getItem() instanceof AxeItem || offhandItem.getItem() instanceof HoeItem || offhandItem.getItem() instanceof ShovelItem || offhandItem.getItem() instanceof FlintAndSteelItem) {
+				if (offhandItem.getDamageValue() >= (offhandItem.getMaxDamage() * 0.9)) {
+					if (mainHandItem.getItem().equals(totem)) {
 						player.awardStat(Stats.ITEM_USED.get(totem));
-						offHand.setDamageValue((int) (offHand.getItem().getMaxDamage(offHand) * 0.1));
-						mainHand.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
+						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
+						mainHandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 						totem.totemAnimation(player);
 					}
 				}
@@ -1664,14 +1659,14 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	public void blockColor(Block pBlock) {
-		Minecraft minecraft = Minecraft.getInstance();
-		BlockColors blockColors = minecraft.getBlockColors();
+		var minecraft = Minecraft.getInstance();
+		var blockColors = minecraft.getBlockColors();
 		blockColors.register((pState, pLevel, pPos, pIndex) -> GrassColor.get(0.6D, 0.1D), pBlock);
 	}
 
 	public void itemColor(Item pItem) {
-		Minecraft minecraft = Minecraft.getInstance();
-		ItemColors itemColors = minecraft.getItemColors();
+		var minecraft = Minecraft.getInstance();
+		var itemColors = minecraft.getItemColors();
 		itemColors.register((pStack, pIndex) -> GrassColor.get(0.6D, 0.1D), pItem);
 	}
 

@@ -6,7 +6,6 @@ import com.axanthic.icaria.common.registry.IcariaItems;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
-import mezz.jei.api.recipe.vanilla.IVanillaRecipeFactory;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 
@@ -111,13 +110,13 @@ public class JeiIntegration implements IModPlugin {
     }
 
     public void anvilRecipes(IRecipeRegistration pRegistration, Item pItemDamaged, Item pItemRepair) {
-        IVanillaRecipeFactory factory = pRegistration.getVanillaRecipeFactory();
+        var factory = pRegistration.getVanillaRecipeFactory();
 
-        ItemStack damagedThreeQuarter = new ItemStack(pItemDamaged);
-        ItemStack damagedHalf = new ItemStack(pItemDamaged);
-        ItemStack damaged = new ItemStack(pItemDamaged);
+        var damagedThreeQuarter = new ItemStack(pItemDamaged);
+        var damagedHalf = new ItemStack(pItemDamaged);
+        var damaged = new ItemStack(pItemDamaged);
 
-        ItemStack repair = new ItemStack(pItemRepair);
+        var repair = new ItemStack(pItemRepair);
 
         damagedThreeQuarter.setDamageValue(damagedThreeQuarter.getMaxDamage() / 4 * 3);
         damagedHalf.setDamageValue(damagedHalf.getMaxDamage() / 4 * 2);

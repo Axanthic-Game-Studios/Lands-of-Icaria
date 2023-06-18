@@ -1,12 +1,14 @@
 package com.axanthic.icaria.common.world.feature.dead;
 
+import com.axanthic.icaria.common.block.LayerBlock;
+
 import com.mojang.serialization.Codec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -19,13 +21,15 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     public Block dead;
     public Block herb;
     public Block log;
+    public Block moss;
     public Block twigs;
 
-    public IcariaDeadTreeFeature(Codec<NoneFeatureConfiguration> pCodec, Block pDead, Block pHerb, Block pLog, Block pTwigs) {
+    public IcariaDeadTreeFeature(Codec<NoneFeatureConfiguration> pCodec, Block pDead, Block pHerb, Block pLog, Block pMoss, Block pTwigs) {
         super(pCodec);
         this.dead = pDead;
         this.herb = pHerb;
         this.log = pLog;
+        this.moss = pMoss;
         this.twigs = pTwigs;
     }
 
@@ -39,15 +43,25 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
         int length = random.nextIntBetweenInclusive(2, 4);
         int offset = 2;
 
+        this.placeMoss(level, origin.relative(direction, -2), 1, 4);
+        this.placeMoss(level, origin.relative(direction, -2).relative(direction.getClockWise(), 1), 1, 4);
+        this.placeMoss(level, origin.relative(direction, -2).relative(direction.getClockWise(), 2), 1, 4);
+        this.placeMoss(level, origin.relative(direction, -2).relative(direction.getCounterClockWise(), 1), 1, 4);
+        this.placeMoss(level, origin.relative(direction, -2).relative(direction.getCounterClockWise(), 2), 1, 4);
+        this.placeMoss(level, origin.relative(direction, -1), 2, 4);
+        this.placeMoss(level, origin.relative(direction, -1).relative(direction.getClockWise(), 1), 2, 4);
+        this.placeMoss(level, origin.relative(direction, -1).relative(direction.getClockWise(), 2), 1, 4);
+        this.placeMoss(level, origin.relative(direction, -1).relative(direction.getCounterClockWise(), 1), 2, 4);
+        this.placeMoss(level, origin.relative(direction, -1).relative(direction.getCounterClockWise(), 2), 1, 4);
+
         this.placeLog(level, origin, Direction.Axis.Y);
+
         this.placeDead(level, origin.above(), Direction.Axis.Y);
 
-        this.placeTwigs(level, origin.relative(direction), 4);
-        this.placeTwigs(level, origin.relative(direction).relative(direction.getClockWise()), 4);
-        this.placeTwigs(level, origin.relative(direction).relative(direction.getCounterClockWise()), 4);
-        this.placeTwigs(level, origin.relative(direction, 2), 4);
-        this.placeTwigs(level, origin.relative(direction, 2).relative(direction.getClockWise()), 4);
-        this.placeTwigs(level, origin.relative(direction, 2).relative(direction.getCounterClockWise()), 4);
+        this.placeMoss(level, origin.relative(direction.getClockWise(), 1), 2, 4);
+        this.placeMoss(level, origin.relative(direction.getClockWise(), 2), 1, 4);
+        this.placeMoss(level, origin.relative(direction.getCounterClockWise(), 1), 2, 4);
+        this.placeMoss(level, origin.relative(direction.getCounterClockWise(), 2), 1, 4);
 
         this.placeHerb(level, origin.relative(direction), 16);
         this.placeHerb(level, origin.relative(direction).relative(direction.getClockWise()), 16);
@@ -56,52 +70,85 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
         this.placeHerb(level, origin.relative(direction, 2).relative(direction.getClockWise()), 16);
         this.placeHerb(level, origin.relative(direction, 2).relative(direction.getCounterClockWise()), 16);
 
+        this.placeMoss(level, origin.relative(direction, 1), 2, 4);
+        this.placeMoss(level, origin.relative(direction, 1).relative(direction.getClockWise(), 1), 2, 4);
+        this.placeMoss(level, origin.relative(direction, 1).relative(direction.getClockWise(), 2), 1, 4);
+        this.placeMoss(level, origin.relative(direction, 1).relative(direction.getCounterClockWise(), 1), 2, 4);
+        this.placeMoss(level, origin.relative(direction, 1).relative(direction.getCounterClockWise(), 2), 1, 4);
+        this.placeMoss(level, origin.relative(direction, 2), 2, 4);
+        this.placeMoss(level, origin.relative(direction, 2).relative(direction.getClockWise(), 1), 2, 4);
+        this.placeMoss(level, origin.relative(direction, 2).relative(direction.getClockWise(), 2), 1, 4);
+        this.placeMoss(level, origin.relative(direction, 2).relative(direction.getCounterClockWise(), 1), 2, 4);
+        this.placeMoss(level, origin.relative(direction, 2).relative(direction.getCounterClockWise(), 2), 1, 4);
+
+        this.placeTwigs(level, origin.relative(direction), 4);
+        this.placeTwigs(level, origin.relative(direction).relative(direction.getClockWise()), 4);
+        this.placeTwigs(level, origin.relative(direction).relative(direction.getCounterClockWise()), 4);
+        this.placeTwigs(level, origin.relative(direction, 2), 4);
+        this.placeTwigs(level, origin.relative(direction, 2).relative(direction.getClockWise()), 4);
+        this.placeTwigs(level, origin.relative(direction, 2).relative(direction.getCounterClockWise()), 4);
+
         for (int i = 1; i <= length; ++i) {
             ++offset;
             this.placeDead(level, origin.relative(direction, offset), direction.getAxis());
+            this.placeMoss(level, origin.relative(direction, offset).relative(direction.getClockWise(), 1), 2, 4);
+            this.placeMoss(level, origin.relative(direction, offset).relative(direction.getClockWise(), 2), 1, 4);
+            this.placeMoss(level, origin.relative(direction, offset).relative(direction.getCounterClockWise(), 1), 2, 4);
+            this.placeMoss(level, origin.relative(direction, offset).relative(direction.getCounterClockWise(), 2), 1, 4);
         }
 
-        this.placeTwigs(level, origin.relative(direction, 7), 4);
-        this.placeTwigs(level, origin.relative(direction, 7).relative(direction.getClockWise()), 4);
-        this.placeTwigs(level, origin.relative(direction, 7).relative(direction.getClockWise(), 2), 4);
-        this.placeTwigs(level, origin.relative(direction, 7).relative(direction.getCounterClockWise()), 4);
-        this.placeTwigs(level, origin.relative(direction, 7).relative(direction.getCounterClockWise(), 2), 4);
-        this.placeTwigs(level, origin.relative(direction, 8), 4);
-        this.placeTwigs(level, origin.relative(direction, 8).relative(direction.getClockWise()), 4);
-        this.placeTwigs(level, origin.relative(direction, 8).relative(direction.getClockWise(), 2), 4);
-        this.placeTwigs(level, origin.relative(direction, 8).relative(direction.getCounterClockWise()), 4);
-        this.placeTwigs(level, origin.relative(direction, 8).relative(direction.getCounterClockWise(), 2), 4);
-        this.placeTwigs(level, origin.relative(direction, 9), 4);
-        this.placeTwigs(level, origin.relative(direction, 9).relative(direction.getClockWise()), 4);
-        this.placeTwigs(level, origin.relative(direction, 9).relative(direction.getClockWise(), 2), 4);
-        this.placeTwigs(level, origin.relative(direction, 9).relative(direction.getCounterClockWise()), 4);
-        this.placeTwigs(level, origin.relative(direction, 9).relative(direction.getCounterClockWise(), 2), 4);
-        this.placeTwigs(level, origin.relative(direction, 10), 4);
-        this.placeTwigs(level, origin.relative(direction, 10).relative(direction.getClockWise()), 4);
-        this.placeTwigs(level, origin.relative(direction, 10).relative(direction.getClockWise(), 2), 4);
-        this.placeTwigs(level, origin.relative(direction, 10).relative(direction.getCounterClockWise()), 4);
-        this.placeTwigs(level, origin.relative(direction, 10).relative(direction.getCounterClockWise(), 2), 4);
+        this.placeHerb(level, origin.relative(direction, 3 + length), 16);
+        this.placeHerb(level, origin.relative(direction, 3 + length).relative(direction.getClockWise()), 16);
+        this.placeHerb(level, origin.relative(direction, 3 + length).relative(direction.getClockWise(), 2), 16);
+        this.placeHerb(level, origin.relative(direction, 3 + length).relative(direction.getCounterClockWise()), 16);
+        this.placeHerb(level, origin.relative(direction, 3 + length).relative(direction.getCounterClockWise(), 2), 16);
+        this.placeHerb(level, origin.relative(direction, 4 + length), 16);
+        this.placeHerb(level, origin.relative(direction, 4 + length).relative(direction.getClockWise()), 16);
+        this.placeHerb(level, origin.relative(direction, 4 + length).relative(direction.getClockWise(), 2), 16);
+        this.placeHerb(level, origin.relative(direction, 4 + length).relative(direction.getCounterClockWise()), 16);
+        this.placeHerb(level, origin.relative(direction, 4 + length).relative(direction.getCounterClockWise(), 2), 16);
+        this.placeHerb(level, origin.relative(direction, 5 + length), 16);
+        this.placeHerb(level, origin.relative(direction, 5 + length).relative(direction.getClockWise()), 16);
+        this.placeHerb(level, origin.relative(direction, 5 + length).relative(direction.getClockWise(), 2), 16);
+        this.placeHerb(level, origin.relative(direction, 5 + length).relative(direction.getCounterClockWise()), 16);
+        this.placeHerb(level, origin.relative(direction, 5 + length).relative(direction.getCounterClockWise(), 2), 16);
+        this.placeHerb(level, origin.relative(direction, 6 + length), 16);
+        this.placeHerb(level, origin.relative(direction, 6 + length).relative(direction.getClockWise()), 16);
+        this.placeHerb(level, origin.relative(direction, 6 + length).relative(direction.getClockWise(), 2), 16);
+        this.placeHerb(level, origin.relative(direction, 6 + length).relative(direction.getCounterClockWise()), 16);
+        this.placeHerb(level, origin.relative(direction, 6 + length).relative(direction.getCounterClockWise(), 2), 16);
 
-        this.placeHerb(level, origin.relative(direction, 7), 16);
-        this.placeHerb(level, origin.relative(direction, 7).relative(direction.getClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 7).relative(direction.getClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 7).relative(direction.getCounterClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 7).relative(direction.getCounterClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 8), 16);
-        this.placeHerb(level, origin.relative(direction, 8).relative(direction.getClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 8).relative(direction.getClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 8).relative(direction.getCounterClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 8).relative(direction.getCounterClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 9), 16);
-        this.placeHerb(level, origin.relative(direction, 9).relative(direction.getClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 9).relative(direction.getClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 9).relative(direction.getCounterClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 9).relative(direction.getCounterClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 10), 16);
-        this.placeHerb(level, origin.relative(direction, 10).relative(direction.getClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 10).relative(direction.getClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 10).relative(direction.getCounterClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 10).relative(direction.getCounterClockWise(), 2), 16);
+        this.placeMoss(level, origin.relative(direction, 3 + length), 2, 4);
+        this.placeMoss(level, origin.relative(direction, 3 + length).relative(direction.getClockWise(), 1), 2, 4);
+        this.placeMoss(level, origin.relative(direction, 3 + length).relative(direction.getClockWise(), 2), 1, 4);
+        this.placeMoss(level, origin.relative(direction, 3 + length).relative(direction.getCounterClockWise(), 1), 2, 4);
+        this.placeMoss(level, origin.relative(direction, 3 + length).relative(direction.getCounterClockWise(), 2), 1, 4);
+        this.placeMoss(level, origin.relative(direction, 4 + length), 1, 4);
+        this.placeMoss(level, origin.relative(direction, 4 + length).relative(direction.getClockWise(), 1), 1, 4);
+        this.placeMoss(level, origin.relative(direction, 4 + length).relative(direction.getClockWise(), 2), 1, 4);
+        this.placeMoss(level, origin.relative(direction, 4 + length).relative(direction.getCounterClockWise(), 1), 1, 4);
+        this.placeMoss(level, origin.relative(direction, 4 + length).relative(direction.getCounterClockWise(), 2), 1, 4);
+
+        this.placeTwigs(level, origin.relative(direction, 3 + length), 4);
+        this.placeTwigs(level, origin.relative(direction, 3 + length).relative(direction.getClockWise()), 4);
+        this.placeTwigs(level, origin.relative(direction, 3 + length).relative(direction.getClockWise(), 2), 4);
+        this.placeTwigs(level, origin.relative(direction, 3 + length).relative(direction.getCounterClockWise()), 4);
+        this.placeTwigs(level, origin.relative(direction, 3 + length).relative(direction.getCounterClockWise(), 2), 4);
+        this.placeTwigs(level, origin.relative(direction, 4 + length), 4);
+        this.placeTwigs(level, origin.relative(direction, 4 + length).relative(direction.getClockWise()), 4);
+        this.placeTwigs(level, origin.relative(direction, 4 + length).relative(direction.getClockWise(), 2), 4);
+        this.placeTwigs(level, origin.relative(direction, 4 + length).relative(direction.getCounterClockWise()), 4);
+        this.placeTwigs(level, origin.relative(direction, 4 + length).relative(direction.getCounterClockWise(), 2), 4);
+        this.placeTwigs(level, origin.relative(direction, 5 + length), 4);
+        this.placeTwigs(level, origin.relative(direction, 5 + length).relative(direction.getClockWise()), 4);
+        this.placeTwigs(level, origin.relative(direction, 5 + length).relative(direction.getClockWise(), 2), 4);
+        this.placeTwigs(level, origin.relative(direction, 5 + length).relative(direction.getCounterClockWise()), 4);
+        this.placeTwigs(level, origin.relative(direction, 5 + length).relative(direction.getCounterClockWise(), 2), 4);
+        this.placeTwigs(level, origin.relative(direction, 6 + length), 4);
+        this.placeTwigs(level, origin.relative(direction, 6 + length).relative(direction.getClockWise()), 4);
+        this.placeTwigs(level, origin.relative(direction, 6 + length).relative(direction.getClockWise(), 2), 4);
+        this.placeTwigs(level, origin.relative(direction, 6 + length).relative(direction.getCounterClockWise()), 4);
+        this.placeTwigs(level, origin.relative(direction, 6 + length).relative(direction.getCounterClockWise(), 2), 4);
 
         return true;
     }
@@ -113,8 +160,8 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeDead(WorldGenLevel pLevel, BlockPos pPos, Direction.Axis pAxis) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
-            this.setBlock(pLevel, pPos, this.dead.defaultBlockState().setValue(RotatedPillarBlock.AXIS, pAxis));
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+            this.setBlock(pLevel, pPos, this.dead.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
         }
     }
 
@@ -125,7 +172,7 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
             this.setBlock(pLevel, pPos, this.herb.defaultBlockState());
         }
     }
@@ -137,8 +184,20 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeLog(WorldGenLevel pLevel, BlockPos pPos, Direction.Axis pAxis) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
-            this.setBlock(pLevel, pPos, this.log.defaultBlockState().setValue(RotatedPillarBlock.AXIS, pAxis));
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+            this.setBlock(pLevel, pPos, this.log.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
+        }
+    }
+
+    public void placeMoss(WorldGenLevel pLevel, BlockPos pPos, int pHeight, int pChance) {
+        if (pLevel.getRandom().nextInt(pChance) == 0) {
+            this.placeMoss(pLevel, pPos, pHeight);
+        }
+    }
+
+    public void placeMoss(WorldGenLevel pLevel, BlockPos pPos, int pHeight) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP) && this.moss instanceof LayerBlock) {
+            this.setBlock(pLevel, pPos, this.moss.defaultBlockState().setValue(BlockStateProperties.LAYERS, pHeight));
         }
     }
 
@@ -149,7 +208,7 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeTwigs(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
             this.setBlock(pLevel, pPos, this.twigs.defaultBlockState());
         }
     }

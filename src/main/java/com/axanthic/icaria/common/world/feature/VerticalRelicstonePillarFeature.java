@@ -51,7 +51,7 @@ public class VerticalRelicstonePillarFeature extends Feature<NoneFeatureConfigur
     }
 
     public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).canBeReplaced()) {
+        if (pLevel.getBlockState(pPos).isAir()) {
             this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(DirectionalBlock.FACING, pDirection));
         }
     }
@@ -63,7 +63,7 @@ public class VerticalRelicstonePillarFeature extends Feature<NoneFeatureConfigur
     }
 
     public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).canBeReplaced()) {
+        if (pLevel.getBlockState(pPos).isAir()) {
             this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, pDirection.getAxis()));
         }
     }

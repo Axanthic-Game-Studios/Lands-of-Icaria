@@ -13,7 +13,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import net.minecraft.Util;
 import net.minecraft.client.model.SkullModel;
@@ -26,8 +25,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SkullBlock;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import java.util.Map;
 
@@ -56,25 +54,25 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
     });
 
     public IcariaSkullBlockRenderer(BlockEntityRendererProvider.Context pContext) {
-        this.map = createRenderers(pContext.getModelSet());
+        this.map = IcariaSkullBlockRenderer.createRenderers(pContext.getModelSet());
     }
 
     @Override
     public void render(IcariaSkullBlockEntity pBlockEntity, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pCombinedLight, int pCombinedOverlay) {
-        BlockState blockState = pBlockEntity.getBlockState();
+        var blockState = pBlockEntity.getBlockState();
         boolean wall = blockState.getBlock() instanceof IcariaWallSkullBlock;
-        Direction direction = wall ? blockState.getValue(IcariaWallSkullBlock.FACING) : null;
-        float rotation = wall ? (2 + direction.get2DDataValue()) * 4 : blockState.getValue(SkullBlock.ROTATION);
+        var direction = wall ? blockState.getValue(BlockStateProperties.HORIZONTAL_FACING) : null;
+        float rotation = wall ? (2 + direction.get2DDataValue()) * 4 : blockState.getValue(BlockStateProperties.ROTATION_16);
 
-        renderSkull(direction, 22.5F * rotation, pPoseStack, pBufferSource, pCombinedLight, this.map, blockState.getBlock());
+        IcariaSkullBlockRenderer.renderSkull(direction, 22.5F * rotation, pPoseStack, pBufferSource, pCombinedLight, this.map, blockState.getBlock());
     }
 
     public static void renderSkull(@Nullable Direction pDirection, float pRotation, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pCombinedLight, Map<IcariaSkullBlockType, SkullModel> pMap, Block pBlock) {
         float offset = ((IcariaAbstractSkullBlock) pBlock).getOffset();
 
-        IcariaSkullBlockType blockType = ((IcariaAbstractSkullBlock) pBlock).getType();
-        ResourceLocation resourceLocation = SKIN_BY_TYPE.get(blockType);
-        SkullModel skullModel = pMap.get(blockType);
+        var blockType = ((IcariaAbstractSkullBlock) pBlock).getType();
+        var resourceLocation = SKIN_BY_TYPE.get(blockType);
+        var skullModel = pMap.get(blockType);
 
         pPoseStack.pushPose();
 
@@ -86,7 +84,7 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
 
         pPoseStack.scale(-1.0F, -1.0F, 1.0F);
 
-        VertexConsumer vertexConsumer = pBufferSource.getBuffer(RenderType.entityCutoutNoCullZOffset(resourceLocation));
+        var vertexConsumer = pBufferSource.getBuffer(RenderType.entityCutoutNoCullZOffset(resourceLocation));
 
         skullModel.setupAnim(0.0F, pRotation, 0.0F);
         skullModel.renderToBuffer(pPoseStack, vertexConsumer, pCombinedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);

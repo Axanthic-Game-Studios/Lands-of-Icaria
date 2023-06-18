@@ -14,9 +14,9 @@ public class CrystalBlockEntity extends BlockEntity {
 	public double y;
 	public double z;
 
-	public float r;
-	public float g;
-	public float b;
+	public float red;
+	public float green;
+	public float blue;
 
 	public CrystalBlockEntity(BlockPos pPos, BlockState pState) {
 		super(IcariaBlockEntityTypes.CRYSTAL.get(), pPos, pState);
@@ -27,9 +27,9 @@ public class CrystalBlockEntity extends BlockEntity {
 		this.x = pX;
 		this.y = pY;
 		this.z = pZ;
-		this.r = pRed;
-		this.g = pGreen;
-		this.b = pBlue;
+		this.red = pRed;
+		this.green = pGreen;
+		this.blue = pBlue;
 	}
 
 	@Override

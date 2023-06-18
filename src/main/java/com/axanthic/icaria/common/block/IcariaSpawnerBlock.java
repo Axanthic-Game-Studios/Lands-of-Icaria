@@ -34,7 +34,7 @@ public class IcariaSpawnerBlock extends BaseEntityBlock {
 
     @Override
     public int getExpDrop(BlockState pState, LevelReader pLevel, RandomSource pRandom, BlockPos pPos, int pFortune, int pSilktouch) {
-        return 15 + pRandom.nextInt(15) + pRandom.nextInt(15);
+        return pRandom.nextInt(15) + pRandom.nextInt(15) + 15;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class IcariaSpawnerBlock extends BaseEntityBlock {
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.SPAWNER.get(), pLevel.isClientSide ? IcariaSpawnerBlockEntity::clientTick : IcariaSpawnerBlockEntity::serverTick);
+        return BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.SPAWNER.get(), pLevel.isClientSide ? IcariaSpawnerBlockEntity::clientTick : IcariaSpawnerBlockEntity::serverTick);
     }
 
     @Override

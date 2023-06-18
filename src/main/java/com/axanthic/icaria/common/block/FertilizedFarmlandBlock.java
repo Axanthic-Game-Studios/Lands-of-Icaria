@@ -27,8 +27,7 @@ public class FertilizedFarmlandBlock extends Block {
 
 	@Override
 	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pDirection, IPlantable pPlantable) {
-		PlantType plantType = pPlantable.getPlantType(pLevel, pPos.relative(pDirection));
-		return plantType == PlantType.CROP;
+		return pPlantable.getPlantType(pLevel, pPos.relative(pDirection)) == PlantType.CROP;
 	}
 
 	@Override
@@ -38,6 +37,6 @@ public class FertilizedFarmlandBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPE;
+		return FertilizedFarmlandBlock.SHAPE;
 	}
 }

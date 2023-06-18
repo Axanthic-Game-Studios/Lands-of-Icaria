@@ -33,12 +33,8 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
         int offset = 2;
 
         this.placeHead(level, origin, Direction.UP);
-        this.placePillar(level, origin.above(), Direction.UP);
 
-        for (int i = 1; i <= length; ++i) {
-            ++offset;
-            this.placePillar(level, origin.relative(direction, offset), direction);
-        }
+        this.placePillar(level, origin.above(), Direction.UP);
 
         this.placeRubble(level, origin.relative(direction), 4);
         this.placeRubble(level, origin.relative(direction).relative(direction.getClockWise()), 4);
@@ -46,6 +42,11 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
         this.placeRubble(level, origin.relative(direction, 2), 4);
         this.placeRubble(level, origin.relative(direction, 2).relative(direction.getClockWise()), 4);
         this.placeRubble(level, origin.relative(direction, 2).relative(direction.getCounterClockWise()), 4);
+
+        for (int i = 1; i <= length; ++i) {
+            ++offset;
+            this.placePillar(level, origin.relative(direction, offset), direction);
+        }
 
         ++offset;
         this.placeHead(level, origin.relative(direction, offset), direction.getOpposite());
@@ -60,7 +61,7 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
     }
 
     public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
             this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(DirectionalBlock.FACING, pDirection));
         }
     }
@@ -72,7 +73,7 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
     }
 
     public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
             this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, pDirection.getAxis()));
         }
     }
@@ -84,7 +85,7 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
     }
 
     public void placeRubble(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
             this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_RUBBLE.get().defaultBlockState());
         }
     }

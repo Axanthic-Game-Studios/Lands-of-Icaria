@@ -42,17 +42,17 @@
     "topBlockPrimary": {
       "Name": "landsoficaria:grassy_marl",
       "Properties": {
-        "mossy_0": "false",
-        "mossy_1": "false",
-        "mossy_2": "false"
+        "forest_moss": "false",
+        "scrubland_moss": "false",
+        "steppe_moss": "false"
       }
     },
     "topBlockSecondary": {
       "Name": "landsoficaria:grassy_marl",
       "Properties": {
-        "mossy_0": "false",
-        "mossy_1": "false",
-        "mossy_2": "false"
+        "forest_moss": "false",
+        "scrubland_moss": "false",
+        "steppe_moss": "false"
       }
     },
     "topBlockTertiary": {

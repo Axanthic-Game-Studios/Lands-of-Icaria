@@ -148,6 +148,10 @@ public class FirTreeFeature extends IcariaTreeFeature {
             ++heightTrunk;
             this.placeLeaves(level, origin.below().above(heightTrunk), 2);
 
+            this.placeTwigsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+            this.placeFallenPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+            this.placeShroomsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+
             return true;
         } else {
             return false;

@@ -66,7 +66,7 @@ public class SizedFlyingMobEntity extends FlyingMob {
     }
 
     public int getSize() {
-        return this.entityData.get(SIZE);
+        return this.entityData.get(SizedFlyingMobEntity.SIZE);
     }
 
     @Override
@@ -86,13 +86,13 @@ public class SizedFlyingMobEntity extends FlyingMob {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(SIZE, this.minSize);
+        this.entityData.define(SizedFlyingMobEntity.SIZE, this.minSize);
     }
 
     @Override
     public void onSyncedDataUpdated(EntityDataAccessor<?> pKey) {
         super.onSyncedDataUpdated(pKey);
-        if (SIZE.equals(pKey)) {
+        if (SizedFlyingMobEntity.SIZE.equals(pKey)) {
             this.refreshDimensions();
         }
     }
@@ -106,7 +106,7 @@ public class SizedFlyingMobEntity extends FlyingMob {
     public void setSize(int pSize) {
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
         this.refreshDimensions();
-        this.entityData.set(SIZE, size);
+        this.entityData.set(SizedFlyingMobEntity.SIZE, size);
         this.xpReward = size + 1;
     }
 

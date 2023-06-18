@@ -56,7 +56,7 @@ public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeArm(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pOffset) {
-        if (pLevel.getBlockState(pPos.above(pOffset).relative(pDirection)).canBeReplaced()) {
+        if (pLevel.getBlockState(pPos.above(pOffset).relative(pDirection)).isAir()) {
             this.placeCactus(pLevel, pPos.above(pOffset).relative(pDirection), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(CardonCactusBlock.NORTH, pDirection.equals(Direction.SOUTH)).setValue(CardonCactusBlock.EAST, pDirection.equals(Direction.WEST)).setValue(CardonCactusBlock.SOUTH, pDirection.equals(Direction.NORTH)).setValue(CardonCactusBlock.WEST, pDirection.equals(Direction.EAST)).setValue(CardonCactusBlock.UP, true));
             this.placeCactus(pLevel, pPos.above(pOffset + 1).relative(pDirection), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(CardonCactusBlock.DOWN, true));
         }
@@ -69,7 +69,7 @@ public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeCactus(WorldGenLevel pLevel, BlockPos pPos, BlockState pState) {
-        if (pLevel.getBlockState(pPos).canBeReplaced()) {
+        if (pLevel.getBlockState(pPos).isAir()) {
             this.setBlock(pLevel, pPos, pState);
         }
     }

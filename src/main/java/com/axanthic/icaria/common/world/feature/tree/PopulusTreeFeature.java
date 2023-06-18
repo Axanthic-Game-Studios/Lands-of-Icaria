@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class PopulusTreeFeature extends IcariaTreeFeature {
     public PopulusTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.POPULUS_SAPLING.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.POPULUS_TWIGS.get());
+        super(pCodec, IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.POPULUS_SAPLING.get(), IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaBlocks.POPULUS_TWIGS.get());
     }
 
     @Override
@@ -132,6 +132,10 @@ public class PopulusTreeFeature extends IcariaTreeFeature {
 
             ++heightTrunk;
             this.placeLeaves(level, origin.below().above(heightTrunk), 2);
+
+            this.placeTwigsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+            this.placeFallenPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+            this.placeShroomsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
 
             return true;
         } else {

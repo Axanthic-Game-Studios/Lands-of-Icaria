@@ -66,16 +66,16 @@ public class NatureJellyfishModel extends HierarchicalModel<JellyfishEntity> {
     }
 
     public static LayerDefinition createLayer() {
-        MeshDefinition meshDefinition = new MeshDefinition();
-        PartDefinition partDefinition = meshDefinition.getRoot();
+        var meshDefinition = new MeshDefinition();
+        var partDefinition = meshDefinition.getRoot();
 
-        PartDefinition body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -1.0F, -3.5F, 7.0F, 2.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
-        PartDefinition bell = body.addOrReplaceChild("bell", CubeListBuilder.create().texOffs(0, 22).addBox(-6.5F, -24.0F, -6.5F, 13.0F, 3.0F, 13.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+        var body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -1.0F, -3.5F, 7.0F, 2.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+        var bell = body.addOrReplaceChild("bell", CubeListBuilder.create().texOffs(0, 22).addBox(-6.5F, -24.0F, -6.5F, 13.0F, 3.0F, 13.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
         bell.addOrReplaceChild("tentacleNorth", CubeListBuilder.create().texOffs(13, 47).addBox(-6.5F, 0.0F, 0.0F, 13.0F, 3.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -22.0F, -6.5F, -0.3927F, 0.0F, 0.0F));
         bell.addOrReplaceChild("tentacleEast", CubeListBuilder.create().texOffs(13, 47).addBox(-6.5F, 0.0F, 0.0F, 13.0F, 3.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-6.5F, -22.0F, 0.0F, -0.3927F, 1.5708F, 0.0F));
         bell.addOrReplaceChild("tentacleSouth", CubeListBuilder.create().texOffs(0, 38).addBox(-6.5F, 0.0F, 0.0F, 13.0F, 3.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -22.0F, 6.5F, 0.3927F, 0.0F, 0.0F));
         bell.addOrReplaceChild("tentacleWest", CubeListBuilder.create().texOffs(0, 38).addBox(-6.5F, 0.0F, 0.0F, 13.0F, 3.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(6.5F, -22.0F, 0.0F, 0.3927F, 1.5708F, 0.0F));
-        PartDefinition head = body.addOrReplaceChild("head", CubeListBuilder.create().texOffs(37, 38).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 3.0F, 0.0F));
+        var head = body.addOrReplaceChild("head", CubeListBuilder.create().texOffs(37, 38).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 3.0F, 0.0F));
         head.addOrReplaceChild("shoulderNorth", CubeListBuilder.create().texOffs(48, 50).addBox(-3.0F, -2.0F, -1.0F, 6.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 4.0F, -3.0F, 0.7854F, 0.0F, 0.0F));
         head.addOrReplaceChild("shoulderEast", CubeListBuilder.create().texOffs(46, 56).addBox(-2.0F, -1.0F, -3.0F, 3.0F, 2.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, 4.0F, 0.0F, 0.0F, 0.0F, 0.7854F));
         head.addOrReplaceChild("shoulderSouth", CubeListBuilder.create().texOffs(30, 50).addBox(-3.0F, -1.0F, -1.0F, 6.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 4.0F, 3.0F, 0.7854F, 0.0F, 0.0F));

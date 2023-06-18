@@ -29,10 +29,7 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-
-import java.util.Objects;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -73,7 +70,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     }
 
     public boolean isClimbing() {
-        return (this.entityData.get(CLIMBING) & 1) != 0;
+        return (this.entityData.get(SlugEntity.CLIMBING) & 1) != 0;
     }
 
     public boolean isMovingOnLand() {
@@ -124,15 +121,15 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     }
 
     public int getCooldown() {
-        return this.entityData.get(COOLDOWN);
+        return this.entityData.get(SlugEntity.COOLDOWN);
     }
 
     public int getHide() {
-        return this.entityData.get(HIDE);
+        return this.entityData.get(SlugEntity.HIDE);
     }
 
     public int getShow() {
-        return this.entityData.get(SHOW);
+        return this.entityData.get(SlugEntity.SHOW);
     }
 
     @Override
@@ -173,10 +170,10 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(CLIMBING, (byte) 0);
-        this.entityData.define(COOLDOWN, this.minCooldown);
-        this.entityData.define(HIDE, this.minHide);
-        this.entityData.define(SHOW, this.minShow);
+        this.entityData.define(SlugEntity.CLIMBING, (byte) 0);
+        this.entityData.define(SlugEntity.COOLDOWN, this.minCooldown);
+        this.entityData.define(SlugEntity.HIDE, this.minHide);
+        this.entityData.define(SlugEntity.SHOW, this.minShow);
     }
 
     @Override
@@ -194,43 +191,43 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     }
 
     public void setClimbing(boolean pClimbing) {
-        byte b = this.entityData.get(CLIMBING);
+        byte b = this.entityData.get(SlugEntity.CLIMBING);
         if (pClimbing) {
             b = (byte) (b | 1);
         } else {
             b = (byte) (b & -2);
         }
 
-        this.entityData.set(CLIMBING, b);
+        this.entityData.set(SlugEntity.CLIMBING, b);
     }
 
     public void setCooldown(int pCooldown) {
         int ticks = Mth.clamp(pCooldown, this.minCooldown, this.maxCooldown);
-        this.entityData.set(COOLDOWN, ticks);
+        this.entityData.set(SlugEntity.COOLDOWN, ticks);
     }
 
     public void setHide(int pCooldown) {
         int ticks = Mth.clamp(pCooldown, this.minHide, this.maxHide);
-        this.entityData.set(HIDE, ticks);
+        this.entityData.set(SlugEntity.HIDE, ticks);
     }
 
     public void setShow(int pCooldown) {
         int ticks = Mth.clamp(pCooldown, this.minShow, this.maxShow);
-        this.entityData.set(SHOW, ticks);
+        this.entityData.set(SlugEntity.SHOW, ticks);
     }
 
     @Override
     public void setSize(int pSize) {
         super.setSize(pSize);
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
-        Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
+        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
     }
 
     public void stopMove() {
         if (this.onHide() || this.onCooldown() || this.onShow()) {
-            Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue(0.0D);
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0D);
         } else {
-            Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue(0.125D);
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.125D);
         }
     }
 
@@ -282,7 +279,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 
     @Override
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
-        ItemStack itemStack = pPlayer.getItemInHand(pHand);
+        var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() == IcariaItems.HALITE_DUST.get()) {
             if (!this.level.isClientSide) {
                 this.hurt(this.damageSources().generic(), 1.0F);

@@ -52,7 +52,7 @@ public class HorizontalRelicstonePillarFeature extends Feature<NoneFeatureConfig
     }
 
     public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
             this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(DirectionalBlock.FACING, pDirection));
         }
     }
@@ -64,7 +64,7 @@ public class HorizontalRelicstonePillarFeature extends Feature<NoneFeatureConfig
     }
 
     public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
             this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, pDirection.getAxis()));
         }
     }

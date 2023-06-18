@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.goal.JellyfishFleeGoal;
+import com.axanthic.icaria.common.goal.JellyfishRandomMovementGoal;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -18,7 +20,6 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.player.Player;
@@ -26,13 +27,8 @@ import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
 
 import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.event.entity.EntityTeleportEvent;
-
-import java.util.Objects;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -71,7 +67,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
                 return false;
             } else if (pSource.is(DamageTypeTags.IS_PROJECTILE)) {
                 boolean flag;
-                Entity entity = pSource.getDirectEntity();
+                var entity = pSource.getDirectEntity();
                 if (entity instanceof ThrownPotion) {
                     flag = this.hurtWithCleanWater(pSource, (ThrownPotion) entity, pAmount);
                 } else {
@@ -124,16 +120,16 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
     }
 
     public boolean teleport(double pX, double pY, double pZ) {
-        BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos(pX, pY, pZ);
-        while (mutableBlockPos.getY() > this.level.getMinBuildHeight() && !this.level.getBlockState(mutableBlockPos).getMaterial().blocksMotion()) {
-            mutableBlockPos.move(Direction.DOWN);
+        var mutablePos = new BlockPos.MutableBlockPos(pX, pY, pZ);
+        while (mutablePos.getY() > this.level.getMinBuildHeight() && !this.level.getBlockState(mutablePos).getMaterial().blocksMotion()) {
+            mutablePos.move(Direction.DOWN);
         }
 
-        BlockState blockState = this.level.getBlockState(mutableBlockPos);
+        var blockState = this.level.getBlockState(mutablePos);
         boolean blocksMotion = blockState.getMaterial().blocksMotion();
         boolean isWater = blockState.getFluidState().is(FluidTags.WATER);
         if (blocksMotion && !isWater) {
-            EntityTeleportEvent.EnderEntity event = ForgeEventFactory.onEnderTeleport(this, pX, pY, pZ);
+            var event = ForgeEventFactory.onEnderTeleport(this, pX, pY, pZ);
             boolean flag = this.randomTeleport(pX, pY, pZ, true);
             if (event.isCanceled()) {
                 return false;
@@ -189,7 +185,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
             this.setDeltaMovement((this.tx * this.speed), (this.ty * this.speed), (this.tz * this.speed));
         }
 
-        Vec3 vec3 = this.getDeltaMovement();
+        var vec3 = this.getDeltaMovement();
         double d = vec3.horizontalDistance();
         this.xBodyRot += (-(Mth.atan2(d, vec3.y)) * (180.0F / Mth.PI)) * 0.1F - this.xBodyRot * 0.1F;
         this.yBodyRot += (-(Mth.atan2(vec3.x, vec3.z)) * (180.0F / Mth.PI) - this.yBodyRot) * 0.1F;
@@ -259,8 +255,8 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
     public void setSize(int pSize) {
         super.setSize(pSize);
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
-        Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
-        Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
+        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
+        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
@@ -290,88 +286,5 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
     @Override
     public SoundEvent getHurtSound(DamageSource pDamageSource) {
         return SoundEvents.SQUID_HURT;
-    }
-
-    public static class JellyfishRandomMovementGoal extends Goal {
-        public final JellyfishEntity entity;
-
-        public JellyfishRandomMovementGoal(JellyfishEntity pEntity) {
-            this.entity = pEntity;
-        }
-
-        @Override
-        public boolean canUse() {
-            return true;
-        }
-
-        @Override
-        public void tick() {
-            int i = this.entity.getNoActionTime();
-            if (i > 100) {
-                this.entity.setMovementVector(0.0F, 0.0F, 0.0F);
-            } else if (this.entity.getRandom().nextInt(reducedTickDelay(50)) == 0 || !this.entity.hasMovementVector()) {
-                float f0 = this.entity.getRandom().nextFloat() * (Mth.PI * 2.0F);
-                float f1 = Mth.cos(f0) * 0.2F;
-                float f2 = this.entity.getRandom().nextFloat() * 0.2F - 0.1F;
-                float f3 = Mth.sin(f0) * 0.2F;
-                this.entity.setMovementVector(f1, f2, f3);
-            }
-        }
-    }
-
-    public static class JellyfishFleeGoal extends Goal {
-        public int fleeTicks;
-
-        public JellyfishEntity entity;
-
-        public JellyfishFleeGoal(JellyfishEntity pEntity) {
-            this.entity = pEntity;
-        }
-
-        @Override
-        public boolean canUse() {
-            LivingEntity livingEntity = this.entity.getLastHurtByMob();
-            if (livingEntity != null) {
-                return this.entity.distanceToSqr(livingEntity) < 100.0D;
-            } else {
-                return false;
-            }
-        }
-
-        @Override
-        public void start() {
-            this.fleeTicks = 0;
-        }
-
-        @Override
-        public boolean requiresUpdateEveryTick() {
-            return true;
-        }
-
-        @Override
-        public void tick() {
-            ++this.fleeTicks;
-            LivingEntity livingEntity = this.entity.getLastHurtByMob();
-            if (livingEntity != null) {
-                Vec3 vec3 = new Vec3(this.entity.getX() - livingEntity.getX(), this.entity.getY() - livingEntity.getY(), this.entity.getZ() - livingEntity.getZ());
-                BlockState blockState = this.entity.level.getBlockState(BlockPos.containing(this.entity.getX() + vec3.x, this.entity.getY() + vec3.y, this.entity.getZ() + vec3.z));
-                if (blockState.isAir()) {
-                    double length = vec3.length();
-                    if (length > 0.0D) {
-                        vec3.normalize();
-                        double d = 3.0D;
-                        if (length > 5.0D) {
-                            d -= (length - 5.0D) / 5.0D;
-                        }
-
-                        if (d > 0.0D) {
-                            vec3 = vec3.scale(d);
-                        }
-                    }
-
-                    this.entity.setMovementVector((float) vec3.x / 20.0F, (float) vec3.y / 20.0F, (float) vec3.z / 20.0F);
-                }
-            }
-        }
     }
 }

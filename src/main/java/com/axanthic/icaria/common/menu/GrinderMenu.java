@@ -12,7 +12,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -46,9 +45,9 @@ public class GrinderMenu extends AbstractContainerMenu {
 				this.addSlot(new SlotItemHandler(pItemHandler, 0, 37, 20)); // INPUT
 				this.addSlot(new GrinderFuelSlot(pItemHandler, 1, 37, 56)); // FUEL
 				this.addSlot(new GrinderGearSlot(pItemHandler, 2, 97, 47)); // GEAR
-				this.addSlot(new IcariaOutputSlot(pItemHandler, 3, 123, 20)); // OUTPUT 1
-				this.addSlot(new IcariaOutputSlot(pItemHandler, 4, 123, 38)); // OUTPUT 2
-				this.addSlot(new IcariaOutputSlot(pItemHandler, 5, 123, 56)); // OUTPUT 3
+				this.addSlot(new IcariaOutputSlot(pItemHandler, 3, 123, 20)); // OUTPUT
+				this.addSlot(new IcariaOutputSlot(pItemHandler, 4, 123, 38)); // OUTPUT
+				this.addSlot(new IcariaOutputSlot(pItemHandler, 5, 123, 56)); // OUTPUT
 			});
 		}
 
@@ -79,13 +78,13 @@ public class GrinderMenu extends AbstractContainerMenu {
 	public void addSlotBox(IItemHandler pItemHandler, int pIndex, int pX, int pY, int pCountX, int pDeltaX, int pCountY, int pDeltaY) {
 		for (int j = 0; j < pCountY; j++) {
 			pY += pDeltaY;
-			pIndex = addSlotRange(pItemHandler, pIndex, pX, pY, pCountX, pDeltaX);
+			pIndex = this.addSlotRange(pItemHandler, pIndex, pX, pY, pCountX, pDeltaX);
 		}
 	}
 
 	public int addSlotRange(IItemHandler pItemHandler, int pIndex, int pX, int pY, int pCountX, int pDeltaX) {
 		for (int i = 0; i < pCountX; i++) {
-			addSlot(new SlotItemHandler(pItemHandler, pIndex, pX, pY));
+			this.addSlot(new SlotItemHandler(pItemHandler, pIndex, pX, pY));
 			pX += pDeltaX;
 			pIndex++;
 		}
@@ -94,17 +93,17 @@ public class GrinderMenu extends AbstractContainerMenu {
 	}
 
 	public void layoutPlayerInventorySlots(int pLeftColumn, int pTopRow) {
-		addSlotBox(this.handler, 9, pLeftColumn, pTopRow, 9, 18, 3, 18);
+		this.addSlotBox(this.handler, 9, pLeftColumn, pTopRow, 9, 18, 3, 18);
 		pTopRow += 76;
-		addSlotRange(this.handler, 0, pLeftColumn, pTopRow, 9, 18);
+		this.addSlotRange(this.handler, 0, pLeftColumn, pTopRow, 9, 18);
 	}
 
 	@Override
 	public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
-		ItemStack emptyStack = ItemStack.EMPTY;
-		Slot slot = this.slots.get(pIndex);
+		var emptyStack = ItemStack.EMPTY;
+		var slot = this.slots.get(pIndex);
 		if (slot.hasItem()) {
-			ItemStack itemStack = slot.getItem();
+			var itemStack = slot.getItem();
 			emptyStack = itemStack.copy();
 			if (pIndex < 6) {
 				this.moveItemStackTo(itemStack, 6, 42, true);

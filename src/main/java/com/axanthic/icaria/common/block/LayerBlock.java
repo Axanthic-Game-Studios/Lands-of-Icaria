@@ -1,5 +1,8 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
+import com.axanthic.icaria.common.registry.IcariaFluids;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -13,8 +16,6 @@ import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
@@ -28,23 +29,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class LayerBlock extends Block implements SimpleWaterloggedBlock {
-	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-
-	public static final IntegerProperty LAYERS = BlockStateProperties.LAYERS;
-
+public class LayerBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public static final VoxelShape[] SHAPES = new VoxelShape[] {
 		Shapes.empty(), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)
 	};
 
 	public LayerBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(LayerBlock.LAYERS, 1).setValue(LayerBlock.WATERLOGGED, false));
+		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.LAYERS, 1).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override
 	public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-		int i = pState.getValue(LayerBlock.LAYERS);
+		int i = pState.getValue(BlockStateProperties.LAYERS);
 		if (pUseContext.getItemInHand().is(this.asItem()) && i < 8) {
 			if (pUseContext.replacingClickedOnBlock()) {
 				return pUseContext.getClickedFace() == Direction.UP;
@@ -58,14 +55,14 @@ public class LayerBlock extends Block implements SimpleWaterloggedBlock {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		BlockState blockState = pLevel.getBlockState(pPos.below());
-		return Block.isFaceFull(blockState.getCollisionShape(pLevel, pPos.below()), Direction.UP) || blockState.is(this) && blockState.getValue(LayerBlock.LAYERS) == 8;
+		var belowState = pLevel.getBlockState(pPos.below());
+		return Block.isFaceFull(belowState.getCollisionShape(pLevel, pPos.below()), Direction.UP) || belowState.is(this) && belowState.getValue(BlockStateProperties.LAYERS) == 8;
 	}
 
 	@Override
 	public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
 		if (pType == PathComputationType.LAND) {
-			return pState.getValue(LayerBlock.LAYERS) < 5;
+			return pState.getValue(BlockStateProperties.LAYERS) < 5;
 		}
 
 		return false;
@@ -78,7 +75,7 @@ public class LayerBlock extends Block implements SimpleWaterloggedBlock {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(LayerBlock.LAYERS, LayerBlock.WATERLOGGED);
+		pBuilder.add(BlockStateProperties.LAYERS, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
 	}
 
 	@Override
@@ -88,37 +85,38 @@ public class LayerBlock extends Block implements SimpleWaterloggedBlock {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		BlockState blockState = pContext.getLevel().getBlockState(pContext.getClickedPos());
-		if (blockState.is(this)) {
-			int i = blockState.getValue(LayerBlock.LAYERS);
-			return blockState.setValue(LayerBlock.LAYERS, Math.min(8, i + 1));
+		var clickedPos = pContext.getClickedPos();
+		var clickedState = pContext.getLevel().getBlockState(clickedPos);
+		var level = pContext.getLevel();
+		if (clickedState.is(this)) {
+			return clickedState.setValue(BlockStateProperties.LAYERS, Math.min(8, clickedState.getValue(BlockStateProperties.LAYERS) + 1));
 		} else {
-			return super.getStateForPlacement(pContext).setValue(LootVaseBlock.WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
+			return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, level.getFluidState(clickedPos).getType() == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(clickedPos).getType() == Fluids.WATER);
 		}
 	}
 
 	@Override
 	public FluidState getFluidState(BlockState pState) {
-		return pState.getValue(LootVaseBlock.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
 	}
 
 	@Override
 	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
-		return SHAPES[pState.getValue(LayerBlock.LAYERS)];
+		return LayerBlock.SHAPES[pState.getValue(BlockStateProperties.LAYERS)];
 	}
 
 	@Override
 	public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPES[pState.getValue(LayerBlock.LAYERS) - 1];
+		return LayerBlock.SHAPES[pState.getValue(BlockStateProperties.LAYERS) - 1];
 	}
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPES[pState.getValue(LayerBlock.LAYERS)];
+		return LayerBlock.SHAPES[pState.getValue(BlockStateProperties.LAYERS)];
 	}
 
 	@Override
 	public VoxelShape getVisualShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPES[pState.getValue(LayerBlock.LAYERS)];
+		return LayerBlock.SHAPES[pState.getValue(BlockStateProperties.LAYERS)];
 	}
 }

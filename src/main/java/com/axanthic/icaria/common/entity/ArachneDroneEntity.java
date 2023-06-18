@@ -28,8 +28,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.Event;
 
-import java.util.Objects;
-
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -60,7 +58,7 @@ public class ArachneDroneEntity extends ArachneEntity {
     @Override
     public boolean canBeAffected(MobEffectInstance pEffectInstance) {
         if (pEffectInstance.getEffect() == MobEffects.POISON) {
-            MobEffectEvent.Applicable event = new MobEffectEvent.Applicable(this, pEffectInstance);
+            var event = new MobEffectEvent.Applicable(this, pEffectInstance);
             MinecraftForge.EVENT_BUS.post(event);
             return event.getResult() == Event.Result.ALLOW;
         }
@@ -74,7 +72,7 @@ public class ArachneDroneEntity extends ArachneEntity {
     }
 
     public boolean isClimbing() {
-        return (this.entityData.get(CLIMBING) & 1) != 0;
+        return (this.entityData.get(ArachneDroneEntity.CLIMBING) & 1) != 0;
     }
 
     @Override
@@ -106,11 +104,11 @@ public class ArachneDroneEntity extends ArachneEntity {
     }
 
     public int getSize() {
-        return this.entityData.get(SIZE);
+        return this.entityData.get(ArachneDroneEntity.SIZE);
     }
 
     public int getTick() {
-        return this.entityData.get(TICK);
+        return this.entityData.get(ArachneDroneEntity.TICK);
     }
 
     @Override
@@ -148,9 +146,9 @@ public class ArachneDroneEntity extends ArachneEntity {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(CLIMBING, (byte) 0);
-        this.entityData.define(SIZE, this.minSize);
-        this.entityData.define(TICK, this.minTick);
+        this.entityData.define(ArachneDroneEntity.CLIMBING, (byte) 0);
+        this.entityData.define(ArachneDroneEntity.SIZE, this.minSize);
+        this.entityData.define(ArachneDroneEntity.TICK, this.minTick);
     }
 
     @Override
@@ -163,7 +161,7 @@ public class ArachneDroneEntity extends ArachneEntity {
     @Override
     public void onSyncedDataUpdated(EntityDataAccessor<?> pKey) {
         super.onSyncedDataUpdated(pKey);
-        if (SIZE.equals(pKey)) {
+        if (ArachneDroneEntity.SIZE.equals(pKey)) {
             this.refreshDimensions();
         }
     }
@@ -187,29 +185,29 @@ public class ArachneDroneEntity extends ArachneEntity {
     }
 
     public void setClimbing(boolean pClimbing) {
-        byte b = this.entityData.get(CLIMBING);
+        byte b = this.entityData.get(ArachneDroneEntity.CLIMBING);
         if (pClimbing) {
             b = (byte) (b | 1);
         } else {
             b = (byte) (b & -2);
         }
 
-        this.entityData.set(CLIMBING, b);
+        this.entityData.set(ArachneDroneEntity.CLIMBING, b);
     }
 
     public void setSize(int pSize) {
         int size = Mth.clamp(pSize, this.minSize, this.maxSize);
         this.refreshDimensions();
-        Objects.requireNonNull(this.getAttribute(Attributes.ATTACK_DAMAGE)).setBaseValue(size);
-        Objects.requireNonNull(this.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(size * size);
-        Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue((size * 0.04D) + 0.1D);
-        this.entityData.set(SIZE, size);
+        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
+        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
+        this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((size * 0.04D) + 0.1D);
+        this.entityData.set(ArachneDroneEntity.SIZE, size);
         this.xpReward = size + 1;
     }
 
     public void setTick(int pSize) {
         int tick = Mth.clamp(pSize, this.minTick, this.maxTick);
-        this.entityData.set(TICK, tick);
+        this.entityData.set(ArachneDroneEntity.TICK, tick);
     }
 
     @Override

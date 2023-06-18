@@ -2,14 +2,11 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.mixin.AxeItemMixin;
 
-import net.minecraft.world.level.block.Block;
-
 import java.util.IdentityHashMap;
-import java.util.Map;
 
 public class IcariaStrippables {
 	public static void setup() {
-		Map<Block, Block> strippables = new IdentityHashMap<>(AxeItemMixin.getIcariaStrippables());
+		var strippables = new IdentityHashMap<>(AxeItemMixin.getIcariaStrippables());
 
 		strippables.put(IcariaBlocks.CYPRESS_WOOD.get(), IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());
 		strippables.put(IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get());

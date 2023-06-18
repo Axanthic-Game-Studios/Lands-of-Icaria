@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.FireBlock;
 
 public class IcariaFlammables {
 	public static void flammableBlock(Block pBlock, int pEncouragement, int pFlammability) {
-		FireBlock fireBlock = (FireBlock) Blocks.FIRE;
+		var fireBlock = (FireBlock) Blocks.FIRE;
 		((FireBlockMixin) fireBlock).setIcariaFlammables(pBlock, pEncouragement, pFlammability);
 	}
 
@@ -143,12 +143,12 @@ public class IcariaFlammables {
 		IcariaFlammables.flammableBlock(IcariaBlocks.SMALL_GRASS.get(), 60, 100);
 		IcariaFlammables.flammableBlock(IcariaBlocks.MEDIUM_GRASS.get(), 60, 100);
 		IcariaFlammables.flammableBlock(IcariaBlocks.LARGE_GRASS.get(), 60, 100);
-		IcariaFlammables.flammableBlock(IcariaBlocks.GRAIN_0.get(), 60, 100);
-		IcariaFlammables.flammableBlock(IcariaBlocks.GRAIN_1.get(), 60, 100);
-		IcariaFlammables.flammableBlock(IcariaBlocks.GRAIN_2.get(), 60, 100);
-		IcariaFlammables.flammableBlock(IcariaBlocks.GRAIN_3.get(), 60, 100);
-		IcariaFlammables.flammableBlock(IcariaBlocks.GRAIN_4.get(), 60, 100);
-		IcariaFlammables.flammableBlock(IcariaBlocks.GRAIN_5.get(), 60, 100);
+		IcariaFlammables.flammableBlock(IcariaBlocks.SMALL_MIXED_GRAIN.get(), 60, 100);
+		IcariaFlammables.flammableBlock(IcariaBlocks.MEDIUM_MIXED_GRAIN.get(), 60, 100);
+		IcariaFlammables.flammableBlock(IcariaBlocks.MEDIUM_BROWN_GRAIN.get(), 60, 100);
+		IcariaFlammables.flammableBlock(IcariaBlocks.MEDIUM_WHITE_GRAIN.get(), 60, 100);
+		IcariaFlammables.flammableBlock(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get(), 60, 100);
+		IcariaFlammables.flammableBlock(IcariaBlocks.LARGE_BROWN_GRAIN.get(), 60, 100);
 		IcariaFlammables.flammableBlock(IcariaBlocks.BLINDWEED.get(), 60, 100);
 		IcariaFlammables.flammableBlock(IcariaBlocks.CHAMEOMILE.get(), 60, 100);
 		IcariaFlammables.flammableBlock(IcariaBlocks.CHARMONDER.get(), 60, 100);

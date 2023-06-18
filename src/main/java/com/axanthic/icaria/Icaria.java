@@ -20,7 +20,6 @@ import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -36,7 +35,7 @@ public class Icaria {
 	public CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
 	public Icaria() {
-		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		var eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		IcariaConfig.registerClientConfig();
 		IcariaConfig.registerCommonConfig();

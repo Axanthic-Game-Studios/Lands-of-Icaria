@@ -1,7 +1,9 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.LootVaseEntity;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.data.loot.IcariaVaseLoot;
 
@@ -19,7 +21,6 @@ import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -35,27 +36,27 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class LootVaseBlock extends Block implements SimpleWaterloggedBlock {
-    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-
+public class LootVaseBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
     public LootVaseBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(LootVaseBlock.WATERLOGGED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
     }
 
     @Override
     public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(LootVaseBlock.WATERLOGGED);
+        pBuilder.add(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return super.getStateForPlacement(pContext).setValue(LootVaseBlock.WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
+        var clickedPos = pContext.getClickedPos();
+        var level = pContext.getLevel();
+        return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, level.getFluidState(clickedPos).getType() == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(clickedPos).getType() == Fluids.WATER);
     }
 
     @Override
     public FluidState getFluidState(BlockState pState) {
-        return pState.getValue(LootVaseBlock.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+        return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
     }
 
     @Override
@@ -63,9 +64,9 @@ public class LootVaseBlock extends Block implements SimpleWaterloggedBlock {
         if (pLevel.isClientSide || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.isPassenger() || pPlayer.isVehicle()) {
             return InteractionResult.FAIL;
         } else {
-            var lootVaseEntity = new LootVaseEntity(IcariaEntityTypes.LOOT_VASE.get(), pLevel, pState, pPos);
-            lootVaseEntity.startRiding(pPlayer);
-            pLevel.addFreshEntity(lootVaseEntity);
+            var entity = new LootVaseEntity(IcariaEntityTypes.LOOT_VASE.get(), pLevel, pState, pPos);
+            entity.startRiding(pPlayer);
+            pLevel.addFreshEntity(entity);
             pLevel.removeBlock(pPos, false);
             pPlayer.displayClientMessage(Component.translatable("message." + IcariaInfo.ID + ".loot_vase"), true);
             return InteractionResult.PASS;
@@ -75,7 +76,6 @@ public class LootVaseBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public List<ItemStack> getDrops(BlockState pState, LootContext.Builder pBuilder) {
         var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-        var lootTable = lootContext.getLevel().getServer().getLootTables().get(IcariaVaseLoot.LOOT_VASE);
-        return lootTable.getRandomItems(lootContext);
+        return lootContext.getLevel().getServer().getLootTables().get(IcariaVaseLoot.LOOT_VASE).getRandomItems(lootContext);
     }
 }

@@ -1,10 +1,13 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.block.GrinderBlock;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.item.GearItem;
+import com.axanthic.icaria.common.util.GrinderContainerData;
+import com.axanthic.icaria.common.menu.GrinderItemStackHandler;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
+import com.axanthic.icaria.common.recipe.GrindingRecipeType;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
@@ -51,36 +54,10 @@ public class GrinderBlockEntity extends BlockEntity {
 	public int progress = 0;
 	public int rotation = 0;
 
-	public ContainerData data = new ContainerData() {
-		@Override
-		public int get(int pIndex) {
-			return switch (pIndex) {
-				default -> 0;
-				case 0 -> GrinderBlockEntity.this.maxFuel;
-				case 1 -> GrinderBlockEntity.this.fuel;
-				case 2 -> GrinderBlockEntity.this.maxProgress;
-				case 3 -> GrinderBlockEntity.this.progress;
-			};
-		}
+	public ItemStackHandler itemStackHandler = this.createHandler();
 
-		@Override
-		public int getCount() {
-			return 4;
-		}
+	public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> this.itemStackHandler);
 
-		@Override
-		public void set(int pIndex, int pValue) {
-			switch (pIndex) {
-				case 0 -> GrinderBlockEntity.this.maxFuel = pValue;
-				case 1 -> GrinderBlockEntity.this.fuel = pValue;
-				case 2 -> GrinderBlockEntity.this.maxProgress = pValue;
-				case 3 -> GrinderBlockEntity.this.progress = pValue;
-			}
-		}
-	};
-
-	public ItemStackHandler itemStackHandler = createHandler();
-	public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> itemStackHandler);
 	public Object2IntOpenHashMap<ResourceLocation> usedRecipes = new Object2IntOpenHashMap<>();
 
 	public GrinderBlockEntity(BlockPos pPos, BlockState pState) {
@@ -96,19 +73,19 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public boolean hasRecipe() {
-		SimpleContainer inputs = new SimpleContainer(3);
+		var inputs = new SimpleContainer(3);
 		inputs.setItem(0, this.itemStackHandler.getStackInSlot(0));
 		inputs.setItem(1, this.itemStackHandler.getStackInSlot(1));
 		inputs.setItem(2, this.itemStackHandler.getStackInSlot(2));
 
-		SimpleContainer outputs = new SimpleContainer(3);
+		var outputs = new SimpleContainer(3);
 		outputs.setItem(0, this.itemStackHandler.getStackInSlot(3));
 		outputs.setItem(1, this.itemStackHandler.getStackInSlot(4));
 		outputs.setItem(2, this.itemStackHandler.getStackInSlot(5));
 
 		Optional<GrindingRecipe> recipe = Optional.empty();
 		if (this.level != null) {
-			recipe = this.level.getRecipeManager().getRecipeFor(GrindingRecipe.Type.INSTANCE, inputs, this.level);
+			recipe = this.level.getRecipeManager().getRecipeFor(GrindingRecipeType.INSTANCE, inputs, this.level);
 		}
 
 		int burnTime = 0;
@@ -128,20 +105,20 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public boolean shouldBreak(GrinderBlockEntity pBlockEntity) {
-		ItemStack itemStack = pBlockEntity.itemStackHandler.getStackInSlot(2);
+		var itemStack = pBlockEntity.itemStackHandler.getStackInSlot(2);
 		return itemStack.getMaxDamage() - itemStack.getDamageValue() <= 0;
 	}
 
 	public void craftItem() {
-		SimpleContainer inputs = new SimpleContainer(3);
+		var inputs = new SimpleContainer(3);
 		inputs.setItem(0, this.itemStackHandler.getStackInSlot(0));
 		inputs.setItem(1, this.itemStackHandler.getStackInSlot(1));
 		inputs.setItem(2, this.itemStackHandler.getStackInSlot(2));
 
 		Optional<GrindingRecipe> recipe;
-		ItemStack output = ItemStack.EMPTY;
+		var output = ItemStack.EMPTY;
 		if (this.level != null) {
-			recipe = this.level.getRecipeManager().getRecipeFor(GrindingRecipe.Type.INSTANCE, inputs, this.level);
+			recipe = this.level.getRecipeManager().getRecipeFor(GrindingRecipeType.INSTANCE, inputs, this.level);
 			if (recipe.isPresent()) {
 				output = recipe.get().result.copy();
 			}
@@ -178,7 +155,7 @@ public class GrinderBlockEntity extends BlockEntity {
 			this.fuel = pTag.getInt("CurrentFuelTime");
 			this.maxProgress = pTag.getInt("TotalProgressTime");
 			this.progress = pTag.getInt("CurrentProgressTime");
-			CompoundTag compoundTag = pTag.getCompound("RecipesUsed");
+			var compoundTag = pTag.getCompound("RecipesUsed");
 			for (String key : compoundTag.getAllKeys()) {
 				this.usedRecipes.put(new ResourceLocation(key), compoundTag.getInt(key));
 			}
@@ -198,7 +175,7 @@ public class GrinderBlockEntity extends BlockEntity {
 		pTag.putInt("CurrentFuelTime", this.fuel);
 		pTag.putInt("TotalProgressTime", this.maxProgress);
 		pTag.putInt("CurrentProgressTime", this.progress);
-		CompoundTag compoundTag = new CompoundTag();
+		var compoundTag = new CompoundTag();
 		this.usedRecipes.forEach((pKey, pCount) -> compoundTag.putInt(pKey.toString(), pCount));
 		pTag.put("RecipesUsed", compoundTag);
 	}
@@ -210,9 +187,9 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public static void tick(Level pLevel, BlockPos pPos, BlockState pState, GrinderBlockEntity pBlockEntity) {
-		ItemStackHandler itemStackHandler = pBlockEntity.itemStackHandler;
-		ItemStack fuelSlot = itemStackHandler.getStackInSlot(1);
-		ItemStack gearSlot = itemStackHandler.getStackInSlot(2);
+		var itemStackHandler = pBlockEntity.itemStackHandler;
+		var fuelSlot = itemStackHandler.getStackInSlot(1);
+		var gearSlot = itemStackHandler.getStackInSlot(2);
 		if (pLevel.isClientSide) {
 			return;
 		}
@@ -240,7 +217,7 @@ public class GrinderBlockEntity extends BlockEntity {
 				pBlockEntity.rotation++;
 			}
 
-			if (IcariaConfig.SOUND_GRINDER.get()) {
+			if (IcariaConfig.GRINDER_SOUNDS.get()) {
 				if (pBlockEntity.lastSound >= 6) {
 					pBlockEntity.lastSound = 0;
 					pLevel.playSound(null, pPos, IcariaSoundEvents.GRINDER_GRIND, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -265,17 +242,17 @@ public class GrinderBlockEntity extends BlockEntity {
 			pBlockEntity.progress++;
 			pBlockEntity.fuel--;
 			pBlockEntity.setChanged();
-			pLevel.setBlock(pPos, pState.setValue(GrinderBlock.GRINDING, true).setValue(GrinderBlock.ROTATION, pBlockEntity.rotation), 3);
+			pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.GRINDING, true).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, pBlockEntity.rotation), 3);
 		} else {
 			pBlockEntity.resetProgress();
 			pBlockEntity.setChanged();
-			pLevel.setBlock(pPos, pState.setValue(GrinderBlock.GRINDING, false), 3);
+			pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.GRINDING, false), 3);
 		}
 	}
 
 	@Override
 	public CompoundTag getUpdateTag() {
-		CompoundTag compoundTag = new CompoundTag();
+		var compoundTag = new CompoundTag();
 		compoundTag.put("Inventory", this.itemStackHandler.serializeNBT());
 		compoundTag.putInt("TotalFuelTime", this.maxFuel);
 		compoundTag.putInt("CurrentFuelTime", this.fuel);
@@ -285,7 +262,7 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public ContainerData getData() {
-		return this.data;
+		return new GrinderContainerData(this);
 	}
 
 	public ItemStack getGear() {
@@ -293,12 +270,7 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public ItemStackHandler createHandler() {
-		return new ItemStackHandler(6) {
-			@Override
-			public void onContentsChanged(int slot) {
-				setChanged();
-			}
-		};
+		return new GrinderItemStackHandler(this, 6);
 	}
 
 	@Override

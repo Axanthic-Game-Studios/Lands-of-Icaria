@@ -26,10 +26,10 @@ public class OrichalcumHelmetModel<T extends LivingEntity> extends HumanoidModel
     }
 
     public static LayerDefinition createLayer() {
-        MeshDefinition meshDefinition = HumanoidModel.createMesh(CubeDeformation.NONE, 0.0F);
-        PartDefinition partDefinition = meshDefinition.getRoot();
+        var meshDefinition = HumanoidModel.createMesh(CubeDeformation.NONE, 0.0F);
+        var partDefinition = meshDefinition.getRoot();
 
-        PartDefinition helmet = partDefinition.addOrReplaceChild("helmet", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.5F)), PartPose.ZERO);
+        var helmet = partDefinition.addOrReplaceChild("helmet", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.5F)), PartPose.ZERO);
         helmet.addOrReplaceChild("00", CubeListBuilder.create().texOffs(25, 4).addBox(-1.0F, -12.0F, -2.5F, 2.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.ZERO);
         helmet.addOrReplaceChild("01", CubeListBuilder.create().texOffs(57, 19).addBox(-1.0F, -12.0F, 4.5F, 2.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.ZERO);
         helmet.addOrReplaceChild("02", CubeListBuilder.create().texOffs(0, 6).addBox(-1.5F, -9.5F, -3.0F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.ZERO);

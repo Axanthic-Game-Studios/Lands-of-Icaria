@@ -550,12 +550,12 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.MEDIUM_GRASS.get(), "Mittleres Gras");
 		this.add(IcariaBlocks.LARGE_GRASS.get(), "Großes Gras");
 
-		this.add(IcariaBlocks.GRAIN_0.get(), "Wildgetreide");
-		this.add(IcariaBlocks.GRAIN_1.get(), "Wildgetreide");
-		this.add(IcariaBlocks.GRAIN_2.get(), "Wildgetreide");
-		this.add(IcariaBlocks.GRAIN_3.get(), "Wildgetreide");
-		this.add(IcariaBlocks.GRAIN_4.get(), "Wildgetreide");
-		this.add(IcariaBlocks.GRAIN_5.get(), "Wildgetreide");
+		this.add(IcariaBlocks.SMALL_MIXED_GRAIN.get(), "Kleines gemischtes Wildgetreide");
+		this.add(IcariaBlocks.MEDIUM_MIXED_GRAIN.get(), "Mittelgroßes gemischtes Wildgetreide");
+		this.add(IcariaBlocks.MEDIUM_BROWN_GRAIN.get(), "Mittelgroßes braunes Wildgetreide");
+		this.add(IcariaBlocks.MEDIUM_WHITE_GRAIN.get(), "Mittelgroßes weißes Wildgetreide");
+		this.add(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get(), "Mittelgroßes gelbes Wildgetreide");
+		this.add(IcariaBlocks.LARGE_BROWN_GRAIN.get(), "Großes braunes Wildgetreide");
 
 		this.add(IcariaBlocks.BLINDWEED.get(), "Blindgras");
 		this.add(IcariaBlocks.POTTED_BLINDWEED.get(), "Eingetopftes Blindgras");
@@ -608,9 +608,9 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.RED_GROUND_FLOWERS.get(), "Rote Bodenblüten");
 		this.add(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), "Weiße Bodenblüten");
 
-		this.add(IcariaBlocks.MOSS_0.get(), "Moos");
-		this.add(IcariaBlocks.MOSS_1.get(), "Moos");
-		this.add(IcariaBlocks.MOSS_2.get(), "Moos");
+		this.add(IcariaBlocks.FOREST_MOSS.get(), "Wald-Moos");
+		this.add(IcariaBlocks.SCRUBLAND_MOSS.get(), "Buschland-Moos");
+		this.add(IcariaBlocks.STEPPE_MOSS.get(), "Steppen-Moos");
 
 		this.add(IcariaBlocks.PALM_FERN.get(), "Palmfarn");
 		this.add(IcariaBlocks.POTTED_PALM_FERN.get(), "Eingetopfter Palmfarn");

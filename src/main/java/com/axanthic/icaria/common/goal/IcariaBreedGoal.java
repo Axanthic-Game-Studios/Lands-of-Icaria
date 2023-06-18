@@ -8,7 +8,6 @@ import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.level.Level;
 
 import java.util.EnumSet;
-import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -78,8 +77,7 @@ public class IcariaBreedGoal extends Goal {
     public IcariaAnimalEntity getFreePartner() {
         double d = Double.MAX_VALUE;
         IcariaAnimalEntity entity = null;
-        List<? extends IcariaAnimalEntity> list = this.level.getNearbyEntities(this.partnerClass, PARTNER_TARGETING, this.entity, this.entity.getBoundingBox().inflate(8.0D));
-        for (IcariaAnimalEntity partner : list) {
+        for (IcariaAnimalEntity partner : this.level.getNearbyEntities(this.partnerClass, IcariaBreedGoal.PARTNER_TARGETING, this.entity, this.entity.getBoundingBox().inflate(8.0D))) {
             if (this.entity.canMate(partner) && this.entity.distanceToSqr(partner) < d) {
                 entity = partner;
                 d = this.entity.distanceToSqr(partner);

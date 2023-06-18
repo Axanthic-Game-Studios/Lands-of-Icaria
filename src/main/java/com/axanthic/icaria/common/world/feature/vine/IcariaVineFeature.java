@@ -43,7 +43,7 @@ public class IcariaVineFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeVine(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pDirection != Direction.DOWN && IcariaVineBaseBlock.isAcceptableNeighbour(pLevel, pPos.relative(pDirection), pDirection)) {
+        if (pLevel.getBlockState(pPos).isAir() && pDirection != Direction.DOWN && IcariaVineBaseBlock.isAcceptableNeighbour(pLevel, pPos.relative(pDirection), pDirection)) {
             this.setBlock(pLevel, pPos, this.vine.defaultBlockState().setValue(IcariaVineBaseBlock.getPropertyForFace(pDirection), true));
         }
     }

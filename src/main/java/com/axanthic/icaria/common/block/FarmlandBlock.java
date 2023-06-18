@@ -15,18 +15,15 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FenceGateBlock;
-import net.minecraft.world.level.block.piston.MovingPistonBlock;
+import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -42,26 +39,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class FarmlandBlock extends Block {
-	public static final IntegerProperty MOISTURE = BlockStateProperties.MOISTURE;
-
+public class FarmlandBlock extends FarmBlock {
 	public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D);
 
 	public FarmlandBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(MOISTURE, 0));
-	}
-
-	@Override
-	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		BlockState blockState = pLevel.getBlockState(pPos.above());
-		return !blockState.getMaterial().isSolid() || blockState.getBlock() instanceof FenceGateBlock || blockState.getBlock() instanceof MovingPistonBlock;
+		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.MOISTURE, 0));
 	}
 
 	@Override
 	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pDirection, IPlantable pPlantable) {
-		PlantType plantType = pPlantable.getPlantType(pLevel, pPos.relative(pDirection));
-		return plantType == PlantType.CROP;
+		return pPlantable.getPlantType(pLevel, pPos.relative(pDirection)) == PlantType.CROP;
 	}
 
 	public boolean isNearWater(LevelReader pLevel, BlockPos pPos) {
@@ -75,18 +63,13 @@ public class FarmlandBlock extends Block {
 	}
 
 	public boolean isUnderCrops(BlockGetter pLevel, BlockPos pPos) {
-		BlockState blockState = pLevel.getBlockState(pPos.above());
-		return blockState.getBlock() instanceof IPlantable && pLevel.getBlockState(pPos).canSustainPlant(pLevel, pPos, Direction.UP, (IPlantable) blockState.getBlock());
-	}
-
-	@Override
-	public boolean useShapeForLightOcclusion(BlockState pState) {
-		return true;
+		var aboveState = pLevel.getBlockState(pPos.above());
+		return aboveState.getBlock() instanceof IPlantable && pLevel.getBlockState(pPos).canSustainPlant(pLevel, pPos, Direction.UP, (IPlantable) aboveState.getBlock());
 	}
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(MOISTURE);
+		pBuilder.add(BlockStateProperties.MOISTURE);
 	}
 
 	@Override
@@ -99,15 +82,15 @@ public class FarmlandBlock extends Block {
 
 	@Override
 	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		int i = pState.getValue(MOISTURE);
+		int i = pState.getValue(BlockStateProperties.MOISTURE);
 		if (!this.isNearWater(pLevel, pPos) && !pLevel.isRainingAt(pPos.above())) {
 			if (i > 0) {
-				pLevel.setBlock(pPos, pState.setValue(MOISTURE, i - 1), 2);
+				pLevel.setBlock(pPos, pState.setValue(BlockStateProperties.MOISTURE, i - 1), 2);
 			} else if (!this.isUnderCrops(pLevel, pPos)) {
 				this.turnToMarl(pState, pLevel, pPos);
 			}
 		} else if (i < 7) {
-			pLevel.setBlock(pPos, pState.setValue(MOISTURE, 7), 2);
+			pLevel.setBlock(pPos, pState.setValue(BlockStateProperties.MOISTURE, 7), 2);
 		}
 	}
 
@@ -119,23 +102,19 @@ public class FarmlandBlock extends Block {
 	}
 
 	public void turnToMarl(BlockState pState, Level pLevel, BlockPos pPos) {
-		pLevel.setBlockAndUpdate(pPos, pushEntitiesUp(pState, IcariaBlocks.MARL.get().defaultBlockState(), pLevel, pPos));
+		pLevel.setBlockAndUpdate(pPos, Block.pushEntitiesUp(pState, IcariaBlocks.MARL.get().defaultBlockState(), pLevel, pPos));
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-		if (pDirection == Direction.UP && !pState.canSurvive(pLevel, pCurrentPos)) {
-			pLevel.scheduleTick(pCurrentPos, this, 1);
-		}
-
-		return super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
+	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+		return !this.defaultBlockState().canSurvive(pContext.getLevel(), pContext.getClickedPos()) ? IcariaBlocks.MARL.get().defaultBlockState() : super.getStateForPlacement(pContext);
 	}
 
 	@Override
 	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-		ItemStack itemStack = pPlayer.getItemInHand(pHand);
+		var itemStack = pPlayer.getItemInHand(pHand);
 		if (itemStack.is(IcariaItems.CALCITE_DUST.get())) {
-			if (pState.getValue(MOISTURE) == 7) {
+			if (pState.getValue(BlockStateProperties.MOISTURE) == 7) {
 				pLevel.playSound(pPlayer, pPos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
 				if (!pLevel.isClientSide) {
 					pLevel.setBlock(pPos, IcariaBlocks.FERTILIZED_FARMLAND.get().defaultBlockState(), 0);
@@ -153,6 +132,6 @@ public class FarmlandBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPE;
+		return FarmlandBlock.SHAPE;
 	}
 }

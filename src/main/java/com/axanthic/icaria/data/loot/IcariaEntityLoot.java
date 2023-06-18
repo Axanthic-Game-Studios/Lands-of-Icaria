@@ -23,7 +23,6 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.Objects;
 import java.util.stream.Stream;
 
 @MethodsReturnNonnullByDefault
@@ -104,6 +103,6 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
 
     @Override
     public Stream<EntityType<?>> getKnownEntityTypes() {
-        return ForgeRegistries.ENTITY_TYPES.getValues().stream().filter(pEntityType -> Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(pEntityType)).getNamespace().equals(IcariaInfo.ID));
+        return ForgeRegistries.ENTITY_TYPES.getValues().stream().filter(pEntityType -> ForgeRegistries.ENTITY_TYPES.getKey(pEntityType).getNamespace().equals(IcariaInfo.ID));
     }
 }

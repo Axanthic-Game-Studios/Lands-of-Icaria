@@ -17,7 +17,6 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -147,24 +146,24 @@ public class IcariaBlockStates extends BlockStateProvider {
 		}
 
 		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_DECO) {
-			ResourceLocation resourceLocation = this.blockTexture(deco.block.block.get());
-			this.slabBlock(Objects.requireNonNull(deco.block.slab).get(), deco.block.block.getId(), resourceLocation);
+			var resourceLocation = this.blockTexture(deco.block.block.get());
+			this.slabBlock(deco.block.slab.get(), deco.block.block.getId(), resourceLocation);
 			this.itemModels().slab(deco.block.slab.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
-			this.stairsBlock(Objects.requireNonNull(deco.block.stairs).get(), resourceLocation);
+			this.stairsBlock(deco.block.stairs.get(), resourceLocation);
 			this.itemModels().stairs(deco.block.stairs.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
-			this.wallBlock(Objects.requireNonNull(deco.block.wall).get(), resourceLocation);
+			this.wallBlock(deco.block.wall.get(), resourceLocation);
 			this.itemModels().wallInventory(deco.block.wall.getId().getPath(), resourceLocation);
 		}
 
 		for (IcariaItems.WoodDecoItemBlocks deco : IcariaItems.WOOD_DECO) {
-			ResourceLocation resourceLocation = this.blockTexture(deco.block.block.get());
-			this.slabBlock(Objects.requireNonNull(deco.block.slab).get(), deco.block.block.getId(), resourceLocation);
+			var resourceLocation = this.blockTexture(deco.block.block.get());
+			this.slabBlock(deco.block.slab.get(), deco.block.block.getId(), resourceLocation);
 			this.itemModels().slab(deco.block.slab.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
-			this.stairsBlock(Objects.requireNonNull(deco.block.stairs).get(), resourceLocation);
+			this.stairsBlock(deco.block.stairs.get(), resourceLocation);
 			this.itemModels().stairs(deco.block.stairs.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
-			this.fenceBlock(Objects.requireNonNull(deco.block.fence).get(), resourceLocation);
+			this.fenceBlock(deco.block.fence.get(), resourceLocation);
 			this.itemModels().fenceInventory(deco.block.fence.getId().getPath(), resourceLocation);
-			this.fenceGateBlock(Objects.requireNonNull(deco.block.gate).get(), resourceLocation);
+			this.fenceGateBlock(deco.block.gate.get(), resourceLocation);
 			this.itemModels().fenceGate(deco.block.gate.getId().getPath(), resourceLocation);
 		}
 	}
@@ -188,14 +187,14 @@ public class IcariaBlockStates extends BlockStateProvider {
 	}
 
 	public void doorBlock(String pName, Block pDoor, ResourceLocation pBottom, ResourceLocation pTop) {
-		BlockModelBuilder bottomLeft = this.doorBlock(pName + "_bottom_left", "bottom_left", pBottom, pTop);
-		BlockModelBuilder bottomLeftOpen = this.doorBlock(pName + "_bottom_left_open", "bottom_left_open", pBottom, pTop);
-		BlockModelBuilder bottomRight = this.doorBlock(pName + "_bottom_right", "bottom_right", pBottom, pTop);
-		BlockModelBuilder bottomRightOpen = this.doorBlock(pName + "_bottom_right_open", "bottom_right_open", pBottom, pTop);
-		BlockModelBuilder topLeft = this.doorBlock(pName + "_top_left", "top_left", pBottom, pTop);
-		BlockModelBuilder topLeftOpen = this.doorBlock(pName + "_top_left_open", "top_left_open", pBottom, pTop);
-		BlockModelBuilder topRight = this.doorBlock(pName + "_top_right", "top_right", pBottom, pTop);
-		BlockModelBuilder topRightOpen = this.doorBlock(pName + "_top_right_open", "top_right_open", pBottom, pTop);
+		var bottomLeft = this.doorBlock(pName + "_bottom_left", "bottom_left", pBottom, pTop);
+		var bottomLeftOpen = this.doorBlock(pName + "_bottom_left_open", "bottom_left_open", pBottom, pTop);
+		var bottomRight = this.doorBlock(pName + "_bottom_right", "bottom_right", pBottom, pTop);
+		var bottomRightOpen = this.doorBlock(pName + "_bottom_right_open", "bottom_right_open", pBottom, pTop);
+		var topLeft = this.doorBlock(pName + "_top_left", "top_left", pBottom, pTop);
+		var topLeftOpen = this.doorBlock(pName + "_top_left_open", "top_left_open", pBottom, pTop);
+		var topRight = this.doorBlock(pName + "_top_right", "top_right", pBottom, pTop);
+		var topRightOpen = this.doorBlock(pName + "_top_right_open", "top_right_open", pBottom, pTop);
 
 		this.getVariantBuilder(pDoor).forAllStatesExcept(pState -> {
 			int yRot = ((int) pState.getValue(DoorBlock.FACING).toYRot()) + 90;
@@ -214,8 +213,8 @@ public class IcariaBlockStates extends BlockStateProvider {
 
 			yRot %= 360;
 
-			BlockModelBuilder bottom = open ? (right ? bottomRightOpen : bottomLeftOpen) : (right ? bottomRight : bottomLeft);
-			BlockModelBuilder top = open ? (right ? topRightOpen : topLeftOpen) : (right ? topRight : topLeft);
+			var bottom = open ? (right ? bottomRightOpen : bottomLeftOpen) : (right ? bottomRight : bottomLeft);
+			var top = open ? (right ? topRightOpen : topLeftOpen) : (right ? topRight : topLeft);
 
 			return ConfiguredModel.builder().modelFile(pState.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER ? bottom : top).rotationY(yRot).build();
 		}, DoorBlock.POWERED);
@@ -235,8 +234,8 @@ public class IcariaBlockStates extends BlockStateProvider {
 	}
 
 	public void mirroredBlockWithItem(RegistryObject<? extends Block> pBlock) {
-		ModelFile normal = this.cubeAll(pBlock.get());
-		ModelFile mirrored = this.models().singleTexture(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(pBlock.get())).getPath() + "_mirrored", new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/cube_mirrored_all"), "all", this.blockTexture(pBlock.get()));
+		var normal = this.cubeAll(pBlock.get());
+		var mirrored = this.models().singleTexture(ForgeRegistries.BLOCKS.getKey(pBlock.get()).getPath() + "_mirrored", new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/cube_mirrored_all"), "all", this.blockTexture(pBlock.get()));
 		this.getVariantBuilder(pBlock.get()).partialState().setModels(new ConfiguredModel(normal), new ConfiguredModel(normal, 0, 180, false), new ConfiguredModel(mirrored), new ConfiguredModel(mirrored, 0, 180, false));
 		this.itemBlock(pBlock);
 	}

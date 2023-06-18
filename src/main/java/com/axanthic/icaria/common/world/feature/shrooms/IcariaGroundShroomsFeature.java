@@ -50,7 +50,7 @@ public class IcariaGroundShroomsFeature extends Feature<NoneFeatureConfiguration
     }
 
     public void placeShrooms(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos.below(), Direction.UP) && pLevel.getBrightness(LightLayer.BLOCK, pPos) <= 12) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos.below(), Direction.UP) && pLevel.getBrightness(LightLayer.BLOCK, pPos) <= 12) {
             this.setBlock(pLevel, pPos, this.shrooms.defaultBlockState());
         }
     }

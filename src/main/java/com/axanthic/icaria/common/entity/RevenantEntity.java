@@ -8,7 +8,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -100,7 +99,7 @@ public class RevenantEntity extends Monster {
 
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        RandomSource randomSource = pLevel.getRandom();
+        var randomSource = pLevel.getRandom();
         this.populateDefaultEquipmentEnchantments(randomSource, pDifficulty);
         this.populateDefaultEquipmentSlots(randomSource, pDifficulty);
         this.setCanPickUpLoot(true);

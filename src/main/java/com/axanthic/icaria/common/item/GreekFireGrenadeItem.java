@@ -36,13 +36,12 @@ public class GreekFireGrenadeItem extends Item implements Vanishable {
     @Override
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
         if (pLivingEntity instanceof Player player) {
-            int i = this.getUseDuration(pStack) - pTimeCharged;
-            if (i >= 10) {
+            if (this.getUseDuration(pStack) - pTimeCharged >= 10) {
                 if (!pLevel.isClientSide) {
-                    GreekFireGrenadeEntity greekFireGrenadeEntity = new GreekFireGrenadeEntity(pLevel, player, pStack);
-                    greekFireGrenadeEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.0F, 1.0F);
-                    pLevel.addFreshEntity(greekFireGrenadeEntity);
-                    pLevel.playSound(null, greekFireGrenadeEntity, SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    var entity = new GreekFireGrenadeEntity(pLevel, player, pStack);
+                    entity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.0F, 1.0F);
+                    pLevel.addFreshEntity(entity);
+                    pLevel.playSound(null, entity, SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F);
                     if (!player.isCreative()) {
                         pStack.shrink(1);
                     }

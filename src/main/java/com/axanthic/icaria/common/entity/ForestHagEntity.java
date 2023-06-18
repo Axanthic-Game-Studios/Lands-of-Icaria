@@ -1,12 +1,10 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.goal.ForestHagPlaceSaplingGoal;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -24,13 +22,7 @@ import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.event.ForgeEventFactory;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -66,7 +58,7 @@ public class ForestHagEntity extends Monster {
     }
 
     public boolean isTargeting() {
-        return this.entityData.get(TARGETING);
+        return this.entityData.get(ForestHagEntity.TARGETING);
     }
 
     @Override
@@ -97,9 +89,9 @@ public class ForestHagEntity extends Monster {
 
     @Override
     public void actuallyHurt(DamageSource pDamageSource, float pDamageAmount) {
-        Entity entity = pDamageSource.getEntity();
+        var entity = pDamageSource.getEntity();
         if (entity instanceof LivingEntity livingEntity) {
-            ItemStack itemStack = livingEntity.getMainHandItem();
+            var itemStack = livingEntity.getMainHandItem();
             if (itemStack.getItem() instanceof AxeItem) {
                 pDamageAmount *= 2;
             }
@@ -115,7 +107,7 @@ public class ForestHagEntity extends Monster {
     @Override
     public void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(TARGETING, false);
+        this.entityData.define(ForestHagEntity.TARGETING, false);
     }
 
     @Override
@@ -148,7 +140,7 @@ public class ForestHagEntity extends Monster {
     @Override
     public void onSyncedDataUpdated(EntityDataAccessor<?> pKey) {
         super.onSyncedDataUpdated(pKey);
-        if (TARGETING.equals(pKey)) {
+        if (ForestHagEntity.TARGETING.equals(pKey)) {
             if (this.isTargeting()) {
                 if (this.level.isClientSide) {
                     this.playTargetSounds();
@@ -182,10 +174,10 @@ public class ForestHagEntity extends Monster {
         super.setTarget(pTarget);
         if (pTarget == null) {
             this.targetChangeTime = 0;
-            this.entityData.set(TARGETING, false);
+            this.entityData.set(ForestHagEntity.TARGETING, false);
         } else {
             this.targetChangeTime = this.tickCount;
-            this.entityData.set(TARGETING, true);
+            this.entityData.set(ForestHagEntity.TARGETING, true);
         }
     }
 
@@ -206,50 +198,5 @@ public class ForestHagEntity extends Monster {
     @Override
     public SoundEvent getHurtSound(DamageSource pDamageSource) {
         return SoundEvents.ENDERMAN_HURT;
-    }
-
-    public static class ForestHagPlaceSaplingGoal extends Goal {
-        public ForestHagEntity entity;
-
-        public ForestHagPlaceSaplingGoal(ForestHagEntity pEntity) {
-            this.entity = pEntity;
-        }
-
-        @Override
-        public boolean canUse() {
-            return this.entity.getRandom().nextInt(reducedTickDelay(5000)) == 0 && !this.entity.isAggressive() && ForgeEventFactory.getMobGriefingEvent(this.entity.level, this.entity);
-        }
-
-        @Override
-        public void tick() {
-            Level level = this.entity.level;
-            Block sapling = null;
-            BlockPos blockPos = BlockPos.containing(this.entity.getX(), this.entity.getY(), this.entity.getZ());
-            BlockPos belowPos = blockPos.below();
-            BlockState blockState = level.getBlockState(blockPos);
-            BlockState belowState = level.getBlockState(belowPos);
-            if (this.entity.getType() == IcariaEntityTypes.CYPRESS_FOREST_HAG.get()) {
-                sapling = IcariaBlocks.CYPRESS_SAPLING.get();
-            } else if (this.entity.getType() == IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get()) {
-                sapling = IcariaBlocks.DROUGHTROOT_SAPLING.get();
-            } else if (this.entity.getType() == IcariaEntityTypes.FIR_FOREST_HAG.get()) {
-                sapling = IcariaBlocks.FIR_SAPLING.get();
-            } else if (this.entity.getType() == IcariaEntityTypes.LAUREL_FOREST_HAG.get()) {
-                sapling = IcariaBlocks.LAUREL_SAPLING.get();
-            } else if (this.entity.getType() == IcariaEntityTypes.OLIVE_FOREST_HAG.get()) {
-                sapling = IcariaBlocks.OLIVE_SAPLING.get();
-            } else if (this.entity.getType() == IcariaEntityTypes.PLANE_FOREST_HAG.get()) {
-                sapling = IcariaBlocks.PLANE_SAPLING.get();
-            } else if (this.entity.getType() == IcariaEntityTypes.POPULUS_FOREST_HAG.get()) {
-                sapling = IcariaBlocks.POPULUS_SAPLING.get();
-            }
-
-            if (sapling != null) {
-                if (blockState.isAir() && belowState.canSustainPlant(this.entity.level, belowPos, Direction.UP, (IPlantable) sapling)) {
-                    this.entity.level.playSound(null, this.entity, SoundEvents.GRASS_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    this.entity.level.setBlock(blockPos, sapling.defaultBlockState(), 2);
-                }
-            }
-        }
     }
 }

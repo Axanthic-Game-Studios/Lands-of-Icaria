@@ -1,6 +1,6 @@
 package com.axanthic.icaria.data.loot;
 
-import com.axanthic.icaria.common.block.OliveLeavesBlock;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
@@ -31,7 +31,6 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -43,8 +42,8 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 
 	public static final LootItemCondition.Builder HAS_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
 	public static final LootItemCondition.Builder HAS_SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1))));
-	public static final LootItemCondition.Builder HAS_SHEARS_OR_SILK_TOUCH = HAS_SHEARS.or(HAS_SILK_TOUCH);
-	public static final LootItemCondition.Builder HAS_NO_SHEARS_OR_SILK_TOUCH = HAS_SHEARS_OR_SILK_TOUCH.invert();
+	public static final LootItemCondition.Builder HAS_SHEARS_OR_SILK_TOUCH = IcariaBlockLoot.HAS_SHEARS.or(IcariaBlockLoot.HAS_SILK_TOUCH);
+	public static final LootItemCondition.Builder HAS_NO_SHEARS_OR_SILK_TOUCH = IcariaBlockLoot.HAS_SHEARS_OR_SILK_TOUCH.invert();
 
 	public IcariaBlockLoot() {
 		super(Set.of(), FeatureFlags.REGISTRY.allFlags());
@@ -356,9 +355,9 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropLayers(IcariaBlocks.FALLEN_OLIVE_LEAVES.get());
 		this.dropLayers(IcariaBlocks.FALLEN_PLANE_LEAVES.get());
 		this.dropLayers(IcariaBlocks.FALLEN_POPULUS_LEAVES.get());
-		this.dropLayers(IcariaBlocks.MOSS_0.get());
-		this.dropLayers(IcariaBlocks.MOSS_1.get());
-		this.dropLayers(IcariaBlocks.MOSS_2.get());
+		this.dropLayers(IcariaBlocks.FOREST_MOSS.get());
+		this.dropLayers(IcariaBlocks.SCRUBLAND_MOSS.get());
+		this.dropLayers(IcariaBlocks.STEPPE_MOSS.get());
 
 		this.dropDoor(IcariaBlocks.CYPRESS_DOOR.get());
 		this.dropDoor(IcariaBlocks.DROUGHTROOT_DOOR.get());
@@ -384,12 +383,12 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropSeed(IcariaBlocks.SMALL_GRASS.get());
 		this.dropSeed(IcariaBlocks.MEDIUM_GRASS.get());
 		this.dropSeed(IcariaBlocks.LARGE_GRASS.get());
-		this.dropSeed(IcariaBlocks.GRAIN_0.get());
-		this.dropSeed(IcariaBlocks.GRAIN_1.get());
-		this.dropSeed(IcariaBlocks.GRAIN_2.get());
-		this.dropSeed(IcariaBlocks.GRAIN_3.get());
-		this.dropSeed(IcariaBlocks.GRAIN_4.get());
-		this.dropSeed(IcariaBlocks.GRAIN_5.get());
+		this.dropSeed(IcariaBlocks.SMALL_MIXED_GRAIN.get());
+		this.dropSeed(IcariaBlocks.MEDIUM_MIXED_GRAIN.get());
+		this.dropSeed(IcariaBlocks.MEDIUM_BROWN_GRAIN.get());
+		this.dropSeed(IcariaBlocks.MEDIUM_WHITE_GRAIN.get());
+		this.dropSeed(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get());
+		this.dropSeed(IcariaBlocks.LARGE_BROWN_GRAIN.get());
 
 		this.dropPlants(IcariaBlocks.BLUE_GROUND_FLOWERS.get());
 		this.dropPlants(IcariaBlocks.CYAN_GROUND_FLOWERS.get());
@@ -494,7 +493,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 	}
 
 	public void dropOlivesLeaves(Block pLeavesBlock, Block pSaplingBlock, Item pGreenOlive, Item pBlackOlive) {
-		this.add(pLeavesBlock, createSilkTouchOrShearsDispatchTable(pLeavesBlock, this.applyExplosionCondition(pLeavesBlock, LootItem.lootTableItem(pSaplingBlock)).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, SAPLING_CHANCES))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(this.applyExplosionDecay(pLeavesBlock, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, STICK_CHANCES))).add(this.applyExplosionDecay(pLeavesBlock, LootItem.lootTableItem(pGreenOlive).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OliveLeavesBlock.STAGE, 1)))).add(this.applyExplosionDecay(pLeavesBlock, LootItem.lootTableItem(pBlackOlive).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OliveLeavesBlock.STAGE, 2))))));
+		this.add(pLeavesBlock, createSilkTouchOrShearsDispatchTable(pLeavesBlock, this.applyExplosionCondition(pLeavesBlock, LootItem.lootTableItem(pSaplingBlock)).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, SAPLING_CHANCES))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(this.applyExplosionDecay(pLeavesBlock, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, STICK_CHANCES))).add(this.applyExplosionDecay(pLeavesBlock, LootItem.lootTableItem(pGreenOlive).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVE_STAGE, 1)))).add(this.applyExplosionDecay(pLeavesBlock, LootItem.lootTableItem(pBlackOlive).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVE_STAGE, 2))))));
 	}
 
 	public void dropLayers(Block pBlock) {
@@ -563,6 +562,6 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 
 	@Override
 	public Iterable<Block> getKnownBlocks() {
-		return ForgeRegistries.BLOCKS.getValues().stream().filter((pBlock) -> IcariaInfo.ID.equals(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(pBlock)).getNamespace())).collect(Collectors.toList());
+		return ForgeRegistries.BLOCKS.getValues().stream().filter((pBlock) -> IcariaInfo.ID.equals(ForgeRegistries.BLOCKS.getKey(pBlock).getNamespace())).collect(Collectors.toList());
 	}
 }

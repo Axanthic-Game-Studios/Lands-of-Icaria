@@ -1,8 +1,5 @@
 package com.axanthic.icaria.common.world.feature.tree;
 
-import com.axanthic.icaria.common.block.LayerBlock;
-import com.axanthic.icaria.common.block.TreeShroomBlock;
-
 import com.mojang.serialization.Codec;
 
 import net.minecraft.core.BlockPos;
@@ -12,6 +9,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -91,8 +89,8 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeFallen(WorldGenLevel pLevel, BlockPos pPos, int pHeight) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
-            this.setBlock(pLevel, pPos, this.fallen.defaultBlockState().setValue(LayerBlock.LAYERS, pHeight));
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+            this.setBlock(pLevel, pPos, this.fallen.defaultBlockState().setValue(BlockStateProperties.LAYERS, pHeight));
         }
     }
 
@@ -103,7 +101,7 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeLeaves(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).canBeReplaced()) {
+        if (pLevel.getBlockState(pPos).isAir()) {
             this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(LeavesBlock.DISTANCE, 1));
         }
     }
@@ -115,7 +113,7 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeLog(WorldGenLevel pLevel, BlockPos pPos, Direction.Axis pAxis) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() || pLevel.getBlockState(pPos).is(BlockTags.LEAVES)) {
+        if (pLevel.getBlockState(pPos).isAir() || pLevel.getBlockState(pPos).is(BlockTags.LEAVES)) {
             this.setBlock(pLevel, pPos, this.log.defaultBlockState().setValue(RotatedPillarBlock.AXIS, pAxis));
         }
     }
@@ -138,8 +136,8 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeShrooms(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).canBeReplaced()) {
-            this.setBlock(pLevel, pPos, this.shrooms.defaultBlockState().setValue(TreeShroomBlock.FACING, pDirection));
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.relative(pDirection.getOpposite())).is(BlockTags.LOGS)) {
+            this.setBlock(pLevel, pPos, this.shrooms.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pDirection));
         }
     }
 
@@ -191,7 +189,7 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeTwigs(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).canBeReplaced() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
             this.setBlock(pLevel, pPos, this.twigs.defaultBlockState());
         }
     }

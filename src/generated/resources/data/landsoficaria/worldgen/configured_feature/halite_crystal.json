@@ -7,6 +7,7 @@
         "Name": "landsoficaria:halite_crystal",
         "Properties": {
           "facing": "down",
+          "mediterranean_waterlogged": "false",
           "waterlogged": "false"
         }
       }

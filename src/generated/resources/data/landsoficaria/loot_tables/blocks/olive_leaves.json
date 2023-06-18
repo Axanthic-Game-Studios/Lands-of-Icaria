@@ -135,7 +135,7 @@
               "block": "landsoficaria:olive_leaves",
               "condition": "minecraft:block_state_property",
               "properties": {
-                "stage": "1"
+                "olive_stage": "1"
               }
             }
           ],
@@ -158,7 +158,7 @@
               "block": "landsoficaria:olive_leaves",
               "condition": "minecraft:block_state_property",
               "properties": {
-                "stage": "2"
+                "olive_stage": "2"
               }
             }
           ],
