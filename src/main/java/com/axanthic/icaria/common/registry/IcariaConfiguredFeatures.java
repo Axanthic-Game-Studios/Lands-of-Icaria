@@ -144,7 +144,6 @@ public class IcariaConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DRY_LAKE = IcariaConfiguredFeatures.registerKey("dry_lake");
 
 	public static void bootstrapConfiguredFeatures(BootstapContext<ConfiguredFeature<?, ?>> pContext) {
-		var marl = new TagMatchTest(IcariaBlockTags.ORE_BEARING_GROUND_MARL);
 		var yellowstone = new TagMatchTest(IcariaBlockTags.ORE_BEARING_GROUND_YELLOWSTONE);
 		var silkstone = new TagMatchTest(IcariaBlockTags.ORE_BEARING_GROUND_SILKSTONE);
 		var sunstone = new TagMatchTest(IcariaBlockTags.ORE_BEARING_GROUND_SUNSTONE);
