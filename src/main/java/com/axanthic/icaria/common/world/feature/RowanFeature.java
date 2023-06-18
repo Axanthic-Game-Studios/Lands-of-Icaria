@@ -8,9 +8,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.phys.AABB;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -30,13 +32,13 @@ public class RowanFeature extends Feature<NoneFeatureConfiguration> {
 
         int size = 2;
 
-        boolean test = level.getBlockState(origin.below(4).relative(direction, 4)).isAir();
+        boolean test = level.getBlockStates(new AABB(origin.relative(direction)).inflate(0, 8, 0)).allMatch((blockState) -> blockState.is(Blocks.AIR));
 
         for (int x = -size; x <= size; x++) {
             for (int y = -size; y <= size; y++) {
                 for (int z = -size; z <= size; z++) {
                     if (test) {
-                        this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
+                        this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
                     }
                 }
             }
