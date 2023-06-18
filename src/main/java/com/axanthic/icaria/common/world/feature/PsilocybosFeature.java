@@ -43,7 +43,7 @@ public class PsilocybosFeature extends Feature<NoneFeatureConfiguration> {
             for (int y = -size; y <= size; y++) {
                 for (int z = -size; z <= size; z++) {
                     if (test) {
-                        this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
+                        this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
                     }
                 }
             }
@@ -59,7 +59,7 @@ public class PsilocybosFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
-        if ((pLevel.getBlockState(pPos).isAir() || pLevel.getFluidState(pPos).is(IcariaFluids.MEDITERRANEAN_WATER.get())) && pLevel.getBlockState(pPos.above()).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
+        if (pLevel.getFluidState(pPos).is(IcariaFluids.MEDITERRANEAN_WATER.get()) && pLevel.getBlockState(pPos.above()).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
             this.setBlock(pLevel, pPos, IcariaBlocks.PSILOCYBOS.get().defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pLevel.getFluidState(pPos).is(IcariaFluids.MEDITERRANEAN_WATER.get())).setValue(BlockStateProperties.WATERLOGGED, pLevel.getFluidState(pPos).is(Fluids.WATER)));
         }
     }
