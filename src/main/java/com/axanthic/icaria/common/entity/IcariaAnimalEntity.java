@@ -253,7 +253,7 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
 
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        this.setTick(this.maxTick);
+        this.setTick(this.random.nextIntBetweenInclusive(this.minTick, this.maxTick));
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
 }

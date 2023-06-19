@@ -112,7 +112,7 @@ public class SizedFlyingMobEntity extends FlyingMob {
 
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        this.setSize(this.maxSize);
+        this.setSize(this.random.nextIntBetweenInclusive(this.minSize, this.maxSize));
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
 }
