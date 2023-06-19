@@ -24,8 +24,9 @@ import net.minecraft.world.level.levelgen.synth.NormalNoise;
 
 import net.minecraftforge.registries.DeferredRegister;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
