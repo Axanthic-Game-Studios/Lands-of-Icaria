@@ -135,11 +135,18 @@ public class IcariaConfiguredFeatures {
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_FERN = IcariaConfiguredFeatures.registerKey("palm_fern");
 
+	public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_BROMELIA = IcariaConfiguredFeatures.registerKey("white_bromelia");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_BROMELIA = IcariaConfiguredFeatures.registerKey("orange_bromelia");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_BROMELIA = IcariaConfiguredFeatures.registerKey("pink_bromelia");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_BROMELIA = IcariaConfiguredFeatures.registerKey("purple_bromelia");
+
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_GROUND_SHROOMS = IcariaConfiguredFeatures.registerKey("green_ground_shrooms");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_GROUND_SHROOMS = IcariaConfiguredFeatures.registerKey("brown_ground_shrooms");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_BROWN_GROUND_SHROOMS = IcariaConfiguredFeatures.registerKey("large_brown_ground_shrooms");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CARDON_CACTUS = IcariaConfiguredFeatures.registerKey("cardon_cactus");
+
+	public static final ResourceKey<ConfiguredFeature<?, ?>> STRAWBERRY_BUSH = IcariaConfiguredFeatures.registerKey("strawberry_bush");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LAKE = IcariaConfiguredFeatures.registerKey("lake");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DRY_LAKE = IcariaConfiguredFeatures.registerKey("dry_lake");
@@ -252,11 +259,18 @@ public class IcariaConfiguredFeatures {
 
 		pContext.register(IcariaConfiguredFeatures.PALM_FERN, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PALM_FERN.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.DIRT), BlockPredicate.noFluid(), BlockPredicate.replaceable())))));
 
+		pContext.register(IcariaConfiguredFeatures.WHITE_BROMELIA, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.WHITE_BROMELIA.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.DIRT), BlockPredicate.noFluid(), BlockPredicate.replaceable())))));
+		pContext.register(IcariaConfiguredFeatures.ORANGE_BROMELIA, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.ORANGE_BROMELIA.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.DIRT), BlockPredicate.noFluid(), BlockPredicate.replaceable())))));
+		pContext.register(IcariaConfiguredFeatures.PINK_BROMELIA, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PINK_BROMELIA.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.DIRT), BlockPredicate.noFluid(), BlockPredicate.replaceable())))));
+		pContext.register(IcariaConfiguredFeatures.PURPLE_BROMELIA, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_BROMELIA.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.DIRT), BlockPredicate.noFluid(), BlockPredicate.replaceable())))));
+
 		pContext.register(IcariaConfiguredFeatures.GREEN_GROUND_SHROOMS, new ConfiguredFeature<>(IcariaFeatures.GREEN_GROUND_SHROOMS.get(), NoneFeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.BROWN_GROUND_SHROOMS, new ConfiguredFeature<>(IcariaFeatures.BROWN_GROUND_SHROOMS.get(), NoneFeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.LARGE_BROWN_GROUND_SHROOMS, new ConfiguredFeature<>(IcariaFeatures.LARGE_BROWN_GROUND_SHROOMS.get(), NoneFeatureConfiguration.NONE));
 
 		pContext.register(IcariaConfiguredFeatures.CARDON_CACTUS, new ConfiguredFeature<>(IcariaFeatures.CARDON_CACTUS.get(), NoneFeatureConfiguration.NONE));
+
+		pContext.register(IcariaConfiguredFeatures.STRAWBERRY_BUSH, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.STRAWBERRY_BUSH.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.DIRT), BlockPredicate.noFluid(), BlockPredicate.replaceable())))));
 
 		pContext.register(IcariaConfiguredFeatures.LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(IcariaBlocks.MEDITERRANEAN_WATER.get().defaultBlockState()), BlockStateProvider.simple(IcariaBlocks.MARL.get().defaultBlockState()))));
 		pContext.register(IcariaConfiguredFeatures.DRY_LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.AIR.defaultBlockState()), BlockStateProvider.simple(IcariaBlocks.DRY_LAKE_BED.get().defaultBlockState()))));

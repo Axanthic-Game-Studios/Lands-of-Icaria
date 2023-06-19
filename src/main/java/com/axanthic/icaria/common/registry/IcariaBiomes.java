@@ -58,10 +58,82 @@ public class IcariaBiomes {
 
 	public static void forestGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
 		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaCarvers.FOREST_TB_KEY);
+
+		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.LAKE);
+		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
+
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.FALLEN_RELICSTONE_PILLAR);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VERTICAL_RELICSTONE_PILLAR);
+
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.LIGNITE_ORE);
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.CHALKOS_ORE);
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.KASSITEROS_ORE);
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.DOLOMITE_ORE);
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.VANADIUM_ORE);
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SLIVER_ORE);
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SIDEROS_ORE);
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.ANTHRACITE_ORE);
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.MOLYBDENUM_ORE);
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.HYLIASTRUM_ORE);
+
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MARL_CHERT);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MARL_BONES);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MARL_LIGNITE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.YELLOWSTONE_RUBBLE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.SILKSTONE_RUBBLE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.SUNSTONE_RUBBLE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.VOIDSHALE_RUBBLE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BAETYL_RUBBLE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.RELICSTONE_RUBBLE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.CALCITE_CRYSTAL);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.HALITE_CRYSTAL);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.JASPER_CRYSTAL);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.ZIRCON_CRYSTAL);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.FIR_TREE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.DEAD_FIR_TREE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.POPULUS_TREE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.DEAD_POPULUS_TREE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BLOOMY_VINE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BRANCHY_VINE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.FERN);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.GRASS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.GRAIN);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.CHARMONDER);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BLUE_STORMCOTTON);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PINK_STORMCOTTON);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PURPLE_STORMCOTTON);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.LIONFANGS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.SPEARDROPS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.NAMDRAKE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PSILOCYBOS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.WILTED_ELM);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BLUE_GROUND_FLOWERS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.CYAN_GROUND_FLOWERS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PINK_GROUND_FLOWERS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PURPLE_GROUND_FLOWERS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.RED_GROUND_FLOWERS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.WHITE_GROUND_FLOWERS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.WHITE_BROMELIA);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.ORANGE_BROMELIA);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PINK_BROMELIA);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PURPLE_BROMELIA);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.GREEN_GROUND_SHROOMS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BROWN_GROUND_SHROOMS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.LARGE_BROWN_GROUND_SHROOMS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.STRAWBERRY_BUSH);
 	}
 
 	public static void forestMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.AETERNAE.get(), 100, 1, 3));
+		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.AETERNAE.get(), 100, 3, 5));
+		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CATOBLEPAS.get(), 100, 3, 5));
+		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CRYSTAL_SLUG.get(), 100, 1, 1));
+		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FOREST_SNULL.get(), 100, 3, 5));
+		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SOW.get(), 100, 3, 5));
+		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 100, 1, 3));
+		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 100, 1, 3));
+		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FIR_FOREST_HAG.get(), 10, 1, 1));
+		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), 10, 1, 1));
 	}
 
 	public static void forestSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
@@ -123,11 +195,9 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.DEAD_PLANE_TREE);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.REEDY_VINE);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.SWIRLY_VINE);
-
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.FERN);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.GRASS);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.GRAIN);
-
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BLINDWEED);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.FIREHILT);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BLUE_HYDRACINTH);
@@ -219,11 +289,9 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.DEAD_OLIVE_TREE);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BRUSHY_VINE);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.THORNY_VINE);
-
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.FERN);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.GRASS);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.GRAIN);
-
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.CHAMEOMILE);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.CLOVER);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PURPLE_STAGHORN);

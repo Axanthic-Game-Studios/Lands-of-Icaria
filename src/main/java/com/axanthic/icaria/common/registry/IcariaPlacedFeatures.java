@@ -128,11 +128,18 @@ public class IcariaPlacedFeatures {
 
 	public static final ResourceKey<PlacedFeature> PALM_FERN = IcariaPlacedFeatures.registerKey("palm_fern");
 
+	public static final ResourceKey<PlacedFeature> WHITE_BROMELIA = IcariaPlacedFeatures.registerKey("white_bromelia");
+	public static final ResourceKey<PlacedFeature> ORANGE_BROMELIA = IcariaPlacedFeatures.registerKey("orange_bromelia");
+	public static final ResourceKey<PlacedFeature> PINK_BROMELIA = IcariaPlacedFeatures.registerKey("pink_bromelia");
+	public static final ResourceKey<PlacedFeature> PURPLE_BROMELIA = IcariaPlacedFeatures.registerKey("purple_bromelia");
+
 	public static final ResourceKey<PlacedFeature> GREEN_GROUND_SHROOMS = IcariaPlacedFeatures.registerKey("green_ground_shrooms");
 	public static final ResourceKey<PlacedFeature> BROWN_GROUND_SHROOMS = IcariaPlacedFeatures.registerKey("brown_ground_shrooms");
 	public static final ResourceKey<PlacedFeature> LARGE_BROWN_GROUND_SHROOMS = IcariaPlacedFeatures.registerKey("large_brown_ground_shrooms");
 
 	public static final ResourceKey<PlacedFeature> CARDON_CACTUS = IcariaPlacedFeatures.registerKey("cardon_cactus");
+
+	public static final ResourceKey<PlacedFeature> STRAWBERRY_BUSH = IcariaPlacedFeatures.registerKey("strawberry_bush");
 
 	public static final ResourceKey<PlacedFeature> LAKE = IcariaPlacedFeatures.registerKey("lake");
 	public static final ResourceKey<PlacedFeature> DRY_LAKE = IcariaPlacedFeatures.registerKey("dry_lake");
@@ -241,11 +248,18 @@ public class IcariaPlacedFeatures {
 
 		pContext.register(IcariaPlacedFeatures.PALM_FERN, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.PALM_FERN), List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), BiomeFilter.biome())));
 
+		pContext.register(IcariaPlacedFeatures.WHITE_BROMELIA, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.WHITE_BROMELIA), List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), BiomeFilter.biome())));
+		pContext.register(IcariaPlacedFeatures.ORANGE_BROMELIA, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.ORANGE_BROMELIA), List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), BiomeFilter.biome())));
+		pContext.register(IcariaPlacedFeatures.PINK_BROMELIA, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.PINK_BROMELIA), List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), BiomeFilter.biome())));
+		pContext.register(IcariaPlacedFeatures.PURPLE_BROMELIA, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.PURPLE_BROMELIA), List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), BiomeFilter.biome())));
+
 		pContext.register(IcariaPlacedFeatures.GREEN_GROUND_SHROOMS, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.GREEN_GROUND_SHROOMS), List.of(CountPlacement.of(16), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 		pContext.register(IcariaPlacedFeatures.BROWN_GROUND_SHROOMS, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.BROWN_GROUND_SHROOMS), List.of(CountPlacement.of(16), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 		pContext.register(IcariaPlacedFeatures.LARGE_BROWN_GROUND_SHROOMS, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.LARGE_BROWN_GROUND_SHROOMS), List.of(CountPlacement.of(16), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 
 		pContext.register(IcariaPlacedFeatures.CARDON_CACTUS, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.CARDON_CACTUS), List.of(CountPlacement.of(8), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(96), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesTag(BlockTags.SAND), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
+
+		pContext.register(IcariaPlacedFeatures.STRAWBERRY_BUSH, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.STRAWBERRY_BUSH), List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), BiomeFilter.biome())));
 
 		pContext.register(IcariaPlacedFeatures.LAKE, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.LAKE), List.of(CountPlacement.of(8), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(IcariaBlocks.GRASSY_MARL.get()), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 		pContext.register(IcariaPlacedFeatures.DRY_LAKE, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.DRY_LAKE), List.of(CountPlacement.of(8), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(IcariaBlocks.COARSE_MARL.get()), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
