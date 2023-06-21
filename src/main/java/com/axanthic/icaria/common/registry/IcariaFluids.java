@@ -18,6 +18,6 @@ public class IcariaFluids {
 	public static final RegistryObject<FlowingFluid> MEDITERRANEAN_WATER = IcariaFluids.registerMediterraneanWater("mediterranean_water", ForgeFlowingFluid.Source::new);
 
 	public static RegistryObject<FlowingFluid> registerMediterraneanWater(String pName, NonNullFunction<ForgeFlowingFluid.Properties, FlowingFluid> pFunction) {
-		return IcariaFluids.FLUIDS.register(pName, () -> pFunction.apply((new ForgeFlowingFluid.Properties(IcariaFluidTypes.MEDITERRANEAN_WATER_TYPE, IcariaFluids.MEDITERRANEAN_WATER, IcariaFluids.FLOWING_MEDITERRANEAN_WATER)).bucket(IcariaItems.MEDITERRANEAN_WATER_BUCKET).block(IcariaBlocks.MEDITERRANEAN_WATER)));
+		return IcariaFluids.FLUIDS.register(pName, () -> pFunction.apply((new ForgeFlowingFluid.Properties(IcariaFluidTypes.MEDITERRANEAN_WATER, IcariaFluids.MEDITERRANEAN_WATER, IcariaFluids.FLOWING_MEDITERRANEAN_WATER)).bucket(IcariaItems.MEDITERRANEAN_WATER_BUCKET).block(IcariaBlocks.MEDITERRANEAN_WATER)));
 	}
 }

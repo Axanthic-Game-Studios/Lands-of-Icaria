@@ -11,7 +11,6 @@ public class IcariaResourceLocations {
     // BLOCK
     public static final ResourceLocation FLOWING_MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID + ":block/flowing_mediterranean_water");
     public static final ResourceLocation MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID + ":block/mediterranean_water");
-    public static final ResourceLocation MEDITERRANEAN_WATER_TEXTURE_OVERLAY = new ResourceLocation(IcariaInfo.ID + ":textures/block/mediterranean_water_overlay.png");
 
     // ENTITY
     public static final ResourceLocation AETERNAE = new ResourceLocation(IcariaInfo.ID, "textures/entity/aeternae.png");
