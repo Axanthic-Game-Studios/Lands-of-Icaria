@@ -137,7 +137,7 @@ public class IcariaBiomes {
 	}
 
 	public static void forestSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).fogColor(10518688).skyColor(0).waterColor(4159204).waterFogColor(329011);
+		pBuilder.fogColor(14470514).grassColorOverride(8427853).skyColor(8301300).waterColor(4227157).waterFogColor(4227157);
 	}
 
 	public static Biome forestBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
@@ -231,7 +231,7 @@ public class IcariaBiomes {
 	}
 
 	public static void scrublandSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).fogColor(10518688).skyColor(0).waterColor(4159204).waterFogColor(329011);
+		pBuilder.fogColor(14470514).grassColorOverride(10793817).skyColor(8301300).waterColor(4623442).waterFogColor(4623442);
 	}
 
 	public static Biome scrublandBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
@@ -325,7 +325,7 @@ public class IcariaBiomes {
 	}
 
 	public static void steppeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).fogColor(10518688).skyColor(0).waterColor(4159204).waterFogColor(329011);
+		pBuilder.fogColor(14470514).grassColorOverride(13421670).skyColor(8301300).waterColor(5085517).waterFogColor(5085517);
 	}
 
 	public static Biome steppeBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
@@ -391,7 +391,7 @@ public class IcariaBiomes {
 	}
 
 	public static void desertSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).fogColor(10518688).skyColor(0).waterColor(4159204).waterFogColor(329011);
+		pBuilder.fogColor(14470514).grassColorOverride(15127155).skyColor(8301300).waterColor(6399571).waterFogColor(6399571);
 	}
 
 	public static Biome desertBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
@@ -467,7 +467,7 @@ public class IcariaBiomes {
 	}
 
 	public static void voidSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).fogColor(10518688).skyColor(0).waterColor(4159204).waterFogColor(329011);
+		pBuilder.fogColor(14470514).grassColorOverride(11909984).skyColor(8301300).waterColor(5083986).waterFogColor(5083986);
 	}
 
 	public static Biome voidBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {

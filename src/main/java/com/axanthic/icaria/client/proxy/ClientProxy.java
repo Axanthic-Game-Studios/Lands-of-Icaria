@@ -26,6 +26,7 @@ import com.axanthic.icaria.data.tags.IcariaItemTags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.model.PlayerModel;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
@@ -39,7 +40,6 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 
@@ -1001,6 +1001,8 @@ public class ClientProxy extends CommonProxy {
 		this.blockColor(IcariaBlocks.POTTED_SUNSPONGE.get());
 		this.blockColor(IcariaBlocks.VOIDLILY.get());
 		this.blockColor(IcariaBlocks.POTTED_VOIDLILY.get());
+		this.blockColor(IcariaBlocks.PALM_FERN.get());
+		this.blockColor(IcariaBlocks.POTTED_PALM_FERN.get());
 		this.blockColor(IcariaBlocks.WHITE_BROMELIA.get());
 		this.blockColor(IcariaBlocks.POTTED_WHITE_BROMELIA.get());
 		this.blockColor(IcariaBlocks.ORANGE_BROMELIA.get());
@@ -1012,6 +1014,7 @@ public class ClientProxy extends CommonProxy {
 
 		// ITEM COLOR
 		this.itemColor(IcariaItems.GRASSY_MARL.get());
+		this.itemColor(IcariaItems.PALM_FERN.get());
 		this.itemColor(IcariaItems.WHITE_BROMELIA.get());
 		this.itemColor(IcariaItems.ORANGE_BROMELIA.get());
 		this.itemColor(IcariaItems.PINK_BROMELIA.get());
@@ -1662,13 +1665,13 @@ public class ClientProxy extends CommonProxy {
 	public void blockColor(Block pBlock) {
 		var minecraft = Minecraft.getInstance();
 		var blockColors = minecraft.getBlockColors();
-		blockColors.register((pState, pLevel, pPos, pIndex) -> GrassColor.get(0.6D, 0.1D), pBlock);
+		blockColors.register((pState, pLevel, pPos, pIndex) -> BiomeColors.getAverageGrassColor(pLevel, pPos), pBlock);
 	}
 
 	public void itemColor(Item pItem) {
 		var minecraft = Minecraft.getInstance();
 		var itemColors = minecraft.getItemColors();
-		itemColors.register((pStack, pIndex) -> GrassColor.get(0.6D, 0.1D), pItem);
+		itemColors.register((pStack, pIndex) -> 11909984, pItem);
 	}
 
 	public void renderCutout(Block pBlock) {

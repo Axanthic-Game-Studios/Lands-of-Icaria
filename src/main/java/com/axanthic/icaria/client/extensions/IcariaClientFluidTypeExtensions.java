@@ -7,6 +7,7 @@ import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.material.FluidState;
 
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.minecraftforge.fluids.FluidStack;
 
 public class IcariaClientFluidTypeExtensions implements IClientFluidTypeExtensions {
     public ResourceLocation flowingTexture;
@@ -15,6 +16,11 @@ public class IcariaClientFluidTypeExtensions implements IClientFluidTypeExtensio
     public IcariaClientFluidTypeExtensions(ResourceLocation pFlowingTexture, ResourceLocation pStillTexture) {
         this.flowingTexture = pFlowingTexture;
         this.stillTexture = pStillTexture;
+    }
+
+    @Override
+    public int getTintColor(FluidStack pStack) {
+        return 0xFF4D9352;
     }
 
     @Override
