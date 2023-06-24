@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
+import com.axanthic.icaria.client.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.world.gen.IcariaChunkGenerator;
 
@@ -22,7 +23,6 @@ import net.minecraft.world.level.biome.MultiNoiseBiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
@@ -61,7 +61,7 @@ public class IcariaDimensions {
 				384, // Height + Min Y = Max Y
 				384, // Logical Height
 				BlockTags.INFINIBURN_OVERWORLD, // infiburn
-				BuiltinDimensionTypes.OVERWORLD_EFFECTS, // DimensionRenderInfo
+				IcariaResourceLocations.ICARIA, // DimensionRenderInfo
 				0.0F, // ambient light
 				new DimensionType.MonsterSettings(false, false, UniformInt.of(0, 7), 0));
 	}

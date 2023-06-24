@@ -44,6 +44,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -1647,6 +1648,11 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void onPlayerTick(TickEvent.PlayerTickEvent pEvent) {
 		super.onPlayerTick(pEvent);
+	}
+
+	@Override
+	public void onRegisterDimensionSpecialEffects(RegisterDimensionSpecialEffectsEvent pEvent) {
+		pEvent.register(IcariaResourceLocations.ICARIA, new IcariaSpecialEffects());
 	}
 
 	@Override

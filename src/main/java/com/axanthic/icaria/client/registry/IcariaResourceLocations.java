@@ -5,7 +5,7 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 import net.minecraft.resources.ResourceLocation;
 
 public class IcariaResourceLocations {
-    public static final ResourceLocation ID = new ResourceLocation(IcariaInfo.ID, "main");
+    public static final ResourceLocation ICARIA = new ResourceLocation(IcariaInfo.ID, "icaria");
     public static final ResourceLocation THROWING = new ResourceLocation(IcariaInfo.ID, "throwing");
 
     // BLOCK
@@ -49,6 +49,10 @@ public class IcariaResourceLocations {
     public static final ResourceLocation SOLIFUGAE = new ResourceLocation(IcariaInfo.ID, "textures/entity/solifugae.png");
     public static final ResourceLocation SOW = new ResourceLocation(IcariaInfo.ID, "textures/entity/sow.png");
     public static final ResourceLocation VINEGAROON = new ResourceLocation(IcariaInfo.ID, "textures/entity/vinegaroon.png");
+
+    // ENVIRONMENT
+    public static final ResourceLocation MOON = new ResourceLocation("textures/environment/moon_phases.png");
+    public static final ResourceLocation SUN = new ResourceLocation("textures/environment/sun.png");
 
     // LAYERS
     public static final ResourceLocation AETERNAE_LAYER = new ResourceLocation(IcariaInfo.ID, "aeternae");

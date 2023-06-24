@@ -14,6 +14,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -451,6 +452,10 @@ public class CommonProxy {
 				}
 			}
 		}
+	}
+
+	public void onRegisterDimensionSpecialEffects(RegisterDimensionSpecialEffectsEvent pEvent) {
+		// NOOP
 	}
 
 	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> pEvent) {

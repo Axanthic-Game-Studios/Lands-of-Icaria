@@ -128,6 +128,6 @@ public class JeiIntegration implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid() {
-        return IcariaResourceLocations.ID;
+        return IcariaResourceLocations.ICARIA;
     }
 }

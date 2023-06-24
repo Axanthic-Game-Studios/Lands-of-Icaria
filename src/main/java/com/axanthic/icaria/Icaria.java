@@ -9,6 +9,7 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -47,6 +48,7 @@ public class Icaria {
 		eventBus.addListener(this::onFMLCommonSetup);
 		eventBus.addListener(this::onFMLLoadComplete);
 		eventBus.addListener(this::onGatherData);
+		eventBus.addListener(this::onRegisterDimensionSpecialEffects);
 		eventBus.addListener(this::onRegisterLayerDefinitions);
 		eventBus.addListener(this::onSpawnPlacementRegister);
 
@@ -92,6 +94,10 @@ public class Icaria {
 
 	public void onGatherData(GatherDataEvent pEvent) {
 		this.proxy.onGatherData(pEvent);
+	}
+
+	public void onRegisterDimensionSpecialEffects(RegisterDimensionSpecialEffectsEvent pEvent) {
+		this.proxy.onRegisterDimensionSpecialEffects(pEvent);
 	}
 
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions pEvent) {
