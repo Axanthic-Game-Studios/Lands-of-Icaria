@@ -27,18 +27,13 @@ public class TopBlockCarverConfiguration extends CarverConfiguration {
 			BlockState.CODEC.fieldOf("topBlockPrimary").forGetter(configuration -> configuration.topBlockPrimary),
 			BlockState.CODEC.fieldOf("fillerBlockPrimary").forGetter(configuration -> configuration.fillerBlockPrimary),
 			BlockState.CODEC.fieldOf("topBlockSecondary").forGetter(configuration -> configuration.topBlockSecondary),
-			BlockState.CODEC.fieldOf("fillerBlockSecondary")
-					.forGetter(configuration -> configuration.fillerBlockSecondary),
+			BlockState.CODEC.fieldOf("fillerBlockSecondary").forGetter(configuration -> configuration.fillerBlockSecondary),
 			// OPTIONAL
-			BlockState.CODEC.optionalFieldOf("upperBlockPrimary")
-					.forGetter(configuration -> configuration.upperBlockPrimary),
-			BlockState.CODEC.optionalFieldOf("upperBlockSecondary")
-					.forGetter(configuration -> configuration.upperBlockSecondary),
-			BlockState.CODEC.optionalFieldOf("upperBlockTertiary")
-					.forGetter(configuration -> configuration.upperBlockTertiary),
+			BlockState.CODEC.optionalFieldOf("upperBlockPrimary").forGetter(configuration -> configuration.upperBlockPrimary),
+			BlockState.CODEC.optionalFieldOf("upperBlockSecondary").forGetter(configuration -> configuration.upperBlockSecondary),
+			BlockState.CODEC.optionalFieldOf("upperBlockTertiary").forGetter(configuration -> configuration.upperBlockTertiary),
 			BlockState.CODEC.fieldOf("topBlockTertiary").forGetter(configuration -> configuration.topBlockTertiary),
-			BlockState.CODEC.fieldOf("fillerBlockTertiary")
-					.forGetter(configuration -> configuration.fillerBlockTertiary))
+			BlockState.CODEC.fieldOf("fillerBlockTertiary").forGetter(configuration -> configuration.fillerBlockTertiary))
 			.apply(instance, TopBlockCarverConfiguration::new));
 
 	public TopBlockCarverConfiguration(final CarverConfiguration conf, final BlockState topBlock,

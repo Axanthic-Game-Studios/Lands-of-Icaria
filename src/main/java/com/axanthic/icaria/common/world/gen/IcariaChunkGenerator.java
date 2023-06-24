@@ -19,6 +19,7 @@ import com.axanthic.icaria.common.world.noise.PerlinNoise;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.WorldGenRegion;
@@ -44,6 +45,12 @@ import net.minecraft.world.level.levelgen.RandomSupport;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("unused")
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 
@@ -108,6 +115,7 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 	private NoiseGeneratorOctaves lperlinNoise1;
 	private NoiseGeneratorOctaves lperlinNoise2;
 	private NoiseGeneratorPerlin surfaceNoise;
+	private NoiseGeneratorPerlin surfaceNoiseRoad;
 
 	/*****************************************************************/
 	/// PRIVATE VARIABLES
@@ -122,6 +130,7 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 	private Holder<Biome>[] biomesForHeights;
 	private double[] buffer;
 	private double[] depthBuffer = new double[256];
+	private double[] depthBufferRoad = new double[256];
 	private double[] mainNoise;
 	private double[] roughShapeNoise1;
 	private double[] roughShapeNoise2;
@@ -219,6 +228,7 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 		this.lperlinNoise2 = new NoiseGeneratorOctaves(this._rand, 12);
 		this.octaveNoise = new NoiseGeneratorOctaves(this._rand, 8);
 		this.surfaceNoise = new NoiseGeneratorPerlin(this._rand, 4);
+		this.surfaceNoiseRoad = new NoiseGeneratorPerlin(this._rand, 4);
 
 		// Init perlin and cell noise
 		this.cell = new CellNoise(seed, (short) 0);
@@ -499,8 +509,9 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 	 * This is what places the blocks INTO the surfaces generated above
 	 */
 	private void setBlocksInChunk(final int x, final int z, final ChunkAccess chunk) {
-		this.depthBuffer = this.surfaceNoise.getRegion(this.depthBuffer, x * 16, z * 16, 16, 16, 0.0625D, 0.0625D,
-				1.0D);
+		this.depthBuffer = this.surfaceNoise.getRegion(this.depthBuffer, x * 16, z * 16, 16, 16, 0.0625D, 0.0625D, 1.0D);
+
+		this.depthBufferRoad = this.surfaceNoiseRoad.getRegion(this.depthBufferRoad, x * 16, z * 16, 16, 16, 0.025D, 0.025D, 1.0D);
 
 		@SuppressWarnings("unused")
 		int wx;
@@ -529,20 +540,30 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 				wz = z * CHUNK_WIDTH + cz;
 
 				final double noiseValue = this.depthBuffer[cx + cz * 16];
+
+				final double noiseValueRoad = this.depthBufferRoad[cx + cz * 16];
+
 				final int fillerBlockDensity = (int) (noiseValue / 3.0D + 3.0D + this._rand.nextDouble() * 0.25D);
 				BlockState upperBlock = upperBlockPrimary;
 				BlockState topBlock = topBlockPrimary;
 				BlockState fillerBlock = fillerBlockPrimary;
 
 				if (noiseValue > 1.75D) {
-					upperBlock = upperBlockTertiary;
+					//upperBlock = upperBlockTertiary;
 					topBlock = topBlockTertiary;
 					fillerBlock = fillerBlockTertiary;
 				} else if (noiseValue > 0.0D) {
-					upperBlock = upperBlockSecondary;
+					//upperBlock = upperBlockSecondary;
 					topBlock = topBlockSecondary;
 					fillerBlock = fillerBlockSecondary;
 				}
+
+				if (noiseValueRoad > 0.15D) {
+					upperBlock = upperBlockTertiary;
+				} else if (noiseValueRoad > -0.15F) {
+					upperBlock = upperBlockSecondary;
+				}
+
 
 				noiseYellowstone = this.perlin.noise2((wx + 2221f) / 95f, (wz + 2221f) / 95f);
 				noiseSilkstone = this.perlin.noise2((wx + 7542f) / 75f, (wz + 7542f) / 75f);
@@ -563,8 +584,8 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 					final BlockState upper = chunk.getBlockState(pos.set(cx, cy + 1, cz));
 					if (b.getBlock() != Blocks.AIR && upper.getBlock() == Blocks.AIR) {
 						chunk.setBlockState(pos.set(cx, cy, cz), topBlock, false);
-						if (upperBlock != null) {
-							chunk.setBlockState(pos.set(cx, cy + 1, cz), upperBlock, false);
+						if (upperBlock != null && cy >= 96) {
+							chunk.setBlockState(pos.set(cx, cy, cz), upperBlock, false);
 						}
 						for (int gy = 1; gy < cy; gy++) {
 							b = chunk.getBlockState(pos.set(cx, cy - gy, cz));

@@ -58,6 +58,9 @@
     "topBlockTertiary": {
       "Name": "landsoficaria:coarse_marl"
     },
+    "upperBlockSecondary": {
+      "Name": "landsoficaria:relicstone"
+    },
     "y": {
       "type": "minecraft:uniform",
       "max_inclusive": {

@@ -105,7 +105,7 @@ public class IcariaCarvers {
 		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
 
 		final Optional<BlockState> upperBlockPrimary = Optional.empty();
-		final Optional<BlockState> upperBlockSecondary = Optional.empty();
+		final Optional<BlockState> upperBlockSecondary = Optional.of(IcariaBlocks.RELICSTONE.get().defaultBlockState());
 		final Optional<BlockState> upperBlockTertiary = Optional.empty();
 		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
 		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
@@ -126,7 +126,7 @@ public class IcariaCarvers {
 		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
 
 		final Optional<BlockState> upperBlockPrimary = Optional.empty();
-		final Optional<BlockState> upperBlockSecondary = Optional.empty();
+		final Optional<BlockState> upperBlockSecondary = Optional.of(IcariaBlocks.RELICSTONE.get().defaultBlockState());
 		final Optional<BlockState> upperBlockTertiary = Optional.empty();
 		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
 		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
@@ -147,7 +147,7 @@ public class IcariaCarvers {
 		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.SILKSAND.getKey()).get().defaultBlockState();
 
 		final Optional<BlockState> upperBlockPrimary = Optional.empty();
-		final Optional<BlockState> upperBlockSecondary = Optional.empty();
+		final Optional<BlockState> upperBlockSecondary = Optional.of(IcariaBlocks.RELICSTONE.get().defaultBlockState());
 		final Optional<BlockState> upperBlockTertiary = Optional.empty();
 		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
 		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
@@ -168,7 +168,7 @@ public class IcariaCarvers {
 		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.MARL.getKey()).get().defaultBlockState();
 
 		final Optional<BlockState> upperBlockPrimary = Optional.empty();
-		final Optional<BlockState> upperBlockSecondary = Optional.empty();
+		final Optional<BlockState> upperBlockSecondary = Optional.of(IcariaBlocks.RELICSTONE.get().defaultBlockState());
 		final Optional<BlockState> upperBlockTertiary = Optional.empty();
 		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
 		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
@@ -188,7 +188,7 @@ public class IcariaCarvers {
 		final BlockState fillerBlockSecondary = blockGetter.getOrThrow(IcariaBlocks.COARSE_MARL.getKey()).get().defaultBlockState();
 
 		final Optional<BlockState> upperBlockPrimary = Optional.empty();
-		final Optional<BlockState> upperBlockSecondary = Optional.empty();
+		final Optional<BlockState> upperBlockSecondary = Optional.of(IcariaBlocks.RELICSTONE.get().defaultBlockState());
 		final Optional<BlockState> upperBlockTertiary = Optional.empty();
 		final BlockState topBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
 		final BlockState fillerBlockTertiary = blockGetter.getOrThrow(IcariaBlocks.LOAM.getKey()).get().defaultBlockState();
