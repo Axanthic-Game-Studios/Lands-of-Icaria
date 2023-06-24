@@ -1,8 +1,6 @@
 package com.axanthic.icaria.common.world.feature;
 
-import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaFluids;
 
 import com.mojang.serialization.Codec;
 
@@ -10,18 +8,18 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.phys.AABB;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 
-public class PsilocybosFeature extends Feature<NoneFeatureConfiguration> {
-    public PsilocybosFeature(Codec<NoneFeatureConfiguration> pCodec) {
+public class DathullaFeature extends Feature<NoneFeatureConfiguration> {
+    public DathullaFeature(Codec<NoneFeatureConfiguration> pCodec) {
         super(pCodec);
     }
 
@@ -34,10 +32,17 @@ public class PsilocybosFeature extends Feature<NoneFeatureConfiguration> {
 
         int size = 2;
 
+        var aabb = AABB.ofSize(origin.below().getCenter(), size, 0, size);
+        var list = level.getBlockStates(aabb).toList();
+
+        boolean test = list.contains(IcariaBlocks.RELICSTONE.get().defaultBlockState());
+
         for (int x = -size; x <= size; x++) {
             for (int y = -size; y <= size; y++) {
                 for (int z = -size; z <= size; z++) {
-                    this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
+                    if (test) {
+                        this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
+                    }
                 }
             }
         }
@@ -52,8 +57,8 @@ public class PsilocybosFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos.above()).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT) && pLevel.getFluidState(pPos).is(IcariaFluids.MEDITERRANEAN_WATER.get())) {
-            this.setBlock(pLevel, pPos, IcariaBlocks.PSILOCYBOS.get().defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pLevel.getFluidState(pPos).is(IcariaFluids.MEDITERRANEAN_WATER.get())).setValue(BlockStateProperties.WATERLOGGED, pLevel.getFluidState(pPos).is(Fluids.WATER)));
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
+            this.setBlock(pLevel, pPos, IcariaBlocks.DATHULLA.get().defaultBlockState());
         }
     }
 }

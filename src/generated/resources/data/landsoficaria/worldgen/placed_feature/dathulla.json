@@ -1,5 +1,5 @@
 {
-  "feature": "landsoficaria:mondanos",
+  "feature": "landsoficaria:dathulla",
   "placement": [
     {
       "type": "minecraft:count",
@@ -29,7 +29,7 @@
       "max_steps": 16,
       "target_condition": {
         "type": "minecraft:matching_block_tag",
-        "tag": "minecraft:sand"
+        "tag": "minecraft:dirt"
       }
     },
     {

@@ -31,7 +31,8 @@ public class WiltedElmFeature extends Feature<NoneFeatureConfiguration> {
 
         int size = 2;
 
-        var list = level.getBlockStates(new AABB(origin).inflate(4)).toList();
+        var aabb = AABB.ofSize(origin.getCenter(), 4, 0, 4);
+        var list = level.getBlockStates(aabb).toList();
 
         boolean leavesA = list.contains(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_FIR_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_LAUREL_LEAVES.get().defaultBlockState());
         boolean leavesB = list.contains(IcariaBlocks.FALLEN_OLIVE_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_PLANE_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_POPULUS_LEAVES.get().defaultBlockState());

@@ -31,7 +31,8 @@ public class MondanosFeature extends Feature<NoneFeatureConfiguration> {
 
         int size = 2;
 
-        var list = level.getBlockStates(new AABB(origin).inflate(size)).toList();
+        var aabb = AABB.ofSize(origin.below().getCenter(), size, 0, size);
+        var list = level.getBlockStates(aabb).toList();
 
         boolean sand = list.contains(IcariaBlocks.GRAINEL.get().defaultBlockState()) || list.contains(IcariaBlocks.SILKSAND.get().defaultBlockState());
         boolean test = list.contains(IcariaBlocks.LOAM.get().defaultBlockState()) && sand;

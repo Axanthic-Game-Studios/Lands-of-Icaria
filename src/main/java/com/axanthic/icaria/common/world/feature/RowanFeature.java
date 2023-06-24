@@ -32,7 +32,9 @@ public class RowanFeature extends Feature<NoneFeatureConfiguration> {
 
         int size = 2;
 
-        boolean test = level.getBlockStates(new AABB(origin.relative(direction)).inflate(0, 8, 0)).allMatch((blockState) -> blockState.is(Blocks.AIR));
+        var aabb = AABB.ofSize(origin.relative(direction).getCenter(), 0, 8, 0);
+
+        boolean test = level.getBlockStates(aabb).allMatch((blockState) -> blockState.is(Blocks.AIR));
 
         for (int x = -size; x <= size; x++) {
             for (int y = -size; y <= size; y++) {
