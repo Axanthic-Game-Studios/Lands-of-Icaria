@@ -95,5 +95,6 @@
     "recipes": [
       "minecraft:magma_cream_from_jellyfish_jelly"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

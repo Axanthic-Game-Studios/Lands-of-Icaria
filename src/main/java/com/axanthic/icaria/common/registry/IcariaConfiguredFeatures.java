@@ -22,18 +22,15 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.NoiseProvider;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 
-import net.minecraftforge.registries.DeferredRegister;
-
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("deprecation")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaConfiguredFeatures {
-	public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registries.CONFIGURED_FEATURE, IcariaInfo.ID);
-
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_CHERT = IcariaConfiguredFeatures.registerKey("marl_chert");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_BONES = IcariaConfiguredFeatures.registerKey("marl_bones");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_LIGNITE = IcariaConfiguredFeatures.registerKey("marl_lignite");
@@ -120,8 +117,10 @@ public class IcariaConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SUNSPONGE = IcariaConfiguredFeatures.registerKey("sunsponge");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> VOIDLILY = IcariaConfiguredFeatures.registerKey("voidlily");
 
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BOLBOS = IcariaConfiguredFeatures.registerKey("bolbos");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DATHULLA = IcariaConfiguredFeatures.registerKey("dathulla");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MONDANOS = IcariaConfiguredFeatures.registerKey("mondanos");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MOTH_AGARIC = IcariaConfiguredFeatures.registerKey("moth_agaric");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> NAMDRAKE = IcariaConfiguredFeatures.registerKey("namdrake");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PSILOCYBOS = IcariaConfiguredFeatures.registerKey("psilocybos");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> ROWAN = IcariaConfiguredFeatures.registerKey("rowan");
@@ -152,7 +151,7 @@ public class IcariaConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LAKE = IcariaConfiguredFeatures.registerKey("lake");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DRY_LAKE = IcariaConfiguredFeatures.registerKey("dry_lake");
 
-	public static void bootstrapConfiguredFeatures(BootstapContext<ConfiguredFeature<?, ?>> pContext) {
+	public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> pContext) {
 		var yellowstone = new TagMatchTest(IcariaBlockTags.ORE_BEARING_GROUND_YELLOWSTONE);
 		var silkstone = new TagMatchTest(IcariaBlockTags.ORE_BEARING_GROUND_SILKSTONE);
 		var sunstone = new TagMatchTest(IcariaBlockTags.ORE_BEARING_GROUND_SUNSTONE);
@@ -245,8 +244,10 @@ public class IcariaConfiguredFeatures {
 		pContext.register(IcariaConfiguredFeatures.SUNSPONGE, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 4, 4, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNSPONGE.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.SAND), BlockPredicate.noFluid(), BlockPredicate.replaceable())))));
 		pContext.register(IcariaConfiguredFeatures.VOIDLILY, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.VOIDLILY.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.DIRT), BlockPredicate.noFluid(), BlockPredicate.replaceable())))));
 
+		pContext.register(IcariaConfiguredFeatures.BOLBOS, new ConfiguredFeature<>(IcariaFeatures.BOLBOS.get(), NoneFeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.DATHULLA, new ConfiguredFeature<>(IcariaFeatures.DATHULLA.get(), NoneFeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.MONDANOS, new ConfiguredFeature<>(IcariaFeatures.MONDANOS.get(), NoneFeatureConfiguration.NONE));
+		pContext.register(IcariaConfiguredFeatures.MOTH_AGARIC, new ConfiguredFeature<>(IcariaFeatures.MOTH_AGARIC.get(), NoneFeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.NAMDRAKE, new ConfiguredFeature<>(IcariaFeatures.NAMDRAKE.get(), NoneFeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.PSILOCYBOS, new ConfiguredFeature<>(IcariaFeatures.PSILOCYBOS.get(), NoneFeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.ROWAN, new ConfiguredFeature<>(IcariaFeatures.ROWAN.get(), NoneFeatureConfiguration.NONE));
@@ -274,7 +275,7 @@ public class IcariaConfiguredFeatures {
 
 		pContext.register(IcariaConfiguredFeatures.STRAWBERRY_BUSH, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.STRAWBERRY_BUSH.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.DIRT), BlockPredicate.noFluid(), BlockPredicate.replaceable())))));
 
-		pContext.register(IcariaConfiguredFeatures.LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(IcariaBlocks.MEDITERRANEAN_WATER.get().defaultBlockState()), BlockStateProvider.simple(IcariaBlocks.MARL.get().defaultBlockState()))));
+		pContext.register(IcariaConfiguredFeatures.LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(IcariaBlocks.MEDITERRANEAN_WATER.get().defaultBlockState()), BlockStateProvider.simple(IcariaBlocks.GRASSY_MARL.get().defaultBlockState()))));
 		pContext.register(IcariaConfiguredFeatures.DRY_LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.AIR.defaultBlockState()), BlockStateProvider.simple(IcariaBlocks.DRY_LAKE_BED.get().defaultBlockState()))));
 	}
 

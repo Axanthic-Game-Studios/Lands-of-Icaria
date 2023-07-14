@@ -23,7 +23,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootDataType;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
@@ -49,9 +50,8 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        var clickedPos = pContext.getClickedPos();
-        var level = pContext.getLevel();
-        return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, level.getFluidState(clickedPos).getType() == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(clickedPos).getType() == Fluids.WATER);
+        var fluid = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
+        return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
     }
 
     @Override
@@ -74,8 +74,8 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
     }
 
     @Override
-    public List<ItemStack> getDrops(BlockState pState, LootContext.Builder pBuilder) {
+    public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pBuilder) {
         var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-        return lootContext.getLevel().getServer().getLootTables().get(IcariaVaseLoot.LOOT_VASE).getRandomItems(lootContext);
+        return lootContext.getLevel().getServer().getLootData().getElement(LootDataType.TABLE, IcariaVaseLoot.LOOT_VASE).getRandomItems(lootContext);
     }
 }

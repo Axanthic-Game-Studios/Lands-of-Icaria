@@ -76,15 +76,15 @@ public class IcariaSpawnerBlockEntity extends BlockEntity {
     }
 
     @Override
+    public ClientboundBlockEntityDataPacket getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
     public CompoundTag getUpdateTag() {
         var compoundTag = this.saveWithoutMetadata();
         compoundTag.remove("SpawnPotentials");
         return compoundTag;
-    }
-
-    @Override
-    public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     public IcariaBaseSpawner getBaseSpawner(BlockState pBlockState) {

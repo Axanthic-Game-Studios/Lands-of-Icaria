@@ -43,5 +43,6 @@
     "recipes": [
       "minecraft:sand_from_grinding"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }

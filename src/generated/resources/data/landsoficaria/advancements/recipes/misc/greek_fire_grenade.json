@@ -56,5 +56,6 @@
     "recipes": [
       "landsoficaria:greek_fire_grenade"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

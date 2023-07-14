@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.client.extensions.IcariaSkullClientItemExtensions;
+import com.axanthic.icaria.client.extensions.IcariaSkullItemExtensions;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -21,7 +21,7 @@ public class IcariaSkullItem extends StandingAndWallBlockItem {
 
     @Override
     public void initializeClient(@Nonnull Consumer<IClientItemExtensions> pConsumer) {
-        pConsumer.accept(new IcariaSkullClientItemExtensions());
+        pConsumer.accept(new IcariaSkullItemExtensions());
     }
 
     @Override

@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:light_blue_storage_vase_from_smelting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

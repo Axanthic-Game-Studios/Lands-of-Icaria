@@ -36,11 +36,7 @@ public class TreeShroomBlock extends Block {
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		var direction = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		return direction.getAxis().isHorizontal() && this.mayPlaceOn(pLevel.getBlockState(pPos.relative(direction.getOpposite())));
-	}
-
-	public boolean mayPlaceOn(BlockState pState) {
-		return pState.is(BlockTags.LOGS);
+		return direction.getAxis().isHorizontal() && pLevel.getBlockState(pPos.relative(direction.getOpposite())).is(BlockTags.LOGS);
 	}
 
 	@Override
@@ -55,8 +51,8 @@ public class TreeShroomBlock extends Block {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var blockState = this.defaultBlockState();
-		for (Direction direction : pContext.getNearestLookingDirections()) {
+		for (var direction : pContext.getNearestLookingDirections()) {
+			var blockState = this.defaultBlockState();
 			if (direction.getAxis().isHorizontal()) {
 				blockState = blockState.setValue(BlockStateProperties.HORIZONTAL_FACING, direction.getOpposite());
 				if (blockState.canSurvive(pContext.getLevel(), pContext.getClickedPos())) {

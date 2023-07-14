@@ -45,6 +45,7 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     public AnimationState attackAnimationState = new AnimationState();
 
     public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(VinegaroonEntity.class, EntityDataSerializers.BYTE);
+
     public static final EntityDataAccessor<Integer> COOLDOWN = SynchedEntityData.defineId(VinegaroonEntity.class, EntityDataSerializers.INT);
 
     public VinegaroonEntity(EntityType<? extends VinegaroonEntity> pType, Level pLevel) {
@@ -139,7 +140,7 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
 
     @Override
     public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
-        var entity = new VinegarEntity(this.level, this, this.useItem);
+        var entity = new VinegarEntity(this.level(), this, this.useItem);
 
         double d0 = pTarget.getX() - this.getX();
         double d1 = pTarget.getY() - entity.getY();
@@ -148,9 +149,9 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
 
         entity.shoot(d0, d1 + d3 * 0.2D, d2, 2.0F, 2.0F);
 
-        this.level.addFreshEntity(entity);
+        this.level().addFreshEntity(entity);
         if (!this.isSilent()) {
-            this.level.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ARROW_SHOOT, this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+            this.level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ARROW_SHOOT, this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
         }
     }
 
@@ -160,9 +161,10 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     }
 
     @Override
-    public void positionRider(Entity pPassenger) {
-        super.positionRider(pPassenger);
-        pPassenger.setPos(this.getX() + 0.625D, this.getY() + this.getPassengersRidingOffset() + pPassenger.getMyRidingOffset(), this.getZ() + 0.5D);
+    public void positionRider(Entity pPassenger, Entity.MoveFunction pCallback) {
+        if (this.hasPassenger(pPassenger)) {
+            pCallback.accept(pPassenger, this.getX() + 0.625D, this.getY() + this.getPassengersRidingOffset() + pPassenger.getMyRidingOffset(), this.getZ() + 0.5D);
+        }
     }
 
     @Override
@@ -201,7 +203,7 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     @Override
     public void tick() {
         super.tick();
-        if (this.level.isClientSide) {
+        if (this.level().isClientSide) {
             if (this.onCooldown()) {
                 this.attackAnimationState.startIfStopped(this.tickCount);
             } else {

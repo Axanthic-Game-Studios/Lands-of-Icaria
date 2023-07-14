@@ -36,7 +36,7 @@ public class IcariaFollowParentGoal extends Goal {
         } else {
             double d0 = Double.MAX_VALUE;
             IcariaAnimalEntity entity = null;
-            for (IcariaAnimalEntity parent : this.entity.level.getEntitiesOfClass(this.entity.getClass(), this.entity.getBoundingBox().inflate(8.0D, 4.0D, 8.0D))) {
+            for (var parent : this.entity.level().getEntitiesOfClass(this.entity.getClass(), this.entity.getBoundingBox().inflate(8.0D, 4.0D, 8.0D))) {
                 if (!parent.isBaby()) {
                     double d1 = this.entity.distanceToSqr(parent);
                     if (!(d1 > d0)) {

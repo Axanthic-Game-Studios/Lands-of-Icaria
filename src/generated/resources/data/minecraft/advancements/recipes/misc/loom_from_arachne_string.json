@@ -238,5 +238,6 @@
     "recipes": [
       "minecraft:loom_from_arachne_string"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

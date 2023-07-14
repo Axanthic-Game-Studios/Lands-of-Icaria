@@ -14,7 +14,7 @@ public class IcariaConfig {
 	public static ForgeConfigSpec.BooleanValue SPAWN_ARACHNIDS;
 
 	public static void registerClientConfig() {
-		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+		var builder = new ForgeConfigSpec.Builder();
 
 		builder.comment("Render settings").push("renderSettings");
 
@@ -29,7 +29,7 @@ public class IcariaConfig {
 	}
 
 	public static void registerCommonConfig() {
-		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+		var builder = new ForgeConfigSpec.Builder();
 
 		builder.comment("Sound settings").push("soundSettings");
 
@@ -46,7 +46,7 @@ public class IcariaConfig {
 	}
 
 	public static void registerServerConfig() {
-		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+		var builder = new ForgeConfigSpec.Builder();
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, builder.build());
 	}

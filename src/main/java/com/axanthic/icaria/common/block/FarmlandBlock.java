@@ -53,7 +53,7 @@ public class FarmlandBlock extends FarmBlock {
 	}
 
 	public boolean isNearWater(LevelReader pLevel, BlockPos pPos) {
-		for (BlockPos blockPos : BlockPos.betweenClosed(pPos.offset(-4, 0, -4), pPos.offset(4, 1, 4))) {
+		for (var blockPos : BlockPos.betweenClosed(pPos.offset(-4, 0, -4), pPos.offset(4, 1, 4))) {
 			if (pLevel.getFluidState(blockPos).is(FluidTags.WATER)) {
 				return true;
 			}
@@ -75,8 +75,10 @@ public class FarmlandBlock extends FarmBlock {
 	@Override
 	public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
 		super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
-		if (!pLevel.isClientSide && ForgeHooks.onFarmlandTrample(pLevel, pPos, IcariaBlocks.MARL.get().defaultBlockState(), pFallDistance, pEntity)) {
-			this.turnToMarl(pState, pLevel, pPos);
+		if (!pLevel.isClientSide) {
+			if (ForgeHooks.onFarmlandTrample(pLevel, pPos, IcariaBlocks.MARL.get().defaultBlockState(), pFallDistance, pEntity)) {
+				this.turnToMarl(pState, pLevel, pPos);
+			}
 		}
 	}
 

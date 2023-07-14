@@ -65,7 +65,7 @@ public class HyliasterEntity extends Monster {
     }
 
     public boolean isMovingOnLand() {
-        return this.onGround && this.getDeltaMovement().horizontalDistanceSqr() > 0;
+        return this.onGround() && this.getDeltaMovement().horizontalDistanceSqr() > 0;
     }
 
     @Override
@@ -183,19 +183,19 @@ public class HyliasterEntity extends Monster {
     @Override
     public void remove(Entity.RemovalReason pReason) {
         super.remove(pReason);
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             int size = this.getSize();
             if (size > this.minSize) {
                 if (this.isDeadOrDying()) {
                     for (int l = 0; l < size; ++l) {
                         float xOffset = ((float) (l % 2) - 0.5F) * size * 0.25F;
                         float zOffset = ((float) (l / 2) - 0.5F) * size * 0.25F;
-                        var entity = IcariaEntityTypes.HYLIASTER.get().create(this.level);
+                        var entity = IcariaEntityTypes.HYLIASTER.get().create(this.level());
                         if (entity != null) {
                             entity.moveTo(this.getX() + xOffset, this.getY() + 0.5D, this.getZ() + zOffset, this.random.nextFloat() * 360.0F, 0.0F);
                             entity.setCustomName(this.getCustomName());
                             entity.setSize(this.minSize);
-                            this.level.addFreshEntity(entity);
+                            this.level().addFreshEntity(entity);
                         }
                     }
                 }
@@ -221,7 +221,7 @@ public class HyliasterEntity extends Monster {
     @Override
     public void tick() {
         super.tick();
-        if (this.level.isClientSide) {
+        if (this.level().isClientSide) {
             if (this.isMovingOnLand()) {
                 this.moveAnimationState.startIfStopped(this.tickCount);
             } else {
@@ -238,8 +238,8 @@ public class HyliasterEntity extends Monster {
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() == IcariaItems.EMPTY_VIAL.get()) {
-            pPlayer.getLevel().playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
-            if (!this.level.isClientSide) {
+            pPlayer.level().playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
+            if (!this.level().isClientSide) {
                 this.setTick(this.getTick() - 16000);
                 if (this.getSize() == this.minSize) {
                     this.remove(RemovalReason.KILLED);

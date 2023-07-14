@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:fir_sign"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -51,7 +51,7 @@ public class GroundShroomBlock extends Block implements IPlantable {
 	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (pRandom.nextInt(25) == 0) {
 			int i = 5;
-			for (BlockPos blockPos : BlockPos.betweenClosed(pPos.offset(-4, -1, -4), pPos.offset(4, 1, 4))) {
+			for (var blockPos : BlockPos.betweenClosed(pPos.offset(-4, -1, -4), pPos.offset(4, 1, 4))) {
 				if (pLevel.getBlockState(blockPos).is(this)) {
 					--i;
 					if (i <= 0) {

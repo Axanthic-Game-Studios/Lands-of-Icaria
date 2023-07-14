@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.world.gen;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
@@ -10,7 +11,7 @@ import com.axanthic.icaria.common.util.BiomeConfiguration;
 import com.axanthic.icaria.data.tags.IcariaBiomeTags;
 import com.axanthic.icaria.common.registry.IcariaBiomes;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.world.carver.configuration.TopBlockCarverConfiguration;
+import com.axanthic.icaria.common.world.carver.configuration.IcariaSoilCarverConfiguration;
 import com.axanthic.icaria.common.world.noise.CellNoise;
 import com.axanthic.icaria.common.world.noise.NoiseGeneratorOctaves;
 import com.axanthic.icaria.common.world.noise.NoiseGeneratorPerlin;
@@ -22,6 +23,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
@@ -53,6 +55,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
+	public static final Map<ResourceKey<Biome>, BiomeConfiguration> CONFIGURATIONS = Map.of(IcariaBiomes.FOREST, new BiomeConfiguration(1.0D, 2.0D), IcariaBiomes.SCRUBLAND, new BiomeConfiguration(1.0D, 4.0D), IcariaBiomes.STEPPE, new BiomeConfiguration(1.0D, 4.0D), IcariaBiomes.DESERT, new BiomeConfiguration(1.0D, 8.0D), IcariaBiomes.VOID, new BiomeConfiguration(1.0D, 1.0D));
 
 	/*****************************************************************/
 	/// CODECS
@@ -124,7 +127,7 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 	private final Holder<IcariaGeneratorSettings> settings;
 	private final Holder<NoiseGeneratorSettings> noiseSettings;
 
-	private TopBlockCarverConfiguration[] topBlockConfigurations;
+	private IcariaSoilCarverConfiguration[] topBlockConfigurations;
 	private BiomeConfiguration[] biomeConfiguration;
 	private Holder<Biome>[] biomesForGeneration;
 	private Holder<Biome>[] biomesForHeights;
@@ -268,7 +271,7 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 
 				final Holder<Biome> biome = manager.getBiome(pos.set(wx + cx, 0, wz + cz));
 				this.biomesForHeights[biomeIndex] = biome;
-				this.biomeConfiguration[biomeIndex] = IcariaBiomes.CONFIGURATIONS.get(biome.unwrapKey().get());
+				this.biomeConfiguration[biomeIndex] = CONFIGURATIONS.get(biome.unwrapKey().get());
 			}
 		}
 	}
@@ -279,7 +282,7 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 	 */
 	private void calculateBiomesForGeneration() {
 		this.biomesForGeneration = new Holder[CHUNK_WIDTH * CHUNK_WIDTH];
-		this.topBlockConfigurations = new TopBlockCarverConfiguration[CHUNK_WIDTH * CHUNK_WIDTH];
+		this.topBlockConfigurations = new IcariaSoilCarverConfiguration[CHUNK_WIDTH * CHUNK_WIDTH];
 		for (int cx = 2; cx < 18; cx++) {
 			for (int cz = 2; cz < 18; cz++) {
 				final int biomeIndex = cx - 2 + (cz - 2 << 4);
@@ -290,8 +293,8 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 						.stream(biome.get().getGenerationSettings().getCarvers(GenerationStep.Carving.AIR)
 								.spliterator(), false)
 						.map(Holder::get).map(ConfiguredWorldCarver::config)
-						.filter(config -> config instanceof TopBlockCarverConfiguration)
-						.map(c -> (TopBlockCarverConfiguration) c).findFirst()
+						.filter(config -> config instanceof IcariaSoilCarverConfiguration)
+						.map(c -> (IcariaSoilCarverConfiguration) c).findFirst()
 						.orElseThrow(() -> new IllegalArgumentException("Please add a carver for the biome: " + biome));
 			}
 		}
@@ -526,16 +529,16 @@ public class IcariaChunkGenerator extends NoiseBasedChunkGenerator {
 		for (int cx = 0; cx < CHUNK_WIDTH; cx++) {
 			wx = x * CHUNK_WIDTH + cx;
 			for (int cz = 0; cz < CHUNK_WIDTH; cz++) {
-				final TopBlockCarverConfiguration config = this.topBlockConfigurations[cx + cz * 16];
-				final BlockState upperBlockPrimary = config.upperBlockPrimary.orElse(null);
-				final BlockState upperBlockSecondary = config.upperBlockSecondary.orElse(null);
-				final BlockState upperBlockTertiary = config.upperBlockTertiary.orElse(null);
-				final BlockState topBlockPrimary = config.topBlockPrimary;
-				final BlockState topBlockSecondary = config.topBlockSecondary;
-				final BlockState topBlockTertiary = config.topBlockTertiary;
-				final BlockState fillerBlockPrimary = config.fillerBlockPrimary;
-				final BlockState fillerBlockSecondary = config.fillerBlockSecondary;
-				final BlockState fillerBlockTertiary = config.fillerBlockTertiary;
+				final IcariaSoilCarverConfiguration config = this.topBlockConfigurations[cx + cz * 16];
+				final BlockState upperBlockPrimary = config.topperPrimary.orElse(null);
+				final BlockState upperBlockSecondary = config.topperSecondary.orElse(null);
+				final BlockState upperBlockTertiary = config.topperTertiary.orElse(null);
+				final BlockState topBlockPrimary = config.topPrimary;
+				final BlockState topBlockSecondary = config.topSecondary;
+				final BlockState topBlockTertiary = config.topTertiary;
+				final BlockState fillerBlockPrimary = config.fillerPrimary;
+				final BlockState fillerBlockSecondary = config.fillerSecondary;
+				final BlockState fillerBlockTertiary = config.fillerTertiary;
 
 				wz = z * CHUNK_WIDTH + cz;
 

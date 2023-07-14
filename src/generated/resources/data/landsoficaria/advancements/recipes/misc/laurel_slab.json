@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:laurel_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

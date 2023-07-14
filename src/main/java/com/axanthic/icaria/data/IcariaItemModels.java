@@ -1,7 +1,9 @@
 package com.axanthic.icaria.data;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.registry.IcariaArmorItems;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaToolItems;
+import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -23,27 +25,27 @@ public class IcariaItemModels extends ItemModelProvider {
 
 	@Override
 	public void registerModels() {
-		for (RegistryObject<? extends Item> basicItems : IcariaItems.BASIC_ITEMS) {
-			this.itemWithModel(basicItems, "item/generated");
+		for (var items : IcariaItems.SIMPLE_ITEMS) {
+			this.itemWithModel(items, "item/generated");
 		}
 
-		for (IcariaItems.ToolSet tools : IcariaItems.TOOLS) {
-			var name = tools.bident.getId();
+		for (var items : IcariaToolItems.TOOL_ITEMS) {
+			var name = items.bident.getId();
 			var model = this.singleTexture(name.getPath() + "_throwing", new ResourceLocation(IcariaInfo.ID, "item/bident_throwing"), "layer0", new ResourceLocation(name.getNamespace(), "item/" + name.getPath()));
-			this.itemWithModel(tools.sword, "item/handheld");
-			this.itemWithModel(tools.dagger, "item/handheld");
-			this.itemWithModel(tools.shovel, "item/handheld");
-			this.itemWithModel(tools.pickaxe, "item/handheld");
-			this.itemWithModel(tools.axe, "item/handheld");
-			this.itemWithModel(tools.scythe, "item/handheld");
-			this.itemWithModel(tools.bident, new ResourceLocation(IcariaInfo.ID, "item/bident")).override().predicate(new ResourceLocation(IcariaInfo.ID, "throwing"), 1.0F).model(model).end();
+			this.itemWithModel(items.sword, "item/handheld");
+			this.itemWithModel(items.dagger, "item/handheld");
+			this.itemWithModel(items.shovel, "item/handheld");
+			this.itemWithModel(items.pickaxe, "item/handheld");
+			this.itemWithModel(items.axe, "item/handheld");
+			this.itemWithModel(items.scythe, "item/handheld");
+			this.itemWithModel(items.bident, new ResourceLocation(IcariaInfo.ID, "item/bident")).override().predicate(new ResourceLocation(IcariaInfo.ID, "throwing"), 1.0F).model(model).end();
 		}
 
-		for (IcariaItems.ArmorSet armor : IcariaItems.ARMOR) {
-			this.itemWithModel(armor.helmet, "item/generated");
-			this.itemWithModel(armor.chestplate, "item/generated");
-			this.itemWithModel(armor.leggings, "item/generated");
-			this.itemWithModel(armor.boots, "item/generated");
+		for (var items : IcariaArmorItems.ARMOR_ITEMS) {
+			this.itemWithModel(items.helmet, "item/generated");
+			this.itemWithModel(items.chestplate, "item/generated");
+			this.itemWithModel(items.leggings, "item/generated");
+			this.itemWithModel(items.boots, "item/generated");
 		}
 	}
 

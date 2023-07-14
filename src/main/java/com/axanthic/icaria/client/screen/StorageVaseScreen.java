@@ -1,12 +1,9 @@
 package com.axanthic.icaria.client.screen;
 
-import com.axanthic.icaria.client.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.menu.StorageVaseMenu;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
-
-import net.minecraft.client.gui.GuiComponent;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -23,23 +20,23 @@ public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> 
 	}
 
 	@Override
-	public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-		this.renderBackground(pPoseStack);
-		super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-		this.renderTooltip(pPoseStack, pMouseX, pMouseY);
+	public void render(GuiGraphics pGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+		this.renderBackground(pGraphics);
+		super.render(pGraphics, pMouseX, pMouseY, pPartialTick);
+		this.renderTooltip(pGraphics, pMouseX, pMouseY);
 	}
 
 	@Override
-	public void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
-		RenderSystem.setShaderTexture(0, IcariaResourceLocations.STORAGE_VASE);
-		int relX = (this.width - this.imageWidth) / 2;
-		int relY = (this.height - this.imageHeight) / 2;
-		GuiComponent.blit(pPoseStack, relX, relY, 0, 0, this.imageWidth, this.imageHeight);
+	public void renderBg(GuiGraphics pGraphics, float pPartialTick, int pMouseX, int pMouseY) {
+		int x = (this.width - this.imageWidth) / 2;
+		int y = (this.height - this.imageHeight) / 2;
+		pGraphics.blit(IcariaResourceLocations.STORAGE_VASE, x, y, 0, 0, this.imageWidth, this.imageHeight);
+
 	}
 
 	@Override
-	public void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
-		this.font.draw(pPoseStack, this.title, 7.0F, 6.0F, 5260599);
-		this.font.draw(pPoseStack, this.playerInventoryTitle, 7.0F, 128.0F, 5260599);
+	public void renderLabels(GuiGraphics pGraphics, int pMouseX, int pMouseY) {
+		pGraphics.drawString(this.font, this.title, 7, 6, 5260599, false);
+		pGraphics.drawString(this.font, this.playerInventoryTitle, 7, 128, 5260599, false);
 	}
 }

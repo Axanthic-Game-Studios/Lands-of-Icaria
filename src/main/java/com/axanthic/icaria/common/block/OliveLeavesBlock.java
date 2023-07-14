@@ -30,7 +30,6 @@ public class OliveLeavesBlock extends IcariaLeavesBlock {
     public OliveLeavesBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.DISTANCE, 7).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.OLIVE_STAGE, 0).setValue(BlockStateProperties.PERSISTENT, false).setValue(BlockStateProperties.WATERLOGGED, false));
-
     }
 
     @Override

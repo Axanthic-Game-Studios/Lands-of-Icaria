@@ -45,6 +45,7 @@ public class ArachneDroneEntity extends ArachneEntity {
     public float sizeMult;
 
     public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.BYTE);
+
     public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.INT);
 
@@ -213,7 +214,7 @@ public class ArachneDroneEntity extends ArachneEntity {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             this.setClimbing(this.horizontalCollision);
         }
     }

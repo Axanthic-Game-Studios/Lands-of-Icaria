@@ -17,7 +17,10 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
@@ -32,6 +35,7 @@ import net.minecraftforge.event.ForgeEventFactory;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("deprecation")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -82,7 +86,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
 
                 return flag;
             } else {
-                if (!this.level.isClientSide) {
+                if (!this.level().isClientSide) {
                     if (this.random.nextInt(10) != 0) {
                         if (!(pSource.getEntity() instanceof LivingEntity)) {
                             this.teleport();
@@ -112,7 +116,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
     }
 
     public boolean teleport() {
-        if (!this.level.isClientSide && this.isAlive()) {
+        if (!this.level().isClientSide && this.isAlive()) {
             return this.teleport(this.getX() + (this.random.nextDouble() - 0.5D) * 64.0D, this.getY() + (this.random.nextInt(64) - 32), this.getZ() + (this.random.nextDouble() - 0.5D) * 64.0D);
         } else {
             return false;
@@ -121,17 +125,14 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
 
     public boolean teleport(double pX, double pY, double pZ) {
         var mutablePos = new BlockPos.MutableBlockPos(pX, pY, pZ);
-        while (mutablePos.getY() > this.level.getMinBuildHeight() && !this.level.getBlockState(mutablePos).getMaterial().blocksMotion()) {
+        while (mutablePos.getY() > this.level().getMinBuildHeight() && !this.level().getBlockState(mutablePos).blocksMotion()) {
             mutablePos.move(Direction.DOWN);
         }
 
-        var blockState = this.level.getBlockState(mutablePos);
-        boolean blocksMotion = blockState.getMaterial().blocksMotion();
-        boolean isWater = blockState.getFluidState().is(FluidTags.WATER);
-        if (blocksMotion && !isWater) {
-            var event = ForgeEventFactory.onEnderTeleport(this, pX, pY, pZ);
+        var blockState = this.level().getBlockState(mutablePos);
+        if (blockState.blocksMotion() && !blockState.getFluidState().is(FluidTags.WATER)) {
             boolean flag = this.randomTeleport(pX, pY, pZ, true);
-            if (event.isCanceled()) {
+            if (ForgeEventFactory.onEnderTeleport(this, pX, pY, pZ).isCanceled()) {
                 return false;
             }
 
@@ -154,7 +155,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
         this.oldXBodyRot = this.xBodyRot;
         this.oldZBodyRot = this.zBodyRot;
         if (this.tentacleMovement > (Mth.PI * 2.0D)) {
-            if (this.level.isClientSide) {
+            if (this.level().isClientSide) {
                 this.tentacleMovement = (Mth.PI * 2.0F);
             } else {
                 this.tentacleMovement -= (Mth.PI * 2.0F);
@@ -162,7 +163,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
                     this.tentacleSpeed = 1.0F / (this.random.nextFloat() + 1.0F) * 0.2F;
                 }
 
-                this.level.broadcastEntityEvent(this, (byte) 19);
+                this.level().broadcastEntityEvent(this, (byte) 19);
             }
         }
 
@@ -181,20 +182,19 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
             this.tentacleAngle = 0.0F;
         }
 
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             this.setDeltaMovement((this.tx * this.speed), (this.ty * this.speed), (this.tz * this.speed));
         }
 
         var vec3 = this.getDeltaMovement();
-        double d = vec3.horizontalDistance();
-        this.xBodyRot += (-(Mth.atan2(d, vec3.y)) * (180.0F / Mth.PI)) * 0.1F - this.xBodyRot * 0.1F;
+        this.xBodyRot += (-(Mth.atan2(vec3.horizontalDistance(), vec3.y)) * (180.0F / Mth.PI)) * 0.1F - this.xBodyRot * 0.1F;
         this.yBodyRot += (-(Mth.atan2(vec3.x, vec3.z)) * (180.0F / Mth.PI) - this.yBodyRot) * 0.1F;
         this.zBodyRot += Mth.PI * this.rotateSpeed * 1.5F;
         this.setYRot(this.yBodyRot);
         if (this.getType() == IcariaEntityTypes.ENDER_JELLYFISH.get()) {
-            if (this.level.isClientSide) {
+            if (this.level().isClientSide) {
                 for (int i = 0; i < 2; ++i) {
-                    this.level.addParticle(ParticleTypes.PORTAL, this.getRandomX(0.5D), this.getRandomY() - 0.25D, this.getRandomZ(0.5D), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
+                    this.level().addParticle(ParticleTypes.PORTAL, this.getRandomX(0.5D), this.getRandomY() - 0.25D, this.getRandomZ(0.5D), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
                 }
             }
         }

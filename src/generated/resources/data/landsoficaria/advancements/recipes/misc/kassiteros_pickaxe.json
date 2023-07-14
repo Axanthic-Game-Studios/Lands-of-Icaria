@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:kassiteros_pickaxe"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

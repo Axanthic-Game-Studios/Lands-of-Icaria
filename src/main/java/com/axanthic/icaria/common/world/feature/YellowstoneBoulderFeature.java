@@ -12,6 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
 
 public class YellowstoneBoulderFeature extends Feature<NoneFeatureConfiguration> {
@@ -32,7 +33,7 @@ public class YellowstoneBoulderFeature extends Feature<NoneFeatureConfiguration>
 
             float f = (x + y + z) * 0.333F + 0.5F;
 
-            for (BlockPos blockPos : BlockPos.betweenClosed(origin.offset(-x, -y, -z), origin.offset(x, y, z))) {
+            for (var blockPos : BlockPos.betweenClosed(origin.offset(-x, -y, -z), origin.offset(x, y, z))) {
                 if (blockPos.distSqr(origin) <= (f * f)) {
                     level.setBlock(blockPos, IcariaBlocks.YELLOWSTONE.get().defaultBlockState(), 3);
                 }

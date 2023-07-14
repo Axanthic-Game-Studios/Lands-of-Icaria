@@ -19,10 +19,10 @@ public class IcariaAnimalHurtByTargetGoal extends HurtByTargetGoal {
     }
 
     @Override
-    public void alertOther(Mob pMob, LivingEntity pEntity) {
+    public void alertOther(Mob pMob, LivingEntity pTarget) {
         if (pMob instanceof IcariaAnimalEntity) {
-            double random = pEntity.getRandom().nextInt(16) - 8;
-            pMob.getNavigation().moveTo(pEntity.getX() + random, 0.0D, pEntity.getZ() + random, speedModifier);
+            double random = pTarget.getRandom().nextInt(16) - 8;
+            pMob.getNavigation().moveTo(pTarget.getX() + random, 0.0D, pTarget.getZ() + random, speedModifier);
         }
     }
 }

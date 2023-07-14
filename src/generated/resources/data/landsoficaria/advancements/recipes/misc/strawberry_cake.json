@@ -82,5 +82,6 @@
     "recipes": [
       "landsoficaria:strawberry_cake"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -33,13 +33,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ScytheItem extends HoeItem {
-	public Tier equivalentTier;
+	public Tier vanillaEquivalent;
 
 	public static final Set<ToolAction> SCYTHE_ACTIONS = Stream.of(ToolActions.HOE_TILL, ToolActions.SWORD_SWEEP).collect(Collectors.toCollection(Sets::newIdentityHashSet));
 
 	public ScytheItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
 		super(pTier, pDamage, pAttackSpeed, pProperties);
-		this.equivalentTier = pTier.vanillaEquivalent;
+		this.vanillaEquivalent = pTier.vanillaEquivalent;
 	}
 
 	@Override
@@ -60,19 +60,19 @@ public class ScytheItem extends HoeItem {
 
 	@Override
 	public boolean isCorrectToolForDrops(BlockState pState) {
-		return pState.is(IcariaBlockTags.MINEABLE_WITH_SCYTHE) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pState);
+		return pState.is(IcariaBlockTags.MINEABLE_WITH_SCYTHE) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.vanillaEquivalent, pState);
 	}
 
 	@Override
 	public boolean isCorrectToolForDrops(ItemStack pStack, BlockState pState) {
-		return pState.is(IcariaBlockTags.MINEABLE_WITH_SCYTHE) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pState);
+		return pState.is(IcariaBlockTags.MINEABLE_WITH_SCYTHE) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.vanillaEquivalent, pState);
 	}
 
 	@Override
 	public boolean onBlockStartBreak(ItemStack pStack, BlockPos pPos, Player pPlayer) {
-		var level = pPlayer.getLevel();
+		var level = pPlayer.level();
 		if (this.isCorrectToolForDrops(level.getBlockState(pPos))) {
-			for (BlockPos blockPos : BlockPos.withinManhattan(pPos, 1, 1, 1)) {
+			for (var blockPos : BlockPos.withinManhattan(pPos, 1, 1, 1)) {
 				if (!blockPos.equals(pPos) && this.isCorrectToolForDrops(level.getBlockState(blockPos)))
 					level.destroyBlock(blockPos, true, pPlayer);
 			}

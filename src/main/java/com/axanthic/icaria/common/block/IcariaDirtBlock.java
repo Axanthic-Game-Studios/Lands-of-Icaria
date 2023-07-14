@@ -31,7 +31,7 @@ public class IcariaDirtBlock extends Block {
 		var plantType = pPlantable.getPlantType(pLevel, relativePos);
 		if (plantType == PlantType.BEACH) {
 			boolean water = false;
-			for (Direction direction : Direction.Plane.HORIZONTAL) {
+			for (var direction : Direction.Plane.HORIZONTAL) {
 				var directionPos = pPos.relative(direction);
 				water = pLevel.getBlockState(directionPos).is(Blocks.FROSTED_ICE);
 				water |= pLevel.getFluidState(directionPos).is(FluidTags.WATER);
@@ -48,8 +48,10 @@ public class IcariaDirtBlock extends Block {
 
 	@Override
 	public BlockState getToolModifiedState(BlockState pState, UseOnContext pContext, ToolAction pToolAction, boolean pSimulate) {
-		if (pToolAction.equals(ToolActions.HOE_TILL) && pContext.getLevel().getBlockState(pContext.getClickedPos().above()).isAir()) {
-			return IcariaBlocks.FARMLAND.get().defaultBlockState();
+		if (pContext.getLevel().getBlockState(pContext.getClickedPos().above()).isAir()) {
+			if (pToolAction.equals(ToolActions.HOE_TILL)) {
+				return IcariaBlocks.FARMLAND.get().defaultBlockState();
+			}
 		}
 
 		return null;

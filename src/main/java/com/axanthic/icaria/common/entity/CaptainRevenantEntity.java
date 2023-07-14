@@ -17,7 +17,10 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.AnimationState;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -61,7 +64,7 @@ public class CaptainRevenantEntity extends RevenantEntity {
 
     @Override
     public boolean hurt(DamageSource pSource, float pAmount) {
-        if (this.level.getNearbyEntities(CrawlerRevenantEntity.class, this.targetingConditions, this, this.getBoundingBox().inflate(16.0D)).size() <= 2) {
+        if (this.level().getNearbyEntities(CrawlerRevenantEntity.class, this.targetingConditions, this, this.getBoundingBox().inflate(16.0D)).size() <= 2) {
             if (this.getBlockStateOn().is(IcariaBlockTags.CAPTAIN_SUMMONS_ON)) {
                 this.setUnequips(this.maxUnequips);
             }
@@ -211,7 +214,7 @@ public class CaptainRevenantEntity extends RevenantEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.level.isClientSide) {
+        if (this.level().isClientSide) {
             if (this.onUnequips()) {
                 this.unequipsAnimationState.startIfStopped(this.tickCount);
                 this.reequipsAnimationState.stop();

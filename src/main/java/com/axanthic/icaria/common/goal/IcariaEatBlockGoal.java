@@ -25,7 +25,7 @@ public class IcariaEatBlockGoal extends Goal {
 
     public IcariaEatBlockGoal(IcariaAnimalEntity pEntity) {
         this.entity = pEntity;
-        this.level = pEntity.level;
+        this.level = pEntity.level();
         this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK, Goal.Flag.JUMP));
     }
 

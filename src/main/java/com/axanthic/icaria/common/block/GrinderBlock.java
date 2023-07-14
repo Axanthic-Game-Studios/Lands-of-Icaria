@@ -56,7 +56,7 @@ public class GrinderBlock extends BaseEntityBlock {
 			if (pState.getValue(IcariaBlockStateProperties.GRINDING)) {
 				var blockEntity = (GrinderBlockEntity) pLevel.getBlockEntity(pPos);
 				if (blockEntity != null) {
-					var itemStack = blockEntity.itemStackHandler.getStackInSlot(0);
+					var itemStack = blockEntity.stackHandler.getStackInSlot(0);
 					if (!itemStack.isEmpty()) {
 						if (pLevel.isClientSide) {
 							pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pPos.getX() + 0.5D, pPos.getY() + 1.0D, pPos.getZ() + 0.5D, 0.0D, 0.25D, 0.0D);
@@ -75,12 +75,10 @@ public class GrinderBlock extends BaseEntityBlock {
 	@Override
 	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
 		if (!pState.is(pNewState.getBlock())) {
-			var blockEntity = pLevel.getBlockEntity(pPos);
-			if (blockEntity instanceof GrinderBlockEntity) {
+			if (pLevel.getBlockEntity(pPos) instanceof GrinderBlockEntity) {
 				pLevel.getBlockEntity(pPos).getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(pItemHandler -> {
 					for (int i = 0; i < pItemHandler.getSlots(); i++) {
-						var itemStack = pItemHandler.getStackInSlot(i);
-						Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), itemStack);
+						Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), pItemHandler.getStackInSlot(i));
 					}
 				});
 

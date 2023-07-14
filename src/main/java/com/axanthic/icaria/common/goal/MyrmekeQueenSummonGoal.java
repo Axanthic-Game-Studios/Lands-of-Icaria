@@ -27,7 +27,7 @@ public class MyrmekeQueenSummonGoal extends Goal {
         } else if (!this.entity.getBlockStateOn().is(IcariaBlockTags.MYRMEKE_SUMMONS_ON)) {
             return false;
         } else {
-            return this.entity.level.getNearbyEntities(MyrmekeSoldierEntity.class, this.targetingConditions, this.entity, this.entity.getBoundingBox().inflate(32.0D)).size() <= 2;
+            return this.entity.level().getNearbyEntities(MyrmekeSoldierEntity.class, this.targetingConditions, this.entity, this.entity.getBoundingBox().inflate(32.0D)).size() <= 2;
         }
     }
 
@@ -38,11 +38,11 @@ public class MyrmekeQueenSummonGoal extends Goal {
 
     @Override
     public void tick() {
-        var entity = IcariaEntityTypes.MYRMEKE_SOLDIER.get().create(this.entity.level);
+        var entity = IcariaEntityTypes.MYRMEKE_SOLDIER.get().create(this.entity.level());
         for (int i = 0; i < this.entity.getRandom().nextIntBetweenInclusive(3,4); ++i) {
             if (entity != null) {
                 int random = this.entity.getRandom().nextIntBetweenInclusive(-4, 4);
-                this.entity.level.addFreshEntity(entity);
+                this.entity.level().addFreshEntity(entity);
                 this.entity.playSound(SoundEvents.EVOKER_PREPARE_SUMMON, 1.0F, 1.0F);
                 entity.moveTo(this.entity.blockPosition().offset(random, 0, random), 0.0F, 0.0F);
             }

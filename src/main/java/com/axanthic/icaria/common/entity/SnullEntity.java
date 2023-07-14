@@ -16,10 +16,14 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.AnimationState;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
 import net.minecraft.world.entity.monster.Creeper;
@@ -46,6 +50,7 @@ public class SnullEntity extends SizedPathfinderMobEntity {
     public AnimationState showAnimationState = new AnimationState();
 
     public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(SnullEntity.class, EntityDataSerializers.BYTE);
+
     public static final EntityDataAccessor<Integer> COOLDOWN = SynchedEntityData.defineId(SnullEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> HIDE = SynchedEntityData.defineId(SnullEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> SHOW = SynchedEntityData.defineId(SnullEntity.class, EntityDataSerializers.INT);
@@ -68,7 +73,7 @@ public class SnullEntity extends SizedPathfinderMobEntity {
     }
 
     public boolean isMovingOnLand() {
-        return this.onGround && this.getDeltaMovement().horizontalDistanceSqr() > 0;
+        return this.onGround() && this.getDeltaMovement().horizontalDistanceSqr() > 0;
     }
 
     @Override
@@ -236,7 +241,7 @@ public class SnullEntity extends SizedPathfinderMobEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.level.isClientSide) {
+        if (this.level().isClientSide) {
             if (this.isAlive()) {
                 this.idleAnimationState.startIfStopped(this.tickCount);
             } else {
@@ -276,7 +281,7 @@ public class SnullEntity extends SizedPathfinderMobEntity {
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() == IcariaItems.HALITE_DUST.get()) {
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.hurt(this.damageSources().generic(), 1.0F);
                 this.setHide(this.maxHide);
                 if (!pPlayer.isCreative()) {

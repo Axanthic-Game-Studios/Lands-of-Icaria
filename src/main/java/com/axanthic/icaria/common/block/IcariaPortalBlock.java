@@ -1,12 +1,15 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.registry.IcariaDimensions;
 import com.axanthic.icaria.common.util.IcariaPortalShape;
 import com.axanthic.icaria.common.util.IcariaTeleporter;
-import com.axanthic.icaria.common.registry.IcariaDimensions;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -63,28 +66,41 @@ public class IcariaPortalBlock extends Block {
     }
 
     @Override
+    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (pRandom.nextInt(100) == 0) {
+            pLevel.playLocalSound(pPos.getX() + 0.5D, pPos.getY() + 0.5D, pPos.getZ() + 0.5D, SoundEvents.PORTAL_AMBIENT, SoundSource.BLOCKS, 0.5F, pRandom.nextFloat() * 0.4F + 0.8F, false);
+        }
+    }
+
+    @Override
     public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(BlockStateProperties.HORIZONTAL_AXIS);
     }
 
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-        if (!pEntity.isPassenger() && !pEntity.isVehicle() && pEntity.canChangeDimensions()) {
-            if (pEntity.isOnPortalCooldown()) {
-                pEntity.setPortalCooldown();
-            } else {
-                if (!pEntity.level.isClientSide && !pPos.equals(entrancePos)) {
-                    entrancePos = pPos.immutable();
-                }
-
-                var minecraftServer = pEntity.level.getServer();
-                if (minecraftServer != null) {
-                    var serverLevel = minecraftServer.getLevel(pEntity.level.dimension() == IcariaDimensions.ICARIA ? Level.OVERWORLD : IcariaDimensions.ICARIA);
-                    if (serverLevel != null && !pEntity.isPassenger()) {
-                        pEntity.level.getProfiler().push(this.getName().toString());
-                        pEntity.changeDimension(serverLevel, new IcariaTeleporter(serverLevel));
+        if (!pEntity.isPassenger()) {
+            if (!pEntity.isVehicle()) {
+                if (pEntity.canChangeDimensions()) {
+                    if (pEntity.isOnPortalCooldown()) {
                         pEntity.setPortalCooldown();
-                        pEntity.level.getProfiler().pop();
+                    } else {
+                        if (!pEntity.level().isClientSide) {
+                            if (!pPos.equals(entrancePos)) {
+                                entrancePos = pPos.immutable();
+                            }
+                        }
+
+                        var minecraftServer = pEntity.level().getServer();
+                        if (minecraftServer != null) {
+                            var serverLevel = minecraftServer.getLevel(pEntity.level().dimension() == IcariaDimensions.ICARIA ? Level.OVERWORLD : IcariaDimensions.ICARIA);
+                            if (serverLevel != null && !pEntity.isPassenger()) {
+                                pEntity.level().getProfiler().push(this.getName().toString());
+                                pEntity.changeDimension(serverLevel, new IcariaTeleporter(serverLevel));
+                                pEntity.setPortalCooldown();
+                                pEntity.level().getProfiler().pop();
+                            }
+                        }
                     }
                 }
             }

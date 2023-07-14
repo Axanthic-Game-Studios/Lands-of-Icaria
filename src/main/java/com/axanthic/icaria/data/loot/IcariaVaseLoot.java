@@ -1,6 +1,7 @@
 package com.axanthic.icaria.data.loot;
 
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -19,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaVaseLoot implements LootTableSubProvider {
-    public static final ResourceLocation LOOT_VASE = IcariaLoot.register("vases/loot_vase");
+    public static final ResourceLocation LOOT_VASE = new ResourceLocation(IcariaInfo.ID, "vases/loot_vase");
 
     @Override
     public void generate(BiConsumer<ResourceLocation, LootTable.Builder> pConsumer) {
@@ -65,12 +66,12 @@ public class IcariaVaseLoot implements LootTableSubProvider {
                     .add(LootItem.lootTableItem(IcariaItems.AETERNAE_HIDE_ARMOR.boots.get()).apply(SetItemDamageFunction.setDamage(UniformGenerator.between(0.1F, 0.9F))))
                     .add(LootItem.lootTableItem(IcariaItems.LAUREL_WREATH.get()))
                     .add(LootItem.lootTableItem(IcariaItems.GREEK_FIRE_GRENADE.get()))
-                    // TODO: .add(LootItem.lootTableItem(IcariaItems.SCROLL_ANTI_GRAVITY.get()))
-                    // TODO: .add(LootItem.lootTableItem(IcariaItems.SCROLL_BUBBLE.get()))
-                    // TODO: .add(LootItem.lootTableItem(IcariaItems.SCROLL_FORTIFYING.get()))
-                    // TODO: .add(LootItem.lootTableItem(IcariaItems.SCROLL_FREEZING.get()))
-                    // TODO: .add(LootItem.lootTableItem(IcariaItems.SCROLL_HEALING.get()))
-                    // TODO: .add(LootItem.lootTableItem(IcariaItems.SCROLL_MAGIC_MISSILE.get()))
+                    // TODO: .add(LootItem.lootTableItem(IcariaItems.ANTI_GRAVITY_SCROLL.get()))
+                    // TODO: .add(LootItem.lootTableItem(IcariaItems.BUBBLE_SCROLL.get()))
+                    // TODO: .add(LootItem.lootTableItem(IcariaItems.FORTIFYING_SCROLL.get()))
+                    // TODO: .add(LootItem.lootTableItem(IcariaItems.FREEZING_SCROLL.get()))
+                    // TODO: .add(LootItem.lootTableItem(IcariaItems.HEALING_SCROLL.get()))
+                    // TODO: .add(LootItem.lootTableItem(IcariaItems.MAGIC_MISSILE_SCROLL.get()))
                     .add(LootItem.lootTableItem(IcariaItems.BLUE_GEARFRAGMENT.get()))
                     .add(LootItem.lootTableItem(IcariaItems.GREEN_GEARFRAGMENT.get()))
                     .add(LootItem.lootTableItem(IcariaItems.YELLOW_GEARFRAGMENT.get()))));

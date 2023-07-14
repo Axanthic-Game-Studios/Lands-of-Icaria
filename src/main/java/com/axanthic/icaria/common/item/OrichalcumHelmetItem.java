@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.client.extensions.OrichalcumHelmetClientItemExtension;
+import com.axanthic.icaria.client.extensions.OrichalcumHelmetItemExtensions;
 import com.axanthic.icaria.common.util.IcariaArmorMaterials;
 
 import net.minecraft.world.item.ArmorItem;
@@ -14,12 +14,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class OrichalcumHelmetItem extends ArmorItem {
-    public OrichalcumHelmetItem(IcariaArmorMaterials pMaterial, ArmorItem.Type pType, Properties pProperties) {
+    public OrichalcumHelmetItem(IcariaArmorMaterials pMaterial, Type pType, Properties pProperties) {
         super(pMaterial, pType, pProperties);
     }
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> pConsumer) {
-        pConsumer.accept(new OrichalcumHelmetClientItemExtension());
+        pConsumer.accept(new OrichalcumHelmetItemExtensions());
     }
 }

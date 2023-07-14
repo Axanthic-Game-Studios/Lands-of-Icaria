@@ -36,22 +36,22 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
     @Override
     public void onHit(HitResult pResult) {
         var thisPos = BlockPos.containing(this.getX(), this.getY(), this.getZ());
-        if (((IcariaPortalBlock) IcariaBlocks.PORTAL.get()).spawnPortal(this.level, thisPos)) {
+        if (((IcariaPortalBlock) IcariaBlocks.PORTAL.get()).spawnPortal(this.level(), thisPos)) {
             this.discard();
             return;
         }
 
-        if (!this.level.isClientSide) {
-            this.level.explode(null, this.getX(), this.getY(), this.getZ(), 1.5F, false, Level.ExplosionInteraction.NONE);
+        if (!this.level().isClientSide) {
+            this.level().explode(null, this.getX(), this.getY(), this.getZ(), 1.5F, false, Level.ExplosionInteraction.NONE);
             this.discard();
             for (int i = -2; i <= 2; i++) {
                 var negPos = BlockPos.containing(this.getX() - i, this.getY() - i, this.getZ() - i);
                 var posPos = BlockPos.containing(this.getX() + i, this.getY() + i, this.getZ() + i);
                 for (BlockPos blockPos : BlockPos.betweenClosed(negPos, posPos)) {
                     if (this.random.nextInt(10) == 0) {
-                        if (this.level.getBlockState(blockPos).isAir()) {
-                            if (this.level.getBlockState(blockPos.below()).isSolidRender(this.level, blockPos.below())) {
-                                this.level.setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
+                        if (this.level().getBlockState(blockPos).isAir()) {
+                            if (this.level().getBlockState(blockPos.below()).isSolidRender(this.level(), blockPos.below())) {
+                                this.level().setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
                             }
                         }
                     }

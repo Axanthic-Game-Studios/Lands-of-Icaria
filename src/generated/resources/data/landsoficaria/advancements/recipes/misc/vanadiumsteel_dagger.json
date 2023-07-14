@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:vanadiumsteel_dagger"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

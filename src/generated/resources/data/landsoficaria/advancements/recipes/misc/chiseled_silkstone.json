@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:chiseled_silkstone"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

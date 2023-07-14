@@ -11,8 +11,8 @@ import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class IcariaGerman extends LanguageProvider {
-	public IcariaGerman(PackOutput pOutput, String pId, String pLanguage) {
-		super(pOutput, pId, pLanguage);
+	public IcariaGerman(PackOutput pPackOutput, String pId, String pLanguage) {
+		super(pPackOutput, pId, pLanguage);
 	}
 
 	@Override

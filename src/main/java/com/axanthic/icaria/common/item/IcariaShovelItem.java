@@ -17,20 +17,20 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaShovelItem extends ShovelItem {
-	public Tier equivalentTier;
+	public Tier vanillaEquivalent;
 
 	public IcariaShovelItem(IcariaTier pTier, float pDamage, float pAttackSpeed, Properties pProperties) {
 		super(pTier, pDamage, pAttackSpeed, pProperties);
-		this.equivalentTier = pTier.vanillaEquivalent;
+		this.vanillaEquivalent = pTier.vanillaEquivalent;
 	}
 
 	@Override
 	public boolean isCorrectToolForDrops(BlockState pState) {
-		return pState.is(BlockTags.MINEABLE_WITH_SHOVEL) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pState);
+		return pState.is(BlockTags.MINEABLE_WITH_SHOVEL) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.vanillaEquivalent, pState);
 	}
 
 	@Override
 	public boolean isCorrectToolForDrops(ItemStack pStack, BlockState pState) {
-		return pState.is(BlockTags.MINEABLE_WITH_SHOVEL) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pState);
+		return pState.is(BlockTags.MINEABLE_WITH_SHOVEL) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.vanillaEquivalent, pState);
 	}
 }

@@ -38,7 +38,7 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		var belowState = pLevel.getBlockState(pPos.below());
-		for (Direction direction : Direction.Plane.HORIZONTAL) {
+		for (var direction : Direction.Plane.HORIZONTAL) {
 			var relativePos = pPos.relative(direction);
 			if (pLevel.getBlockState(relativePos).is(this)) {
 				var relativeState = pLevel.getBlockState(relativePos.below());
@@ -63,19 +63,20 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 
 	@Override
 	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+		var abovePos = pPos.above();
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(pRandom);
 		if (pLevel.isAreaLoaded(pPos, 1)) {
 			if (pRandom.nextInt(4) == 0) {
-				if (pLevel.getBlockState(pPos.above()).isAir()) {
+				if (pLevel.getBlockState(abovePos).isAir()) {
 					if (!pLevel.getBlockState(pPos.below(4)).is(this) && !pLevel.getBlockState(pPos.north()).is(this) && !pLevel.getBlockState(pPos.east()).is(this) && !pLevel.getBlockState(pPos.south()).is(this) && !pLevel.getBlockState(pPos.west()).is(this)) {
-						pLevel.setBlock(pPos.above(), this.defaultBlockState().setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.UP, pState.getValue(BlockStateProperties.UP)).setValue(BlockStateProperties.DOWN, pState.getValue(BlockStateProperties.DOWN)), 2);
+						pLevel.setBlock(abovePos, this.defaultBlockState().setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.UP, pState.getValue(BlockStateProperties.UP)).setValue(BlockStateProperties.DOWN, pState.getValue(BlockStateProperties.DOWN)), 2);
 					}
 				}
 
-				if (pLevel.getBlockState(pPos.relative(direction)).isAir() && pLevel.getBlockState(pPos.above().relative(direction)).isAir()) {
+				if (pLevel.getBlockState(pPos.relative(direction)).isAir() && pLevel.getBlockState(abovePos.relative(direction)).isAir()) {
 					if (pLevel.getBlockState(pPos.above(2)).is(this) && pLevel.getBlockState(pPos.below()).is(this)) {
 						pLevel.setBlock(pPos.relative(direction), this.defaultBlockState().setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.UP, pState.getValue(BlockStateProperties.UP)).setValue(BlockStateProperties.DOWN, pState.getValue(BlockStateProperties.DOWN)), 2);
-						pLevel.setBlock(pPos.above().relative(direction), this.defaultBlockState().setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.UP, pState.getValue(BlockStateProperties.UP)).setValue(BlockStateProperties.DOWN, pState.getValue(BlockStateProperties.DOWN)), 2);
+						pLevel.setBlock(abovePos.relative(direction), this.defaultBlockState().setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.UP, pState.getValue(BlockStateProperties.UP)).setValue(BlockStateProperties.DOWN, pState.getValue(BlockStateProperties.DOWN)), 2);
 					}
 				}
 			}
@@ -103,8 +104,8 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
 		var blockPos = pContext.getClickedPos();
 		var level = pContext.getLevel();
-		var belowState = level.getBlockState(blockPos.below());
 		var aboveState = level.getBlockState(blockPos.above());
+		var belowState = level.getBlockState(blockPos.below());
 		return this.defaultBlockState().setValue(BlockStateProperties.DOWN, belowState.is(this) || belowState.is(BlockTags.SAND)).setValue(BlockStateProperties.UP, aboveState.is(this));
 	}
 

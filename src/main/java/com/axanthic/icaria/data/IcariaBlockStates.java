@@ -1,16 +1,21 @@
 package com.axanthic.icaria.data;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaStoneDecoItems;
+import com.axanthic.icaria.common.registry.IcariaWoodDecoItems;
+import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
-import net.minecraftforge.client.model.generators.*;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -52,6 +57,16 @@ public class IcariaBlockStates extends BlockStateProvider {
 		IcariaBlockStates.ROTATED.add(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK);
 		IcariaBlockStates.ROTATED.add(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK);
 		IcariaBlockStates.ROTATED.add(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK);
+
+		for (var blocks : IcariaBlocks.SIMPLE_BLOCKS) {
+			if (IcariaBlockStates.MIRRORED.contains(blocks)) {
+				this.mirroredBlockWithItem(blocks);
+			} else if (IcariaBlockStates.ROTATED.contains(blocks)) {
+				this.rotatedBlockWithItem(blocks);
+			} else {
+				this.baseBlockWithItem(blocks);
+			}
+		}
 
 		this.baseBlockWithItem(IcariaBlocks.MARL_CHERT);
 		this.baseBlockWithItem(IcariaBlocks.MARL_BONES);
@@ -135,36 +150,26 @@ public class IcariaBlockStates extends BlockStateProvider {
 		this.trapDoorWithItem(IcariaBlocks.PLANE_TRAPDOOR);
 		this.trapDoorWithItem(IcariaBlocks.POPULUS_TRAPDOOR);
 
-		for (RegistryObject<? extends Block> basicBlocks : IcariaBlocks.BASIC_BLOCKS) {
-			if (IcariaBlockStates.MIRRORED.contains(basicBlocks)) {
-				this.mirroredBlockWithItem(basicBlocks);
-			} else if (IcariaBlockStates.ROTATED.contains(basicBlocks)) {
-				this.rotatedBlockWithItem(basicBlocks);
-			} else {
-				this.baseBlockWithItem(basicBlocks);
-			}
+		for (var items : IcariaStoneDecoItems.STONE_DECO_ITEMS) {
+			var resourceLocation = this.blockTexture(items.block.block.get());
+			this.slabBlock(items.block.slab.get(), items.block.block.getId(), resourceLocation);
+			this.itemModels().slab(items.block.slab.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
+			this.stairsBlock(items.block.stairs.get(), resourceLocation);
+			this.itemModels().stairs(items.block.stairs.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
+			this.wallBlock(items.block.wall.get(), resourceLocation);
+			this.itemModels().wallInventory(items.block.wall.getId().getPath(), resourceLocation);
 		}
 
-		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_DECO) {
-			var resourceLocation = this.blockTexture(deco.block.block.get());
-			this.slabBlock(deco.block.slab.get(), deco.block.block.getId(), resourceLocation);
-			this.itemModels().slab(deco.block.slab.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
-			this.stairsBlock(deco.block.stairs.get(), resourceLocation);
-			this.itemModels().stairs(deco.block.stairs.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
-			this.wallBlock(deco.block.wall.get(), resourceLocation);
-			this.itemModels().wallInventory(deco.block.wall.getId().getPath(), resourceLocation);
-		}
-
-		for (IcariaItems.WoodDecoItemBlocks deco : IcariaItems.WOOD_DECO) {
-			var resourceLocation = this.blockTexture(deco.block.block.get());
-			this.slabBlock(deco.block.slab.get(), deco.block.block.getId(), resourceLocation);
-			this.itemModels().slab(deco.block.slab.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
-			this.stairsBlock(deco.block.stairs.get(), resourceLocation);
-			this.itemModels().stairs(deco.block.stairs.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
-			this.fenceBlock(deco.block.fence.get(), resourceLocation);
-			this.itemModels().fenceInventory(deco.block.fence.getId().getPath(), resourceLocation);
-			this.fenceGateBlock(deco.block.gate.get(), resourceLocation);
-			this.itemModels().fenceGate(deco.block.gate.getId().getPath(), resourceLocation);
+		for (var items : IcariaWoodDecoItems.WOOD_DECO_ITEMS) {
+			var resourceLocation = this.blockTexture(items.block.block.get());
+			this.slabBlock(items.block.slab.get(), items.block.block.getId(), resourceLocation);
+			this.itemModels().slab(items.block.slab.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
+			this.stairsBlock(items.block.stairs.get(), resourceLocation);
+			this.itemModels().stairs(items.block.stairs.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
+			this.fenceBlock(items.block.fence.get(), resourceLocation);
+			this.itemModels().fenceInventory(items.block.fence.getId().getPath(), resourceLocation);
+			this.fenceGateBlock(items.block.gate.get(), resourceLocation);
+			this.itemModels().fenceGate(items.block.gate.getId().getPath(), resourceLocation);
 		}
 	}
 
@@ -197,10 +202,10 @@ public class IcariaBlockStates extends BlockStateProvider {
 		var topRightOpen = this.doorBlock(pName + "_top_right_open", "top_right_open", pBottom, pTop);
 
 		this.getVariantBuilder(pDoor).forAllStatesExcept(pState -> {
-			int yRot = ((int) pState.getValue(DoorBlock.FACING).toYRot()) + 90;
+			int yRot = ((int) pState.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot()) + 90;
 
-			boolean open = pState.getValue(DoorBlock.OPEN);
-			boolean rightHinge = pState.getValue(DoorBlock.HINGE) == DoorHingeSide.RIGHT;
+			boolean open = pState.getValue(BlockStateProperties.OPEN);
+			boolean rightHinge = pState.getValue(BlockStateProperties.DOOR_HINGE) == DoorHingeSide.RIGHT;
 			boolean right = rightHinge ^ open;
 
 			if (open) {
@@ -216,8 +221,8 @@ public class IcariaBlockStates extends BlockStateProvider {
 			var bottom = open ? (right ? bottomRightOpen : bottomLeftOpen) : (right ? bottomRight : bottomLeft);
 			var top = open ? (right ? topRightOpen : topLeftOpen) : (right ? topRight : topLeft);
 
-			return ConfiguredModel.builder().modelFile(pState.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER ? bottom : top).rotationY(yRot).build();
-		}, DoorBlock.POWERED);
+			return ConfiguredModel.builder().modelFile(pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER ? bottom : top).rotationY(yRot).build();
+		}, BlockStateProperties.POWERED);
 	}
 
 	public void trapDoorWithItem(RegistryObject<? extends TrapDoorBlock> pBlock) {

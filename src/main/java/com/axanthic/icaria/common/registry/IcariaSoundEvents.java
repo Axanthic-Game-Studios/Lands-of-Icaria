@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.client.registry.IcariaResourceLocations;
-
 import net.minecraft.sounds.SoundEvent;
 
 public class IcariaSoundEvents {

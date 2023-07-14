@@ -10,10 +10,10 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.common.util.Lazy;
 
 import java.util.UUID;
 
@@ -23,33 +23,28 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DaggerItem extends SwordItem {
-    public float damage;
-    public float speed;
+    public float attackDamage;
+    public float attackSpeed;
+    public float entityReach;
 
-    public Lazy<Multimap<Attribute, AttributeModifier>> lazy = Lazy.of(() -> {
-        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", this.damage, AttributeModifier.Operation.ADDITION));
-        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", this.speed, AttributeModifier.Operation.ADDITION));
-        if (ForgeMod.ENTITY_REACH.isPresent()) {
-            builder.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(BASE_ATTACK_RANGE_UUID, "Weapon modifier", -2, AttributeModifier.Operation.ADDITION));
-        }
-
-        return builder.build();
-    });
-
-    public Multimap<Attribute, AttributeModifier> defaultModifiers;
+    public Multimap<Attribute, AttributeModifier> multimap;
 
     public static final UUID BASE_ATTACK_RANGE_UUID = UUID.fromString("971104f5-17b7-48d9-b16c-1109f0536884");
 
     public DaggerItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
         super(pTier, pDamage, pAttackSpeed, pProperties);
-        this.damage = pDamage + pTier.attackDamageBonus;
-        this.speed = pAttackSpeed;
-        this.defaultModifiers = this.lazy.get();
+        this.attackDamage = pDamage + pTier.attackDamageBonus;
+        this.attackSpeed = pAttackSpeed;
+        this.entityReach = ForgeMod.ENTITY_REACH.isPresent() ? -2.0F : 0.0F;
+        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+        builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(Item.BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", this.attackDamage, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_UUID, "Weapon modifier", this.attackSpeed, AttributeModifier.Operation.ADDITION));
+        builder.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(DaggerItem.BASE_ATTACK_RANGE_UUID, "Weapon modifier", this.entityReach, AttributeModifier.Operation.ADDITION));
+        this.multimap = builder.build();
     }
 
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
-        return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
+        return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.multimap : super.getDefaultAttributeModifiers(pEquipmentSlot);
     }
 }

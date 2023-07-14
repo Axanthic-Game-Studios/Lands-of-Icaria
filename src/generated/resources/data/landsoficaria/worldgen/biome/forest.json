@@ -1,6 +1,6 @@
 {
   "carvers": {
-    "air": "landsoficaria:forest_top_blocks"
+    "air": "landsoficaria:forest"
   },
   "downfall": 0.0,
   "effects": {
@@ -68,6 +68,7 @@
       "landsoficaria:lionfangs",
       "landsoficaria:speardrops",
       "landsoficaria:dathulla",
+      "landsoficaria:moth_agaric",
       "landsoficaria:namdrake",
       "landsoficaria:psilocybos",
       "landsoficaria:wilted_elm",

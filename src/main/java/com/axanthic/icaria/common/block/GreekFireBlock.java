@@ -13,7 +13,8 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -51,14 +52,11 @@ public class GreekFireBlock extends Block {
     @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pRandom.nextInt(24) == 0) {
-            pLevel.playLocalSound(pPos.getX() + 0.5D, pPos.getY() + 0.5D, pPos.getZ() + 0.5D, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F + pRandom.nextFloat(), pRandom.nextFloat() * 0.7F + 0.3F, false);
+            pLevel.playLocalSound(pPos.getX() + 0.5D, pPos.getY() + 0.5D, pPos.getZ() + 0.5D, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, pRandom.nextFloat() + 1.0F, pRandom.nextFloat() * 0.7F + 0.3F, false);
         }
 
         for (int i = 0; i < 3; ++i) {
-            double x = pPos.getX() + pRandom.nextDouble();
-            double y = pPos.getY() + pRandom.nextDouble() * 0.5D + 0.5D;
-            double z = pPos.getZ() + pRandom.nextDouble();
-            pLevel.addParticle(ParticleTypes.LARGE_SMOKE, x, y, z, 0.0D, 0.0D, 0.0D);
+            pLevel.addParticle(ParticleTypes.LARGE_SMOKE, pPos.getX() + pRandom.nextDouble(), pPos.getY() + pRandom.nextDouble() * 0.5D + 0.5D, pPos.getZ() + pRandom.nextDouble(), 0.0D, 0.0D, 0.0D);
         }
     }
 

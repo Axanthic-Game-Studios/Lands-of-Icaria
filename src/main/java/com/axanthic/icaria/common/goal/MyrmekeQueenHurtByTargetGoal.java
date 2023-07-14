@@ -17,9 +17,9 @@ public class MyrmekeQueenHurtByTargetGoal extends HurtByTargetGoal {
     }
 
     @Override
-    public void alertOther(Mob pMob, LivingEntity pEntity) {
+    public void alertOther(Mob pMob, LivingEntity pTarget) {
         if (pMob instanceof MyrmekeDroneEntity) {
-            pMob.setTarget(pEntity);
+            pMob.setTarget(pTarget);
         }
     }
 }

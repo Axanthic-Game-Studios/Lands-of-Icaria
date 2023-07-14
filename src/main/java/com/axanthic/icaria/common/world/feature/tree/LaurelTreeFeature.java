@@ -35,7 +35,7 @@ public class LaurelTreeFeature extends IcariaTreeFeature {
         int heightAxisY = heightLimit + origin.getY();
 
         if (heightAxisY < level.getMaxBuildHeight()) {
-            for (Direction direction : Direction.Plane.HORIZONTAL) {
+            for (var direction : Direction.Plane.HORIZONTAL) {
                 directions.add(direction);
             }
 
@@ -46,26 +46,29 @@ public class LaurelTreeFeature extends IcariaTreeFeature {
             for (int i = 1; i <= branchCount; ++i) {
                 var direction = directions.get(random.nextInt(directions.size()));
                 var clockWise = direction.getClockWise();
-                var pos = new BlockPos(origin.below().above(heightTrunk));
+                var blockPos = new BlockPos(origin.below().above(heightTrunk));
+
                 int length = random.nextIntBetweenInclusive(4, 6);
+
                 directions.remove(direction);
+
                 for (int j = 1; j <= length; ++j) {
-                    pos = pos.above();
+                    blockPos = blockPos.above();
                     if (random.nextInt(j * 2 + 1) == 0) {
-                        pos = pos.relative(direction);
+                        blockPos = blockPos.relative(direction);
                     }
 
                     if (random.nextInt(j * 2 + 3) == 0) {
-                        pos = pos.relative(clockWise);
+                        blockPos = blockPos.relative(clockWise);
                     }
 
-                    this.placeLog(level, pos, Direction.Axis.Y);
-                    this.placeLeaves(level, pos.above());
-                    this.placeLeaves(level, pos.north());
-                    this.placeLeaves(level, pos.east());
-                    this.placeLeaves(level, pos.south());
-                    this.placeLeaves(level, pos.west());
-                    this.placeLeaves(level, pos.below());
+                    this.placeLog(level, blockPos, Direction.Axis.Y);
+                    this.placeLeaves(level, blockPos.above());
+                    this.placeLeaves(level, blockPos.north());
+                    this.placeLeaves(level, blockPos.east());
+                    this.placeLeaves(level, blockPos.south());
+                    this.placeLeaves(level, blockPos.west());
+                    this.placeLeaves(level, blockPos.below());
                 }
             }
 

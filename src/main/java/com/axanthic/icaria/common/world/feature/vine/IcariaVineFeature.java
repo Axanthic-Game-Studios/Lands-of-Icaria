@@ -14,6 +14,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
 
 public class IcariaVineFeature extends Feature<NoneFeatureConfiguration> {
@@ -29,7 +30,7 @@ public class IcariaVineFeature extends Feature<NoneFeatureConfiguration> {
         var level = pContext.level();
         var origin = pContext.origin();
 
-        for (Direction direction : Direction.values()) {
+        for (var direction : Direction.values()) {
             this.placeVine(level, origin, direction);
         }
 

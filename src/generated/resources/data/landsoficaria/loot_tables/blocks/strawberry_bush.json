@@ -1,33 +1,57 @@
 {
   "type": "minecraft:block",
-  "functions": [
-    {
-      "enchantment": "minecraft:fortune",
-      "formula": "minecraft:uniform_bonus_count",
-      "function": "minecraft:apply_bonus",
-      "parameters": {
-        "bonusMultiplier": 1
-      }
-    }
-  ],
   "pools": [
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": [
+                  "minecraft:shears"
+                ]
+              }
+            }
+          ],
+          "name": "landsoficaria:strawberry_bush"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "items": [
+                    "minecraft:shears"
+                  ]
+                }
+              }
+            }
+          ],
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 5.0,
-                "min": 2.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             },
             {
-              "function": "minecraft:explosion_decay"
+              "enchantment": "minecraft:fortune",
+              "formula": "minecraft:uniform_bonus_count",
+              "function": "minecraft:apply_bonus",
+              "parameters": {
+                "bonusMultiplier": 2
+              }
             }
           ],
           "name": "landsoficaria:strawberries"
@@ -35,5 +59,6 @@
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "landsoficaria:blocks/strawberry_bush"
 }

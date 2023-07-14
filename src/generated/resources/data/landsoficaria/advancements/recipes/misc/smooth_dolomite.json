@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:smooth_dolomite"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

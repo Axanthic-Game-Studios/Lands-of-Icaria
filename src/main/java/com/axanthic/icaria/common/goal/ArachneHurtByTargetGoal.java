@@ -19,9 +19,9 @@ public class ArachneHurtByTargetGoal extends HurtByTargetGoal {
     }
 
     @Override
-    public void alertOther(Mob pMob, LivingEntity pEntity) {
+    public void alertOther(Mob pMob, LivingEntity pTarget) {
         if (pMob instanceof ArachneDroneEntity) {
-            pMob.setTarget(pEntity);
+            pMob.setTarget(pTarget);
         }
     }
 
@@ -32,7 +32,7 @@ public class ArachneHurtByTargetGoal extends HurtByTargetGoal {
             var livingEntity = this.mob.getTarget();
             if (livingEntity != null) {
                 if (this.mob.distanceTo(this.mob.getTarget()) <= 10.0D) {
-                    this.mob.level.setBlockAndUpdate(livingEntity.blockPosition(), Blocks.COBWEB.defaultBlockState()); // TODO: replace with Arachne web
+                    this.mob.level().setBlockAndUpdate(livingEntity.blockPosition(), Blocks.COBWEB.defaultBlockState()); // TODO: replace with Arachne web
                 }
             }
         }

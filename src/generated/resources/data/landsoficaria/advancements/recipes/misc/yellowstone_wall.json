@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:yellowstone_wall"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

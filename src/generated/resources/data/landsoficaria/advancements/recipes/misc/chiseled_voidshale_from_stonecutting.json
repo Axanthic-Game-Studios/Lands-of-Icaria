@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:chiseled_voidshale_from_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

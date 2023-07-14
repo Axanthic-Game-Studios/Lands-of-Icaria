@@ -1,13 +1,13 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
-import com.axanthic.icaria.client.registry.IcariaResourceLocations;
 import com.axanthic.icaria.client.model.*;
+import com.axanthic.icaria.client.registry.IcariaLayerLocations;
 import com.axanthic.icaria.common.block.IcariaAbstractSkullBlock;
-import com.axanthic.icaria.common.util.IcariaSkullBlockType;
-import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
 import com.axanthic.icaria.common.block.IcariaWallSkullBlock;
 import com.axanthic.icaria.common.entity.IcariaSkullBlockEntity;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.util.IcariaSkullBlockType;
+import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
@@ -37,7 +37,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkullBlockEntity> {
     public Map<IcariaSkullBlockType, SkullModel> map;
 
-    public static final Map<IcariaSkullBlockType, ResourceLocation> SKIN_BY_TYPE = Util.make(Maps.newHashMap(), (pMap) -> {
+    public static final Map<IcariaSkullBlockType, ResourceLocation> RL_BY_TYPE = Util.make(Maps.newHashMap(), (pMap) -> {
         pMap.put(IcariaSkullBlockTypes.AETERNAE, IcariaResourceLocations.AETERNAE);
         pMap.put(IcariaSkullBlockTypes.ARGAN_HOUND, IcariaResourceLocations.ARGAN_HOUND);
         pMap.put(IcariaSkullBlockTypes.CATOBLEPAS, IcariaResourceLocations.CATOBLEPAS);
@@ -70,9 +70,9 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
     public static void renderSkull(@Nullable Direction pDirection, float pRotation, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pCombinedLight, Map<IcariaSkullBlockType, SkullModel> pMap, Block pBlock) {
         float offset = ((IcariaAbstractSkullBlock) pBlock).getOffset();
 
-        var blockType = ((IcariaAbstractSkullBlock) pBlock).getType();
-        var resourceLocation = SKIN_BY_TYPE.get(blockType);
-        var skullModel = pMap.get(blockType);
+        var block = ((IcariaAbstractSkullBlock) pBlock).getType();
+        var resourceLocation = IcariaSkullBlockRenderer.RL_BY_TYPE.get(block);
+        var model = pMap.get(block);
 
         pPoseStack.pushPose();
 
@@ -86,8 +86,8 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
 
         var vertexConsumer = pBufferSource.getBuffer(RenderType.entityCutoutNoCullZOffset(resourceLocation));
 
-        skullModel.setupAnim(0.0F, pRotation, 0.0F);
-        skullModel.renderToBuffer(pPoseStack, vertexConsumer, pCombinedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        model.setupAnim(0.0F, pRotation, 0.0F);
+        model.renderToBuffer(pPoseStack, vertexConsumer, pCombinedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
         pPoseStack.popPose();
     }

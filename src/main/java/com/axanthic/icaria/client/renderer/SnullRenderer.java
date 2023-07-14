@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
-import com.axanthic.icaria.client.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.client.layer.SnullEmissiveLayer;
 import com.axanthic.icaria.client.model.SnullModel;
 import com.axanthic.icaria.common.entity.SnullEntity;

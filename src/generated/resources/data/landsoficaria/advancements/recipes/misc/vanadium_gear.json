@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:vanadium_gear"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

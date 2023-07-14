@@ -50,6 +50,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     public AnimationState showAnimationState = new AnimationState();
 
     public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(SlugEntity.class, EntityDataSerializers.BYTE);
+
     public static final EntityDataAccessor<Integer> COOLDOWN = SynchedEntityData.defineId(SlugEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> HIDE = SynchedEntityData.defineId(SlugEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> SHOW = SynchedEntityData.defineId(SlugEntity.class, EntityDataSerializers.INT);
@@ -74,7 +75,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     }
 
     public boolean isMovingOnLand() {
-        return this.onGround && this.getDeltaMovement().horizontalDistanceSqr() > 0;
+        return this.onGround() && this.getDeltaMovement().horizontalDistanceSqr() > 0;
     }
 
     @Override
@@ -234,7 +235,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.level.isClientSide) {
+        if (this.level().isClientSide) {
             this.tickParticlePlusSounds();
             if (this.isClimbing() || this.isMovingOnLand()) {
                 this.moveAnimationState.startIfStopped(this.tickCount);
@@ -263,12 +264,12 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 
     public void tickParticlePlusSounds() {
         if ((this.onHide() && this.getHide() < 40) || (this.onShow() && this.getShow() > 40) && !this.onCooldown()) {
-            this.level.playLocalSound(this.getX(), this.getY(), this.getZ(), this.getBlockStateOn().getSoundType().getBreakSound(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
+            this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), this.getBlockStateOn().getSoundType().getBreakSound(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
             for (int i = 0; i < 15; ++i) {
                 double x = this.getX() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
                 double y = this.getY();
                 double z = this.getZ() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
-                this.level.addParticle(new BlockParticleOption(ParticleTypes.BLOCK, this.getBlockStateOn()), x, y, z, 0.0D, 0.0D, 0.0D);
+                this.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, this.getBlockStateOn()), x, y, z, 0.0D, 0.0D, 0.0D);
             }
         }
     }
@@ -281,7 +282,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() == IcariaItems.HALITE_DUST.get()) {
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.hurt(this.damageSources().generic(), 1.0F);
 
                 if (this.getBlockStateOn().is(IcariaBlockTags.SLUG_HIDE_BLOCKS)) {

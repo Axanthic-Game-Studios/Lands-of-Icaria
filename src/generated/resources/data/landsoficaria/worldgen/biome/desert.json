@@ -1,6 +1,6 @@
 {
   "carvers": {
-    "air": "landsoficaria:desert_top_blocks"
+    "air": "landsoficaria:desert"
   },
   "downfall": 0.0,
   "effects": {
@@ -50,6 +50,7 @@
       "landsoficaria:dry_vine",
       "landsoficaria:sunkettle",
       "landsoficaria:sunsponge",
+      "landsoficaria:bolbos",
       "landsoficaria:dathulla",
       "landsoficaria:mondanos",
       "landsoficaria:green_ground_shrooms",

@@ -53,9 +53,8 @@ public class HorizontalPaneBlock extends Block implements MediterraneanWaterlogg
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var clickedPos = pContext.getClickedPos();
-		var level = pContext.getLevel();
-		return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, level.getFluidState(clickedPos).getType() == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(clickedPos).getType() == Fluids.WATER);
+		var fluid = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
+		return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override

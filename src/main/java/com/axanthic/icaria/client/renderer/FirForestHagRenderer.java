@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
-import com.axanthic.icaria.client.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.client.layer.FirForestHagEmissiveLayer;
 import com.axanthic.icaria.client.model.FirForestHagModel;
 import com.axanthic.icaria.common.entity.ForestHagEntity;

@@ -56,5 +56,6 @@
     "recipes": [
       "landsoficaria:daedalian_gear"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

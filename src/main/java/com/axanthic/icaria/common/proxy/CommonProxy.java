@@ -14,11 +14,10 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
@@ -39,7 +38,7 @@ public class CommonProxy {
 		// NOOP
 	}
 
-	public void onCreativeModeTabRegistration(CreativeModeTabEvent.Register pEvent) {
+	public void onCreativeModeTabRegistration(BuildCreativeModeTabContentsEvent pEvent) {
 		// NOOP
 	}
 
@@ -205,11 +204,10 @@ public class CommonProxy {
 		}
 
 		if (livingEntity instanceof Player player) {
-			float health = player.getHealth();
 			var mainHandItem = player.getMainHandItem();
 			var offhandItem = player.getOffhandItem();
 			var totem = IcariaItems.TOTEM_OF_UNDYING.get();
-			if (amount >= health) {
+			if (amount >= player.getHealth()) {
 				if (offhandItem.getItem().equals(totem)) {
 					pEvent.setCanceled(true);
 					player.setHealth(1);
@@ -232,8 +230,7 @@ public class CommonProxy {
 			}
 		}
 
-		var source = pEvent.getSource();
-		var entity = source.getEntity();
+		var entity = pEvent.getSource().getEntity();
 		if (entity instanceof Player player) {
 			var mainHandItem = player.getMainHandItem();
 			var offhandItem = player.getOffhandItem();
@@ -305,13 +302,11 @@ public class CommonProxy {
 	}
 
 	public void onMobEffectApplicable(MobEffectEvent.Applicable pEvent) {
-		var livingEntity = pEvent.getEntity();
-		var effectInstance = pEvent.getEffectInstance();
-		if (livingEntity instanceof Player player) {
+		if (pEvent.getEntity() instanceof Player player) {
 			var mainHandItem = player.getMainHandItem();
 			var offhandItem = player.getOffhandItem();
 			var totem = IcariaItems.TOTEM_OF_UNBLINDING.get();
-			if (effectInstance.getEffect().equals(MobEffects.BLINDNESS)) {
+			if (pEvent.getEffectInstance().getEffect().equals(MobEffects.BLINDNESS)) {
 				if (offhandItem.getItem().equals(totem)) {
 					player.addEffect(new MobEffectInstance(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), 600));
 					player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
@@ -433,29 +428,23 @@ public class CommonProxy {
 
 	public void onPlayerTick(TickEvent.PlayerTickEvent pEvent) {
 		var player = pEvent.player;
-		if (player.level.dimension() == IcariaDimensions.ICARIA) {
+		if (player.level().dimension() == IcariaDimensions.ICARIA) {
 			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
 				var itemStack = player.getInventory().getItem(slot);
 				if (itemStack.getItem().equals(Items.TORCH)) {
-					int count = itemStack.getCount();
 					player.getInventory().removeItem(itemStack);
-					player.getInventory().add(slot, new ItemStack(IcariaItems.DIM_TORCH.get(), count));
+					player.getInventory().add(slot, new ItemStack(IcariaItems.DIM_TORCH.get(), itemStack.getCount()));
 				}
 			}
 		} else {
 			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
 				var itemStack = player.getInventory().getItem(slot);
 				if (itemStack.getItem().equals(IcariaItems.DIM_TORCH.get())) {
-					int size = itemStack.getCount();
 					player.getInventory().removeItem(itemStack);
-					player.getInventory().add(slot, new ItemStack(Items.TORCH, size));
+					player.getInventory().add(slot, new ItemStack(Items.TORCH, itemStack.getCount()));
 				}
 			}
 		}
-	}
-
-	public void onRegisterDimensionSpecialEffects(RegisterDimensionSpecialEffectsEvent pEvent) {
-		// NOOP
 	}
 
 	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> pEvent) {

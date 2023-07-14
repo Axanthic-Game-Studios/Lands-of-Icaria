@@ -41,7 +41,7 @@ public class IcariaPanicGoal extends Goal {
             return false;
         } else {
             if (this.mob.isOnFire()) {
-                var blockPos = this.lookForWater(this.mob.level, this.mob, 5);
+                var blockPos = this.lookForWater(this.mob.level(), this.mob, 5);
                 if (blockPos != null) {
                     this.posX = blockPos.getX();
                     this.posY = blockPos.getY();

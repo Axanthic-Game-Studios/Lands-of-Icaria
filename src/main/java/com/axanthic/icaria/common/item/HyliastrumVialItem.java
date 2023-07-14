@@ -29,10 +29,8 @@ public class HyliastrumVialItem extends Item {
         var level = pContext.getLevel();
         var player = pContext.getPlayer();
         var entity = IcariaEntityTypes.HYLIASTER.get().create(level);
-        if (!(level instanceof ServerLevel)) {
-            level.playSound(player, blockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.NEUTRAL, 1.0F, 1.0F);
-            return InteractionResult.SUCCESS;
-        } else {
+        var emptyVial = new ItemStack(IcariaItems.EMPTY_VIAL.get());
+        if (level instanceof ServerLevel) {
             if (entity != null) {
                 entity.moveTo(blockPos.relative(pContext.getClickedFace()), 0.0F, 0.0F);
                 entity.setSize(1);
@@ -41,14 +39,17 @@ public class HyliastrumVialItem extends Item {
 
             if (player != null) {
                 if (itemStack.isEmpty()) {
-                    player.setItemInHand(player.getUsedItemHand(), new ItemStack(IcariaItems.EMPTY_VIAL.get()));
-                } else if (!player.getInventory().add(new ItemStack(IcariaItems.EMPTY_VIAL.get()))) {
-                    player.drop(new ItemStack(IcariaItems.EMPTY_VIAL.get()), false);
+                    player.setItemInHand(player.getUsedItemHand(), emptyVial);
+                } else if (!player.getInventory().add(emptyVial)) {
+                    player.drop(emptyVial, false);
                 }
             }
 
             itemStack.shrink(1);
             return InteractionResult.CONSUME;
+        } else {
+            level.playSound(player, blockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.NEUTRAL, 1.0F, 1.0F);
+            return InteractionResult.SUCCESS;
         }
     }
 }

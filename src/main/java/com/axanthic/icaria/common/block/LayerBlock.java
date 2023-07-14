@@ -79,20 +79,21 @@ public class LayerBlock extends Block implements MediterraneanWaterloggedBlock, 
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
-	}
-
-	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
 		var clickedPos = pContext.getClickedPos();
-		var clickedState = pContext.getLevel().getBlockState(clickedPos);
 		var level = pContext.getLevel();
+		var clickedState = level.getBlockState(clickedPos);
+		var fluid = level.getFluidState(clickedPos).getType();
 		if (clickedState.is(this)) {
 			return clickedState.setValue(BlockStateProperties.LAYERS, Math.min(8, clickedState.getValue(BlockStateProperties.LAYERS) + 1));
 		} else {
-			return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, level.getFluidState(clickedPos).getType() == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(clickedPos).getType() == Fluids.WATER);
+			return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 		}
+	}
+
+	@Override
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 	}
 
 	@Override

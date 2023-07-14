@@ -2,6 +2,6 @@
   "values": [
     "#minecraft:crops",
     "#minecraft:mineable/hoe",
-    "#minecraft:replaceable_plants"
+    "#minecraft:replaceable"
   ]
 }

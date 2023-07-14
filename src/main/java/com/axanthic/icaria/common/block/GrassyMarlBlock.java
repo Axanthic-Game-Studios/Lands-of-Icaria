@@ -16,11 +16,13 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.lighting.LayerLightEngine;
+import net.minecraft.world.level.lighting.BlockLightEngine;
 
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
@@ -47,7 +49,7 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 		} else if (aboveState.getFluidState().getAmount() == 8) {
 			return false;
 		} else {
-			return LayerLightEngine.getLightBlockInto(pLevel, pState, pPos, aboveState, abovePos, Direction.UP, aboveState.getLightBlock(pLevel, abovePos)) < pLevel.getMaxLightLevel();
+			return BlockLightEngine.getLightBlockInto(pLevel, pState, pPos, aboveState, abovePos, Direction.UP, aboveState.getLightBlock(pLevel, abovePos)) < pLevel.getMaxLightLevel();
 		}
 	}
 
@@ -61,7 +63,7 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 		var plantType = pPlantable.getPlantType(pLevel, relativePos);
 		if (plantType == PlantType.BEACH) {
 			boolean water = false;
-			for (Direction direction : Direction.Plane.HORIZONTAL) {
+			for (var direction : Direction.Plane.HORIZONTAL) {
 				var directionPos = pPos.relative(direction);
 				water = pLevel.getBlockState(directionPos).is(Blocks.FROSTED_ICE);
 				water |= pLevel.getFluidState(directionPos).is(FluidTags.WATER);
@@ -93,11 +95,12 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 
 	@Override
 	public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
-		var blockState = IcariaBlocks.GRASSY_MARL.get().defaultBlockState();
+		var block = IcariaBlocks.GRASSY_MARL.get().defaultBlockState().getBlock();
+		var abovePos = pPos.above();
 		var optional = pLevel.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(IcariaPlacedFeatures.ICARIA_BONEMEAL);
+		var aboveState = pLevel.getBlockState(abovePos);
 		label46:
 		for (int i = 0; i < 128; ++i) {
-			var abovePos = pPos.above();
 			for (int j = 0; j < i / 16; ++j) {
 				abovePos = abovePos.offset(pRandom.nextInt(3) - 1, (pRandom.nextInt(3) - 1) * pRandom.nextInt(3) / 2, pRandom.nextInt(3) - 1);
 				if (!pLevel.getBlockState(abovePos.below()).is(this) || pLevel.getBlockState(abovePos).isCollisionShapeFullBlock(pLevel, abovePos)) {
@@ -105,9 +108,10 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 				}
 			}
 
-			var aboveState = pLevel.getBlockState(abovePos);
-			if (aboveState.is(blockState.getBlock()) && pRandom.nextInt(10) == 0) {
-				((BonemealableBlock) blockState.getBlock()).performBonemeal(pLevel, pRandom, abovePos, aboveState);
+			if (aboveState.is(block)) {
+				if (pRandom.nextInt(10) == 0) {
+					((BonemealableBlock) block).performBonemeal(pLevel, pRandom, abovePos, aboveState);
+				}
 			}
 
 			if (aboveState.isAir()) {
@@ -133,12 +137,15 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 				return;
 			}
 
-			if (pLevel.getMaxLocalRawBrightness(pPos.above()) >= 9) {
+			if (pLevel.getMaxLocalRawBrightness(pPos.above()) > 8) {
 				var blockState = this.defaultBlockState();
 				for (int i = 0; i < 4; ++i) {
 					var blockPos = pPos.offset(pRandom.nextInt(3) - 1, pRandom.nextInt(5) - 3, pRandom.nextInt(3) - 1);
-					if (pLevel.getBlockState(blockPos).is(IcariaBlocks.MARL.get()) && this.canPropagate(blockState, pLevel, blockPos)) {
-						pLevel.setBlockAndUpdate(blockPos, blockState.setValue(IcariaBlockStateProperties.FOREST_MOSS, pLevel.getBlockState(blockPos.above()).is(IcariaBlocks.FOREST_MOSS.get())).setValue(IcariaBlockStateProperties.SCRUBLAND_MOSS, pLevel.getBlockState(blockPos.above()).is(IcariaBlocks.SCRUBLAND_MOSS.get())).setValue(IcariaBlockStateProperties.STEPPE_MOSS, pLevel.getBlockState(blockPos.above()).is(IcariaBlocks.STEPPE_MOSS.get())));
+					if (this.canPropagate(blockState, pLevel, blockPos)) {
+						var abovePos = blockPos.above();
+						if (pLevel.getBlockState(blockPos).is(IcariaBlocks.MARL.get())) {
+							pLevel.setBlockAndUpdate(blockPos, blockState.setValue(IcariaBlockStateProperties.FOREST_MOSS, pLevel.getBlockState(abovePos).is(IcariaBlocks.FOREST_MOSS.get())).setValue(IcariaBlockStateProperties.SCRUBLAND_MOSS, pLevel.getBlockState(abovePos).is(IcariaBlocks.SCRUBLAND_MOSS.get())).setValue(IcariaBlockStateProperties.STEPPE_MOSS, pLevel.getBlockState(abovePos).is(IcariaBlocks.STEPPE_MOSS.get())));
+						}
 					}
 				}
 			}

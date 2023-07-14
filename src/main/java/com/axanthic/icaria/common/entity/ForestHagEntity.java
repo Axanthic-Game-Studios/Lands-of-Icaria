@@ -44,7 +44,7 @@ public class ForestHagEntity extends Monster {
     @Override
     public boolean doHurtTarget(Entity pEntity) {
         boolean flag = pEntity.hurt(this.damageSources().mobAttack(this), (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
-        this.level.broadcastEntityEvent(this, (byte) 4);
+        this.level().broadcastEntityEvent(this, (byte) 4);
         if (pEntity instanceof LivingEntity livingEntity) {
             double knockback = this.getAttributeValue(Attributes.ATTACK_KNOCKBACK) - livingEntity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
             if (flag) {
@@ -89,10 +89,8 @@ public class ForestHagEntity extends Monster {
 
     @Override
     public void actuallyHurt(DamageSource pDamageSource, float pDamageAmount) {
-        var entity = pDamageSource.getEntity();
-        if (entity instanceof LivingEntity livingEntity) {
-            var itemStack = livingEntity.getMainHandItem();
-            if (itemStack.getItem() instanceof AxeItem) {
+        if (pDamageSource.getEntity() instanceof LivingEntity livingEntity) {
+            if (livingEntity.getMainHandItem().getItem() instanceof AxeItem) {
                 pDamageAmount *= 2;
             }
         }
@@ -142,7 +140,7 @@ public class ForestHagEntity extends Monster {
         super.onSyncedDataUpdated(pKey);
         if (ForestHagEntity.TARGETING.equals(pKey)) {
             if (this.isTargeting()) {
-                if (this.level.isClientSide) {
+                if (this.level().isClientSide) {
                     this.playTargetSounds();
                 }
             }
@@ -153,7 +151,7 @@ public class ForestHagEntity extends Monster {
         if (this.tickCount >= this.targetSoundsTime + 400) {
             this.targetSoundsTime = this.tickCount;
             if (!this.isSilent()) {
-                this.level.playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.ENDERMAN_STARE, SoundSource.HOSTILE, 1.0F, 1.0F, false);
+                this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.ENDERMAN_STARE, SoundSource.HOSTILE, 1.0F, 1.0F, false);
             }
         }
     }

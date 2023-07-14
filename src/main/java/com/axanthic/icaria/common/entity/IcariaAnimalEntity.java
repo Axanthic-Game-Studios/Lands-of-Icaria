@@ -124,7 +124,7 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
                 this.setDuration(duration);
                 if (this.getDuration() % 10 == 0) {
                     double random = this.random.nextGaussian() * 0.025D;
-                    this.level.addParticle(ParticleTypes.HEART, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), random, random, random);
+                    this.level().addParticle(ParticleTypes.HEART, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), random, random, random);
                 }
             }
 
@@ -169,8 +169,8 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
     public void handleEntityEvent(byte pId) {
         if (pId == 18) {
             for (int i = 0; i < 7; ++i) {
-                double d = this.random.nextGaussian() * 0.025D;
-                this.level.addParticle(ParticleTypes.HEART, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), d, d, d);
+                double random = this.random.nextGaussian() * 0.025D;
+                this.level().addParticle(ParticleTypes.HEART, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), random, random, random);
             }
         } else {
             super.handleEntityEvent(pId);
@@ -222,13 +222,13 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
     public @Nonnull InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (this.isFood(itemStack)) {
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 if (!this.isBaby()) {
                     if (!this.inLove()) {
                         if (!this.onCooldown()) {
                             itemStack.shrink(1);
                             pPlayer.awardStat(Stats.ANIMALS_BRED);
-                            this.level.broadcastEntityEvent(this, (byte) 18);
+                            this.level().broadcastEntityEvent(this, (byte) 18);
                             this.setDuration(this.maxDuration);
                             return InteractionResult.SUCCESS;
                         }
@@ -238,12 +238,12 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
 
             if (this.isBaby()) {
                 itemStack.shrink(1);
-                this.level.addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
+                this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
                 this.setTick(this.getTick() + ((this.maxTick - this.getTick()) / 10));
-                return InteractionResult.sidedSuccess(this.level.isClientSide);
+                return InteractionResult.sidedSuccess(this.level().isClientSide);
             }
 
-            if (this.level.isClientSide) {
+            if (this.level().isClientSide) {
                 return InteractionResult.CONSUME;
             }
         }

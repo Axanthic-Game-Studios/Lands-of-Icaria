@@ -25,7 +25,7 @@ public class IcariaSandBlock extends Block {
 		var plantType = pPlantable.getPlantType(pLevel, pPos.relative(pDirection));
 		if (plantType == PlantType.BEACH) {
 			boolean water = false;
-			for (Direction direction : Direction.Plane.HORIZONTAL) {
+			for (var direction : Direction.Plane.HORIZONTAL) {
 				var directionPos = pPos.relative(direction);
 				water = pLevel.getBlockState(directionPos).is(Blocks.FROSTED_ICE);
 				water |= pLevel.getFluidState(directionPos).is(FluidTags.WATER);

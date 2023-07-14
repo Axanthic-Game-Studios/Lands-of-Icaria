@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:cobbled_sunstone_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

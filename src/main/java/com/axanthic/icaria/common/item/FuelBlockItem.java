@@ -6,15 +6,15 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Block;
 
 public class FuelBlockItem extends BlockItem {
-	public int burntime;
+	public int burnTime;
 
-	public FuelBlockItem(Block pBlock, Properties pProperties, int pBurntime) {
+	public FuelBlockItem(Block pBlock, Properties pProperties, int pBurnTime) {
 		super(pBlock, pProperties);
-		this.burntime = pBurntime;
+		this.burnTime = pBurnTime;
 	}
 
 	@Override
 	public int getBurnTime(ItemStack pStack, RecipeType<?> pType) {
-		return this.burntime;
+		return this.burnTime;
 	}
 }

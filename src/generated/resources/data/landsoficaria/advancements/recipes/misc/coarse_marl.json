@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:coarse_marl"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

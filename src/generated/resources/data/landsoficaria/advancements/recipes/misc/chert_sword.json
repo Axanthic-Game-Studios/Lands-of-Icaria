@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:chert_sword"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

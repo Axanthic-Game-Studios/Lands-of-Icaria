@@ -8,7 +8,9 @@ import com.axanthic.icaria.common.registry.IcariaFluids;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.*;
+import net.minecraft.world.Containers;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -62,12 +64,10 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 	@Override
 	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
 		if (!pState.is(pNewState.getBlock())) {
-			var blockEntity = pLevel.getBlockEntity(pPos);
-			if (blockEntity instanceof StorageVaseBlockEntity) {
+			if (pLevel.getBlockEntity(pPos) instanceof StorageVaseBlockEntity) {
 				pLevel.getBlockEntity(pPos).getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
 					for (int i = 0; i < handler.getSlots(); i++) {
-						var itemStack = handler.getStackInSlot(i);
-						Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), itemStack);
+						Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), handler.getStackInSlot(i));
 					}
 				});
 
@@ -85,9 +85,8 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var clickedPos = pContext.getClickedPos();
-		var level = pContext.getLevel();
-		return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, level.getFluidState(clickedPos).getType() == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(clickedPos).getType() == Fluids.WATER);
+		var fluid = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
+		return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override

@@ -43,19 +43,12 @@ public class IcariaSpawnerBlock extends BaseEntityBlock {
     }
 
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.SPAWNER.get(), pLevel.isClientSide ? IcariaSpawnerBlockEntity::clientTick : IcariaSpawnerBlockEntity::serverTick);
-    }
-
-    @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() instanceof SpawnEggItem spawnEggItem) {
-            var blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof IcariaSpawnerBlockEntity icariaSpawnerBlockEntity) {
-                var entityType = spawnEggItem.getType(itemStack.getTag());
+            if (pLevel.getBlockEntity(pPos) instanceof IcariaSpawnerBlockEntity icariaSpawnerBlockEntity) {
                 icariaSpawnerBlockEntity.setChanged();
-                icariaSpawnerBlockEntity.setEntityId(entityType, pLevel.getRandom());
+                icariaSpawnerBlockEntity.setEntityId(spawnEggItem.getType(itemStack.getTag()), pLevel.getRandom());
                 pLevel.gameEvent(pPlayer, GameEvent.BLOCK_CHANGE, pPos);
                 pLevel.sendBlockUpdated(pPos, pState, pState, 3);
                 if (!pPlayer.isCreative()) {
@@ -72,5 +65,10 @@ public class IcariaSpawnerBlock extends BaseEntityBlock {
     @Override
     public RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
+    }
+
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+        return BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.SPAWNER.get(), pLevel.isClientSide ? IcariaSpawnerBlockEntity::clientTick : IcariaSpawnerBlockEntity::serverTick);
     }
 }

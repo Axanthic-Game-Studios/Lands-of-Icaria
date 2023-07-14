@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:cracked_relicstone_tiles_from_smelting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

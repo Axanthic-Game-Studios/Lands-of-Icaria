@@ -35,7 +35,7 @@ public class CerverEntity extends Monster {
 
     @Override
     public boolean doHurtTarget(Entity pEntity) {
-        this.level.broadcastEntityEvent(this, (byte) 4);
+        this.level().broadcastEntityEvent(this, (byte) 4);
         return super.doHurtTarget(pEntity);
     }
 

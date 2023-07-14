@@ -134,5 +134,6 @@
     "recipes": [
       "minecraft:mossy_stone_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

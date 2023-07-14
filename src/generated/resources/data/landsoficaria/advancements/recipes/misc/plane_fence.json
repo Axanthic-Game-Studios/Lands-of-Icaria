@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:plane_fence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

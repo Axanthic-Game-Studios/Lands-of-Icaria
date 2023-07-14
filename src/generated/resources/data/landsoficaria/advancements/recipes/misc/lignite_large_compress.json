@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:lignite_large_compress"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

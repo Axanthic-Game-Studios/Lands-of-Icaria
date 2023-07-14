@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:anthracite_from_smelting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -95,5 +95,6 @@
     "recipes": [
       "minecraft:sticky_piston_from_jellyfish_jelly"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

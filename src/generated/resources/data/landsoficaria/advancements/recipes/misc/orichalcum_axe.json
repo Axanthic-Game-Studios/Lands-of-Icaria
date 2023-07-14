@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:orichalcum_axe"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

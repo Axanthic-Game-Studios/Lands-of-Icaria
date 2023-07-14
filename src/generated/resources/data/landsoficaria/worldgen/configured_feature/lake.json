@@ -4,7 +4,12 @@
     "barrier": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "landsoficaria:marl"
+        "Name": "landsoficaria:grassy_marl",
+        "Properties": {
+          "forest_moss": "false",
+          "scrubland_moss": "false",
+          "steppe_moss": "false"
+        }
       }
     },
     "fluid": {

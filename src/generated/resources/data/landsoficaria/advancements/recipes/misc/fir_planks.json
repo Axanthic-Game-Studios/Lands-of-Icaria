@@ -69,5 +69,6 @@
     "recipes": [
       "landsoficaria:fir_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

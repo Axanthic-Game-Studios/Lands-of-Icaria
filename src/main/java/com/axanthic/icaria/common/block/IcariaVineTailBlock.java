@@ -102,7 +102,7 @@ public class IcariaVineTailBlock extends Block {
 
 	public int countFaces(BlockState pState) {
 		int i = 0;
-		for (BooleanProperty booleanProperty : IcariaVineTailBlock.PROPERTY_BY_DIRECTION.values()) {
+		for (var booleanProperty : IcariaVineTailBlock.PROPERTY_BY_DIRECTION.values()) {
 			if (pState.getValue(booleanProperty)) {
 				++i;
 			}
@@ -121,7 +121,7 @@ public class IcariaVineTailBlock extends Block {
 		var clickedState = pContext.getLevel().getBlockState(pContext.getClickedPos());
 		boolean clickedFlag = clickedState.is(this);
 		var blockState = clickedFlag ? clickedState : this.defaultBlockState();
-		for (Direction direction : pContext.getNearestLookingDirections()) {
+		for (var direction : pContext.getNearestLookingDirections()) {
 			if (direction != Direction.DOWN) {
 				var booleanProperty = this.getPropertyForFace(direction);
 				boolean flag = clickedFlag && clickedState.getValue(booleanProperty);
@@ -141,7 +141,7 @@ public class IcariaVineTailBlock extends Block {
 		}
 
 		BlockState blockState = null;
-		for (Direction direction : Direction.Plane.HORIZONTAL) {
+		for (var direction : Direction.Plane.HORIZONTAL) {
 			var booleanProperty = this.getPropertyForFace(direction);
 			if (pState.getValue(booleanProperty)) {
 				boolean flag = this.canSupportAtFace(pLevel, pPos, direction);

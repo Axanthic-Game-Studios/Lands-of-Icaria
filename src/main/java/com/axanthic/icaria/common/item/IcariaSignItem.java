@@ -24,9 +24,7 @@ public class IcariaSignItem extends SignItem {
 		var player = pContext.getPlayer();
 		if (pContext.getClickedFace() != Direction.UP) {
 			return blockState;
-		}
-
-		if (pContext.getClickedFace() == Direction.UP) {
+		} else if (pContext.getClickedFace() == Direction.UP) {
 			if (player != null) {
 				if (player.isShiftKeyDown()) {
 					return blockState;

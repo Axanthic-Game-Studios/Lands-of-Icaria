@@ -30,7 +30,7 @@ public class CaptainRevenantSummonGoal extends Goal {
         }  else if (!this.entity.getBlockStateOn().is(IcariaBlockTags.CAPTAIN_SUMMONS_ON)) {
             return false;
         } else {
-            return this.entity.level.getNearbyEntities(CrawlerRevenantEntity.class, this.entity.targetingConditions, this.entity, this.entity.getBoundingBox().inflate(16.0D)).size() <= 2;
+            return this.entity.level().getNearbyEntities(CrawlerRevenantEntity.class, this.entity.targetingConditions, this.entity, this.entity.getBoundingBox().inflate(16.0D)).size() <= 2;
         }
     }
 
@@ -42,13 +42,13 @@ public class CaptainRevenantSummonGoal extends Goal {
 
     @Override
     public void tick() {
-        var serverLevel = (ServerLevel) this.entity.level;
+        var serverLevel = (ServerLevel) this.entity.level();
         for (int i = 0; i < this.entity.getRandom().nextIntBetweenInclusive(6, 8); ++i) {
             var blockPos = this.entity.blockPosition().offset(-8 + this.entity.getRandom().nextInt(16), 0, -8 + this.entity.getRandom().nextInt(16));
-            var entity = IcariaEntityTypes.CRAWLER_REVENANT.get().create(this.entity.level);
+            var entity = IcariaEntityTypes.CRAWLER_REVENANT.get().create(this.entity.level());
             if (entity != null) {
                 entity.moveTo(blockPos, 0.0F, 0.0F);
-                entity.finalizeSpawn(serverLevel, this.entity.level.getCurrentDifficultyAt(blockPos), MobSpawnType.MOB_SUMMONED, null, null);
+                entity.finalizeSpawn(serverLevel, this.entity.level().getCurrentDifficultyAt(blockPos), MobSpawnType.MOB_SUMMONED, null, null);
                 serverLevel.addFreshEntityWithPassengers(entity);
             }
         }

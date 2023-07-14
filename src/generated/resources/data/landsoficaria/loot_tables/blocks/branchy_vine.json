@@ -3,23 +3,24 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:match_tool",
-          "predicate": {
-            "items": [
-              "minecraft:shears"
-            ]
-          }
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": [
+                  "minecraft:shears"
+                ]
+              }
+            }
+          ],
           "name": "landsoficaria:branchy_vine"
         }
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "landsoficaria:blocks/branchy_vine"
 }

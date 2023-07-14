@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:water_jellyfish_jelly_block_large_decompress"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

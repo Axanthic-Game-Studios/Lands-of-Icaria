@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:molybdenum_ingot_to_block"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

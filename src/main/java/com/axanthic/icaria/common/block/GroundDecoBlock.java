@@ -1,13 +1,17 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -42,7 +46,21 @@ public class GroundDecoBlock extends Block implements MediterraneanWaterloggedBl
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		return Block.isFaceFull(pLevel.getBlockState(pPos.below()).getCollisionShape(pLevel, pPos.below()), Direction.UP);
+		var belowPos = pPos.below();
+		return Block.isFaceFull(pLevel.getBlockState(belowPos).getCollisionShape(pLevel, belowPos), Direction.UP);
+	}
+
+	@Override
+	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+		if (pLevel.isClientSide) {
+			if (this.equals(IcariaBlocks.SURFACE_LIGNITE.get())) {
+				if (pRandom.nextInt(10) == 0) {
+					pLevel.addParticle(ParticleTypes.LAVA, pPos.getX() + pRandom.nextDouble(), pPos.getY(), pPos.getZ() + pRandom.nextDouble(), 0.0D, 0.0D, 0.0D);
+				} else {
+					pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + pRandom.nextDouble(), pPos.getY(), pPos.getZ() + pRandom.nextDouble(), 0.0D, 0.0D, 0.0D);
+				}
+			}
+		}
 	}
 
 	@Override
@@ -52,9 +70,8 @@ public class GroundDecoBlock extends Block implements MediterraneanWaterloggedBl
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var clickedPos = pContext.getClickedPos();
-		var level = pContext.getLevel();
-		return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, level.getFluidState(clickedPos).getType() == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(clickedPos).getType() == Fluids.WATER);
+		var fluid = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
+		return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override

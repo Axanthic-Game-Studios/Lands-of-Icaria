@@ -17,20 +17,20 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaAxeItem extends AxeItem {
-	public Tier equivalentTier;
+	public Tier vanillaEquivalent;
 
 	public IcariaAxeItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
 		super(pTier, pDamage, pAttackSpeed, pProperties);
-		this.equivalentTier = pTier.vanillaEquivalent;
+		this.vanillaEquivalent = pTier.vanillaEquivalent;
 	}
 
 	@Override
 	public boolean isCorrectToolForDrops(BlockState pBlock) {
-		return pBlock.is(BlockTags.MINEABLE_WITH_AXE) && TierSortingRegistry.isCorrectTierForDrops(pBlock.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pBlock);
+		return pBlock.is(BlockTags.MINEABLE_WITH_AXE) && TierSortingRegistry.isCorrectTierForDrops(pBlock.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.vanillaEquivalent, pBlock);
 	}
 
 	@Override
 	public boolean isCorrectToolForDrops(ItemStack pStack, BlockState pState) {
-		return pState.is(BlockTags.MINEABLE_WITH_AXE) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.equivalentTier, pState);
+		return pState.is(BlockTags.MINEABLE_WITH_AXE) && TierSortingRegistry.isCorrectTierForDrops(pState.is(IcariaBlockTags.ICARIA_TIER) ? getTier() : this.vanillaEquivalent, pState);
 	}
 }

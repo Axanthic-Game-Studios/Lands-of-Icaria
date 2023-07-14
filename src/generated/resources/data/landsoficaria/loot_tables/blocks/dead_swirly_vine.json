@@ -1,3 +1,4 @@
 {
-  "type": "minecraft:block"
+  "type": "minecraft:block",
+  "random_sequence": "landsoficaria:blocks/dead_swirly_vine"
 }

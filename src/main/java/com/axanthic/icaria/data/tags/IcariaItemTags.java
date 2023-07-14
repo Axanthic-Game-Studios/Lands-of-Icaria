@@ -1,7 +1,9 @@
 package com.axanthic.icaria.data.tags;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.registry.IcariaStoneDecoItems;
+import com.axanthic.icaria.common.registry.IcariaWoodDecoItems;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
@@ -404,17 +406,17 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.ONION.get());
 
 		// ITEMBLOCK TAGS
-		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_DECO) {
-			this.tag(ItemTags.STAIRS).add(deco.stairs.get());
-			this.tag(ItemTags.SLABS).add(deco.slab.get());
-			this.tag(ItemTags.WALLS).add(deco.wall.get());
+		for (var items : IcariaStoneDecoItems.STONE_DECO_ITEMS) {
+			this.tag(ItemTags.STAIRS).add(items.stairs.get());
+			this.tag(ItemTags.SLABS).add(items.slab.get());
+			this.tag(ItemTags.WALLS).add(items.wall.get());
 		}
 
-		for (IcariaItems.WoodDecoItemBlocks deco : IcariaItems.WOOD_DECO) {
-			this.tag(ItemTags.WOODEN_STAIRS).add(deco.stairs.get());
-			this.tag(ItemTags.WOODEN_SLABS).add(deco.slab.get());
-			this.tag(ItemTags.WOODEN_FENCES).add(deco.fence.get());
-			this.tag(Tags.Items.FENCE_GATES_WOODEN).add(deco.gate.get());
+		for (var items : IcariaWoodDecoItems.WOOD_DECO_ITEMS) {
+			this.tag(ItemTags.WOODEN_STAIRS).add(items.stairs.get());
+			this.tag(ItemTags.WOODEN_SLABS).add(items.slab.get());
+			this.tag(ItemTags.WOODEN_FENCES).add(items.fence.get());
+			this.tag(Tags.Items.FENCE_GATES_WOODEN).add(items.gate.get());
 		}
 
 		this.tag(ItemTags.DIRT)

@@ -120,7 +120,7 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
     @Override
     public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
         if (!this.onAiming()) {
-            var entity = new GreekFireGrenadeEntity(this.level, this, this.useItem);
+            var entity = new GreekFireGrenadeEntity(this.level(), this, this.useItem);
 
             double d0 = pTarget.getX() - this.getX();
             double d1 = pTarget.getY(0.3D) - entity.getY();
@@ -129,11 +129,11 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
 
             entity.shoot(d0, d1 + d3 * 0.2D, d2, 1.0F, 8.0F);
 
-            this.level.addFreshEntity(entity);
+            this.level().addFreshEntity(entity);
             this.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
             this.setThrown(this.maxThrown);
             if (!this.isSilent()) {
-                this.level.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ARROW_SHOOT, this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+                this.level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ARROW_SHOOT, this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
             }
         }
     }
@@ -179,7 +179,7 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
     @Override
     public void tick() {
         super.tick();
-        if (this.level.isClientSide) {
+        if (this.level().isClientSide) {
             if (this.onThrown()) {
                 this.thrownAnimationState.startIfStopped(this.tickCount);
                 this.reloadAnimationState.stop();

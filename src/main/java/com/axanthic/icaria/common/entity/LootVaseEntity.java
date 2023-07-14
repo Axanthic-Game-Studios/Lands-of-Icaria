@@ -12,11 +12,14 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootDataType;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
@@ -27,6 +30,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class LootVaseEntity extends Entity {
     public static final EntityDataAccessor<BlockPos> BLOCK_POS = SynchedEntityData.defineId(LootVaseEntity.class, EntityDataSerializers.BLOCK_POS);
+
     public static final EntityDataAccessor<BlockState> BLOCK_STATE = SynchedEntityData.defineId(LootVaseEntity.class, EntityDataSerializers.BLOCK_STATE);
 
     public LootVaseEntity(EntityType<? extends LootVaseEntity> pType, Level pLevel) {
@@ -76,9 +80,9 @@ public class LootVaseEntity extends Entity {
     }
 
     public void dropFromLootTable(DamageSource pDamageSource) {
-        if (this.level.getServer() != null) {
-            var lootContext = new LootContext.Builder((ServerLevel) this.level).withOptionalParameter(LootContextParams.DIRECT_KILLER_ENTITY, pDamageSource.getDirectEntity()).withOptionalParameter(LootContextParams.KILLER_ENTITY, pDamageSource.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, pDamageSource).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).withRandom(this.random).create(LootContextParamSets.ENTITY);
-            lootContext.getLevel().getServer().getLootTables().get(IcariaVaseLoot.LOOT_VASE).getRandomItems(lootContext).forEach(this::spawnAtLocation);
+        if (this.level().getServer() != null) {
+            var lootContext = new LootParams.Builder((ServerLevel) this.level()).withOptionalParameter(LootContextParams.DIRECT_KILLER_ENTITY, pDamageSource.getDirectEntity()).withOptionalParameter(LootContextParams.KILLER_ENTITY, pDamageSource.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, pDamageSource).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).create(LootContextParamSets.ENTITY);
+            lootContext.getLevel().getServer().getLootData().getElement(LootDataType.TABLE, IcariaVaseLoot.LOOT_VASE).getRandomItems(lootContext).forEach(this::spawnAtLocation);
         }
     }
 
@@ -109,7 +113,7 @@ public class LootVaseEntity extends Entity {
 
     @Override
     public void tick() {
-        if (this.isOnGround()) {
+        if (this.onGround()) {
             this.discard();
             this.dropFromLootTable(this.damageSources().fall());
             this.playSound(IcariaSoundEvents.VASE_BREAK);

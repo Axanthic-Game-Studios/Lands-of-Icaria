@@ -3,13 +3,6 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {}
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:alternatives",
@@ -23,6 +16,13 @@
                   "properties": {
                     "layers": "1"
                   }
+                }
+              ],
+              "functions": [
+                {
+                  "add": false,
+                  "count": 1.0,
+                  "function": "minecraft:set_count"
                 }
               ],
               "name": "landsoficaria:fallen_plane_leaves"
@@ -163,5 +163,6 @@
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "landsoficaria:blocks/fallen_plane_leaves"
 }

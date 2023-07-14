@@ -42,14 +42,12 @@ public class IcariaWallSkullBlock extends IcariaAbstractSkullBlock {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        var clickedPos = pContext.getClickedPos();
-        var level = pContext.getLevel();
-        for (Direction direction : pContext.getNearestLookingDirections()) {
+        for (var direction : pContext.getNearestLookingDirections()) {
             if (!direction.getAxis().isHorizontal()) {
                 continue;
             }
 
-            if (!level.getBlockState(clickedPos.relative(direction)).canBeReplaced(pContext)) {
+            if (!pContext.getLevel().getBlockState(pContext.getClickedPos().relative(direction)).canBeReplaced(pContext)) {
                 return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction.getOpposite());
             }
         }

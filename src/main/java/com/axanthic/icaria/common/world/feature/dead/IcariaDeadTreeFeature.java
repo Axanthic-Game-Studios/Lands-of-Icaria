@@ -15,19 +15,18 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
 
 public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     public Block dead;
-    public Block herb;
     public Block log;
     public Block moss;
     public Block twigs;
 
-    public IcariaDeadTreeFeature(Codec<NoneFeatureConfiguration> pCodec, Block pDead, Block pHerb, Block pLog, Block pMoss, Block pTwigs) {
+    public IcariaDeadTreeFeature(Codec<NoneFeatureConfiguration> pCodec, Block pDead, Block pLog, Block pMoss, Block pTwigs) {
         super(pCodec);
         this.dead = pDead;
-        this.herb = pHerb;
         this.log = pLog;
         this.moss = pMoss;
         this.twigs = pTwigs;
@@ -63,13 +62,6 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
         this.placeMoss(level, origin.relative(direction.getCounterClockWise(), 1), 2, 4);
         this.placeMoss(level, origin.relative(direction.getCounterClockWise(), 2), 1, 4);
 
-        this.placeHerb(level, origin.relative(direction), 16);
-        this.placeHerb(level, origin.relative(direction).relative(direction.getClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction).relative(direction.getCounterClockWise()), 164);
-        this.placeHerb(level, origin.relative(direction, 2), 16);
-        this.placeHerb(level, origin.relative(direction, 2).relative(direction.getClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 2).relative(direction.getCounterClockWise()), 16);
-
         this.placeMoss(level, origin.relative(direction, 1), 2, 4);
         this.placeMoss(level, origin.relative(direction, 1).relative(direction.getClockWise(), 1), 2, 4);
         this.placeMoss(level, origin.relative(direction, 1).relative(direction.getClockWise(), 2), 1, 4);
@@ -96,27 +88,6 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
             this.placeMoss(level, origin.relative(direction, offset).relative(direction.getCounterClockWise(), 1), 2, 4);
             this.placeMoss(level, origin.relative(direction, offset).relative(direction.getCounterClockWise(), 2), 1, 4);
         }
-
-        this.placeHerb(level, origin.relative(direction, 3 + length), 16);
-        this.placeHerb(level, origin.relative(direction, 3 + length).relative(direction.getClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 3 + length).relative(direction.getClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 3 + length).relative(direction.getCounterClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 3 + length).relative(direction.getCounterClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 4 + length), 16);
-        this.placeHerb(level, origin.relative(direction, 4 + length).relative(direction.getClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 4 + length).relative(direction.getClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 4 + length).relative(direction.getCounterClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 4 + length).relative(direction.getCounterClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 5 + length), 16);
-        this.placeHerb(level, origin.relative(direction, 5 + length).relative(direction.getClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 5 + length).relative(direction.getClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 5 + length).relative(direction.getCounterClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 5 + length).relative(direction.getCounterClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 6 + length), 16);
-        this.placeHerb(level, origin.relative(direction, 6 + length).relative(direction.getClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 6 + length).relative(direction.getClockWise(), 2), 16);
-        this.placeHerb(level, origin.relative(direction, 6 + length).relative(direction.getCounterClockWise()), 16);
-        this.placeHerb(level, origin.relative(direction, 6 + length).relative(direction.getCounterClockWise(), 2), 16);
 
         this.placeMoss(level, origin.relative(direction, 3 + length), 2, 4);
         this.placeMoss(level, origin.relative(direction, 3 + length).relative(direction.getClockWise(), 1), 2, 4);
@@ -162,18 +133,6 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     public void placeDead(WorldGenLevel pLevel, BlockPos pPos, Direction.Axis pAxis) {
         if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
             this.setBlock(pLevel, pPos, this.dead.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
-        }
-    }
-
-    public void placeHerb(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placeHerb(pLevel, pPos);
-        }
-    }
-
-    public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
-            this.setBlock(pLevel, pPos, this.herb.defaultBlockState());
         }
     }
 

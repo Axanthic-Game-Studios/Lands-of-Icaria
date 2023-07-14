@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.util.BiomeConfiguration;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -10,14 +9,13 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.level.biome.*;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeGenerationSettings;
+import net.minecraft.world.level.biome.BiomeSpecialEffects;
+import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-
-import net.minecraftforge.registries.DeferredRegister;
-
-import java.util.Map;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -25,39 +23,27 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBiomes {
-	public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(Registries.BIOME, IcariaInfo.ID);
-
 	public static final ResourceKey<Biome> FOREST = IcariaBiomes.registerKey("forest");
 	public static final ResourceKey<Biome> SCRUBLAND = IcariaBiomes.registerKey("scrubland");
 	public static final ResourceKey<Biome> STEPPE = IcariaBiomes.registerKey("steppe");
 	public static final ResourceKey<Biome> DESERT = IcariaBiomes.registerKey("desert");
 	public static final ResourceKey<Biome> VOID = IcariaBiomes.registerKey("void");
 
-	public static final Map<ResourceKey<Biome>, BiomeConfiguration> CONFIGURATIONS = Map.of(IcariaBiomes.FOREST, new BiomeConfiguration(-0.5D, 1.0D), IcariaBiomes.SCRUBLAND, new BiomeConfiguration(1.0D, 4.5D), IcariaBiomes.STEPPE, new BiomeConfiguration(1.0D, 1.0D), IcariaBiomes.DESERT, new BiomeConfiguration(4.0D, 12.5D), IcariaBiomes.VOID, new BiomeConfiguration(1.0D, 1.0D));
-
-	public static void bootstrapBiomes(BootstapContext<Biome> pContext) {
+	public static void bootstrap(BootstapContext<Biome> pContext) {
 		var configuredCarvers = pContext.lookup(Registries.CONFIGURED_CARVER);
 		var placedFeatures = pContext.lookup(Registries.PLACED_FEATURE);
 
-		IcariaBiomes.registerBootstrap(pContext, IcariaBiomes.FOREST, IcariaBiomes.forestBiome(placedFeatures, configuredCarvers));
-		IcariaBiomes.registerBootstrap(pContext, IcariaBiomes.SCRUBLAND, IcariaBiomes.scrublandBiome(placedFeatures, configuredCarvers));
-		IcariaBiomes.registerBootstrap(pContext, IcariaBiomes.STEPPE, IcariaBiomes.steppeBiome(placedFeatures, configuredCarvers));
-		IcariaBiomes.registerBootstrap(pContext, IcariaBiomes.DESERT, IcariaBiomes.desertBiome(placedFeatures, configuredCarvers));
-		IcariaBiomes.registerBootstrap(pContext, IcariaBiomes.VOID, IcariaBiomes.voidBiome(placedFeatures, configuredCarvers));
-	}
-
-	public static void registerBootstrap(BootstapContext<Biome> pContext, ResourceKey<Biome> pKey, Biome pBiome) {
-		pContext.register(pKey, pBiome);
-	}
-
-	public static ResourceKey<Biome> registerKey(String pName) {
-		return ResourceKey.create(Registries.BIOME, new ResourceLocation(IcariaInfo.ID, pName));
+		pContext.register(IcariaBiomes.FOREST, IcariaBiomes.forestBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.SCRUBLAND, IcariaBiomes.scrublandBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.STEPPE, IcariaBiomes.steppeBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.DESERT, IcariaBiomes.desertBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.VOID, IcariaBiomes.voidBiome(placedFeatures, configuredCarvers));
 	}
 
 	// FOREST
 
-	public static void forestGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaCarvers.FOREST_TB_KEY);
+	public static void forestBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
+		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaConfiguredCarvers.FOREST);
 
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
@@ -106,6 +92,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.LIONFANGS);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.SPEARDROPS);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.DATHULLA);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MOTH_AGARIC);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.NAMDRAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PSILOCYBOS);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.WILTED_ELM);
@@ -125,38 +112,39 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.STRAWBERRY_BUSH);
 	}
 
+	public static void forestBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
+		pBuilder.fogColor(14470514).grassColorOverride(8427853).skyColor(8301300).waterColor(4227157).waterFogColor(4227157);
+	}
+
 	public static void forestMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.AETERNAE.get(), 100, 3, 5));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CATOBLEPAS.get(), 100, 3, 5));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CRYSTAL_SLUG.get(), 100, 1, 1));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FOREST_SNULL.get(), 100, 3, 5));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SOW.get(), 100, 3, 5));
+
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 100, 1, 3));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 100, 1, 3));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FIR_FOREST_HAG.get(), 10, 1, 1));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), 10, 1, 1));
 	}
 
-	public static void forestSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(8427853).skyColor(8301300).waterColor(4227157).waterFogColor(4227157);
-	}
-
 	public static Biome forestBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
-		var generationSettings = new BiomeGenerationSettings.Builder(pFeatures, pCarvers);
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pFeatures, pCarvers);
+		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
-		var specialEffects = new BiomeSpecialEffects.Builder();
 
-		IcariaBiomes.forestGenerationSettings(generationSettings);
+		IcariaBiomes.forestBiomeGenerationSettings(biomeGenerationSettings);
+		IcariaBiomes.forestBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.forestMobSpawnSettings(mobSpawnSettings);
-		IcariaBiomes.forestSpecialEffects(specialEffects);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(generationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(specialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	// SCRUBLAND
 
-	public static void scrublandGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaCarvers.SCRUBLAND_TB_KEY);
+	public static void scrublandBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
+		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaConfiguredCarvers.SCRUBLAND);
 
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
@@ -220,38 +208,39 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.LARGE_BROWN_GROUND_SHROOMS);
 	}
 
+	public static void scrublandBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
+		pBuilder.fogColor(14470514).grassColorOverride(10793817).skyColor(8301300).waterColor(4623442).waterFogColor(4623442);
+	}
+
 	public static void scrublandMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.AETERNAE.get(), 100, 3, 5));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CATOBLEPAS.get(), 100, 3, 5));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CRYSTAL_SLUG.get(), 100, 1, 1));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SNULL.get(), 100, 3, 5));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SOW.get(), 100, 3, 5));
+
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 100, 1, 3));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 100, 1, 3));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), 10, 1, 1));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.PLANE_FOREST_HAG.get(), 10, 1, 1));
 	}
 
-	public static void scrublandSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(10793817).skyColor(8301300).waterColor(4623442).waterFogColor(4623442);
-	}
-
 	public static Biome scrublandBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
-		var generationSettings = new BiomeGenerationSettings.Builder(pFeatures, pCarvers);
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pFeatures, pCarvers);
+		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
-		var specialEffects = new BiomeSpecialEffects.Builder();
 
-		IcariaBiomes.scrublandGenerationSettings(generationSettings);
+		IcariaBiomes.scrublandBiomeGenerationSettings(biomeGenerationSettings);
+		IcariaBiomes.scrublandBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.scrublandMobSpawnSettings(mobSpawnSettings);
-		IcariaBiomes.scrublandSpecialEffects(specialEffects);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(generationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(specialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	// STEPPE
 
-	public static void steppeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaCarvers.STEPPE_TB_KEY);
+	public static void steppeBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
+		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaConfiguredCarvers.STEPPE);
 
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
@@ -315,38 +304,39 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.LARGE_BROWN_GROUND_SHROOMS);
 	}
 
+	public static void steppeBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
+		pBuilder.fogColor(14470514).grassColorOverride(13421670).skyColor(8301300).waterColor(5085517).waterFogColor(5085517);
+	}
+
 	public static void steppeMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.AETERNAE.get(), 100, 3, 5));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CATOBLEPAS.get(), 100, 3, 5));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CRYSTAL_SLUG.get(), 100, 1, 1));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SNULL.get(), 100, 3, 5));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SOW.get(), 100, 3, 5));
+
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 100, 1, 3));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 100, 1, 3));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), 10, 1, 1));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), 10, 1, 1));
 	}
 
-	public static void steppeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(13421670).skyColor(8301300).waterColor(5085517).waterFogColor(5085517);
-	}
-
 	public static Biome steppeBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
-		var generationSettings = new BiomeGenerationSettings.Builder(pFeatures, pCarvers);
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pFeatures, pCarvers);
+		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
-		var specialEffects = new BiomeSpecialEffects.Builder();
 
-		IcariaBiomes.steppeGenerationSettings(generationSettings);
+		IcariaBiomes.steppeBiomeGenerationSettings(biomeGenerationSettings);
+		IcariaBiomes.steppeBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.steppeMobSpawnSettings(mobSpawnSettings);
-		IcariaBiomes.steppeSpecialEffects(specialEffects);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(generationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(specialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	// DESERT
 
-	public static void desertGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaCarvers.DESERT_TB_KEY);
+	public static void desertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
+		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaConfiguredCarvers.DESERT);
 
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.GRAINITE_SPIKE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.FALLEN_RELICSTONE_PILLAR);
@@ -377,12 +367,17 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.DRY_VINE);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.SUNKETTLE);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.SUNSPONGE);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BOLBOS);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.DATHULLA);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MONDANOS);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.GREEN_GROUND_SHROOMS);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BROWN_GROUND_SHROOMS);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.LARGE_BROWN_GROUND_SHROOMS);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.CARDON_CACTUS);
+	}
+
+	public static void desertBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
+		pBuilder.fogColor(14470514).grassColorOverride(15127155).skyColor(8301300).waterColor(6399571).waterFogColor(6399571);
 	}
 
 	public static void desertMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -394,26 +389,22 @@ public class IcariaBiomes {
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.VINEGAROON.get(), 10, 1, 1));
 	}
 
-	public static void desertSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(15127155).skyColor(8301300).waterColor(6399571).waterFogColor(6399571);
-	}
-
 	public static Biome desertBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
-		var generationSettings = new BiomeGenerationSettings.Builder(pFeatures, pCarvers);
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pFeatures, pCarvers);
+		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
-		var specialEffects = new BiomeSpecialEffects.Builder();
 
-		IcariaBiomes.desertGenerationSettings(generationSettings);
+		IcariaBiomes.desertBiomeGenerationSettings(biomeGenerationSettings);
+		IcariaBiomes.desertBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.desertMobSpawnSettings(mobSpawnSettings);
-		IcariaBiomes.desertSpecialEffects(specialEffects);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(generationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(specialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	// VOID
 
-	public static void voidGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaCarvers.VOID_TB_KEY);
+	public static void voidBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
+		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaConfiguredCarvers.VOID);
 
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
@@ -459,6 +450,10 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.LARGE_BROWN_GROUND_SHROOMS);
 	}
 
+	public static void voidBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
+		pBuilder.fogColor(14470514).grassColorOverride(11909984).skyColor(8301300).waterColor(5083986).waterFogColor(5083986);
+	}
+
 	public static void voidMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ENDER_JELLYFISH.get(), 100, 1, 1));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FIRE_JELLYFISH.get(), 100, 3, 5));
@@ -467,23 +462,24 @@ public class IcariaBiomes {
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.WATER_JELLYFISH.get(), 100, 3, 5));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CRYSTAL_SLUG.get(), 100, 1, 1));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SNULL.get(), 100, 3, 5));
+
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 100, 1, 3));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 100, 1, 3));
 	}
 
-	public static void voidSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(11909984).skyColor(8301300).waterColor(5083986).waterFogColor(5083986);
+	public static Biome voidBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pFeatures, pCarvers);
+		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
+		var mobSpawnSettings = new MobSpawnSettings.Builder();
+
+		IcariaBiomes.voidBiomeGenerationSettings(biomeGenerationSettings);
+		IcariaBiomes.voidBiomeSpecialEffects(biomeSpecialEffects);
+		IcariaBiomes.voidMobSpawnSettings(mobSpawnSettings);
+
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
-	public static Biome voidBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
-		var generationSettings = new BiomeGenerationSettings.Builder(pFeatures, pCarvers);
-		var mobSpawnSettings = new MobSpawnSettings.Builder();
-		var specialEffects = new BiomeSpecialEffects.Builder();
-
-		IcariaBiomes.voidGenerationSettings(generationSettings);
-		IcariaBiomes.voidMobSpawnSettings(mobSpawnSettings);
-		IcariaBiomes.voidSpecialEffects(specialEffects);
-
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(generationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(specialEffects.build()).build();
+	public static ResourceKey<Biome> registerKey(String pName) {
+		return ResourceKey.create(Registries.BIOME, new ResourceLocation(IcariaInfo.ID, pName));
 	}
 }

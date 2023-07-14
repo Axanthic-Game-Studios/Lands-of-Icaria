@@ -82,5 +82,6 @@
     "recipes": [
       "landsoficaria:vine_berry_cake"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

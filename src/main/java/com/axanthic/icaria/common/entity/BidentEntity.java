@@ -31,7 +31,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class BidentEntity extends AbstractArrow {
 	public boolean dealtDamage;
 
-	public static final EntityDataAccessor<ItemStack> ITEM = SynchedEntityData.defineId(BidentEntity.class, EntityDataSerializers.ITEM_STACK);
+	public static final EntityDataAccessor<ItemStack> ITEM_STACK = SynchedEntityData.defineId(BidentEntity.class, EntityDataSerializers.ITEM_STACK);
 
 	public ItemStack stack = new ItemStack(IcariaItems.CHALKOS_TOOLS.bident.get());
 
@@ -42,7 +42,7 @@ public class BidentEntity extends AbstractArrow {
 	public BidentEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
 		super(IcariaEntityTypes.BIDENT.get(), pEntity, pLevel);
 		this.stack = pStack.copy();
-		this.entityData.set(ITEM, this.stack);
+		this.entityData.set(BidentEntity.ITEM_STACK, this.stack);
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class BidentEntity extends AbstractArrow {
 	@Override
 	public void defineSynchedData() {
 		super.defineSynchedData();
-		this.getEntityData().define(ITEM, ItemStack.EMPTY);
+		this.getEntityData().define(BidentEntity.ITEM_STACK, ItemStack.EMPTY);
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class BidentEntity extends AbstractArrow {
 
 	public void setItem(ItemStack pStack) {
 		if (!pStack.is(this.getDefaultItem()) || pStack.hasTag()) {
-			this.getEntityData().set(ITEM, Util.make(pStack.copy(), (pItemStack) -> pItemStack.setCount(1)));
+			this.getEntityData().set(BidentEntity.ITEM_STACK, Util.make(pStack.copy(), (pItemStack) -> pItemStack.setCount(1)));
 		}
 	}
 
@@ -135,7 +135,7 @@ public class BidentEntity extends AbstractArrow {
 	}
 
 	public ItemStack getRawItem() {
-		return this.getEntityData().get(ITEM);
+		return this.getEntityData().get(BidentEntity.ITEM_STACK);
 	}
 
 	@Override

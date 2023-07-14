@@ -1,0 +1,70 @@
+{
+  "type": "landsoficaria:steppe",
+  "config": {
+    "debug_settings": {
+      "air_state": {
+        "Name": "minecraft:warped_button",
+        "Properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "false"
+        }
+      },
+      "barrier_state": {
+        "Name": "minecraft:glass"
+      },
+      "lava_state": {
+        "Name": "minecraft:orange_stained_glass"
+      },
+      "water_state": {
+        "Name": "minecraft:candle",
+        "Properties": {
+          "candles": "1",
+          "lit": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "fillerPrimary": {
+      "Name": "landsoficaria:marl"
+    },
+    "fillerSecondary": {
+      "Name": "landsoficaria:coarse_marl"
+    },
+    "fillerTertiary": {
+      "Name": "landsoficaria:loam"
+    },
+    "lava_level": {
+      "above_bottom": 8
+    },
+    "probability": 0.0,
+    "replaceable": "#minecraft:overworld_carver_replaceables",
+    "topPrimary": {
+      "Name": "landsoficaria:grassy_marl",
+      "Properties": {
+        "forest_moss": "false",
+        "scrubland_moss": "false",
+        "steppe_moss": "false"
+      }
+    },
+    "topSecondary": {
+      "Name": "landsoficaria:coarse_marl"
+    },
+    "topTertiary": {
+      "Name": "landsoficaria:loam"
+    },
+    "topperSecondary": {
+      "Name": "landsoficaria:relicstone"
+    },
+    "y": {
+      "type": "minecraft:uniform",
+      "max_inclusive": {
+        "absolute": 67
+      },
+      "min_inclusive": {
+        "absolute": 10
+      }
+    },
+    "yScale": 0.0
+  }
+}

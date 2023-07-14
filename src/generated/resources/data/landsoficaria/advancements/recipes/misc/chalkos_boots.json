@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:chalkos_boots"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

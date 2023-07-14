@@ -11,11 +11,16 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.block.state.properties.AttachFace;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -45,14 +50,11 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.ATTACH_FACE, AttachFace.WALL).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
-	public boolean canAttach(LevelReader pLevel, BlockPos pPos, Direction pDirection) {
-		var relativePos = pPos.relative(pDirection);
-		return pLevel.getBlockState(relativePos).isFaceSturdy(pLevel, relativePos, pDirection.getOpposite());
-	}
-
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		return this.canAttach(pLevel, pPos, this.getConnectedDirection(pState).getOpposite());
+		var direction = this.getConnectedDirection(pState);
+		var relativePos = pPos.relative(direction.getOpposite());
+		return pLevel.getBlockState(relativePos).isFaceSturdy(pLevel, relativePos, direction);
 	}
 
 	@Override
@@ -69,7 +71,7 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
 		var clickedPos = pContext.getClickedPos();
 		var level = pContext.getLevel();
-		for (Direction direction : pContext.getNearestLookingDirections()) {
+		for (var direction : pContext.getNearestLookingDirections()) {
 			BlockState blockState;
 			if (direction.getAxis() == Direction.Axis.Y) {
 				blockState = this.defaultBlockState().setValue(BlockStateProperties.ATTACH_FACE, direction == Direction.UP ? AttachFace.CEILING : AttachFace.FLOOR).setValue(BlockStateProperties.HORIZONTAL_FACING, pContext.getHorizontalDirection()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, level.getFluidState(clickedPos).getType() == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(clickedPos).getType() == Fluids.WATER);
@@ -86,11 +88,6 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 	}
 
 	@Override
-	public FluidState getFluidState(BlockState pState) {
-		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : super.getFluidState(pState);
-	}
-
-	@Override
 	public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
 		return this.getConnectedDirection(pState).getOpposite() == pFacing && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
 	}
@@ -101,6 +98,11 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock {
 			case CEILING -> Direction.DOWN;
 			case FLOOR -> Direction.UP;
 		};
+	}
+
+	@Override
+	public FluidState getFluidState(BlockState pState) {
+		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : super.getFluidState(pState);
 	}
 
 	@Override

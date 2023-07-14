@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:voidshale_wall"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

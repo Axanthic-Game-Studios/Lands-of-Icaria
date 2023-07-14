@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:laurel_wreath"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

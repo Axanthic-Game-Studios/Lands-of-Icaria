@@ -35,8 +35,8 @@ buildscript {
 
 dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    implementation fg.deobf("curse.maven:jade-324717:${jade}")
     implementation fg.deobf("curse.maven:jei-238222:${jei}")
+    implementation fg.deobf("curse.maven:the-one-probe-245211:${top}")
     minecraft "net.minecraftforge:forge:${minecraft}-${forge}"
 }
 

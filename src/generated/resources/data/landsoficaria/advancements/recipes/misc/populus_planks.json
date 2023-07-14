@@ -69,5 +69,6 @@
     "recipes": [
       "landsoficaria:populus_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

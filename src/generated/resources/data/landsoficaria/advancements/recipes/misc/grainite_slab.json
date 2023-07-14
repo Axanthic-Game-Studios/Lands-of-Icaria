@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:grainite_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

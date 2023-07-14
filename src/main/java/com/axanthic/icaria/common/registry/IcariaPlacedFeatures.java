@@ -15,8 +15,6 @@ import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.placement.*;
 
-import net.minecraftforge.registries.DeferredRegister;
-
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -25,8 +23,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaPlacedFeatures {
-	public static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister.create(Registries.PLACED_FEATURE, IcariaInfo.ID);
-
 	public static final ResourceKey<PlacedFeature> MARL_CHERT = IcariaPlacedFeatures.registerKey("marl_chert");
 	public static final ResourceKey<PlacedFeature> MARL_BONES = IcariaPlacedFeatures.registerKey("marl_bones");
 	public static final ResourceKey<PlacedFeature> MARL_LIGNITE = IcariaPlacedFeatures.registerKey("marl_lignite");
@@ -113,8 +109,10 @@ public class IcariaPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> SUNSPONGE = IcariaPlacedFeatures.registerKey("sunsponge");
 	public static final ResourceKey<PlacedFeature> VOIDLILY = IcariaPlacedFeatures.registerKey("voidlily");
 
+	public static final ResourceKey<PlacedFeature> BOLBOS = IcariaPlacedFeatures.registerKey("bolbos");
 	public static final ResourceKey<PlacedFeature> DATHULLA = IcariaPlacedFeatures.registerKey("dathulla");
 	public static final ResourceKey<PlacedFeature> MONDANOS = IcariaPlacedFeatures.registerKey("mondanos");
+	public static final ResourceKey<PlacedFeature> MOTH_AGARIC = IcariaPlacedFeatures.registerKey("moth_agaric");
 	public static final ResourceKey<PlacedFeature> NAMDRAKE = IcariaPlacedFeatures.registerKey("namdrake");
 	public static final ResourceKey<PlacedFeature> PSILOCYBOS = IcariaPlacedFeatures.registerKey("psilocybos");
 	public static final ResourceKey<PlacedFeature> ROWAN = IcariaPlacedFeatures.registerKey("rowan");
@@ -145,7 +143,7 @@ public class IcariaPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> LAKE = IcariaPlacedFeatures.registerKey("lake");
 	public static final ResourceKey<PlacedFeature> DRY_LAKE = IcariaPlacedFeatures.registerKey("dry_lake");
 
-	public static void bootstrapPlacedFeatures(BootstapContext<PlacedFeature> pContext) {
+	public static void bootstrap(BootstapContext<PlacedFeature> pContext) {
 		var configuredFeatures = pContext.lookup(Registries.CONFIGURED_FEATURE);
 
 		pContext.register(IcariaPlacedFeatures.MARL_CHERT, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.MARL_CHERT), List.of(CountPlacement.of(4), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(IcariaBlocks.GRASSY_MARL.get()), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
@@ -234,8 +232,10 @@ public class IcariaPlacedFeatures {
 		pContext.register(IcariaPlacedFeatures.SUNSPONGE, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.SUNSPONGE), List.of(CountPlacement.of(16), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), BiomeFilter.biome())));
 		pContext.register(IcariaPlacedFeatures.VOIDLILY, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.VOIDLILY), List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), BiomeFilter.biome())));
 
+		pContext.register(IcariaPlacedFeatures.BOLBOS, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.BOLBOS), List.of(CountPlacement.of(256), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesTag(BlockTags.SAND), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 		pContext.register(IcariaPlacedFeatures.DATHULLA, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.DATHULLA), List.of(CountPlacement.of(64), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesTag(BlockTags.DIRT), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 		pContext.register(IcariaPlacedFeatures.MONDANOS, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.MONDANOS), List.of(CountPlacement.of(64), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesTag(BlockTags.SAND), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
+		pContext.register(IcariaPlacedFeatures.MOTH_AGARIC, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.MOTH_AGARIC), List.of(CountPlacement.of(256), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesTag(BlockTags.DIRT), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 		pContext.register(IcariaPlacedFeatures.NAMDRAKE, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.NAMDRAKE), List.of(CountPlacement.of(64), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesTag(BlockTags.DIRT), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 		pContext.register(IcariaPlacedFeatures.PSILOCYBOS, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.PSILOCYBOS), List.of(CountPlacement.of(64), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesTag(BlockTags.DIRT), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 		pContext.register(IcariaPlacedFeatures.ROWAN, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.ROWAN), List.of(CountPlacement.of(64), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesTag(BlockTags.DIRT), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));

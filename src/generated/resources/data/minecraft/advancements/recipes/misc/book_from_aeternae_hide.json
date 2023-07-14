@@ -43,5 +43,6 @@
     "recipes": [
       "minecraft:book_from_aeternae_hide"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:orichalcum_pickaxe"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

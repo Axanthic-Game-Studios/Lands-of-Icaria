@@ -35,7 +35,7 @@ public class PlaneTreeFeature extends IcariaTreeFeature {
         int heightAxisY = heightLimit + origin.getY();
 
         if (heightAxisY < level.getMaxBuildHeight()) {
-            for (Direction direction : Direction.Plane.HORIZONTAL) {
+            for (var direction : Direction.Plane.HORIZONTAL) {
                 directions.add(direction);
             }
 
@@ -50,36 +50,39 @@ public class PlaneTreeFeature extends IcariaTreeFeature {
                 var left = front.getCounterClockWise();
                 var direction = directions.get(random.nextInt(directions.size()));
                 var clockWise = direction.getClockWise();
-                var pos = new BlockPos(origin.below().above(heightTrunk));
+                var blockPos = new BlockPos(origin.below().above(heightTrunk));
+
                 int length = random.nextIntBetweenInclusive(2, 4);
+
                 directions.remove(direction);
+
                 for (int j = 1; j <= length; ++j) {
-                    pos = pos.relative(direction);
+                    blockPos = blockPos.relative(direction);
                     if (random.nextInt(3) == 0) {
-                        pos = pos.relative(clockWise);
+                        blockPos = blockPos.relative(clockWise);
                     }
 
                     if (random.nextInt(3) != 0) {
-                        pos = pos.above();
+                        blockPos = blockPos.above();
                     }
 
-                    this.placeLog(level, pos, direction.getAxis());
+                    this.placeLog(level, blockPos, direction.getAxis());
                 }
 
-                this.placeLeaves(level, pos.relative(front).relative(right), 2);
-                this.placeLeaves(level, pos.relative(back).relative(left), 2);
-                this.placeLeaves(level, pos.north());
-                this.placeLeaves(level, pos.east());
-                this.placeLeaves(level, pos.south());
-                this.placeLeaves(level, pos.west());
-                this.placeLeaves(level, pos.above());
-                this.placeLeaves(level, pos.above().relative(front), 2);
-                this.placeLeaves(level, pos.above().relative(front).relative(right), 4);
-                this.placeLeaves(level, pos.above().relative(right), 2);
-                this.placeLeaves(level, pos.below());
-                this.placeLeaves(level, pos.below().relative(back), 2);
-                this.placeLeaves(level, pos.below().relative(back).relative(left), 4);
-                this.placeLeaves(level, pos.below().relative(left), 2);
+                this.placeLeaves(level, blockPos.relative(front).relative(right), 2);
+                this.placeLeaves(level, blockPos.relative(back).relative(left), 2);
+                this.placeLeaves(level, blockPos.north());
+                this.placeLeaves(level, blockPos.east());
+                this.placeLeaves(level, blockPos.south());
+                this.placeLeaves(level, blockPos.west());
+                this.placeLeaves(level, blockPos.above());
+                this.placeLeaves(level, blockPos.above().relative(front), 2);
+                this.placeLeaves(level, blockPos.above().relative(front).relative(right), 4);
+                this.placeLeaves(level, blockPos.above().relative(right), 2);
+                this.placeLeaves(level, blockPos.below());
+                this.placeLeaves(level, blockPos.below().relative(back), 2);
+                this.placeLeaves(level, blockPos.below().relative(back).relative(left), 4);
+                this.placeLeaves(level, blockPos.below().relative(left), 2);
             }
 
             this.placeTwigsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));

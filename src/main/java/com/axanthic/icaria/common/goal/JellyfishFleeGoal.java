@@ -41,7 +41,7 @@ public class JellyfishFleeGoal extends Goal {
         var livingEntity = this.entity.getLastHurtByMob();
         if (livingEntity != null) {
             var vec3 = new Vec3(this.entity.getX() - livingEntity.getX(), this.entity.getY() - livingEntity.getY(), this.entity.getZ() - livingEntity.getZ());
-            if (this.entity.level.getBlockState(BlockPos.containing(this.entity.getX() + vec3.x, this.entity.getY() + vec3.y, this.entity.getZ() + vec3.z)).isAir()) {
+            if (this.entity.level().getBlockState(BlockPos.containing(this.entity.getX() + vec3.x, this.entity.getY() + vec3.y, this.entity.getZ() + vec3.z)).isAir()) {
                 double length = vec3.length();
                 if (length > 0.0D) {
                     vec3.normalize();

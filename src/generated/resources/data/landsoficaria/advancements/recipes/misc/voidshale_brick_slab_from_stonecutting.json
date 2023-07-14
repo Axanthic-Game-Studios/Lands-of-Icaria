@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:voidshale_brick_slab_from_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

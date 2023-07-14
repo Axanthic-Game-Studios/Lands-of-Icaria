@@ -8,7 +8,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -16,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
 
 public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
@@ -114,7 +114,7 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
 
     public void placeLog(WorldGenLevel pLevel, BlockPos pPos, Direction.Axis pAxis) {
         if (pLevel.getBlockState(pPos).isAir() || pLevel.getBlockState(pPos).is(BlockTags.LEAVES)) {
-            this.setBlock(pLevel, pPos, this.log.defaultBlockState().setValue(RotatedPillarBlock.AXIS, pAxis));
+            this.setBlock(pLevel, pPos, this.log.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
         }
     }
 

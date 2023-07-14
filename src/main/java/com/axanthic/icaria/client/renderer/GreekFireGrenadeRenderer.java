@@ -33,7 +33,7 @@ public class GreekFireGrenadeRenderer extends EntityRenderer<GreekFireGrenadeEnt
     public void render(GreekFireGrenadeEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
 
-        var bakedModel = this.itemRenderer.getModel(pEntity.getItem(), pEntity.level, null, pEntity.getId());
+        var bakedModel = this.itemRenderer.getModel(pEntity.getItem(), pEntity.level(), null, pEntity.getId());
 
         pMatrixStack.pushPose();
         pMatrixStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot()) - 90.0F));

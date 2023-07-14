@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:black_dye_from_voidlily"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -1,5 +1,7 @@
 package com.axanthic.icaria.client.registry;
 
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+
 import net.minecraft.client.model.geom.ModelLayerLocation;
 
 public class IcariaLayerLocations {

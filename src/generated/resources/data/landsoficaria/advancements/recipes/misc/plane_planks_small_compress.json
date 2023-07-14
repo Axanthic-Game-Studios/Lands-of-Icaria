@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:plane_planks_small_compress"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

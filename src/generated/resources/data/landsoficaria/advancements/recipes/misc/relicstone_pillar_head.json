@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:relicstone_pillar_head"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

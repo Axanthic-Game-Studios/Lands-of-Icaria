@@ -20,7 +20,8 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.pathfinder.PathComputationType;
@@ -47,7 +48,7 @@ public class IcariaCakeBlock extends Block {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		return pLevel.getBlockState(pPos.below()).getMaterial().isSolid();
+		return pLevel.getBlockState(pPos.below()).isSolid();
 	}
 
 	@Override
@@ -80,11 +81,9 @@ public class IcariaCakeBlock extends Block {
 		if (!pPlayer.canEat(false)) {
 			return InteractionResult.PASS;
 		} else {
-			int bites = pState.getValue(IcariaBlockStateProperties.CAKE_BITE);
-			pPlayer.awardStat(Stats.EAT_CAKE_SLICE);
-			pPlayer.getFoodData().eat(2, 0.1F);
-			if (bites < 3) {
-				pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.CAKE_BITE, bites + 1), 3);
+			int bite = pState.getValue(IcariaBlockStateProperties.CAKE_BITE);
+			if (bite < 3) {
+				pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.CAKE_BITE, bite + 1), 3);
 			} else {
 				pLevel.removeBlock(pPos, false);
 			}
@@ -107,17 +106,17 @@ public class IcariaCakeBlock extends Block {
 						double playerX = pPlayer.getX();
 						double playerY = pPlayer.getY();
 						double playerZ = pPlayer.getZ();
-						double randomX = playerX + (pPlayer.getRandom().nextDouble() - 0.5D) * 16.0D;
-						double randomY = Mth.clamp(playerY + (pPlayer.getRandom().nextInt(16) - 8), pLevel.getMinBuildHeight(), pLevel.getMaxBuildHeight());
-						double randomZ = playerZ + (pPlayer.getRandom().nextDouble() - 0.5D) * 16.0D;
 						pLevel.playSound(null, BlockPos.containing(playerX, playerY, playerZ), SoundEvents.CHORUS_FRUIT_TELEPORT, SoundSource.PLAYERS, 1.0F, 1.0F);
-						pPlayer.randomTeleport(randomX, randomY, randomZ, true);
+						pPlayer.randomTeleport(playerX + (pPlayer.getRandom().nextDouble() - 0.5D) * 16.0D, Mth.clamp(playerY + (pPlayer.getRandom().nextInt(16) - 8), pLevel.getMinBuildHeight(), pLevel.getMaxBuildHeight()), playerZ + (pPlayer.getRandom().nextDouble() - 0.5D) * 16.0D, true);
 						if (pPlayer.isPassenger()) {
 							pPlayer.stopRiding();
 						}
 					}
 				}
 			}
+
+			pPlayer.awardStat(Stats.EAT_CAKE_SLICE);
+			pPlayer.getFoodData().eat(2, 0.1F);
 
 			return InteractionResult.SUCCESS;
 		}

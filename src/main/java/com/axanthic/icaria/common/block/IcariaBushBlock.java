@@ -28,7 +28,7 @@ public class IcariaBushBlock extends BushBlock {
 
 	@Override
 	public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-		return pState.is(BlockTags.REPLACEABLE_PLANTS);
+		return pState.is(BlockTags.REPLACEABLE);
 	}
 
 	@Override

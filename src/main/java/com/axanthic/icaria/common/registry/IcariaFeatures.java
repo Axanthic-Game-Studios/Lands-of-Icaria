@@ -3,14 +3,18 @@ package com.axanthic.icaria.common.registry;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.world.feature.*;
 import com.axanthic.icaria.common.world.feature.dead.*;
+import com.axanthic.icaria.common.world.feature.herb.*;
+import com.axanthic.icaria.common.world.feature.hidden.GrainelChertFeature;
+import com.axanthic.icaria.common.world.feature.hidden.MarlBonesFeature;
+import com.axanthic.icaria.common.world.feature.hidden.MarlChertFeature;
 import com.axanthic.icaria.common.world.feature.hidden.MarlLigniteFeature;
+import com.axanthic.icaria.common.world.feature.pillar.FallenRelicstonePillarFeature;
+import com.axanthic.icaria.common.world.feature.pillar.HorizontalRelicstonePillarFeature;
+import com.axanthic.icaria.common.world.feature.pillar.VerticalRelicstonePillarFeature;
 import com.axanthic.icaria.common.world.feature.shrooms.BrownGroundShroomsFeature;
 import com.axanthic.icaria.common.world.feature.shrooms.GreenGroundShroomsFeature;
 import com.axanthic.icaria.common.world.feature.shrooms.LargeBrownGroundShroomsFeature;
 import com.axanthic.icaria.common.world.feature.tree.*;
-import com.axanthic.icaria.common.world.feature.hidden.GrainelChertFeature;
-import com.axanthic.icaria.common.world.feature.hidden.MarlBonesFeature;
-import com.axanthic.icaria.common.world.feature.hidden.MarlChertFeature;
 import com.axanthic.icaria.common.world.feature.vine.*;
 
 import net.minecraft.core.registries.Registries;
@@ -60,8 +64,10 @@ public class IcariaFeatures {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SWIRLY_VINE = IcariaFeatures.FEATURES.register("swirly_vine", () -> new SwirlyVineFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> THORNY_VINE = IcariaFeatures.FEATURES.register("thorny_vine", () -> new ThornyVineFeature(NoneFeatureConfiguration.CODEC));
 
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> BOLBOS = IcariaFeatures.FEATURES.register("bolbos", () -> new BolbosFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> DATHULLA = IcariaFeatures.FEATURES.register("dathulla", () -> new DathullaFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> MONDANOS = IcariaFeatures.FEATURES.register("mondanos", () -> new MondanosFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> MOTH_AGARIC = IcariaFeatures.FEATURES.register("moth_agaric", () -> new MothAgaricFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> NAMDRAKE = IcariaFeatures.FEATURES.register("namdrake", () -> new NamdrakeFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> PSILOCYBOS = IcariaFeatures.FEATURES.register("psilocybos", () -> new PsilocybosFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> ROWAN = IcariaFeatures.FEATURES.register("rowan", () -> new RowanFeature(NoneFeatureConfiguration.CODEC));

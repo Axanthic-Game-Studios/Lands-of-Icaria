@@ -40,14 +40,13 @@ public class GreekFireGrenadeItem extends Item implements Vanishable {
                 if (!pLevel.isClientSide) {
                     var entity = new GreekFireGrenadeEntity(pLevel, player, pStack);
                     entity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.0F, 1.0F);
+                    player.awardStat(Stats.ITEM_USED.get(this));
                     pLevel.addFreshEntity(entity);
                     pLevel.playSound(null, entity, SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F);
                     if (!player.isCreative()) {
                         pStack.shrink(1);
                     }
                 }
-
-                player.awardStat(Stats.ITEM_USED.get(this));
             }
         }
     }

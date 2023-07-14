@@ -77,8 +77,8 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Medit
 	public void onProjectileHit(Level pLevel, BlockState pState, BlockHitResult pHit, Projectile pProjectile) {
 		if (!pLevel.isClientSide) {
 			var blockPos = pHit.getBlockPos();
-			pLevel.playSound(null, blockPos, SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS, 1.0F, 0.5F + pLevel.random.nextFloat() * 1.2F);
-			pLevel.playSound(null, blockPos, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 1.0F, 0.5F + pLevel.random.nextFloat() * 1.2F);
+			pLevel.playSound(null, blockPos, SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS, 1.0F, pLevel.random.nextFloat() * 1.2F + 0.5F);
+			pLevel.playSound(null, blockPos, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 1.0F, pLevel.random.nextFloat() * 1.2F + 0.5F);
 		}
 	}
 
@@ -96,9 +96,8 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Medit
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var clickedPos = pContext.getClickedPos();
-		var level = pContext.getLevel();
-		return this.defaultBlockState().setValue(BlockStateProperties.FACING, pContext.getClickedFace()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, level.getFluidState(clickedPos).getType() == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(clickedPos).getType() == Fluids.WATER);
+		var fluid = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
+		return this.defaultBlockState().setValue(BlockStateProperties.FACING, pContext.getClickedFace()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override

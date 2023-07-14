@@ -1,8 +1,7 @@
 package com.axanthic.icaria.data.tags;
 
+import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
-import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
@@ -40,13 +39,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> MINEABLE_WITH_SCYTHE = IcariaBlockTags.icariaTag("mineable/scythe");
 
 	public static final TagKey<Block> ICARIA_PORTAL_BLOCKS = IcariaBlockTags.icariaTag("icaria_portal_blocks");
-
 	public static final TagKey<Block> ICARIA_COBWEB_BLOCKS = IcariaBlockTags.icariaTag("icaria_cobweb_blocks");
-
 	public static final TagKey<Block> ICARIA_GRASS_BLOCKS = IcariaBlockTags.icariaTag("icaria_grass_blocks");
 
 	public static final TagKey<Block> MYRMEKE_SUMMONS_ON = IcariaBlockTags.icariaTag("myrmeke_summons_on");
-
 	public static final TagKey<Block> CAPTAIN_SUMMONS_ON = IcariaBlockTags.icariaTag("captain_summons_on");
 
 	public static final TagKey<Block> SLUG_HIDE_BLOCKS = IcariaBlockTags.icariaTag("slug_hide_blocks");
@@ -181,10 +177,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.RAW_CHALKOS_BLOCK.get())
 			.add(IcariaBlocks.CHALKOS_BLOCK.get());
 
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_CHERT_TOOL, IcariaBlocks.YELLOWSTONE_ADOBE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_CHERT_TOOL, IcariaBlocks.COBBLED_YELLOWSTONE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_CHERT_TOOL, IcariaBlocks.YELLOWSTONE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_CHERT_TOOL, IcariaBlocks.YELLOWSTONE_BRICK_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHERT_TOOL, IcariaBlocks.YELLOWSTONE_ADOBE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHERT_TOOL, IcariaBlocks.COBBLED_YELLOWSTONE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHERT_TOOL, IcariaBlocks.YELLOWSTONE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHERT_TOOL, IcariaBlocks.YELLOWSTONE_BRICK_DECO);
 
 		this.tag(IcariaBlockTags.NEEDS_CHALKOS_TOOL)
 			.add(IcariaBlocks.DOLOMITE_ADOBE.get())
@@ -209,12 +205,12 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.RAW_KASSITEROS_BLOCK.get())
 			.add(IcariaBlocks.KASSITEROS_BLOCK.get());
 
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.DOLOMITE_ADOBE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.SMOOTH_DOLOMITE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.SILKSTONE_ADOBE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.COBBLED_SILKSTONE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.SILKSTONE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.SILKSTONE_BRICK_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.DOLOMITE_ADOBE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.SMOOTH_DOLOMITE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.SILKSTONE_ADOBE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.COBBLED_SILKSTONE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.SILKSTONE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.SILKSTONE_BRICK_DECO);
 
 		this.tag(IcariaBlockTags.NEEDS_KASSITEROS_TOOL)
 			.add(IcariaBlocks.ORICHALCUM_BLOCK.get());
@@ -237,10 +233,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
 			.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.SUNSTONE_ADOBE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.COBBLED_SUNSTONE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.SUNSTONE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.SUNSTONE_BRICK_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.SUNSTONE_ADOBE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.COBBLED_SUNSTONE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.SUNSTONE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.SUNSTONE_BRICK_DECO);
 
 		this.tag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL)
 			.add(IcariaBlocks.VOIDSHALE_ADOBE.get())
@@ -254,10 +250,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.SIDEROS_BLOCK.get())
 			.add(IcariaBlocks.ANTHRACITE_BLOCK.get());
 
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, IcariaBlocks.VOIDSHALE_ADOBE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, IcariaBlocks.COBBLED_VOIDSHALE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, IcariaBlocks.VOIDSHALE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, IcariaBlocks.VOIDSHALE_BRICK_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, IcariaBlocks.VOIDSHALE_ADOBE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, IcariaBlocks.COBBLED_VOIDSHALE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, IcariaBlocks.VOIDSHALE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, IcariaBlocks.VOIDSHALE_BRICK_DECO);
 
 		this.tag(IcariaBlockTags.NEEDS_SIDEROS_TOOL)
 			.add(IcariaBlocks.BAETYL_ADOBE.get())
@@ -280,12 +276,12 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get())
 			.add(IcariaBlocks.BLURIDIUM_BLOCK.get());
 
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.BAETYL_ADOBE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.COBBLED_BAETYL_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.BAETYL_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.BAETYL_BRICK_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.PLATOSHALE_DECO);
-		this.addStoneDecoToTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.PLATOSHALE_BRICK_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.BAETYL_ADOBE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.COBBLED_BAETYL_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.BAETYL_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.BAETYL_BRICK_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.PLATOSHALE_DECO);
+		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.PLATOSHALE_BRICK_DECO);
 
 		this.tag(IcariaBlockTags.NEEDS_MOLYBDENUMSTEEL_TOOL);
 
@@ -428,43 +424,43 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.RUIN_SPAWNER.get())
 			.add(IcariaBlocks.VILLAGE_SPAWNER.get());
 
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.MARL_ADOBE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.LOAM_BRICK_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.DOLOMITE_ADOBE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SMOOTH_DOLOMITE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.GRAINITE_ADOBE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.GRAINITE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.GRAINITE_BRICK_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.YELLOWSTONE_ADOBE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.COBBLED_YELLOWSTONE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.YELLOWSTONE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.YELLOWSTONE_BRICK_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SILKSTONE_ADOBE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.COBBLED_SILKSTONE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SILKSTONE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SILKSTONE_BRICK_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SUNSTONE_ADOBE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.COBBLED_SUNSTONE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SUNSTONE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SUNSTONE_BRICK_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.VOIDSHALE_ADOBE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.COBBLED_VOIDSHALE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.VOIDSHALE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.VOIDSHALE_BRICK_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.BAETYL_ADOBE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.COBBLED_BAETYL_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.BAETYL_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.BAETYL_BRICK_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.RELICSTONE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SMOOTH_RELICSTONE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.RELICSTONE_BRICK_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.CRACKED_RELICSTONE_BRICK_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.MOSSY_RELICSTONE_BRICK_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.RELICSTONE_TILE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.PLATOSHALE_DECO);
-		this.addStoneDecoToTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.PLATOSHALE_BRICK_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.MARL_ADOBE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.LOAM_BRICK_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.DOLOMITE_ADOBE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SMOOTH_DOLOMITE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.GRAINITE_ADOBE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.GRAINITE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.GRAINITE_BRICK_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.YELLOWSTONE_ADOBE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.COBBLED_YELLOWSTONE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.YELLOWSTONE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.YELLOWSTONE_BRICK_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SILKSTONE_ADOBE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.COBBLED_SILKSTONE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SILKSTONE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SILKSTONE_BRICK_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SUNSTONE_ADOBE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.COBBLED_SUNSTONE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SUNSTONE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SUNSTONE_BRICK_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.VOIDSHALE_ADOBE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.COBBLED_VOIDSHALE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.VOIDSHALE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.VOIDSHALE_BRICK_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.BAETYL_ADOBE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.COBBLED_BAETYL_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.BAETYL_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.BAETYL_BRICK_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.RELICSTONE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.SMOOTH_RELICSTONE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.RELICSTONE_BRICK_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.CRACKED_RELICSTONE_BRICK_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.MOSSY_RELICSTONE_BRICK_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.RELICSTONE_TILE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.PLATOSHALE_DECO);
+		this.stoneDecoBlocksTag(BlockTags.MINEABLE_WITH_PICKAXE, IcariaBlocks.PLATOSHALE_BRICK_DECO);
 
 		this.tag(BlockTags.MINEABLE_WITH_AXE)
 			.add(IcariaBlocks.VINE_REED_BLOCK.get())
@@ -566,13 +562,13 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.POPULUS_SIGN.get())
 			.add(IcariaBlocks.POPULUS_WALL_SIGN.get());
 
-		this.addWoodDecoToTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.CYPRESS_DECO);
-		this.addWoodDecoToTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.DROUGHTROOT_DECO);
-		this.addWoodDecoToTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.FIR_DECO);
-		this.addWoodDecoToTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.LAUREL_DECO);
-		this.addWoodDecoToTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.OLIVE_DECO);
-		this.addWoodDecoToTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.PLANE_DECO);
-		this.addWoodDecoToTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.POPULUS_DECO);
+		this.woodDecoBlocksTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.CYPRESS_DECO);
+		this.woodDecoBlocksTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.DROUGHTROOT_DECO);
+		this.woodDecoBlocksTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.FIR_DECO);
+		this.woodDecoBlocksTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.LAUREL_DECO);
+		this.woodDecoBlocksTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.OLIVE_DECO);
+		this.woodDecoBlocksTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.PLANE_DECO);
+		this.woodDecoBlocksTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.POPULUS_DECO);
 
 		this.tag(BlockTags.MINEABLE_WITH_HOE)
 			.add(IcariaBlocks.SPELT_BALE_BLOCK.get())
@@ -597,7 +593,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		this.tag(IcariaBlockTags.MINEABLE_WITH_SCYTHE)
 			.addTag(BlockTags.CROPS)
 			.addTag(BlockTags.MINEABLE_WITH_HOE)
-			.addTag(BlockTags.REPLACEABLE_PLANTS);
+			.addTag(BlockTags.REPLACEABLE);
 
 		this.tag(IcariaBlockTags.ICARIA_GRASS_BLOCKS)
 			.add(IcariaBlocks.SMALL_GRASS.get())
@@ -734,7 +730,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.PLANE_WALL_SIGN.get())
 			.add(IcariaBlocks.POPULUS_WALL_SIGN.get());
 
-		this.tag(BlockTags.REPLACEABLE_PLANTS)
+		this.tag(BlockTags.REPLACEABLE)
 			.add(IcariaBlocks.DEAD_BLOOMY_VINE.get())
 			.add(IcariaBlocks.GROWING_BLOOMY_VINE.get())
 			.add(IcariaBlocks.BLOOMY_VINE.get())
@@ -789,17 +785,17 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.PORTAL.get());
 
 		// ITEMBLOCK TAGS
-		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_DECO) {
-			this.tag(BlockTags.STAIRS).add(deco.block.stairs.get());
-			this.tag(BlockTags.SLABS).add(deco.block.slab.get());
-			this.tag(BlockTags.WALLS).add(deco.block.wall.get());
+		for (var items : IcariaStoneDecoItems.STONE_DECO_ITEMS) {
+			this.tag(BlockTags.STAIRS).add(items.block.stairs.get());
+			this.tag(BlockTags.SLABS).add(items.block.slab.get());
+			this.tag(BlockTags.WALLS).add(items.block.wall.get());
 		}
 
-		for (IcariaItems.WoodDecoItemBlocks deco : IcariaItems.WOOD_DECO) {
-			this.tag(BlockTags.WOODEN_STAIRS).add(deco.block.stairs.get());
-			this.tag(BlockTags.WOODEN_SLABS).add(deco.block.slab.get());
-			this.tag(BlockTags.WOODEN_FENCES).add(deco.block.fence.get());
-			this.tag(Tags.Blocks.FENCE_GATES_WOODEN).add(deco.block.gate.get());
+		for (var items : IcariaWoodDecoItems.WOOD_DECO_ITEMS) {
+			this.tag(BlockTags.WOODEN_STAIRS).add(items.block.stairs.get());
+			this.tag(BlockTags.WOODEN_SLABS).add(items.block.slab.get());
+			this.tag(BlockTags.WOODEN_FENCES).add(items.block.fence.get());
+			this.tag(Tags.Blocks.FENCE_GATES_WOODEN).add(items.block.gate.get());
 		}
 
 		this.tag(BlockTags.DIRT)
@@ -1222,11 +1218,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.PURPLE_BROMELIA.get());
 	}
 
-	public void addStoneDecoToTag(TagKey<Block> pBlock, IcariaBlocks.StoneDecoBlocks pDeco) {
+	public void stoneDecoBlocksTag(TagKey<Block> pBlock, IcariaStoneDecoBlocks pDeco) {
 		this.tag(pBlock).add(pDeco.slab.get()).add(pDeco.stairs.get()).add(pDeco.wall.get());
 	}
 
-	public void addWoodDecoToTag(TagKey<Block> pBlock, IcariaBlocks.WoodDecoBlocks pDeco) {
+	public void woodDecoBlocksTag(TagKey<Block> pBlock, IcariaWoodDecoBlocks pDeco) {
 		this.tag(pBlock).add(pDeco.slab.get()).add(pDeco.stairs.get()).add(pDeco.fence.get()).add(pDeco.gate.get());
 	}
 

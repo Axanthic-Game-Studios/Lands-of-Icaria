@@ -1,5 +1,6 @@
 package com.axanthic.icaria;
 
+import com.axanthic.icaria.client.effects.IcariaSpecialEffects;
 import com.axanthic.icaria.client.proxy.ClientProxy;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.proxy.CommonProxy;
@@ -13,7 +14,7 @@ import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
@@ -29,9 +30,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
+import javax.annotation.Nonnull;
+
 @SuppressWarnings("unused")
 
 @Mod(IcariaInfo.ID)
+@Mod.EventBusSubscriber(modid = IcariaInfo.ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class Icaria {
 	public CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
@@ -48,31 +52,34 @@ public class Icaria {
 		eventBus.addListener(this::onFMLCommonSetup);
 		eventBus.addListener(this::onFMLLoadComplete);
 		eventBus.addListener(this::onGatherData);
-		eventBus.addListener(this::onRegisterDimensionSpecialEffects);
 		eventBus.addListener(this::onRegisterLayerDefinitions);
 		eventBus.addListener(this::onSpawnPlacementRegister);
 
-		IcariaBiomes.BIOMES.register(eventBus);
 		IcariaBlocks.BLOCKS.register(eventBus);
+		IcariaStoneDecoBlocks.BLOCKS.register(eventBus);
+		IcariaWoodDecoBlocks.BLOCKS.register(eventBus);
 		IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(eventBus);
 		IcariaCarvers.CARVERS.register(eventBus);
-		IcariaDimensions.CHUNK_GENERATORS.register(eventBus);
-		IcariaConfiguredFeatures.CONFIGURED_FEATURES.register(eventBus);
+		IcariaChunkGenerators.CHUNK_GENERATORS.register(eventBus);
+		IcariaCreativeModeTabs.CREATIVE_MODE_TABS.register(eventBus);
 		IcariaEntityTypes.ENTITY_TYPES.register(eventBus);
 		IcariaFeatures.FEATURES.register(eventBus);
 		IcariaFluids.FLUIDS.register(eventBus);
 		IcariaFluidTypes.FLUID_TYPES.register(eventBus);
 		IcariaItems.ITEMS.register(eventBus);
+		IcariaArmorItems.ITEMS.register(eventBus);
+		IcariaStoneDecoItems.ITEMS.register(eventBus);
+		IcariaToolItems.ITEMS.register(eventBus);
+		IcariaWoodDecoItems.ITEMS.register(eventBus);
 		IcariaMenus.MENUS.register(eventBus);
 		IcariaMobEffects.MOB_EFFECTS.register(eventBus);
-		IcariaPlacedFeatures.PLACED_FEATURES.register(eventBus);
 		IcariaPoiTypes.POI_TYPES.register(eventBus);
 		IcariaRecipeSerializers.RECIPE_SERIALIZERS.register(eventBus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
-	public void onCreativeModeTabRegistration(CreativeModeTabEvent.Register pEvent) {
+	public void onCreativeModeTabRegistration(BuildCreativeModeTabContentsEvent pEvent) {
 		this.proxy.onCreativeModeTabRegistration(pEvent);
 	}
 
@@ -94,10 +101,6 @@ public class Icaria {
 
 	public void onGatherData(GatherDataEvent pEvent) {
 		this.proxy.onGatherData(pEvent);
-	}
-
-	public void onRegisterDimensionSpecialEffects(RegisterDimensionSpecialEffectsEvent pEvent) {
-		this.proxy.onRegisterDimensionSpecialEffects(pEvent);
 	}
 
 	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions pEvent) {
@@ -146,6 +149,12 @@ public class Icaria {
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent pEvent) {
 		this.proxy.onPlayerTick(pEvent);
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	@SubscribeEvent
+	public static void onRegisterDimensionSpecialEffects(@Nonnull RegisterDimensionSpecialEffectsEvent pEvent) {
+		pEvent.register(IcariaResourceLocations.ICARIA, new IcariaSpecialEffects());
 	}
 
 	@OnlyIn(Dist.CLIENT)

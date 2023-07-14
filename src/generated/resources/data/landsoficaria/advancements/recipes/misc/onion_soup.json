@@ -56,5 +56,6 @@
     "recipes": [
       "landsoficaria:onion_soup"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:smooth_relicstone_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

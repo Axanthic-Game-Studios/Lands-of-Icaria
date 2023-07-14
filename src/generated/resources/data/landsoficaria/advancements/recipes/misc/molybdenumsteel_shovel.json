@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:molybdenumsteel_shovel"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

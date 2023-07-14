@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:sideros_bident"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

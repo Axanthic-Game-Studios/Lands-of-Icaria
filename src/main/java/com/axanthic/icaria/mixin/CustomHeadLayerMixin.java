@@ -41,12 +41,11 @@ public class CustomHeadLayerMixin<T extends LivingEntity, M extends EntityModel<
 
     @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/layers/CustomHeadLayer;translateToHead(Lcom/mojang/blaze3d/vertex/PoseStack;Z)V", shift = At.Shift.BEFORE), method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/LivingEntity;FFFFFF)V", cancellable = true)
     private void renderHeadMixin(PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight, @Nonnull T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch, CallbackInfo pCallbackInfo) {
-        var itemStack = pLivingEntity.getItemBySlot(EquipmentSlot.HEAD);
         if (this.map == null) {
             this.map = IcariaSkullBlockRenderer.createRenderers(this.set);
         }
 
-        if (itemStack.getItem() instanceof IcariaSkullItem skullItem) {
+        if (pLivingEntity.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof IcariaSkullItem skullItem) {
             pMatrixStack.scale(1.1875F, -1.1875F, -1.1875F);
             pMatrixStack.translate(-0.5D, 0.0D, -0.5D);
             IcariaSkullBlockRenderer.renderSkull(null, 180.0F, pMatrixStack, pBuffer, pPackedLight, this.map, skullItem.getBlock());

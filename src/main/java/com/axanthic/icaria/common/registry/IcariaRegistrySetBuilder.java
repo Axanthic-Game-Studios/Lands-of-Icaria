@@ -7,6 +7,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class IcariaRegistrySetBuilder extends RegistrySetBuilder {
     public IcariaRegistrySetBuilder() {
-        this.add(ForgeRegistries.Keys.BIOME_MODIFIERS, IcariaBiomeModifier::bootstrap).add(Registries.BIOME, IcariaBiomes::bootstrapBiomes).add(Registries.CONFIGURED_CARVER, IcariaCarvers::bootstrap).add(Registries.CONFIGURED_FEATURE, IcariaConfiguredFeatures::bootstrapConfiguredFeatures).add(Registries.DIMENSION_TYPE, IcariaDimensions::bootstrapType).add(Registries.LEVEL_STEM, IcariaDimensions::bootstrapDimension).add(Registries.NOISE_SETTINGS, IcariaDimensions::bootstrapNoiseSettings).add(Registries.PLACED_FEATURE, IcariaPlacedFeatures::bootstrapPlacedFeatures);
+        this.add(ForgeRegistries.Keys.BIOME_MODIFIERS, IcariaBiomeModifiers::bootstrap).add(Registries.BIOME, IcariaBiomes::bootstrap).add(Registries.CONFIGURED_CARVER, IcariaConfiguredCarvers::bootstrap).add(Registries.CONFIGURED_FEATURE, IcariaConfiguredFeatures::bootstrap).add(Registries.DIMENSION_TYPE, IcariaDimensionTypes::bootstrap).add(Registries.LEVEL_STEM, IcariaLevelStems::bootstrap).add(Registries.NOISE_SETTINGS, IcariaNoiseSettings::bootstrap).add(Registries.PLACED_FEATURE, IcariaPlacedFeatures::bootstrap);
     }
 }

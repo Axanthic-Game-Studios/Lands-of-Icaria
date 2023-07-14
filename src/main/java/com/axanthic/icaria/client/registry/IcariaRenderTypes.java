@@ -5,6 +5,8 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 
@@ -47,9 +49,7 @@ public class IcariaRenderTypes {
     // TRANSLUCENT
     public static final RenderType HYLIASTER_TRANSLUCENT = RenderType.entityTranslucent(new ResourceLocation(IcariaInfo.ID, "textures/entity/hyliaster_translucent.png"));
 
-    // ADDITIVE
-    public static final RenderType ADDITIVE_LIGHTNING = RenderType.create("additive_lightning", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(IcariaRenderStateShards.LIGHTNING_SHADER).setTransparencyState(IcariaRenderStateShards.ADDITIVE_LIGHTNING_TRANSPARENCY).createCompositeState(false));
-
-    // SUBTRACTIVE
-    public static final RenderType SUBTRACTIVE_LIGHTNING = RenderType.create("subtractive_lightning", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(IcariaRenderStateShards.LIGHTNING_SHADER).setTransparencyState(IcariaRenderStateShards.SUBTRACTIVE_LIGHTNING_TRANSPARENCY).createCompositeState(false));
+    // TRANSPARENT
+    public static final RenderType ADDITIVE_TRANSPARENT = RenderType.create("additive_transparent", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(new RenderStateShard.ShaderStateShard(GameRenderer::getRendertypeLightningShader)).setTransparencyState(IcariaRenderStateShards.ADDITIVE_TRANSPARENCY).createCompositeState(false));
+    public static final RenderType SUBTRACTIVE_TRANSPARENT = RenderType.create("subtractive_transparent", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(new RenderStateShard.ShaderStateShard(GameRenderer::getRendertypeLightningShader)).setTransparencyState(IcariaRenderStateShards.SUBTRACTIVE_TRANSPARENCY).createCompositeState(false));
 }

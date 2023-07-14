@@ -1,6 +1,6 @@
 package com.axanthic.icaria.integration;
 
-import com.axanthic.icaria.client.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import mezz.jei.api.IModPlugin;

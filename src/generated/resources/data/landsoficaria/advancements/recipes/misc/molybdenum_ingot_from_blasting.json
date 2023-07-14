@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:molybdenum_ingot_from_blasting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -26,12 +26,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaClientHelper {
     public static float getLightBasedAlpha(LivingEntity pLivingEntity) {
-        if (pLivingEntity.level.getDayTime() >= IcariaInfo.DUSK_INIT && pLivingEntity.level.getDayTime() < IcariaInfo.DUSK_EXIT) {
-            return (pLivingEntity.level.getDayTime() - IcariaInfo.DUSK_INIT) / (IcariaInfo.DUSK_EXIT - IcariaInfo.DUSK_INIT);
-        } else if (pLivingEntity.level.getDayTime() >= IcariaInfo.DUSK_INIT && pLivingEntity.level.getDayTime() < IcariaInfo.DAWN_INIT) {
+        if (pLivingEntity.level().getDayTime() >= IcariaInfo.DUSK_INIT && pLivingEntity.level().getDayTime() < IcariaInfo.DUSK_EXIT) {
+            return (pLivingEntity.level().getDayTime() - IcariaInfo.DUSK_INIT) / (IcariaInfo.DUSK_EXIT - IcariaInfo.DUSK_INIT);
+        } else if (pLivingEntity.level().getDayTime() >= IcariaInfo.DUSK_INIT && pLivingEntity.level().getDayTime() < IcariaInfo.DAWN_INIT) {
             return 1.0F;
-        } else if (pLivingEntity.level.getDayTime() >= IcariaInfo.DAWN_INIT && pLivingEntity.level.getDayTime() < IcariaInfo.DAWN_EXIT) {
-            return (IcariaInfo.DAWN_EXIT - pLivingEntity.level.getDayTime()) / (IcariaInfo.DAWN_EXIT - IcariaInfo.DAWN_INIT);
+        } else if (pLivingEntity.level().getDayTime() >= IcariaInfo.DAWN_INIT && pLivingEntity.level().getDayTime() < IcariaInfo.DAWN_EXIT) {
+            return (IcariaInfo.DAWN_EXIT - pLivingEntity.level().getDayTime()) / (IcariaInfo.DAWN_EXIT - IcariaInfo.DAWN_INIT);
         } else {
             return 0.0F;
         }
@@ -41,7 +41,7 @@ public class IcariaClientHelper {
         if (IcariaConfig.RENDER_RAYS.get()) {
             var matrix4f = pPoseStack.last().pose();
             var randomSource = RandomSource.create(432L);
-            var vertexConsumer = pBuffer.getBuffer(IcariaRenderTypes.ADDITIVE_LIGHTNING);
+            var vertexConsumer = pBuffer.getBuffer(IcariaRenderTypes.ADDITIVE_TRANSPARENT);
 
             float alpha = (0.1F - Math.min(0.0F, 0.1F)) * (!pLivingEntity.isInvisible() ? IcariaClientHelper.getLightBasedAlpha(pLivingEntity) : 0.0F);
             float length = randomSource.nextFloat() * 2.0F + 1.25F;
@@ -69,7 +69,7 @@ public class IcariaClientHelper {
         if (IcariaConfig.RENDER_RAYS.get()) {
             var matrix4f = pPoseStack.last().pose();
             var randomSource = RandomSource.create(432L);
-            var vertexConsumer = pBuffer.getBuffer(IcariaRenderTypes.ADDITIVE_LIGHTNING);
+            var vertexConsumer = pBuffer.getBuffer(IcariaRenderTypes.ADDITIVE_TRANSPARENT);
 
             float alpha = (0.1F - Math.min(0.0F, 0.1F));
             float length = randomSource.nextFloat() * 2.0F + 1.25F;
@@ -94,7 +94,7 @@ public class IcariaClientHelper {
     }
 
     public static void setItem(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, LivingEntity pLivingEntity) {
-        Minecraft.getInstance().getItemRenderer().renderStatic(pLivingEntity, pLivingEntity.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, false, pPoseStack, pBuffer, pLivingEntity.level, pPackedLight, OverlayTexture.NO_OVERLAY, pLivingEntity.getId() + ItemDisplayContext.THIRD_PERSON_RIGHT_HAND.ordinal());
+        Minecraft.getInstance().getItemRenderer().renderStatic(pLivingEntity, pLivingEntity.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, false, pPoseStack, pBuffer, pLivingEntity.level(), pPackedLight, OverlayTexture.NO_OVERLAY, pLivingEntity.getId() + ItemDisplayContext.THIRD_PERSON_RIGHT_HAND.ordinal());
     }
 
     public static void setPart(PoseStack pPoseStack, ModelPart pModelPart) {

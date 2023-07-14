@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:vanadiumsteel_axe"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

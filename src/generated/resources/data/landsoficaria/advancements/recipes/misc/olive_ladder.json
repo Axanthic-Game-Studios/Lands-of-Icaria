@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:olive_ladder"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

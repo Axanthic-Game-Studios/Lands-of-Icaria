@@ -33,6 +33,7 @@ import java.util.function.Function;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("deprecation")
 @ParametersAreNonnullByDefault
 
 public class IcariaTeleporter implements ITeleporter {
@@ -51,7 +52,7 @@ public class IcariaTeleporter implements ITeleporter {
             }
         }
 
-        return this.level.getBlockState(pPos.below()).getMaterial().isSolid();
+        return this.level.getBlockState(pPos.below()).isSolid();
     }
 
     public Optional<BlockUtil.FoundRectangle> makePortal(BlockPos pPos, Direction.Axis pAxis) {
@@ -225,23 +226,23 @@ public class IcariaTeleporter implements ITeleporter {
     @Override
     public PortalInfo getPortalInfo(Entity pEntity, ServerLevel pLevel, Function<ServerLevel, PortalInfo> pFunction) {
         boolean icaria = pLevel.dimension() == IcariaDimensions.ICARIA;
-        if (pEntity.level.dimension() != IcariaDimensions.ICARIA && !icaria) {
+        if (pEntity.level().dimension() != IcariaDimensions.ICARIA && !icaria) {
             return null;
         } else {
             var worldBorder = pLevel.getWorldBorder();
-            double coordinateDifference = DimensionType.getTeleportationScale(pEntity.level.dimensionType(), pLevel.dimensionType());
+            double coordinateDifference = DimensionType.getTeleportationScale(pEntity.level().dimensionType(), pLevel.dimensionType());
             double maxX = Math.min(2.9999872E7D, worldBorder.getMaxX() - 16.0D);
             double maxZ = Math.min(2.9999872E7D, worldBorder.getMaxZ() - 16.0D);
             double minX = Math.max(-2.9999872E7D, worldBorder.getMinX() + 16.0D);
             double minZ = Math.max(-2.9999872E7D, worldBorder.getMinZ() + 16.0D);
             var blockPos = BlockPos.containing(Mth.clamp(pEntity.getX() * coordinateDifference, minX, maxX), pEntity.getY(), Mth.clamp(pEntity.getZ() * coordinateDifference, minZ, maxZ));
             return this.getOrMakePortal(blockPos).map((pFoundRectangle) -> {
-                var blockState = pEntity.level.getBlockState(IcariaPortalBlock.entrancePos);
+                var blockState = pEntity.level().getBlockState(IcariaPortalBlock.entrancePos);
                 Direction.Axis axis;
                 Vec3 vec3;
                 if (blockState.hasProperty(BlockStateProperties.HORIZONTAL_AXIS)) {
                     axis = blockState.getValue(BlockStateProperties.HORIZONTAL_AXIS);
-                    BlockUtil.FoundRectangle rectangle = BlockUtil.getLargestRectangleAround(IcariaPortalBlock.entrancePos, axis, 21, Direction.Axis.Y, 21, (pBlockPos) -> pEntity.level.getBlockState(pBlockPos) == blockState);
+                    BlockUtil.FoundRectangle rectangle = BlockUtil.getLargestRectangleAround(IcariaPortalBlock.entrancePos, axis, 21, Direction.Axis.Y, 21, (pBlockPos) -> pEntity.level().getBlockState(pBlockPos) == blockState);
                     vec3 = PortalShape.getRelativePosition(rectangle, axis, pEntity.position(), pEntity.getDimensions(pEntity.getPose()));
                 } else {
                     axis = Direction.Axis.X;

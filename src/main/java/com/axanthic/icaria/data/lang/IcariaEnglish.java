@@ -11,8 +11,8 @@ import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class IcariaEnglish extends LanguageProvider {
-	public IcariaEnglish(PackOutput pOutput, String pId, String pLanguage) {
-		super(pOutput, pId, pLanguage);
+	public IcariaEnglish(PackOutput pPackOutput, String pId, String pLanguage) {
+		super(pPackOutput, pId, pLanguage);
 	}
 
 	@Override

@@ -5,7 +5,6 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.mojang.serialization.Codec;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -78,22 +77,6 @@ public class GrainiteSpikeFeature extends Feature<NoneFeatureConfiguration> {
         this.placeLowerRing(level, origin, 6, 11, 2, 2, 1);
         this.placeLowerRing(level, origin, 6, 12, 2, 4, 1);
 
-        this.placeHerb(level, origin.north(7).east(6), 4);
-        this.placeHerb(level, origin.north(7).east(7), 4);
-        this.placeHerb(level, origin.north(8).east(6), 4);
-        this.placeHerb(level, origin.north(8).east(7), 4);
-        this.placeHerb(level, origin.north(8).east(8), 4);
-        this.placeHerb(level, origin.north(9).east(7), 4);
-        this.placeHerb(level, origin.north(9).east(8), 4);
-
-        for (int x = 1; x <= length + 2; ++x) {
-            for (int y = 1; y <= height - 2; ++y) {
-                for (int z = 1; z <= length + 2; ++z) {
-                    this.placeGrainel(level, origin.below(y).north(x).east(z));
-                }
-            }
-        }
-
         return true;
     }
 
@@ -130,18 +113,6 @@ public class GrainiteSpikeFeature extends Feature<NoneFeatureConfiguration> {
         this.placeGrainite(pLevel, pPos.below().north(pZ + 3).above(pY).east(pZ), pChanceSouthWest);
     }
 
-    public void placeGrainel(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placeGrainel(pLevel, pPos);
-        }
-    }
-
-    public void placeGrainel(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir()) {
-            this.setBlock(pLevel, pPos, IcariaBlocks.GRAINEL.get().defaultBlockState());
-        }
-    }
-
     public void placeGrainite(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
         if (pLevel.getRandom().nextInt(pChance) == 0) {
             this.placeGrainite(pLevel, pPos);
@@ -151,18 +122,6 @@ public class GrainiteSpikeFeature extends Feature<NoneFeatureConfiguration> {
     public void placeGrainite(WorldGenLevel pLevel, BlockPos pPos) {
         if (pLevel.getBlockState(pPos).isAir()) {
             this.setBlock(pLevel, pPos, IcariaBlocks.GRAINITE.get().defaultBlockState());
-        }
-    }
-
-    public void placeHerb(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placeHerb(pLevel, pPos);
-        }
-    }
-
-    public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.SAND)) {
-            this.setBlock(pLevel, pPos, IcariaBlocks.BOLBOS.get().defaultBlockState());
         }
     }
 }

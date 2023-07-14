@@ -134,5 +134,6 @@
     "recipes": [
       "minecraft:mossy_cobblestone"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

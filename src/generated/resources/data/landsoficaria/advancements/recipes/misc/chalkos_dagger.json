@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:chalkos_dagger"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

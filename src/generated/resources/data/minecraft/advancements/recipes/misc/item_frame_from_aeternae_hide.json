@@ -43,5 +43,6 @@
     "recipes": [
       "minecraft:item_frame_from_aeternae_hide"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

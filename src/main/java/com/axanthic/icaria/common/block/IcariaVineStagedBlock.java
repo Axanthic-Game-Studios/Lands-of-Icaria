@@ -77,9 +77,8 @@ public class IcariaVineStagedBlock extends Block {
 	}
 
 	public boolean canSpread(BlockGetter pLevel, BlockPos pPos) {
-		var iterable = BlockPos.betweenClosed(pPos.getX() - 4, pPos.getY() - 1, pPos.getZ() - 4, pPos.getX() + 4, pPos.getY() + 1, pPos.getZ() + 4);
 		int j = 5;
-		for (BlockPos blockPos : iterable) {
+		for (var blockPos : BlockPos.betweenClosed(pPos.getX() - 4, pPos.getY() - 1, pPos.getZ() - 4, pPos.getX() + 4, pPos.getY() + 1, pPos.getZ() + 4)) {
 			if (pLevel.getBlockState(blockPos).is(this)) {
 				--j;
 				if (j <= 0) {
@@ -95,8 +94,7 @@ public class IcariaVineStagedBlock extends Block {
 		if (pDirection == Direction.DOWN) {
 			return false;
 		} else {
-			var relativePos = pPos.relative(pDirection);
-			if (this.isAcceptableNeighbour(pLevel, relativePos, pDirection)) {
+			if (this.isAcceptableNeighbour(pLevel, pPos.relative(pDirection), pDirection)) {
 				return true;
 			} else if (pDirection.getAxis() == Direction.Axis.Y) {
 				return false;
@@ -116,10 +114,6 @@ public class IcariaVineStagedBlock extends Block {
 		return this.countFaces(pState) > 0;
 	}
 
-	public boolean hasHorizontalConnection(BlockState pState) {
-		return pState.getValue(BlockStateProperties.NORTH) || pState.getValue(BlockStateProperties.EAST) || pState.getValue(BlockStateProperties.SOUTH) || pState.getValue(BlockStateProperties.WEST);
-	}
-
 	public boolean isAcceptableNeighbour(BlockGetter pLevel, BlockPos pPos, Direction pDirection) {
 		return Block.isFaceFull(pLevel.getBlockState(pPos).getCollisionShape(pLevel, pPos), pDirection.getOpposite());
 	}
@@ -131,7 +125,7 @@ public class IcariaVineStagedBlock extends Block {
 
 	public int countFaces(BlockState pState) {
 		int i = 0;
-		for (BooleanProperty booleanProperty : IcariaVineStagedBlock.PROPERTY_BY_DIRECTION.values()) {
+		for (var booleanProperty : IcariaVineStagedBlock.PROPERTY_BY_DIRECTION.values()) {
 			if (pState.getValue(booleanProperty)) {
 				++i;
 			}
@@ -193,13 +187,13 @@ public class IcariaVineStagedBlock extends Block {
 									return;
 								}
 
-								for (Direction direction : Direction.Plane.HORIZONTAL) {
+								for (var direction : Direction.Plane.HORIZONTAL) {
 									if (pRandom.nextBoolean() || !this.isAcceptableNeighbour(pLevel, abovePos.relative(direction), direction)) {
 										blockState = blockState.setValue(this.getPropertyForFace(direction), false);
 									}
 								}
 
-								if (this.hasHorizontalConnection(blockState)) {
+								if (blockState.getValue(BlockStateProperties.NORTH) || blockState.getValue(BlockStateProperties.EAST) || blockState.getValue(BlockStateProperties.SOUTH) || blockState.getValue(BlockStateProperties.WEST)) {
 									pLevel.setBlock(abovePos, blockState, 2);
 								}
 
@@ -245,7 +239,7 @@ public class IcariaVineStagedBlock extends Block {
 		var clickedState = pContext.getLevel().getBlockState(pContext.getClickedPos());
 		boolean clickedFlag = clickedState.is(this);
 		var blockState = clickedFlag ? clickedState : this.defaultBlockState();
-		for (Direction direction : pContext.getNearestLookingDirections()) {
+		for (var direction : pContext.getNearestLookingDirections()) {
 			if (direction != Direction.DOWN) {
 				var booleanProperty = this.getPropertyForFace(direction);
 				boolean flag = clickedFlag && clickedState.getValue(booleanProperty);
@@ -265,7 +259,7 @@ public class IcariaVineStagedBlock extends Block {
 		}
 
 		BlockState blockState = null;
-		for (Direction direction : Direction.Plane.HORIZONTAL) {
+		for (var direction : Direction.Plane.HORIZONTAL) {
 			var booleanProperty = this.getPropertyForFace(direction);
 			if (pState.getValue(booleanProperty)) {
 				boolean flag = this.canSupportAtFace(pLevel, pPos, direction);

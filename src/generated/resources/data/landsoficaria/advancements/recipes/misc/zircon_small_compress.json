@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:zircon_small_compress"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

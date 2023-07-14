@@ -43,5 +43,6 @@
     "recipes": [
       "landsoficaria:chalkos_bident"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

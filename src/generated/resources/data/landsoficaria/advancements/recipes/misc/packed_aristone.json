@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:packed_aristone"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

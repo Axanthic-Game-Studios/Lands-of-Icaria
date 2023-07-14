@@ -56,5 +56,6 @@
     "recipes": [
       "landsoficaria:quartz_pillar_head_from_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

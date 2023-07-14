@@ -9,7 +9,10 @@ import net.minecraft.client.model.ArmedModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.HumanoidArm;
@@ -62,7 +65,7 @@ public class CivilianRevenantModel extends HierarchicalModel<CivilianRevenantEnt
 
     @Override
     public void setupAnim(CivilianRevenantEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        RandomSource randomSource = RandomSource.create(pEntity.getId());
+        var randomSource = RandomSource.create(pEntity.getId());
 
         this.bodyUpper.y = -Mth.cos(pLimbSwing * 1.25F + 2.75F) * pLimbSwingAmount + 10.0F;
         this.bodyLower.y = -Mth.cos(pLimbSwing * 1.25F + 2.75F) * pLimbSwingAmount + 24.0F;

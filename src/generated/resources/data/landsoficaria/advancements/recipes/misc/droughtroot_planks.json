@@ -69,5 +69,6 @@
     "recipes": [
       "landsoficaria:droughtroot_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

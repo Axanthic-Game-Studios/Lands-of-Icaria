@@ -1,7 +1,7 @@
 {
   "type": "landsoficaria:icaria",
   "generator": {
-    "type": "landsoficaria:chunkgen",
+    "type": "landsoficaria:icaria",
     "biome_source": {
       "type": "minecraft:multi_noise",
       "biomes": [
@@ -27,27 +27,6 @@
           }
         },
         {
-          "biome": "landsoficaria:steppe",
-          "parameters": {
-            "continentalness": [
-              0.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "erosion": 0.0,
-            "humidity": [
-              -0.25,
-              0.0
-            ],
-            "offset": 0.0,
-            "temperature": [
-              0.0,
-              0.25
-            ],
-            "weirdness": 0.0
-          }
-        },
-        {
           "biome": "landsoficaria:scrubland",
           "parameters": {
             "continentalness": [
@@ -64,6 +43,27 @@
             "temperature": [
               -0.25,
               0.0
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:steppe",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "erosion": 0.0,
+            "humidity": [
+              -0.25,
+              0.0
+            ],
+            "offset": 0.0,
+            "temperature": [
+              0.0,
+              0.25
             ],
             "weirdness": 0.0
           }
@@ -112,6 +112,6 @@
         }
       ]
     },
-    "noiseSettings": "landsoficaria:noise_settings"
+    "noiseSettings": "landsoficaria:icaria"
   }
 }

@@ -69,5 +69,6 @@
     "recipes": [
       "landsoficaria:laurel_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

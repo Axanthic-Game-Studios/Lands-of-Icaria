@@ -69,5 +69,6 @@
     "recipes": [
       "landsoficaria:cerver_stew"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

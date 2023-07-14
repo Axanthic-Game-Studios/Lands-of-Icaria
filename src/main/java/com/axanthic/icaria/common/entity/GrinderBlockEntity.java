@@ -54,9 +54,9 @@ public class GrinderBlockEntity extends BlockEntity {
 	public int progress = 0;
 	public int rotation = 0;
 
-	public ItemStackHandler itemStackHandler = this.createHandler();
+	public ItemStackHandler stackHandler = this.createHandler();
 
-	public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> this.itemStackHandler);
+	public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> this.stackHandler);
 
 	public Object2IntOpenHashMap<ResourceLocation> usedRecipes = new Object2IntOpenHashMap<>();
 
@@ -74,14 +74,14 @@ public class GrinderBlockEntity extends BlockEntity {
 
 	public boolean hasRecipe() {
 		var inputs = new SimpleContainer(3);
-		inputs.setItem(0, this.itemStackHandler.getStackInSlot(0));
-		inputs.setItem(1, this.itemStackHandler.getStackInSlot(1));
-		inputs.setItem(2, this.itemStackHandler.getStackInSlot(2));
+		inputs.setItem(0, this.stackHandler.getStackInSlot(0));
+		inputs.setItem(1, this.stackHandler.getStackInSlot(1));
+		inputs.setItem(2, this.stackHandler.getStackInSlot(2));
 
 		var outputs = new SimpleContainer(3);
-		outputs.setItem(0, this.itemStackHandler.getStackInSlot(3));
-		outputs.setItem(1, this.itemStackHandler.getStackInSlot(4));
-		outputs.setItem(2, this.itemStackHandler.getStackInSlot(5));
+		outputs.setItem(0, this.stackHandler.getStackInSlot(3));
+		outputs.setItem(1, this.stackHandler.getStackInSlot(4));
+		outputs.setItem(2, this.stackHandler.getStackInSlot(5));
 
 		Optional<GrindingRecipe> recipe = Optional.empty();
 		if (this.level != null) {
@@ -105,15 +105,15 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public boolean shouldBreak(GrinderBlockEntity pBlockEntity) {
-		var itemStack = pBlockEntity.itemStackHandler.getStackInSlot(2);
+		var itemStack = pBlockEntity.stackHandler.getStackInSlot(2);
 		return itemStack.getMaxDamage() - itemStack.getDamageValue() <= 0;
 	}
 
 	public void craftItem() {
 		var inputs = new SimpleContainer(3);
-		inputs.setItem(0, this.itemStackHandler.getStackInSlot(0));
-		inputs.setItem(1, this.itemStackHandler.getStackInSlot(1));
-		inputs.setItem(2, this.itemStackHandler.getStackInSlot(2));
+		inputs.setItem(0, this.stackHandler.getStackInSlot(0));
+		inputs.setItem(1, this.stackHandler.getStackInSlot(1));
+		inputs.setItem(2, this.stackHandler.getStackInSlot(2));
 
 		Optional<GrindingRecipe> recipe;
 		var output = ItemStack.EMPTY;
@@ -124,17 +124,17 @@ public class GrinderBlockEntity extends BlockEntity {
 			}
 
 			if (this.hasRecipe()) {
-				this.itemStackHandler.extractItem(0, 1, false);
+				this.stackHandler.extractItem(0, 1, false);
 				if (!output.isEmpty()) {
-					output = this.itemStackHandler.insertItem(3, output, false);
+					output = this.stackHandler.insertItem(3, output, false);
 				}
 
 				if (!output.isEmpty()) {
-					output = this.itemStackHandler.insertItem(4, output, false);
+					output = this.stackHandler.insertItem(4, output, false);
 				}
 
 				if (!output.isEmpty()) {
-					output = this.itemStackHandler.insertItem(5, output, false);
+					output = this.stackHandler.insertItem(5, output, false);
 				}
 
 				if (!output.isEmpty()) {
@@ -150,13 +150,13 @@ public class GrinderBlockEntity extends BlockEntity {
 	public void load(CompoundTag pTag) {
 		super.load(pTag);
 		if (pTag.contains("Inventory")) {
-			this.itemStackHandler.deserializeNBT(pTag.getCompound("Inventory"));
+			this.stackHandler.deserializeNBT(pTag.getCompound("Inventory"));
 			this.maxFuel = pTag.getInt("TotalFuelTime");
 			this.fuel = pTag.getInt("CurrentFuelTime");
 			this.maxProgress = pTag.getInt("TotalProgressTime");
 			this.progress = pTag.getInt("CurrentProgressTime");
 			var compoundTag = pTag.getCompound("RecipesUsed");
-			for (String key : compoundTag.getAllKeys()) {
+			for (var key : compoundTag.getAllKeys()) {
 				this.usedRecipes.put(new ResourceLocation(key), compoundTag.getInt(key));
 			}
 		}
@@ -170,7 +170,7 @@ public class GrinderBlockEntity extends BlockEntity {
 	@Override
 	public void saveAdditional(CompoundTag pTag) {
 		super.saveAdditional(pTag);
-		pTag.put("Inventory", this.itemStackHandler.serializeNBT());
+		pTag.put("Inventory", this.stackHandler.serializeNBT());
 		pTag.putInt("TotalFuelTime", this.maxFuel);
 		pTag.putInt("CurrentFuelTime", this.fuel);
 		pTag.putInt("TotalProgressTime", this.maxProgress);
@@ -187,7 +187,7 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public static void tick(Level pLevel, BlockPos pPos, BlockState pState, GrinderBlockEntity pBlockEntity) {
-		var itemStackHandler = pBlockEntity.itemStackHandler;
+		var itemStackHandler = pBlockEntity.stackHandler;
 		var fuelSlot = itemStackHandler.getStackInSlot(1);
 		var gearSlot = itemStackHandler.getStackInSlot(2);
 		if (pLevel.isClientSide) {
@@ -197,13 +197,13 @@ public class GrinderBlockEntity extends BlockEntity {
 		if (!pBlockEntity.hasFuel()) {
 			if (fuelSlot.getItem() == IcariaItems.SLIVER.get()) {
 				int fuelTime = 800;
-				pBlockEntity.itemStackHandler.extractItem(1, 1, false);
+				pBlockEntity.stackHandler.extractItem(1, 1, false);
 				pBlockEntity.fuel = fuelTime;
 				pBlockEntity.maxFuel = fuelTime;
 				pBlockEntity.setChanged();
 			} else if (fuelSlot.getItem() == IcariaItems.SLIVER_BLOCK.get()) {
 				int fuelTime = 7200;
-				pBlockEntity.itemStackHandler.extractItem(1, 1, false);
+				pBlockEntity.stackHandler.extractItem(1, 1, false);
 				pBlockEntity.fuel = fuelTime;
 				pBlockEntity.maxFuel = fuelTime;
 				pBlockEntity.setChanged();
@@ -253,7 +253,7 @@ public class GrinderBlockEntity extends BlockEntity {
 	@Override
 	public CompoundTag getUpdateTag() {
 		var compoundTag = new CompoundTag();
-		compoundTag.put("Inventory", this.itemStackHandler.serializeNBT());
+		compoundTag.put("Inventory", this.stackHandler.serializeNBT());
 		compoundTag.putInt("TotalFuelTime", this.maxFuel);
 		compoundTag.putInt("CurrentFuelTime", this.fuel);
 		compoundTag.putInt("TotalProgressTime", this.maxProgress);
@@ -266,7 +266,7 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public ItemStack getGear() {
-		return this.itemStackHandler.getStackInSlot(2);
+		return this.stackHandler.getStackInSlot(2);
 	}
 
 	public ItemStackHandler createHandler() {

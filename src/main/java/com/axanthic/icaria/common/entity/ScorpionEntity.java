@@ -58,7 +58,7 @@ public class ScorpionEntity extends IcariaArachnidEntity {
 
     @Override
     public boolean doHurtTarget(Entity pEntity) {
-        this.level.broadcastEntityEvent(this, (byte) 4);
+        this.level().broadcastEntityEvent(this, (byte) 4);
         if (pEntity instanceof LivingEntity livingEntity) {
             livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 120, 0), this);
         }
@@ -132,7 +132,7 @@ public class ScorpionEntity extends IcariaArachnidEntity {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             this.setClimbing(this.horizontalCollision);
         }
     }

@@ -27,10 +27,10 @@ public class PillarHeadBlock extends DirectionalBlock {
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
 		if (pContext.getPlayer() != null) {
 			if (!pContext.getPlayer().isShiftKeyDown()) {
-				return this.defaultBlockState().setValue(BlockStateProperties.FACING, pContext.getNearestLookingDirection());
+				return this.defaultBlockState().setValue(BlockStateProperties.FACING, pContext.getNearestLookingDirection().getOpposite());
 			}
 		}
 
-		return this.defaultBlockState().setValue(BlockStateProperties.FACING, pContext.getNearestLookingDirection().getOpposite());
+		return this.defaultBlockState().setValue(BlockStateProperties.FACING, pContext.getNearestLookingDirection());
 	}
 }

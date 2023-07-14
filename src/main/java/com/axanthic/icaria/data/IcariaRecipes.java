@@ -2,6 +2,8 @@ package com.axanthic.icaria.data;
 
 import com.axanthic.icaria.common.recipe.GrindingRecipeBuilder;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaStoneDecoItems;
+import com.axanthic.icaria.common.registry.IcariaWoodDecoItems;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -255,73 +257,73 @@ public class IcariaRecipes extends RecipeProvider {
 		this.seedRecipe(pConsumer, IcariaItems.STRAWBERRIES.get(), IcariaItems.STRAWBERRY_SEEDS.get());
 		this.seedRecipe(pConsumer, IcariaItems.PHYSALIS.get(), IcariaItems.PHYSALIS_SEEDS.get());
 
-		for (IcariaItems.StoneDecoItemBlocks deco : IcariaItems.STONE_DECO) {
-			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, deco.stairs.get(), 4)
+		for (var items : IcariaStoneDecoItems.STONE_DECO_ITEMS) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.stairs.get(), 4)
 				.pattern("X  ")
 				.pattern("XX ")
 				.pattern("XXX")
-				.define('X', deco.item.get())
-				.unlockedBy("has_" + deco.item.get(), RecipeProvider.has(deco.item.get()))
-				.save(pConsumer, deco.stairs.getId());
+				.define('X', items.item.get())
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pConsumer, items.stairs.getId());
 
-			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, deco.slab.get(), 6)
+			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.slab.get(), 6)
 				.pattern("XXX")
-				.define('X', deco.item.get())
-				.unlockedBy("has_" + deco.item.get(), RecipeProvider.has(deco.item.get()))
-				.save(pConsumer, deco.slab.getId());
+				.define('X', items.item.get())
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pConsumer, items.slab.getId());
 
-			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, deco.wall.get(), 6)
+			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.wall.get(), 6)
 				.pattern("XXX")
 				.pattern("XXX")
-				.define('X', deco.item.get())
-				.unlockedBy("has_" + deco.item.get(), RecipeProvider.has(deco.item.get()))
-				.save(pConsumer, deco.wall.getId());
+				.define('X', items.item.get())
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pConsumer, items.wall.getId());
 
-			SingleItemRecipeBuilder.stonecutting(Ingredient.of(deco.item.get()), RecipeCategory.MISC, deco.stairs.get())
-				.unlockedBy("has_" + deco.item.get(), RecipeProvider.has(deco.item.get()))
-				.save(pConsumer, deco.stairs.getId() + "_from_stonecutting");
+			SingleItemRecipeBuilder.stonecutting(Ingredient.of(items.item.get()), RecipeCategory.MISC, items.stairs.get())
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pConsumer, items.stairs.getId() + "_from_stonecutting");
 
-			SingleItemRecipeBuilder.stonecutting(Ingredient.of(deco.item.get()), RecipeCategory.MISC, deco.slab.get(), 2)
-				.unlockedBy("has_" + deco.item.get(), RecipeProvider.has(deco.item.get()))
-				.save(pConsumer, deco.slab.getId() + "_from_stonecutting");
+			SingleItemRecipeBuilder.stonecutting(Ingredient.of(items.item.get()), RecipeCategory.MISC, items.slab.get(), 2)
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pConsumer, items.slab.getId() + "_from_stonecutting");
 
-			SingleItemRecipeBuilder.stonecutting(Ingredient.of(deco.item.get()), RecipeCategory.MISC, deco.wall.get())
-				.unlockedBy("has_" + deco.item.get(), RecipeProvider.has(deco.item.get()))
-				.save(pConsumer, deco.wall.getId() + "_from_stonecutting");
+			SingleItemRecipeBuilder.stonecutting(Ingredient.of(items.item.get()), RecipeCategory.MISC, items.wall.get())
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pConsumer, items.wall.getId() + "_from_stonecutting");
 		}
 
-		for (IcariaItems.WoodDecoItemBlocks deco : IcariaItems.WOOD_DECO) {
-			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, deco.stairs.get(), 4)
+		for (var items : IcariaWoodDecoItems.WOOD_DECO_ITEMS) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.stairs.get(), 4)
 				.pattern("X  ")
 				.pattern("XX ")
 				.pattern("XXX")
-				.define('X', deco.item.get())
-				.unlockedBy("has_" + deco.item.get(), RecipeProvider.has(deco.item.get()))
-				.save(pConsumer, deco.stairs.getId());
+				.define('X', items.item.get())
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pConsumer, items.stairs.getId());
 
-			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, deco.slab.get(), 6)
+			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.slab.get(), 6)
 				.pattern("XXX")
-				.define('X', deco.item.get())
-				.unlockedBy("has_" + deco.item.get(), RecipeProvider.has(deco.item.get()))
-				.save(pConsumer, deco.slab.getId());
+				.define('X', items.item.get())
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pConsumer, items.slab.getId());
 
-			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, deco.fence.get(), 3)
+			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.fence.get(), 3)
 				.pattern("XYX")
 				.pattern("XYX")
-				.define('X', deco.item.get())
+				.define('X', items.item.get())
 				.define('Y', Items.STICK)
-				.unlockedBy("has_" + deco.item.get(), RecipeProvider.has(deco.item.get()))
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
 				.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
-				.save(pConsumer, deco.fence.getId());
+				.save(pConsumer, items.fence.getId());
 
-			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, deco.gate.get(), 1)
+			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.gate.get(), 1)
 				.pattern("YXY")
 				.pattern("YXY")
-				.define('X', deco.item.get())
+				.define('X', items.item.get())
 				.define('Y', Items.STICK)
-				.unlockedBy("has_" + deco.item.get(), RecipeProvider.has(deco.item.get()))
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
 				.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
-				.save(pConsumer, deco.gate.getId());
+				.save(pConsumer, items.gate.getId());
 		}
 
 		// DOLOMITE
@@ -480,7 +482,7 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.SWIRLY_VINE.get(), RecipeProvider.has((IcariaItems.SWIRLY_VINE.get())))
 			.unlockedBy("has_" + IcariaItems.THORNY_VINE.get(), RecipeProvider.has((IcariaItems.THORNY_VINE.get())))
 			.save(pConsumer, IcariaItems.MOSSY_RELICSTONE_TILES.getId() + "_from_vine");
-		
+
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(IcariaItems.RELICSTONE.get()), RecipeCategory.MISC, IcariaItems.SMOOTH_RELICSTONE.get(), 0.1F, 200)
 			.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
 			.save(pConsumer, IcariaItems.SMOOTH_RELICSTONE.getId() + "_from_smelting");
@@ -1075,7 +1077,7 @@ public class IcariaRecipes extends RecipeProvider {
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pGlass) + "_from_smelting");
 	}
 
-	public void stoneRecipes(Consumer<FinishedRecipe> pConsumer, Item pCobbled, Item pStone, Item pBricks, Item pChiseled, IcariaItems.StoneDecoItemBlocks pDeco) {
+	public void stoneRecipes(Consumer<FinishedRecipe> pConsumer, Item pCobbled, Item pStone, Item pBricks, Item pChiseled, IcariaStoneDecoItems pDeco) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pBricks, 4)
 			.pattern("XX")
 			.pattern("XX")

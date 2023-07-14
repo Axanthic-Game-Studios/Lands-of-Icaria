@@ -56,5 +56,6 @@
     "recipes": [
       "minecraft:repeater_from_relicstone"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

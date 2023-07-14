@@ -5,100 +5,121 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
+          "type": "minecraft:item",
+          "conditions": [
             {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "items": [
-                      "minecraft:shears"
-                    ]
-                  }
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": [
+                  "minecraft:shears"
+                ]
+              }
+            }
+          ],
+          "name": "landsoficaria:medium_white_grain"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "items": [
+                    "minecraft:shears"
+                  ]
                 }
-              ],
-              "name": "landsoficaria:medium_white_grain"
+              }
             },
             {
-              "type": "minecraft:alternatives",
-              "children": [
-                {
-                  "type": "minecraft:item",
-                  "conditions": [
-                    {
-                      "chance": 0.125,
-                      "condition": "minecraft:random_chance"
-                    }
-                  ],
-                  "functions": [
-                    {
-                      "enchantment": "minecraft:fortune",
-                      "formula": "minecraft:uniform_bonus_count",
-                      "function": "minecraft:apply_bonus",
-                      "parameters": {
-                        "bonusMultiplier": 2
-                      }
-                    },
-                    {
-                      "function": "minecraft:explosion_decay"
-                    }
-                  ],
-                  "name": "landsoficaria:spelt_seeds"
-                },
-                {
-                  "type": "minecraft:item",
-                  "conditions": [
-                    {
-                      "chance": 0.125,
-                      "condition": "minecraft:random_chance"
-                    }
-                  ],
-                  "functions": [
-                    {
-                      "enchantment": "minecraft:fortune",
-                      "formula": "minecraft:uniform_bonus_count",
-                      "function": "minecraft:apply_bonus",
-                      "parameters": {
-                        "bonusMultiplier": 2
-                      }
-                    },
-                    {
-                      "function": "minecraft:explosion_decay"
-                    }
-                  ],
-                  "name": "landsoficaria:strawberry_seeds"
-                },
-                {
-                  "type": "minecraft:item",
-                  "conditions": [
-                    {
-                      "chance": 0.125,
-                      "condition": "minecraft:random_chance"
-                    }
-                  ],
-                  "functions": [
-                    {
-                      "enchantment": "minecraft:fortune",
-                      "formula": "minecraft:uniform_bonus_count",
-                      "function": "minecraft:apply_bonus",
-                      "parameters": {
-                        "bonusMultiplier": 2
-                      }
-                    },
-                    {
-                      "function": "minecraft:explosion_decay"
-                    }
-                  ],
-                  "name": "landsoficaria:physalis_seeds"
-                }
-              ]
+              "chances": [
+                0.05,
+                0.06666667,
+                0.083333336,
+                0.1
+              ],
+              "condition": "minecraft:table_bonus",
+              "enchantment": "minecraft:fortune"
             }
-          ]
+          ],
+          "name": "landsoficaria:spelt_seeds"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "items": [
+                    "minecraft:shears"
+                  ]
+                }
+              }
+            },
+            {
+              "chances": [
+                0.05,
+                0.06666667,
+                0.083333336,
+                0.1
+              ],
+              "condition": "minecraft:table_bonus",
+              "enchantment": "minecraft:fortune"
+            }
+          ],
+          "name": "landsoficaria:strawberry_seeds"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "items": [
+                    "minecraft:shears"
+                  ]
+                }
+              }
+            },
+            {
+              "chances": [
+                0.05,
+                0.06666667,
+                0.083333336,
+                0.1
+              ],
+              "condition": "minecraft:table_bonus",
+              "enchantment": "minecraft:fortune"
+            }
+          ],
+          "name": "landsoficaria:physalis_seeds"
         }
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "landsoficaria:blocks/medium_white_grain"
 }

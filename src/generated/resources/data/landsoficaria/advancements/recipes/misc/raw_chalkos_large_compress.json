@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:raw_chalkos_large_compress"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

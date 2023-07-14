@@ -56,5 +56,6 @@
     "recipes": [
       "minecraft:arrow_from_chert"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

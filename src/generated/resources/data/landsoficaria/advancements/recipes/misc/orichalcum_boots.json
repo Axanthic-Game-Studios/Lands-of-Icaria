@@ -30,5 +30,6 @@
     "recipes": [
       "landsoficaria:orichalcum_boots"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

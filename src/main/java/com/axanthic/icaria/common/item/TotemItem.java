@@ -35,12 +35,12 @@ public class TotemItem extends Item {
     @OnlyIn(Dist.CLIENT)
     public void totemAnimation(Entity pEntity) {
         var minecraft = Minecraft.getInstance();
-        var level = minecraft.level;
+        var clientLevel = minecraft.level;
         if (pEntity instanceof Player) {
             minecraft.gameRenderer.displayItemActivation(new ItemStack(this));
             minecraft.particleEngine.createTrackingEmitter(pEntity, ParticleTypes.TOTEM_OF_UNDYING, 30);
-            if (level != null) {
-                level.playLocalSound(pEntity.getX(), pEntity.getY(), pEntity.getZ(), SoundEvents.TOTEM_USE, pEntity.getSoundSource(), 1.0F, 1.0F, false);
+            if (clientLevel != null) {
+                clientLevel.playLocalSound(pEntity.getX(), pEntity.getY(), pEntity.getZ(), SoundEvents.TOTEM_USE, pEntity.getSoundSource(), 1.0F, 1.0F, false);
             }
         }
     }
