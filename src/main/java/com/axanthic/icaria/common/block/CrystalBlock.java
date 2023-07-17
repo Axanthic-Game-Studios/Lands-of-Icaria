@@ -33,10 +33,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CrystalBlock extends DirectionalBlock implements EntityBlock, MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
-	public float red;
-	public float green;
-	public float blue;
-
 	public static final VoxelShape SHAPE_NORTH = Block.box(4.0D, 4.0D, 8.0D, 12.0D, 12.0D, 16.0D);
 	public static final VoxelShape SHAPE_EAST = Block.box(0.0D, 4.0D, 4.0D, 8.0D, 12.0D, 12.0D);
 	public static final VoxelShape SHAPE_SOUTH = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 8.0D);
@@ -47,14 +43,6 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Medit
 	public CrystalBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.FACING, Direction.DOWN).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
-	}
-
-	public CrystalBlock(Properties pProperties, float pRed, float pGreen, float pBlue) {
-		this(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.FACING, Direction.DOWN).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
-		this.red = pRed;
-		this.green = pGreen;
-		this.blue = pBlue;
 	}
 
 	@Override
@@ -85,12 +73,12 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Medit
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
 		return switch (pState.getValue(BlockStateProperties.FACING)) {
-			case NORTH -> new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 1.0D, this.red, this.green, this.blue);
-			case EAST -> new CrystalBlockEntity(pPos, pState, 0.0D, 0.5D, 0.5D, this.red, this.green, this.blue);
-			case SOUTH -> new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 0.0D, this.red, this.green, this.blue);
-			case WEST -> new CrystalBlockEntity(pPos, pState, 1.0D, 0.5D, 0.5D, this.red, this.green, this.blue);
-			case UP -> new CrystalBlockEntity(pPos, pState, 0.5D, 0.0D, 0.5D, this.red, this.green, this.blue);
-			case DOWN -> new CrystalBlockEntity(pPos, pState, 0.5D, 1.0D, 0.5D, this.red, this.green, this.blue);
+			case NORTH -> new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 1.0D);
+			case EAST -> new CrystalBlockEntity(pPos, pState, 0.0D, 0.5D, 0.5D);
+			case SOUTH -> new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 0.0D);
+			case WEST -> new CrystalBlockEntity(pPos, pState, 1.0D, 0.5D, 0.5D);
+			case UP -> new CrystalBlockEntity(pPos, pState, 0.5D, 0.0D, 0.5D);
+			case DOWN -> new CrystalBlockEntity(pPos, pState, 0.5D, 1.0D, 0.5D);
 		};
 	}
 

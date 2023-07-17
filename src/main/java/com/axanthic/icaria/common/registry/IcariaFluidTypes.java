@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.fluidtype.MediterraneanWaterFluidType;
+import com.axanthic.icaria.common.fluid.type.MediterraneanWaterFluidType;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraftforge.fluids.FluidType;

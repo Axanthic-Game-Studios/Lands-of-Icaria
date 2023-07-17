@@ -9,19 +9,29 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.level.block.entity.BlockEntity;
+
+import net.minecraftforge.registries.ForgeRegistries;
 
 import org.joml.Matrix4f;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import java.awt.*;
+import java.io.IOException;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+import javax.imageio.ImageIO;
+
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaClientHelper {
@@ -35,6 +45,30 @@ public class IcariaClientHelper {
         } else {
             return 0.0F;
         }
+    }
+
+    public static float getRed(BlockEntity pBlockEntity) {
+        return IcariaClientHelper.getImageBasedColor(pBlockEntity).getRed() / 255.0F;
+    }
+
+    public static float getRed(LivingEntity pLivingEntity) {
+        return IcariaClientHelper.getImageBasedColor(pLivingEntity).getRed() / 255.0F;
+    }
+
+    public static float getGreen(BlockEntity pBlockEntity) {
+        return IcariaClientHelper.getImageBasedColor(pBlockEntity).getGreen() / 255.0F;
+    }
+
+    public static float getGreen(LivingEntity pLivingEntity) {
+        return IcariaClientHelper.getImageBasedColor(pLivingEntity).getGreen() / 255.0F;
+    }
+
+    public static float getBlue(BlockEntity pBlockEntity) {
+        return IcariaClientHelper.getImageBasedColor(pBlockEntity).getBlue() / 255.0F;
+    }
+
+    public static float getBlue(LivingEntity pLivingEntity) {
+        return IcariaClientHelper.getImageBasedColor(pLivingEntity).getBlue() / 255.0F;
     }
 
     public static void renderRays(PoseStack pPoseStack, MultiBufferSource pBuffer, LivingEntity pLivingEntity, float pRed, float pGreen, float pBlue) {
@@ -143,5 +177,29 @@ public class IcariaClientHelper {
 
     public static void vertexD(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pLength, float pWidth) {
         pVertexConsumer.vertex(pMatrix4f, 0.0F, pLength, pWidth).color(0.0F, 0.0F, 0.0F, 0.0F).endVertex();
+    }
+
+    public static Color getImageBasedColor(BlockEntity pBlockEntity) {
+        var resourceLocation = new ResourceLocation(IcariaInfo.ID + ":" + "textures" + "/" + "block" + "/" + ForgeRegistries.BLOCKS.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
+
+        try {
+            return new Color(ImageIO.read(Minecraft.getInstance().getResourceManager().getResource(resourceLocation).get().open()).getRGB(0, 0));
+        } catch (IOException pException) {
+            pException.printStackTrace();
+        }
+
+        return new Color(255, 255, 255);
+    }
+
+    public static Color getImageBasedColor(LivingEntity pLivingEntity) {
+        var resourceLocation = new ResourceLocation(IcariaInfo.ID + ":" + "textures" + "/" + "entity" + "/" + ForgeRegistries.ENTITY_TYPES.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
+
+        try {
+            return new Color(ImageIO.read(Minecraft.getInstance().getResourceManager().getResource(resourceLocation).get().open()).getRGB(0, 0));
+        } catch (IOException pException) {
+            pException.printStackTrace();
+        }
+
+        return new Color(255, 255, 255);
     }
 }

@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -10,8 +12,22 @@ import net.minecraft.world.level.Level;
 @MethodsReturnNonnullByDefault
 
 public class OvergrownRevenantEntity extends RevenantEntity {
+    public float red;
+    public float green;
+    public float blue;
+
     public OvergrownRevenantEntity(EntityType<? extends OvergrownRevenantEntity> pType, Level pLevel) {
         super(pType, pLevel);
+    }
+
+    @Override
+    public void onAddedToWorld() {
+        super.onAddedToWorld();
+        if (this.level().isClientSide) {
+            this.red = IcariaClientHelper.getRed(this);
+            this.green = IcariaClientHelper.getGreen(this);
+            this.blue = IcariaClientHelper.getBlue(this);
+        }
     }
 
     public static AttributeSupplier.Builder registerAttributes() {

@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
@@ -37,6 +38,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class SlugEntity extends SizedPathfinderMobEntity {
+    public float red;
+    public float green;
+    public float blue;
+
     public int maxCooldown = 400;
     public int minCooldown = 0;
     public int maxHide = 80;
@@ -58,6 +63,8 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     public SlugEntity(EntityType<? extends SlugEntity> pType, Level pLevel) {
         super(pType, pLevel, 0.25F, 0.125F, 0.25F);
     }
+
+
 
     @Override
     public boolean hurt(DamageSource pSource, float pAmount) {
@@ -175,6 +182,16 @@ public class SlugEntity extends SizedPathfinderMobEntity {
         this.entityData.define(SlugEntity.COOLDOWN, this.minCooldown);
         this.entityData.define(SlugEntity.HIDE, this.minHide);
         this.entityData.define(SlugEntity.SHOW, this.minShow);
+    }
+
+    @Override
+    public void onAddedToWorld() {
+        super.onAddedToWorld();
+        if (this.level().isClientSide) {
+            this.red = IcariaClientHelper.getRed(this);
+            this.green = IcariaClientHelper.getGreen(this);
+            this.blue = IcariaClientHelper.getBlue(this);
+        }
     }
 
     @Override

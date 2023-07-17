@@ -189,10 +189,10 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> ZIRCON_GEODE_BLOCK = IcariaBlocks.registerSimple("zircon_geode_block", () -> new AmethystBlock(IcariaBlocks.propertiesGeodeBlock(MapColor.COLOR_BLUE)));
 	public static final RegistryObject<Block> BUDDING_ZIRCON_GEODE_BLOCK = IcariaBlocks.registerSimple("budding_zircon_geode_block", () -> new AmethystBlock(IcariaBlocks.propertiesGeodeBlock(MapColor.COLOR_BLUE)));
 
-	public static final RegistryObject<Block> CALCITE_CRYSTAL = IcariaBlocks.register("calcite_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystalBlock(), 1.0F, 1.0F, 0.5F));
-	public static final RegistryObject<Block> HALITE_CRYSTAL = IcariaBlocks.register("halite_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystalBlock(), 0.0F, 1.0F, 0.5F));
-	public static final RegistryObject<Block> JASPER_CRYSTAL = IcariaBlocks.register("jasper_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystalBlock(), 1.0F, 0.0F, 0.0F));
-	public static final RegistryObject<Block> ZIRCON_CRYSTAL = IcariaBlocks.register("zircon_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystalBlock(), 0.0F, 0.0F, 1.0F));
+	public static final RegistryObject<Block> CALCITE_CRYSTAL = IcariaBlocks.register("calcite_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystalBlock()));
+	public static final RegistryObject<Block> HALITE_CRYSTAL = IcariaBlocks.register("halite_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystalBlock()));
+	public static final RegistryObject<Block> JASPER_CRYSTAL = IcariaBlocks.register("jasper_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystalBlock()));
+	public static final RegistryObject<Block> ZIRCON_CRYSTAL = IcariaBlocks.register("zircon_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystalBlock()));
 
 	public static final RegistryObject<Block> ARISTONE = IcariaBlocks.registerSimple("aristone", () -> new GlassBlock(IcariaBlocks.propertiesAristone()));
 	public static final RegistryObject<Block> PACKED_ARISTONE = IcariaBlocks.registerSimple("packed_aristone", () -> new Block(IcariaBlocks.propertiesAristone()));

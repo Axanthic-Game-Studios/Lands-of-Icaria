@@ -1,7 +1,9 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.goal.MyrmekeQueenHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.MyrmekeQueenSummonGoal;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.spell.IcariaSummonSpell;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
@@ -40,6 +42,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeQueenEntity extends Monster {
+    public float red;
+    public float green;
+    public float blue;
+
     public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(MyrmekeQueenEntity.class, EntityDataSerializers.BYTE);
     public static final EntityDataAccessor<Byte> SPELL = SynchedEntityData.defineId(MyrmekeQueenEntity.class, EntityDataSerializers.BYTE);
 
@@ -89,6 +95,18 @@ public class MyrmekeQueenEntity extends Monster {
     public void makeStuckInBlock(BlockState pState, Vec3 pMotionMultiplier) {
         if (!pState.is(IcariaBlockTags.ICARIA_COBWEB_BLOCKS)) {
             super.makeStuckInBlock(pState, pMotionMultiplier);
+        }
+    }
+
+    @Override
+    public void onAddedToWorld() {
+        super.onAddedToWorld();
+        if (this.getType().equals(IcariaEntityTypes.MYRMEKE_QUEEN.get())) {
+            if (this.level().isClientSide) {
+                this.red = IcariaClientHelper.getRed(this);
+                this.green = IcariaClientHelper.getGreen(this);
+                this.blue = IcariaClientHelper.getBlue(this);
+            }
         }
     }
 

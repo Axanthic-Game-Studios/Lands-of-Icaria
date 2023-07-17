@@ -1,4 +1,4 @@
-package com.axanthic.icaria.common.fluidtype;
+package com.axanthic.icaria.common.fluid.type;
 
 import com.axanthic.icaria.client.extensions.MediterraneanWaterFluidTypeExtensions;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
