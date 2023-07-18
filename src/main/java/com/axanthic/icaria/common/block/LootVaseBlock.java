@@ -65,6 +65,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
             return InteractionResult.FAIL;
         } else {
             var entity = new LootVaseEntity(IcariaEntityTypes.LOOT_VASE.get(), pLevel, pState, pPos);
+            entity.moveTo(pPlayer.blockPosition(), 0, 0);
             entity.startRiding(pPlayer);
             pLevel.addFreshEntity(entity);
             pLevel.removeBlock(pPos, false);
