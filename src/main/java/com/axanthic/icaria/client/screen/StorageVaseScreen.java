@@ -2,6 +2,7 @@ package com.axanthic.icaria.client.screen;
 
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.menu.StorageVaseMenu;
+import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -36,7 +37,7 @@ public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> 
 
 	@Override
 	public void renderLabels(GuiGraphics pGraphics, int pMouseX, int pMouseY) {
-		pGraphics.drawString(this.font, this.title, 7, 6, 5260599, false);
-		pGraphics.drawString(this.font, this.playerInventoryTitle, 7, 128, 5260599, false);
+		pGraphics.drawString(this.font, this.title, 7, 6, IcariaInfo.FONT_COLOR, false);
+		pGraphics.drawString(this.font, this.playerInventoryTitle, 7, 128, IcariaInfo.FONT_COLOR, false);
 	}
 }
