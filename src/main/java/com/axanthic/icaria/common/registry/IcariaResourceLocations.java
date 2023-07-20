@@ -12,6 +12,10 @@ public class IcariaResourceLocations {
     public static final ResourceLocation FLOWING_MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID + ":block/flowing_mediterranean_water");
     public static final ResourceLocation MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID + ":block/mediterranean_water");
 
+    // GUI
+    public static final ResourceLocation GRINDER = new ResourceLocation(IcariaInfo.ID, "textures/gui/grinder.png");
+    public static final ResourceLocation STORAGE_VASE = new ResourceLocation(IcariaInfo.ID, "textures/gui/storage_vase.png");
+
     // ENTITY
     public static final ResourceLocation AETERNAE = new ResourceLocation(IcariaInfo.ID, "textures/entity/aeternae.png");
     public static final ResourceLocation ARACHNE = new ResourceLocation(IcariaInfo.ID, "textures/entity/arachne.png");
@@ -105,10 +109,6 @@ public class IcariaResourceLocations {
     public static final ResourceLocation SOW_LAYER = new ResourceLocation(IcariaInfo.ID, "sow");
     public static final ResourceLocation SOW_SKULL_LAYER = new ResourceLocation(IcariaInfo.ID, "sow_skull");
     public static final ResourceLocation VINEGAROON_LAYER = new ResourceLocation(IcariaInfo.ID, "vinegaroon");
-
-    // SCREENS
-    public static final ResourceLocation GRINDER = new ResourceLocation(IcariaInfo.ID, "textures/screens/grinder.png");
-    public static final ResourceLocation STORAGE_VASE = new ResourceLocation(IcariaInfo.ID, "textures/screens/storage_vase.png");
 
     // SOUNDS
     public static final ResourceLocation GRINDER_GRIND = new ResourceLocation(IcariaInfo.ID, "block.grinder.grind");
