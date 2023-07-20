@@ -341,6 +341,8 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_BARS.get());
 			pEvent.accept(IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 
+			pEvent.accept(IcariaItems.VANADIUMSTEEL_CHAIN.get());
+
 			pEvent.accept(IcariaItems.KETTLE.get());
 			pEvent.accept(IcariaItems.GRINDER.get());
 			pEvent.accept(IcariaItems.KILN.get());
@@ -1027,6 +1029,7 @@ public class ClientProxy extends CommonProxy {
 		this.renderCutout(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get());
 		this.renderCutout(IcariaBlocks.VANADIUMSTEEL_BARS.get());
 		this.renderCutout(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
+		this.renderCutout(IcariaBlocks.VANADIUMSTEEL_CHAIN.get());
 		this.renderCutout(IcariaBlocks.DUNGEON_SPAWNER.get());
 		this.renderCutout(IcariaBlocks.MYRMEKE_SPAWNER.get());
 		this.renderCutout(IcariaBlocks.RUIN_SPAWNER.get());

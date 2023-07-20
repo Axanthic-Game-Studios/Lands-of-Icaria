@@ -298,6 +298,8 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.VANADIUMSTEEL_BARS.get(), "Vanadinsthalgitter");
 		this.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get(), "Horizontale Vanadinstahlgitter");
 
+		this.add(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), "Vanadinstahlkette");
+
 		this.add(IcariaBlocks.KETTLE.get(), "Kessel");
 		this.add(IcariaBlocks.GRINDER.get(), "Mühle");
 		this.add(IcariaBlocks.KILN.get(), "Töpferofen");

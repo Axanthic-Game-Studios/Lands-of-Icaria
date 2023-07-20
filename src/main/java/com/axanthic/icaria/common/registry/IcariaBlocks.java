@@ -235,6 +235,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<IronBarsBlock> VANADIUMSTEEL_BARS = IcariaBlocks.register("vanadiumsteel_bars", () -> new IronBarsBlock(IcariaBlocks.propertiesBars()));
 	public static final RegistryObject<Block> HORIZONTAL_VANADIUMSTEEL_BARS = IcariaBlocks.register("horizontal_vanadiumsteel_bars", () -> new HorizontalPaneBlock(IcariaBlocks.propertiesBars()));
 
+	public static final RegistryObject<Block> VANADIUMSTEEL_CHAIN = IcariaBlocks.register("vanadiumsteel_chain", () -> new ChainBlock(IcariaBlocks.propertiesChain()));
+
 	public static final RegistryObject<Block> KETTLE = IcariaBlocks.register("kettle", () -> new KettleBlock(IcariaBlocks.propertiesGrinder()));
 	public static final RegistryObject<Block> GRINDER = IcariaBlocks.register("grinder", () -> new GrinderBlock(IcariaBlocks.propertiesGrinder()));
 	public static final RegistryObject<Block> KILN = IcariaBlocks.register("kiln", () -> new KilnBlock(IcariaBlocks.propertiesGrinder()));
@@ -681,6 +683,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesBars() {
 		return BlockBehaviour.Properties.of().mapColor(MapColor.NONE).sound(SoundType.METAL).strength(5.0F, 6.0F).noOcclusion().requiresCorrectToolForDrops();
+	}
+
+	public static BlockBehaviour.Properties propertiesChain() {
+		return BlockBehaviour.Properties.of().mapColor(MapColor.NONE).sound(SoundType.CHAIN).strength(5.0F, 6.0F).forceSolidOn().noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesGrinder() {

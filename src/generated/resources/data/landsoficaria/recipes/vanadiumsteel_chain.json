@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:vanadiumsteel_nugget"
+    },
+    "Y": {
+      "item": "landsoficaria:vanadiumsteel_ingot"
+    }
+  },
+  "pattern": [
+    "X",
+    "Y",
+    "X"
+  ],
+  "result": {
+    "item": "landsoficaria:vanadiumsteel_chain"
+  },
+  "show_notification": true
+}

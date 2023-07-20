@@ -231,7 +231,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.VANADIUM_BLOCK.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_BLOCK.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
-			.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
+			.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get())
+			.add(IcariaBlocks.VANADIUMSTEEL_CHAIN.get());
 
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.SUNSTONE_ADOBE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.COBBLED_SUNSTONE_DECO);
@@ -399,6 +400,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.BLURIDIUM_BLOCK.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
 			.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get())
+			.add(IcariaBlocks.VANADIUMSTEEL_CHAIN.get())
 			.add(IcariaBlocks.KETTLE.get())
 			.add(IcariaBlocks.GRINDER.get())
 			.add(IcariaBlocks.KILN.get())

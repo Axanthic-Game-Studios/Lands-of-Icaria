@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "landsoficaria:block/vanadiumsteel_chain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "landsoficaria:block/vanadiumsteel_chain"
+    },
+    "axis=z": {
+      "model": "landsoficaria:block/vanadiumsteel_chain",
+      "x": 90
+    }
+  }
+}

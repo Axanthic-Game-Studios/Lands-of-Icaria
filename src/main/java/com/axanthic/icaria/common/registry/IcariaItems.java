@@ -227,6 +227,8 @@ public class IcariaItems {
 	public static final RegistryObject<Item> VANADIUMSTEEL_BARS = IcariaItems.register("vanadiumsteel_bars", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_BARS.get(), new Item.Properties()));
 	public static final RegistryObject<Item> HORIZONTAL_VANADIUMSTEEL_BARS = IcariaItems.register("horizontal_vanadiumsteel_bars", () -> new BlockItem(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get(), new Item.Properties()));
 
+	public static final RegistryObject<Item> VANADIUMSTEEL_CHAIN = IcariaItems.registerBasic("vanadiumsteel_chain", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), new Item.Properties()));
+
 	public static final RegistryObject<Item> KETTLE = IcariaItems.register("kettle", () -> new BlockItem(IcariaBlocks.KETTLE.get(), new Item.Properties()));
 	public static final RegistryObject<Item> GRINDER = IcariaItems.register("grinder", () -> new BlockItem(IcariaBlocks.GRINDER.get(), new Item.Properties()));
 	public static final RegistryObject<Item> KILN = IcariaItems.register("kiln", () -> new BlockItem(IcariaBlocks.KILN.get(), new Item.Properties()));

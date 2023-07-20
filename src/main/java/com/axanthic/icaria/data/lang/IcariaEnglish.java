@@ -298,6 +298,8 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.VANADIUMSTEEL_BARS.get(), "Vanadiumsteel Bars");
 		this.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get(), "Horizontal Vanadiumsteel Bars");
 
+		this.add(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), "Vanadiumsteel Chain");
+
 		this.add(IcariaBlocks.KETTLE.get(), "Kettle");
 		this.add(IcariaBlocks.GRINDER.get(), "Grinder");
 		this.add(IcariaBlocks.KILN.get(), "Kiln");

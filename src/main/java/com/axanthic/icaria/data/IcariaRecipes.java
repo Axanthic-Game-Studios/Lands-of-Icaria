@@ -591,6 +591,16 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_BARS.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_BARS.get()))
 			.save(pConsumer, IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.getId());
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.VANADIUMSTEEL_CHAIN.get(), 1)
+			.pattern("X")
+			.pattern("Y")
+			.pattern("X")
+			.define('X', IcariaItems.VANADIUMSTEEL_NUGGET.get())
+			.define('Y', IcariaItems.VANADIUMSTEEL_INGOT.get())
+			.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_NUGGET.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_NUGGET.get()))
+			.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_INGOT.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_INGOT.get()))
+			.save(pConsumer, IcariaItems.VANADIUMSTEEL_CHAIN.getId());
+
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.KETTLE.get())
 			.pattern("X X")
 			.pattern("Y Y")
