@@ -1246,7 +1246,7 @@ public class IcariaRecipes extends RecipeProvider {
 	}
 
 	public void signRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult) {
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 6)
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 3)
 			.pattern("XXX")
 			.pattern("XXX")
 			.pattern(" Y ")
