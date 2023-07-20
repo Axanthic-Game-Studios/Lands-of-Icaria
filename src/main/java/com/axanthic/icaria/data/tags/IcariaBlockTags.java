@@ -485,6 +485,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.CYPRESS_LADDER.get())
 			.add(IcariaBlocks.CYPRESS_SIGN.get())
 			.add(IcariaBlocks.CYPRESS_WALL_SIGN.get())
+			.add(IcariaBlocks.CYPRESS_HANGING_SIGN.get())
+			.add(IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get())
 			.add(IcariaBlocks.DROUGHTROOT_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get())
 			.add(IcariaBlocks.DROUGHTROOT_LOG.get())
@@ -498,6 +500,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.DROUGHTROOT_LADDER.get())
 			.add(IcariaBlocks.DROUGHTROOT_SIGN.get())
 			.add(IcariaBlocks.DROUGHTROOT_WALL_SIGN.get())
+			.add(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get())
+			.add(IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get())
 			.add(IcariaBlocks.FIR_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_FIR_WOOD.get())
 			.add(IcariaBlocks.FIR_LOG.get())
@@ -511,6 +515,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.FIR_LADDER.get())
 			.add(IcariaBlocks.FIR_SIGN.get())
 			.add(IcariaBlocks.FIR_WALL_SIGN.get())
+			.add(IcariaBlocks.FIR_HANGING_SIGN.get())
+			.add(IcariaBlocks.FIR_WALL_HANGING_SIGN.get())
 			.add(IcariaBlocks.LAUREL_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_LAUREL_WOOD.get())
 			.add(IcariaBlocks.LAUREL_LOG.get())
@@ -524,6 +530,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.LAUREL_LADDER.get())
 			.add(IcariaBlocks.LAUREL_SIGN.get())
 			.add(IcariaBlocks.LAUREL_WALL_SIGN.get())
+			.add(IcariaBlocks.LAUREL_HANGING_SIGN.get())
+			.add(IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get())
 			.add(IcariaBlocks.OLIVE_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_OLIVE_WOOD.get())
 			.add(IcariaBlocks.OLIVE_LOG.get())
@@ -537,6 +545,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.OLIVE_LADDER.get())
 			.add(IcariaBlocks.OLIVE_SIGN.get())
 			.add(IcariaBlocks.OLIVE_WALL_SIGN.get())
+			.add(IcariaBlocks.OLIVE_HANGING_SIGN.get())
+			.add(IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get())
 			.add(IcariaBlocks.PLANE_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_PLANE_WOOD.get())
 			.add(IcariaBlocks.PLANE_LOG.get())
@@ -550,6 +560,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.PLANE_LADDER.get())
 			.add(IcariaBlocks.PLANE_SIGN.get())
 			.add(IcariaBlocks.PLANE_WALL_SIGN.get())
+			.add(IcariaBlocks.PLANE_HANGING_SIGN.get())
+			.add(IcariaBlocks.PLANE_WALL_HANGING_SIGN.get())
 			.add(IcariaBlocks.POPULUS_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_POPULUS_WOOD.get())
 			.add(IcariaBlocks.POPULUS_LOG.get())
@@ -562,7 +574,9 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.POPULUS_TRAPDOOR.get())
 			.add(IcariaBlocks.POPULUS_LADDER.get())
 			.add(IcariaBlocks.POPULUS_SIGN.get())
-			.add(IcariaBlocks.POPULUS_WALL_SIGN.get());
+			.add(IcariaBlocks.POPULUS_WALL_SIGN.get())
+			.add(IcariaBlocks.POPULUS_HANGING_SIGN.get())
+			.add(IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get());
 
 		this.woodDecoBlocksTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.CYPRESS_DECO);
 		this.woodDecoBlocksTag(BlockTags.MINEABLE_WITH_AXE, IcariaBlocks.DROUGHTROOT_DECO);
@@ -731,6 +745,24 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.OLIVE_WALL_SIGN.get())
 			.add(IcariaBlocks.PLANE_WALL_SIGN.get())
 			.add(IcariaBlocks.POPULUS_WALL_SIGN.get());
+
+		this.tag(BlockTags.CEILING_HANGING_SIGNS)
+			.add(IcariaBlocks.CYPRESS_HANGING_SIGN.get())
+			.add(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get())
+			.add(IcariaBlocks.FIR_HANGING_SIGN.get())
+			.add(IcariaBlocks.LAUREL_HANGING_SIGN.get())
+			.add(IcariaBlocks.OLIVE_HANGING_SIGN.get())
+			.add(IcariaBlocks.PLANE_HANGING_SIGN.get())
+			.add(IcariaBlocks.POPULUS_HANGING_SIGN.get());
+
+		this.tag(BlockTags.WALL_HANGING_SIGNS)
+			.add(IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get())
+			.add(IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get())
+			.add(IcariaBlocks.FIR_WALL_HANGING_SIGN.get())
+			.add(IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get())
+			.add(IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get())
+			.add(IcariaBlocks.PLANE_WALL_HANGING_SIGN.get())
+			.add(IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get());
 
 		this.tag(BlockTags.REPLACEABLE)
 			.add(IcariaBlocks.DEAD_BLOOMY_VINE.get())

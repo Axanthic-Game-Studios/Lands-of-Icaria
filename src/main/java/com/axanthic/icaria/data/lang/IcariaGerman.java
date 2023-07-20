@@ -382,6 +382,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_TRAPDOOR.get(), "Zypressenholzfalltür");
 		this.add(IcariaBlocks.CYPRESS_LADDER.get(), "Zypressenholzleiter");
 		this.add(IcariaBlocks.CYPRESS_SIGN.get(), "Zypressenholzschild");
+		this.add(IcariaBlocks.CYPRESS_HANGING_SIGN.get(), "Zypressenholzhängeschild");
 
 		this.add(IcariaBlocks.DROUGHTROOT_SAPLING.get(), "Dürrwurzelsetzling");
 		this.add(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get(), "Eingetopfter Dürrwurzelsetzling");
@@ -404,6 +405,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), "Dürrwurzelholzfalltür");
 		this.add(IcariaBlocks.DROUGHTROOT_LADDER.get(), "Dürrwurzelholzleiter");
 		this.add(IcariaBlocks.DROUGHTROOT_SIGN.get(), "Dürrwurzelholzschild");
+		this.add(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), "Dürrwurzelholzhängeschild");
 
 		this.add(IcariaBlocks.FIR_SAPLING.get(), "Tannensetzling");
 		this.add(IcariaBlocks.POTTED_FIR_SAPLING.get(), "Eingetopfter Tannensetzling");
@@ -426,6 +428,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_TRAPDOOR.get(), "Tannenholzfalltür");
 		this.add(IcariaBlocks.FIR_LADDER.get(), "Tannenholzleiter");
 		this.add(IcariaBlocks.FIR_SIGN.get(), "Tannenholzschild");
+		this.add(IcariaBlocks.FIR_HANGING_SIGN.get(), "Tannenholzhängeschild");
 
 		this.add(IcariaBlocks.LAUREL_SAPLING.get(), "Lorbeersetzling");
 		this.add(IcariaBlocks.POTTED_LAUREL_SAPLING.get(), "Eingetopfter Lorbeersetzling");
@@ -448,6 +451,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_TRAPDOOR.get(), "Lorbeerholzfalltür");
 		this.add(IcariaBlocks.LAUREL_LADDER.get(), "Lorbeerholzleiter");
 		this.add(IcariaBlocks.LAUREL_SIGN.get(), "Lorbeerholzschild");
+		this.add(IcariaBlocks.LAUREL_HANGING_SIGN.get(), "Lorbeerholzhängeschild");
 
 		this.add(IcariaBlocks.OLIVE_SAPLING.get(), "Olivensetzling");
 		this.add(IcariaBlocks.POTTED_OLIVE_SAPLING.get(), "Eingetopfter Olivensetzling");
@@ -470,6 +474,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_TRAPDOOR.get(), "Olivenholzfalltür");
 		this.add(IcariaBlocks.OLIVE_LADDER.get(), "Olivenholzleiter");
 		this.add(IcariaBlocks.OLIVE_SIGN.get(), "Olivenholzschild");
+		this.add(IcariaBlocks.OLIVE_HANGING_SIGN.get(), "Olivenholzhängeschild");
 
 		this.add(IcariaBlocks.PLANE_SAPLING.get(), "Plantanensetzling");
 		this.add(IcariaBlocks.POTTED_PLANE_SAPLING.get(), "Eingetopfter Plantanensetzling");
@@ -492,6 +497,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_TRAPDOOR.get(), "Plantanenholzfalltür");
 		this.add(IcariaBlocks.PLANE_LADDER.get(), "Plantanenholzleiter");
 		this.add(IcariaBlocks.PLANE_SIGN.get(), "Plantanenholzschild");
+		this.add(IcariaBlocks.PLANE_HANGING_SIGN.get(), "Plantanenholzhängeschild");
 
 		this.add(IcariaBlocks.POPULUS_SAPLING.get(), "Pappelsetzling");
 		this.add(IcariaBlocks.POTTED_POPULUS_SAPLING.get(), "Eingetopfter Pappelsetzling");
@@ -514,6 +520,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_TRAPDOOR.get(), "Pappelholzfalltür");
 		this.add(IcariaBlocks.POPULUS_LADDER.get(), "Pappelholzleiter");
 		this.add(IcariaBlocks.POPULUS_SIGN.get(), "Pappelholzschild");
+		this.add(IcariaBlocks.POPULUS_HANGING_SIGN.get(), "Pappelholzhängeschild");
 
 		this.add(IcariaBlocks.DEAD_BLOOMY_VINE.get(), "Blühende Ranken");
 		this.add(IcariaBlocks.GROWING_BLOOMY_VINE.get(), "Blühende Ranken");

@@ -194,6 +194,15 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.PLANE_SIGN.get())
 			.add(IcariaItems.POPULUS_SIGN.get());
 
+		this.tag(ItemTags.HANGING_SIGNS)
+			.add(IcariaItems.CYPRESS_HANGING_SIGN.get())
+			.add(IcariaItems.DROUGHTROOT_HANGING_SIGN.get())
+			.add(IcariaItems.FIR_HANGING_SIGN.get())
+			.add(IcariaItems.LAUREL_HANGING_SIGN.get())
+			.add(IcariaItems.OLIVE_HANGING_SIGN.get())
+			.add(IcariaItems.PLANE_HANGING_SIGN.get())
+			.add(IcariaItems.POPULUS_HANGING_SIGN.get());
+
 		this.tag(Tags.Items.MUSHROOMS)
 			.add(IcariaItems.GREEN_GROUND_SHROOMS.get())
 			.add(IcariaItems.BROWN_GROUND_SHROOMS.get())

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:vanadiumsteel_chain"
+    },
+    "Y": {
+      "item": "landsoficaria:stripped_droughtroot_log"
+    }
+  },
+  "pattern": [
+    "X X",
+    "YYY",
+    "YYY"
+  ],
+  "result": {
+    "count": 6,
+    "item": "landsoficaria:droughtroot_hanging_sign"
+  },
+  "show_notification": true
+}

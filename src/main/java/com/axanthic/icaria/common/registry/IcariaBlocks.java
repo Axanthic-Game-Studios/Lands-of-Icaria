@@ -333,6 +333,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> CYPRESS_LADDER = IcariaBlocks.register("cypress_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder()));
 	public static final RegistryObject<Block> CYPRESS_SIGN = IcariaBlocks.register("cypress_sign", () -> new IcariaStandingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.CYPRESS));
 	public static final RegistryObject<Block> CYPRESS_WALL_SIGN = IcariaBlocks.register("cypress_wall_sign", () -> new IcariaWallSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.CYPRESS));
+	public static final RegistryObject<Block> CYPRESS_HANGING_SIGN = IcariaBlocks.register("cypress_hanging_sign", () -> new IcariaCeilingHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.CYPRESS));
+	public static final RegistryObject<Block> CYPRESS_WALL_HANGING_SIGN = IcariaBlocks.register("cypress_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.CYPRESS));
 
 	public static final RegistryObject<Block> DROUGHTROOT_SAPLING = IcariaBlocks.register("droughtroot_sapling", () -> new SaplingBlock(new DroughtrootTreeGrower(), IcariaBlocks.propertiesSapling()));
 	public static final RegistryObject<Block> POTTED_DROUGHTROOT_SAPLING = IcariaBlocks.register("potted_droughtroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, DROUGHTROOT_SAPLING, IcariaBlocks.propertiesPot()));
@@ -353,6 +355,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> DROUGHTROOT_LADDER = IcariaBlocks.register("droughtroot_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder()));
 	public static final RegistryObject<Block> DROUGHTROOT_SIGN = IcariaBlocks.register("droughtroot_sign", () -> new IcariaStandingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_GRAY), IcariaWoodTypes.DROUGHTROOT));
 	public static final RegistryObject<Block> DROUGHTROOT_WALL_SIGN = IcariaBlocks.register("droughtroot_wall_sign", () -> new IcariaWallSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_GRAY), IcariaWoodTypes.DROUGHTROOT));
+	public static final RegistryObject<Block> DROUGHTROOT_HANGING_SIGN = IcariaBlocks.register("droughtroot_hanging_sign", () -> new IcariaCeilingHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_GRAY), IcariaWoodTypes.DROUGHTROOT));
+	public static final RegistryObject<Block> DROUGHTROOT_WALL_HANGING_SIGN = IcariaBlocks.register("droughtroot_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_GRAY), IcariaWoodTypes.DROUGHTROOT));
 
 	public static final RegistryObject<Block> FIR_SAPLING = IcariaBlocks.register("fir_sapling", () -> new SaplingBlock(new FirTreeGrower(), IcariaBlocks.propertiesSapling()));
 	public static final RegistryObject<Block> POTTED_FIR_SAPLING = IcariaBlocks.register("potted_fir_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FIR_SAPLING, IcariaBlocks.propertiesPot()));
@@ -373,6 +377,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> FIR_LADDER = IcariaBlocks.register("fir_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder()));
 	public static final RegistryObject<Block> FIR_SIGN = IcariaBlocks.register("fir_sign", () -> new IcariaStandingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.FIR));
 	public static final RegistryObject<Block> FIR_WALL_SIGN = IcariaBlocks.register("fir_wall_sign", () -> new IcariaWallSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.FIR));
+	public static final RegistryObject<Block> FIR_HANGING_SIGN = IcariaBlocks.register("fir_hanging_sign", () -> new IcariaCeilingHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.FIR));
+	public static final RegistryObject<Block> FIR_WALL_HANGING_SIGN = IcariaBlocks.register("fir_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.FIR));
 
 	public static final RegistryObject<Block> LAUREL_SAPLING = IcariaBlocks.register("laurel_sapling", () -> new SaplingBlock(new LaurelTreeGrower(), IcariaBlocks.propertiesSapling()));
 	public static final RegistryObject<Block> POTTED_LAUREL_SAPLING = IcariaBlocks.register("potted_laurel_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, LAUREL_SAPLING, IcariaBlocks.propertiesPot()));
@@ -393,6 +399,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> LAUREL_LADDER = IcariaBlocks.register("laurel_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder()));
 	public static final RegistryObject<Block> LAUREL_SIGN = IcariaBlocks.register("laurel_sign", () -> new IcariaStandingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_BROWN), IcariaWoodTypes.LAUREL));
 	public static final RegistryObject<Block> LAUREL_WALL_SIGN = IcariaBlocks.register("laurel_wall_sign", () -> new IcariaWallSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_BROWN), IcariaWoodTypes.LAUREL));
+	public static final RegistryObject<Block> LAUREL_HANGING_SIGN = IcariaBlocks.register("laurel_hanging_sign", () -> new IcariaCeilingHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_BROWN), IcariaWoodTypes.LAUREL));
+	public static final RegistryObject<Block> LAUREL_WALL_HANGING_SIGN = IcariaBlocks.register("laurel_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_BROWN), IcariaWoodTypes.LAUREL));
 
 	public static final RegistryObject<Block> OLIVE_SAPLING = IcariaBlocks.register("olive_sapling", () -> new SaplingBlock(new OliveTreeGrower(), IcariaBlocks.propertiesSapling()));
 	public static final RegistryObject<Block> POTTED_OLIVE_SAPLING = IcariaBlocks.register("potted_olive_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, OLIVE_SAPLING, IcariaBlocks.propertiesPot()));
@@ -413,6 +421,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> OLIVE_LADDER = IcariaBlocks.register("olive_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder()));
 	public static final RegistryObject<Block> OLIVE_SIGN = IcariaBlocks.register("olive_sign", () -> new IcariaStandingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.OLIVE));
 	public static final RegistryObject<Block> OLIVE_WALL_SIGN = IcariaBlocks.register("olive_wall_sign", () -> new IcariaWallSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.OLIVE));
+	public static final RegistryObject<Block> OLIVE_HANGING_SIGN = IcariaBlocks.register("olive_hanging_sign", () -> new IcariaCeilingHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.OLIVE));
+	public static final RegistryObject<Block> OLIVE_WALL_HANGING_SIGN = IcariaBlocks.register("olive_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.OLIVE));
 
 	public static final RegistryObject<Block> PLANE_SAPLING = IcariaBlocks.register("plane_sapling", () -> new SaplingBlock(new PlaneTreeGrower(), IcariaBlocks.propertiesSapling()));
 	public static final RegistryObject<Block> POTTED_PLANE_SAPLING = IcariaBlocks.register("potted_plane_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PLANE_SAPLING, IcariaBlocks.propertiesPot()));
@@ -433,6 +443,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> PLANE_LADDER = IcariaBlocks.register("plane_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder()));
 	public static final RegistryObject<Block> PLANE_SIGN = IcariaBlocks.register("plane_sign", () -> new IcariaStandingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.PLANE));
 	public static final RegistryObject<Block> PLANE_WALL_SIGN = IcariaBlocks.register("plane_wall_sign", () -> new IcariaWallSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.PLANE));
+	public static final RegistryObject<Block> PLANE_HANGING_SIGN = IcariaBlocks.register("plane_hanging_sign", () -> new IcariaCeilingHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.PLANE));
+	public static final RegistryObject<Block> PLANE_WALL_HANGING_SIGN = IcariaBlocks.register("plane_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.PLANE));
 
 	public static final RegistryObject<Block> POPULUS_SAPLING = IcariaBlocks.register("populus_sapling", () -> new SaplingBlock(new PopulusTreeGrower(), IcariaBlocks.propertiesSapling()));
 	public static final RegistryObject<Block> POTTED_POPULUS_SAPLING = IcariaBlocks.register("potted_populus_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, POPULUS_SAPLING, IcariaBlocks.propertiesPot()));
@@ -453,6 +465,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> POPULUS_LADDER = IcariaBlocks.register("populus_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder()));
 	public static final RegistryObject<Block> POPULUS_SIGN = IcariaBlocks.register("populus_sign", () -> new IcariaStandingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_GRAY), IcariaWoodTypes.POPULUS));
 	public static final RegistryObject<Block> POPULUS_WALL_SIGN = IcariaBlocks.register("populus_wall_sign", () -> new IcariaWallSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_GRAY), IcariaWoodTypes.POPULUS));
+	public static final RegistryObject<Block> POPULUS_HANGING_SIGN = IcariaBlocks.register("populus_hanging_sign", () -> new IcariaCeilingHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_GRAY), IcariaWoodTypes.POPULUS));
+	public static final RegistryObject<Block> POPULUS_WALL_HANGING_SIGN = IcariaBlocks.register("populus_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_GRAY), IcariaWoodTypes.POPULUS));
 
 	public static final RegistryObject<Block> DEAD_BLOOMY_VINE = IcariaBlocks.register("dead_bloomy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
 	public static final RegistryObject<Block> GROWING_BLOOMY_VINE = IcariaBlocks.register("growing_bloomy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));

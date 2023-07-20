@@ -30,6 +30,7 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.stats.Stats;
@@ -426,6 +427,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.CYPRESS_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.CYPRESS_LADDER.get());
 			pEvent.accept(IcariaItems.CYPRESS_SIGN.get());
+			pEvent.accept(IcariaItems.CYPRESS_HANGING_SIGN.get());
 
 			pEvent.accept(IcariaItems.DROUGHTROOT_SAPLING.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_LEAVES.get());
@@ -447,6 +449,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.DROUGHTROOT_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_LADDER.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_SIGN.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_HANGING_SIGN.get());
 
 			pEvent.accept(IcariaItems.FIR_SAPLING.get());
 			pEvent.accept(IcariaItems.FIR_LEAVES.get());
@@ -468,6 +471,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.FIR_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.FIR_LADDER.get());
 			pEvent.accept(IcariaItems.FIR_SIGN.get());
+			pEvent.accept(IcariaItems.FIR_HANGING_SIGN.get());
 
 			pEvent.accept(IcariaItems.LAUREL_SAPLING.get());
 			pEvent.accept(IcariaItems.LAUREL_LEAVES.get());
@@ -489,6 +493,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.LAUREL_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.LAUREL_LADDER.get());
 			pEvent.accept(IcariaItems.LAUREL_SIGN.get());
+			pEvent.accept(IcariaItems.LAUREL_HANGING_SIGN.get());
 
 			pEvent.accept(IcariaItems.OLIVE_SAPLING.get());
 			pEvent.accept(IcariaItems.OLIVE_LEAVES.get());
@@ -510,6 +515,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.OLIVE_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.OLIVE_LADDER.get());
 			pEvent.accept(IcariaItems.OLIVE_SIGN.get());
+			pEvent.accept(IcariaItems.OLIVE_HANGING_SIGN.get());
 
 			pEvent.accept(IcariaItems.PLANE_SAPLING.get());
 			pEvent.accept(IcariaItems.PLANE_LEAVES.get());
@@ -531,6 +537,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.PLANE_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.PLANE_LADDER.get());
 			pEvent.accept(IcariaItems.PLANE_SIGN.get());
+			pEvent.accept(IcariaItems.PLANE_HANGING_SIGN.get());
 
 			pEvent.accept(IcariaItems.POPULUS_SAPLING.get());
 			pEvent.accept(IcariaItems.POPULUS_LEAVES.get());
@@ -552,6 +559,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.POPULUS_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.POPULUS_LADDER.get());
 			pEvent.accept(IcariaItems.POPULUS_SIGN.get());
+			pEvent.accept(IcariaItems.POPULUS_HANGING_SIGN.get());
 
 			pEvent.accept(IcariaItems.DEAD_BLOOMY_VINE.get());
 			pEvent.accept(IcariaItems.GROWING_BLOOMY_VINE.get());
@@ -1231,6 +1239,7 @@ public class ClientProxy extends CommonProxy {
 		// BLOCK ENTITY RENDERERS
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.CRYSTAL.get(), CrystalBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.HANGING_SIGN.get(), HangingSignRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SIGN.get(), IcariaSignBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SKULL.get(), IcariaSkullBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SPAWNER.get(), IcariaSpawnerBlockRenderer::new);

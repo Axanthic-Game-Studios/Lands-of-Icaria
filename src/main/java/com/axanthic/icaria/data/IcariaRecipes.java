@@ -167,6 +167,14 @@ public class IcariaRecipes extends RecipeProvider {
 		this.signRecipe(pConsumer, IcariaItems.PLANE_PLANKS.get(), IcariaItems.PLANE_SIGN.get());
 		this.signRecipe(pConsumer, IcariaItems.POPULUS_PLANKS.get(), IcariaItems.POPULUS_SIGN.get());
 
+		this.hangingSignRecipe(pConsumer, IcariaItems.STRIPPED_CYPRESS_LOG.get(), IcariaItems.CYPRESS_HANGING_SIGN.get());
+		this.hangingSignRecipe(pConsumer, IcariaItems.STRIPPED_DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_HANGING_SIGN.get());
+		this.hangingSignRecipe(pConsumer, IcariaItems.STRIPPED_FIR_LOG.get(), IcariaItems.FIR_HANGING_SIGN.get());
+		this.hangingSignRecipe(pConsumer, IcariaItems.STRIPPED_LAUREL_LOG.get(), IcariaItems.LAUREL_HANGING_SIGN.get());
+		this.hangingSignRecipe(pConsumer, IcariaItems.STRIPPED_OLIVE_LOG.get(), IcariaItems.OLIVE_HANGING_SIGN.get());
+		this.hangingSignRecipe(pConsumer, IcariaItems.STRIPPED_PLANE_LOG.get(), IcariaItems.PLANE_HANGING_SIGN.get());
+		this.hangingSignRecipe(pConsumer, IcariaItems.STRIPPED_POPULUS_LOG.get(), IcariaItems.POPULUS_HANGING_SIGN.get());
+
 		this.dyesFromFlowerRecipe(pConsumer, IcariaItems.BLINDWEED.get(), Items.PINK_DYE);
 		this.dyesFromFlowerRecipe(pConsumer, IcariaItems.CHAMEOMILE.get(), Items.WHITE_DYE);
 		this.dyesFromFlowerRecipe(pConsumer, IcariaItems.CHARMONDER.get(), Items.LIGHT_BLUE_DYE);
@@ -1254,6 +1262,18 @@ public class IcariaRecipes extends RecipeProvider {
 			.define('Y', Items.STICK)
 			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
 			.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult));
+	}
+
+	public void hangingSignRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult) {
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 6)
+			.pattern("X X")
+			.pattern("YYY")
+			.pattern("YYY")
+			.define('X', IcariaItems.VANADIUMSTEEL_CHAIN.get())
+			.define('Y', pResource)
+			.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_CHAIN.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_CHAIN.get()))
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult));
 	}
 

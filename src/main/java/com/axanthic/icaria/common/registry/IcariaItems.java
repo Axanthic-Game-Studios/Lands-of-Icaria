@@ -307,6 +307,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> CYPRESS_TRAPDOOR = IcariaItems.register("cypress_trapdoor", () -> new BlockItem(IcariaBlocks.CYPRESS_TRAPDOOR.get(), new Item.Properties()));
 	public static final RegistryObject<Item> CYPRESS_LADDER = IcariaItems.registerBasic("cypress_ladder", () -> new FuelBlockItem(IcariaBlocks.CYPRESS_LADDER.get(), new Item.Properties(), 300));
 	public static final RegistryObject<Item> CYPRESS_SIGN = IcariaItems.registerBasic("cypress_sign", () -> new IcariaSignItem(new Item.Properties(), IcariaBlocks.CYPRESS_SIGN.get(), IcariaBlocks.CYPRESS_WALL_SIGN.get()));
+	public static final RegistryObject<Item> CYPRESS_HANGING_SIGN = IcariaItems.registerBasic("cypress_hanging_sign", () -> new HangingSignItem(IcariaBlocks.CYPRESS_HANGING_SIGN.get(), IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), new Item.Properties()));
 
 	public static final RegistryObject<Item> DROUGHTROOT_SAPLING = IcariaItems.register("droughtroot_sapling", () -> new FuelBlockItem(IcariaBlocks.DROUGHTROOT_SAPLING.get(), new Item.Properties(), 100));
 	public static final RegistryObject<Item> DROUGHTROOT_LEAVES = IcariaItems.register("droughtroot_leaves", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_LEAVES.get(), new Item.Properties()));
@@ -325,6 +326,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> DROUGHTROOT_TRAPDOOR = IcariaItems.register("droughtroot_trapdoor", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), new Item.Properties()));
 	public static final RegistryObject<Item> DROUGHTROOT_LADDER = IcariaItems.registerBasic("droughtroot_ladder", () -> new FuelBlockItem(IcariaBlocks.DROUGHTROOT_LADDER.get(), new Item.Properties(), 300));
 	public static final RegistryObject<Item> DROUGHTROOT_SIGN = IcariaItems.registerBasic("droughtroot_sign", () -> new IcariaSignItem(new Item.Properties(), IcariaBlocks.DROUGHTROOT_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_SIGN.get()));
+	public static final RegistryObject<Item> DROUGHTROOT_HANGING_SIGN = IcariaItems.registerBasic("droughtroot_hanging_sign", () -> new HangingSignItem(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get(), new Item.Properties()));
 
 	public static final RegistryObject<Item> FIR_SAPLING = IcariaItems.register("fir_sapling", () -> new FuelBlockItem(IcariaBlocks.FIR_SAPLING.get(), new Item.Properties(), 100));
 	public static final RegistryObject<Item> FIR_LEAVES = IcariaItems.register("fir_leaves", () -> new BlockItem(IcariaBlocks.FIR_LEAVES.get(), new Item.Properties()));
@@ -343,6 +345,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> FIR_TRAPDOOR = IcariaItems.register("fir_trapdoor", () -> new BlockItem(IcariaBlocks.FIR_TRAPDOOR.get(), new Item.Properties()));
 	public static final RegistryObject<Item> FIR_LADDER = IcariaItems.registerBasic("fir_ladder", () -> new FuelBlockItem(IcariaBlocks.FIR_LADDER.get(), new Item.Properties(), 300));
 	public static final RegistryObject<Item> FIR_SIGN = IcariaItems.registerBasic("fir_sign", () -> new IcariaSignItem(new Item.Properties(), IcariaBlocks.FIR_SIGN.get(), IcariaBlocks.FIR_WALL_SIGN.get()));
+	public static final RegistryObject<Item> FIR_HANGING_SIGN = IcariaItems.registerBasic("fir_hanging_sign", () -> new HangingSignItem(IcariaBlocks.FIR_HANGING_SIGN.get(), IcariaBlocks.FIR_WALL_HANGING_SIGN.get(), new Item.Properties()));
 
 	public static final RegistryObject<Item> LAUREL_SAPLING = IcariaItems.register("laurel_sapling", () -> new FuelBlockItem(IcariaBlocks.LAUREL_SAPLING.get(), new Item.Properties(), 100));
 	public static final RegistryObject<Item> LAUREL_LEAVES = IcariaItems.register("laurel_leaves", () -> new BlockItem(IcariaBlocks.LAUREL_LEAVES.get(), new Item.Properties()));
@@ -361,6 +364,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> LAUREL_TRAPDOOR = IcariaItems.register("laurel_trapdoor", () -> new BlockItem(IcariaBlocks.LAUREL_TRAPDOOR.get(), new Item.Properties()));
 	public static final RegistryObject<Item> LAUREL_LADDER = IcariaItems.registerBasic("laurel_ladder", () -> new FuelBlockItem(IcariaBlocks.LAUREL_LADDER.get(), new Item.Properties(), 300));
 	public static final RegistryObject<Item> LAUREL_SIGN = IcariaItems.registerBasic("laurel_sign", () -> new IcariaSignItem(new Item.Properties(), IcariaBlocks.LAUREL_SIGN.get(), IcariaBlocks.LAUREL_WALL_SIGN.get()));
+	public static final RegistryObject<Item> LAUREL_HANGING_SIGN = IcariaItems.registerBasic("laurel_hanging_sign", () -> new HangingSignItem(IcariaBlocks.LAUREL_HANGING_SIGN.get(), IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get(), new Item.Properties()));
 
 	public static final RegistryObject<Item> OLIVE_SAPLING = IcariaItems.register("olive_sapling", () -> new FuelBlockItem(IcariaBlocks.OLIVE_SAPLING.get(), new Item.Properties(), 100));
 	public static final RegistryObject<Item> OLIVE_LEAVES = IcariaItems.register("olive_leaves", () -> new BlockItem(IcariaBlocks.OLIVE_LEAVES.get(), new Item.Properties()));
@@ -379,6 +383,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> OLIVE_TRAPDOOR = IcariaItems.register("olive_trapdoor", () -> new BlockItem(IcariaBlocks.OLIVE_TRAPDOOR.get(), new Item.Properties()));
 	public static final RegistryObject<Item> OLIVE_LADDER = IcariaItems.registerBasic("olive_ladder", () -> new FuelBlockItem(IcariaBlocks.OLIVE_LADDER.get(), new Item.Properties(), 300));
 	public static final RegistryObject<Item> OLIVE_SIGN = IcariaItems.registerBasic("olive_sign", () -> new IcariaSignItem(new Item.Properties(), IcariaBlocks.OLIVE_SIGN.get(), IcariaBlocks.OLIVE_WALL_SIGN.get()));
+	public static final RegistryObject<Item> OLIVE_HANGING_SIGN = IcariaItems.registerBasic("olive_hanging_sign", () -> new HangingSignItem(IcariaBlocks.OLIVE_HANGING_SIGN.get(), IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get(), new Item.Properties()));
 
 	public static final RegistryObject<Item> PLANE_SAPLING = IcariaItems.register("plane_sapling", () -> new FuelBlockItem(IcariaBlocks.PLANE_SAPLING.get(), new Item.Properties(), 100));
 	public static final RegistryObject<Item> PLANE_LEAVES = IcariaItems.register("plane_leaves", () -> new BlockItem(IcariaBlocks.PLANE_LEAVES.get(), new Item.Properties()));
@@ -397,6 +402,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> PLANE_TRAPDOOR = IcariaItems.register("plane_trapdoor", () -> new BlockItem(IcariaBlocks.PLANE_TRAPDOOR.get(), new Item.Properties()));
 	public static final RegistryObject<Item> PLANE_LADDER = IcariaItems.registerBasic("plane_ladder", () -> new FuelBlockItem(IcariaBlocks.PLANE_LADDER.get(), new Item.Properties(), 300));
 	public static final RegistryObject<Item> PLANE_SIGN = IcariaItems.registerBasic("plane_sign", () -> new IcariaSignItem(new Item.Properties(), IcariaBlocks.PLANE_SIGN.get(), IcariaBlocks.PLANE_WALL_SIGN.get()));
+	public static final RegistryObject<Item> PLANE_HANGING_SIGN = IcariaItems.registerBasic("plane_hanging_sign", () -> new HangingSignItem(IcariaBlocks.PLANE_HANGING_SIGN.get(), IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), new Item.Properties()));
 
 	public static final RegistryObject<Item> POPULUS_SAPLING = IcariaItems.register("populus_sapling", () -> new FuelBlockItem(IcariaBlocks.POPULUS_SAPLING.get(), new Item.Properties(), 100));
 	public static final RegistryObject<Item> POPULUS_LEAVES = IcariaItems.register("populus_leaves", () -> new BlockItem(IcariaBlocks.POPULUS_LEAVES.get(), new Item.Properties()));
@@ -415,6 +421,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> POPULUS_TRAPDOOR = IcariaItems.register("populus_trapdoor", () -> new BlockItem(IcariaBlocks.POPULUS_TRAPDOOR.get(), new Item.Properties()));
 	public static final RegistryObject<Item> POPULUS_LADDER = IcariaItems.registerBasic("populus_ladder", () -> new FuelBlockItem(IcariaBlocks.POPULUS_LADDER.get(), new Item.Properties(), 300));
 	public static final RegistryObject<Item> POPULUS_SIGN = IcariaItems.registerBasic("populus_sign", () -> new IcariaSignItem(new Item.Properties(), IcariaBlocks.POPULUS_SIGN.get(), IcariaBlocks.POPULUS_WALL_SIGN.get()));
+	public static final RegistryObject<Item> POPULUS_HANGING_SIGN = IcariaItems.registerBasic("populus_hanging_sign", () -> new HangingSignItem(IcariaBlocks.POPULUS_HANGING_SIGN.get(), IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), new Item.Properties()));
 
 	public static final RegistryObject<Item> DEAD_BLOOMY_VINE = IcariaItems.registerBasic("dead_bloomy_vine", () -> new BlockItem(IcariaBlocks.DEAD_BLOOMY_VINE.get(), new Item.Properties()));
 	public static final RegistryObject<Item> GROWING_BLOOMY_VINE = IcariaItems.registerBasic("growing_bloomy_vine", () -> new BlockItem(IcariaBlocks.GROWING_BLOOMY_VINE.get(), new Item.Properties()));

@@ -120,12 +120,19 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropElse(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
 		this.dropElse(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_SIGN.get(), IcariaItems.CYPRESS_SIGN.get());
+		this.dropElse(IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaItems.CYPRESS_HANGING_SIGN.get());
 		this.dropElse(IcariaBlocks.DROUGHTROOT_WALL_SIGN.get(), IcariaItems.DROUGHTROOT_SIGN.get());
+		this.dropElse(IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get(), IcariaItems.DROUGHTROOT_HANGING_SIGN.get());
 		this.dropElse(IcariaBlocks.FIR_WALL_SIGN.get(), IcariaItems.FIR_SIGN.get());
+		this.dropElse(IcariaBlocks.FIR_WALL_HANGING_SIGN.get(), IcariaItems.FIR_HANGING_SIGN.get());
 		this.dropElse(IcariaBlocks.LAUREL_WALL_SIGN.get(), IcariaItems.LAUREL_SIGN.get());
+		this.dropElse(IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get(), IcariaItems.LAUREL_HANGING_SIGN.get());
 		this.dropElse(IcariaBlocks.OLIVE_WALL_SIGN.get(), IcariaItems.OLIVE_SIGN.get());
+		this.dropElse(IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get(), IcariaItems.OLIVE_HANGING_SIGN.get());
 		this.dropElse(IcariaBlocks.PLANE_WALL_SIGN.get(), IcariaItems.PLANE_SIGN.get());
+		this.dropElse(IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), IcariaItems.PLANE_HANGING_SIGN.get());
 		this.dropElse(IcariaBlocks.POPULUS_WALL_SIGN.get(), IcariaItems.POPULUS_SIGN.get());
+		this.dropElse(IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), IcariaItems.POPULUS_HANGING_SIGN.get());
 
 		this.dropThis(IcariaBlocks.DOLOMITE_PILLAR.get());
 		this.dropThis(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get());
@@ -196,6 +203,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.CYPRESS_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.CYPRESS_LADDER.get());
 		this.dropThis(IcariaBlocks.CYPRESS_SIGN.get());
+		this.dropThis(IcariaBlocks.CYPRESS_HANGING_SIGN.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_SAPLING.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_WOOD.get());
 		this.dropThis(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get());
@@ -207,6 +215,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_LADDER.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_SIGN.get());
+		this.dropThis(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get());
 		this.dropThis(IcariaBlocks.FIR_SAPLING.get());
 		this.dropThis(IcariaBlocks.FIR_WOOD.get());
 		this.dropThis(IcariaBlocks.STRIPPED_FIR_WOOD.get());
@@ -218,6 +227,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.FIR_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.FIR_LADDER.get());
 		this.dropThis(IcariaBlocks.FIR_SIGN.get());
+		this.dropThis(IcariaBlocks.FIR_HANGING_SIGN.get());
 		this.dropThis(IcariaBlocks.LAUREL_SAPLING.get());
 		this.dropThis(IcariaBlocks.LAUREL_WOOD.get());
 		this.dropThis(IcariaBlocks.STRIPPED_LAUREL_WOOD.get());
@@ -229,6 +239,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.LAUREL_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.LAUREL_LADDER.get());
 		this.dropThis(IcariaBlocks.LAUREL_SIGN.get());
+		this.dropThis(IcariaBlocks.LAUREL_HANGING_SIGN.get());
 		this.dropThis(IcariaBlocks.OLIVE_SAPLING.get());
 		this.dropThis(IcariaBlocks.OLIVE_WOOD.get());
 		this.dropThis(IcariaBlocks.STRIPPED_OLIVE_WOOD.get());
@@ -240,6 +251,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.OLIVE_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.OLIVE_LADDER.get());
 		this.dropThis(IcariaBlocks.OLIVE_SIGN.get());
+		this.dropThis(IcariaBlocks.OLIVE_HANGING_SIGN.get());
 		this.dropThis(IcariaBlocks.PLANE_SAPLING.get());
 		this.dropThis(IcariaBlocks.PLANE_WOOD.get());
 		this.dropThis(IcariaBlocks.STRIPPED_PLANE_WOOD.get());
@@ -251,6 +263,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.PLANE_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.PLANE_LADDER.get());
 		this.dropThis(IcariaBlocks.PLANE_SIGN.get());
+		this.dropThis(IcariaBlocks.PLANE_HANGING_SIGN.get());
 		this.dropThis(IcariaBlocks.POPULUS_SAPLING.get());
 		this.dropThis(IcariaBlocks.POPULUS_WOOD.get());
 		this.dropThis(IcariaBlocks.STRIPPED_POPULUS_WOOD.get());
@@ -262,6 +275,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.POPULUS_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.POPULUS_LADDER.get());
 		this.dropThis(IcariaBlocks.POPULUS_SIGN.get());
+		this.dropThis(IcariaBlocks.POPULUS_HANGING_SIGN.get());
 		this.dropThis(IcariaBlocks.BLINDWEED.get());
 		this.dropThis(IcariaBlocks.CHAMEOMILE.get());
 		this.dropThis(IcariaBlocks.CHARMONDER.get());

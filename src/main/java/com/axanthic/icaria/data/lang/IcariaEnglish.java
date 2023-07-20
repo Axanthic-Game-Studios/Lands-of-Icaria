@@ -382,6 +382,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_TRAPDOOR.get(), "Cypress Trapdoor");
 		this.add(IcariaBlocks.CYPRESS_LADDER.get(), "Cypress Ladder");
 		this.add(IcariaBlocks.CYPRESS_SIGN.get(), "Cypress Sign");
+		this.add(IcariaBlocks.CYPRESS_HANGING_SIGN.get(), "Cypress Hanging Sign");
 
 		this.add(IcariaBlocks.DROUGHTROOT_SAPLING.get(), "Droughtroot Sapling");
 		this.add(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get(), "Potted Droughtroot Sapling");
@@ -404,6 +405,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), "Droughtroot Trapdoor");
 		this.add(IcariaBlocks.DROUGHTROOT_LADDER.get(), "Droughtroot Ladder");
 		this.add(IcariaBlocks.DROUGHTROOT_SIGN.get(), "Droughtroot Sign");
+		this.add(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), "Droughtroot Hanging Sign");
 
 		this.add(IcariaBlocks.FIR_SAPLING.get(), "Fir Sapling");
 		this.add(IcariaBlocks.POTTED_FIR_SAPLING.get(), "Potted Fir Sapling");
@@ -426,6 +428,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_TRAPDOOR.get(), "Fir Trapdoor");
 		this.add(IcariaBlocks.FIR_LADDER.get(), "Fir Ladder");
 		this.add(IcariaBlocks.FIR_SIGN.get(), "Fir Sign");
+		this.add(IcariaBlocks.FIR_HANGING_SIGN.get(), "Fir Hanging Sign");
 
 		this.add(IcariaBlocks.LAUREL_SAPLING.get(), "Laurel Sapling");
 		this.add(IcariaBlocks.POTTED_LAUREL_SAPLING.get(), "Potted Laurel Sapling");
@@ -448,6 +451,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_TRAPDOOR.get(), "Laurel Trapdoor");
 		this.add(IcariaBlocks.LAUREL_LADDER.get(), "Laurel Ladder");
 		this.add(IcariaBlocks.LAUREL_SIGN.get(), "Laurel Sign");
+		this.add(IcariaBlocks.LAUREL_HANGING_SIGN.get(), "Laurel Hanging Sign");
 
 		this.add(IcariaBlocks.OLIVE_SAPLING.get(), "Olive Sapling");
 		this.add(IcariaBlocks.POTTED_OLIVE_SAPLING.get(), "Potted Olive Sapling");
@@ -470,6 +474,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_TRAPDOOR.get(), "Olive Trapdoor");
 		this.add(IcariaBlocks.OLIVE_LADDER.get(), "Olive Ladder");
 		this.add(IcariaBlocks.OLIVE_SIGN.get(), "Olive Sign");
+		this.add(IcariaBlocks.OLIVE_HANGING_SIGN.get(), "Olive Hanging Sign");
 
 		this.add(IcariaBlocks.PLANE_SAPLING.get(), "Plane Sapling");
 		this.add(IcariaBlocks.POTTED_PLANE_SAPLING.get(), "Potted Plane Sapling");
@@ -492,6 +497,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_TRAPDOOR.get(), "Plane Trapdoor");
 		this.add(IcariaBlocks.PLANE_LADDER.get(), "Plane Ladder");
 		this.add(IcariaBlocks.PLANE_SIGN.get(), "Plane Sign");
+		this.add(IcariaBlocks.PLANE_HANGING_SIGN.get(), "Plane Hanging Sign");
 
 		this.add(IcariaBlocks.POPULUS_SAPLING.get(), "Populus Sapling");
 		this.add(IcariaBlocks.POTTED_POPULUS_SAPLING.get(), "Potted Populus Sapling");
@@ -514,6 +520,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_TRAPDOOR.get(), "Populus Trapdoor");
 		this.add(IcariaBlocks.POPULUS_LADDER.get(), "Populus Ladder");
 		this.add(IcariaBlocks.POPULUS_SIGN.get(), "Populus Sign");
+		this.add(IcariaBlocks.POPULUS_HANGING_SIGN.get(), "Populus Hanging Sign");
 
 		this.add(IcariaBlocks.DEAD_BLOOMY_VINE.get(), "Bloomy Vine");
 		this.add(IcariaBlocks.GROWING_BLOOMY_VINE.get(), "Bloomy Vine");
