@@ -51,16 +51,16 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> FERTILIZED_FARMLAND = IcariaBlocks.register("fertilized_farmland", () -> new FertilizedFarmlandBlock(IcariaBlocks.propertiesFarmland()));
 
 	public static final RegistryObject<Block> MARL_ADOBE = IcariaBlocks.registerSimple("marl_adobe", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_BROWN)));
-	public static final IcariaStoneDecoBlocks MARL_ADOBE_DECO = new IcariaStoneDecoBlocks("marl_adobe", MARL_ADOBE, IcariaBlocks.propertiesStone(MapColor.COLOR_BROWN));
+	public static final IcariaStoneDecoBlocks MARL_ADOBE_DECO = new IcariaStoneDecoBlocks("marl_adobe", IcariaBlocks.MARL_ADOBE, IcariaBlocks.propertiesStone(MapColor.COLOR_BROWN));
 
 	public static final RegistryObject<Block> LOAM = IcariaBlocks.register("loam", () -> new LoamBlock(IcariaBlocks.propertiesLoam()));
 	public static final RegistryObject<Block> LOAM_BRICKS = IcariaBlocks.registerSimple("loam_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK)));
-	public static final IcariaStoneDecoBlocks LOAM_BRICK_DECO = new IcariaStoneDecoBlocks("loam_brick", LOAM_BRICKS, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK));
+	public static final IcariaStoneDecoBlocks LOAM_BRICK_DECO = new IcariaStoneDecoBlocks("loam_brick", IcariaBlocks.LOAM_BRICKS, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK));
 
 	public static final RegistryObject<Block> DOLOMITE_ADOBE = IcariaBlocks.registerSimple("dolomite_adobe", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_WHITE)));
-	public static final IcariaStoneDecoBlocks DOLOMITE_ADOBE_DECO = new IcariaStoneDecoBlocks("dolomite_adobe", DOLOMITE_ADOBE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_WHITE));
+	public static final IcariaStoneDecoBlocks DOLOMITE_ADOBE_DECO = new IcariaStoneDecoBlocks("dolomite_adobe", IcariaBlocks.DOLOMITE_ADOBE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_WHITE));
 	public static final RegistryObject<Block> SMOOTH_DOLOMITE = IcariaBlocks.registerSimple("smooth_dolomite", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_WHITE)));
-	public static final IcariaStoneDecoBlocks SMOOTH_DOLOMITE_DECO = new IcariaStoneDecoBlocks("smooth_dolomite", SMOOTH_DOLOMITE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_WHITE));
+	public static final IcariaStoneDecoBlocks SMOOTH_DOLOMITE_DECO = new IcariaStoneDecoBlocks("smooth_dolomite", IcariaBlocks.SMOOTH_DOLOMITE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_WHITE));
 	public static final RegistryObject<Block> DOLOMITE_BRICKS = IcariaBlocks.registerSimple("dolomite_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_WHITE)));
 	public static final RegistryObject<RotatedPillarBlock> DOLOMITE_PILLAR = IcariaBlocks.register("dolomite_pillar", () -> new RotatedPillarBlock(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_WHITE)));
 	public static final RegistryObject<PillarHeadBlock> DOLOMITE_PILLAR_HEAD = IcariaBlocks.register("dolomite_pillar_head", () -> new PillarHeadBlock(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_WHITE)));
@@ -71,22 +71,22 @@ public class IcariaBlocks {
 	public static final RegistryObject<IronBarsBlock> GRAINGLASS_PANE = IcariaBlocks.register("grainglass_pane", () -> new IronBarsBlock(IcariaBlocks.propertiesGlass()));
 	public static final RegistryObject<Block> HORIZONTAL_GRAINGLASS_PANE = IcariaBlocks.register("horizontal_grainglass_pane", () -> new HorizontalPaneBlock(IcariaBlocks.propertiesGlass()));
 	public static final RegistryObject<Block> GRAINITE_ADOBE = IcariaBlocks.registerSimple("grainite_adobe", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_YELLOW)));
-	public static final IcariaStoneDecoBlocks GRAINITE_ADOBE_DECO = new IcariaStoneDecoBlocks("grainite_adobe", GRAINITE_ADOBE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_YELLOW));
+	public static final IcariaStoneDecoBlocks GRAINITE_ADOBE_DECO = new IcariaStoneDecoBlocks("grainite_adobe", IcariaBlocks.GRAINITE_ADOBE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_YELLOW));
 	public static final RegistryObject<Block> GRAINITE = IcariaBlocks.registerSimple("grainite", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_YELLOW)));
-	public static final IcariaStoneDecoBlocks GRAINITE_DECO = new IcariaStoneDecoBlocks("grainite", GRAINITE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_YELLOW));
+	public static final IcariaStoneDecoBlocks GRAINITE_DECO = new IcariaStoneDecoBlocks("grainite", IcariaBlocks.GRAINITE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_YELLOW));
 	public static final RegistryObject<Block> GRAINITE_BRICKS = IcariaBlocks.registerSimple("grainite_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_YELLOW)));
-	public static final IcariaStoneDecoBlocks GRAINITE_BRICK_DECO = new IcariaStoneDecoBlocks("grainite_brick", GRAINITE_BRICKS, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_YELLOW));
+	public static final IcariaStoneDecoBlocks GRAINITE_BRICK_DECO = new IcariaStoneDecoBlocks("grainite_brick", IcariaBlocks.GRAINITE_BRICKS, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_YELLOW));
 	public static final RegistryObject<Block> CHISELED_GRAINITE = IcariaBlocks.registerSimple("chiseled_grainite", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_YELLOW)));
 	public static final RegistryObject<Block> GRAINITE_RUBBLE = IcariaBlocks.register("grainite_rubble", () -> new GroundDecoBlock(IcariaBlocks.propertiesRubble()));
 
 	public static final RegistryObject<Block> YELLOWSTONE_ADOBE = IcariaBlocks.registerSimple("yellowstone_adobe", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks YELLOWSTONE_ADOBE_DECO = new IcariaStoneDecoBlocks("yellowstone_adobe", YELLOWSTONE_ADOBE, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks YELLOWSTONE_ADOBE_DECO = new IcariaStoneDecoBlocks("yellowstone_adobe", IcariaBlocks.YELLOWSTONE_ADOBE, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> COBBLED_YELLOWSTONE = IcariaBlocks.registerSimple("cobbled_yellowstone", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks COBBLED_YELLOWSTONE_DECO = new IcariaStoneDecoBlocks("cobbled_yellowstone", COBBLED_YELLOWSTONE, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks COBBLED_YELLOWSTONE_DECO = new IcariaStoneDecoBlocks("cobbled_yellowstone", IcariaBlocks.COBBLED_YELLOWSTONE, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> YELLOWSTONE = IcariaBlocks.register("yellowstone", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks YELLOWSTONE_DECO = new IcariaStoneDecoBlocks("yellowstone", YELLOWSTONE, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks YELLOWSTONE_DECO = new IcariaStoneDecoBlocks("yellowstone", IcariaBlocks.YELLOWSTONE, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> YELLOWSTONE_BRICKS = IcariaBlocks.registerSimple("yellowstone_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks YELLOWSTONE_BRICK_DECO = new IcariaStoneDecoBlocks("yellowstone_brick", YELLOWSTONE_BRICKS, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks YELLOWSTONE_BRICK_DECO = new IcariaStoneDecoBlocks("yellowstone_brick", IcariaBlocks.YELLOWSTONE_BRICKS, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> CHISELED_YELLOWSTONE = IcariaBlocks.registerSimple("chiseled_yellowstone", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
 	public static final RegistryObject<Block> YELLOWSTONE_RUBBLE = IcariaBlocks.register("yellowstone_rubble", () -> new GroundDecoBlock(IcariaBlocks.propertiesRubble()));
 
@@ -95,75 +95,75 @@ public class IcariaBlocks {
 	public static final RegistryObject<IronBarsBlock> SILKGLASS_PANE = IcariaBlocks.register("silkglass_pane", () -> new IronBarsBlock(IcariaBlocks.propertiesGlass()));
 	public static final RegistryObject<Block> HORIZONTAL_SILKGLASS_PANE = IcariaBlocks.register("horizontal_silkglass_pane", () -> new HorizontalPaneBlock(IcariaBlocks.propertiesGlass()));
 	public static final RegistryObject<Block> SILKSTONE_ADOBE = IcariaBlocks.registerSimple("silkstone_adobe", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK)));
-	public static final IcariaStoneDecoBlocks SILKSTONE_ADOBE_DECO = new IcariaStoneDecoBlocks("silkstone_adobe", SILKSTONE_ADOBE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK));
+	public static final IcariaStoneDecoBlocks SILKSTONE_ADOBE_DECO = new IcariaStoneDecoBlocks("silkstone_adobe", IcariaBlocks.SILKSTONE_ADOBE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK));
 	public static final RegistryObject<Block> COBBLED_SILKSTONE = IcariaBlocks.registerSimple("cobbled_silkstone", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK)));
-	public static final IcariaStoneDecoBlocks COBBLED_SILKSTONE_DECO = new IcariaStoneDecoBlocks("cobbled_silkstone", COBBLED_SILKSTONE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK));
+	public static final IcariaStoneDecoBlocks COBBLED_SILKSTONE_DECO = new IcariaStoneDecoBlocks("cobbled_silkstone", IcariaBlocks.COBBLED_SILKSTONE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK));
 	public static final RegistryObject<Block> SILKSTONE = IcariaBlocks.register("silkstone", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK)));
-	public static final IcariaStoneDecoBlocks SILKSTONE_DECO = new IcariaStoneDecoBlocks("silkstone", SILKSTONE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK));
+	public static final IcariaStoneDecoBlocks SILKSTONE_DECO = new IcariaStoneDecoBlocks("silkstone", IcariaBlocks.SILKSTONE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK));
 	public static final RegistryObject<Block> SILKSTONE_BRICKS = IcariaBlocks.registerSimple("silkstone_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK)));
-	public static final IcariaStoneDecoBlocks SILKSTONE_BRICK_DECO = new IcariaStoneDecoBlocks("silkstone_brick", SILKSTONE_BRICKS, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK));
+	public static final IcariaStoneDecoBlocks SILKSTONE_BRICK_DECO = new IcariaStoneDecoBlocks("silkstone_brick", IcariaBlocks.SILKSTONE_BRICKS, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK));
 	public static final RegistryObject<Block> CHISELED_SILKSTONE = IcariaBlocks.registerSimple("chiseled_silkstone", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK)));
 	public static final RegistryObject<Block> SILKSTONE_RUBBLE = IcariaBlocks.register("silkstone_rubble", () -> new GroundDecoBlock(IcariaBlocks.propertiesRubble()));
 
 	public static final RegistryObject<Block> SUNSTONE_ADOBE = IcariaBlocks.registerSimple("sunstone_adobe", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks SUNSTONE_ADOBE_DECO = new IcariaStoneDecoBlocks("sunstone_adobe", SUNSTONE_ADOBE, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks SUNSTONE_ADOBE_DECO = new IcariaStoneDecoBlocks("sunstone_adobe", IcariaBlocks.SUNSTONE_ADOBE, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> COBBLED_SUNSTONE = IcariaBlocks.registerSimple("cobbled_sunstone", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks COBBLED_SUNSTONE_DECO = new IcariaStoneDecoBlocks("cobbled_sunstone", COBBLED_SUNSTONE, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks COBBLED_SUNSTONE_DECO = new IcariaStoneDecoBlocks("cobbled_sunstone", IcariaBlocks.COBBLED_SUNSTONE, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> SUNSTONE = IcariaBlocks.register("sunstone", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks SUNSTONE_DECO = new IcariaStoneDecoBlocks("sunstone", SUNSTONE, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks SUNSTONE_DECO = new IcariaStoneDecoBlocks("sunstone", IcariaBlocks.SUNSTONE, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> SUNSTONE_BRICKS = IcariaBlocks.registerSimple("sunstone_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks SUNSTONE_BRICK_DECO = new IcariaStoneDecoBlocks("sunstone_brick", SUNSTONE_BRICKS, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks SUNSTONE_BRICK_DECO = new IcariaStoneDecoBlocks("sunstone_brick", IcariaBlocks.SUNSTONE_BRICKS, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> CHISELED_SUNSTONE = IcariaBlocks.registerSimple("chiseled_sunstone", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
 	public static final RegistryObject<Block> SUNSTONE_RUBBLE = IcariaBlocks.register("sunstone_rubble", () -> new GroundDecoBlock(IcariaBlocks.propertiesRubble()));
 
 	public static final RegistryObject<Block> VOIDSHALE_ADOBE = IcariaBlocks.registerSimple("voidshale_adobe", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY)));
-	public static final IcariaStoneDecoBlocks VOIDSHALE_ADOBE_DECO = new IcariaStoneDecoBlocks("voidshale_adobe", VOIDSHALE_ADOBE, IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY));
+	public static final IcariaStoneDecoBlocks VOIDSHALE_ADOBE_DECO = new IcariaStoneDecoBlocks("voidshale_adobe", IcariaBlocks.VOIDSHALE_ADOBE, IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY));
 	public static final RegistryObject<Block> COBBLED_VOIDSHALE = IcariaBlocks.registerSimple("cobbled_voidshale", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY)));
-	public static final IcariaStoneDecoBlocks COBBLED_VOIDSHALE_DECO = new IcariaStoneDecoBlocks("cobbled_voidshale", COBBLED_VOIDSHALE, IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY));
+	public static final IcariaStoneDecoBlocks COBBLED_VOIDSHALE_DECO = new IcariaStoneDecoBlocks("cobbled_voidshale", IcariaBlocks.COBBLED_VOIDSHALE, IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY));
 	public static final RegistryObject<Block> VOIDSHALE = IcariaBlocks.register("voidshale", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY)));
-	public static final IcariaStoneDecoBlocks VOIDSHALE_DECO = new IcariaStoneDecoBlocks("voidshale", VOIDSHALE, IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY));
+	public static final IcariaStoneDecoBlocks VOIDSHALE_DECO = new IcariaStoneDecoBlocks("voidshale", IcariaBlocks.VOIDSHALE, IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY));
 	public static final RegistryObject<Block> VOIDSHALE_BRICKS = IcariaBlocks.registerSimple("voidshale_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY)));
-	public static final IcariaStoneDecoBlocks VOIDSHALE_BRICK_DECO = new IcariaStoneDecoBlocks("voidshale_brick", VOIDSHALE_BRICKS, IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY));
+	public static final IcariaStoneDecoBlocks VOIDSHALE_BRICK_DECO = new IcariaStoneDecoBlocks("voidshale_brick", IcariaBlocks.VOIDSHALE_BRICKS, IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY));
 	public static final RegistryObject<Block> CHISELED_VOIDSHALE = IcariaBlocks.registerSimple("chiseled_voidshale", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_GRAY)));
 	public static final RegistryObject<Block> VOIDSHALE_RUBBLE = IcariaBlocks.register("voidshale_rubble", () -> new GroundDecoBlock(IcariaBlocks.propertiesRubble()));
 
 	public static final RegistryObject<Block> BAETYL_ADOBE = IcariaBlocks.registerSimple("baetyl_adobe", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN)));
-	public static final IcariaStoneDecoBlocks BAETYL_ADOBE_DECO = new IcariaStoneDecoBlocks("baetyl_adobe", BAETYL_ADOBE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN));
+	public static final IcariaStoneDecoBlocks BAETYL_ADOBE_DECO = new IcariaStoneDecoBlocks("baetyl_adobe", IcariaBlocks.BAETYL_ADOBE, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN));
 	public static final RegistryObject<Block> COBBLED_BAETYL = IcariaBlocks.registerSimple("cobbled_baetyl", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN)));
-	public static final IcariaStoneDecoBlocks COBBLED_BAETYL_DECO = new IcariaStoneDecoBlocks("cobbled_baetyl", COBBLED_BAETYL, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN));
+	public static final IcariaStoneDecoBlocks COBBLED_BAETYL_DECO = new IcariaStoneDecoBlocks("cobbled_baetyl", IcariaBlocks.COBBLED_BAETYL, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN));
 	public static final RegistryObject<Block> BAETYL = IcariaBlocks.register("baetyl", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN)));
-	public static final IcariaStoneDecoBlocks BAETYL_DECO = new IcariaStoneDecoBlocks("baetyl", BAETYL, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN));
+	public static final IcariaStoneDecoBlocks BAETYL_DECO = new IcariaStoneDecoBlocks("baetyl", IcariaBlocks.BAETYL, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN));
 	public static final RegistryObject<Block> BAETYL_BRICKS = IcariaBlocks.registerSimple("baetyl_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN)));
-	public static final IcariaStoneDecoBlocks BAETYL_BRICK_DECO = new IcariaStoneDecoBlocks("baetyl_brick", BAETYL_BRICKS, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN));
+	public static final IcariaStoneDecoBlocks BAETYL_BRICK_DECO = new IcariaStoneDecoBlocks("baetyl_brick", IcariaBlocks.BAETYL_BRICKS, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN));
 	public static final RegistryObject<Block> CHISELED_BAETYL = IcariaBlocks.registerSimple("chiseled_baetyl", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN)));
 	public static final RegistryObject<Block> BAETYL_RUBBLE = IcariaBlocks.register("baetyl_rubble", () -> new GroundDecoBlock(IcariaBlocks.propertiesRubble()));
 
 	public static final RegistryObject<Block> RELICSTONE = IcariaBlocks.registerSimple("relicstone", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks RELICSTONE_DECO = new IcariaStoneDecoBlocks("relicstone", RELICSTONE, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks RELICSTONE_DECO = new IcariaStoneDecoBlocks("relicstone", IcariaBlocks.RELICSTONE, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> SMOOTH_RELICSTONE = IcariaBlocks.register("smooth_relicstone", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks SMOOTH_RELICSTONE_DECO = new IcariaStoneDecoBlocks("smooth_relicstone", SMOOTH_RELICSTONE, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks SMOOTH_RELICSTONE_DECO = new IcariaStoneDecoBlocks("smooth_relicstone", IcariaBlocks.SMOOTH_RELICSTONE, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> RELICSTONE_BRICKS = IcariaBlocks.registerSimple("relicstone_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks RELICSTONE_BRICK_DECO = new IcariaStoneDecoBlocks("relicstone_brick", RELICSTONE_BRICKS, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks RELICSTONE_BRICK_DECO = new IcariaStoneDecoBlocks("relicstone_brick", IcariaBlocks.RELICSTONE_BRICKS, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> CRACKED_RELICSTONE_BRICKS = IcariaBlocks.registerSimple("cracked_relicstone_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks CRACKED_RELICSTONE_BRICK_DECO = new IcariaStoneDecoBlocks("cracked_relicstone_brick", CRACKED_RELICSTONE_BRICKS, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks CRACKED_RELICSTONE_BRICK_DECO = new IcariaStoneDecoBlocks("cracked_relicstone_brick", IcariaBlocks.CRACKED_RELICSTONE_BRICKS, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> MOSSY_RELICSTONE_BRICKS = IcariaBlocks.registerSimple("mossy_relicstone_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks MOSSY_RELICSTONE_BRICK_DECO = new IcariaStoneDecoBlocks("mossy_relicstone_brick", MOSSY_RELICSTONE_BRICKS, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks MOSSY_RELICSTONE_BRICK_DECO = new IcariaStoneDecoBlocks("mossy_relicstone_brick", IcariaBlocks.MOSSY_RELICSTONE_BRICKS, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> RELICSTONE_TILES = IcariaBlocks.registerSimple("relicstone_tiles", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks RELICSTONE_TILE_DECO = new IcariaStoneDecoBlocks("relicstone_tile", RELICSTONE_TILES, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks RELICSTONE_TILE_DECO = new IcariaStoneDecoBlocks("relicstone_tile", IcariaBlocks.RELICSTONE_TILES, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> CRACKED_RELICSTONE_TILES = IcariaBlocks.registerSimple("cracked_relicstone_tiles", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks CRACKED_RELICSTONE_TILE_DECO = new IcariaStoneDecoBlocks("cracked_relicstone_tile", CRACKED_RELICSTONE_TILES, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks CRACKED_RELICSTONE_TILE_DECO = new IcariaStoneDecoBlocks("cracked_relicstone_tile", IcariaBlocks.CRACKED_RELICSTONE_TILES, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> MOSSY_RELICSTONE_TILES = IcariaBlocks.registerSimple("mossy_relicstone_tiles", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
-	public static final IcariaStoneDecoBlocks MOSSY_RELICSTONE_TILE_DECO = new IcariaStoneDecoBlocks("mossy_relicstone_tile", MOSSY_RELICSTONE_TILES, IcariaBlocks.propertiesStone(MapColor.WOOD));
+	public static final IcariaStoneDecoBlocks MOSSY_RELICSTONE_TILE_DECO = new IcariaStoneDecoBlocks("mossy_relicstone_tile", IcariaBlocks.MOSSY_RELICSTONE_TILES, IcariaBlocks.propertiesStone(MapColor.WOOD));
 	public static final RegistryObject<Block> CHISELED_RELICSTONE = IcariaBlocks.registerSimple("chiseled_relicstone", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> RELICSTONE_PILLAR = IcariaBlocks.register("relicstone_pillar", () -> new RotatedPillarBlock(IcariaBlocks.propertiesStone(MapColor.WOOD)));
 	public static final RegistryObject<Block> RELICSTONE_PILLAR_HEAD = IcariaBlocks.register("relicstone_pillar_head", () -> new PillarHeadBlock(IcariaBlocks.propertiesStone(MapColor.WOOD)));
 	public static final RegistryObject<Block> RELICSTONE_RUBBLE = IcariaBlocks.register("relicstone_rubble", () -> new GroundDecoBlock(IcariaBlocks.propertiesRubble()));
 
 	public static final RegistryObject<Block> PLATOSHALE = IcariaBlocks.registerSimple("platoshale", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_BLACK)));
-	public static final IcariaStoneDecoBlocks PLATOSHALE_DECO = new IcariaStoneDecoBlocks("platoshale", PLATOSHALE, IcariaBlocks.propertiesStone(MapColor.COLOR_BLACK));
+	public static final IcariaStoneDecoBlocks PLATOSHALE_DECO = new IcariaStoneDecoBlocks("platoshale", IcariaBlocks.PLATOSHALE, IcariaBlocks.propertiesStone(MapColor.COLOR_BLACK));
 	public static final RegistryObject<Block> BLURRED_PLATOSHALE = IcariaBlocks.register("blurred_platoshale", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_BLACK)));
 	public static final RegistryObject<Block> PLATOSHALE_BRICKS = IcariaBlocks.registerSimple("platoshale_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_BLACK)));
-	public static final IcariaStoneDecoBlocks PLATOSHALE_BRICK_DECO = new IcariaStoneDecoBlocks("platoshale_brick", PLATOSHALE_BRICKS, IcariaBlocks.propertiesStone(MapColor.COLOR_BLACK));
+	public static final IcariaStoneDecoBlocks PLATOSHALE_BRICK_DECO = new IcariaStoneDecoBlocks("platoshale_brick", IcariaBlocks.PLATOSHALE_BRICKS, IcariaBlocks.propertiesStone(MapColor.COLOR_BLACK));
 	public static final RegistryObject<Block> BLURRED_PLATOSHALE_BRICKS = IcariaBlocks.register("blurred_platoshale_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_BLACK)));
 	public static final RegistryObject<Block> CHISELED_PLATOSHALE = IcariaBlocks.registerSimple("chiseled_platoshale", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_BLACK)));
 
@@ -326,7 +326,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> DEAD_CYPRESS_LOG = IcariaBlocks.register("dead_cypress_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, MapColor.COLOR_GRAY)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_CYPRESS_LOG = IcariaBlocks.register("stripped_dead_cypress_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, MapColor.COLOR_ORANGE))));
 	public static final RegistryObject<Block> CYPRESS_PLANKS = IcariaBlocks.registerSimple("cypress_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN)));
-	public static final IcariaWoodDecoBlocks CYPRESS_DECO = new IcariaWoodDecoBlocks("cypress", CYPRESS_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN));
+	public static final IcariaWoodDecoBlocks CYPRESS_DECO = new IcariaWoodDecoBlocks("cypress", IcariaBlocks.CYPRESS_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN));
 	public static final RegistryObject<Block> CYPRESS_CRAFTING_TABLE = IcariaBlocks.register("cypress_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_BROWN)));
 	public static final RegistryObject<DoorBlock> CYPRESS_DOOR = IcariaBlocks.register("cypress_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_ORANGE), IcariaBlockSetTypes.CYPRESS));
 	public static final RegistryObject<TrapDoorBlock> CYPRESS_TRAPDOOR = IcariaBlocks.register("cypress_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_ORANGE), IcariaBlockSetTypes.CYPRESS));
@@ -348,7 +348,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> DEAD_DROUGHTROOT_LOG = IcariaBlocks.register("dead_droughtroot_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, MapColor.COLOR_BLACK)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_DROUGHTROOT_LOG = IcariaBlocks.register("stripped_dead_droughtroot_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, MapColor.COLOR_GRAY))));
 	public static final RegistryObject<Block> DROUGHTROOT_PLANKS = IcariaBlocks.registerSimple("droughtroot_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_GRAY)));
-	public static final IcariaWoodDecoBlocks DROUGHTROOT_DECO = new IcariaWoodDecoBlocks("droughtroot", DROUGHTROOT_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_GRAY));
+	public static final IcariaWoodDecoBlocks DROUGHTROOT_DECO = new IcariaWoodDecoBlocks("droughtroot", IcariaBlocks.DROUGHTROOT_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_GRAY));
 	public static final RegistryObject<Block> DROUGHTROOT_CRAFTING_TABLE = IcariaBlocks.register("droughtroot_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_GRAY)));
 	public static final RegistryObject<DoorBlock> DROUGHTROOT_DOOR = IcariaBlocks.register("droughtroot_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_GRAY), IcariaBlockSetTypes.DROUGHTROOT));
 	public static final RegistryObject<TrapDoorBlock> DROUGHTROOT_TRAPDOOR = IcariaBlocks.register("droughtroot_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_GRAY), IcariaBlockSetTypes.DROUGHTROOT));
@@ -370,7 +370,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> DEAD_FIR_LOG = IcariaBlocks.register("dead_fir_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, MapColor.COLOR_BROWN)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_FIR_LOG = IcariaBlocks.register("stripped_dead_fir_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, MapColor.COLOR_ORANGE))));
 	public static final RegistryObject<Block> FIR_PLANKS = IcariaBlocks.registerSimple("fir_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_ORANGE)));
-	public static final IcariaWoodDecoBlocks FIR_DECO = new IcariaWoodDecoBlocks("fir", FIR_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_ORANGE));
+	public static final IcariaWoodDecoBlocks FIR_DECO = new IcariaWoodDecoBlocks("fir", IcariaBlocks.FIR_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_ORANGE));
 	public static final RegistryObject<Block> FIR_CRAFTING_TABLE = IcariaBlocks.register("fir_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_ORANGE)));
 	public static final RegistryObject<DoorBlock> FIR_DOOR = IcariaBlocks.register("fir_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_ORANGE), IcariaBlockSetTypes.FIR));
 	public static final RegistryObject<TrapDoorBlock> FIR_TRAPDOOR = IcariaBlocks.register("fir_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_ORANGE), IcariaBlockSetTypes.FIR));
@@ -392,7 +392,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> DEAD_LAUREL_LOG = IcariaBlocks.register("dead_laurel_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, MapColor.COLOR_BROWN)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_LAUREL_LOG = IcariaBlocks.register("stripped_dead_laurel_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, MapColor.COLOR_BROWN))));
 	public static final RegistryObject<Block> LAUREL_PLANKS = IcariaBlocks.registerSimple("laurel_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN)));
-	public static final IcariaWoodDecoBlocks LAUREL_DECO = new IcariaWoodDecoBlocks("laurel", LAUREL_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN));
+	public static final IcariaWoodDecoBlocks LAUREL_DECO = new IcariaWoodDecoBlocks("laurel", IcariaBlocks.LAUREL_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN));
 	public static final RegistryObject<Block> LAUREL_CRAFTING_TABLE = IcariaBlocks.register("laurel_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_BROWN)));
 	public static final RegistryObject<DoorBlock> LAUREL_DOOR = IcariaBlocks.register("laurel_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_BROWN), IcariaBlockSetTypes.LAUREL));
 	public static final RegistryObject<TrapDoorBlock> LAUREL_TRAPDOOR = IcariaBlocks.register("laurel_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_BROWN), IcariaBlockSetTypes.LAUREL));
@@ -414,7 +414,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> DEAD_OLIVE_LOG = IcariaBlocks.register("dead_olive_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, MapColor.COLOR_GRAY)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_OLIVE_LOG = IcariaBlocks.register("stripped_dead_olive_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, MapColor.COLOR_ORANGE))));
 	public static final RegistryObject<Block> OLIVE_PLANKS = IcariaBlocks.registerSimple("olive_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_ORANGE)));
-	public static final IcariaWoodDecoBlocks OLIVE_DECO = new IcariaWoodDecoBlocks("olive", OLIVE_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_ORANGE));
+	public static final IcariaWoodDecoBlocks OLIVE_DECO = new IcariaWoodDecoBlocks("olive", IcariaBlocks.OLIVE_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_ORANGE));
 	public static final RegistryObject<Block> OLIVE_CRAFTING_TABLE = IcariaBlocks.register("olive_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_ORANGE)));
 	public static final RegistryObject<DoorBlock> OLIVE_DOOR = IcariaBlocks.register("olive_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_ORANGE), IcariaBlockSetTypes.OLIVE));
 	public static final RegistryObject<TrapDoorBlock> OLIVE_TRAPDOOR = IcariaBlocks.register("olive_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_ORANGE), IcariaBlockSetTypes.OLIVE));
@@ -436,7 +436,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> DEAD_PLANE_LOG = IcariaBlocks.register("dead_plane_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, MapColor.COLOR_GRAY)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_PLANE_LOG = IcariaBlocks.register("stripped_dead_plane_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, MapColor.COLOR_ORANGE))));
 	public static final RegistryObject<Block> PLANE_PLANKS = IcariaBlocks.registerSimple("plane_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN)));
-	public static final IcariaWoodDecoBlocks PLANE_DECO = new IcariaWoodDecoBlocks("plane", PLANE_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN));
+	public static final IcariaWoodDecoBlocks PLANE_DECO = new IcariaWoodDecoBlocks("plane", IcariaBlocks.PLANE_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN));
 	public static final RegistryObject<Block> PLANE_CRAFTING_TABLE = IcariaBlocks.register("plane_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_BROWN)));
 	public static final RegistryObject<DoorBlock> PLANE_DOOR = IcariaBlocks.register("plane_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_ORANGE), IcariaBlockSetTypes.PLANE));
 	public static final RegistryObject<TrapDoorBlock> PLANE_TRAPDOOR = IcariaBlocks.register("plane_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_ORANGE), IcariaBlockSetTypes.PLANE));
@@ -458,7 +458,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> DEAD_POPULUS_LOG = IcariaBlocks.register("dead_populus_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_YELLOW, MapColor.COLOR_LIGHT_GRAY)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_POPULUS_LOG = IcariaBlocks.register("stripped_dead_populus_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_YELLOW, MapColor.COLOR_YELLOW))));
 	public static final RegistryObject<Block> POPULUS_PLANKS = IcariaBlocks.registerSimple("populus_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_GREEN)));
-	public static final IcariaWoodDecoBlocks POPULUS_DECO = new IcariaWoodDecoBlocks("populus", POPULUS_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_GREEN));
+	public static final IcariaWoodDecoBlocks POPULUS_DECO = new IcariaWoodDecoBlocks("populus", IcariaBlocks.POPULUS_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_GREEN));
 	public static final RegistryObject<Block> POPULUS_CRAFTING_TABLE = IcariaBlocks.register("populus_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_GREEN)));
 	public static final RegistryObject<DoorBlock> POPULUS_DOOR = IcariaBlocks.register("populus_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_YELLOW), IcariaBlockSetTypes.POPULUS));
 	public static final RegistryObject<TrapDoorBlock> POPULUS_TRAPDOOR = IcariaBlocks.register("populus_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesDoor(MapColor.COLOR_YELLOW), IcariaBlockSetTypes.POPULUS));
