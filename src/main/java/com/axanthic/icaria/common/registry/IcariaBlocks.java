@@ -316,7 +316,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> VINE_SPROUT_CAKE = IcariaBlocks.register("vine_sprout_cake", () -> new IcariaCakeBlock(IcariaBlocks.propertiesCake()));
 
 	public static final RegistryObject<Block> CYPRESS_SAPLING = IcariaBlocks.register("cypress_sapling", () -> new SaplingBlock(new CypressTreeGrower(), IcariaBlocks.propertiesSapling()));
-	public static final RegistryObject<Block> POTTED_CYPRESS_SAPLING = IcariaBlocks.register("potted_cypress_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CYPRESS_SAPLING, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_CYPRESS_SAPLING = IcariaBlocks.register("potted_cypress_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.CYPRESS_SAPLING, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> CYPRESS_LEAVES = IcariaBlocks.register("cypress_leaves", () -> new IcariaLeavesBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> FALLEN_CYPRESS_LEAVES = IcariaBlocks.register("fallen_cypress_leaves", () -> new LayerBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> CYPRESS_TWIGS = IcariaBlocks.register("cypress_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesTwigs()));
@@ -338,7 +338,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> CYPRESS_WALL_HANGING_SIGN = IcariaBlocks.register("cypress_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.CYPRESS));
 
 	public static final RegistryObject<Block> DROUGHTROOT_SAPLING = IcariaBlocks.register("droughtroot_sapling", () -> new SaplingBlock(new DroughtrootTreeGrower(), IcariaBlocks.propertiesSapling()));
-	public static final RegistryObject<Block> POTTED_DROUGHTROOT_SAPLING = IcariaBlocks.register("potted_droughtroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, DROUGHTROOT_SAPLING, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_DROUGHTROOT_SAPLING = IcariaBlocks.register("potted_droughtroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.DROUGHTROOT_SAPLING, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> DROUGHTROOT_LEAVES = IcariaBlocks.register("droughtroot_leaves", () -> new IcariaLeavesBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> FALLEN_DROUGHTROOT_LEAVES = IcariaBlocks.register("fallen_droughtroot_leaves", () -> new LayerBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> DROUGHTROOT_TWIGS = IcariaBlocks.register("droughtroot_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesTwigs()));
@@ -360,7 +360,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> DROUGHTROOT_WALL_HANGING_SIGN = IcariaBlocks.register("droughtroot_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_GRAY), IcariaWoodTypes.DROUGHTROOT));
 
 	public static final RegistryObject<Block> FIR_SAPLING = IcariaBlocks.register("fir_sapling", () -> new SaplingBlock(new FirTreeGrower(), IcariaBlocks.propertiesSapling()));
-	public static final RegistryObject<Block> POTTED_FIR_SAPLING = IcariaBlocks.register("potted_fir_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FIR_SAPLING, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_FIR_SAPLING = IcariaBlocks.register("potted_fir_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.FIR_SAPLING, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> FIR_LEAVES = IcariaBlocks.register("fir_leaves", () -> new IcariaLeavesBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> FALLEN_FIR_LEAVES = IcariaBlocks.register("fallen_fir_leaves", () -> new LayerBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> FIR_TWIGS = IcariaBlocks.register("fir_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesTwigs()));
@@ -382,7 +382,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> FIR_WALL_HANGING_SIGN = IcariaBlocks.register("fir_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.FIR));
 
 	public static final RegistryObject<Block> LAUREL_SAPLING = IcariaBlocks.register("laurel_sapling", () -> new SaplingBlock(new LaurelTreeGrower(), IcariaBlocks.propertiesSapling()));
-	public static final RegistryObject<Block> POTTED_LAUREL_SAPLING = IcariaBlocks.register("potted_laurel_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, LAUREL_SAPLING, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_LAUREL_SAPLING = IcariaBlocks.register("potted_laurel_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.LAUREL_SAPLING, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> LAUREL_LEAVES = IcariaBlocks.register("laurel_leaves", () -> new IcariaLeavesBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> FALLEN_LAUREL_LEAVES = IcariaBlocks.register("fallen_laurel_leaves", () -> new LayerBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> LAUREL_TWIGS = IcariaBlocks.register("laurel_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesTwigs()));
@@ -404,7 +404,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> LAUREL_WALL_HANGING_SIGN = IcariaBlocks.register("laurel_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_BROWN), IcariaWoodTypes.LAUREL));
 
 	public static final RegistryObject<Block> OLIVE_SAPLING = IcariaBlocks.register("olive_sapling", () -> new SaplingBlock(new OliveTreeGrower(), IcariaBlocks.propertiesSapling()));
-	public static final RegistryObject<Block> POTTED_OLIVE_SAPLING = IcariaBlocks.register("potted_olive_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, OLIVE_SAPLING, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_OLIVE_SAPLING = IcariaBlocks.register("potted_olive_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.OLIVE_SAPLING, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> OLIVE_LEAVES = IcariaBlocks.register("olive_leaves", () -> new OliveLeavesBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> FALLEN_OLIVE_LEAVES = IcariaBlocks.register("fallen_olive_leaves", () -> new LayerBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> OLIVE_TWIGS = IcariaBlocks.register("olive_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesTwigs()));
@@ -426,7 +426,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> OLIVE_WALL_HANGING_SIGN = IcariaBlocks.register("olive_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.OLIVE));
 
 	public static final RegistryObject<Block> PLANE_SAPLING = IcariaBlocks.register("plane_sapling", () -> new SaplingBlock(new PlaneTreeGrower(), IcariaBlocks.propertiesSapling()));
-	public static final RegistryObject<Block> POTTED_PLANE_SAPLING = IcariaBlocks.register("potted_plane_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PLANE_SAPLING, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_PLANE_SAPLING = IcariaBlocks.register("potted_plane_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.PLANE_SAPLING, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> PLANE_LEAVES = IcariaBlocks.register("plane_leaves", () -> new IcariaLeavesBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> FALLEN_PLANE_LEAVES = IcariaBlocks.register("fallen_plane_leaves", () -> new LayerBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> PLANE_TWIGS = IcariaBlocks.register("plane_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesTwigs()));
@@ -448,7 +448,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> PLANE_WALL_HANGING_SIGN = IcariaBlocks.register("plane_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.COLOR_ORANGE), IcariaWoodTypes.PLANE));
 
 	public static final RegistryObject<Block> POPULUS_SAPLING = IcariaBlocks.register("populus_sapling", () -> new SaplingBlock(new PopulusTreeGrower(), IcariaBlocks.propertiesSapling()));
-	public static final RegistryObject<Block> POTTED_POPULUS_SAPLING = IcariaBlocks.register("potted_populus_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, POPULUS_SAPLING, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_POPULUS_SAPLING = IcariaBlocks.register("potted_populus_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.POPULUS_SAPLING, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> POPULUS_LEAVES = IcariaBlocks.register("populus_leaves", () -> new IcariaLeavesBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> FALLEN_POPULUS_LEAVES = IcariaBlocks.register("fallen_populus_leaves", () -> new LayerBlock(IcariaBlocks.propertiesLeaves()));
 	public static final RegistryObject<Block> POPULUS_TWIGS = IcariaBlocks.register("populus_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesTwigs()));
@@ -471,37 +471,37 @@ public class IcariaBlocks {
 
 	public static final RegistryObject<Block> DEAD_BLOOMY_VINE = IcariaBlocks.register("dead_bloomy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
 	public static final RegistryObject<Block> GROWING_BLOOMY_VINE = IcariaBlocks.register("growing_bloomy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
-	public static final RegistryObject<Block> RIPE_BLOOMY_VINE = IcariaBlocks.register("ripe_bloomy_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), GROWING_BLOOMY_VINE.get(), DEAD_BLOOMY_VINE.get()));
-	public static final RegistryObject<Block> BLOOMING_BLOOMY_VINE = IcariaBlocks.register("blooming_bloomy_vine", () -> new IcariaVineStagedBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), GROWING_BLOOMY_VINE.get(), RIPE_BLOOMY_VINE.get(), DEAD_BLOOMY_VINE.get()));
-	public static final RegistryObject<Block> BLOOMY_VINE = IcariaBlocks.register("bloomy_vine", () -> new IcariaVineStagedBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), GROWING_BLOOMY_VINE.get(), BLOOMING_BLOOMY_VINE.get(), DEAD_BLOOMY_VINE.get()));
+	public static final RegistryObject<Block> RIPE_BLOOMY_VINE = IcariaBlocks.register("ripe_bloomy_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), IcariaBlocks.GROWING_BLOOMY_VINE.get(), IcariaBlocks.DEAD_BLOOMY_VINE.get()));
+	public static final RegistryObject<Block> BLOOMING_BLOOMY_VINE = IcariaBlocks.register("blooming_bloomy_vine", () -> new IcariaVineStagedBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), IcariaBlocks.GROWING_BLOOMY_VINE.get(), IcariaBlocks.RIPE_BLOOMY_VINE.get(), IcariaBlocks.DEAD_BLOOMY_VINE.get()));
+	public static final RegistryObject<Block> BLOOMY_VINE = IcariaBlocks.register("bloomy_vine", () -> new IcariaVineStagedBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), IcariaBlocks.GROWING_BLOOMY_VINE.get(), IcariaBlocks.BLOOMING_BLOOMY_VINE.get(), IcariaBlocks.DEAD_BLOOMY_VINE.get()));
 
 	public static final RegistryObject<Block> DEAD_BRANCHY_VINE = IcariaBlocks.register("dead_branchy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
 	public static final RegistryObject<Block> GROWING_BRANCHY_VINE = IcariaBlocks.register("growing_branchy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
-	public static final RegistryObject<Block> BRANCHY_VINE = IcariaBlocks.register("branchy_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), GROWING_BRANCHY_VINE.get(), DEAD_BRANCHY_VINE.get()));
+	public static final RegistryObject<Block> BRANCHY_VINE = IcariaBlocks.register("branchy_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), IcariaBlocks.GROWING_BRANCHY_VINE.get(), IcariaBlocks.DEAD_BRANCHY_VINE.get()));
 
 	public static final RegistryObject<Block> DEAD_BRUSHY_VINE = IcariaBlocks.register("dead_brushy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
 	public static final RegistryObject<Block> GROWING_BRUSHY_VINE = IcariaBlocks.register("growing_brushy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
-	public static final RegistryObject<Block> RIPE_BRUSHY_VINE = IcariaBlocks.register("ripe_brushy_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), GROWING_BRUSHY_VINE.get(), DEAD_BRUSHY_VINE.get()));
-	public static final RegistryObject<Block> BRUSHY_VINE = IcariaBlocks.register("brushy_vine", () -> new IcariaVineStagedBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), GROWING_BRUSHY_VINE.get(), RIPE_BRUSHY_VINE.get(), DEAD_BRUSHY_VINE.get()));
+	public static final RegistryObject<Block> RIPE_BRUSHY_VINE = IcariaBlocks.register("ripe_brushy_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), IcariaBlocks.GROWING_BRUSHY_VINE.get(), IcariaBlocks.DEAD_BRUSHY_VINE.get()));
+	public static final RegistryObject<Block> BRUSHY_VINE = IcariaBlocks.register("brushy_vine", () -> new IcariaVineStagedBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), IcariaBlocks.GROWING_BRUSHY_VINE.get(), IcariaBlocks.RIPE_BRUSHY_VINE.get(), IcariaBlocks.DEAD_BRUSHY_VINE.get()));
 
 	public static final RegistryObject<Block> DEAD_DRY_VINE = IcariaBlocks.register("dead_dry_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
 	public static final RegistryObject<Block> GROWING_DRY_VINE = IcariaBlocks.register("growing_dry_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
-	public static final RegistryObject<Block> DRY_VINE = IcariaBlocks.register("dry_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), GROWING_DRY_VINE.get(), DEAD_DRY_VINE.get()));
+	public static final RegistryObject<Block> DRY_VINE = IcariaBlocks.register("dry_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), IcariaBlocks.GROWING_DRY_VINE.get(), IcariaBlocks.DEAD_DRY_VINE.get()));
 
 	public static final RegistryObject<Block> DEAD_REEDY_VINE = IcariaBlocks.register("dead_reedy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
 	public static final RegistryObject<Block> GROWING_REEDY_VINE = IcariaBlocks.register("growing_reedy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
-	public static final RegistryObject<Block> REEDY_VINE = IcariaBlocks.register("reedy_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), GROWING_REEDY_VINE.get(), DEAD_REEDY_VINE.get()));
+	public static final RegistryObject<Block> REEDY_VINE = IcariaBlocks.register("reedy_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), IcariaBlocks.GROWING_REEDY_VINE.get(), IcariaBlocks.DEAD_REEDY_VINE.get()));
 
 	public static final RegistryObject<Block> DEAD_SWIRLY_VINE = IcariaBlocks.register("dead_swirly_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
 	public static final RegistryObject<Block> GROWING_SWIRLY_VINE = IcariaBlocks.register("growing_swirly_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
-	public static final RegistryObject<Block> SWIRLY_VINE = IcariaBlocks.register("swirly_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), GROWING_SWIRLY_VINE.get(), DEAD_SWIRLY_VINE.get()));
+	public static final RegistryObject<Block> SWIRLY_VINE = IcariaBlocks.register("swirly_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), IcariaBlocks.GROWING_SWIRLY_VINE.get(), IcariaBlocks.DEAD_SWIRLY_VINE.get()));
 
 	public static final RegistryObject<Block> DEAD_THORNY_VINE = IcariaBlocks.register("dead_thorny_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
 	public static final RegistryObject<Block> GROWING_THORNY_VINE = IcariaBlocks.register("growing_thorny_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.PLANT)));
-	public static final RegistryObject<Block> THORNY_VINE = IcariaBlocks.register("thorny_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), GROWING_THORNY_VINE.get(), DEAD_THORNY_VINE.get()));
+	public static final RegistryObject<Block> THORNY_VINE = IcariaBlocks.register("thorny_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.PLANT).randomTicks(), IcariaBlocks.GROWING_THORNY_VINE.get(), IcariaBlocks.DEAD_THORNY_VINE.get()));
 
 	public static final RegistryObject<Block> FERN = IcariaBlocks.register("fern", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_FERN = IcariaBlocks.register("potted_fern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FERN, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_FERN = IcariaBlocks.register("potted_fern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.FERN, IcariaBlocks.propertiesPot()));
 
 	public static final RegistryObject<Block> SMALL_GRASS = IcariaBlocks.register("small_grass", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
 	public static final RegistryObject<Block> MEDIUM_GRASS = IcariaBlocks.register("medium_grass", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
@@ -515,39 +515,39 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> LARGE_BROWN_GRAIN = IcariaBlocks.register("large_brown_grain", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
 
 	public static final RegistryObject<Block> BLINDWEED = IcariaBlocks.register("blindweed", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_BLINDWEED = IcariaBlocks.register("potted_blindweed", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLINDWEED, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_BLINDWEED = IcariaBlocks.register("potted_blindweed", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.BLINDWEED, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> CHAMEOMILE = IcariaBlocks.register("chameomile", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_CHAMEOMILE = IcariaBlocks.register("potted_chameomile", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CHAMEOMILE, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_CHAMEOMILE = IcariaBlocks.register("potted_chameomile", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.CHAMEOMILE, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> CHARMONDER = IcariaBlocks.register("charmonder", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_CHARMONDER = IcariaBlocks.register("potted_charmonder", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CHARMONDER, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_CHARMONDER = IcariaBlocks.register("potted_charmonder", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.CHARMONDER, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> CLOVER = IcariaBlocks.register("clover", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_CLOVER = IcariaBlocks.register("potted_clover", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CLOVER, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_CLOVER = IcariaBlocks.register("potted_clover", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.CLOVER, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> FIREHILT = IcariaBlocks.register("firehilt", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_FIREHILT = IcariaBlocks.register("potted_firehilt", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FIREHILT, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_FIREHILT = IcariaBlocks.register("potted_firehilt", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.FIREHILT, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> BLUE_HYDRACINTH = IcariaBlocks.register("blue_hydracinth", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_BLUE_HYDRACINTH = IcariaBlocks.register("potted_blue_hydracinth", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLUE_HYDRACINTH, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_BLUE_HYDRACINTH = IcariaBlocks.register("potted_blue_hydracinth", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.BLUE_HYDRACINTH, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> PURPLE_HYDRACINTH = IcariaBlocks.register("purple_hydracinth", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_PURPLE_HYDRACINTH = IcariaBlocks.register("potted_purple_hydracinth", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PURPLE_HYDRACINTH, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_PURPLE_HYDRACINTH = IcariaBlocks.register("potted_purple_hydracinth", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.PURPLE_HYDRACINTH, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> LIONFANGS = IcariaBlocks.register("lionfangs", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_LIONFANGS = IcariaBlocks.register("potted_lionfangs", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, LIONFANGS, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_LIONFANGS = IcariaBlocks.register("potted_lionfangs", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.LIONFANGS, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> SPEARDROPS = IcariaBlocks.register("speardrops", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_SPEARDROPS = IcariaBlocks.register("potted_speardrops", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPEARDROPS, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_SPEARDROPS = IcariaBlocks.register("potted_speardrops", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.SPEARDROPS, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> PURPLE_STAGHORN = IcariaBlocks.register("purple_staghorn", () -> new DamagingBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_PURPLE_STAGHORN = IcariaBlocks.register("potted_purple_staghorn", () -> new DamagingFlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PURPLE_STAGHORN, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_PURPLE_STAGHORN = IcariaBlocks.register("potted_purple_staghorn", () -> new DamagingFlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.PURPLE_STAGHORN, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> YELLOW_STAGHORN = IcariaBlocks.register("yellow_staghorn", () -> new DamagingBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_YELLOW_STAGHORN = IcariaBlocks.register("potted_yellow_staghorn", () -> new DamagingFlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, YELLOW_STAGHORN, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_YELLOW_STAGHORN = IcariaBlocks.register("potted_yellow_staghorn", () -> new DamagingFlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.YELLOW_STAGHORN, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> BLUE_STORMCOTTON = IcariaBlocks.register("blue_stormcotton", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_BLUE_STORMCOTTON = IcariaBlocks.register("potted_blue_stormcotton", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLUE_STORMCOTTON, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_BLUE_STORMCOTTON = IcariaBlocks.register("potted_blue_stormcotton", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.BLUE_STORMCOTTON, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> PINK_STORMCOTTON = IcariaBlocks.register("pink_stormcotton", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_PINK_STORMCOTTON = IcariaBlocks.register("potted_pink_stormcotton", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PINK_STORMCOTTON, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_PINK_STORMCOTTON = IcariaBlocks.register("potted_pink_stormcotton", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.PINK_STORMCOTTON, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> PURPLE_STORMCOTTON = IcariaBlocks.register("purple_stormcotton", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_PURPLE_STORMCOTTON = IcariaBlocks.register("potted_purple_stormcotton", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PURPLE_STORMCOTTON, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_PURPLE_STORMCOTTON = IcariaBlocks.register("potted_purple_stormcotton", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.PURPLE_STORMCOTTON, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> SUNKETTLE = IcariaBlocks.register("sunkettle", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_SUNKETTLE = IcariaBlocks.register("potted_sunkettle", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SUNKETTLE, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_SUNKETTLE = IcariaBlocks.register("potted_sunkettle", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.SUNKETTLE, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> SUNSPONGE = IcariaBlocks.register("sunsponge", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_SUNSPONGE = IcariaBlocks.register("potted_sunsponge", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SUNSPONGE, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_SUNSPONGE = IcariaBlocks.register("potted_sunsponge", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.SUNSPONGE, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> VOIDLILY = IcariaBlocks.register("voidlily", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_VOIDLILY = IcariaBlocks.register("potted_voidlily", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, VOIDLILY, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_VOIDLILY = IcariaBlocks.register("potted_voidlily", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.VOIDLILY, IcariaBlocks.propertiesPot()));
 
 	public static final RegistryObject<Block> BOLBOS = IcariaBlocks.register("bolbos", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
 	public static final RegistryObject<Block> DATHULLA = IcariaBlocks.register("dathulla", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
@@ -570,30 +570,30 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> STEPPE_MOSS = IcariaBlocks.register("steppe_moss", () -> new LayerBlock(IcariaBlocks.propertiesMoss()));
 
 	public static final RegistryObject<Block> PALM_FERN = IcariaBlocks.register("palm_fern", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_PALM_FERN = IcariaBlocks.register("potted_palm_fern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PALM_FERN, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_PALM_FERN = IcariaBlocks.register("potted_palm_fern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.PALM_FERN, IcariaBlocks.propertiesPot()));
 
 	public static final RegistryObject<Block> WHITE_BROMELIA = IcariaBlocks.register("white_bromelia", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_WHITE_BROMELIA = IcariaBlocks.register("potted_white_bromelia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, WHITE_BROMELIA, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_WHITE_BROMELIA = IcariaBlocks.register("potted_white_bromelia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.WHITE_BROMELIA, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> ORANGE_BROMELIA = IcariaBlocks.register("orange_bromelia", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_ORANGE_BROMELIA = IcariaBlocks.register("potted_orange_bromelia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ORANGE_BROMELIA, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_ORANGE_BROMELIA = IcariaBlocks.register("potted_orange_bromelia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.ORANGE_BROMELIA, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> PINK_BROMELIA = IcariaBlocks.register("pink_bromelia", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_PINK_BROMELIA = IcariaBlocks.register("potted_pink_bromelia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PINK_BROMELIA, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_PINK_BROMELIA = IcariaBlocks.register("potted_pink_bromelia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.PINK_BROMELIA, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> PURPLE_BROMELIA = IcariaBlocks.register("purple_bromelia", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_PURPLE_BROMELIA = IcariaBlocks.register("potted_purple_bromelia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PURPLE_BROMELIA, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_PURPLE_BROMELIA = IcariaBlocks.register("potted_purple_bromelia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.PURPLE_BROMELIA, IcariaBlocks.propertiesPot()));
 
 	public static final RegistryObject<Block> GREEN_GROUND_SHROOMS = IcariaBlocks.register("green_ground_shrooms", () -> new GroundShroomBlock(IcariaBlocks.propertiesShroom(MapColor.COLOR_BROWN)));
-	public static final RegistryObject<Block> POTTED_GREEN_GROUND_SHROOMS = IcariaBlocks.register("potted_green_ground_shrooms", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GREEN_GROUND_SHROOMS, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_GREEN_GROUND_SHROOMS = IcariaBlocks.register("potted_green_ground_shrooms", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.GREEN_GROUND_SHROOMS, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> BROWN_GROUND_SHROOMS = IcariaBlocks.register("brown_ground_shrooms", () -> new GroundShroomBlock(IcariaBlocks.propertiesShroom(MapColor.COLOR_BROWN)));
-	public static final RegistryObject<Block> POTTED_BROWN_GROUND_SHROOMS = IcariaBlocks.register("potted_brown_ground_shrooms", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BROWN_GROUND_SHROOMS, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_BROWN_GROUND_SHROOMS = IcariaBlocks.register("potted_brown_ground_shrooms", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.BROWN_GROUND_SHROOMS, IcariaBlocks.propertiesPot()));
 	public static final RegistryObject<Block> LARGE_BROWN_GROUND_SHROOMS = IcariaBlocks.register("large_brown_ground_shrooms", () -> new GroundShroomBlock(IcariaBlocks.propertiesShroom(MapColor.COLOR_BROWN)));
-	public static final RegistryObject<Block> POTTED_LARGE_BROWN_GROUND_SHROOMS = IcariaBlocks.register("potted_large_brown_ground_shrooms", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, LARGE_BROWN_GROUND_SHROOMS, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_LARGE_BROWN_GROUND_SHROOMS = IcariaBlocks.register("potted_large_brown_ground_shrooms", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.LARGE_BROWN_GROUND_SHROOMS, IcariaBlocks.propertiesPot()));
 
 	public static final RegistryObject<Block> TINDER_FUNGUS_TREE_SHROOMS = IcariaBlocks.register("tinder_fungus_tree_shrooms", () -> new TreeShroomBlock(IcariaBlocks.propertiesPlant(MapColor.NONE)));
 	public static final RegistryObject<Block> TURKEY_TAIL_TREE_SHROOMS = IcariaBlocks.register("turkey_tail_tree_shrooms", () -> new TreeShroomBlock(IcariaBlocks.propertiesPlant(MapColor.NONE)));
 	public static final RegistryObject<Block> UNNAMED_TREE_SHROOMS = IcariaBlocks.register("unnamed_tree_shrooms", () -> new TreeShroomBlock(IcariaBlocks.propertiesPlant(MapColor.NONE)));
 
 	public static final RegistryObject<Block> CARDON_CACTUS = IcariaBlocks.register("cardon_cactus", () -> new CardonCactusBlock(IcariaBlocks.propertiesCactus(MapColor.PLANT)));
-	public static final RegistryObject<Block> POTTED_CARDON_CACTUS = IcariaBlocks.register("potted_cardon_cactus", () -> new DamagingFlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CARDON_CACTUS, IcariaBlocks.propertiesPot()));
+	public static final RegistryObject<Block> POTTED_CARDON_CACTUS = IcariaBlocks.register("potted_cardon_cactus", () -> new DamagingFlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.CARDON_CACTUS, IcariaBlocks.propertiesPot()));
 
 	public static final RegistryObject<Block> STRAWBERRY_BUSH = IcariaBlocks.register("strawberry_bush", () -> new IcariaBushBlock(IcariaBlocks.propertiesBush(MapColor.PLANT)));
 
