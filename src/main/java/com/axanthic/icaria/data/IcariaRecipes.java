@@ -56,10 +56,10 @@ public class IcariaRecipes extends RecipeProvider {
 
 		this.smallCompressRecipe(pConsumer, IcariaItems.LOAM_BRICK.get(), IcariaItems.LOAM_BRICKS.get());
 		this.smallCompressRecipe(pConsumer, IcariaItems.SILKSAND.get(), IcariaItems.SILKSTONE.get());
-		this.smallCompressRecipe(pConsumer, IcariaItems.CALCITE.get(), IcariaItems.CALCITE_GEODE_BLOCK.get());
-		this.smallCompressRecipe(pConsumer, IcariaItems.HALITE.get(), IcariaItems.HALITE_GEODE_BLOCK.get());
-		this.smallCompressRecipe(pConsumer, IcariaItems.JASPER.get(), IcariaItems.JASPER_GEODE_BLOCK.get());
-		this.smallCompressRecipe(pConsumer, IcariaItems.ZIRCON.get(), IcariaItems.ZIRCON_GEODE_BLOCK.get());
+		this.smallCompressRecipe(pConsumer, IcariaItems.CALCITE_SHARD.get(), IcariaItems.CALCITE.get());
+		this.smallCompressRecipe(pConsumer, IcariaItems.HALITE_SHARD.get(), IcariaItems.HALITE.get());
+		this.smallCompressRecipe(pConsumer, IcariaItems.JASPER_SHARD.get(), IcariaItems.JASPER.get());
+		this.smallCompressRecipe(pConsumer, IcariaItems.ZIRCON_SHARD.get(), IcariaItems.ZIRCON.get());
 		this.smallCompressRecipe(pConsumer, IcariaItems.CYPRESS_PLANKS.get(), IcariaItems.CYPRESS_CRAFTING_TABLE.get());
 		this.smallCompressRecipe(pConsumer, IcariaItems.DROUGHTROOT_PLANKS.get(), IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get());
 		this.smallCompressRecipe(pConsumer, IcariaItems.FIR_PLANKS.get(), IcariaItems.FIR_CRAFTING_TABLE.get());
@@ -86,10 +86,10 @@ public class IcariaRecipes extends RecipeProvider {
 		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.SPELT.get(), IcariaItems.SPELT_BALE_BLOCK.get());
 		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.VINE_REED.get(), IcariaItems.VINE_REED_BLOCK.get());
 		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.ROTTEN_BONES.get(), IcariaItems.ROTTEN_BONES_BLOCK.get());
-		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.CALCITE.get(), IcariaItems.CALCITE_BLOCK.get());
-		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.HALITE.get(), IcariaItems.HALITE_BLOCK.get());
-		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.JASPER.get(), IcariaItems.JASPER_BLOCK.get());
-		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.ZIRCON.get(), IcariaItems.ZIRCON_BLOCK.get());
+		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.CALCITE_SHARD.get(), IcariaItems.CALCITE_BLOCK.get());
+		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.HALITE_SHARD.get(), IcariaItems.HALITE_BLOCK.get());
+		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.JASPER_SHARD.get(), IcariaItems.JASPER_BLOCK.get());
+		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.ZIRCON_SHARD.get(), IcariaItems.ZIRCON_BLOCK.get());
 		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.RAW_CHALKOS.get(), IcariaItems.RAW_CHALKOS_BLOCK.get());
 		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.RAW_KASSITEROS.get(), IcariaItems.RAW_KASSITEROS_BLOCK.get());
 		this.largeCompressDecompressRecipes(pConsumer, IcariaItems.RAW_VANADIUM.get(), IcariaItems.RAW_VANADIUM_BLOCK.get());

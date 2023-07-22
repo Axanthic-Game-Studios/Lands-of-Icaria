@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
@@ -180,19 +181,19 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> MOLYBDENUM_ORE = IcariaBlocks.register("molybdenum_ore", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN)));
 	public static final RegistryObject<Block> HYLIASTRUM_ORE = IcariaBlocks.register("hyliastrum_ore", () -> new HyliastrumOreBlock(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN)));
 
-	public static final RegistryObject<Block> CALCITE_GEODE_BLOCK = IcariaBlocks.registerSimple("calcite_geode_block", () -> new AmethystBlock(IcariaBlocks.propertiesGeodeBlock(MapColor.COLOR_LIGHT_GRAY)));
-	public static final RegistryObject<Block> BUDDING_CALCITE_GEODE_BLOCK = IcariaBlocks.registerSimple("budding_calcite_geode_block", () -> new AmethystBlock(IcariaBlocks.propertiesGeodeBlock(MapColor.COLOR_LIGHT_GRAY)));
-	public static final RegistryObject<Block> HALITE_GEODE_BLOCK = IcariaBlocks.registerSimple("halite_geode_block", () -> new AmethystBlock(IcariaBlocks.propertiesGeodeBlock(MapColor.COLOR_GREEN)));
-	public static final RegistryObject<Block> BUDDING_HALITE_GEODE_BLOCK = IcariaBlocks.registerSimple("budding_halite_geode_block", () -> new AmethystBlock(IcariaBlocks.propertiesGeodeBlock(MapColor.COLOR_GREEN)));
-	public static final RegistryObject<Block> JASPER_GEODE_BLOCK = IcariaBlocks.registerSimple("jasper_geode_block", () -> new AmethystBlock(IcariaBlocks.propertiesGeodeBlock(MapColor.COLOR_RED)));
-	public static final RegistryObject<Block> BUDDING_JASPER_GEODE_BLOCK = IcariaBlocks.registerSimple("budding_jasper_geode_block", () -> new AmethystBlock(IcariaBlocks.propertiesGeodeBlock(MapColor.COLOR_RED)));
-	public static final RegistryObject<Block> ZIRCON_GEODE_BLOCK = IcariaBlocks.registerSimple("zircon_geode_block", () -> new AmethystBlock(IcariaBlocks.propertiesGeodeBlock(MapColor.COLOR_BLUE)));
-	public static final RegistryObject<Block> BUDDING_ZIRCON_GEODE_BLOCK = IcariaBlocks.registerSimple("budding_zircon_geode_block", () -> new AmethystBlock(IcariaBlocks.propertiesGeodeBlock(MapColor.COLOR_BLUE)));
+	public static final RegistryObject<Block> CALCITE = IcariaBlocks.registerSimple("calcite", () -> new AmethystBlock(IcariaBlocks.propertiesMineral(MapColor.COLOR_LIGHT_GRAY)));
+	public static final RegistryObject<Block> BUDDING_CALCITE = IcariaBlocks.registerSimple("budding_calcite", () -> new AmethystBlock(IcariaBlocks.propertiesBudding(MapColor.COLOR_LIGHT_GRAY)));
+	public static final RegistryObject<Block> HALITE = IcariaBlocks.registerSimple("halite", () -> new AmethystBlock(IcariaBlocks.propertiesMineral(MapColor.COLOR_GREEN)));
+	public static final RegistryObject<Block> BUDDING_HALITE = IcariaBlocks.registerSimple("budding_halite", () -> new AmethystBlock(IcariaBlocks.propertiesBudding(MapColor.COLOR_GREEN)));
+	public static final RegistryObject<Block> JASPER = IcariaBlocks.registerSimple("jasper", () -> new AmethystBlock(IcariaBlocks.propertiesMineral(MapColor.COLOR_RED)));
+	public static final RegistryObject<Block> BUDDING_JASPER = IcariaBlocks.registerSimple("budding_jasper", () -> new AmethystBlock(IcariaBlocks.propertiesBudding(MapColor.COLOR_RED)));
+	public static final RegistryObject<Block> ZIRCON = IcariaBlocks.registerSimple("zircon", () -> new AmethystBlock(IcariaBlocks.propertiesMineral(MapColor.COLOR_BLUE)));
+	public static final RegistryObject<Block> BUDDING_ZIRCON = IcariaBlocks.registerSimple("budding_zircon", () -> new AmethystBlock(IcariaBlocks.propertiesBudding(MapColor.COLOR_BLUE)));
 
-	public static final RegistryObject<Block> CALCITE_CRYSTAL = IcariaBlocks.register("calcite_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystalBlock()));
-	public static final RegistryObject<Block> HALITE_CRYSTAL = IcariaBlocks.register("halite_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystalBlock()));
-	public static final RegistryObject<Block> JASPER_CRYSTAL = IcariaBlocks.register("jasper_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystalBlock()));
-	public static final RegistryObject<Block> ZIRCON_CRYSTAL = IcariaBlocks.register("zircon_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystalBlock()));
+	public static final RegistryObject<Block> CALCITE_CRYSTAL = IcariaBlocks.register("calcite_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystal()));
+	public static final RegistryObject<Block> HALITE_CRYSTAL = IcariaBlocks.register("halite_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystal()));
+	public static final RegistryObject<Block> JASPER_CRYSTAL = IcariaBlocks.register("jasper_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystal()));
+	public static final RegistryObject<Block> ZIRCON_CRYSTAL = IcariaBlocks.register("zircon_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystal()));
 
 	public static final RegistryObject<Block> ARISTONE = IcariaBlocks.registerSimple("aristone", () -> new GlassBlock(IcariaBlocks.propertiesAristone()));
 	public static final RegistryObject<Block> PACKED_ARISTONE = IcariaBlocks.registerSimple("packed_aristone", () -> new Block(IcariaBlocks.propertiesAristone()));
@@ -649,18 +650,20 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesQuartz() {
 		return BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).sound(SoundType.STONE).strength(0.8F, 0.8F).requiresCorrectToolForDrops();
+	public static BlockBehaviour.Properties propertiesMineral(MapColor pColor) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(SoundType.AMETHYST).destroyTime(1.5F).explosionResistance(1.5F).requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesAristone() {
 		return BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_GREEN).sound(IcariaSoundTypes.ARISTONE).strength(0.5F, 0.5F).friction(0.98F).noOcclusion();
+	public static BlockBehaviour.Properties propertiesBudding(MapColor pColor) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.DESTROY).sound(SoundType.AMETHYST).destroyTime(1.5F).explosionResistance(1.5F).requiresCorrectToolForDrops();
 	}
 
-	public static BlockBehaviour.Properties propertiesGeodeBlock(MapColor pColor) {
-		return BlockBehaviour.Properties.of().mapColor(pColor).sound(SoundType.AMETHYST).strength(1.5F, 1.5F).requiresCorrectToolForDrops();
+	public static BlockBehaviour.Properties propertiesCrystal() {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(MapColor.NONE).pushReaction(PushReaction.DESTROY).sound(SoundType.AMETHYST_CLUSTER).destroyTime(1.5F).explosionResistance(1.5F).lightLevel((pBlockState) -> 5).forceSolidOn().noOcclusion().requiresCorrectToolForDrops();
 	}
 
-	public static BlockBehaviour.Properties propertiesCrystalBlock() {
-		return BlockBehaviour.Properties.of().mapColor(MapColor.NONE).sound(SoundType.AMETHYST_CLUSTER).strength(1.5F, 1.5F).lightLevel((pBlockState) -> 5).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesJellyfishJellyBlock() {

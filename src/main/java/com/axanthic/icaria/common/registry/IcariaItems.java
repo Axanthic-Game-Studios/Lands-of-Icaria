@@ -172,14 +172,14 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MOLYBDENUM_ORE = IcariaItems.register("molybdenum_ore", () -> new BlockItem(IcariaBlocks.MOLYBDENUM_ORE.get(), new Item.Properties()));
 	public static final RegistryObject<Item> HYLIASTRUM_ORE = IcariaItems.register("hyliastrum_ore", () -> new BlockItem(IcariaBlocks.HYLIASTRUM_ORE.get(), new Item.Properties()));
 
-	public static final RegistryObject<Item> CALCITE_GEODE_BLOCK = IcariaItems.register("calcite_geode_block", () -> new BlockItem(IcariaBlocks.CALCITE_GEODE_BLOCK.get(), new Item.Properties()));
-	public static final RegistryObject<Item> BUDDING_CALCITE_GEODE_BLOCK = IcariaItems.register("budding_calcite_geode_block", () -> new BlockItem(IcariaBlocks.BUDDING_CALCITE_GEODE_BLOCK.get(), new Item.Properties()));
-	public static final RegistryObject<Item> HALITE_GEODE_BLOCK = IcariaItems.register("halite_geode_block", () -> new BlockItem(IcariaBlocks.HALITE_GEODE_BLOCK.get(), new Item.Properties()));
-	public static final RegistryObject<Item> BUDDING_HALITE_GEODE_BLOCK = IcariaItems.register("budding_halite_geode_block", () -> new BlockItem(IcariaBlocks.BUDDING_HALITE_GEODE_BLOCK.get(), new Item.Properties()));
-	public static final RegistryObject<Item> JASPER_GEODE_BLOCK = IcariaItems.register("jasper_geode_block", () -> new BlockItem(IcariaBlocks.JASPER_GEODE_BLOCK.get(), new Item.Properties()));
-	public static final RegistryObject<Item> BUDDING_JASPER_GEODE_BLOCK = IcariaItems.register("budding_jasper_geode_block", () -> new BlockItem(IcariaBlocks.BUDDING_JASPER_GEODE_BLOCK.get(), new Item.Properties()));
-	public static final RegistryObject<Item> ZIRCON_GEODE_BLOCK = IcariaItems.register("zircon_geode_block", () -> new BlockItem(IcariaBlocks.ZIRCON_GEODE_BLOCK.get(), new Item.Properties()));
-	public static final RegistryObject<Item> BUDDING_ZIRCON_GEODE_BLOCK = IcariaItems.register("budding_zircon_geode_block", () -> new BlockItem(IcariaBlocks.BUDDING_ZIRCON_GEODE_BLOCK.get(), new Item.Properties()));
+	public static final RegistryObject<Item> CALCITE = IcariaItems.register("calcite", () -> new BlockItem(IcariaBlocks.CALCITE.get(), new Item.Properties()));
+	public static final RegistryObject<Item> BUDDING_CALCITE = IcariaItems.register("budding_calcite", () -> new BlockItem(IcariaBlocks.BUDDING_CALCITE.get(), new Item.Properties()));
+	public static final RegistryObject<Item> HALITE = IcariaItems.register("halite", () -> new BlockItem(IcariaBlocks.HALITE.get(), new Item.Properties()));
+	public static final RegistryObject<Item> BUDDING_HALITE = IcariaItems.register("budding_halite", () -> new BlockItem(IcariaBlocks.BUDDING_HALITE.get(), new Item.Properties()));
+	public static final RegistryObject<Item> JASPER = IcariaItems.register("jasper", () -> new BlockItem(IcariaBlocks.JASPER.get(), new Item.Properties()));
+	public static final RegistryObject<Item> BUDDING_JASPER = IcariaItems.register("budding_jasper", () -> new BlockItem(IcariaBlocks.BUDDING_JASPER.get(), new Item.Properties()));
+	public static final RegistryObject<Item> ZIRCON = IcariaItems.register("zircon", () -> new BlockItem(IcariaBlocks.ZIRCON.get(), new Item.Properties()));
+	public static final RegistryObject<Item> BUDDING_ZIRCON = IcariaItems.register("budding_zircon", () -> new BlockItem(IcariaBlocks.BUDDING_ZIRCON.get(), new Item.Properties()));
 
 	public static final RegistryObject<Item> CALCITE_CRYSTAL = IcariaItems.register("calcite_crystal", () -> new BlockItem(IcariaBlocks.CALCITE_CRYSTAL.get(), new Item.Properties()));
 	public static final RegistryObject<Item> HALITE_CRYSTAL = IcariaItems.register("halite_crystal", () -> new BlockItem(IcariaBlocks.HALITE_CRYSTAL.get(), new Item.Properties()));
@@ -538,10 +538,10 @@ public class IcariaItems {
 	public static final RegistryObject<Item> VINE_REED = IcariaItems.registerBasic("vine_reed", () -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> VINE_SPROUT = IcariaItems.registerBasic("vine_sprout", () -> new VineSproutItem(new Item.Properties().durability(24).food(IcariaItems.foodPropertiesVineSprout(0, 1.0F))));
 	public static final RegistryObject<Item> ROTTEN_BONES = IcariaItems.registerBasic("rotten_bones", () -> new Item(new Item.Properties()));
-	public static final RegistryObject<Item> CALCITE = IcariaItems.registerBasic("calcite", () -> new Item(new Item.Properties()));
-	public static final RegistryObject<Item> HALITE = IcariaItems.registerBasic("halite", () -> new Item(new Item.Properties()));
-	public static final RegistryObject<Item> JASPER = IcariaItems.registerBasic("jasper", () -> new Item(new Item.Properties()));
-	public static final RegistryObject<Item> ZIRCON = IcariaItems.registerBasic("zircon", () -> new Item(new Item.Properties()));
+	public static final RegistryObject<Item> CALCITE_SHARD = IcariaItems.registerBasic("calcite_shard", () -> new Item(new Item.Properties()));
+	public static final RegistryObject<Item> HALITE_SHARD = IcariaItems.registerBasic("halite_shard", () -> new Item(new Item.Properties()));
+	public static final RegistryObject<Item> JASPER_SHARD = IcariaItems.registerBasic("jasper_shard", () -> new Item(new Item.Properties()));
+	public static final RegistryObject<Item> ZIRCON_SHARD = IcariaItems.registerBasic("zircon_shard", () -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> CALCITE_DUST = IcariaItems.registerBasic("calcite_dust", () -> new BoneMealItem(new Item.Properties()));
 	public static final RegistryObject<Item> HALITE_DUST = IcariaItems.registerBasic("halite_dust", () -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> LIGNITE = IcariaItems.registerBasic("lignite", () -> new FuelItem(new Item.Properties(), 800));

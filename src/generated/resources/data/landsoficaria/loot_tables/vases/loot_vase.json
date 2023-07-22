@@ -107,7 +107,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:calcite"
+          "name": "landsoficaria:calcite_shard"
         },
         {
           "type": "minecraft:item",
@@ -122,7 +122,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:halite"
+          "name": "landsoficaria:halite_shard"
         },
         {
           "type": "minecraft:item",

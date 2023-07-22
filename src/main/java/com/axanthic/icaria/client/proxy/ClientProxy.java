@@ -287,14 +287,14 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.MOLYBDENUM_ORE.get());
 			pEvent.accept(IcariaItems.HYLIASTRUM_ORE.get());
 
-			pEvent.accept(IcariaItems.CALCITE_GEODE_BLOCK.get());
-			pEvent.accept(IcariaItems.BUDDING_CALCITE_GEODE_BLOCK.get());
-			pEvent.accept(IcariaItems.HALITE_GEODE_BLOCK.get());
-			pEvent.accept(IcariaItems.BUDDING_HALITE_GEODE_BLOCK.get());
-			pEvent.accept(IcariaItems.JASPER_GEODE_BLOCK.get());
-			pEvent.accept(IcariaItems.BUDDING_JASPER_GEODE_BLOCK.get());
-			pEvent.accept(IcariaItems.ZIRCON_GEODE_BLOCK.get());
-			pEvent.accept(IcariaItems.BUDDING_ZIRCON_GEODE_BLOCK.get());
+			pEvent.accept(IcariaItems.CALCITE.get());
+			pEvent.accept(IcariaItems.BUDDING_CALCITE.get());
+			pEvent.accept(IcariaItems.HALITE.get());
+			pEvent.accept(IcariaItems.BUDDING_HALITE.get());
+			pEvent.accept(IcariaItems.JASPER.get());
+			pEvent.accept(IcariaItems.BUDDING_JASPER.get());
+			pEvent.accept(IcariaItems.ZIRCON.get());
+			pEvent.accept(IcariaItems.BUDDING_ZIRCON.get());
 
 			pEvent.accept(IcariaItems.CALCITE_CRYSTAL.get());
 			pEvent.accept(IcariaItems.HALITE_CRYSTAL.get());
@@ -678,10 +678,10 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.VINE_REED.get());
 			pEvent.accept(IcariaItems.VINE_SPROUT.get());
 			pEvent.accept(IcariaItems.ROTTEN_BONES.get());
-			pEvent.accept(IcariaItems.CALCITE.get());
-			pEvent.accept(IcariaItems.HALITE.get());
-			pEvent.accept(IcariaItems.JASPER.get());
-			pEvent.accept(IcariaItems.ZIRCON.get());
+			pEvent.accept(IcariaItems.CALCITE_SHARD.get());
+			pEvent.accept(IcariaItems.HALITE_SHARD.get());
+			pEvent.accept(IcariaItems.JASPER_SHARD.get());
+			pEvent.accept(IcariaItems.ZIRCON_SHARD.get());
 			pEvent.accept(IcariaItems.CALCITE_DUST.get());
 			pEvent.accept(IcariaItems.HALITE_DUST.get());
 			pEvent.accept(IcariaItems.LIGNITE.get());

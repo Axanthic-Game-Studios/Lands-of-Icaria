@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:zircon_shard_small_compress"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_zircon_shard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:zircon_shard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_zircon_shard",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:zircon_shard_small_compress"
+    ]
+  },
+  "sends_telemetry_event": false
+}

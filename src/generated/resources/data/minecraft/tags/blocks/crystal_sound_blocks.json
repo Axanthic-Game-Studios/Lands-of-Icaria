@@ -1,12 +1,12 @@
 {
   "values": [
-    "landsoficaria:calcite_geode_block",
-    "landsoficaria:budding_calcite_geode_block",
-    "landsoficaria:halite_geode_block",
-    "landsoficaria:budding_halite_geode_block",
-    "landsoficaria:jasper_geode_block",
-    "landsoficaria:budding_jasper_geode_block",
-    "landsoficaria:zircon_geode_block",
-    "landsoficaria:budding_zircon_geode_block"
+    "landsoficaria:calcite",
+    "landsoficaria:budding_calcite",
+    "landsoficaria:halite",
+    "landsoficaria:budding_halite",
+    "landsoficaria:jasper",
+    "landsoficaria:budding_jasper",
+    "landsoficaria:zircon",
+    "landsoficaria:budding_zircon"
   ]
 }

@@ -34,10 +34,10 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final TagKey<Item> GEMS_DOLOMITE = IcariaItemTags.forgeTag("gems/dolomite");
 	public static final TagKey<Item> GEMS_SLIVER = IcariaItemTags.forgeTag("gems/sliver");
 	public static final TagKey<Item> GEMS_ANTHRACITE = IcariaItemTags.forgeTag("gems/anthracite");
-	public static final TagKey<Item> GEMS_CALCITE = IcariaItemTags.forgeTag("gems/calcite");
-	public static final TagKey<Item> GEMS_HALITE = IcariaItemTags.forgeTag("gems/halite");
-	public static final TagKey<Item> GEMS_JASPER = IcariaItemTags.forgeTag("gems/jasper");
-	public static final TagKey<Item> GEMS_ZIRCON = IcariaItemTags.forgeTag("gems/zircon");
+	public static final TagKey<Item> GEMS_CALCITE_SHARD = IcariaItemTags.forgeTag("gems/calcite_shard");
+	public static final TagKey<Item> GEMS_HALITE_SHARD = IcariaItemTags.forgeTag("gems/halite_shard");
+	public static final TagKey<Item> GEMS_JASPER_SHARD = IcariaItemTags.forgeTag("gems/jasper_shard");
+	public static final TagKey<Item> GEMS_ZIRCON_SHARD = IcariaItemTags.forgeTag("gems/zircon_shard");
 
 	public static final TagKey<Item> CROPS_SPELT = IcariaItemTags.forgeTag("crops/spelt");
 	public static final TagKey<Item> CROPS_STRAWBERRIES = IcariaItemTags.forgeTag("crops/strawberry");
@@ -216,10 +216,10 @@ public class IcariaItemTags extends ItemTagsProvider {
 		this.tag(IcariaItemTags.GEMS_DOLOMITE).add(IcariaItems.DOLOMITE.get());
 		this.tag(IcariaItemTags.GEMS_SLIVER).add(IcariaItems.SLIVER.get());
 		this.tag(IcariaItemTags.GEMS_ANTHRACITE).add(IcariaItems.ANTHRACITE.get());
-		this.tag(IcariaItemTags.GEMS_CALCITE).add(IcariaItems.CALCITE.get());
-		this.tag(IcariaItemTags.GEMS_HALITE).add(IcariaItems.HALITE.get());
-		this.tag(IcariaItemTags.GEMS_JASPER).add(IcariaItems.JASPER.get());
-		this.tag(IcariaItemTags.GEMS_ZIRCON).add(IcariaItems.ZIRCON.get());
+		this.tag(IcariaItemTags.GEMS_CALCITE_SHARD).add(IcariaItems.CALCITE_SHARD.get());
+		this.tag(IcariaItemTags.GEMS_HALITE_SHARD).add(IcariaItems.HALITE_SHARD.get());
+		this.tag(IcariaItemTags.GEMS_JASPER_SHARD).add(IcariaItems.JASPER_SHARD.get());
+		this.tag(IcariaItemTags.GEMS_ZIRCON_SHARD).add(IcariaItems.ZIRCON_SHARD.get());
 
 		this.tag(Tags.Items.GEMS)
 			.add(IcariaItems.CHERT.get())
@@ -227,10 +227,10 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.DOLOMITE.get())
 			.add(IcariaItems.SLIVER.get())
 			.add(IcariaItems.ANTHRACITE.get())
-			.add(IcariaItems.CALCITE.get())
-			.add(IcariaItems.HALITE.get())
-			.add(IcariaItems.JASPER.get())
-			.add(IcariaItems.ZIRCON.get());
+			.add(IcariaItems.CALCITE_SHARD.get())
+			.add(IcariaItems.HALITE_SHARD.get())
+			.add(IcariaItems.JASPER_SHARD.get())
+			.add(IcariaItems.ZIRCON_SHARD.get());
 
 		this.tag(Tags.Items.SLIMEBALLS)
 			.add(IcariaItems.ENDER_JELLYFISH_JELLY.get())

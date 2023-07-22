@@ -5,9 +5,9 @@
     "landsoficaria:dolomite",
     "landsoficaria:sliver",
     "landsoficaria:anthracite",
-    "landsoficaria:calcite",
-    "landsoficaria:halite",
-    "landsoficaria:jasper",
-    "landsoficaria:zircon"
+    "landsoficaria:calcite_shard",
+    "landsoficaria:halite_shard",
+    "landsoficaria:jasper_shard",
+    "landsoficaria:zircon_shard"
   ]
 }

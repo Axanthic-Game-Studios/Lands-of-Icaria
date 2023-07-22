@@ -243,14 +243,14 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.MOLYBDENUM_ORE.get(), "Molybdenum Ore");
 		this.add(IcariaBlocks.HYLIASTRUM_ORE.get(), "Hyliastrum Ore");
 
-		this.add(IcariaBlocks.CALCITE_GEODE_BLOCK.get(), "Block of Calcite");
-		this.add(IcariaBlocks.BUDDING_CALCITE_GEODE_BLOCK.get(), "Budding Calcite");
-		this.add(IcariaBlocks.HALITE_GEODE_BLOCK.get(), "Block of Halite");
-		this.add(IcariaBlocks.BUDDING_HALITE_GEODE_BLOCK.get(), "Budding Halite");
-		this.add(IcariaBlocks.JASPER_GEODE_BLOCK.get(), "Block of Jasper");
-		this.add(IcariaBlocks.BUDDING_JASPER_GEODE_BLOCK.get(), "Budding Jasper");
-		this.add(IcariaBlocks.ZIRCON_GEODE_BLOCK.get(), "Block of Zircon");
-		this.add(IcariaBlocks.BUDDING_ZIRCON_GEODE_BLOCK.get(), "Budding Zircon");
+		this.add(IcariaBlocks.CALCITE.get(), "Calcite");
+		this.add(IcariaBlocks.BUDDING_CALCITE.get(), "Budding Calcite");
+		this.add(IcariaBlocks.HALITE.get(), "Halite");
+		this.add(IcariaBlocks.BUDDING_HALITE.get(), "Budding Halite");
+		this.add(IcariaBlocks.JASPER.get(), "Jasper");
+		this.add(IcariaBlocks.BUDDING_JASPER.get(), "Budding Jasper");
+		this.add(IcariaBlocks.ZIRCON.get(), "Zircon");
+		this.add(IcariaBlocks.BUDDING_ZIRCON.get(), "Budding Zircon");
 
 		this.add(IcariaBlocks.CALCITE_CRYSTAL.get(), "Calcite Crystal");
 		this.add(IcariaBlocks.HALITE_CRYSTAL.get(), "Halite Crystal");
@@ -725,10 +725,10 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.VINE_REED.get(), "Vine Reed");
 		this.add(IcariaItems.VINE_SPROUT.get(), "Vine Sprout");
 		this.add(IcariaItems.ROTTEN_BONES.get(), "Rotten Bones");
-		this.add(IcariaItems.CALCITE.get(), "Calcite");
-		this.add(IcariaItems.HALITE.get(), "Halite");
-		this.add(IcariaItems.JASPER.get(), "Jasper");
-		this.add(IcariaItems.ZIRCON.get(), "Zircon");
+		this.add(IcariaItems.CALCITE_SHARD.get(), "Calcite Shard");
+		this.add(IcariaItems.HALITE_SHARD.get(), "Halite Shard");
+		this.add(IcariaItems.JASPER_SHARD.get(), "Jasper Shard");
+		this.add(IcariaItems.ZIRCON_SHARD.get(), "Zircon Shard");
 		this.add(IcariaItems.CALCITE_DUST.get(), "Calcite Dust");
 		this.add(IcariaItems.HALITE_DUST.get(), "Halite Dust");
 		this.add(IcariaItems.LIGNITE.get(), "Lignite");

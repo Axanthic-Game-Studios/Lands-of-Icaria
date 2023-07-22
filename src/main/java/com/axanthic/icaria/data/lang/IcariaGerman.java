@@ -243,14 +243,14 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.MOLYBDENUM_ORE.get(), "Molybdänerz");
 		this.add(IcariaBlocks.HYLIASTRUM_ORE.get(), "Hyliastrumerz");
 
-		this.add(IcariaBlocks.CALCITE_GEODE_BLOCK.get(), "Calcitblock");
-		this.add(IcariaBlocks.BUDDING_CALCITE_GEODE_BLOCK.get(), "Calcitknospenblock");
-		this.add(IcariaBlocks.HALITE_GEODE_BLOCK.get(), "Halitblock");
-		this.add(IcariaBlocks.BUDDING_HALITE_GEODE_BLOCK.get(), "Halitknospenblock");
-		this.add(IcariaBlocks.JASPER_GEODE_BLOCK.get(), "Jaspisblock");
-		this.add(IcariaBlocks.BUDDING_JASPER_GEODE_BLOCK.get(), "Jaspisknospenblock");
-		this.add(IcariaBlocks.ZIRCON_GEODE_BLOCK.get(), "Zirkonblock");
-		this.add(IcariaBlocks.BUDDING_ZIRCON_GEODE_BLOCK.get(), "Zirkonknospenblock");
+		this.add(IcariaBlocks.CALCITE.get(), "Calcit");
+		this.add(IcariaBlocks.BUDDING_CALCITE.get(), "Calcitknospenblock");
+		this.add(IcariaBlocks.HALITE.get(), "Halit");
+		this.add(IcariaBlocks.BUDDING_HALITE.get(), "Halitknospenblock");
+		this.add(IcariaBlocks.JASPER.get(), "Jaspis");
+		this.add(IcariaBlocks.BUDDING_JASPER.get(), "Jaspisknospenblock");
+		this.add(IcariaBlocks.ZIRCON.get(), "Zirkon");
+		this.add(IcariaBlocks.BUDDING_ZIRCON.get(), "Zirkonknospenblock");
 
 		this.add(IcariaBlocks.CALCITE_CRYSTAL.get(), "Calcitkristall");
 		this.add(IcariaBlocks.HALITE_CRYSTAL.get(), "Halitkristall");
@@ -725,10 +725,10 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.VINE_REED.get(), "Weinschilf");
 		this.add(IcariaItems.VINE_SPROUT.get(), "Rankensprosse");
 		this.add(IcariaItems.ROTTEN_BONES.get(), "Verrottete Knochen");
-		this.add(IcariaItems.CALCITE.get(), "Calcit");
-		this.add(IcariaItems.HALITE.get(), "Halit");
-		this.add(IcariaItems.JASPER.get(), "Jaspis");
-		this.add(IcariaItems.ZIRCON.get(), "Zirkon");
+		this.add(IcariaItems.CALCITE_SHARD.get(), "Calcitscherbe");
+		this.add(IcariaItems.HALITE_SHARD.get(), "Halitscherbe");
+		this.add(IcariaItems.JASPER_SHARD.get(), "Jaspisscherbe");
+		this.add(IcariaItems.ZIRCON_SHARD.get(), "Zirkonscherbe");
 		this.add(IcariaItems.CALCITE_DUST.get(), "Calcit-Staub");
 		this.add(IcariaItems.HALITE_DUST.get(), "Halit-Staub");
 		this.add(IcariaItems.LIGNITE.get(), "Braunkohle");
