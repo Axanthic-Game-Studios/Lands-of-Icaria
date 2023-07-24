@@ -209,7 +209,7 @@ public class IcariaTeleporter implements ITeleporter {
         var poiManager = this.level.getPoiManager();
         poiManager.ensureLoadedAndValid(this.level, pPos, 64);
         var optional = poiManager.getInSquare((pPoiType) ->
-            pPoiType.is(IcariaPoiTypes.PORTAL.getKey()), pPos, 64, PoiManager.Occupancy.ANY).sorted(Comparator.<PoiRecord>comparingDouble((pPoiRecord) ->
+            pPoiType.is(IcariaPoiTypes.ICARIA_PORTAL.getKey()), pPos, 64, PoiManager.Occupancy.ANY).sorted(Comparator.<PoiRecord>comparingDouble((pPoiRecord) ->
             pPoiRecord.getPos().distSqr(pPos)).thenComparingInt((pPoiRecord) ->
             pPoiRecord.getPos().getY())).filter((pPoiRecord) ->
             this.level.getBlockState(pPoiRecord.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS)).findFirst();
