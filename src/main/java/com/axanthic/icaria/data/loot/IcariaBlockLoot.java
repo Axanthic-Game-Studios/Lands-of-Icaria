@@ -360,6 +360,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropNone(IcariaBlocks.GROWING_SWIRLY_VINE.get());
 		this.dropNone(IcariaBlocks.DEAD_THORNY_VINE.get());
 		this.dropNone(IcariaBlocks.GROWING_THORNY_VINE.get());
+		this.dropNone(IcariaBlocks.MEDITERRANEAN_WATER.get());
 		this.dropNone(IcariaBlocks.GREEK_FIRE.get());
 		this.dropNone(IcariaBlocks.PORTAL.get());
 

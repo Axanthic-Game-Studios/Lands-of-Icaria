@@ -93,11 +93,6 @@ public class GreekFireBlock extends Block {
     }
 
     @Override
-    public void spawnDestroyParticles(Level pLevel, Player pPlayer, BlockPos pPos, BlockState pState) {
-        // NOOP
-    }
-
-    @Override
     public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         pLevel.scheduleTick(pPos, this, this.getFireTickDelay(pLevel.random));
         if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOFIRETICK)) {
