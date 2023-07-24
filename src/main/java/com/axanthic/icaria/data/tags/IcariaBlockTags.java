@@ -816,7 +816,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.GREEK_FIRE.get());
 
 		this.tag(BlockTags.PORTALS)
-			.add(IcariaBlocks.PORTAL.get());
+			.add(IcariaBlocks.ICARIA_PORTAL.get());
 
 		// ITEMBLOCK TAGS
 		for (var items : IcariaStoneDecoItems.STONE_DECO_ITEMS) {

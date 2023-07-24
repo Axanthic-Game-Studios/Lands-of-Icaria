@@ -659,7 +659,7 @@ public class IcariaEnglish extends LanguageProvider {
 
 		this.add(IcariaBlocks.GREEK_FIRE.get(), "Greek Fire");
 
-		this.add(IcariaBlocks.PORTAL.get(), "Portal");
+		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
 		// EFFECTS
 		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), "Blindness Immunity");

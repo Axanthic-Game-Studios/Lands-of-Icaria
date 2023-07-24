@@ -188,7 +188,7 @@ public class IcariaTeleporter implements ITeleporter {
         for (int j2 = 0; j2 < 3; ++j2) {
             for (int l2 = 0; l2 < 4; ++l2) {
                 mutablePos0.setWithOffset(blockPos0, j2 * direction.getStepX(), l2, j2 * direction.getStepZ());
-                this.level.setBlock(mutablePos0, IcariaBlocks.PORTAL.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, pAxis), 18);
+                this.level.setBlock(mutablePos0, IcariaBlocks.ICARIA_PORTAL.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, pAxis), 18);
             }
         }
 

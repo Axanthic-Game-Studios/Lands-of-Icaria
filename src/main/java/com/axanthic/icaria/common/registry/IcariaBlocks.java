@@ -605,7 +605,7 @@ public class IcariaBlocks {
 
 	public static final RegistryObject<Block> GREEK_FIRE = IcariaBlocks.register("greek_fire", () -> new GreekFireBlock(IcariaBlocks.propertiesFire(MapColor.COLOR_LIGHT_GREEN, SoundType.EMPTY)));
 
-	public static final RegistryObject<Block> PORTAL = IcariaBlocks.register("portal", () -> new IcariaPortalBlock(IcariaBlocks.propertiesPortal(MapColor.NONE, SoundType.GLASS)));
+	public static final RegistryObject<Block> ICARIA_PORTAL = IcariaBlocks.register("icaria_portal", () -> new IcariaPortalBlock(IcariaBlocks.propertiesPortal(MapColor.NONE, SoundType.GLASS)));
 
 	public static boolean always(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
 		return true;

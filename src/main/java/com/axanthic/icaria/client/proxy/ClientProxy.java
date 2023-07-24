@@ -1190,7 +1190,7 @@ public class ClientProxy extends CommonProxy {
 		this.renderTranslucent(IcariaBlocks.CALCITE_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.HALITE_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.ZIRCON_BLOCK.get());
-		this.renderTranslucent(IcariaBlocks.PORTAL.get());
+		this.renderTranslucent(IcariaBlocks.ICARIA_PORTAL.get());
 		this.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER.get());
 		this.renderTranslucent(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get());
 
