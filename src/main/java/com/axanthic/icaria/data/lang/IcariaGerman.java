@@ -803,13 +803,13 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.SIDEROS_TOOLS.axe.get(), "Schirbelaxt");
 		this.add(IcariaItems.SIDEROS_TOOLS.scythe.get(), "Schirbelsense");
 		this.add(IcariaItems.SIDEROS_TOOLS.bident.get(), "Schirbelzweizack");
-		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.sword.get(), "Molybdänschwert");
-		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.dagger.get(), "Molybdändolch");
-		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.shovel.get(), "Molybdänschaufel");
-		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.pickaxe.get(), "Molybdänspitzhacke");
-		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.axe.get(), "Molybdänaxt");
-		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.scythe.get(), "Molybdänsense");
-		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.bident.get(), "Molybdänzweizack");
+		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.sword.get(), "Molybdänstahlschwert");
+		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.dagger.get(), "Molybdänstahldolch");
+		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.shovel.get(), "Molybdänstahlschaufel");
+		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.pickaxe.get(), "Molybdänstahlspitzhacke");
+		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.axe.get(), "Molybdänstahlaxt");
+		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.scythe.get(), "Molybdänstahlsense");
+		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.bident.get(), "Molybdänstahlzweizack");
 
 		this.add(IcariaItems.AETERNAE_HIDE_ARMOR.helmet.get(), "Äternen Lederkappe");
 		this.add(IcariaItems.AETERNAE_HIDE_ARMOR.chestplate.get(), "Äternen Lederjacke");
