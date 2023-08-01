@@ -11,6 +11,7 @@ public class IcariaBlockStateProperties {
     public static final BooleanProperty STEPPE_MOSS = BooleanProperty.create("steppe_moss");
 
     public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);
-    public static final IntegerProperty OLIVE_STAGE = IntegerProperty.create("olive_stage", 0, 2);
     public static final IntegerProperty GRINDER_ROTATION = IntegerProperty.create("grinder_rotation", 0, 90);
+    public static final IntegerProperty OLIVE_STAGE = IntegerProperty.create("olive_stage", 0, 2);
+    public static final IntegerProperty STRAWBERRY_STAGE = IntegerProperty.create("strawberry_stage", 0, 1);
 }

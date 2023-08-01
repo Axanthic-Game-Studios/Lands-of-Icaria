@@ -451,7 +451,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropSeed(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get());
 		this.dropSeed(IcariaBlocks.LARGE_BROWN_GRAIN.get());
 
-		this.dropElseWithShears(IcariaBlocks.STRAWBERRY_BUSH.get(), IcariaItems.STRAWBERRIES.get(), 1.0F, 2);
+		this.dropBushWithLoot(IcariaBlocks.STRAWBERRY_BUSH.get(), IcariaItems.STRAWBERRIES.get());
 
 		this.dropCrop(IcariaBlocks.SPELT_CROP.get(), IcariaItems.SPELT.get(), IcariaItems.SPELT_SEEDS.get());
 		this.dropCrop(IcariaBlocks.STRAWBERRY_CROP.get(), IcariaItems.STRAWBERRIES.get(), IcariaItems.STRAWBERRY_SEEDS.get());
@@ -529,8 +529,8 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.SPELT_SEEDS.get()).when(IcariaBlockLoot.NO_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, IcariaBlockLoot.SEED_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.STRAWBERRY_SEEDS.get()).when(IcariaBlockLoot.NO_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, IcariaBlockLoot.SEED_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.PHYSALIS_SEEDS.get()).when(IcariaBlockLoot.NO_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, IcariaBlockLoot.SEED_CHANCES)))));
 	}
 
-	public void dropElseWithShears(Block pBlock, Item pItem, float pValue, int pBonus) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(IcariaBlockLoot.NO_SHEARS).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, pBonus)))));
+	public void dropBushWithLoot(Block pBlock, Item pLootItem) {
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLootItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.STRAWBERRY_STAGE, 1))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
 	}
 
 	public void dropCrop(Block pBlock, Item pCropItem, Item pSeedItem) {

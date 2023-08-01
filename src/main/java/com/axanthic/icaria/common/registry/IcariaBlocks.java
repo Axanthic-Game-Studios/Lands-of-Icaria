@@ -594,7 +594,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> CARDON_CACTUS = IcariaBlocks.register("cardon_cactus", () -> new CardonCactusBlock(IcariaBlocks.propertiesCactus(MapColor.GRASS, SoundType.WOOL)));
 	public static final RegistryObject<Block> POTTED_CARDON_CACTUS = IcariaBlocks.register("potted_cardon_cactus", () -> new DamagingFlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.CARDON_CACTUS, IcariaBlocks.propertiesPot(MapColor.NONE, SoundType.STONE)));
 
-	public static final RegistryObject<Block> STRAWBERRY_BUSH = IcariaBlocks.register("strawberry_bush", () -> new IcariaBushBlock(IcariaBlocks.propertiesPlant(MapColor.NONE, SoundType.GRASS)));
+	public static final RegistryObject<Block> STRAWBERRY_BUSH = IcariaBlocks.register("strawberry_bush", () -> new StrawberryBushBlock(IcariaBlocks.propertiesBush(MapColor.NONE, SoundType.GRASS)));
 
 	public static final RegistryObject<Block> SPELT_CROP = IcariaBlocks.register("spelt_crop", () -> new SpeltCropBlock(IcariaBlocks.propertiesCrop(MapColor.NONE, SoundType.CROP)));
 	public static final RegistryObject<Block> STRAWBERRY_CROP = IcariaBlocks.register("strawberry_crop", () -> new StrawberryCropBlock(IcariaBlocks.propertiesCrop(MapColor.NONE, SoundType.CROP)));
@@ -833,6 +833,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesCactus(MapColor pColor, SoundType pSound) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.DESTROY).sound(pSound).destroyTime(0.4F).explosionResistance(0.4F).randomTicks();
+	}
+
+	public static BlockBehaviour.Properties propertiesBush(MapColor pColor, SoundType pSound) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.DESTROY).sound(pSound).offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollission().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesCrop(MapColor pColor, SoundType pSound) {

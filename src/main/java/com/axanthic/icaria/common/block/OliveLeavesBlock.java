@@ -68,8 +68,8 @@ public class OliveLeavesBlock extends IcariaLeavesBlock {
             pLevel.setBlock(pPos, this.defaultBlockState().setValue(IcariaBlockStateProperties.OLIVE_STAGE, 0), 0);
             Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.BLACK_OLIVES.get(), 1));
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
+        } else {
+            return InteractionResult.PASS;
         }
-
-        return InteractionResult.PASS;
     }
 }

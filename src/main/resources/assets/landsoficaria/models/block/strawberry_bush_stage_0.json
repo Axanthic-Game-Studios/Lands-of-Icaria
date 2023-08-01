@@ -1,7 +1,7 @@
 {
 	"textures": {
-		"0": "landsoficaria:block/strawberry_crop_age_4",
-		"1": "landsoficaria:block/strawberry_crop_age_4_horizontal",
+		"0": "landsoficaria:block/strawberry_bush_stage_0",
+		"1": "landsoficaria:block/strawberry_bush_horizontal_stage_0",
 		"particle": "#0"
 	},
 	"elements": [

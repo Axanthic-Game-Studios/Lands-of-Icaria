@@ -8,7 +8,10 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "landsoficaria:strawberry_bush"
+              "Name": "landsoficaria:strawberry_bush",
+              "Properties": {
+                "strawberry_stage": "0"
+              }
             }
           }
         }
