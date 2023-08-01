@@ -1,0 +1,32 @@
+{
+  "criteria": {
+    "root": {
+      "conditions": {
+        "to": "landsoficaria:icaria"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "landsoficaria:textures/block/sunstone_bricks.png",
+    "description": {
+      "translate": "advancement.landsoficaria.root.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "landsoficaria:grassy_marl"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.landsoficaria.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "root"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

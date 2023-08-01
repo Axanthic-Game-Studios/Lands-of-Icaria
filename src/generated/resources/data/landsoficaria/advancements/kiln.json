@@ -1,0 +1,38 @@
+{
+  "parent": "landsoficaria:chert_pickaxe",
+  "criteria": {
+    "kiln": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:kiln",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "landsoficaria:textures/block/sunstone_bricks.png",
+    "description": {
+      "translate": "advancement.landsoficaria.kiln.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "landsoficaria:kiln"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.landsoficaria.kiln.title"
+    }
+  },
+  "requirements": [
+    [
+      "kiln"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

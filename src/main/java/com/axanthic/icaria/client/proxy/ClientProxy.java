@@ -14,6 +14,7 @@ import com.axanthic.icaria.data.IcariaBlockStates;
 import com.axanthic.icaria.data.IcariaBuiltinEntries;
 import com.axanthic.icaria.data.IcariaItemModels;
 import com.axanthic.icaria.data.IcariaRecipes;
+import com.axanthic.icaria.data.advancements.IcariaAdvancements;
 import com.axanthic.icaria.data.lang.IcariaGerman;
 import com.axanthic.icaria.data.lang.IcariaEnglish;
 import com.axanthic.icaria.data.loot.IcariaLoot;
@@ -1260,6 +1261,7 @@ public class ClientProxy extends CommonProxy {
 		generator.addProvider(pEvent.includeClient(), new IcariaBlockStates(packOutput, IcariaInfo.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeClient(), new IcariaItemModels(packOutput, IcariaInfo.ID, existingFileHelper));
 
+		generator.addProvider(pEvent.includeServer(), new IcariaAdvancements(packOutput, lookupProvider, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), new IcariaLoot(packOutput));
 		generator.addProvider(pEvent.includeServer(), new IcariaBiomeTags(packOutput, lookupProvider, registrySet, IcariaInfo.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), blockTags);

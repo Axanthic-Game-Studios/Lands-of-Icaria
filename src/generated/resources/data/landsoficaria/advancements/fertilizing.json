@@ -1,0 +1,52 @@
+{
+  "parent": "landsoficaria:grinder",
+  "criteria": {
+    "fertilizing": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "landsoficaria:fertilized_farmland"
+                ]
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": [
+                "landsoficaria:calcite_dust"
+              ]
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "landsoficaria:textures/block/sunstone_bricks.png",
+    "description": {
+      "translate": "advancement.landsoficaria.fertilizing.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "landsoficaria:calcite_dust"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.landsoficaria.fertilizing.title"
+    }
+  },
+  "requirements": [
+    [
+      "fertilizing"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,38 @@
+{
+  "parent": "landsoficaria:chalkos_pickaxe",
+  "criteria": {
+    "forge": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:forge",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "landsoficaria:textures/block/sunstone_bricks.png",
+    "description": {
+      "translate": "advancement.landsoficaria.forge.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "landsoficaria:forge"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.landsoficaria.forge.title"
+    }
+  },
+  "requirements": [
+    [
+      "forge"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,41 @@
+{
+  "parent": "landsoficaria:root",
+  "criteria": {
+    "loot_vase": {
+      "conditions": {
+        "source": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "landsoficaria:loot_vase"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:effects_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "landsoficaria:textures/block/sunstone_bricks.png",
+    "description": {
+      "translate": "advancement.landsoficaria.loot_vase.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "landsoficaria:cyan_loot_vase"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.landsoficaria.loot_vase.title"
+    }
+  },
+  "requirements": [
+    [
+      "loot_vase"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
