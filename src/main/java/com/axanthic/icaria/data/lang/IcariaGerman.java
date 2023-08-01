@@ -17,12 +17,49 @@ public class IcariaGerman extends LanguageProvider {
 
 	@Override
 	public void addTranslations() {
+		// ADVANCEMENTS
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "title", "Die Lands of Icaria");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "title", "War es nicht schon längst tot?");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "title", "Gewicht stemmen");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "title", "Größer als eine Kiste!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "title", "Hornstein-Werkzeuge");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "chalkos_pickaxe" + "." + "title", "Kuffar-Werkzeuge");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kiln" + "." + "title", "Ich habe es gerockt!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kassiteros_pickaxe" + "." + "title", "Galmei-Werkzeuge");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "title", "Hier gehts heiß her!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "title", "Goldmessing-Werkzeuge");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "title", "Das war mühlsame Arbeit!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "title", "Wie Essen für Pflanzen!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "salting" + "." + "title", "Total versalzen");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadinstahl-Werkzeuge");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "title", "Das ist keine Teekanne!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "title", "Schirbel-Werkzeuge");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "title", "Molybdänstahl-Werkzeuge");
+
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "description", "Reise in die Lands of Icaria");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "description", "Töte einen Kommandanten-Wiedergänger");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "description", "Trage eine Beutevase umher");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "description", "Stelle eine Speichervase auf");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "description", "Stelle eine Hornsteinspitzhacke her");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "chalkos_pickaxe" + "." + "description", "Stelle eine Kuffarspitzhacke her");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kiln" + "." + "description", "Stelle einen Töpferofen auf");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kassiteros_pickaxe" + "." + "description", "Stelle eine Galmeispitzhacke her");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "description", "Stelle eine Schmelze auf");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "description", "Stelle eine Goldmessingspitzhacke her");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "description", "Stelle eine Mühle auf");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "description", "Dünge Ackerboden mit Calcit");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "salting" + "." + "description", "Füge Essen Salz hinzu");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "description", "Stelle eine Vanadinstahlspitzhacke her");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "description", "Stelle einen Kessel auf");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "description", "Stelle eine Schirbelspitzhacke her");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "description", "Stelle eine Molybdänstahlspitzhacke her");
+
 		// BIOMES
-		this.add("biome." + IcariaInfo.ID + ".desert", "Ikarische Wüste");
-		this.add("biome." + IcariaInfo.ID + ".forest", "Ikarischer Wald");
-		this.add("biome." + IcariaInfo.ID + ".scrubland", "Ikarisches Buschland");
-		this.add("biome." + IcariaInfo.ID + ".steppe", "Ikarische Steppe");
-		this.add("biome." + IcariaInfo.ID + ".void", "Ikarische Leere");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "desert", "Ikarische Wüste");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "forest", "Ikarischer Wald");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "scrubland", "Ikarisches Buschland");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "steppe", "Ikarische Steppe");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "void", "Ikarische Leere");
 
 		// BLOCKS
 		this.add(IcariaBlocks.GRASSY_MARL.get(), "Begraster Mergel");
@@ -708,7 +745,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.VINEGAROON.get(), "Geißelskorpion");
 
 		// FLUIDS
-		this.add("fluid." + IcariaInfo.ID + ".mediterranean_water", "Mediterranes Wasser");
+		this.add("fluid" + "." + IcariaInfo.ID + "." + "mediterranean_water", "Mediterranes Wasser");
 
 		// ITEMS
 		this.add(IcariaItems.BONE_REMAINS.get(), "Knochenreste");
@@ -958,15 +995,15 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Eimer mit mediterranem Wasser");
 
 		// ITEM GROUPS
-		this.add("itemgroup." + IcariaInfo.ID + ".blocks", "Lands of Icaria Blöcke");
-		this.add("itemgroup." + IcariaInfo.ID + ".flora", "Lands of Icaria Flora");
-		this.add("itemgroup." + IcariaInfo.ID + ".items", "Lands of Icaria Gegenstände");
+		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "blocks", "Lands of Icaria Blöcke");
+		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "flora", "Lands of Icaria Flora");
+		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "items", "Lands of Icaria Gegenstände");
 
 		// MENU TYPES
-		this.add("menu." + IcariaInfo.ID + ".grinder", "Mühle");
-		this.add("menu." + IcariaInfo.ID + ".storage_vase", "Speichervase");
+		this.add("menu" + "." + IcariaInfo.ID + "." + "grinder", "Mühle");
+		this.add("menu" + "." + IcariaInfo.ID + "." + "storage_vase", "Speichervase");
 
 		// MESSAGES
-		this.add("message." + IcariaInfo.ID + ".loot_vase", "Schleichen zum Werfen der Beutevase");
+		this.add("message" + "." + IcariaInfo.ID + "." + "loot_vase", "Schleichen zum Werfen der Beutevase");
 	}
 }

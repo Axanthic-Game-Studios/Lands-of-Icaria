@@ -17,12 +17,49 @@ public class IcariaEnglish extends LanguageProvider {
 
 	@Override
 	public void addTranslations() {
+		// ADVANCEMENTS
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "title", "The Lands of Icaria");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "title", "Wasn't it dead already?");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "title", "Heavy lifting");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "title", "Bigger than a Chest!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "title", "Chert Tools");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "chalkos_pickaxe" + "." + "title", "Chalkos Tools");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kiln" + "." + "title", "I was Kiln it!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kassiteros_pickaxe" + "." + "title", "Kassiteros Tools");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "title", "Gettin' hot in here!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "title", "Orichalcum Tools");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "title", "I had to grind for this!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "title", "It's Food for Plants!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "salting" + "." + "title", "Very salty");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadiumsteel Tools");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "title", "It's not a teapot!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "title", "Sideros Tools");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "title", "Molybdenumsteel Tools");
+
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "description", "Travel to the Lands of Icaria");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "description", "Kill a Captain Revenant");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "description", "Carry a Loot Vase");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "description", "Place a Storage Vase");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "description", "Craft a Chert Pickaxe");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "chalkos_pickaxe" + "." + "description", "Craft a Chalkos Pickaxe");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kiln" + "." + "description", "Place a Kiln");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kassiteros_pickaxe" + "." + "description", "Craft a Kassiteros Pickaxe");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "description", "Place a Forge");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "description", "Craft a Orichalcum Pickaxe");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "description", "Place a Grinder");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "description", "Fertilize Farmland with Calcite");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "salting" + "." + "description", "Add salt to food");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "description", "Craft a Vanadiumsteel Pickaxe");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "description", "Place a Kettle");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "description", "Craft a Sideros Pickaxe");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "description", "Craft a Molybdenumsteel Pickaxe");
+
 		// BIOMES
-		this.add("biome." + IcariaInfo.ID + ".desert", "Icarian Desert");
-		this.add("biome." + IcariaInfo.ID + ".forest", "Icarian Forest");
-		this.add("biome." + IcariaInfo.ID + ".scrubland", "Icarian Scrubland");
-		this.add("biome." + IcariaInfo.ID + ".steppe", "Icarian Steppe");
-		this.add("biome." + IcariaInfo.ID + ".void", "Icarian Void");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "desert", "Icarian Desert");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "forest", "Icarian Forest");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "scrubland", "Icarian Scrubland");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "steppe", "Icarian Steppe");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "void", "Icarian Void");
 
 		// BLOCKS
 		this.add(IcariaBlocks.GRASSY_MARL.get(), "Grassy Marl");
@@ -708,7 +745,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.VINEGAROON.get(), "Vinegaroon");
 
 		// FLUIDS
-		this.add("fluid." + IcariaInfo.ID + ".mediterranean_water", "Mediterranean Water");
+		this.add("fluid" + "." + IcariaInfo.ID + "." + "mediterranean_water", "Mediterranean Water");
 
 		// ITEMS
 		this.add(IcariaItems.BONE_REMAINS.get(), "Bone Remains");
@@ -958,15 +995,15 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Mediterranean Water Bucket");
 
 		// ITEM GROUPS
-		this.add("itemgroup." + IcariaInfo.ID + ".blocks", "Lands of Icaria Blocks");
-		this.add("itemgroup." + IcariaInfo.ID + ".flora", "Lands of Icaria Flora");
-		this.add("itemgroup." + IcariaInfo.ID + ".items", "Lands of Icaria Items");
+		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "blocks", "Lands of Icaria Blocks");
+		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "flora", "Lands of Icaria Flora");
+		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "items", "Lands of Icaria Items");
 
 		// MENU TYPES
-		this.add("menu." + IcariaInfo.ID + ".grinder", "Grinder");
-		this.add("menu." + IcariaInfo.ID + ".storage_vase", "Storage Vase");
+		this.add("menu" + "." + IcariaInfo.ID + "." + "grinder", "Grinder");
+		this.add("menu" + "." + IcariaInfo.ID + "." + "storage_vase", "Storage Vase");
 
 		// MESSAGES
-		this.add("message." + IcariaInfo.ID + ".loot_vase", "Sneak to throw loot vase");
+		this.add("message" + "." + IcariaInfo.ID + "." + "loot_vase", "Sneak to throw loot vase");
 	}
 }
