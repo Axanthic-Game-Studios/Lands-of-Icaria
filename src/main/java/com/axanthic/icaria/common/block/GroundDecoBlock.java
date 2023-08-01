@@ -9,6 +9,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -22,9 +24,11 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
@@ -53,7 +57,7 @@ public class GroundDecoBlock extends Block implements MediterraneanWaterloggedBl
 	@Override
 	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (pLevel.isClientSide) {
-			if (this.equals(IcariaBlocks.SURFACE_LIGNITE.get())) {
+			if (pState.is(IcariaBlocks.SURFACE_LIGNITE.get()) && !pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pState.getValue(BlockStateProperties.WATERLOGGED)) {
 				if (pRandom.nextInt(10) == 0) {
 					pLevel.addParticle(ParticleTypes.LAVA, pPos.getX() + pRandom.nextDouble(), pPos.getY(), pPos.getZ() + pRandom.nextDouble(), 0.0D, 0.0D, 0.0D);
 				} else {
@@ -66,6 +70,18 @@ public class GroundDecoBlock extends Block implements MediterraneanWaterloggedBl
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
 		pBuilder.add(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
+	}
+
+	@Override
+	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+		if (pState.is(IcariaBlocks.SURFACE_LIGNITE.get()) && !pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pState.getValue(BlockStateProperties.WATERLOGGED)) {
+			pEntity.hurt(pLevel.damageSources().inFire(), 1.0F);
+		}
+	}
+
+	@Override
+	public BlockPathTypes getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
+		return pState.is(IcariaBlocks.SURFACE_LIGNITE.get()) && !pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pState.getValue(BlockStateProperties.WATERLOGGED) ? BlockPathTypes.DAMAGE_OTHER : super.getBlockPathType(pState, pLevel, pPos, pMob);
 	}
 
 	@Override

@@ -17,6 +17,8 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -32,6 +34,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -41,6 +44,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
@@ -149,6 +153,13 @@ public class IcariaVineBaseBlock extends Block {
 	}
 
 	@Override
+	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+		if (pState.is(IcariaBlocks.THORNY_VINE.get())) {
+			pEntity.hurt(pLevel.damageSources().cactus(), 1.0F);
+		}
+	}
+
+	@Override
 	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (pLevel.random.nextInt(4) == 0) {
 			if (pLevel.isAreaLoaded(pPos, 4)) {
@@ -235,6 +246,11 @@ public class IcariaVineBaseBlock extends Block {
 				}
 			}
 		}
+	}
+
+	@Override
+	public BlockPathTypes getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
+		return pState.is(IcariaBlocks.THORNY_VINE.get()) ? BlockPathTypes.DAMAGE_OTHER : super.getBlockPathType(pState, pLevel, pPos, pMob);
 	}
 
 	@Override
