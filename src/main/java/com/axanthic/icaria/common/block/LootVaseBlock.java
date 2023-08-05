@@ -69,7 +69,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
             entity.startRiding(pPlayer);
             pLevel.addFreshEntity(entity);
             pLevel.removeBlock(pPos, false);
-            pPlayer.displayClientMessage(Component.translatable("message." + IcariaInfo.ID + ".loot_vase"), true);
+            pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaInfo.ID + "." + "loot_vase"), true);
             return InteractionResult.PASS;
         }
     }

@@ -25,7 +25,7 @@ public class StorageVaseMenuProvider implements MenuProvider {
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("menu." + IcariaInfo.ID + ".storage_vase");
+        return Component.translatable("menu" + "." + IcariaInfo.ID + "." + "storage_vase");
     }
 
     @Override

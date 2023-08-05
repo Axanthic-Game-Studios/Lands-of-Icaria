@@ -19,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class MediterraneanWaterFluidType extends FluidType {
     public MediterraneanWaterFluidType(Properties properties) {
-        super(properties.descriptionId("fluid." + IcariaInfo.ID + ".mediterranean_water").canConvertToSource(true).canDrown(true).canExtinguish(true).canHydrate(true).canPushEntity(true).canSwim(true).supportsBoating(true).density(1000).fallDistanceModifier(0).lightLevel(0).motionScale(0.014).temperature(300).viscosity(1000).pathType(BlockPathTypes.WATER).sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL));
+        super(properties.descriptionId("fluid" + "." + IcariaInfo.ID + "." + "mediterranean_water").canConvertToSource(true).canDrown(true).canExtinguish(true).canHydrate(true).canPushEntity(true).canSwim(true).supportsBoating(true).density(1000).fallDistanceModifier(0).lightLevel(0).motionScale(0.014).temperature(300).viscosity(1000).pathType(BlockPathTypes.WATER).sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL));
     }
 
     @Override

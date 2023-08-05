@@ -25,7 +25,7 @@ public class GrinderMenuProvider implements MenuProvider {
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("menu." + IcariaInfo.ID + ".grinder");
+        return Component.translatable("menu" + "." + IcariaInfo.ID + "." + "grinder");
     }
 
     @Override
