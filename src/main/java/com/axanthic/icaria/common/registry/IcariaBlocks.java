@@ -235,7 +235,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<IronBarsBlock> VANADIUMSTEEL_BARS = IcariaBlocks.register("vanadiumsteel_bars", () -> new IronBarsBlock(IcariaBlocks.propertiesBars(MapColor.NONE, SoundType.METAL)));
 	public static final RegistryObject<Block> HORIZONTAL_VANADIUMSTEEL_BARS = IcariaBlocks.register("horizontal_vanadiumsteel_bars", () -> new HorizontalPaneBlock(IcariaBlocks.propertiesBars(MapColor.NONE, SoundType.METAL)));
 
-	public static final RegistryObject<Block> VANADIUMSTEEL_CHAIN = IcariaBlocks.register("vanadiumsteel_chain", () -> new ChainBlock(IcariaBlocks.propertiesChain(MapColor.NONE, SoundType.CHAIN)));
+	public static final RegistryObject<Block> VANADIUMSTEEL_CHAIN = IcariaBlocks.register("vanadiumsteel_chain", () -> new IcariaChainBlock(IcariaBlocks.propertiesChain(MapColor.NONE, SoundType.CHAIN)));
 
 	public static final RegistryObject<Block> KETTLE = IcariaBlocks.register("kettle", () -> new KettleBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
 	public static final RegistryObject<Block> GRINDER = IcariaBlocks.register("grinder", () -> new GrinderBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));

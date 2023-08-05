@@ -1,19 +1,16 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.entity.IcariaHangingSignBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CeilingHangingSignBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.FluidState;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -21,20 +18,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaCeilingHangingSignBlock extends CeilingHangingSignBlock implements MediterraneanWaterloggedBlock {
-    public IcariaCeilingHangingSignBlock(Properties pProperties, WoodType pType) {
-        super(pProperties, pType);
-        this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.ATTACHED, false).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.ROTATION_16, 0).setValue(BlockStateProperties.WATERLOGGED, false));
+public class IcariaChainBlock extends ChainBlock implements MediterraneanWaterloggedBlock {
+    public IcariaChainBlock(Properties pProperties) {
+        super(pProperties);
+        this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.AXIS, Direction.Axis.Y).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
     }
 
     @Override
     public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(BlockStateProperties.ATTACHED, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.ROTATION_16, BlockStateProperties.WATERLOGGED);
-    }
-
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new IcariaHangingSignBlockEntity(pPos, pState);
+        pBuilder.add(BlockStateProperties.AXIS, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
     }
 
     @Override

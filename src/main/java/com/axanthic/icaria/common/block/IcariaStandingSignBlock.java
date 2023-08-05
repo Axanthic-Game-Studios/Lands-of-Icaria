@@ -21,7 +21,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaStandingSignBlock extends StandingSignBlock {
+public class IcariaStandingSignBlock extends StandingSignBlock implements MediterraneanWaterloggedBlock {
 	public IcariaStandingSignBlock(Properties pProperties, WoodType pWoodType) {
 		super(pProperties, pWoodType);
 		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.ROTATION_16, 0).setValue(BlockStateProperties.WATERLOGGED, false));
