@@ -820,6 +820,8 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.EMPTY_VIAL.get());
 			pEvent.accept(IcariaItems.HYLIASTRUM_VIAL.get());
 
+			pEvent.accept(IcariaItems.CHEST_LABEL.get());
+
 			pEvent.accept(IcariaItems.YELLOWSTONE_GEAR.get());
 			pEvent.accept(IcariaItems.UNFIRED_LOAM_GEAR.get());
 			pEvent.accept(IcariaItems.LOAM_GEAR.get());
@@ -1238,12 +1240,14 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntityTypes.VINEGAROON.get(), VinegaroonRenderer::new);
 
 		// BLOCK ENTITY RENDERERS
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.CHEST.get(), IcariaChestBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.CRYSTAL.get(), CrystalBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.HANGING_SIGN.get(), HangingSignRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SIGN.get(), IcariaSignBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SKULL.get(), IcariaSkullBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SPAWNER.get(), IcariaSpawnerBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.TRAPPED_CHEST.get(), IcariaChestBlockRenderer::new);
 	}
 
 	@Override

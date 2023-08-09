@@ -16,7 +16,6 @@ import javax.annotation.Nonnull;
 public class OrichalcumHelmetItemExtensions implements IClientItemExtensions {
     @Override
     public @Nonnull HumanoidModel<?> getHumanoidArmorModel(LivingEntity pLivingEntity, ItemStack pItemStack, EquipmentSlot pEquipmentSlot, HumanoidModel<?> pHumanoidModel) {
-        var minecraft = Minecraft.getInstance();
-        return new OrichalcumHelmetModel<>(minecraft.getEntityModels().bakeLayer(IcariaLayerLocations.ORICHALCUM_HELMET));
+        return new OrichalcumHelmetModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(IcariaLayerLocations.ORICHALCUM_HELMET));
     }
 }

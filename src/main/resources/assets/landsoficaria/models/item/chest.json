@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/chest",
+  "textures": {
+    "particle": "landsoficaria:block/laurel_planks"
+  }
+}

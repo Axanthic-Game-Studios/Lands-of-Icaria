@@ -702,6 +702,7 @@
   "item.landsoficaria.chert_scythe": "Chert Scythe",
   "item.landsoficaria.chert_shovel": "Chert Shovel",
   "item.landsoficaria.chert_sword": "Chert Sword",
+  "item.landsoficaria.chest_label": "Chest Label",
   "item.landsoficaria.civilian_revenant_spawn_egg": "Civilian Revenant Spawn Egg",
   "item.landsoficaria.cooked_aeternae_meat": "Cooked Aeternae Meat",
   "item.landsoficaria.cooked_catoblepas_meat": "Cooked Catoblepas Meat",
@@ -889,5 +890,6 @@
   "itemgroup.landsoficaria.items": "Lands of Icaria Items",
   "menu.landsoficaria.grinder": "Grinder",
   "menu.landsoficaria.storage_vase": "Storage Vase",
+  "message.landsoficaria.chest_label": "Chest label name too long",
   "message.landsoficaria.loot_vase": "Sneak to throw loot vase"
 }

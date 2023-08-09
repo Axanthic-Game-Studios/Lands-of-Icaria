@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:builtin/entity",
+  "textures": {
+    "particle": "landsoficaria:block/laurel_planks"
+  }
+}

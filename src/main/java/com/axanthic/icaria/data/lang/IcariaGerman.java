@@ -903,6 +903,8 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.EMPTY_VIAL.get(), "Leere Phiole");
 		this.add(IcariaItems.HYLIASTRUM_VIAL.get(), "Hyliastrum Phiole");
 
+		this.add(IcariaItems.CHEST_LABEL.get(), "Kistenetikett");
+
 		this.add(IcariaItems.YELLOWSTONE_GEAR.get(), "Gelbsteinmahlrad");
 		this.add(IcariaItems.SMALL_YELLOWSTONE_GEAR.get(), "Kleines Gelbsteinmahlrad");
 		this.add(IcariaItems.UNFIRED_LOAM_GEAR.get(), "Ungebranntes Lehmmahlrad");
@@ -1004,6 +1006,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("menu" + "." + IcariaInfo.ID + "." + "storage_vase", "Speichervase");
 
 		// MESSAGES
+		this.add("message" + "." + IcariaInfo.ID + "." + "chest_label", "Name des Kistenetiketts zu lang");
 		this.add("message" + "." + IcariaInfo.ID + "." + "loot_vase", "Schleichen zum Werfen der Beutevase");
 	}
 }

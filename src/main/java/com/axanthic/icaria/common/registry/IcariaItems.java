@@ -235,8 +235,8 @@ public class IcariaItems {
 	public static final RegistryObject<Item> KILN = IcariaItems.register("kiln", () -> new BlockItem(IcariaBlocks.KILN.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> FORGE = IcariaItems.register("forge", () -> new BlockItem(IcariaBlocks.FORGE.get(), IcariaItems.propertiesItem()));
 
-	public static final RegistryObject<Item> CHEST = IcariaItems.register("chest", () -> new BlockItem(IcariaBlocks.CHEST.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> TRAPPED_CHEST = IcariaItems.register("trapped_chest", () -> new BlockItem(IcariaBlocks.TRAPPED_CHEST.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> CHEST = IcariaItems.register("chest", () -> new IcariaChestItem(IcariaBlocks.CHEST.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> TRAPPED_CHEST = IcariaItems.register("trapped_chest", () -> new IcariaChestItem(IcariaBlocks.TRAPPED_CHEST.get(), IcariaItems.propertiesItem()));
 
 	public static final RegistryObject<Item> BARREL = IcariaItems.register("barrel", () -> new BlockItem(IcariaBlocks.BARREL.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> BARREL_RACK = IcariaItems.register("barrel_rack", () -> new BlockItem(IcariaBlocks.BARREL_RACK.get(), IcariaItems.propertiesItem()));
@@ -625,6 +625,8 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> EMPTY_VIAL = IcariaItems.registerSimple("empty_vial", () -> new Item(IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> HYLIASTRUM_VIAL = IcariaItems.registerSimple("hyliastrum_vial", () -> new HyliastrumVialItem(IcariaItems.propertiesItem()));
+
+	public static final RegistryObject<Item> CHEST_LABEL = IcariaItems.registerSimple("chest_label", () -> new ChestLabelItem(IcariaItems.propertiesItem()));
 
 	public static final RegistryObject<Item> YELLOWSTONE_GEAR = IcariaItems.registerSimple("yellowstone_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 256)));
 	public static final RegistryObject<Item> SMALL_YELLOWSTONE_GEAR = IcariaItems.registerSimple("small_yellowstone_gear", () -> new Item(IcariaItems.propertiesItem(1)));

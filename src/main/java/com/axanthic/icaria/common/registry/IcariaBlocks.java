@@ -14,7 +14,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -242,8 +241,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> KILN = IcariaBlocks.register("kiln", () -> new KilnBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
 	public static final RegistryObject<Block> FORGE = IcariaBlocks.register("forge", () -> new ForgeBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
 
-	public static final RegistryObject<Block> CHEST = IcariaBlocks.register("chest", () -> new ChestBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE), () -> BlockEntityType.CHEST));
-	public static final RegistryObject<Block> TRAPPED_CHEST = IcariaBlocks.register("trapped_chest", () -> new TrappedChestBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
+	public static final RegistryObject<Block> CHEST = IcariaBlocks.register("chest", () -> new IcariaChestBlock(IcariaBlocks.propertiesChest(MapColor.COLOR_BROWN, SoundType.WOOD), IcariaBlockEntityTypes.CHEST::get));
+	public static final RegistryObject<Block> TRAPPED_CHEST = IcariaBlocks.register("trapped_chest", () -> new IcariaTrappedChestBlock(IcariaBlocks.propertiesChest(MapColor.COLOR_BROWN, SoundType.WOOD), IcariaBlockEntityTypes.TRAPPED_CHEST::get));
 
 	public static final RegistryObject<Block> BARREL = IcariaBlocks.register("barrel", () -> new BarrelBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
 	public static final RegistryObject<Block> BARREL_RACK = IcariaBlocks.register("barrel_rack", () -> new BarrelRackBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
@@ -737,6 +736,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesGrinder(MapColor pColor, SoundType pSound) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(pSound).destroyTime(1.5F).explosionResistance(6.0F).noOcclusion().requiresCorrectToolForDrops();
+	}
+
+	public static BlockBehaviour.Properties propertiesChest(MapColor pColor, SoundType pSound) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pColor).pushReaction(PushReaction.BLOCK).sound(pSound).destroyTime(2.5F).explosionResistance(2.5F).ignitedByLava();
 	}
 
 	public static BlockBehaviour.Properties propertiesStorageVase(MapColor pColor, SoundType pSound) {

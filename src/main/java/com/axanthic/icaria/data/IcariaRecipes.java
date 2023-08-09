@@ -684,6 +684,12 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.HORIZONTAL_GRAINGLASS_PANE.get(), RecipeProvider.has(IcariaItems.HORIZONTAL_GRAINGLASS_PANE.get()))
 			.save(pConsumer, IcariaItems.EMPTY_VIAL.getId());
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.CHEST_LABEL.get())
+			.pattern("XXX")
+			.define('X', Items.PAPER)
+			.unlockedBy("has_" + Items.PAPER, RecipeProvider.has(Items.PAPER))
+			.save(pConsumer, IcariaItems.CHEST_LABEL.getId());
+
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.DAEDALIAN_GEAR.get())
 			.requires(IcariaItems.BLUE_GEARFRAGMENT.get())
 			.requires(IcariaItems.GREEN_GEARFRAGMENT.get())

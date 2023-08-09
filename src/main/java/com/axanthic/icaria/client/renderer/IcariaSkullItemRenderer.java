@@ -28,9 +28,9 @@ public class IcariaSkullItemRenderer extends BlockEntityWithoutLevelRenderer {
     }
 
     @Override
-    public void renderByItem(ItemStack pItemStack, ItemDisplayContext pItemDisplayContext, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pCombinedLight, int pCombinedOverlay) {
-        if (pItemStack.getItem() instanceof IcariaSkullItem skullItem) {
-            IcariaSkullBlockRenderer.renderSkull(null, 180.0F, pPoseStack, pBufferSource, pCombinedLight, this.map, skullItem.getBlock());
+    public void renderByItem(ItemStack pStack, ItemDisplayContext pDisplayContext, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
+        if (pStack.getItem() instanceof IcariaSkullItem skullItem) {
+            IcariaSkullBlockRenderer.renderSkull(null, 180.0F, pPoseStack, pBuffer, pPackedLight, this.map, skullItem.getBlock());
         }
     }
 }

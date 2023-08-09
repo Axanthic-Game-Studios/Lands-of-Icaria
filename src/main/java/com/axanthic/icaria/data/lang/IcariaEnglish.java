@@ -903,6 +903,8 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.EMPTY_VIAL.get(), "Empty Vial");
 		this.add(IcariaItems.HYLIASTRUM_VIAL.get(), "Hyliastrum Vial");
 
+		this.add(IcariaItems.CHEST_LABEL.get(), "Chest Label");
+
 		this.add(IcariaItems.YELLOWSTONE_GEAR.get(), "Yellowstone Gear");
 		this.add(IcariaItems.SMALL_YELLOWSTONE_GEAR.get(), "Small Yellowstone Gear");
 		this.add(IcariaItems.UNFIRED_LOAM_GEAR.get(), "Unfired Loam Gear");
@@ -1004,6 +1006,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("menu" + "." + IcariaInfo.ID + "." + "storage_vase", "Storage Vase");
 
 		// MESSAGES
+		this.add("message" + "." + IcariaInfo.ID + "." + "chest_label", "Chest label name too long");
 		this.add("message" + "." + IcariaInfo.ID + "." + "loot_vase", "Sneak to throw loot vase");
 	}
 }

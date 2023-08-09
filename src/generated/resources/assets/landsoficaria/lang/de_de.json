@@ -702,6 +702,7 @@
   "item.landsoficaria.chert_scythe": "Hornsteinsense",
   "item.landsoficaria.chert_shovel": "Hornsteinschaufel",
   "item.landsoficaria.chert_sword": "Hornsteinschwert",
+  "item.landsoficaria.chest_label": "Kistenetikett",
   "item.landsoficaria.civilian_revenant_spawn_egg": "Zivilisten-Wiedergänger-Spawn-Ei",
   "item.landsoficaria.cooked_aeternae_meat": "Gekochtes Wildsteak",
   "item.landsoficaria.cooked_catoblepas_meat": "Gekochtes Rumpsteak",
@@ -889,5 +890,6 @@
   "itemgroup.landsoficaria.items": "Lands of Icaria Gegenstände",
   "menu.landsoficaria.grinder": "Mühle",
   "menu.landsoficaria.storage_vase": "Speichervase",
+  "message.landsoficaria.chest_label": "Name des Kistenetiketts zu lang",
   "message.landsoficaria.loot_vase": "Schleichen zum Werfen der Beutevase"
 }

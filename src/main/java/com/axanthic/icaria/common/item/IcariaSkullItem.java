@@ -12,7 +12,9 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 
 import java.util.function.Consumer;
 
-import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 
 public class IcariaSkullItem extends StandingAndWallBlockItem {
     public IcariaSkullItem(Block pBlock, Block pWallBlock, Properties pProperties, Direction pAttachmentDirection) {
@@ -20,7 +22,7 @@ public class IcariaSkullItem extends StandingAndWallBlockItem {
     }
 
     @Override
-    public void initializeClient(@Nonnull Consumer<IClientItemExtensions> pConsumer) {
+    public void initializeClient(Consumer<IClientItemExtensions> pConsumer) {
         pConsumer.accept(new IcariaSkullItemExtensions());
     }
 

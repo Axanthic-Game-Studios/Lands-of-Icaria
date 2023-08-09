@@ -428,18 +428,27 @@ public class CommonProxy {
 
 	public void onPlayerTick(TickEvent.PlayerTickEvent pEvent) {
 		var player = pEvent.player;
-		if (player.level().dimension() == IcariaDimensions.ICARIA) {
-			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
-				var itemStack = player.getInventory().getItem(slot);
-				if (itemStack.getItem().equals(Items.TORCH)) {
+		for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
+			var itemStack = player.getInventory().getItem(slot);
+			if (player.level().dimension().equals(IcariaDimensions.ICARIA)) {
+				if (itemStack.getItem().equals(Items.CHEST)) {
+					player.getInventory().removeItem(itemStack);
+					player.getInventory().add(slot, new ItemStack(IcariaItems.CHEST.get(), itemStack.getCount()));
+				} else if (itemStack.getItem().equals(Items.TRAPPED_CHEST)) {
+					player.getInventory().removeItem(itemStack);
+					player.getInventory().add(slot, new ItemStack(IcariaItems.TRAPPED_CHEST.get(), itemStack.getCount()));
+				} else if (itemStack.getItem().equals(Items.TORCH)) {
 					player.getInventory().removeItem(itemStack);
 					player.getInventory().add(slot, new ItemStack(IcariaItems.DIM_TORCH.get(), itemStack.getCount()));
 				}
-			}
-		} else {
-			for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
-				var itemStack = player.getInventory().getItem(slot);
-				if (itemStack.getItem().equals(IcariaItems.DIM_TORCH.get())) {
+			} else {
+				if (itemStack.getItem().equals(IcariaItems.CHEST.get())) {
+					player.getInventory().removeItem(itemStack);
+					player.getInventory().add(slot, new ItemStack(Items.CHEST, itemStack.getCount()));
+				} else if (itemStack.getItem().equals(IcariaItems.TRAPPED_CHEST.get())) {
+					player.getInventory().removeItem(itemStack);
+					player.getInventory().add(slot, new ItemStack(Items.TRAPPED_CHEST, itemStack.getCount()));
+				} else if (itemStack.getItem().equals(IcariaItems.DIM_TORCH.get())) {
 					player.getInventory().removeItem(itemStack);
 					player.getInventory().add(slot, new ItemStack(Items.TORCH, itemStack.getCount()));
 				}
