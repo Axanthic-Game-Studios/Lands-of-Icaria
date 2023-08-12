@@ -15,7 +15,6 @@ import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
@@ -144,11 +143,6 @@ public class Icaria {
 	@SubscribeEvent
 	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock pEvent) {
 		this.proxy.onRightClickBlock(pEvent);
-	}
-
-	@SubscribeEvent
-	public void onPlayerTick(TickEvent.PlayerTickEvent pEvent) {
-		this.proxy.onPlayerTick(pEvent);
 	}
 
 	@OnlyIn(Dist.CLIENT)

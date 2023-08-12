@@ -649,6 +649,23 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.LOAM_BRICKS.get(), RecipeProvider.has(IcariaItems.LOAM_BRICKS.get()))
 			.save(pConsumer, IcariaItems.FORGE.getId());
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.CHEST.get())
+			.pattern("XYX")
+			.pattern("X X")
+			.pattern("XXX")
+			.define('X', IcariaItems.LAUREL_PLANKS.get())
+			.define('Y', IcariaItems.STRIPPED_LAUREL_LOG.get())
+			.unlockedBy("has_" + IcariaItems.LAUREL_PLANKS.get(), RecipeProvider.has(IcariaItems.LAUREL_PLANKS.get()))
+			.unlockedBy("has_" + IcariaItems.STRIPPED_LAUREL_LOG.get(), RecipeProvider.has(IcariaItems.STRIPPED_LAUREL_LOG.get()))
+			.save(pConsumer, IcariaItems.CHEST.getId());
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.TRAPPED_CHEST.get())
+			.requires(IcariaItems.CHEST.get())
+			.requires(Items.TRIPWIRE_HOOK)
+			.unlockedBy("has_" + IcariaItems.CHEST.get(), RecipeProvider.has(IcariaItems.CHEST.get()))
+			.unlockedBy("has_" + Items.TRIPWIRE_HOOK, RecipeProvider.has(Items.TRIPWIRE_HOOK))
+			.save(pConsumer, IcariaItems.TRAPPED_CHEST.getId());
+
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.LAUREL_WREATH.get(), 1)
 			.pattern("XXX")
 			.pattern("X X")

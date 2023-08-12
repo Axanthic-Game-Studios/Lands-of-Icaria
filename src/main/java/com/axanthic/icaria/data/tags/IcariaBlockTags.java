@@ -656,7 +656,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get());
 
 		this.tag(BlockTags.WALL_POST_OVERRIDE)
-			.add(IcariaBlocks.DIM_TORCH.get())
 			.add(IcariaBlocks.LIGNITE_TORCH.get())
 			.add(IcariaBlocks.ANTHRACITE_TORCH.get());
 

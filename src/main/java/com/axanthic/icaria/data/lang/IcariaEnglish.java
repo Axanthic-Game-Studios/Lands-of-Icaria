@@ -388,7 +388,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.REVENANT_SKULL.get(), "Revenant Skull");
 		this.add(IcariaBlocks.SOW_SKULL.get(), "Sow Skull");
 
-		this.add(IcariaBlocks.DIM_TORCH.get(), "Dim Torch");
 		this.add(IcariaBlocks.LIGNITE_TORCH.get(), "Lignite Torch");
 		this.add(IcariaBlocks.ANTHRACITE_TORCH.get(), "Anthracite Torch");
 

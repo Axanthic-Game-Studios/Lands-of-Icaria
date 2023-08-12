@@ -281,7 +281,6 @@ public class IcariaItems {
 	public static final RegistryObject<Item> REVENANT_SKULL = IcariaItems.register("revenant_skull", () -> new IcariaSkullItem(IcariaBlocks.REVENANT_SKULL.get(), IcariaBlocks.REVENANT_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
 	public static final RegistryObject<Item> SOW_SKULL = IcariaItems.register("sow_skull", () -> new IcariaSkullItem(IcariaBlocks.SOW_SKULL.get(), IcariaBlocks.SOW_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
 
-	public static final RegistryObject<Item> DIM_TORCH = IcariaItems.registerSimple("dim_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.DIM_TORCH.get(), IcariaBlocks.DIM_WALL_TORCH.get(), IcariaItems.propertiesItem(), Direction.DOWN));
 	public static final RegistryObject<Item> LIGNITE_TORCH = IcariaItems.registerSimple("lignite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.LIGNITE_TORCH.get(), IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.propertiesItem(), Direction.DOWN));
 	public static final RegistryObject<Item> ANTHRACITE_TORCH = IcariaItems.registerSimple("anthracite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.ANTHRACITE_TORCH.get(), IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.propertiesItem(), Direction.DOWN));
 

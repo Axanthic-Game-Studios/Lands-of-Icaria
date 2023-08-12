@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:laurel_planks"
+    },
+    "Y": {
+      "item": "landsoficaria:stripped_laurel_log"
+    }
+  },
+  "pattern": [
+    "XYX",
+    "X X",
+    "XXX"
+  ],
+  "result": {
+    "item": "landsoficaria:chest"
+  },
+  "show_notification": true
+}

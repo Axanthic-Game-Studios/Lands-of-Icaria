@@ -388,7 +388,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.REVENANT_SKULL.get(), "Wiedergängerschädel");
 		this.add(IcariaBlocks.SOW_SKULL.get(), "Krommyonischer Sauschädel");
 
-		this.add(IcariaBlocks.DIM_TORCH.get(), "Schwache Fackel");
 		this.add(IcariaBlocks.LIGNITE_TORCH.get(), "Braunkohlefackel");
 		this.add(IcariaBlocks.ANTHRACITE_TORCH.get(), "Schwarzkohlefackel");
 

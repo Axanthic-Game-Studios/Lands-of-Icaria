@@ -300,8 +300,6 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> SOW_SKULL = IcariaBlocks.register("sow_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.SOW, IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE)));
 	public static final RegistryObject<Block> SOW_WALL_SKULL = IcariaBlocks.register("sow_wall_skull", () -> new IcariaWallSkullBlock(0.0F, IcariaSkullBlockTypes.SOW, IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE)));
 
-	public static final RegistryObject<Block> DIM_TORCH = IcariaBlocks.register("dim_torch", () -> new TorchBlock(IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.WOOD).lightLevel((pBlockState) -> 6), ParticleTypes.SMOKE));
-	public static final RegistryObject<Block> DIM_WALL_TORCH = IcariaBlocks.register("dim_wall_torch", () -> new WallTorchBlock(IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.WOOD).lightLevel((pBlockState) -> 6), ParticleTypes.SMOKE));
 	public static final RegistryObject<Block> LIGNITE_TORCH = IcariaBlocks.register("lignite_torch", () -> new TorchBlock(IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel((pBlockState) -> 10), ParticleTypes.FLAME));
 	public static final RegistryObject<Block> LIGNITE_WALL_TORCH = IcariaBlocks.register("lignite_wall_torch", () -> new WallTorchBlock(IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel((pBlockState) -> 10), ParticleTypes.FLAME));
 	public static final RegistryObject<Block> ANTHRACITE_TORCH = IcariaBlocks.register("anthracite_torch", () -> new TorchBlock(IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel((pBlockState) -> 14), ParticleTypes.FLAME));

@@ -46,7 +46,6 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
@@ -396,7 +395,6 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.REVENANT_SKULL.get());
 			pEvent.accept(IcariaItems.SOW_SKULL.get());
 
-			pEvent.accept(IcariaItems.DIM_TORCH.get());
 			pEvent.accept(IcariaItems.LIGNITE_TORCH.get());
 			pEvent.accept(IcariaItems.ANTHRACITE_TORCH.get());
 
@@ -1087,8 +1085,6 @@ public class ClientProxy extends CommonProxy {
 		this.renderCutout(IcariaBlocks.POPULUS_DOOR.get());
 		this.renderCutout(IcariaBlocks.POPULUS_TRAPDOOR.get());
 		this.renderCutout(IcariaBlocks.POPULUS_LADDER.get());
-		this.renderCutout(IcariaBlocks.DIM_TORCH.get());
-		this.renderCutout(IcariaBlocks.DIM_WALL_TORCH.get());
 		this.renderCutout(IcariaBlocks.DEAD_BLOOMY_VINE.get());
 		this.renderCutout(IcariaBlocks.GROWING_BLOOMY_VINE.get());
 		this.renderCutout(IcariaBlocks.BLOOMY_VINE.get());
@@ -1651,11 +1647,6 @@ public class ClientProxy extends CommonProxy {
 				}
 			}
 		}
-	}
-
-	@Override
-	public void onPlayerTick(TickEvent.PlayerTickEvent pEvent) {
-		super.onPlayerTick(pEvent);
 	}
 
 	@Override

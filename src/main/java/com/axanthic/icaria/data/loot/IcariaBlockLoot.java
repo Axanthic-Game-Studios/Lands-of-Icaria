@@ -116,7 +116,6 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropElse(IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get(), IcariaItems.POPULUS_FOREST_HAG_SKULL.get());
 		this.dropElse(IcariaBlocks.REVENANT_WALL_SKULL.get(), IcariaItems.REVENANT_SKULL.get());
 		this.dropElse(IcariaBlocks.SOW_WALL_SKULL.get(), IcariaItems.SOW_SKULL.get());
-		this.dropElse(IcariaBlocks.DIM_WALL_TORCH.get(), IcariaItems.DIM_TORCH.get());
 		this.dropElse(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
 		this.dropElse(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_SIGN.get(), IcariaItems.CYPRESS_SIGN.get());
@@ -189,7 +188,6 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get());
 		this.dropThis(IcariaBlocks.REVENANT_SKULL.get());
 		this.dropThis(IcariaBlocks.SOW_SKULL.get());
-		this.dropThis(IcariaBlocks.DIM_TORCH.get());
 		this.dropThis(IcariaBlocks.LIGNITE_TORCH.get());
 		this.dropThis(IcariaBlocks.ANTHRACITE_TORCH.get());
 		this.dropThis(IcariaBlocks.CYPRESS_SAPLING.get());

@@ -18,7 +18,6 @@ import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
@@ -421,36 +420,6 @@ public class CommonProxy {
 						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1));
 						mainHandItem.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));
 					}
-				}
-			}
-		}
-	}
-
-	public void onPlayerTick(TickEvent.PlayerTickEvent pEvent) {
-		var player = pEvent.player;
-		for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
-			var itemStack = player.getInventory().getItem(slot);
-			if (player.level().dimension().equals(IcariaDimensions.ICARIA)) {
-				if (itemStack.getItem().equals(Items.CHEST)) {
-					player.getInventory().removeItem(itemStack);
-					player.getInventory().add(slot, new ItemStack(IcariaItems.CHEST.get(), itemStack.getCount()));
-				} else if (itemStack.getItem().equals(Items.TRAPPED_CHEST)) {
-					player.getInventory().removeItem(itemStack);
-					player.getInventory().add(slot, new ItemStack(IcariaItems.TRAPPED_CHEST.get(), itemStack.getCount()));
-				} else if (itemStack.getItem().equals(Items.TORCH)) {
-					player.getInventory().removeItem(itemStack);
-					player.getInventory().add(slot, new ItemStack(IcariaItems.DIM_TORCH.get(), itemStack.getCount()));
-				}
-			} else {
-				if (itemStack.getItem().equals(IcariaItems.CHEST.get())) {
-					player.getInventory().removeItem(itemStack);
-					player.getInventory().add(slot, new ItemStack(Items.CHEST, itemStack.getCount()));
-				} else if (itemStack.getItem().equals(IcariaItems.TRAPPED_CHEST.get())) {
-					player.getInventory().removeItem(itemStack);
-					player.getInventory().add(slot, new ItemStack(Items.TRAPPED_CHEST, itemStack.getCount()));
-				} else if (itemStack.getItem().equals(IcariaItems.DIM_TORCH.get())) {
-					player.getInventory().removeItem(itemStack);
-					player.getInventory().add(slot, new ItemStack(Items.TORCH, itemStack.getCount()));
 				}
 			}
 		}
