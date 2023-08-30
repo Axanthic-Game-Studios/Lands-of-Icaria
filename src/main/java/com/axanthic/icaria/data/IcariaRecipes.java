@@ -1,6 +1,7 @@
 package com.axanthic.icaria.data;
 
-import com.axanthic.icaria.common.recipe.GrindingRecipeBuilder;
+import com.axanthic.icaria.common.recipe.builder.FiringRecipeBuilder;
+import com.axanthic.icaria.common.recipe.builder.GrindingRecipeBuilder;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaStoneDecoItems;
 import com.axanthic.icaria.common.registry.IcariaWoodDecoItems;
@@ -26,7 +27,9 @@ public class IcariaRecipes extends RecipeProvider {
 
 	@Override
 	public void buildRecipes(Consumer<FinishedRecipe> pConsumer) {
-		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.SANDSTONE, Items.SAND, 4, 200);
+		this.firingRecipe(pConsumer, IcariaItems.UNFIRED_LOAM_BOWL.get(), IcariaItems.LOAM_BOWL.get(), 1.0F, 200);
+
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.SANDSTONE, Items.SAND, 200, 4);
 
 		this.smeltingRecipe(pConsumer, IcariaItems.CARDON_CACTUS.get(), Items.GREEN_DYE, 1.0F, 200);
 		this.smeltingRecipe(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BRICK.get(), 0.3F, 200);
@@ -49,7 +52,6 @@ public class IcariaRecipes extends RecipeProvider {
 		this.smeltingRecipe(pConsumer, IcariaItems.PINK_UNFIRED_STORAGE_VASE.get(), IcariaItems.PINK_STORAGE_VASE.get(), 0.3F, 200);
 		this.smeltingRecipe(pConsumer, IcariaItems.UNFIRED_LOAM_GEAR.get(), IcariaItems.LOAM_GEAR.get(), 3.0F, 200);
 		this.smeltingRecipe(pConsumer, IcariaItems.SPELT_FLOUR.get(), IcariaItems.SPELT_BREAD.get(), 0.3F, 200);
-		this.smeltingRecipe(pConsumer, IcariaItems.UNFIRED_LOAM_BOWL.get(), IcariaItems.LOAM_BOWL.get(), 0.3F, 200);
 
 		this.smallCompressDecompressRecipes(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM.get());
 		this.smallCompressDecompressRecipes(pConsumer, IcariaItems.VINE_SPROUT.get(), IcariaItems.VINE_SPROUT_BLOCK.get());
@@ -1063,8 +1065,14 @@ public class IcariaRecipes extends RecipeProvider {
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.SUGAR) + "_from_vine_reed");
 	}
 
-	public void grindingRecipe(Consumer<FinishedRecipe> pConsumer, Item pGear, Item pResource, Item pResult, int pCount, int pTime) {
-		GrindingRecipeBuilder.grinding(pGear, Ingredient.of(pResource), pResult, pCount, pTime)
+	public void firingRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult, float pExperience, int pTime) {
+		FiringRecipeBuilder.firing(pResult, Ingredient.of(pResource), pExperience, pTime)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_firing");
+	}
+
+	public void grindingRecipe(Consumer<FinishedRecipe> pConsumer, Item pGear, Item pResource, Item pResult, int pTime, int pCount) {
+		GrindingRecipeBuilder.grinding(pGear, Ingredient.of(pResource), pResult, pTime, pCount)
 			.unlockedBy("has_" + pGear, RecipeProvider.has(pGear))
 			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_grinding");

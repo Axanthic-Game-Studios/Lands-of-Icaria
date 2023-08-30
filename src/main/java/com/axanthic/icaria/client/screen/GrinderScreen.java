@@ -16,7 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
 	public GrinderScreen(GrinderMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
 		super(pMenu, pPlayerInventory, pTitle);
-		this.imageHeight = 173;
+		this.imageHeight = 176;
 		this.imageWidth = 176;
 	}
 
@@ -38,27 +38,27 @@ public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
 
 	@Override
 	public void renderLabels(GuiGraphics pGraphics, int pMouseX, int pMouseY) {
-		pGraphics.drawString(this.font, this.title, (this.getXSize() / 2) - (this.font.width(this.title) / 2), 6, IcariaInfo.FONT_COLOR, false);
+		pGraphics.drawString(this.font, this.title, (this.getXSize() / 2) - (this.font.width(this.title) / 2), 8, IcariaInfo.FONT_COLOR, false);
 		pGraphics.drawString(this.font, this.playerInventoryTitle, 7, 80, IcariaInfo.FONT_COLOR, false);
 	}
 
 	public void renderFuel(GuiGraphics pGraphics, int pX, int pY) {
 		int fuel = this.menu.getFuel();
-		int heightFuel = 52;
+		int heightFuel = 48;
 		int maxFuel = this.menu.getMaxFuel();
 		if (maxFuel != 0) {
 			int height = fuel * heightFuel / maxFuel;
-			pGraphics.blit(IcariaResourceLocations.GRINDER, pX + 85, pY + 20 + heightFuel - height, this.imageWidth, 17 + heightFuel - height, 4, height);
+			pGraphics.blit(IcariaResourceLocations.GRINDER, pX + 82, pY + 24 + heightFuel - height, this.imageWidth, 16 + heightFuel - height, 4, height);
 		}
 	}
 
 	public void renderProgress(GuiGraphics pGraphics, int pX, int pY) {
 		int maxProgress = this.menu.getMaxProgress();
 		int progress = this.menu.getProgress();
-		int widthProgress = 23;
+		int widthProgress = 22;
 		if (maxProgress != 0) {
 			int width = widthProgress * progress / maxProgress;
-			pGraphics.blit(IcariaResourceLocations.GRINDER, pX + 95, pY + 21, this.imageWidth, 0, width, 17);
+			pGraphics.blit(IcariaResourceLocations.GRINDER, pX + 95, pY + 22, this.imageWidth, 0, width, 16);
 		}
 	}
 }

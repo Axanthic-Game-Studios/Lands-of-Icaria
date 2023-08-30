@@ -25,54 +25,51 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrinderMenu extends AbstractContainerMenu {
-	public ContainerData data;
+	public GrinderBlockEntity blockEntity;
 
-	public GrinderBlockEntity entity;
+	public ContainerData containerData;
 
-	public IItemHandler handler;
-
-	public Player player;
+	public IItemHandler itemHandler;
 
 	public GrinderMenu(int pContainerId, BlockPos pPos, Inventory pInventory, Player pPlayer) {
 		super(IcariaMenus.GRINDER.get(), pContainerId);
-		this.entity = (GrinderBlockEntity) pPlayer.getCommandSenderWorld().getBlockEntity(pPos);
-		this.handler = new InvWrapper(pInventory);
-		this.player = pPlayer;
-		if (this.entity != null) {
-			this.data = this.entity.getData();
-			this.addDataSlots(this.data);
-			this.entity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(pItemHandler -> {
-				this.addSlot(new SlotItemHandler(pItemHandler, 0, 37, 20)); // INPUT
-				this.addSlot(new GrinderFuelSlot(pItemHandler, 1, 37, 56)); // FUEL
-				this.addSlot(new GrinderGearSlot(pItemHandler, 2, 97, 47)); // GEAR
-				this.addSlot(new IcariaOutputSlot(pItemHandler, 3, 123, 20)); // OUTPUT
-				this.addSlot(new IcariaOutputSlot(pItemHandler, 4, 123, 38)); // OUTPUT
-				this.addSlot(new IcariaOutputSlot(pItemHandler, 5, 123, 56)); // OUTPUT
+		this.blockEntity = (GrinderBlockEntity) pPlayer.getCommandSenderWorld().getBlockEntity(pPos);
+		this.itemHandler = new InvWrapper(pInventory);
+		if (this.blockEntity != null) {
+			this.containerData = this.blockEntity.getData();
+			this.addDataSlots(this.containerData);
+			this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(pItemHandler -> {
+				this.addSlot(new SlotItemHandler(pItemHandler, 0, 36, 22)); // INPUT
+				this.addSlot(new GrinderFuelSlot(pItemHandler, 1, 36, 58)); // FUEL
+				this.addSlot(new GrinderGearSlot(pItemHandler, 2, 98, 49)); // GEAR
+				this.addSlot(new IcariaOutputSlot(pItemHandler, 3, 124, 22)); // OUTPUT
+				this.addSlot(new IcariaOutputSlot(pItemHandler, 4, 124, 40)); // OUTPUT
+				this.addSlot(new IcariaOutputSlot(pItemHandler, 5, 124, 58)); // OUTPUT
 			});
 		}
 
-		this.layoutPlayerInventorySlots(8, 73);
+		this.layoutPlayerInventorySlots(8, 76);
 	}
 
 	@Override
 	public boolean stillValid(Player pPlayer) {
-		return !this.entity.isRemoved();
+		return !this.blockEntity.isRemoved();
 	}
 
 	public int getMaxFuel() {
-		return this.data.get(0);
+		return this.containerData.get(0);
 	}
 
 	public int getFuel() {
-		return this.data.get(1);
+		return this.containerData.get(1);
 	}
 
 	public int getMaxProgress() {
-		return this.data.get(2);
+		return this.containerData.get(2);
 	}
 
 	public int getProgress() {
-		return this.data.get(3);
+		return this.containerData.get(3);
 	}
 
 	public void addSlotBox(IItemHandler pItemHandler, int pIndex, int pX, int pY, int pCountX, int pDeltaX, int pCountY, int pDeltaY) {
@@ -93,9 +90,9 @@ public class GrinderMenu extends AbstractContainerMenu {
 	}
 
 	public void layoutPlayerInventorySlots(int pLeftColumn, int pTopRow) {
-		this.addSlotBox(this.handler, 9, pLeftColumn, pTopRow, 9, 18, 3, 18);
+		this.addSlotBox(this.itemHandler, 9, pLeftColumn, pTopRow, 9, 18, 3, 18);
 		pTopRow += 76;
-		this.addSlotRange(this.handler, 0, pLeftColumn, pTopRow, 9, 18);
+		this.addSlotRange(this.itemHandler, 0, pLeftColumn, pTopRow, 9, 18);
 	}
 
 	@Override

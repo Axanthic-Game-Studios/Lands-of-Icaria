@@ -21,27 +21,24 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class StorageVaseMenu extends AbstractContainerMenu {
-	public StorageVaseBlockEntity entity;
+	public StorageVaseBlockEntity blockEntity;
 
-	public IItemHandler handler;
-
-	public Player player;
+	public IItemHandler itemHandler;
 
 	public StorageVaseMenu(int pId, BlockPos pPos, Inventory pInventory, Player pPlayer) {
 		super(IcariaMenus.STORAGE_VASE.get(), pId);
-		this.entity = (StorageVaseBlockEntity) pPlayer.getCommandSenderWorld().getBlockEntity(pPos);
-		this.handler = new InvWrapper(pInventory);
-		this.player = pPlayer;
-		if (this.entity != null) {
-			this.entity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> this.layoutVaseInventorySlots(handler, 26, 18));
+		this.blockEntity = (StorageVaseBlockEntity) pPlayer.getCommandSenderWorld().getBlockEntity(pPos);
+		this.itemHandler = new InvWrapper(pInventory);
+		if (this.blockEntity != null) {
+			this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> this.layoutVaseInventorySlots(handler, 26, 22));
 		}
 
-		this.layoutPlayerInventorySlots(8, 122);
+		this.layoutPlayerInventorySlots(8, 130);
 	}
 
 	@Override
 	public boolean stillValid(Player pPlayer) {
-		return !this.entity.isRemoved();
+		return !this.blockEntity.isRemoved();
 	}
 
 	public void addSlotBox(IItemHandler pItemHandler, int pIndex, int pX, int pY, int pCountX, int pDeltaX, int pCountY, int pDeltaY) {
@@ -62,9 +59,9 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 	}
 
 	public void layoutPlayerInventorySlots(int pLeftColumn, int pTopRow) {
-		this.addSlotBox(this.handler, 9, pLeftColumn, pTopRow, 9, 18, 3, 18);
+		this.addSlotBox(this.itemHandler, 9, pLeftColumn, pTopRow, 9, 18, 3, 18);
 		pTopRow += 76;
-		this.addSlotRange(this.handler, 0, pLeftColumn, pTopRow, 9, 18);
+		this.addSlotRange(this.itemHandler, 0, pLeftColumn, pTopRow, 9, 18);
 	}
 
 	public void layoutVaseInventorySlots(IItemHandler pItemHandler, int pLeftColumn, int pTopRow) {
@@ -93,12 +90,6 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 				this.moveItemStackTo(itemStack, 59, 68, true);
 			} else {
 				this.moveItemStackTo(itemStack, 32, 59, false);
-			}
-
-			if (itemStack.isEmpty()) {
-				slot.setByPlayer(ItemStack.EMPTY);
-			} else {
-				slot.setChanged();
 			}
 		}
 

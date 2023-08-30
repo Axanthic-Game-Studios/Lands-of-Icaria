@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:loam_bowl_from_smelting"
+        "recipe": "landsoficaria:loam_bowl_from_firing"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:loam_bowl_from_smelting"
+      "landsoficaria:loam_bowl_from_firing"
     ]
   },
   "sends_telemetry_event": false

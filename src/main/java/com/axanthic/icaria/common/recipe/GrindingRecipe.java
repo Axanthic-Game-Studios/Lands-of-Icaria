@@ -1,5 +1,8 @@
 package com.axanthic.icaria.common.recipe;
 
+import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
+import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
@@ -22,18 +25,18 @@ public class GrindingRecipe implements Recipe<SimpleContainer> {
 
 	public Ingredient gear;
 
-	public ItemStack result;
-
 	public NonNullList<Ingredient> ingredients;
+
+	public ItemStack output;
 
 	public ResourceLocation id;
 
-	public GrindingRecipe(ResourceLocation pId, ItemStack pResult, NonNullList<Ingredient> pIngredients, Ingredient pGear, int pBurnTime) {
-		this.id = pId;
-		this.result = pResult;
-		this.ingredients = pIngredients;
-		this.gear = pGear;
+	public GrindingRecipe(int pBurnTime, Ingredient pGear, NonNullList<Ingredient> pIngredients, ItemStack pOutput, ResourceLocation pId) {
 		this.burnTime = pBurnTime;
+		this.gear = pGear;
+		this.ingredients = pIngredients;
+		this.output = pOutput;
+		this.id = pId;
 	}
 
 	@Override
@@ -43,13 +46,7 @@ public class GrindingRecipe implements Recipe<SimpleContainer> {
 
 	@Override
 	public boolean matches(SimpleContainer pContainer, Level pLevel) {
-		if (!pLevel.isClientSide) {
-			if (this.gear.test(pContainer.getItem(2))) {
-				return this.ingredients.get(0).test(pContainer.getItem(0));
-			}
-		}
-
-		return false;
+		return !pLevel.isClientSide() && this.ingredients.get(0).test(pContainer.getItem(0)) && this.gear.test(pContainer.getItem(2));
 	}
 
 	public int getBurnTime() {
@@ -58,12 +55,16 @@ public class GrindingRecipe implements Recipe<SimpleContainer> {
 
 	@Override
 	public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pAccess) {
-		return ItemStack.EMPTY;
+		return this.output;
 	}
 
 	@Override
 	public ItemStack getResultItem(RegistryAccess pAccess) {
-		return ItemStack.EMPTY;
+		return this.output.copy();
+	}
+
+	public Ingredient getGear() {
+		return this.gear;
 	}
 
 	@Override
@@ -73,12 +74,12 @@ public class GrindingRecipe implements Recipe<SimpleContainer> {
 
 	@Override
 	public RecipeSerializer<?> getSerializer() {
-		return GrindingRecipeSerializer.INSTANCE;
+		return IcariaRecipeSerializers.GRINDING.get();
 	}
 
 	@Override
 	public RecipeType<?> getType() {
-		return GrindingRecipeType.INSTANCE;
+		return IcariaRecipeTypes.GRINDING.get();
 	}
 
 	@Override

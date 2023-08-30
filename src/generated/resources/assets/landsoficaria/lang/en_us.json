@@ -610,6 +610,7 @@
   "block.landsoficaria.zircon": "Zircon",
   "block.landsoficaria.zircon_block": "Block of Zircon",
   "block.landsoficaria.zircon_crystal": "Zircon Crystal",
+  "category.landsoficaria.firing": "Firing",
   "effect.landsoficaria.blindness_immunity": "Blindness Immunity",
   "effect.landsoficaria.lifesteal": "Lifesteal",
   "entity.landsoficaria.aeternae": "Aeternae",
@@ -888,6 +889,7 @@
   "itemgroup.landsoficaria.flora": "Lands of Icaria Flora",
   "itemgroup.landsoficaria.items": "Lands of Icaria Items",
   "menu.landsoficaria.grinder": "Grinder",
+  "menu.landsoficaria.kiln": "Kiln",
   "menu.landsoficaria.storage_vase": "Storage Vase",
   "message.landsoficaria.chest_label": "Chest label name too long",
   "message.landsoficaria.loot_vase": "Sneak to throw loot vase"

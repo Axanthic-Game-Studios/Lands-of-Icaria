@@ -24,12 +24,12 @@ public class StorageVaseMenuProvider implements MenuProvider {
     }
 
     @Override
-    public Component getDisplayName() {
-        return Component.translatable("menu" + "." + IcariaInfo.ID + "." + "storage_vase");
+    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+        return new StorageVaseMenu(pContainerId, this.pos, pPlayerInventory, pPlayer);
     }
 
     @Override
-    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new StorageVaseMenu(pContainerId, pos, pPlayerInventory, pPlayer);
+    public Component getDisplayName() {
+        return Component.translatable("menu" + "." + IcariaInfo.ID + "." + "storage_vase");
     }
 }

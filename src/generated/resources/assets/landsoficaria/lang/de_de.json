@@ -610,6 +610,7 @@
   "block.landsoficaria.zircon": "Zirkon",
   "block.landsoficaria.zircon_block": "Zirkonblock",
   "block.landsoficaria.zircon_crystal": "Zirkonkristall",
+  "category.landsoficaria.firing": "Brennen",
   "effect.landsoficaria.blindness_immunity": "Erblindungsimmunität",
   "effect.landsoficaria.lifesteal": "Lebensraub",
   "entity.landsoficaria.aeternae": "Ätern",
@@ -888,6 +889,7 @@
   "itemgroup.landsoficaria.flora": "Lands of Icaria Flora",
   "itemgroup.landsoficaria.items": "Lands of Icaria Gegenstände",
   "menu.landsoficaria.grinder": "Mühle",
+  "menu.landsoficaria.kiln": "Töpferofen",
   "menu.landsoficaria.storage_vase": "Speichervase",
   "message.landsoficaria.chest_label": "Name des Kistenetiketts zu lang",
   "message.landsoficaria.loot_vase": "Schleichen zum Werfen der Beutevase"

@@ -14,6 +14,8 @@ public class IcariaResourceLocations {
 
     // GUI
     public static final ResourceLocation GRINDER = new ResourceLocation(IcariaInfo.ID, "textures/gui/grinder.png");
+    public static final ResourceLocation KILN = new ResourceLocation(IcariaInfo.ID, "textures/gui/kiln.png");
+    public static final ResourceLocation KILN_CATEGORY = new ResourceLocation(IcariaInfo.ID, "textures/gui/jei/kiln.png");
     public static final ResourceLocation STORAGE_VASE = new ResourceLocation(IcariaInfo.ID, "textures/gui/storage_vase.png");
 
     // ENTITY

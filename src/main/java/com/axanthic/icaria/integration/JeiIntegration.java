@@ -1,18 +1,29 @@
 package com.axanthic.icaria.integration;
 
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.recipe.FiringRecipe;
+import com.axanthic.icaria.common.recipe.GrindingRecipe;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.integration.jei.category.FiringRecipeCategory;
+import com.axanthic.icaria.integration.jei.category.GrinderRecipeCategory;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
+import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeManager;
 
 import java.util.List;
 
@@ -24,13 +35,34 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @JeiPlugin
 public class JeiIntegration implements IModPlugin {
+    public static final RecipeType<FiringRecipe> FIRING = RecipeType.create(IcariaInfo.ID, "firing", FiringRecipe.class);
+
+    @Override
+    public void registerCategories(IRecipeCategoryRegistration registry) {
+        registry.addRecipeCategories(new FiringRecipeCategory(registry.getJeiHelpers().getGuiHelper()));
+    }
+
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration pRegistration) {
         pRegistration.addRecipeCatalyst(new ItemStack(IcariaItems.LAUREL_CRAFTING_TABLE.get()), RecipeTypes.CRAFTING);
+        pRegistration.addRecipeCatalyst(new ItemStack(IcariaItems.KILN.get()), JeiIntegration.FIRING);
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration pRegistration) {
+        ClientLevel clientLevel = Minecraft.getInstance().level;
+        RecipeManager recipeManager = null;
+        if (clientLevel != null) {
+            recipeManager = clientLevel.getRecipeManager();
+        }
+
+        List<FiringRecipe> firingRecipes = List.of();
+        if (recipeManager != null) {
+            firingRecipes = recipeManager.getAllRecipesFor(IcariaRecipeTypes.FIRING.get());
+        }
+
+        pRegistration.addRecipes(JeiIntegration.FIRING, firingRecipes);
+
         this.anvilRecipes(pRegistration, IcariaItems.CHERT_TOOLS.sword.get(), IcariaItems.CHERT.get());
         this.anvilRecipes(pRegistration, IcariaItems.CHERT_TOOLS.dagger.get(), IcariaItems.CHERT.get());
         this.anvilRecipes(pRegistration, IcariaItems.CHERT_TOOLS.shovel.get(), IcariaItems.CHERT.get());

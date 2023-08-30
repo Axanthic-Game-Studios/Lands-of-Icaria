@@ -72,7 +72,7 @@ public class IcariaClientHelper {
     }
 
     public static void renderRays(PoseStack pPoseStack, MultiBufferSource pBuffer, LivingEntity pLivingEntity, float pRed, float pGreen, float pBlue) {
-        if (IcariaConfig.RENDER_RAYS.get()) {
+        if (IcariaConfig.RENDER_CRYSTAL_RAYS.get()) {
             var matrix4f = pPoseStack.last().pose();
             var randomSource = RandomSource.create(432L);
             var vertexConsumer = pBuffer.getBuffer(IcariaRenderTypes.ADDITIVE_TRANSPARENT);
@@ -100,7 +100,7 @@ public class IcariaClientHelper {
     }
 
     public static void renderRays(PoseStack pPoseStack, MultiBufferSource pBuffer, float pRed, float pGreen, float pBlue) {
-        if (IcariaConfig.RENDER_RAYS.get()) {
+        if (IcariaConfig.RENDER_CRYSTAL_RAYS.get()) {
             var matrix4f = pPoseStack.last().pose();
             var randomSource = RandomSource.create(432L);
             var vertexConsumer = pBuffer.getBuffer(IcariaRenderTypes.ADDITIVE_TRANSPARENT);

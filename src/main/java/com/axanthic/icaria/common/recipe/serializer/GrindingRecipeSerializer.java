@@ -1,4 +1,6 @@
-package com.axanthic.icaria.common.recipe;
+package com.axanthic.icaria.common.recipe.serializer;
+
+import com.axanthic.icaria.common.recipe.GrindingRecipe;
 
 import com.google.gson.JsonObject;
 
@@ -17,39 +19,39 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe> {
-    public static final GrindingRecipeSerializer INSTANCE = new GrindingRecipeSerializer();
-
     @Override
     public GrindingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
         int burnTime = pSerializedRecipe.get("burnTime").getAsInt();
         var gear = Ingredient.fromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "gear"));
-        var result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "result"));
-        var ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
-        var inputs = NonNullList.withSize(1, Ingredient.EMPTY);
-        for (int i = 0; i < inputs.size(); i++) {
-            inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+        var output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
+        var ingredients = NonNullList.withSize(1, Ingredient.EMPTY);
+        for (int i = 0; i < ingredients.size(); i++) {
+            ingredients.set(i, Ingredient.fromJson(GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients").get(i)));
         }
 
-        return new GrindingRecipe(pRecipeId, result, inputs, gear, burnTime);
+        return new GrindingRecipe(burnTime, gear, ingredients, output, pRecipeId);
     }
 
     @Override
     public GrindingRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
         int burnTime = pBuffer.readInt();
-        var ingredients = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
-        var result = pBuffer.readItem();
         var gear = Ingredient.fromNetwork(pBuffer);
-        ingredients.replaceAll(pIngredient -> Ingredient.fromNetwork(pBuffer));
-        return new GrindingRecipe(pRecipeId, result, ingredients, gear, burnTime);
+        var output = pBuffer.readItem();
+        var ingredients = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
+        for (int i = 0; i < ingredients.size(); i++) {
+            ingredients.set(i, Ingredient.fromNetwork(pBuffer));
+        }
+
+        return new GrindingRecipe(burnTime, gear, ingredients, output, pRecipeId);
     }
 
     @Override
     public void toNetwork(FriendlyByteBuf pBuffer, GrindingRecipe pRecipe) {
         pBuffer.writeInt(pRecipe.burnTime);
-        pBuffer.writeInt(pRecipe.getIngredients().size());
-        pBuffer.writeItemStack(pRecipe.result.copy(), false);
         pRecipe.gear.toNetwork(pBuffer);
-        for (Ingredient ingredient : pRecipe.getIngredients()) {
+        pBuffer.writeItemStack(pRecipe.output.copy(), false);
+        pBuffer.writeInt(pRecipe.getIngredients().size());
+        for (var ingredient : pRecipe.getIngredients()) {
             ingredient.toNetwork(pBuffer);
         }
     }

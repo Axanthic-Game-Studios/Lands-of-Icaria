@@ -1,17 +1,11 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
+import com.axanthic.icaria.common.handler.GrinderItemStackHandler;
 import com.axanthic.icaria.common.item.GearItem;
-import com.axanthic.icaria.common.util.GrinderContainerData;
-import com.axanthic.icaria.common.menu.GrinderItemStackHandler;
+import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.container.data.GrinderContainerData;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
-import com.axanthic.icaria.common.recipe.GrindingRecipeType;
-import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-
-import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -20,7 +14,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
@@ -39,7 +32,6 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.Optional;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -53,19 +45,24 @@ public class GrinderBlockEntity extends BlockEntity {
 	public int maxProgress = 0;
 	public int progress = 0;
 	public int rotation = 0;
+	public int size = 6;
 
-	public ItemStackHandler stackHandler = this.createHandler();
+	public ItemStackHandler stackHandler = new GrinderItemStackHandler(this.size, this);
 
 	public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> this.stackHandler);
 
-	public Object2IntOpenHashMap<ResourceLocation> usedRecipes = new Object2IntOpenHashMap<>();
+	public SimpleContainer simpleContainer = new SimpleContainer(this.size);
 
 	public GrinderBlockEntity(BlockPos pPos, BlockState pState) {
 		super(IcariaBlockEntityTypes.GRINDER.get(), pPos, pState);
 	}
 
-	public boolean canOutput(SimpleContainer pContainer, ItemStack pStack) {
-		return pContainer.canAddItem(pStack);
+	public boolean canInsertCountIntoOutputSlot(SimpleContainer pContainer) {
+		return pContainer.getItem(5).getMaxStackSize() > pContainer.getItem(5).getCount();
+	}
+
+	public boolean canInsertStackIntoOutputSlot(SimpleContainer pContainer, ItemStack pStack) {
+		return pContainer.getItem(5).getItem() == pStack.getItem() || pContainer.getItem(5).isEmpty();
 	}
 
 	public boolean hasFuel() {
@@ -73,35 +70,25 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public boolean hasRecipe() {
-		var inputs = new SimpleContainer(3);
-		inputs.setItem(0, this.stackHandler.getStackInSlot(0));
-		inputs.setItem(1, this.stackHandler.getStackInSlot(1));
-		inputs.setItem(2, this.stackHandler.getStackInSlot(2));
-
-		var outputs = new SimpleContainer(3);
-		outputs.setItem(0, this.stackHandler.getStackInSlot(3));
-		outputs.setItem(1, this.stackHandler.getStackInSlot(4));
-		outputs.setItem(2, this.stackHandler.getStackInSlot(5));
+		for (int i = 0; i < this.size; i++) {
+			this.simpleContainer.setItem(i, this.stackHandler.getStackInSlot(i));
+		}
 
 		Optional<GrindingRecipe> recipe = Optional.empty();
 		if (this.level != null) {
-			recipe = this.level.getRecipeManager().getRecipeFor(GrindingRecipeType.INSTANCE, inputs, this.level);
+			recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.GRINDING.get(), this.simpleContainer, this.level);
 		}
 
 		int burnTime = 0;
-		boolean canOutput = false;
 		if (recipe.isPresent()) {
 			burnTime = recipe.get().getBurnTime();
-			canOutput = this.canOutput(outputs, recipe.get().result.copy());
 		}
 
-		if (canOutput) {
-			if (this.maxProgress != burnTime) {
-				this.maxProgress = burnTime;
-			}
+		if (this.maxProgress != burnTime) {
+			this.maxProgress = burnTime;
 		}
 
-		return canOutput;
+		return recipe.isPresent() && this.canInsertCountIntoOutputSlot(this.simpleContainer) && this.canInsertStackIntoOutputSlot(this.simpleContainer, recipe.get().getResultItem(null));
 	}
 
 	public boolean shouldBreak(GrinderBlockEntity pBlockEntity) {
@@ -110,40 +97,35 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public void craftItem() {
-		var inputs = new SimpleContainer(3);
-		inputs.setItem(0, this.stackHandler.getStackInSlot(0));
-		inputs.setItem(1, this.stackHandler.getStackInSlot(1));
-		inputs.setItem(2, this.stackHandler.getStackInSlot(2));
-
-		Optional<GrindingRecipe> recipe;
-		var output = ItemStack.EMPTY;
-		if (this.level != null) {
-			recipe = this.level.getRecipeManager().getRecipeFor(GrindingRecipeType.INSTANCE, inputs, this.level);
-			if (recipe.isPresent()) {
-				output = recipe.get().result.copy();
-			}
-
-			if (this.hasRecipe()) {
-				this.stackHandler.extractItem(0, 1, false);
-				if (!output.isEmpty()) {
-					output = this.stackHandler.insertItem(3, output, false);
-				}
-
-				if (!output.isEmpty()) {
-					output = this.stackHandler.insertItem(4, output, false);
-				}
-
-				if (!output.isEmpty()) {
-					output = this.stackHandler.insertItem(5, output, false);
-				}
-
-				if (!output.isEmpty()) {
-					Containers.dropItemStack(this.level, this.getBlockPos().getX(), this.getBlockPos().getY(), this.getBlockPos().getZ(), output);
-				}
-
-				this.resetProgress();
-			}
+		for (int i = 0; i < this.size; i++) {
+			this.simpleContainer.setItem(i, this.stackHandler.getStackInSlot(i));
 		}
+
+		Optional<GrindingRecipe> recipe = Optional.empty();
+		if (this.level != null) {
+			recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.GRINDING.get(), this.simpleContainer, this.level);
+		}
+
+		if (this.hasRecipe() && recipe.isPresent()) {
+			this.stackHandler.extractItem(0, 1, false);
+			if (this.simpleContainer.getItem(3).getMaxStackSize() > this.simpleContainer.getItem(3).getCount()) {
+				this.stackHandler.setStackInSlot(3, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(3).getCount()));
+			} else if (this.simpleContainer.getItem(4).getMaxStackSize() > this.simpleContainer.getItem(4).getCount()) {
+				this.stackHandler.setStackInSlot(4, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(4).getCount()));
+			} else if (this.simpleContainer.getItem(5).getMaxStackSize() > this.simpleContainer.getItem(5).getCount()) {
+				this.stackHandler.setStackInSlot(5, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(5).getCount()));
+			}
+
+			this.resetProgress();
+		}
+	}
+
+	public void drops(Level pLevel) {
+		for (int i = 0; i < this.size; i++) {
+			this.simpleContainer.setItem(i, this.stackHandler.getStackInSlot(i));
+		}
+
+		Containers.dropContents(pLevel, this.worldPosition, this.simpleContainer);
 	}
 
 	@Override
@@ -155,10 +137,6 @@ public class GrinderBlockEntity extends BlockEntity {
 			this.fuel = pTag.getInt("CurrentFuelTime");
 			this.maxProgress = pTag.getInt("TotalProgressTime");
 			this.progress = pTag.getInt("CurrentProgressTime");
-			var compoundTag = pTag.getCompound("RecipesUsed");
-			for (var key : compoundTag.getAllKeys()) {
-				this.usedRecipes.put(new ResourceLocation(key), compoundTag.getInt(key));
-			}
 		}
 	}
 
@@ -175,9 +153,6 @@ public class GrinderBlockEntity extends BlockEntity {
 		pTag.putInt("CurrentFuelTime", this.fuel);
 		pTag.putInt("TotalProgressTime", this.maxProgress);
 		pTag.putInt("CurrentProgressTime", this.progress);
-		var compoundTag = new CompoundTag();
-		this.usedRecipes.forEach((pKey, pCount) -> compoundTag.putInt(pKey.toString(), pCount));
-		pTag.put("RecipesUsed", compoundTag);
 	}
 
 	@Override
@@ -187,66 +162,64 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public static void tick(Level pLevel, BlockPos pPos, BlockState pState, GrinderBlockEntity pBlockEntity) {
-		var itemStackHandler = pBlockEntity.stackHandler;
-		var fuelSlot = itemStackHandler.getStackInSlot(1);
-		var gearSlot = itemStackHandler.getStackInSlot(2);
-		if (pLevel.isClientSide) {
-			return;
-		}
-
-		if (!pBlockEntity.hasFuel()) {
-			if (fuelSlot.getItem() == IcariaItems.SLIVER.get()) {
-				int fuelTime = 800;
-				pBlockEntity.stackHandler.extractItem(1, 1, false);
-				pBlockEntity.fuel = fuelTime;
-				pBlockEntity.maxFuel = fuelTime;
-				pBlockEntity.setChanged();
-			} else if (fuelSlot.getItem() == IcariaItems.SLIVER_BLOCK.get()) {
-				int fuelTime = 7200;
-				pBlockEntity.stackHandler.extractItem(1, 1, false);
-				pBlockEntity.fuel = fuelTime;
-				pBlockEntity.maxFuel = fuelTime;
-				pBlockEntity.setChanged();
-			}
-		}
-
-		if (pBlockEntity.hasFuel() && pBlockEntity.hasRecipe()) {
-			if (pBlockEntity.rotation >= 90) {
-				pBlockEntity.rotation = 0;
-			} else {
-				pBlockEntity.rotation++;
-			}
-
-			if (IcariaConfig.GRINDER_SOUNDS.get()) {
-				if (pBlockEntity.lastSound >= 6) {
-					pBlockEntity.lastSound = 0;
-					pLevel.playSound(null, pPos, IcariaSoundEvents.GRINDER_GRIND, SoundSource.BLOCKS, 1.0F, 1.0F);
-				} else {
-					pBlockEntity.lastSound++;
+		var stackHandler = pBlockEntity.stackHandler;
+		var fuelSlot = stackHandler.getStackInSlot(1);
+		var gearSlot = stackHandler.getStackInSlot(2);
+		if (!pLevel.isClientSide()) {
+			if (!pBlockEntity.hasFuel()) {
+				if (fuelSlot.getItem() == IcariaItems.SLIVER.get()) {
+					int fuelTime = 800;
+					stackHandler.extractItem(1, 1, false);
+					pBlockEntity.fuel = fuelTime;
+					pBlockEntity.maxFuel = fuelTime;
+					pBlockEntity.setChanged();
+				} else if (fuelSlot.getItem() == IcariaItems.SLIVER_BLOCK.get()) {
+					int fuelTime = 7200;
+					stackHandler.extractItem(1, 1, false);
+					pBlockEntity.fuel = fuelTime;
+					pBlockEntity.maxFuel = fuelTime;
+					pBlockEntity.setChanged();
 				}
 			}
 
-			if (pBlockEntity.progress >= pBlockEntity.maxProgress) {
-				pBlockEntity.craftItem();
-				pBlockEntity.setChanged();
-				if (gearSlot.getItem() instanceof GearItem) {
-					gearSlot.hurt(1, RandomSource.create(), null);
-					pBlockEntity.setChanged();
-					if (pBlockEntity.shouldBreak(pBlockEntity)) {
-						itemStackHandler.extractItem(2, 1, false);
-						pBlockEntity.setChanged();
+			if (pBlockEntity.hasFuel() && pBlockEntity.hasRecipe()) {
+				if (pBlockEntity.rotation >= 90) {
+					pBlockEntity.rotation = 0;
+				} else {
+					pBlockEntity.rotation++;
+				}
+
+				if (IcariaConfig.GRINDER_SOUNDS.get()) {
+					if (pBlockEntity.lastSound >= 6) {
+						pBlockEntity.lastSound = 0;
+						pLevel.playSound(null, pPos, IcariaSoundEvents.GRINDER_GRIND, SoundSource.BLOCKS, 1.0F, 1.0F);
+					} else {
+						pBlockEntity.lastSound++;
 					}
 				}
-			}
 
-			pBlockEntity.progress++;
-			pBlockEntity.fuel--;
-			pBlockEntity.setChanged();
-			pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.GRINDING, true).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, pBlockEntity.rotation), 3);
-		} else {
-			pBlockEntity.resetProgress();
-			pBlockEntity.setChanged();
-			pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.GRINDING, false), 3);
+				if (pBlockEntity.progress >= pBlockEntity.maxProgress) {
+					pBlockEntity.craftItem();
+					pBlockEntity.setChanged();
+					if (gearSlot.getItem() instanceof GearItem) {
+						gearSlot.hurt(1, RandomSource.create(), null);
+						pBlockEntity.setChanged();
+						if (pBlockEntity.shouldBreak(pBlockEntity)) {
+							stackHandler.extractItem(2, 1, false);
+							pBlockEntity.setChanged();
+						}
+					}
+				}
+
+				pBlockEntity.progress++;
+				pBlockEntity.fuel--;
+				pBlockEntity.setChanged();
+				pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.GRINDING, true).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, pBlockEntity.rotation), 3);
+			} else {
+				pBlockEntity.resetProgress();
+				pBlockEntity.setChanged();
+				pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.GRINDING, false), 3);
+			}
 		}
 	}
 
@@ -269,17 +242,13 @@ public class GrinderBlockEntity extends BlockEntity {
 		return this.stackHandler.getStackInSlot(2);
 	}
 
-	public ItemStackHandler createHandler() {
-		return new GrinderItemStackHandler(this, 6);
-	}
-
 	@Override
 	public Packet<ClientGamePacketListener> getUpdatePacket() {
 		return ClientboundBlockEntityDataPacket.create(this);
 	}
 
 	@Override
-	public <T> @Nonnull LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
+	public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
 		return pCapability == ForgeCapabilities.ITEM_HANDLER ? this.itemHandler.cast() : super.getCapability(pCapability, pDirection);
 	}
 }

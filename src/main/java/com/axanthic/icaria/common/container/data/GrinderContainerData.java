@@ -1,4 +1,4 @@
-package com.axanthic.icaria.common.util;
+package com.axanthic.icaria.common.container.data;
 
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 
@@ -15,10 +15,10 @@ public class GrinderContainerData implements ContainerData {
     public int get(int pIndex) {
         return switch (pIndex) {
             default -> 0;
-            case 0 -> blockEntity.maxFuel;
-            case 1 -> blockEntity.fuel;
-            case 2 -> blockEntity.maxProgress;
-            case 3 -> blockEntity.progress;
+            case 0 -> this.blockEntity.maxFuel;
+            case 1 -> this.blockEntity.fuel;
+            case 2 -> this.blockEntity.maxProgress;
+            case 3 -> this.blockEntity.progress;
         };
     }
 
@@ -30,10 +30,10 @@ public class GrinderContainerData implements ContainerData {
     @Override
     public void set(int pIndex, int pValue) {
         switch (pIndex) {
-            case 0 -> blockEntity.maxFuel = pValue;
-            case 1 -> blockEntity.fuel = pValue;
-            case 2 -> blockEntity.maxProgress = pValue;
-            case 3 -> blockEntity.progress = pValue;
+            case 0 -> this.blockEntity.maxFuel = pValue;
+            case 1 -> this.blockEntity.fuel = pValue;
+            case 2 -> this.blockEntity.maxProgress = pValue;
+            case 3 -> this.blockEntity.progress = pValue;
         }
     }
 }

@@ -8,7 +8,6 @@ import com.axanthic.icaria.common.registry.IcariaFluids;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -26,10 +25,8 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -63,19 +60,13 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 
 	@Override
 	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-		if (!pState.is(pNewState.getBlock())) {
-			if (pLevel.getBlockEntity(pPos) instanceof StorageVaseBlockEntity) {
-				pLevel.getBlockEntity(pPos).getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-					for (int i = 0; i < handler.getSlots(); i++) {
-						Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), handler.getStackInSlot(i));
-					}
-				});
-
-				pLevel.updateNeighbourForOutputSignal(pPos, this);
+		if (pState.getBlock() != pNewState.getBlock()) {
+			if (pLevel.getBlockEntity(pPos) instanceof StorageVaseBlockEntity blockEntity) {
+				blockEntity.drops(pLevel);
 			}
-
-			super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
 		}
+
+		super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
 	}
 
 	@Override
@@ -96,19 +87,16 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 
 	@Override
 	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-		if (!pLevel.isClientSide) {
-			var blockEntity = pLevel.getBlockEntity(pPos);
-			if (blockEntity instanceof StorageVaseBlockEntity) {
-				NetworkHooks.openScreen((ServerPlayer) pPlayer, new StorageVaseMenuProvider(pPos), blockEntity.getBlockPos());
+		var blockEntity = pLevel.getBlockEntity(pPos);
+		if (!pLevel.isClientSide()) {
+			if (pPlayer instanceof ServerPlayer serverPlayer) {
+				if (blockEntity instanceof StorageVaseBlockEntity) {
+					NetworkHooks.openScreen(serverPlayer, new StorageVaseMenuProvider(pPos), blockEntity.getBlockPos());
+				}
 			}
 		}
 
 		return InteractionResult.SUCCESS;
-	}
-
-	@Override
-	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
-		return Shapes.empty();
 	}
 
 	@Override

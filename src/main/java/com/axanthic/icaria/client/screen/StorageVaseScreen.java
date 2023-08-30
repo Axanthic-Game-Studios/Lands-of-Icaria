@@ -16,7 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> {
 	public StorageVaseScreen(StorageVaseMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
 		super(pMenu, pPlayerInventory, pTitle);
-		this.imageHeight = 222;
+		this.imageHeight = 230;
 		this.imageWidth = 176;
 	}
 
@@ -32,12 +32,11 @@ public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> 
 		int x = (this.width - this.imageWidth) / 2;
 		int y = (this.height - this.imageHeight) / 2;
 		pGraphics.blit(IcariaResourceLocations.STORAGE_VASE, x, y, 0, 0, this.imageWidth, this.imageHeight);
-
 	}
 
 	@Override
 	public void renderLabels(GuiGraphics pGraphics, int pMouseX, int pMouseY) {
-		pGraphics.drawString(this.font, this.title, 7, 6, IcariaInfo.FONT_COLOR, false);
-		pGraphics.drawString(this.font, this.playerInventoryTitle, 7, 128, IcariaInfo.FONT_COLOR, false);
+		pGraphics.drawString(this.font, this.title, (this.getXSize() / 2) - (this.font.width(this.title) / 2), 8, IcariaInfo.FONT_COLOR, false);
+		pGraphics.drawString(this.font, this.playerInventoryTitle, 7, 134, IcariaInfo.FONT_COLOR, false);
 	}
 }

@@ -22,7 +22,7 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 
 	@Override
 	public int getViewDistance() {
-		return IcariaConfig.RENDER_DISTANCE_RAYS.get();
+		return IcariaConfig.RENDER_DISTANCE_CRYSTAL_RAYS.get();
 	}
 
 	@Override

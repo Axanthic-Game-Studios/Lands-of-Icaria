@@ -4,6 +4,7 @@ import com.axanthic.icaria.client.model.*;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
 import com.axanthic.icaria.client.renderer.*;
 import com.axanthic.icaria.client.screen.GrinderScreen;
+import com.axanthic.icaria.client.screen.KilnScreen;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.IcariaSkullItem;
@@ -923,6 +924,7 @@ public class ClientProxy extends CommonProxy {
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.POPULUS));
 
 		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.GRINDER.get(), GrinderScreen::new));
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.KILN.get(), KilnScreen::new));
 		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.STORAGE_VASE.get(), StorageVaseScreen::new));
 
 		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), IcariaResourceLocations.THROWING, (pItemStack, pClientLevel, pLivingEntity, pId) -> pLivingEntity != null && pLivingEntity.isUsingItem() && pLivingEntity.getUseItem() == pItemStack ? 1.0F : 0.0F);
@@ -1240,6 +1242,7 @@ public class ClientProxy extends CommonProxy {
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.CRYSTAL.get(), CrystalBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.HANGING_SIGN.get(), HangingSignRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.KILN.get(), KilnBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SIGN.get(), IcariaSignBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SKULL.get(), IcariaSkullBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SPAWNER.get(), IcariaSpawnerBlockRenderer::new);

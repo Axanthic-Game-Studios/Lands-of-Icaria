@@ -30,7 +30,7 @@ public class BarrelRackBlock extends Block {
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+    public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(BlockStateProperties.HORIZONTAL_FACING);
     }
 

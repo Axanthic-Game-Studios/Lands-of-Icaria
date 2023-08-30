@@ -697,6 +697,9 @@ public class IcariaGerman extends LanguageProvider {
 
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
+		// CATEGORIES
+		this.add("category" + "." + IcariaInfo.ID + "." + "firing", "Brennen");
+
 		// EFFECTS
 		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), "Erblindungsimmunität");
 		this.add(IcariaMobEffects.LIFESTEAL.get(), "Lebensraub");
@@ -1002,6 +1005,7 @@ public class IcariaGerman extends LanguageProvider {
 
 		// MENU TYPES
 		this.add("menu" + "." + IcariaInfo.ID + "." + "grinder", "Mühle");
+		this.add("menu" + "." + IcariaInfo.ID + "." + "kiln", "Töpferofen");
 		this.add("menu" + "." + IcariaInfo.ID + "." + "storage_vase", "Speichervase");
 
 		// MESSAGES

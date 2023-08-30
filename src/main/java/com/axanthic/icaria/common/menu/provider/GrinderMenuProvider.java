@@ -24,12 +24,12 @@ public class GrinderMenuProvider implements MenuProvider {
     }
 
     @Override
-    public Component getDisplayName() {
-        return Component.translatable("menu" + "." + IcariaInfo.ID + "." + "grinder");
+    public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
+        return new GrinderMenu(pContainerId, this.pos, pInventory, pPlayer);
     }
 
     @Override
-    public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new GrinderMenu(pContainerId, pos, pInventory, pPlayer);
+    public Component getDisplayName() {
+        return Component.translatable("menu" + "." + IcariaInfo.ID + "." + "grinder");
     }
 }

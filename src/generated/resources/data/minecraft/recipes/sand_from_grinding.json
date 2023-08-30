@@ -9,7 +9,7 @@
       "item": "minecraft:sandstone"
     }
   ],
-  "result": {
+  "output": {
     "count": 4,
     "item": "minecraft:sand"
   }

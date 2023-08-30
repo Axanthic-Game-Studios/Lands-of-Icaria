@@ -13,7 +13,6 @@ import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -33,7 +32,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -52,15 +50,12 @@ public class GrinderBlock extends BaseEntityBlock {
 
 	@Override
 	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (IcariaConfig.RENDER_GEARS.get()) {
-			if (pState.getValue(IcariaBlockStateProperties.GRINDING)) {
-				var blockEntity = (GrinderBlockEntity) pLevel.getBlockEntity(pPos);
-				if (blockEntity != null) {
-					var itemStack = blockEntity.stackHandler.getStackInSlot(0);
-					if (!itemStack.isEmpty()) {
-						if (pLevel.isClientSide) {
-							pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pPos.getX() + 0.5D, pPos.getY() + 1.0D, pPos.getZ() + 0.5D, 0.0D, 0.25D, 0.0D);
-						}
+		if (pState.getValue(IcariaBlockStateProperties.GRINDING)) {
+			if (pLevel.getBlockEntity(pPos) instanceof GrinderBlockEntity blockEntity) {
+				var itemStack = blockEntity.stackHandler.getStackInSlot(0);
+				if (!itemStack.isEmpty()) {
+					if (IcariaConfig.RENDER_GRINDER_GEARS.get()) {
+						pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pPos.getX() + 0.5D, pPos.getY() + 1.0D, pPos.getZ() + 0.5D, 0.0D, 0.25D, 0.0D);
 					}
 				}
 			}
@@ -68,25 +63,19 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	protected void createBlockStateDefinition(Builder<Block, BlockState> pBuilder) {
+	public void createBlockStateDefinition(Builder<Block, BlockState> pBuilder) {
 		pBuilder.add(IcariaBlockStateProperties.GRINDING, IcariaBlockStateProperties.GRINDER_ROTATION, BlockStateProperties.HORIZONTAL_FACING);
 	}
 
 	@Override
 	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-		if (!pState.is(pNewState.getBlock())) {
-			if (pLevel.getBlockEntity(pPos) instanceof GrinderBlockEntity) {
-				pLevel.getBlockEntity(pPos).getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(pItemHandler -> {
-					for (int i = 0; i < pItemHandler.getSlots(); i++) {
-						Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), pItemHandler.getStackInSlot(i));
-					}
-				});
-
-				pLevel.updateNeighbourForOutputSignal(pPos, this);
+		if (pState.getBlock() != pNewState.getBlock()) {
+			if (pLevel.getBlockEntity(pPos) instanceof GrinderBlockEntity blockEntity) {
+				blockEntity.drops(pLevel);
 			}
-
-			super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
 		}
+
+		super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
 	}
 
 	@Override
@@ -96,15 +85,17 @@ public class GrinderBlock extends BaseEntityBlock {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pContext.getHorizontalDirection());
+		return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pContext.getHorizontalDirection().getOpposite());
 	}
 
 	@Override
 	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-		if (!pLevel.isClientSide) {
-			var blockEntity = pLevel.getBlockEntity(pPos);
-			if (blockEntity instanceof GrinderBlockEntity) {
-				NetworkHooks.openScreen((ServerPlayer) pPlayer, new GrinderMenuProvider(pPos), blockEntity.getBlockPos());
+		var blockEntity = pLevel.getBlockEntity(pPos);
+		if (!pLevel.isClientSide()) {
+			if (pPlayer instanceof ServerPlayer serverPlayer) {
+				if (blockEntity instanceof GrinderBlockEntity) {
+					NetworkHooks.openScreen(serverPlayer, new GrinderMenuProvider(pPos), blockEntity.getBlockPos());
+				}
 			}
 		}
 

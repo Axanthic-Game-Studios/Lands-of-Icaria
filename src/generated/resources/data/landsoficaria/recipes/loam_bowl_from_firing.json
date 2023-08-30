@@ -1,0 +1,13 @@
+{
+  "type": "landsoficaria:firing",
+  "burnTime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "landsoficaria:unfired_loam_bowl"
+    }
+  ],
+  "output": {
+    "item": "landsoficaria:loam_bowl"
+  }
+}
