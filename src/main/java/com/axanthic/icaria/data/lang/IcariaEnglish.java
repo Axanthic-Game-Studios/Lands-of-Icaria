@@ -698,6 +698,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
 		// CATEGORIES
+		this.add("category" + "." + IcariaInfo.ID + "." + "grinding", "Grinding");
 		this.add("category" + "." + IcariaInfo.ID + "." + "firing", "Firing");
 
 		// EFFECTS

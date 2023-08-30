@@ -698,6 +698,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
 		// CATEGORIES
+		this.add("category" + "." + IcariaInfo.ID + "." + "grinding", "Mahlen");
 		this.add("category" + "." + IcariaInfo.ID + "." + "firing", "Brennen");
 
 		// EFFECTS
