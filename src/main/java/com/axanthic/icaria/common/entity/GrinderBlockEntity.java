@@ -28,6 +28,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.Optional;
@@ -94,6 +95,10 @@ public class GrinderBlockEntity extends BlockEntity {
 	public boolean shouldBreak(GrinderBlockEntity pBlockEntity) {
 		var itemStack = pBlockEntity.stackHandler.getStackInSlot(2);
 		return itemStack.getMaxDamage() - itemStack.getDamageValue() <= 0;
+	}
+
+	public int getComparatorInput() {
+		return this.itemHandler.map(ItemHandlerHelper::calcRedstoneFromInventory).orElse(0);
 	}
 
 	public void craftItem() {

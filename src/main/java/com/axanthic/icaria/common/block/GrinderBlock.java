@@ -49,6 +49,16 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
+	public boolean hasAnalogOutputSignal(BlockState pState) {
+		return true;
+	}
+
+	@Override
+	public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
+		return (pLevel.getBlockEntity(pPos) instanceof GrinderBlockEntity blockEntity) ? blockEntity.getComparatorInput() : 0;
+	}
+
+	@Override
 	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (pState.getValue(IcariaBlockStateProperties.GRINDING)) {
 			if (pLevel.getBlockEntity(pPos) instanceof GrinderBlockEntity blockEntity) {
