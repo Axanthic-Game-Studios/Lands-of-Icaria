@@ -625,9 +625,8 @@ public class IcariaRecipes extends RecipeProvider {
 			.pattern("XXX")
 			.pattern("XYX")
 			.pattern("XXX")
-			.define('X', Ingredient.of(IcariaItems.SUNSTONE.get(), IcariaItems.SUNSTONE_BRICKS.get()))
+			.define('X', IcariaItems.SUNSTONE_BRICKS.get())
 			.define('Y', IcariaItems.ORICHALCUM_INGOT.get())
-			.unlockedBy("has_" + IcariaItems.SUNSTONE.get(), RecipeProvider.has(IcariaItems.SUNSTONE.get()))
 			.unlockedBy("has_" + IcariaItems.SUNSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.SUNSTONE_BRICKS.get()))
 			.unlockedBy("has_" + IcariaItems.ORICHALCUM_INGOT.get(), RecipeProvider.has(IcariaItems.ORICHALCUM_INGOT.get()))
 			.save(pConsumer, IcariaItems.GRINDER.getId());
@@ -636,8 +635,7 @@ public class IcariaRecipes extends RecipeProvider {
 			.pattern("XXX")
 			.pattern("X X")
 			.pattern("XXX")
-			.define('X', Ingredient.of(IcariaItems.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_BRICKS.get()))
-			.unlockedBy("has_" + IcariaItems.YELLOWSTONE.get(), RecipeProvider.has(IcariaItems.YELLOWSTONE.get()))
+			.define('X', IcariaItems.YELLOWSTONE_BRICKS.get())
 			.unlockedBy("has_" + IcariaItems.YELLOWSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.YELLOWSTONE_BRICKS.get()))
 			.save(pConsumer, IcariaItems.KILN.getId());
 

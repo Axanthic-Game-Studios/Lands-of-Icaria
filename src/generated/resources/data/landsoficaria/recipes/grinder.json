@@ -2,14 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": [
-      {
-        "item": "landsoficaria:sunstone"
-      },
-      {
-        "item": "landsoficaria:sunstone_bricks"
-      }
-    ],
+    "X": {
+      "item": "landsoficaria:sunstone_bricks"
+    },
     "Y": {
       "item": "landsoficaria:orichalcum_ingot"
     }

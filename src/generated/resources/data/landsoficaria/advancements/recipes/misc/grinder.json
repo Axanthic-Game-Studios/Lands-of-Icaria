@@ -13,18 +13,6 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_sunstone": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:sunstone"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_sunstone_bricks": {
       "conditions": {
         "items": [
@@ -46,7 +34,6 @@
   },
   "requirements": [
     [
-      "has_sunstone",
       "has_sunstone_bricks",
       "has_orichalcum_ingot",
       "has_the_recipe"
