@@ -4,7 +4,7 @@ import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaMenus;
 import com.axanthic.icaria.common.slot.GrinderFuelSlot;
 import com.axanthic.icaria.common.slot.GrinderGearSlot;
-import com.axanthic.icaria.common.slot.IcariaOutputSlot;
+import com.axanthic.icaria.common.slot.GrinderOutputSlot;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -42,9 +42,9 @@ public class GrinderMenu extends AbstractContainerMenu {
 				this.addSlot(new SlotItemHandler(pItemHandler, 0, 36, 22)); // INPUT
 				this.addSlot(new GrinderFuelSlot(pItemHandler, 1, 36, 58)); // FUEL
 				this.addSlot(new GrinderGearSlot(pItemHandler, 2, 98, 49)); // GEAR
-				this.addSlot(new IcariaOutputSlot(pItemHandler, 3, 124, 22)); // OUTPUT
-				this.addSlot(new IcariaOutputSlot(pItemHandler, 4, 124, 40)); // OUTPUT
-				this.addSlot(new IcariaOutputSlot(pItemHandler, 5, 124, 58)); // OUTPUT
+				this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 3, 124, 22)); // OUTPUT
+				this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 4, 124, 40)); // OUTPUT
+				this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 5, 124, 58)); // OUTPUT
 			});
 		}
 
@@ -113,6 +113,8 @@ public class GrinderMenu extends AbstractContainerMenu {
 			} else {
 				this.moveItemStackTo(itemStack, 6, 33, false);
 			}
+
+			slot.onTake(pPlayer, itemStack);
 		}
 
 		return emptyStack;

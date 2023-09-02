@@ -21,18 +21,18 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class FiringRecipeBuilderResult implements FinishedRecipe {
-    public final float experience;
+    public float experience;
 
-    public final int burnTime;
+    public int burnTime;
 
-    public final Advancement.Builder advancement;
+    public Advancement.Builder advancement;
 
-    public final Ingredient ingredient;
+    public Ingredient ingredient;
 
-    public final Item output;
+    public Item output;
 
-    public final ResourceLocation advancementId;
-    public final ResourceLocation id;
+    public ResourceLocation advancementId;
+    public ResourceLocation id;
 
     public FiringRecipeBuilderResult(float pExperience, int pBurnTime, Advancement.Builder pAdvancement, Ingredient pIngredient, Item pOutput, ResourceLocation pAdvancementId, ResourceLocation pId) {
         this.experience = pExperience;

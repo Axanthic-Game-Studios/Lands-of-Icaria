@@ -21,6 +21,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe> {
     @Override
     public GrindingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
+        float experience = GsonHelper.getAsFloat(pSerializedRecipe, "experience");
         int burnTime = pSerializedRecipe.get("burnTime").getAsInt();
         var gear = Ingredient.fromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "gear"));
         var output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
@@ -29,11 +30,12 @@ public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe
             ingredients.set(i, Ingredient.fromJson(GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients").get(i)));
         }
 
-        return new GrindingRecipe(burnTime, gear, ingredients, output, pRecipeId);
+        return new GrindingRecipe(experience, burnTime, gear, ingredients, output, pRecipeId);
     }
 
     @Override
     public GrindingRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+        float experience = pBuffer.readFloat();
         int burnTime = pBuffer.readInt();
         var gear = Ingredient.fromNetwork(pBuffer);
         var output = pBuffer.readItem();
@@ -42,11 +44,12 @@ public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe
             ingredients.set(i, Ingredient.fromNetwork(pBuffer));
         }
 
-        return new GrindingRecipe(burnTime, gear, ingredients, output, pRecipeId);
+        return new GrindingRecipe(experience, burnTime, gear, ingredients, output, pRecipeId);
     }
 
     @Override
     public void toNetwork(FriendlyByteBuf pBuffer, GrindingRecipe pRecipe) {
+        pBuffer.writeFloat(pRecipe.experience);
         pBuffer.writeInt(pRecipe.burnTime);
         pRecipe.gear.toNetwork(pBuffer);
         pBuffer.writeItemStack(pRecipe.output.copy(), false);

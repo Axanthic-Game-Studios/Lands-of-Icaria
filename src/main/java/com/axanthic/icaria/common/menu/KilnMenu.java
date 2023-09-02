@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.menu;
 
 import com.axanthic.icaria.common.entity.KilnBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaMenus;
-import com.axanthic.icaria.common.slot.IcariaOutputSlot;
+import com.axanthic.icaria.common.slot.KilnOutputSlot;
 import com.axanthic.icaria.common.slot.KilnFuelSlot;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -39,7 +39,7 @@ public class KilnMenu extends AbstractContainerMenu {
 			this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(pItemHandler -> {
 				this.addSlot(new SlotItemHandler(pItemHandler, 0, 45, 22)); // INPUT
 				this.addSlot(new KilnFuelSlot(pItemHandler, 1, 45, 58)); // FUEL
-				this.addSlot(new IcariaOutputSlot(pItemHandler, 2, 111, 40)); // OUTPUT
+				this.addSlot(new KilnOutputSlot(pItemHandler, this.blockEntity, pPlayer, 2, 111, 40)); // OUTPUT
 			});
 		}
 
@@ -108,6 +108,8 @@ public class KilnMenu extends AbstractContainerMenu {
 			} else {
 				this.moveItemStackTo(itemStack, 3, 30, false);
 			}
+
+			slot.onTake(pPlayer, itemStack);
 		}
 
 		return emptyStack;

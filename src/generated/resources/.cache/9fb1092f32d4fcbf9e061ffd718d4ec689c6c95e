@@ -1,4 +1,4 @@
-// 1.20.1	2023-09-01T20:13:29.1629019	Recipes
+// 1.20.1	2023-09-01T21:41:48.0732292	Recipes
 9956b6c8ded436dcb40d23df90a4f629d160b5fe data/landsoficaria/advancements/recipes/loam_bowl_from_firing.json
 73e0c0178e586158733efa1897eb6f33572e3aee data/landsoficaria/advancements/recipes/misc/aeternae_hide_boots.json
 e4365a49cb128eb352546398f702f1b77bcd7513 data/landsoficaria/advancements/recipes/misc/aeternae_hide_chestplate.json
@@ -1383,7 +1383,7 @@ d9c125b3cd4b1547da4156453ecb6c405e361ee9 data/minecraft/recipes/purple_dye_from_
 ab6e0fd760c23ff46829eef3b404e960c557c0df data/minecraft/recipes/red_dye_from_firehilt.json
 0bcf3ecd7412585e47798a73ba32394f2ceb3587 data/minecraft/recipes/red_dye_from_red_ground_flowers.json
 d45df053ff131be64104941d2fa34f22a67ff5a1 data/minecraft/recipes/repeater_from_relicstone.json
-b9b0103a048e307475b3df9e9be2c8ac310c8b43 data/minecraft/recipes/sand_from_grinding.json
+9c1f8fa824c8141ab3ee41f823d30a766337fa35 data/minecraft/recipes/sand_from_grinding.json
 3cdf8801ad31103cbf6f8aa690afb6594e1116b8 data/minecraft/recipes/scaffolding_from_arachne_string.json
 34cf6558364aaa1089b319232a3c1a1797854726 data/minecraft/recipes/sticky_piston_from_jellyfish_jelly.json
 9e84b7534b715f9fca39a8be7ad1a89ad0ae8b1c data/minecraft/recipes/stonecutter_from_relicstone.json

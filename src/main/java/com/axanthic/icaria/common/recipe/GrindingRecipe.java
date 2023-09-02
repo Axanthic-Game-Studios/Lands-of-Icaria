@@ -21,6 +21,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrindingRecipe implements Recipe<SimpleContainer> {
+	public float experience;
+
 	public int burnTime;
 
 	public Ingredient gear;
@@ -31,7 +33,8 @@ public class GrindingRecipe implements Recipe<SimpleContainer> {
 
 	public ResourceLocation id;
 
-	public GrindingRecipe(int pBurnTime, Ingredient pGear, NonNullList<Ingredient> pIngredients, ItemStack pOutput, ResourceLocation pId) {
+	public GrindingRecipe(float pExperience, int pBurnTime, Ingredient pGear, NonNullList<Ingredient> pIngredients, ItemStack pOutput, ResourceLocation pId) {
+		this.experience = pExperience;
 		this.burnTime = pBurnTime;
 		this.gear = pGear;
 		this.ingredients = pIngredients;
@@ -47,6 +50,10 @@ public class GrindingRecipe implements Recipe<SimpleContainer> {
 	@Override
 	public boolean matches(SimpleContainer pContainer, Level pLevel) {
 		return !pLevel.isClientSide() && this.ingredients.get(0).test(pContainer.getItem(0)) && this.gear.test(pContainer.getItem(2));
+	}
+
+	public float getExperience() {
+		return this.experience;
 	}
 
 	public int getBurnTime() {

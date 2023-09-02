@@ -24,6 +24,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrindingRecipeBuilder implements RecipeBuilder {
+	public float experience;
+
 	public int burnTime;
 	public int count;
 
@@ -34,7 +36,8 @@ public class GrindingRecipeBuilder implements RecipeBuilder {
 
 	public Item output;
 
-	public GrindingRecipeBuilder(int pBurnTime, int pCount, ItemLike pGear, Ingredient pIngredient, ItemLike pOutput) {
+	public GrindingRecipeBuilder(float pExperience, int pBurnTime, int pCount, ItemLike pGear, Ingredient pIngredient, ItemLike pOutput) {
+		this.experience = pExperience;
 		this.burnTime = pBurnTime;
 		this.count = pCount;
 		this.gear = Ingredient.of(pGear);
@@ -42,8 +45,8 @@ public class GrindingRecipeBuilder implements RecipeBuilder {
 		this.output = pOutput.asItem();
 	}
 
-	public static GrindingRecipeBuilder grinding(ItemLike pGear, Ingredient pIngredient, ItemLike pOutput, int pBurnTime, int pCount) {
-		return new GrindingRecipeBuilder(pBurnTime, pCount, pGear, pIngredient, pOutput);
+	public static GrindingRecipeBuilder grinding(ItemLike pGear, Ingredient pIngredient, ItemLike pOutput, float pExperience, int pBurnTime, int pCount) {
+		return new GrindingRecipeBuilder(pExperience, pBurnTime, pCount, pGear, pIngredient, pOutput);
 	}
 
 	public void ensureValid(ResourceLocation pId) {
@@ -56,7 +59,7 @@ public class GrindingRecipeBuilder implements RecipeBuilder {
 	public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
 		this.advancement.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).parent(RecipeBuilder.ROOT_RECIPE_ADVANCEMENT).requirements(RequirementsStrategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
 		this.ensureValid(pRecipeId);
-		pFinishedRecipeConsumer.accept(new GrindingRecipeBuilderResult(this.burnTime, this.count, this.advancement, this.gear, this.ingredient, this.output, new ResourceLocation(pRecipeId.getNamespace(),"recipes/" + pRecipeId.getPath()), pRecipeId));
+		pFinishedRecipeConsumer.accept(new GrindingRecipeBuilderResult(this.experience, this.burnTime, this.count, this.advancement, this.gear, this.ingredient, this.output, new ResourceLocation(pRecipeId.getNamespace(),"recipes/" + pRecipeId.getPath()), pRecipeId));
 	}
 
 	@Override

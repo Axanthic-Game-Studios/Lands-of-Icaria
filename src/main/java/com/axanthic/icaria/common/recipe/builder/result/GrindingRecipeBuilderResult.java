@@ -21,6 +21,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrindingRecipeBuilderResult implements FinishedRecipe {
+    public float experience;
+
     public int burnTime;
     public int count;
 
@@ -34,7 +36,8 @@ public class GrindingRecipeBuilderResult implements FinishedRecipe {
     public ResourceLocation advancementId;
     public ResourceLocation id;
 
-    public GrindingRecipeBuilderResult(int pBurnTime, int pCount, Advancement.Builder pAdvancement, Ingredient pGear, Ingredient pIngredient, Item pOutput, ResourceLocation pAdvancementId, ResourceLocation pId) {
+    public GrindingRecipeBuilderResult(float pExperience, int pBurnTime, int pCount, Advancement.Builder pAdvancement, Ingredient pGear, Ingredient pIngredient, Item pOutput, ResourceLocation pAdvancementId, ResourceLocation pId) {
+        this.experience = pExperience;
         this.burnTime = pBurnTime;
         this.count = pCount;
         this.advancement = pAdvancement;
@@ -54,6 +57,7 @@ public class GrindingRecipeBuilderResult implements FinishedRecipe {
         jsonObject.addProperty("count", this.count);
         jsonObject.addProperty("item", ForgeRegistries.ITEMS.getKey(this.output).toString());
 
+        pJson.addProperty("experience", this.experience);
         pJson.addProperty("burnTime", this.burnTime);
         pJson.add("gear", this.gear.toJson());
         pJson.add("ingredients", jsonArray);

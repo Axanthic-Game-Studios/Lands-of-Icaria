@@ -46,12 +46,12 @@ public class FiringRecipe implements Recipe<SimpleContainer> {
         return !pLevel.isClientSide() && this.ingredients.get(0).test(pContainer.getItem(0));
     }
 
-    public int getBurnTime() {
-        return this.burnTime;
-    }
-
     public float getExperience() {
         return this.experience;
+    }
+
+    public int getBurnTime() {
+        return this.burnTime;
     }
 
     @Override

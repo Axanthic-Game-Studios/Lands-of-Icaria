@@ -1,6 +1,7 @@
 {
   "type": "landsoficaria:grinding",
   "burnTime": 200,
+  "experience": 1.0,
   "gear": {
     "item": "landsoficaria:yellowstone_gear"
   },
