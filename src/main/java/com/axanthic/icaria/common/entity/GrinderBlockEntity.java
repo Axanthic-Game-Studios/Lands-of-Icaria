@@ -140,8 +140,8 @@ public class GrinderBlockEntity extends BlockEntity {
 				this.stackHandler.setStackInSlot(5, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(5).getCount()));
 			}
 
-			this.setRecipeUsed(recipe.get());
 			this.resetProgress();
+			this.setRecipeUsed(recipe.get());
 		}
 	}
 

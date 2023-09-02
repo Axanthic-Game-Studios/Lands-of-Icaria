@@ -1,0 +1,13 @@
+{
+  "type": "landsoficaria:firing",
+  "burnTime": 200,
+  "experience": 0.2,
+  "ingredients": [
+    {
+      "item": "landsoficaria:white_unfired_storage_vase"
+    }
+  ],
+  "output": {
+    "item": "landsoficaria:white_storage_vase"
+  }
+}

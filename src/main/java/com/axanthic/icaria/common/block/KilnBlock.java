@@ -90,8 +90,10 @@ public class KilnBlock extends BaseEntityBlock {
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             if (pLevel.getBlockEntity(pPos) instanceof KilnBlockEntity blockEntity) {
-                blockEntity.drops(pLevel);
-                blockEntity.getRecipesToAwardAndPopExperience((ServerLevel) pLevel, Vec3.atCenterOf(pPos));
+                if (pLevel instanceof ServerLevel serverLevel) {
+                    blockEntity.drops(serverLevel);
+                    blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pPos));
+                }
             }
         }
 

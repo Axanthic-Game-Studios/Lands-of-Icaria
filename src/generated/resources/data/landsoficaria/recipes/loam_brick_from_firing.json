@@ -4,10 +4,10 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "item": "landsoficaria:unfired_loam_bowl"
+      "item": "landsoficaria:loam_lump"
     }
   ],
   "output": {
-    "item": "landsoficaria:loam_bowl"
+    "item": "landsoficaria:loam_brick"
   }
 }
