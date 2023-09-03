@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.2,
+  "gear": {
+    "item": "landsoficaria:vanadium_gear"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate_lapis_ore"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "item": "minecraft:lapis_lazuli"
+  }
+}

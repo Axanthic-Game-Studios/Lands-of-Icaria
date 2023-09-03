@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.2,
+  "gear": {
+    "item": "landsoficaria:vanadium_gear"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate_coal_ore"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "minecraft:coal"
+  }
+}

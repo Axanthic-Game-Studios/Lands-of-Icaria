@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.1,
+  "gear": {
+    "item": "landsoficaria:loam_gear"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:black_wool"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "item": "minecraft:string"
+  }
+}

@@ -27,9 +27,9 @@ public class IcariaRecipes extends RecipeProvider {
 
 	@Override
 	public void buildRecipes(Consumer<FinishedRecipe> pConsumer) {
+		this.firingRecipe(pConsumer, IcariaItems.GRAINEL.get(), IcariaItems.GRAINGLASS.get(), 0.1F, 200);
+		this.firingRecipe(pConsumer, IcariaItems.SILKSAND.get(), IcariaItems.SILKGLASS.get(), 0.1F, 200);
 		this.firingRecipe(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BRICK.get(), 0.1F, 100);
-		this.firingRecipe(pConsumer, IcariaItems.UNFIRED_LOAM_GEAR.get(), IcariaItems.LOAM_GEAR.get(), 0.1F, 100);
-		this.firingRecipe(pConsumer, IcariaItems.UNFIRED_LOAM_BOWL.get(), IcariaItems.LOAM_BOWL.get(), 0.1F, 100);
 		this.firingRecipe(pConsumer, IcariaItems.UNFIRED_STORAGE_VASE.get(), IcariaItems.STORAGE_VASE.get(), 0.2F, 200);
 		this.firingRecipe(pConsumer, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get(), IcariaItems.WHITE_STORAGE_VASE.get(), 0.2F, 200);
 		this.firingRecipe(pConsumer, IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get(), IcariaItems.LIGHT_GRAY_STORAGE_VASE.get(), 0.2F, 200);
@@ -47,8 +47,205 @@ public class IcariaRecipes extends RecipeProvider {
 		this.firingRecipe(pConsumer, IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get(), IcariaItems.PURPLE_STORAGE_VASE.get(), 0.2F, 200);
 		this.firingRecipe(pConsumer, IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get(), IcariaItems.MAGENTA_STORAGE_VASE.get(), 0.2F, 200);
 		this.firingRecipe(pConsumer, IcariaItems.PINK_UNFIRED_STORAGE_VASE.get(), IcariaItems.PINK_STORAGE_VASE.get(), 0.2F, 200);
+		this.firingRecipe(pConsumer, IcariaItems.UNFIRED_LOAM_GEAR.get(), IcariaItems.LOAM_GEAR.get(), 0.1F, 100);
+		this.firingRecipe(pConsumer, IcariaItems.UNFIRED_LOAM_BOWL.get(), IcariaItems.LOAM_BOWL.get(), 0.1F, 100);
 
-		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.SANDSTONE, Items.SAND, 1.0F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.COBBLESTONE, Items.GRAVEL, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.CRACKED_STONE_BRICKS, Items.COBBLESTONE, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.CRACKED_DEEPSLATE_BRICKS, Items.COBBLED_DEEPSLATE, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.CRACKED_DEEPSLATE_TILES, Items.COBBLED_DEEPSLATE, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.SANDSTONE, Items.SAND, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.RED_SANDSTONE, Items.RED_SAND, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.TINTED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.WHITE_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.LIGHT_GRAY_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.GRAY_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.BLACK_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.BROWN_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.RED_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.ORANGE_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.YELLOW_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.LIME_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.GREEN_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.CYAN_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.LIGHT_BLUE_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.BLUE_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.PURPLE_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.MAGENTA_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.PINK_STAINED_GLASS, Items.SAND, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.ICE, Items.SNOWBALL, 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), Items.GLOWSTONE, Items.GLOWSTONE_DUST, 0.1F, 100, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), IcariaItems.GRAINGLASS.get(), IcariaItems.GRAINEL.get(), 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), IcariaItems.GRAINITE.get(), IcariaItems.GRAINEL.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), IcariaItems.SILKGLASS.get(), IcariaItems.SILKSAND.get(), 0.1F, 100, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), IcariaItems.COBBLED_SILKSTONE.get(), IcariaItems.SILKSAND.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), IcariaItems.CRACKED_RELICSTONE_BRICKS.get(), IcariaItems.RELICSTONE.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.YELLOWSTONE_GEAR.get(), IcariaItems.CRACKED_RELICSTONE_TILES.get(), IcariaItems.RELICSTONE.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.WHITE_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.LIGHT_GRAY_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.GRAY_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.BLACK_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.BROWN_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.RED_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.ORANGE_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.YELLOW_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.LIME_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.GREEN_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.CYAN_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.LIGHT_BLUE_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.BLUE_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.PURPLE_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.MAGENTA_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.PINK_WOOL, Items.STRING, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.CLAY, Items.CLAY_BALL, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.GRAVEL, Items.FLINT, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.SNOW_BLOCK, Items.SNOWBALL, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.MAGMA_BLOCK, Items.MAGMA_CREAM, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.DANDELION, Items.YELLOW_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.POPPY, Items.RED_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.BLUE_ORCHID, Items.LIGHT_BLUE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.ALLIUM, Items.MAGENTA_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.AZURE_BLUET, Items.LIGHT_GRAY_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.RED_TULIP, Items.RED_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.ORANGE_TULIP, Items.ORANGE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.WHITE_TULIP, Items.LIGHT_GRAY_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.PINK_TULIP, Items.PINK_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.OXEYE_DAISY, Items.LIGHT_GRAY_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.CORNFLOWER, Items.BLUE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.LILY_OF_THE_VALLEY, Items.WHITE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.TORCHFLOWER, Items.ORANGE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.WITHER_ROSE, Items.BLACK_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.PINK_PETALS, Items.PINK_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.SUGAR_CANE, Items.SUGAR, 0.1F, 200, 3);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.CACTUS, Items.GREEN_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.SUNFLOWER, Items.YELLOW_DYE, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.LILAC, Items.MAGENTA_DYE, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.ROSE_BUSH, Items.RED_DYE, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.PEONY, Items.PINK_DYE, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.PITCHER_PLANT, Items.CYAN_DYE, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.COCOA_BEANS, Items.BROWN_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.MELON, Items.MELON_SEEDS, 0.1F, 200, 12);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.PUMPKIN, Items.PUMPKIN_SEEDS, 0.1F, 200, 12);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.HAY_BLOCK, Items.WHEAT_SEEDS, 0.1F, 200, 12);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.HONEYCOMB_BLOCK, Items.HONEYCOMB, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.BONE_MEAL, Items.WHITE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.BEETROOT, Items.RED_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), Items.INK_SAC, Items.BLACK_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.MARL_CHERT.get(), IcariaItems.CHERT.get(), 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.MARL_BONES.get(), Items.BONE_MEAL, 0.2F, 200, 6);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.MARL_LIGNITE.get(), IcariaItems.LIGNITE.get(), 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.LOAM.get(), IcariaItems.LOAM_LUMP.get(), 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.GRAINEL_CHERT.get(), IcariaItems.CHERT.get(), 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.SPELT_BALE_BLOCK.get(), IcariaItems.SPELT_SEEDS.get(), 0.1F, 200, 12);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.BLINDWEED.get(), Items.PINK_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.CHAMEOMILE.get(), Items.WHITE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.CHARMONDER.get(), Items.LIGHT_BLUE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.CLOVER.get(), Items.WHITE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.FIREHILT.get(), Items.RED_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.BLUE_HYDRACINTH.get(), Items.BLUE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.PURPLE_HYDRACINTH.get(), Items.PURPLE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.LIONFANGS.get(), Items.PURPLE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.SPEARDROPS.get(), Items.LIME_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.PURPLE_STAGHORN.get(), Items.PURPLE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.YELLOW_STAGHORN.get(), Items.YELLOW_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.BLUE_STORMCOTTON.get(), Items.BLUE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.PINK_STORMCOTTON.get(), Items.PINK_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.PURPLE_STORMCOTTON.get(), Items.PURPLE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.SUNKETTLE.get(), Items.YELLOW_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.SUNSPONGE.get(), Items.ORANGE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.VOIDLILY.get(), Items.BLACK_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.BLUE_GROUND_FLOWERS.get(), Items.BLUE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.CYAN_GROUND_FLOWERS.get(), Items.CYAN_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.PINK_GROUND_FLOWERS.get(), Items.PINK_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.PURPLE_GROUND_FLOWERS.get(), Items.PURPLE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.RED_GROUND_FLOWERS.get(), Items.RED_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.WHITE_GROUND_FLOWERS.get(), Items.WHITE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.WHITE_BROMELIA.get(), Items.WHITE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.ORANGE_BROMELIA.get(), Items.ORANGE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.PINK_BROMELIA.get(), Items.PINK_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.PURPLE_BROMELIA.get(), Items.PURPLE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.CARDON_CACTUS.get(), Items.GREEN_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.SPELT.get(), IcariaItems.SPELT_FLOUR.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.LOAM_GEAR.get(), IcariaItems.VINE_REED.get(), Items.SUGAR, 0.1F, 200, 3);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.PURPUR_BLOCK, Items.POPPED_CHORUS_FRUIT, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.WHITE_CONCRETE, Items.WHITE_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.LIGHT_GRAY_CONCRETE, Items.LIGHT_GRAY_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.GRAY_CONCRETE, Items.GRAY_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.BLACK_CONCRETE, Items.BLACK_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.BROWN_CONCRETE, Items.BROWN_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.RED_CONCRETE, Items.RED_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.ORANGE_CONCRETE, Items.ORANGE_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.YELLOW_CONCRETE, Items.YELLOW_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.LIME_CONCRETE, Items.LIME_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.GREEN_CONCRETE, Items.GREEN_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.CYAN_CONCRETE, Items.CYAN_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.LIGHT_BLUE_CONCRETE, Items.LIGHT_BLUE_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.BLUE_CONCRETE, Items.BLUE_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.PURPLE_CONCRETE, Items.PURPLE_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.MAGENTA_CONCRETE, Items.MAGENTA_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.PINK_CONCRETE, Items.PINK_CONCRETE_POWDER, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.LAPIS_LAZULI, Items.BLUE_DYE, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.BONE, Items.BONE_MEAL, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), Items.BLAZE_ROD, Items.BLAZE_POWDER, 0.2F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), IcariaItems.SURFACE_CHERT.get(), IcariaItems.CHERT.get(), 0.2F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), IcariaItems.SURFACE_BONES.get(), Items.BONE_MEAL, 0.2F, 200, 12);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), IcariaItems.SURFACE_LIGNITE.get(), IcariaItems.LIGNITE.get(), 0.2F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), IcariaItems.BONE_REMAINS.get(), Items.BONE_MEAL, 0.1F, 200, 12);
+		this.grindingRecipe(pConsumer, IcariaItems.VOIDSHALE_GEAR.get(), IcariaItems.ROTTEN_BONES.get(), Items.BONE_MEAL, 0.1F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.STONE, Items.COBBLESTONE, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.STONE_BRICKS, Items.CRACKED_STONE_BRICKS, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.DEEPSLATE, Items.COBBLED_DEEPSLATE, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.DEEPSLATE_BRICKS, Items.CRACKED_DEEPSLATE_BRICKS, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.DEEPSLATE_TILES, Items.CRACKED_DEEPSLATE_TILES, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.PRISMARINE, Items.PRISMARINE_SHARD, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.NETHER_BRICKS, Items.CRACKED_NETHER_BRICKS, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.GILDED_BLACKSTONE, Items.GOLD_NUGGET, 0.2F, 200, 6);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.POLISHED_BLACKSTONE_BRICKS, Items.CRACKED_POLISHED_BLACKSTONE_BRICKS, 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.AMETHYST_BLOCK, Items.AMETHYST_SHARD, 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.COAL_ORE, Items.COAL, 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.DEEPSLATE_COAL_ORE, Items.COAL, 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.IRON_ORE, Items.RAW_IRON, 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.DEEPSLATE_IRON_ORE, Items.RAW_IRON, 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.COPPER_ORE, Items.RAW_COPPER, 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER, 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.GOLD_ORE, Items.RAW_GOLD, 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.DEEPSLATE_GOLD_ORE, Items.RAW_GOLD, 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.REDSTONE_ORE, Items.REDSTONE, 0.2F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.DEEPSLATE_REDSTONE_ORE, Items.REDSTONE, 0.2F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.EMERALD_ORE, Items.EMERALD, 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.DEEPSLATE_EMERALD_ORE, Items.EMERALD, 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.LAPIS_ORE, Items.LAPIS_LAZULI, 0.2F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.DEEPSLATE_LAPIS_ORE, Items.LAPIS_LAZULI, 0.2F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.DIAMOND_ORE, Items.DIAMOND, 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.DEEPSLATE_DIAMOND_ORE, Items.DIAMOND, 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.NETHER_GOLD_ORE, Items.GOLD_NUGGET, 0.2F, 200, 6);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), Items.NETHER_QUARTZ_ORE, Items.QUARTZ, 0.2F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.YELLOWSTONE.get(), IcariaItems.COBBLED_YELLOWSTONE.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.SILKSTONE.get(), IcariaItems.COBBLED_SILKSTONE.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.SUNSTONE.get(), IcariaItems.COBBLED_SUNSTONE.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.VOIDSHALE.get(), IcariaItems.COBBLED_VOIDSHALE.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.BAETYL.get(), IcariaItems.COBBLED_BAETYL.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.SMOOTH_RELICSTONE.get(), IcariaItems.RELICSTONE.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.RELICSTONE_BRICKS.get(), IcariaItems.CRACKED_RELICSTONE_BRICKS.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.RELICSTONE_TILES.get(), IcariaItems.CRACKED_RELICSTONE_TILES.get(), 0.1F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.LIGNITE_ORE.get(), IcariaItems.LIGNITE.get(), 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.CHALKOS_ORE.get(), IcariaItems.RAW_CHALKOS.get(), 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.KASSITEROS_ORE.get(), IcariaItems.RAW_KASSITEROS.get(), 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.DOLOMITE_ORE.get(), IcariaItems.DOLOMITE.get(), 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.VANADIUM_ORE.get(), IcariaItems.RAW_VANADIUM.get(), 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.SLIVER_ORE.get(), IcariaItems.SLIVER.get(), 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.SIDEROS_ORE.get(), IcariaItems.RAW_SIDEROS.get(), 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.ANTHRACITE_ORE.get(), IcariaItems.ANTHRACITE.get(), 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.MOLYBDENUM_ORE.get(), IcariaItems.RAW_MOLYBDENUM.get(), 0.2F, 200, 2);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.CALCITE.get(), IcariaItems.CALCITE_SHARD.get(), 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.HALITE.get(), IcariaItems.HALITE_SHARD.get(), 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.JASPER.get(), IcariaItems.JASPER_SHARD.get(), 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.ZIRCON.get(), IcariaItems.ZIRCON_SHARD.get(), 0.1F, 200, 4);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.CALCITE_SHARD.get(), IcariaItems.CALCITE_DUST.get(), 0.2F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.VANADIUM_GEAR.get(), IcariaItems.HALITE_SHARD.get(), IcariaItems.HALITE_DUST.get(), 0.2F, 200, 1);
+		this.grindingRecipe(pConsumer, IcariaItems.DAEDALIAN_GEAR.get(), IcariaItems.BLURRED_PLATOSHALE.get(), IcariaItems.BLURIDIUM_NUGGET.get(), 0.4F, 400, 6);
+		this.grindingRecipe(pConsumer, IcariaItems.DAEDALIAN_GEAR.get(), IcariaItems.BLURRED_PLATOSHALE_BRICKS.get(), IcariaItems.BLURIDIUM_NUGGET.get(), 0.4F, 400, 6);
 
 		this.smeltingRecipe(pConsumer, IcariaItems.CARDON_CACTUS.get(), Items.GREEN_DYE, 1.0F, 200);
 		this.smeltingRecipe(pConsumer, IcariaItems.SPELT_FLOUR.get(), IcariaItems.SPELT_BREAD.get(), 0.3F, 200);
@@ -70,8 +267,8 @@ public class IcariaRecipes extends RecipeProvider {
 		this.smallCompressRecipe(pConsumer, IcariaItems.PLANE_PLANKS.get(), IcariaItems.PLANE_CRAFTING_TABLE.get());
 		this.smallCompressRecipe(pConsumer, IcariaItems.POPULUS_PLANKS.get(), IcariaItems.POPULUS_CRAFTING_TABLE.get());
 
-		this.glassRecipes(pConsumer, IcariaItems.GRAINEL.get(), IcariaItems.GRAINGLASS.get(), IcariaItems.GRAINGLASS_PANE.get(), IcariaItems.HORIZONTAL_GRAINGLASS_PANE.get());
-		this.glassRecipes(pConsumer, IcariaItems.SILKSAND.get(), IcariaItems.SILKGLASS.get(), IcariaItems.SILKGLASS_PANE.get(), IcariaItems.HORIZONTAL_SILKGLASS_PANE.get());
+		this.glassRecipes(pConsumer, IcariaItems.GRAINGLASS.get(), IcariaItems.GRAINGLASS_PANE.get(), IcariaItems.HORIZONTAL_GRAINGLASS_PANE.get());
+		this.glassRecipes(pConsumer, IcariaItems.SILKGLASS.get(), IcariaItems.SILKGLASS_PANE.get(), IcariaItems.HORIZONTAL_SILKGLASS_PANE.get());
 
 		this.stoneRecipes(pConsumer, IcariaItems.COBBLED_YELLOWSTONE.get(), IcariaItems.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_BRICKS.get(), IcariaItems.CHISELED_YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_BRICK_DECO);
 		this.stoneRecipes(pConsumer, IcariaItems.COBBLED_SILKSTONE.get(), IcariaItems.SILKSTONE.get(), IcariaItems.SILKSTONE_BRICKS.get(), IcariaItems.CHISELED_SILKSTONE.get(), IcariaItems.SILKSTONE_BRICK_DECO);
@@ -247,8 +444,9 @@ public class IcariaRecipes extends RecipeProvider {
 		this.vaseRecipe(pConsumer, Items.MAGENTA_DYE, IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get());
 		this.vaseRecipe(pConsumer, Items.PINK_DYE, IcariaItems.PINK_UNFIRED_STORAGE_VASE.get());
 
-		this.bowlFlaskTypeRecipe(pConsumer, IcariaItems.SILKGLASS.get(), IcariaItems.EMPTY_FLASK.get(), 3);
-		this.bowlFlaskTypeRecipe(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.UNFIRED_LOAM_BOWL.get(), 4);
+		this.bowlFlaskVialRecipe(pConsumer, IcariaItems.SILKGLASS.get(), IcariaItems.EMPTY_FLASK.get(), 3);
+		this.bowlFlaskVialRecipe(pConsumer, IcariaItems.GRAINGLASS.get(), IcariaItems.EMPTY_VIAL.get(), 3);
+		this.bowlFlaskVialRecipe(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.UNFIRED_LOAM_BOWL.get(), 4);
 
 		this.gearRecipe(pConsumer, IcariaItems.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_GEAR.get());
 		this.gearRecipe(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.UNFIRED_LOAM_GEAR.get());
@@ -693,14 +891,6 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.LOAM_LUMP.get(), RecipeProvider.has(IcariaItems.LOAM_LUMP.get()))
 			.save(pConsumer, IcariaItems.UNFIRED_STORAGE_VASE.getId());
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.EMPTY_VIAL.get(), 3)
-			.pattern("X X")
-			.pattern(" X ")
-			.define('X', Ingredient.of(IcariaItems.GRAINGLASS_PANE.get(), IcariaItems.HORIZONTAL_GRAINGLASS_PANE.get()))
-			.unlockedBy("has_" + IcariaItems.GRAINGLASS_PANE.get(), RecipeProvider.has(IcariaItems.GRAINGLASS_PANE.get()))
-			.unlockedBy("has_" + IcariaItems.HORIZONTAL_GRAINGLASS_PANE.get(), RecipeProvider.has(IcariaItems.HORIZONTAL_GRAINGLASS_PANE.get()))
-			.save(pConsumer, IcariaItems.EMPTY_VIAL.getId());
-
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.CHEST_LABEL.get())
 			.pattern("XXX")
 			.define('X', Items.PAPER)
@@ -1066,14 +1256,14 @@ public class IcariaRecipes extends RecipeProvider {
 	public void firingRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult, float pExperience, int pTime) {
 		FiringRecipeBuilder.firing(pResult, Ingredient.of(pResource), pExperience, pTime)
 			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_firing");
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResource) + "_firing");
 	}
 
 	public void grindingRecipe(Consumer<FinishedRecipe> pConsumer, Item pGear, Item pResource, Item pResult, float pExperience, int pTime, int pCount) {
 		GrindingRecipeBuilder.grinding(pGear, Ingredient.of(pResource), pResult, pExperience, pTime, pCount)
 			.unlockedBy("has_" + pGear, RecipeProvider.has(pGear))
 			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_grinding");
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResource) + "_grinding");
 	}
 
 	public void smeltingRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult, float pExperience, int pTime) {
@@ -1105,7 +1295,7 @@ public class IcariaRecipes extends RecipeProvider {
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pUncompressed) + "_small_compress");
 	}
 
-	public void glassRecipes(Consumer<FinishedRecipe> pConsumer, Item pSand, Item pGlass, Item pPane, Item pPaneHorizontal) {
+	public void glassRecipes(Consumer<FinishedRecipe> pConsumer, Item pGlass, Item pPane, Item pPaneHorizontal) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pPane, 16)
 			.pattern("XXX")
 			.pattern("XXX")
@@ -1118,10 +1308,6 @@ public class IcariaRecipes extends RecipeProvider {
 			.define('X', pPane)
 			.unlockedBy("has_" + pPane, RecipeProvider.has(pPane))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pPaneHorizontal));
-
-		SimpleCookingRecipeBuilder.smelting(Ingredient.of(pSand), RecipeCategory.MISC, pGlass, 0.1F, 200)
-			.unlockedBy("has_" + pSand, RecipeProvider.has(pSand))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pGlass) + "_from_smelting");
 	}
 
 	public void stoneRecipes(Consumer<FinishedRecipe> pConsumer, Item pCobbled, Item pStone, Item pBricks, Item pChiseled, IcariaStoneDecoItems pDeco) {
@@ -1447,7 +1633,7 @@ public class IcariaRecipes extends RecipeProvider {
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult));
 	}
 
-	public void bowlFlaskTypeRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult, int pCount) {
+	public void bowlFlaskVialRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult, int pCount) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, pCount)
 			.pattern("X X")
 			.pattern(" X ")

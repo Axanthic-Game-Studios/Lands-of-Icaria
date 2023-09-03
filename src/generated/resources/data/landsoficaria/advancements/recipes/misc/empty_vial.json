@@ -1,24 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_grainglass_pane": {
+    "has_grainglass": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:grainglass_pane"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_horizontal_grainglass_pane": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:horizontal_grainglass_pane"
+              "landsoficaria:grainglass"
             ]
           }
         ]
@@ -34,8 +22,7 @@
   },
   "requirements": [
     [
-      "has_grainglass_pane",
-      "has_horizontal_grainglass_pane",
+      "has_grainglass",
       "has_the_recipe"
     ]
   ],

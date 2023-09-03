@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.1,
+  "gear": {
+    "item": "landsoficaria:loam_gear"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:oxeye_daisy"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "minecraft:light_gray_dye"
+  }
+}

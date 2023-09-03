@@ -1,0 +1,13 @@
+{
+  "type": "landsoficaria:firing",
+  "burnTime": 200,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "item": "landsoficaria:silksand"
+    }
+  ],
+  "output": {
+    "item": "landsoficaria:silkglass"
+  }
+}

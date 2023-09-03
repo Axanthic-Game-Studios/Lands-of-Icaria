@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:yellowstone_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vanadium_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:vanadium_gear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_yellowstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:yellowstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_vanadium_gear",
+      "has_yellowstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:yellowstone_grinding"
+    ]
+  },
+  "sends_telemetry_event": true
+}

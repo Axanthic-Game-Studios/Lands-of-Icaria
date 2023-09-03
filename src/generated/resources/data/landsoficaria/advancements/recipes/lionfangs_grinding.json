@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lionfangs": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:lionfangs"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_loam_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:loam_gear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:lionfangs_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_loam_gear",
+      "has_lionfangs",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:lionfangs_grinding"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.1,
+  "gear": {
+    "item": "landsoficaria:voidshale_gear"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:purpur_block"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "item": "minecraft:popped_chorus_fruit"
+  }
+}

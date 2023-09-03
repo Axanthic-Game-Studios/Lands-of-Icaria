@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.1,
+  "gear": {
+    "item": "landsoficaria:voidshale_gear"
+  },
+  "ingredients": [
+    {
+      "item": "landsoficaria:rotten_bones"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "minecraft:bone_meal"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.1,
+  "gear": {
+    "item": "landsoficaria:loam_gear"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:allium"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "minecraft:magenta_dye"
+  }
+}

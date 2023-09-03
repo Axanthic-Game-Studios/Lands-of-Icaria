@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.1,
+  "gear": {
+    "item": "landsoficaria:yellowstone_gear"
+  },
+  "ingredients": [
+    {
+      "item": "landsoficaria:cracked_relicstone_tiles"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "landsoficaria:relicstone"
+  }
+}

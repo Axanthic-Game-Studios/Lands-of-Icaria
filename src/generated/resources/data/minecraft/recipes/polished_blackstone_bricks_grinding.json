@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.1,
+  "gear": {
+    "item": "landsoficaria:vanadium_gear"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:polished_blackstone_bricks"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "minecraft:cracked_polished_blackstone_bricks"
+  }
+}

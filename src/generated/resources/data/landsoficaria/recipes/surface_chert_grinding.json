@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.2,
+  "gear": {
+    "item": "landsoficaria:voidshale_gear"
+  },
+  "ingredients": [
+    {
+      "item": "landsoficaria:surface_chert"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "item": "landsoficaria:chert"
+  }
+}

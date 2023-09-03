@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.2,
+  "gear": {
+    "item": "landsoficaria:loam_gear"
+  },
+  "ingredients": [
+    {
+      "item": "landsoficaria:marl_bones"
+    }
+  ],
+  "output": {
+    "count": 6,
+    "item": "minecraft:bone_meal"
+  }
+}

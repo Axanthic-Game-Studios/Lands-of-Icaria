@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.1,
+  "gear": {
+    "item": "landsoficaria:voidshale_gear"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:orange_concrete"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "minecraft:orange_concrete_powder"
+  }
+}

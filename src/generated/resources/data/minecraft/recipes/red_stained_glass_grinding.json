@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 100,
+  "experience": 0.1,
+  "gear": {
+    "item": "landsoficaria:yellowstone_gear"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:red_stained_glass"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "minecraft:sand"
+  }
+}

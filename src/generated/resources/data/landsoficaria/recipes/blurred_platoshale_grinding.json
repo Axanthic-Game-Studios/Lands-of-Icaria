@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 400,
+  "experience": 0.4,
+  "gear": {
+    "item": "landsoficaria:daedalian_gear"
+  },
+  "ingredients": [
+    {
+      "item": "landsoficaria:blurred_platoshale"
+    }
+  ],
+  "output": {
+    "count": 6,
+    "item": "landsoficaria:bluridium_nugget"
+  }
+}

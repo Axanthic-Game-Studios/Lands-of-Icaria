@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_loam_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:loam_gear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_spelt": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:spelt"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:spelt_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_loam_gear",
+      "has_spelt",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:spelt_grinding"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.2,
+  "gear": {
+    "item": "landsoficaria:loam_gear"
+  },
+  "ingredients": [
+    {
+      "item": "landsoficaria:marl_lignite"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "landsoficaria:lignite"
+  }
+}

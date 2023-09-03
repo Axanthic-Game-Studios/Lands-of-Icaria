@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.2,
+  "gear": {
+    "item": "landsoficaria:vanadium_gear"
+  },
+  "ingredients": [
+    {
+      "item": "landsoficaria:lignite_ore"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "landsoficaria:lignite"
+  }
+}

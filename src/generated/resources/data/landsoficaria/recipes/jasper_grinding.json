@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:grinding",
+  "burnTime": 200,
+  "experience": 0.1,
+  "gear": {
+    "item": "landsoficaria:vanadium_gear"
+  },
+  "ingredients": [
+    {
+      "item": "landsoficaria:jasper"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "item": "landsoficaria:jasper_shard"
+  }
+}
