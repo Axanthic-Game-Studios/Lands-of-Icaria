@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.handler.GrinderItemStackHandler;
+import com.axanthic.icaria.common.handler.WrappedHandler;
 import com.axanthic.icaria.common.item.GearItem;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.container.data.GrinderContainerData;
@@ -33,6 +34,7 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
 
 import net.minecraftforge.common.capabilities.Capability;
@@ -43,6 +45,7 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.annotation.Nullable;
@@ -67,6 +70,15 @@ public class GrinderBlockEntity extends BlockEntity {
 	public Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
 
 	public SimpleContainer simpleContainer = new SimpleContainer(this.size);
+
+	public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedItemHandler = Map.of(
+		Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(0, stack))),
+		Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> index == 3 || index == 4 || index == 5, (index, stack) -> false)),
+		Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+		Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(1, stack))),
+		Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+		Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(2, stack)))
+	);
 
 	public GrinderBlockEntity(BlockPos pPos, BlockState pState) {
 		super(IcariaBlockEntityTypes.GRINDER.get(), pPos, pState);
@@ -161,6 +173,12 @@ public class GrinderBlockEntity extends BlockEntity {
 		}
 
 		Containers.dropContents(pLevel, this.worldPosition, this.simpleContainer);
+	}
+
+	@Override
+	public void invalidateCaps() {
+		super.invalidateCaps();
+		this.itemHandler.invalidate();
 	}
 
 	@Override
@@ -309,6 +327,27 @@ public class GrinderBlockEntity extends BlockEntity {
 
 	@Override
 	public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
-		return pCapability == ForgeCapabilities.ITEM_HANDLER ? this.itemHandler.cast() : super.getCapability(pCapability, pDirection);
+		if (pCapability == ForgeCapabilities.ITEM_HANDLER) {
+			if (pDirection == null) {
+				return this.itemHandler.cast();
+			} else if (this.directionWrappedItemHandler.containsKey(pDirection)) {
+				var facing = this.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);
+				if (pDirection == Direction.DOWN || pDirection == Direction.UP) {
+					return this.directionWrappedItemHandler.get(pDirection).cast();
+				}
+
+				if (facing == Direction.NORTH) {
+					return this.directionWrappedItemHandler.get(pDirection).cast();
+				} else if (facing == Direction.EAST) {
+					return this.directionWrappedItemHandler.get(pDirection.getCounterClockWise()).cast();
+				} else if (facing == Direction.SOUTH) {
+					return this.directionWrappedItemHandler.get(pDirection.getOpposite()).cast();
+				} else if (facing == Direction.WEST) {
+					return this.directionWrappedItemHandler.get(pDirection.getClockWise()).cast();
+				}
+			}
+		}
+
+		return super.getCapability(pCapability, pDirection);
 	}
 }

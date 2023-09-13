@@ -14,11 +14,11 @@ public class GrinderContainerData implements ContainerData {
     @Override
     public int get(int pIndex) {
         return switch (pIndex) {
-            default -> 0;
             case 0 -> this.blockEntity.maxFuel;
             case 1 -> this.blockEntity.fuel;
             case 2 -> this.blockEntity.maxProgress;
             case 3 -> this.blockEntity.progress;
+            default -> 0;
         };
     }
 
