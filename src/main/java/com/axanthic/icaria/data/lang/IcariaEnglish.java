@@ -788,7 +788,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.VANADIUMSTEEL_NUGGET.get(), "Vanadiumsteel Nugget");
 		this.add(IcariaItems.SIDEROS_NUGGET.get(), "Sideros Nugget");
 		this.add(IcariaItems.MOLYBDENUM_NUGGET.get(), "Molybdenum Nugget");
-		this.add(IcariaItems.MOLYBDENUMSTEEL_NUGGET.get(), "Molybdenum Nugget");
+		this.add(IcariaItems.MOLYBDENUMSTEEL_NUGGET.get(), "Molybdenumsteel Nugget");
 		this.add(IcariaItems.BLURIDIUM_NUGGET.get(), "Bluridium Nugget");
 
 		this.add(IcariaItems.CHALKOS_INGOT.get(), "Chalkos Ingot");
@@ -798,7 +798,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.VANADIUMSTEEL_INGOT.get(), "Vanadiumsteel Ingot");
 		this.add(IcariaItems.SIDEROS_INGOT.get(), "Sideros Ingot");
 		this.add(IcariaItems.MOLYBDENUM_INGOT.get(), "Molybdenum Ingot");
-		this.add(IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), "Molybdenum Ingot");
+		this.add(IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), "Molybdenumsteel Ingot");
 		this.add(IcariaItems.BLURIDIUM_INGOT.get(), "Bluridium Ingot");
 
 		this.add(IcariaItems.CHERT_TOOLS.sword.get(), "Chert Sword");
