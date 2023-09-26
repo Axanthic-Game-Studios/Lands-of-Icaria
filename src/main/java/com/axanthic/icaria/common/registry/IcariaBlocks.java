@@ -747,7 +747,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesStorageVase(MapColor pColor, SoundType pSound) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(pSound).destroyTime(1.25F).explosionResistance(4.2F).noOcclusion().requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.BLOCK).sound(pSound).destroyTime(1.25F).explosionResistance(4.2F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesLootVase(MapColor pColor, SoundType pSound) {
