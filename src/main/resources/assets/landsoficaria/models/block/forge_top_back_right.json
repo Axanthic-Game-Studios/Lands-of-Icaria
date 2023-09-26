@@ -1,4 +1,5 @@
 {
+	"ambientocclusion": false,
 	"textures": {
 		"forge": "landsoficaria:block/forge",
 		"particle": "landsoficaria:block/grainite",

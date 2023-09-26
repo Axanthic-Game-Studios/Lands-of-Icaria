@@ -105,13 +105,15 @@ public class ForgeBlock extends BaseEntityBlock {
         if (pState.getValue(BlockStateProperties.LIT)) {
             if (pState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_LEFT) {
                 var randomSource = pLevel.getRandom();
+                pLevel.addParticle(ParticleTypes.LARGE_SMOKE, pPos.getX() + this.getSmokeX(pState) + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 2.0D, pPos.getZ() + this.getSmokeZ(pState) + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
                 pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + this.getSmokeX(pState) + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 2.0D, pPos.getZ() + this.getSmokeZ(pState) + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
                 if (IcariaConfig.FORGE_SOUNDS.get() && pRandom.nextDouble() < 0.1D) {
                     pLevel.playLocalSound(pPos.getX() + this.getFlameX(pState), pPos.getY() + 1.0D, pPos.getZ() + this.getFlameZ(pState), SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
                 }
 
                 if (IcariaConfig.RENDER_FORGE_ITEMS.get()) {
-                    pLevel.addParticle(ParticleTypes.SMALL_FLAME, pPos.getX() + this.getFlameX(pState) + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 0.25D, pPos.getZ() + this.getFlameZ(pState) + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+                    pLevel.addParticle(ParticleTypes.FLAME, pPos.getX() + this.getFlameX(pState) + randomSource.nextDouble() / 4.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 0.25D, pPos.getZ() + this.getFlameZ(pState) + randomSource.nextDouble() / 4.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+                    pLevel.addParticle(ParticleTypes.SMALL_FLAME, pPos.getX() + this.getFlameX(pState) + randomSource.nextDouble() / 4.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 0.25D, pPos.getZ() + this.getFlameZ(pState) + randomSource.nextDouble() / 4.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
                 }
             }
         }

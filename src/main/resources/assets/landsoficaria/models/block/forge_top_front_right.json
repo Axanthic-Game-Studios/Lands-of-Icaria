@@ -1,11 +1,21 @@
 {
+	"ambientocclusion": false,
 	"textures": {
 		"forge": "landsoficaria:block/forge",
-		"particle": "landsoficaria:block/grainite",
 		"grainite_bricks": "landsoficaria:block/grainite_bricks",
-		"stripped_cypress_log_side": "landsoficaria:block/stripped_cypress_log_side"
+		"stripped_cypress_log_side": "landsoficaria:block/stripped_cypress_log_side",
+		"particle": "landsoficaria:block/grainite"
 	},
 	"elements": [
+		{
+			"from": [13, 0, 11],
+			"to": [16, 5, 12],
+			"faces": {
+				"north": {"uv": [8, 8, 11, 13], "texture": "#forge"},
+				"west": {"uv": [8, 8, 9, 13], "texture": "#forge"},
+				"up": {"uv": [8, 8, 11, 9], "texture": "#forge"}
+			}
+		},
 		{
 			"from": [12, 0, 14],
 			"to": [14, 15, 16],
