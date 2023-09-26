@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_molybdenumsteel_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:molybdenumsteel_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:molybdenumsteel_sword_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_molybdenumsteel_sword",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:molybdenumsteel_sword_forging"
+    ]
+  },
+  "sends_telemetry_event": false
+}

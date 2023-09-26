@@ -240,8 +240,8 @@ public class IcariaBlocks {
 
 	public static final RegistryObject<Block> KETTLE = IcariaBlocks.register("kettle", () -> new KettleBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
 	public static final RegistryObject<Block> GRINDER = IcariaBlocks.register("grinder", () -> new GrinderBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
-	public static final RegistryObject<Block> KILN = IcariaBlocks.register("kiln", () -> new KilnBlock(IcariaBlocks.propertiesKiln(MapColor.WOOD, SoundType.STONE)));
-	public static final RegistryObject<Block> FORGE = IcariaBlocks.register("forge", () -> new ForgeBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
+	public static final RegistryObject<Block> KILN = IcariaBlocks.register("kiln", () -> new KilnBlock(IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE)));
+	public static final RegistryObject<Block> FORGE = IcariaBlocks.register("forge", () -> new ForgeBlock(IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE)));
 
 	public static final RegistryObject<Block> CHEST = IcariaBlocks.register("chest", () -> new IcariaChestBlock(IcariaBlocks.propertiesChest(MapColor.COLOR_BROWN, SoundType.WOOD), IcariaBlockEntityTypes.CHEST::get));
 	public static final RegistryObject<Block> TRAPPED_CHEST = IcariaBlocks.register("trapped_chest", () -> new IcariaTrappedChestBlock(IcariaBlocks.propertiesChest(MapColor.COLOR_BROWN, SoundType.WOOD), IcariaBlockEntityTypes.TRAPPED_CHEST::get));
@@ -738,8 +738,8 @@ public class IcariaBlocks {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(pSound).destroyTime(1.5F).explosionResistance(6.0F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
-	public static BlockBehaviour.Properties propertiesKiln(MapColor pColor, SoundType pSound) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(pSound).destroyTime(1.5F).explosionResistance(6.0F).lightLevel(IcariaBlocks.litBlockEmission(13)).noOcclusion().requiresCorrectToolForDrops();
+	public static BlockBehaviour.Properties propertiesWorkstation(MapColor pColor, SoundType pSound) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.BLOCK).sound(pSound).destroyTime(1.5F).explosionResistance(6.0F).lightLevel(IcariaBlocks.litBlockEmission(13)).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesChest(MapColor pColor, SoundType pSound) {

@@ -1,0 +1,123 @@
+{
+	"textures": {
+		"forge": "landsoficaria:block/forge",
+		"particle": "landsoficaria:block/grainite",
+		"grainite": "landsoficaria:block/grainite",
+		"grainite_bricks": "landsoficaria:block/grainite_bricks",
+		"loam_bricks": "landsoficaria:block/loam_bricks"
+	},
+	"elements": [
+		{
+			"from": [3, 0, 3],
+			"to": [13, 3, 9],
+			"faces": {
+				"north": {"uv": [0, 0, 10, 3], "texture": "#forge"},
+				"east": {"uv": [0, 0, 6, 3], "texture": "#forge"},
+				"south": {"uv": [0, 0, 10, 3], "texture": "#forge"},
+				"west": {"uv": [0, 0, 6, 3], "texture": "#forge"},
+				"up": {"uv": [0, 0, 10, 6], "texture": "#forge"},
+				"down": {"uv": [0, 0, 10, 6], "texture": "#forge"}
+			}
+		},
+		{
+			"from": [0, 0, 12],
+			"to": [4, 15, 14],
+			"faces": {
+				"north": {"uv": [12, 1, 16, 16], "texture": "#grainite_bricks"},
+				"east": {"uv": [2, 1, 4, 16], "texture": "#grainite_bricks"},
+				"south": {"uv": [0, 1, 4, 16], "texture": "#grainite_bricks"},
+				"up": {"uv": [0, 12, 4, 14], "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [2, 0, 14],
+			"to": [4, 15, 16],
+			"faces": {
+				"east": {"uv": [0, 1, 2, 16], "texture": "#grainite_bricks"},
+				"west": {"uv": [14, 1, 16, 16], "texture": "#grainite_bricks"},
+				"up": {"uv": [2, 14, 4, 16], "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [4, 10, 3],
+			"to": [13, 14, 16],
+			"faces": {
+				"north": {"uv": [3, 2, 12, 6], "texture": "#grainite"},
+				"east": {"uv": [0, 2, 13, 6], "texture": "#grainite"},
+				"west": {"uv": [3, 2, 16, 6], "texture": "#grainite"},
+				"up": {"uv": [4, 3, 13, 16], "texture": "#grainite"},
+				"down": {"uv": [3, 3, 12, 16], "rotation": 180, "texture": "#grainite"}
+			}
+		},
+		{
+			"from": [3, 10, 3],
+			"to": [4, 14, 12],
+			"faces": {
+				"north": {"uv": [12, 2, 13, 6], "texture": "#grainite"},
+				"west": {"uv": [3, 2, 12, 6], "texture": "#grainite"},
+				"up": {"uv": [3, 3, 4, 12], "texture": "#grainite"},
+				"down": {"uv": [12, 7, 13, 16], "rotation": 180, "texture": "#grainite"}
+			}
+		},
+		{
+			"from": [5.00391, 3.175, 2.775],
+			"to": [10.97656, 10.175, 14.775],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [0, 0, 16]},
+			"faces": {
+				"east": {"uv": [0, 0, 12, 7], "texture": "#grainite"},
+				"west": {"uv": [0, 0, 12, 7], "texture": "#grainite"},
+				"down": {"uv": [0, 0, 6, 12], "rotation": 180, "texture": "#grainite"}
+			}
+		},
+		{
+			"from": [0, 15, 11],
+			"to": [5, 16, 13],
+			"faces": {
+				"north": {"uv": [11, 0, 16, 1], "texture": "#grainite_bricks"},
+				"east": {"uv": [3, 0, 5, 1], "texture": "#grainite_bricks"},
+				"south": {"uv": [0, 0, 5, 1], "texture": "#grainite_bricks"},
+				"up": {"uv": [0, 11, 5, 13], "texture": "#grainite_bricks"},
+				"down": {"uv": [11, 11, 16, 13], "rotation": 180, "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [3, 15, 13],
+			"to": [5, 16, 16],
+			"faces": {
+				"east": {"uv": [0, 0, 3, 1], "texture": "#grainite_bricks"},
+				"west": {"uv": [13, 0, 16, 1], "texture": "#grainite_bricks"},
+				"up": {"uv": [3, 13, 5, 16], "texture": "#grainite_bricks"},
+				"down": {"uv": [11, 13, 13, 16], "rotation": 180, "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [5, 14, 5],
+			"to": [11, 16, 11],
+			"faces": {
+				"north": {"uv": [5, 0, 11, 2], "texture": "#loam_bricks"},
+				"east": {"uv": [5, 0, 11, 2], "texture": "#loam_bricks"},
+				"south": {"uv": [5, 0, 11, 2], "texture": "#loam_bricks"},
+				"west": {"uv": [5, 0, 11, 2], "texture": "#loam_bricks"},
+				"up": {"uv": [5, 5, 11, 11], "texture": "#loam_bricks"}
+			}
+		},
+		{
+			"from": [5.00781, 8, 5],
+			"to": [10.97266, 10, 11],
+			"faces": {
+				"north": {"uv": [5, 6, 11, 8], "texture": "#grainite"},
+				"east": {"uv": [5, 6, 11, 8], "texture": "#grainite"},
+				"west": {"uv": [5, 6, 11, 8], "texture": "#grainite"}
+			}
+		},
+		{
+			"from": [0, 10, 11],
+			"to": [3, 11, 12],
+			"faces": {
+				"north": {"uv": [8, 8, 11, 9], "texture": "#forge"},
+				"up": {"uv": [8, 8, 11, 9], "rotation": 180, "texture": "#forge"},
+				"down": {"uv": [8, 8, 11, 9], "rotation": 180, "texture": "#forge"}
+			}
+		}
+	]
+}

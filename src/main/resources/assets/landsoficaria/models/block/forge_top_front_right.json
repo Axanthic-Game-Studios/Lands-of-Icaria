@@ -1,0 +1,123 @@
+{
+	"textures": {
+		"forge": "landsoficaria:block/forge",
+		"particle": "landsoficaria:block/grainite",
+		"grainite_bricks": "landsoficaria:block/grainite_bricks",
+		"stripped_cypress_log_side": "landsoficaria:block/stripped_cypress_log_side"
+	},
+	"elements": [
+		{
+			"from": [12, 0, 14],
+			"to": [14, 15, 16],
+			"faces": {
+				"east": {"uv": [0, 2, 2, 16], "texture": "#grainite_bricks"},
+				"west": {"uv": [14, 1, 16, 16], "texture": "#grainite_bricks"},
+				"up": {"uv": [12, 14, 14, 16], "rotation": 180, "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [11, 15, 13],
+			"to": [13, 16, 16],
+			"faces": {
+				"east": {"uv": [0, 0, 3, 1], "texture": "#grainite_bricks"},
+				"west": {"uv": [13, 0, 16, 1], "texture": "#grainite_bricks"},
+				"up": {"uv": [11, 13, 13, 16], "texture": "#grainite_bricks"},
+				"down": {"uv": [3, 13, 5, 16], "rotation": 180, "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [12, 0, 12],
+			"to": [16, 15, 14],
+			"faces": {
+				"north": {"uv": [0, 1, 4, 16], "texture": "#grainite_bricks"},
+				"south": {"uv": [12, 1, 16, 16], "texture": "#grainite_bricks"},
+				"west": {"uv": [12, 1, 14, 16], "texture": "#grainite_bricks"},
+				"up": {"uv": [12, 12, 16, 14], "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [11, 15, 11],
+			"to": [16, 16, 13],
+			"faces": {
+				"north": {"uv": [0, 0, 5, 1], "texture": "#grainite_bricks"},
+				"south": {"uv": [11, 0, 16, 1], "texture": "#grainite_bricks"},
+				"west": {"uv": [11, 0, 13, 1], "texture": "#grainite_bricks"},
+				"up": {"uv": [11, 11, 16, 13], "texture": "#grainite_bricks"},
+				"down": {"uv": [0, 11, 5, 13], "rotation": 180, "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [4, 10, 11],
+			"to": [12, 11, 12],
+			"faces": {
+				"north": {"uv": [8, 8, 16, 9], "texture": "#forge"},
+				"south": {"uv": [8, 8, 16, 9], "texture": "#forge"},
+				"up": {"uv": [8, 8, 16, 9], "rotation": 180, "texture": "#forge"},
+				"down": {"uv": [8, 8, 16, 9], "rotation": 180, "texture": "#forge"}
+			}
+		},
+		{
+			"from": [4, 10, 13],
+			"to": [12, 11, 14],
+			"faces": {
+				"north": {"uv": [8, 9, 16, 10], "texture": "#forge"},
+				"south": {"uv": [8, 9, 16, 10], "texture": "#forge"},
+				"up": {"uv": [8, 9, 16, 10], "rotation": 180, "texture": "#forge"},
+				"down": {"uv": [8, 9, 16, 10], "rotation": 180, "texture": "#forge"}
+			}
+		},
+		{
+			"from": [4, 10, 15],
+			"to": [12, 11, 16],
+			"faces": {
+				"north": {"uv": [8, 10, 16, 11], "texture": "#forge"},
+				"south": {"uv": [8, 10, 16, 11], "texture": "#forge"},
+				"up": {"uv": [8, 10, 16, 11], "rotation": 180, "texture": "#forge"},
+				"down": {"uv": [8, 10, 16, 11], "rotation": 180, "texture": "#forge"}
+			}
+		},
+		{
+			"from": [12, 10, 11],
+			"to": [16, 11, 12],
+			"faces": {
+				"north": {"uv": [8, 8, 12, 9], "texture": "#forge"},
+				"up": {"uv": [8, 8, 12, 9], "rotation": 180, "texture": "#forge"},
+				"down": {"uv": [8, 8, 12, 9], "rotation": 180, "texture": "#forge"}
+			}
+		},
+		{
+			"from": [3, 10, 11],
+			"to": [4, 11, 16],
+			"faces": {
+				"north": {"uv": [8, 8, 9, 9], "texture": "#forge"},
+				"east": {"uv": [8, 8, 13, 9], "texture": "#forge"},
+				"west": {"uv": [8, 8, 13, 9], "texture": "#forge"},
+				"up": {"uv": [8, 8, 9, 13], "texture": "#forge"},
+				"down": {"uv": [8, 8, 9, 13], "texture": "#forge"}
+			}
+		},
+		{
+			"from": [8, 11, 10],
+			"to": [11, 14, 15],
+			"faces": {
+				"north": {"uv": [0, 8, 3, 11], "texture": "#forge"},
+				"east": {"uv": [0, 8, 5, 11], "texture": "#forge"},
+				"south": {"uv": [0, 8, 3, 11], "texture": "#forge"},
+				"west": {"uv": [0, 8, 5, 11], "texture": "#forge"},
+				"up": {"uv": [0, 8, 3, 13], "texture": "#forge"},
+				"down": {"uv": [0, 8, 3, 13], "texture": "#forge"}
+			}
+		},
+		{
+			"from": [9, 5, 12],
+			"to": [10, 11, 13],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 6], "texture": "#stripped_cypress_log_side"},
+				"east": {"uv": [0, 0, 1, 6], "texture": "#stripped_cypress_log_side"},
+				"south": {"uv": [0, 0, 1, 6], "texture": "#stripped_cypress_log_side"},
+				"west": {"uv": [0, 0, 1, 6], "texture": "#stripped_cypress_log_side"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#stripped_cypress_log_side"}
+			}
+		}
+	]
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:vanadiumsteel_chestplate_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vanadiumsteel_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:vanadiumsteel_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_vanadiumsteel_chestplate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:vanadiumsteel_chestplate_forging"
+    ]
+  },
+  "sends_telemetry_event": false
+}

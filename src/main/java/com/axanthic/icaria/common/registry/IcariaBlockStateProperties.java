@@ -1,6 +1,9 @@
 package com.axanthic.icaria.common.registry;
 
+import com.axanthic.icaria.common.util.Corner;
+
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 public class IcariaBlockStateProperties {
@@ -14,6 +17,8 @@ public class IcariaBlockStateProperties {
     public static final BooleanProperty TEXT_EAST = BooleanProperty.create("text_east");
     public static final BooleanProperty TEXT_SOUTH = BooleanProperty.create("text_south");
     public static final BooleanProperty TEXT_WEST = BooleanProperty.create("text_west");
+
+    public static final EnumProperty<Corner> CORNER = EnumProperty.create("corner", Corner.class);
 
     public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);
     public static final IntegerProperty GRINDER_ROTATION = IntegerProperty.create("grinder_rotation", 0, 90);

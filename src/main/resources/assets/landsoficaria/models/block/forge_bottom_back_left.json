@@ -1,0 +1,68 @@
+{
+	"textures": {
+		"particle": "landsoficaria:block/grainite",
+		"grainite": "landsoficaria:block/grainite",
+		"grainite_bricks": "landsoficaria:block/grainite_bricks",
+		"loam_bricks": "landsoficaria:block/loam_bricks",
+		"voidshale": "landsoficaria:block/voidshale"
+	},
+	"elements": [
+		{
+			"from": [2, 14, 0],
+			"to": [4, 16, 2],
+			"faces": {
+				"west": {"uv": [0, 0, 2, 2], "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [0, 14, 4],
+			"to": [4, 16, 14],
+			"faces": {
+				"south": {"uv": [0, 0, 4, 2], "texture": "#grainite"}
+			}
+		},
+		{
+			"from": [0, 14, 2],
+			"to": [4, 16, 4],
+			"faces": {
+				"north": {"uv": [12, 0, 16, 2], "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [15, 2, 15],
+			"faces": {
+				"east": {"uv": [1, 14, 16, 16], "texture": "#voidshale"},
+				"south": {"uv": [0, 14, 15, 16], "texture": "#voidshale"},
+				"down": {"uv": [1, 0, 16, 15], "rotation": 180, "texture": "#voidshale"}
+			}
+		},
+		{
+			"from": [0, 12, 0],
+			"to": [15, 14, 15],
+			"faces": {
+				"east": {"uv": [1, 2, 16, 4], "texture": "#voidshale"},
+				"south": {"uv": [0, 2, 15, 4], "texture": "#voidshale"},
+				"up": {"uv": [0, 0, 15, 15], "texture": "#voidshale"}
+			}
+		},
+		{
+			"from": [0, 2, 0],
+			"to": [15, 12, 15],
+			"faces": {
+				"north": {"uv": [1, 4, 16, 14], "texture": "#loam_bricks"},
+				"east": {"uv": [1, 4, 16, 14], "texture": "#loam_bricks"},
+				"south": {"uv": [0, 4, 15, 14], "texture": "#loam_bricks"}
+			}
+		},
+		{
+			"from": [4, 14, 0],
+			"to": [14, 16, 14],
+			"faces": {
+				"north": {"uv": [2, 0, 12, 2], "texture": "#grainite"},
+				"east": {"uv": [2, 0, 16, 2], "texture": "#grainite"},
+				"south": {"uv": [4, 0, 14, 2], "texture": "#grainite"}
+			}
+		}
+	]
+}

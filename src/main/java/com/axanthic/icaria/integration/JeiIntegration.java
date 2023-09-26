@@ -1,12 +1,14 @@
 package com.axanthic.icaria.integration;
 
 import com.axanthic.icaria.common.recipe.FiringRecipe;
+import com.axanthic.icaria.common.recipe.ForgingRecipe;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.integration.jei.category.FiringRecipeCategory;
+import com.axanthic.icaria.integration.jei.category.ForgingRecipeCategory;
 import com.axanthic.icaria.integration.jei.category.GrinderRecipeCategory;
 
 import mezz.jei.api.IModPlugin;
@@ -36,11 +38,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @JeiPlugin
 public class JeiIntegration implements IModPlugin {
     public static final RecipeType<FiringRecipe> FIRING = RecipeType.create(IcariaInfo.ID, "firing", FiringRecipe.class);
+    public static final RecipeType<ForgingRecipe> FORGING = RecipeType.create(IcariaInfo.ID, "forging", ForgingRecipe.class);
     public static final RecipeType<GrindingRecipe> GRINDING = RecipeType.create(IcariaInfo.ID, "grinding", GrindingRecipe.class);
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {
         registry.addRecipeCategories(new FiringRecipeCategory(registry.getJeiHelpers().getGuiHelper()));
+        registry.addRecipeCategories(new ForgingRecipeCategory(registry.getJeiHelpers().getGuiHelper()));
         registry.addRecipeCategories(new GrinderRecipeCategory(registry.getJeiHelpers().getGuiHelper()));
     }
 
@@ -48,6 +52,7 @@ public class JeiIntegration implements IModPlugin {
     public void registerRecipeCatalysts(IRecipeCatalystRegistration pRegistration) {
         pRegistration.addRecipeCatalyst(new ItemStack(IcariaItems.LAUREL_CRAFTING_TABLE.get()), RecipeTypes.CRAFTING);
         pRegistration.addRecipeCatalyst(new ItemStack(IcariaItems.KILN.get()), JeiIntegration.FIRING);
+        pRegistration.addRecipeCatalyst(new ItemStack(IcariaItems.FORGE.get()), JeiIntegration.FORGING);
         pRegistration.addRecipeCatalyst(new ItemStack(IcariaItems.GRINDER.get()), JeiIntegration.GRINDING);
     }
 
@@ -60,13 +65,16 @@ public class JeiIntegration implements IModPlugin {
         }
 
         List<FiringRecipe> firingRecipes = List.of();
+        List<ForgingRecipe> forgingRecipes = List.of();
         List<GrindingRecipe> grindingRecipes = List.of();
         if (recipeManager != null) {
             firingRecipes = recipeManager.getAllRecipesFor(IcariaRecipeTypes.FIRING.get());
+            forgingRecipes = recipeManager.getAllRecipesFor(IcariaRecipeTypes.FORGING.get());
             grindingRecipes = recipeManager.getAllRecipesFor(IcariaRecipeTypes.GRINDING.get());
         }
 
         pRegistration.addRecipes(JeiIntegration.FIRING, firingRecipes);
+        pRegistration.addRecipes(JeiIntegration.FORGING, forgingRecipes);
         pRegistration.addRecipes(JeiIntegration.GRINDING, grindingRecipes);
 
         this.anvilRecipes(pRegistration, IcariaItems.CHERT_TOOLS.sword.get(), IcariaItems.CHERT.get());

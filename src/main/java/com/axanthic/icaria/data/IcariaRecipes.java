@@ -1,6 +1,7 @@
 package com.axanthic.icaria.data;
 
 import com.axanthic.icaria.common.recipe.builder.FiringRecipeBuilder;
+import com.axanthic.icaria.common.recipe.builder.ForgingRecipeBuilder;
 import com.axanthic.icaria.common.recipe.builder.GrindingRecipeBuilder;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaStoneDecoItems;
@@ -29,6 +30,81 @@ public class IcariaRecipes extends RecipeProvider {
 	public void buildRecipes(Consumer<FinishedRecipe> pConsumer) {
 		this.firingRecipe(pConsumer, IcariaItems.GRAINEL.get(), IcariaItems.GRAINGLASS.get(), 0.1F, 200);
 		this.firingRecipe(pConsumer, IcariaItems.SILKSAND.get(), IcariaItems.SILKGLASS.get(), 0.1F, 200);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_INGOT.get(), IcariaItems.CHALKOS_INGOT.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.ORICHALCUM_INGOT.get(), 0.3F, 200, 3);
+		this.forgingRecipe(pConsumer, IcariaItems.LIGNITE.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.VANADIUM_INGOT.get(), IcariaItems.VANADIUMSTEEL_INGOT.get(), 0.2F, 150, 2);
+		this.forgingRecipe(pConsumer, IcariaItems.ANTHRACITE.get(), IcariaItems.MOLYBDENUM_INGOT.get(), IcariaItems.SIDEROS_INGOT.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), 0.2F, 150, 2);
+		this.forgingRecipe(pConsumer, IcariaItems.LIGNITE_ORE.get(), IcariaItems.LIGNITE.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_ORE.get(), IcariaItems.CHALKOS_INGOT.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.KASSITEROS_ORE.get(), IcariaItems.KASSITEROS_INGOT.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.DOLOMITE_ORE.get(), IcariaItems.DOLOMITE.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.VANADIUM_ORE.get(), IcariaItems.VANADIUM_INGOT.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.SLIVER_ORE.get(), IcariaItems.SLIVER.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.SIDEROS_ORE.get(), IcariaItems.SIDEROS_INGOT.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.ANTHRACITE_ORE.get(), IcariaItems.ANTHRACITE.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.MOLYBDENUM_ORE.get(), IcariaItems.MOLYBDENUM_INGOT.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.RAW_CHALKOS.get(), IcariaItems.CHALKOS_INGOT.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.RAW_KASSITEROS.get(), IcariaItems.KASSITEROS_INGOT.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.RAW_VANADIUM.get(), IcariaItems.VANADIUM_INGOT.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.RAW_SIDEROS.get(), IcariaItems.SIDEROS_INGOT.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.RAW_MOLYBDENUM.get(), IcariaItems.MOLYBDENUM_INGOT.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_TOOLS.sword.get(), IcariaItems.CHALKOS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_TOOLS.dagger.get(), IcariaItems.CHALKOS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_TOOLS.shovel.get(), IcariaItems.CHALKOS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_TOOLS.pickaxe.get(), IcariaItems.CHALKOS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_TOOLS.axe.get(), IcariaItems.CHALKOS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_TOOLS.scythe.get(), IcariaItems.CHALKOS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_TOOLS.bident.get(), IcariaItems.CHALKOS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.KASSITEROS_TOOLS.sword.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.KASSITEROS_TOOLS.dagger.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.KASSITEROS_TOOLS.shovel.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.KASSITEROS_TOOLS.pickaxe.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.KASSITEROS_TOOLS.axe.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.KASSITEROS_TOOLS.scythe.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.KASSITEROS_TOOLS.bident.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.ORICHALCUM_TOOLS.sword.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.ORICHALCUM_TOOLS.dagger.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.ORICHALCUM_TOOLS.shovel.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.ORICHALCUM_TOOLS.pickaxe.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.ORICHALCUM_TOOLS.axe.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.ORICHALCUM_TOOLS.scythe.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.ORICHALCUM_TOOLS.bident.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_TOOLS.sword.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_TOOLS.dagger.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_TOOLS.shovel.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_TOOLS.pickaxe.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_TOOLS.axe.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_TOOLS.scythe.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_TOOLS.bident.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.SIDEROS_TOOLS.sword.get(), IcariaItems.SIDEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.SIDEROS_TOOLS.dagger.get(), IcariaItems.SIDEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.SIDEROS_TOOLS.shovel.get(), IcariaItems.SIDEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.SIDEROS_TOOLS.pickaxe.get(), IcariaItems.SIDEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.SIDEROS_TOOLS.axe.get(), IcariaItems.SIDEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.SIDEROS_TOOLS.scythe.get(), IcariaItems.SIDEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.SIDEROS_TOOLS.bident.get(), IcariaItems.SIDEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.MOLYBDENUMSTEEL_TOOLS.sword.get(), IcariaItems.MOLYBDENUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.MOLYBDENUMSTEEL_TOOLS.dagger.get(), IcariaItems.MOLYBDENUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.MOLYBDENUMSTEEL_TOOLS.shovel.get(), IcariaItems.MOLYBDENUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.MOLYBDENUMSTEEL_TOOLS.pickaxe.get(), IcariaItems.MOLYBDENUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.MOLYBDENUMSTEEL_TOOLS.axe.get(), IcariaItems.MOLYBDENUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.MOLYBDENUMSTEEL_TOOLS.scythe.get(), IcariaItems.MOLYBDENUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.MOLYBDENUMSTEEL_TOOLS.bident.get(), IcariaItems.MOLYBDENUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_ARMOR.helmet.get(), IcariaItems.CHALKOS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_ARMOR.chestplate.get(), IcariaItems.CHALKOS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_ARMOR.leggings.get(), IcariaItems.CHALKOS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_ARMOR.boots.get(), IcariaItems.CHALKOS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.KASSITEROS_ARMOR.helmet.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.KASSITEROS_ARMOR.chestplate.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.KASSITEROS_ARMOR.leggings.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.KASSITEROS_ARMOR.boots.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.ORICHALCUM_HELMET.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.ORICHALCUM_CHESTPLATE.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.ORICHALCUM_LEGGINGS.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.ORICHALCUM_BOOTS.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_ARMOR.helmet.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_ARMOR.chestplate.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_ARMOR.leggings.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_ARMOR.boots.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
 		this.firingRecipe(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BRICK.get(), 0.1F, 100);
 		this.firingRecipe(pConsumer, IcariaItems.UNFIRED_STORAGE_VASE.get(), IcariaItems.STORAGE_VASE.get(), 0.2F, 200);
 		this.firingRecipe(pConsumer, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get(), IcariaItems.WHITE_STORAGE_VASE.get(), 0.2F, 200);
@@ -401,17 +477,6 @@ public class IcariaRecipes extends RecipeProvider {
 		this.dyesFromFlowerRecipe(pConsumer, IcariaItems.ORANGE_BROMELIA.get(), Items.ORANGE_DYE);
 		this.dyesFromFlowerRecipe(pConsumer, IcariaItems.PINK_BROMELIA.get(), Items.PINK_DYE);
 		this.dyesFromFlowerRecipe(pConsumer, IcariaItems.PURPLE_BROMELIA.get(), Items.PURPLE_DYE);
-
-		this.gemSmeltingRecipes(pConsumer, IcariaItems.LIGNITE_ORE.get(), IcariaItems.LIGNITE.get());
-		this.gemSmeltingRecipes(pConsumer, IcariaItems.DOLOMITE_ORE.get(), IcariaItems.DOLOMITE.get());
-		this.gemSmeltingRecipes(pConsumer, IcariaItems.SLIVER_ORE.get(), IcariaItems.SLIVER.get());
-		this.gemSmeltingRecipes(pConsumer, IcariaItems.ANTHRACITE_ORE.get(), IcariaItems.ANTHRACITE.get());
-
-		this.ingotSmeltingRecipes(pConsumer, IcariaItems.CHALKOS_ORE.get(), IcariaItems.RAW_CHALKOS.get(), IcariaItems.CHALKOS_INGOT.get());
-		this.ingotSmeltingRecipes(pConsumer, IcariaItems.KASSITEROS_ORE.get(), IcariaItems.RAW_KASSITEROS.get(), IcariaItems.KASSITEROS_INGOT.get());
-		this.ingotSmeltingRecipes(pConsumer, IcariaItems.VANADIUM_ORE.get(), IcariaItems.RAW_VANADIUM.get(), IcariaItems.VANADIUM_INGOT.get());
-		this.ingotSmeltingRecipes(pConsumer, IcariaItems.SIDEROS_ORE.get(), IcariaItems.RAW_SIDEROS.get(), IcariaItems.SIDEROS_INGOT.get());
-		this.ingotSmeltingRecipes(pConsumer, IcariaItems.MOLYBDENUM_ORE.get(), IcariaItems.RAW_MOLYBDENUM.get(), IcariaItems.MOLYBDENUM_INGOT.get());
 
 		this.toolRecipes(pConsumer, IcariaItems.CHERT.get(), IcariaItems.CHERT_TOOLS.sword.get(), IcariaItems.CHERT_TOOLS.dagger.get(), IcariaItems.CHERT_TOOLS.shovel.get(), IcariaItems.CHERT_TOOLS.pickaxe.get(), IcariaItems.CHERT_TOOLS.axe.get(), IcariaItems.CHERT_TOOLS.scythe.get(), IcariaItems.CHERT_TOOLS.bident.get());
 		this.toolRecipes(pConsumer, IcariaItems.CHALKOS_INGOT.get(), IcariaItems.CHALKOS_TOOLS.sword.get(), IcariaItems.CHALKOS_TOOLS.dagger.get(), IcariaItems.CHALKOS_TOOLS.shovel.get(), IcariaItems.CHALKOS_TOOLS.pickaxe.get(), IcariaItems.CHALKOS_TOOLS.axe.get(), IcariaItems.CHALKOS_TOOLS.scythe.get(), IcariaItems.CHALKOS_TOOLS.bident.get());
@@ -1253,6 +1318,18 @@ public class IcariaRecipes extends RecipeProvider {
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.SUGAR) + "_from_vine_reed");
 	}
 
+	public void forgingRecipe(Consumer<FinishedRecipe> pConsumer, Item pResourceA, Item pResourceB, Item pResourceC, Item pResult, float pExperience, int pTime, int pCount) {
+		ForgingRecipeBuilder.forging(pResult, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pExperience, pTime, pCount)
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_forging");
+	}
+
+	public void forgingRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult, float pExperience, int pTime, int pCount) {
+		ForgingRecipeBuilder.forging(pResult, Ingredient.of(pResource), Ingredient.of(), Ingredient.of(), pExperience, pTime, pCount)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResource) + "_forging");
+	}
+
 	public void firingRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult, float pExperience, int pTime) {
 		FiringRecipeBuilder.firing(pResult, Ingredient.of(pResource), pExperience, pTime)
 			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
@@ -1497,28 +1574,6 @@ public class IcariaRecipes extends RecipeProvider {
 			.requires(pResource)
 			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_" + ForgeRegistries.ITEMS.getKey(pResource).getPath());
-	}
-
-	public void gemSmeltingRecipes(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult) {
-		SimpleCookingRecipeBuilder.smelting((Ingredient.of(pResource)), RecipeCategory.MISC, pResult, 0.7F, 200)
-			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_smelting");
-
-		SimpleCookingRecipeBuilder.blasting((Ingredient.of(pResource)), RecipeCategory.MISC, pResult, 0.7F, 100)
-			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_blasting");
-	}
-
-	public void ingotSmeltingRecipes(Consumer<FinishedRecipe> pConsumer, Item pOre, Item pRaw, Item pResult) {
-		SimpleCookingRecipeBuilder.smelting((Ingredient.of(pOre, pRaw)), RecipeCategory.MISC, pResult, 0.7F, 200)
-			.unlockedBy("has_" + pOre, RecipeProvider.has(pOre))
-			.unlockedBy("has_" + pRaw, RecipeProvider.has(pRaw))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_smelting");
-
-		SimpleCookingRecipeBuilder.blasting((Ingredient.of(pOre, pRaw)), RecipeCategory.MISC, pResult, 0.7F, 100)
-			.unlockedBy("has_" + pOre, RecipeProvider.has(pOre))
-			.unlockedBy("has_" + pRaw, RecipeProvider.has(pRaw))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_blasting");
 	}
 
 	public void toolRecipes(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pSword, Item pDagger, Item pShovel, Item pPickaxe, Item pAxe, Item pScythe, Item pBident) {

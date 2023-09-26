@@ -13,6 +13,8 @@ public class IcariaResourceLocations {
     public static final ResourceLocation MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID + ":block/mediterranean_water");
 
     // GUI
+    public static final ResourceLocation FORGE = new ResourceLocation(IcariaInfo.ID, "textures/gui/forge.png");
+    public static final ResourceLocation FORGE_CATEGORY = new ResourceLocation(IcariaInfo.ID, "textures/gui/jei/forge.png");
     public static final ResourceLocation GRINDER = new ResourceLocation(IcariaInfo.ID, "textures/gui/grinder.png");
     public static final ResourceLocation GRINDER_CATEGORY = new ResourceLocation(IcariaInfo.ID, "textures/gui/jei/grinder.png");
     public static final ResourceLocation KILN = new ResourceLocation(IcariaInfo.ID, "textures/gui/kiln.png");

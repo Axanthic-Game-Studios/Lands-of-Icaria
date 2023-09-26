@@ -698,8 +698,9 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
 		// CATEGORIES
-		this.add("category" + "." + IcariaInfo.ID + "." + "grinding", "Grinding");
 		this.add("category" + "." + IcariaInfo.ID + "." + "firing", "Firing");
+		this.add("category" + "." + IcariaInfo.ID + "." + "forging", "Forging");
+		this.add("category" + "." + IcariaInfo.ID + "." + "grinding", "Grinding");
 
 		// EFFECTS
 		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), "Blindness Immunity");
@@ -1005,6 +1006,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "items", "Lands of Icaria Items");
 
 		// MENU TYPES
+		this.add("menu" + "." + IcariaInfo.ID + "." + "forge", "Forge");
 		this.add("menu" + "." + IcariaInfo.ID + "." + "grinder", "Grinder");
 		this.add("menu" + "." + IcariaInfo.ID + "." + "kiln", "Kiln");
 		this.add("menu" + "." + IcariaInfo.ID + "." + "storage_vase", "Storage Vase");

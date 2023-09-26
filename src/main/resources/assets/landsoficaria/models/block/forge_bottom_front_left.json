@@ -1,0 +1,114 @@
+{
+	"textures": {
+		"forge": "landsoficaria:block/forge",
+		"particle": "landsoficaria:block/grainite",
+		"grainite_bricks": "landsoficaria:block/grainite_bricks",
+		"loam_bricks": "landsoficaria:block/loam_bricks",
+		"voidshale": "landsoficaria:block/voidshale"
+	},
+	"elements": [
+		{
+			"from": [0, 9, 3],
+			"to": [13, 12, 16],
+			"faces": {
+				"down": {"uv": [3, 3, 16, 16], "rotation": 180, "texture": "#loam_bricks"}
+			}
+		},
+		{
+			"from": [0, 0, 1],
+			"to": [15, 2, 16],
+			"faces": {
+				"north": {"uv": [1, 14, 16, 16], "texture": "#voidshale"},
+				"east": {"uv": [0, 14, 15, 16], "texture": "#voidshale"},
+				"up": {"uv": [1, 0, 16, 15], "texture": "#voidshale"},
+				"down": {"uv": [1, 1, 16, 16], "rotation": 180, "texture": "#voidshale"}
+			}
+		},
+		{
+			"from": [6, 2, 1],
+			"to": [15, 7, 3],
+			"faces": {
+				"north": {"uv": [1, 9, 10, 14], "texture": "#loam_bricks"},
+				"east": {"uv": [13, 9, 15, 14], "texture": "#loam_bricks"},
+				"south": {"uv": [6, 9, 15, 14], "texture": "#loam_bricks"},
+				"west": {"uv": [1, 9, 3, 14], "texture": "#loam_bricks"}
+			}
+		},
+		{
+			"from": [0, 7, 1],
+			"to": [15, 12, 3],
+			"faces": {
+				"north": {"uv": [1, 4, 16, 9], "texture": "#loam_bricks"},
+				"east": {"uv": [13, 4, 15, 9], "texture": "#loam_bricks"},
+				"south": {"uv": [0, 4, 15, 9], "texture": "#loam_bricks"},
+				"down": {"uv": [1, 1, 16, 3], "texture": "#loam_bricks"}
+			}
+		},
+		{
+			"from": [0, 12, 1],
+			"to": [15, 14, 16],
+			"faces": {
+				"north": {"uv": [1, 2, 16, 4], "texture": "#voidshale"},
+				"east": {"uv": [0, 2, 15, 4], "texture": "#voidshale"},
+				"up": {"uv": [0, 1, 15, 16], "texture": "#voidshale"}
+			}
+		},
+		{
+			"from": [13, 2, 3],
+			"to": [15, 12, 16],
+			"faces": {
+				"east": {"uv": [0, 4, 13, 14], "texture": "#loam_bricks"},
+				"west": {"uv": [3, 4, 16, 14], "texture": "#loam_bricks"}
+			}
+		},
+		{
+			"from": [15, 3, 5],
+			"to": [16, 9, 11],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 6], "texture": "#forge"},
+				"east": {"uv": [0, 0, 6, 6], "texture": "#forge"},
+				"south": {"uv": [0, 0, 1, 6], "texture": "#forge"},
+				"up": {"uv": [0, 0, 1, 6], "texture": "#forge"},
+				"down": {"uv": [0, 0, 1, 6], "texture": "#forge"}
+			}
+		},
+		{
+			"from": [4, 14, 4],
+			"to": [12, 15, 8],
+			"faces": {
+				"north": {"uv": [0, 0, 8, 1], "texture": "#forge"},
+				"east": {"uv": [0, 0, 4, 1], "texture": "#forge"},
+				"south": {"uv": [0, 0, 8, 1], "texture": "#forge"},
+				"west": {"uv": [0, 0, 4, 1], "texture": "#forge"},
+				"up": {"uv": [0, 0, 8, 4], "texture": "#forge"}
+			}
+		},
+		{
+			"from": [5, 15, 5],
+			"to": [11, 16, 7],
+			"faces": {
+				"north": {"uv": [0, 0, 6, 1], "texture": "#forge"},
+				"east": {"uv": [0, 0, 2, 1], "texture": "#forge"},
+				"south": {"uv": [0, 0, 6, 1], "texture": "#forge"},
+				"west": {"uv": [0, 0, 2, 1], "texture": "#forge"}
+			}
+		},
+		{
+			"from": [0, 14, 12],
+			"to": [4, 16, 14],
+			"faces": {
+				"north": {"uv": [12, 0, 16, 2], "texture": "#grainite_bricks"},
+				"east": {"uv": [2, 0, 4, 2], "texture": "#grainite_bricks"},
+				"south": {"uv": [0, 0, 4, 2], "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [2, 14, 14],
+			"to": [4, 16, 16],
+			"faces": {
+				"east": {"uv": [0, 0, 2, 2], "texture": "#grainite_bricks"},
+				"west": {"uv": [14, 0, 16, 2], "texture": "#grainite_bricks"}
+			}
+		}
+	]
+}

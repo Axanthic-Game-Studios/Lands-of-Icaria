@@ -153,7 +153,6 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.KETTLE.get());
 		this.dropThis(IcariaBlocks.GRINDER.get());
 		this.dropThis(IcariaBlocks.KILN.get());
-		this.dropThis(IcariaBlocks.FORGE.get());
 		this.dropThis(IcariaBlocks.CHEST.get());
 		this.dropThis(IcariaBlocks.TRAPPED_CHEST.get());
 		this.dropThis(IcariaBlocks.BARREL.get());
@@ -333,6 +332,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropOnlyWithSilk(IcariaBlocks.RELICSTONE_RUBBLE.get());
 		this.dropOnlyWithSilk(IcariaBlocks.HYLIASTRUM_ORE.get());
 
+		this.dropNone(IcariaBlocks.FORGE.get());
 		this.dropNone(IcariaBlocks.RED_LOOT_VASE.get());
 		this.dropNone(IcariaBlocks.CYAN_LOOT_VASE.get());
 		this.dropNone(IcariaBlocks.DUNGEON_SPAWNER.get());

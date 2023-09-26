@@ -1,0 +1,130 @@
+{
+	"textures": {
+		"forge": "landsoficaria:block/forge",
+		"particle": "landsoficaria:block/grainite",
+		"grainite": "landsoficaria:block/grainite",
+		"grainite_bricks": "landsoficaria:block/grainite_bricks",
+		"loam_bricks": "landsoficaria:block/loam_bricks"
+	},
+	"elements": [
+		{
+			"from": [12, 0, 4],
+			"to": [16, 6, 14],
+			"faces": {
+				"south": {"uv": [12, 10, 16, 16], "texture": "#grainite"},
+				"up": {"uv": [12, 4, 16, 14], "texture": "#grainite"}
+			}
+		},
+		{
+			"from": [12, 6, 4],
+			"to": [16, 14, 13],
+			"faces": {
+				"south": {"uv": [12, 2, 16, 10], "texture": "#grainite"},
+				"up": {"uv": [12, 4, 16, 13], "texture": "#grainite"}
+			}
+		},
+		{
+			"from": [4, 10, 1],
+			"to": [12, 11, 2],
+			"faces": {
+				"north": {"uv": [8, 11, 16, 12], "texture": "#forge"},
+				"south": {"uv": [8, 11, 16, 12], "texture": "#forge"},
+				"up": {"uv": [8, 11, 16, 12], "rotation": 180, "texture": "#forge"},
+				"down": {"uv": [8, 11, 16, 12], "rotation": 180, "texture": "#forge"}
+			}
+		},
+		{
+			"from": [12, 0, 2],
+			"to": [16, 15, 4],
+			"faces": {
+				"north": {"uv": [0, 1, 4, 16], "texture": "#grainite_bricks"},
+				"south": {"uv": [12, 1, 16, 16], "texture": "#grainite_bricks"},
+				"west": {"uv": [2, 1, 4, 16], "texture": "#grainite_bricks"},
+				"up": {"uv": [12, 2, 16, 4], "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [12, 0, 0],
+			"to": [14, 15, 2],
+			"faces": {
+				"east": {"uv": [14, 1, 16, 16], "texture": "#grainite_bricks"},
+				"west": {"uv": [0, 1, 2, 16], "texture": "#grainite_bricks"},
+				"up": {"uv": [12, 0, 14, 2], "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [11, 15, 3],
+			"to": [16, 16, 5],
+			"faces": {
+				"north": {"uv": [0, 0, 5, 1], "texture": "#grainite_bricks"},
+				"south": {"uv": [11, 0, 16, 1], "texture": "#grainite_bricks"},
+				"west": {"uv": [3, 0, 5, 1], "texture": "#grainite_bricks"},
+				"up": {"uv": [11, 3, 16, 5], "texture": "#grainite_bricks"},
+				"down": {"uv": [0, 3, 5, 5], "rotation": 180, "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [11, 15, 0],
+			"to": [13, 16, 3],
+			"faces": {
+				"east": {"uv": [13, 0, 16, 1], "texture": "#grainite_bricks"},
+				"west": {"uv": [0, 0, 3, 1], "texture": "#grainite_bricks"},
+				"up": {"uv": [11, 0, 13, 3], "texture": "#grainite_bricks"},
+				"down": {"uv": [3, 0, 5, 3], "rotation": 180, "texture": "#grainite_bricks"}
+			}
+		},
+		{
+			"from": [2, 0, 2],
+			"to": [12, 6, 14],
+			"faces": {
+				"north": {"uv": [4, 10, 14, 16], "texture": "#grainite"},
+				"south": {"uv": [2, 10, 12, 16], "texture": "#grainite"},
+				"west": {"uv": [2, 10, 14, 16], "texture": "#grainite"},
+				"up": {"uv": [2, 2, 12, 14], "texture": "#grainite"}
+			}
+		},
+		{
+			"from": [3, 6, 3],
+			"to": [12, 14, 13],
+			"faces": {
+				"north": {"uv": [4, 8, 13, 16], "texture": "#grainite"},
+				"south": {"uv": [3, 2, 12, 10], "texture": "#grainite"},
+				"west": {"uv": [3, 2, 13, 10], "texture": "#grainite"},
+				"up": {"uv": [3, 3, 12, 13], "texture": "#grainite"}
+			}
+		},
+		{
+			"from": [5, 14, 5],
+			"to": [11, 16, 11],
+			"faces": {
+				"north": {"uv": [5, 0, 11, 2], "texture": "#loam_bricks"},
+				"east": {"uv": [5, 0, 11, 2], "texture": "#loam_bricks"},
+				"south": {"uv": [5, 0, 11, 2], "texture": "#loam_bricks"},
+				"west": {"uv": [5, 0, 11, 2], "texture": "#loam_bricks"},
+				"up": {"uv": [5, 5, 11, 11], "texture": "#loam_bricks"}
+			}
+		},
+		{
+			"from": [3, 10, 0],
+			"to": [4, 11, 3],
+			"faces": {
+				"east": {"uv": [8, 8, 11, 9], "texture": "#forge"},
+				"west": {"uv": [11, 8, 8, 9], "texture": "#forge"},
+				"up": {"uv": [8, 8, 9, 11], "texture": "#forge"},
+				"down": {"uv": [8, 8, 9, 11], "texture": "#forge"}
+			}
+		},
+		{
+			"from": [6, 1.1625, -3.0875],
+			"to": [8, 3, 2.075],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [7, 3, 2]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 2], "texture": "#grainite"},
+				"east": {"uv": [0, 0, 5, 2], "texture": "#grainite"},
+				"west": {"uv": [0, 0, 5, 2], "texture": "#grainite"},
+				"up": {"uv": [0, 0, 2, 5], "texture": "#grainite"},
+				"down": {"uv": [0, 0, 2, 5], "texture": "#grainite"}
+			}
+		}
+	]
+}

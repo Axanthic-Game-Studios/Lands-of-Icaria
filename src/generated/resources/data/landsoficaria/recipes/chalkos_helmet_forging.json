@@ -1,0 +1,16 @@
+{
+  "type": "landsoficaria:forging",
+  "burnTime": 100,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "item": "landsoficaria:chalkos_helmet"
+    },
+    [],
+    []
+  ],
+  "output": {
+    "count": 1,
+    "item": "landsoficaria:chalkos_nugget"
+  }
+}
