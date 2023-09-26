@@ -39,12 +39,12 @@ public class GrinderMenu extends AbstractContainerMenu {
 			this.containerData = this.blockEntity.getData();
 			this.addDataSlots(this.containerData);
 			this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(pItemHandler -> {
-				this.addSlot(new SlotItemHandler(pItemHandler, 0, 36, 22)); // INPUT
-				this.addSlot(new GrinderFuelSlot(pItemHandler, 1, 36, 58)); // FUEL
-				this.addSlot(new GrinderGearSlot(pItemHandler, 2, 98, 49)); // GEAR
-				this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 3, 124, 22)); // OUTPUT
-				this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 4, 124, 40)); // OUTPUT
-				this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 5, 124, 58)); // OUTPUT
+				this.addSlot(new SlotItemHandler(pItemHandler, 0, 36, 22));
+				this.addSlot(new GrinderFuelSlot(pItemHandler, 1, 36, 58));
+				this.addSlot(new GrinderGearSlot(pItemHandler, 2, 98, 49));
+				this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 3, 124, 58));
+				this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 4, 124, 40));
+				this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 5, 124, 22));
 			});
 		}
 
@@ -105,7 +105,7 @@ public class GrinderMenu extends AbstractContainerMenu {
 			if (pIndex < 6) {
 				this.moveItemStackTo(itemStack, 6, 42, true);
 			} else {
-				this.moveItemStackTo(itemStack, 0, 6, false);
+				this.moveItemStackTo(itemStack, 0, 3, false);
 			}
 
 			if (pIndex > 5 && pIndex < 33) {
@@ -114,7 +114,9 @@ public class GrinderMenu extends AbstractContainerMenu {
 				this.moveItemStackTo(itemStack, 6, 33, false);
 			}
 
-			slot.onTake(pPlayer, itemStack);
+			if (itemStack.getCount() == emptyStack.getCount()) {
+				return ItemStack.EMPTY;
+			}
 		}
 
 		return emptyStack;

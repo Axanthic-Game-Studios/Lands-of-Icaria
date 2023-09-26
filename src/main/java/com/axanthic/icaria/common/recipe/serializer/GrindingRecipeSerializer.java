@@ -52,7 +52,7 @@ public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe
         pBuffer.writeFloat(pRecipe.experience);
         pBuffer.writeInt(pRecipe.burnTime);
         pRecipe.gear.toNetwork(pBuffer);
-        pBuffer.writeItemStack(pRecipe.output.copy(), false);
+        pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
         pBuffer.writeInt(pRecipe.getIngredients().size());
         for (var ingredient : pRecipe.getIngredients()) {
             ingredient.toNetwork(pBuffer);

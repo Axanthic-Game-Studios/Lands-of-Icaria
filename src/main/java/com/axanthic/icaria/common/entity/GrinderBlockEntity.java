@@ -1,12 +1,12 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
+import com.axanthic.icaria.common.container.data.GrinderContainerData;
 import com.axanthic.icaria.common.handler.GrinderItemStackHandler;
 import com.axanthic.icaria.common.handler.WrappedHandler;
 import com.axanthic.icaria.common.item.GearItem;
-import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.container.data.GrinderContainerData;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
+import com.axanthic.icaria.common.registry.*;
 
 import com.google.common.collect.Lists;
 
@@ -84,12 +84,8 @@ public class GrinderBlockEntity extends BlockEntity {
 		super(IcariaBlockEntityTypes.GRINDER.get(), pPos, pState);
 	}
 
-	public boolean canInsertCountIntoOutputSlot(SimpleContainer pContainer) {
-		return pContainer.getItem(5).getMaxStackSize() > pContainer.getItem(5).getCount();
-	}
-
-	public boolean canInsertStackIntoOutputSlot(SimpleContainer pContainer, ItemStack pStack) {
-		return pContainer.getItem(5).getItem() == pStack.getItem() || pContainer.getItem(5).isEmpty();
+	public boolean canInsertInSlot(SimpleContainer pContainer, GrindingRecipe pRecipe, int pSlot) {
+		return (pContainer.getItem(pSlot).getItem() == pRecipe.getResultItem(null).getItem() || pContainer.getItem(pSlot).isEmpty()) && pContainer.getItem(pSlot).getMaxStackSize() >= pContainer.getItem(pSlot).getCount() + pRecipe.getResultItem(null).getCount();
 	}
 
 	public boolean hasFuel() {
@@ -115,7 +111,7 @@ public class GrinderBlockEntity extends BlockEntity {
 			this.maxProgress = burnTime;
 		}
 
-		return recipe.isPresent() && this.canInsertCountIntoOutputSlot(this.simpleContainer) && this.canInsertStackIntoOutputSlot(this.simpleContainer, recipe.get().getResultItem(null));
+		return (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get(), 3)) || (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get(), 4)) || (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get(), 5));
 	}
 
 	public boolean shouldBreak(GrinderBlockEntity pBlockEntity) {
@@ -144,12 +140,12 @@ public class GrinderBlockEntity extends BlockEntity {
 
 		if (this.hasRecipe() && recipe.isPresent()) {
 			this.stackHandler.extractItem(0, 1, false);
-			if (this.simpleContainer.getItem(3).getMaxStackSize() > this.simpleContainer.getItem(3).getCount()) {
-				this.stackHandler.setStackInSlot(3, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(3).getCount()));
-			} else if (this.simpleContainer.getItem(4).getMaxStackSize() > this.simpleContainer.getItem(4).getCount()) {
-				this.stackHandler.setStackInSlot(4, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(4).getCount()));
-			} else if (this.simpleContainer.getItem(5).getMaxStackSize() > this.simpleContainer.getItem(5).getCount()) {
+			if (this.canInsertInSlot(this.simpleContainer, recipe.get(), 5)) {
 				this.stackHandler.setStackInSlot(5, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(5).getCount()));
+			} else if (this.canInsertInSlot(this.simpleContainer, recipe.get(), 4)) {
+				this.stackHandler.setStackInSlot(4, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(4).getCount()));
+			} else if (this.canInsertInSlot(this.simpleContainer, recipe.get(), 3)) {
+				this.stackHandler.setStackInSlot(3, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(3).getCount()));
 			}
 
 			this.resetProgress();
