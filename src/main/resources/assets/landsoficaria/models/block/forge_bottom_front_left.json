@@ -1,10 +1,11 @@
 {
+	"ambientocclusion": false,
 	"textures": {
 		"forge": "landsoficaria:block/forge",
-		"particle": "landsoficaria:block/grainite",
 		"grainite_bricks": "landsoficaria:block/grainite_bricks",
 		"loam_bricks": "landsoficaria:block/loam_bricks",
-		"voidshale": "landsoficaria:block/voidshale"
+		"voidshale": "landsoficaria:block/voidshale",
+		"particle": "landsoficaria:block/grainite"
 	},
 	"elements": [
 		{
@@ -70,6 +71,15 @@
 				"south": {"uv": [0, 0, 1, 6], "texture": "#forge"},
 				"up": {"uv": [0, 0, 1, 6], "texture": "#forge"},
 				"down": {"uv": [0, 0, 1, 6], "texture": "#forge"}
+			}
+		},
+		{
+			"from": [0, 15, 11],
+			"to": [3, 16, 12],
+			"faces": {
+				"north": {"uv": [8, 8, 11, 9], "texture": "#forge"},
+				"east": {"uv": [8, 8, 9, 9], "texture": "#forge"},
+				"down": {"uv": [8, 8, 11, 9], "rotation": 180, "texture": "#forge"}
 			}
 		},
 		{
