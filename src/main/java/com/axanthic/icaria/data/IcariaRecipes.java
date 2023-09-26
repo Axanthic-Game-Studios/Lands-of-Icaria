@@ -28,8 +28,6 @@ public class IcariaRecipes extends RecipeProvider {
 
 	@Override
 	public void buildRecipes(Consumer<FinishedRecipe> pConsumer) {
-		this.firingRecipe(pConsumer, IcariaItems.GRAINEL.get(), IcariaItems.GRAINGLASS.get(), 0.1F, 200);
-		this.firingRecipe(pConsumer, IcariaItems.SILKSAND.get(), IcariaItems.SILKGLASS.get(), 0.1F, 200);
 		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_INGOT.get(), IcariaItems.CHALKOS_INGOT.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.ORICHALCUM_INGOT.get(), 0.3F, 200, 3);
 		this.forgingRecipe(pConsumer, IcariaItems.LIGNITE.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.VANADIUM_INGOT.get(), IcariaItems.VANADIUMSTEEL_INGOT.get(), 0.2F, 150, 2);
 		this.forgingRecipe(pConsumer, IcariaItems.ANTHRACITE.get(), IcariaItems.MOLYBDENUM_INGOT.get(), IcariaItems.SIDEROS_INGOT.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), 0.2F, 150, 2);
@@ -105,6 +103,9 @@ public class IcariaRecipes extends RecipeProvider {
 		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_ARMOR.chestplate.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
 		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_ARMOR.leggings.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
 		this.forgingRecipe(pConsumer, IcariaItems.VANADIUMSTEEL_ARMOR.boots.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
+
+		this.firingRecipe(pConsumer, IcariaItems.GRAINEL.get(), IcariaItems.GRAINGLASS.get(), 0.2F, 200);
+		this.firingRecipe(pConsumer, IcariaItems.SILKSAND.get(), IcariaItems.SILKGLASS.get(), 0.2F, 200);
 		this.firingRecipe(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM_BRICK.get(), 0.1F, 100);
 		this.firingRecipe(pConsumer, IcariaItems.UNFIRED_STORAGE_VASE.get(), IcariaItems.STORAGE_VASE.get(), 0.2F, 200);
 		this.firingRecipe(pConsumer, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get(), IcariaItems.WHITE_STORAGE_VASE.get(), 0.2F, 200);

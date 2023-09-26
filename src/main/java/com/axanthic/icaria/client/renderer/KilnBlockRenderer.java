@@ -31,12 +31,12 @@ public class KilnBlockRenderer implements BlockEntityRenderer<KilnBlockEntity> {
 	@Override
 	public void render(KilnBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
 		if (IcariaConfig.RENDER_KILN_ITEMS.get()) {
+			float rotation = pBlockEntity.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180.0F;
+
 			var fuel = pBlockEntity.getFuel();
 			var input = pBlockEntity.getInput();
 			var itemRenderer = Minecraft.getInstance().getItemRenderer();
 			var level = pBlockEntity.getLevel();
-
-			float rotation = pBlockEntity.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180.0F;
 
 			if (!fuel.isEmpty()) {
 				pPoseStack.pushPose();

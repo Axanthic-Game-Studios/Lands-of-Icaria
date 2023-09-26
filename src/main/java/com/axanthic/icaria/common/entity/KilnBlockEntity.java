@@ -1,12 +1,12 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.block.KilnBlock;
+import com.axanthic.icaria.common.container.data.KilnContainerData;
 import com.axanthic.icaria.common.handler.KilnItemStackHandler;
 import com.axanthic.icaria.common.handler.WrappedHandler;
 import com.axanthic.icaria.common.recipe.FiringRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
-import com.axanthic.icaria.common.container.data.KilnContainerData;
 
 import com.google.common.collect.Lists;
 
@@ -91,12 +91,8 @@ public class KilnBlockEntity extends BlockEntity {
         super(IcariaBlockEntityTypes.KILN.get(), pPos, pState);
     }
 
-    public boolean canInsertCountIntoOutputSlot(SimpleContainer pContainer) {
-        return pContainer.getItem(2).getMaxStackSize() > pContainer.getItem(2).getCount();
-    }
-
-    public boolean canInsertStackIntoOutputSlot(SimpleContainer pContainer, ItemStack pStack) {
-        return pContainer.getItem(2).getItem() == pStack.getItem() || pContainer.getItem(2).isEmpty();
+    public boolean canInsertInSlot(SimpleContainer pContainer, FiringRecipe pRecipe, int pSlot) {
+        return (pContainer.getItem(pSlot).getItem() == pRecipe.getResultItem(null).getItem() || pContainer.getItem(pSlot).isEmpty()) && pContainer.getItem(pSlot).getMaxStackSize() >= pContainer.getItem(pSlot).getCount() + pRecipe.getResultItem(null).getCount();
     }
 
     public boolean hasFuel() {
@@ -122,7 +118,7 @@ public class KilnBlockEntity extends BlockEntity {
             this.maxProgress = burnTime;
         }
 
-        return recipe.isPresent() && this.canInsertCountIntoOutputSlot(this.simpleContainer) && this.canInsertStackIntoOutputSlot(this.simpleContainer, recipe.get().getResultItem(null));
+        return recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get(), 2);
     }
 
     public int getComparatorInput() {

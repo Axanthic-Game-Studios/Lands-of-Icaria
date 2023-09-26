@@ -9,7 +9,8 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -37,9 +38,9 @@ public class KilnMenu extends AbstractContainerMenu {
 			this.containerData = this.blockEntity.getData();
 			this.addDataSlots(this.containerData);
 			this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(pItemHandler -> {
-				this.addSlot(new SlotItemHandler(pItemHandler, 0, 45, 22)); // INPUT
-				this.addSlot(new KilnFuelSlot(pItemHandler, 1, 45, 58)); // FUEL
-				this.addSlot(new KilnOutputSlot(pItemHandler, this.blockEntity, pPlayer, 2, 111, 40)); // OUTPUT
+				this.addSlot(new SlotItemHandler(pItemHandler, 0, 45, 22));
+				this.addSlot(new KilnFuelSlot(pItemHandler, 1, 45, 58));
+				this.addSlot(new KilnOutputSlot(pItemHandler, this.blockEntity, pPlayer, 2, 111, 40));
 			});
 		}
 
@@ -100,7 +101,7 @@ public class KilnMenu extends AbstractContainerMenu {
 			if (pIndex < 3) {
 				this.moveItemStackTo(itemStack, 3, 39, true);
 			} else {
-				this.moveItemStackTo(itemStack, 0, 3, false);
+				this.moveItemStackTo(itemStack, 0, 2, false);
 			}
 
 			if (pIndex > 2 && pIndex < 30) {
@@ -109,7 +110,9 @@ public class KilnMenu extends AbstractContainerMenu {
 				this.moveItemStackTo(itemStack, 3, 30, false);
 			}
 
-			slot.onTake(pPlayer, itemStack);
+			if (itemStack.getCount() == emptyStack.getCount()) {
+				return ItemStack.EMPTY;
+			}
 		}
 
 		return emptyStack;

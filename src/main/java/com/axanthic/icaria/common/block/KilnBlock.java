@@ -5,6 +5,7 @@ import com.axanthic.icaria.common.entity.KilnBlockEntity;
 import com.axanthic.icaria.common.entity.KilnRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.KilnMenuProvider;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -24,7 +25,6 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -56,14 +56,7 @@ public class KilnBlock extends BaseEntityBlock {
 
     @Override
     public boolean canDropFromExplosion(BlockState pState, BlockGetter pLevel, BlockPos pPos, Explosion pExplosion) {
-        return pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER;
-    }
-
-    @Override
-    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        var blockPos = pPos.below();
-        var blockState = pLevel.getBlockState(blockPos);
-        return pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER ? blockState.isFaceSturdy(pLevel, blockPos, Direction.UP) : blockState.is(this);
+        return false;
     }
 
     @Override
@@ -73,7 +66,7 @@ public class KilnBlock extends BaseEntityBlock {
 
     @Override
     public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
-        return (pLevel.getBlockEntity(pPos) instanceof KilnBlockEntity blockEntity) ? blockEntity.getComparatorInput() : 0;
+        return pLevel.getBlockEntity(KilnBlock.getBlockEntityPosition(pState, pPos)) instanceof KilnBlockEntity blockEntity ? blockEntity.getComparatorInput() : 0;
     }
 
     @Override
@@ -81,17 +74,15 @@ public class KilnBlock extends BaseEntityBlock {
         if (pState.getValue(BlockStateProperties.LIT)) {
             if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
                 var randomSource = pLevel.getRandom();
-                pLevel.addParticle(ParticleTypes.SMALL_FLAME, pPos.getX() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 0.25D, pPos.getZ() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-                pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 0.75D, pPos.getZ() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-                if (IcariaConfig.KILN_SOUNDS.get()) {
-                    if (pRandom.nextDouble() < 0.5D) {
-                        pLevel.playLocalSound(pPos.getX() + 0.5D, pPos.getY(), pPos.getZ() + 0.5D, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
-                    }
+                pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 2.0D, pPos.getZ() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+                if (IcariaConfig.KILN_SOUNDS.get() && pRandom.nextDouble() < 0.1D) {
+                    pLevel.playLocalSound(pPos.getX() + 0.5D, pPos.getY() + 1.0D, pPos.getZ() + 0.5D, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
                 }
-            } else if (IcariaConfig.RENDER_KILN_ITEMS.get()) {
-                var randomSource = pLevel.getRandom();
-                pLevel.addParticle(ParticleTypes.LARGE_SMOKE, pPos.getX() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 1.0D, pPos.getZ() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-                pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 1.0D, pPos.getZ() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+
+                if (IcariaConfig.RENDER_KILN_ITEMS.get()) {
+                    pLevel.addParticle(ParticleTypes.SMALL_FLAME, pPos.getX() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 0.25D, pPos.getZ() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+                    pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 0.75D, pPos.getZ() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+                }
             }
         }
     }
@@ -102,12 +93,24 @@ public class KilnBlock extends BaseEntityBlock {
     }
 
     @Override
+    public void onBlockExploded(BlockState pState, Level pLevel, BlockPos pPos, Explosion pExplosion) {
+        if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+            pLevel.setBlock(pPos.above(), Blocks.AIR.defaultBlockState(), 3);
+        } else {
+            pLevel.setBlock(pPos.below(), Blocks.AIR.defaultBlockState(), 3);
+        }
+
+        super.onBlockExploded(pState, pLevel, pPos, pExplosion);
+    }
+
+    @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             if (pLevel.getBlockEntity(pPos) instanceof KilnBlockEntity blockEntity) {
                 if (pLevel instanceof ServerLevel serverLevel) {
                     blockEntity.drops(serverLevel);
                     blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pPos));
+                    Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.KILN.get()));
                 }
             }
         }
@@ -117,12 +120,13 @@ public class KilnBlock extends BaseEntityBlock {
 
     @Override
     public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
         if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
             pLevel.setBlock(pPos.above(), Blocks.AIR.defaultBlockState(), 3);
         } else {
             pLevel.setBlock(pPos.below(), Blocks.AIR.defaultBlockState(), 3);
         }
+
+        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
     }
 
     @Override
