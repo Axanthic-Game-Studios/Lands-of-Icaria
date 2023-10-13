@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "landsoficaria:calcite_dust"
+    },
+    {
+      "item": "landsoficaria:halite_dust"
+    },
+    {
+      "item": "landsoficaria:lignite"
+    }
+  ],
+  "result": {
+    "item": "landsoficaria:greenpowder"
+  }
+}

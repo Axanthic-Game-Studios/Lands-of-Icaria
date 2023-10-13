@@ -9,13 +9,13 @@
       "item": "landsoficaria:kassiteros_nugget"
     },
     "Z": {
-      "item": "landsoficaria:calcite_dust"
+      "item": "landsoficaria:greenpowder"
     }
   },
   "pattern": [
     " X ",
-    "YZY",
-    " Y "
+    "YYY",
+    "ZZZ"
   ],
   "result": {
     "item": "landsoficaria:greek_fire_grenade"

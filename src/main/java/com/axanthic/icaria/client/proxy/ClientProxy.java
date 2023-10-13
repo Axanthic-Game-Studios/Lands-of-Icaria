@@ -679,6 +679,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.VINE_REED.get());
 			pEvent.accept(IcariaItems.VINE_SPROUT.get());
 			pEvent.accept(IcariaItems.ROTTEN_BONES.get());
+			pEvent.accept(IcariaItems.GREENPOWDER.get());
 			pEvent.accept(IcariaItems.CALCITE_SHARD.get());
 			pEvent.accept(IcariaItems.HALITE_SHARD.get());
 			pEvent.accept(IcariaItems.JASPER_SHARD.get());

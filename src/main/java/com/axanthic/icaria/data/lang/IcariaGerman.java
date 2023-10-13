@@ -766,6 +766,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.VINE_REED.get(), "Weinschilf");
 		this.add(IcariaItems.VINE_SPROUT.get(), "Rankensprosse");
 		this.add(IcariaItems.ROTTEN_BONES.get(), "Verrottete Knochen");
+		this.add(IcariaItems.GREENPOWDER.get(), "Grünpulver");
 		this.add(IcariaItems.CALCITE_SHARD.get(), "Calcitscherbe");
 		this.add(IcariaItems.HALITE_SHARD.get(), "Halitscherbe");
 		this.add(IcariaItems.JASPER_SHARD.get(), "Jaspisscherbe");

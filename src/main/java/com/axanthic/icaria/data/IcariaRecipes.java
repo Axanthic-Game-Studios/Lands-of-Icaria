@@ -930,6 +930,15 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + Items.TRIPWIRE_HOOK, RecipeProvider.has(Items.TRIPWIRE_HOOK))
 			.save(pConsumer, IcariaItems.TRAPPED_CHEST.getId());
 
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.GREENPOWDER.get())
+			.requires(IcariaItems.CALCITE_DUST.get())
+			.requires(IcariaItems.HALITE_DUST.get())
+			.requires(IcariaItems.LIGNITE.get())
+			.unlockedBy("has_" + IcariaItems.CALCITE_DUST.get(), RecipeProvider.has(IcariaItems.CALCITE_DUST.get()))
+			.unlockedBy("has_" + IcariaItems.HALITE_DUST.get(), RecipeProvider.has(IcariaItems.HALITE_DUST.get()))
+			.unlockedBy("has_" + IcariaItems.LIGNITE.get(), RecipeProvider.has(IcariaItems.LIGNITE.get()))
+			.save(pConsumer, IcariaItems.GREENPOWDER.getId());
+
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.LAUREL_WREATH.get(), 1)
 			.pattern("XXX")
 			.pattern("X X")
@@ -939,14 +948,14 @@ public class IcariaRecipes extends RecipeProvider {
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.GREEK_FIRE_GRENADE.get(), 1)
 			.pattern(" X ")
-			.pattern("YZY")
-			.pattern(" Y ")
+			.pattern("YYY")
+			.pattern("ZZZ")
 			.define('X', IcariaItems.ARACHNE_STRING.get())
 			.define('Y', IcariaItems.KASSITEROS_NUGGET.get())
-			.define('Z', IcariaItems.CALCITE_DUST.get())
+			.define('Z', IcariaItems.GREENPOWDER.get())
 			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
 			.unlockedBy("has_" + IcariaItems.KASSITEROS_NUGGET.get(), RecipeProvider.has(IcariaItems.KASSITEROS_NUGGET.get()))
-			.unlockedBy("has_" + IcariaItems.CALCITE_DUST.get(), RecipeProvider.has(IcariaItems.CALCITE_DUST.get()))
+			.unlockedBy("has_" + IcariaItems.GREENPOWDER.get(), RecipeProvider.has(IcariaItems.GREENPOWDER.get()))
 			.save(pConsumer, IcariaItems.GREEK_FIRE_GRENADE.getId());
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.UNFIRED_STORAGE_VASE.get())

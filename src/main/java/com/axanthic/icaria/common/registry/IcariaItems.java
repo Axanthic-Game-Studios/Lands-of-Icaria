@@ -538,6 +538,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> VINE_REED = IcariaItems.registerSimple("vine_reed", () -> new Item(IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> VINE_SPROUT = IcariaItems.registerSimple("vine_sprout", () -> new VineSproutItem(IcariaItems.propertiesFood(0, 1.0F, 1, 24)));
 	public static final RegistryObject<Item> ROTTEN_BONES = IcariaItems.registerSimple("rotten_bones", () -> new Item(IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> GREENPOWDER = IcariaItems.registerSimple("greenpowder", () -> new Item(IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> CALCITE_SHARD = IcariaItems.registerSimple("calcite_shard", () -> new Item(IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> HALITE_SHARD = IcariaItems.registerSimple("halite_shard", () -> new Item(IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> JASPER_SHARD = IcariaItems.registerSimple("jasper_shard", () -> new Item(IcariaItems.propertiesItem()));

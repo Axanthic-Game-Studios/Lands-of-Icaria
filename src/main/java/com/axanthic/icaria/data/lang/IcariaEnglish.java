@@ -766,6 +766,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.VINE_REED.get(), "Vine Reed");
 		this.add(IcariaItems.VINE_SPROUT.get(), "Vine Sprout");
 		this.add(IcariaItems.ROTTEN_BONES.get(), "Rotten Bones");
+		this.add(IcariaItems.GREENPOWDER.get(), "Greenpowder");
 		this.add(IcariaItems.CALCITE_SHARD.get(), "Calcite Shard");
 		this.add(IcariaItems.HALITE_SHARD.get(), "Halite Shard");
 		this.add(IcariaItems.JASPER_SHARD.get(), "Jasper Shard");

@@ -253,6 +253,9 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.PHYSALIS.get())
 			.add(IcariaItems.ONION.get());
 
+		this.tag(Tags.Items.GUNPOWDER)
+			.add(IcariaItems.GREENPOWDER.get());
+
 		this.tag(IcariaItemTags.DUSTS_CALCITE).add(IcariaItems.CALCITE_DUST.get());
 		this.tag(IcariaItemTags.DUSTS_HALITE).add(IcariaItems.HALITE_DUST.get());
 

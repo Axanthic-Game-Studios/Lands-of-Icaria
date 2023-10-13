@@ -1,36 +1,36 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_arachne_string": {
+    "has_calcite_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:arachne_string"
+              "landsoficaria:calcite_dust"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_greenpowder": {
+    "has_halite_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:greenpowder"
+              "landsoficaria:halite_dust"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_kassiteros_nugget": {
+    "has_lignite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:kassiteros_nugget"
+              "landsoficaria:lignite"
             ]
           }
         ]
@@ -39,22 +39,22 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:greek_fire_grenade"
+        "recipe": "landsoficaria:greenpowder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_arachne_string",
-      "has_kassiteros_nugget",
-      "has_greenpowder",
+      "has_calcite_dust",
+      "has_halite_dust",
+      "has_lignite",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:greek_fire_grenade"
+      "landsoficaria:greenpowder"
     ]
   },
   "sends_telemetry_event": false
