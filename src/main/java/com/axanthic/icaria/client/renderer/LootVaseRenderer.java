@@ -42,8 +42,8 @@ public class LootVaseRenderer extends EntityRenderer<LootVaseEntity> {
                 var bakedModel = this.blockRenderDispatcher.getBlockModel(blockState);
                 pMatrixStack.pushPose();
                 pMatrixStack.translate(-0.5D, 0.0D, -0.5D);
-                for (var renderType : bakedModel.getRenderTypes(blockState, RandomSource.create(blockState.getSeed(pEntity.getStartPos())), ModelData.EMPTY)) {
-                    this.blockRenderDispatcher.getModelRenderer().tesselateBlock(level, bakedModel, blockState, blockPos, pMatrixStack, pBuffer.getBuffer(renderType), false, RandomSource.create(), blockState.getSeed(pEntity.getStartPos()), OverlayTexture.NO_OVERLAY, ModelData.EMPTY, renderType);
+                for (var renderType : bakedModel.getRenderTypes(blockState, RandomSource.create(blockState.getSeed(pEntity.getBlockPos())), ModelData.EMPTY)) {
+                    this.blockRenderDispatcher.getModelRenderer().tesselateBlock(level, bakedModel, blockState, blockPos, pMatrixStack, pBuffer.getBuffer(renderType), false, RandomSource.create(), blockState.getSeed(pEntity.getBlockPos()), OverlayTexture.NO_OVERLAY, ModelData.EMPTY, renderType);
                 }
 
                 pMatrixStack.popPose();

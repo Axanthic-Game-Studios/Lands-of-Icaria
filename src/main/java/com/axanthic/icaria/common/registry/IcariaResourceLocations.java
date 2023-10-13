@@ -116,6 +116,7 @@ public class IcariaResourceLocations {
     public static final ResourceLocation VINEGAROON_LAYER = new ResourceLocation(IcariaInfo.ID, "vinegaroon");
 
     // SOUNDS
+    public static final ResourceLocation BARREL_BREAK = new ResourceLocation(IcariaInfo.ID, "block.barrel.break");
     public static final ResourceLocation GRINDER_GRIND = new ResourceLocation(IcariaInfo.ID, "block.grinder.grind");
     public static final ResourceLocation CAPTAIN_REVENANT_DEATH = new ResourceLocation(IcariaInfo.ID, "entity.captain_revenant.death");
     public static final ResourceLocation CAPTAIN_REVENANT_HURT = new ResourceLocation(IcariaInfo.ID, "entity.captain_revenant.hurt");

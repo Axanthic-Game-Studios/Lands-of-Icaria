@@ -246,9 +246,6 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> CHEST = IcariaBlocks.register("chest", () -> new IcariaChestBlock(IcariaBlocks.propertiesChest(MapColor.COLOR_BROWN, SoundType.WOOD), IcariaBlockEntityTypes.CHEST::get));
 	public static final RegistryObject<Block> TRAPPED_CHEST = IcariaBlocks.register("trapped_chest", () -> new IcariaTrappedChestBlock(IcariaBlocks.propertiesChest(MapColor.COLOR_BROWN, SoundType.WOOD), IcariaBlockEntityTypes.TRAPPED_CHEST::get));
 
-	public static final RegistryObject<Block> BARREL = IcariaBlocks.register("barrel", () -> new BarrelBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
-	public static final RegistryObject<Block> BARREL_RACK = IcariaBlocks.register("barrel_rack", () -> new BarrelRackBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
-
 	public static final RegistryObject<Block> STORAGE_VASE = IcariaBlocks.register("storage_vase", () -> new StorageVaseBlock(IcariaBlocks.propertiesStorageVase(MapColor.TERRACOTTA_PINK, IcariaSoundTypes.VASE)));
 	public static final RegistryObject<Block> WHITE_STORAGE_VASE = IcariaBlocks.register("white_storage_vase", () -> new StorageVaseBlock(IcariaBlocks.propertiesStorageVase(MapColor.SNOW, IcariaSoundTypes.VASE)));
 	public static final RegistryObject<Block> LIGHT_GRAY_STORAGE_VASE = IcariaBlocks.register("light_gray_storage_vase", () -> new StorageVaseBlock(IcariaBlocks.propertiesStorageVase(MapColor.COLOR_LIGHT_GRAY, IcariaSoundTypes.VASE)));
@@ -326,6 +323,11 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_CYPRESS_LOG = IcariaBlocks.register("stripped_dead_cypress_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD))));
 	public static final RegistryObject<Block> CYPRESS_PLANKS = IcariaBlocks.registerSimple("cypress_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final IcariaWoodDecoBlocks CYPRESS_DECO = new IcariaWoodDecoBlocks("cypress", IcariaBlocks.CYPRESS_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final RegistryObject<Block> SIMPLE_CYPRESS_RACK = IcariaBlocks.register("simple_cypress_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, SoundType.WOOD)));
+	public static final RegistryObject<Block> CYPRESS_RACK = IcariaBlocks.register("cypress_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, SoundType.WOOD)));
+	public static final RegistryObject<Block> CYPRESS_BARREL = IcariaBlocks.register("cypress_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> LOADED_CYPRESS_BARREL = IcariaBlocks.register("loaded_cypress_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> TAPPED_CYPRESS_BARREL = IcariaBlocks.register("tapped_cypress_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, IcariaSoundTypes.BARREL)));
 	public static final RegistryObject<Block> CYPRESS_CRAFTING_TABLE = IcariaBlocks.register("cypress_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final RegistryObject<DoorBlock> CYPRESS_DOOR = IcariaBlocks.register("cypress_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD), IcariaBlockSetTypes.CYPRESS));
 	public static final RegistryObject<TrapDoorBlock> CYPRESS_TRAPDOOR = IcariaBlocks.register("cypress_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD), IcariaBlockSetTypes.CYPRESS));
@@ -348,6 +350,11 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_DROUGHTROOT_LOG = IcariaBlocks.register("stripped_dead_droughtroot_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD))));
 	public static final RegistryObject<Block> DROUGHTROOT_PLANKS = IcariaBlocks.registerSimple("droughtroot_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final IcariaWoodDecoBlocks DROUGHTROOT_DECO = new IcariaWoodDecoBlocks("droughtroot", IcariaBlocks.DROUGHTROOT_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_GRAY, SoundType.WOOD));
+	public static final RegistryObject<Block> SIMPLE_DROUGHTROOT_RACK = IcariaBlocks.register("simple_droughtroot_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_GRAY, SoundType.WOOD)));
+	public static final RegistryObject<Block> DROUGHTROOT_RACK = IcariaBlocks.register("droughtroot_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_GRAY, SoundType.WOOD)));
+	public static final RegistryObject<Block> DROUGHTROOT_BARREL = IcariaBlocks.register("droughtroot_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_GRAY, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> LOADED_DROUGHTROOT_BARREL = IcariaBlocks.register("loaded_droughtroot_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_GRAY, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> TAPPED_DROUGHTROOT_BARREL = IcariaBlocks.register("tapped_droughtroot_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_GRAY, IcariaSoundTypes.BARREL)));
 	public static final RegistryObject<Block> DROUGHTROOT_CRAFTING_TABLE = IcariaBlocks.register("droughtroot_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<DoorBlock> DROUGHTROOT_DOOR = IcariaBlocks.register("droughtroot_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD), IcariaBlockSetTypes.DROUGHTROOT));
 	public static final RegistryObject<TrapDoorBlock> DROUGHTROOT_TRAPDOOR = IcariaBlocks.register("droughtroot_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_GRAY, SoundType.WOOD), IcariaBlockSetTypes.DROUGHTROOT));
@@ -370,6 +377,11 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_FIR_LOG = IcariaBlocks.register("stripped_dead_fir_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD))));
 	public static final RegistryObject<Block> FIR_PLANKS = IcariaBlocks.registerSimple("fir_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_ORANGE, SoundType.WOOD)));
 	public static final IcariaWoodDecoBlocks FIR_DECO = new IcariaWoodDecoBlocks("fir", IcariaBlocks.FIR_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_ORANGE, SoundType.WOOD));
+	public static final RegistryObject<Block> SIMPLE_FIR_RACK = IcariaBlocks.register("simple_fir_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_ORANGE, SoundType.WOOD)));
+	public static final RegistryObject<Block> FIR_RACK = IcariaBlocks.register("fir_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_ORANGE, SoundType.WOOD)));
+	public static final RegistryObject<Block> FIR_BARREL = IcariaBlocks.register("fir_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_ORANGE, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> LOADED_FIR_BARREL = IcariaBlocks.register("loaded_fir_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_ORANGE, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> TAPPED_FIR_BARREL = IcariaBlocks.register("tapped_fir_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_ORANGE, IcariaSoundTypes.BARREL)));
 	public static final RegistryObject<Block> FIR_CRAFTING_TABLE = IcariaBlocks.register("fir_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_ORANGE, SoundType.WOOD)));
 	public static final RegistryObject<DoorBlock> FIR_DOOR = IcariaBlocks.register("fir_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD), IcariaBlockSetTypes.FIR));
 	public static final RegistryObject<TrapDoorBlock> FIR_TRAPDOOR = IcariaBlocks.register("fir_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD), IcariaBlockSetTypes.FIR));
@@ -392,6 +404,11 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_LAUREL_LOG = IcariaBlocks.register("stripped_dead_laurel_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD))));
 	public static final RegistryObject<Block> LAUREL_PLANKS = IcariaBlocks.registerSimple("laurel_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final IcariaWoodDecoBlocks LAUREL_DECO = new IcariaWoodDecoBlocks("laurel", IcariaBlocks.LAUREL_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final RegistryObject<Block> SIMPLE_LAUREL_RACK = IcariaBlocks.register("simple_laurel_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, SoundType.WOOD)));
+	public static final RegistryObject<Block> LAUREL_RACK = IcariaBlocks.register("laurel_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, SoundType.WOOD)));
+	public static final RegistryObject<Block> LAUREL_BARREL = IcariaBlocks.register("laurel_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> LOADED_LAUREL_BARREL = IcariaBlocks.register("loaded_laurel_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> TAPPED_LAUREL_BARREL = IcariaBlocks.register("tapped_laurel_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, IcariaSoundTypes.BARREL)));
 	public static final RegistryObject<Block> LAUREL_CRAFTING_TABLE = IcariaBlocks.register("laurel_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final RegistryObject<DoorBlock> LAUREL_DOOR = IcariaBlocks.register("laurel_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD), IcariaBlockSetTypes.LAUREL));
 	public static final RegistryObject<TrapDoorBlock> LAUREL_TRAPDOOR = IcariaBlocks.register("laurel_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_BROWN, SoundType.WOOD), IcariaBlockSetTypes.LAUREL));
@@ -414,6 +431,11 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_OLIVE_LOG = IcariaBlocks.register("stripped_dead_olive_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD))));
 	public static final RegistryObject<Block> OLIVE_PLANKS = IcariaBlocks.registerSimple("olive_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_ORANGE, SoundType.WOOD)));
 	public static final IcariaWoodDecoBlocks OLIVE_DECO = new IcariaWoodDecoBlocks("olive", IcariaBlocks.OLIVE_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_ORANGE, SoundType.WOOD));
+	public static final RegistryObject<Block> SIMPLE_OLIVE_RACK = IcariaBlocks.register("simple_olive_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_ORANGE, SoundType.WOOD)));
+	public static final RegistryObject<Block> OLIVE_RACK = IcariaBlocks.register("olive_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_ORANGE, SoundType.WOOD)));
+	public static final RegistryObject<Block> OLIVE_BARREL = IcariaBlocks.register("olive_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_ORANGE, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> LOADED_OLIVE_BARREL = IcariaBlocks.register("loaded_olive_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_ORANGE, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> TAPPED_OLIVE_BARREL = IcariaBlocks.register("tapped_olive_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_ORANGE, IcariaSoundTypes.BARREL)));
 	public static final RegistryObject<Block> OLIVE_CRAFTING_TABLE = IcariaBlocks.register("olive_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_ORANGE, SoundType.WOOD)));
 	public static final RegistryObject<DoorBlock> OLIVE_DOOR = IcariaBlocks.register("olive_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD), IcariaBlockSetTypes.OLIVE));
 	public static final RegistryObject<TrapDoorBlock> OLIVE_TRAPDOOR = IcariaBlocks.register("olive_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD), IcariaBlockSetTypes.OLIVE));
@@ -436,6 +458,11 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_PLANE_LOG = IcariaBlocks.register("stripped_dead_plane_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD))));
 	public static final RegistryObject<Block> PLANE_PLANKS = IcariaBlocks.registerSimple("plane_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final IcariaWoodDecoBlocks PLANE_DECO = new IcariaWoodDecoBlocks("plane", IcariaBlocks.PLANE_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final RegistryObject<Block> SIMPLE_PLANE_RACK = IcariaBlocks.register("simple_plane_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, SoundType.WOOD)));
+	public static final RegistryObject<Block> PLANE_RACK = IcariaBlocks.register("plane_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, SoundType.WOOD)));
+	public static final RegistryObject<Block> PLANE_BARREL = IcariaBlocks.register("plane_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> LOADED_PLANE_BARREL = IcariaBlocks.register("loaded_plane_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> TAPPED_PLANE_BARREL = IcariaBlocks.register("tapped_plane_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, IcariaSoundTypes.BARREL)));
 	public static final RegistryObject<Block> PLANE_CRAFTING_TABLE = IcariaBlocks.register("plane_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final RegistryObject<DoorBlock> PLANE_DOOR = IcariaBlocks.register("plane_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD), IcariaBlockSetTypes.PLANE));
 	public static final RegistryObject<TrapDoorBlock> PLANE_TRAPDOOR = IcariaBlocks.register("plane_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD), IcariaBlockSetTypes.PLANE));
@@ -458,6 +485,11 @@ public class IcariaBlocks {
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_POPULUS_LOG = IcariaBlocks.register("stripped_dead_populus_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_YELLOW, SoundType.WOOD))));
 	public static final RegistryObject<Block> POPULUS_PLANKS = IcariaBlocks.registerSimple("populus_planks", () -> new Block(IcariaBlocks.propertiesPlanks(MapColor.COLOR_GREEN, SoundType.WOOD)));
 	public static final IcariaWoodDecoBlocks POPULUS_DECO = new IcariaWoodDecoBlocks("populus", IcariaBlocks.POPULUS_PLANKS, IcariaBlocks.propertiesPlanks(MapColor.COLOR_GREEN, SoundType.WOOD));
+	public static final RegistryObject<Block> SIMPLE_POPULUS_RACK = IcariaBlocks.register("simple_populus_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_GREEN, SoundType.WOOD)));
+	public static final RegistryObject<Block> POPULUS_RACK = IcariaBlocks.register("populus_rack", () -> new IcariaRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_GREEN, SoundType.WOOD)));
+	public static final RegistryObject<Block> POPULUS_BARREL = IcariaBlocks.register("populus_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_GREEN, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> LOADED_POPULUS_BARREL = IcariaBlocks.register("loaded_populus_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_GREEN, IcariaSoundTypes.BARREL)));
+	public static final RegistryObject<Block> TAPPED_POPULUS_BARREL = IcariaBlocks.register("tapped_populus_barrel", () -> new IcariaBarrelBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_GREEN, IcariaSoundTypes.BARREL)));
 	public static final RegistryObject<Block> POPULUS_CRAFTING_TABLE = IcariaBlocks.register("populus_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_GREEN, SoundType.WOOD)));
 	public static final RegistryObject<DoorBlock> POPULUS_DOOR = IcariaBlocks.register("populus_door", ()-> new DoorBlock(IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD), IcariaBlockSetTypes.POPULUS));
 	public static final RegistryObject<TrapDoorBlock> POPULUS_TRAPDOOR = IcariaBlocks.register("populus_trapdoor", ()-> new TrapDoorBlock(IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_YELLOW, SoundType.WOOD), IcariaBlockSetTypes.POPULUS));
@@ -788,6 +820,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesPlanks(MapColor pColor, SoundType pSound) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(pSound).destroyTime(2.0F).explosionResistance(3.0F).ignitedByLava();
+	}
+
+	public static BlockBehaviour.Properties propertiesBarrel(MapColor pColor, SoundType pSound) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pColor).pushReaction(PushReaction.DESTROY).sound(pSound).ignitedByLava().instabreak().noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesCraftingTable(MapColor pColor, SoundType pSound) {

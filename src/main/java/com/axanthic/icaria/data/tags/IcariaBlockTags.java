@@ -26,6 +26,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaBlockTags extends BlockTagsProvider {
 	// BLOCK TAGS
+	public static final TagKey<Block> SLUG_HIDE_BLOCKS = IcariaBlockTags.icariaTag("slug_hide_blocks");
+
+	public static final TagKey<Block> MYRMEKE_SUMMONS_ON = IcariaBlockTags.icariaTag("myrmeke_summons_on");
+	public static final TagKey<Block> CAPTAIN_SUMMONS_ON = IcariaBlockTags.icariaTag("captain_summons_on");
+
 	public static final TagKey<Block> ICARIA_TIER = IcariaBlockTags.icariaTag("icaria_tier");
 
 	public static final TagKey<Block> NEEDS_CHERT_TOOL = IcariaBlockTags.icariaTag("needs_chert_tool");
@@ -38,14 +43,28 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 	public static final TagKey<Block> MINEABLE_WITH_SCYTHE = IcariaBlockTags.icariaTag("mineable/scythe");
 
-	public static final TagKey<Block> ICARIA_PORTAL_BLOCKS = IcariaBlockTags.icariaTag("icaria_portal_blocks");
 	public static final TagKey<Block> ICARIA_COBWEB_BLOCKS = IcariaBlockTags.icariaTag("icaria_cobweb_blocks");
 	public static final TagKey<Block> ICARIA_GRASS_BLOCKS = IcariaBlockTags.icariaTag("icaria_grass_blocks");
+	public static final TagKey<Block> ICARIA_PORTAL_BLOCKS = IcariaBlockTags.icariaTag("icaria_portal_blocks");
 
-	public static final TagKey<Block> MYRMEKE_SUMMONS_ON = IcariaBlockTags.icariaTag("myrmeke_summons_on");
-	public static final TagKey<Block> CAPTAIN_SUMMONS_ON = IcariaBlockTags.icariaTag("captain_summons_on");
+	public static final TagKey<Block> CYPRESS_RACKS = IcariaBlockTags.icariaTag("cypress_racks");
+	public static final TagKey<Block> DROUGHTROOT_RACKS = IcariaBlockTags.icariaTag("droughtroot_racks");
+	public static final TagKey<Block> FIR_RACKS = IcariaBlockTags.icariaTag("fir_racks");
+	public static final TagKey<Block> LAUREL_RACKS = IcariaBlockTags.icariaTag("laurel_racks");
+	public static final TagKey<Block> OLIVE_RACKS = IcariaBlockTags.icariaTag("olive_racks");
+	public static final TagKey<Block> PLANE_RACKS = IcariaBlockTags.icariaTag("plane_racks");
+	public static final TagKey<Block> POPULUS_RACKS = IcariaBlockTags.icariaTag("populus_racks");
 
-	public static final TagKey<Block> SLUG_HIDE_BLOCKS = IcariaBlockTags.icariaTag("slug_hide_blocks");
+	public static final TagKey<Block> LOADED_BARRELS = IcariaBlockTags.icariaTag("loaded_barrels");
+	public static final TagKey<Block> TAPPED_BARRELS = IcariaBlockTags.icariaTag("tapped_barrels");
+
+	public static final TagKey<Block> CYPRESS_BARRELS = IcariaBlockTags.icariaTag("cypress_barrels");
+	public static final TagKey<Block> DROUGHTROOT_BARRELS = IcariaBlockTags.icariaTag("droughtroot_barrels");
+	public static final TagKey<Block> FIR_BARRELS = IcariaBlockTags.icariaTag("fir_barrels");
+	public static final TagKey<Block> LAUREL_BARRELS = IcariaBlockTags.icariaTag("laurel_barrels");
+	public static final TagKey<Block> OLIVE_BARRELS = IcariaBlockTags.icariaTag("olive_barrels");
+	public static final TagKey<Block> PLANE_BARRELS = IcariaBlockTags.icariaTag("plane_barrels");
+	public static final TagKey<Block> POPULUS_BARRELS = IcariaBlockTags.icariaTag("populus_barrels");
 
 	// ITEMBLOCK TAGS
 	public static final TagKey<Block> ORES_CHERT = IcariaBlockTags.forgeTag("ores/chert");
@@ -120,6 +139,16 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
 		// BLOCK TAGS
+		this.tag(IcariaBlockTags.SLUG_HIDE_BLOCKS)
+			.add(IcariaBlocks.GRASSY_MARL.get())
+			.add(IcariaBlocks.MARL.get())
+			.add(IcariaBlocks.MARL_CHERT.get())
+			.add(IcariaBlocks.MARL_BONES.get())
+			.add(IcariaBlocks.MARL_LIGNITE.get())
+			.add(IcariaBlocks.COARSE_MARL.get())
+			.add(IcariaBlocks.DRY_LAKE_BED.get())
+			.add(IcariaBlocks.LOAM.get());
+
 		this.tag(IcariaBlockTags.MYRMEKE_SUMMONS_ON)
 			.add(IcariaBlocks.GRASSY_MARL.get())
 			.add(IcariaBlocks.MARL.get())
@@ -143,16 +172,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.LOAM.get())
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.SILKSAND.get());
-
-		this.tag(IcariaBlockTags.SLUG_HIDE_BLOCKS)
-			.add(IcariaBlocks.GRASSY_MARL.get())
-			.add(IcariaBlocks.MARL.get())
-			.add(IcariaBlocks.MARL_CHERT.get())
-			.add(IcariaBlocks.MARL_BONES.get())
-			.add(IcariaBlocks.MARL_LIGNITE.get())
-			.add(IcariaBlocks.COARSE_MARL.get())
-			.add(IcariaBlocks.DRY_LAKE_BED.get())
-			.add(IcariaBlocks.LOAM.get());
 
 		this.tag(IcariaBlockTags.ICARIA_TIER)
 			.addTag(IcariaBlockTags.NEEDS_CHERT_TOOL)
@@ -469,8 +488,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.VINE_SPROUT_BLOCK.get())
 			.add(IcariaBlocks.CHEST.get())
 			.add(IcariaBlocks.TRAPPED_CHEST.get())
-			.add(IcariaBlocks.BARREL.get())
-			.add(IcariaBlocks.BARREL_RACK.get())
 			.add(IcariaBlocks.MYRMEKE_SPAWNER.get())
 			.add(IcariaBlocks.CYPRESS_WOOD.get())
 			.add(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get())
@@ -611,6 +628,9 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(BlockTags.MINEABLE_WITH_HOE)
 			.addTag(BlockTags.REPLACEABLE);
 
+		this.tag(IcariaBlockTags.ICARIA_COBWEB_BLOCKS) // TODO: add Arachne web block
+			.add(Blocks.COBWEB);
+
 		this.tag(IcariaBlockTags.ICARIA_GRASS_BLOCKS)
 			.add(IcariaBlocks.SMALL_GRASS.get())
 			.add(IcariaBlocks.MEDIUM_GRASS.get())
@@ -632,9 +652,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.RELICSTONE_TILE_DECO.slab.get())
 			.add(IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.slab.get())
 			.add(IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.slab.get());
-
-		this.tag(IcariaBlockTags.ICARIA_COBWEB_BLOCKS) // TODO: add Arachne web block
-			.add(Blocks.COBWEB);
 
 		this.tag(BlockTags.SAND)
 			.add(IcariaBlocks.LOAM.get())
@@ -693,6 +710,87 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.POTTED_BROWN_GROUND_SHROOMS.get())
 			.add(IcariaBlocks.POTTED_LARGE_BROWN_GROUND_SHROOMS.get())
 			.add(IcariaBlocks.POTTED_CARDON_CACTUS.get());
+
+		this.tag(IcariaBlockTags.CYPRESS_RACKS)
+			.add(IcariaBlocks.SIMPLE_CYPRESS_RACK.get())
+			.add(IcariaBlocks.CYPRESS_RACK.get());
+
+		this.tag(IcariaBlockTags.DROUGHTROOT_RACKS)
+			.add(IcariaBlocks.SIMPLE_DROUGHTROOT_RACK.get())
+			.add(IcariaBlocks.DROUGHTROOT_PLANKS.get());
+
+		this.tag(IcariaBlockTags.FIR_RACKS)
+			.add(IcariaBlocks.SIMPLE_FIR_RACK.get())
+			.add(IcariaBlocks.FIR_RACK.get());
+
+		this.tag(IcariaBlockTags.LAUREL_RACKS)
+			.add(IcariaBlocks.SIMPLE_LAUREL_RACK.get())
+			.add(IcariaBlocks.LAUREL_RACK.get());
+
+		this.tag(IcariaBlockTags.OLIVE_RACKS)
+			.add(IcariaBlocks.SIMPLE_OLIVE_RACK.get())
+			.add(IcariaBlocks.OLIVE_RACK.get());
+
+		this.tag(IcariaBlockTags.PLANE_RACKS)
+			.add(IcariaBlocks.SIMPLE_PLANE_RACK.get())
+			.add(IcariaBlocks.PLANE_RACK.get());
+
+		this.tag(IcariaBlockTags.POPULUS_RACKS)
+			.add(IcariaBlocks.SIMPLE_POPULUS_RACK.get())
+			.add(IcariaBlocks.POPULUS_RACK.get());
+
+		this.tag(IcariaBlockTags.LOADED_BARRELS)
+			.add(IcariaBlocks.LOADED_CYPRESS_BARREL.get())
+			.add(IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get())
+			.add(IcariaBlocks.LOADED_FIR_BARREL.get())
+			.add(IcariaBlocks.LOADED_LAUREL_BARREL.get())
+			.add(IcariaBlocks.LOADED_OLIVE_BARREL.get())
+			.add(IcariaBlocks.LOADED_PLANE_BARREL.get())
+			.add(IcariaBlocks.LOADED_POPULUS_BARREL.get());
+
+		this.tag(IcariaBlockTags.TAPPED_BARRELS)
+			.add(IcariaBlocks.TAPPED_CYPRESS_BARREL.get())
+			.add(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get())
+			.add(IcariaBlocks.TAPPED_FIR_BARREL.get())
+			.add(IcariaBlocks.TAPPED_LAUREL_BARREL.get())
+			.add(IcariaBlocks.TAPPED_OLIVE_BARREL.get())
+			.add(IcariaBlocks.TAPPED_PLANE_BARREL.get())
+			.add(IcariaBlocks.TAPPED_POPULUS_BARREL.get());
+
+		this.tag(IcariaBlockTags.CYPRESS_BARRELS)
+			.add(IcariaBlocks.CYPRESS_BARREL.get())
+			.add(IcariaBlocks.LOADED_CYPRESS_BARREL.get())
+			.add(IcariaBlocks.TAPPED_CYPRESS_BARREL.get());
+
+		this.tag(IcariaBlockTags.DROUGHTROOT_BARRELS)
+			.add(IcariaBlocks.DROUGHTROOT_BARREL.get())
+			.add(IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get())
+			.add(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get());
+
+		this.tag(IcariaBlockTags.FIR_BARRELS)
+			.add(IcariaBlocks.FIR_BARREL.get())
+			.add(IcariaBlocks.LOADED_FIR_BARREL.get())
+			.add(IcariaBlocks.TAPPED_FIR_BARREL.get());
+
+		this.tag(IcariaBlockTags.LAUREL_BARRELS)
+			.add(IcariaBlocks.LAUREL_BARREL.get())
+			.add(IcariaBlocks.LOADED_LAUREL_BARREL.get())
+			.add(IcariaBlocks.TAPPED_LAUREL_BARREL.get());
+
+		this.tag(IcariaBlockTags.OLIVE_BARRELS)
+			.add(IcariaBlocks.OLIVE_BARREL.get())
+			.add(IcariaBlocks.LOADED_OLIVE_BARREL.get())
+			.add(IcariaBlocks.TAPPED_OLIVE_BARREL.get());
+
+		this.tag(IcariaBlockTags.PLANE_BARRELS)
+			.add(IcariaBlocks.PLANE_BARREL.get())
+			.add(IcariaBlocks.LOADED_PLANE_BARREL.get())
+			.add(IcariaBlocks.TAPPED_PLANE_BARREL.get());
+
+		this.tag(IcariaBlockTags.POPULUS_BARRELS)
+			.add(IcariaBlocks.POPULUS_BARREL.get())
+			.add(IcariaBlocks.LOADED_POPULUS_BARREL.get())
+			.add(IcariaBlocks.TAPPED_POPULUS_BARREL.get());
 
 		this.tag(BlockTags.CLIMBABLE)
 			.add(IcariaBlocks.CYPRESS_LADDER.get())
@@ -1048,9 +1146,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 		this.tag(Tags.Blocks.CHESTS_TRAPPED)
 			.add(IcariaBlocks.TRAPPED_CHEST.get());
-
-		this.tag(Tags.Blocks.BARRELS_WOODEN)
-			.add(IcariaBlocks.BARREL.get());
 
 		this.tag(BlockTags.SAPLINGS)
 			.add(IcariaBlocks.CYPRESS_SAPLING.get())

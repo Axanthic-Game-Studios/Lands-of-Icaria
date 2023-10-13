@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "loaded_barrel=false,facing=north,full_rack=false,tapped_barrel=false": { "model": "landsoficaria:block/simple_droughtroot_rack", "y": 0 },
+    "loaded_barrel=false,facing=east,full_rack=false,tapped_barrel=false": { "model": "landsoficaria:block/simple_droughtroot_rack", "y": 90 },
+    "loaded_barrel=false,facing=south,full_rack=false,tapped_barrel=false": { "model": "landsoficaria:block/simple_droughtroot_rack", "y": 180 },
+    "loaded_barrel=false,facing=west,full_rack=false,tapped_barrel=false": { "model": "landsoficaria:block/simple_droughtroot_rack", "y": 270 },
+    "loaded_barrel=false,facing=north,full_rack=true,tapped_barrel=false": { "model": "landsoficaria:block/simple_droughtroot_barrel_rack", "y": 0 },
+    "loaded_barrel=false,facing=east,full_rack=true,tapped_barrel=false": { "model": "landsoficaria:block/simple_droughtroot_barrel_rack", "y": 90 },
+    "loaded_barrel=false,facing=south,full_rack=true,tapped_barrel=false": { "model": "landsoficaria:block/simple_droughtroot_barrel_rack", "y": 180 },
+    "loaded_barrel=false,facing=west,full_rack=true,tapped_barrel=false": { "model": "landsoficaria:block/simple_droughtroot_barrel_rack", "y": 270 },
+    "loaded_barrel=false,facing=north,full_rack=true,tapped_barrel=true": { "model": "landsoficaria:block/simple_tapped_droughtroot_barrel_rack", "y": 0 },
+    "loaded_barrel=false,facing=east,full_rack=true,tapped_barrel=true": { "model": "landsoficaria:block/simple_tapped_droughtroot_barrel_rack", "y": 90 },
+    "loaded_barrel=false,facing=south,full_rack=true,tapped_barrel=true": { "model": "landsoficaria:block/simple_tapped_droughtroot_barrel_rack", "y": 180 },
+    "loaded_barrel=false,facing=west,full_rack=true,tapped_barrel=true": { "model": "landsoficaria:block/simple_tapped_droughtroot_barrel_rack", "y": 270 },
+    "loaded_barrel=true,facing=north,full_rack=true,tapped_barrel=false": { "model": "landsoficaria:block/simple_loaded_droughtroot_barrel_rack", "y": 0 },
+    "loaded_barrel=true,facing=east,full_rack=true,tapped_barrel=false": { "model": "landsoficaria:block/simple_loaded_droughtroot_barrel_rack", "y": 90 },
+    "loaded_barrel=true,facing=south,full_rack=true,tapped_barrel=false": { "model": "landsoficaria:block/simple_loaded_droughtroot_barrel_rack", "y": 180 },
+    "loaded_barrel=true,facing=west,full_rack=true,tapped_barrel=false": { "model": "landsoficaria:block/simple_loaded_droughtroot_barrel_rack", "y": 270 }
+  }
+}

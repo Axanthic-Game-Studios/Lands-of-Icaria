@@ -1,4 +1,12 @@
 {
+  "block.barrel.break": {
+    "sounds": [
+      "landsoficaria:block/barrel/break_01",
+      "landsoficaria:block/barrel/break_02",
+      "landsoficaria:block/barrel/break_03",
+      "landsoficaria:block/barrel/break_04"
+    ]
+  },
   "block.grinder.grind": {
     "sounds": [
       "landsoficaria:block/grinder/grind_01",

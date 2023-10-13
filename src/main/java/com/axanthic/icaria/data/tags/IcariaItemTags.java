@@ -649,9 +649,6 @@ public class IcariaItemTags extends ItemTagsProvider {
 		this.tag(Tags.Items.CHESTS_TRAPPED)
 			.add(IcariaItems.TRAPPED_CHEST.get());
 
-		this.tag(Tags.Items.BARRELS_WOODEN)
-			.add(IcariaItems.BARREL.get());
-
 		this.tag(ItemTags.SAPLINGS)
 			.add(IcariaItems.CYPRESS_SAPLING.get())
 			.add(IcariaItems.DROUGHTROOT_SAPLING.get())

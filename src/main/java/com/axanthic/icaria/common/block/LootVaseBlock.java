@@ -23,7 +23,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.storage.loot.LootDataType;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
@@ -77,6 +76,6 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
     @Override
     public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pBuilder) {
         var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-        return lootContext.getLevel().getServer().getLootData().getElement(LootDataType.TABLE, IcariaVaseLoot.LOOT_VASE).getRandomItems(lootContext);
+        return lootContext.getLevel().getServer().getLootData().getLootTable(IcariaVaseLoot.LOOT_VASE).getRandomItems(lootContext);
     }
 }

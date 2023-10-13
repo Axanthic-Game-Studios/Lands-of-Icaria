@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "barrel_facing=north,facing=north": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 0 },
+    "barrel_facing=east,facing=north": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 90 },
+    "barrel_facing=south,facing=north": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 180 },
+    "barrel_facing=west,facing=north": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 270 },
+    "barrel_facing=up,facing=north": { "model": "landsoficaria:block/standing_tapped_plane_barrel", "x": 0, "y": 0 },
+    "barrel_facing=north,facing=east": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 0 },
+    "barrel_facing=east,facing=east": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 90 },
+    "barrel_facing=south,facing=east": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 180 },
+    "barrel_facing=west,facing=east": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 270 },
+    "barrel_facing=up,facing=east": { "model": "landsoficaria:block/standing_tapped_plane_barrel", "x": 0, "y": 90 },
+    "barrel_facing=north,facing=south": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 0 },
+    "barrel_facing=east,facing=south": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 90 },
+    "barrel_facing=south,facing=south": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 180 },
+    "barrel_facing=west,facing=south": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 270 },
+    "barrel_facing=up,facing=south": { "model": "landsoficaria:block/standing_tapped_plane_barrel", "x": 0, "y": 180 },
+    "barrel_facing=north,facing=west": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 0 },
+    "barrel_facing=east,facing=west": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 90 },
+    "barrel_facing=south,facing=west": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 180 },
+    "barrel_facing=west,facing=west": { "model": "landsoficaria:block/tapped_plane_barrel", "x": 0, "y": 270 },
+    "barrel_facing=up,facing=west": { "model": "landsoficaria:block/standing_tapped_plane_barrel", "x": 0, "y": 270 }
+  }
+}

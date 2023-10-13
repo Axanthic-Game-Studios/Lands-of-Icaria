@@ -19,6 +19,7 @@ public class IcariaEntityTypes {
 	public static final RegistryObject<EntityType<ArachneEntity>> ARACHNE = IcariaEntityTypes.register("arachne", Builder.of(ArachneEntity::new, MobCategory.MONSTER).sized(2.0F, 2.0F));
 	public static final RegistryObject<EntityType<ArachneDroneEntity>> ARACHNE_DRONE = IcariaEntityTypes.register("arachne_drone", Builder.of(ArachneDroneEntity::new, MobCategory.MONSTER).sized(1.0F, 0.5F));
 	public static final RegistryObject<EntityType<ArganHoundEntity>> ARGAN_HOUND = IcariaEntityTypes.register("argan_hound", Builder.of(ArganHoundEntity::new, MobCategory.MONSTER).sized(1.25F, 1.0F));
+	public static final RegistryObject<EntityType<IcariaBarrelEntity>> BARREL = IcariaEntityTypes.register("barrel", Builder.<IcariaBarrelEntity>of(IcariaBarrelEntity::new, MobCategory.MISC).sized(1.0F, 1.0F).clientTrackingRange(10).updateInterval(20));
 	public static final RegistryObject<EntityType<BidentEntity>> BIDENT = IcariaEntityTypes.register("bident", Builder.<BidentEntity>of(BidentEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
 	public static final RegistryObject<EntityType<CatoblepasEntity>> CATOBLEPAS = IcariaEntityTypes.register("catoblepas", Builder.of(CatoblepasEntity::new, MobCategory.CREATURE).sized(1.25F, 1.25F));
 	public static final RegistryObject<EntityType<CerverEntity>> CERVER = IcariaEntityTypes.register("cerver", Builder.of(CerverEntity::new, MobCategory.MONSTER).sized(1.25F, 1.0F));

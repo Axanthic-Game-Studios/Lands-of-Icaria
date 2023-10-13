@@ -345,9 +345,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.CHEST.get(), "Chest");
 		this.add(IcariaBlocks.TRAPPED_CHEST.get(), "Trapped Chest");
 
-		this.add(IcariaBlocks.BARREL.get(), "Barrel");
-		this.add(IcariaBlocks.BARREL_RACK.get(), "Barrel Rack");
-
 		this.add(IcariaBlocks.STORAGE_VASE.get(), "Storage Vase");
 		this.add(IcariaBlocks.WHITE_STORAGE_VASE.get(), "White Storage Vase");
 		this.add(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get(), "Light Gray Storage Vase");
@@ -413,6 +410,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_DECO.slab.get(), "Cypress Slab");
 		this.add(IcariaBlocks.CYPRESS_DECO.fence.get(), "Cypress Fence");
 		this.add(IcariaBlocks.CYPRESS_DECO.gate.get(), "Cypress Fence Gate");
+		this.add(IcariaBlocks.SIMPLE_CYPRESS_RACK.get(), "Simple Cypress Rack");
+		this.add(IcariaBlocks.CYPRESS_RACK.get(), "Cypress Rack");
+		this.add(IcariaBlocks.CYPRESS_BARREL.get(), "Cypress Barrel");
+		this.add(IcariaBlocks.LOADED_CYPRESS_BARREL.get(), "Loaded Cypress Barrel");
+		this.add(IcariaBlocks.TAPPED_CYPRESS_BARREL.get(), "Tapped Cypress Barrel");
 		this.add(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), "Cypress Crafting Table");
 		this.add(IcariaBlocks.CYPRESS_DOOR.get(), "Cypress Door");
 		this.add(IcariaBlocks.CYPRESS_TRAPDOOR.get(), "Cypress Trapdoor");
@@ -436,6 +438,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_DECO.slab.get(), "Droughtroot Slab");
 		this.add(IcariaBlocks.DROUGHTROOT_DECO.fence.get(), "Droughtroot Fence");
 		this.add(IcariaBlocks.DROUGHTROOT_DECO.gate.get(), "Droughtroot Fence Gate");
+		this.add(IcariaBlocks.SIMPLE_DROUGHTROOT_RACK.get(), "Simple Droughtroot Rack");
+		this.add(IcariaBlocks.DROUGHTROOT_RACK.get(), "Droughtroot Rack");
+		this.add(IcariaBlocks.DROUGHTROOT_BARREL.get(), "Droughtroot Barrel");
+		this.add(IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), "Loaded Droughtroot Barrel");
+		this.add(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get(), "Tapped Droughtroot Barrel");
 		this.add(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), "Droughtroot Crafting Table");
 		this.add(IcariaBlocks.DROUGHTROOT_DOOR.get(), "Droughtroot Door");
 		this.add(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), "Droughtroot Trapdoor");
@@ -459,6 +466,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_DECO.slab.get(), "Fir Slab");
 		this.add(IcariaBlocks.FIR_DECO.fence.get(), "Fir Fence");
 		this.add(IcariaBlocks.FIR_DECO.gate.get(), "Fir Fence Gate");
+		this.add(IcariaBlocks.SIMPLE_FIR_RACK.get(), "Simple Fir Rack");
+		this.add(IcariaBlocks.FIR_RACK.get(), "Fir Rack");
+		this.add(IcariaBlocks.FIR_BARREL.get(), "Fir Barrel");
+		this.add(IcariaBlocks.LOADED_FIR_BARREL.get(), "Loaded Fir Barrel");
+		this.add(IcariaBlocks.TAPPED_FIR_BARREL.get(), "Tapped Fir Barrel");
 		this.add(IcariaBlocks.FIR_CRAFTING_TABLE.get(), "Fir Crafting Table");
 		this.add(IcariaBlocks.FIR_DOOR.get(), "Fir Door");
 		this.add(IcariaBlocks.FIR_TRAPDOOR.get(), "Fir Trapdoor");
@@ -482,6 +494,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_DECO.slab.get(), "Laurel Slab");
 		this.add(IcariaBlocks.LAUREL_DECO.fence.get(), "Laurel Fence");
 		this.add(IcariaBlocks.LAUREL_DECO.gate.get(), "Laurel Fence Gate");
+		this.add(IcariaBlocks.SIMPLE_LAUREL_RACK.get(), "Simple Laurel Rack");
+		this.add(IcariaBlocks.LAUREL_RACK.get(), "Laurel Rack");
+		this.add(IcariaBlocks.LAUREL_BARREL.get(), "Laurel Barrel");
+		this.add(IcariaBlocks.LOADED_LAUREL_BARREL.get(), "Loaded Laurel Barrel");
+		this.add(IcariaBlocks.TAPPED_LAUREL_BARREL.get(), "Tapped Laurel Barrel");
 		this.add(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), "Laurel Crafting Table");
 		this.add(IcariaBlocks.LAUREL_DOOR.get(), "Laurel Door");
 		this.add(IcariaBlocks.LAUREL_TRAPDOOR.get(), "Laurel Trapdoor");
@@ -505,6 +522,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_DECO.slab.get(), "Olive Slab");
 		this.add(IcariaBlocks.OLIVE_DECO.fence.get(), "Olive Fence");
 		this.add(IcariaBlocks.OLIVE_DECO.gate.get(), "Olive Fence Gate");
+		this.add(IcariaBlocks.SIMPLE_OLIVE_RACK.get(), "Simple Olive Rack");
+		this.add(IcariaBlocks.OLIVE_RACK.get(), "Olive Rack");
+		this.add(IcariaBlocks.OLIVE_BARREL.get(), "Olive Barrel");
+		this.add(IcariaBlocks.LOADED_OLIVE_BARREL.get(), "Loaded Olive Barrel");
+		this.add(IcariaBlocks.TAPPED_OLIVE_BARREL.get(), "Tapped Olive Barrel");
 		this.add(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), "Olive Crafting Table");
 		this.add(IcariaBlocks.OLIVE_DOOR.get(), "Olive Door");
 		this.add(IcariaBlocks.OLIVE_TRAPDOOR.get(), "Olive Trapdoor");
@@ -528,6 +550,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_DECO.slab.get(), "Plane Slab");
 		this.add(IcariaBlocks.PLANE_DECO.fence.get(), "Plane Fence");
 		this.add(IcariaBlocks.PLANE_DECO.gate.get(), "Plane Fence Gate");
+		this.add(IcariaBlocks.SIMPLE_PLANE_RACK.get(), "Simple Plane Rack");
+		this.add(IcariaBlocks.PLANE_RACK.get(), "Plane Rack");
+		this.add(IcariaBlocks.PLANE_BARREL.get(), "Plane Barrel");
+		this.add(IcariaBlocks.LOADED_PLANE_BARREL.get(), "Loaded Plane Barrel");
+		this.add(IcariaBlocks.TAPPED_PLANE_BARREL.get(), "Tapped Plane Barrel");
 		this.add(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), "Plane Crafting Table");
 		this.add(IcariaBlocks.PLANE_DOOR.get(), "Plane Door");
 		this.add(IcariaBlocks.PLANE_TRAPDOOR.get(), "Plane Trapdoor");
@@ -551,6 +578,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_DECO.slab.get(), "Populus Slab");
 		this.add(IcariaBlocks.POPULUS_DECO.fence.get(), "Populus Fence");
 		this.add(IcariaBlocks.POPULUS_DECO.gate.get(), "Populus Fence Gate");
+		this.add(IcariaBlocks.SIMPLE_POPULUS_RACK.get(), "Simple Populus Rack");
+		this.add(IcariaBlocks.POPULUS_RACK.get(), "Populus Rack");
+		this.add(IcariaBlocks.POPULUS_BARREL.get(), "Populus Barrel");
+		this.add(IcariaBlocks.LOADED_POPULUS_BARREL.get(), "Loaded Populus Barrel");
+		this.add(IcariaBlocks.TAPPED_POPULUS_BARREL.get(), "Tapped Populus Barrel");
 		this.add(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), "Populus Crafting Table");
 		this.add(IcariaBlocks.POPULUS_DOOR.get(), "Populus Door");
 		this.add(IcariaBlocks.POPULUS_TRAPDOOR.get(), "Populus Trapdoor");
@@ -1013,6 +1045,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("menu" + "." + IcariaInfo.ID + "." + "storage_vase", "Storage Vase");
 
 		// MESSAGES
+		this.add("message" + "." + IcariaInfo.ID + "." + "barrel", "Sneak to throw the barrel");
 		this.add("message" + "." + IcariaInfo.ID + "." + "chest_label", "Chest label name too long");
 		this.add("message" + "." + IcariaInfo.ID + "." + "loot_vase", "Sneak to throw loot vase");
 	}

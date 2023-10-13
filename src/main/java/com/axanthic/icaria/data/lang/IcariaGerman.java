@@ -345,9 +345,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.CHEST.get(), "Truhe");
 		this.add(IcariaBlocks.TRAPPED_CHEST.get(), "Redstone-Truhe");
 
-		this.add(IcariaBlocks.BARREL.get(), "Fass");
-		this.add(IcariaBlocks.BARREL_RACK.get(), "Fass-Gestell");
-
 		this.add(IcariaBlocks.STORAGE_VASE.get(), "Speichervase");
 		this.add(IcariaBlocks.WHITE_STORAGE_VASE.get(), "Weiße Speichervase");
 		this.add(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get(), "Hellgraue Speichervase");
@@ -413,6 +410,11 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_DECO.slab.get(), "Zypressenholzstufe");
 		this.add(IcariaBlocks.CYPRESS_DECO.fence.get(), "Zypressenholzzaun");
 		this.add(IcariaBlocks.CYPRESS_DECO.gate.get(), "Zypressenholzzauntor");
+		this.add(IcariaBlocks.SIMPLE_CYPRESS_RACK.get(), "Einfaches Zypressenholzgestell");
+		this.add(IcariaBlocks.CYPRESS_RACK.get(), "Zypressenholzgestell");
+		this.add(IcariaBlocks.CYPRESS_BARREL.get(), "Zypressenholzfass");
+		this.add(IcariaBlocks.LOADED_CYPRESS_BARREL.get(), "Geladenes Zypressenholzfass");
+		this.add(IcariaBlocks.TAPPED_CYPRESS_BARREL.get(), "Gezapftes Zypressenholzfass");
 		this.add(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), "Zypressenholzwerkbank");
 		this.add(IcariaBlocks.CYPRESS_DOOR.get(), "Zypressenholztür");
 		this.add(IcariaBlocks.CYPRESS_TRAPDOOR.get(), "Zypressenholzfalltür");
@@ -436,6 +438,11 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_DECO.slab.get(), "Dürrwurzelholzstufe");
 		this.add(IcariaBlocks.DROUGHTROOT_DECO.fence.get(), "Dürrwurzelholzzaun");
 		this.add(IcariaBlocks.DROUGHTROOT_DECO.gate.get(), "Dürrwurzelholzzauntor");
+		this.add(IcariaBlocks.SIMPLE_DROUGHTROOT_RACK.get(), "Einfaches Dürrwurzelholzgestell");
+		this.add(IcariaBlocks.DROUGHTROOT_RACK.get(), "Dürrwurzelholzgestell");
+		this.add(IcariaBlocks.DROUGHTROOT_BARREL.get(), "Dürrwurzelholzfass");
+		this.add(IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), "Geladenes Dürrwurzelholzfass");
+		this.add(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get(), "Gezapftes Dürrwurzelholzfass");
 		this.add(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), "Dürrwurzelholzwerkbank");
 		this.add(IcariaBlocks.DROUGHTROOT_DOOR.get(), "Dürrwurzelholztür");
 		this.add(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), "Dürrwurzelholzfalltür");
@@ -459,6 +466,11 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_DECO.slab.get(), "Tannenholzstufe");
 		this.add(IcariaBlocks.FIR_DECO.fence.get(), "Tannenholzzaun");
 		this.add(IcariaBlocks.FIR_DECO.gate.get(), "Tannenholzzauntor");
+		this.add(IcariaBlocks.SIMPLE_FIR_RACK.get(), "Einfaches Tannenholzgestell");
+		this.add(IcariaBlocks.FIR_RACK.get(), "Tannenholzgestell");
+		this.add(IcariaBlocks.FIR_BARREL.get(), "Tannenholzfass");
+		this.add(IcariaBlocks.LOADED_FIR_BARREL.get(), "Geladenes Tannenholzfass");
+		this.add(IcariaBlocks.TAPPED_FIR_BARREL.get(), "Gezapftes Tannenholzfass");
 		this.add(IcariaBlocks.FIR_CRAFTING_TABLE.get(), "Tannenholzwerkbank");
 		this.add(IcariaBlocks.FIR_DOOR.get(), "Tannenholztür");
 		this.add(IcariaBlocks.FIR_TRAPDOOR.get(), "Tannenholzfalltür");
@@ -482,6 +494,11 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_DECO.slab.get(), "Lorbeerholzstufe");
 		this.add(IcariaBlocks.LAUREL_DECO.fence.get(), "Lorbeerholzzaun");
 		this.add(IcariaBlocks.LAUREL_DECO.gate.get(), "Lorbeerholzzauntor");
+		this.add(IcariaBlocks.SIMPLE_LAUREL_RACK.get(), "Einfaches Lorbeerholzgestell");
+		this.add(IcariaBlocks.LAUREL_RACK.get(), "Lorbeerholzgestell");
+		this.add(IcariaBlocks.LAUREL_BARREL.get(), "Lorbeerholzfass");
+		this.add(IcariaBlocks.LOADED_LAUREL_BARREL.get(), "Geladenes Lorbeerholzfass");
+		this.add(IcariaBlocks.TAPPED_LAUREL_BARREL.get(), "Gezapftes Lorbeerholzfass");
 		this.add(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), "Lorbeerholzwerkbank");
 		this.add(IcariaBlocks.LAUREL_DOOR.get(), "Lorbeerholztür");
 		this.add(IcariaBlocks.LAUREL_TRAPDOOR.get(), "Lorbeerholzfalltür");
@@ -505,6 +522,11 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_DECO.slab.get(), "Olivenholzstufe");
 		this.add(IcariaBlocks.OLIVE_DECO.fence.get(), "Olivenholzzaun");
 		this.add(IcariaBlocks.OLIVE_DECO.gate.get(), "Olivenholzzauntor");
+		this.add(IcariaBlocks.SIMPLE_OLIVE_RACK.get(), "Einfaches Olivenholzgestell");
+		this.add(IcariaBlocks.OLIVE_RACK.get(), "Olivenholzgestell");
+		this.add(IcariaBlocks.OLIVE_BARREL.get(), "Olivenholzfass");
+		this.add(IcariaBlocks.LOADED_OLIVE_BARREL.get(), "Geladenes Olivenholzfass");
+		this.add(IcariaBlocks.TAPPED_OLIVE_BARREL.get(), "Gezapftes Olivenholzfass");
 		this.add(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), "Olivenholzwerkbank");
 		this.add(IcariaBlocks.OLIVE_DOOR.get(), "Olivenholztür");
 		this.add(IcariaBlocks.OLIVE_TRAPDOOR.get(), "Olivenholzfalltür");
@@ -528,6 +550,11 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_DECO.slab.get(), "Plantanenholzstufe");
 		this.add(IcariaBlocks.PLANE_DECO.fence.get(), "Plantanenholzzaun");
 		this.add(IcariaBlocks.PLANE_DECO.gate.get(), "Plantanenholzzauntor");
+		this.add(IcariaBlocks.SIMPLE_PLANE_RACK.get(), "Einfaches Plantanenholzgestell");
+		this.add(IcariaBlocks.PLANE_RACK.get(), "Plantanenholzgestell");
+		this.add(IcariaBlocks.PLANE_BARREL.get(), "Plantanenholzfass");
+		this.add(IcariaBlocks.LOADED_PLANE_BARREL.get(), "Geladenes Plantanenholzfass");
+		this.add(IcariaBlocks.TAPPED_PLANE_BARREL.get(), "Gezapftes Plantanenholzfass");
 		this.add(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), "Plantanenholzwerkbank");
 		this.add(IcariaBlocks.PLANE_DOOR.get(), "Plantanenholztür");
 		this.add(IcariaBlocks.PLANE_TRAPDOOR.get(), "Plantanenholzfalltür");
@@ -551,6 +578,11 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_DECO.slab.get(), "Pappelholzstufe");
 		this.add(IcariaBlocks.POPULUS_DECO.fence.get(), "Pappelholzzaun");
 		this.add(IcariaBlocks.POPULUS_DECO.gate.get(), "Pappelholzzauntor");
+		this.add(IcariaBlocks.SIMPLE_POPULUS_RACK.get(), "Einfaches Pappelholzgestell");
+		this.add(IcariaBlocks.POPULUS_RACK.get(), "Pappelholzgestell");
+		this.add(IcariaBlocks.POPULUS_BARREL.get(), "Pappelholzfass");
+		this.add(IcariaBlocks.LOADED_POPULUS_BARREL.get(), "Geladenes Pappelholzfass");
+		this.add(IcariaBlocks.TAPPED_POPULUS_BARREL.get(), "Gezapftes Pappelholzfass");
 		this.add(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), "Pappelholzwerkbank");
 		this.add(IcariaBlocks.POPULUS_DOOR.get(), "Pappelholztür");
 		this.add(IcariaBlocks.POPULUS_TRAPDOOR.get(), "Pappelholzfalltür");
@@ -1013,6 +1045,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("menu" + "." + IcariaInfo.ID + "." + "storage_vase", "Speichervase");
 
 		// MESSAGES
+		this.add("message" + "." + IcariaInfo.ID + "." + "barrel", "Schleichen zum Werfen des Fasses");
 		this.add("message" + "." + IcariaInfo.ID + "." + "chest_label", "Name des Kistenetiketts zu lang");
 		this.add("message" + "." + IcariaInfo.ID + "." + "loot_vase", "Schleichen zum Werfen der Beutevase");
 	}

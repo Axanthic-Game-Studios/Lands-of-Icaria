@@ -22,7 +22,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.loot.LootDataType;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
@@ -86,7 +85,7 @@ public class LootVaseEntity extends Entity {
     public void dropFromLootTable(DamageSource pDamageSource) {
         if (this.level().getServer() != null) {
             var lootContext = new LootParams.Builder((ServerLevel) this.level()).withOptionalParameter(LootContextParams.DIRECT_KILLER_ENTITY, pDamageSource.getDirectEntity()).withOptionalParameter(LootContextParams.KILLER_ENTITY, pDamageSource.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, pDamageSource).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).create(LootContextParamSets.ENTITY);
-            lootContext.getLevel().getServer().getLootData().getElement(LootDataType.TABLE, IcariaVaseLoot.LOOT_VASE).getRandomItems(lootContext).forEach(this::spawnAtLocation);
+            lootContext.getLevel().getServer().getLootData().getLootTable(IcariaVaseLoot.LOOT_VASE).getRandomItems(lootContext).forEach(this::spawnAtLocation);
         }
     }
 
@@ -116,8 +115,8 @@ public class LootVaseEntity extends Entity {
         }
     }
 
-    public void setBlockPos(BlockPos pStartPos) {
-        this.entityData.set(LootVaseEntity.BLOCK_POS, pStartPos);
+    public void setBlockPos(BlockPos pPos) {
+        this.entityData.set(LootVaseEntity.BLOCK_POS, pPos);
     }
 
     public void setBlockState(BlockState pState) {
@@ -136,7 +135,7 @@ public class LootVaseEntity extends Entity {
         }
     }
 
-    public BlockPos getStartPos() {
+    public BlockPos getBlockPos() {
         return this.entityData.get(LootVaseEntity.BLOCK_POS);
     }
 

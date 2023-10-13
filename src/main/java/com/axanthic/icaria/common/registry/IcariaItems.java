@@ -238,9 +238,6 @@ public class IcariaItems {
 	public static final RegistryObject<Item> CHEST = IcariaItems.register("chest", () -> new IcariaChestItem(IcariaBlocks.CHEST.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> TRAPPED_CHEST = IcariaItems.register("trapped_chest", () -> new IcariaChestItem(IcariaBlocks.TRAPPED_CHEST.get(), IcariaItems.propertiesItem()));
 
-	public static final RegistryObject<Item> BARREL = IcariaItems.register("barrel", () -> new BlockItem(IcariaBlocks.BARREL.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> BARREL_RACK = IcariaItems.register("barrel_rack", () -> new BlockItem(IcariaBlocks.BARREL_RACK.get(), IcariaItems.propertiesItem()));
-
 	public static final RegistryObject<Item> STORAGE_VASE = IcariaItems.register("storage_vase", () -> new BlockItem(IcariaBlocks.STORAGE_VASE.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> WHITE_STORAGE_VASE = IcariaItems.register("white_storage_vase", () -> new BlockItem(IcariaBlocks.WHITE_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> LIGHT_GRAY_STORAGE_VASE = IcariaItems.register("light_gray_storage_vase", () -> new BlockItem(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
@@ -302,6 +299,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_CYPRESS_LOG = IcariaItems.register("stripped_dead_cypress_log", () -> new FuelBlockItem(IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get(), IcariaItems.propertiesItem(), 100));
 	public static final RegistryObject<Item> CYPRESS_PLANKS = IcariaItems.register("cypress_planks", () -> new FuelBlockItem(IcariaBlocks.CYPRESS_PLANKS.get(), IcariaItems.propertiesItem(), 300));
 	public static final IcariaWoodDecoItems CYPRESS_DECO = new IcariaWoodDecoItems(IcariaBlocks.CYPRESS_DECO, IcariaItems.CYPRESS_PLANKS);
+	public static final RegistryObject<Item> SIMPLE_CYPRESS_RACK = IcariaItems.register("simple_cypress_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_CYPRESS_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> CYPRESS_RACK = IcariaItems.register("cypress_rack", () -> new BlockItem(IcariaBlocks.CYPRESS_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> CYPRESS_BARREL = IcariaItems.register("cypress_barrel", () -> new BlockItem(IcariaBlocks.CYPRESS_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> LOADED_CYPRESS_BARREL = IcariaItems.register("loaded_cypress_barrel", () -> new BlockItem(IcariaBlocks.LOADED_CYPRESS_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> TAPPED_CYPRESS_BARREL = IcariaItems.register("tapped_cypress_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_CYPRESS_BARREL.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> CYPRESS_CRAFTING_TABLE = IcariaItems.register("cypress_crafting_table", () -> new FuelBlockItem(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), IcariaItems.propertiesItem(), 300));
 	public static final RegistryObject<Item> CYPRESS_DOOR = IcariaItems.registerSimple("cypress_door", () -> new BlockItem(IcariaBlocks.CYPRESS_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> CYPRESS_TRAPDOOR = IcariaItems.register("cypress_trapdoor", () -> new BlockItem(IcariaBlocks.CYPRESS_TRAPDOOR.get(), IcariaItems.propertiesItem()));
@@ -321,6 +323,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_DROUGHTROOT_LOG = IcariaItems.register("stripped_dead_droughtroot_log", () -> new FuelBlockItem(IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get(), IcariaItems.propertiesItem(), 100));
 	public static final RegistryObject<Item> DROUGHTROOT_PLANKS = IcariaItems.register("droughtroot_planks", () -> new FuelBlockItem(IcariaBlocks.DROUGHTROOT_PLANKS.get(), IcariaItems.propertiesItem(), 300));
 	public static final IcariaWoodDecoItems DROUGHTROOT_DECO = new IcariaWoodDecoItems(IcariaBlocks.DROUGHTROOT_DECO, IcariaItems.DROUGHTROOT_PLANKS);
+	public static final RegistryObject<Item> SIMPLE_DROUGHTROOT_RACK = IcariaItems.register("simple_droughtroot_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_DROUGHTROOT_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> DROUGHTROOT_RACK = IcariaItems.register("droughtroot_rack", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> DROUGHTROOT_BARREL = IcariaItems.register("droughtroot_barrel", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> LOADED_DROUGHTROOT_BARREL = IcariaItems.register("loaded_droughtroot_barrel", () -> new BlockItem(IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> TAPPED_DROUGHTROOT_BARREL = IcariaItems.register("tapped_droughtroot_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> DROUGHTROOT_CRAFTING_TABLE = IcariaItems.register("droughtroot_crafting_table", () -> new FuelBlockItem(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), IcariaItems.propertiesItem(), 300));
 	public static final RegistryObject<Item> DROUGHTROOT_DOOR = IcariaItems.registerSimple("droughtroot_door", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> DROUGHTROOT_TRAPDOOR = IcariaItems.register("droughtroot_trapdoor", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), IcariaItems.propertiesItem()));
@@ -340,6 +347,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_FIR_LOG = IcariaItems.register("stripped_dead_fir_log", () -> new FuelBlockItem(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get(), IcariaItems.propertiesItem(), 100));
 	public static final RegistryObject<Item> FIR_PLANKS = IcariaItems.register("fir_planks", () -> new FuelBlockItem(IcariaBlocks.FIR_PLANKS.get(), IcariaItems.propertiesItem(), 300));
 	public static final IcariaWoodDecoItems FIR_DECO = new IcariaWoodDecoItems(IcariaBlocks.FIR_DECO, IcariaItems.FIR_PLANKS);
+	public static final RegistryObject<Item> SIMPLE_FIR_RACK = IcariaItems.register("simple_fir_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_FIR_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> FIR_RACK = IcariaItems.register("fir_rack", () -> new BlockItem(IcariaBlocks.FIR_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> FIR_BARREL = IcariaItems.register("fir_barrel", () -> new BlockItem(IcariaBlocks.FIR_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> LOADED_FIR_BARREL = IcariaItems.register("loaded_fir_barrel", () -> new BlockItem(IcariaBlocks.LOADED_FIR_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> TAPPED_FIR_BARREL = IcariaItems.register("tapped_fir_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_FIR_BARREL.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> FIR_CRAFTING_TABLE = IcariaItems.register("fir_crafting_table", () -> new FuelBlockItem(IcariaBlocks.FIR_CRAFTING_TABLE.get(), IcariaItems.propertiesItem(), 300));
 	public static final RegistryObject<Item> FIR_DOOR = IcariaItems.registerSimple("fir_door", () -> new BlockItem(IcariaBlocks.FIR_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> FIR_TRAPDOOR = IcariaItems.register("fir_trapdoor", () -> new BlockItem(IcariaBlocks.FIR_TRAPDOOR.get(), IcariaItems.propertiesItem()));
@@ -359,6 +371,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_LAUREL_LOG = IcariaItems.register("stripped_dead_laurel_log", () -> new FuelBlockItem(IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get(), IcariaItems.propertiesItem(), 100));
 	public static final RegistryObject<Item> LAUREL_PLANKS = IcariaItems.register("laurel_planks", () -> new FuelBlockItem(IcariaBlocks.LAUREL_PLANKS.get(), IcariaItems.propertiesItem(), 300));
 	public static final IcariaWoodDecoItems LAUREL_DECO = new IcariaWoodDecoItems(IcariaBlocks.LAUREL_DECO, IcariaItems.LAUREL_PLANKS);
+	public static final RegistryObject<Item> SIMPLE_LAUREL_RACK = IcariaItems.register("simple_laurel_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_LAUREL_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> LAUREL_RACK = IcariaItems.register("laurel_rack", () -> new BlockItem(IcariaBlocks.LAUREL_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> LAUREL_BARREL = IcariaItems.register("laurel_barrel", () -> new BlockItem(IcariaBlocks.LAUREL_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> LOADED_LAUREL_BARREL = IcariaItems.register("loaded_laurel_barrel", () -> new BlockItem(IcariaBlocks.LOADED_LAUREL_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> TAPPED_LAUREL_BARREL = IcariaItems.register("tapped_laurel_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_LAUREL_BARREL.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> LAUREL_CRAFTING_TABLE = IcariaItems.register("laurel_crafting_table", () -> new FuelBlockItem(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), IcariaItems.propertiesItem(), 300));
 	public static final RegistryObject<Item> LAUREL_DOOR = IcariaItems.registerSimple("laurel_door", () -> new BlockItem(IcariaBlocks.LAUREL_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> LAUREL_TRAPDOOR = IcariaItems.register("laurel_trapdoor", () -> new BlockItem(IcariaBlocks.LAUREL_TRAPDOOR.get(), IcariaItems.propertiesItem()));
@@ -378,6 +395,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_OLIVE_LOG = IcariaItems.register("stripped_dead_olive_log", () -> new FuelBlockItem(IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get(), IcariaItems.propertiesItem(), 100));
 	public static final RegistryObject<Item> OLIVE_PLANKS = IcariaItems.register("olive_planks", () -> new FuelBlockItem(IcariaBlocks.OLIVE_PLANKS.get(), IcariaItems.propertiesItem(), 300));
 	public static final IcariaWoodDecoItems OLIVE_DECO = new IcariaWoodDecoItems(IcariaBlocks.OLIVE_DECO, IcariaItems.OLIVE_PLANKS);
+	public static final RegistryObject<Item> SIMPLE_OLIVE_RACK = IcariaItems.register("simple_olive_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_OLIVE_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> OLIVE_RACK = IcariaItems.register("olive_rack", () -> new BlockItem(IcariaBlocks.OLIVE_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> OLIVE_BARREL = IcariaItems.register("olive_barrel", () -> new BlockItem(IcariaBlocks.OLIVE_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> LOADED_OLIVE_BARREL = IcariaItems.register("loaded_olive_barrel", () -> new BlockItem(IcariaBlocks.LOADED_OLIVE_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> TAPPED_OLIVE_BARREL = IcariaItems.register("tapped_olive_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_OLIVE_BARREL.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> OLIVE_CRAFTING_TABLE = IcariaItems.register("olive_crafting_table", () -> new FuelBlockItem(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), IcariaItems.propertiesItem(), 300));
 	public static final RegistryObject<Item> OLIVE_DOOR = IcariaItems.registerSimple("olive_door", () -> new BlockItem(IcariaBlocks.OLIVE_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> OLIVE_TRAPDOOR = IcariaItems.register("olive_trapdoor", () -> new BlockItem(IcariaBlocks.OLIVE_TRAPDOOR.get(), IcariaItems.propertiesItem()));
@@ -397,6 +419,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_PLANE_LOG = IcariaItems.register("stripped_dead_plane_log", () -> new FuelBlockItem(IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get(), IcariaItems.propertiesItem(), 100));
 	public static final RegistryObject<Item> PLANE_PLANKS = IcariaItems.register("plane_planks", () -> new FuelBlockItem(IcariaBlocks.PLANE_PLANKS.get(), IcariaItems.propertiesItem(), 300));
 	public static final IcariaWoodDecoItems PLANE_DECO = new IcariaWoodDecoItems(IcariaBlocks.PLANE_DECO, IcariaItems.PLANE_PLANKS);
+	public static final RegistryObject<Item> SIMPLE_PLANE_RACK = IcariaItems.register("simple_plane_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_PLANE_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> PLANE_RACK = IcariaItems.register("plane_rack", () -> new BlockItem(IcariaBlocks.PLANE_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> PLANE_BARREL = IcariaItems.register("plane_barrel", () -> new BlockItem(IcariaBlocks.PLANE_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> LOADED_PLANE_BARREL = IcariaItems.register("loaded_plane_barrel", () -> new BlockItem(IcariaBlocks.LOADED_PLANE_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> TAPPED_PLANE_BARREL = IcariaItems.register("tapped_plane_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_PLANE_BARREL.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> PLANE_CRAFTING_TABLE = IcariaItems.register("plane_crafting_table", () -> new FuelBlockItem(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), IcariaItems.propertiesItem(), 300));
 	public static final RegistryObject<Item> PLANE_DOOR = IcariaItems.registerSimple("plane_door", () -> new BlockItem(IcariaBlocks.PLANE_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> PLANE_TRAPDOOR = IcariaItems.register("plane_trapdoor", () -> new BlockItem(IcariaBlocks.PLANE_TRAPDOOR.get(), IcariaItems.propertiesItem()));
@@ -416,6 +443,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> STRIPPED_DEAD_POPULUS_LOG = IcariaItems.register("stripped_dead_populus_log", () -> new FuelBlockItem(IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get(), IcariaItems.propertiesItem(), 100));
 	public static final RegistryObject<Item> POPULUS_PLANKS = IcariaItems.register("populus_planks", () -> new FuelBlockItem(IcariaBlocks.POPULUS_PLANKS.get(), IcariaItems.propertiesItem(), 300));
 	public static final IcariaWoodDecoItems POPULUS_DECO = new IcariaWoodDecoItems(IcariaBlocks.POPULUS_DECO, IcariaItems.POPULUS_PLANKS);
+	public static final RegistryObject<Item> SIMPLE_POPULUS_RACK = IcariaItems.register("simple_populus_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_POPULUS_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> POPULUS_RACK = IcariaItems.register("populus_rack", () -> new BlockItem(IcariaBlocks.POPULUS_RACK.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> POPULUS_BARREL = IcariaItems.register("populus_barrel", () -> new BlockItem(IcariaBlocks.POPULUS_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> LOADED_POPULUS_BARREL = IcariaItems.register("loaded_populus_barrel", () -> new BlockItem(IcariaBlocks.LOADED_POPULUS_BARREL.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> TAPPED_POPULUS_BARREL = IcariaItems.register("tapped_populus_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_POPULUS_BARREL.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> POPULUS_CRAFTING_TABLE = IcariaItems.register("populus_crafting_table", () -> new FuelBlockItem(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), IcariaItems.propertiesItem(), 300));
 	public static final RegistryObject<Item> POPULUS_DOOR = IcariaItems.registerSimple("populus_door", () -> new BlockItem(IcariaBlocks.POPULUS_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> POPULUS_TRAPDOOR = IcariaItems.register("populus_trapdoor", () -> new BlockItem(IcariaBlocks.POPULUS_TRAPDOOR.get(), IcariaItems.propertiesItem()));
