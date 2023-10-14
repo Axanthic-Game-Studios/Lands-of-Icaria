@@ -790,7 +790,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesLootVase(MapColor pColor, SoundType pSound) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.DESTROY).sound(pSound).instabreak().noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.BLOCK).sound(pSound).instabreak().noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesSpawner(MapColor pColor, SoundType pSound) {
@@ -830,7 +830,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesBarrel(MapColor pColor, SoundType pSound) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pColor).pushReaction(PushReaction.DESTROY).sound(pSound).ignitedByLava().instabreak().noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pColor).pushReaction(PushReaction.BLOCK).sound(pSound).ignitedByLava().instabreak().noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesCraftingTable(MapColor pColor, SoundType pSound) {
