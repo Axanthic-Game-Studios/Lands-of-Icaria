@@ -59,6 +59,16 @@ public class IcariaRackBlock extends Block implements MediterraneanWaterloggedBl
     }
 
     @Override
+    public boolean hasAnalogOutputSignal(BlockState pState) {
+        return true;
+    }
+
+    @Override
+    public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
+        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? 15 : 0;
+    }
+
+    @Override
     public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(IcariaBlockStateProperties.FULL_RACK, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.LOADED_BARREL, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, IcariaBlockStateProperties.TAPPED_BARREL, BlockStateProperties.WATERLOGGED);
     }
