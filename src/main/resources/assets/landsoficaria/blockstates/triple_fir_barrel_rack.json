@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north,corner=bottom_front_left": { "model": "landsoficaria:block/fir_barrel_rack", "x": 0, "y": 0 },
+    "facing=east,corner=bottom_front_left": { "model": "landsoficaria:block/fir_barrel_rack", "x": 0, "y": 90 },
+    "facing=south,corner=bottom_front_left": { "model": "landsoficaria:block/fir_barrel_rack", "x": 0, "y": 180 },
+    "facing=west,corner=bottom_front_left": { "model": "landsoficaria:block/fir_barrel_rack", "x": 0, "y": 270 },
+    "facing=north,corner=bottom_front_right": { "model": "landsoficaria:block/fir_barrel_rack", "x": 0, "y": 0 },
+    "facing=east,corner=bottom_front_right": { "model": "landsoficaria:block/fir_barrel_rack", "x": 0, "y": 90 },
+    "facing=south,corner=bottom_front_right": { "model": "landsoficaria:block/fir_barrel_rack", "x": 0, "y": 180 },
+    "facing=west,corner=bottom_front_right": { "model": "landsoficaria:block/fir_barrel_rack", "x": 0, "y": 270 },
+    "facing=north,corner=top_front_left": { "model": "landsoficaria:block/triple_fir_barrel_rack_top_left", "x": 0, "y": 0 },
+    "facing=east,corner=top_front_left": { "model": "landsoficaria:block/triple_fir_barrel_rack_top_left", "x": 0, "y": 90 },
+    "facing=south,corner=top_front_left": { "model": "landsoficaria:block/triple_fir_barrel_rack_top_left", "x": 0, "y": 180 },
+    "facing=west,corner=top_front_left": { "model": "landsoficaria:block/triple_fir_barrel_rack_top_left", "x": 0, "y": 270 },
+    "facing=north,corner=top_front_right": { "model": "landsoficaria:block/triple_fir_barrel_rack_top_right", "x": 0, "y": 0 },
+    "facing=east,corner=top_front_right": { "model": "landsoficaria:block/triple_fir_barrel_rack_top_right", "x": 0, "y": 90 },
+    "facing=south,corner=top_front_right": { "model": "landsoficaria:block/triple_fir_barrel_rack_top_right", "x": 0, "y": 180 },
+    "facing=west,corner=top_front_right": { "model": "landsoficaria:block/triple_fir_barrel_rack_top_right", "x": 0, "y": 270 }
+  }
+}

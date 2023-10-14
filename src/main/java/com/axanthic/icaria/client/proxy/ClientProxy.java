@@ -425,6 +425,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.CYPRESS_BARREL.get());
 			pEvent.accept(IcariaItems.LOADED_CYPRESS_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_CYPRESS_BARREL.get());
+			pEvent.accept(IcariaItems.TRIPLE_CYPRESS_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.CYPRESS_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.CYPRESS_DOOR.get());
 			pEvent.accept(IcariaItems.CYPRESS_TRAPDOOR.get());
@@ -452,6 +453,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.DROUGHTROOT_BARREL.get());
 			pEvent.accept(IcariaItems.LOADED_DROUGHTROOT_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_DROUGHTROOT_BARREL.get());
+			pEvent.accept(IcariaItems.TRIPLE_DROUGHTROOT_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_DOOR.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_TRAPDOOR.get());
@@ -479,6 +481,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.FIR_BARREL.get());
 			pEvent.accept(IcariaItems.LOADED_FIR_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_FIR_BARREL.get());
+			pEvent.accept(IcariaItems.TRIPLE_FIR_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.FIR_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.FIR_DOOR.get());
 			pEvent.accept(IcariaItems.FIR_TRAPDOOR.get());
@@ -506,6 +509,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.LAUREL_BARREL.get());
 			pEvent.accept(IcariaItems.LOADED_LAUREL_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_LAUREL_BARREL.get());
+			pEvent.accept(IcariaItems.TRIPLE_LAUREL_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.LAUREL_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.LAUREL_DOOR.get());
 			pEvent.accept(IcariaItems.LAUREL_TRAPDOOR.get());
@@ -533,6 +537,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.OLIVE_BARREL.get());
 			pEvent.accept(IcariaItems.LOADED_OLIVE_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_OLIVE_BARREL.get());
+			pEvent.accept(IcariaItems.TRIPLE_OLIVE_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.OLIVE_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.OLIVE_DOOR.get());
 			pEvent.accept(IcariaItems.OLIVE_TRAPDOOR.get());
@@ -560,6 +565,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.PLANE_BARREL.get());
 			pEvent.accept(IcariaItems.LOADED_PLANE_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_PLANE_BARREL.get());
+			pEvent.accept(IcariaItems.TRIPLE_PLANE_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.PLANE_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.PLANE_DOOR.get());
 			pEvent.accept(IcariaItems.PLANE_TRAPDOOR.get());
@@ -587,6 +593,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.POPULUS_BARREL.get());
 			pEvent.accept(IcariaItems.LOADED_POPULUS_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_POPULUS_BARREL.get());
+			pEvent.accept(IcariaItems.TRIPLE_POPULUS_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.POPULUS_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.POPULUS_DOOR.get());
 			pEvent.accept(IcariaItems.POPULUS_TRAPDOOR.get());
@@ -1088,6 +1095,7 @@ public class ClientProxy extends CommonProxy {
 		this.renderCutout(IcariaBlocks.CYPRESS_BARREL.get());
 		this.renderCutout(IcariaBlocks.LOADED_CYPRESS_BARREL.get());
 		this.renderCutout(IcariaBlocks.TAPPED_CYPRESS_BARREL.get());
+		this.renderCutout(IcariaBlocks.TRIPLE_CYPRESS_BARREL_RACK.get());
 		this.renderCutout(IcariaBlocks.CYPRESS_DOOR.get());
 		this.renderCutout(IcariaBlocks.CYPRESS_TRAPDOOR.get());
 		this.renderCutout(IcariaBlocks.CYPRESS_LADDER.get());
@@ -1099,6 +1107,7 @@ public class ClientProxy extends CommonProxy {
 		this.renderCutout(IcariaBlocks.DROUGHTROOT_BARREL.get());
 		this.renderCutout(IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get());
 		this.renderCutout(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get());
+		this.renderCutout(IcariaBlocks.TRIPLE_DROUGHTROOT_BARREL_RACK.get());
 		this.renderCutout(IcariaBlocks.DROUGHTROOT_DOOR.get());
 		this.renderCutout(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
 		this.renderCutout(IcariaBlocks.DROUGHTROOT_LADDER.get());
@@ -1110,6 +1119,7 @@ public class ClientProxy extends CommonProxy {
 		this.renderCutout(IcariaBlocks.FIR_BARREL.get());
 		this.renderCutout(IcariaBlocks.LOADED_FIR_BARREL.get());
 		this.renderCutout(IcariaBlocks.TAPPED_FIR_BARREL.get());
+		this.renderCutout(IcariaBlocks.TRIPLE_FIR_BARREL_RACK.get());
 		this.renderCutout(IcariaBlocks.FIR_DOOR.get());
 		this.renderCutout(IcariaBlocks.FIR_TRAPDOOR.get());
 		this.renderCutout(IcariaBlocks.FIR_LADDER.get());
@@ -1121,6 +1131,7 @@ public class ClientProxy extends CommonProxy {
 		this.renderCutout(IcariaBlocks.LAUREL_BARREL.get());
 		this.renderCutout(IcariaBlocks.LOADED_LAUREL_BARREL.get());
 		this.renderCutout(IcariaBlocks.TAPPED_LAUREL_BARREL.get());
+		this.renderCutout(IcariaBlocks.TRIPLE_LAUREL_BARREL_RACK.get());
 		this.renderCutout(IcariaBlocks.LAUREL_DOOR.get());
 		this.renderCutout(IcariaBlocks.LAUREL_TRAPDOOR.get());
 		this.renderCutout(IcariaBlocks.LAUREL_LADDER.get());
@@ -1132,6 +1143,7 @@ public class ClientProxy extends CommonProxy {
 		this.renderCutout(IcariaBlocks.OLIVE_BARREL.get());
 		this.renderCutout(IcariaBlocks.LOADED_OLIVE_BARREL.get());
 		this.renderCutout(IcariaBlocks.TAPPED_OLIVE_BARREL.get());
+		this.renderCutout(IcariaBlocks.TRIPLE_OLIVE_BARREL_RACK.get());
 		this.renderCutout(IcariaBlocks.OLIVE_DOOR.get());
 		this.renderCutout(IcariaBlocks.OLIVE_TRAPDOOR.get());
 		this.renderCutout(IcariaBlocks.OLIVE_LADDER.get());
@@ -1143,6 +1155,7 @@ public class ClientProxy extends CommonProxy {
 		this.renderCutout(IcariaBlocks.PLANE_BARREL.get());
 		this.renderCutout(IcariaBlocks.LOADED_PLANE_BARREL.get());
 		this.renderCutout(IcariaBlocks.TAPPED_PLANE_BARREL.get());
+		this.renderCutout(IcariaBlocks.TRIPLE_PLANE_BARREL_RACK.get());
 		this.renderCutout(IcariaBlocks.PLANE_DOOR.get());
 		this.renderCutout(IcariaBlocks.PLANE_TRAPDOOR.get());
 		this.renderCutout(IcariaBlocks.PLANE_LADDER.get());
@@ -1154,6 +1167,7 @@ public class ClientProxy extends CommonProxy {
 		this.renderCutout(IcariaBlocks.POPULUS_BARREL.get());
 		this.renderCutout(IcariaBlocks.LOADED_POPULUS_BARREL.get());
 		this.renderCutout(IcariaBlocks.TAPPED_POPULUS_BARREL.get());
+		this.renderCutout(IcariaBlocks.TRIPLE_POPULUS_BARREL_RACK.get());
 		this.renderCutout(IcariaBlocks.POPULUS_DOOR.get());
 		this.renderCutout(IcariaBlocks.POPULUS_TRAPDOOR.get());
 		this.renderCutout(IcariaBlocks.POPULUS_LADDER.get());
