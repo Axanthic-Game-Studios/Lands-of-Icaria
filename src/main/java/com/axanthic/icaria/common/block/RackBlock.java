@@ -12,12 +12,14 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
@@ -50,10 +52,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaRackBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
+public class RackBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
     public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
 
-    public IcariaRackBlock(Properties pProperties) {
+    public RackBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.FULL_RACK, false).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.LOADED_BARREL, false).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.TAPPED_BARREL, false).setValue(BlockStateProperties.WATERLOGGED, false));
     }
@@ -75,16 +77,21 @@ public class IcariaRackBlock extends Block implements MediterraneanWaterloggedBl
 
     @Override
     public void onBlockExploded(BlockState pState, Level pLevel, BlockPos pPos, Explosion pExplosion) {
+        var x = pPos.getX();
+        var y = pPos.getY();
+        var z = pPos.getZ();
         if (!pLevel.isClientSide()) {
+            pLevel.playSound(null, pPos, IcariaSoundEvents.BARREL_BREAK, SoundSource.BLOCKS);
             if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
                 pExplosion.explode();
                 for (int i = -2; i <= 2; i++) {
-                    var negPos = BlockPos.containing(pPos.getX() - i, pPos.getY() - i, pPos.getZ() - i);
-                    var posPos = BlockPos.containing(pPos.getX() + i, pPos.getY() + i, pPos.getZ() + i);
+                    var negPos = BlockPos.containing(x - i, y - i, z - i);
+                    var posPos = BlockPos.containing(x + i, y + i, z + i);
                     for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-                        if (pLevel.random.nextInt(10) == 0) {
+                        var belowPos = blockPos.below();
+                        if (pLevel.getRandom().nextInt(10) == 0) {
                             if (pLevel.getBlockState(blockPos).isAir()) {
-                                if (pLevel.getBlockState(blockPos.below()).isSolidRender(pLevel, blockPos.below())) {
+                                if (pLevel.getBlockState(belowPos).isSolidRender(pLevel, belowPos)) {
                                     pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
                                 }
                             }
@@ -93,12 +100,13 @@ public class IcariaRackBlock extends Block implements MediterraneanWaterloggedBl
                 }
             } else if (pState.getValue(IcariaBlockStateProperties.TAPPED_BARREL)) {
                 for (int i = -1; i <= 1; i++) {
-                    var negPos = BlockPos.containing(pPos.getX() - i, pPos.getY() - i, pPos.getZ() - i);
-                    var posPos = BlockPos.containing(pPos.getX() + i, pPos.getY() + i, pPos.getZ() + i);
+                    var negPos = BlockPos.containing(x - i, y - i, z - i);
+                    var posPos = BlockPos.containing(x + i, y + i, z + i);
                     for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-                        if (pLevel.random.nextInt(10) == 0) {
+                        var belowPos = blockPos.below();
+                        if (pLevel.getRandom().nextInt(10) == 0) {
                             if (pLevel.getBlockState(blockPos).isAir()) {
-                                if (pLevel.getBlockState(blockPos.below()).isSolidRender(pLevel, blockPos.below())) {
+                                if (pLevel.getBlockState(belowPos).isSolidRender(pLevel, belowPos)) {
                                     pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.MEDITERRANEAN_WATER.get().defaultBlockState());
                                 }
                             }
@@ -114,17 +122,22 @@ public class IcariaRackBlock extends Block implements MediterraneanWaterloggedBl
     @Override
     public void onProjectileHit(Level pLevel, BlockState pState, BlockHitResult pHit, Projectile pProjectile) {
         var pos = pHit.getBlockPos();
+        var x = pos.getX();
+        var y = pos.getY();
+        var z = pos.getZ();
         if (!pLevel.isClientSide()) {
             if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
                 if (pProjectile.isOnFire()) {
-                    pLevel.explode(null, pos.getX(), pos.getY(), pos.getZ(), 2.0F, false, Level.ExplosionInteraction.BLOCK);
+                    pLevel.explode(null, x, y, z, 2.0F, false, Level.ExplosionInteraction.BLOCK);
+                    pLevel.playSound(null, BlockPos.containing(x, y, z), IcariaSoundEvents.BARREL_BREAK, SoundSource.BLOCKS);
                     for (int i = -2; i <= 2; i++) {
-                        var negPos = BlockPos.containing(pos.getX() - i, pos.getY() - i, pos.getZ() - i);
-                        var posPos = BlockPos.containing(pos.getX() + i, pos.getY() + i, pos.getZ() + i);
+                        var negPos = BlockPos.containing(x - i, y - i, z - i);
+                        var posPos = BlockPos.containing(x + i, y + i, z + i);
                         for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-                            if (pLevel.random.nextInt(10) == 0) {
+                            var belowPos = blockPos.below();
+                            if (pLevel.getRandom().nextInt(10) == 0) {
                                 if (pLevel.getBlockState(blockPos).isAir()) {
-                                    if (pLevel.getBlockState(blockPos.below()).isSolidRender(pLevel, blockPos.below())) {
+                                    if (pLevel.getBlockState(belowPos).isSolidRender(pLevel, belowPos)) {
                                         pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
                                     }
                                 }
@@ -134,20 +147,26 @@ public class IcariaRackBlock extends Block implements MediterraneanWaterloggedBl
                 }
             }
         }
+
+        super.onProjectileHit(pLevel, pState, pHit, pProjectile);
     }
 
     @Override
     public void playerDestroy(Level pLevel, Player pPlayer, BlockPos pPos, BlockState pState, @Nullable BlockEntity pBlockEntity, ItemStack pTool) {
+        var x = pPos.getX();
+        var y = pPos.getY();
+        var z = pPos.getZ();
         if (!pLevel.isClientSide()) {
             if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
-                pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 2.0F, false, Level.ExplosionInteraction.BLOCK);
+                pLevel.explode(null, x, y, z, 2.0F, false, Level.ExplosionInteraction.BLOCK);
                 for (int i = -2; i <= 2; i++) {
-                    var negPos = BlockPos.containing(pPos.getX() - i, pPos.getY() - i, pPos.getZ() - i);
-                    var posPos = BlockPos.containing(pPos.getX() + i, pPos.getY() + i, pPos.getZ() + i);
+                    var negPos = BlockPos.containing(x - i, y - i, z - i);
+                    var posPos = BlockPos.containing(x + i, y + i, z + i);
                     for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-                        if (pLevel.random.nextInt(10) == 0) {
+                        var belowPos = blockPos.below();
+                        if (pLevel.getRandom().nextInt(10) == 0) {
                             if (pLevel.getBlockState(blockPos).isAir()) {
-                                if (pLevel.getBlockState(blockPos.below()).isSolidRender(pLevel, blockPos.below())) {
+                                if (pLevel.getBlockState(belowPos).isSolidRender(pLevel, belowPos)) {
                                     pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
                                 }
                             }
@@ -156,12 +175,13 @@ public class IcariaRackBlock extends Block implements MediterraneanWaterloggedBl
                 }
             } else if (pState.getValue(IcariaBlockStateProperties.TAPPED_BARREL)) {
                 for (int i = -1; i <= 1; i++) {
-                    var negPos = BlockPos.containing(pPos.getX() - i, pPos.getY() - i, pPos.getZ() - i);
-                    var posPos = BlockPos.containing(pPos.getX() + i, pPos.getY() + i, pPos.getZ() + i);
+                    var negPos = BlockPos.containing(x - i, y - i, z - i);
+                    var posPos = BlockPos.containing(x + i, y + i, z + i);
                     for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-                        if (pLevel.random.nextInt(10) == 0) {
+                        var belowPos = blockPos.below();
+                        if (pLevel.getRandom().nextInt(10) == 0) {
                             if (pLevel.getBlockState(blockPos).isAir()) {
-                                if (pLevel.getBlockState(blockPos.below()).isSolidRender(pLevel, blockPos.below())) {
+                                if (pLevel.getBlockState(belowPos).isSolidRender(pLevel, belowPos)) {
                                     pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.MEDITERRANEAN_WATER.get().defaultBlockState());
                                 }
                             }
@@ -188,6 +208,43 @@ public class IcariaRackBlock extends Block implements MediterraneanWaterloggedBl
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        var itemStack = pPlayer.getItemInHand(pHand);
+        var item = itemStack.getItem();
+        var x = pPos.getX();
+        var y = pPos.getY();
+        var z = pPos.getZ();
+        if (!pLevel.isClientSide()) {
+            if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
+                if (itemStack.is(Items.FIRE_CHARGE) || itemStack.is(Items.FLINT_AND_STEEL)) {
+                    pLevel.explode(null, x, y, z, 2.0F, false, Level.ExplosionInteraction.BLOCK);
+                    pLevel.playSound(null, pPos, IcariaSoundEvents.BARREL_BREAK, SoundSource.BLOCKS);
+                    pPlayer.awardStat(Stats.ITEM_USED.get(item));
+                    if (!pPlayer.isCreative()) {
+                        if (itemStack.is(Items.FIRE_CHARGE)) {
+                            itemStack.shrink(1);
+                        } else {
+                            itemStack.hurtAndBreak(1, pPlayer, (player) -> player.broadcastBreakEvent(pHand));
+                        }
+                    }
+
+                    for (int i = -2; i <= 2; i++) {
+                        var negPos = BlockPos.containing(x - i, y - i, z - i);
+                        var posPos = BlockPos.containing(x + i, y + i, z + i);
+                        for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
+                            var belowPos = blockPos.below();
+                            if (pLevel.getRandom().nextInt(10) == 0) {
+                                if (pLevel.getBlockState(blockPos).isAir()) {
+                                    if (pLevel.getBlockState(belowPos).isSolidRender(pLevel, belowPos)) {
+                                        pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         if (pState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
             if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.isPassenger() || pPlayer.isVehicle()) {
                 return InteractionResult.FAIL;
@@ -201,16 +258,13 @@ public class IcariaRackBlock extends Block implements MediterraneanWaterloggedBl
                 return InteractionResult.PASS;
             }
         } else {
-            var itemStack = pPlayer.getItemInHand(pHand);
-            if (Block.byItem(itemStack.getItem()) instanceof IcariaBarrelBlock block) {
-                var state = block.defaultBlockState();
+            if (Block.byItem(item) instanceof IcariaBarrelBlock block) {
                 if (this.getType() == block.getType()) {
-                    pLevel.playSound(pPlayer, pPos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    if (!pLevel.isClientSide()) {
-                        pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.FULL_RACK, true).setValue(IcariaBlockStateProperties.LOADED_BARREL, state.is(IcariaBlockTags.LOADED_BARRELS)).setValue(IcariaBlockStateProperties.TAPPED_BARREL, state.is(IcariaBlockTags.TAPPED_BARRELS)));
-                        if (!pPlayer.isCreative()) {
-                            itemStack.shrink(1);
-                        }
+                    var state = block.defaultBlockState();
+                    pLevel.playSound(pPlayer, pPos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS);
+                    pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.FULL_RACK, true).setValue(IcariaBlockStateProperties.LOADED_BARREL, state.is(IcariaBlockTags.LOADED_BARRELS)).setValue(IcariaBlockStateProperties.TAPPED_BARREL, state.is(IcariaBlockTags.TAPPED_BARRELS)));
+                    if (!pPlayer.isCreative()) {
+                        itemStack.shrink(1);
                     }
                 }
 
@@ -233,17 +287,17 @@ public class IcariaRackBlock extends Block implements MediterraneanWaterloggedBl
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : IcariaRackBlock.SHAPE;
+        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : RackBlock.SHAPE;
     }
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : IcariaRackBlock.SHAPE;
+        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : RackBlock.SHAPE;
     }
 
     @Override
     public VoxelShape getVisualShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : IcariaRackBlock.SHAPE;
+        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : RackBlock.SHAPE;
     }
 
     public WoodType getType() {

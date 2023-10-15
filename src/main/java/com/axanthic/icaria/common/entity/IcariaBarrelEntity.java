@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.block.IcariaRackBlock;
+import com.axanthic.icaria.common.block.RackBlock;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
@@ -130,31 +130,36 @@ public class IcariaBarrelEntity extends Entity {
 
     @Override
     public void tick() {
+        var x = this.getX();
+        var y = this.getY();
+        var z = this.getZ();
         if (this.onGround()) {
             if (!this.level().isClientSide()) {
-                if ((this.getBlockState().hasProperty(IcariaBlockStateProperties.LOADED_BARREL) && this.getBlockState().getValue(IcariaBlockStateProperties.LOADED_BARREL)) || this.getBlockState().is(IcariaBlockTags.LOADED_BARRELS)) {
-                    this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2.0F, false, Level.ExplosionInteraction.BLOCK);
+                if (this.getBlockState().hasProperty(IcariaBlockStateProperties.LOADED_BARREL) && this.getBlockState().getValue(IcariaBlockStateProperties.LOADED_BARREL) || this.getBlockState().is(IcariaBlockTags.LOADED_BARRELS)) {
+                    this.level().explode(this, x, y, z, 2.0F, false, Level.ExplosionInteraction.BLOCK);
                     for (int i = -2; i <= 2; i++) {
-                        var negPos = BlockPos.containing(this.getX() - i, this.getY() - i, this.getZ() - i);
-                        var posPos = BlockPos.containing(this.getX() + i, this.getY() + i, this.getZ() + i);
+                        var negPos = BlockPos.containing(x - i, y - i, z - i);
+                        var posPos = BlockPos.containing(x + i, y + i, z + i);
                         for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-                            if (this.level().random.nextInt(10) == 0) {
+                            var belowPos = blockPos.below();
+                            if (this.level().getRandom().nextInt(10) == 0) {
                                 if (this.level().getBlockState(blockPos).isAir()) {
-                                    if (this.level().getBlockState(blockPos.below()).isSolidRender(this.level(), blockPos.below())) {
+                                    if (this.level().getBlockState(belowPos).isSolidRender(this.level(), belowPos)) {
                                         this.level().setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
                                     }
                                 }
                             }
                         }
                     }
-                } else if ((this.getBlockState().hasProperty(IcariaBlockStateProperties.TAPPED_BARREL) && this.getBlockState().getValue(IcariaBlockStateProperties.TAPPED_BARREL)) || this.getBlockState().is(IcariaBlockTags.TAPPED_BARRELS)) {
+                } else if (this.getBlockState().hasProperty(IcariaBlockStateProperties.TAPPED_BARREL) && this.getBlockState().getValue(IcariaBlockStateProperties.TAPPED_BARREL) || this.getBlockState().is(IcariaBlockTags.TAPPED_BARRELS)) {
                     for (int i = -1; i <= 1; i++) {
-                        var negPos = BlockPos.containing(this.getX() - i, this.getY() - i, this.getZ() - i);
-                        var posPos = BlockPos.containing(this.getX() + i, this.getY() + i, this.getZ() + i);
+                        var negPos = BlockPos.containing(x - i, y - i, z - i);
+                        var posPos = BlockPos.containing(x + i, y + i, z + i);
                         for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-                            if (this.level().random.nextInt(10) == 0) {
+                            var belowPos = blockPos.below();
+                            if (this.level().getRandom().nextInt(10) == 0) {
                                 if (this.level().getBlockState(blockPos).isAir()) {
-                                    if (this.level().getBlockState(blockPos.below()).isSolidRender(this.level(), blockPos.below())) {
+                                    if (this.level().getBlockState(belowPos).isSolidRender(this.level(), belowPos)) {
                                         this.level().setBlockAndUpdate(blockPos, IcariaBlocks.MEDITERRANEAN_WATER.get().defaultBlockState());
                                     }
                                 }
@@ -183,7 +188,7 @@ public class IcariaBarrelEntity extends Entity {
     }
 
     public BlockState getLoaded() {
-        if (this.getBlockState().getBlock() instanceof IcariaRackBlock block) {
+        if (this.getBlockState().getBlock() instanceof RackBlock block) {
             if (block.getType().equals(IcariaWoodTypes.CYPRESS)) {
                 return IcariaBlocks.LOADED_CYPRESS_BARREL.get().defaultBlockState();
             } else if (block.getType().equals(IcariaWoodTypes.DROUGHTROOT)) {
@@ -205,7 +210,7 @@ public class IcariaBarrelEntity extends Entity {
     }
 
     public BlockState getNormal() {
-        if (this.getBlockState().getBlock() instanceof IcariaRackBlock block) {
+        if (this.getBlockState().getBlock() instanceof RackBlock block) {
             if (block.getType().equals(IcariaWoodTypes.CYPRESS)) {
                 return IcariaBlocks.CYPRESS_BARREL.get().defaultBlockState();
             } else if (block.getType().equals(IcariaWoodTypes.DROUGHTROOT)) {
@@ -227,7 +232,7 @@ public class IcariaBarrelEntity extends Entity {
     }
 
     public BlockState getTapped() {
-        if (this.getBlockState().getBlock() instanceof IcariaRackBlock block) {
+        if (this.getBlockState().getBlock() instanceof RackBlock block) {
             if (block.getType().equals(IcariaWoodTypes.CYPRESS)) {
                 return IcariaBlocks.TAPPED_CYPRESS_BARREL.get().defaultBlockState();
             } else if (block.getType().equals(IcariaWoodTypes.DROUGHTROOT)) {
@@ -249,7 +254,7 @@ public class IcariaBarrelEntity extends Entity {
     }
 
     public BlockState getRenderState() {
-        if (this.getBlockState().getBlock() instanceof IcariaRackBlock) {
+        if (this.getBlockState().getBlock() instanceof RackBlock) {
             if (this.getBlockState().getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
                 return this.getLoaded();
             } else if (this.getBlockState().getValue(IcariaBlockStateProperties.TAPPED_BARREL)) {
