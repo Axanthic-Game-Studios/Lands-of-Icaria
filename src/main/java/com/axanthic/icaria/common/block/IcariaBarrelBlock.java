@@ -10,7 +10,6 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -64,7 +63,6 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
         var y = pPos.getY();
         var z = pPos.getZ();
         if (!pLevel.isClientSide()) {
-            pLevel.playSound(null, pPos, IcariaSoundEvents.BARREL_BREAK, SoundSource.BLOCKS);
             if (pState.is(IcariaBlockTags.LOADED_BARRELS)) {
                 pExplosion.explode();
                 for (int i = -2; i <= 2; i++) {
@@ -112,7 +110,6 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
             if (pState.is(IcariaBlockTags.LOADED_BARRELS)) {
                 if (pProjectile.isOnFire()) {
                     pLevel.explode(null, x, y, z, 2.0F, false, Level.ExplosionInteraction.BLOCK);
-                    pLevel.playSound(null, BlockPos.containing(x, y, z), IcariaSoundEvents.BARREL_BREAK, SoundSource.BLOCKS);
                     for (int i = -2; i <= 2; i++) {
                         var negPos = BlockPos.containing(x - i, y - i, z - i);
                         var posPos = BlockPos.containing(x + i, y + i, z + i);

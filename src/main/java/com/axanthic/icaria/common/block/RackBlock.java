@@ -81,7 +81,6 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
         var y = pPos.getY();
         var z = pPos.getZ();
         if (!pLevel.isClientSide()) {
-            pLevel.playSound(null, pPos, IcariaSoundEvents.BARREL_BREAK, SoundSource.BLOCKS);
             if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
                 pExplosion.explode();
                 for (int i = -2; i <= 2; i++) {
@@ -129,7 +128,6 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
             if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
                 if (pProjectile.isOnFire()) {
                     pLevel.explode(null, x, y, z, 2.0F, false, Level.ExplosionInteraction.BLOCK);
-                    pLevel.playSound(null, BlockPos.containing(x, y, z), IcariaSoundEvents.BARREL_BREAK, SoundSource.BLOCKS);
                     for (int i = -2; i <= 2; i++) {
                         var negPos = BlockPos.containing(x - i, y - i, z - i);
                         var posPos = BlockPos.containing(x + i, y + i, z + i);
@@ -217,7 +215,6 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
             if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
                 if (itemStack.is(Items.FIRE_CHARGE) || itemStack.is(Items.FLINT_AND_STEEL)) {
                     pLevel.explode(null, x, y, z, 2.0F, false, Level.ExplosionInteraction.BLOCK);
-                    pLevel.playSound(null, pPos, IcariaSoundEvents.BARREL_BREAK, SoundSource.BLOCKS);
                     pPlayer.awardStat(Stats.ITEM_USED.get(item));
                     if (!pPlayer.isCreative()) {
                         if (itemStack.is(Items.FIRE_CHARGE)) {
