@@ -426,6 +426,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.LOADED_CYPRESS_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_CYPRESS_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_CYPRESS_BARREL_RACK.get());
+			pEvent.accept(IcariaItems.CYPRESS_TROUGH.get());
 			pEvent.accept(IcariaItems.CYPRESS_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.CYPRESS_DOOR.get());
 			pEvent.accept(IcariaItems.CYPRESS_TRAPDOOR.get());
@@ -454,6 +455,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.LOADED_DROUGHTROOT_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_DROUGHTROOT_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_DROUGHTROOT_BARREL_RACK.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_TROUGH.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_DOOR.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_TRAPDOOR.get());
@@ -482,6 +484,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.LOADED_FIR_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_FIR_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_FIR_BARREL_RACK.get());
+			pEvent.accept(IcariaItems.FIR_TROUGH.get());
 			pEvent.accept(IcariaItems.FIR_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.FIR_DOOR.get());
 			pEvent.accept(IcariaItems.FIR_TRAPDOOR.get());
@@ -510,6 +513,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.LOADED_LAUREL_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_LAUREL_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_LAUREL_BARREL_RACK.get());
+			pEvent.accept(IcariaItems.LAUREL_TROUGH.get());
 			pEvent.accept(IcariaItems.LAUREL_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.LAUREL_DOOR.get());
 			pEvent.accept(IcariaItems.LAUREL_TRAPDOOR.get());
@@ -538,6 +542,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.LOADED_OLIVE_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_OLIVE_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_OLIVE_BARREL_RACK.get());
+			pEvent.accept(IcariaItems.OLIVE_TROUGH.get());
 			pEvent.accept(IcariaItems.OLIVE_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.OLIVE_DOOR.get());
 			pEvent.accept(IcariaItems.OLIVE_TRAPDOOR.get());
@@ -566,6 +571,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.LOADED_PLANE_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_PLANE_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_PLANE_BARREL_RACK.get());
+			pEvent.accept(IcariaItems.PLANE_TROUGH.get());
 			pEvent.accept(IcariaItems.PLANE_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.PLANE_DOOR.get());
 			pEvent.accept(IcariaItems.PLANE_TRAPDOOR.get());
@@ -594,6 +600,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.LOADED_POPULUS_BARREL.get());
 			pEvent.accept(IcariaItems.TAPPED_POPULUS_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_POPULUS_BARREL_RACK.get());
+			pEvent.accept(IcariaItems.POPULUS_TROUGH.get());
 			pEvent.accept(IcariaItems.POPULUS_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.POPULUS_DOOR.get());
 			pEvent.accept(IcariaItems.POPULUS_TRAPDOOR.get());
@@ -984,83 +991,92 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {
-		// BLOCK COLOR
-		this.blockColor(IcariaBlocks.GRASSY_MARL.get());
-		this.blockColor(IcariaBlocks.GROWING_BLOOMY_VINE.get());
-		this.blockColor(IcariaBlocks.BLOOMY_VINE.get());
-		this.blockColor(IcariaBlocks.BLOOMING_BLOOMY_VINE.get());
-		this.blockColor(IcariaBlocks.RIPE_BLOOMY_VINE.get());
-		this.blockColor(IcariaBlocks.GROWING_BRANCHY_VINE.get());
-		this.blockColor(IcariaBlocks.BRANCHY_VINE.get());
-		this.blockColor(IcariaBlocks.GROWING_BRUSHY_VINE.get());
-		this.blockColor(IcariaBlocks.RIPE_BRUSHY_VINE.get());
-		this.blockColor(IcariaBlocks.BRUSHY_VINE.get());
-		this.blockColor(IcariaBlocks.DEAD_DRY_VINE.get());
-		this.blockColor(IcariaBlocks.GROWING_DRY_VINE.get());
-		this.blockColor(IcariaBlocks.DRY_VINE.get());
-		this.blockColor(IcariaBlocks.GROWING_REEDY_VINE.get());
-		this.blockColor(IcariaBlocks.REEDY_VINE.get());
-		this.blockColor(IcariaBlocks.DEAD_SWIRLY_VINE.get());
-		this.blockColor(IcariaBlocks.GROWING_SWIRLY_VINE.get());
-		this.blockColor(IcariaBlocks.SWIRLY_VINE.get());
-		this.blockColor(IcariaBlocks.DEAD_THORNY_VINE.get());
-		this.blockColor(IcariaBlocks.GROWING_THORNY_VINE.get());
-		this.blockColor(IcariaBlocks.THORNY_VINE.get());
-		this.blockColor(IcariaBlocks.FERN.get());
-		this.blockColor(IcariaBlocks.POTTED_FERN.get());
-		this.blockColor(IcariaBlocks.SMALL_GRASS.get());
-		this.blockColor(IcariaBlocks.MEDIUM_GRASS.get());
-		this.blockColor(IcariaBlocks.LARGE_GRASS.get());
-		this.blockColor(IcariaBlocks.SMALL_MIXED_GRAIN.get());
-		this.blockColor(IcariaBlocks.MEDIUM_MIXED_GRAIN.get());
-		this.blockColor(IcariaBlocks.MEDIUM_BROWN_GRAIN.get());
-		this.blockColor(IcariaBlocks.MEDIUM_WHITE_GRAIN.get());
-		this.blockColor(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get());
-		this.blockColor(IcariaBlocks.LARGE_BROWN_GRAIN.get());
-		this.blockColor(IcariaBlocks.BLINDWEED.get());
-		this.blockColor(IcariaBlocks.POTTED_BLINDWEED.get());
-		this.blockColor(IcariaBlocks.CHAMEOMILE.get());
-		this.blockColor(IcariaBlocks.POTTED_CHAMEOMILE.get());
-		this.blockColor(IcariaBlocks.CHARMONDER.get());
-		this.blockColor(IcariaBlocks.POTTED_CHARMONDER.get());
-		this.blockColor(IcariaBlocks.CLOVER.get());
-		this.blockColor(IcariaBlocks.POTTED_CLOVER.get());
-		this.blockColor(IcariaBlocks.FIREHILT.get());
-		this.blockColor(IcariaBlocks.POTTED_FIREHILT.get());
-		this.blockColor(IcariaBlocks.BLUE_HYDRACINTH.get());
-		this.blockColor(IcariaBlocks.POTTED_BLUE_HYDRACINTH.get());
-		this.blockColor(IcariaBlocks.PURPLE_HYDRACINTH.get());
-		this.blockColor(IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get());
-		this.blockColor(IcariaBlocks.LIONFANGS.get());
-		this.blockColor(IcariaBlocks.POTTED_LIONFANGS.get());
-		this.blockColor(IcariaBlocks.SPEARDROPS.get());
-		this.blockColor(IcariaBlocks.POTTED_SPEARDROPS.get());
-		this.blockColor(IcariaBlocks.PURPLE_STAGHORN.get());
-		this.blockColor(IcariaBlocks.POTTED_PURPLE_STAGHORN.get());
-		this.blockColor(IcariaBlocks.YELLOW_STAGHORN.get());
-		this.blockColor(IcariaBlocks.POTTED_YELLOW_STAGHORN.get());
-		this.blockColor(IcariaBlocks.BLUE_STORMCOTTON.get());
-		this.blockColor(IcariaBlocks.POTTED_BLUE_STORMCOTTON.get());
-		this.blockColor(IcariaBlocks.PINK_STORMCOTTON.get());
-		this.blockColor(IcariaBlocks.POTTED_PINK_STORMCOTTON.get());
-		this.blockColor(IcariaBlocks.PURPLE_STORMCOTTON.get());
-		this.blockColor(IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get());
-		this.blockColor(IcariaBlocks.SUNKETTLE.get());
-		this.blockColor(IcariaBlocks.POTTED_SUNKETTLE.get());
-		this.blockColor(IcariaBlocks.SUNSPONGE.get());
-		this.blockColor(IcariaBlocks.POTTED_SUNSPONGE.get());
-		this.blockColor(IcariaBlocks.VOIDLILY.get());
-		this.blockColor(IcariaBlocks.POTTED_VOIDLILY.get());
-		this.blockColor(IcariaBlocks.PALM_FERN.get());
-		this.blockColor(IcariaBlocks.POTTED_PALM_FERN.get());
-		this.blockColor(IcariaBlocks.WHITE_BROMELIA.get());
-		this.blockColor(IcariaBlocks.POTTED_WHITE_BROMELIA.get());
-		this.blockColor(IcariaBlocks.ORANGE_BROMELIA.get());
-		this.blockColor(IcariaBlocks.POTTED_ORANGE_BROMELIA.get());
-		this.blockColor(IcariaBlocks.PINK_BROMELIA.get());
-		this.blockColor(IcariaBlocks.POTTED_PINK_BROMELIA.get());
-		this.blockColor(IcariaBlocks.PURPLE_BROMELIA.get());
-		this.blockColor(IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
+		// GRASS COLOR
+		this.grassColor(IcariaBlocks.GRASSY_MARL.get());
+		this.grassColor(IcariaBlocks.GROWING_BLOOMY_VINE.get());
+		this.grassColor(IcariaBlocks.BLOOMY_VINE.get());
+		this.grassColor(IcariaBlocks.BLOOMING_BLOOMY_VINE.get());
+		this.grassColor(IcariaBlocks.RIPE_BLOOMY_VINE.get());
+		this.grassColor(IcariaBlocks.GROWING_BRANCHY_VINE.get());
+		this.grassColor(IcariaBlocks.BRANCHY_VINE.get());
+		this.grassColor(IcariaBlocks.GROWING_BRUSHY_VINE.get());
+		this.grassColor(IcariaBlocks.RIPE_BRUSHY_VINE.get());
+		this.grassColor(IcariaBlocks.BRUSHY_VINE.get());
+		this.grassColor(IcariaBlocks.DEAD_DRY_VINE.get());
+		this.grassColor(IcariaBlocks.GROWING_DRY_VINE.get());
+		this.grassColor(IcariaBlocks.DRY_VINE.get());
+		this.grassColor(IcariaBlocks.GROWING_REEDY_VINE.get());
+		this.grassColor(IcariaBlocks.REEDY_VINE.get());
+		this.grassColor(IcariaBlocks.DEAD_SWIRLY_VINE.get());
+		this.grassColor(IcariaBlocks.GROWING_SWIRLY_VINE.get());
+		this.grassColor(IcariaBlocks.SWIRLY_VINE.get());
+		this.grassColor(IcariaBlocks.DEAD_THORNY_VINE.get());
+		this.grassColor(IcariaBlocks.GROWING_THORNY_VINE.get());
+		this.grassColor(IcariaBlocks.THORNY_VINE.get());
+		this.grassColor(IcariaBlocks.FERN.get());
+		this.grassColor(IcariaBlocks.POTTED_FERN.get());
+		this.grassColor(IcariaBlocks.SMALL_GRASS.get());
+		this.grassColor(IcariaBlocks.MEDIUM_GRASS.get());
+		this.grassColor(IcariaBlocks.LARGE_GRASS.get());
+		this.grassColor(IcariaBlocks.SMALL_MIXED_GRAIN.get());
+		this.grassColor(IcariaBlocks.MEDIUM_MIXED_GRAIN.get());
+		this.grassColor(IcariaBlocks.MEDIUM_BROWN_GRAIN.get());
+		this.grassColor(IcariaBlocks.MEDIUM_WHITE_GRAIN.get());
+		this.grassColor(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get());
+		this.grassColor(IcariaBlocks.LARGE_BROWN_GRAIN.get());
+		this.grassColor(IcariaBlocks.BLINDWEED.get());
+		this.grassColor(IcariaBlocks.POTTED_BLINDWEED.get());
+		this.grassColor(IcariaBlocks.CHAMEOMILE.get());
+		this.grassColor(IcariaBlocks.POTTED_CHAMEOMILE.get());
+		this.grassColor(IcariaBlocks.CHARMONDER.get());
+		this.grassColor(IcariaBlocks.POTTED_CHARMONDER.get());
+		this.grassColor(IcariaBlocks.CLOVER.get());
+		this.grassColor(IcariaBlocks.POTTED_CLOVER.get());
+		this.grassColor(IcariaBlocks.FIREHILT.get());
+		this.grassColor(IcariaBlocks.POTTED_FIREHILT.get());
+		this.grassColor(IcariaBlocks.BLUE_HYDRACINTH.get());
+		this.grassColor(IcariaBlocks.POTTED_BLUE_HYDRACINTH.get());
+		this.grassColor(IcariaBlocks.PURPLE_HYDRACINTH.get());
+		this.grassColor(IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get());
+		this.grassColor(IcariaBlocks.LIONFANGS.get());
+		this.grassColor(IcariaBlocks.POTTED_LIONFANGS.get());
+		this.grassColor(IcariaBlocks.SPEARDROPS.get());
+		this.grassColor(IcariaBlocks.POTTED_SPEARDROPS.get());
+		this.grassColor(IcariaBlocks.PURPLE_STAGHORN.get());
+		this.grassColor(IcariaBlocks.POTTED_PURPLE_STAGHORN.get());
+		this.grassColor(IcariaBlocks.YELLOW_STAGHORN.get());
+		this.grassColor(IcariaBlocks.POTTED_YELLOW_STAGHORN.get());
+		this.grassColor(IcariaBlocks.BLUE_STORMCOTTON.get());
+		this.grassColor(IcariaBlocks.POTTED_BLUE_STORMCOTTON.get());
+		this.grassColor(IcariaBlocks.PINK_STORMCOTTON.get());
+		this.grassColor(IcariaBlocks.POTTED_PINK_STORMCOTTON.get());
+		this.grassColor(IcariaBlocks.PURPLE_STORMCOTTON.get());
+		this.grassColor(IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get());
+		this.grassColor(IcariaBlocks.SUNKETTLE.get());
+		this.grassColor(IcariaBlocks.POTTED_SUNKETTLE.get());
+		this.grassColor(IcariaBlocks.SUNSPONGE.get());
+		this.grassColor(IcariaBlocks.POTTED_SUNSPONGE.get());
+		this.grassColor(IcariaBlocks.VOIDLILY.get());
+		this.grassColor(IcariaBlocks.POTTED_VOIDLILY.get());
+		this.grassColor(IcariaBlocks.PALM_FERN.get());
+		this.grassColor(IcariaBlocks.POTTED_PALM_FERN.get());
+		this.grassColor(IcariaBlocks.WHITE_BROMELIA.get());
+		this.grassColor(IcariaBlocks.POTTED_WHITE_BROMELIA.get());
+		this.grassColor(IcariaBlocks.ORANGE_BROMELIA.get());
+		this.grassColor(IcariaBlocks.POTTED_ORANGE_BROMELIA.get());
+		this.grassColor(IcariaBlocks.PINK_BROMELIA.get());
+		this.grassColor(IcariaBlocks.POTTED_PINK_BROMELIA.get());
+		this.grassColor(IcariaBlocks.PURPLE_BROMELIA.get());
+		this.grassColor(IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
+
+		// WATER COLOR
+		this.waterColor(IcariaBlocks.CYPRESS_TROUGH.get());
+		this.waterColor(IcariaBlocks.DROUGHTROOT_TROUGH.get());
+		this.waterColor(IcariaBlocks.FIR_TROUGH.get());
+		this.waterColor(IcariaBlocks.LAUREL_TROUGH.get());
+		this.waterColor(IcariaBlocks.OLIVE_TROUGH.get());
+		this.waterColor(IcariaBlocks.PLANE_TROUGH.get());
+		this.waterColor(IcariaBlocks.POPULUS_TROUGH.get());
 
 		// ITEM COLOR
 		this.itemColor(IcariaItems.GRASSY_MARL.get());
@@ -1275,6 +1291,15 @@ public class ClientProxy extends CommonProxy {
 		this.renderTranslucent(IcariaBlocks.CALCITE_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.HALITE_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.ZIRCON_BLOCK.get());
+
+		this.renderTranslucent(IcariaBlocks.CYPRESS_TROUGH.get());
+		this.renderTranslucent(IcariaBlocks.DROUGHTROOT_TROUGH.get());
+		this.renderTranslucent(IcariaBlocks.FIR_TROUGH.get());
+		this.renderTranslucent(IcariaBlocks.LAUREL_TROUGH.get());
+		this.renderTranslucent(IcariaBlocks.OLIVE_TROUGH.get());
+		this.renderTranslucent(IcariaBlocks.PLANE_TROUGH.get());
+		this.renderTranslucent(IcariaBlocks.POPULUS_TROUGH.get());
+
 		this.renderTranslucent(IcariaBlocks.ICARIA_PORTAL.get());
 		this.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER.get());
 		this.renderTranslucent(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get());
@@ -1751,8 +1776,12 @@ public class ClientProxy extends CommonProxy {
 		}
 	}
 
-	public void blockColor(Block pBlock) {
+	public void grassColor(Block pBlock) {
 		Minecraft.getInstance().getBlockColors().register((pBlockState, pLevel, pBlockPos, pIndex) -> BiomeColors.getAverageGrassColor(pLevel, pBlockPos), pBlock);
+	}
+
+	public void waterColor(Block pBlock) {
+		Minecraft.getInstance().getBlockColors().register((pBlockState, pLevel, pBlockPos, pIndex) -> BiomeColors.getAverageWaterColor(pLevel, pBlockPos), pBlock);
 	}
 
 	public void itemColor(Item pItem) {

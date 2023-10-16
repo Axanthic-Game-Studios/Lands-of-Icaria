@@ -22,6 +22,7 @@ public class IcariaBlockStateProperties {
     public static final BooleanProperty TEXT_EAST = BooleanProperty.create("text_east");
     public static final BooleanProperty TEXT_SOUTH = BooleanProperty.create("text_south");
     public static final BooleanProperty TEXT_WEST = BooleanProperty.create("text_west");
+    public static final BooleanProperty TROUGH_WATER = BooleanProperty.create("trough_water");
 
     public static final DirectionProperty BARREL_FACING = DirectionProperty.create("barrel_facing", (direction) -> direction != Direction.DOWN);
 
