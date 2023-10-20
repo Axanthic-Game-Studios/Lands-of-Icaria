@@ -1,0 +1,313 @@
+{
+	"textures": {
+		"anthracite": "landsoficaria:block/anthracite_block",
+		"grinder": "landsoficaria:block/grinder",
+		"grinder_feeder": "landsoficaria:block/grinder_feeder",
+		"loam_bricks": "landsoficaria:block/loam_bricks",
+		"particle": "landsoficaria:block/sunstone_bricks",
+		"sunstone_bricks": "landsoficaria:block/sunstone_bricks"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 1, 16],
+			"faces": {
+				"north": {"uv": [0, 15, 16, 16], "texture": "#loam_bricks"},
+				"east": {"uv": [0, 15, 16, 16], "texture": "#loam_bricks"},
+				"south": {"uv": [0, 15, 16, 16], "texture": "#loam_bricks"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#loam_bricks"}
+			}
+		},
+		{
+			"from": [0, 1, 0],
+			"to": [15, 3, 16],
+			"faces": {
+				"north": {"uv": [1, 13, 16, 15], "texture": "#sunstone_bricks"},
+				"south": {"uv": [0, 13, 15, 15], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [15, 1, 1],
+			"to": [16, 3, 15],
+			"faces": {
+				"east": {"uv": [1, 13, 15, 15], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [15, 1, 15],
+			"to": [16, 3, 16],
+			"faces": {
+				"east": {"uv": [0, 13, 1, 15], "texture": "#loam_bricks"},
+				"south": {"uv": [15, 13, 16, 15], "texture": "#loam_bricks"}
+			}
+		},
+		{
+			"from": [15, 1, 0],
+			"to": [16, 3, 1],
+			"faces": {
+				"north": {"uv": [0, 13, 1, 15], "texture": "#loam_bricks"},
+				"east": {"uv": [15, 13, 16, 15], "texture": "#loam_bricks"}
+			}
+		},
+		{
+			"from": [0, 3, 0],
+			"to": [16, 4, 16],
+			"faces": {
+				"north": {"uv": [0, 12, 16, 13], "texture": "#loam_bricks"},
+				"east": {"uv": [0, 12, 16, 13], "texture": "#loam_bricks"},
+				"south": {"uv": [0, 12, 16, 13], "texture": "#loam_bricks"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#loam_bricks"}
+			}
+		},
+		{
+			"from": [3, 4, 4],
+			"to": [13, 5, 12],
+			"faces": {
+				"up": {"uv": [3, 4, 13, 12], "texture": "#anthracite"}
+			}
+		},
+		{
+			"from": [13, 4, 3],
+			"to": [15, 12, 13],
+			"faces": {
+				"north": {"uv": [1, 4, 3, 12], "texture": "#sunstone_bricks"},
+				"east": {"uv": [3, 4, 13, 12], "texture": "#sunstone_bricks"},
+				"south": {"uv": [13, 4, 15, 12], "texture": "#sunstone_bricks"},
+				"west": {"uv": [3, 4, 13, 12], "texture": "#sunstone_bricks"},
+				"up": {"uv": [13, 3, 15, 13], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [1, 4, 3],
+			"to": [3, 10, 13],
+			"faces": {
+				"north": {"uv": [13, 6, 15, 12], "texture": "#sunstone_bricks"},
+				"east": {"uv": [3, 6, 13, 12], "texture": "#sunstone_bricks"},
+				"south": {"uv": [1, 6, 3, 12], "texture": "#sunstone_bricks"},
+				"west": {"uv": [3, 6, 13, 12], "texture": "#grinder_feeder"}
+			}
+		},
+		{
+			"from": [1, 10, 3],
+			"to": [3, 12, 6],
+			"faces": {
+				"north": {"uv": [13, 4, 15, 6], "texture": "#sunstone_bricks"},
+				"east": {"uv": [10, 4, 13, 6], "texture": "#sunstone_bricks"},
+				"west": {"uv": [3, 4, 6, 6], "texture": "#sunstone_bricks"},
+				"up": {"uv": [1, 3, 3, 6], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [1, 10, 10],
+			"to": [3, 12, 13],
+			"faces": {
+				"east": {"uv": [3, 4, 6, 6], "texture": "#sunstone_bricks"},
+				"south": {"uv": [1, 4, 3, 6], "texture": "#sunstone_bricks"},
+				"west": {"uv": [10, 4, 13, 6], "texture": "#sunstone_bricks"},
+				"up": {"uv": [1, 10, 3, 13], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [3, 4, 13],
+			"to": [13, 12, 15],
+			"faces": {
+				"north": {"uv": [3, 4, 13, 12], "texture": "#sunstone_bricks"},
+				"east": {"uv": [1, 4, 3, 12], "texture": "#sunstone_bricks"},
+				"south": {"uv": [3, 4, 13, 12], "texture": "#sunstone_bricks"},
+				"west": {"uv": [13, 4, 15, 12], "texture": "#sunstone_bricks"},
+				"up": {"uv": [3, 13, 13, 15], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [3, 6, 1],
+			"to": [6, 8, 3],
+			"faces": {
+				"north": {"uv": [10, 8, 13, 10], "texture": "#sunstone_bricks"},
+				"south": {"uv": [3, 8, 6, 10], "texture": "#sunstone_bricks"},
+				"west": {"uv": [1, 8, 3, 10], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [6.00391, 4.36328, 0.94922],
+			"to": [9.99609, 6.36328, 4.94922],
+			"rotation": {"angle": -45, "axis": "x", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 2], "texture": "#grinder"},
+				"east": {"uv": [0, 0, 4, 2], "texture": "#grinder"},
+				"south": {"uv": [0, 0, 4, 2], "texture": "#grinder"},
+				"west": {"uv": [0, 0, 4, 2], "texture": "#grinder"},
+				"up": {"uv": [0, 0, 4, 4], "texture": "#grinder"},
+				"down": {"uv": [0, 0, 4, 4], "rotation": 180, "texture": "#grinder"}
+			}
+		},
+		{
+			"from": [6, 6, -1],
+			"to": [10, 8, 3],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 2], "texture": "#grinder"},
+				"east": {"uv": [0, 0, 4, 2], "texture": "#grinder"},
+				"south": {"uv": [0, 0, 4, 2], "texture": "#grinder"},
+				"west": {"uv": [0, 0, 4, 2], "texture": "#grinder"},
+				"up": {"uv": [0, 0, 4, 4], "texture": "#grinder"},
+				"down": {"uv": [0, 0, 4, 4], "rotation": 180, "texture": "#grinder"}
+			}
+		},
+		{
+			"from": [3, 4, 3],
+			"to": [4, 12, 4],
+			"faces": {
+				"east": {"uv": [12, 4, 13, 12], "texture": "#sunstone_bricks"},
+				"south": {"uv": [3, 4, 4, 12], "texture": "#sunstone_bricks"},
+				"up": {"uv": [3, 3, 4, 4], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [2, 4, 2],
+			"to": [3, 12, 3],
+			"faces": {
+				"north": {"uv": [13, 4, 14, 12], "texture": "#sunstone_bricks"},
+				"west": {"uv": [2, 4, 3, 12], "texture": "#sunstone_bricks"},
+				"up": {"uv": [2, 2, 3, 3], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [13, 4, 2],
+			"to": [14, 12, 3],
+			"faces": {
+				"north": {"uv": [2, 4, 3, 12], "texture": "#sunstone_bricks"},
+				"east": {"uv": [13, 4, 14, 12], "texture": "#sunstone_bricks"},
+				"up": {"uv": [2, 13, 3, 14], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [12, 4, 3],
+			"to": [13, 12, 4],
+			"faces": {
+				"south": {"uv": [12, 4, 13, 12], "texture": "#sunstone_bricks"},
+				"west": {"uv": [3, 4, 4, 12], "texture": "#sunstone_bricks"},
+				"up": {"uv": [3, 12, 4, 13], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [13, 4, 13],
+			"to": [14, 12, 14],
+			"faces": {
+				"east": {"uv": [2, 4, 3, 12], "texture": "#sunstone_bricks"},
+				"south": {"uv": [13, 4, 14, 12], "texture": "#sunstone_bricks"},
+				"up": {"uv": [13, 13, 14, 14], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [12, 4, 12],
+			"to": [13, 12, 13],
+			"faces": {
+				"north": {"uv": [3, 4, 4, 12], "texture": "#sunstone_bricks"},
+				"west": {"uv": [12, 4, 13, 12], "texture": "#sunstone_bricks"},
+				"up": {"uv": [12, 12, 13, 13], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [3, 4, 12],
+			"to": [4, 12, 13],
+			"faces": {
+				"north": {"uv": [12, 4, 13, 12], "texture": "#sunstone_bricks"},
+				"east": {"uv": [3, 4, 4, 12], "texture": "#sunstone_bricks"},
+				"up": {"uv": [3, 12, 4, 13], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [2, 4, 13],
+			"to": [3, 12, 14],
+			"faces": {
+				"east": {"uv": [12, 4, 13, 12], "texture": "#missing"},
+				"south": {"uv": [2, 4, 3, 12], "texture": "#sunstone_bricks"},
+				"west": {"uv": [13, 4, 14, 12], "texture": "#sunstone_bricks"},
+				"up": {"uv": [2, 13, 3, 14], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [4, 4, 3],
+			"to": [12, 5, 4],
+			"faces": {
+				"up": {"uv": [4, 3, 12, 4], "texture": "#anthracite"}
+			}
+		},
+		{
+			"from": [4, 4, 12],
+			"to": [12, 5, 13],
+			"faces": {
+				"up": {"uv": [4, 12, 12, 13], "texture": "#anthracite"}
+			}
+		},
+		{
+			"from": [3, 8, 1],
+			"to": [13, 12, 3],
+			"faces": {
+				"north": {"uv": [3, 4, 13, 8], "texture": "#sunstone_bricks"},
+				"east": {"uv": [13, 4, 15, 8], "texture": "#sunstone_bricks"},
+				"south": {"uv": [3, 4, 13, 8], "texture": "#sunstone_bricks"},
+				"west": {"uv": [1, 4, 3, 8], "texture": "#sunstone_bricks"},
+				"up": {"uv": [3, 1, 13, 3], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [3, 4, 1],
+			"to": [13, 6, 3],
+			"faces": {
+				"north": {"uv": [3, 10, 13, 12], "texture": "#sunstone_bricks"},
+				"east": {"uv": [13, 10, 15, 12], "texture": "#sunstone_bricks"},
+				"south": {"uv": [3, 10, 13, 12], "texture": "#sunstone_bricks"},
+				"west": {"uv": [1, 10, 3, 12], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [10, 6, 1],
+			"to": [13, 8, 3],
+			"faces": {
+				"north": {"uv": [3, 8, 6, 10], "texture": "#sunstone_bricks"},
+				"east": {"uv": [13, 8, 15, 10], "texture": "#sunstone_bricks"},
+				"south": {"uv": [10, 8, 13, 10], "texture": "#sunstone_bricks"}
+			}
+		},
+		{
+			"from": [0, 11, 6],
+			"to": [3, 13, 7],
+			"faces": {
+				"north": {"uv": [13, 1, 16, 3], "texture": "#grinder"},
+				"east": {"uv": [2, 1, 3, 3], "texture": "#grinder"},
+				"south": {"uv": [0, 1, 3, 3], "texture": "#grinder"}
+			}
+		},
+		{
+			"from": [0, 13, 6],
+			"to": [3, 14, 10],
+			"faces": {
+				"north": {"uv": [13, 0, 16, 1], "texture": "#grinder"},
+				"east": {"uv": [0, 0, 4, 1], "texture": "#grinder"},
+				"south": {"uv": [0, 0, 3, 1], "texture": "#grinder"},
+				"up": {"uv": [0, 0, 3, 4], "texture": "#grinder"},
+				"down": {"uv": [0, 0, 3, 4], "rotation": 180, "texture": "#grinder"}
+			}
+		},
+		{
+			"from": [0, 11, 9],
+			"to": [3, 13, 10],
+			"faces": {
+				"north": {"uv": [13, 1, 16, 3], "texture": "#grinder"},
+				"east": {"uv": [0, 1, 1, 3], "texture": "#grinder"},
+				"south": {"uv": [0, 1, 3, 3], "texture": "#grinder"}
+			}
+		},
+		{
+			"from": [0, 10, 6],
+			"to": [3, 11, 10],
+			"faces": {
+				"north": {"uv": [13, 3, 16, 4], "texture": "#grinder"},
+				"east": {"uv": [0, 3, 4, 4], "texture": "#grinder"},
+				"south": {"uv": [0, 3, 3, 4], "texture": "#grinder"},
+				"up": {"uv": [0, 0, 3, 4], "texture": "#grinder"},
+				"down": {"uv": [0, 0, 3, 4], "rotation": 180, "texture": "#grinder"}
+			}
+		}
+	]
+}

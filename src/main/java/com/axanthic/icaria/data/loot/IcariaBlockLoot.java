@@ -151,7 +151,6 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 		this.dropThis(IcariaBlocks.VANADIUMSTEEL_CHAIN.get());
 		this.dropThis(IcariaBlocks.KETTLE.get());
-		this.dropThis(IcariaBlocks.GRINDER.get());
 		this.dropThis(IcariaBlocks.CHEST.get());
 		this.dropThis(IcariaBlocks.TRAPPED_CHEST.get());
 		this.dropThis(IcariaBlocks.STORAGE_VASE.get());
@@ -336,6 +335,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropOnlyWithSilk(IcariaBlocks.RELICSTONE_RUBBLE.get());
 		this.dropOnlyWithSilk(IcariaBlocks.HYLIASTRUM_ORE.get());
 
+		this.dropNone(IcariaBlocks.GRINDER.get());
 		this.dropNone(IcariaBlocks.KILN.get());
 		this.dropNone(IcariaBlocks.FORGE.get());
 		this.dropNone(IcariaBlocks.RED_LOOT_VASE.get());
@@ -408,6 +408,8 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropNone(IcariaBlocks.MEDITERRANEAN_WATER.get());
 		this.dropNone(IcariaBlocks.GREEK_FIRE.get());
 		this.dropNone(IcariaBlocks.ICARIA_PORTAL.get());
+		this.dropNone(IcariaBlocks.GRINDER_SHAFT.get());
+		this.dropNone(IcariaBlocks.GRINDER_STONE.get());
 
 		this.dropPots(IcariaBlocks.POTTED_CYPRESS_SAPLING.get(), IcariaItems.CYPRESS_SAPLING.get());
 		this.dropPots(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get(), IcariaItems.DROUGHTROOT_SAPLING.get());

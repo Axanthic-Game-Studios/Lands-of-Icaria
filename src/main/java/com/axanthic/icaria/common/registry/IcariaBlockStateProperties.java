@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.util.Corner;
+import com.axanthic.icaria.common.util.Side;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -11,7 +12,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 public class IcariaBlockStateProperties {
     public static final BooleanProperty FOREST_MOSS = BooleanProperty.create("forest_moss");
     public static final BooleanProperty FULL_RACK = BooleanProperty.create("full_rack");
-    public static final BooleanProperty GRINDING = BooleanProperty.create("grinding");
+    public static final BooleanProperty GRINDER_GRINDING = BooleanProperty.create("grinder_grinding");
     public static final BooleanProperty LOADED_BARREL = BooleanProperty.create("loaded_barrel");
     public static final BooleanProperty MEDITERRANEAN_WATERLOGGED = BooleanProperty.create("mediterranean_waterlogged");
     public static final BooleanProperty SCRUBLAND_MOSS = BooleanProperty.create("scrubland_moss");
@@ -27,6 +28,7 @@ public class IcariaBlockStateProperties {
     public static final DirectionProperty BARREL_FACING = DirectionProperty.create("barrel_facing", (direction) -> direction != Direction.DOWN);
 
     public static final EnumProperty<Corner> CORNER = EnumProperty.create("corner", Corner.class);
+    public static final EnumProperty<Side> SIDE = EnumProperty.create("side", Side.class);
 
     public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);
     public static final IntegerProperty GRINDER_ROTATION = IntegerProperty.create("grinder_rotation", 0, 90);

@@ -957,19 +957,14 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.CHEST_LABEL.get(), "Chest Label");
 
 		this.add(IcariaItems.YELLOWSTONE_GEAR.get(), "Yellowstone Gear");
-		this.add(IcariaItems.SMALL_YELLOWSTONE_GEAR.get(), "Small Yellowstone Gear");
 		this.add(IcariaItems.UNFIRED_LOAM_GEAR.get(), "Unfired Loam Gear");
 		this.add(IcariaItems.LOAM_GEAR.get(), "Loam Gear");
-		this.add(IcariaItems.SMALL_LOAM_GEAR.get(), "Small Loam Gear");
 		this.add(IcariaItems.VOIDSHALE_GEAR.get(), "Voidshale Gear");
-		this.add(IcariaItems.SMALL_VOIDSHALE_GEAR.get(), "Small Voidshale Gear");
 		this.add(IcariaItems.VANADIUM_GEAR.get(), "Vanadium Gear");
-		this.add(IcariaItems.SMALL_VANADIUM_GEAR.get(), "Small Vanadium Gear");
 		this.add(IcariaItems.BLUE_GEARFRAGMENT.get(), "Blue Gearfragment");
 		this.add(IcariaItems.GREEN_GEARFRAGMENT.get(), "Green Gearfragment");
 		this.add(IcariaItems.YELLOW_GEARFRAGMENT.get(), "Yellow Gearfragment");
 		this.add(IcariaItems.DAEDALIAN_GEAR.get(), "Daedalian Gear");
-		this.add(IcariaItems.SMALL_DAEDALIAN_GEAR.get(), "Small Daedalian Gear");
 
 		this.add(IcariaItems.AETERNAE_HIDE.get(), "Aeternae Hide");
 		this.add(IcariaItems.SPELT_FLOUR.get(), "Spelt Flour");

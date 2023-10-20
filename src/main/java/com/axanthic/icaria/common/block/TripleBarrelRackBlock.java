@@ -46,7 +46,7 @@ public class TripleBarrelRackBlock extends Block {
     public void onBlockExploded(BlockState pState, Level pLevel, BlockPos pPos, Explosion pExplosion) {
         var blockPos = TripleBarrelRackBlock.getPlacedBlockPosition(pState, pPos);
         var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-        pLevel.setBlock(ForgeBlock.getBlockEntityPosition(pState, pPos), Blocks.AIR.defaultBlockState(), 3);
+        pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
         pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
         pLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
         pLevel.setBlock(blockPos.above().offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
@@ -68,7 +68,7 @@ public class TripleBarrelRackBlock extends Block {
     public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         var blockPos = TripleBarrelRackBlock.getPlacedBlockPosition(pState, pPos);
         var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-        pLevel.setBlock(ForgeBlock.getBlockEntityPosition(pState, pPos), Blocks.AIR.defaultBlockState(), 3);
+        pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
         pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
         pLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
         pLevel.setBlock(blockPos.above().offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);

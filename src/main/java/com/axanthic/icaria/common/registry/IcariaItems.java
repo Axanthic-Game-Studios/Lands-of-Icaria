@@ -570,6 +570,9 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> STRAWBERRY_BUSH = IcariaItems.register("strawberry_bush", () -> new BlockItem(IcariaBlocks.STRAWBERRY_BUSH.get(), IcariaItems.propertiesItem()));
 
+	public static final RegistryObject<Item> GRINDER_SHAFT = IcariaItems.register("grinder_shaft", () -> new BlockItem(IcariaBlocks.GRINDER_SHAFT.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> GRINDER_STONE = IcariaItems.register("grinder_stone", () -> new BlockItem(IcariaBlocks.GRINDER_STONE.get(), IcariaItems.propertiesItem()));
+
 	public static final RegistryObject<Item> BONE_REMAINS = IcariaItems.registerSimple("bone_remains", () -> new Item(IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> LOAM_LUMP = IcariaItems.registerSimple("loam_lump", () -> new Item(IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> LOAM_BRICK = IcariaItems.registerSimple("loam_brick", () -> new Item(IcariaItems.propertiesItem()));
@@ -675,19 +678,14 @@ public class IcariaItems {
 	public static final RegistryObject<Item> CHEST_LABEL = IcariaItems.registerSimple("chest_label", () -> new ChestLabelItem(IcariaItems.propertiesItem()));
 
 	public static final RegistryObject<Item> YELLOWSTONE_GEAR = IcariaItems.registerSimple("yellowstone_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 256)));
-	public static final RegistryObject<Item> SMALL_YELLOWSTONE_GEAR = IcariaItems.registerSimple("small_yellowstone_gear", () -> new Item(IcariaItems.propertiesItem(1)));
 	public static final RegistryObject<Item> UNFIRED_LOAM_GEAR = IcariaItems.registerSimple("unfired_loam_gear", () -> new Item(IcariaItems.propertiesItem(1)));
 	public static final RegistryObject<Item> LOAM_GEAR = IcariaItems.registerSimple("loam_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 512)));
-	public static final RegistryObject<Item> SMALL_LOAM_GEAR = IcariaItems.registerSimple("small_loam_gear", () -> new Item(IcariaItems.propertiesItem(1)));
 	public static final RegistryObject<Item> VOIDSHALE_GEAR = IcariaItems.registerSimple("voidshale_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 768)));
-	public static final RegistryObject<Item> SMALL_VOIDSHALE_GEAR = IcariaItems.registerSimple("small_voidshale_gear", () -> new Item(IcariaItems.propertiesItem(1)));
 	public static final RegistryObject<Item> VANADIUM_GEAR = IcariaItems.registerSimple("vanadium_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 1024)));
-	public static final RegistryObject<Item> SMALL_VANADIUM_GEAR = IcariaItems.registerSimple("small_vanadium_gear", () -> new Item(IcariaItems.propertiesItem(1)));
 	public static final RegistryObject<Item> BLUE_GEARFRAGMENT = IcariaItems.registerSimple("blue_gearfragment", () -> new Item(IcariaItems.propertiesItem(1)));
 	public static final RegistryObject<Item> GREEN_GEARFRAGMENT = IcariaItems.registerSimple("green_gearfragment", () -> new Item(IcariaItems.propertiesItem(1)));
 	public static final RegistryObject<Item> YELLOW_GEARFRAGMENT = IcariaItems.registerSimple("yellow_gearfragment", () -> new Item(IcariaItems.propertiesItem(1)));
 	public static final RegistryObject<Item> DAEDALIAN_GEAR = IcariaItems.registerSimple("daedalian_gear", () -> new Item(IcariaItems.propertiesItem(1)));
-	public static final RegistryObject<Item> SMALL_DAEDALIAN_GEAR = IcariaItems.registerSimple("small_daedalian_gear", () -> new Item(IcariaItems.propertiesItem(1)));
 
 	public static final RegistryObject<Item> AETERNAE_HIDE = IcariaItems.registerSimple("aeternae_hide", () -> new Item(IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> SPELT_FLOUR = IcariaItems.registerSimple("spelt_flour", () -> new Item(IcariaItems.propertiesItem()));
@@ -764,6 +762,11 @@ public class IcariaItems {
 	public static final RegistryObject<Item> VINEGAROON_SPAWN_EGG = IcariaItems.register("vinegaroon_spawn_egg", () -> new ForgeSpawnEggItem(IcariaEntityTypes.VINEGAROON, 0x382819, 0xC99559, IcariaItems.propertiesItem()));
 
 	public static final RegistryObject<Item> MEDITERRANEAN_WATER_BUCKET = IcariaItems.registerSimple("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER, IcariaItems.propertiesItem(1).craftRemainder(Items.BUCKET)));
+
+	public static final RegistryObject<Item> LEFT_GRINDER_CHAIN = IcariaItems.registerSimple("left_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> STATIC_LEFT_GRINDER_CHAIN = IcariaItems.registerSimple("static_left_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> RIGHT_GRINDER_CHAIN = IcariaItems.registerSimple("right_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> STATIC_RIGHT_GRINDER_CHAIN = IcariaItems.registerSimple("static_right_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
 
 	public static Item.Properties propertiesItem() {
 		return new Item.Properties();

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "landsoficaria:item/small_loam_gear"
+    "layer0": "landsoficaria:item/static_left_grinder_chain"
   }
 }

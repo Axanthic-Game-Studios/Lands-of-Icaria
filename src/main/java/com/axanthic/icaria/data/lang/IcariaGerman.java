@@ -957,19 +957,14 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.CHEST_LABEL.get(), "Kistenetikett");
 
 		this.add(IcariaItems.YELLOWSTONE_GEAR.get(), "Gelbsteinmahlrad");
-		this.add(IcariaItems.SMALL_YELLOWSTONE_GEAR.get(), "Kleines Gelbsteinmahlrad");
 		this.add(IcariaItems.UNFIRED_LOAM_GEAR.get(), "Ungebranntes Lehmmahlrad");
 		this.add(IcariaItems.LOAM_GEAR.get(), "Lehmmahlrad");
-		this.add(IcariaItems.SMALL_LOAM_GEAR.get(), "Kleines Lehmmahlrad");
 		this.add(IcariaItems.VOIDSHALE_GEAR.get(), "Leerenschiefermahlrad");
-		this.add(IcariaItems.SMALL_VOIDSHALE_GEAR.get(), "Kleines Leerenschiefermahlrad");
 		this.add(IcariaItems.VANADIUM_GEAR.get(), "Vanadinmahlrad");
-		this.add(IcariaItems.SMALL_VANADIUM_GEAR.get(), "Kleines Vanadinmahlrad");
 		this.add(IcariaItems.BLUE_GEARFRAGMENT.get(), "Blaues Mahlradfragment");
 		this.add(IcariaItems.GREEN_GEARFRAGMENT.get(), "Grünes Mahlradfragment");
 		this.add(IcariaItems.YELLOW_GEARFRAGMENT.get(), "Gelbes Mahlradfragment");
 		this.add(IcariaItems.DAEDALIAN_GEAR.get(), "Dädalisches Mahlrad");
-		this.add(IcariaItems.SMALL_DAEDALIAN_GEAR.get(), "Kleines dädalisches Mahlrad");
 
 		this.add(IcariaItems.AETERNAE_HIDE.get(), "Äternen Leder");
 		this.add(IcariaItems.SPELT_FLOUR.get(), "Dinkelmehl");

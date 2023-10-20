@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "landsoficaria:item/small_voidshale_gear"
+    "layer0": "landsoficaria:item/right_grinder_chain"
   }
 }

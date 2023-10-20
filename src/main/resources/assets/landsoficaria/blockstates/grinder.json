@@ -1,8 +1,12 @@
 {
 	"variants": {
-		"facing=north": { "model": "landsoficaria:block/grinder", "y": 0 },
-    	"facing=east": { "model": "landsoficaria:block/grinder", "y": 90 },
-    	"facing=south": { "model": "landsoficaria:block/grinder", "y": 180 },
-		"facing=west": { "model": "landsoficaria:block/grinder", "y": 270 }
+		"facing=north,side=left": { "model": "landsoficaria:block/grinder_left", "y": 0 },
+    	"facing=east,side=left": { "model": "landsoficaria:block/grinder_left", "y": 90 },
+    	"facing=south,side=left": { "model": "landsoficaria:block/grinder_left", "y": 180 },
+		"facing=west,side=left": { "model": "landsoficaria:block/grinder_left", "y": 270 },
+		"facing=north,side=right": { "model": "landsoficaria:block/grinder_right", "y": 0 },
+		"facing=east,side=right": { "model": "landsoficaria:block/grinder_right", "y": 90 },
+		"facing=south,side=right": { "model": "landsoficaria:block/grinder_right", "y": 180 },
+		"facing=west,side=right": { "model": "landsoficaria:block/grinder_right", "y": 270 }
 	}
 }

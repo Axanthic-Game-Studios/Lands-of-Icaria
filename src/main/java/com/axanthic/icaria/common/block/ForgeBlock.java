@@ -129,8 +129,8 @@ public class ForgeBlock extends BaseEntityBlock {
         var blockPos = ForgeBlock.getBlockEntityPosition(pState, pPos);
         var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 
-        if (pLevel.getBlockEntity(ForgeBlock.getBlockEntityPosition(pState, pPos)) instanceof ForgeBlockEntity) {
-            pLevel.setBlock(ForgeBlock.getBlockEntityPosition(pState, pPos), Blocks.AIR.defaultBlockState(), 3);
+        if (pLevel.getBlockEntity(blockPos) instanceof ForgeBlockEntity) {
+            pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
         }
 
         if (pLevel.getBlockEntity(ForgeBlock.getBlockEntityPosition(pState, blockPos)) == null) {
@@ -166,8 +166,8 @@ public class ForgeBlock extends BaseEntityBlock {
         var blockPos = ForgeBlock.getBlockEntityPosition(pState, pPos);
         var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 
-        if (pLevel.getBlockEntity(ForgeBlock.getBlockEntityPosition(pState, pPos)) instanceof ForgeBlockEntity) {
-            pLevel.setBlock(ForgeBlock.getBlockEntityPosition(pState, pPos), Blocks.AIR.defaultBlockState(), 3);
+        if (pLevel.getBlockEntity(blockPos) instanceof ForgeBlockEntity) {
+            pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
         }
 
         if (pLevel.getBlockEntity(ForgeBlock.getBlockEntityPosition(pState, blockPos)) == null) {

@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.block.GrinderBlock;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.container.data.GrinderContainerData;
 import com.axanthic.icaria.common.handler.GrinderItemStackHandler;
@@ -7,6 +8,7 @@ import com.axanthic.icaria.common.handler.WrappedHandler;
 import com.axanthic.icaria.common.item.GearItem;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
 import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.util.Side;
 
 import com.google.common.collect.Lists;
 
@@ -71,13 +73,22 @@ public class GrinderBlockEntity extends BlockEntity {
 
 	public SimpleContainer simpleContainer = new SimpleContainer(this.size);
 
-	public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedItemHandler = Map.of(
+	public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedLeftHandler = Map.of(
+		Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+		Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> index == 3 || index == 4 || index == 5, (index, stack) -> false)),
+		Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+		Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+		Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+		Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false))
+	);
+
+	public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedRightHandler = Map.of(
 		Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(0, stack))),
 		Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> index == 3 || index == 4 || index == 5, (index, stack) -> false)),
 		Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-		Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(1, stack))),
-		Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-		Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(2, stack)))
+		Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+		Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(1, stack))),
+		Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false))
 	);
 
 	public GrinderBlockEntity(BlockPos pPos, BlockState pState) {
@@ -223,6 +234,7 @@ public class GrinderBlockEntity extends BlockEntity {
 
 	public static void tick(Level pLevel, BlockPos pPos, BlockState pState, GrinderBlockEntity pBlockEntity) {
 		var stackHandler = pBlockEntity.stackHandler;
+		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 		var fuelSlot = stackHandler.getStackInSlot(1);
 		var gearSlot = stackHandler.getStackInSlot(2);
 		if (!pLevel.isClientSide()) {
@@ -274,11 +286,13 @@ public class GrinderBlockEntity extends BlockEntity {
 				pBlockEntity.progress++;
 				pBlockEntity.fuel--;
 				pBlockEntity.setChanged();
-				pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.GRINDING, true).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, pBlockEntity.rotation), 3);
+				pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.SIDE, Side.LEFT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, true).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, pBlockEntity.rotation), 3);
+				pLevel.setBlock(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, true).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, pBlockEntity.rotation), 3);
 			} else {
 				pBlockEntity.resetProgress();
 				pBlockEntity.setChanged();
-				pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.GRINDING, false), 3);
+				pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.SIDE, Side.LEFT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, false), 3);
+				pLevel.setBlock(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, false), 3);
 			}
 		}
 	}
@@ -323,23 +337,52 @@ public class GrinderBlockEntity extends BlockEntity {
 
 	@Override
 	public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
+		return this.getCapabilityForPos(pCapability, pDirection, this.getBlockPos());
+	}
+
+	public <T> LazyOptional<T> getCapabilityForPos(Capability<T> pCapability, @Nullable Direction pDirection, BlockPos pPos) {
 		if (pCapability == ForgeCapabilities.ITEM_HANDLER) {
 			if (pDirection == null) {
 				return this.itemHandler.cast();
-			} else if (this.directionWrappedItemHandler.containsKey(pDirection)) {
-				var facing = this.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);
-				if (pDirection == Direction.DOWN || pDirection == Direction.UP) {
-					return this.directionWrappedItemHandler.get(pDirection).cast();
+			} else if (this.directionWrappedLeftHandler.containsKey(pDirection) || this.directionWrappedRightHandler.containsKey(pDirection)) {
+				var level = this.getLevel();
+				var state = this.getBlockState();
+				if (level != null) {
+					state = level.getBlockState(GrinderBlock.getBlockEntityPosition(this.getBlockState(), pPos));
 				}
 
-				if (facing == Direction.NORTH) {
-					return this.directionWrappedItemHandler.get(pDirection).cast();
-				} else if (facing == Direction.EAST) {
-					return this.directionWrappedItemHandler.get(pDirection.getCounterClockWise()).cast();
-				} else if (facing == Direction.SOUTH) {
-					return this.directionWrappedItemHandler.get(pDirection.getOpposite()).cast();
-				} else if (facing == Direction.WEST) {
-					return this.directionWrappedItemHandler.get(pDirection.getClockWise()).cast();
+				var side  = state.getValue(IcariaBlockStateProperties.SIDE);
+				var facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+				if (pDirection == Direction.DOWN) {
+					return this.directionWrappedLeftHandler.get(pDirection).cast();
+				}
+
+				if (pDirection == Direction.UP) {
+					if (side == Side.RIGHT) {
+						return this.directionWrappedRightHandler.get(pDirection).cast();
+					}
+				}
+
+				if (side == Side.LEFT) {
+					if (facing == Direction.NORTH) {
+						return this.directionWrappedLeftHandler.get(pDirection).cast();
+					} else if (facing == Direction.EAST) {
+						return this.directionWrappedLeftHandler.get(pDirection.getCounterClockWise()).cast();
+					} else if (facing == Direction.SOUTH) {
+						return this.directionWrappedLeftHandler.get(pDirection.getOpposite()).cast();
+					} else if (facing == Direction.WEST) {
+						return this.directionWrappedLeftHandler.get(pDirection.getClockWise()).cast();
+					}
+				} else if (side == Side.RIGHT) {
+					if (facing == Direction.NORTH) {
+						return this.directionWrappedRightHandler.get(pDirection).cast();
+					} else if (facing == Direction.EAST) {
+						return this.directionWrappedRightHandler.get(pDirection.getCounterClockWise()).cast();
+					} else if (facing == Direction.SOUTH) {
+						return this.directionWrappedRightHandler.get(pDirection.getOpposite()).cast();
+					} else if (facing == Direction.WEST) {
+						return this.directionWrappedRightHandler.get(pDirection.getClockWise()).cast();
+					}
 				}
 			}
 		}

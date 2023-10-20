@@ -652,6 +652,9 @@ public class IcariaBlocks {
 
 	public static final RegistryObject<Block> ICARIA_PORTAL = IcariaBlocks.register("icaria_portal", () -> new IcariaPortalBlock(IcariaBlocks.propertiesPortal(MapColor.NONE, SoundType.GLASS)));
 
+	public static final RegistryObject<Block> GRINDER_SHAFT = IcariaBlocks.register("grinder_shaft", () -> new Block(IcariaBlocks.propertiesNone()));
+	public static final RegistryObject<Block> GRINDER_STONE = IcariaBlocks.register("grinder_stone", () -> new Block(IcariaBlocks.propertiesNone()));
+
 	public static boolean always(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
 		return true;
 	}
@@ -914,6 +917,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesPortal(MapColor pColor, SoundType pSound) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.BLOCK).sound(pSound).destroyTime(-1.0F).explosionResistance(-1.0F).lightLevel((pBlockState) -> 11).noCollission().randomTicks();
+	}
+
+	public static BlockBehaviour.Properties propertiesNone() {
+		return BlockBehaviour.Properties.of();
 	}
 
 	public static ToIntFunction<BlockState> litBlockEmission(int pLightValue) {

@@ -1,10 +1,12 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
+import com.axanthic.icaria.common.entity.GrinderRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.GrinderMenuProvider;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
+import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.util.Side;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -16,12 +18,16 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -31,11 +37,10 @@ import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.minecraftforge.network.NetworkHooks;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
@@ -43,11 +48,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrinderBlock extends BaseEntityBlock {
-	public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
-
 	public GrinderBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.GRINDING, false).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, 0).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
+		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.GRINDER_GRINDING, false).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, 0).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.SIDE, Side.LEFT));
+	}
+
+	@Override
+	public boolean canDropFromExplosion(BlockState pState, BlockGetter pLevel, BlockPos pPos, Explosion pExplosion) {
+		return false;
 	}
 
 	@Override
@@ -57,18 +65,16 @@ public class GrinderBlock extends BaseEntityBlock {
 
 	@Override
 	public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
-		return (pLevel.getBlockEntity(pPos) instanceof GrinderBlockEntity blockEntity) ? blockEntity.getComparatorInput() : 0;
+		return pLevel.getBlockEntity(GrinderBlock.getBlockEntityPosition(pState, pPos)) instanceof GrinderBlockEntity blockEntity ? blockEntity.getComparatorInput() : 0;
 	}
 
 	@Override
 	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (pState.getValue(IcariaBlockStateProperties.GRINDING)) {
+		if (pState.getValue(IcariaBlockStateProperties.GRINDER_GRINDING)) {
 			if (pLevel.getBlockEntity(pPos) instanceof GrinderBlockEntity blockEntity) {
 				var itemStack = blockEntity.stackHandler.getStackInSlot(0);
 				if (!itemStack.isEmpty()) {
-					if (IcariaConfig.RENDER_GRINDER_GEARS.get()) {
-						pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pPos.getX() + 0.5D, pPos.getY() + 1.0D, pPos.getZ() + 0.5D, 0.0D, 0.25D, 0.0D);
-					}
+					pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pPos.getX() + 0.5D, pPos.getY() + 1.0D, pPos.getZ() + 0.5D, 0.0D, 0.25D, 0.0D);
 				}
 			}
 		}
@@ -76,7 +82,16 @@ public class GrinderBlock extends BaseEntityBlock {
 
 	@Override
 	public void createBlockStateDefinition(Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(IcariaBlockStateProperties.GRINDING, IcariaBlockStateProperties.GRINDER_ROTATION, BlockStateProperties.HORIZONTAL_FACING);
+		pBuilder.add(IcariaBlockStateProperties.GRINDER_GRINDING, IcariaBlockStateProperties.GRINDER_ROTATION, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.SIDE);
+	}
+
+	@Override
+	public void onBlockExploded(BlockState pState, Level pLevel, BlockPos pPos, Explosion pExplosion) {
+		var blockPos = GrinderBlock.getBlockEntityPosition(pState, pPos);
+		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
+		super.onBlockExploded(pState, pLevel, pPos, pExplosion);
 	}
 
 	@Override
@@ -86,6 +101,7 @@ public class GrinderBlock extends BaseEntityBlock {
 				if (pLevel instanceof ServerLevel serverLevel) {
 					blockEntity.drops(serverLevel);
 					blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pPos));
+					Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.GRINDER.get()));
 				}
 			}
 		}
@@ -94,22 +110,58 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
+	public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+		var blockPos = GrinderBlock.getBlockEntityPosition(pState, pPos);
+		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
+		super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+	}
+
+	@Override
+	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
+		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		pLevel.setBlock(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT), 3);
+	}
+
+	@Override
 	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		return new GrinderBlockEntity(pPos, pState);
+		if (pState.getValue(IcariaBlockStateProperties.SIDE) == Side.LEFT) {
+			return new GrinderBlockEntity(pPos, pState);
+		} else {
+			return new GrinderRedirectorBlockEntity(pPos, pState);
+		}
+	}
+
+	public static BlockPos getBlockEntityPosition(BlockState pState, BlockPos pPos) {
+		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		if (pState.getValue(IcariaBlockStateProperties.SIDE) == Side.LEFT) {
+			return pPos;
+		} else {
+			return pPos.offset(facing.getClockWise().getNormal());
+		}
 	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pContext.getHorizontalDirection().getOpposite());
+		var blockPos = pContext.getClickedPos();
+		var facing = pContext.getHorizontalDirection().getOpposite();
+		var level = pContext.getLevel();
+		if (blockPos.getY() < level.getMaxBuildHeight() - 1 && level.getBlockState(blockPos.offset(facing.getCounterClockWise().getNormal())).canBeReplaced(pContext)) {
+			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pContext.getHorizontalDirection().getOpposite());
+		} else {
+			return null;
+		}
 	}
 
 	@Override
 	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-		var blockEntity = pLevel.getBlockEntity(pPos);
+		var blockEntityPosition = GrinderBlock.getBlockEntityPosition(pState, pPos);
+		var blockEntity = pLevel.getBlockEntity(blockEntityPosition);
 		if (!pLevel.isClientSide()) {
 			if (pPlayer instanceof ServerPlayer serverPlayer) {
-				if (blockEntity instanceof GrinderBlockEntity) {
-					NetworkHooks.openScreen(serverPlayer, new GrinderMenuProvider(pPos), blockEntity.getBlockPos());
+				if (blockEntity instanceof GrinderBlockEntity || blockEntity instanceof GrinderRedirectorBlockEntity) {
+					NetworkHooks.openScreen(serverPlayer, new GrinderMenuProvider(blockEntityPosition), blockEntityPosition);
 				}
 			}
 		}
@@ -120,11 +172,6 @@ public class GrinderBlock extends BaseEntityBlock {
 	@Override
 	public RenderShape getRenderShape(BlockState pState) {
 		return RenderShape.MODEL;
-	}
-
-	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return GrinderBlock.SHAPE;
 	}
 
 	@Override
