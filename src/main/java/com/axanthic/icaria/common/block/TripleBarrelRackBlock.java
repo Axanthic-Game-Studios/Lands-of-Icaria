@@ -98,7 +98,14 @@ public class TripleBarrelRackBlock extends Block {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pContext.getHorizontalDirection().getOpposite());
+        var blockPos = pContext.getClickedPos();
+        var facing = pContext.getHorizontalDirection().getOpposite();
+        var level = pContext.getLevel();
+        if (blockPos.getY() < level.getMaxBuildHeight() - 1 && level.getBlockState(blockPos.offset(facing.getCounterClockWise().getNormal())).canBeReplaced(pContext) && level.getBlockState(blockPos.above()).canBeReplaced(pContext) && level.getBlockState(blockPos.above().offset(facing.getCounterClockWise().getNormal())).canBeReplaced(pContext)) {
+            return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pContext.getHorizontalDirection().getOpposite());
+        } else {
+            return null;
+        }
     }
 
     @Override
