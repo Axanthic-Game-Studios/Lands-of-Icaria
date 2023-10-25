@@ -38,6 +38,6 @@ public class GrinderRedirectorBlockEntity extends BlockEntity {
 
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
-        return this.original != null ? original.getCapabilityForPos(pCapability, pDirection, this.getBlockPos()) : LazyOptional.empty();
+        return this.original != null ? this.original.getCapabilityForPos(pCapability, pDirection, this.getBlockPos()) : LazyOptional.empty();
     }
 }
