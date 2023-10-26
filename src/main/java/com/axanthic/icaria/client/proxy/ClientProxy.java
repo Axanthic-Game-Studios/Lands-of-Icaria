@@ -1291,7 +1291,6 @@ public class ClientProxy extends CommonProxy {
 		this.renderTranslucent(IcariaBlocks.CALCITE_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.HALITE_BLOCK.get());
 		this.renderTranslucent(IcariaBlocks.ZIRCON_BLOCK.get());
-
 		this.renderTranslucent(IcariaBlocks.CYPRESS_TROUGH.get());
 		this.renderTranslucent(IcariaBlocks.DROUGHTROOT_TROUGH.get());
 		this.renderTranslucent(IcariaBlocks.FIR_TROUGH.get());
@@ -1299,7 +1298,6 @@ public class ClientProxy extends CommonProxy {
 		this.renderTranslucent(IcariaBlocks.OLIVE_TROUGH.get());
 		this.renderTranslucent(IcariaBlocks.PLANE_TROUGH.get());
 		this.renderTranslucent(IcariaBlocks.POPULUS_TROUGH.get());
-
 		this.renderTranslucent(IcariaBlocks.ICARIA_PORTAL.get());
 		this.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER.get());
 		this.renderTranslucent(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get());
