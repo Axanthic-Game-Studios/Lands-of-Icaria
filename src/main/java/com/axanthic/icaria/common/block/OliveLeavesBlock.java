@@ -59,12 +59,12 @@ public class OliveLeavesBlock extends IcariaLeavesBlock {
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (pState.getValue(IcariaBlockStateProperties.OLIVE_STAGE) == 1) {
-            pLevel.playSound(pPlayer, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 1.0F);
+            pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
             pLevel.setBlock(pPos, this.defaultBlockState().setValue(IcariaBlockStateProperties.OLIVE_STAGE, 0), 0);
             Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.GREEN_OLIVES.get(), 1));
             return InteractionResult.sidedSuccess(pLevel.isClientSide());
         } else if (pState.getValue(IcariaBlockStateProperties.OLIVE_STAGE) == 2) {
-            pLevel.playSound(pPlayer, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 1.0F);
+            pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
             pLevel.setBlock(pPos, this.defaultBlockState().setValue(IcariaBlockStateProperties.OLIVE_STAGE, 0), 0);
             Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.BLACK_OLIVES.get(), 1));
             return InteractionResult.sidedSuccess(pLevel.isClientSide());

@@ -43,7 +43,7 @@ public class MyrmekeQueenSummonGoal extends Goal {
             if (entity != null) {
                 int random = this.entity.getRandom().nextIntBetweenInclusive(-4, 4);
                 this.entity.level().addFreshEntity(entity);
-                this.entity.playSound(SoundEvents.EVOKER_PREPARE_SUMMON, 1.0F, 1.0F);
+                this.entity.playSound(SoundEvents.EVOKER_PREPARE_SUMMON, 0.1F, 1.0F);
                 entity.moveTo(this.entity.blockPosition().offset(random, 0, random), 0.0F, 0.0F);
             }
         }

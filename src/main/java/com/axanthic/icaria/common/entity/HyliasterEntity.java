@@ -238,7 +238,7 @@ public class HyliasterEntity extends Monster {
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() == IcariaItems.EMPTY_VIAL.get()) {
-            pPlayer.level().playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
+            pPlayer.playSound(SoundEvents.BOTTLE_FILL);
             if (!this.level().isClientSide()) {
                 this.setTick(this.getTick() - 16000);
                 if (this.getSize() == this.minSize) {

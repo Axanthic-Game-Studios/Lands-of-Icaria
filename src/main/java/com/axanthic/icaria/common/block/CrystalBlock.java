@@ -65,8 +65,8 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Medit
 	public void onProjectileHit(Level pLevel, BlockState pState, BlockHitResult pHit, Projectile pProjectile) {
 		if (!pLevel.isClientSide()) {
 			var blockPos = pHit.getBlockPos();
-			pLevel.playSound(null, blockPos, SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS, 1.0F, pLevel.random.nextFloat() * 1.2F + 0.5F);
-			pLevel.playSound(null, blockPos, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 1.0F, pLevel.random.nextFloat() * 1.2F + 0.5F);
+			pLevel.playSound(null, blockPos, SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS);
+			pLevel.playSound(null, blockPos, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS);
 		}
 	}
 

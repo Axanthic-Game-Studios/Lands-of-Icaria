@@ -48,7 +48,10 @@ public class HyliastrumVialItem extends Item {
             itemStack.shrink(1);
             return InteractionResult.CONSUME;
         } else {
-            level.playSound(player, blockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.NEUTRAL, 1.0F, 1.0F);
+            if (player != null) {
+                player.playSound(SoundEvents.BOTTLE_EMPTY);
+            }
+
             return InteractionResult.SUCCESS;
         }
     }

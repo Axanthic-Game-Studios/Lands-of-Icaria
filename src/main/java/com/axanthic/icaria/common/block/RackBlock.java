@@ -258,7 +258,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
             if (Block.byItem(item) instanceof IcariaBarrelBlock block) {
                 if (this.getType() == block.getType()) {
                     var state = block.defaultBlockState();
-                    pLevel.playSound(pPlayer, pPos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS);
+                    pLevel.playSound(null, pPos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS);
                     pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.FULL_RACK, true).setValue(IcariaBlockStateProperties.LOADED_BARREL, state.is(IcariaBlockTags.LOADED_BARRELS)).setValue(IcariaBlockStateProperties.TAPPED_BARREL, state.is(IcariaBlockTags.TAPPED_BARRELS)));
                     if (!pPlayer.isCreative()) {
                         itemStack.shrink(1);

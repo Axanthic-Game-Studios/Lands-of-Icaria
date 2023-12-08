@@ -49,7 +49,7 @@ public class ForestHagPlaceSaplingGoal extends Goal {
         }
 
         if (level.getBlockState(blockPos).isAir() && level.getBlockState(belowPos).canSustainPlant(this.entity.level(), belowPos, Direction.UP, (IPlantable) block)) {
-            this.entity.level().playSound(null, this.entity, SoundEvents.GRASS_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
+            this.entity.level().playSound(null, blockPos, SoundEvents.GRASS_PLACE, SoundSource.BLOCKS);
             this.entity.level().setBlock(blockPos, block.defaultBlockState(), 2);
         }
     }

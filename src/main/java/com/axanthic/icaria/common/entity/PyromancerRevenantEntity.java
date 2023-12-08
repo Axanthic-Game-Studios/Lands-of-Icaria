@@ -8,6 +8,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
@@ -131,7 +132,7 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
             this.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
             this.setThrown(this.maxThrown);
             if (!this.isSilent()) {
-                this.level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ARROW_SHOOT, this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+                this.level().playSound(null, this.blockPosition(), SoundEvents.ARROW_SHOOT, SoundSource.HOSTILE, 0.1F, 1.0F);
             }
         }
     }

@@ -264,7 +264,7 @@ public class GrinderBlockEntity extends BlockEntity {
 				if (IcariaConfig.GRINDER_SOUNDS.get()) {
 					if (pBlockEntity.lastSound >= 6) {
 						pBlockEntity.lastSound = 0;
-						pLevel.playSound(null, pPos, IcariaSoundEvents.GRINDER_GRIND, SoundSource.BLOCKS, 1.0F, 1.0F);
+						pLevel.playSound(null, pPos, IcariaSoundEvents.GRINDER_GRIND, SoundSource.BLOCKS);
 					} else {
 						pBlockEntity.lastSound++;
 					}

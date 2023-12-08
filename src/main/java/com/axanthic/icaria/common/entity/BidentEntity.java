@@ -84,7 +84,7 @@ public class BidentEntity extends AbstractArrow {
 		}
 
 		this.dealtDamage = true;
-		this.playSound(SoundEvents.TRIDENT_HIT, 1.0F, 1.0F);
+		this.playSound(SoundEvents.TRIDENT_HIT, 0.1F, 1.0F);
 		this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
 	}
 

@@ -66,7 +66,7 @@ public class TroughBlock extends Block {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (pState.getValue(IcariaBlockStateProperties.TROUGH_WATER)) {
             if (itemStack.is(Items.BUCKET)) {
-                pLevel.playSound(pPlayer, pPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
+                pLevel.playSound(null, pPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
                 if (!pLevel.isClientSide()) {
                     pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.TROUGH_WATER, false));
                     if (!pPlayer.isCreative()) {
@@ -76,7 +76,7 @@ public class TroughBlock extends Block {
             }
         } else {
             if (itemStack.is(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get())) {
-                pLevel.playSound(pPlayer, pPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
+                pLevel.playSound(null, pPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
                 if (!pLevel.isClientSide()) {
                     pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.TROUGH_WATER, true));
                     if (!pPlayer.isCreative()) {

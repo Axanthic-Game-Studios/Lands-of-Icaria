@@ -78,8 +78,8 @@ public class BidentItem extends TieredItem implements Vanishable {
 					var entity = new BidentEntity(pLevel, player, pStack);
 					entity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.0F, 1.0F);
 					player.awardStat(Stats.ITEM_USED.get(this));
+					player.playSound(SoundEvents.TRIDENT_THROW);
 					pLevel.addFreshEntity(entity);
-					pLevel.playSound(null, entity, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
 					pStack.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(pLivingEntity.getUsedItemHand()));
 					if (player.getAbilities().instabuild) {
 						entity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;

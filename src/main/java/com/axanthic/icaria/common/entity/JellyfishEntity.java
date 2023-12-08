@@ -137,7 +137,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
             }
 
             if (flag && !this.isSilent()) {
-                this.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
+                this.playSound(SoundEvents.ENDERMAN_TELEPORT, 0.1F, 1.0F);
             }
 
             return flag;

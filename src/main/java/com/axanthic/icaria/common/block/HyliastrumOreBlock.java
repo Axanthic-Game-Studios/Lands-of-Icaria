@@ -34,7 +34,7 @@ public class HyliastrumOreBlock extends Block {
 					entity.setTick(48000);
 					entity.spawnAnim();
 					pLevel.addFreshEntity(entity);
-					pLevel.playSound(null, pPos, SoundEvents.SLIME_SQUISH, SoundSource.NEUTRAL, 1.0F, 1.0F);
+					pLevel.playSound(null, pPos, SoundEvents.SLIME_SQUISH, SoundSource.BLOCKS);
 				}
 			}
 		}
