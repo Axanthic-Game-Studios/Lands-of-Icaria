@@ -301,10 +301,14 @@
 			"rotation": [45, 135, 0]
 		},
 		"firstperson_righthand": {
-			"rotation": [0, 135, 0]
+			"rotation": [0, 135, 0],
+			"translation": [0, 3.5, 0],
+			"scale": [0.875, 0.875, 0.875]
 		},
 		"firstperson_lefthand": {
-			"rotation": [0, 135, 0]
+			"rotation": [0, 135, 0],
+			"translation": [0, 3.5, 0],
+			"scale": [0.875, 0.875, 0.875]
 		},
 		"ground": {
 			"translation": [0, 2, 0],
