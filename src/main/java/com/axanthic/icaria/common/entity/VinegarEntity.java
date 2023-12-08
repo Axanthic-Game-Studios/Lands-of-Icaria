@@ -32,6 +32,11 @@ public class VinegarEntity extends AbstractArrow {
     }
 
     @Override
+    public boolean displayFireAnimation() {
+        return false;
+    }
+
+    @Override
     public void onHit(HitResult pResult) {
         this.discard();
     }

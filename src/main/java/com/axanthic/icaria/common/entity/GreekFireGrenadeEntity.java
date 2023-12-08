@@ -34,6 +34,11 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
     }
 
     @Override
+    public boolean displayFireAnimation() {
+        return false;
+    }
+
+    @Override
     public void onHit(HitResult pResult) {
         var thisPos = BlockPos.containing(this.getX(), this.getY(), this.getZ());
         if (((IcariaPortalBlock) IcariaBlocks.ICARIA_PORTAL.get()).spawnPortal(this.level(), thisPos)) {
