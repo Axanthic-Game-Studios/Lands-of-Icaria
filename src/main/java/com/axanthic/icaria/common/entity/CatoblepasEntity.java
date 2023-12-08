@@ -125,7 +125,7 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
                 var filledResult = ItemUtils.createFilledResult(inHand, pPlayer, Items.MILK_BUCKET.getDefaultInstance());
                 pPlayer.playSound(SoundEvents.COW_MILK, 1.0F, 1.0F);
                 pPlayer.setItemInHand(pHand, filledResult);
-                return InteractionResult.sidedSuccess(this.level().isClientSide);
+                return InteractionResult.sidedSuccess(this.level().isClientSide());
             }
         }
 

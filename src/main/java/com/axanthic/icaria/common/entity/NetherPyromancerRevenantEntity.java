@@ -179,7 +179,7 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
     @Override
     public void tick() {
         super.tick();
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             if (this.onThrown()) {
                 this.thrownAnimationState.startIfStopped(this.tickCount);
                 this.reloadAnimationState.stop();

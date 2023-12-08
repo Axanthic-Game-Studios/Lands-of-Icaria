@@ -57,7 +57,7 @@ public class StrawberryBushBlock extends IcariaBushBlock {
             pLevel.playSound(pPlayer, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 1.0F);
             pLevel.setBlock(pPos, this.defaultBlockState().setValue(IcariaBlockStateProperties.STRAWBERRY_STAGE, 0), 0);
             Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.STRAWBERRIES.get(), 1));
-            return InteractionResult.sidedSuccess(pLevel.isClientSide);
+            return InteractionResult.sidedSuccess(pLevel.isClientSide());
         } else {
             return InteractionResult.PASS;
         }

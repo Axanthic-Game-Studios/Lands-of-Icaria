@@ -140,7 +140,7 @@ public class ForestHagEntity extends Monster {
         super.onSyncedDataUpdated(pKey);
         if (ForestHagEntity.TARGETING.equals(pKey)) {
             if (this.isTargeting()) {
-                if (this.level().isClientSide) {
+                if (this.level().isClientSide()) {
                     this.playTargetSounds();
                 }
             }

@@ -177,7 +177,7 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
     @Override
     public void tick() {
         super.tick();
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             if (this.onThrown()) {
                 this.thrownAnimationState.startIfStopped(this.tickCount);
                 this.reloadAnimationState.stop();

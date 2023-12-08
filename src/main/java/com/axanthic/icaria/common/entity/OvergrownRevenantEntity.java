@@ -23,7 +23,7 @@ public class OvergrownRevenantEntity extends RevenantEntity {
     @Override
     public void onAddedToWorld() {
         super.onAddedToWorld();
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             this.red = IcariaClientHelper.getRed(this);
             this.green = IcariaClientHelper.getGreen(this);
             this.blue = IcariaClientHelper.getBlue(this);

@@ -35,7 +35,7 @@ public class CrystalBlockEntity extends BlockEntity {
 		super.onLoad();
 		var level = this.getLevel();
 		if (level != null) {
-			if (level.isClientSide) {
+			if (level.isClientSide()) {
 				this.red = IcariaClientHelper.getRed(this);
 				this.green = IcariaClientHelper.getGreen(this);
 				this.blue = IcariaClientHelper.getBlue(this);

@@ -132,7 +132,7 @@ public class ScorpionEntity extends IcariaArachnidEntity {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             this.setClimbing(this.horizontalCollision);
         }
     }

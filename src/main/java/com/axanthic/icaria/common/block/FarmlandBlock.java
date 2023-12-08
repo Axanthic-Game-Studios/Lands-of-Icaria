@@ -75,7 +75,7 @@ public class FarmlandBlock extends FarmBlock {
 	@Override
 	public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
 		super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
-		if (!pLevel.isClientSide) {
+		if (!pLevel.isClientSide()) {
 			if (ForgeHooks.onFarmlandTrample(pLevel, pPos, IcariaBlocks.MARL.get().defaultBlockState(), pFallDistance, pEntity)) {
 				this.turnToMarl(pState, pLevel, pPos);
 			}
@@ -118,7 +118,7 @@ public class FarmlandBlock extends FarmBlock {
 		if (itemStack.is(IcariaItems.CALCITE_DUST.get())) {
 			if (pState.getValue(BlockStateProperties.MOISTURE) == 7) {
 				pLevel.playSound(pPlayer, pPos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-				if (!pLevel.isClientSide) {
+				if (!pLevel.isClientSide()) {
 					pLevel.setBlock(pPos, IcariaBlocks.FERTILIZED_FARMLAND.get().defaultBlockState(), 0);
 					if (!pPlayer.isCreative()) {
 						itemStack.shrink(1);

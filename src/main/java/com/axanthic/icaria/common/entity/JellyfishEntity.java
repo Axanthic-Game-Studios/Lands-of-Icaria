@@ -86,7 +86,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
 
                 return flag;
             } else {
-                if (!this.level().isClientSide) {
+                if (!this.level().isClientSide()) {
                     if (this.random.nextInt(10) != 0) {
                         if (!(pSource.getEntity() instanceof LivingEntity)) {
                             this.teleport();
@@ -116,7 +116,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
     }
 
     public boolean teleport() {
-        if (!this.level().isClientSide && this.isAlive()) {
+        if (!this.level().isClientSide() && this.isAlive()) {
             return this.teleport(this.getX() + (this.random.nextDouble() - 0.5D) * 64.0D, this.getY() + (this.random.nextInt(64) - 32), this.getZ() + (this.random.nextDouble() - 0.5D) * 64.0D);
         } else {
             return false;
@@ -155,7 +155,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
         this.oldXBodyRot = this.xBodyRot;
         this.oldZBodyRot = this.zBodyRot;
         if (this.tentacleMovement > (Mth.PI * 2.0D)) {
-            if (this.level().isClientSide) {
+            if (this.level().isClientSide()) {
                 this.tentacleMovement = (Mth.PI * 2.0F);
             } else {
                 this.tentacleMovement -= (Mth.PI * 2.0F);
@@ -182,7 +182,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
             this.tentacleAngle = 0.0F;
         }
 
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             this.setDeltaMovement((this.tx * this.speed), (this.ty * this.speed), (this.tz * this.speed));
         }
 
@@ -192,7 +192,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
         this.zBodyRot += Mth.PI * this.rotateSpeed * 1.5F;
         this.setYRot(this.yBodyRot);
         if (this.getType() == IcariaEntityTypes.ENDER_JELLYFISH.get()) {
-            if (this.level().isClientSide) {
+            if (this.level().isClientSide()) {
                 for (int i = 0; i < 2; ++i) {
                     this.level().addParticle(ParticleTypes.PORTAL, this.getRandomX(0.5D), this.getRandomY() - 0.25D, this.getRandomZ(0.5D), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
                 }

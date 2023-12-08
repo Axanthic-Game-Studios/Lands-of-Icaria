@@ -241,7 +241,7 @@ public class SnullEntity extends SizedPathfinderMobEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             if (this.isAlive()) {
                 this.idleAnimationState.startIfStopped(this.tickCount);
             } else {
@@ -281,7 +281,7 @@ public class SnullEntity extends SizedPathfinderMobEntity {
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() == IcariaItems.HALITE_DUST.get()) {
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.hurt(this.damageSources().generic(), 1.0F);
                 this.setHide(this.maxHide);
                 if (!pPlayer.isCreative()) {

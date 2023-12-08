@@ -102,7 +102,7 @@ public class MyrmekeQueenEntity extends Monster {
     public void onAddedToWorld() {
         super.onAddedToWorld();
         if (this.getType().equals(IcariaEntityTypes.MYRMEKE_QUEEN.get())) {
-            if (this.level().isClientSide) {
+            if (this.level().isClientSide()) {
                 this.red = IcariaClientHelper.getRed(this);
                 this.green = IcariaClientHelper.getGreen(this);
                 this.blue = IcariaClientHelper.getBlue(this);
@@ -143,7 +143,7 @@ public class MyrmekeQueenEntity extends Monster {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             this.setClimbing(this.horizontalCollision);
         }
     }

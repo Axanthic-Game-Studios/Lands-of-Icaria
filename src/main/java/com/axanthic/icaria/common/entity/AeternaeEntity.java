@@ -56,7 +56,7 @@ public class AeternaeEntity extends IcariaAnimalEntity {
     @Override
     public void aiStep() {
         super.aiStep();
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             this.eatAnimationTick = Math.max(0, this.eatAnimationTick - 1);
         }
     }

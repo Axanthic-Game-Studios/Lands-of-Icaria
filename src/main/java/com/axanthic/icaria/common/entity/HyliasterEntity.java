@@ -183,7 +183,7 @@ public class HyliasterEntity extends Monster {
     @Override
     public void remove(Entity.RemovalReason pReason) {
         super.remove(pReason);
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             int size = this.getSize();
             if (size > this.minSize) {
                 if (this.isDeadOrDying()) {
@@ -221,7 +221,7 @@ public class HyliasterEntity extends Monster {
     @Override
     public void tick() {
         super.tick();
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             if (this.isMovingOnLand()) {
                 this.moveAnimationState.startIfStopped(this.tickCount);
             } else {
@@ -239,7 +239,7 @@ public class HyliasterEntity extends Monster {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() == IcariaItems.EMPTY_VIAL.get()) {
             pPlayer.level().playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.setTick(this.getTick() - 16000);
                 if (this.getSize() == this.minSize) {
                     this.remove(RemovalReason.KILLED);

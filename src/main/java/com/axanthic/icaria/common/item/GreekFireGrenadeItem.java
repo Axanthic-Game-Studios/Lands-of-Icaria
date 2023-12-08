@@ -37,7 +37,7 @@ public class GreekFireGrenadeItem extends Item implements Vanishable {
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
         if (pLivingEntity instanceof Player player) {
             if (this.getUseDuration(pStack) - pTimeCharged >= 10) {
-                if (!pLevel.isClientSide) {
+                if (!pLevel.isClientSide()) {
                     var entity = new GreekFireGrenadeEntity(pLevel, player, pStack);
                     entity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.0F, 1.0F);
                     player.awardStat(Stats.ITEM_USED.get(this));

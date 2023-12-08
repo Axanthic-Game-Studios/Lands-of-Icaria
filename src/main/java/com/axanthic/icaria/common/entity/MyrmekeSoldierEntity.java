@@ -94,7 +94,7 @@ public class MyrmekeSoldierEntity extends MyrmekeDroneEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             this.tickParticlePlusSounds();
         }
     }

@@ -56,7 +56,7 @@ public class GroundDecoBlock extends Block implements MediterraneanWaterloggedBl
 
 	@Override
 	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (pLevel.isClientSide) {
+		if (pLevel.isClientSide()) {
 			if (pState.is(IcariaBlocks.SURFACE_LIGNITE.get()) && !pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pState.getValue(BlockStateProperties.WATERLOGGED)) {
 				if (pRandom.nextInt(10) == 0) {
 					pLevel.addParticle(ParticleTypes.LAVA, pPos.getX() + pRandom.nextDouble(), pPos.getY(), pPos.getZ() + pRandom.nextDouble(), 0.0D, 0.0D, 0.0D);

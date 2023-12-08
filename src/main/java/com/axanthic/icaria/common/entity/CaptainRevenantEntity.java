@@ -214,7 +214,7 @@ public class CaptainRevenantEntity extends RevenantEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             if (this.onUnequips()) {
                 this.unequipsAnimationState.startIfStopped(this.tickCount);
                 this.reequipsAnimationState.stop();

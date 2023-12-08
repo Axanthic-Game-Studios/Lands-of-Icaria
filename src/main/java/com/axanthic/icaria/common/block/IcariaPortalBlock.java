@@ -85,7 +85,7 @@ public class IcariaPortalBlock extends Block {
                     if (pEntity.isOnPortalCooldown()) {
                         pEntity.setPortalCooldown();
                     } else {
-                        if (!pEntity.level().isClientSide) {
+                        if (!pEntity.level().isClientSide()) {
                             if (!pPos.equals(entrancePos)) {
                                 entrancePos = pPos.immutable();
                             }

@@ -87,7 +87,7 @@ public class GreekFireBlock extends Block {
     @Override
     public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
-        if (!pLevel.isClientSide) {
+        if (!pLevel.isClientSide()) {
             pLevel.levelEvent(null, 1009, pPos, 0);
         }
     }

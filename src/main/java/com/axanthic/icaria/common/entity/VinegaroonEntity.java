@@ -203,7 +203,7 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     @Override
     public void tick() {
         super.tick();
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             if (this.onCooldown()) {
                 this.attackAnimationState.startIfStopped(this.tickCount);
             } else {

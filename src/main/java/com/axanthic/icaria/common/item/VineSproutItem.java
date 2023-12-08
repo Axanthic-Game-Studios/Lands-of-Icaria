@@ -44,7 +44,7 @@ public class VineSproutItem extends Item {
 	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
 		var player = (Player) pEntityLiving;
 		player.awardStat(Stats.ITEM_USED.get(this));
-		if (!pLevel.isClientSide) {
+		if (!pLevel.isClientSide()) {
 			player.getCooldowns().addCooldown(this, 400);
 			if (!player.isCreative()) {
 				pStack.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(player.getUsedItemHand()));

@@ -187,7 +187,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     @Override
     public void onAddedToWorld() {
         super.onAddedToWorld();
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             this.red = IcariaClientHelper.getRed(this);
             this.green = IcariaClientHelper.getGreen(this);
             this.blue = IcariaClientHelper.getBlue(this);
@@ -252,7 +252,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             this.tickParticlePlusSounds();
             if (this.isClimbing() || this.isMovingOnLand()) {
                 this.moveAnimationState.startIfStopped(this.tickCount);
@@ -299,7 +299,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() == IcariaItems.HALITE_DUST.get()) {
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.hurt(this.damageSources().generic(), 1.0F);
 
                 if (this.getBlockStateOn().is(IcariaBlockTags.SLUG_HIDE_BLOCKS)) {

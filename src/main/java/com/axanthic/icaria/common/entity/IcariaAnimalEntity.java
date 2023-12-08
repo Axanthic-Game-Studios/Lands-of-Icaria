@@ -222,7 +222,7 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
     public @Nonnull InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (this.isFood(itemStack)) {
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 if (!this.isBaby()) {
                     if (!this.inLove()) {
                         if (!this.onCooldown()) {
@@ -240,10 +240,10 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
                 itemStack.shrink(1);
                 this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
                 this.setTick(this.getTick() + ((this.maxTick - this.getTick()) / 10));
-                return InteractionResult.sidedSuccess(this.level().isClientSide);
+                return InteractionResult.sidedSuccess(this.level().isClientSide());
             }
 
-            if (this.level().isClientSide) {
+            if (this.level().isClientSide()) {
                 return InteractionResult.CONSUME;
             }
         }
