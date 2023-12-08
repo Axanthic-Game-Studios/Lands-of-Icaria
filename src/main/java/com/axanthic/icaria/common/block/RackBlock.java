@@ -127,7 +127,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
         if (!pLevel.isClientSide()) {
             if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
                 if (pProjectile.isOnFire()) {
-                    pLevel.explode(null, x, y, z, 2.0F, false, Level.ExplosionInteraction.BLOCK);
+                    pLevel.explode(null, x, y, z, 2.0F, Level.ExplosionInteraction.BLOCK);
                     for (int i = -2; i <= 2; i++) {
                         var negPos = BlockPos.containing(x - i, y - i, z - i);
                         var posPos = BlockPos.containing(x + i, y + i, z + i);
@@ -156,7 +156,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
         var z = pPos.getZ();
         if (!pLevel.isClientSide()) {
             if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
-                pLevel.explode(null, x, y, z, 2.0F, false, Level.ExplosionInteraction.BLOCK);
+                pLevel.explode(null, x, y, z, 2.0F, Level.ExplosionInteraction.BLOCK);
                 for (int i = -2; i <= 2; i++) {
                     var negPos = BlockPos.containing(x - i, y - i, z - i);
                     var posPos = BlockPos.containing(x + i, y + i, z + i);
@@ -214,7 +214,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
         if (!pLevel.isClientSide()) {
             if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
                 if (itemStack.is(Items.FIRE_CHARGE) || itemStack.is(Items.FLINT_AND_STEEL)) {
-                    pLevel.explode(null, x, y, z, 2.0F, false, Level.ExplosionInteraction.BLOCK);
+                    pLevel.explode(null, x, y, z, 2.0F, Level.ExplosionInteraction.BLOCK);
                     pPlayer.awardStat(Stats.ITEM_USED.get(item));
                     if (!pPlayer.isCreative()) {
                         if (itemStack.is(Items.FIRE_CHARGE)) {

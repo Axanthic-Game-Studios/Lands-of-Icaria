@@ -136,7 +136,7 @@ public class IcariaBarrelEntity extends Entity {
         if (this.onGround()) {
             if (!this.level().isClientSide()) {
                 if (this.getBlockState().hasProperty(IcariaBlockStateProperties.LOADED_BARREL) && this.getBlockState().getValue(IcariaBlockStateProperties.LOADED_BARREL) || this.getBlockState().is(IcariaBlockTags.LOADED_BARRELS)) {
-                    this.level().explode(this, x, y, z, 2.0F, false, Level.ExplosionInteraction.BLOCK);
+                    this.level().explode(this, x, y, z, 2.0F, Level.ExplosionInteraction.BLOCK);
                     for (int i = -2; i <= 2; i++) {
                         var negPos = BlockPos.containing(x - i, y - i, z - i);
                         var posPos = BlockPos.containing(x + i, y + i, z + i);

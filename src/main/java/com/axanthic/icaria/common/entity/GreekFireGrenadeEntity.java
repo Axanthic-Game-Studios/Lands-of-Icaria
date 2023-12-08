@@ -41,8 +41,8 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
             return;
         }
 
-            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 1.5F, false, Level.ExplosionInteraction.NONE);
         if (!this.level().isClientSide()) {
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 1.5F, Level.ExplosionInteraction.NONE);
             this.discard();
             for (int i = -2; i <= 2; i++) {
                 var negPos = BlockPos.containing(this.getX() - i, this.getY() - i, this.getZ() - i);
