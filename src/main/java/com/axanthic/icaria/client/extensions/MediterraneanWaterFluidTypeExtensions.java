@@ -1,5 +1,7 @@
 package com.axanthic.icaria.client.extensions;
 
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -10,14 +12,6 @@ import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidStack;
 
 public class MediterraneanWaterFluidTypeExtensions implements IClientFluidTypeExtensions {
-    public ResourceLocation flowingTexture;
-    public ResourceLocation stillTexture;
-
-    public MediterraneanWaterFluidTypeExtensions(ResourceLocation pFlowingTexture, ResourceLocation pStillTexture) {
-        this.flowingTexture = pFlowingTexture;
-        this.stillTexture = pStillTexture;
-    }
-
     @Override
     public int getTintColor(FluidStack pStack) {
         return 0xFF4D9352;
@@ -30,11 +24,11 @@ public class MediterraneanWaterFluidTypeExtensions implements IClientFluidTypeEx
 
     @Override
     public ResourceLocation getFlowingTexture() {
-        return this.flowingTexture;
+        return IcariaResourceLocations.FLOWING_MEDITERRANEAN_WATER_TEXTURE;
     }
 
     @Override
     public ResourceLocation getStillTexture() {
-        return this.stillTexture;
+        return IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE;
     }
 }

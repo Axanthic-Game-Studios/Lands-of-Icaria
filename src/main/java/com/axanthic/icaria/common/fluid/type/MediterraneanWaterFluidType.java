@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.fluid.type;
 
 import com.axanthic.icaria.client.extensions.MediterraneanWaterFluidTypeExtensions;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.sounds.SoundEvents;
@@ -24,6 +23,6 @@ public class MediterraneanWaterFluidType extends FluidType {
 
     @Override
     public void initializeClient(Consumer<IClientFluidTypeExtensions> pConsumer) {
-        pConsumer.accept(new MediterraneanWaterFluidTypeExtensions(IcariaResourceLocations.FLOWING_MEDITERRANEAN_WATER_TEXTURE, IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE));
+        pConsumer.accept(new MediterraneanWaterFluidTypeExtensions());
     }
 }
