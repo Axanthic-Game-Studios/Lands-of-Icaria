@@ -29,7 +29,7 @@ public class ForestHagPlaceSaplingGoal extends Goal {
     @Override
     public void tick() {
         var block = Blocks.AIR;
-        var blockPos = BlockPos.containing(this.entity.getX(), this.entity.getY(), this.entity.getZ());
+        var blockPos = this.entity.blockPosition();
         var belowPos = blockPos.below();
         var level = this.entity.level();
         if (this.entity.getType() == IcariaEntityTypes.CYPRESS_FOREST_HAG.get()) {

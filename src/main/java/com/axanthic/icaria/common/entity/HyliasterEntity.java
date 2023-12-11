@@ -209,7 +209,7 @@ public class HyliasterEntity extends Monster {
         this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
         this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
         this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((size * 0.04D) + 0.1D);
-        this.entityData.set(SIZE, size);
+        this.entityData.set(HyliasterEntity.SIZE, size);
         this.xpReward = size + 1;
     }
 

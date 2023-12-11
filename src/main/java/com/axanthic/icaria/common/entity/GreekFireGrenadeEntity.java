@@ -40,10 +40,11 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
 
     @Override
     public void onHit(HitResult pResult) {
-        var thisPos = BlockPos.containing(this.getX(), this.getY(), this.getZ());
-        if (((IcariaPortalBlock) IcariaBlocks.ICARIA_PORTAL.get()).spawnPortal(this.level(), thisPos)) {
-            this.discard();
-            return;
+        if (IcariaBlocks.ICARIA_PORTAL.get() instanceof IcariaPortalBlock portalBlock) {
+            if (portalBlock.spawnPortal(this.level(), this.blockPosition())) {
+                this.discard();
+                return;
+            }
         }
 
         if (!this.level().isClientSide()) {

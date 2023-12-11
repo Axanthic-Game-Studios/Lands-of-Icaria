@@ -12,8 +12,8 @@ public class ForgeContainerData implements ContainerData {
     }
 
     @Override
-    public int get(int index) {
-        return switch (index) {
+    public int get(int pIndex) {
+        return switch (pIndex) {
             case 0 -> this.blockEntity.maxFuel;
             case 1 -> this.blockEntity.fuel;
             case 2 -> this.blockEntity.maxProgress;
@@ -28,12 +28,12 @@ public class ForgeContainerData implements ContainerData {
     }
 
     @Override
-    public void set(int index, int value) {
-        switch (index) {
-            case 0 -> this.blockEntity.maxFuel = value;
-            case 1 -> this.blockEntity.fuel = value;
-            case 2 -> this.blockEntity.maxProgress = value;
-            case 3 -> this.blockEntity.progress = value;
+    public void set(int pIndex, int pValue) {
+        switch (pIndex) {
+            case 0 -> this.blockEntity.maxFuel = pValue;
+            case 1 -> this.blockEntity.fuel = pValue;
+            case 2 -> this.blockEntity.maxProgress = pValue;
+            case 3 -> this.blockEntity.progress = pValue;
         }
     }
 }

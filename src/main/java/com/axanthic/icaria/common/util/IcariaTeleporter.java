@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.portal.PortalInfo;
@@ -53,6 +54,14 @@ public class IcariaTeleporter implements ITeleporter {
         }
 
         return this.level.getBlockState(pPos.below()).isSolid();
+    }
+
+    public BlockPos getBlockPos(Entity pEntity, WorldBorder pWorldBorder, double pCoordinateDifference) {
+        double maxX = Math.min(2.9999872E7D, pWorldBorder.getMaxX() - 16.0D);
+        double maxZ = Math.min(2.9999872E7D, pWorldBorder.getMaxZ() - 16.0D);
+        double minX = Math.max(-2.9999872E7D, pWorldBorder.getMinX() + 16.0D);
+        double minZ = Math.max(-2.9999872E7D, pWorldBorder.getMinZ() + 16.0D);
+        return BlockPos.containing(Mth.clamp(pEntity.getX() * pCoordinateDifference, minX, maxX), pEntity.getY(), Mth.clamp(pEntity.getZ() * pCoordinateDifference, minZ, maxZ));
     }
 
     public Optional<BlockUtil.FoundRectangle> makePortal(BlockPos pPos, Direction.Axis pAxis) {
@@ -229,13 +238,9 @@ public class IcariaTeleporter implements ITeleporter {
         if (pEntity.level().dimension() != IcariaDimensions.ICARIA && !icaria) {
             return null;
         } else {
-            var worldBorder = pLevel.getWorldBorder();
             double coordinateDifference = DimensionType.getTeleportationScale(pEntity.level().dimensionType(), pLevel.dimensionType());
-            double maxX = Math.min(2.9999872E7D, worldBorder.getMaxX() - 16.0D);
-            double maxZ = Math.min(2.9999872E7D, worldBorder.getMaxZ() - 16.0D);
-            double minX = Math.max(-2.9999872E7D, worldBorder.getMinX() + 16.0D);
-            double minZ = Math.max(-2.9999872E7D, worldBorder.getMinZ() + 16.0D);
-            var blockPos = BlockPos.containing(Mth.clamp(pEntity.getX() * coordinateDifference, minX, maxX), pEntity.getY(), Mth.clamp(pEntity.getZ() * coordinateDifference, minZ, maxZ));
+            var worldBorder = pLevel.getWorldBorder();
+            var blockPos = this.getBlockPos(pEntity, worldBorder, coordinateDifference);
             return this.getOrMakePortal(blockPos).map((pFoundRectangle) -> {
                 var blockState = pEntity.level().getBlockState(IcariaPortalBlock.entrancePos);
                 Direction.Axis axis;

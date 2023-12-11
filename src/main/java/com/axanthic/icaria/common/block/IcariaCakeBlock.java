@@ -103,11 +103,8 @@ public class IcariaCakeBlock extends Block {
 			if (pState.is(IcariaBlocks.LAUREL_CHERRY_CAKE.get())) {
 				if (!pLevel.isClientSide()) {
 					for (int i = 0; i < 16; ++i) {
-						double playerX = pPlayer.getX();
-						double playerY = pPlayer.getY();
-						double playerZ = pPlayer.getZ();
-						pPlayer.randomTeleport(playerX + (pPlayer.getRandom().nextDouble() - 0.5D) * 16.0D, Mth.clamp(playerY + (pPlayer.getRandom().nextInt(16) - 8), pLevel.getMinBuildHeight(), pLevel.getMaxBuildHeight()), playerZ + (pPlayer.getRandom().nextDouble() - 0.5D) * 16.0D, true);
 						pPlayer.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT);
+						pPlayer.randomTeleport(pPlayer.getX() + (pPlayer.getRandom().nextDouble() - 0.5D) * 16.0D, Mth.clamp(pPlayer.getY() + (pPlayer.getRandom().nextInt(16) - 8), pLevel.getMinBuildHeight(), pLevel.getMaxBuildHeight()), pPlayer.getZ() + (pPlayer.getRandom().nextDouble() - 0.5D) * 16.0D, true);
 						if (pPlayer.isPassenger()) {
 							pPlayer.stopRiding();
 						}
