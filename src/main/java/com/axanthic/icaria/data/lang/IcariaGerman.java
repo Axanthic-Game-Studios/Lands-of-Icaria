@@ -757,9 +757,11 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.ARACHNE.get(), "Arachne");
 		this.add(IcariaEntityTypes.ARACHNE_DRONE.get(), "Arachnendrohne");
 		this.add(IcariaEntityTypes.ARGAN_HOUND.get(), "Arganischer Hund");
+		this.add(IcariaEntityTypes.BARREL.get(), "Fass");
 		this.add(IcariaEntityTypes.BIDENT.get(), "Zweizack");
 		this.add(IcariaEntityTypes.CATOBLEPAS.get(), "Katoblepas");
 		this.add(IcariaEntityTypes.CERVER.get(), "Panther");
+		this.add(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), "Griechische Feuergranate");
 		this.add(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), "Zypressen-Baumwächter");
 		this.add(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), "Dürrwurzel-Baumwächter");
 		this.add(IcariaEntityTypes.FIR_FOREST_HAG.get(), "Tannen-Baumwächter");
@@ -767,7 +769,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), "Oliven-Baumwächter");
 		this.add(IcariaEntityTypes.PLANE_FOREST_HAG.get(), "Plantanen-Baumwächter");
 		this.add(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), "Pappel-Baumwächter");
-		this.add(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), "Griechische Feuergranate");
 		this.add(IcariaEntityTypes.HYLIASTER.get(), "Hyliaster");
 		this.add(IcariaEntityTypes.ENDER_JELLYFISH.get(), "Enderqualle");
 		this.add(IcariaEntityTypes.FIRE_JELLYFISH.get(), "Feuerqualle");

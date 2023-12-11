@@ -757,9 +757,11 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.ARACHNE.get(), "Arachne");
 		this.add(IcariaEntityTypes.ARACHNE_DRONE.get(), "Arachne Drone");
 		this.add(IcariaEntityTypes.ARGAN_HOUND.get(), "Argan Hound");
+		this.add(IcariaEntityTypes.BARREL.get(), "Barrel");
 		this.add(IcariaEntityTypes.BIDENT.get(), "Bident");
 		this.add(IcariaEntityTypes.CATOBLEPAS.get(), "Catoblepas");
 		this.add(IcariaEntityTypes.CERVER.get(), "Cerver");
+		this.add(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), "Greek Fire Grenade");
 		this.add(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), "Cypress Forest Hag");
 		this.add(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), "Droughtroot Forest Hag");
 		this.add(IcariaEntityTypes.FIR_FOREST_HAG.get(), "Fir Forest Hag");
@@ -767,7 +769,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), "Olive Forest Hag");
 		this.add(IcariaEntityTypes.PLANE_FOREST_HAG.get(), "Plane Forest Hag");
 		this.add(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), "Populus Forest Hag");
-		this.add(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), "Greek Fire Grenade");
 		this.add(IcariaEntityTypes.HYLIASTER.get(), "Hyliaster");
 		this.add(IcariaEntityTypes.ENDER_JELLYFISH.get(), "Ender Jellyfish");
 		this.add(IcariaEntityTypes.FIRE_JELLYFISH.get(), "Fire Jellyfish");
