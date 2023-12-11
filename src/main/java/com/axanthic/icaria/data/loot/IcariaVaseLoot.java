@@ -1,7 +1,7 @@
 package com.axanthic.icaria.data.loot;
 
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -20,11 +20,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaVaseLoot implements LootTableSubProvider {
-    public static final ResourceLocation LOOT_VASE = new ResourceLocation(IcariaInfo.ID, "vases/loot_vase");
-
     @Override
     public void generate(BiConsumer<ResourceLocation, LootTable.Builder> pConsumer) {
-        pConsumer.accept(IcariaVaseLoot.LOOT_VASE, LootTable.lootTable()
+        pConsumer.accept(IcariaResourceLocations.LOOT_VASE, LootTable.lootTable()
             .withPool(LootPool.lootPool()
                 .setRolls(UniformGenerator.between(1.0F, 5.0F))
                     .add(LootItem.lootTableItem(IcariaItems.BONE_REMAINS.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))

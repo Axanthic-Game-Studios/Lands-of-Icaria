@@ -3,7 +3,6 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
-import com.axanthic.icaria.data.loot.IcariaBarrelLoot;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -263,6 +262,6 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
     @Override
     public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pBuilder) {
         var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-        return pState.is(IcariaBlockTags.LOADED_BARRELS) || pState.is(IcariaBlockTags.TAPPED_BARRELS) ? List.of() : lootContext.getLevel().getServer().getLootData().getLootTable(IcariaBarrelLoot.BARREL).getRandomItems(lootContext);
+        return pState.is(IcariaBlockTags.LOADED_BARRELS) || pState.is(IcariaBlockTags.TAPPED_BARRELS) ? List.of() : lootContext.getLevel().getServer().getLootData().getLootTable(IcariaResourceLocations.BARREL).getRandomItems(lootContext);
     }
 }

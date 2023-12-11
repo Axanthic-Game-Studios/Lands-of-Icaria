@@ -9,17 +9,9 @@ public class IcariaResourceLocations {
     public static final ResourceLocation THROWING = new ResourceLocation(IcariaInfo.ID, "throwing");
 
     // BLOCK
-    public static final ResourceLocation FLOWING_MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID + ":block/flowing_mediterranean_water");
-    public static final ResourceLocation MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID + ":block/mediterranean_water");
 
-    // GUI
-    public static final ResourceLocation FORGE = new ResourceLocation(IcariaInfo.ID, "textures/gui/forge.png");
-    public static final ResourceLocation FORGE_CATEGORY = new ResourceLocation(IcariaInfo.ID, "textures/gui/jei/forge.png");
-    public static final ResourceLocation GRINDER = new ResourceLocation(IcariaInfo.ID, "textures/gui/grinder.png");
-    public static final ResourceLocation GRINDER_CATEGORY = new ResourceLocation(IcariaInfo.ID, "textures/gui/jei/grinder.png");
-    public static final ResourceLocation KILN = new ResourceLocation(IcariaInfo.ID, "textures/gui/kiln.png");
-    public static final ResourceLocation KILN_CATEGORY = new ResourceLocation(IcariaInfo.ID, "textures/gui/jei/kiln.png");
-    public static final ResourceLocation STORAGE_VASE = new ResourceLocation(IcariaInfo.ID, "textures/gui/storage_vase.png");
+    public static final ResourceLocation FLOWING_MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID, "block/flowing_mediterranean_water");
+    public static final ResourceLocation MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID, "block/mediterranean_water");
 
     // ENTITY
     public static final ResourceLocation AETERNAE = new ResourceLocation(IcariaInfo.ID, "textures/entity/aeternae.png");
@@ -63,7 +55,15 @@ public class IcariaResourceLocations {
     public static final ResourceLocation MOON = new ResourceLocation("textures/environment/moon_phases.png");
     public static final ResourceLocation SUN = new ResourceLocation("textures/environment/sun.png");
 
-    // LAYERS
+    // GUI
+    public static final ResourceLocation FORGE = new ResourceLocation(IcariaInfo.ID, "textures/gui/forge.png");
+    public static final ResourceLocation FORGE_CATEGORY = new ResourceLocation(IcariaInfo.ID, "textures/gui/jei/forge.png");
+    public static final ResourceLocation GRINDER = new ResourceLocation(IcariaInfo.ID, "textures/gui/grinder.png");
+    public static final ResourceLocation GRINDER_CATEGORY = new ResourceLocation(IcariaInfo.ID, "textures/gui/jei/grinder.png");
+    public static final ResourceLocation KILN = new ResourceLocation(IcariaInfo.ID, "textures/gui/kiln.png");
+    public static final ResourceLocation KILN_CATEGORY = new ResourceLocation(IcariaInfo.ID, "textures/gui/jei/kiln.png");
+    public static final ResourceLocation STORAGE_VASE = new ResourceLocation(IcariaInfo.ID, "textures/gui/storage_vase.png");
+    // LAYER
     public static final ResourceLocation AETERNAE_LAYER = new ResourceLocation(IcariaInfo.ID, "aeternae");
     public static final ResourceLocation AETERNAE_SKULL_LAYER = new ResourceLocation(IcariaInfo.ID, "aeternae_skull");
     public static final ResourceLocation ARACHNE_LAYER = new ResourceLocation(IcariaInfo.ID, "arachne");
@@ -115,7 +115,11 @@ public class IcariaResourceLocations {
     public static final ResourceLocation SOW_SKULL_LAYER = new ResourceLocation(IcariaInfo.ID, "sow_skull");
     public static final ResourceLocation VINEGAROON_LAYER = new ResourceLocation(IcariaInfo.ID, "vinegaroon");
 
-    // SOUNDS
+    // LOOT
+    public static final ResourceLocation BARREL = new ResourceLocation(IcariaInfo.ID, "barrels/barrel");
+    public static final ResourceLocation LOOT_VASE = new ResourceLocation(IcariaInfo.ID, "vases/loot_vase");
+
+    // SOUND
     public static final ResourceLocation BARREL_BREAK = new ResourceLocation(IcariaInfo.ID, "block.barrel.break");
     public static final ResourceLocation GRINDER_GRIND = new ResourceLocation(IcariaInfo.ID, "block.grinder.grind");
     public static final ResourceLocation CAPTAIN_REVENANT_DEATH = new ResourceLocation(IcariaInfo.ID, "entity.captain_revenant.death");
