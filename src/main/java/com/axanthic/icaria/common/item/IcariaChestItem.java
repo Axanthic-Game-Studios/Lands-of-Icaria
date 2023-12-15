@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.client.extensions.IcariaChestItemExtension;
+import com.axanthic.icaria.client.extensions.IcariaChestItemExtensions;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
@@ -20,6 +20,6 @@ public class IcariaChestItem extends BlockItem {
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> pConsumer) {
-        pConsumer.accept(new IcariaChestItemExtension());
+        pConsumer.accept(new IcariaChestItemExtensions());
     }
 }

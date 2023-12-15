@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.client.extensions.ScrollItemExtension;
+import com.axanthic.icaria.client.extensions.ScrollItemExtensions;
 import com.axanthic.icaria.common.recipe.ConcoctingItemRecipe;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
@@ -28,7 +28,7 @@ public class ScrollItem extends Item {
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> pConsumer) {
-        pConsumer.accept(new ScrollItemExtension());
+        pConsumer.accept(new ScrollItemExtensions());
     }
 
     @Override
