@@ -2,7 +2,7 @@ package com.axanthic.icaria.data.tags;
 
 import com.axanthic.icaria.common.registry.IcariaBiomes;
 import com.axanthic.icaria.common.util.IcariaInfo;
-import com.axanthic.icaria.common.registry.IcariaRegistrySetBuilder;
+import com.axanthic.icaria.common.util.IcariaRegistrySetBuilder;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;

@@ -12,6 +12,7 @@ import com.axanthic.icaria.common.item.IcariaSkullItem;
 import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.util.IcariaRegistrySetBuilder;
 import com.axanthic.icaria.data.IcariaBlockStates;
 import com.axanthic.icaria.data.IcariaBuiltinEntries;
 import com.axanthic.icaria.data.IcariaItemModels;

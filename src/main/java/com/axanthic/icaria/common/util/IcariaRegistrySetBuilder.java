@@ -1,4 +1,6 @@
-package com.axanthic.icaria.common.registry;
+package com.axanthic.icaria.common.util;
+
+import com.axanthic.icaria.common.registry.*;
 
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
