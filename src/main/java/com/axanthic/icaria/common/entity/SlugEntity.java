@@ -14,6 +14,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -300,8 +301,8 @@ public class SlugEntity extends SizedPathfinderMobEntity {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() == IcariaItems.HALITE_DUST.get()) {
             if (!this.level().isClientSide()) {
+                pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.HALITE_DUST.get()));
                 this.hurt(this.damageSources().generic(), 1.0F);
-
                 if (this.getBlockStateOn().is(IcariaBlockTags.SLUG_HIDE_BLOCKS)) {
                     this.setHide(this.maxHide);
                 }

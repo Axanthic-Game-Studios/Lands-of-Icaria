@@ -10,6 +10,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -282,6 +283,7 @@ public class SnullEntity extends SizedPathfinderMobEntity {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() == IcariaItems.HALITE_DUST.get()) {
             if (!this.level().isClientSide()) {
+                pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.HALITE_DUST.get()));
                 this.hurt(this.damageSources().generic(), 1.0F);
                 this.setHide(this.maxHide);
                 if (!pPlayer.isCreative()) {

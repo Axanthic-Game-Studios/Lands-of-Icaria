@@ -9,6 +9,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -120,6 +121,7 @@ public class FarmlandBlock extends FarmBlock {
 				pLevel.playSound(null, pPos, SoundEvents.HOE_TILL, SoundSource.BLOCKS);
 				if (!pLevel.isClientSide()) {
 					pLevel.setBlock(pPos, IcariaBlocks.FERTILIZED_FARMLAND.get().defaultBlockState(), 0);
+					pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CALCITE_DUST.get()));
 					if (!pPlayer.isCreative()) {
 						itemStack.shrink(1);
 					}
