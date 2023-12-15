@@ -103,6 +103,11 @@ public class ForgeBlock extends BaseEntityBlock {
     }
 
     @Override
+    public int getLightEmission(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+        return pState.getValue(BlockStateProperties.LIT) ? 13 : 0;
+    }
+
+    @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pState.getValue(BlockStateProperties.LIT)) {
             if (pState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_LEFT) {

@@ -23,6 +23,7 @@ public class IcariaEntityTypes {
 	public static final RegistryObject<EntityType<BidentEntity>> BIDENT = IcariaEntityTypes.register("bident", Builder.<BidentEntity>of(BidentEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
 	public static final RegistryObject<EntityType<CatoblepasEntity>> CATOBLEPAS = IcariaEntityTypes.register("catoblepas", Builder.of(CatoblepasEntity::new, MobCategory.CREATURE).sized(1.25F, 1.25F));
 	public static final RegistryObject<EntityType<CerverEntity>> CERVER = IcariaEntityTypes.register("cerver", Builder.of(CerverEntity::new, MobCategory.MONSTER).sized(1.25F, 1.0F));
+	public static final RegistryObject<EntityType<FloatingBlockEntity>> FLOATING_BLOCK = IcariaEntityTypes.register("floating_block", Builder.<FloatingBlockEntity>of(FloatingBlockEntity::new, MobCategory.MISC).sized(1.0F, 1.0F).clientTrackingRange(10).updateInterval(20));
 	public static final RegistryObject<EntityType<GreekFireGrenadeEntity>> GREEK_FIRE_GRENADE = IcariaEntityTypes.register("greek_fire_grenade", Builder.<GreekFireGrenadeEntity>of(GreekFireGrenadeEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
 	public static final RegistryObject<EntityType<ForestHagEntity>> CYPRESS_FOREST_HAG = IcariaEntityTypes.register("cypress_forest_hag", Builder.of(ForestHagEntity::new, MobCategory.MONSTER).sized(1.0F, 3.0F));
 	public static final RegistryObject<EntityType<ForestHagEntity>> DROUGHTROOT_FOREST_HAG = IcariaEntityTypes.register("droughtroot_forest_hag", Builder.of(ForestHagEntity::new, MobCategory.MONSTER).sized(1.0F, 3.0F));
@@ -54,6 +55,12 @@ public class IcariaEntityTypes {
 	public static final RegistryObject<EntityType<SnullEntity>> SNULL = IcariaEntityTypes.register("snull", Builder.of(SnullEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
 	public static final RegistryObject<EntityType<SolifugaeEntity>> SOLIFUGAE = IcariaEntityTypes.register("solifugae", Builder.of(SolifugaeEntity::new, MobCategory.MONSTER).sized(1.0F, 0.5F));
 	public static final RegistryObject<EntityType<SowEntity>> SOW = IcariaEntityTypes.register("sow", Builder.of(SowEntity::new, MobCategory.CREATURE).sized(1.0F, 1.0F));
+	public static final RegistryObject<EntityType<AntiGravitySpellEntity>> ANTI_GRAVITY_SPELL = IcariaEntityTypes.register("anti_gravity_spell", Builder.of(AntiGravitySpellEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
+	public static final RegistryObject<EntityType<FortifyingSpellEntity>> FORTIFYING_SPELL = IcariaEntityTypes.register("fortifying_spell", Builder.of(FortifyingSpellEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
+	public static final RegistryObject<EntityType<HealingSpellEntity>> HEALING_SPELL = IcariaEntityTypes.register("healing_spell", Builder.of(HealingSpellEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
+	public static final RegistryObject<EntityType<BubbleSpellEntity>> BUBBLE_SPELL = IcariaEntityTypes.register("bubble_spell", Builder.of(BubbleSpellEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
+	public static final RegistryObject<EntityType<FreezingSpellEntity>> FREEZING_SPELL = IcariaEntityTypes.register("freezing_spell", Builder.of(FreezingSpellEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
+	public static final RegistryObject<EntityType<MagicMissileSpellEntity>> MAGIC_MISSILE_SPELL = IcariaEntityTypes.register("magic_missile_spell", Builder.of(MagicMissileSpellEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
 	public static final RegistryObject<EntityType<VinegarEntity>> VINEGAR = IcariaEntityTypes.register("vinegar", Builder.<VinegarEntity>of(VinegarEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
 	public static final RegistryObject<EntityType<VinegaroonEntity>> VINEGAROON = IcariaEntityTypes.register("vinegaroon", Builder.of(VinegaroonEntity::new, MobCategory.MONSTER).sized(2.0F, 0.75F));
 

@@ -9,7 +9,8 @@ public class IcariaResourceLocations {
     public static final ResourceLocation THROWING = new ResourceLocation(IcariaInfo.ID, "throwing");
 
     // BLOCK
-
+    public static final ResourceLocation CONCOCTION_FAST = new ResourceLocation(IcariaInfo.ID, "block/kettle_concoction_fast");
+    public static final ResourceLocation CONCOCTION_SLOW = new ResourceLocation(IcariaInfo.ID, "block/kettle_concoction_slow");
     public static final ResourceLocation FLOWING_MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID, "block/flowing_mediterranean_water");
     public static final ResourceLocation MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID, "block/mediterranean_water");
 
@@ -63,6 +64,10 @@ public class IcariaResourceLocations {
     public static final ResourceLocation KILN = new ResourceLocation(IcariaInfo.ID, "textures/gui/kiln.png");
     public static final ResourceLocation KILN_CATEGORY = new ResourceLocation(IcariaInfo.ID, "textures/gui/jei/kiln.png");
     public static final ResourceLocation STORAGE_VASE = new ResourceLocation(IcariaInfo.ID, "textures/gui/storage_vase.png");
+
+    // ITEM
+    public static final ResourceLocation SCROLL = new ResourceLocation(IcariaInfo.ID, "item/scroll");
+
     // LAYER
     public static final ResourceLocation AETERNAE_LAYER = new ResourceLocation(IcariaInfo.ID, "aeternae");
     public static final ResourceLocation AETERNAE_SKULL_LAYER = new ResourceLocation(IcariaInfo.ID, "aeternae_skull");
@@ -122,6 +127,7 @@ public class IcariaResourceLocations {
     // SOUND
     public static final ResourceLocation BARREL_BREAK = new ResourceLocation(IcariaInfo.ID, "block.barrel.break");
     public static final ResourceLocation GRINDER_GRIND = new ResourceLocation(IcariaInfo.ID, "block.grinder.grind");
+    public static final ResourceLocation KETTLE_CONCOCT = new ResourceLocation(IcariaInfo.ID, "block.kettle.concoct");
     public static final ResourceLocation CAPTAIN_REVENANT_DEATH = new ResourceLocation(IcariaInfo.ID, "entity.captain_revenant.death");
     public static final ResourceLocation CAPTAIN_REVENANT_HURT = new ResourceLocation(IcariaInfo.ID, "entity.captain_revenant.hurt");
     public static final ResourceLocation CAPTAIN_REVENANT_RALLY = new ResourceLocation(IcariaInfo.ID, "entity.captain_revenant.rally");

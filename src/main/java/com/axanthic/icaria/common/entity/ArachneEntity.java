@@ -1,12 +1,15 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.ArachneHurtByTargetGoal;
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -15,6 +18,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -96,6 +100,19 @@ public class ArachneEntity extends IcariaArachnidEntity {
 
     public static AttributeSupplier.Builder registerAttributes() {
         return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 8.0D).add(Attributes.FOLLOW_RANGE, 64.0D).add(Attributes.MAX_HEALTH, 32.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+    }
+
+    @Override
+    public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
+        var itemStack = pPlayer.getItemInHand(pHand);
+        if (itemStack.is(IcariaItems.EMPTY_VIAL.get())) {
+            var filledResult = ItemUtils.createFilledResult(itemStack, pPlayer, IcariaItems.ARACHNE_VENOM_VIAL.get().getDefaultInstance());
+            pPlayer.playSound(SoundEvents.BOTTLE_FILL);
+            pPlayer.setItemInHand(pHand, filledResult);
+            return InteractionResult.sidedSuccess(this.level().isClientSide());
+        }
+
+        return super.mobInteract(pPlayer, pHand);
     }
 
     @Override

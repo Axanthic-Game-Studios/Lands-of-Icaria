@@ -1,0 +1,20 @@
+{
+  "type": "landsoficaria:concocting_item",
+  "burnTime": 200,
+  "color": 4143419,
+  "ingredients": [
+    {
+      "item": "landsoficaria:hyliastrum_vial"
+    },
+    {
+      "item": "landsoficaria:bolbos"
+    },
+    {
+      "item": "landsoficaria:dathulla"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "minecraft:netherite_ingot"
+  }
+}

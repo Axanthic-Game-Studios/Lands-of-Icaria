@@ -29,6 +29,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaItemTags extends ItemTagsProvider {
 	// ITEM TAGS
+	public static final TagKey<Item> KETTLE_ITEMS = IcariaItemTags.forgeTag("kettle_items");
+
 	public static final TagKey<Item> GEMS_CHERT = IcariaItemTags.forgeTag("gems/chert");
 	public static final TagKey<Item> GEMS_LIGNITE = IcariaItemTags.forgeTag("gems/lignite");
 	public static final TagKey<Item> GEMS_DOLOMITE = IcariaItemTags.forgeTag("gems/dolomite");
@@ -202,6 +204,19 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.OLIVE_HANGING_SIGN.get())
 			.add(IcariaItems.PLANE_HANGING_SIGN.get())
 			.add(IcariaItems.POPULUS_HANGING_SIGN.get());
+
+		this.tag(IcariaItemTags.KETTLE_ITEMS)
+			.add(IcariaItems.BOLBOS.get())
+			.add(IcariaItems.DATHULLA.get())
+			.add(IcariaItems.MONDANOS.get())
+			.add(IcariaItems.MOTH_AGARIC.get())
+			.add(IcariaItems.NAMDRAKE.get())
+			.add(IcariaItems.PSILOCYBOS.get())
+			.add(IcariaItems.ROWAN.get())
+			.add(IcariaItems.WILTED_ELM.get())
+			.add(IcariaItems.BONE_REMAINS.get())
+			.add(IcariaItems.ARACHNE_VENOM_VIAL.get())
+			.add(IcariaItems.HYLIASTRUM_VIAL.get());
 
 		this.tag(Tags.Items.MUSHROOMS)
 			.add(IcariaItems.GREEN_GROUND_SHROOMS.get())

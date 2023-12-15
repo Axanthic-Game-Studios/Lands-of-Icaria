@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.util.Corner;
+import com.axanthic.icaria.common.util.Kettle;
 import com.axanthic.icaria.common.util.Side;
 
 import net.minecraft.core.Direction;
@@ -28,6 +29,7 @@ public class IcariaBlockStateProperties {
     public static final DirectionProperty BARREL_FACING = DirectionProperty.create("barrel_facing", (direction) -> direction != Direction.DOWN);
 
     public static final EnumProperty<Corner> CORNER = EnumProperty.create("corner", Corner.class);
+    public static final EnumProperty<Kettle> KETTLE = EnumProperty.create("kettle", Kettle.class);
     public static final EnumProperty<Side> SIDE = EnumProperty.create("side", Side.class);
 
     public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);

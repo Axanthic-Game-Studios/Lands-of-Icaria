@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:concocting_entity",
+  "burnTime": 200,
+  "color": 2364442,
+  "entity": "landsoficaria:crystal_slug",
+  "ingredients": [
+    {
+      "item": "landsoficaria:mondanos"
+    },
+    {
+      "item": "landsoficaria:bolbos"
+    },
+    {
+      "item": "landsoficaria:rowan"
+    }
+  ]
+}

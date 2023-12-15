@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:concocting_explosions",
+  "burnTime": 200,
+  "color": 5083986,
+  "ingredients": [
+    {
+      "item": "landsoficaria:psilocybos"
+    },
+    {
+      "item": "landsoficaria:rowan"
+    },
+    {
+      "item": "landsoficaria:namdrake"
+    }
+  ],
+  "radius": 6.0
+}

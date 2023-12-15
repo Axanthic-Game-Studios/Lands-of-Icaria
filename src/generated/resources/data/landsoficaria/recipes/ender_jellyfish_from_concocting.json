@@ -1,0 +1,15 @@
+{
+  "type": "landsoficaria:concocting_entity",
+  "burnTime": 200,
+  "color": 0,
+  "entity": "landsoficaria:ender_jellyfish",
+  "ingredients": [
+    {
+      "item": "landsoficaria:bolbos"
+    },
+    {
+      "item": "landsoficaria:dathulla"
+    },
+    []
+  ]
+}

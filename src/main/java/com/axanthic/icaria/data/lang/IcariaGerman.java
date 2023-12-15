@@ -750,6 +750,7 @@ public class IcariaGerman extends LanguageProvider {
 
 		// EFFECTS
 		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), "Erblindungsimmunität");
+		this.add(IcariaMobEffects.FREEZING.get(), "Vereisung");
 		this.add(IcariaMobEffects.LIFESTEAL.get(), "Lebensraub");
 
 		// ENTITY TYPES
@@ -761,6 +762,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.BIDENT.get(), "Zweizack");
 		this.add(IcariaEntityTypes.CATOBLEPAS.get(), "Katoblepas");
 		this.add(IcariaEntityTypes.CERVER.get(), "Panther");
+		this.add(IcariaEntityTypes.FLOATING_BLOCK.get(), "Schwebender Block");
 		this.add(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), "Griechische Feuergranate");
 		this.add(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), "Zypressen-Baumwächter");
 		this.add(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), "Dürrwurzel-Baumwächter");
@@ -792,6 +794,12 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
 		this.add(IcariaEntityTypes.SOLIFUGAE.get(), "Walzenspinne");
 		this.add(IcariaEntityTypes.SOW.get(), "Krommyonische Sau");
+		this.add(IcariaEntityTypes.ANTI_GRAVITY_SPELL.get(), "Anti-Schwerkraft-Zauber");
+		this.add(IcariaEntityTypes.FORTIFYING_SPELL.get(), "Stärkungs-Zauber");
+		this.add(IcariaEntityTypes.HEALING_SPELL.get(), "Heilungs-Zauber");
+		this.add(IcariaEntityTypes.BUBBLE_SPELL.get(), "Blasen-Zauber");
+		this.add(IcariaEntityTypes.FREEZING_SPELL.get(), "Vereisungs-Zauber");
+		this.add(IcariaEntityTypes.MAGIC_MISSILE_SPELL.get(), "Magie-Geschoss-Zauber");
 		this.add(IcariaEntityTypes.VINEGAR.get(), "Essig");
 		this.add(IcariaEntityTypes.VINEGAROON.get(), "Geißelskorpion");
 
@@ -799,6 +807,22 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("fluid" + "." + IcariaInfo.ID + "." + "mediterranean_water", "Mediterranes Wasser");
 
 		// ITEMS
+		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "blindness", "Pfeil der Blindheit");
+		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "nausea", "Pfeil der Übelkeit");
+		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "wither", "Pfeil der Verdorrung");
+
+		this.add("item" + "." + IcariaInfo.MC + "." + "potion" + "." + "effect" + "." + "blindness", "Trank der Blindheit");
+		this.add("item" + "." + IcariaInfo.MC + "." + "potion" + "." + "effect" + "." + "nausea", "Trank der Übelkeit");
+		this.add("item" + "." + IcariaInfo.MC + "." + "potion" + "." + "effect" + "." + "wither", "Trank der Verdorrung");
+
+		this.add("item" + "." + IcariaInfo.MC + "." + "splash_potion" + "." + "effect" + "." + "blindness", "Wurftrank der Blindheit");
+		this.add("item" + "." + IcariaInfo.MC + "." + "splash_potion" + "." + "effect" + "." + "nausea", "Wurftrank der Übelkeit");
+		this.add("item" + "." + IcariaInfo.MC + "." + "splash_potion" + "." + "effect" + "." + "wither", "Wurftrank der Verdorrung");
+
+		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "blindness", "Verweiltrank der Blindheit");
+		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "nausea", "Verweiltrank der Übelkeit");
+		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "wither", "Verweiltrank der Verdorrung");
+
 		this.add(IcariaItems.BONE_REMAINS.get(), "Knochenreste");
 		this.add(IcariaItems.LOAM_LUMP.get(), "Lehmklumpen");
 		this.add(IcariaItems.LOAM_BRICK.get(), "Lehmziegel");
@@ -950,10 +974,28 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get(), "Magenta ungebrannte Speichervase");
 		this.add(IcariaItems.PINK_UNFIRED_STORAGE_VASE.get(), "Rosa ungebrannte Speichervase");
 
+		this.add(IcariaItems.ANTI_GRAVITY_SCROLL.get(), "Anti-Schwerkraft-Rolle");
+		this.add(IcariaItems.FORTIFYING_SCROLL.get(), "Stärkungs-Rolle");
+		this.add(IcariaItems.HEALING_SCROLL.get(), "Heilungs-Rolle");
+		this.add(IcariaItems.BUBBLE_SCROLL.get(), "Blasen-Rolle");
+		this.add(IcariaItems.FREEZING_SCROLL.get(), "Vereisungs-Rolle");
+		this.add(IcariaItems.MAGIC_MISSILE_SCROLL.get(), "Magie-Geschoss-Rolle");
+
+		this.add(IcariaItems.ANTI_GRAVITY_SPELL.get(), "Anti-Schwerkraft-Zauber");
+		this.add(IcariaItems.FORTIFYING_SPELL.get(), "Stärkungs-Zauber");
+		this.add(IcariaItems.HEALING_SPELL.get(), "Heilungs-Zauber");
+		this.add(IcariaItems.BUBBLE_SPELL.get(), "Blasen-Zauber");
+		this.add(IcariaItems.FREEZING_SPELL.get(), "Vereisungs-Zauber");
+		this.add(IcariaItems.MAGIC_MISSILE_SPELL.get(), "Magie-Geschoss-Zauber");
+
 		this.add(IcariaItems.EMPTY_FLASK.get(), "Leere Flasche");
+		this.add(IcariaItems.ANTI_GRAVITY_FLASK.get(), "Anti-Schwerkraft Flasche");
+		this.add(IcariaItems.FORTIFYING_FLASK.get(), "Stärkungs-Flasche");
+		this.add(IcariaItems.HEALING_FLASK.get(), "Heilungs-Flasche");
 
 		this.add(IcariaItems.EMPTY_VIAL.get(), "Leere Phiole");
-		this.add(IcariaItems.HYLIASTRUM_VIAL.get(), "Hyliastrum Phiole");
+		this.add(IcariaItems.ARACHNE_VENOM_VIAL.get(), "Arachnengift-Phiole");
+		this.add(IcariaItems.HYLIASTRUM_VIAL.get(), "Hyliastrum-Phiole");
 
 		this.add(IcariaItems.CHEST_LABEL.get(), "Kistenetikett");
 

@@ -1,7 +1,36 @@
 {
-  "variants": {
-    "": {
-      "model": "landsoficaria:block/kettle"
-    }
-  }
+	"variants": {
+		"kettle=empty,half=lower,facing=north": { "model": "landsoficaria:block/kettle_lower", "y": 0 },
+		"kettle=empty,half=lower,facing=east": { "model": "landsoficaria:block/kettle_lower", "y": 90 },
+		"kettle=empty,half=lower,facing=south": { "model": "landsoficaria:block/kettle_lower", "y": 180 },
+		"kettle=empty,half=lower,facing=west": { "model": "landsoficaria:block/kettle_lower", "y": 270 },
+		"kettle=empty,half=upper,facing=north": { "model": "landsoficaria:block/kettle_upper", "y": 0 },
+		"kettle=empty,half=upper,facing=east": { "model": "landsoficaria:block/kettle_upper", "y": 90 },
+		"kettle=empty,half=upper,facing=south": { "model": "landsoficaria:block/kettle_upper", "y": 180 },
+		"kettle=empty,half=upper,facing=west": { "model": "landsoficaria:block/kettle_upper", "y": 270 },
+		"kettle=filled,half=lower,facing=north": { "model": "landsoficaria:block/kettle_lower", "y": 0 },
+		"kettle=filled,half=lower,facing=east": { "model": "landsoficaria:block/kettle_lower", "y": 90 },
+		"kettle=filled,half=lower,facing=south": { "model": "landsoficaria:block/kettle_lower", "y": 180 },
+		"kettle=filled,half=lower,facing=west": { "model": "landsoficaria:block/kettle_lower", "y": 270 },
+		"kettle=filled,half=upper,facing=north": { "model": "landsoficaria:block/kettle_upper", "y": 0 },
+		"kettle=filled,half=upper,facing=east": { "model": "landsoficaria:block/kettle_upper", "y": 90 },
+		"kettle=filled,half=upper,facing=south": { "model": "landsoficaria:block/kettle_upper", "y": 180 },
+		"kettle=filled,half=upper,facing=west": { "model": "landsoficaria:block/kettle_upper", "y": 270 },
+		"kettle=active,half=lower,facing=north": { "model": "landsoficaria:block/kettle_lower_active", "y": 0 },
+		"kettle=active,half=lower,facing=east": { "model": "landsoficaria:block/kettle_lower_active", "y": 90 },
+		"kettle=active,half=lower,facing=south": { "model": "landsoficaria:block/kettle_lower_active", "y": 180 },
+		"kettle=active,half=lower,facing=west": { "model": "landsoficaria:block/kettle_lower_active", "y": 270 },
+		"kettle=active,half=upper,facing=north": { "model": "landsoficaria:block/kettle_upper", "y": 0 },
+		"kettle=active,half=upper,facing=east": { "model": "landsoficaria:block/kettle_upper", "y": 90 },
+		"kettle=active,half=upper,facing=south": { "model": "landsoficaria:block/kettle_upper", "y": 180 },
+		"kettle=active,half=upper,facing=west": { "model": "landsoficaria:block/kettle_upper", "y": 270 },
+		"kettle=brewing,half=lower,facing=north": { "model": "landsoficaria:block/kettle_lower_active", "y": 0 },
+		"kettle=brewing,half=lower,facing=east": { "model": "landsoficaria:block/kettle_lower_active", "y": 90 },
+		"kettle=brewing,half=lower,facing=south": { "model": "landsoficaria:block/kettle_lower_active", "y": 180 },
+		"kettle=brewing,half=lower,facing=west": { "model": "landsoficaria:block/kettle_lower_active", "y": 270 },
+		"kettle=brewing,half=upper,facing=north": { "model": "landsoficaria:block/kettle_upper", "y": 0 },
+		"kettle=brewing,half=upper,facing=east": { "model": "landsoficaria:block/kettle_upper", "y": 90 },
+		"kettle=brewing,half=upper,facing=south": { "model": "landsoficaria:block/kettle_upper", "y": 180 },
+		"kettle=brewing,half=upper,facing=west": { "model": "landsoficaria:block/kettle_upper", "y": 270 }
+	}
 }

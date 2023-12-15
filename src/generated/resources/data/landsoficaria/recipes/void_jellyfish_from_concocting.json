@@ -1,0 +1,15 @@
+{
+  "type": "landsoficaria:concocting_entity",
+  "burnTime": 200,
+  "color": 6573457,
+  "entity": "landsoficaria:void_jellyfish",
+  "ingredients": [
+    {
+      "item": "landsoficaria:psilocybos"
+    },
+    {
+      "item": "landsoficaria:mondanos"
+    },
+    []
+  ]
+}

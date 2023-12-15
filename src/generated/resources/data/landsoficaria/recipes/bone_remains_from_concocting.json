@@ -1,0 +1,18 @@
+{
+  "type": "landsoficaria:concocting_item",
+  "burnTime": 200,
+  "color": 12366506,
+  "ingredients": [
+    {
+      "item": "landsoficaria:namdrake"
+    },
+    {
+      "item": "landsoficaria:dathulla"
+    },
+    []
+  ],
+  "output": {
+    "count": 1,
+    "item": "landsoficaria:bone_remains"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "landsoficaria:concocting_potion",
+  "burnTime": 200,
+  "color": 12779366,
+  "ingredients": [
+    {
+      "item": "landsoficaria:mondanos"
+    },
+    {
+      "item": "landsoficaria:mondanos"
+    },
+    {
+      "item": "landsoficaria:mondanos"
+    }
+  ],
+  "potion": "minecraft:night_vision",
+  "potionDuration": 200,
+  "potionRadius": 5.0
+}

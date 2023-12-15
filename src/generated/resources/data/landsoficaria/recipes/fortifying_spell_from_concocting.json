@@ -1,0 +1,20 @@
+{
+  "type": "landsoficaria:concocting_item",
+  "burnTime": 200,
+  "color": 6316160,
+  "ingredients": [
+    {
+      "item": "landsoficaria:moth_agaric"
+    },
+    {
+      "item": "landsoficaria:wilted_elm"
+    },
+    {
+      "item": "landsoficaria:mondanos"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "landsoficaria:fortifying_spell"
+  }
+}

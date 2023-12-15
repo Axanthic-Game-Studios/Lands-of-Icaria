@@ -332,6 +332,96 @@
               "function": "minecraft:set_count"
             }
           ],
+          "name": "landsoficaria:anti_gravity_spell"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:fortifying_spell"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:healing_spell"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:bubble_spell"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:freezing_spell"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:magic_missile_spell"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
           "name": "landsoficaria:aeternae_hide"
         },
         {
@@ -567,6 +657,30 @@
         {
           "type": "minecraft:item",
           "name": "landsoficaria:greek_fire_grenade"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:anti_gravity_scroll"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:fortifying_scroll"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:healing_scroll"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:bubble_scroll"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:freezing_scroll"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:magic_missile_scroll"
         },
         {
           "type": "minecraft:item",

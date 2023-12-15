@@ -72,6 +72,11 @@ public class KilnBlock extends BaseEntityBlock {
     }
 
     @Override
+    public int getLightEmission(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+        return pState.getValue(BlockStateProperties.LIT) ? 13 : 0;
+    }
+
+    @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pState.getValue(BlockStateProperties.LIT)) {
             if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {

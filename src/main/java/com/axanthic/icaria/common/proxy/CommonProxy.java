@@ -11,11 +11,16 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -90,6 +95,10 @@ public class CommonProxy {
 		pEvent.enqueueWork(IcariaPottables::setup);
 		pEvent.enqueueWork(IcariaStrippables::setup);
 		pEvent.enqueueWork(IcariaWoodTypes::setup);
+
+		pEvent.enqueueWork(() -> this.setupBrewing(IcariaItems.BLINDWEED.get(), Potions.AWKWARD, IcariaPotions.BLINDNESS.get()));
+		pEvent.enqueueWork(() -> this.setupBrewing(IcariaItems.SNULL_CREAM.get(), Potions.AWKWARD, IcariaPotions.NAUSEA.get()));
+		pEvent.enqueueWork(() -> this.setupBrewing(Items.WITHER_ROSE, Potions.AWKWARD, IcariaPotions.WITHER.get()));
 	}
 
 	public void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {
@@ -427,5 +436,10 @@ public class CommonProxy {
 
 	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> pEvent) {
 		// NOOP
+	}
+
+	public void setupBrewing(Item pItem, Potion pPotion, Potion pResult) {
+		var potion = new ItemStack(Items.POTION);
+		BrewingRecipeRegistry.addRecipe(Ingredient.of(PotionUtils.setPotion(potion.copy(), pPotion)), Ingredient.of(pItem), PotionUtils.setPotion(potion.copy(), pResult));
 	}
 }

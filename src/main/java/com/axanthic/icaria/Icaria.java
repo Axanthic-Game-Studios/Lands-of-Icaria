@@ -73,6 +73,7 @@ public class Icaria {
 		IcariaMenus.MENUS.register(eventBus);
 		IcariaMobEffects.MOB_EFFECTS.register(eventBus);
 		IcariaPoiTypes.POI_TYPES.register(eventBus);
+		IcariaPotions.POTIONS.register(eventBus);
 		IcariaRecipeSerializers.RECIPE_SERIALIZERS.register(eventBus);
 		IcariaRecipeTypes.RECIPE_TYPES.register(eventBus);
 

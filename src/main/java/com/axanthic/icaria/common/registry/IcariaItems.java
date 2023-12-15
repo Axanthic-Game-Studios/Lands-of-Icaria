@@ -670,10 +670,28 @@ public class IcariaItems {
 	public static final RegistryObject<Item> MAGENTA_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("magenta_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> PINK_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("pink_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
 
+	public static final RegistryObject<Item> ANTI_GRAVITY_SCROLL = IcariaItems.register("anti_gravity_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
+	public static final RegistryObject<Item> FORTIFYING_SCROLL = IcariaItems.register("fortifying_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
+	public static final RegistryObject<Item> HEALING_SCROLL = IcariaItems.register("healing_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
+	public static final RegistryObject<Item> BUBBLE_SCROLL = IcariaItems.register("bubble_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
+	public static final RegistryObject<Item> FREEZING_SCROLL = IcariaItems.register("freezing_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
+	public static final RegistryObject<Item> MAGIC_MISSILE_SCROLL = IcariaItems.register("magic_missile_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
+
+	public static final RegistryObject<Item> ANTI_GRAVITY_SPELL = IcariaItems.registerSimple("anti_gravity_spell", () -> new AntiGravitySpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 6919359, 20));
+	public static final RegistryObject<Item> FORTIFYING_SPELL = IcariaItems.registerSimple("fortifying_spell", () -> new FortifyingSpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 6316160, 20));
+	public static final RegistryObject<Item> HEALING_SPELL = IcariaItems.registerSimple("healing_spell", () -> new HealingSpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 16711680, 20));
+	public static final RegistryObject<Item> BUBBLE_SPELL = IcariaItems.registerSimple("bubble_spell", () -> new BubbleSpellItem(IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> FREEZING_SPELL = IcariaItems.registerSimple("freezing_spell", () -> new FreezingSpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 14277081, 20));
+	public static final RegistryObject<Item> MAGIC_MISSILE_SPELL = IcariaItems.registerSimple("magic_missile_spell", () -> new MagicMissileSpellItem(IcariaItems.propertiesItem(), 0.0F, 2.0F, 6307968, 40));
+
 	public static final RegistryObject<Item> EMPTY_FLASK = IcariaItems.registerSimple("empty_flask", () -> new Item(IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> ANTI_GRAVITY_FLASK = IcariaItems.registerSimple("anti_gravity_flask", () -> new ConcoctionFlaskItem(IcariaItems.propertiesItem(1), MobEffects.LEVITATION, 600));
+	public static final RegistryObject<Item> FORTIFYING_FLASK = IcariaItems.registerSimple("fortifying_flask", () -> new ConcoctionFlaskItem(IcariaItems.propertiesItem(1), MobEffects.DAMAGE_RESISTANCE, 600));
+	public static final RegistryObject<Item> HEALING_FLASK = IcariaItems.registerSimple("healing_flask", () -> new ConcoctionFlaskItem(IcariaItems.propertiesItem(1), MobEffects.REGENERATION, 600));
 
 	public static final RegistryObject<Item> EMPTY_VIAL = IcariaItems.registerSimple("empty_vial", () -> new Item(IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> HYLIASTRUM_VIAL = IcariaItems.registerSimple("hyliastrum_vial", () -> new HyliastrumVialItem(IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> ARACHNE_VENOM_VIAL = IcariaItems.registerSimple("arachne_venom_vial", () -> new Item(IcariaItems.propertiesItem(1)));
+	public static final RegistryObject<Item> HYLIASTRUM_VIAL = IcariaItems.registerSimple("hyliastrum_vial", () -> new HyliastrumVialItem(IcariaItems.propertiesItem(1)));
 
 	public static final RegistryObject<Item> CHEST_LABEL = IcariaItems.registerSimple("chest_label", () -> new ChestLabelItem(IcariaItems.propertiesItem()));
 

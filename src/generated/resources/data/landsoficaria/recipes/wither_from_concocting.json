@@ -1,0 +1,19 @@
+{
+  "type": "landsoficaria:concocting_potion",
+  "burnTime": 200,
+  "color": 7561558,
+  "ingredients": [
+    {
+      "item": "landsoficaria:bone_remains"
+    },
+    {
+      "item": "landsoficaria:moth_agaric"
+    },
+    {
+      "item": "landsoficaria:rowan"
+    }
+  ],
+  "potion": "landsoficaria:wither",
+  "potionDuration": 200,
+  "potionRadius": 5.0
+}

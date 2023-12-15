@@ -1,0 +1,19 @@
+{
+  "type": "landsoficaria:concocting_potion",
+  "burnTime": 200,
+  "color": 11101546,
+  "ingredients": [
+    {
+      "item": "landsoficaria:bolbos"
+    },
+    {
+      "item": "landsoficaria:bolbos"
+    },
+    {
+      "item": "landsoficaria:bolbos"
+    }
+  ],
+  "potion": "minecraft:strong_harming",
+  "potionDuration": 200,
+  "potionRadius": 5.0
+}

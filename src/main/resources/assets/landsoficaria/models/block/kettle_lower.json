@@ -1,0 +1,16 @@
+{
+  "parent": "landsoficaria:block/kettle_lower_base",
+  "children": {
+    "base": {
+      "parent": "landsoficaria:block/kettle_lower_base"
+    },
+    "glass": {
+      "parent": "landsoficaria:block/kettle_lower_glass"
+    }
+  },
+  "item_render_order": [
+    "base",
+    "glass"
+  ],
+  "loader": "forge:composite"
+}

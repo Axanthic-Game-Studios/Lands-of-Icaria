@@ -1,0 +1,17 @@
+{
+  "type": "landsoficaria:concocting_entity",
+  "burnTime": 200,
+  "color": 2960665,
+  "entity": "landsoficaria:crawler_revenant",
+  "ingredients": [
+    {
+      "item": "landsoficaria:bolbos"
+    },
+    {
+      "item": "landsoficaria:dathulla"
+    },
+    {
+      "item": "landsoficaria:mondanos"
+    }
+  ]
+}

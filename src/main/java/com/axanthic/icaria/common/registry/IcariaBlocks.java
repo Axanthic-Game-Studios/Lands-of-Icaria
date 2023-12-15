@@ -16,7 +16,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -27,7 +26,6 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
-import java.util.function.ToIntFunction;
 
 @SuppressWarnings("unused")
 @MethodsReturnNonnullByDefault
@@ -238,8 +236,8 @@ public class IcariaBlocks {
 
 	public static final RegistryObject<Block> VANADIUMSTEEL_CHAIN = IcariaBlocks.register("vanadiumsteel_chain", () -> new IcariaChainBlock(IcariaBlocks.propertiesChain(MapColor.NONE, SoundType.CHAIN)));
 
-	public static final RegistryObject<Block> KETTLE = IcariaBlocks.register("kettle", () -> new KettleBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
-	public static final RegistryObject<Block> GRINDER = IcariaBlocks.register("grinder", () -> new GrinderBlock(IcariaBlocks.propertiesGrinder(MapColor.WOOD, SoundType.STONE)));
+	public static final RegistryObject<Block> KETTLE = IcariaBlocks.register("kettle", () -> new KettleBlock(IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE)));
+	public static final RegistryObject<Block> GRINDER = IcariaBlocks.register("grinder", () -> new GrinderBlock(IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE)));
 	public static final RegistryObject<Block> KILN = IcariaBlocks.register("kiln", () -> new KilnBlock(IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE)));
 	public static final RegistryObject<Block> FORGE = IcariaBlocks.register("forge", () -> new ForgeBlock(IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE)));
 
@@ -783,12 +781,8 @@ public class IcariaBlocks {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(pSound).destroyTime(5.0F).explosionResistance(6.0F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
-	public static BlockBehaviour.Properties propertiesGrinder(MapColor pColor, SoundType pSound) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.BLOCK).sound(pSound).destroyTime(1.5F).explosionResistance(6.0F).noOcclusion().requiresCorrectToolForDrops();
-	}
-
 	public static BlockBehaviour.Properties propertiesWorkstation(MapColor pColor, SoundType pSound) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.BLOCK).sound(pSound).destroyTime(1.5F).explosionResistance(6.0F).lightLevel(IcariaBlocks.litBlockEmission(13)).noOcclusion().requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.BLOCK).sound(pSound).destroyTime(1.5F).explosionResistance(6.0F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesChest(MapColor pColor, SoundType pSound) {
@@ -921,10 +915,6 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesNone() {
 		return BlockBehaviour.Properties.of();
-	}
-
-	public static ToIntFunction<BlockState> litBlockEmission(int pLightValue) {
-		return (pBlockState) -> pBlockState.getValue(BlockStateProperties.LIT) ? pLightValue : 0;
 	}
 
 	public static <T extends Block> RegistryObject<T> register(String pName, Supplier<? extends T> pSupplier) {

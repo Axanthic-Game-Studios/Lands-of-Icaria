@@ -42,6 +42,14 @@
       "landsoficaria:block/grinder/grind_31"
     ]
   },
+  "block.kettle.concoct": {
+    "sounds": [
+      "landsoficaria:block/kettle/concoct_01",
+      "landsoficaria:block/kettle/concoct_02",
+      "landsoficaria:block/kettle/concoct_03",
+      "landsoficaria:block/kettle/concoct_04"
+    ]
+  },
   "block.vase.break": {
     "sounds": [
       "landsoficaria:block/vase/break_01",

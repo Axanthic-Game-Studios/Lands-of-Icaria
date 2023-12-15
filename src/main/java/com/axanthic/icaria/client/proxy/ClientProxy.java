@@ -862,9 +862,27 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get());
 			pEvent.accept(IcariaItems.PINK_UNFIRED_STORAGE_VASE.get());
 
+			pEvent.accept(IcariaItems.ANTI_GRAVITY_SCROLL.get());
+			pEvent.accept(IcariaItems.FORTIFYING_SCROLL.get());
+			pEvent.accept(IcariaItems.HEALING_SCROLL.get());
+			pEvent.accept(IcariaItems.BUBBLE_SCROLL.get());
+			pEvent.accept(IcariaItems.FREEZING_SCROLL.get());
+			pEvent.accept(IcariaItems.MAGIC_MISSILE_SCROLL.get());
+
+			pEvent.accept(IcariaItems.ANTI_GRAVITY_SPELL.get());
+			pEvent.accept(IcariaItems.FORTIFYING_SPELL.get());
+			pEvent.accept(IcariaItems.HEALING_SPELL.get());
+			pEvent.accept(IcariaItems.BUBBLE_SPELL.get());
+			pEvent.accept(IcariaItems.FREEZING_SPELL.get());
+			pEvent.accept(IcariaItems.MAGIC_MISSILE_SPELL.get());
+
 			pEvent.accept(IcariaItems.EMPTY_FLASK.get());
+			pEvent.accept(IcariaItems.ANTI_GRAVITY_FLASK.get());
+			pEvent.accept(IcariaItems.FORTIFYING_FLASK.get());
+			pEvent.accept(IcariaItems.HEALING_FLASK.get());
 
 			pEvent.accept(IcariaItems.EMPTY_VIAL.get());
+			pEvent.accept(IcariaItems.ARACHNE_VENOM_VIAL.get());
 			pEvent.accept(IcariaItems.HYLIASTRUM_VIAL.get());
 
 			pEvent.accept(IcariaItems.CHEST_LABEL.get());
@@ -963,6 +981,11 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onFMLClientSetup(FMLClientSetupEvent pEvent) {
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.FORGE.get(), ForgeScreen::new));
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.GRINDER.get(), GrinderScreen::new));
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.KILN.get(), KilnScreen::new));
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.STORAGE_VASE.get(), StorageVaseScreen::new));
+
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.CYPRESS));
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.DROUGHTROOT));
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.FIR));
@@ -971,10 +994,7 @@ public class ClientProxy extends CommonProxy {
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.PLANE));
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.POPULUS));
 
-		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.FORGE.get(), ForgeScreen::new));
-		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.GRINDER.get(), GrinderScreen::new));
-		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.KILN.get(), KilnScreen::new));
-		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.STORAGE_VASE.get(), StorageVaseScreen::new));
+		pEvent.enqueueWork(Sheets::translucentCullBlockSheet);
 
 		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), IcariaResourceLocations.THROWING, (pItemStack, pClientLevel, pLivingEntity, pId) -> pLivingEntity != null && pLivingEntity.isUsingItem() && pLivingEntity.getUseItem() == pItemStack ? 1.0F : 0.0F);
 		ItemProperties.register(IcariaItems.VINEGAR.get(), IcariaResourceLocations.THROWING, (pItemStack, pClientLevel, pLivingEntity, pId) -> pLivingEntity != null && pLivingEntity.isUsingItem() && pLivingEntity.getUseItem() == pItemStack ? 1.0F : 0.0F);
@@ -1311,6 +1331,7 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntityTypes.BIDENT.get(), BidentRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CATOBLEPAS.get(), CatoblepasRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CERVER.get(), CerverRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.FLOATING_BLOCK.get(), FloatingBlockRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), GreekFireGrenadeRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), CypressForestHagRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), DroughtrootForestHagRenderer::new);
@@ -1342,6 +1363,12 @@ public class ClientProxy extends CommonProxy {
 		EntityRenderers.register(IcariaEntityTypes.SNULL.get(), SnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SOLIFUGAE.get(), SolifugaeRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SOW.get(), SowRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.ANTI_GRAVITY_SPELL.get(), SpellRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.FORTIFYING_SPELL.get(), SpellRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.HEALING_SPELL.get(), SpellRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.BUBBLE_SPELL.get(), BubbleSpellRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.FREEZING_SPELL.get(), SpellRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.MAGIC_MISSILE_SPELL.get(), SpellRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.VINEGAR.get(), VinegarRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.VINEGAROON.get(), VinegaroonRenderer::new);
 
@@ -1351,6 +1378,7 @@ public class ClientProxy extends CommonProxy {
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.FORGE.get(), ForgeBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.HANGING_SIGN.get(), HangingSignRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.KETTLE.get(), KettleBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.KILN.get(), KilnBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SIGN.get(), IcariaSignBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SKULL.get(), IcariaSkullBlockRenderer::new);

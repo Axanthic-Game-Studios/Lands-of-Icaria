@@ -1,16 +1,15 @@
 package com.axanthic.icaria.data;
 
-import com.axanthic.icaria.common.recipe.builder.FiringRecipeBuilder;
-import com.axanthic.icaria.common.recipe.builder.ForgingRecipeBuilder;
-import com.axanthic.icaria.common.recipe.builder.GrindingRecipeBuilder;
-import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaStoneDecoItems;
-import com.axanthic.icaria.common.registry.IcariaWoodDecoItems;
+import com.axanthic.icaria.common.recipe.builder.*;
+import com.axanthic.icaria.common.registry.*;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -19,6 +18,7 @@ import java.util.function.Consumer;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
 
 public class IcariaRecipes extends RecipeProvider {
@@ -28,6 +28,49 @@ public class IcariaRecipes extends RecipeProvider {
 
 	@Override
 	public void buildRecipes(Consumer<FinishedRecipe> pConsumer) {
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.ROWAN.get(), IcariaItems.NAMDRAKE.get(), IcariaItems.WILTED_ELM.get(), IcariaEntityTypes.AETERNAE.get(), 200, 4204555);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.ARACHNE_VENOM_VIAL.get(), IcariaItems.HYLIASTRUM_VIAL.get(), IcariaItems.PSILOCYBOS.get(), IcariaEntityTypes.ARACHNE.get(), 200, 3550760);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.NAMDRAKE.get(), IcariaItems.BOLBOS.get(), IcariaItems.BOLBOS.get(), IcariaEntityTypes.ARACHNE_DRONE.get(), 200, 3682088);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.NAMDRAKE.get(), IcariaItems.ROWAN.get(), IcariaItems.ROWAN.get(), IcariaEntityTypes.LAUREL_FOREST_HAG.get(), 200, 4006938);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.HYLIASTRUM_VIAL.get(), IcariaItems.BONE_REMAINS.get(), IcariaItems.HYLIASTRUM_VIAL.get(), IcariaEntityTypes.HYLIASTER.get(), 200, 263942);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.BOLBOS.get(), IcariaItems.DATHULLA.get(), IcariaEntityTypes.ENDER_JELLYFISH.get(), 200, 0);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.PSILOCYBOS.get(), IcariaItems.MONDANOS.get(), IcariaEntityTypes.VOID_JELLYFISH.get(), 200, 6573457);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.MONDANOS.get(), IcariaItems.WILTED_ELM.get(), IcariaItems.ROWAN.get(), IcariaEntityTypes.MYRMEKE_SOLDIER.get(), 200, 5249044);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.BONE_REMAINS.get(), IcariaItems.BONE_REMAINS.get(), IcariaItems.BONE_REMAINS.get(), IcariaEntityTypes.CAPTAIN_REVENANT.get(), 200, 13609241);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.BOLBOS.get(), IcariaItems.DATHULLA.get(), IcariaItems.MONDANOS.get(), IcariaEntityTypes.CRAWLER_REVENANT.get(), 200, 2960665);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.BOLBOS.get(), IcariaItems.MONDANOS.get(), IcariaItems.WILTED_ELM.get(), IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 200, 5906455);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.NAMDRAKE.get(), IcariaItems.NAMDRAKE.get(), IcariaItems.HYLIASTRUM_VIAL.get(), IcariaEntityTypes.SOLDIER_REVENANT.get(), 200, 7100247);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.MOTH_AGARIC.get(), IcariaItems.MONDANOS.get(), IcariaItems.WILTED_ELM.get(), IcariaEntityTypes.SCORPION.get(), 200, 5323556);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.MONDANOS.get(), IcariaItems.BOLBOS.get(), IcariaItems.ROWAN.get(), IcariaEntityTypes.CRYSTAL_SLUG.get(), 200, 2364442);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.NAMDRAKE.get(), IcariaItems.BONE_REMAINS.get(), IcariaEntityTypes.FOREST_SNULL.get(), 200, 2691846);
+		this.concoctingEntityRecipe(pConsumer, IcariaItems.MONDANOS.get(), IcariaItems.MONDANOS.get(), IcariaItems.PSILOCYBOS.get(), IcariaEntityTypes.VINEGAROON.get(), 200, 3680281);
+
+		this.concoctingExplosionsRecipe(pConsumer, IcariaItems.PSILOCYBOS.get(), IcariaItems.ROWAN.get(), IcariaItems.NAMDRAKE.get(), 6.0F, 200, 5083986);
+		this.concoctingExplosionsRecipe(pConsumer, IcariaItems.BONE_REMAINS.get(), IcariaItems.MOTH_AGARIC.get(), 3.0F, 200, 5083986);
+
+		this.concoctingItemRecipe(pConsumer, IcariaItems.ROWAN.get(), IcariaItems.HYLIASTRUM_VIAL.get(), IcariaItems.NAMDRAKE.get(), Items.ECHO_SHARD, 200, 668733, 1);
+		this.concoctingItemRecipe(pConsumer, IcariaItems.ARACHNE_VENOM_VIAL.get(), IcariaItems.DATHULLA.get(), IcariaItems.HYLIASTRUM_VIAL.get(), Items.END_CRYSTAL, 200, 10711486, 1);
+		this.concoctingItemRecipe(pConsumer, IcariaItems.PSILOCYBOS.get(), IcariaItems.DATHULLA.get(), IcariaItems.MONDANOS.get(), Items.HEART_OF_THE_SEA, 200, 1467779, 1);
+		this.concoctingItemRecipe(pConsumer, IcariaItems.HYLIASTRUM_VIAL.get(), IcariaItems.BOLBOS.get(), IcariaItems.DATHULLA.get(), Items.NETHERITE_INGOT, 200, 4143419, 1);
+		this.concoctingItemRecipe(pConsumer, IcariaItems.PSILOCYBOS.get(), IcariaItems.MONDANOS.get(), IcariaItems.BOLBOS.get(), Items.SNIFFER_EGG, 200, 3169872, 1);
+		this.concoctingItemRecipe(pConsumer, IcariaItems.NAMDRAKE.get(), IcariaItems.DATHULLA.get(), IcariaItems.BONE_REMAINS.get(), 200, 12366506, 1);
+		this.concoctingItemRecipe(pConsumer, IcariaItems.ARACHNE_VENOM_VIAL.get(), IcariaItems.BOLBOS.get(), IcariaItems.JASPER_SHARD.get(), 200, 6627110, 1);
+		this.concoctingItemRecipe(pConsumer, IcariaItems.NAMDRAKE.get(), IcariaItems.BOLBOS.get(), IcariaItems.HYLIASTRUM_VIAL.get(), IcariaItems.ANTI_GRAVITY_SPELL.get(), 200, 6919359, 1);
+		this.concoctingItemRecipe(pConsumer, IcariaItems.MOTH_AGARIC.get(), IcariaItems.WILTED_ELM.get(), IcariaItems.MONDANOS.get(), IcariaItems.FORTIFYING_SPELL.get(), 200, 6316160, 1);
+		this.concoctingItemRecipe(pConsumer, IcariaItems.BOLBOS.get(), IcariaItems.DATHULLA.get(), IcariaItems.WILTED_ELM.get(), IcariaItems.HEALING_SPELL.get(), 200, 16711680, 1);
+		this.concoctingItemRecipe(pConsumer, IcariaItems.MONDANOS.get(), IcariaItems.BOLBOS.get(), IcariaItems.PSILOCYBOS.get(), IcariaItems.BUBBLE_SPELL.get(), 200, 33023, 1);
+		this.concoctingItemRecipe(pConsumer, IcariaItems.ROWAN.get(), IcariaItems.ROWAN.get(), IcariaItems.BONE_REMAINS.get(), IcariaItems.FREEZING_SPELL.get(), 200, 14277081, 1);
+		this.concoctingItemRecipe(pConsumer, IcariaItems.NAMDRAKE.get(), IcariaItems.BONE_REMAINS.get(), IcariaItems.MOTH_AGARIC.get(), IcariaItems.MAGIC_MISSILE_SPELL.get(), 200, 6307968, 1);
+
+		this.concoctingPotionRecipe(pConsumer, IcariaItems.MONDANOS.get(), IcariaItems.MONDANOS.get(), IcariaItems.MONDANOS.get(), Potions.NIGHT_VISION, 5.0F, 200, 12779366, 200);
+		this.concoctingPotionRecipe(pConsumer, IcariaItems.ROWAN.get(), IcariaItems.ARACHNE_VENOM_VIAL.get(), Potions.POISON, 5.0F, 200, 8889187, 200);
+		this.concoctingPotionRecipe(pConsumer, IcariaItems.BOLBOS.get(), IcariaItems.DATHULLA.get(), IcariaItems.PSILOCYBOS.get(), Potions.REGENERATION, 5.0F, 200, 13458603, 200);
+		this.concoctingPotionRecipe(pConsumer, IcariaItems.NAMDRAKE.get(), IcariaItems.NAMDRAKE.get(), IcariaItems.NAMDRAKE.get(), Potions.SLOWNESS, 5.0F, 200, 9154528, 200);
+		this.concoctingPotionRecipe(pConsumer, IcariaItems.BOLBOS.get(), IcariaItems.BOLBOS.get(), IcariaItems.BOLBOS.get(), Potions.STRONG_HARMING, 5.0F, 200, 11101546, 200);
+		this.concoctingPotionRecipe(pConsumer, IcariaItems.ROWAN.get(), IcariaItems.ROWAN.get(), IcariaItems.ROWAN.get(), IcariaPotions.BLINDNESS.get(), 5.0F, 200, 2039587, 200);
+		this.concoctingPotionRecipe(pConsumer, IcariaItems.PSILOCYBOS.get(), IcariaItems.MOTH_AGARIC.get(), IcariaItems.PSILOCYBOS.get(), IcariaPotions.NAUSEA.get(), 5.0F, 200, 5578058, 200);
+		this.concoctingPotionRecipe(pConsumer, IcariaItems.BONE_REMAINS.get(), IcariaItems.MOTH_AGARIC.get(), IcariaItems.ROWAN.get(), IcariaPotions.WITHER.get(), 5.0F, 200, 7561558, 200);
+
 		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_INGOT.get(), IcariaItems.CHALKOS_INGOT.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.ORICHALCUM_INGOT.get(), 0.3F, 200, 3);
 		this.forgingRecipe(pConsumer, IcariaItems.LIGNITE.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.VANADIUM_INGOT.get(), IcariaItems.VANADIUMSTEEL_INGOT.get(), 0.2F, 150, 2);
 		this.forgingRecipe(pConsumer, IcariaItems.ANTHRACITE.get(), IcariaItems.MOLYBDENUM_INGOT.get(), IcariaItems.SIDEROS_INGOT.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), 0.2F, 150, 2);
@@ -513,6 +556,10 @@ public class IcariaRecipes extends RecipeProvider {
 		this.bowlFlaskVialRecipe(pConsumer, IcariaItems.SILKGLASS.get(), IcariaItems.EMPTY_FLASK.get(), 3);
 		this.bowlFlaskVialRecipe(pConsumer, IcariaItems.GRAINGLASS.get(), IcariaItems.EMPTY_VIAL.get(), 3);
 		this.bowlFlaskVialRecipe(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.UNFIRED_LOAM_BOWL.get(), 4);
+
+		this.spellToFlaskRecipe(pConsumer, IcariaItems.ANTI_GRAVITY_SPELL.get(), IcariaItems.ANTI_GRAVITY_FLASK.get());
+		this.spellToFlaskRecipe(pConsumer, IcariaItems.FORTIFYING_SPELL.get(), IcariaItems.FORTIFYING_FLASK.get());
+		this.spellToFlaskRecipe(pConsumer, IcariaItems.HEALING_SPELL.get(), IcariaItems.HEALING_FLASK.get());
 
 		this.gearRecipe(pConsumer, IcariaItems.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_GEAR.get());
 		this.gearRecipe(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.UNFIRED_LOAM_GEAR.get());
@@ -1328,8 +1375,86 @@ public class IcariaRecipes extends RecipeProvider {
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.SUGAR) + "_from_vine_reed");
 	}
 
+	public void concoctingEntityRecipe(Consumer<FinishedRecipe> pConsumer, Item pResourceA, Item pResourceB, Item pResourceC, EntityType<?> pEntity, int pBurnTime, int pColor) {
+		ConcoctingEntityRecipeBuilder.concoctingEntity(ForgeRegistries.ENTITY_TYPES.getKey(pEntity).toString(), Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pBurnTime, pColor)
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pConsumer, ForgeRegistries.ENTITY_TYPES.getKey(pEntity) + "_from_concocting");
+	}
+
+	public void concoctingEntityRecipe(Consumer<FinishedRecipe> pConsumer, Item pResourceA, Item pResourceB, EntityType<?> pEntity, int pBurnTime, int pColor) {
+		ConcoctingEntityRecipeBuilder.concoctingEntity(ForgeRegistries.ENTITY_TYPES.getKey(pEntity).toString(), Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(), pBurnTime, pColor)
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pConsumer, ForgeRegistries.ENTITY_TYPES.getKey(pEntity) + "_from_concocting");
+	}
+
+	public void concoctingEntityRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, EntityType<?> pEntity, int pBurnTime, int pColor) {
+		ConcoctingEntityRecipeBuilder.concoctingEntity(ForgeRegistries.ENTITY_TYPES.getKey(pEntity).toString(), Ingredient.of(pResource), Ingredient.of(), Ingredient.of(), pBurnTime, pColor)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pConsumer, ForgeRegistries.ENTITY_TYPES.getKey(pEntity) + "_from_concocting");
+	}
+
+	public void concoctingExplosionsRecipe(Consumer<FinishedRecipe> pConsumer, Item pResourceA, Item pResourceB, Item pResourceC, float pRadius, int pBurnTime, int pColor) {
+		ConcoctingExplosionsRecipeBuilder.concoctingExplosions(Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pRadius, pBurnTime, pColor)
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pConsumer, "large_explosion_from_concocting");
+	}
+
+	public void concoctingExplosionsRecipe(Consumer<FinishedRecipe> pConsumer, Item pResourceA, Item pResourceB, float pRadius, int pBurnTime, int pColor) {
+		ConcoctingExplosionsRecipeBuilder.concoctingExplosions(Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(), pRadius, pBurnTime, pColor)
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pConsumer, "small_explosion_from_concocting");
+	}
+
+	public void concoctingExplosionsRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, float pRadius, int pBurnTime, int pColor) {
+		ConcoctingExplosionsRecipeBuilder.concoctingExplosions(Ingredient.of(pResource), Ingredient.of(), Ingredient.of(), pRadius, pBurnTime, pColor)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pConsumer, "micro_explosion_from_concocting");
+	}
+
+	public void concoctingItemRecipe(Consumer<FinishedRecipe> pConsumer, Item pResourceA, Item pResourceB, Item pResourceC, Item pResult, int pBurnTime, int pColor, int pCount) {
+		ConcoctingItemRecipeBuilder.concoctingItem(pResult, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pBurnTime, pColor, pCount)
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_concocting");
+	}
+
+	public void concoctingItemRecipe(Consumer<FinishedRecipe> pConsumer, Item pResourceA, Item pResourceB, Item pResult, int pBurnTime, int pColor, int pCount) {
+		ConcoctingItemRecipeBuilder.concoctingItem(pResult, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(), pBurnTime, pColor, pCount)
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_concocting");
+	}
+
+	public void concoctingItemRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult, int pBurnTime, int pColor, int pCount) {
+		ConcoctingItemRecipeBuilder.concoctingItem(pResult, Ingredient.of(pResource), Ingredient.of(), Ingredient.of(), pBurnTime, pColor, pCount)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_concocting");
+	}
+
+	public void concoctingPotionRecipe(Consumer<FinishedRecipe> pConsumer, Item pResourceA, Item pResourceB, Item pResourceC, Potion pPotion, float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration) {
+		ConcoctingPotionRecipeBuilder.concoctingPotion(ForgeRegistries.POTIONS.getKey(pPotion).toString(), Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pPotionRadius, pBurnTime, pColor, pPotionDuration)
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pConsumer, ForgeRegistries.POTIONS.getKey(pPotion) + "_from_concocting");
+	}
+
+	public void concoctingPotionRecipe(Consumer<FinishedRecipe> pConsumer, Item pResourceA, Item pResourceB, Potion pPotion, float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration) {
+		ConcoctingPotionRecipeBuilder.concoctingPotion(ForgeRegistries.POTIONS.getKey(pPotion).toString(), Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(), pPotionRadius, pBurnTime, pColor, pPotionDuration)
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pConsumer, ForgeRegistries.POTIONS.getKey(pPotion) + "_from_concocting");
+	}
+
+	public void concoctingPotionRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Potion pPotion, float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration) {
+		ConcoctingPotionRecipeBuilder.concoctingPotion(ForgeRegistries.POTIONS.getKey(pPotion).toString(), Ingredient.of(pResource), Ingredient.of(), Ingredient.of(), pPotionRadius, pBurnTime, pColor, pPotionDuration)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pConsumer, ForgeRegistries.POTIONS.getKey(pPotion) + "_from_concocting");
+	}
+
 	public void forgingRecipe(Consumer<FinishedRecipe> pConsumer, Item pResourceA, Item pResourceB, Item pResourceC, Item pResult, float pExperience, int pTime, int pCount) {
 		ForgingRecipeBuilder.forging(pResult, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pExperience, pTime, pCount)
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_forging");
+	}
+
+	public void forgingRecipe(Consumer<FinishedRecipe> pConsumer, Item pResourceA, Item pResourceB, Item pResult, float pExperience, int pTime, int pCount) {
+		ForgingRecipeBuilder.forging(pResult, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(), pExperience, pTime, pCount)
 			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_forging");
 	}
@@ -1704,6 +1829,15 @@ public class IcariaRecipes extends RecipeProvider {
 			.pattern(" X ")
 			.define('X', pResource)
 			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult));
+	}
+
+	public void spellToFlaskRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult) {
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 1)
+			.requires(pResource)
+			.requires(IcariaItems.EMPTY_FLASK.get())
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.unlockedBy("has_" + IcariaItems.EMPTY_FLASK.get(), RecipeProvider.has(IcariaItems.EMPTY_FLASK.get()))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult));
 	}
 
