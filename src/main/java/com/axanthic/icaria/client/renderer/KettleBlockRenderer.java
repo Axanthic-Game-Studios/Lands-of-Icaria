@@ -3,9 +3,9 @@ package com.axanthic.icaria.client.renderer;
 import com.axanthic.icaria.common.block.KettleBlock;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.KettleBlockEntity;
+import com.axanthic.icaria.common.properties.Kettle;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
-import com.axanthic.icaria.common.util.Kettle;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -25,7 +25,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-//@SuppressWarnings("unused")
+@SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
 public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntity> {
 	public long prevTime;

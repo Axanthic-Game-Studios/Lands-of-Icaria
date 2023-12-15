@@ -1,19 +1,17 @@
-package com.axanthic.icaria.common.util;
+package com.axanthic.icaria.common.properties;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.util.StringRepresentable;
 
 @MethodsReturnNonnullByDefault
 
-public enum Kettle implements StringRepresentable {
-    EMPTY("empty"),
-    FILLED("filled"),
-    ACTIVE("active"),
-    BREWING("brewing");
+public enum Side implements StringRepresentable {
+    LEFT("left"),
+    RIGHT("right");
 
     public final String name;
 
-    Kettle(String pName) {
+    Side(String pName) {
         this.name = pName;
     }
 

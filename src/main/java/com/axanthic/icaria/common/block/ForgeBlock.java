@@ -4,10 +4,10 @@ import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.ForgeBlockEntity;
 import com.axanthic.icaria.common.entity.ForgeRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.ForgeMenuProvider;
+import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.util.Corner;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;

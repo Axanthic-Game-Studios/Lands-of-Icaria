@@ -1,4 +1,4 @@
-package com.axanthic.icaria.common.util;
+package com.axanthic.icaria.common.properties;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.util.StringRepresentable;

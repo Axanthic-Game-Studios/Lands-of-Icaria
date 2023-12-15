@@ -6,9 +6,9 @@ import com.axanthic.icaria.common.container.data.GrinderContainerData;
 import com.axanthic.icaria.common.handler.GrinderItemStackHandler;
 import com.axanthic.icaria.common.handler.WrappedHandler;
 import com.axanthic.icaria.common.item.GearItem;
+import com.axanthic.icaria.common.properties.Side;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.util.Side;
 
 import com.google.common.collect.Lists;
 

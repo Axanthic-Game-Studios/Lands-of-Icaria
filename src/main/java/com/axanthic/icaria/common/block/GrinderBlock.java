@@ -3,10 +3,10 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 import com.axanthic.icaria.common.entity.GrinderRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.GrinderMenuProvider;
+import com.axanthic.icaria.common.properties.Side;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.util.Side;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;

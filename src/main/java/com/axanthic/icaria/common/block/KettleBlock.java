@@ -2,11 +2,11 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.KettleBlockEntity;
+import com.axanthic.icaria.common.properties.Kettle;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.common.util.Kettle;
 import com.axanthic.icaria.data.tags.IcariaItemTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;

@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
-import com.axanthic.icaria.common.util.Corner;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;

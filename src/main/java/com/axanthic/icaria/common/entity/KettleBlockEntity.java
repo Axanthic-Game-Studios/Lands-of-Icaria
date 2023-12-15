@@ -4,6 +4,7 @@ import com.axanthic.icaria.common.block.KettleBlock;
 import com.axanthic.icaria.common.container.data.KettleContainerData;
 import com.axanthic.icaria.common.handler.KettleItemStackHandler;
 import com.axanthic.icaria.common.handler.WrappedHandler;
+import com.axanthic.icaria.common.properties.Kettle;
 import com.axanthic.icaria.common.recipe.ConcoctingEntityRecipe;
 import com.axanthic.icaria.common.recipe.ConcoctingExplosionsRecipe;
 import com.axanthic.icaria.common.recipe.ConcoctingItemRecipe;
@@ -11,7 +12,6 @@ import com.axanthic.icaria.common.recipe.ConcoctingPotionRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
-import com.axanthic.icaria.common.util.Kettle;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;

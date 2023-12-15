@@ -1,11 +1,11 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.util.Corner;
 import com.axanthic.icaria.common.block.ForgeBlock;
 import com.axanthic.icaria.common.container.data.ForgeContainerData;
 import com.axanthic.icaria.common.handler.ForgeInputItemStackHandler;
 import com.axanthic.icaria.common.handler.ForgeItemStackHandler;
 import com.axanthic.icaria.common.handler.WrappedHandler;
+import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.recipe.ForgingRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;

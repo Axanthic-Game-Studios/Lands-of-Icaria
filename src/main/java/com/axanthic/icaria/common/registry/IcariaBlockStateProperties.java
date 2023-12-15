@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.util.Corner;
-import com.axanthic.icaria.common.util.Kettle;
-import com.axanthic.icaria.common.util.Side;
+import com.axanthic.icaria.common.properties.Corner;
+import com.axanthic.icaria.common.properties.Kettle;
+import com.axanthic.icaria.common.properties.Side;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
