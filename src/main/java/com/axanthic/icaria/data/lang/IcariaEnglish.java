@@ -1,9 +1,9 @@
 package com.axanthic.icaria.data.lang;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaMobEffects;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaMobEffects;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.data.PackOutput;

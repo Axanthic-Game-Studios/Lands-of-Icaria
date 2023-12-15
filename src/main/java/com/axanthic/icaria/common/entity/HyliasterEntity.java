@@ -11,7 +11,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
@@ -26,7 +25,7 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -180,6 +179,12 @@ public class HyliasterEntity extends Monster {
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true, true));
     }
 
+    public void remove() {
+        if (this.getSize() == this.minSize) {
+            this.remove(RemovalReason.KILLED);
+        }
+    }
+
     @Override
     public void remove(Entity.RemovalReason pReason) {
         super.remove(pReason);
@@ -237,31 +242,16 @@ public class HyliasterEntity extends Monster {
     @Override
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         var itemStack = pPlayer.getItemInHand(pHand);
-        if (itemStack.getItem() == IcariaItems.EMPTY_VIAL.get()) {
+        if (itemStack.is(IcariaItems.EMPTY_VIAL.get())) {
+            var filledResult = ItemUtils.createFilledResult(itemStack, pPlayer, IcariaItems.HYLIASTRUM_VIAL.get().getDefaultInstance());
+            this.remove();
+            this.setTick(this.getTick() - 16000);
             pPlayer.playSound(SoundEvents.BOTTLE_FILL);
-            if (!this.level().isClientSide()) {
-                this.setTick(this.getTick() - 16000);
-                if (this.getSize() == this.minSize) {
-                    this.remove(RemovalReason.KILLED);
-                }
-
-                if (!pPlayer.isCreative()) {
-                    itemStack.shrink(1);
-                }
-
-                if (itemStack.isEmpty()) {
-                    pPlayer.setItemInHand(pHand, new ItemStack(IcariaItems.HYLIASTRUM_VIAL.get()));
-                } else if (!pPlayer.getInventory().add(new ItemStack(IcariaItems.HYLIASTRUM_VIAL.get()))) {
-                    pPlayer.drop(new ItemStack(IcariaItems.HYLIASTRUM_VIAL.get()), false);
-                }
-
-                return InteractionResult.SUCCESS;
-            } else {
-                return InteractionResult.CONSUME;
-            }
-        } else {
-            return super.mobInteract(pPlayer, pHand);
+            pPlayer.setItemInHand(pHand, filledResult);
+            return InteractionResult.sidedSuccess(this.level().isClientSide());
         }
+
+        return super.mobInteract(pPlayer, pHand);
     }
 
     @Override

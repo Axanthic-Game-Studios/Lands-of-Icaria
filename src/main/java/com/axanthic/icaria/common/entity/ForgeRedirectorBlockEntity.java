@@ -22,8 +22,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class ForgeRedirectorBlockEntity extends BlockEntity {
     public ForgeBlockEntity original;
 
-    public ForgeRedirectorBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(IcariaBlockEntityTypes.FORGE_REDIRECTOR.get(), pPos, pBlockState);
+    public ForgeRedirectorBlockEntity(BlockPos pPos, BlockState pState) {
+        super(IcariaBlockEntityTypes.FORGE_REDIRECTOR.get(), pPos, pState);
     }
 
     @Override

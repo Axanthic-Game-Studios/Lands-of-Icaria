@@ -22,8 +22,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class KilnRedirectorBlockEntity extends BlockEntity {
     public KilnBlockEntity original;
 
-    public KilnRedirectorBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(IcariaBlockEntityTypes.KILN_REDIRECTOR.get(), pPos, pBlockState);
+    public KilnRedirectorBlockEntity(BlockPos pPos, BlockState pState) {
+        super(IcariaBlockEntityTypes.KILN_REDIRECTOR.get(), pPos, pState);
     }
 
     @Override

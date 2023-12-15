@@ -22,8 +22,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class GrinderRedirectorBlockEntity extends BlockEntity {
     public GrinderBlockEntity original;
 
-    public GrinderRedirectorBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(IcariaBlockEntityTypes.GRINDER_REDIRECTOR.get(), pPos, pBlockState);
+    public GrinderRedirectorBlockEntity(BlockPos pPos, BlockState pState) {
+        super(IcariaBlockEntityTypes.GRINDER_REDIRECTOR.get(), pPos, pState);
     }
 
     @Override

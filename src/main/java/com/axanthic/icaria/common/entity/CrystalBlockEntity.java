@@ -23,8 +23,8 @@ public class CrystalBlockEntity extends BlockEntity {
 		super(IcariaBlockEntityTypes.CRYSTAL.get(), pPos, pState);
 	}
 
-	public CrystalBlockEntity(BlockPos pPos, BlockState pBlockState, double pX, double pY, double pZ) {
-		this(pPos, pBlockState);
+	public CrystalBlockEntity(BlockPos pPos, BlockState pState, double pX, double pY, double pZ) {
+		this(pPos, pState);
 		this.x = pX;
 		this.y = pY;
 		this.z = pZ;

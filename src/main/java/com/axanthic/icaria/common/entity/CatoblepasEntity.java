@@ -119,10 +119,10 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
 
     @Override
     public @Nonnull InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
-        var inHand = pPlayer.getItemInHand(pHand);
+        var itemStack = pPlayer.getItemInHand(pHand);
         if (!this.isBaby()) {
-            if (inHand.is(Items.BUCKET)) {
-                var filledResult = ItemUtils.createFilledResult(inHand, pPlayer, Items.MILK_BUCKET.getDefaultInstance());
+            if (itemStack.is(Items.BUCKET)) {
+                var filledResult = ItemUtils.createFilledResult(itemStack, pPlayer, Items.MILK_BUCKET.getDefaultInstance());
                 pPlayer.playSound(SoundEvents.COW_MILK);
                 pPlayer.setItemInHand(pHand, filledResult);
                 return InteractionResult.sidedSuccess(this.level().isClientSide());

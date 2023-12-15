@@ -80,15 +80,14 @@ public class KilnBlock extends BaseEntityBlock {
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pState.getValue(BlockStateProperties.LIT)) {
             if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-                var randomSource = pLevel.getRandom();
-                pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 2.0D, pPos.getZ() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+                pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + 0.5D + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 2.0D, pPos.getZ() + 0.5D + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
                 if (IcariaConfig.KILN_SOUNDS.get() && pRandom.nextDouble() < 0.1D) {
                     pLevel.playLocalSound(pPos.getX() + 0.5D, pPos.getY() + 1.0D, pPos.getZ() + 0.5D, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
                 }
 
                 if (IcariaConfig.RENDER_KILN_ITEMS.get()) {
-                    pLevel.addParticle(ParticleTypes.SMALL_FLAME, pPos.getX() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 0.25D, pPos.getZ() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-                    pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), pPos.getY() + 0.75D, pPos.getZ() + 0.5D + randomSource.nextDouble() / 8.0D * (randomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+                    pLevel.addParticle(ParticleTypes.SMALL_FLAME, pPos.getX() + 0.5D + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.25D, pPos.getZ() + 0.5D + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+                    pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + 0.5D + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.75D, pPos.getZ() + 0.5D + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
                 }
             }
         }

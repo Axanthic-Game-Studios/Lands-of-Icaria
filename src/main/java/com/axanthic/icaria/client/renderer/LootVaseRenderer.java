@@ -38,8 +38,8 @@ public class LootVaseRenderer extends EntityRenderer<LootVaseEntity> {
         if (blockState.getRenderShape() == RenderShape.MODEL) {
             var level = pEntity.level();
             if (blockState != level.getBlockState(pEntity.blockPosition()) && blockState.getRenderShape() != RenderShape.INVISIBLE) {
-                var blockPos = BlockPos.containing(pEntity.getX(), pEntity.getBoundingBox().maxY, pEntity.getZ());
                 var bakedModel = this.blockRenderDispatcher.getBlockModel(blockState);
+                var blockPos = BlockPos.containing(pEntity.getX(), pEntity.getBoundingBox().maxY, pEntity.getZ());
                 pMatrixStack.pushPose();
                 pMatrixStack.translate(-0.5D, 0.0D, -0.5D);
                 for (var renderType : bakedModel.getRenderTypes(blockState, RandomSource.create(blockState.getSeed(pEntity.getBlockPos())), ModelData.EMPTY)) {

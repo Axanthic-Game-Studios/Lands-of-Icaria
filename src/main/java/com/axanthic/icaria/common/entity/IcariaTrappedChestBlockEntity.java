@@ -11,8 +11,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaTrappedChestBlockEntity extends IcariaChestBlockEntity {
-    public IcariaTrappedChestBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(IcariaBlockEntityTypes.TRAPPED_CHEST.get(), pPos, pBlockState);
+    public IcariaTrappedChestBlockEntity(BlockPos pPos, BlockState pState) {
+        super(IcariaBlockEntityTypes.TRAPPED_CHEST.get(), pPos, pState);
     }
 
     @Override
