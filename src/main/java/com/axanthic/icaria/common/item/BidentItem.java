@@ -74,11 +74,11 @@ public class BidentItem extends TieredItem implements Vanishable {
 	public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
 		if (pLivingEntity instanceof Player player) {
 			if (this.getUseDuration(pStack) - pTimeCharged >= 10) {
+				player.playSound(SoundEvents.TRIDENT_THROW);
 				if (!pLevel.isClientSide()) {
 					var entity = new BidentEntity(pLevel, player, pStack);
-					entity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.0F, 1.0F);
+					entity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.0F, 1.0F);
 					player.awardStat(Stats.ITEM_USED.get(this));
-					player.playSound(SoundEvents.TRIDENT_THROW);
 					pLevel.addFreshEntity(entity);
 					pStack.hurtAndBreak(1, player, (pPlayer) -> pPlayer.broadcastBreakEvent(pLivingEntity.getUsedItemHand()));
 					if (player.getAbilities().instabuild) {

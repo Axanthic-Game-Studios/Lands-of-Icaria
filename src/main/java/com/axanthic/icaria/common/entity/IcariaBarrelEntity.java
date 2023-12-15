@@ -168,7 +168,7 @@ public class IcariaBarrelEntity extends Entity {
             }
 
             this.discard();
-            this.playSound(IcariaSoundEvents.BARREL_BREAK, 0.1F, 1.0F);
+            this.playSound(IcariaSoundEvents.BARREL_BREAK, 1.0F, 1.0F);
         } else {
             this.move(MoverType.SELF, this.getDeltaMovement());
             this.setDeltaMovement(this.getDeltaMovement().add(0.0D, -0.05D, 0.0D));
