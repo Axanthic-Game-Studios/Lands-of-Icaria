@@ -27,6 +27,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
+
 public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntity> {
 	public long prevTime;
 

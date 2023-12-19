@@ -221,8 +221,9 @@ public class KettleBlockEntity extends BlockEntity {
 
     public void update(BlockPos pPos, BlockState pState) {
         if (this.getLevel() != null) {
-            this.setChanged();
             this.getLevel().sendBlockUpdated(pPos, pState, pState, 3);
+            this.getLevel().updateNeighbourForOutputSignal(pPos.above(), pState.getBlock());
+            this.setChanged();
         }
     }
 

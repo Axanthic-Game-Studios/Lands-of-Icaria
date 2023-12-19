@@ -238,19 +238,18 @@ public class GrinderBlockEntity extends BlockEntity {
 		var fuelSlot = stackHandler.getStackInSlot(1);
 		var gearSlot = stackHandler.getStackInSlot(2);
 		if (!pLevel.isClientSide()) {
+			pBlockEntity.update(pPos, pState);
 			if (!pBlockEntity.hasFuel()) {
 				if (fuelSlot.getItem() == IcariaItems.SLIVER.get()) {
 					int fuelTime = 800;
 					stackHandler.extractItem(1, 1, false);
 					pBlockEntity.fuel = fuelTime;
 					pBlockEntity.maxFuel = fuelTime;
-					pBlockEntity.setChanged();
 				} else if (fuelSlot.getItem() == IcariaItems.SLIVER_BLOCK.get()) {
 					int fuelTime = 7200;
 					stackHandler.extractItem(1, 1, false);
 					pBlockEntity.fuel = fuelTime;
 					pBlockEntity.maxFuel = fuelTime;
-					pBlockEntity.setChanged();
 				}
 			}
 
@@ -272,28 +271,32 @@ public class GrinderBlockEntity extends BlockEntity {
 
 				if (pBlockEntity.progress >= pBlockEntity.maxProgress) {
 					pBlockEntity.craftItem();
-					pBlockEntity.setChanged();
 					if (gearSlot.getItem() instanceof GearItem) {
 						gearSlot.hurt(1, RandomSource.create(), null);
-						pBlockEntity.setChanged();
 						if (pBlockEntity.shouldBreak(pBlockEntity)) {
 							stackHandler.extractItem(2, 1, false);
-							pBlockEntity.setChanged();
 						}
 					}
 				}
 
 				pBlockEntity.progress++;
 				pBlockEntity.fuel--;
-				pBlockEntity.setChanged();
-				pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.SIDE, Side.LEFT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, true).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, pBlockEntity.rotation), 3);
-				pLevel.setBlock(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, true).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, pBlockEntity.rotation), 3);
+				pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.SIDE, Side.LEFT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, true).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, pBlockEntity.rotation));
+				pLevel.setBlockAndUpdate(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, true).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, pBlockEntity.rotation));
 			} else {
 				pBlockEntity.resetProgress();
-				pBlockEntity.setChanged();
-				pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.SIDE, Side.LEFT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, false), 3);
-				pLevel.setBlock(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, false), 3);
+				pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.SIDE, Side.LEFT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, false));
+				pLevel.setBlockAndUpdate(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, false));
 			}
+		}
+	}
+
+	public void update(BlockPos pPos, BlockState pState) {
+		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		if (this.getLevel() != null) {
+			this.getLevel().sendBlockUpdated(pPos, pState, pState, 3);
+			this.getLevel().updateNeighbourForOutputSignal(pPos.offset(facing.getCounterClockWise().getNormal()), pState.getBlock());
+			this.setChanged();
 		}
 	}
 

@@ -226,39 +226,39 @@ public class KilnBlockEntity extends BlockEntity {
         var fuelSlot = stackHandler.getStackInSlot(1);
         var fuelTime = ForgeHooks.getBurnTime(fuelSlot, IcariaRecipeTypes.FIRING.get());
         if (!pLevel.isClientSide()) {
+            pBlockEntity.update(pPos, pState);
             if (!pBlockEntity.hasFuel() && pBlockEntity.hasRecipe() && fuelTime > 0) {
                 stackHandler.extractItem(1, 1, false);
                 pBlockEntity.fuel = fuelTime + 1;
                 pBlockEntity.maxFuel = fuelTime;
-                pBlockEntity.setChanged();
             }
 
             if (pBlockEntity.hasFuel()) {
                 pBlockEntity.fuel--;
-                pBlockEntity.setChanged();
-                pLevel.sendBlockUpdated(pPos, pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true), pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true), 3);
                 pLevel.setBlock(pPos, pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true), 3);
                 pLevel.setBlock(pPos.above(), pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(BlockStateProperties.LIT, true), 3);
             } else {
                 pBlockEntity.resetFuel();
-                pBlockEntity.setChanged();
-                pLevel.sendBlockUpdated(pPos, pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, false), pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, false), 3);
                 pLevel.setBlock(pPos, pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, false), 3);
                 pLevel.setBlock(pPos.above(), pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(BlockStateProperties.LIT, false), 3);
             }
 
             if (pBlockEntity.hasRecipe() && pState.getValue(BlockStateProperties.LIT)) {
+                pBlockEntity.progress++;
                 if (pBlockEntity.progress >= pBlockEntity.maxProgress) {
                     pBlockEntity.craftItem();
-                    pBlockEntity.setChanged();
                 }
-
-                pBlockEntity.progress++;
-                pBlockEntity.setChanged();
             } else {
                 pBlockEntity.resetProgress();
-                pBlockEntity.setChanged();
             }
+        }
+    }
+
+    public void update(BlockPos pPos, BlockState pState) {
+        if (this.getLevel() != null) {
+            this.getLevel().sendBlockUpdated(pPos, pState, pState, 3);
+            this.getLevel().updateNeighbourForOutputSignal(pPos.above(), pState.getBlock());
+            this.setChanged();
         }
     }
 

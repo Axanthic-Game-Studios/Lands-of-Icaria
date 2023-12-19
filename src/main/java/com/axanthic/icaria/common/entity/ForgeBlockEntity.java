@@ -282,56 +282,62 @@ public class ForgeBlockEntity extends BlockEntity {
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, ForgeBlockEntity pBlockEntity) {
         var stackHandler = pBlockEntity.stackHandler;
+        var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
         var fuelSlot = stackHandler.getStackInSlot(0);
         var fuelTime = ForgeHooks.getBurnTime(fuelSlot, IcariaRecipeTypes.FORGING.get());
         if (!pLevel.isClientSide()) {
+            pBlockEntity.update(pPos, pState);
             if (!pBlockEntity.hasFuel() && pBlockEntity.hasRecipe() && fuelTime > 0) {
                 stackHandler.extractItem(0, 1, false);
                 pBlockEntity.fuel = fuelTime + 1;
                 pBlockEntity.maxFuel = fuelTime;
-                pBlockEntity.setChanged();
             }
 
             if (pBlockEntity.hasFuel()) {
-                var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
                 pBlockEntity.fuel--;
-                pBlockEntity.setChanged();
-                pLevel.sendBlockUpdated(pPos, pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.LIT, true), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.LIT, true), 3);
-                pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.LIT, true), 3);
-                pLevel.setBlock(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT).setValue(BlockStateProperties.LIT, true), 3);
-                pLevel.setBlock(pPos.offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_LEFT).setValue(BlockStateProperties.LIT, true), 3);
-                pLevel.setBlock(pPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_RIGHT).setValue(BlockStateProperties.LIT, true), 3);
-                pLevel.setBlock(pPos.above(), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_LEFT).setValue(BlockStateProperties.LIT, true), 3);
-                pLevel.setBlock(pPos.above().offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_RIGHT).setValue(BlockStateProperties.LIT, true), 3);
-                pLevel.setBlock(pPos.above().offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_LEFT).setValue(BlockStateProperties.LIT, true), 3);
-                pLevel.setBlock(pPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_RIGHT).setValue(BlockStateProperties.LIT, true), 3);
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.LIT, true));
+                pLevel.setBlockAndUpdate(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT).setValue(BlockStateProperties.LIT, true));
+                pLevel.setBlockAndUpdate(pPos.offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_LEFT).setValue(BlockStateProperties.LIT, true));
+                pLevel.setBlockAndUpdate(pPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_RIGHT).setValue(BlockStateProperties.LIT, true));
+                pLevel.setBlockAndUpdate(pPos.above(), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_LEFT).setValue(BlockStateProperties.LIT, true));
+                pLevel.setBlockAndUpdate(pPos.above().offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_RIGHT).setValue(BlockStateProperties.LIT, true));
+                pLevel.setBlockAndUpdate(pPos.above().offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_LEFT).setValue(BlockStateProperties.LIT, true));
+                pLevel.setBlockAndUpdate(pPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_RIGHT).setValue(BlockStateProperties.LIT, true));
             } else {
-                var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
                 pBlockEntity.resetFuel();
-                pBlockEntity.setChanged();
-                pLevel.sendBlockUpdated(pPos, pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.LIT, false), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.LIT, false), 3);
-                pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.LIT, false), 3);
-                pLevel.setBlock(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT).setValue(BlockStateProperties.LIT, false), 3);
-                pLevel.setBlock(pPos.offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_LEFT).setValue(BlockStateProperties.LIT, false), 3);
-                pLevel.setBlock(pPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_RIGHT).setValue(BlockStateProperties.LIT, false), 3);
-                pLevel.setBlock(pPos.above(), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_LEFT).setValue(BlockStateProperties.LIT, false), 3);
-                pLevel.setBlock(pPos.above().offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_RIGHT).setValue(BlockStateProperties.LIT, false), 3);
-                pLevel.setBlock(pPos.above().offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_LEFT).setValue(BlockStateProperties.LIT, false), 3);
-                pLevel.setBlock(pPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_RIGHT).setValue(BlockStateProperties.LIT, false), 3);
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.LIT, false));
+                pLevel.setBlockAndUpdate(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT).setValue(BlockStateProperties.LIT, false));
+                pLevel.setBlockAndUpdate(pPos.offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_LEFT).setValue(BlockStateProperties.LIT, false));
+                pLevel.setBlockAndUpdate(pPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_RIGHT).setValue(BlockStateProperties.LIT, false));
+                pLevel.setBlockAndUpdate(pPos.above(), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_LEFT).setValue(BlockStateProperties.LIT, false));
+                pLevel.setBlockAndUpdate(pPos.above().offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_RIGHT).setValue(BlockStateProperties.LIT, false));
+                pLevel.setBlockAndUpdate(pPos.above().offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_LEFT).setValue(BlockStateProperties.LIT, false));
+                pLevel.setBlockAndUpdate(pPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_RIGHT).setValue(BlockStateProperties.LIT, false));
             }
 
             if (pBlockEntity.hasRecipe() && pState.getValue(BlockStateProperties.LIT)) {
+                pBlockEntity.progress++;
                 if (pBlockEntity.progress >= pBlockEntity.maxProgress) {
                     pBlockEntity.craftItem();
-                    pBlockEntity.setChanged();
                 }
-
-                pBlockEntity.progress++;
-                pBlockEntity.setChanged();
             } else {
                 pBlockEntity.resetProgress();
-                pBlockEntity.setChanged();
             }
+        }
+    }
+
+    public void update(BlockPos pPos, BlockState pState) {
+        var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+        if (this.getLevel() != null) {
+            this.getLevel().sendBlockUpdated(pPos, pState, pState, 3);
+            this.getLevel().updateNeighbourForOutputSignal(pPos.offset(facing.getCounterClockWise().getNormal()), pState.getBlock());
+            this.getLevel().updateNeighbourForOutputSignal(pPos.offset(facing.getOpposite().getNormal()), pState.getBlock());
+            this.getLevel().updateNeighbourForOutputSignal(pPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.getBlock());
+            this.getLevel().updateNeighbourForOutputSignal(pPos.above(), pState.getBlock());
+            this.getLevel().updateNeighbourForOutputSignal(pPos.above().offset(facing.getCounterClockWise().getNormal()), pState.getBlock());
+            this.getLevel().updateNeighbourForOutputSignal(pPos.above().offset(facing.getOpposite().getNormal()), pState.getBlock());
+            this.getLevel().updateNeighbourForOutputSignal(pPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.getBlock());
+            this.setChanged();
         }
     }
 
