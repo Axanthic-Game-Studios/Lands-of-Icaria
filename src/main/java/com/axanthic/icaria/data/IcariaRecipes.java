@@ -1640,10 +1640,8 @@ public class IcariaRecipes extends RecipeProvider {
 	}
 
 	public void planksRecipe(Consumer<FinishedRecipe> pConsumer, Item pWood, Item pWoodStripped, Item pLog, Item pLogStripped, Item pResult) {
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 4)
-			.pattern("XX")
-			.pattern("XX")
-			.define('X', Ingredient.of(pWood, pWoodStripped, pLog, pLogStripped))
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 4)
+			.requires(Ingredient.of(pWood, pWoodStripped, pLog, pLogStripped))
 			.unlockedBy("has_" + pWood, RecipeProvider.has(pWood))
 			.unlockedBy("has_" + pWoodStripped, RecipeProvider.has(pWoodStripped))
 			.unlockedBy("has_" + pLog, RecipeProvider.has(pLog))

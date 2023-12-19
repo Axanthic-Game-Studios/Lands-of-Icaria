@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "X": [
+  "ingredients": [
+    [
       {
         "item": "landsoficaria:populus_wood"
       },
@@ -16,14 +16,9 @@
         "item": "landsoficaria:stripped_populus_log"
       }
     ]
-  },
-  "pattern": [
-    "XX",
-    "XX"
   ],
   "result": {
     "count": 4,
     "item": "landsoficaria:populus_planks"
-  },
-  "show_notification": true
+  }
 }
