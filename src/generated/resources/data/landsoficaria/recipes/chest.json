@@ -3,14 +3,11 @@
   "category": "misc",
   "key": {
     "X": {
-      "item": "landsoficaria:laurel_planks"
-    },
-    "Y": {
-      "item": "landsoficaria:stripped_laurel_log"
+      "item": "landsoficaria:stripped_laurel_wood"
     }
   },
   "pattern": [
-    "XYX",
+    "XXX",
     "X X",
     "XXX"
   ],

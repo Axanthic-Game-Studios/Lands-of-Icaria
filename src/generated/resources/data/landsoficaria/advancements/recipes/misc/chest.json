@@ -1,24 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_laurel_planks": {
+    "has_stripped_laurel_wood": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:laurel_planks"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_stripped_laurel_log": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:stripped_laurel_log"
+              "landsoficaria:stripped_laurel_wood"
             ]
           }
         ]
@@ -34,8 +22,7 @@
   },
   "requirements": [
     [
-      "has_laurel_planks",
-      "has_stripped_laurel_log",
+      "has_stripped_laurel_wood",
       "has_the_recipe"
     ]
   ],

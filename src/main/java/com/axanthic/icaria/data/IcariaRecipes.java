@@ -961,13 +961,11 @@ public class IcariaRecipes extends RecipeProvider {
 			.save(pConsumer, IcariaItems.FORGE.getId());
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.CHEST.get())
-			.pattern("XYX")
+			.pattern("XXX")
 			.pattern("X X")
 			.pattern("XXX")
-			.define('X', IcariaItems.LAUREL_PLANKS.get())
-			.define('Y', IcariaItems.STRIPPED_LAUREL_LOG.get())
-			.unlockedBy("has_" + IcariaItems.LAUREL_PLANKS.get(), RecipeProvider.has(IcariaItems.LAUREL_PLANKS.get()))
-			.unlockedBy("has_" + IcariaItems.STRIPPED_LAUREL_LOG.get(), RecipeProvider.has(IcariaItems.STRIPPED_LAUREL_LOG.get()))
+			.define('X', IcariaItems.STRIPPED_LAUREL_WOOD.get())
+			.unlockedBy("has_" + IcariaItems.STRIPPED_LAUREL_WOOD.get(), RecipeProvider.has(IcariaItems.STRIPPED_LAUREL_WOOD.get()))
 			.save(pConsumer, IcariaItems.CHEST.getId());
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.TRAPPED_CHEST.get())
