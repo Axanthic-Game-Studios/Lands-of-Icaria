@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_populus_planks": {
+    "has_stripped_laurel_wood": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:populus_planks"
+              "landsoficaria:stripped_laurel_wood"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:populus_planks_small_compress"
+        "recipe": "landsoficaria:stripped_laurel_wood_small_compress"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_populus_planks",
+      "has_stripped_laurel_wood",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:populus_planks_small_compress"
+      "landsoficaria:stripped_laurel_wood_small_compress"
     ]
   },
   "sends_telemetry_event": false

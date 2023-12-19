@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_fir_planks": {
+    "has_stripped_plane_wood": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:fir_planks"
+              "landsoficaria:stripped_plane_wood"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fir_planks_small_compress"
+        "recipe": "landsoficaria:stripped_plane_wood_small_compress"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_fir_planks",
+      "has_stripped_plane_wood",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:fir_planks_small_compress"
+      "landsoficaria:stripped_plane_wood_small_compress"
     ]
   },
   "sends_telemetry_event": false

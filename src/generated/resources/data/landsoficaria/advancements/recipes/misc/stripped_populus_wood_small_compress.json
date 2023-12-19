@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_plane_planks": {
+    "has_stripped_populus_wood": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:plane_planks"
+              "landsoficaria:stripped_populus_wood"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:plane_planks_small_compress"
+        "recipe": "landsoficaria:stripped_populus_wood_small_compress"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_plane_planks",
+      "has_stripped_populus_wood",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:plane_planks_small_compress"
+      "landsoficaria:stripped_populus_wood_small_compress"
     ]
   },
   "sends_telemetry_event": false

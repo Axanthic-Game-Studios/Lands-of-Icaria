@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "X": {
-      "item": "landsoficaria:droughtroot_planks"
+      "item": "landsoficaria:stripped_populus_wood"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
     "XX"
   ],
   "result": {
-    "item": "landsoficaria:droughtroot_crafting_table"
+    "item": "landsoficaria:populus_crafting_table"
   },
   "show_notification": true
 }

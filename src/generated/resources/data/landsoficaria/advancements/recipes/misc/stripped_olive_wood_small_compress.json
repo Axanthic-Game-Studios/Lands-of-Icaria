@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cypress_planks": {
+    "has_stripped_olive_wood": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:cypress_planks"
+              "landsoficaria:stripped_olive_wood"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cypress_planks_small_compress"
+        "recipe": "landsoficaria:stripped_olive_wood_small_compress"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_cypress_planks",
+      "has_stripped_olive_wood",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:cypress_planks_small_compress"
+      "landsoficaria:stripped_olive_wood_small_compress"
     ]
   },
   "sends_telemetry_event": false
