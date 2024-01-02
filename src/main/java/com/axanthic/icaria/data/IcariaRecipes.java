@@ -370,6 +370,15 @@ public class IcariaRecipes extends RecipeProvider {
 		this.smeltingRecipe(pConsumer, IcariaItems.CARDON_CACTUS.get(), Items.GREEN_DYE, 1.0F, 200);
 		this.smeltingRecipe(pConsumer, IcariaItems.SPELT_FLOUR.get(), IcariaItems.SPELT_BREAD.get(), 0.3F, 200);
 
+		this.adobeRecipe(pConsumer, IcariaItems.MARL.get(), IcariaItems.MARL_ADOBE.get());
+		this.adobeRecipe(pConsumer, IcariaItems.DOLOMITE.get(), IcariaItems.DOLOMITE_ADOBE.get());
+		this.adobeRecipe(pConsumer, IcariaItems.GRAINITE.get(), IcariaItems.GRAINITE_ADOBE.get());
+		this.adobeRecipe(pConsumer, IcariaItems.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_ADOBE.get());
+		this.adobeRecipe(pConsumer, IcariaItems.SILKSTONE.get(), IcariaItems.SILKSTONE_ADOBE.get());
+		this.adobeRecipe(pConsumer, IcariaItems.SUNSTONE.get(), IcariaItems.SUNSTONE_ADOBE.get());
+		this.adobeRecipe(pConsumer, IcariaItems.VOIDSHALE.get(), IcariaItems.VOIDSHALE_ADOBE.get());
+		this.adobeRecipe(pConsumer, IcariaItems.BAETYL.get(), IcariaItems.BAETYL_ADOBE.get());
+
 		this.smallCompressDecompressRecipes(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM.get());
 		this.smallCompressDecompressRecipes(pConsumer, IcariaItems.VINE_SPROUT.get(), IcariaItems.VINE_SPROUT_BLOCK.get());
 
@@ -1480,6 +1489,20 @@ public class IcariaRecipes extends RecipeProvider {
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(pResource), RecipeCategory.MISC, pResult, pExperience, pTime)
 			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_smelting");
+	}
+
+	public void adobeRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult) {
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 4)
+			.pattern("XYX")
+			.pattern("YZY")
+			.pattern("XYX")
+			.define('X', IcariaItems.SPELT.get())
+			.define('Y', IcariaItems.LOAM_LUMP.get())
+			.define('Z', pResource)
+			.unlockedBy("has_" + IcariaItems.SPELT.get(), RecipeProvider.has(IcariaItems.SPELT.get()))
+			.unlockedBy("has_" + IcariaItems.LOAM_LUMP.get(), RecipeProvider.has(IcariaItems.LOAM_LUMP.get()))
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult));
 	}
 
 	public void smallCompressDecompressRecipes(Consumer<FinishedRecipe> pConsumer, Item pUncompressed, Item pCompressed) {

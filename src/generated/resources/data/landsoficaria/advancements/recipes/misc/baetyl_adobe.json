@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cobbled_baetyl": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:cobbled_baetyl"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_loam_lump": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:loam_lump"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_spelt": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:spelt"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:baetyl_adobe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_spelt",
+      "has_loam_lump",
+      "has_cobbled_baetyl",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:baetyl_adobe"
+    ]
+  },
+  "sends_telemetry_event": false
+}

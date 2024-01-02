@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:spelt"
+    },
+    "Y": {
+      "item": "landsoficaria:loam_lump"
+    },
+    "Z": {
+      "item": "landsoficaria:cobbled_silkstone"
+    }
+  },
+  "pattern": [
+    "XYX",
+    "YZY",
+    "XYX"
+  ],
+  "result": {
+    "count": 4,
+    "item": "landsoficaria:silkstone_adobe"
+  },
+  "show_notification": true
+}
