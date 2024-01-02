@@ -373,11 +373,11 @@ public class IcariaRecipes extends RecipeProvider {
 		this.adobeRecipe(pConsumer, IcariaItems.MARL.get(), IcariaItems.MARL_ADOBE.get());
 		this.adobeRecipe(pConsumer, IcariaItems.DOLOMITE.get(), IcariaItems.DOLOMITE_ADOBE.get());
 		this.adobeRecipe(pConsumer, IcariaItems.GRAINITE.get(), IcariaItems.GRAINITE_ADOBE.get());
-		this.adobeRecipe(pConsumer, IcariaItems.YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_ADOBE.get());
-		this.adobeRecipe(pConsumer, IcariaItems.SILKSTONE.get(), IcariaItems.SILKSTONE_ADOBE.get());
-		this.adobeRecipe(pConsumer, IcariaItems.SUNSTONE.get(), IcariaItems.SUNSTONE_ADOBE.get());
-		this.adobeRecipe(pConsumer, IcariaItems.VOIDSHALE.get(), IcariaItems.VOIDSHALE_ADOBE.get());
-		this.adobeRecipe(pConsumer, IcariaItems.BAETYL.get(), IcariaItems.BAETYL_ADOBE.get());
+		this.adobeRecipe(pConsumer, IcariaItems.COBBLED_YELLOWSTONE.get(), IcariaItems.YELLOWSTONE_ADOBE.get());
+		this.adobeRecipe(pConsumer, IcariaItems.COBBLED_SILKSTONE.get(), IcariaItems.SILKSTONE_ADOBE.get());
+		this.adobeRecipe(pConsumer, IcariaItems.COBBLED_SUNSTONE.get(), IcariaItems.SUNSTONE_ADOBE.get());
+		this.adobeRecipe(pConsumer, IcariaItems.COBBLED_VOIDSHALE.get(), IcariaItems.VOIDSHALE_ADOBE.get());
+		this.adobeRecipe(pConsumer, IcariaItems.COBBLED_BAETYL.get(), IcariaItems.BAETYL_ADOBE.get());
 
 		this.smallCompressDecompressRecipes(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM.get());
 		this.smallCompressDecompressRecipes(pConsumer, IcariaItems.VINE_SPROUT.get(), IcariaItems.VINE_SPROUT_BLOCK.get());
