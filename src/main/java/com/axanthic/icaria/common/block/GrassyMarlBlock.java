@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.properties.Moss;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaPlacedFeatures;
@@ -21,7 +22,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.lighting.BlockLightEngine;
 
 import net.minecraftforge.common.IPlantable;
@@ -38,13 +38,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class GrassyMarlBlock extends Block implements BonemealableBlock {
 	public GrassyMarlBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.FOREST_MOSS, false).setValue(IcariaBlockStateProperties.SCRUBLAND_MOSS, false).setValue(IcariaBlockStateProperties.STEPPE_MOSS, false));
+		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.MOSS, Moss.NONE));
 	}
 
 	public boolean canBeGrass(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		var abovePos = pPos.above();
 		var aboveState = pLevel.getBlockState(abovePos);
-		if ((aboveState.is(IcariaBlocks.FOREST_MOSS.get()) || aboveState.is(IcariaBlocks.SCRUBLAND_MOSS.get()) || aboveState.is(IcariaBlocks.STEPPE_MOSS.get())) && aboveState.getValue(BlockStateProperties.LAYERS) == 1) {
+		if (aboveState.is(IcariaBlocks.FOREST_MOSS.get()) || aboveState.is(IcariaBlocks.SCRUBLAND_MOSS.get()) || aboveState.is(IcariaBlocks.STEPPE_MOSS.get())) {
 			return true;
 		} else if (aboveState.getFluidState().getAmount() == 8) {
 			return false;
@@ -90,7 +90,7 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(IcariaBlockStateProperties.FOREST_MOSS, IcariaBlockStateProperties.SCRUBLAND_MOSS, IcariaBlockStateProperties.STEPPE_MOSS);
+		pBuilder.add(IcariaBlockStateProperties.MOSS);
 	}
 
 	@Override
@@ -126,28 +126,30 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 
 	@Override
 	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (!this.canBeGrass(pState, pLevel, pPos)) {
-			if (!pLevel.isAreaLoaded(pPos, 1)) {
-				return;
-			}
-
-			pLevel.setBlockAndUpdate(pPos, IcariaBlocks.MARL.get().defaultBlockState());
-		} else {
-			if (!pLevel.isAreaLoaded(pPos, 3)) {
-				return;
-			}
-
-			if (pLevel.getMaxLocalRawBrightness(pPos.above()) > 8) {
-				var blockState = this.defaultBlockState();
+		if (this.canBeGrass(pState, pLevel, pPos)) {
+			if (pLevel.isAreaLoaded(pPos, 3)) {
 				for (int i = 0; i < 4; ++i) {
+					var blockState = this.defaultBlockState();
 					var blockPos = pPos.offset(pRandom.nextInt(3) - 1, pRandom.nextInt(5) - 3, pRandom.nextInt(3) - 1);
+					var abovePos = blockPos.above();
 					if (this.canPropagate(blockState, pLevel, blockPos)) {
-						var abovePos = blockPos.above();
 						if (pLevel.getBlockState(blockPos).is(IcariaBlocks.MARL.get())) {
-							pLevel.setBlockAndUpdate(blockPos, blockState.setValue(IcariaBlockStateProperties.FOREST_MOSS, pLevel.getBlockState(abovePos).is(IcariaBlocks.FOREST_MOSS.get())).setValue(IcariaBlockStateProperties.SCRUBLAND_MOSS, pLevel.getBlockState(abovePos).is(IcariaBlocks.SCRUBLAND_MOSS.get())).setValue(IcariaBlockStateProperties.STEPPE_MOSS, pLevel.getBlockState(abovePos).is(IcariaBlocks.STEPPE_MOSS.get())));
+							if (pLevel.getBlockState(abovePos).is(IcariaBlocks.FOREST_MOSS.get())) {
+								pLevel.setBlockAndUpdate(blockPos, blockState.setValue(IcariaBlockStateProperties.MOSS, Moss.FOREST));
+							} else if (pLevel.getBlockState(abovePos).is(IcariaBlocks.SCRUBLAND_MOSS.get())) {
+								pLevel.setBlockAndUpdate(blockPos, blockState.setValue(IcariaBlockStateProperties.MOSS, Moss.SCRUBLAND));
+							} else if (pLevel.getBlockState(abovePos).is(IcariaBlocks.STEPPE_MOSS.get())) {
+								pLevel.setBlockAndUpdate(blockPos, blockState.setValue(IcariaBlockStateProperties.MOSS, Moss.STEPPE));
+							} else {
+								pLevel.setBlockAndUpdate(blockPos, blockState.setValue(IcariaBlockStateProperties.MOSS, Moss.NONE));
+							}
 						}
 					}
 				}
+			}
+		} else {
+			if (pLevel.isAreaLoaded(pPos, 1)) {
+				pLevel.setBlockAndUpdate(pPos, IcariaBlocks.MARL.get().defaultBlockState());
 			}
 		}
 	}
@@ -163,6 +165,18 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 
 	@Override
 	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-		return pDirection == Direction.UP ? pState.setValue(IcariaBlockStateProperties.FOREST_MOSS, pNeighborState.is(IcariaBlocks.FOREST_MOSS.get())).setValue(IcariaBlockStateProperties.SCRUBLAND_MOSS, pNeighborState.is(IcariaBlocks.SCRUBLAND_MOSS.get())).setValue(IcariaBlockStateProperties.STEPPE_MOSS, pNeighborState.is(IcariaBlocks.STEPPE_MOSS.get())) : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
-	}
+		if (pDirection == Direction.UP) {
+			if (pNeighborState.is(IcariaBlocks.FOREST_MOSS.get())) {
+				pLevel.setBlock(pCurrentPos, pState.setValue(IcariaBlockStateProperties.MOSS, Moss.FOREST), 3);
+			} else if (pNeighborState.is(IcariaBlocks.SCRUBLAND_MOSS.get())) {
+				pLevel.setBlock(pCurrentPos, pState.setValue(IcariaBlockStateProperties.MOSS, Moss.SCRUBLAND), 3);
+			} else if (pNeighborState.is(IcariaBlocks.STEPPE_MOSS.get())) {
+				pLevel.setBlock(pCurrentPos, pState.setValue(IcariaBlockStateProperties.MOSS, Moss.STEPPE), 3);
+			} else {
+				pLevel.setBlock(pCurrentPos, pState.setValue(IcariaBlockStateProperties.MOSS, Moss.NONE), 3);
+			}
+		}
+
+		return super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
+    }
 }

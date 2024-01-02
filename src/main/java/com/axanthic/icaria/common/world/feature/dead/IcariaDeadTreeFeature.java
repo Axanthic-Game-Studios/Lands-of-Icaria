@@ -1,6 +1,9 @@
 package com.axanthic.icaria.common.world.feature.dead;
 
 import com.axanthic.icaria.common.block.LayerBlock;
+import com.axanthic.icaria.common.properties.Moss;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import com.mojang.serialization.Codec;
 
@@ -24,12 +27,15 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     public Block moss;
     public Block twigs;
 
-    public IcariaDeadTreeFeature(Codec<NoneFeatureConfiguration> pCodec, Block pDead, Block pLog, Block pMoss, Block pTwigs) {
+    public Moss property;
+
+    public IcariaDeadTreeFeature(Codec<NoneFeatureConfiguration> pCodec, Block pDead, Block pLog, Block pMoss, Block pTwigs, Moss pProperty) {
         super(pCodec);
         this.dead = pDead;
         this.log = pLog;
         this.moss = pMoss;
         this.twigs = pTwigs;
+        this.property = pProperty;
     }
 
     @Override
@@ -157,6 +163,9 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     public void placeMoss(WorldGenLevel pLevel, BlockPos pPos, int pHeight) {
         if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP) && this.moss instanceof LayerBlock) {
             this.setBlock(pLevel, pPos, this.moss.defaultBlockState().setValue(BlockStateProperties.LAYERS, pHeight));
+            if (pLevel.getBlockState(pPos.below()).is(IcariaBlocks.GRASSY_MARL.get())) {
+                this.setBlock(pLevel, pPos.below(), IcariaBlocks.GRASSY_MARL.get().defaultBlockState().setValue(IcariaBlockStateProperties.MOSS, this.property));
+            }
         }
     }
 
