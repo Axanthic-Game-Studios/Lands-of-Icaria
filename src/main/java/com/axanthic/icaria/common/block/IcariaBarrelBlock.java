@@ -21,6 +21,8 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -179,6 +181,16 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
         var horizontalDirection = pContext.getHorizontalDirection();
         var nearestLookingDirection = pContext.getNearestLookingDirection();
         return nearestLookingDirection.equals(Direction.UP) ? this.defaultBlockState().setValue(IcariaBlockStateProperties.BARREL_FACING, Direction.UP).setValue(BlockStateProperties.HORIZONTAL_FACING, horizontalDirection.getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluidState == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluidState == Fluids.WATER) : this.defaultBlockState().setValue(IcariaBlockStateProperties.BARREL_FACING, nearestLookingDirection.getOpposite()).setValue(BlockStateProperties.HORIZONTAL_FACING, horizontalDirection.getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluidState == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluidState == Fluids.WATER);
+    }
+
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        return pState.setValue(IcariaBlockStateProperties.BARREL_FACING, pMirror.mirror(pState.getValue(IcariaBlockStateProperties.BARREL_FACING))).setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+    }
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRotation) {
+        return pState.setValue(IcariaBlockStateProperties.BARREL_FACING, pRotation.rotate(pState.getValue(IcariaBlockStateProperties.BARREL_FACING))).setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
     }
 
     @Override

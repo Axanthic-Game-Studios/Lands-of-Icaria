@@ -21,6 +21,19 @@ public enum Corner implements StringRepresentable {
         this.name = pName;
     }
 
+    public Corner getOpposite() {
+        return switch (this) {
+            case BOTTOM_FRONT_LEFT -> BOTTOM_FRONT_RIGHT;
+            case BOTTOM_FRONT_RIGHT -> BOTTOM_FRONT_LEFT;
+            case BOTTOM_BACK_LEFT -> BOTTOM_BACK_RIGHT;
+            case BOTTOM_BACK_RIGHT -> BOTTOM_BACK_LEFT;
+            case TOP_FRONT_LEFT -> TOP_FRONT_RIGHT;
+            case TOP_FRONT_RIGHT -> TOP_FRONT_LEFT;
+            case TOP_BACK_LEFT -> TOP_BACK_RIGHT;
+            case TOP_BACK_RIGHT -> TOP_BACK_LEFT;
+        };
+    }
+
     @Override
     public String toString() {
         return this.name;

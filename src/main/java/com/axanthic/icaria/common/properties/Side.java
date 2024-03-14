@@ -15,6 +15,13 @@ public enum Side implements StringRepresentable {
         this.name = pName;
     }
 
+    public Side getOpposite() {
+        return switch (this) {
+            case LEFT -> RIGHT;
+            case RIGHT -> LEFT;
+        };
+    }
+
     @Override
     public String toString() {
         return this.name;

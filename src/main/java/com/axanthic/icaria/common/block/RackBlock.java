@@ -24,9 +24,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -196,6 +194,16 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
         var fluidState = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
         var horizontalDirection = pContext.getHorizontalDirection();
         return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, horizontalDirection.getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluidState == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluidState == Fluids.WATER);
+    }
+
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+    }
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRotation) {
+        return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
     }
 
     @Override

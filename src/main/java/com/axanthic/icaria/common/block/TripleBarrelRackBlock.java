@@ -16,6 +16,8 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -109,6 +111,17 @@ public class TripleBarrelRackBlock extends Block {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        var state = pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+        return pMirror == Mirror.NONE ? state : state.setValue(IcariaBlockStateProperties.CORNER, state.getValue(IcariaBlockStateProperties.CORNER).getOpposite());
+    }
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRotation) {
+        return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
     }
 
     @Override

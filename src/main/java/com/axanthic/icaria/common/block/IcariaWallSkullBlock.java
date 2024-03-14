@@ -57,7 +57,7 @@ public class IcariaWallSkullBlock extends IcariaAbstractSkullBlock {
 
     @Override
     public BlockState mirror(BlockState pState, Mirror pMirror) {
-        return pState.rotate(pMirror.getRotation(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+        return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
     }
 
     @Override

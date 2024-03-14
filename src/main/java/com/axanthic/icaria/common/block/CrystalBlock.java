@@ -89,6 +89,16 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Medit
 	}
 
 	@Override
+	public BlockState mirror(BlockState pState, Mirror pMirror) {
+		return pState.setValue(BlockStateProperties.FACING, pMirror.mirror(pState.getValue(BlockStateProperties.FACING)));
+	}
+
+	@Override
+	public BlockState rotate(BlockState pState, Rotation pRotation) {
+		return pState.setValue(BlockStateProperties.FACING, pRotation.rotate(pState.getValue(BlockStateProperties.FACING)));
+	}
+
+	@Override
 	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
 		return pDirection == pState.getValue(BlockStateProperties.FACING).getOpposite() && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 	}
