@@ -724,7 +724,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 		this.tag(IcariaBlockTags.DROUGHTROOT_RACKS)
 			.add(IcariaBlocks.SIMPLE_DROUGHTROOT_RACK.get())
-			.add(IcariaBlocks.DROUGHTROOT_PLANKS.get());
+			.add(IcariaBlocks.DROUGHTROOT_RACK.get());
 
 		this.tag(IcariaBlockTags.FIR_RACKS)
 			.add(IcariaBlocks.SIMPLE_FIR_RACK.get())
