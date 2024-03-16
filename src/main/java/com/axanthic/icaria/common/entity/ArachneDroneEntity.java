@@ -230,8 +230,8 @@ public class ArachneDroneEntity extends ArachneEntity {
 
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        this.setSize(this.maxSize);
-        this.setTick(this.maxTick);
+        this.setSize(this.random.nextIntBetweenInclusive(this.minSize, this.maxSize));
+        this.setTick(this.random.nextIntBetweenInclusive(this.minTick, this.maxTick));
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
 }
