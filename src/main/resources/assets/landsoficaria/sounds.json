@@ -1,14 +1,15 @@
 {
   "block.barrel.break": {
     "sounds": [
+      "landsoficaria:block/barrel/break_00",
       "landsoficaria:block/barrel/break_01",
       "landsoficaria:block/barrel/break_02",
-      "landsoficaria:block/barrel/break_03",
-      "landsoficaria:block/barrel/break_04"
+      "landsoficaria:block/barrel/break_03"
     ]
   },
   "block.grinder.grind": {
     "sounds": [
+      "landsoficaria:block/grinder/grind_00",
       "landsoficaria:block/grinder/grind_01",
       "landsoficaria:block/grinder/grind_02",
       "landsoficaria:block/grinder/grind_03",
@@ -38,115 +39,114 @@
       "landsoficaria:block/grinder/grind_27",
       "landsoficaria:block/grinder/grind_28",
       "landsoficaria:block/grinder/grind_29",
-      "landsoficaria:block/grinder/grind_30",
-      "landsoficaria:block/grinder/grind_31"
+      "landsoficaria:block/grinder/grind_30"
     ]
   },
   "block.kettle.concoct": {
     "sounds": [
+      "landsoficaria:block/kettle/concoct_00",
       "landsoficaria:block/kettle/concoct_01",
       "landsoficaria:block/kettle/concoct_02",
-      "landsoficaria:block/kettle/concoct_03",
-      "landsoficaria:block/kettle/concoct_04"
+      "landsoficaria:block/kettle/concoct_03"
     ]
   },
   "block.vase.break": {
     "sounds": [
+      "landsoficaria:block/vase/break_00",
       "landsoficaria:block/vase/break_01",
       "landsoficaria:block/vase/break_02",
-      "landsoficaria:block/vase/break_03",
-      "landsoficaria:block/vase/break_04"
+      "landsoficaria:block/vase/break_03"
     ]
   },
   "entity.captain_revenant.death": {
     "sounds": [
-      "landsoficaria:entity/captain_revenant/death_01"
+      "landsoficaria:entity/captain_revenant/death_00"
     ]
   },
   "entity.captain_revenant.hurt": {
     "sounds": [
+      "landsoficaria:entity/captain_revenant/hurt_00",
       "landsoficaria:entity/captain_revenant/hurt_01",
-      "landsoficaria:entity/captain_revenant/hurt_02",
-      "landsoficaria:entity/captain_revenant/hurt_03"
+      "landsoficaria:entity/captain_revenant/hurt_02"
     ]
   },
   "entity.captain_revenant.rally": {
     "sounds": [
-      "landsoficaria:entity/captain_revenant/rally_01"
+      "landsoficaria:entity/captain_revenant/rally_00"
     ]
   },
   "entity.captain_revenant.step": {
     "sounds": [
+      "landsoficaria:entity/captain_revenant/step_00",
       "landsoficaria:entity/captain_revenant/step_01",
       "landsoficaria:entity/captain_revenant/step_02",
-      "landsoficaria:entity/captain_revenant/step_03",
-      "landsoficaria:entity/captain_revenant/step_04"
+      "landsoficaria:entity/captain_revenant/step_03"
     ]
   },
   "entity.pyromancer_revenant.ambient": {
     "sounds": [
+      "landsoficaria:entity/pyromancer_revenant/ambient_00",
       "landsoficaria:entity/pyromancer_revenant/ambient_01",
-      "landsoficaria:entity/pyromancer_revenant/ambient_02",
-      "landsoficaria:entity/pyromancer_revenant/ambient_03"
+      "landsoficaria:entity/pyromancer_revenant/ambient_02"
     ]
   },
   "entity.soldier_revenant.death": {
     "sounds": [
-      "landsoficaria:entity/soldier_revenant/death_01"
+      "landsoficaria:entity/soldier_revenant/death_00"
     ]
   },
   "entity.soldier_revenant.hurt": {
     "sounds": [
+      "landsoficaria:entity/soldier_revenant/hurt_00",
       "landsoficaria:entity/soldier_revenant/hurt_01",
-      "landsoficaria:entity/soldier_revenant/hurt_02",
-      "landsoficaria:entity/soldier_revenant/hurt_03"
+      "landsoficaria:entity/soldier_revenant/hurt_02"
     ]
   },
   "entity.soldier_revenant.step": {
     "sounds": [
+      "landsoficaria:entity/soldier_revenant/step_00",
       "landsoficaria:entity/soldier_revenant/step_01",
       "landsoficaria:entity/soldier_revenant/step_02",
-      "landsoficaria:entity/soldier_revenant/step_03",
-      "landsoficaria:entity/soldier_revenant/step_04"
+      "landsoficaria:entity/soldier_revenant/step_03"
     ]
   },
   "entity.revenant.ambient": {
     "sounds": [
+      "landsoficaria:entity/revenant/ambient_00",
       "landsoficaria:entity/revenant/ambient_01",
-      "landsoficaria:entity/revenant/ambient_02",
-      "landsoficaria:entity/revenant/ambient_03"
+      "landsoficaria:entity/revenant/ambient_02"
     ]
   },
   "entity.revenant.death": {
     "sounds": [
-      "landsoficaria:entity/revenant/death_01"
+      "landsoficaria:entity/revenant/death_00"
     ]
   },
   "entity.revenant.hurt": {
     "sounds": [
+      "landsoficaria:entity/revenant/hurt_00",
       "landsoficaria:entity/revenant/hurt_01",
-      "landsoficaria:entity/revenant/hurt_02",
-      "landsoficaria:entity/revenant/hurt_03"
+      "landsoficaria:entity/revenant/hurt_02"
     ]
   },
   "entity.scorpion.ambient": {
     "sounds": [
+      "landsoficaria:entity/scorpion/ambient_00",
       "landsoficaria:entity/scorpion/ambient_01",
       "landsoficaria:entity/scorpion/ambient_02",
-      "landsoficaria:entity/scorpion/ambient_03",
-      "landsoficaria:entity/scorpion/ambient_04"
+      "landsoficaria:entity/scorpion/ambient_03"
     ]
   },
   "entity.scorpion.death": {
     "sounds": [
-      "landsoficaria:entity/scorpion/death_01"
+      "landsoficaria:entity/scorpion/death_00"
     ]
   },
   "entity.scorpion.hurt": {
     "sounds": [
+      "landsoficaria:entity/scorpion/hurt_00",
       "landsoficaria:entity/scorpion/hurt_01",
-      "landsoficaria:entity/scorpion/hurt_02",
-      "landsoficaria:entity/scorpion/hurt_03"
+      "landsoficaria:entity/scorpion/hurt_02"
     ]
   }
 }
