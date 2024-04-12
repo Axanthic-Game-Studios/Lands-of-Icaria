@@ -1,78 +1,74 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.handler.StorageVaseItemStackHandler;
+import com.axanthic.icaria.common.menu.StorageVaseMenu;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
+import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.Containers;
-import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemHandlerHelper;
-import net.minecraftforge.items.ItemStackHandler;
-
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class StorageVaseBlockEntity extends BlockEntity {
+public class StorageVaseBlockEntity extends RandomizableContainerBlockEntity {
 	public int size = 32;
 
-	public ItemStackHandler stackHandler = new StorageVaseItemStackHandler(this.size, this);
+	public NonNullList<ItemStack> items = NonNullList.withSize(this.size, ItemStack.EMPTY);
 
-	public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> this.stackHandler);
-
-	public SimpleContainer simpleContainer = new SimpleContainer(this.size);
-
-	public StorageVaseBlockEntity(BlockPos pPos, BlockState pState) {
-		super(IcariaBlockEntityTypes.STORAGE_VASE.get(), pPos, pState);
+	public StorageVaseBlockEntity(BlockPos pPos, BlockState pBlockState) {
+		super(IcariaBlockEntityTypes.STORAGE_VASE.get(), pPos, pBlockState);
 	}
 
-	public int getComparatorInput() {
-		return this.itemHandler.map(ItemHandlerHelper::calcRedstoneFromInventory).orElse(0);
-	}
-
-	public void drops(Level pLevel) {
-		for (int i = 0; i < this.size; i++) {
-			this.simpleContainer.setItem(i, stackHandler.getStackInSlot(i));
-		}
-
-		Containers.dropContents(pLevel, this.worldPosition, this.simpleContainer);
+	@Override
+	public int getContainerSize() {
+		return this.size;
 	}
 
 	@Override
 	public void load(CompoundTag pTag) {
 		super.load(pTag);
-		if (pTag.contains("Inventory")) {
-			this.stackHandler.deserializeNBT(pTag.getCompound("Inventory"));
+		this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
+		if (!this.tryLoadLootTable(pTag)) {
+			ContainerHelper.loadAllItems(pTag, this.items);
 		}
 	}
 
 	@Override
 	public void saveAdditional(CompoundTag pTag) {
 		super.saveAdditional(pTag);
-		pTag.put("Inventory", this.stackHandler.serializeNBT());
+		if (!this.trySaveLootTable(pTag)) {
+			ContainerHelper.saveAllItems(pTag, this.items);
+		}
 	}
 
 	@Override
-	public void setRemoved() {
-		super.setRemoved();
-		this.itemHandler.invalidate();
+	public void setItems(NonNullList<ItemStack> pItems) {
+		this.items = pItems;
 	}
 
 	@Override
-	public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
-		return pCapability == ForgeCapabilities.ITEM_HANDLER ? this.itemHandler.cast() : super.getCapability(pCapability, pDirection);
+	public AbstractContainerMenu createMenu(int pId, Inventory pPlayer) {
+		return new StorageVaseMenu(pId, this.worldPosition, pPlayer, pPlayer.player);
+	}
+
+	@Override
+	public Component getDefaultName() {
+		return Component.translatable("menu" + "." + IcariaInfo.ID + "." + "storage_vase");
+	}
+
+	@Override
+	public NonNullList<ItemStack> getItems() {
+		return this.items;
 	}
 }

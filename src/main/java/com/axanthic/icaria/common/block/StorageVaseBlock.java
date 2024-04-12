@@ -8,9 +8,11 @@ import com.axanthic.icaria.common.registry.IcariaFluids;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -50,7 +52,7 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 
 	@Override
 	public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
-		return (pLevel.getBlockEntity(pPos) instanceof StorageVaseBlockEntity entity) ? entity.getComparatorInput() : 0;
+		return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(pLevel.getBlockEntity(pPos));
 	}
 
 	@Override
@@ -62,7 +64,8 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
 		if (pState.getBlock() != pNewState.getBlock()) {
 			if (pLevel.getBlockEntity(pPos) instanceof StorageVaseBlockEntity blockEntity) {
-				blockEntity.drops(pLevel);
+				Containers.dropContents(pLevel, pPos, blockEntity);
+				pLevel.updateNeighbourForOutputSignal(pPos, this);
 			}
 		}
 
