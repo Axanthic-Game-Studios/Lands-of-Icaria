@@ -30,7 +30,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "title", "Goldmessing-Werkzeuge");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "title", "Das war mühlsame Arbeit!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "title", "Wie Essen für Pflanzen!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "salting" + "." + "title", "Total versalzen");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadinstahl-Werkzeuge");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "title", "Das ist keine Teekanne!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "title", "Schirbel-Werkzeuge");
@@ -48,7 +47,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "description", "Stelle eine Goldmessingspitzhacke her");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "description", "Stelle eine Mühle auf");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "description", "Dünge Ackerboden mit Calcit");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "salting" + "." + "description", "Füge Essen Salz hinzu");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "description", "Stelle eine Vanadinstahlspitzhacke her");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "description", "Stelle einen Kessel auf");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "description", "Stelle eine Schirbelspitzhacke her");

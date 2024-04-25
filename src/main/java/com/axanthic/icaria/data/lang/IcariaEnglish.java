@@ -30,7 +30,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "title", "Orichalcum Tools");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "title", "I had to grind for this!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "title", "It's Food for Plants!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "salting" + "." + "title", "Very salty");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadiumsteel Tools");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "title", "It's not a teapot!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "title", "Sideros Tools");
@@ -48,7 +47,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "description", "Craft a Orichalcum Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "description", "Place a Grinder");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "description", "Fertilize Farmland with Calcite");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "salting" + "." + "description", "Add salt to food");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "description", "Craft a Vanadiumsteel Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "description", "Place a Kettle");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "description", "Craft a Sideros Pickaxe");
