@@ -366,10 +366,8 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.RED_LOOT_VASE.get(), "Red Loot Vase");
 		this.add(IcariaBlocks.CYAN_LOOT_VASE.get(), "Cyan Loot Vase");
 
-		this.add(IcariaBlocks.DUNGEON_SPAWNER.get(), "Dungeon Spawner");
-		this.add(IcariaBlocks.MYRMEKE_SPAWNER.get(), "Myrmeke Spawner");
-		this.add(IcariaBlocks.RUIN_SPAWNER.get(), "Ruin Spawner");
-		this.add(IcariaBlocks.VILLAGE_SPAWNER.get(), "Village Spawner");
+		this.add(IcariaBlocks.ARACHNE_SPAWNER.get(), "Arachne Spawner");
+		this.add(IcariaBlocks.REVENANT_SPAWNER.get(), "Revenant Spawner");
 
 		this.add(IcariaBlocks.AETERNAE_SKULL.get(), "Aeternae Skull");
 		this.add(IcariaBlocks.ARGAN_HOUND_SKULL.get(), "Argan Hound Skull");

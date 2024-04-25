@@ -376,10 +376,8 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.RED_LOOT_VASE.get());
 			pEvent.accept(IcariaItems.CYAN_LOOT_VASE.get());
 
-			pEvent.accept(IcariaItems.DUNGEON_SPAWNER.get());
-			pEvent.accept(IcariaItems.MYRMEKE_SPAWNER.get());
-			pEvent.accept(IcariaItems.RUIN_SPAWNER.get());
-			pEvent.accept(IcariaItems.VILLAGE_SPAWNER.get());
+			pEvent.accept(IcariaItems.ARACHNE_SPAWNER.get());
+			pEvent.accept(IcariaItems.REVENANT_SPAWNER.get());
 
 			pEvent.accept(IcariaItems.AETERNAE_SKULL.get());
 			pEvent.accept(IcariaItems.ARGAN_HOUND_SKULL.get());
@@ -1120,10 +1118,8 @@ public class ClientProxy extends CommonProxy {
 		this.renderCutout(IcariaBlocks.VANADIUMSTEEL_BARS.get());
 		this.renderCutout(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 		this.renderCutout(IcariaBlocks.VANADIUMSTEEL_CHAIN.get());
-		this.renderCutout(IcariaBlocks.DUNGEON_SPAWNER.get());
-		this.renderCutout(IcariaBlocks.MYRMEKE_SPAWNER.get());
-		this.renderCutout(IcariaBlocks.RUIN_SPAWNER.get());
-		this.renderCutout(IcariaBlocks.VILLAGE_SPAWNER.get());
+		this.renderCutout(IcariaBlocks.ARACHNE_SPAWNER.get());
+		this.renderCutout(IcariaBlocks.REVENANT_SPAWNER.get());
 		this.renderCutout(IcariaBlocks.CYPRESS_SAPLING.get());
 		this.renderCutout(IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
 		this.renderCutout(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get());

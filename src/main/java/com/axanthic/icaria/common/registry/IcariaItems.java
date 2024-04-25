@@ -259,10 +259,8 @@ public class IcariaItems {
 	public static final RegistryObject<Item> RED_LOOT_VASE = IcariaItems.register("red_loot_vase", () -> new BlockItem(IcariaBlocks.RED_LOOT_VASE.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> CYAN_LOOT_VASE = IcariaItems.register("cyan_loot_vase", () -> new BlockItem(IcariaBlocks.CYAN_LOOT_VASE.get(), IcariaItems.propertiesItem()));
 
-	public static final RegistryObject<Item> DUNGEON_SPAWNER = IcariaItems.register("dungeon_spawner", () -> new BlockItem(IcariaBlocks.DUNGEON_SPAWNER.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> MYRMEKE_SPAWNER = IcariaItems.register("myrmeke_spawner", () -> new BlockItem(IcariaBlocks.MYRMEKE_SPAWNER.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> RUIN_SPAWNER = IcariaItems.register("ruin_spawner", () -> new BlockItem(IcariaBlocks.RUIN_SPAWNER.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> VILLAGE_SPAWNER = IcariaItems.register("village_spawner", () -> new BlockItem(IcariaBlocks.VILLAGE_SPAWNER.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> ARACHNE_SPAWNER = IcariaItems.register("arachne_spawner", () -> new BlockItem(IcariaBlocks.ARACHNE_SPAWNER.get(), IcariaItems.propertiesItem()));
+	public static final RegistryObject<Item> REVENANT_SPAWNER = IcariaItems.register("revenant_spawner", () -> new BlockItem(IcariaBlocks.REVENANT_SPAWNER.get(), IcariaItems.propertiesItem()));
 
 	public static final RegistryObject<Item> AETERNAE_SKULL = IcariaItems.register("aeternae_skull", () -> new IcariaSkullItem(IcariaBlocks.AETERNAE_SKULL.get(), IcariaBlocks.AETERNAE_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
 	public static final RegistryObject<Item> ARGAN_HOUND_SKULL = IcariaItems.register("argan_hound_skull", () -> new IcariaSkullItem(IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));

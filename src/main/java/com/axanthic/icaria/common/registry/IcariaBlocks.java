@@ -265,10 +265,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> RED_LOOT_VASE = IcariaBlocks.register("red_loot_vase", () -> new LootVaseBlock(IcariaBlocks.propertiesLootVase(MapColor.COLOR_RED, IcariaSoundTypes.VASE)));
 	public static final RegistryObject<Block> CYAN_LOOT_VASE = IcariaBlocks.register("cyan_loot_vase", () -> new LootVaseBlock(IcariaBlocks.propertiesLootVase(MapColor.COLOR_CYAN, IcariaSoundTypes.VASE)));
 
-	public static final RegistryObject<Block> DUNGEON_SPAWNER = IcariaBlocks.register("dungeon_spawner", () -> new IcariaSpawnerBlock(IcariaBlocks.propertiesSpawner(MapColor.COLOR_GRAY, SoundType.METAL)));
-	public static final RegistryObject<Block> MYRMEKE_SPAWNER = IcariaBlocks.register("myrmeke_spawner", () -> new IcariaSpawnerBlock(IcariaBlocks.propertiesSpawner(MapColor.COLOR_BROWN, SoundType.WOOD)));
-	public static final RegistryObject<Block> RUIN_SPAWNER = IcariaBlocks.register("ruin_spawner", () -> new IcariaSpawnerBlock(IcariaBlocks.propertiesSpawner(MapColor.COLOR_LIGHT_GRAY, SoundType.METAL)));
-	public static final RegistryObject<Block> VILLAGE_SPAWNER = IcariaBlocks.register("village_spawner", () -> new IcariaSpawnerBlock(IcariaBlocks.propertiesSpawner(MapColor.COLOR_GREEN, SoundType.METAL)));
+	public static final RegistryObject<Block> ARACHNE_SPAWNER = IcariaBlocks.register("arachne_spawner", () -> new IcariaSpawnerBlock(IcariaBlocks.propertiesSpawner(MapColor.COLOR_LIGHT_GRAY, SoundType.METAL)));
+	public static final RegistryObject<Block> REVENANT_SPAWNER = IcariaBlocks.register("revenant_spawner", () -> new IcariaSpawnerBlock(IcariaBlocks.propertiesSpawner(MapColor.COLOR_GREEN, SoundType.METAL)));
 
 	public static final RegistryObject<Block> AETERNAE_SKULL = IcariaBlocks.register("aeternae_skull", () -> new IcariaSkullBlock(0.0F, IcariaSkullBlockTypes.AETERNAE, IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE)));
 	public static final RegistryObject<Block> AETERNAE_WALL_SKULL = IcariaBlocks.register("aeternae_wall_skull", () -> new IcariaWallSkullBlock(0.03F, IcariaSkullBlockTypes.AETERNAE, IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE)));

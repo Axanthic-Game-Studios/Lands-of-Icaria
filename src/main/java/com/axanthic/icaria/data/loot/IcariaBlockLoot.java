@@ -340,10 +340,8 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropNone(IcariaBlocks.FORGE.get());
 		this.dropNone(IcariaBlocks.RED_LOOT_VASE.get());
 		this.dropNone(IcariaBlocks.CYAN_LOOT_VASE.get());
-		this.dropNone(IcariaBlocks.DUNGEON_SPAWNER.get());
-		this.dropNone(IcariaBlocks.MYRMEKE_SPAWNER.get());
-		this.dropNone(IcariaBlocks.RUIN_SPAWNER.get());
-		this.dropNone(IcariaBlocks.VILLAGE_SPAWNER.get());
+		this.dropNone(IcariaBlocks.ARACHNE_SPAWNER.get());
+		this.dropNone(IcariaBlocks.REVENANT_SPAWNER.get());
 		this.dropNone(IcariaBlocks.LAUREL_CHERRY_CAKE.get());
 		this.dropNone(IcariaBlocks.STRAWBERRY_CAKE.get());
 		this.dropNone(IcariaBlocks.PHYSALIS_CAKE.get());
