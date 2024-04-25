@@ -53,10 +53,14 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "description", "Stelle eine Molybdänstahlspitzhacke her");
 
 		// BIOMES
-		this.add("biome" + "." + IcariaInfo.ID + "." + "desert", "Ikarische Wüste");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "forest", "Ikarischer Wald");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "forest", "Ikarisches Waldplateau");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "forest_plateau", "Ikarischer Wald");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "scrubland", "Ikarisches Buschland");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "scrubland_plateau", "Ikarisches Buschlandplateau");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "steppe", "Ikarische Steppe");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "steppe_plateau", "Ikarisches Steppenplateau");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "desert", "Ikarische Wüste");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "desert_plateau", "Ikarisches Wüstenplateau");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "void", "Ikarische Leere");
 
 		// BLOCKS

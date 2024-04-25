@@ -53,10 +53,14 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "description", "Craft a Molybdenumsteel Pickaxe");
 
 		// BIOMES
-		this.add("biome" + "." + IcariaInfo.ID + "." + "desert", "Icarian Desert");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "forest", "Icarian Forest");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "forest_plateau", "Icarian Forest Plateau");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "scrubland", "Icarian Scrubland");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "scrubland_plateau", "Icarian Scrubland Plateau");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "steppe", "Icarian Steppe");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "steppe_plateau", "Icarian Steppe Plateau");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "desert", "Icarian Desert");
+		this.add("biome" + "." + IcariaInfo.ID + "." + "desert_plateau", "Icarian Desert Plateau");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "void", "Icarian Void");
 
 		// BLOCKS

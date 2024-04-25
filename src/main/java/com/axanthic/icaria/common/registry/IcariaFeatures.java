@@ -64,6 +64,8 @@ public class IcariaFeatures {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SWIRLY_VINE = IcariaFeatures.FEATURES.register("swirly_vine", () -> new SwirlyVineFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> THORNY_VINE = IcariaFeatures.FEATURES.register("thorny_vine", () -> new ThornyVineFeature(NoneFeatureConfiguration.CODEC));
 
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> VOIDLILY = IcariaFeatures.FEATURES.register("voidlily", () -> new VoidlilyFeature(NoneFeatureConfiguration.CODEC));
+
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> BOLBOS = IcariaFeatures.FEATURES.register("bolbos", () -> new BolbosFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> DATHULLA = IcariaFeatures.FEATURES.register("dathulla", () -> new DathullaFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> MONDANOS = IcariaFeatures.FEATURES.register("mondanos", () -> new MondanosFeature(NoneFeatureConfiguration.CODEC));

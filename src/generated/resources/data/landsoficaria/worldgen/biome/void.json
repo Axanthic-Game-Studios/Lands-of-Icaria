@@ -1,7 +1,5 @@
 {
-  "carvers": {
-    "air": "landsoficaria:void"
-  },
+  "carvers": {},
   "downfall": 0.0,
   "effects": {
     "fog_color": 14470514,
@@ -12,57 +10,16 @@
   },
   "features": [
     [],
-    [
-      "landsoficaria:lake",
-      "landsoficaria:dry_lake"
-    ],
+    [],
+    [],
+    [],
+    [],
     [],
     [],
     [],
     [],
     [
-      "landsoficaria:lignite_ore",
-      "landsoficaria:chalkos_ore",
-      "landsoficaria:kassiteros_ore",
-      "landsoficaria:dolomite_ore",
-      "landsoficaria:vanadium_ore",
-      "landsoficaria:sliver_ore",
-      "landsoficaria:sideros_ore",
-      "landsoficaria:anthracite_ore",
-      "landsoficaria:molybdenum_ore",
-      "landsoficaria:hyliastrum_ore"
-    ],
-    [],
-    [],
-    [
-      "landsoficaria:marl_chert",
-      "landsoficaria:marl_bones",
-      "landsoficaria:marl_lignite",
-      "landsoficaria:yellowstone_rubble",
-      "landsoficaria:silkstone_rubble",
-      "landsoficaria:sunstone_rubble",
-      "landsoficaria:voidshale_rubble",
-      "landsoficaria:baetyl_rubble",
-      "landsoficaria:calcite_crystal",
-      "landsoficaria:halite_crystal",
-      "landsoficaria:jasper_crystal",
-      "landsoficaria:zircon_crystal",
-      "landsoficaria:fern",
-      "landsoficaria:grass",
-      "landsoficaria:grain",
-      "landsoficaria:voidlily",
-      "landsoficaria:dathulla",
-      "landsoficaria:namdrake",
-      "landsoficaria:psilocybos",
-      "landsoficaria:blue_ground_flowers",
-      "landsoficaria:cyan_ground_flowers",
-      "landsoficaria:pink_ground_flowers",
-      "landsoficaria:purple_ground_flowers",
-      "landsoficaria:red_ground_flowers",
-      "landsoficaria:white_ground_flowers",
-      "landsoficaria:green_ground_shrooms",
-      "landsoficaria:brown_ground_shrooms",
-      "landsoficaria:large_brown_ground_shrooms"
+      "landsoficaria:voidlily"
     ]
   ],
   "has_precipitation": false,
@@ -100,38 +57,13 @@
         "maxCount": 5,
         "minCount": 3,
         "weight": 100
-      },
-      {
-        "type": "landsoficaria:crystal_slug",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:snull",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
       }
     ],
     "misc": [],
-    "monster": [
-      {
-        "type": "landsoficaria:argan_hound",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:cerver",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      }
-    ],
+    "monster": [],
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 1.0
+  "temperature": 0.0
 }

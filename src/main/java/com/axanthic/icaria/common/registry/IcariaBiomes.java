@@ -24,9 +24,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaBiomes {
 	public static final ResourceKey<Biome> FOREST = IcariaBiomes.registerKey("forest");
+	public static final ResourceKey<Biome> FOREST_PLATEAU = IcariaBiomes.registerKey("forest_plateau");
 	public static final ResourceKey<Biome> SCRUBLAND = IcariaBiomes.registerKey("scrubland");
+	public static final ResourceKey<Biome> SCRUBLAND_PLATEAU = IcariaBiomes.registerKey("scrubland_plateau");
 	public static final ResourceKey<Biome> STEPPE = IcariaBiomes.registerKey("steppe");
+	public static final ResourceKey<Biome> STEPPE_PLATEAU = IcariaBiomes.registerKey("steppe_plateau");
 	public static final ResourceKey<Biome> DESERT = IcariaBiomes.registerKey("desert");
+	public static final ResourceKey<Biome> DESERT_PLATEAU = IcariaBiomes.registerKey("desert_plateau");
 	public static final ResourceKey<Biome> VOID = IcariaBiomes.registerKey("void");
 
 	public static void bootstrap(BootstapContext<Biome> pContext) {
@@ -34,17 +38,19 @@ public class IcariaBiomes {
 		var placedFeatures = pContext.lookup(Registries.PLACED_FEATURE);
 
 		pContext.register(IcariaBiomes.FOREST, IcariaBiomes.forestBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.FOREST_PLATEAU, IcariaBiomes.forestBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.SCRUBLAND, IcariaBiomes.scrublandBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.SCRUBLAND_PLATEAU, IcariaBiomes.scrublandBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.STEPPE, IcariaBiomes.steppeBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.STEPPE_PLATEAU, IcariaBiomes.steppeBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.DESERT, IcariaBiomes.desertBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.DESERT_PLATEAU, IcariaBiomes.desertBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.VOID, IcariaBiomes.voidBiome(placedFeatures, configuredCarvers));
 	}
 
 	// FOREST
 
 	public static void forestBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaConfiguredCarvers.FOREST);
-
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 
@@ -91,6 +97,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PURPLE_STORMCOTTON);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.LIONFANGS);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.SPEARDROPS);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.VOIDLILY);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.DATHULLA);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MOTH_AGARIC);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.NAMDRAKE);
@@ -138,14 +145,12 @@ public class IcariaBiomes {
 		IcariaBiomes.forestBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.forestMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(0.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	// SCRUBLAND
 
 	public static void scrublandBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaConfiguredCarvers.SCRUBLAND);
-
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 
@@ -191,6 +196,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.FIREHILT);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BLUE_HYDRACINTH);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PURPLE_HYDRACINTH);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.VOIDLILY);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.DATHULLA);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.NAMDRAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PSILOCYBOS);
@@ -234,14 +240,12 @@ public class IcariaBiomes {
 		IcariaBiomes.scrublandBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.scrublandMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(0.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	// STEPPE
 
 	public static void steppeBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaConfiguredCarvers.STEPPE);
-
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 
@@ -287,6 +291,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.CLOVER);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PURPLE_STAGHORN);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.YELLOW_STAGHORN);
+		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.VOIDLILY);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.DATHULLA);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.NAMDRAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PSILOCYBOS);
@@ -330,14 +335,12 @@ public class IcariaBiomes {
 		IcariaBiomes.steppeBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.steppeMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(0.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	// DESERT
 
 	public static void desertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaConfiguredCarvers.DESERT);
-
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.GRAINITE_SPIKE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.FALLEN_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
@@ -398,56 +401,13 @@ public class IcariaBiomes {
 		IcariaBiomes.desertBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.desertMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(0.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	// VOID
 
 	public static void voidBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addCarver(GenerationStep.Carving.AIR, IcariaConfiguredCarvers.VOID);
-
-		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.LAKE);
-		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
-
-		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.LIGNITE_ORE);
-		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.CHALKOS_ORE);
-		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.KASSITEROS_ORE);
-		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.DOLOMITE_ORE);
-		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.VANADIUM_ORE);
-		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SLIVER_ORE);
-		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SIDEROS_ORE);
-		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.ANTHRACITE_ORE);
-		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.MOLYBDENUM_ORE);
-		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.HYLIASTRUM_ORE);
-
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MARL_CHERT);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MARL_BONES);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MARL_LIGNITE);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.YELLOWSTONE_RUBBLE);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.SILKSTONE_RUBBLE);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.SUNSTONE_RUBBLE);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.VOIDSHALE_RUBBLE);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BAETYL_RUBBLE);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.CALCITE_CRYSTAL);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.HALITE_CRYSTAL);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.JASPER_CRYSTAL);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.ZIRCON_CRYSTAL);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.FERN);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.GRASS);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.GRAIN);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.VOIDLILY);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.DATHULLA);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.NAMDRAKE);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PSILOCYBOS);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BLUE_GROUND_FLOWERS);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.CYAN_GROUND_FLOWERS);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PINK_GROUND_FLOWERS);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.PURPLE_GROUND_FLOWERS);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.RED_GROUND_FLOWERS);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.WHITE_GROUND_FLOWERS);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.GREEN_GROUND_SHROOMS);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.BROWN_GROUND_SHROOMS);
-		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.LARGE_BROWN_GROUND_SHROOMS);
 	}
 
 	public static void voidBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
@@ -460,11 +420,6 @@ public class IcariaBiomes {
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.NATURE_JELLYFISH.get(), 100, 3, 5));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.VOID_JELLYFISH.get(), 100, 3, 5));
 		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.WATER_JELLYFISH.get(), 100, 3, 5));
-		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CRYSTAL_SLUG.get(), 100, 1, 1));
-		pBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SNULL.get(), 100, 3, 5));
-
-		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 100, 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 100, 1, 3));
 	}
 
 	public static Biome voidBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
@@ -476,7 +431,7 @@ public class IcariaBiomes {
 		IcariaBiomes.voidBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.voidMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(0.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static ResourceKey<Biome> registerKey(String pName) {
