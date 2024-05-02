@@ -27,7 +27,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBiomeTags extends BiomeTagsProvider {
-	public static final TagKey<Biome> IS_VOID = IcariaBiomeTags.icariaTag("is_void");
+	public static final TagKey<Biome> FOREST_PLATEAU = IcariaBiomeTags.icariaTag("forest_plateau");
+	public static final TagKey<Biome> SCRUBLAND_PLATEAU = IcariaBiomeTags.icariaTag("scrubland_plateau");
+	public static final TagKey<Biome> STEPPE_PLATEAU = IcariaBiomeTags.icariaTag("steppe_plateau");
+	public static final TagKey<Biome> DESERT_PLATEAU = IcariaBiomeTags.icariaTag("desert_plateau");
 
 	public IcariaBiomeTags(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, IcariaRegistrySetBuilder pBuilder, String pId, ExistingFileHelper pHelper) {
 		super(pOutput, pProvider.thenApply(provider -> IcariaBiomeTags.append(provider, pBuilder)), pId, pHelper);
@@ -35,8 +38,10 @@ public class IcariaBiomeTags extends BiomeTagsProvider {
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
-		this.tag(IcariaBiomeTags.IS_VOID)
-			.add(IcariaBiomes.VOID);
+		this.tag(IcariaBiomeTags.FOREST_PLATEAU).add(IcariaBiomes.FOREST_PLATEAU);
+		this.tag(IcariaBiomeTags.SCRUBLAND_PLATEAU).add(IcariaBiomes.SCRUBLAND_PLATEAU);
+		this.tag(IcariaBiomeTags.STEPPE_PLATEAU).add(IcariaBiomes.STEPPE_PLATEAU);
+		this.tag(IcariaBiomeTags.DESERT_PLATEAU).add(IcariaBiomes.DESERT_PLATEAU);
 	}
 
 	public static HolderLookup.Provider append(HolderLookup.Provider pProvider, RegistrySetBuilder pBuilder) {

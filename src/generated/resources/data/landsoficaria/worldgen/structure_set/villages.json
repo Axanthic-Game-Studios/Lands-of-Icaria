@@ -1,0 +1,42 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1117821874,
+    "separation": 4,
+    "spacing": 8
+  },
+  "structures": [
+    {
+      "structure": "landsoficaria:villages/forest/eroded",
+      "weight": 1
+    },
+    {
+      "structure": "landsoficaria:villages/forest/ruined",
+      "weight": 1
+    },
+    {
+      "structure": "landsoficaria:villages/scrubland/eroded",
+      "weight": 1
+    },
+    {
+      "structure": "landsoficaria:villages/scrubland/ruined",
+      "weight": 1
+    },
+    {
+      "structure": "landsoficaria:villages/steppe/eroded",
+      "weight": 1
+    },
+    {
+      "structure": "landsoficaria:villages/steppe/ruined",
+      "weight": 1
+    },
+    {
+      "structure": "landsoficaria:villages/desert/eroded",
+      "weight": 1
+    },
+    {
+      "structure": "landsoficaria:villages/desert/ruined",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "values": [
+    "minecraft:flower_pot",
+    "minecraft:decorated_pot",
+    "landsoficaria:arachne_string_block",
+    "landsoficaria:spelt_bale_block",
+    "landsoficaria:vine_reed_block",
+    "landsoficaria:chert_block",
+    "landsoficaria:lignite_block",
+    "landsoficaria:red_storage_vase",
+    "landsoficaria:cyan_storage_vase",
+    "landsoficaria:red_loot_vase",
+    "landsoficaria:cyan_loot_vase",
+    "landsoficaria:arachne_spawner"
+  ]
+}

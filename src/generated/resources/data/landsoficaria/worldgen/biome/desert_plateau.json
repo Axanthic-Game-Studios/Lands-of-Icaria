@@ -14,12 +14,11 @@
     [],
     [],
     [
+      "landsoficaria:village",
       "landsoficaria:grainite_spike",
       "landsoficaria:fallen_relicstone_pillar",
       "landsoficaria:horizontal_relicstone_pillar",
-      "landsoficaria:vertical_relicstone_pillar",
-      "landsoficaria:path",
-      "landsoficaria:replace"
+      "landsoficaria:vertical_relicstone_pillar"
     ],
     [],
     [

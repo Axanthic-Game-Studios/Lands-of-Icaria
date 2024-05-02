@@ -58,8 +58,6 @@ public class Icaria {
 		IcariaStoneDecoBlocks.BLOCKS.register(eventBus);
 		IcariaWoodDecoBlocks.BLOCKS.register(eventBus);
 		IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(eventBus);
-		IcariaCarvers.CARVERS.register(eventBus);
-		IcariaChunkGenerators.CHUNK_GENERATORS.register(eventBus);
 		IcariaCreativeModeTabs.CREATIVE_MODE_TABS.register(eventBus);
 		IcariaEntityTypes.ENTITY_TYPES.register(eventBus);
 		IcariaFeatures.FEATURES.register(eventBus);
@@ -76,6 +74,7 @@ public class Icaria {
 		IcariaPotions.POTIONS.register(eventBus);
 		IcariaRecipeSerializers.RECIPE_SERIALIZERS.register(eventBus);
 		IcariaRecipeTypes.RECIPE_TYPES.register(eventBus);
+		IcariaStructureTypes.STRUCTURE_TYPES.register(eventBus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}

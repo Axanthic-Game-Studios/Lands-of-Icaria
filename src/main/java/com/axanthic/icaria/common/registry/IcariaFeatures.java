@@ -80,4 +80,6 @@ public class IcariaFeatures {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> LARGE_BROWN_GROUND_SHROOMS = IcariaFeatures.FEATURES.register("large_brown_ground_shrooms", () -> new LargeBrownGroundShroomsFeature(NoneFeatureConfiguration.CODEC));
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> CARDON_CACTUS = IcariaFeatures.FEATURES.register("cardon_cactus", () -> new CardonCactusFeature(NoneFeatureConfiguration.CODEC));
+
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> VILLAGE = IcariaFeatures.FEATURES.register("village", () -> new VillageFeature(NoneFeatureConfiguration.CODEC));
 }

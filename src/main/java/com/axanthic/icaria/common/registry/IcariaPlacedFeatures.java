@@ -143,6 +143,8 @@ public class IcariaPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> LAKE = IcariaPlacedFeatures.registerKey("lake");
 	public static final ResourceKey<PlacedFeature> DRY_LAKE = IcariaPlacedFeatures.registerKey("dry_lake");
 
+	public static final ResourceKey<PlacedFeature> VILLAGE = IcariaPlacedFeatures.registerKey("village");
+
 	public static void bootstrap(BootstapContext<PlacedFeature> pContext) {
 		var configuredFeatures = pContext.lookup(Registries.CONFIGURED_FEATURE);
 
@@ -265,6 +267,8 @@ public class IcariaPlacedFeatures {
 
 		pContext.register(IcariaPlacedFeatures.LAKE, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.LAKE), List.of(CountPlacement.of(8), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(IcariaBlocks.GRASSY_MARL.get()), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
 		pContext.register(IcariaPlacedFeatures.DRY_LAKE, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.DRY_LAKE), List.of(CountPlacement.of(8), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(IcariaBlocks.COARSE_MARL.get()), BlockPredicate.replaceable(), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));
+
+		pContext.register(IcariaPlacedFeatures.VILLAGE, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.VILLAGE), List.of()));
 	}
 
 	public static ResourceKey<PlacedFeature> registerKey(String pName) {

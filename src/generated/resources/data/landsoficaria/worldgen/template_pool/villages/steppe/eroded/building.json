@@ -1,0 +1,2705 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_arch_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_blob_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_hook_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_loop_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_loop_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_loop_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_plus_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_plus_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1002",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1003",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1004",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1502",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1503",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2003",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2004",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2005",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2006",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2007",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2008",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2009",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2010",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2011",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1002",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1003",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1502",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2003",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2004",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2005",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2006",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_twin_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_arch_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_blob_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_hook_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_loop_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_loop_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_loop_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_plus_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_plus_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1002",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1003",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1004",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1502",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1503",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2003",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2004",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2005",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2006",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2007",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2008",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2009",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2010",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2011",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1002",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1003",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1502",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2003",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2004",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2005",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2006",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_twin_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_arch_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_blob_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_hook_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_junc_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_loop_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_loop_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_loop_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_plus_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_plus_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1002",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1003",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1004",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1502",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_1503",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2003",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2004",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2005",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2006",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2007",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2008",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2009",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2010",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_rect_2011",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1002",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1003",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_1502",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2003",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2004",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2005",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_turn_2006",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/building_resident_twin_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_arch_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_blob_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_hook_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_loop_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_loop_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_loop_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_plus_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_plus_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1002",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1003",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1004",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1502",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1503",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2003",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2004",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2005",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2006",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2007",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2008",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2009",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2010",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2011",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1002",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1003",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1502",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2003",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2004",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2005",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2006",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_twin_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/grainite",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_arch_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_blob_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_hook_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_loop_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_loop_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_loop_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_plus_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_plus_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1002",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1003",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1004",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1502",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1503",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2003",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2004",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2005",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2006",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2007",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2008",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2009",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2010",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2011",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1002",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1003",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1502",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2003",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2004",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2005",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2006",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_twin_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/marl",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_arch_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_blob_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_hook_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_junc_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_loop_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_loop_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_loop_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_plus_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_plus_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1002",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1003",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1004",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1502",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_1503",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2003",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2004",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2005",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2006",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2007",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2008",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2009",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2010",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_rect_2011",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1001",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1002",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1003",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1500",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1501",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_1502",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2001",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2002",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2003",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2004",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2005",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_turn_2006",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:villages/mirrored_building_resident_twin_1000",
+        "processors": "landsoficaria:villages/steppe/eroded/yellowstone",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

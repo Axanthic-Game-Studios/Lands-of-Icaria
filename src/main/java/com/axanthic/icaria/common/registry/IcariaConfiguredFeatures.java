@@ -151,6 +151,8 @@ public class IcariaConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LAKE = IcariaConfiguredFeatures.registerKey("lake");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DRY_LAKE = IcariaConfiguredFeatures.registerKey("dry_lake");
 
+	public static final ResourceKey<ConfiguredFeature<?, ?>> VILLAGE = IcariaConfiguredFeatures.registerKey("village");
+
 	public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> pContext) {
 		var yellowstone = new TagMatchTest(IcariaBlockTags.ORE_BEARING_GROUND_YELLOWSTONE);
 		var silkstone = new TagMatchTest(IcariaBlockTags.ORE_BEARING_GROUND_SILKSTONE);
@@ -277,6 +279,8 @@ public class IcariaConfiguredFeatures {
 
 		pContext.register(IcariaConfiguredFeatures.LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(IcariaBlocks.MEDITERRANEAN_WATER.get().defaultBlockState()), BlockStateProvider.simple(IcariaBlocks.GRASSY_MARL.get().defaultBlockState()))));
 		pContext.register(IcariaConfiguredFeatures.DRY_LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.AIR.defaultBlockState()), BlockStateProvider.simple(IcariaBlocks.DRY_LAKE_BED.get().defaultBlockState()))));
+
+		pContext.register(IcariaConfiguredFeatures.VILLAGE, new ConfiguredFeature<>(IcariaFeatures.VILLAGE.get(), NoneFeatureConfiguration.NONE));
 	}
 
 	public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String pName) {
