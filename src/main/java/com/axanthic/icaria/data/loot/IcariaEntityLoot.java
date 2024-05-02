@@ -49,9 +49,7 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
         this.dropItem(IcariaEntityTypes.NATURE_JELLYFISH.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get());
         this.dropItem(IcariaEntityTypes.VOID_JELLYFISH.get(), IcariaItems.VOID_JELLYFISH_JELLY.get());
         this.dropItem(IcariaEntityTypes.WATER_JELLYFISH.get(), IcariaItems.WATER_JELLYFISH_JELLY.get());
-        this.dropItem(IcariaEntityTypes.MYRMEKE_DRONE.get(), IcariaItems.MYRMEKE_SCALES.get());
         this.dropItem(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), IcariaItems.MYRMEKE_SCALES.get());
-        this.dropItem(IcariaEntityTypes.MYRMEKE_QUEEN.get(), IcariaItems.MYRMEKE_SCALES.get());
         this.dropItem(IcariaEntityTypes.CAPTAIN_REVENANT.get(), Items.BONE);
         this.dropItem(IcariaEntityTypes.CIVILIAN_REVENANT.get(), Items.BONE);
         this.dropItem(IcariaEntityTypes.CRAWLER_REVENANT.get(), Items.BONE);
@@ -61,6 +59,8 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
 
         this.dropNone(IcariaEntityTypes.ARGAN_HOUND.get());
         this.dropNone(IcariaEntityTypes.HYLIASTER.get());
+        this.dropNone(IcariaEntityTypes.MYRMEKE_DRONE.get());
+        this.dropNone(IcariaEntityTypes.MYRMEKE_QUEEN.get());
         this.dropNone(IcariaEntityTypes.SCORPION.get());
         this.dropNone(IcariaEntityTypes.SOLIFUGAE.get());
         this.dropNone(IcariaEntityTypes.VINEGAROON.get());
