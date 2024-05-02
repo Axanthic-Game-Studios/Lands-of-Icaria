@@ -22,5 +22,6 @@ public class BlindnessImmunityEffect extends MobEffect {
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         pLivingEntity.removeEffect(MobEffects.BLINDNESS);
+        pLivingEntity.removeEffect(MobEffects.DARKNESS);
     }
 }
