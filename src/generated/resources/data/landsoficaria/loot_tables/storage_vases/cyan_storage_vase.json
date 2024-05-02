@@ -17,7 +17,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:loam_lump"
+          "name": "landsoficaria:spelt_bread"
         },
         {
           "type": "minecraft:item",
@@ -32,7 +32,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:rotten_bones"
+          "name": "landsoficaria:vineberries"
         },
         {
           "type": "minecraft:item",
@@ -47,7 +47,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:calcite_dust"
+          "name": "landsoficaria:strawberries"
         },
         {
           "type": "minecraft:item",
@@ -62,7 +62,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:halite_dust"
+          "name": "landsoficaria:physalis"
         },
         {
           "type": "minecraft:item",
@@ -77,7 +77,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:chalkos_nugget"
+          "name": "landsoficaria:laurel_cherry"
         },
         {
           "type": "minecraft:item",
@@ -92,7 +92,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:kassiteros_nugget"
+          "name": "landsoficaria:black_olives"
         },
         {
           "type": "minecraft:item",
@@ -107,7 +107,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:spelt_flour"
+          "name": "landsoficaria:green_olives"
         },
         {
           "type": "minecraft:item",
@@ -122,45 +122,71 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:spelt_seeds"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:strawberry_seeds"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:physalis_seeds"
+          "name": "landsoficaria:onion"
         }
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 3.0,
+        "max": 5.0,
         "min": 1.0
       }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "chance": 0.1,
+          "condition": "minecraft:random_chance"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:laurel_cherry_cake"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:strawberry_cake"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:physalis_cake"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:vine_berry_cake"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:vine_sprout_cake"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:fruit_salad"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:onion_soup"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:aeternae_stew"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:catoblepas_stew"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:cerver_stew"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:sow_stew"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
-  "random_sequence": "landsoficaria:barrels/barrel"
+  "random_sequence": "landsoficaria:storage_vases/cyan_storage_vase"
 }

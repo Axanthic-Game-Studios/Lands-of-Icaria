@@ -132,6 +132,6 @@ public class TripleBarrelRackBlock extends Block {
     @Override
     public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pBuilder) {
         var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-        return lootContext.getLevel().getServer().getLootData().getLootTable(IcariaResourceLocations.BARREL).getRandomItems(lootContext);
+        return lootContext.getLevel().getServer().getLootData().getLootTable(IcariaResourceLocations.BARREL_LOOT).getRandomItems(lootContext);
     }
 }

@@ -1,10 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.LootVaseEntity;
-import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaFluids;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -84,6 +81,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
     @Override
     public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pBuilder) {
         var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-        return lootContext.getLevel().getServer().getLootData().getLootTable(IcariaResourceLocations.LOOT_VASE).getRandomItems(lootContext);
+        var resourceLocation = pState.is(IcariaBlocks.RED_LOOT_VASE.get()) ? IcariaResourceLocations.RED_LOOT_VASE_LOOT : IcariaResourceLocations.CYAN_LOOT_VASE_LOOT;
+        return lootContext.getLevel().getServer().getLootData().getLootTable(resourceLocation).getRandomItems(lootContext);
     }
 }

@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
@@ -85,7 +86,8 @@ public class LootVaseEntity extends Entity {
     public void dropFromLootTable(DamageSource pDamageSource) {
         if (this.level().getServer() != null) {
             var lootContext = new LootParams.Builder((ServerLevel) this.level()).withOptionalParameter(LootContextParams.DIRECT_KILLER_ENTITY, pDamageSource.getDirectEntity()).withOptionalParameter(LootContextParams.KILLER_ENTITY, pDamageSource.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, pDamageSource).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).create(LootContextParamSets.ENTITY);
-            lootContext.getLevel().getServer().getLootData().getLootTable(IcariaResourceLocations.LOOT_VASE).getRandomItems(lootContext).forEach(this::spawnAtLocation);
+            var resourceLocation = this.getBlockState().is(IcariaBlocks.RED_LOOT_VASE.get()) ? IcariaResourceLocations.RED_LOOT_VASE_LOOT : IcariaResourceLocations.CYAN_LOOT_VASE_LOOT;
+            lootContext.getLevel().getServer().getLootData().getLootTable(resourceLocation).getRandomItems(lootContext).forEach(this::spawnAtLocation);
         }
     }
 

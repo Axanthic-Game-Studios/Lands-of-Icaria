@@ -17,7 +17,101 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:loam_lump"
+          "name": "landsoficaria:arachne_string"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chert_dagger"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:aeternae_hide_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:aeternae_hide_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:aeternae_hide_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:aeternae_hide_boots"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chalkos_boots"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:laurel_wreath"
         },
         {
           "type": "minecraft:item",
@@ -32,127 +126,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:rotten_bones"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:calcite_dust"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:halite_dust"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:chalkos_nugget"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:kassiteros_nugget"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:spelt_flour"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:spelt_seeds"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:strawberry_seeds"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:physalis_seeds"
+          "name": "landsoficaria:aeternae_hide"
         }
       ],
       "rolls": {
@@ -162,5 +136,5 @@
       }
     }
   ],
-  "random_sequence": "landsoficaria:barrels/barrel"
+  "random_sequence": "landsoficaria:chests/chest"
 }

@@ -17,7 +17,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:loam_lump"
+          "name": "landsoficaria:ender_jellyfish_jelly"
         },
         {
           "type": "minecraft:item",
@@ -32,7 +32,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:rotten_bones"
+          "name": "landsoficaria:fire_jellyfish_jelly"
         },
         {
           "type": "minecraft:item",
@@ -47,7 +47,52 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:calcite_dust"
+          "name": "landsoficaria:nature_jellyfish_jelly"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:void_jellyfish_jelly"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:water_jellyfish_jelly"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:spelt"
         },
         {
           "type": "minecraft:item",
@@ -69,30 +114,15 @@
           "functions": [
             {
               "add": false,
-              "count": {
+              "damage": {
                 "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
+                "max": 0.9,
+                "min": 0.1
               },
-              "function": "minecraft:set_count"
+              "function": "minecraft:set_damage"
             }
           ],
-          "name": "landsoficaria:chalkos_nugget"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:kassiteros_nugget"
+          "name": "landsoficaria:chert_dagger"
         },
         {
           "type": "minecraft:item",
@@ -108,6 +138,66 @@
             }
           ],
           "name": "landsoficaria:spelt_flour"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:garlic"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:snull_cream"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:unfired_loam_bowl"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:loam_bowl"
         },
         {
           "type": "minecraft:item",
@@ -157,10 +247,10 @@
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 3.0,
+        "max": 5.0,
         "min": 1.0
       }
     }
   ],
-  "random_sequence": "landsoficaria:barrels/barrel"
+  "random_sequence": "landsoficaria:storage_vases/red_storage_vase"
 }

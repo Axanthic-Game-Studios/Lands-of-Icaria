@@ -17,7 +17,22 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:bone_remains"
+          "name": "landsoficaria:loam_lump"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:chert"
         },
         {
           "type": "minecraft:item",
@@ -47,36 +62,10 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:spelt"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "landsoficaria:vine_reed"
         },
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "landsoficaria:vine_sprout"
         },
         {
@@ -93,81 +82,6 @@
             }
           ],
           "name": "landsoficaria:rotten_bones"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:greenpowder"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:calcite_shard"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:halite_shard"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:calcite_dust"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:halite_dust"
         },
         {
           "type": "minecraft:item",
@@ -242,36 +156,6 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:sliver"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:anthracite"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "landsoficaria:chalkos_nugget"
         },
         {
@@ -302,7 +186,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:chalkos_ingot"
+          "name": "landsoficaria:orichalcum_nugget"
         },
         {
           "type": "minecraft:item",
@@ -317,7 +201,232 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:kassiteros_ingot"
+          "name": "landsoficaria:vanadium_nugget"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chert_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chert_dagger"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chert_shovel"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chert_pickaxe"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chert_axe"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chert_scythe"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chert_bident"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chalkos_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chalkos_dagger"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chalkos_shovel"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chalkos_pickaxe"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chalkos_axe"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chalkos_scythe"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:chalkos_bident"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:kassiteros_dagger"
         },
         {
           "type": "minecraft:item",
@@ -362,36 +471,6 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:healing_spell"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:bubble_spell"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "landsoficaria:freezing_spell"
         },
         {
@@ -407,82 +486,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "landsoficaria:magic_missile_spell"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "landsoficaria:aeternae_hide"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:onion"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:spelt_seeds"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:strawberry_seeds"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "landsoficaria:physalis_seeds"
         }
       ],
       "rolls": {
@@ -490,213 +494,7 @@
         "max": 5.0,
         "min": 1.0
       }
-    },
-    {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "chance": 0.1,
-          "condition": "minecraft:random_chance"
-        }
-      ],
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 0.9,
-                "min": 0.1
-              },
-              "function": "minecraft:set_damage"
-            }
-          ],
-          "name": "landsoficaria:chalkos_dagger"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 0.9,
-                "min": 0.1
-              },
-              "function": "minecraft:set_damage"
-            }
-          ],
-          "name": "landsoficaria:chalkos_shovel"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 0.9,
-                "min": 0.1
-              },
-              "function": "minecraft:set_damage"
-            }
-          ],
-          "name": "landsoficaria:kassiteros_sword"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 0.9,
-                "min": 0.1
-              },
-              "function": "minecraft:set_damage"
-            }
-          ],
-          "name": "landsoficaria:kassiteros_dagger"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 0.9,
-                "min": 0.1
-              },
-              "function": "minecraft:set_damage"
-            }
-          ],
-          "name": "landsoficaria:kassiteros_axe"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 0.9,
-                "min": 0.1
-              },
-              "function": "minecraft:set_damage"
-            }
-          ],
-          "name": "landsoficaria:kassiteros_bident"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 0.9,
-                "min": 0.1
-              },
-              "function": "minecraft:set_damage"
-            }
-          ],
-          "name": "landsoficaria:aeternae_hide_helmet"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 0.9,
-                "min": 0.1
-              },
-              "function": "minecraft:set_damage"
-            }
-          ],
-          "name": "landsoficaria:aeternae_hide_chestplate"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 0.9,
-                "min": 0.1
-              },
-              "function": "minecraft:set_damage"
-            }
-          ],
-          "name": "landsoficaria:aeternae_hide_leggings"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 0.9,
-                "min": 0.1
-              },
-              "function": "minecraft:set_damage"
-            }
-          ],
-          "name": "landsoficaria:aeternae_hide_boots"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:laurel_wreath"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:greek_fire_grenade"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:anti_gravity_scroll"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:fortifying_scroll"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:healing_scroll"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:bubble_scroll"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:freezing_scroll"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:magic_missile_scroll"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:blue_gearfragment"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:green_gearfragment"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:yellow_gearfragment"
-        }
-      ],
-      "rolls": 1.0
     }
   ],
-  "random_sequence": "landsoficaria:vases/loot_vase"
+  "random_sequence": "landsoficaria:loot_vases/red_loot_vase"
 }

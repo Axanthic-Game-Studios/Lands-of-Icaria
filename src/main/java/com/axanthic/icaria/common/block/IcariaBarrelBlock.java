@@ -274,6 +274,6 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
     @Override
     public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pBuilder) {
         var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-        return pState.is(IcariaBlockTags.LOADED_BARRELS) || pState.is(IcariaBlockTags.TAPPED_BARRELS) ? List.of() : lootContext.getLevel().getServer().getLootData().getLootTable(IcariaResourceLocations.BARREL).getRandomItems(lootContext);
+        return pState.is(IcariaBlockTags.LOADED_BARRELS) || pState.is(IcariaBlockTags.TAPPED_BARRELS) ? List.of() : lootContext.getLevel().getServer().getLootData().getLootTable(IcariaResourceLocations.BARREL_LOOT).getRandomItems(lootContext);
     }
 }

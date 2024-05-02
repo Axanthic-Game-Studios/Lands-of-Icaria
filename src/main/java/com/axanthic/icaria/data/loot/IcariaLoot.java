@@ -9,6 +9,6 @@ import java.util.Set;
 
 public class IcariaLoot extends LootTableProvider {
     public IcariaLoot(PackOutput pOutput) {
-        super(pOutput, Set.of(), List.of(new LootTableProvider.SubProviderEntry(IcariaBarrelLoot::new, LootContextParamSets.CHEST), new LootTableProvider.SubProviderEntry(IcariaBlockLoot::new, LootContextParamSets.BLOCK), new LootTableProvider.SubProviderEntry(IcariaEntityLoot::new, LootContextParamSets.ENTITY), new LootTableProvider.SubProviderEntry(IcariaVaseLoot::new, LootContextParamSets.CHEST)));
+        super(pOutput, Set.of(), List.of(new LootTableProvider.SubProviderEntry(IcariaBarrelLoot::new, LootContextParamSets.CHEST), new LootTableProvider.SubProviderEntry(IcariaBlockLoot::new, LootContextParamSets.BLOCK), new LootTableProvider.SubProviderEntry(IcariaChestLoot::new, LootContextParamSets.CHEST), new LootTableProvider.SubProviderEntry(IcariaEntityLoot::new, LootContextParamSets.ENTITY), new LootTableProvider.SubProviderEntry(IcariaLootVaseLoot::new, LootContextParamSets.CHEST), new LootTableProvider.SubProviderEntry(IcariaStorageVaseLoot::new, LootContextParamSets.CHEST)));
     }
 }
