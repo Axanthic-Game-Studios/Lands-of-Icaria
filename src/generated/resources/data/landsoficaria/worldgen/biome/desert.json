@@ -85,6 +85,12 @@
         "weight": 10
       },
       {
+        "type": "landsoficaria:myrmeke_drone",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 100
+      },
+      {
         "type": "landsoficaria:scorpion",
         "maxCount": 1,
         "minCount": 1,

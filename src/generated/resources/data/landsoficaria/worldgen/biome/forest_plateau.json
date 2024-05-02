@@ -150,6 +150,12 @@
         "maxCount": 1,
         "minCount": 1,
         "weight": 10
+      },
+      {
+        "type": "landsoficaria:myrmeke_drone",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 100
       }
     ],
     "underground_water_creature": [],
