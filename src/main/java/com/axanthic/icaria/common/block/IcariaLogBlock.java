@@ -5,6 +5,8 @@ import com.axanthic.icaria.common.registry.*;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -50,10 +52,17 @@ public class IcariaLogBlock extends RotatedPillarBlock {
 
 						var entity = entityType.create(pLevel);
 						if (entity != null) {
-							var blockPos = new BlockPos(pPlayer.blockPosition().relative(pPlayer.getDirection().getOpposite(), 8).getX(), pPlayer.blockPosition().getY(), pPlayer.blockPosition().relative(pPlayer.getDirection().getOpposite(), 8).getZ());
-							if (!pLevel.getBiome(blockPos).is(IcariaBiomes.VOID)) {
-								entity.moveTo(blockPos, 0.0F, 0.0F);
+							var direction = pPlayer.getDirection();
+							var blockPos = pPlayer.blockPosition();
+							var soundPos = new BlockPos(blockPos.relative(direction.getOpposite(), 8).getX(), blockPos.getY(), blockPos.relative(direction.getOpposite(), 8).getZ());
+							var spawnPos = new BlockPos(blockPos.relative(direction.getOpposite(), 16).getX(), blockPos.getY(), blockPos.relative(direction.getOpposite(), 16).getZ());
+							if (!pLevel.getBiome(spawnPos).is(IcariaBiomes.VOID)) {
+								entity.moveTo(spawnPos, 0.0F, 0.0F);
+								entity.setTarget(pPlayer);
+								entity.spawnAnim();
 								pLevel.addFreshEntity(entity);
+								pLevel.playSound(pPlayer, soundPos, SoundEvents.ENDERMAN_SCREAM, SoundSource.HOSTILE, 1.0F, 0.5F);
+								pLevel.playSound(pPlayer, soundPos, SoundEvents.ENDERMAN_STARE, SoundSource.HOSTILE);
 							}
 						}
 					}
