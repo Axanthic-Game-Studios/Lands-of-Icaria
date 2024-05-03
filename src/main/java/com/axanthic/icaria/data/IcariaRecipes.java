@@ -993,13 +993,6 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.LIGNITE.get(), RecipeProvider.has(IcariaItems.LIGNITE.get()))
 			.save(pConsumer, IcariaItems.GREENPOWDER.getId());
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.LAUREL_WREATH.get(), 1)
-			.pattern("XXX")
-			.pattern("X X")
-			.define('X', IcariaItems.LAUREL_LEAVES.get())
-			.unlockedBy("has_" + IcariaItems.LAUREL_LEAVES.get(), RecipeProvider.has(IcariaItems.LAUREL_LEAVES.get()))
-			.save(pConsumer, IcariaItems.LAUREL_WREATH.getId());
-
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.GREEK_FIRE_GRENADE.get(), 1)
 			.pattern(" X ")
 			.pattern("YYY")
