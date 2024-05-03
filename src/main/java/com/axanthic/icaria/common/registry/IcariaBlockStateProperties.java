@@ -16,6 +16,7 @@ public class IcariaBlockStateProperties {
     public static final BooleanProperty GRINDER_GRINDING = BooleanProperty.create("grinder_grinding");
     public static final BooleanProperty LOADED_BARREL = BooleanProperty.create("loaded_barrel");
     public static final BooleanProperty MEDITERRANEAN_WATERLOGGED = BooleanProperty.create("mediterranean_waterlogged");
+    public static final BooleanProperty PLAYER_PLACED = BooleanProperty.create("player_placed");
     public static final BooleanProperty TAPPED_BARREL = BooleanProperty.create("tapped_barrel");
     public static final BooleanProperty TEXT_UP = BooleanProperty.create("text_up");
     public static final BooleanProperty TEXT_NORTH = BooleanProperty.create("text_north");

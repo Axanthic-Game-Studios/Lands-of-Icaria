@@ -313,7 +313,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> CYPRESS_TWIGS = IcariaBlocks.register("cypress_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesGroundDeco(MapColor.NONE, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> CYPRESS_WOOD = IcariaBlocks.register("cypress_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_CYPRESS_WOOD = IcariaBlocks.register("stripped_cypress_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD)));
-	public static final RegistryObject<RotatedPillarBlock> CYPRESS_LOG = IcariaBlocks.register("cypress_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
+	public static final RegistryObject<RotatedPillarBlock> CYPRESS_LOG = IcariaBlocks.register("cypress_log", () -> new IcariaLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_CYPRESS_LOG = IcariaBlocks.register("stripped_cypress_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> DEAD_CYPRESS_LOG = IcariaBlocks.register("dead_cypress_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_CYPRESS_LOG = IcariaBlocks.register("stripped_dead_cypress_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD))));
@@ -342,7 +342,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> DROUGHTROOT_TWIGS = IcariaBlocks.register("droughtroot_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesGroundDeco(MapColor.NONE, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> DROUGHTROOT_WOOD = IcariaBlocks.register("droughtroot_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BLACK, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_DROUGHTROOT_WOOD = IcariaBlocks.register("stripped_droughtroot_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
-	public static final RegistryObject<RotatedPillarBlock> DROUGHTROOT_LOG = IcariaBlocks.register("droughtroot_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BLACK, SoundType.WOOD)));
+	public static final RegistryObject<RotatedPillarBlock> DROUGHTROOT_LOG = IcariaBlocks.register("droughtroot_log", () -> new IcariaLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BLACK, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_DROUGHTROOT_LOG = IcariaBlocks.register("stripped_droughtroot_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> DEAD_DROUGHTROOT_LOG = IcariaBlocks.register("dead_droughtroot_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BLACK, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_DROUGHTROOT_LOG = IcariaBlocks.register("stripped_dead_droughtroot_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD))));
@@ -371,7 +371,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> FIR_TWIGS = IcariaBlocks.register("fir_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesGroundDeco(MapColor.NONE, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> FIR_WOOD = IcariaBlocks.register("fir_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_FIR_WOOD = IcariaBlocks.register("stripped_fir_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD)));
-	public static final RegistryObject<RotatedPillarBlock> FIR_LOG = IcariaBlocks.register("fir_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD)));
+	public static final RegistryObject<RotatedPillarBlock> FIR_LOG = IcariaBlocks.register("fir_log", () -> new IcariaLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_FIR_LOG = IcariaBlocks.register("stripped_fir_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> DEAD_FIR_LOG = IcariaBlocks.register("dead_fir_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_FIR_LOG = IcariaBlocks.register("stripped_dead_fir_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD))));
@@ -400,7 +400,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> LAUREL_TWIGS = IcariaBlocks.register("laurel_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesGroundDeco(MapColor.NONE, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> LAUREL_WOOD = IcariaBlocks.register("laurel_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_LAUREL_WOOD = IcariaBlocks.register("stripped_laurel_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD)));
-	public static final RegistryObject<RotatedPillarBlock> LAUREL_LOG = IcariaBlocks.register("laurel_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD)));
+	public static final RegistryObject<RotatedPillarBlock> LAUREL_LOG = IcariaBlocks.register("laurel_log", () -> new IcariaLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_LAUREL_LOG = IcariaBlocks.register("stripped_laurel_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> DEAD_LAUREL_LOG = IcariaBlocks.register("dead_laurel_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_LAUREL_LOG = IcariaBlocks.register("stripped_dead_laurel_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD))));
@@ -429,7 +429,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> OLIVE_TWIGS = IcariaBlocks.register("olive_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesGroundDeco(MapColor.NONE, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> OLIVE_WOOD = IcariaBlocks.register("olive_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_OLIVE_WOOD = IcariaBlocks.register("stripped_olive_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD)));
-	public static final RegistryObject<RotatedPillarBlock> OLIVE_LOG = IcariaBlocks.register("olive_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
+	public static final RegistryObject<RotatedPillarBlock> OLIVE_LOG = IcariaBlocks.register("olive_log", () -> new IcariaLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_OLIVE_LOG = IcariaBlocks.register("stripped_olive_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> DEAD_OLIVE_LOG = IcariaBlocks.register("dead_olive_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_OLIVE_LOG = IcariaBlocks.register("stripped_dead_olive_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD))));
@@ -458,7 +458,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> PLANE_TWIGS = IcariaBlocks.register("plane_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesGroundDeco(MapColor.NONE, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> PLANE_WOOD = IcariaBlocks.register("plane_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_PLANE_WOOD = IcariaBlocks.register("stripped_plane_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD)));
-	public static final RegistryObject<RotatedPillarBlock> PLANE_LOG = IcariaBlocks.register("plane_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
+	public static final RegistryObject<RotatedPillarBlock> PLANE_LOG = IcariaBlocks.register("plane_log", () -> new IcariaLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_PLANE_LOG = IcariaBlocks.register("stripped_plane_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> DEAD_PLANE_LOG = IcariaBlocks.register("dead_plane_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_PLANE_LOG = IcariaBlocks.register("stripped_dead_plane_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD))));
@@ -487,7 +487,7 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> POPULUS_TWIGS = IcariaBlocks.register("populus_twigs", () -> new GroundDecoBlock(IcariaBlocks.propertiesGroundDeco(MapColor.NONE, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> POPULUS_WOOD = IcariaBlocks.register("populus_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_LIGHT_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_POPULUS_WOOD = IcariaBlocks.register("stripped_populus_wood", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_YELLOW, SoundType.WOOD)));
-	public static final RegistryObject<RotatedPillarBlock> POPULUS_LOG = IcariaBlocks.register("populus_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_LIGHT_GRAY, SoundType.WOOD)));
+	public static final RegistryObject<RotatedPillarBlock> POPULUS_LOG = IcariaBlocks.register("populus_log", () -> new IcariaLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_LIGHT_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<RotatedPillarBlock> STRIPPED_POPULUS_LOG = IcariaBlocks.register("stripped_populus_log", () -> new RotatedPillarBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_YELLOW, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> DEAD_POPULUS_LOG = IcariaBlocks.register("dead_populus_log", () -> new DeadLogBlock(IcariaBlocks.propertiesWood(MapColor.COLOR_LIGHT_GRAY, SoundType.WOOD)));
 	public static final RegistryObject<DeadLogBlock> STRIPPED_DEAD_POPULUS_LOG = IcariaBlocks.register("stripped_dead_populus_log", () -> new DeadLogBlock((IcariaBlocks.propertiesWood(MapColor.COLOR_YELLOW, SoundType.WOOD))));
