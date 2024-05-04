@@ -2,7 +2,7 @@ package com.axanthic.icaria.client.screen;
 
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.menu.GrinderMenu;
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.util.IcariaColors;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -38,8 +38,8 @@ public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
 
 	@Override
 	public void renderLabels(GuiGraphics pGraphics, int pMouseX, int pMouseY) {
-		pGraphics.drawString(this.font, this.title, (this.getXSize() / 2) - (this.font.width(this.title) / 2), 8, IcariaInfo.FONT_COLOR, false);
-		pGraphics.drawString(this.font, this.playerInventoryTitle, 7, 80, IcariaInfo.FONT_COLOR, false);
+		pGraphics.drawString(this.font, this.title, (this.getXSize() / 2) - (this.font.width(this.title) / 2), 8, IcariaColors.TEXT, false);
+		pGraphics.drawString(this.font, this.playerInventoryTitle, 7, 80, IcariaColors.TEXT, false);
 	}
 
 	public void renderFuel(GuiGraphics pGraphics, int pX, int pY) {

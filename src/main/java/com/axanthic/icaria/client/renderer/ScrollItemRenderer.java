@@ -2,7 +2,7 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.common.item.ScrollItem;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.util.IcariaColors;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -132,6 +132,6 @@ public class ScrollItemRenderer extends BlockEntityWithoutLevelRenderer {
     }
 
     public void renderString(int pOffset, int pPackedLight, Component pComponent, Matrix4f pMatrix4f, MultiBufferSource pBuffer) {
-        this.font.drawInBatch(pComponent, pOffset - this.font.width(pComponent) * 0.5F, 0.0F, IcariaInfo.FONT_COLOR, false, pMatrix4f, pBuffer, Font.DisplayMode.POLYGON_OFFSET, 0, pPackedLight);
+        this.font.drawInBatch(pComponent, pOffset - this.font.width(pComponent) * 0.5F, 0.0F, IcariaColors.TEXT, false, pMatrix4f, pBuffer, Font.DisplayMode.POLYGON_OFFSET, 0, pPackedLight);
     }
 }

@@ -4,6 +4,7 @@ import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.util.IcariaMath;
+import com.axanthic.icaria.common.util.IcariaValues;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -36,12 +37,12 @@ import javax.imageio.ImageIO;
 
 public class IcariaClientHelper {
     public static float getLightBasedAlpha(LivingEntity pLivingEntity) {
-        if (pLivingEntity.level().getDayTime() >= IcariaInfo.DUSK_INIT && pLivingEntity.level().getDayTime() < IcariaInfo.DUSK_EXIT) {
-            return (pLivingEntity.level().getDayTime() - IcariaInfo.DUSK_INIT) / (IcariaInfo.DUSK_EXIT - IcariaInfo.DUSK_INIT);
-        } else if (pLivingEntity.level().getDayTime() >= IcariaInfo.DUSK_INIT && pLivingEntity.level().getDayTime() < IcariaInfo.DAWN_INIT) {
+        if (pLivingEntity.level().getDayTime() >= IcariaValues.DUSK_INIT && pLivingEntity.level().getDayTime() < IcariaValues.DUSK_EXIT) {
+            return (pLivingEntity.level().getDayTime() - IcariaValues.DUSK_INIT) / (IcariaValues.DUSK_EXIT - IcariaValues.DUSK_INIT);
+        } else if (pLivingEntity.level().getDayTime() >= IcariaValues.DUSK_INIT && pLivingEntity.level().getDayTime() < IcariaValues.DAWN_INIT) {
             return 1.0F;
-        } else if (pLivingEntity.level().getDayTime() >= IcariaInfo.DAWN_INIT && pLivingEntity.level().getDayTime() < IcariaInfo.DAWN_EXIT) {
-            return (IcariaInfo.DAWN_EXIT - pLivingEntity.level().getDayTime()) / (IcariaInfo.DAWN_EXIT - IcariaInfo.DAWN_INIT);
+        } else if (pLivingEntity.level().getDayTime() >= IcariaValues.DAWN_INIT && pLivingEntity.level().getDayTime() < IcariaValues.DAWN_EXIT) {
+            return (IcariaValues.DAWN_EXIT - pLivingEntity.level().getDayTime()) / (IcariaValues.DAWN_EXIT - IcariaValues.DAWN_INIT);
         } else {
             return 0.0F;
         }
