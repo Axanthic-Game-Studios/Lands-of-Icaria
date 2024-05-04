@@ -467,35 +467,12 @@ public class IcariaItems {
 	public static final RegistryObject<Item> POPULUS_SIGN = IcariaItems.registerSimple("populus_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.POPULUS_SIGN.get(), IcariaBlocks.POPULUS_WALL_SIGN.get()));
 	public static final RegistryObject<Item> POPULUS_HANGING_SIGN = IcariaItems.registerSimple("populus_hanging_sign", () -> new HangingSignItem(IcariaBlocks.POPULUS_HANGING_SIGN.get(), IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
 
-	public static final RegistryObject<Item> DEAD_BLOOMY_VINE = IcariaItems.registerSimple("dead_bloomy_vine", () -> new BlockItem(IcariaBlocks.DEAD_BLOOMY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> GROWING_BLOOMY_VINE = IcariaItems.registerSimple("growing_bloomy_vine", () -> new BlockItem(IcariaBlocks.GROWING_BLOOMY_VINE.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> BLOOMY_VINE = IcariaItems.registerSimple("bloomy_vine", () -> new BlockItem(IcariaBlocks.BLOOMY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> BLOOMING_BLOOMY_VINE = IcariaItems.registerSimple("blooming_bloomy_vine", () -> new BlockItem(IcariaBlocks.BLOOMING_BLOOMY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> RIPE_BLOOMY_VINE = IcariaItems.registerSimple("ripe_bloomy_vine", () -> new BlockItem(IcariaBlocks.RIPE_BLOOMY_VINE.get(), IcariaItems.propertiesItem()));
-
-	public static final RegistryObject<Item> DEAD_BRANCHY_VINE = IcariaItems.registerSimple("dead_branchy_vine", () -> new BlockItem(IcariaBlocks.DEAD_BRANCHY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> GROWING_BRANCHY_VINE = IcariaItems.registerSimple("growing_branchy_vine", () -> new BlockItem(IcariaBlocks.GROWING_BRANCHY_VINE.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> BRANCHY_VINE = IcariaItems.registerSimple("branchy_vine", () -> new BlockItem(IcariaBlocks.BRANCHY_VINE.get(), IcariaItems.propertiesItem()));
-
-	public static final RegistryObject<Item> DEAD_BRUSHY_VINE = IcariaItems.registerSimple("dead_brushy_vine", () -> new BlockItem(IcariaBlocks.DEAD_BRUSHY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> GROWING_BRUSHY_VINE = IcariaItems.registerSimple("growing_brushy_vine", () -> new BlockItem(IcariaBlocks.GROWING_BRUSHY_VINE.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> BRUSHY_VINE = IcariaItems.registerSimple("brushy_vine", () -> new BlockItem(IcariaBlocks.BRUSHY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> RIPE_BRUSHY_VINE = IcariaItems.registerSimple("ripe_brushy_vine", () -> new BlockItem(IcariaBlocks.RIPE_BRUSHY_VINE.get(), IcariaItems.propertiesItem()));
-
-	public static final RegistryObject<Item> DEAD_DRY_VINE = IcariaItems.registerSimple("dead_dry_vine", () -> new BlockItem(IcariaBlocks.DEAD_DRY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> GROWING_DRY_VINE = IcariaItems.registerSimple("growing_dry_vine", () -> new BlockItem(IcariaBlocks.GROWING_DRY_VINE.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> DRY_VINE = IcariaItems.registerSimple("dry_vine", () -> new BlockItem(IcariaBlocks.DRY_VINE.get(), IcariaItems.propertiesItem()));
-
-	public static final RegistryObject<Item> DEAD_REEDY_VINE = IcariaItems.registerSimple("dead_reedy_vine", () -> new BlockItem(IcariaBlocks.DEAD_REEDY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> GROWING_REEDY_VINE = IcariaItems.registerSimple("growing_reedy_vine", () -> new BlockItem(IcariaBlocks.GROWING_REEDY_VINE.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> REEDY_VINE = IcariaItems.registerSimple("reedy_vine", () -> new BlockItem(IcariaBlocks.REEDY_VINE.get(), IcariaItems.propertiesItem()));
-
-	public static final RegistryObject<Item> DEAD_SWIRLY_VINE = IcariaItems.registerSimple("dead_swirly_vine", () -> new BlockItem(IcariaBlocks.DEAD_SWIRLY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> GROWING_SWIRLY_VINE = IcariaItems.registerSimple("growing_swirly_vine", () -> new BlockItem(IcariaBlocks.GROWING_SWIRLY_VINE.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> SWIRLY_VINE = IcariaItems.registerSimple("swirly_vine", () -> new BlockItem(IcariaBlocks.SWIRLY_VINE.get(), IcariaItems.propertiesItem()));
-
-	public static final RegistryObject<Item> DEAD_THORNY_VINE = IcariaItems.registerSimple("dead_thorny_vine", () -> new BlockItem(IcariaBlocks.DEAD_THORNY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> GROWING_THORNY_VINE = IcariaItems.registerSimple("growing_thorny_vine", () -> new BlockItem(IcariaBlocks.GROWING_THORNY_VINE.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> THORNY_VINE = IcariaItems.registerSimple("thorny_vine", () -> new BlockItem(IcariaBlocks.THORNY_VINE.get(), IcariaItems.propertiesItem()));
 
 	public static final RegistryObject<Item> FERN = IcariaItems.registerSimple("fern", () -> new BlockItem(IcariaBlocks.FERN.get(), IcariaItems.propertiesItem()));

@@ -607,35 +607,12 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.POPULUS_SIGN.get());
 			pEvent.accept(IcariaItems.POPULUS_HANGING_SIGN.get());
 
-			pEvent.accept(IcariaItems.DEAD_BLOOMY_VINE.get());
-			pEvent.accept(IcariaItems.GROWING_BLOOMY_VINE.get());
 			pEvent.accept(IcariaItems.BLOOMY_VINE.get());
-			pEvent.accept(IcariaItems.BLOOMING_BLOOMY_VINE.get());
-			pEvent.accept(IcariaItems.RIPE_BLOOMY_VINE.get());
-
-			pEvent.accept(IcariaItems.DEAD_BRANCHY_VINE.get());
-			pEvent.accept(IcariaItems.GROWING_BRANCHY_VINE.get());
 			pEvent.accept(IcariaItems.BRANCHY_VINE.get());
-
-			pEvent.accept(IcariaItems.DEAD_BRUSHY_VINE.get());
-			pEvent.accept(IcariaItems.GROWING_BRUSHY_VINE.get());
 			pEvent.accept(IcariaItems.BRUSHY_VINE.get());
-			pEvent.accept(IcariaItems.RIPE_BRUSHY_VINE.get());
-
-			pEvent.accept(IcariaItems.DEAD_DRY_VINE.get());
-			pEvent.accept(IcariaItems.GROWING_DRY_VINE.get());
 			pEvent.accept(IcariaItems.DRY_VINE.get());
-
-			pEvent.accept(IcariaItems.DEAD_REEDY_VINE.get());
-			pEvent.accept(IcariaItems.GROWING_REEDY_VINE.get());
 			pEvent.accept(IcariaItems.REEDY_VINE.get());
-
-			pEvent.accept(IcariaItems.DEAD_SWIRLY_VINE.get());
-			pEvent.accept(IcariaItems.GROWING_SWIRLY_VINE.get());
 			pEvent.accept(IcariaItems.SWIRLY_VINE.get());
-
-			pEvent.accept(IcariaItems.DEAD_THORNY_VINE.get());
-			pEvent.accept(IcariaItems.GROWING_THORNY_VINE.get());
 			pEvent.accept(IcariaItems.THORNY_VINE.get());
 
 			pEvent.accept(IcariaItems.FERN.get());

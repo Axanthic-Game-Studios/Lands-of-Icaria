@@ -61,8 +61,8 @@ public class IcariaLogBlock extends RotatedPillarBlock {
 								entity.setTarget(pPlayer);
 								entity.spawnAnim();
 								pLevel.addFreshEntity(entity);
-								pLevel.playSound(pPlayer, soundPos, SoundEvents.ENDERMAN_SCREAM, SoundSource.HOSTILE, 1.0F, 0.5F);
-								pLevel.playSound(pPlayer, soundPos, SoundEvents.ENDERMAN_STARE, SoundSource.HOSTILE);
+								pLevel.playSound(null, soundPos, SoundEvents.ENDERMAN_SCREAM, SoundSource.HOSTILE, 1.0F, 0.5F);
+								pLevel.playSound(null, soundPos, SoundEvents.ENDERMAN_STARE, SoundSource.HOSTILE);
 							}
 						}
 					}
