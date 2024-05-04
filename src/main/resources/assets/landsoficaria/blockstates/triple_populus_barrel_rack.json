@@ -1,20 +1,20 @@
 {
   "variants": {
-    "facing=north,corner=bottom_front_left": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 0 },
-    "facing=east,corner=bottom_front_left": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 90 },
-    "facing=south,corner=bottom_front_left": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 180 },
-    "facing=west,corner=bottom_front_left": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 270 },
-    "facing=north,corner=bottom_front_right": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 0 },
-    "facing=east,corner=bottom_front_right": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 90 },
-    "facing=south,corner=bottom_front_right": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 180 },
-    "facing=west,corner=bottom_front_right": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 270 },
-    "facing=north,corner=top_front_left": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_left", "x": 0, "y": 0 },
-    "facing=east,corner=top_front_left": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_left", "x": 0, "y": 90 },
-    "facing=south,corner=top_front_left": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_left", "x": 0, "y": 180 },
-    "facing=west,corner=top_front_left": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_left", "x": 0, "y": 270 },
-    "facing=north,corner=top_front_right": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_right", "x": 0, "y": 0 },
-    "facing=east,corner=top_front_right": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_right", "x": 0, "y": 90 },
-    "facing=south,corner=top_front_right": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_right", "x": 0, "y": 180 },
-    "facing=west,corner=top_front_right": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_right", "x": 0, "y": 270 }
+    "facing=north,vertical_corner=bottom_left": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 0 },
+    "facing=east,vertical_corner=bottom_left": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 90 },
+    "facing=south,vertical_corner=bottom_left": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 180 },
+    "facing=west,vertical_corner=bottom_left": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 270 },
+    "facing=north,vertical_corner=bottom_right": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 0 },
+    "facing=east,vertical_corner=bottom_right": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 90 },
+    "facing=south,vertical_corner=bottom_right": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 180 },
+    "facing=west,vertical_corner=bottom_right": { "model": "landsoficaria:block/populus_barrel_rack", "x": 0, "y": 270 },
+    "facing=north,vertical_corner=top_left": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_left", "x": 0, "y": 0 },
+    "facing=east,vertical_corner=top_left": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_left", "x": 0, "y": 90 },
+    "facing=south,vertical_corner=top_left": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_left", "x": 0, "y": 180 },
+    "facing=west,vertical_corner=top_left": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_left", "x": 0, "y": 270 },
+    "facing=north,vertical_corner=top_right": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_right", "x": 0, "y": 0 },
+    "facing=east,vertical_corner=top_right": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_right", "x": 0, "y": 90 },
+    "facing=south,vertical_corner=top_right": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_right", "x": 0, "y": 180 },
+    "facing=west,vertical_corner=top_right": { "model": "landsoficaria:block/triple_populus_barrel_rack_top_right", "x": 0, "y": 270 }
   }
 }

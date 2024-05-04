@@ -4891,8 +4891,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "bottom_front_left",
-                "facing": "north"
+                "facing": "north",
+                "vertical_corner": "bottom_left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4903,8 +4903,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "bottom_front_left",
-              "facing": "north"
+              "facing": "north",
+              "vertical_corner": "bottom_left"
             }
           }
         },
@@ -4913,8 +4913,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "bottom_front_left",
-                "facing": "east"
+                "facing": "east",
+                "vertical_corner": "bottom_left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4925,8 +4925,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "bottom_front_left",
-              "facing": "east"
+              "facing": "east",
+              "vertical_corner": "bottom_left"
             }
           }
         },
@@ -4935,8 +4935,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "bottom_front_left",
-                "facing": "south"
+                "facing": "south",
+                "vertical_corner": "bottom_left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4947,8 +4947,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "bottom_front_left",
-              "facing": "south"
+              "facing": "south",
+              "vertical_corner": "bottom_left"
             }
           }
         },
@@ -4957,8 +4957,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "bottom_front_left",
-                "facing": "west"
+                "facing": "west",
+                "vertical_corner": "bottom_left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4969,8 +4969,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "bottom_front_left",
-              "facing": "west"
+              "facing": "west",
+              "vertical_corner": "bottom_left"
             }
           }
         },
@@ -4979,8 +4979,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "bottom_front_right",
-                "facing": "north"
+                "facing": "north",
+                "vertical_corner": "bottom_right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4991,8 +4991,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "bottom_front_right",
-              "facing": "north"
+              "facing": "north",
+              "vertical_corner": "bottom_right"
             }
           }
         },
@@ -5001,8 +5001,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "bottom_front_right",
-                "facing": "east"
+                "facing": "east",
+                "vertical_corner": "bottom_right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -5013,8 +5013,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "bottom_front_right",
-              "facing": "east"
+              "facing": "east",
+              "vertical_corner": "bottom_right"
             }
           }
         },
@@ -5023,8 +5023,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "bottom_front_right",
-                "facing": "south"
+                "facing": "south",
+                "vertical_corner": "bottom_right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -5035,8 +5035,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "bottom_front_right",
-              "facing": "south"
+              "facing": "south",
+              "vertical_corner": "bottom_right"
             }
           }
         },
@@ -5045,8 +5045,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "bottom_front_right",
-                "facing": "west"
+                "facing": "west",
+                "vertical_corner": "bottom_right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -5057,8 +5057,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "bottom_front_right",
-              "facing": "west"
+              "facing": "west",
+              "vertical_corner": "bottom_right"
             }
           }
         },
@@ -5067,8 +5067,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "top_front_left",
-                "facing": "north"
+                "facing": "north",
+                "vertical_corner": "top_left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -5079,8 +5079,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "top_front_left",
-              "facing": "north"
+              "facing": "north",
+              "vertical_corner": "top_left"
             }
           }
         },
@@ -5089,8 +5089,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "top_front_left",
-                "facing": "east"
+                "facing": "east",
+                "vertical_corner": "top_left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -5101,8 +5101,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "top_front_left",
-              "facing": "east"
+              "facing": "east",
+              "vertical_corner": "top_left"
             }
           }
         },
@@ -5111,8 +5111,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "top_front_left",
-                "facing": "south"
+                "facing": "south",
+                "vertical_corner": "top_left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -5123,8 +5123,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "top_front_left",
-              "facing": "south"
+              "facing": "south",
+              "vertical_corner": "top_left"
             }
           }
         },
@@ -5133,8 +5133,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "top_front_left",
-                "facing": "west"
+                "facing": "west",
+                "vertical_corner": "top_left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -5145,8 +5145,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "top_front_left",
-              "facing": "west"
+              "facing": "west",
+              "vertical_corner": "top_left"
             }
           }
         },
@@ -5155,8 +5155,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "top_front_right",
-                "facing": "north"
+                "facing": "north",
+                "vertical_corner": "top_right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -5167,8 +5167,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "top_front_right",
-              "facing": "north"
+              "facing": "north",
+              "vertical_corner": "top_right"
             }
           }
         },
@@ -5177,8 +5177,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "top_front_right",
-                "facing": "east"
+                "facing": "east",
+                "vertical_corner": "top_right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -5189,8 +5189,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "top_front_right",
-              "facing": "east"
+              "facing": "east",
+              "vertical_corner": "top_right"
             }
           }
         },
@@ -5199,8 +5199,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "top_front_right",
-                "facing": "south"
+                "facing": "south",
+                "vertical_corner": "top_right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -5211,8 +5211,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "top_front_right",
-              "facing": "south"
+              "facing": "south",
+              "vertical_corner": "top_right"
             }
           }
         },
@@ -5221,8 +5221,8 @@
             "block_state": {
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
-                "corner": "top_front_right",
-                "facing": "west"
+                "facing": "west",
+                "vertical_corner": "top_right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -5233,8 +5233,8 @@
           "output_state": {
             "Name": "landsoficaria:triple_cypress_barrel_rack",
             "Properties": {
-              "corner": "top_front_right",
-              "facing": "west"
+              "facing": "west",
+              "vertical_corner": "top_right"
             }
           }
         }
