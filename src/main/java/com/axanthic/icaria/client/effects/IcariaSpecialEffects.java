@@ -39,7 +39,7 @@ public class IcariaSpecialEffects extends DimensionSpecialEffects {
     }
 
     public boolean doesFogEffectBlockSky(Camera pCamera) {
-        return pCamera.getFluidInCamera() != FogType.LAVA && pCamera.getFluidInCamera() != FogType.POWDER_SNOW;
+        return pCamera.getFluidInCamera() == FogType.LAVA || pCamera.getFluidInCamera() == FogType.POWDER_SNOW;
     }
 
     public boolean doesMobEffectBlockSky(Camera pCamera) {
