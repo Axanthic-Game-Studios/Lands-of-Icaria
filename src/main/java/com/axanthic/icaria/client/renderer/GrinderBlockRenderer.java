@@ -45,7 +45,6 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 			var itemRenderer = Minecraft.getInstance().getItemRenderer();
 			var level = pBlockEntity.getLevel();
 			var mainGear = pBlockEntity.getGear();
-			var sideGear = ItemStack.EMPTY;
 
 			// STONE
 

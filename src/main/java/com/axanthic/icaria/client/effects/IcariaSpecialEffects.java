@@ -29,23 +29,21 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaSpecialEffects extends DimensionSpecialEffects {
-    public VertexBuffer darkSky;
-    public VertexBuffer lightSky;
-    public VertexBuffer starrySky;
+    public VertexBuffer sky;
+    public VertexBuffer stars;
 
     public IcariaSpecialEffects() {
         super(192, false, DimensionSpecialEffects.SkyType.NORMAL, false, false);
-        this.createDarkSky();
-        this.createLightSky();
-        this.createStarrySky();
+        this.createSky();
+        this.createStars();
+    }
+
+    public boolean doesFogEffectBlockSky(Camera pCamera) {
+        return pCamera.getFluidInCamera() != FogType.LAVA && pCamera.getFluidInCamera() != FogType.POWDER_SNOW;
     }
 
     public boolean doesMobEffectBlockSky(Camera pCamera) {
-        if (pCamera.getEntity() instanceof LivingEntity livingEntity) {
-            return livingEntity.hasEffect(MobEffects.BLINDNESS) || livingEntity.hasEffect(MobEffects.DARKNESS);
-        } else {
-            return false;
-        }
+        return pCamera.getEntity() instanceof LivingEntity livingEntity && (livingEntity.hasEffect(MobEffects.BLINDNESS) || livingEntity.hasEffect(MobEffects.DARKNESS));
     }
 
     @Override
@@ -56,201 +54,169 @@ public class IcariaSpecialEffects extends DimensionSpecialEffects {
     @Override
     public boolean renderSky(ClientLevel pLevel, int pTicks, float pPartialTick, PoseStack pPoseStack, Camera pCamera, Matrix4f pProjectionMatrix, boolean pIsFoggy, Runnable pSetupFog) {
         pSetupFog.run();
-        if (!pIsFoggy) {
-            var fogType = pCamera.getFluidInCamera();
-            if (fogType != FogType.POWDER_SNOW && fogType != FogType.LAVA && !this.doesMobEffectBlockSky(pCamera)) {
-                var minecraft = Minecraft.getInstance();
-                if (minecraft.level.effects().skyType() == DimensionSpecialEffects.SkyType.NORMAL) {
-                    var bufferBuilder = Tesselator.getInstance().getBuilder();
-                    var shaderInstance = RenderSystem.getShader();
-                    var vec3 = pLevel.getSkyColor(minecraft.gameRenderer.getMainCamera().getPosition(), pPartialTick);
+        if (!pIsFoggy && !this.doesFogEffectBlockSky(pCamera) && !this.doesMobEffectBlockSky(pCamera)) {
+            var minecraft = Minecraft.getInstance();
+            if (minecraft.level.effects().skyType() == DimensionSpecialEffects.SkyType.NORMAL) {
+                var bufferBuilder = Tesselator.getInstance().getBuilder();
+                var shaderInstance = RenderSystem.getShader();
+                var vec3 = pLevel.getSkyColor(minecraft.gameRenderer.getMainCamera().getPosition(), pPartialTick);
 
-                    float[] sunriseColor = pLevel.effects().getSunriseColor(pLevel.getTimeOfDay(pPartialTick), pPartialTick);
+                float[] sunriseColor = pLevel.effects().getSunriseColor(pLevel.getTimeOfDay(pPartialTick), pPartialTick);
 
-                    FogRenderer.levelFogColor();
+                FogRenderer.levelFogColor();
 
-                    RenderSystem.depthMask(false);
-                    RenderSystem.enableBlend();
-                    RenderSystem.setShaderColor((float) vec3.x, (float) vec3.y, (float) vec3.z, 1.0F);
+                RenderSystem.depthMask(false);
+                RenderSystem.enableBlend();
+                RenderSystem.setShaderColor((float) vec3.x, (float) vec3.y, (float) vec3.z, 1.0F);
 
-                    this.lightSky.bind();
-                    this.lightSky.drawWithShader(pPoseStack.last().pose(), pProjectionMatrix, shaderInstance);
+                this.sky.bind();
+                this.sky.drawWithShader(pPoseStack.last().pose(), pProjectionMatrix, shaderInstance);
 
-                    VertexBuffer.unbind();
+                VertexBuffer.unbind();
 
-                    if (sunriseColor != null) {
-                        RenderSystem.setShader(GameRenderer::getPositionColorShader);
-                        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-
-                        pPoseStack.pushPose();
-                        pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
-                        pPoseStack.mulPose(Axis.ZP.rotationDegrees(Mth.sin(pLevel.getSunAngle(pPartialTick)) < 0.0F ? 180.0F : 0.0F));
-                        pPoseStack.mulPose(Axis.ZP.rotationDegrees(90.0F));
-
-                        float red = sunriseColor[0];
-                        float green = sunriseColor[1];
-                        float blue = sunriseColor[2];
-                        float alpha = sunriseColor[3];
-
-                        var matrix4f = pPoseStack.last().pose();
-
-                        bufferBuilder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION_COLOR);
-                        bufferBuilder.vertex(matrix4f, 0.0F, 100.0F, 0.0F).color(red, green, blue, alpha).endVertex();
-
-                        for (int i = 0; i <= 16; ++i) {
-                            float f = i * (Mth.PI * 2.0F) / 16.0F;
-                            float sin = Mth.sin(f);
-                            float cos = Mth.cos(f);
-
-                            bufferBuilder.vertex(matrix4f, sin * 120.0F, cos * 120.0F, -cos * 40.0F * alpha).color(red, green, blue, 0.0F).endVertex();
-                        }
-
-                        BufferUploader.drawWithShader(bufferBuilder.end());
-
-                        pPoseStack.popPose();
-                    }
+                if (sunriseColor != null) {
+                    RenderSystem.setShader(GameRenderer::getPositionColorShader);
+                    RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
                     pPoseStack.pushPose();
-                    pPoseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
+                    pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+                    pPoseStack.mulPose(Axis.ZP.rotationDegrees(Mth.sin(pLevel.getSunAngle(pPartialTick)) < 0.0F ? 180.0F : 0.0F));
+                    pPoseStack.mulPose(Axis.ZP.rotationDegrees(90.0F));
 
-                    int moonPhase = pLevel.getMoonPhase();
-                    int i = moonPhase % 4;
-                    int j = moonPhase / 4 % 2;
-
-                    float u1 = (i + 0) / 4.0F;
-                    float v1 = (j + 0) / 2.0F;
-                    float u0 = (i + 1) / 4.0F;
-                    float v0 = (j + 1) / 2.0F;
-                    float rainLevel = 1.0F - pLevel.getRainLevel(pPartialTick);
+                    float red = sunriseColor[0];
+                    float green = sunriseColor[1];
+                    float blue = sunriseColor[2];
+                    float alpha = sunriseColor[3];
 
                     var matrix4f = pPoseStack.last().pose();
 
-                    RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-                    RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, rainLevel);
-                    RenderSystem.setShader(GameRenderer::getPositionTexShader);
+                    bufferBuilder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION_COLOR);
+                    bufferBuilder.vertex(matrix4f, 0.0F, 100.0F, 0.0F).color(red, green, blue, alpha).endVertex();
 
-                    pPoseStack.pushPose();
-                    pPoseStack.mulPose(Axis.ZP.rotationDegrees(45.0F));
-                    pPoseStack.mulPose(Axis.XP.rotationDegrees(pLevel.getTimeOfDay(pPartialTick) * 360.0F * 2.0F + 45.0F));
+                    for (int i = 0; i <= 16; ++i) {
+                        float f = i * (Mth.PI * 2.0F) / 16.0F;
+                        float sin = Mth.sin(f);
+                        float cos = Mth.cos(f);
 
-                    var extraMatrix4f = pPoseStack.last().pose();
-
-                    RenderSystem.setShaderTexture(0, IcariaResourceLocations.MOON);
-
-                    bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-                    bufferBuilder.vertex(extraMatrix4f, -20.0F, -100.0F, 20.0F).uv(0.0F, 0.0F).endVertex();
-                    bufferBuilder.vertex(extraMatrix4f, 20.0F, -100.0F, 20.0F).uv(0.25F, 0.0F).endVertex();
-                    bufferBuilder.vertex(extraMatrix4f, 20.0F, -100.0F, -20.0F).uv(0.25F, 0.5F).endVertex();
-                    bufferBuilder.vertex(extraMatrix4f, -20.0F, -100.0F, -20.0F).uv(0.0F, 0.5F).endVertex();
+                        bufferBuilder.vertex(matrix4f, sin * 120.0F, cos * 120.0F, -cos * 40.0F * alpha).color(red, green, blue, 0.0F).endVertex();
+                    }
 
                     BufferUploader.drawWithShader(bufferBuilder.end());
 
                     pPoseStack.popPose();
-                    pPoseStack.mulPose(Axis.XP.rotationDegrees(pLevel.getTimeOfDay(pPartialTick) * 360.0F));
-
-                    RenderSystem.setShaderTexture(0, IcariaResourceLocations.MOON);
-
-                    bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-                    bufferBuilder.vertex(matrix4f, -20.0F, -100.0F, 20.0F).uv(u0, v0).endVertex();
-                    bufferBuilder.vertex(matrix4f, 20.0F, -100.0F, 20.0F).uv(u1, v0).endVertex();
-                    bufferBuilder.vertex(matrix4f, 20.0F, -100.0F, -20.0F).uv(u1, v1).endVertex();
-                    bufferBuilder.vertex(matrix4f, -20.0F, -100.0F, -20.0F).uv(u0, v1).endVertex();
-
-                    BufferUploader.drawWithShader(bufferBuilder.end());
-
-                    RenderSystem.setShaderTexture(0, IcariaResourceLocations.SUN);
-
-                    bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-                    bufferBuilder.vertex(matrix4f, -30.0F, 100.0F, -30.0F).uv(0.0F, 0.0F).endVertex();
-                    bufferBuilder.vertex(matrix4f, 30.0F, 100.0F, -30.0F).uv(1.0F, 0.0F).endVertex();
-                    bufferBuilder.vertex(matrix4f, 30.0F, 100.0F, 30.0F).uv(1.0F, 1.0F).endVertex();
-                    bufferBuilder.vertex(matrix4f, -30.0F, 100.0F, 30.0F).uv(0.0F, 1.0F).endVertex();
-
-                    BufferUploader.drawWithShader(bufferBuilder.end());
-
-                    float starBrightness = pLevel.getStarBrightness(pPartialTick) * rainLevel;
-
-                    if (starBrightness > 0.0F) {
-                        FogRenderer.setupNoFog();
-
-                        RenderSystem.setShaderColor(starBrightness, starBrightness, starBrightness, starBrightness);
-
-                        this.starrySky.bind();
-                        this.starrySky.drawWithShader(pPoseStack.last().pose(), pProjectionMatrix, GameRenderer.getPositionShader());
-
-                        VertexBuffer.unbind();
-
-                        pSetupFog.run();
-                    }
-
-                    RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-                    RenderSystem.disableBlend();
-                    RenderSystem.defaultBlendFunc();
-
-                    pPoseStack.popPose();
-
-                    RenderSystem.setShaderColor(0.0F, 0.0F, 0.0F, 1.0F);
-
-                    if (minecraft.player.getEyePosition(pPartialTick).y - pLevel.getLevelData().getHorizonHeight(pLevel) < 0.0D) {
-                        pPoseStack.pushPose();
-                        pPoseStack.translate(0.0F, 12.0F, 0.0F);
-
-                        this.darkSky.bind();
-                        this.darkSky.drawWithShader(pPoseStack.last().pose(), pProjectionMatrix, shaderInstance);
-
-                        VertexBuffer.unbind();
-
-                        pPoseStack.popPose();
-                    }
-
-                    RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-                    RenderSystem.depthMask(true);
                 }
+
+                pPoseStack.pushPose();
+                pPoseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
+
+                int moonPhase = pLevel.getMoonPhase();
+                int i = moonPhase % 4;
+                int j = moonPhase / 4 % 2;
+
+                float u1 = (i + 0) / 4.0F;
+                float v1 = (j + 0) / 2.0F;
+                float u0 = (i + 1) / 4.0F;
+                float v0 = (j + 1) / 2.0F;
+
+                var matrix4f = pPoseStack.last().pose();
+
+                RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
+                RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+                RenderSystem.setShader(GameRenderer::getPositionTexShader);
+
+                pPoseStack.pushPose();
+                pPoseStack.mulPose(Axis.ZP.rotationDegrees(45.0F));
+                pPoseStack.mulPose(Axis.XP.rotationDegrees(pLevel.getTimeOfDay(pPartialTick) * 360.0F * 2.0F + 45.0F));
+
+                var extraMatrix4f = pPoseStack.last().pose();
+
+                RenderSystem.setShaderTexture(0, IcariaResourceLocations.MOON);
+
+                bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+                bufferBuilder.vertex(extraMatrix4f, -20.0F, -100.0F, 20.0F).uv(0.0F, 0.0F).endVertex();
+                bufferBuilder.vertex(extraMatrix4f, 20.0F, -100.0F, 20.0F).uv(0.25F, 0.0F).endVertex();
+                bufferBuilder.vertex(extraMatrix4f, 20.0F, -100.0F, -20.0F).uv(0.25F, 0.5F).endVertex();
+                bufferBuilder.vertex(extraMatrix4f, -20.0F, -100.0F, -20.0F).uv(0.0F, 0.5F).endVertex();
+
+                BufferUploader.drawWithShader(bufferBuilder.end());
+
+                pPoseStack.popPose();
+                pPoseStack.mulPose(Axis.XP.rotationDegrees(pLevel.getTimeOfDay(pPartialTick) * 360.0F));
+
+                RenderSystem.setShaderTexture(0, IcariaResourceLocations.MOON);
+
+                bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+                bufferBuilder.vertex(matrix4f, -20.0F, -100.0F, 20.0F).uv(u0, v0).endVertex();
+                bufferBuilder.vertex(matrix4f, 20.0F, -100.0F, 20.0F).uv(u1, v0).endVertex();
+                bufferBuilder.vertex(matrix4f, 20.0F, -100.0F, -20.0F).uv(u1, v1).endVertex();
+                bufferBuilder.vertex(matrix4f, -20.0F, -100.0F, -20.0F).uv(u0, v1).endVertex();
+
+                BufferUploader.drawWithShader(bufferBuilder.end());
+
+                RenderSystem.setShaderTexture(0, IcariaResourceLocations.SUN);
+
+                bufferBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+                bufferBuilder.vertex(matrix4f, -30.0F, 100.0F, -30.0F).uv(0.0F, 0.0F).endVertex();
+                bufferBuilder.vertex(matrix4f, 30.0F, 100.0F, -30.0F).uv(1.0F, 0.0F).endVertex();
+                bufferBuilder.vertex(matrix4f, 30.0F, 100.0F, 30.0F).uv(1.0F, 1.0F).endVertex();
+                bufferBuilder.vertex(matrix4f, -30.0F, 100.0F, 30.0F).uv(0.0F, 1.0F).endVertex();
+
+                BufferUploader.drawWithShader(bufferBuilder.end());
+
+                float starBrightness = pLevel.getStarBrightness(pPartialTick);
+
+                if (starBrightness > 0.0F) {
+                    FogRenderer.setupNoFog();
+
+                    RenderSystem.setShaderColor(starBrightness, starBrightness, starBrightness, starBrightness);
+
+                    this.stars.bind();
+                    this.stars.drawWithShader(pPoseStack.last().pose(), pProjectionMatrix, GameRenderer.getPositionShader());
+
+                    VertexBuffer.unbind();
+
+                    pSetupFog.run();
+                }
+
+                RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+                RenderSystem.disableBlend();
+                RenderSystem.defaultBlendFunc();
+                RenderSystem.depthMask(true);
+
+                pPoseStack.popPose();
             }
         }
 
         return true;
     }
 
-    public void createDarkSky() {
-        if (this.darkSky != null) {
-            this.darkSky.close();
+    public void createSky() {
+        if (this.sky != null) {
+            this.sky.close();
         }
 
-        this.darkSky = new VertexBuffer(VertexBuffer.Usage.STATIC);
-        this.darkSky.bind();
-        this.darkSky.upload(this.buildSkyDisc(Tesselator.getInstance().getBuilder(), -16.0F));
+        this.sky = new VertexBuffer(VertexBuffer.Usage.STATIC);
+        this.sky.bind();
+        this.sky.upload(this.drawSky(Tesselator.getInstance().getBuilder(), 16.0F));
 
         VertexBuffer.unbind();
     }
 
-    public void createLightSky() {
-        if (this.lightSky != null) {
-            this.lightSky.close();
-        }
-
-        this.lightSky = new VertexBuffer(VertexBuffer.Usage.STATIC);
-        this.lightSky.bind();
-        this.lightSky.upload(this.buildSkyDisc(Tesselator.getInstance().getBuilder(), 16.0F));
-
-        VertexBuffer.unbind();
-    }
-
-    public void createStarrySky() {
+    public void createStars() {
         RenderSystem.setShader(GameRenderer::getPositionShader);
 
-        if (this.starrySky != null) {
-            this.starrySky.close();
+        if (this.stars != null) {
+            this.stars.close();
         }
 
-        this.starrySky = new VertexBuffer(VertexBuffer.Usage.STATIC);
-        this.starrySky.bind();
-        this.starrySky.upload(this.drawStars(Tesselator.getInstance().getBuilder()));
+        this.stars = new VertexBuffer(VertexBuffer.Usage.STATIC);
+        this.stars.bind();
+        this.stars.upload(this.drawStars(Tesselator.getInstance().getBuilder()));
 
         VertexBuffer.unbind();
     }
 
-    public BufferBuilder.RenderedBuffer buildSkyDisc(BufferBuilder pBuilder, float pY) {
+    public BufferBuilder.RenderedBuffer drawSky(BufferBuilder pBuilder, float pY) {
         RenderSystem.setShader(GameRenderer::getPositionShader);
 
         pBuilder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION);
