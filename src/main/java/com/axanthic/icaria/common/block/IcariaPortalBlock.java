@@ -86,15 +86,15 @@ public class IcariaPortalBlock extends Block {
                         pEntity.setPortalCooldown();
                     } else {
                         if (!pEntity.level().isClientSide()) {
-                            if (!pPos.equals(entrancePos)) {
-                                entrancePos = pPos.immutable();
+                            if (!pPos.equals(IcariaPortalBlock.entrancePos)) {
+                                IcariaPortalBlock.entrancePos = pPos.immutable();
                             }
                         }
 
                         var minecraftServer = pEntity.level().getServer();
                         if (minecraftServer != null) {
                             var serverLevel = minecraftServer.getLevel(pEntity.level().dimension() == IcariaDimensions.ICARIA ? Level.OVERWORLD : IcariaDimensions.ICARIA);
-                            if (serverLevel != null && !pEntity.isPassenger()) {
+                            if (serverLevel != null) {
                                 pEntity.level().getProfiler().push(this.getName().toString());
                                 pEntity.changeDimension(serverLevel, new IcariaTeleporter(serverLevel));
                                 pEntity.setPortalCooldown();
@@ -117,10 +117,10 @@ public class IcariaPortalBlock extends Block {
 
     public IcariaPortalShape isPortal(LevelAccessor pLevel, BlockPos pPos) {
         var icariaPortalShapeX = new IcariaPortalShape(pLevel, pPos, Direction.Axis.X);
+        var icariaPortalShapeZ = new IcariaPortalShape(pLevel, pPos, Direction.Axis.Z);
         if (icariaPortalShapeX.isValid() && icariaPortalShapeX.numPortalBlocks == 0) {
             return icariaPortalShapeX;
         } else {
-            var icariaPortalShapeZ = new IcariaPortalShape(pLevel, pPos, Direction.Axis.Z);
             return icariaPortalShapeZ.isValid() && icariaPortalShapeZ.numPortalBlocks == 0 ? icariaPortalShapeZ : null;
         }
     }
