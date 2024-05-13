@@ -617,7 +617,7 @@ public class IcariaItems {
 	public static final IcariaArmorItems VANADIUMSTEEL_ARMOR = new IcariaArmorItems(IcariaArmorMaterials.VANADIUMSTEEL);
 	public static final RegistryObject<Item> LAUREL_WREATH = IcariaItems.registerSimple("laurel_wreath", () -> new ArmorItem(IcariaArmorMaterials.LAUREL, ArmorItem.Type.HELMET, IcariaItems.propertiesItem()));
 
-	public static final RegistryObject<Item> GREEK_FIRE_GRENADE = IcariaItems.registerSimple("greek_fire_grenade", () -> new GreekFireGrenadeItem(IcariaItems.propertiesItem(1)));
+	public static final RegistryObject<Item> GREEK_FIRE_GRENADE = IcariaItems.registerSimple("greek_fire_grenade", () -> new GreekFireGrenadeItem(IcariaItems.propertiesItem()));
 
 	public static final RegistryObject<TotemItem> TOTEM_OF_PREVENTATION = IcariaItems.registerSimple("totem_of_preventation", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
 	public static final RegistryObject<TotemItem> TOTEM_OF_STUFFING = IcariaItems.registerSimple("totem_of_stuffing", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
