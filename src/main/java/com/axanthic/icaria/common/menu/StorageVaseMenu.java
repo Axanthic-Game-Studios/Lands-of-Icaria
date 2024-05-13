@@ -92,10 +92,8 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 				this.moveItemStackTo(itemStack, 32, 59, false);
 			}
 
-			if (itemStack.isEmpty()) {
-				slot.setByPlayer(ItemStack.EMPTY);
-			} else {
-				slot.setChanged();
+			if (itemStack.getCount() == emptyStack.getCount()) {
+				return ItemStack.EMPTY;
 			}
 		}
 
