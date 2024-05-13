@@ -147,7 +147,7 @@ public class IcariaBiomes {
 		IcariaBiomes.forestBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.forestMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(0.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	// SCRUBLAND
@@ -244,7 +244,7 @@ public class IcariaBiomes {
 		IcariaBiomes.scrublandBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.scrublandMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(0.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	// STEPPE
@@ -341,7 +341,7 @@ public class IcariaBiomes {
 		IcariaBiomes.steppeBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.steppeMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(0.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	// DESERT
@@ -409,7 +409,7 @@ public class IcariaBiomes {
 		IcariaBiomes.desertBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.desertMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(0.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	// VOID
@@ -439,7 +439,7 @@ public class IcariaBiomes {
 		IcariaBiomes.voidBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.voidMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(0.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static ResourceKey<Biome> registerKey(String pName) {
