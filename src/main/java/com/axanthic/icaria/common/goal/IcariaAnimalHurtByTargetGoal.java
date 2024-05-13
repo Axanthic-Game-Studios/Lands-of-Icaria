@@ -22,7 +22,7 @@ public class IcariaAnimalHurtByTargetGoal extends HurtByTargetGoal {
     public void alertOther(Mob pMob, LivingEntity pTarget) {
         if (pMob instanceof IcariaAnimalEntity) {
             double random = pTarget.getRandom().nextInt(16) - 8;
-            pMob.getNavigation().moveTo(pTarget.getX() + random, 0.0D, pTarget.getZ() + random, speedModifier);
+            pMob.getNavigation().moveTo(pTarget.getX() + random, 0.0D, pTarget.getZ() + random, this.speedModifier);
         }
     }
 }

@@ -86,7 +86,7 @@ public class SowEntity extends IcariaAnimalEntity {
         this.goalSelector.addGoal(2, new IcariaPanicGoal(this, 1.5D));
         this.goalSelector.addGoal(3, new IcariaBreedGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.addGoal(5, new TemptGoal(this, 1.0D, Ingredient.of(IcariaItems.SPELT.get()), true));
+        this.goalSelector.addGoal(5, new TemptGoal(this, 1.0D, Ingredient.of(IcariaItems.SPELT.get()), false));
         this.goalSelector.addGoal(6, new IcariaFollowParentGoal(this, 1.0D));
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 5.0F, 0.025F, false));
