@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.recipe;
 
 import com.axanthic.icaria.common.block.KettleBlock;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
@@ -14,6 +15,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
@@ -70,8 +72,23 @@ public class ConcoctingEntityRecipe implements Recipe<SimpleContainer> {
                 var state = pLevel.getBlockState(pPos);
                 if (state.getBlock() instanceof KettleBlock kettleBlock) {
                     var blockPos = pPos.offset(pLevel.getRandom().nextInt(8) - 4, 0, pLevel.getRandom().nextInt(8) - 4);
-                    if (this.entity.equals(IcariaEntityTypes.CRAWLER_REVENANT.getId().toString()) || this.entity.equals(IcariaEntityTypes.MYRMEKE_SOLDIER.getId().toString())) {
+                    if (this.entity.equals(IcariaEntityTypes.CAPTAIN_REVENANT.getId().toString())) {
+                        entity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.ORICHALCUM_TOOLS.sword.get()));
+                        entity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
+                        pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
+                        pLevel.addFreshEntity(entity);
+                    } else if (this.entity.equals(IcariaEntityTypes.CRAWLER_REVENANT.getId().toString()) || this.entity.equals(IcariaEntityTypes.MYRMEKE_SOLDIER.getId().toString())) {
                         entity.moveTo(blockPos, 0.0F, 0.0F);
+                        pLevel.addFreshEntity(entity);
+                    } else if (this.entity.equals(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.getId().toString())) {
+                        entity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
+                        entity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
+                        pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
+                        pLevel.addFreshEntity(entity);
+                    } else if (this.entity.equals(IcariaEntityTypes.SOLDIER_REVENANT.getId().toString())) {
+                        entity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.KASSITEROS_TOOLS.sword.get()));
+                        entity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
+                        pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
                         pLevel.addFreshEntity(entity);
                     } else {
                         entity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
