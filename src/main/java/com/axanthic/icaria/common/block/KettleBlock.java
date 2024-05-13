@@ -243,7 +243,7 @@ public class KettleBlock extends BaseEntityBlock {
                         pLevel.playSound(null, pPos, SoundEvents.VILLAGER_WORK_LEATHERWORKER, SoundSource.BLOCKS);
                         pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true));
                         pLevel.setBlockAndUpdate(pPos.above(), pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(BlockStateProperties.LIT, true));
-                        if (pPlayer.isCreative()) {
+                        if (!pPlayer.isCreative()) {
                             item.shrink(1);
                         }
                     }
