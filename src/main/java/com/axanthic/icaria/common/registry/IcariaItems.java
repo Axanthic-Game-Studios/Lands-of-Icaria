@@ -262,19 +262,19 @@ public class IcariaItems {
 	public static final RegistryObject<Item> ARACHNE_SPAWNER = IcariaItems.register("arachne_spawner", () -> new BlockItem(IcariaBlocks.ARACHNE_SPAWNER.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> REVENANT_SPAWNER = IcariaItems.register("revenant_spawner", () -> new BlockItem(IcariaBlocks.REVENANT_SPAWNER.get(), IcariaItems.propertiesItem()));
 
-	public static final RegistryObject<Item> AETERNAE_SKULL = IcariaItems.register("aeternae_skull", () -> new IcariaSkullItem(IcariaBlocks.AETERNAE_SKULL.get(), IcariaBlocks.AETERNAE_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final RegistryObject<Item> ARGAN_HOUND_SKULL = IcariaItems.register("argan_hound_skull", () -> new IcariaSkullItem(IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final RegistryObject<Item> CATOBLEPAS_SKULL = IcariaItems.register("catoblepas_skull", () -> new IcariaSkullItem(IcariaBlocks.CATOBLEPAS_SKULL.get(), IcariaBlocks.CATOBLEPAS_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final RegistryObject<Item> CERVER_SKULL = IcariaItems.register("cerver_skull", () -> new IcariaSkullItem(IcariaBlocks.CERVER_SKULL.get(), IcariaBlocks.CERVER_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final RegistryObject<Item> CYPRESS_FOREST_HAG_SKULL = IcariaItems.register("cypress_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final RegistryObject<Item> DROUGHTROOT_FOREST_HAG_SKULL = IcariaItems.register("droughtroot_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get(), IcariaBlocks.DROUGHTROOT_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final RegistryObject<Item> FIR_FOREST_HAG_SKULL = IcariaItems.register("fir_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.FIR_FOREST_HAG_SKULL.get(), IcariaBlocks.FIR_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final RegistryObject<Item> LAUREL_FOREST_HAG_SKULL = IcariaItems.register("laurel_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get(), IcariaBlocks.LAUREL_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final RegistryObject<Item> OLIVE_FOREST_HAG_SKULL = IcariaItems.register("olive_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final RegistryObject<Item> PLANE_FOREST_HAG_SKULL = IcariaItems.register("plane_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final RegistryObject<Item> POPULUS_FOREST_HAG_SKULL = IcariaItems.register("populus_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final RegistryObject<Item> REVENANT_SKULL = IcariaItems.register("revenant_skull", () -> new IcariaSkullItem(IcariaBlocks.REVENANT_SKULL.get(), IcariaBlocks.REVENANT_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final RegistryObject<Item> SOW_SKULL = IcariaItems.register("sow_skull", () -> new IcariaSkullItem(IcariaBlocks.SOW_SKULL.get(), IcariaBlocks.SOW_WALL_SKULL.get(), IcariaItems.propertiesItem(), Direction.DOWN));
+	public static final RegistryObject<Item> AETERNAE_SKULL = IcariaItems.register("aeternae_skull", () -> new IcariaSkullItem(IcariaBlocks.AETERNAE_SKULL.get(), IcariaBlocks.AETERNAE_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
+	public static final RegistryObject<Item> ARGAN_HOUND_SKULL = IcariaItems.register("argan_hound_skull", () -> new IcariaSkullItem(IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
+	public static final RegistryObject<Item> CATOBLEPAS_SKULL = IcariaItems.register("catoblepas_skull", () -> new IcariaSkullItem(IcariaBlocks.CATOBLEPAS_SKULL.get(), IcariaBlocks.CATOBLEPAS_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
+	public static final RegistryObject<Item> CERVER_SKULL = IcariaItems.register("cerver_skull", () -> new IcariaSkullItem(IcariaBlocks.CERVER_SKULL.get(), IcariaBlocks.CERVER_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
+	public static final RegistryObject<Item> CYPRESS_FOREST_HAG_SKULL = IcariaItems.register("cypress_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
+	public static final RegistryObject<Item> DROUGHTROOT_FOREST_HAG_SKULL = IcariaItems.register("droughtroot_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get(), IcariaBlocks.DROUGHTROOT_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
+	public static final RegistryObject<Item> FIR_FOREST_HAG_SKULL = IcariaItems.register("fir_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.FIR_FOREST_HAG_SKULL.get(), IcariaBlocks.FIR_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
+	public static final RegistryObject<Item> LAUREL_FOREST_HAG_SKULL = IcariaItems.register("laurel_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get(), IcariaBlocks.LAUREL_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
+	public static final RegistryObject<Item> OLIVE_FOREST_HAG_SKULL = IcariaItems.register("olive_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
+	public static final RegistryObject<Item> PLANE_FOREST_HAG_SKULL = IcariaItems.register("plane_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
+	public static final RegistryObject<Item> POPULUS_FOREST_HAG_SKULL = IcariaItems.register("populus_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
+	public static final RegistryObject<Item> REVENANT_SKULL = IcariaItems.register("revenant_skull", () -> new IcariaSkullItem(IcariaBlocks.REVENANT_SKULL.get(), IcariaBlocks.REVENANT_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
+	public static final RegistryObject<Item> SOW_SKULL = IcariaItems.register("sow_skull", () -> new IcariaSkullItem(IcariaBlocks.SOW_SKULL.get(), IcariaBlocks.SOW_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
 
 	public static final RegistryObject<Item> LIGNITE_TORCH = IcariaItems.registerSimple("lignite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.LIGNITE_TORCH.get(), IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.propertiesItem(), Direction.DOWN));
 	public static final RegistryObject<Item> ANTHRACITE_TORCH = IcariaItems.registerSimple("anthracite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.ANTHRACITE_TORCH.get(), IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.propertiesItem(), Direction.DOWN));
@@ -619,13 +619,13 @@ public class IcariaItems {
 
 	public static final RegistryObject<Item> GREEK_FIRE_GRENADE = IcariaItems.registerSimple("greek_fire_grenade", () -> new GreekFireGrenadeItem(IcariaItems.propertiesItem(1)));
 
-	public static final RegistryObject<TotemItem> TOTEM_OF_PREVENTATION = IcariaItems.registerSimple("totem_of_preventation", () -> new TotemItem(IcariaItems.propertiesItem(1, 4)));
-	public static final RegistryObject<TotemItem> TOTEM_OF_STUFFING = IcariaItems.registerSimple("totem_of_stuffing", () -> new TotemItem(IcariaItems.propertiesItem(1, 4)));
-	public static final RegistryObject<TotemItem> TOTEM_OF_UNBLINDING = IcariaItems.registerSimple("totem_of_unblinding", () -> new TotemItem(IcariaItems.propertiesItem(1, 4)));
-	public static final RegistryObject<TotemItem> TOTEM_OF_UNDROWNING = IcariaItems.registerSimple("totem_of_undrowning", () -> new TotemItem(IcariaItems.propertiesItem(1, 4)));
-	public static final RegistryObject<TotemItem> TOTEM_OF_UNDYING = IcariaItems.registerSimple("totem_of_undying", () -> new TotemItem(IcariaItems.propertiesItem(1, 4)));
-	public static final RegistryObject<TotemItem> TOTEM_OF_UNSHATTERING = IcariaItems.registerSimple("totem_of_unshattering", () -> new TotemItem(IcariaItems.propertiesItem(1, 4)));
-	public static final RegistryObject<TotemItem> TOTEM_OF_UNSINKING = IcariaItems.registerSimple("totem_of_unsinking", () -> new TotemItem(IcariaItems.propertiesItem(1, 4)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_PREVENTATION = IcariaItems.registerSimple("totem_of_preventation", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_STUFFING = IcariaItems.registerSimple("totem_of_stuffing", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_UNBLINDING = IcariaItems.registerSimple("totem_of_unblinding", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_UNDROWNING = IcariaItems.registerSimple("totem_of_undrowning", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_UNDYING = IcariaItems.registerSimple("totem_of_undying", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_UNSHATTERING = IcariaItems.registerSimple("totem_of_unshattering", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
+	public static final RegistryObject<TotemItem> TOTEM_OF_UNSINKING = IcariaItems.registerSimple("totem_of_unsinking", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
 
 	public static final RegistryObject<Item> UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> WHITE_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("white_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
@@ -769,8 +769,20 @@ public class IcariaItems {
 		return new Item.Properties().stacksTo(pSize);
 	}
 
+	public static Item.Properties propertiesItem(Rarity pRarity) {
+		return new Item.Properties().rarity(pRarity);
+	}
+
+	public static Item.Properties propertiesItem(int pSize, Rarity pRarity) {
+		return new Item.Properties().stacksTo(pSize).rarity(pRarity);
+	}
+
 	public static Item.Properties propertiesItem(int pSize, int pDurability) {
 		return new Item.Properties().stacksTo(pSize).durability(pDurability);
+	}
+
+	public static Item.Properties propertiesItem(int pSize, int pDurability, Rarity pRarity) {
+		return new Item.Properties().stacksTo(pSize).durability(pDurability).rarity(pRarity);
 	}
 
 	public static Item.Properties propertiesFood(int pNutrition, float pSaturation, int pSize) {
