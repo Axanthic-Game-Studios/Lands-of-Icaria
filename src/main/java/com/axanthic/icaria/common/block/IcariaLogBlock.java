@@ -5,8 +5,6 @@ import com.axanthic.icaria.common.registry.*;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -31,10 +29,10 @@ public class IcariaLogBlock extends RotatedPillarBlock {
 
 	@Override
 	public boolean onDestroyedByPlayer(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, boolean pWillHarvest, FluidState pFluid) {
-		if (!pPlayer.isCreative()) {
-			if (!pPlayer.getItemBySlot(EquipmentSlot.HEAD).is(IcariaItems.LAUREL_WREATH.get())) {
-				if (!pState.getValue(IcariaBlockStateProperties.PLAYER_PLACED)) {
-					if (pLevel.getRandom().nextInt(100) == 0) {
+		if (pLevel.getRandom().nextInt(50) == 0) {
+			if (!pPlayer.isCreative()) {
+				if (!pPlayer.getItemBySlot(EquipmentSlot.HEAD).is(IcariaItems.LAUREL_WREATH.get())) {
+					if (!pState.getValue(IcariaBlockStateProperties.PLAYER_PLACED)) {
 						var entityType = IcariaEntityTypes.CYPRESS_FOREST_HAG.get();
 						if (pState.is(IcariaBlocks.DROUGHTROOT_LOG.get())) {
 							entityType = IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get();
@@ -51,23 +49,22 @@ public class IcariaLogBlock extends RotatedPillarBlock {
 						}
 
 						var entity = entityType.create(pLevel);
+						var blockPos = pPlayer.blockPosition();
+						var direction = pPlayer.getDirection();
+						var spawnPos = new BlockPos(blockPos.relative(direction.getOpposite(), 12).getX(), blockPos.getY(), blockPos.relative(direction.getOpposite(), 12).getZ());
 						if (entity != null) {
-							var direction = pPlayer.getDirection();
-							var blockPos = pPlayer.blockPosition();
-							var soundPos = new BlockPos(blockPos.relative(direction.getOpposite(), 8).getX(), blockPos.getY(), blockPos.relative(direction.getOpposite(), 8).getZ());
-							var spawnPos = new BlockPos(blockPos.relative(direction.getOpposite(), 16).getX(), blockPos.getY(), blockPos.relative(direction.getOpposite(), 16).getZ());
 							if (!pLevel.getBiome(spawnPos).is(IcariaBiomes.VOID)) {
-								entity.moveTo(spawnPos, 0.0F, 0.0F);
-								entity.setTarget(pPlayer);
-								entity.spawnAnim();
-								pLevel.addFreshEntity(entity);
-								pLevel.playSound(null, soundPos, SoundEvents.ENDERMAN_SCREAM, SoundSource.HOSTILE, 1.0F, 0.5F);
-								pLevel.playSound(null, soundPos, SoundEvents.ENDERMAN_STARE, SoundSource.HOSTILE);
+								if (pLevel.getBlockState(spawnPos).isAir()) {
+									entity.moveTo(spawnPos, 0.0F, 0.0F);
+									entity.setTarget(pPlayer);
+									entity.spawnAnim();
+									pLevel.addFreshEntity(entity);
+								}
 							}
 						}
 					}
 
-					for (var entity : pLevel.getEntitiesOfClass(ForestHagEntity.class, new AABB(pPos).inflate(16))) {
+					for (var entity : pLevel.getEntitiesOfClass(ForestHagEntity.class, new AABB(pPos).inflate(12))) {
 						entity.setTarget(pPlayer);
 					}
 				}
