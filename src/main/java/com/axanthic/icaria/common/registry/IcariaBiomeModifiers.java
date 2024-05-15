@@ -21,6 +21,6 @@ public class IcariaBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_NETHER_PYROMANCER_REVENANT = ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(IcariaInfo.ID, "add_nether_pyromancer_revenant"));
 
     public static void bootstrap(BootstapContext<BiomeModifier> pContext) {
-        pContext.register(IcariaBiomeModifiers.ADD_NETHER_PYROMANCER_REVENANT, ForgeBiomeModifiers.AddSpawnsBiomeModifier.singleSpawn(pContext.lookup(Registries.BIOME).getOrThrow(BiomeTags.IS_NETHER), new MobSpawnSettings.SpawnerData(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 100, 1, 3)));
+        pContext.register(IcariaBiomeModifiers.ADD_NETHER_PYROMANCER_REVENANT, ForgeBiomeModifiers.AddSpawnsBiomeModifier.singleSpawn(pContext.lookup(Registries.BIOME).getOrThrow(BiomeTags.IS_NETHER), new MobSpawnSettings.SpawnerData(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 25, 1, 1)));
     }
 }

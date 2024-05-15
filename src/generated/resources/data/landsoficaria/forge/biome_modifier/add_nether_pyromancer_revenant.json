@@ -3,8 +3,8 @@
   "biomes": "#minecraft:is_nether",
   "spawners": {
     "type": "landsoficaria:nether_pyromancer_revenant",
-    "maxCount": 3,
+    "maxCount": 1,
     "minCount": 1,
-    "weight": 100
+    "weight": 25
   }
 }
