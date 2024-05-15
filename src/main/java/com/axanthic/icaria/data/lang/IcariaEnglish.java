@@ -307,7 +307,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), "Block of Arachne String");
 		this.add(IcariaBlocks.SPELT_BALE_BLOCK.get(), "Spelt Bale");
 		this.add(IcariaBlocks.VINE_REED_BLOCK.get(), "Block of Vine Reed");
-		this.add(IcariaBlocks.VINE_SPROUT_BLOCK.get(), "Block of Vine Sprout");
 		this.add(IcariaBlocks.ROTTEN_BONES_BLOCK.get(), "Block of Rotten Bones");
 
 		this.add(IcariaBlocks.RAW_CHALKOS_BLOCK.get(), "Block of Raw Chalkos");

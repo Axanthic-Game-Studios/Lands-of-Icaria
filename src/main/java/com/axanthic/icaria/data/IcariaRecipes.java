@@ -380,7 +380,6 @@ public class IcariaRecipes extends RecipeProvider {
 		this.adobeRecipe(pConsumer, IcariaItems.COBBLED_BAETYL.get(), IcariaItems.BAETYL_ADOBE.get());
 
 		this.smallCompressDecompressRecipes(pConsumer, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM.get());
-		this.smallCompressDecompressRecipes(pConsumer, IcariaItems.VINE_SPROUT.get(), IcariaItems.VINE_SPROUT_BLOCK.get());
 
 		this.smallCompressRecipe(pConsumer, IcariaItems.LOAM_BRICK.get(), IcariaItems.LOAM_BRICKS.get());
 		this.smallCompressRecipe(pConsumer, IcariaItems.SILKSAND.get(), IcariaItems.SILKSTONE.get());

@@ -594,7 +594,6 @@ public class IcariaItemTags extends ItemTagsProvider {
 		this.tag(IcariaItemTags.STORAGE_BLOCKS_ARACHNE_STRING).add(IcariaItems.ARACHNE_STRING_BLOCK.get());
 		this.tag(IcariaItemTags.STORAGE_BLOCKS_SPELT).add(IcariaItems.SPELT_BALE_BLOCK.get());
 		this.tag(IcariaItemTags.STORAGE_BLOCKS_VINE_REED).add(IcariaItems.VINE_REED_BLOCK.get());
-		this.tag(IcariaItemTags.STORAGE_BLOCKS_VINE_SPROUT).add(IcariaItems.VINE_SPROUT_BLOCK.get());
 		this.tag(IcariaItemTags.STORAGE_BLOCKS_ROTTEN_BONES).add(IcariaItems.ROTTEN_BONES_BLOCK.get());
 		this.tag(IcariaItemTags.STORAGE_BLOCKS_RAW_CHALKOS).add(IcariaItems.RAW_CHALKOS_BLOCK.get());
 		this.tag(IcariaItemTags.STORAGE_BLOCKS_RAW_KASSITEROS).add(IcariaItems.RAW_KASSITEROS_BLOCK.get());
@@ -629,7 +628,6 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.ARACHNE_STRING_BLOCK.get())
 			.add(IcariaItems.SPELT_BALE_BLOCK.get())
 			.add(IcariaItems.VINE_REED_BLOCK.get())
-			.add(IcariaItems.VINE_SPROUT_BLOCK.get())
 			.add(IcariaItems.ROTTEN_BONES_BLOCK.get())
 			.add(IcariaItems.RAW_CHALKOS_BLOCK.get())
 			.add(IcariaItems.RAW_KASSITEROS_BLOCK.get())

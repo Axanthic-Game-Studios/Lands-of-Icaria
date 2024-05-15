@@ -204,7 +204,6 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> ARACHNE_STRING_BLOCK = IcariaBlocks.registerSimple("arachne_string_block", () -> new Block(IcariaBlocks.propertiesArachneStringBlock(MapColor.COLOR_BROWN, SoundType.WOOL)));
 	public static final RegistryObject<RotatedPillarBlock> SPELT_BALE_BLOCK = IcariaBlocks.register("spelt_bale_block", () -> new SpeltBaleBlock(IcariaBlocks.propertiesSpeltBaleBlock(MapColor.TERRACOTTA_YELLOW, SoundType.GRASS)));
 	public static final RegistryObject<Block> VINE_REED_BLOCK = IcariaBlocks.registerSimple("vine_reed_block", () -> new Block(IcariaBlocks.propertiesVineReedBlock(MapColor.WOOD, SoundType.WOOD)));
-	public static final RegistryObject<Block> VINE_SPROUT_BLOCK = IcariaBlocks.registerSimple("vine_sprout_block", () -> new Block(IcariaBlocks.propertiesVineSproutBlock(MapColor.TERRACOTTA_LIGHT_BLUE, SoundType.WOOD)));
 	public static final RegistryObject<Block> ROTTEN_BONES_BLOCK = IcariaBlocks.registerSimple("rotten_bones_block", () -> new Block(IcariaBlocks.propertiesRottenBonesBlock(MapColor.TERRACOTTA_LIGHT_GRAY, SoundType.BONE_BLOCK)));
 
 	public static final RegistryObject<Block> RAW_CHALKOS_BLOCK = IcariaBlocks.registerSimple("raw_chalkos_block", () -> new Block(IcariaBlocks.propertiesRawMetalBlock(MapColor.COLOR_GREEN, SoundType.METAL)));

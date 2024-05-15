@@ -315,7 +315,6 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.ARACHNE_STRING_BLOCK.get());
 			pEvent.accept(IcariaItems.SPELT_BALE_BLOCK.get());
 			pEvent.accept(IcariaItems.VINE_REED_BLOCK.get());
-			pEvent.accept(IcariaItems.VINE_SPROUT_BLOCK.get());
 			pEvent.accept(IcariaItems.ROTTEN_BONES_BLOCK.get());
 
 			pEvent.accept(IcariaItems.RAW_CHALKOS_BLOCK.get());

@@ -611,7 +611,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 		this.tag(BlockTags.MINEABLE_WITH_AXE)
 			.add(IcariaBlocks.VINE_REED_BLOCK.get())
-			.add(IcariaBlocks.VINE_SPROUT_BLOCK.get())
 			.add(IcariaBlocks.CHEST.get())
 			.add(IcariaBlocks.TRAPPED_CHEST.get())
 			.add(IcariaBlocks.CYPRESS_WOOD.get())
@@ -1209,7 +1208,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_ARACHNE_STRING).add(IcariaBlocks.ARACHNE_STRING_BLOCK.get());
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_SPELT).add(IcariaBlocks.SPELT_BALE_BLOCK.get());
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_VINE_REED).add(IcariaBlocks.VINE_REED_BLOCK.get());
-		this.tag(IcariaBlockTags.STORAGE_BLOCKS_VINE_SPROUT).add(IcariaBlocks.VINE_SPROUT_BLOCK.get());
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_ROTTEN_BONES).add(IcariaBlocks.ROTTEN_BONES_BLOCK.get());
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_RAW_CHALKOS).add(IcariaBlocks.RAW_CHALKOS_BLOCK.get());
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_RAW_KASSITEROS).add(IcariaBlocks.RAW_KASSITEROS_BLOCK.get());
@@ -1244,7 +1242,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get())
 			.add(IcariaBlocks.SPELT_BALE_BLOCK.get())
 			.add(IcariaBlocks.VINE_REED_BLOCK.get())
-			.add(IcariaBlocks.VINE_SPROUT_BLOCK.get())
 			.add(IcariaBlocks.ROTTEN_BONES_BLOCK.get())
 			.add(IcariaBlocks.RAW_CHALKOS_BLOCK.get())
 			.add(IcariaBlocks.RAW_KASSITEROS_BLOCK.get())

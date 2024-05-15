@@ -16,7 +16,6 @@ public class IcariaFlammables {
 		IcariaFlammables.flammableBlock(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), 30, 60);
 		IcariaFlammables.flammableBlock(IcariaBlocks.SPELT_BALE_BLOCK.get(), 60, 20);
 		IcariaFlammables.flammableBlock(IcariaBlocks.VINE_REED_BLOCK.get(), 5, 20);
-		IcariaFlammables.flammableBlock(IcariaBlocks.VINE_SPROUT_BLOCK.get(), 5, 20);
 		IcariaFlammables.flammableBlock(IcariaBlocks.CYPRESS_LEAVES.get(), 30, 60);
 		IcariaFlammables.flammableBlock(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), 30, 60);
 		IcariaFlammables.flammableBlock(IcariaBlocks.CYPRESS_TWIGS.get(), 30, 60);

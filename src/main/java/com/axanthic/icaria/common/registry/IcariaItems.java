@@ -198,7 +198,6 @@ public class IcariaItems {
 	public static final RegistryObject<Item> ARACHNE_STRING_BLOCK = IcariaItems.register("arachne_string_block", () -> new FuelBlockItem(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), IcariaItems.propertiesItem(), 100));
 	public static final RegistryObject<Item> SPELT_BALE_BLOCK = IcariaItems.register("spelt_bale_block", () -> new BlockItem(IcariaBlocks.SPELT_BALE_BLOCK.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> VINE_REED_BLOCK = IcariaItems.register("vine_reed_block", () -> new BlockItem(IcariaBlocks.VINE_REED_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final RegistryObject<Item> VINE_SPROUT_BLOCK = IcariaItems.register("vine_sprout_block", () -> new BlockItem(IcariaBlocks.VINE_SPROUT_BLOCK.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> ROTTEN_BONES_BLOCK = IcariaItems.register("rotten_bones_block", () -> new BlockItem(IcariaBlocks.ROTTEN_BONES_BLOCK.get(), IcariaItems.propertiesItem()));
 
 	public static final RegistryObject<Item> RAW_CHALKOS_BLOCK = IcariaItems.register("raw_chalkos_block", () -> new BlockItem(IcariaBlocks.RAW_CHALKOS_BLOCK.get(), IcariaItems.propertiesItem()));

@@ -6,7 +6,6 @@ public class IcariaCompostables {
 	public static void setup() {
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.SPELT_BALE_BLOCK.get(), 0.85F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_REED_BLOCK.get(), 0.85F);
-		ComposterBlock.COMPOSTABLES.put(IcariaItems.VINE_SPROUT_BLOCK.get(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.CYPRESS_SAPLING.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.CYPRESS_LEAVES.get(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(IcariaItems.FALLEN_CYPRESS_LEAVES.get(), 0.3F);

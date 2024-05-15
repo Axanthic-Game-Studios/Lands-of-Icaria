@@ -307,7 +307,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), "Arachnefadenblock");
 		this.add(IcariaBlocks.SPELT_BALE_BLOCK.get(), "Dinkelballen");
 		this.add(IcariaBlocks.VINE_REED_BLOCK.get(), "Weinschilfblock");
-		this.add(IcariaBlocks.VINE_SPROUT_BLOCK.get(), "Weinsprossenblock");
 		this.add(IcariaBlocks.ROTTEN_BONES_BLOCK.get(), "Verrotteter Knochenblock");
 
 		this.add(IcariaBlocks.RAW_CHALKOS_BLOCK.get(), "Rohkuffarblock");
