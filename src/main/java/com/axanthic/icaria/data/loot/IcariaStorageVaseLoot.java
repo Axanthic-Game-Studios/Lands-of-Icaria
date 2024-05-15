@@ -46,6 +46,7 @@ public class IcariaStorageVaseLoot implements LootTableSubProvider {
         pConsumer.accept(IcariaResourceLocations.CYAN_STORAGE_VASE_LOOT, LootTable.lootTable()
             .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 5.0F))
                 .add(LootItem.lootTableItem(IcariaItems.SPELT_BREAD.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+                .add(LootItem.lootTableItem(IcariaItems.VINE_SPROUT.get()))
                 .add(LootItem.lootTableItem(IcariaItems.VINEBERRIES.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                 .add(LootItem.lootTableItem(IcariaItems.STRAWBERRIES.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                 .add(LootItem.lootTableItem(IcariaItems.PHYSALIS.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))

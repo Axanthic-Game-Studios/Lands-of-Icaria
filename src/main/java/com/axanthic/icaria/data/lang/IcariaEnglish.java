@@ -834,7 +834,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.ARACHNE_STRING.get(), "Arachne String");
 		this.add(IcariaItems.SPELT.get(), "Spelt");
 		this.add(IcariaItems.VINE_REED.get(), "Vine Reed");
-		this.add(IcariaItems.VINE_SPROUT.get(), "Vine Sprout");
 		this.add(IcariaItems.ROTTEN_BONES.get(), "Rotten Bones");
 		this.add(IcariaItems.GREENPOWDER.get(), "Greenpowder");
 		this.add(IcariaItems.CALCITE_SHARD.get(), "Calcite Shard");
@@ -1011,6 +1010,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.AETERNAE_HIDE.get(), "Aeternae Hide");
 		this.add(IcariaItems.SPELT_FLOUR.get(), "Spelt Flour");
 		this.add(IcariaItems.SPELT_BREAD.get(), "Spelt Bread");
+		this.add(IcariaItems.VINE_SPROUT.get(), "Vine Sprout");
 		this.add(IcariaItems.VINEBERRIES.get(), "Vineberries");
 		this.add(IcariaItems.STRAWBERRIES.get(), "Strawberries");
 		this.add(IcariaItems.PHYSALIS.get(), "Physalis");

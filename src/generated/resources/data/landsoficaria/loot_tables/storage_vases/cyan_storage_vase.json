@@ -21,6 +21,10 @@
         },
         {
           "type": "minecraft:item",
+          "name": "landsoficaria:vine_sprout"
+        },
+        {
+          "type": "minecraft:item",
           "functions": [
             {
               "add": false,

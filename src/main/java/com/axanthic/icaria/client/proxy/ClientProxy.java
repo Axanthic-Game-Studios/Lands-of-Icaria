@@ -698,7 +698,6 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.ARACHNE_STRING.get());
 			pEvent.accept(IcariaItems.SPELT.get());
 			pEvent.accept(IcariaItems.VINE_REED.get());
-			pEvent.accept(IcariaItems.VINE_SPROUT.get());
 			pEvent.accept(IcariaItems.ROTTEN_BONES.get());
 			pEvent.accept(IcariaItems.GREENPOWDER.get());
 			pEvent.accept(IcariaItems.CALCITE_SHARD.get());
@@ -875,6 +874,7 @@ public class ClientProxy extends CommonProxy {
 			pEvent.accept(IcariaItems.AETERNAE_HIDE.get());
 			pEvent.accept(IcariaItems.SPELT_FLOUR.get());
 			pEvent.accept(IcariaItems.SPELT_BREAD.get());
+			pEvent.accept(IcariaItems.VINE_SPROUT.get());
 			pEvent.accept(IcariaItems.VINEBERRIES.get());
 			pEvent.accept(IcariaItems.STRAWBERRIES.get());
 			pEvent.accept(IcariaItems.PHYSALIS.get());

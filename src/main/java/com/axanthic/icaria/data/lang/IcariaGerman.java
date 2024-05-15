@@ -834,7 +834,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.ARACHNE_STRING.get(), "Arachnenfaden");
 		this.add(IcariaItems.SPELT.get(), "Dinkel");
 		this.add(IcariaItems.VINE_REED.get(), "Weinschilf");
-		this.add(IcariaItems.VINE_SPROUT.get(), "Rankensprosse");
 		this.add(IcariaItems.ROTTEN_BONES.get(), "Verrottete Knochen");
 		this.add(IcariaItems.GREENPOWDER.get(), "Grünpulver");
 		this.add(IcariaItems.CALCITE_SHARD.get(), "Calcitscherbe");
@@ -1011,6 +1010,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.AETERNAE_HIDE.get(), "Äternen Leder");
 		this.add(IcariaItems.SPELT_FLOUR.get(), "Dinkelmehl");
 		this.add(IcariaItems.SPELT_BREAD.get(), "Dinkelbrot");
+		this.add(IcariaItems.VINE_SPROUT.get(), "Rankensprosse");
 		this.add(IcariaItems.VINEBERRIES.get(), "Rankenbeeren");
 		this.add(IcariaItems.STRAWBERRIES.get(), "Erdbeeren");
 		this.add(IcariaItems.PHYSALIS.get(), "Physalis");
