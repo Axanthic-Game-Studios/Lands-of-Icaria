@@ -484,6 +484,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.BAETYL_BRICKS.get())
 			.add(IcariaBlocks.CHISELED_BAETYL.get())
 			.add(IcariaBlocks.RELICSTONE.get())
+			.add(IcariaBlocks.SMOOTH_RELICSTONE.get())
 			.add(IcariaBlocks.RELICSTONE_BRICKS.get())
 			.add(IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get())
 			.add(IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get())
