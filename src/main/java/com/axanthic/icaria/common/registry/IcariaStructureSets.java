@@ -28,7 +28,7 @@ public class IcariaStructureSets {
 			StructureSet.entry(structures.getOrThrow(IcariaStructures.SCRUBLAND_ERODED), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.SCRUBLAND_RUINED), 1),
 			StructureSet.entry(structures.getOrThrow(IcariaStructures.STEPPE_ERODED), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.STEPPE_RUINED), 1),
 			StructureSet.entry(structures.getOrThrow(IcariaStructures.DESERT_ERODED), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.DESERT_RUINED), 1)
-		), new RandomSpreadStructurePlacement(8, 4, RandomSpreadType.LINEAR, 1117821874)));
+		), new RandomSpreadStructurePlacement(6, 4, RandomSpreadType.LINEAR, 1117821874)));
 	}
 
 	public static ResourceKey<StructureSet> registerKey(String pName) {
