@@ -367,6 +367,30 @@
         "max": 5.0,
         "min": 1.0
       }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "chance": 0.1,
+          "condition": "minecraft:random_chance"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:anti_gravity_scroll"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:fortifying_scroll"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:freezing_scroll"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "landsoficaria:loot_vases/cyan_loot_vase"

@@ -10,6 +10,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemDamageFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.function.BiConsumer;
@@ -54,7 +55,11 @@ public class IcariaLootVaseLoot implements LootTableSubProvider {
                 .add(LootItem.lootTableItem(IcariaItems.ANTI_GRAVITY_SPELL.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                 .add(LootItem.lootTableItem(IcariaItems.FORTIFYING_SPELL.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                 .add(LootItem.lootTableItem(IcariaItems.FREEZING_SPELL.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-                .add(LootItem.lootTableItem(IcariaItems.AETERNAE_HIDE.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+                .add(LootItem.lootTableItem(IcariaItems.AETERNAE_HIDE.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))))
+            .withPool(LootPool.lootPool().when(LootItemRandomChanceCondition.randomChance(0.1F))
+                .add(LootItem.lootTableItem(IcariaItems.HEALING_SCROLL.get()))
+                .add(LootItem.lootTableItem(IcariaItems.BUBBLE_SCROLL.get()))
+                .add(LootItem.lootTableItem(IcariaItems.MAGIC_MISSILE_SCROLL.get()))
             )
         );
 
@@ -85,7 +90,11 @@ public class IcariaLootVaseLoot implements LootTableSubProvider {
                 .add(LootItem.lootTableItem(IcariaItems.MAGIC_MISSILE_SPELL.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                 .add(LootItem.lootTableItem(IcariaItems.BLUE_GEARFRAGMENT.get()))
                 .add(LootItem.lootTableItem(IcariaItems.GREEN_GEARFRAGMENT.get()))
-                .add(LootItem.lootTableItem(IcariaItems.YELLOW_GEARFRAGMENT.get()))
+                .add(LootItem.lootTableItem(IcariaItems.YELLOW_GEARFRAGMENT.get())))
+            .withPool(LootPool.lootPool().when(LootItemRandomChanceCondition.randomChance(0.1F))
+                .add(LootItem.lootTableItem(IcariaItems.ANTI_GRAVITY_SCROLL.get()))
+                .add(LootItem.lootTableItem(IcariaItems.FORTIFYING_SCROLL.get()))
+                .add(LootItem.lootTableItem(IcariaItems.FREEZING_SCROLL.get()))
             )
         );
     }
