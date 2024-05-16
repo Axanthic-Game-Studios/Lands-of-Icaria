@@ -1,0 +1,16 @@
+{
+  "values": [
+    "landsoficaria:villages/forest/eroded",
+    "landsoficaria:villages/forest/pristine",
+    "landsoficaria:villages/forest/ruined",
+    "landsoficaria:villages/scrubland/eroded",
+    "landsoficaria:villages/scrubland/pristine",
+    "landsoficaria:villages/scrubland/ruined",
+    "landsoficaria:villages/steppe/eroded",
+    "landsoficaria:villages/steppe/pristine",
+    "landsoficaria:villages/steppe/ruined",
+    "landsoficaria:villages/desert/eroded",
+    "landsoficaria:villages/desert/pristine",
+    "landsoficaria:villages/desert/ruined"
+  ]
+}

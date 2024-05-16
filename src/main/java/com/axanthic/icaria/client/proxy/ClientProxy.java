@@ -18,13 +18,10 @@ import com.axanthic.icaria.data.IcariaBuiltinEntries;
 import com.axanthic.icaria.data.IcariaItemModels;
 import com.axanthic.icaria.data.IcariaRecipes;
 import com.axanthic.icaria.data.advancements.IcariaAdvancements;
-import com.axanthic.icaria.data.lang.IcariaGerman;
 import com.axanthic.icaria.data.lang.IcariaEnglish;
+import com.axanthic.icaria.data.lang.IcariaGerman;
 import com.axanthic.icaria.data.loot.IcariaLoot;
-import com.axanthic.icaria.data.tags.IcariaBiomeTags;
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
-import com.axanthic.icaria.data.tags.IcariaFluidTags;
-import com.axanthic.icaria.data.tags.IcariaItemTags;
+import com.axanthic.icaria.data.tags.*;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -38,8 +35,8 @@ import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.stats.Stats;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -1380,6 +1377,7 @@ public class ClientProxy extends CommonProxy {
 		generator.addProvider(pEvent.includeServer(), blockTags);
 		generator.addProvider(pEvent.includeServer(), new IcariaFluidTags(packOutput, lookupProvider, IcariaInfo.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), new IcariaItemTags(packOutput, lookupProvider, blockTags.contentsGetter(), IcariaInfo.ID, existingFileHelper));
+		generator.addProvider(pEvent.includeServer(), new IcariaStructureTags(packOutput, lookupProvider, registrySet, IcariaInfo.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), new IcariaRecipes(packOutput));
 		generator.addProvider(pEvent.includeServer(), new IcariaBuiltinEntries(packOutput, lookupProvider, registrySet, IcariaInfo.ID));
 	}
