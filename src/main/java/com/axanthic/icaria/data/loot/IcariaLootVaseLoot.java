@@ -55,11 +55,7 @@ public class IcariaLootVaseLoot implements LootTableSubProvider {
                 .add(LootItem.lootTableItem(IcariaItems.ANTI_GRAVITY_SPELL.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                 .add(LootItem.lootTableItem(IcariaItems.FORTIFYING_SPELL.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                 .add(LootItem.lootTableItem(IcariaItems.FREEZING_SPELL.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-                .add(LootItem.lootTableItem(IcariaItems.AETERNAE_HIDE.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))))
-            .withPool(LootPool.lootPool().when(LootItemRandomChanceCondition.randomChance(0.1F))
-                .add(LootItem.lootTableItem(IcariaItems.HEALING_SCROLL.get()))
-                .add(LootItem.lootTableItem(IcariaItems.BUBBLE_SCROLL.get()))
-                .add(LootItem.lootTableItem(IcariaItems.MAGIC_MISSILE_SCROLL.get()))
+                .add(LootItem.lootTableItem(IcariaItems.AETERNAE_HIDE.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
             )
         );
 
@@ -94,7 +90,10 @@ public class IcariaLootVaseLoot implements LootTableSubProvider {
             .withPool(LootPool.lootPool().when(LootItemRandomChanceCondition.randomChance(0.1F))
                 .add(LootItem.lootTableItem(IcariaItems.ANTI_GRAVITY_SCROLL.get()))
                 .add(LootItem.lootTableItem(IcariaItems.FORTIFYING_SCROLL.get()))
+                .add(LootItem.lootTableItem(IcariaItems.HEALING_SCROLL.get()))
+                .add(LootItem.lootTableItem(IcariaItems.BUBBLE_SCROLL.get()))
                 .add(LootItem.lootTableItem(IcariaItems.FREEZING_SCROLL.get()))
+                .add(LootItem.lootTableItem(IcariaItems.MAGIC_MISSILE_SCROLL.get()))
             )
         );
     }

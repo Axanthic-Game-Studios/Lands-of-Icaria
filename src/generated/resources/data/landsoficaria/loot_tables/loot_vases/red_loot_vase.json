@@ -490,30 +490,6 @@
         "max": 5.0,
         "min": 1.0
       }
-    },
-    {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "chance": 0.1,
-          "condition": "minecraft:random_chance"
-        }
-      ],
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:healing_scroll"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:bubble_scroll"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "landsoficaria:magic_missile_scroll"
-        }
-      ],
-      "rolls": 1.0
     }
   ],
   "random_sequence": "landsoficaria:loot_vases/red_loot_vase"

@@ -387,7 +387,19 @@
         },
         {
           "type": "minecraft:item",
+          "name": "landsoficaria:healing_scroll"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:bubble_scroll"
+        },
+        {
+          "type": "minecraft:item",
           "name": "landsoficaria:freezing_scroll"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:magic_missile_scroll"
         }
       ],
       "rolls": 1.0
