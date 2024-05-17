@@ -946,11 +946,9 @@ public class IcariaGerman extends LanguageProvider {
 
 		this.add(IcariaItems.GREEK_FIRE_GRENADE.get(), "Griechische Feuergranate");
 
-		this.add(IcariaItems.TOTEM_OF_PREVENTATION.get(), "Totem der Totems");
 		this.add(IcariaItems.TOTEM_OF_STUFFING.get(), "Totem der Sättigung");
 		this.add(IcariaItems.TOTEM_OF_UNBLINDING.get(), "Totem der Sicht");
 		this.add(IcariaItems.TOTEM_OF_UNDROWNING.get(), "Totem der Atemluft");
-		this.add(IcariaItems.TOTEM_OF_UNDYING.get(), "Totem der Unsterblichkeit");
 		this.add(IcariaItems.TOTEM_OF_UNSHATTERING.get(), "Totem der Stabilität");
 		this.add(IcariaItems.TOTEM_OF_UNSINKING.get(), "Totem der Endlossturzes");
 

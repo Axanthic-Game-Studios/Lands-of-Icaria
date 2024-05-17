@@ -146,11 +146,9 @@ public class JeiIntegration implements IModPlugin {
         this.anvilRecipes(pRegistration, IcariaItems.VANADIUMSTEEL_ARMOR.chestplate.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
         this.anvilRecipes(pRegistration, IcariaItems.VANADIUMSTEEL_ARMOR.leggings.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
         this.anvilRecipes(pRegistration, IcariaItems.VANADIUMSTEEL_ARMOR.boots.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
-        this.anvilRecipes(pRegistration, IcariaItems.TOTEM_OF_PREVENTATION.get(), IcariaItems.BLURIDIUM_NUGGET.get());
         this.anvilRecipes(pRegistration, IcariaItems.TOTEM_OF_STUFFING.get(), IcariaItems.BLURIDIUM_NUGGET.get());
         this.anvilRecipes(pRegistration, IcariaItems.TOTEM_OF_UNBLINDING.get(), IcariaItems.BLURIDIUM_NUGGET.get());
         this.anvilRecipes(pRegistration, IcariaItems.TOTEM_OF_UNDROWNING.get(), IcariaItems.BLURIDIUM_NUGGET.get());
-        this.anvilRecipes(pRegistration, IcariaItems.TOTEM_OF_UNDYING.get(), IcariaItems.BLURIDIUM_NUGGET.get());
         this.anvilRecipes(pRegistration, IcariaItems.TOTEM_OF_UNSHATTERING.get(), IcariaItems.BLURIDIUM_NUGGET.get());
         this.anvilRecipes(pRegistration, IcariaItems.TOTEM_OF_UNSINKING.get(), IcariaItems.BLURIDIUM_NUGGET.get());
     }

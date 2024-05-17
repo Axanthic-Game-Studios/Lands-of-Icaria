@@ -946,11 +946,9 @@ public class IcariaEnglish extends LanguageProvider {
 
 		this.add(IcariaItems.GREEK_FIRE_GRENADE.get(), "Greek Fire Grenade");
 
-		this.add(IcariaItems.TOTEM_OF_PREVENTATION.get(), "Totem of Preventation");
 		this.add(IcariaItems.TOTEM_OF_STUFFING.get(), "Totem of Stuffing");
 		this.add(IcariaItems.TOTEM_OF_UNBLINDING.get(), "Totem of Unblinding");
 		this.add(IcariaItems.TOTEM_OF_UNDROWNING.get(), "Totem of Undrowning");
-		this.add(IcariaItems.TOTEM_OF_UNDYING.get(), "Totem of Undying");
 		this.add(IcariaItems.TOTEM_OF_UNSHATTERING.get(), "Totem of Unshattering");
 		this.add(IcariaItems.TOTEM_OF_UNSINKING.get(), "Totem of Unsinking");
 
