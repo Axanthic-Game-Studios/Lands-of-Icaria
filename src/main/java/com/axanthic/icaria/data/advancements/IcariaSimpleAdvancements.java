@@ -29,13 +29,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.AdvancementGenerator {
     public static final ResourceLocation BACKGROUND = new ResourceLocation(IcariaInfo.ID, "textures/block/sunstone_bricks.png");
-    public static final ResourceLocation CHERT_PICKAXE = new ResourceLocation(IcariaInfo.ID, "chert_pickaxe");
-    public static final ResourceLocation CHALKOS_PICKAXE = new ResourceLocation(IcariaInfo.ID, "chalkos_pickaxe");
-    public static final ResourceLocation KASSITEROS_PICKAXE = new ResourceLocation(IcariaInfo.ID, "kassiteros_pickaxe");
-    public static final ResourceLocation ORICHALCUM_PICKAXE = new ResourceLocation(IcariaInfo.ID, "orichalcum_pickaxe");
-    public static final ResourceLocation VANADIUMSTEEL_PICKAXE = new ResourceLocation(IcariaInfo.ID, "vanadiumsteel_pickaxe");
-    public static final ResourceLocation SIDEROS_PICKAXE = new ResourceLocation(IcariaInfo.ID, "sideros_pickaxe");
-    public static final ResourceLocation MOLYBDENUMSTEEL_PICKAXE = new ResourceLocation(IcariaInfo.ID, "molybdenumsteel_pickaxe");
 
     @Override
     public void generate(HolderLookup.Provider pProvider, Consumer<Advancement> pConsumer, ExistingFileHelper pHelper) {
@@ -43,18 +36,18 @@ public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.Advanc
         var captainRevenantTrigger = KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(IcariaEntityTypes.CAPTAIN_REVENANT.get()));
         var lootVaseTrigger = EffectsChangedTrigger.TriggerInstance.gotEffectsFrom(EntityPredicate.Builder.entity().of(IcariaEntityTypes.LOOT_VASE.get()).build());
         var storageVaseTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.STORAGE_VASE.get());
-        var chertPickaxeTrigger = RecipeCraftedTrigger.TriggerInstance.craftedItem(IcariaSimpleAdvancements.CHERT_PICKAXE);
-        var chalkosPickaxeTrigger = RecipeCraftedTrigger.TriggerInstance.craftedItem(IcariaSimpleAdvancements.CHALKOS_PICKAXE);
+        var chertPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.CHERT_TOOLS.pickaxe.get());
+        var chalkosPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.CHALKOS_TOOLS.pickaxe.get());
         var kilnTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.KILN.get());
-        var kassiterosPickaxeTrigger = RecipeCraftedTrigger.TriggerInstance.craftedItem(IcariaSimpleAdvancements.KASSITEROS_PICKAXE);
+        var kassiterosPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.KASSITEROS_TOOLS.pickaxe.get());
         var forgeTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.FORGE.get());
-        var orichalcumPickaxeTrigger = RecipeCraftedTrigger.TriggerInstance.craftedItem(IcariaSimpleAdvancements.ORICHALCUM_PICKAXE);
+        var orichalcumPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.ORICHALCUM_TOOLS.pickaxe.get());
         var grinderTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.GRINDER.get());
         var fertilizingTrigger = ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(IcariaBlocks.FERTILIZED_FARMLAND.get()).build()), ItemPredicate.Builder.item().of(IcariaItems.CALCITE_DUST.get()));
-        var vanadiumsteelPickaxeTrigger = RecipeCraftedTrigger.TriggerInstance.craftedItem(IcariaSimpleAdvancements.VANADIUMSTEEL_PICKAXE);
+        var vanadiumsteelPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.VANADIUMSTEEL_TOOLS.pickaxe.get());
         var kettleTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.KETTLE.get());
-        var siderosPickaxeTrigger = RecipeCraftedTrigger.TriggerInstance.craftedItem(IcariaSimpleAdvancements.SIDEROS_PICKAXE);
-        var molybdenumsteelPickaxeTrigger = RecipeCraftedTrigger.TriggerInstance.craftedItem(IcariaSimpleAdvancements.MOLYBDENUMSTEEL_PICKAXE);
+        var siderosPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.SIDEROS_TOOLS.pickaxe.get());
+        var molybdenumsteelPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.MOLYBDENUMSTEEL_TOOLS.pickaxe.get());
 
         var root = IcariaSimpleAdvancements.advancement("root", rootTrigger, pConsumer, IcariaItems.GRASSY_MARL, FrameType.TASK, true, true, false);
         var captainRevenant = IcariaSimpleAdvancements.advancement("captain_revenant", captainRevenantTrigger, root, pConsumer, IcariaItems.REVENANT_SKULL, FrameType.TASK, true, true, false);

@@ -3,9 +3,15 @@
   "criteria": {
     "molybdenumsteel_pickaxe": {
       "conditions": {
-        "recipe_id": "landsoficaria:molybdenumsteel_pickaxe"
+        "items": [
+          {
+            "items": [
+              "landsoficaria:molybdenumsteel_pickaxe"
+            ]
+          }
+        ]
       },
-      "trigger": "minecraft:recipe_crafted"
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {

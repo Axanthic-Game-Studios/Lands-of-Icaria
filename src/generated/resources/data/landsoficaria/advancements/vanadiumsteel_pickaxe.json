@@ -3,9 +3,15 @@
   "criteria": {
     "vanadiumsteel_pickaxe": {
       "conditions": {
-        "recipe_id": "landsoficaria:vanadiumsteel_pickaxe"
+        "items": [
+          {
+            "items": [
+              "landsoficaria:vanadiumsteel_pickaxe"
+            ]
+          }
+        ]
       },
-      "trigger": "minecraft:recipe_crafted"
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {

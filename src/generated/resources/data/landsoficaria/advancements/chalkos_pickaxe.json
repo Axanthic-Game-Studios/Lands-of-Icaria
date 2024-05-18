@@ -3,9 +3,15 @@
   "criteria": {
     "chalkos_pickaxe": {
       "conditions": {
-        "recipe_id": "landsoficaria:chalkos_pickaxe"
+        "items": [
+          {
+            "items": [
+              "landsoficaria:chalkos_pickaxe"
+            ]
+          }
+        ]
       },
-      "trigger": "minecraft:recipe_crafted"
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {

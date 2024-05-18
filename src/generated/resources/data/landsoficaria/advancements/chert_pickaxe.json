@@ -3,9 +3,15 @@
   "criteria": {
     "chert_pickaxe": {
       "conditions": {
-        "recipe_id": "landsoficaria:chert_pickaxe"
+        "items": [
+          {
+            "items": [
+              "landsoficaria:chert_pickaxe"
+            ]
+          }
+        ]
       },
-      "trigger": "minecraft:recipe_crafted"
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {

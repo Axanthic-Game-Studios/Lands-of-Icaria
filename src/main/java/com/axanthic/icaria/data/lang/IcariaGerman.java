@@ -22,18 +22,18 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "title", "War es nicht schon längst tot?");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "title", "Gewicht stemmen");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "title", "Größer als eine Kiste!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "title", "Hornstein-Werkzeuge");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chalkos_pickaxe" + "." + "title", "Kuffar-Werkzeuge");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "title", "Hornsteinspitzhacke");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "chalkos_pickaxe" + "." + "title", "Kuffarspitzhacke");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kiln" + "." + "title", "Ich habe es gerockt!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kassiteros_pickaxe" + "." + "title", "Galmei-Werkzeuge");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kassiteros_pickaxe" + "." + "title", "Galmeispitzhacke");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "title", "Hier gehts heiß her!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "title", "Goldmessing-Werkzeuge");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "title", "Goldmessingspitzhacke");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "title", "Das war mühlsame Arbeit!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "title", "Wie Essen für Pflanzen!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadinstahl-Werkzeuge");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadinstahlspitzhacke");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "title", "Das ist keine Teekanne!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "title", "Schirbel-Werkzeuge");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "title", "Molybdänstahl-Werkzeuge");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "title", "Schirbelspitzhacke");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "title", "Molybdänstahlspitzhacke");
 
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "description", "Reise in die Lands of Icaria");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "description", "Töte einen Kommandanten-Wiedergänger");
