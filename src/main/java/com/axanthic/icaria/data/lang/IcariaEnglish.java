@@ -22,16 +22,16 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "title", "Wasn't it dead already?");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "title", "Heavy lifting");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "title", "Bigger than a Chest!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kiln" + "." + "title", "I was Kiln it!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "title", "Chert Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "chalkos_pickaxe" + "." + "title", "Chalkos Pickaxe");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kiln" + "." + "title", "I am Kiln' it!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kassiteros_pickaxe" + "." + "title", "Kassiteros Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "title", "Gettin' hot in here!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "title", "Orichalcum Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "title", "I had to grind for this!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "title", "It's not a teapot!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilized_farmland" + "." + "title", "It's Food for Plants!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadiumsteel Pickaxe");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "title", "It's not a Teapot!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "title", "Sideros Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "title", "Molybdenumsteel Pickaxe");
 
@@ -44,7 +44,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kiln" + "." + "description", "Place a Kiln");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kassiteros_pickaxe" + "." + "description", "Craft a Kassiteros Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "description", "Place a Forge");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "description", "Craft a Orichalcum Pickaxe");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "description", "Craft an Orichalcum Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "description", "Place a Grinder");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilized_farmland" + "." + "description", "Fertilize Farmland with Calcite");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "description", "Craft a Vanadiumsteel Pickaxe");
