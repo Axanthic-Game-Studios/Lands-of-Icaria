@@ -32,7 +32,7 @@ public class NamdrakeFeature extends Feature<NoneFeatureConfiguration> {
         for (int x = -size; x <= size; x++) {
             for (int y = -size; y <= size; y++) {
                 for (int z = -size; z <= size; z++) {
-                    this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
+                    this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
                 }
             }
         }

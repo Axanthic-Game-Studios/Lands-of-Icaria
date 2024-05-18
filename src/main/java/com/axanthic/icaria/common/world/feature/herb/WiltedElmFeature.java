@@ -31,12 +31,10 @@ public class WiltedElmFeature extends Feature<NoneFeatureConfiguration> {
 
         int size = 2;
 
-        var aabb = AABB.ofSize(origin.getCenter(), 4, 0, 4);
+        var aabb = AABB.ofSize(origin.getCenter(), 16, 0, 16);
         var list = level.getBlockStates(aabb).toList();
 
-        boolean leavesA = list.contains(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_FIR_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_LAUREL_LEAVES.get().defaultBlockState());
-        boolean leavesB = list.contains(IcariaBlocks.FALLEN_OLIVE_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_PLANE_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_POPULUS_LEAVES.get().defaultBlockState());
-        boolean leaves = leavesA && leavesB;
+        boolean leaves = list.contains(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_FIR_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_LAUREL_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_OLIVE_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_PLANE_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_POPULUS_LEAVES.get().defaultBlockState());
         boolean moss = list.contains(IcariaBlocks.FOREST_MOSS.get().defaultBlockState()) || list.contains(IcariaBlocks.SCRUBLAND_MOSS.get().defaultBlockState()) || list.contains(IcariaBlocks.STEPPE_MOSS.get().defaultBlockState());
         boolean test = leaves && moss;
 
@@ -44,7 +42,7 @@ public class WiltedElmFeature extends Feature<NoneFeatureConfiguration> {
             for (int y = -size; y <= size; y++) {
                 for (int z = -size; z <= size; z++) {
                     if (test) {
-                        this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
+                        this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
                     }
                 }
             }

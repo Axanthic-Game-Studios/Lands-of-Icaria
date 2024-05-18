@@ -32,7 +32,7 @@ public class RowanFeature extends Feature<NoneFeatureConfiguration> {
 
         int size = 2;
 
-        var aabb = AABB.ofSize(origin.relative(direction).getCenter(), 0, 8, 0);
+        var aabb = AABB.ofSize(origin.relative(direction).getCenter(), 0, 4, 0);
 
         boolean test = level.getBlockStates(aabb).allMatch((pState) -> pState.is(Blocks.AIR));
 

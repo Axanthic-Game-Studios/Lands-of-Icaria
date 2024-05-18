@@ -31,7 +31,7 @@ public class MothAgaricFeature extends Feature<NoneFeatureConfiguration> {
 
         int size = 2;
 
-        var aabb = AABB.ofSize(origin.getCenter(), 2, 2, 2);
+        var aabb = AABB.ofSize(origin.getCenter(), 16, 0, 16);
         var list = level.getBlockStates(aabb).toList();
 
         boolean test = list.contains(IcariaBlocks.DEAD_POPULUS_LOG.get().defaultBlockState());

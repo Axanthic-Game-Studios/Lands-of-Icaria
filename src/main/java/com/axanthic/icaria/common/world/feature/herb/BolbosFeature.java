@@ -31,7 +31,7 @@ public class BolbosFeature extends Feature<NoneFeatureConfiguration> {
 
         int size = 2;
 
-        var aabb = AABB.ofSize(origin.getCenter(), 0, 20, 0);
+        var aabb = AABB.ofSize(origin.getCenter(), 0, 16, 0);
         var list = level.getBlockStates(aabb).toList();
 
         boolean test = list.contains(IcariaBlocks.GRAINITE.get().defaultBlockState());
@@ -40,7 +40,7 @@ public class BolbosFeature extends Feature<NoneFeatureConfiguration> {
             for (int y = -size; y <= size; y++) {
                 for (int z = -size; z <= size; z++) {
                     if (test) {
-                        this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
+                        this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
                     }
                 }
             }
