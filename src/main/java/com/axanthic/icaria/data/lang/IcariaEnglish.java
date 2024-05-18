@@ -29,8 +29,8 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "title", "Gettin' hot in here!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "title", "Orichalcum Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "title", "I had to grind for this!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "title", "It's Food for Plants!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "title", "It's not a teapot!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilized_farmland" + "." + "title", "It's Food for Plants!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadiumsteel Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "title", "Sideros Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "title", "Molybdenumsteel Pickaxe");
@@ -46,7 +46,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "description", "Place a Forge");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "description", "Craft a Orichalcum Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "description", "Place a Grinder");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "description", "Fertilize Farmland with Calcite");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilized_farmland" + "." + "description", "Fertilize Farmland with Calcite");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "description", "Craft a Vanadiumsteel Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "description", "Place a Kettle");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "description", "Craft a Sideros Pickaxe");

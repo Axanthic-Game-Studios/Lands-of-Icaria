@@ -29,7 +29,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "title", "Hier gehts heiß her!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "title", "Goldmessingspitzhacke");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "title", "Das war mühlsame Arbeit!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "title", "Wie Essen für Pflanzen!");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilized_farmland" + "." + "title", "Wie Essen für Pflanzen!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadinstahlspitzhacke");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "title", "Das ist keine Teekanne!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "title", "Schirbelspitzhacke");
@@ -46,7 +46,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "description", "Stelle eine Schmelze auf");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "description", "Stelle eine Goldmessingspitzhacke her");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "description", "Stelle eine Mühle auf");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilizing" + "." + "description", "Dünge Ackerboden mit Calcit");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilized_farmland" + "." + "description", "Dünge Ackerboden mit Calcit");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "description", "Stelle eine Vanadinstahlspitzhacke her");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "description", "Stelle einen Kessel auf");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "description", "Stelle eine Schirbelspitzhacke her");

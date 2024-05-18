@@ -38,7 +38,7 @@ public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.Advanc
         var forgeTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.FORGE.get());
         var orichalcumPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.ORICHALCUM_TOOLS.pickaxe.get());
         var grinderTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.GRINDER.get());
-        var fertilizingTrigger = ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(IcariaBlocks.FERTILIZED_FARMLAND.get()).build()), ItemPredicate.Builder.item().of(IcariaItems.CALCITE_DUST.get()));
+        var fertilizedFarmlandTrigger = ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(IcariaBlocks.FERTILIZED_FARMLAND.get()).build()), ItemPredicate.Builder.item().of(IcariaItems.CALCITE_DUST.get()));
         var vanadiumsteelPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.VANADIUMSTEEL_TOOLS.pickaxe.get());
         var kettleTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.KETTLE.get());
         var siderosPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.SIDEROS_TOOLS.pickaxe.get());
@@ -55,7 +55,7 @@ public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.Advanc
         var forge = IcariaSimpleAdvancements.advancement("forge", forgeTrigger, chalkosPickaxe, pConsumer, IcariaItems.FORGE, FrameType.TASK, true, true, false);
         var orichalcumPickaxe = IcariaSimpleAdvancements.advancement("orichalcum_pickaxe", orichalcumPickaxeTrigger, kassiterosPickaxe, pConsumer, IcariaItems.ORICHALCUM_TOOLS.pickaxe, FrameType.TASK, true, true, false);
         var grinder = IcariaSimpleAdvancements.advancement("grinder", grinderTrigger, kassiterosPickaxe, pConsumer, IcariaItems.GRINDER, FrameType.TASK, true, true, false);
-        var fertilizing = IcariaSimpleAdvancements.advancement("fertilizing", fertilizingTrigger, grinder, pConsumer, IcariaItems.CALCITE_DUST, FrameType.TASK, true, true, false);
+        var fertilizedFarmland = IcariaSimpleAdvancements.advancement("fertilized_farmland", fertilizedFarmlandTrigger, grinder, pConsumer, IcariaItems.CALCITE_DUST, FrameType.TASK, true, true, false);
         var vanadiumsteelPickaxe = IcariaSimpleAdvancements.advancement("vanadiumsteel_pickaxe", vanadiumsteelPickaxeTrigger, orichalcumPickaxe, pConsumer, IcariaItems.VANADIUMSTEEL_TOOLS.pickaxe, FrameType.TASK, true, true, false);
         var kettle = IcariaSimpleAdvancements.advancement("kettle", kettleTrigger, orichalcumPickaxe, pConsumer, IcariaItems.KETTLE, FrameType.TASK, true, true, false);
         var siderosPickaxe = IcariaSimpleAdvancements.advancement("sideros_pickaxe", siderosPickaxeTrigger, vanadiumsteelPickaxe, pConsumer, IcariaItems.SIDEROS_TOOLS.pickaxe, FrameType.TASK, true, true, false);

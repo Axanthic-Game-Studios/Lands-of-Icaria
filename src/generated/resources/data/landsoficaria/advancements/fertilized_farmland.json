@@ -1,7 +1,7 @@
 {
   "parent": "landsoficaria:grinder",
   "criteria": {
-    "fertilizing": {
+    "fertilized_farmland": {
       "conditions": {
         "location": [
           {
@@ -31,7 +31,7 @@
     "announce_to_chat": true,
     "background": "landsoficaria:textures/block/sunstone_bricks.png",
     "description": {
-      "translate": "advancement.landsoficaria.fertilizing.description"
+      "translate": "advancement.landsoficaria.fertilized_farmland.description"
     },
     "frame": "task",
     "hidden": false,
@@ -40,12 +40,12 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "advancement.landsoficaria.fertilizing.title"
+      "translate": "advancement.landsoficaria.fertilized_farmland.title"
     }
   },
   "requirements": [
     [
-      "fertilizing"
+      "fertilized_farmland"
     ]
   ],
   "sends_telemetry_event": true
