@@ -30,6 +30,7 @@ public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.Advanc
         var rootTrigger = ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(IcariaDimensions.ICARIA);
         var arachneTrigger = KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(IcariaEntityTypes.ARACHNE.get()));
         var captainRevenantTrigger = KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(IcariaEntityTypes.CAPTAIN_REVENANT.get()));
+        var chestTrigger = ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(IcariaBlocks.CHEST.get()).build()), ItemPredicate.Builder.item().of(IcariaItems.CHEST_LABEL.get()));
         var barrelTrigger = EffectsChangedTrigger.TriggerInstance.gotEffectsFrom(EntityPredicate.Builder.entity().of(IcariaEntityTypes.BARREL.get()).build());
         var lootVaseTrigger = EffectsChangedTrigger.TriggerInstance.gotEffectsFrom(EntityPredicate.Builder.entity().of(IcariaEntityTypes.LOOT_VASE.get()).build());
         var storageVaseTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.STORAGE_VASE.get());
@@ -49,6 +50,7 @@ public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.Advanc
         var root = IcariaSimpleAdvancements.advancement("root", rootTrigger, pConsumer, IcariaItems.GRASSY_MARL, FrameType.TASK, true, true, false);
         var arachne = IcariaSimpleAdvancements.advancement("arachne", arachneTrigger, root, pConsumer, IcariaItems.ARACHNE_STRING, FrameType.TASK, true, true, false);
         var captainRevenant = IcariaSimpleAdvancements.advancement("captain_revenant", captainRevenantTrigger, root, pConsumer, IcariaItems.REVENANT_SKULL, FrameType.TASK, true, true, false);
+        var chest = IcariaSimpleAdvancements.icariaChest("chest", chestTrigger, root, pConsumer, IcariaItems.CHEST, FrameType.TASK, true, true, false);
         var barrel = IcariaSimpleAdvancements.advancement("barrel", barrelTrigger, root, pConsumer, IcariaItems.LAUREL_BARREL, FrameType.TASK, true, true, false);
         var lootVase = IcariaSimpleAdvancements.advancement("loot_vase", lootVaseTrigger, root, pConsumer, IcariaItems.CYAN_LOOT_VASE, FrameType.TASK, true, true, false);
         var storageVase = IcariaSimpleAdvancements.storageVase("storage_vase", storageVaseTrigger, root, pConsumer, IcariaItems.STORAGE_VASE, FrameType.TASK, true, true, false);
@@ -72,6 +74,10 @@ public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.Advanc
 
     public static Advancement advancement(String pKey, AbstractCriterionTriggerInstance pTrigger, Advancement pParent, Consumer<Advancement> pConsumer, RegistryObject<Item> pItem, FrameType pFrame, boolean pToast, boolean pChat, boolean pHidden) {
         return Advancement.Builder.advancement().addCriterion(pKey, pTrigger).display(pItem.get(), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "title"), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "description"), IcariaResourceLocations.BACKGROUND, pFrame, pToast, pChat, pHidden).parent(pParent).save(pConsumer, IcariaInfo.ID + ":" + pKey);
+    }
+
+    public static Advancement icariaChest(String pKey, AbstractCriterionTriggerInstance pTrigger, Advancement pParent, Consumer<Advancement> pConsumer, RegistryObject<Item> pItem, FrameType pFrame, boolean pToast, boolean pChat, boolean pHidden) {
+        return Advancement.Builder.advancement().addCriterion(pKey, pTrigger).addCriterion("trapped_chest", ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(IcariaBlocks.TRAPPED_CHEST.get()).build()), ItemPredicate.Builder.item().of(IcariaItems.CHEST_LABEL.get()))).display(pItem.get(), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "title"), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "description"), IcariaResourceLocations.BACKGROUND, pFrame, pToast, pChat, pHidden).parent(pParent).requirements(RequirementsStrategy.OR).save(pConsumer, IcariaInfo.ID + ":" + pKey);
     }
 
     public static Advancement storageVase(String pKey, AbstractCriterionTriggerInstance pTrigger, Advancement pParent, Consumer<Advancement> pConsumer, RegistryObject<Item> pItem, FrameType pFrame, boolean pToast, boolean pChat, boolean pHidden) {

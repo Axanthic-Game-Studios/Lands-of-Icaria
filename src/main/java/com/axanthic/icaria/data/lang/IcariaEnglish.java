@@ -21,6 +21,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "title", "The Lands of Icaria");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "arachne" + "." + "title", "Caught in the net!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "title", "Wasn't it dead already?");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "chest" + "." + "title", "Label everything");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "barrel" + "." + "title", "I got a Headache!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "title", "Heavy lifting");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "title", "Bigger than a Chest!");
@@ -40,6 +41,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "description", "Travel to the Lands of Icaria");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "arachne" + "." + "description", "Kill an Arachne");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "description", "Kill a Captain Revenant");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "chest" + "." + "description", "Place Chest Labels on a Chest");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "barrel" + "." + "description", "Carry a Barrel");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "description", "Carry a Loot Vase");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "description", "Place a Storage Vase");
