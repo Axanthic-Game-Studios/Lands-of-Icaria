@@ -20,6 +20,7 @@ public class IcariaEnglish extends LanguageProvider {
 		// ADVANCEMENTS
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "title", "The Lands of Icaria");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "title", "Wasn't it dead already?");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "barrel" + "." + "title", "I got a Headache!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "title", "Heavy lifting");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "title", "Bigger than a Chest!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "title", "Chert Pickaxe");
@@ -37,6 +38,7 @@ public class IcariaEnglish extends LanguageProvider {
 
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "description", "Travel to the Lands of Icaria");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "description", "Kill a Captain Revenant");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "barrel" + "." + "description", "Carry a Barrel");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "description", "Carry a Loot Vase");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "description", "Place a Storage Vase");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "description", "Craft a Chert Pickaxe");

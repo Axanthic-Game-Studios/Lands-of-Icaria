@@ -20,6 +20,7 @@ public class IcariaGerman extends LanguageProvider {
 		// ADVANCEMENTS
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "title", "Die Lands of Icaria");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "title", "War es nicht schon längst tot?");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "barrel" + "." + "title", "Jetzt habe ich Kopfschmerzen!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "title", "Gewicht stemmen");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "title", "Größer als eine Kiste!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "title", "Hornsteinspitzhacke");
@@ -37,6 +38,7 @@ public class IcariaGerman extends LanguageProvider {
 
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "description", "Reise in die Lands of Icaria");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "description", "Töte einen Kommandanten-Wiedergänger");
+		this.add("advancement" + "." + IcariaInfo.ID + "." + "barrel" + "." + "description", "Trage ein Fass umher");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "description", "Trage eine Beutevase umher");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "description", "Stelle eine Speichervase auf");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "description", "Stelle eine Hornsteinspitzhacke her");

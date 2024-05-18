@@ -29,6 +29,7 @@ public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.Advanc
     public void generate(HolderLookup.Provider pProvider, Consumer<Advancement> pConsumer, ExistingFileHelper pHelper) {
         var rootTrigger = ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(IcariaDimensions.ICARIA);
         var captainRevenantTrigger = KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(IcariaEntityTypes.CAPTAIN_REVENANT.get()));
+        var barrelTrigger = EffectsChangedTrigger.TriggerInstance.gotEffectsFrom(EntityPredicate.Builder.entity().of(IcariaEntityTypes.BARREL.get()).build());
         var lootVaseTrigger = EffectsChangedTrigger.TriggerInstance.gotEffectsFrom(EntityPredicate.Builder.entity().of(IcariaEntityTypes.LOOT_VASE.get()).build());
         var storageVaseTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.STORAGE_VASE.get());
         var chertPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.CHERT_TOOLS.pickaxe.get());
@@ -46,6 +47,7 @@ public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.Advanc
 
         var root = IcariaSimpleAdvancements.advancement("root", rootTrigger, pConsumer, IcariaItems.GRASSY_MARL, FrameType.TASK, true, true, false);
         var captainRevenant = IcariaSimpleAdvancements.advancement("captain_revenant", captainRevenantTrigger, root, pConsumer, IcariaItems.REVENANT_SKULL, FrameType.TASK, true, true, false);
+        var barrel = IcariaSimpleAdvancements.advancement("barrel", barrelTrigger, root, pConsumer, IcariaItems.LAUREL_BARREL, FrameType.TASK, true, true, false);
         var lootVase = IcariaSimpleAdvancements.advancement("loot_vase", lootVaseTrigger, root, pConsumer, IcariaItems.CYAN_LOOT_VASE, FrameType.TASK, true, true, false);
         var storageVase = IcariaSimpleAdvancements.storageVase("storage_vase", storageVaseTrigger, root, pConsumer, IcariaItems.STORAGE_VASE, FrameType.TASK, true, true, false);
         var chertPickaxe = IcariaSimpleAdvancements.advancement("chert_pickaxe", chertPickaxeTrigger, root, pConsumer, IcariaItems.CHERT_TOOLS.pickaxe, FrameType.TASK, true, true, false);

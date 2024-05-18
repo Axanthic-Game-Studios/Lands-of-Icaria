@@ -1,0 +1,41 @@
+{
+  "parent": "landsoficaria:root",
+  "criteria": {
+    "barrel": {
+      "conditions": {
+        "source": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "landsoficaria:barrel"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:effects_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "landsoficaria:textures/block/sunstone_bricks.png",
+    "description": {
+      "translate": "advancement.landsoficaria.barrel.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "landsoficaria:laurel_barrel"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.landsoficaria.barrel.title"
+    }
+  },
+  "requirements": [
+    [
+      "barrel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
