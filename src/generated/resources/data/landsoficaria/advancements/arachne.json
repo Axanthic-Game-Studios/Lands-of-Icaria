@@ -1,0 +1,41 @@
+{
+  "parent": "landsoficaria:root",
+  "criteria": {
+    "arachne": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "landsoficaria:arachne"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "landsoficaria:textures/block/sunstone_bricks.png",
+    "description": {
+      "translate": "advancement.landsoficaria.arachne.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "landsoficaria:arachne_string"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.landsoficaria.arachne.title"
+    }
+  },
+  "requirements": [
+    [
+      "arachne"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

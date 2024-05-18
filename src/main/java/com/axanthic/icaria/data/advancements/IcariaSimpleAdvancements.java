@@ -28,6 +28,7 @@ public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.Advanc
     @Override
     public void generate(HolderLookup.Provider pProvider, Consumer<Advancement> pConsumer, ExistingFileHelper pHelper) {
         var rootTrigger = ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(IcariaDimensions.ICARIA);
+        var arachneTrigger = KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(IcariaEntityTypes.ARACHNE.get()));
         var captainRevenantTrigger = KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(IcariaEntityTypes.CAPTAIN_REVENANT.get()));
         var barrelTrigger = EffectsChangedTrigger.TriggerInstance.gotEffectsFrom(EntityPredicate.Builder.entity().of(IcariaEntityTypes.BARREL.get()).build());
         var lootVaseTrigger = EffectsChangedTrigger.TriggerInstance.gotEffectsFrom(EntityPredicate.Builder.entity().of(IcariaEntityTypes.LOOT_VASE.get()).build());
@@ -46,6 +47,7 @@ public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.Advanc
         var molybdenumsteelPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.MOLYBDENUMSTEEL_TOOLS.pickaxe.get());
 
         var root = IcariaSimpleAdvancements.advancement("root", rootTrigger, pConsumer, IcariaItems.GRASSY_MARL, FrameType.TASK, true, true, false);
+        var arachne = IcariaSimpleAdvancements.advancement("arachne", arachneTrigger, root, pConsumer, IcariaItems.ARACHNE_STRING, FrameType.TASK, true, true, false);
         var captainRevenant = IcariaSimpleAdvancements.advancement("captain_revenant", captainRevenantTrigger, root, pConsumer, IcariaItems.REVENANT_SKULL, FrameType.TASK, true, true, false);
         var barrel = IcariaSimpleAdvancements.advancement("barrel", barrelTrigger, root, pConsumer, IcariaItems.LAUREL_BARREL, FrameType.TASK, true, true, false);
         var lootVase = IcariaSimpleAdvancements.advancement("loot_vase", lootVaseTrigger, root, pConsumer, IcariaItems.CYAN_LOOT_VASE, FrameType.TASK, true, true, false);
