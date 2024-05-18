@@ -447,6 +447,9 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.GRAINEL_CHERT.get());
 
 		this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+			.add(IcariaBlocks.MARL_CHERT.get())
+			.add(IcariaBlocks.MARL_BONES.get())
+			.add(IcariaBlocks.MARL_LIGNITE.get())
 			.add(IcariaBlocks.MARL_ADOBE.get())
 			.add(IcariaBlocks.LOAM_BRICKS.get())
 			.add(IcariaBlocks.DOLOMITE_ADOBE.get())
@@ -454,6 +457,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.DOLOMITE_BRICKS.get())
 			.add(IcariaBlocks.DOLOMITE_PILLAR.get())
 			.add(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get())
+			.add(IcariaBlocks.GRAINEL_CHERT.get())
 			.add(IcariaBlocks.GRAINITE_ADOBE.get())
 			.add(IcariaBlocks.GRAINITE.get())
 			.add(IcariaBlocks.GRAINITE_BRICKS.get())
