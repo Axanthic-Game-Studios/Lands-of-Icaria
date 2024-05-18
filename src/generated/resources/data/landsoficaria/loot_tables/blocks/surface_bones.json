@@ -54,6 +54,35 @@
               "add": false,
               "count": 1.0,
               "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:bone_remains"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "enchantments": [
+                    {
+                      "enchantment": "minecraft:silk_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
             },
             {
               "enchantment": "minecraft:fortune",
@@ -64,7 +93,7 @@
               }
             }
           ],
-          "name": "landsoficaria:bone_remains"
+          "name": "minecraft:bone"
         }
       ],
       "rolls": 1.0

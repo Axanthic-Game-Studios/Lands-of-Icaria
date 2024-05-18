@@ -67,7 +67,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropElseWithSilk(IcariaBlocks.MARL_CHERT.get(), IcariaItems.CHERT.get(), 1.0F, 2);
 		this.dropElseWithSilk(IcariaBlocks.SURFACE_CHERT.get(), IcariaItems.CHERT.get(), 1.0F, 2);
 		this.dropElseWithSilk(IcariaBlocks.MARL_BONES.get(), IcariaItems.ROTTEN_BONES.get(), 1.0F, 2);
-		this.dropElseWithSilk(IcariaBlocks.SURFACE_BONES.get(), IcariaItems.BONE_REMAINS.get(), 1.0F, 2);
+		this.dropElseWithSilk(IcariaBlocks.SURFACE_BONES.get(), IcariaItems.BONE_REMAINS.get(), Items.BONE, 1.0F, 2);
 		this.dropElseWithSilk(IcariaBlocks.MARL_LIGNITE.get(), IcariaItems.LIGNITE.get(), 1.0F, 2);
 		this.dropElseWithSilk(IcariaBlocks.SURFACE_LIGNITE.get(), IcariaItems.LIGNITE.get(), 1.0F, 2);
 		this.dropElseWithSilk(IcariaBlocks.LOAM.get(), IcariaItems.LOAM_LUMP.get(), 4.0F, 0);
@@ -524,6 +524,10 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 
 	public void dropElseWithSilk(Block pBlock, Item pItem, float pValue, int pBonus) {
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SILK))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(IcariaBlockLoot.NO_SILK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, pBonus)))));
+	}
+
+	public void dropElseWithSilk(Block pBlock, Item pRemains, Item pBone, float pValue, int pBonus) {
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SILK))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pRemains).when(IcariaBlockLoot.NO_SILK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue)))).add(LootItem.lootTableItem(pBone).when(IcariaBlockLoot.NO_SILK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, pBonus)))));
 	}
 
 	public void dropElse(Block pBlock, Item pItem) {
