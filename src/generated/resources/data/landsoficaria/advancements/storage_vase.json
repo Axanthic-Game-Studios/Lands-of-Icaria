@@ -1,11 +1,187 @@
 {
   "parent": "landsoficaria:root",
   "criteria": {
+    "black_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:black_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "blue_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:blue_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "brown_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:brown_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "cyan_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:cyan_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "gray_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:gray_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "green_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:green_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "light_blue_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:light_blue_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "light_gray_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:light_gray_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "lime_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:lime_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "magenta_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:magenta_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "orange_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:orange_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "pink_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:pink_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "purple_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:purple_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "red_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:red_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
     "storage_vase": {
       "conditions": {
         "location": [
           {
             "block": "landsoficaria:storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "white_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:white_storage_vase",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "yellow_storage_vase": {
+      "conditions": {
+        "location": [
+          {
+            "block": "landsoficaria:yellow_storage_vase",
             "condition": "minecraft:block_state_property"
           }
         ]
@@ -31,7 +207,23 @@
   },
   "requirements": [
     [
-      "storage_vase"
+      "storage_vase",
+      "white_storage_vase",
+      "light_gray_storage_vase",
+      "gray_storage_vase",
+      "black_storage_vase",
+      "brown_storage_vase",
+      "red_storage_vase",
+      "orange_storage_vase",
+      "yellow_storage_vase",
+      "lime_storage_vase",
+      "green_storage_vase",
+      "cyan_storage_vase",
+      "light_blue_storage_vase",
+      "blue_storage_vase",
+      "purple_storage_vase",
+      "magenta_storage_vase",
+      "pink_storage_vase"
     ]
   ],
   "sends_telemetry_event": true

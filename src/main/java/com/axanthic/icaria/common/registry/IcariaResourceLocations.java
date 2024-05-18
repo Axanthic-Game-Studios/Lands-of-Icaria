@@ -8,6 +8,9 @@ public class IcariaResourceLocations {
     public static final ResourceLocation ICARIA = new ResourceLocation(IcariaInfo.ID, "icaria");
     public static final ResourceLocation THROWING = new ResourceLocation(IcariaInfo.ID, "throwing");
 
+    // ADVANCEMENT
+    public static final ResourceLocation BACKGROUND = new ResourceLocation(IcariaInfo.ID, "textures/block/sunstone_bricks.png");
+
     // BLOCK
     public static final ResourceLocation CONCOCTION_FAST = new ResourceLocation(IcariaInfo.ID, "block/kettle_concoction_fast");
     public static final ResourceLocation CONCOCTION_SLOW = new ResourceLocation(IcariaInfo.ID, "block/kettle_concoction_slow");
