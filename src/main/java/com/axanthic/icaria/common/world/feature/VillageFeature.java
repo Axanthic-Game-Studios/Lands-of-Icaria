@@ -172,7 +172,6 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 
     public void setMobs() {
         this.mobs.add(IcariaEntityTypes.CIVILIAN_REVENANT.get());
-        this.mobs.add(IcariaEntityTypes.OVERGROWN_REVENANT.get());
         this.mobs.add(IcariaEntityTypes.PYROMANCER_REVENANT.get());
         this.mobs.add(IcariaEntityTypes.SOLDIER_REVENANT.get());
     }
