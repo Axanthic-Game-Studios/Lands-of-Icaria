@@ -1128,7 +1128,7 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + Items.HONEYCOMB, RecipeProvider.has(Items.HONEYCOMB))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.CANDLE) + "_from_arachne_string");
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.COMPARATOR)
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.COMPARATOR, 1)
 			.pattern(" X ")
 			.pattern("XYX")
 			.pattern("ZZZ")
@@ -1164,7 +1164,7 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.FISHING_ROD) + "_from_arachne_string");
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.FLETCHING_TABLE)
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.FLETCHING_TABLE, 1)
 			.pattern("XX")
 			.pattern("YY")
 			.pattern("YY")
@@ -1296,7 +1296,7 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.SCAFFOLDING) + "_from_arachne_string");
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STICKY_PISTON)
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STICKY_PISTON, 1)
 			.pattern("X")
 			.pattern("Y")
 			.define('X', Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
@@ -1346,9 +1346,10 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.CHERT.get(), RecipeProvider.has(IcariaItems.CHERT.get()))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.FLINT_AND_STEEL) + "_from_chert");
 
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.MAGMA_CREAM)
-			.requires(Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.MAGMA_CREAM, 1)
 			.requires(Items.BLAZE_POWDER)
+			.requires(Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + Items.BLAZE_POWDER, RecipeProvider.has(Items.BLAZE_POWDER))
 			.unlockedBy("has_" + IcariaItems.ENDER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
 			.unlockedBy("has_" + IcariaItems.FIRE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
 			.unlockedBy("has_" + IcariaItems.NATURE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
