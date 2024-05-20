@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "landsoficaria:chert"
+      "item": "minecraft:iron_ingot"
     },
     {
-      "item": "minecraft:iron_ingot"
+      "item": "landsoficaria:chert"
     }
   ],
   "result": {

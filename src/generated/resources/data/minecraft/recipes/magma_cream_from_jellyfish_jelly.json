@@ -2,6 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
+    {
+      "item": "minecraft:blaze_powder"
+    },
     [
       {
         "item": "landsoficaria:ender_jellyfish_jelly"
@@ -18,10 +21,7 @@
       {
         "item": "landsoficaria:water_jellyfish_jelly"
       }
-    ],
-    {
-      "item": "minecraft:blaze_powder"
-    }
+    ]
   ],
   "result": {
     "item": "minecraft:magma_cream"

@@ -34,8 +34,8 @@
   },
   "requirements": [
     [
-      "has_chert",
       "has_iron_ingot",
+      "has_chert",
       "has_the_recipe"
     ]
   ],

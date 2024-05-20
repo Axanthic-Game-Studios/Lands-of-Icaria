@@ -82,12 +82,12 @@
   },
   "requirements": [
     [
+      "has_blaze_powder",
       "has_ender_jellyfish_jelly",
       "has_fire_jellyfish_jelly",
       "has_nature_jellyfish_jelly",
       "has_void_jellyfish_jelly",
       "has_water_jellyfish_jelly",
-      "has_blaze_powder",
       "has_the_recipe"
     ]
   ],
