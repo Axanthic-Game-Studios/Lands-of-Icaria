@@ -1,8 +1,5 @@
 {
   "values": [
-    "landsoficaria:marl_chert",
-    "landsoficaria:marl_bones",
-    "landsoficaria:marl_lignite",
     "landsoficaria:marl_adobe",
     "landsoficaria:loam_bricks",
     "landsoficaria:dolomite_adobe",
@@ -10,7 +7,6 @@
     "landsoficaria:dolomite_bricks",
     "landsoficaria:dolomite_pillar",
     "landsoficaria:dolomite_pillar_head",
-    "landsoficaria:grainel_chert",
     "landsoficaria:grainite_adobe",
     "landsoficaria:grainite",
     "landsoficaria:grainite_bricks",

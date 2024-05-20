@@ -675,7 +675,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesMarlOre(MapColor pColor, SoundType pSound) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(pSound).destroyTime(0.5F).explosionResistance(0.5F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(pSound).destroyTime(0.5F).explosionResistance(0.5F);
 	}
 
 	public static BlockBehaviour.Properties propertiesGroundDeco(MapColor pColor, SoundType pSound) {
@@ -699,7 +699,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesSandOre(MapColor pColor, SoundType pSound) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(pSound).destroyTime(0.5F).explosionResistance(0.5F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(pSound).destroyTime(0.5F).explosionResistance(0.5F);
 	}
 
 	public static BlockBehaviour.Properties propertiesGlass(MapColor pColor, SoundType pSound) {
