@@ -75,7 +75,7 @@ public class FarmlandBlock extends FarmBlock {
 
 	@Override
 	public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
-		super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
+		pEntity.causeFallDamage(pFallDistance, 1.0F, pEntity.damageSources().fall());
 		if (!pLevel.isClientSide()) {
 			if (ForgeHooks.onFarmlandTrample(pLevel, pPos, IcariaBlocks.MARL.get().defaultBlockState(), pFallDistance, pEntity)) {
 				this.turnToMarl(pState, pLevel, pPos);
