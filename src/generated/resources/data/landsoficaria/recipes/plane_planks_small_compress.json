@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "X": {
-      "item": "landsoficaria:stripped_olive_wood"
+      "item": "landsoficaria:plane_planks"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
     "XX"
   ],
   "result": {
-    "item": "landsoficaria:olive_crafting_table"
+    "item": "landsoficaria:plane_crafting_table"
   },
   "show_notification": true
 }

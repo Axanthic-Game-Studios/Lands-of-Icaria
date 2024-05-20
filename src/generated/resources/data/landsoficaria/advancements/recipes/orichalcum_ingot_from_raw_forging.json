@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_laurel_planks": {
+    "has_raw_chalkos": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:laurel_planks"
+              "landsoficaria:raw_chalkos"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chest"
+        "recipe": "landsoficaria:orichalcum_ingot_from_raw_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_laurel_planks",
+      "has_raw_chalkos",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:chest"
+      "landsoficaria:orichalcum_ingot_from_raw_forging"
     ]
   },
   "sends_telemetry_event": false

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stripped_droughtroot_wood": {
+    "has_fir_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:stripped_droughtroot_wood"
+              "landsoficaria:fir_planks"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:stripped_droughtroot_wood_small_compress"
+        "recipe": "landsoficaria:fir_planks_small_compress"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_stripped_droughtroot_wood",
+      "has_fir_planks",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:stripped_droughtroot_wood_small_compress"
+      "landsoficaria:fir_planks_small_compress"
     ]
   },
   "sends_telemetry_event": false

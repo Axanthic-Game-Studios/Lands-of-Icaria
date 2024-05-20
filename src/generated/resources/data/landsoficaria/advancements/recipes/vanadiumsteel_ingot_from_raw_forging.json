@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stripped_plane_wood": {
+    "has_lignite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:stripped_plane_wood"
+              "landsoficaria:lignite"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:stripped_plane_wood_small_compress"
+        "recipe": "landsoficaria:vanadiumsteel_ingot_from_raw_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_stripped_plane_wood",
+      "has_lignite",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:stripped_plane_wood_small_compress"
+      "landsoficaria:vanadiumsteel_ingot_from_raw_forging"
     ]
   },
   "sends_telemetry_event": false

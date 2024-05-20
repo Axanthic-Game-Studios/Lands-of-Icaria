@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "X": {
-      "item": "landsoficaria:stripped_droughtroot_wood"
+      "item": "landsoficaria:cypress_planks"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
     "XX"
   ],
   "result": {
-    "item": "landsoficaria:droughtroot_crafting_table"
+    "item": "landsoficaria:cypress_crafting_table"
   },
   "show_notification": true
 }

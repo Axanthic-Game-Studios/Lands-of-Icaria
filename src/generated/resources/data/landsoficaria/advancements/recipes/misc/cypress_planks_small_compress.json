@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_laurel_planks": {
+    "has_cypress_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:laurel_planks"
+              "landsoficaria:cypress_planks"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chest"
+        "recipe": "landsoficaria:cypress_planks_small_compress"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_laurel_planks",
+      "has_cypress_planks",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:chest"
+      "landsoficaria:cypress_planks_small_compress"
     ]
   },
   "sends_telemetry_event": false

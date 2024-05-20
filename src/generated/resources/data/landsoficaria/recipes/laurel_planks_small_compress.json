@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "X": {
-      "item": "landsoficaria:stripped_plane_wood"
+      "item": "landsoficaria:laurel_planks"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
     "XX"
   ],
   "result": {
-    "item": "landsoficaria:plane_crafting_table"
+    "item": "landsoficaria:laurel_crafting_table"
   },
   "show_notification": true
 }

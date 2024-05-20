@@ -1,0 +1,20 @@
+{
+  "type": "landsoficaria:forging",
+  "burnTime": 150,
+  "experience": 0.2,
+  "ingredients": [
+    {
+      "item": "landsoficaria:lignite"
+    },
+    {
+      "item": "landsoficaria:raw_kassiteros"
+    },
+    {
+      "item": "landsoficaria:raw_vanadium"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "landsoficaria:vanadiumsteel_ingot"
+  }
+}

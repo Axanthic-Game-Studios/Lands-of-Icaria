@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stripped_cypress_wood": {
+    "has_laurel_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:stripped_cypress_wood"
+              "landsoficaria:laurel_planks"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:stripped_cypress_wood_small_compress"
+        "recipe": "landsoficaria:laurel_planks_small_compress"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_stripped_cypress_wood",
+      "has_laurel_planks",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:stripped_cypress_wood_small_compress"
+      "landsoficaria:laurel_planks_small_compress"
     ]
   },
   "sends_telemetry_event": false

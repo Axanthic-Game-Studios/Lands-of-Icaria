@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stripped_olive_wood": {
+    "has_anthracite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:stripped_olive_wood"
+              "landsoficaria:anthracite"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:stripped_olive_wood_small_compress"
+        "recipe": "landsoficaria:molybdenumsteel_ingot_from_raw_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_stripped_olive_wood",
+      "has_anthracite",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:stripped_olive_wood_small_compress"
+      "landsoficaria:molybdenumsteel_ingot_from_raw_forging"
     ]
   },
   "sends_telemetry_event": false

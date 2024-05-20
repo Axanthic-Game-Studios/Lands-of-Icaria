@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "X": {
-      "item": "landsoficaria:stripped_cypress_wood"
+      "item": "landsoficaria:populus_planks"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
     "XX"
   ],
   "result": {
-    "item": "landsoficaria:cypress_crafting_table"
+    "item": "landsoficaria:populus_crafting_table"
   },
   "show_notification": true
 }
