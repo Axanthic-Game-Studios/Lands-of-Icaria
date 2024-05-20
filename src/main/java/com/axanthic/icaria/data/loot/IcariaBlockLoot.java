@@ -24,10 +24,7 @@ import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -527,7 +524,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 	}
 
 	public void dropElseWithSilk(Block pBlock, Item pRemains, Item pBone, float pValue, int pBonus) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SILK))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pRemains).when(IcariaBlockLoot.NO_SILK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue)))).add(LootItem.lootTableItem(pBone).when(IcariaBlockLoot.NO_SILK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, pBonus)))));
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SILK))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pRemains).when(IcariaBlockLoot.NO_SILK).when(LootItemRandomChanceCondition.randomChance(0.1F)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue))).otherwise(LootItem.lootTableItem(pBone).when(IcariaBlockLoot.NO_SILK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, pBonus))))));
 	}
 
 	public void dropElse(Block pBlock, Item pItem) {
