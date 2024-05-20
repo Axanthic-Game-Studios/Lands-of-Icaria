@@ -5,7 +5,8 @@
   "refmap": "landsoficaria.refmap.json",
   "mixins": [
     "AxeItemMixin",
-    "FireBlockMixin"
+    "FireBlockMixin",
+    "RecipeManagerMixin"
   ],
   "client": [
     "CustomHeadLayerMixin"

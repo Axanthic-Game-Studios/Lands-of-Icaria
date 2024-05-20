@@ -387,13 +387,13 @@ public class IcariaRecipes extends RecipeProvider {
 		this.smallCompressRecipe(pConsumer, IcariaItems.HALITE_SHARD.get(), IcariaItems.HALITE.get());
 		this.smallCompressRecipe(pConsumer, IcariaItems.JASPER_SHARD.get(), IcariaItems.JASPER.get());
 		this.smallCompressRecipe(pConsumer, IcariaItems.ZIRCON_SHARD.get(), IcariaItems.ZIRCON.get());
-		this.smallCompressRecipe(pConsumer, IcariaItems.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.CYPRESS_CRAFTING_TABLE.get());
-		this.smallCompressRecipe(pConsumer, IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get());
-		this.smallCompressRecipe(pConsumer, IcariaItems.STRIPPED_FIR_WOOD.get(), IcariaItems.FIR_CRAFTING_TABLE.get());
-		this.smallCompressRecipe(pConsumer, IcariaItems.STRIPPED_LAUREL_WOOD.get(), IcariaItems.LAUREL_CRAFTING_TABLE.get());
-		this.smallCompressRecipe(pConsumer, IcariaItems.STRIPPED_OLIVE_WOOD.get(), IcariaItems.OLIVE_CRAFTING_TABLE.get());
-		this.smallCompressRecipe(pConsumer, IcariaItems.STRIPPED_PLANE_WOOD.get(), IcariaItems.PLANE_CRAFTING_TABLE.get());
-		this.smallCompressRecipe(pConsumer, IcariaItems.STRIPPED_POPULUS_WOOD.get(), IcariaItems.POPULUS_CRAFTING_TABLE.get());
+		this.smallCompressRecipe(pConsumer, IcariaItems.CYPRESS_PLANKS.get(), IcariaItems.CYPRESS_CRAFTING_TABLE.get());
+		this.smallCompressRecipe(pConsumer, IcariaItems.DROUGHTROOT_PLANKS.get(), IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get());
+		this.smallCompressRecipe(pConsumer, IcariaItems.FIR_PLANKS.get(), IcariaItems.FIR_CRAFTING_TABLE.get());
+		this.smallCompressRecipe(pConsumer, IcariaItems.LAUREL_PLANKS.get(), IcariaItems.LAUREL_CRAFTING_TABLE.get());
+		this.smallCompressRecipe(pConsumer, IcariaItems.OLIVE_PLANKS.get(), IcariaItems.OLIVE_CRAFTING_TABLE.get());
+		this.smallCompressRecipe(pConsumer, IcariaItems.PLANE_PLANKS.get(), IcariaItems.PLANE_CRAFTING_TABLE.get());
+		this.smallCompressRecipe(pConsumer, IcariaItems.POPULUS_PLANKS.get(), IcariaItems.POPULUS_CRAFTING_TABLE.get());
 
 		this.glassRecipes(pConsumer, IcariaItems.GRAINGLASS.get(), IcariaItems.GRAINGLASS_PANE.get(), IcariaItems.HORIZONTAL_GRAINGLASS_PANE.get());
 		this.glassRecipes(pConsumer, IcariaItems.SILKGLASS.get(), IcariaItems.SILKGLASS_PANE.get(), IcariaItems.HORIZONTAL_SILKGLASS_PANE.get());
