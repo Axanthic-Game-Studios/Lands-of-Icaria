@@ -313,9 +313,11 @@ public class KettleBlockEntity extends BlockEntity {
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
         if (pCapability == ForgeCapabilities.ITEM_HANDLER) {
-            if (this.directionWrappedFuelHandler.containsKey(pDirection)) {
+            if (pDirection != null) {
                 if (pDirection == Direction.DOWN) {
-                    return this.directionWrappedFuelHandler.get(pDirection).cast();
+                    if (this.directionWrappedFuelHandler.containsKey(pDirection)) {
+                        return this.directionWrappedFuelHandler.get(pDirection).cast();
+                    }
                 }
             }
         }
