@@ -1109,25 +1109,6 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.AETERNAE_HIDE.get(), RecipeProvider.has(IcariaItems.AETERNAE_HIDE.get()))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.BOOK) + "_from_aeternae_hide");
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.BOW)
-			.pattern(" XY")
-			.pattern("X Y")
-			.pattern(" XY")
-			.define('X', Items.STICK)
-			.define('Y', IcariaItems.ARACHNE_STRING.get())
-			.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
-			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.BOW) + "_from_arachne_string");
-
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.CANDLE)
-			.pattern("X")
-			.pattern("Y")
-			.define('X', IcariaItems.ARACHNE_STRING.get())
-			.define('Y', Items.HONEYCOMB)
-			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
-			.unlockedBy("has_" + Items.HONEYCOMB, RecipeProvider.has(Items.HONEYCOMB))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.CANDLE) + "_from_arachne_string");
-
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.COMPARATOR, 1)
 			.pattern(" X ")
 			.pattern("XYX")
@@ -1139,30 +1120,6 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + Items.QUARTZ, RecipeProvider.has(Items.QUARTZ))
 			.unlockedBy("has_" + IcariaItems.SMOOTH_RELICSTONE.get(), RecipeProvider.has(IcariaItems.SMOOTH_RELICSTONE.get()))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.COMPARATOR) + "_from_relicstone");
-
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.CROSSBOW)
-			.pattern("ABA")
-			.pattern("CDC")
-			.pattern(" A ")
-			.define('A', Items.STICK)
-			.define('B', Items.IRON_INGOT)
-			.define('C', IcariaItems.ARACHNE_STRING.get())
-			.define('D', Items.TRIPWIRE_HOOK)
-			.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
-			.unlockedBy("has_" + Items.IRON_INGOT, RecipeProvider.has(Items.IRON_INGOT))
-			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
-			.unlockedBy("has_" + Items.TRIPWIRE_HOOK, RecipeProvider.has(Items.TRIPWIRE_HOOK))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.CROSSBOW) + "_from_arachne_string");
-
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.FISHING_ROD)
-			.pattern("  X")
-			.pattern(" XY")
-			.pattern("X Y")
-			.define('X', Items.STICK)
-			.define('Y', IcariaItems.ARACHNE_STRING.get())
-			.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
-			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.FISHING_ROD) + "_from_arachne_string");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.FLETCHING_TABLE, 1)
 			.pattern("XX")
@@ -1203,16 +1160,6 @@ public class IcariaRecipes extends RecipeProvider {
 			.pattern("XX ")
 			.pattern("XY ")
 			.pattern("  X")
-			.define('X', IcariaItems.ARACHNE_STRING.get())
-			.define('Y', Items.SLIME_BALL)
-			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
-			.unlockedBy("has_" + Items.SLIME_BALL, RecipeProvider.has(Items.SLIME_BALL))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.LEAD) + "_from_arachne_string");
-
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.LEAD, 2)
-			.pattern("XX ")
-			.pattern("XY ")
-			.pattern("  X")
 			.define('X', Items.STRING)
 			.define('Y', Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
 			.unlockedBy("has_" + Items.STRING, RecipeProvider.has(Items.STRING))
@@ -1245,30 +1192,6 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.AETERNAE_HIDE.get(), RecipeProvider.has(IcariaItems.AETERNAE_HIDE.get()))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.LEATHER_HORSE_ARMOR) + "_from_aeternae_hide");
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.LOOM)
-			.pattern("XX ")
-			.pattern("YY ")
-			.define('X', IcariaItems.ARACHNE_STRING.get())
-			.define('Y', Ingredient.of(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS, Items.JUNGLE_PLANKS, Items.ACACIA_PLANKS, Items.DARK_OAK_PLANKS, Items.MANGROVE_PLANKS, Items.CRIMSON_PLANKS, Items.WARPED_PLANKS, IcariaItems.CYPRESS_PLANKS.get(), IcariaItems.DROUGHTROOT_PLANKS.get(), IcariaItems.FIR_PLANKS.get(), IcariaItems.LAUREL_PLANKS.get(), IcariaItems.OLIVE_PLANKS.get(), IcariaItems.PLANE_PLANKS.get(), IcariaItems.POPULUS_PLANKS.get()))
-			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
-			.unlockedBy("has_" + Items.OAK_PLANKS, RecipeProvider.has(Items.OAK_PLANKS))
-			.unlockedBy("has_" + Items.SPRUCE_PLANKS, RecipeProvider.has(Items.SPRUCE_PLANKS))
-			.unlockedBy("has_" + Items.BIRCH_PLANKS, RecipeProvider.has(Items.BIRCH_PLANKS))
-			.unlockedBy("has_" + Items.JUNGLE_PLANKS, RecipeProvider.has(Items.JUNGLE_PLANKS))
-			.unlockedBy("has_" + Items.ACACIA_PLANKS, RecipeProvider.has(Items.ACACIA_PLANKS))
-			.unlockedBy("has_" + Items.DARK_OAK_PLANKS, RecipeProvider.has(Items.DARK_OAK_PLANKS))
-			.unlockedBy("has_" + Items.MANGROVE_PLANKS, RecipeProvider.has(Items.MANGROVE_PLANKS))
-			.unlockedBy("has_" + Items.CRIMSON_PLANKS, RecipeProvider.has(Items.CRIMSON_PLANKS))
-			.unlockedBy("has_" + Items.WARPED_PLANKS, RecipeProvider.has(Items.WARPED_PLANKS))
-			.unlockedBy("has_" + IcariaItems.CYPRESS_PLANKS.get(), RecipeProvider.has(IcariaItems.CYPRESS_PLANKS.get()))
-			.unlockedBy("has_" + IcariaItems.DROUGHTROOT_PLANKS.get(), RecipeProvider.has(IcariaItems.DROUGHTROOT_PLANKS.get()))
-			.unlockedBy("has_" + IcariaItems.FIR_PLANKS.get(), RecipeProvider.has(IcariaItems.FIR_PLANKS.get()))
-			.unlockedBy("has_" + IcariaItems.LAUREL_PLANKS.get(), RecipeProvider.has(IcariaItems.LAUREL_PLANKS.get()))
-			.unlockedBy("has_" + IcariaItems.OLIVE_PLANKS.get(), RecipeProvider.has(IcariaItems.OLIVE_PLANKS.get()))
-			.unlockedBy("has_" + IcariaItems.PLANE_PLANKS.get(), RecipeProvider.has(IcariaItems.PLANE_PLANKS.get()))
-			.unlockedBy("has_" + IcariaItems.POPULUS_PLANKS.get(), RecipeProvider.has(IcariaItems.POPULUS_PLANKS.get()))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.LOOM) + "_from_arachne_string");
-
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.PAPER, 3)
 			.pattern("XXX")
 			.define('X', IcariaItems.VINE_REED.get())
@@ -1285,16 +1208,6 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + Items.REDSTONE, RecipeProvider.has(Items.REDSTONE))
 			.unlockedBy("has_" + IcariaItems.SMOOTH_RELICSTONE.get(), RecipeProvider.has(IcariaItems.SMOOTH_RELICSTONE.get()))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.REPEATER) + "_from_relicstone");
-
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SCAFFOLDING)
-			.pattern("XYX")
-			.pattern("X X")
-			.pattern("X X")
-			.define('X', Items.BAMBOO)
-			.define('Y', IcariaItems.ARACHNE_STRING.get())
-			.unlockedBy("has_" + Items.BAMBOO, RecipeProvider.has(Items.BAMBOO))
-			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
-			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.SCAFFOLDING) + "_from_arachne_string");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STICKY_PISTON, 1)
 			.pattern("X")
