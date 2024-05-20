@@ -679,7 +679,7 @@ public class IcariaItems {
 	public static final RegistryObject<Item> AETERNAE_HIDE = IcariaItems.registerSimple("aeternae_hide", () -> new Item(IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> SPELT_FLOUR = IcariaItems.registerSimple("spelt_flour", () -> new Item(IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> SPELT_BREAD = IcariaItems.registerSimple("spelt_bread", () -> new Item(IcariaItems.propertiesFood(5, 0.6F)));
-	public static final RegistryObject<Item> VINE_SPROUT = IcariaItems.registerSimple("vine_sprout", () -> new VineSproutItem(IcariaItems.propertiesFood(2, 0.5F, 1, 24)));
+	public static final RegistryObject<Item> VINE_SPROUT = IcariaItems.registerSimple("vine_sprout", () -> new VineSproutItem(IcariaItems.propertiesFood(2, 0.5F, 1, 12)));
 	public static final RegistryObject<Item> VINEBERRIES = IcariaItems.registerSimple("vineberries", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
 	public static final RegistryObject<Item> STRAWBERRIES = IcariaItems.registerSimple("strawberries", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
 	public static final RegistryObject<Item> PHYSALIS = IcariaItems.registerSimple("physalis", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
