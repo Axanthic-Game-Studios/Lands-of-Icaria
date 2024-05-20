@@ -1,6 +1,5 @@
 {
   "values": [
-    "landsoficaria:baetyl_adobe",
     "landsoficaria:cobbled_baetyl",
     "landsoficaria:baetyl",
     "landsoficaria:baetyl_bricks",
@@ -19,9 +18,6 @@
     "landsoficaria:molybdenum_block",
     "landsoficaria:molybdenumsteel_block",
     "landsoficaria:bluridium_block",
-    "landsoficaria:baetyl_adobe_slab",
-    "landsoficaria:baetyl_adobe_stairs",
-    "landsoficaria:baetyl_adobe_wall",
     "landsoficaria:cobbled_baetyl_slab",
     "landsoficaria:cobbled_baetyl_stairs",
     "landsoficaria:cobbled_baetyl_wall",

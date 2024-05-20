@@ -1,6 +1,5 @@
 {
   "values": [
-    "landsoficaria:yellowstone_adobe",
     "landsoficaria:cobbled_yellowstone",
     "landsoficaria:yellowstone",
     "landsoficaria:yellowstone_bricks",
@@ -12,9 +11,6 @@
     "landsoficaria:budding_calcite",
     "landsoficaria:raw_chalkos_block",
     "landsoficaria:chalkos_block",
-    "landsoficaria:yellowstone_adobe_slab",
-    "landsoficaria:yellowstone_adobe_stairs",
-    "landsoficaria:yellowstone_adobe_wall",
     "landsoficaria:cobbled_yellowstone_slab",
     "landsoficaria:cobbled_yellowstone_stairs",
     "landsoficaria:cobbled_yellowstone_wall",

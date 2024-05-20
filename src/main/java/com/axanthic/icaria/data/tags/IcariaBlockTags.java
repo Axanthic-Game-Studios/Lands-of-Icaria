@@ -309,7 +309,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(IcariaBlockTags.NEEDS_MOLYBDENUMSTEEL_TOOL);
 
 		this.tag(IcariaBlockTags.NEEDS_CHERT_TOOL)
-			.add(IcariaBlocks.YELLOWSTONE_ADOBE.get())
 			.add(IcariaBlocks.COBBLED_YELLOWSTONE.get())
 			.add(IcariaBlocks.YELLOWSTONE.get())
 			.add(IcariaBlocks.YELLOWSTONE_BRICKS.get())
@@ -322,13 +321,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.RAW_CHALKOS_BLOCK.get())
 			.add(IcariaBlocks.CHALKOS_BLOCK.get());
 
-		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHERT_TOOL, IcariaBlocks.YELLOWSTONE_ADOBE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHERT_TOOL, IcariaBlocks.COBBLED_YELLOWSTONE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHERT_TOOL, IcariaBlocks.YELLOWSTONE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHERT_TOOL, IcariaBlocks.YELLOWSTONE_BRICK_DECO);
 
 		this.tag(IcariaBlockTags.NEEDS_CHALKOS_TOOL)
-			.add(IcariaBlocks.DOLOMITE_ADOBE.get())
 			.add(IcariaBlocks.SMOOTH_DOLOMITE.get())
 			.add(IcariaBlocks.DOLOMITE_BRICKS.get())
 			.add(IcariaBlocks.DOLOMITE_PILLAR.get())
@@ -337,7 +334,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.SILKGLASS.get())
 			.add(IcariaBlocks.SILKGLASS_PANE.get())
 			.add(IcariaBlocks.SILKGLASS.get())
-			.add(IcariaBlocks.SILKSTONE_ADOBE.get())
 			.add(IcariaBlocks.COBBLED_SILKSTONE.get())
 			.add(IcariaBlocks.SILKSTONE.get())
 			.add(IcariaBlocks.SILKSTONE_BRICKS.get())
@@ -350,9 +346,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.RAW_KASSITEROS_BLOCK.get())
 			.add(IcariaBlocks.KASSITEROS_BLOCK.get());
 
-		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.DOLOMITE_ADOBE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.SMOOTH_DOLOMITE_DECO);
-		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.SILKSTONE_ADOBE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.COBBLED_SILKSTONE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.SILKSTONE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL, IcariaBlocks.SILKSTONE_BRICK_DECO);
@@ -361,7 +355,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.ORICHALCUM_BLOCK.get());
 
 		this.tag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL)
-			.add(IcariaBlocks.SUNSTONE_ADOBE.get())
 			.add(IcariaBlocks.COBBLED_SUNSTONE.get())
 			.add(IcariaBlocks.SUNSTONE.get())
 			.add(IcariaBlocks.SUNSTONE_BRICKS.get())
@@ -379,13 +372,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_CHAIN.get());
 
-		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.SUNSTONE_ADOBE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.COBBLED_SUNSTONE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.SUNSTONE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, IcariaBlocks.SUNSTONE_BRICK_DECO);
 
 		this.tag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL)
-			.add(IcariaBlocks.VOIDSHALE_ADOBE.get())
 			.add(IcariaBlocks.COBBLED_VOIDSHALE.get())
 			.add(IcariaBlocks.VOIDSHALE.get())
 			.add(IcariaBlocks.VOIDSHALE_BRICKS.get())
@@ -396,13 +387,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.SIDEROS_BLOCK.get())
 			.add(IcariaBlocks.ANTHRACITE_BLOCK.get());
 
-		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, IcariaBlocks.VOIDSHALE_ADOBE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, IcariaBlocks.COBBLED_VOIDSHALE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, IcariaBlocks.VOIDSHALE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, IcariaBlocks.VOIDSHALE_BRICK_DECO);
 
 		this.tag(IcariaBlockTags.NEEDS_SIDEROS_TOOL)
-			.add(IcariaBlocks.BAETYL_ADOBE.get())
 			.add(IcariaBlocks.COBBLED_BAETYL.get())
 			.add(IcariaBlocks.BAETYL.get())
 			.add(IcariaBlocks.BAETYL_BRICKS.get())
@@ -422,7 +411,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get())
 			.add(IcariaBlocks.BLURIDIUM_BLOCK.get());
 
-		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.BAETYL_ADOBE_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.COBBLED_BAETYL_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.BAETYL_DECO);
 		this.stoneDecoBlocksTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL, IcariaBlocks.BAETYL_BRICK_DECO);

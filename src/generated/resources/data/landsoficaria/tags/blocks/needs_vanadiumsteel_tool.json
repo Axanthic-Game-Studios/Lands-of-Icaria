@@ -1,6 +1,5 @@
 {
   "values": [
-    "landsoficaria:voidshale_adobe",
     "landsoficaria:cobbled_voidshale",
     "landsoficaria:voidshale",
     "landsoficaria:voidshale_bricks",
@@ -10,9 +9,6 @@
     "landsoficaria:raw_sideros_block",
     "landsoficaria:sideros_block",
     "landsoficaria:anthracite_block",
-    "landsoficaria:voidshale_adobe_slab",
-    "landsoficaria:voidshale_adobe_stairs",
-    "landsoficaria:voidshale_adobe_wall",
     "landsoficaria:cobbled_voidshale_slab",
     "landsoficaria:cobbled_voidshale_stairs",
     "landsoficaria:cobbled_voidshale_wall",

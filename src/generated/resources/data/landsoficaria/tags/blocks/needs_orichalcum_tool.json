@@ -1,6 +1,5 @@
 {
   "values": [
-    "landsoficaria:sunstone_adobe",
     "landsoficaria:cobbled_sunstone",
     "landsoficaria:sunstone",
     "landsoficaria:sunstone_bricks",
@@ -17,9 +16,6 @@
     "landsoficaria:vanadiumsteel_bars",
     "landsoficaria:horizontal_vanadiumsteel_bars",
     "landsoficaria:vanadiumsteel_chain",
-    "landsoficaria:sunstone_adobe_slab",
-    "landsoficaria:sunstone_adobe_stairs",
-    "landsoficaria:sunstone_adobe_wall",
     "landsoficaria:cobbled_sunstone_slab",
     "landsoficaria:cobbled_sunstone_stairs",
     "landsoficaria:cobbled_sunstone_wall",
