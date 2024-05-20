@@ -67,6 +67,12 @@
     "misc": [],
     "monster": [
       {
+        "type": "landsoficaria:arachne_drone",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
         "type": "landsoficaria:argan_hound",
         "maxCount": 3,
         "minCount": 1,
@@ -88,7 +94,19 @@
         "type": "landsoficaria:myrmeke_drone",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 100
+        "weight": 10
+      },
+      {
+        "type": "landsoficaria:crawler_revenant",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
+        "type": "landsoficaria:overgrown_revenant",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 10
       },
       {
         "type": "landsoficaria:scorpion",

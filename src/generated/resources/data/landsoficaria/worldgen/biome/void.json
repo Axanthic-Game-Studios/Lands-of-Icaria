@@ -30,8 +30,8 @@
     "creature": [
       {
         "type": "landsoficaria:ender_jellyfish",
-        "maxCount": 1,
-        "minCount": 1,
+        "maxCount": 5,
+        "minCount": 3,
         "weight": 100
       },
       {
