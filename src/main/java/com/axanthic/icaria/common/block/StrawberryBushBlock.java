@@ -55,8 +55,8 @@ public class StrawberryBushBlock extends IcariaBushBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (pState.getValue(IcariaBlockStateProperties.STRAWBERRY_STAGE) == 1) {
             pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
-            pLevel.setBlock(pPos, this.defaultBlockState().setValue(IcariaBlockStateProperties.STRAWBERRY_STAGE, 0), 2);
-            Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.STRAWBERRIES.get(), 1));
+            pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.STRAWBERRY_STAGE, 0), 2);
+            Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.STRAWBERRIES.get()));
             return InteractionResult.sidedSuccess(pLevel.isClientSide());
         } else {
             return InteractionResult.PASS;
