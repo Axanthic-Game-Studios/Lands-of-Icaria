@@ -111,10 +111,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "landsoficaria:laurel_wreath"
-        },
-        {
-          "type": "minecraft:item",
           "functions": [
             {
               "add": false,

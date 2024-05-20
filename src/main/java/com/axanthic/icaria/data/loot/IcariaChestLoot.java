@@ -30,7 +30,6 @@ public class IcariaChestLoot implements LootTableSubProvider {
                 .add(LootItem.lootTableItem(IcariaItems.AETERNAE_HIDE_ARMOR.leggings.get()).apply(SetItemDamageFunction.setDamage(UniformGenerator.between(0.1F, 0.9F))))
                 .add(LootItem.lootTableItem(IcariaItems.AETERNAE_HIDE_ARMOR.boots.get()).apply(SetItemDamageFunction.setDamage(UniformGenerator.between(0.1F, 0.9F))))
                 .add(LootItem.lootTableItem(IcariaItems.CHALKOS_ARMOR.boots.get()).apply(SetItemDamageFunction.setDamage(UniformGenerator.between(0.1F, 0.9F))))
-                .add(LootItem.lootTableItem(IcariaItems.LAUREL_WREATH.get()))
                 .add(LootItem.lootTableItem(IcariaItems.AETERNAE_HIDE.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
             )
         );
