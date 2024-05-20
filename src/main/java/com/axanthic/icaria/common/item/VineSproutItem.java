@@ -23,6 +23,11 @@ public class VineSproutItem extends Item {
 	}
 
 	@Override
+	public int getUseDuration(ItemStack pStack) {
+		return 16;
+	}
+
+	@Override
 	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
 		var stack = new ItemStack(this);
 		if (pLivingEntity instanceof Player player) {
