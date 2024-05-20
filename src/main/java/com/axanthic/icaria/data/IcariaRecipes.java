@@ -968,12 +968,12 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.LOAM_BRICKS.get(), RecipeProvider.has(IcariaItems.LOAM_BRICKS.get()))
 			.save(pConsumer, IcariaItems.FORGE.getId());
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.CHEST.get())
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.CHEST.get(), 1)
 			.pattern("XXX")
 			.pattern("X X")
 			.pattern("XXX")
-			.define('X', IcariaItems.STRIPPED_LAUREL_WOOD.get())
-			.unlockedBy("has_" + IcariaItems.STRIPPED_LAUREL_WOOD.get(), RecipeProvider.has(IcariaItems.STRIPPED_LAUREL_WOOD.get()))
+			.define('X', IcariaItems.LAUREL_PLANKS.get())
+			.unlockedBy("has_" + IcariaItems.LAUREL_PLANKS.get(), RecipeProvider.has(IcariaItems.LAUREL_PLANKS.get()))
 			.save(pConsumer, IcariaItems.CHEST.getId());
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.TRAPPED_CHEST.get())
