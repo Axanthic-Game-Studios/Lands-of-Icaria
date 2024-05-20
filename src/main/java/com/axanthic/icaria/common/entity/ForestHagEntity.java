@@ -2,7 +2,6 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.ForestHagPlaceSaplingGoal;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -18,7 +17,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
@@ -106,33 +104,6 @@ public class ForestHagEntity extends Monster {
     public void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(ForestHagEntity.TARGETING, false);
-    }
-
-    @Override
-    public void dropCustomDeathLoot(DamageSource pDamageSource, int pLooting, boolean pRecentlyHit) {
-        super.dropCustomDeathLoot(pDamageSource, pLooting, pRecentlyHit);
-        if (pDamageSource.getEntity() instanceof Creeper creeper) {
-            if (creeper.isPowered()) {
-                if (creeper.canDropMobsSkull()) {
-                    creeper.increaseDroppedSkulls();
-                    if (this.getType() == IcariaEntityTypes.CYPRESS_FOREST_HAG.get()) {
-                        this.spawnAtLocation(IcariaItems.CYPRESS_FOREST_HAG_SKULL.get());
-                    } else if (this.getType() == IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get()) {
-                        this.spawnAtLocation(IcariaItems.DROUGHTROOT_FOREST_HAG_SKULL.get());
-                    } else if (this.getType() == IcariaEntityTypes.FIR_FOREST_HAG.get()) {
-                        this.spawnAtLocation(IcariaItems.FIR_FOREST_HAG_SKULL.get());
-                    } else if (this.getType() == IcariaEntityTypes.LAUREL_FOREST_HAG.get()) {
-                        this.spawnAtLocation(IcariaItems.LAUREL_FOREST_HAG_SKULL.get());
-                    } else if (this.getType() == IcariaEntityTypes.OLIVE_FOREST_HAG.get()) {
-                        this.spawnAtLocation(IcariaItems.OLIVE_FOREST_HAG_SKULL.get());
-                    } else if (this.getType() == IcariaEntityTypes.PLANE_FOREST_HAG.get()) {
-                        this.spawnAtLocation(IcariaItems.PLANE_FOREST_HAG_SKULL.get());
-                    } else if (this.getType() == IcariaEntityTypes.POPULUS_FOREST_HAG.get()) {
-                        this.spawnAtLocation(IcariaItems.POPULUS_FOREST_HAG_SKULL.get());
-                    }
-                }
-            }
-        }
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -15,7 +14,6 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -43,19 +41,6 @@ public class RevenantEntity extends Monster {
     @Override
     public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
         return 1.75F;
-    }
-
-    @Override
-    public void dropCustomDeathLoot(DamageSource pDamageSource, int pLooting, boolean pRecentlyHit) {
-        super.dropCustomDeathLoot(pDamageSource, pLooting, pRecentlyHit);
-        if (pDamageSource.getEntity() instanceof Creeper creeper) {
-            if (creeper.isPowered()) {
-                if (creeper.canDropMobsSkull()) {
-                    creeper.increaseDroppedSkulls();
-                    this.spawnAtLocation(IcariaItems.REVENANT_SKULL.get());
-                }
-            }
-        }
     }
 
     @Override

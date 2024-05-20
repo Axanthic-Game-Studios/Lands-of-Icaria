@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaItems;
-
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
@@ -14,7 +12,6 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -52,19 +49,6 @@ public class CerverEntity extends Monster {
     @Override
     public float getVoicePitch() {
         return 0.25F;
-    }
-
-    @Override
-    public void dropCustomDeathLoot(DamageSource pDamageSource, int pLooting, boolean pRecentlyHit) {
-        super.dropCustomDeathLoot(pDamageSource, pLooting, pRecentlyHit);
-        if (pDamageSource.getEntity() instanceof Creeper creeper) {
-            if (creeper.isPowered()) {
-                if (creeper.canDropMobsSkull()) {
-                    creeper.increaseDroppedSkulls();
-                    this.spawnAtLocation(IcariaItems.CERVER_SKULL.get());
-                }
-            }
-        }
     }
 
     @Override

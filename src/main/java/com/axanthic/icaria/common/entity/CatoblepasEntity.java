@@ -23,7 +23,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
@@ -54,21 +53,6 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
     @Override
     public boolean isFood(ItemStack pStack) {
         return pStack.is(IcariaItems.SPELT.get());
-    }
-
-    @Override
-    public void dropCustomDeathLoot(DamageSource pDamageSource, int pLooting, boolean pRecentlyHit) {
-        super.dropCustomDeathLoot(pDamageSource, pLooting, pRecentlyHit);
-        if (!this.isBaby()) {
-            if (pDamageSource.getEntity() instanceof Creeper creeper) {
-                if (creeper.isPowered()) {
-                    if (creeper.canDropMobsSkull()) {
-                        creeper.increaseDroppedSkulls();
-                        this.spawnAtLocation(IcariaItems.CATOBLEPAS_SKULL.get());
-                    }
-                }
-            }
-        }
     }
 
     @Override

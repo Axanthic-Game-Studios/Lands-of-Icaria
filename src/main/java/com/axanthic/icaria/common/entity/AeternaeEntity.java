@@ -18,7 +18,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -65,21 +64,6 @@ public class AeternaeEntity extends IcariaAnimalEntity {
     public void customServerAiStep() {
         super.customServerAiStep();
         this.eatAnimationTick = this.eatBlockGoal.getEatAnimationTick();
-    }
-
-    @Override
-    public void dropCustomDeathLoot(DamageSource pDamageSource, int pLooting, boolean pRecentlyHit) {
-        super.dropCustomDeathLoot(pDamageSource, pLooting, pRecentlyHit);
-        if (!this.isBaby()) {
-            if (pDamageSource.getEntity() instanceof Creeper creeper) {
-                if (creeper.canDropMobsSkull()) {
-                    if (creeper.isPowered()) {
-                        creeper.increaseDroppedSkulls();
-                        this.spawnAtLocation(IcariaItems.AETERNAE_SKULL.get());
-                    }
-                }
-            }
-        }
     }
 
     @Override

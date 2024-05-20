@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.goal.IcariaAnimalHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.IcariaBreedGoal;
 import com.axanthic.icaria.common.goal.IcariaFollowParentGoal;
-import com.axanthic.icaria.common.goal.IcariaAnimalHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.IcariaPanicGoal;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
@@ -21,7 +21,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -49,21 +48,6 @@ public class SowEntity extends IcariaAnimalEntity {
     @Override
     public boolean isFood(ItemStack pStack) {
         return pStack.is(IcariaItems.SPELT.get());
-    }
-
-    @Override
-    public void dropCustomDeathLoot(DamageSource pDamageSource, int pLooting, boolean pRecentlyHit) {
-        super.dropCustomDeathLoot(pDamageSource, pLooting, pRecentlyHit);
-        if (pDamageSource.getEntity() instanceof Creeper creeper) {
-            if (!this.isBaby()) {
-                if (creeper.isPowered()) {
-                    if (creeper.canDropMobsSkull()) {
-                        creeper.increaseDroppedSkulls();
-                        this.spawnAtLocation(IcariaItems.SOW_SKULL.get());
-                    }
-                }
-            }
-        }
     }
 
     @Override
