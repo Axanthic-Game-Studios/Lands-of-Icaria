@@ -114,7 +114,6 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final TagKey<Item> STORAGE_BLOCKS_ARACHNE_STRING = IcariaItemTags.forgeTag("storage_blocks/arachne_string");
 	public static final TagKey<Item> STORAGE_BLOCKS_SPELT = IcariaItemTags.forgeTag("storage_blocks/spelt");
 	public static final TagKey<Item> STORAGE_BLOCKS_VINE_REED = IcariaItemTags.forgeTag("storage_blocks/vine_reed");
-	public static final TagKey<Item> STORAGE_BLOCKS_VINE_SPROUT = IcariaItemTags.forgeTag("storage_blocks/vine_sprout");
 	public static final TagKey<Item> STORAGE_BLOCKS_ROTTEN_BONES = IcariaItemTags.forgeTag("storage_blocks/rotten_bones");
 	public static final TagKey<Item> STORAGE_BLOCKS_RAW_CHALKOS = IcariaItemTags.forgeTag("storage_blocks/raw_chalkos");
 	public static final TagKey<Item> STORAGE_BLOCKS_RAW_KASSITEROS = IcariaItemTags.forgeTag("storage_blocks/raw_kassiteros");
