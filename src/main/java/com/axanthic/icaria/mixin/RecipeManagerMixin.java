@@ -1,7 +1,5 @@
 package com.axanthic.icaria.mixin;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
-
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.crafting.Recipe;
@@ -26,7 +24,7 @@ public class RecipeManagerMixin {
 	private <C extends Container, T extends Recipe<C>> void getRecipeFor(RecipeType<T> pType, C pContainer, Level pLevel, CallbackInfoReturnable<Optional<T>> pReturnable) {
 		var list = byType(pType).values().stream().filter(type -> type.matches(pContainer, pLevel)).toList();
 		if (list.size() > 1) {
-			var optional = list.stream().filter(type -> type.getId().getNamespace().equals(IcariaInfo.ID)).findFirst();
+			var optional = list.stream().filter(type -> type.getId().getNamespace().equals("landsoficaria")).findFirst();
 			if (optional.isPresent()) {
 				pReturnable.setReturnValue(optional);
 			}
