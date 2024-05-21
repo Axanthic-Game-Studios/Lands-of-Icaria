@@ -1,10 +1,15 @@
 package com.axanthic.icaria.common.world.feature.tree;
 
+import com.axanthic.icaria.common.properties.Olives;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import com.mojang.serialization.Codec;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
@@ -210,6 +215,17 @@ public class OliveTreeFeature extends IcariaTreeFeature {
             return true;
         } else {
             return false;
+        }
+    }
+
+    @Override
+    public void placeLeaves(WorldGenLevel pLevel, BlockPos pPos) {
+        if (pLevel.getBlockState(pPos).isAir()) {
+            if (pLevel.getRandom().nextBoolean()) {
+                this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE));
+            } else {
+                this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.LEAVES));
+            }
         }
     }
 }

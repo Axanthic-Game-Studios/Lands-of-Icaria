@@ -148,7 +148,7 @@
           "block": "landsoficaria:olive_leaves",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "olive_stage": "1"
+            "olives": "green"
           }
         }
       ],
@@ -177,7 +177,7 @@
           "block": "landsoficaria:olive_leaves",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "olive_stage": "2"
+            "olives": "black"
           }
         }
       ],

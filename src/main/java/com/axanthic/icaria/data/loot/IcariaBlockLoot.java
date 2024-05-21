@@ -1,5 +1,6 @@
 package com.axanthic.icaria.data.loot;
 
+import com.axanthic.icaria.common.properties.Olives;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
@@ -560,7 +561,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 	}
 
 	public void dropOlivesLeaves(Block pLeavesBlock, Block pSaplingBlock) {
-		this.add(pLeavesBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLeavesBlock).when(IcariaBlockLoot.SILK_OR_SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSaplingBlock).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, IcariaBlockLoot.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, IcariaBlockLoot.STICK_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GREEN_OLIVES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVE_STAGE, 1))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BLACK_OLIVES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVE_STAGE, 2))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
+		this.add(pLeavesBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLeavesBlock).when(IcariaBlockLoot.SILK_OR_SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSaplingBlock).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, IcariaBlockLoot.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, IcariaBlockLoot.STICK_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GREEN_OLIVES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.GREEN))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BLACK_OLIVES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.BLACK))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
 	}
 
 	public void dropVineWithLoot(Block pBlock, Item pVineItem, Item pLootItem) {

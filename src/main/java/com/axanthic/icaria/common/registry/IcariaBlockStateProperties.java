@@ -30,11 +30,11 @@ public class IcariaBlockStateProperties {
     public static final EnumProperty<HorizontalCorner> HORIZONTAL_CORNER = EnumProperty.create("horizontal_corner", HorizontalCorner.class);
     public static final EnumProperty<Kettle> KETTLE = EnumProperty.create("kettle", Kettle.class);
     public static final EnumProperty<Moss> MOSS = EnumProperty.create("moss", Moss.class);
+    public static final EnumProperty<Olives> OLIVES = EnumProperty.create("olives", Olives.class);
     public static final EnumProperty<Side> SIDE = EnumProperty.create("side", Side.class);
     public static final EnumProperty<VerticalCorner> VERTICAL_CORNER = EnumProperty.create("vertical_corner", VerticalCorner.class);
 
     public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);
     public static final IntegerProperty GRINDER_ROTATION = IntegerProperty.create("grinder_rotation", 0, 90);
-    public static final IntegerProperty OLIVE_STAGE = IntegerProperty.create("olive_stage", 0, 2);
     public static final IntegerProperty STRAWBERRY_STAGE = IntegerProperty.create("strawberry_stage", 0, 1);
 }

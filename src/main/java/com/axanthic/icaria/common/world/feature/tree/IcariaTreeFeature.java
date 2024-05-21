@@ -7,7 +7,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -102,7 +101,7 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
 
     public void placeLeaves(WorldGenLevel pLevel, BlockPos pPos) {
         if (pLevel.getBlockState(pPos).isAir()) {
-            this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(LeavesBlock.DISTANCE, 1));
+            this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1));
         }
     }
 
