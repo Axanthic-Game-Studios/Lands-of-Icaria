@@ -46,7 +46,7 @@ public class ForgingRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        return !pLevel.isClientSide() && this.ingredients.get(0).test(pContainer.getItem(0)) && this.ingredients.get(1).test(pContainer.getItem(1)) && this.ingredients.get(2).test(pContainer.getItem(2));
+        return !pLevel.isClientSide() && (this.ingredients.get(0).test(pContainer.getItem(0)) && this.ingredients.get(1).test(pContainer.getItem(1)) && this.ingredients.get(2).test(pContainer.getItem(2))) || (this.ingredients.get(0).test(pContainer.getItem(1)) && this.ingredients.get(1).test(pContainer.getItem(2)) && this.ingredients.get(2).test(pContainer.getItem(0))) || (this.ingredients.get(0).test(pContainer.getItem(2)) && this.ingredients.get(1).test(pContainer.getItem(0)) && this.ingredients.get(2).test(pContainer.getItem(1)));
     }
 
     public float getExperience() {
