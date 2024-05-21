@@ -214,15 +214,24 @@ public class IcariaVineTailBlock extends Block {
 
 	public static VoxelShape calculateShape(BlockState pState) {
 		var voxelShape = Shapes.empty();
+
 		if (pState.getValue(BlockStateProperties.NORTH)) {
 			voxelShape = Shapes.or(voxelShape, IcariaVineTailBlock.SHAPE_NORTH);
-		} else if (pState.getValue(BlockStateProperties.EAST)) {
+		}
+
+		if (pState.getValue(BlockStateProperties.EAST)) {
 			voxelShape = Shapes.or(voxelShape, IcariaVineTailBlock.SHAPE_EAST);
-		} else if (pState.getValue(BlockStateProperties.SOUTH)) {
+		}
+
+		if (pState.getValue(BlockStateProperties.SOUTH)) {
 			voxelShape = Shapes.or(voxelShape, IcariaVineTailBlock.SHAPE_SOUTH);
-		} else if (pState.getValue(BlockStateProperties.WEST)) {
+		}
+
+		if (pState.getValue(BlockStateProperties.WEST)) {
 			voxelShape = Shapes.or(voxelShape, IcariaVineTailBlock.SHAPE_WEST);
-		} else if (pState.getValue(BlockStateProperties.UP)) {
+		}
+
+		if (pState.getValue(BlockStateProperties.UP)) {
 			voxelShape = IcariaVineTailBlock.SHAPE_UP;
 		}
 
