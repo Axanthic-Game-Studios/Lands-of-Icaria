@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.properties.Ripe;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
@@ -28,7 +29,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class StrawberryBushBlock extends IcariaBushBlock {
     public StrawberryBushBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.STRAWBERRY_STAGE, 0));
+        this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.RIPE, Ripe.NONE));
     }
 
     @Override
@@ -38,24 +39,24 @@ public class StrawberryBushBlock extends IcariaBushBlock {
 
     @Override
     public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(IcariaBlockStateProperties.STRAWBERRY_STAGE);
+        pBuilder.add(IcariaBlockStateProperties.RIPE);
     }
 
     @Override
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         super.randomTick(pState, pLevel, pPos, pRandom);
         if (pRandom.nextInt(100) == 0) {
-            if (pState.getValue(IcariaBlockStateProperties.STRAWBERRY_STAGE) == 0) {
-                pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.STRAWBERRY_STAGE, 1), 2);
+            if (pState.getValue(IcariaBlockStateProperties.RIPE) == Ripe.NONE) {
+                pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.RIPE, Ripe.RIPE), 2);
             }
         }
     }
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (pState.getValue(IcariaBlockStateProperties.STRAWBERRY_STAGE) == 1) {
+        if (pState.getValue(IcariaBlockStateProperties.RIPE) == Ripe.RIPE) {
             pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
-            pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.STRAWBERRY_STAGE, 0), 2);
+            pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.RIPE, Ripe.NONE), 2);
             Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.STRAWBERRIES.get()));
             return InteractionResult.sidedSuccess(pLevel.isClientSide());
         } else {

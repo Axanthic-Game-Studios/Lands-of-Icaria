@@ -1,6 +1,6 @@
 {
   "variants": {
-    "strawberry_stage=0": { "model": "landsoficaria:block/strawberry_bush_stage_0" },
-    "strawberry_stage=1": { "model": "landsoficaria:block/strawberry_bush_stage_1" }
+    "ripe=none": { "model": "landsoficaria:block/strawberry_bush_stage_0" },
+    "ripe=ripe": { "model": "landsoficaria:block/strawberry_bush_stage_1" }
   }
 }

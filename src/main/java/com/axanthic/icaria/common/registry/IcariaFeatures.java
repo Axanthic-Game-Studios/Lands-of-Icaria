@@ -81,5 +81,7 @@ public class IcariaFeatures {
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> CARDON_CACTUS = IcariaFeatures.FEATURES.register("cardon_cactus", () -> new CardonCactusFeature(NoneFeatureConfiguration.CODEC));
 
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> STRAWBERRY_BUSH = IcariaFeatures.FEATURES.register("strawberry_bush", () -> new StrawberryBushFeature(NoneFeatureConfiguration.CODEC));
+
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> VILLAGE = IcariaFeatures.FEATURES.register("village", () -> new VillageFeature(NoneFeatureConfiguration.CODEC));
 }

@@ -1,6 +1,7 @@
 package com.axanthic.icaria.data.loot;
 
 import com.axanthic.icaria.common.properties.Olives;
+import com.axanthic.icaria.common.properties.Ripe;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
@@ -577,7 +578,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 	}
 
 	public void dropBushWithLoot(Block pBlock, Item pLootItem) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLootItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.STRAWBERRY_STAGE, 1))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLootItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.RIPE, Ripe.RIPE))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
 	}
 
 	public void dropCrop(Block pBlock, Item pCropItem, Item pSeedItem) {
