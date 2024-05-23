@@ -12,6 +12,7 @@ import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Consumer;
@@ -1121,6 +1122,13 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.SMOOTH_RELICSTONE.get(), RecipeProvider.has(IcariaItems.SMOOTH_RELICSTONE.get()))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.COMPARATOR) + "_from_relicstone");
 
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.COPPER_INGOT, 1)
+			.requires(IcariaItems.CHALKOS_INGOT.get())
+			.requires(IcariaItems.CALCITE_DUST.get())
+			.unlockedBy("has_" + IcariaItems.CHALKOS_INGOT.get(), RecipeProvider.has(IcariaItems.CHALKOS_INGOT.get()))
+			.unlockedBy("has_" + IcariaItems.CALCITE_DUST.get(), RecipeProvider.has(IcariaItems.CALCITE_DUST.get()))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.COPPER_INGOT));
+
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.FLETCHING_TABLE, 1)
 			.pattern("XX")
 			.pattern("YY")
@@ -1145,6 +1153,13 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.PLANE_PLANKS.get(), RecipeProvider.has(IcariaItems.PLANE_PLANKS.get()))
 			.unlockedBy("has_" + IcariaItems.POPULUS_PLANKS.get(), RecipeProvider.has(IcariaItems.POPULUS_PLANKS.get()))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.FLETCHING_TABLE) + "_from_chert");
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.IRON_INGOT, 1)
+			.requires(IcariaItems.SIDEROS_INGOT.get())
+			.requires(IcariaItems.CALCITE_DUST.get())
+			.unlockedBy("has_" + IcariaItems.SIDEROS_INGOT.get(), RecipeProvider.has(IcariaItems.SIDEROS_INGOT.get()))
+			.unlockedBy("has_" + IcariaItems.CALCITE_DUST.get(), RecipeProvider.has(IcariaItems.CALCITE_DUST.get()))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(Items.IRON_INGOT));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ITEM_FRAME, 1)
 			.pattern("XXX")

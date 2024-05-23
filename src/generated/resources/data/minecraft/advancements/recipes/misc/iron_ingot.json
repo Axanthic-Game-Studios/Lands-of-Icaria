@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_calcite_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:calcite_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sideros_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:sideros_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:iron_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_sideros_ingot",
+      "has_calcite_dust",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:iron_ingot"
+    ]
+  },
+  "sends_telemetry_event": false
+}
