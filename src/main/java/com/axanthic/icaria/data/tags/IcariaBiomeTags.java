@@ -13,6 +13,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 
@@ -38,10 +39,21 @@ public class IcariaBiomeTags extends BiomeTagsProvider {
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
-		this.tag(IcariaBiomeTags.FOREST_PLATEAU).add(IcariaBiomes.FOREST_PLATEAU);
-		this.tag(IcariaBiomeTags.SCRUBLAND_PLATEAU).add(IcariaBiomes.SCRUBLAND_PLATEAU);
-		this.tag(IcariaBiomeTags.STEPPE_PLATEAU).add(IcariaBiomes.STEPPE_PLATEAU);
-		this.tag(IcariaBiomeTags.DESERT_PLATEAU).add(IcariaBiomes.DESERT_PLATEAU);
+		this.tag(BiomeTags.SNOW_GOLEM_MELTS)
+			.add(IcariaBiomes.DESERT)
+			.add(IcariaBiomes.DESERT_PLATEAU);
+
+		this.tag(IcariaBiomeTags.FOREST_PLATEAU)
+			.add(IcariaBiomes.FOREST_PLATEAU);
+
+		this.tag(IcariaBiomeTags.SCRUBLAND_PLATEAU)
+			.add(IcariaBiomes.SCRUBLAND_PLATEAU);
+
+		this.tag(IcariaBiomeTags.STEPPE_PLATEAU)
+			.add(IcariaBiomes.STEPPE_PLATEAU);
+
+		this.tag(IcariaBiomeTags.DESERT_PLATEAU)
+			.add(IcariaBiomes.DESERT_PLATEAU);
 	}
 
 	public static HolderLookup.Provider append(HolderLookup.Provider pProvider, RegistrySetBuilder pBuilder) {
