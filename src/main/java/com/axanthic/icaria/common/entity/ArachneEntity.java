@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.ArachneHurtByTargetGoal;
+import com.axanthic.icaria.common.goal.IcariaArachnidTargetGoal;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
@@ -17,6 +18,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.Level;
@@ -96,6 +98,8 @@ public class ArachneEntity extends IcariaArachnidEntity {
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 5.0F, 0.025F, false));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new ArachneHurtByTargetGoal(this).setAlertOthers());
+        this.targetSelector.addGoal(2, new IcariaArachnidTargetGoal<>(this, Player.class, true, true));
+        this.targetSelector.addGoal(3, new IcariaArachnidTargetGoal<>(this, IronGolem.class, true, true));
     }
 
     public static AttributeSupplier.Builder registerAttributes() {

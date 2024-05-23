@@ -11,7 +11,6 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.ServerLevelAccessor;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -24,9 +23,5 @@ public class IcariaArachnidEntity extends Monster {
 
     public static boolean checkAnyLightArachnidSpawnRules(EntityType<? extends IcariaArachnidEntity> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         return pLevel.getDifficulty() != Difficulty.PEACEFUL && IcariaConfig.SPAWN_ARACHNIDS.get() && Mob.checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom);
-    }
-
-    public static boolean checkArachnidSpawnRules(EntityType<? extends IcariaArachnidEntity> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        return pLevel.getDifficulty() != Difficulty.PEACEFUL && IcariaConfig.SPAWN_ARACHNIDS.get()&& Mob.checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom) && Monster.isDarkEnoughToSpawn(pLevel, pPos, pRandom);
     }
 }

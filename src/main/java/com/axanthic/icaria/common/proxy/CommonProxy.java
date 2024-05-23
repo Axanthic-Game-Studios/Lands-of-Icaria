@@ -143,13 +143,13 @@ public class CommonProxy {
 		pEvent.register(IcariaEntityTypes.PYROMANCER_REVENANT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, PyromancerRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, NetherPyromancerRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.SOLDIER_REVENANT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SoldierRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.SCORPION.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ScorpionEntity::checkArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.SCORPION.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ScorpionEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.CRYSTAL_SLUG.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SlugEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.FOREST_SNULL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnullEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.SNULL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnullEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.SOLIFUGAE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SolifugaeEntity::checkArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.SOLIFUGAE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SolifugaeEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.SOW.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SowEntity::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.VINEGAROON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, VinegaroonEntity::checkArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.VINEGAROON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, VinegaroonEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
 	}
 
 	public void onEntityAttributeModification(EntityAttributeModificationEvent pEvent) {
