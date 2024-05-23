@@ -8,6 +8,13 @@
           "type": "minecraft:item",
           "conditions": [
             {
+              "block": "landsoficaria:bloomy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "none"
+              }
+            },
+            {
               "condition": "minecraft:match_tool",
               "predicate": {
                 "items": [
@@ -17,6 +24,116 @@
             }
           ],
           "name": "landsoficaria:bloomy_vine"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:bloomy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "blooming"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": [
+                  "minecraft:shears"
+                ]
+              }
+            }
+          ],
+          "name": "landsoficaria:bloomy_vine"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:bloomy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "ripe"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": [
+                  "minecraft:shears"
+                ]
+              }
+            }
+          ],
+          "name": "landsoficaria:bloomy_vine"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:bloomy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "vine"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": [
+                  "minecraft:shears"
+                ]
+              }
+            }
+          ],
+          "name": "landsoficaria:bloomy_vine"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:bloomy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "ripe"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "enchantment": "minecraft:fortune",
+              "formula": "minecraft:uniform_bonus_count",
+              "function": "minecraft:apply_bonus",
+              "parameters": {
+                "bonusMultiplier": 2
+              }
+            }
+          ],
+          "name": "landsoficaria:vineberries"
         }
       ],
       "rolls": 1.0

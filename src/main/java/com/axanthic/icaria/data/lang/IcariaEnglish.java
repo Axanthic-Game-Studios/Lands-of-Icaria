@@ -609,35 +609,12 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_SIGN.get(), "Populus Sign");
 		this.add(IcariaBlocks.POPULUS_HANGING_SIGN.get(), "Populus Hanging Sign");
 
-		this.add(IcariaBlocks.DEAD_BLOOMY_VINE.get(), "Bloomy Vine");
-		this.add(IcariaBlocks.GROWING_BLOOMY_VINE.get(), "Bloomy Vine");
-		this.add(IcariaBlocks.RIPE_BLOOMY_VINE.get(), "Bloomy Vine");
-		this.add(IcariaBlocks.BLOOMING_BLOOMY_VINE.get(), "Bloomy Vine");
 		this.add(IcariaBlocks.BLOOMY_VINE.get(), "Bloomy Vine");
-
-		this.add(IcariaBlocks.DEAD_BRANCHY_VINE.get(), "Branchy Vine");
-		this.add(IcariaBlocks.GROWING_BRANCHY_VINE.get(), "Branchy Vine");
 		this.add(IcariaBlocks.BRANCHY_VINE.get(), "Branchy Vine");
-
-		this.add(IcariaBlocks.DEAD_BRUSHY_VINE.get(), "Brushy Vine");
-		this.add(IcariaBlocks.GROWING_BRUSHY_VINE.get(), "Brushy Vine");
-		this.add(IcariaBlocks.RIPE_BRUSHY_VINE.get(), "Brushy Vine");
 		this.add(IcariaBlocks.BRUSHY_VINE.get(), "Brushy Vine");
-
-		this.add(IcariaBlocks.DEAD_DRY_VINE.get(), "Dry Vine");
-		this.add(IcariaBlocks.GROWING_DRY_VINE.get(), "Dry Vine");
 		this.add(IcariaBlocks.DRY_VINE.get(), "Dry Vine");
-
-		this.add(IcariaBlocks.DEAD_REEDY_VINE.get(), "Reedy Vine");
-		this.add(IcariaBlocks.GROWING_REEDY_VINE.get(), "Reedy Vine");
 		this.add(IcariaBlocks.REEDY_VINE.get(), "Reedy Vine");
-
-		this.add(IcariaBlocks.DEAD_SWIRLY_VINE.get(), "Swirly Vine");
-		this.add(IcariaBlocks.GROWING_SWIRLY_VINE.get(), "Swirly Vine");
 		this.add(IcariaBlocks.SWIRLY_VINE.get(), "Swirly Vine");
-
-		this.add(IcariaBlocks.DEAD_THORNY_VINE.get(), "Thorny Vine");
-		this.add(IcariaBlocks.GROWING_THORNY_VINE.get(), "Thorny Vine");
 		this.add(IcariaBlocks.THORNY_VINE.get(), "Thorny Vine");
 
 		this.add(IcariaBlocks.FERN.get(), "Fern");

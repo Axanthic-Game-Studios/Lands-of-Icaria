@@ -8,6 +8,13 @@
           "type": "minecraft:item",
           "conditions": [
             {
+              "block": "landsoficaria:reedy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "none"
+              }
+            },
+            {
               "condition": "minecraft:match_tool",
               "predicate": {
                 "items": [
@@ -26,6 +33,71 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:reedy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "vine"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": [
+                  "minecraft:shears"
+                ]
+              }
+            }
+          ],
+          "name": "landsoficaria:reedy_vine"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:reedy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "none"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "enchantment": "minecraft:fortune",
+              "formula": "minecraft:uniform_bonus_count",
+              "function": "minecraft:apply_bonus",
+              "parameters": {
+                "bonusMultiplier": 2
+              }
+            }
+          ],
+          "name": "landsoficaria:vine_reed"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:reedy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "vine"
+              }
+            }
+          ],
           "functions": [
             {
               "enchantment": "minecraft:fortune",

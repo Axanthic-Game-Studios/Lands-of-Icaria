@@ -609,35 +609,12 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_SIGN.get(), "Pappelholzschild");
 		this.add(IcariaBlocks.POPULUS_HANGING_SIGN.get(), "Pappelholzhängeschild");
 
-		this.add(IcariaBlocks.DEAD_BLOOMY_VINE.get(), "Blühende Ranken");
-		this.add(IcariaBlocks.GROWING_BLOOMY_VINE.get(), "Blühende Ranken");
-		this.add(IcariaBlocks.RIPE_BLOOMY_VINE.get(), "Blühende Ranken");
-		this.add(IcariaBlocks.BLOOMING_BLOOMY_VINE.get(), "Blühende Ranken");
 		this.add(IcariaBlocks.BLOOMY_VINE.get(), "Blühende Ranken");
-
-		this.add(IcariaBlocks.DEAD_BRANCHY_VINE.get(), "Holzige Ranken");
-		this.add(IcariaBlocks.GROWING_BRANCHY_VINE.get(), "Holzige Ranken");
 		this.add(IcariaBlocks.BRANCHY_VINE.get(), "Holzige Ranken");
-
-		this.add(IcariaBlocks.DEAD_BRUSHY_VINE.get(), "Dichte Ranken");
-		this.add(IcariaBlocks.GROWING_BRUSHY_VINE.get(), "Dichte Ranken");
-		this.add(IcariaBlocks.RIPE_BRUSHY_VINE.get(), "Dichte Ranken");
 		this.add(IcariaBlocks.BRUSHY_VINE.get(), "Dichte Ranken");
-
-		this.add(IcariaBlocks.DEAD_DRY_VINE.get(), "Trockene Ranken");
-		this.add(IcariaBlocks.GROWING_DRY_VINE.get(), "Trockene Ranken");
 		this.add(IcariaBlocks.DRY_VINE.get(), "Trockene Ranken");
-
-		this.add(IcariaBlocks.DEAD_REEDY_VINE.get(), "Schilfige Ranken");
-		this.add(IcariaBlocks.GROWING_REEDY_VINE.get(), "Schilfige Ranken");
 		this.add(IcariaBlocks.REEDY_VINE.get(), "Schilfige Ranken");
-
-		this.add(IcariaBlocks.DEAD_SWIRLY_VINE.get(), "Gewundene Ranken");
-		this.add(IcariaBlocks.GROWING_SWIRLY_VINE.get(), "Gewundene Ranken");
 		this.add(IcariaBlocks.SWIRLY_VINE.get(), "Gewundene Ranken");
-
-		this.add(IcariaBlocks.DEAD_THORNY_VINE.get(), "Dornige Ranken");
-		this.add(IcariaBlocks.GROWING_THORNY_VINE.get(), "Dornige Ranken");
 		this.add(IcariaBlocks.THORNY_VINE.get(), "Dornige Ranken");
 
 		this.add(IcariaBlocks.FERN.get(), "Farn");

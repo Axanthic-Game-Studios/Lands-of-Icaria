@@ -508,36 +508,13 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> POPULUS_HANGING_SIGN = IcariaBlocks.register("populus_hanging_sign", () -> new IcariaCeilingHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD), IcariaWoodTypes.POPULUS));
 	public static final RegistryObject<Block> POPULUS_WALL_HANGING_SIGN = IcariaBlocks.register("populus_wall_hanging_sign", () -> new IcariaWallHangingSignBlock(IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD), IcariaWoodTypes.POPULUS));
 
-	public static final RegistryObject<Block> DEAD_BLOOMY_VINE = IcariaBlocks.register("dead_bloomy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> GROWING_BLOOMY_VINE = IcariaBlocks.register("growing_bloomy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> RIPE_BLOOMY_VINE = IcariaBlocks.register("ripe_bloomy_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE).randomTicks(), IcariaBlocks.GROWING_BLOOMY_VINE.get(), IcariaBlocks.DEAD_BLOOMY_VINE.get()));
-	public static final RegistryObject<Block> BLOOMING_BLOOMY_VINE = IcariaBlocks.register("blooming_bloomy_vine", () -> new IcariaVineStagedBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE).randomTicks(), IcariaBlocks.GROWING_BLOOMY_VINE.get(), IcariaBlocks.RIPE_BLOOMY_VINE.get(), IcariaBlocks.DEAD_BLOOMY_VINE.get()));
-	public static final RegistryObject<Block> BLOOMY_VINE = IcariaBlocks.register("bloomy_vine", () -> new IcariaVineStagedBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE).randomTicks(), IcariaBlocks.GROWING_BLOOMY_VINE.get(), IcariaBlocks.BLOOMING_BLOOMY_VINE.get(), IcariaBlocks.DEAD_BLOOMY_VINE.get()));
-
-	public static final RegistryObject<Block> DEAD_BRANCHY_VINE = IcariaBlocks.register("dead_branchy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> GROWING_BRANCHY_VINE = IcariaBlocks.register("growing_branchy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> BRANCHY_VINE = IcariaBlocks.register("branchy_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE).randomTicks(), IcariaBlocks.GROWING_BRANCHY_VINE.get(), IcariaBlocks.DEAD_BRANCHY_VINE.get()));
-
-	public static final RegistryObject<Block> DEAD_BRUSHY_VINE = IcariaBlocks.register("dead_brushy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> GROWING_BRUSHY_VINE = IcariaBlocks.register("growing_brushy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> RIPE_BRUSHY_VINE = IcariaBlocks.register("ripe_brushy_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE).randomTicks(), IcariaBlocks.GROWING_BRUSHY_VINE.get(), IcariaBlocks.DEAD_BRUSHY_VINE.get()));
-	public static final RegistryObject<Block> BRUSHY_VINE = IcariaBlocks.register("brushy_vine", () -> new IcariaVineStagedBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE).randomTicks(), IcariaBlocks.GROWING_BRUSHY_VINE.get(), IcariaBlocks.RIPE_BRUSHY_VINE.get(), IcariaBlocks.DEAD_BRUSHY_VINE.get()));
-
-	public static final RegistryObject<Block> DEAD_DRY_VINE = IcariaBlocks.register("dead_dry_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> GROWING_DRY_VINE = IcariaBlocks.register("growing_dry_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> DRY_VINE = IcariaBlocks.register("dry_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE).randomTicks(), IcariaBlocks.GROWING_DRY_VINE.get(), IcariaBlocks.DEAD_DRY_VINE.get()));
-
-	public static final RegistryObject<Block> DEAD_REEDY_VINE = IcariaBlocks.register("dead_reedy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> GROWING_REEDY_VINE = IcariaBlocks.register("growing_reedy_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> REEDY_VINE = IcariaBlocks.register("reedy_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE).randomTicks(), IcariaBlocks.GROWING_REEDY_VINE.get(), IcariaBlocks.DEAD_REEDY_VINE.get()));
-
-	public static final RegistryObject<Block> DEAD_SWIRLY_VINE = IcariaBlocks.register("dead_swirly_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> GROWING_SWIRLY_VINE = IcariaBlocks.register("growing_swirly_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> SWIRLY_VINE = IcariaBlocks.register("swirly_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE).randomTicks(), IcariaBlocks.GROWING_SWIRLY_VINE.get(), IcariaBlocks.DEAD_SWIRLY_VINE.get()));
-
-	public static final RegistryObject<Block> DEAD_THORNY_VINE = IcariaBlocks.register("dead_thorny_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> GROWING_THORNY_VINE = IcariaBlocks.register("growing_thorny_vine", () -> new IcariaVineTailBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
-	public static final RegistryObject<Block> THORNY_VINE = IcariaBlocks.register("thorny_vine", () -> new IcariaVineBaseBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE).randomTicks(), IcariaBlocks.GROWING_THORNY_VINE.get(), IcariaBlocks.DEAD_THORNY_VINE.get()));
+	public static final RegistryObject<Block> BLOOMY_VINE = IcariaBlocks.register("bloomy_vine", () -> new IcariaVineBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
+	public static final RegistryObject<Block> BRANCHY_VINE = IcariaBlocks.register("branchy_vine", () -> new IcariaVineBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
+	public static final RegistryObject<Block> BRUSHY_VINE = IcariaBlocks.register("brushy_vine", () -> new IcariaVineBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
+	public static final RegistryObject<Block> DRY_VINE = IcariaBlocks.register("dry_vine", () -> new IcariaVineBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
+	public static final RegistryObject<Block> REEDY_VINE = IcariaBlocks.register("reedy_vine", () -> new IcariaVineBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
+	public static final RegistryObject<Block> SWIRLY_VINE = IcariaBlocks.register("swirly_vine", () -> new IcariaVineBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
+	public static final RegistryObject<Block> THORNY_VINE = IcariaBlocks.register("thorny_vine", () -> new IcariaVineBlock(IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE)));
 
 	public static final RegistryObject<Block> FERN = IcariaBlocks.register("fern", () -> new IcariaBushBlock(IcariaBlocks.propertiesGrass(MapColor.NONE, SoundType.GRASS)));
 	public static final RegistryObject<Block> POTTED_FERN = IcariaBlocks.register("potted_fern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.FERN, IcariaBlocks.propertiesPot(MapColor.NONE, SoundType.STONE)));

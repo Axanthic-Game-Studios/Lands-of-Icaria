@@ -2,6 +2,7 @@ package com.axanthic.icaria.data.loot;
 
 import com.axanthic.icaria.common.properties.Olives;
 import com.axanthic.icaria.common.properties.Ripe;
+import com.axanthic.icaria.common.properties.Vine;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
@@ -388,20 +389,6 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropNone(IcariaBlocks.LOADED_POPULUS_BARREL.get());
 		this.dropNone(IcariaBlocks.TAPPED_POPULUS_BARREL.get());
 		this.dropNone(IcariaBlocks.TRIPLE_POPULUS_BARREL_RACK.get());
-		this.dropNone(IcariaBlocks.DEAD_BLOOMY_VINE.get());
-		this.dropNone(IcariaBlocks.GROWING_BLOOMY_VINE.get());
-		this.dropNone(IcariaBlocks.DEAD_BRANCHY_VINE.get());
-		this.dropNone(IcariaBlocks.GROWING_BRANCHY_VINE.get());
-		this.dropNone(IcariaBlocks.DEAD_BRUSHY_VINE.get());
-		this.dropNone(IcariaBlocks.GROWING_BRUSHY_VINE.get());
-		this.dropNone(IcariaBlocks.DEAD_DRY_VINE.get());
-		this.dropNone(IcariaBlocks.GROWING_DRY_VINE.get());
-		this.dropNone(IcariaBlocks.DEAD_REEDY_VINE.get());
-		this.dropNone(IcariaBlocks.GROWING_REEDY_VINE.get());
-		this.dropNone(IcariaBlocks.DEAD_SWIRLY_VINE.get());
-		this.dropNone(IcariaBlocks.GROWING_SWIRLY_VINE.get());
-		this.dropNone(IcariaBlocks.DEAD_THORNY_VINE.get());
-		this.dropNone(IcariaBlocks.GROWING_THORNY_VINE.get());
 		this.dropNone(IcariaBlocks.MEDITERRANEAN_WATER.get());
 		this.dropNone(IcariaBlocks.GREEK_FIRE.get());
 		this.dropNone(IcariaBlocks.ICARIA_PORTAL.get());
@@ -472,17 +459,15 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 
 		this.dropOlivesLeaves(IcariaBlocks.OLIVE_LEAVES.get(), IcariaBlocks.OLIVE_SAPLING.get());
 
-		this.dropVineWithLoot(IcariaBlocks.RIPE_BLOOMY_VINE.get(), IcariaItems.BLOOMY_VINE.get(), IcariaItems.VINEBERRIES.get());
-		this.dropVineWithLoot(IcariaBlocks.RIPE_BRUSHY_VINE.get(), IcariaItems.BRUSHY_VINE.get(), IcariaItems.VINE_SPROUT.get());
-		this.dropVineWithLoot(IcariaBlocks.REEDY_VINE.get(), IcariaItems.REEDY_VINE.get(), IcariaItems.VINE_REED.get());
+		this.dropRipeVineWithLoot(IcariaBlocks.BLOOMY_VINE.get(), IcariaItems.BLOOMY_VINE.get(), IcariaItems.VINEBERRIES.get());
+		this.dropRipeVineWithLoot(IcariaBlocks.BRUSHY_VINE.get(), IcariaItems.BRUSHY_VINE.get(), IcariaItems.VINE_SPROUT.get());
 
-		this.dropOnlyWithShears(IcariaBlocks.BLOOMING_BLOOMY_VINE.get(), IcariaItems.BLOOMY_VINE.get());
-		this.dropOnlyWithShears(IcariaBlocks.BLOOMY_VINE.get(), IcariaItems.BLOOMY_VINE.get());
-		this.dropOnlyWithShears(IcariaBlocks.BRANCHY_VINE.get(), IcariaItems.BRANCHY_VINE.get());
-		this.dropOnlyWithShears(IcariaBlocks.BRUSHY_VINE.get(), IcariaItems.BRUSHY_VINE.get());
-		this.dropOnlyWithShears(IcariaBlocks.DRY_VINE.get(), IcariaItems.DRY_VINE.get());
-		this.dropOnlyWithShears(IcariaBlocks.SWIRLY_VINE.get(), IcariaItems.SWIRLY_VINE.get());
-		this.dropOnlyWithShears(IcariaBlocks.THORNY_VINE.get(), IcariaItems.THORNY_VINE.get());
+		this.dropVine(IcariaBlocks.BRANCHY_VINE.get(), IcariaItems.BRANCHY_VINE.get());
+		this.dropVine(IcariaBlocks.DRY_VINE.get(), IcariaItems.DRY_VINE.get());
+		this.dropVine(IcariaBlocks.SWIRLY_VINE.get(), IcariaItems.SWIRLY_VINE.get());
+		this.dropVine(IcariaBlocks.THORNY_VINE.get(), IcariaItems.THORNY_VINE.get());
+
+		this.dropVineWithLoot(IcariaBlocks.REEDY_VINE.get(), IcariaItems.REEDY_VINE.get(), IcariaItems.VINE_REED.get());
 
 		this.dropSeed(IcariaBlocks.FERN.get());
 		this.dropSeed(IcariaBlocks.SMALL_GRASS.get());
@@ -565,12 +550,16 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.add(pLeavesBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLeavesBlock).when(IcariaBlockLoot.SILK_OR_SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSaplingBlock).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, IcariaBlockLoot.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, IcariaBlockLoot.STICK_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GREEN_OLIVES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.GREEN))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BLACK_OLIVES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.BLACK))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
 	}
 
-	public void dropVineWithLoot(Block pBlock, Item pVineItem, Item pLootItem) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pVineItem).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLootItem).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
+	public void dropRipeVineWithLoot(Block pBlock, Item pItem, Item pLoot) {
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.BLOOMING))).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.RIPE))).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLoot).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.RIPE))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
 	}
 
-	public void dropOnlyWithShears(Block pBlock, Item pItem) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(IcariaBlockLoot.SHEARS))));
+	public void dropVine(Block pBlock, Item pItem) {
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))).when(IcariaBlockLoot.SHEARS))));
+	}
+
+	public void dropVineWithLoot(Block pBlock, Item pItem, Item pLoot) {
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLoot).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLoot).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
 	}
 
 	public void dropSeed(Block pBlock) {

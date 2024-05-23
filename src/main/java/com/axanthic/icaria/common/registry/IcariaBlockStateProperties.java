@@ -34,6 +34,7 @@ public class IcariaBlockStateProperties {
     public static final EnumProperty<Ripe> RIPE = EnumProperty.create("ripe", Ripe.class);
     public static final EnumProperty<Side> SIDE = EnumProperty.create("side", Side.class);
     public static final EnumProperty<VerticalCorner> VERTICAL_CORNER = EnumProperty.create("vertical_corner", VerticalCorner.class);
+    public static final EnumProperty<Vine> VINE = EnumProperty.create("vine", Vine.class);
 
     public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);
     public static final IntegerProperty GRINDER_ROTATION = IntegerProperty.create("grinder_rotation", 0, 90);

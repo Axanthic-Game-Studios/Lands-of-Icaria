@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.world.feature.vine;
 
-import com.axanthic.icaria.common.block.IcariaVineBaseBlock;
+import com.axanthic.icaria.common.block.IcariaVineBlock;
 
 import com.mojang.serialization.Codec;
 
@@ -30,7 +30,7 @@ public class IcariaVineFeature extends Feature<NoneFeatureConfiguration> {
         var level = pContext.level();
         var origin = pContext.origin();
 
-        for (var direction : Direction.values()) {
+        for (var direction : Direction.Plane.HORIZONTAL) {
             this.placeVine(level, origin, direction);
         }
 
@@ -44,8 +44,8 @@ public class IcariaVineFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeVine(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).isAir() && pDirection != Direction.DOWN && IcariaVineBaseBlock.isAcceptableNeighbour(pLevel, pPos.relative(pDirection), pDirection)) {
-            this.setBlock(pLevel, pPos, this.vine.defaultBlockState().setValue(IcariaVineBaseBlock.getPropertyForFace(pDirection), true));
+        if (pLevel.getBlockState(pPos).isAir() && IcariaVineBlock.isAcceptableNeighbour(pLevel, pPos.relative(pDirection), pDirection)) {
+            this.setBlock(pLevel, pPos, this.vine.defaultBlockState().setValue(IcariaVineBlock.getPropForFace(pDirection), true));
         }
     }
 }

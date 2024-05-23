@@ -8,6 +8,40 @@
           "type": "minecraft:item",
           "conditions": [
             {
+              "block": "landsoficaria:branchy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "none"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": [
+                  "minecraft:shears"
+                ]
+              }
+            }
+          ],
+          "name": "landsoficaria:branchy_vine"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:branchy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "vine"
+              }
+            },
+            {
               "condition": "minecraft:match_tool",
               "predicate": {
                 "items": [

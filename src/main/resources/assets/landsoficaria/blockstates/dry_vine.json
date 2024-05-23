@@ -1,44 +1,68 @@
 {
   "multipart": [
     {
-      "when": { "north": "true" },
-      "apply": { "model": "landsoficaria:block/dry_vine" }
+      "when": { "north": "true", "vine": "none" },
+      "apply": { "model": "landsoficaria:block/dry_vine", "y": 0, "uvlock": true }
     },
     {
-      "when": { "up": "false", "north": "false", "west": "false", "south": "false", "east": "false" },
-      "apply": { "model": "landsoficaria:block/dry_vine"}
-    },
-    {
-      "when": { "east": "true" },
+      "when": { "east": "true", "vine": "none" },
       "apply": { "model": "landsoficaria:block/dry_vine", "y": 90, "uvlock": true }
     },
     {
-      "when": { "up": "false", "north": "false", "west": "false", "south": "false", "east": "false" },
+      "when": { "south": "true", "vine": "none" },
+      "apply": { "model": "landsoficaria:block/dry_vine", "y": 180, "uvlock": true }
+    },
+    {
+      "when": { "west": "true", "vine": "none" },
+      "apply": { "model": "landsoficaria:block/dry_vine", "y": 270, "uvlock": true }
+    },
+    {
+      "when": { "north": "true", "vine": "growing" },
+      "apply": { "model": "landsoficaria:block/growing_dry_vine", "y": 0, "uvlock": true }
+    },
+    {
+      "when": { "east": "true", "vine": "growing" },
+      "apply": { "model": "landsoficaria:block/growing_dry_vine", "y": 90, "uvlock": true }
+    },
+    {
+      "when": { "south": "true", "vine": "growing" },
+      "apply": { "model": "landsoficaria:block/growing_dry_vine", "y": 180, "uvlock": true }
+    },
+    {
+      "when": { "west": "true", "vine": "growing" },
+      "apply": { "model": "landsoficaria:block/growing_dry_vine", "y": 270, "uvlock": true }
+    },
+    {
+      "when": { "north": "true", "vine": "dead" },
+      "apply": { "model": "landsoficaria:block/dead_dry_vine", "y": 0, "uvlock": true }
+    },
+    {
+      "when": { "east": "true", "vine": "dead" },
+      "apply": { "model": "landsoficaria:block/dead_dry_vine", "y": 90, "uvlock": true }
+    },
+    {
+      "when": { "south": "true", "vine": "dead" },
+      "apply": { "model": "landsoficaria:block/dead_dry_vine", "y": 180, "uvlock": true }
+    },
+    {
+      "when": { "west": "true", "vine": "dead" },
+      "apply": { "model": "landsoficaria:block/dead_dry_vine", "y": 270, "uvlock": true }
+    },
+    {
+      "when": { "north": "true", "vine": "vine" },
+      "apply": { "model": "landsoficaria:block/dry_vine", "y": 0, "uvlock": true }
+    },
+    {
+      "when": { "east": "true", "vine": "vine" },
       "apply": { "model": "landsoficaria:block/dry_vine", "y": 90, "uvlock": true }
     },
     {
-      "when": { "south": "true" },
+      "when": { "south": "true", "vine": "vine" },
       "apply": { "model": "landsoficaria:block/dry_vine", "y": 180, "uvlock": true }
     },
     {
-      "when": { "up": "false", "north": "false", "west": "false", "south": "false", "east": "false" },
-      "apply": { "model": "landsoficaria:block/dry_vine", "y": 180, "uvlock": true }
-    },
-    {
-      "when": { "west": "true" },
+      "when": { "west": "true", "vine": "vine" },
       "apply": { "model": "landsoficaria:block/dry_vine", "y": 270, "uvlock": true }
-    },
-    {
-      "when": { "up": "false", "north": "false", "west": "false", "south": "false", "east": "false" },
-      "apply": { "model": "landsoficaria:block/dry_vine", "y": 270, "uvlock": true }
-    },
-    {
-      "when": { "up": "true" },
-      "apply": { "model": "landsoficaria:block/dry_vine", "x": 270, "uvlock": true }
-    },
-    {
-      "when": { "up": "false", "north": "false", "west": "false", "south": "false", "east": "false"},
-      "apply": { "model": "landsoficaria:block/dry_vine", "x": 270, "uvlock": true }
     }
   ]
 }
