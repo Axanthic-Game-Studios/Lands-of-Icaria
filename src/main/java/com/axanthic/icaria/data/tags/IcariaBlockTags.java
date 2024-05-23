@@ -1052,8 +1052,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 		this.tag(Tags.Blocks.ORE_RATES_SINGULAR)
 			.add(IcariaBlocks.MARL_CHERT.get())
+			.add(IcariaBlocks.MARL_BONES.get())
 			.add(IcariaBlocks.MARL_LIGNITE.get())
 			.add(IcariaBlocks.GRAINEL_CHERT.get())
+			.add(IcariaBlocks.BLURRED_PLATOSHALE.get())
+			.add(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get())
 			.add(IcariaBlocks.LIGNITE_ORE.get())
 			.add(IcariaBlocks.CHALKOS_ORE.get())
 			.add(IcariaBlocks.KASSITEROS_ORE.get())
@@ -1064,12 +1067,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.ANTHRACITE_ORE.get())
 			.add(IcariaBlocks.MOLYBDENUM_ORE.get());
 
-		this.tag(Tags.Blocks.ORE_RATES_DENSE)
-			.add(IcariaBlocks.MARL_BONES.get());
-
 		this.tag(Tags.Blocks.ORE_RATES_SPARSE)
-			.add(IcariaBlocks.BLURRED_PLATOSHALE.get())
-			.add(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get());
+			.add(IcariaBlocks.HYLIASTRUM_ORE.get());
 
 		this.tag(IcariaBlockTags.ORES_IN_GROUND_MARL)
 			.add(IcariaBlocks.MARL_CHERT.get())

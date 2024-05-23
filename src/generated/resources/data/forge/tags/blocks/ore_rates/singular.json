@@ -1,8 +1,11 @@
 {
   "values": [
     "landsoficaria:marl_chert",
+    "landsoficaria:marl_bones",
     "landsoficaria:marl_lignite",
     "landsoficaria:grainel_chert",
+    "landsoficaria:blurred_platoshale",
+    "landsoficaria:blurred_platoshale_bricks",
     "landsoficaria:lignite_ore",
     "landsoficaria:chalkos_ore",
     "landsoficaria:kassiteros_ore",
