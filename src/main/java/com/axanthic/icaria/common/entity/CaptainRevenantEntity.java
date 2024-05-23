@@ -39,11 +39,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CaptainRevenantEntity extends RevenantEntity {
-    public int maxUnequips = 80;
+    public int maxUnequips = 40;
     public int minUnequips = 0;
     public int maxRallying = 120;
     public int minRallying = 0;
-    public int maxReequips = 80;
+    public int maxReequips = 40;
     public int minReequips = 0;
 
     public AnimationState unequipsAnimationState = new AnimationState();
