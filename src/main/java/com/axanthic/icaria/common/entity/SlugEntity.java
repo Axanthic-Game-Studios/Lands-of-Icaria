@@ -65,14 +65,14 @@ public class SlugEntity extends SizedPathfinderMobEntity {
         super(pType, pLevel, 0.25F, 0.125F, 0.25F);
     }
 
-
+    public boolean doHide() {
+        return !this.onCooldown() && !this.onHide() && !this.onShow() && this.getHealth() < 4.0F && this.getBlockStateOn().is(IcariaBlockTags.SLUG_HIDE_BLOCKS);
+    }
 
     @Override
     public boolean hurt(DamageSource pSource, float pAmount) {
-        if (this.getHealth() < 4.0F) {
-            if (this.getBlockStateOn().is(IcariaBlockTags.SLUG_HIDE_BLOCKS)) {
-                this.setHide(this.maxHide);
-            }
+        if (this.doHide()) {
+            this.setHide(this.maxHide);
         }
 
         return super.hurt(pSource, pAmount);
