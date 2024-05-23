@@ -99,7 +99,7 @@ public class ArachneEntity extends IcariaArachnidEntity {
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
-        return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 8.0D).add(Attributes.FOLLOW_RANGE, 64.0D).add(Attributes.MAX_HEALTH, 32.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+        return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 8.0D).add(Attributes.FOLLOW_RANGE, 64.0D).add(Attributes.MAX_HEALTH, 128.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
     @Override
