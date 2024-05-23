@@ -60,9 +60,13 @@ public class SnullEntity extends SizedPathfinderMobEntity {
         super(pType, pLevel, 0.25F, 0.125F, 0.25F);
     }
 
+    public boolean doHide() {
+        return !this.onCooldown() && !this.onHide() && !this.onShow() && this.getHealth() < 4.0F;
+    }
+
     @Override
     public boolean hurt(DamageSource pSource, float pAmount) {
-        if (this.getHealth() < 4.0F) {
+        if (this.doHide()) {
             this.setHide(this.maxHide);
         }
 
