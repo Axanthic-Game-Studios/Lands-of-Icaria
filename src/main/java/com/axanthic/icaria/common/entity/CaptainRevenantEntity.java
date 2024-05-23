@@ -4,7 +4,6 @@ import com.axanthic.icaria.common.goal.CaptainRevenantSummonGoal;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.common.spell.IcariaSummonSpell;
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -62,12 +61,14 @@ public class CaptainRevenantEntity extends RevenantEntity {
         super(pType, pLevel);
     }
 
+    public boolean doSummoning() {
+        return !this.onUnequips() && !this.onReequips() && !this.onRallying() && this.level().getNearbyEntities(CrawlerRevenantEntity.class, this.targetingConditions, this, this.getBoundingBox().inflate(16.0D)).size() <= 2;
+    }
+
     @Override
     public boolean hurt(DamageSource pSource, float pAmount) {
-        if (this.level().getNearbyEntities(CrawlerRevenantEntity.class, this.targetingConditions, this, this.getBoundingBox().inflate(16.0D)).size() <= 2) {
-            if (this.getBlockStateOn().is(IcariaBlockTags.CAPTAIN_SUMMONS_ON)) {
-                this.setUnequips(this.maxUnequips);
-            }
+        if (this.doSummoning()) {
+            this.setUnequips(this.maxUnequips);
         }
 
         return super.hurt(pSource, pAmount);
