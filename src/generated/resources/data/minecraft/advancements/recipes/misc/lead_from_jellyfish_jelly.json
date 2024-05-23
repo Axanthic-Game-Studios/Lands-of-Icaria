@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_TagKey[minecraft:item / forge:string]": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:string"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_ender_jellyfish_jelly": {
       "conditions": {
         "items": [
@@ -31,18 +41,6 @@
           {
             "items": [
               "landsoficaria:nature_jellyfish_jelly"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_string": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:string"
             ]
           }
         ]
@@ -82,7 +80,7 @@
   },
   "requirements": [
     [
-      "has_string",
+      "has_TagKey[minecraft:item / forge:string]",
       "has_ender_jellyfish_jelly",
       "has_fire_jellyfish_jelly",
       "has_nature_jellyfish_jelly",
