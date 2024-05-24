@@ -37,7 +37,7 @@ public class MyrmekeQueenSummonGoal extends Goal {
             var blockPos = this.entity.blockPosition().offset(-4 + this.entity.getRandom().nextInt(8), 0, -4 + this.entity.getRandom().nextInt(8));
             if (entity != null) {
                 if (level.getBlockState(blockPos).canBeReplaced()) {
-                    if (this.entity.getBlockStateOn().is(IcariaBlockTags.MYRMEKE_SUMMONS_ON)) {
+                    if (this.entity.getBlockStateOn().is(IcariaBlockTags.DIRT_AND_SAND)) {
                         entity.moveTo(blockPos, 0.0F, 0.0F);
                         level.addFreshEntity(entity);
                     }

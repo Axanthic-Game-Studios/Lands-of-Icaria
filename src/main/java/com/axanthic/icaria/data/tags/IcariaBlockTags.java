@@ -26,10 +26,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaBlockTags extends BlockTagsProvider {
 	// BLOCK TAGS
-	public static final TagKey<Block> SLUG_HIDE_BLOCKS = IcariaBlockTags.icariaTag("slug_hide_blocks");
+	public static final TagKey<Block> DIRT_AND_SAND = IcariaBlockTags.icariaTag("dirt_and_sand");
 
-	public static final TagKey<Block> MYRMEKE_SUMMONS_ON = IcariaBlockTags.icariaTag("myrmeke_summons_on");
-	public static final TagKey<Block> CAPTAIN_SUMMONS_ON = IcariaBlockTags.icariaTag("captain_summons_on");
+	public static final TagKey<Block> RUBBLE_SPAWNS_ON = IcariaBlockTags.icariaTag("rubble_spawns_on");
+	public static final TagKey<Block> RELICSTONE_RUBBLE_SPAWNS_ON = IcariaBlockTags.icariaTag("relicstone_rubble_spawns_on");
 
 	public static final TagKey<Block> VILLAGE_REPLACE_BLOCKS = IcariaBlockTags.icariaTag("village_replace_blocks");
 	public static final TagKey<Block> RUINED_VILLAGE_REPLACE_BLOCKS = IcariaBlockTags.icariaTag("ruined_village_replace_blocks");
@@ -141,39 +141,34 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
 		// BLOCK TAGS
-		this.tag(IcariaBlockTags.SLUG_HIDE_BLOCKS)
+		this.tag(IcariaBlockTags.DIRT_AND_SAND)
 			.add(IcariaBlocks.GRASSY_MARL.get())
 			.add(IcariaBlocks.MARL.get())
-			.add(IcariaBlocks.MARL_CHERT.get())
-			.add(IcariaBlocks.MARL_BONES.get())
-			.add(IcariaBlocks.MARL_LIGNITE.get())
-			.add(IcariaBlocks.COARSE_MARL.get())
-			.add(IcariaBlocks.DRY_LAKE_BED.get())
-			.add(IcariaBlocks.LOAM.get());
-
-		this.tag(IcariaBlockTags.MYRMEKE_SUMMONS_ON)
-			.add(IcariaBlocks.GRASSY_MARL.get())
-			.add(IcariaBlocks.MARL.get())
-			.add(IcariaBlocks.MARL_CHERT.get())
-			.add(IcariaBlocks.MARL_BONES.get())
-			.add(IcariaBlocks.MARL_LIGNITE.get())
 			.add(IcariaBlocks.COARSE_MARL.get())
 			.add(IcariaBlocks.DRY_LAKE_BED.get())
 			.add(IcariaBlocks.LOAM.get())
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.SILKSAND.get());
 
-		this.tag(IcariaBlockTags.CAPTAIN_SUMMONS_ON)
+		this.tag(IcariaBlockTags.RUBBLE_SPAWNS_ON)
 			.add(IcariaBlocks.GRASSY_MARL.get())
 			.add(IcariaBlocks.MARL.get())
-			.add(IcariaBlocks.MARL_CHERT.get())
-			.add(IcariaBlocks.MARL_BONES.get())
-			.add(IcariaBlocks.MARL_LIGNITE.get())
 			.add(IcariaBlocks.COARSE_MARL.get())
 			.add(IcariaBlocks.DRY_LAKE_BED.get())
 			.add(IcariaBlocks.LOAM.get())
 			.add(IcariaBlocks.GRAINEL.get())
-			.add(IcariaBlocks.SILKSAND.get());
+			.add(IcariaBlocks.SILKSAND.get())
+			.add(IcariaBlocks.YELLOWSTONE.get());
+
+		this.tag(IcariaBlockTags.RELICSTONE_RUBBLE_SPAWNS_ON)
+			.add(IcariaBlocks.GRASSY_MARL.get())
+			.add(IcariaBlocks.MARL.get())
+			.add(IcariaBlocks.COARSE_MARL.get())
+			.add(IcariaBlocks.DRY_LAKE_BED.get())
+			.add(IcariaBlocks.LOAM.get())
+			.add(IcariaBlocks.GRAINEL.get())
+			.add(IcariaBlocks.SILKSAND.get())
+			.add(IcariaBlocks.RELICSTONE.get());
 
 		this.tag(IcariaBlockTags.VILLAGE_REPLACE_BLOCKS)
 			.add(Blocks.COBWEB) // TODO: replace with Arachne web
