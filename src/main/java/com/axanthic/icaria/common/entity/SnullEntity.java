@@ -61,12 +61,12 @@ public class SnullEntity extends SizedPathfinderMobEntity {
     }
 
     public boolean doHide() {
-        return !this.onCooldown() && !this.onHide() && !this.onShow() && this.getHealth() < 4.0F;
+        return !this.onCooldown() && !this.onHide() && !this.onShow();
     }
 
     @Override
     public boolean hurt(DamageSource pSource, float pAmount) {
-        if (this.doHide()) {
+        if (this.doHide() && this.getHealth() < 4.0F) {
             this.setHide(this.maxHide);
         }
 
@@ -289,7 +289,10 @@ public class SnullEntity extends SizedPathfinderMobEntity {
             if (!this.level().isClientSide()) {
                 pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.HALITE_DUST.get()));
                 this.hurt(this.damageSources().generic(), 1.0F);
-                this.setHide(this.maxHide);
+                if (this.doHide()) {
+                    this.setHide(this.maxHide);
+                }
+
                 if (!pPlayer.isCreative()) {
                     itemStack.shrink(1);
                 }
