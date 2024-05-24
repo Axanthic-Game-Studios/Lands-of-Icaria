@@ -2,7 +2,6 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -15,6 +14,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -66,12 +66,12 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     }
 
     public boolean doHide() {
-        return !this.onCooldown() && !this.onHide() && !this.onShow() && this.getHealth() < 4.0F && this.getBlockStateOn().is(IcariaBlockTags.SLUG_HIDE_BLOCKS);
+        return !this.onCooldown() && !this.onHide() && !this.onShow() && this.getBlockStateOn().is(BlockTags.DIRT);
     }
 
     @Override
     public boolean hurt(DamageSource pSource, float pAmount) {
-        if (this.doHide()) {
+        if (this.doHide() && this.getHealth() < 4.0F) {
             this.setHide(this.maxHide);
         }
 
@@ -303,7 +303,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
             if (!this.level().isClientSide()) {
                 pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.HALITE_DUST.get()));
                 this.hurt(this.damageSources().generic(), 1.0F);
-                if (this.getBlockStateOn().is(IcariaBlockTags.SLUG_HIDE_BLOCKS)) {
+                if (this.doHide()) {
                     this.setHide(this.maxHide);
                 }
 
