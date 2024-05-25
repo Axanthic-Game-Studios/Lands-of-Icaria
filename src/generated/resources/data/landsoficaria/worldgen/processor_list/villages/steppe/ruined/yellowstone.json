@@ -179,7 +179,7 @@
               "Name": "landsoficaria:yellowstone_adobe"
             },
             "predicate_type": "minecraft:random_blockstate_match",
-            "probability": 0.375
+            "probability": 0.25
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -202,7 +202,7 @@
               "Name": "landsoficaria:yellowstone_adobe"
             },
             "predicate_type": "minecraft:random_blockstate_match",
-            "probability": 0.625
+            "probability": 0.25
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -230,7 +230,7 @@
               "Name": "landsoficaria:relicstone_tiles"
             },
             "predicate_type": "minecraft:random_blockstate_match",
-            "probability": 0.375
+            "probability": 0.25
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -253,7 +253,7 @@
               "Name": "landsoficaria:relicstone_tiles"
             },
             "predicate_type": "minecraft:random_blockstate_match",
-            "probability": 0.625
+            "probability": 0.25
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -281,7 +281,7 @@
               "Name": "landsoficaria:relicstone_tiles"
             },
             "predicate_type": "minecraft:random_blockstate_match",
-            "probability": 0.375
+            "probability": 0.5
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -296,7 +296,7 @@
               "Name": "landsoficaria:relicstone_tiles"
             },
             "predicate_type": "minecraft:random_blockstate_match",
-            "probability": 0.375
+            "probability": 0.5
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"

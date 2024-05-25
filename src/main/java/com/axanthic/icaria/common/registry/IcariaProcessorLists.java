@@ -334,8 +334,8 @@ public class IcariaProcessorLists {
 			IcariaProcessorLists.stairs(IcariaBlocks.YELLOWSTONE_ADOBE_DECO.stairs.get(), pAdobeStairs),
 			IcariaProcessorLists.slab(IcariaBlocks.YELLOWSTONE_ADOBE_DECO.slab.get(), pAdobeSlab),
 
-			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.375F, IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), 0.375F, IcariaBlocks.MOSSY_RELICSTONE_TILES.get()),
-			IcariaProcessorLists.stairs(IcariaBlocks.RELICSTONE_TILE_DECO.stairs.get(), 0.375F, IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.stairs.get(), 0.375F, IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.stairs.get()),
+			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILES.get()),
+			IcariaProcessorLists.stairs(IcariaBlocks.RELICSTONE_TILE_DECO.stairs.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.stairs.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.stairs.get()),
 
 			IcariaProcessorLists.block(IcariaBlocks.RED_LOOT_VASE.get(), 0.25F, IcariaBlocks.REVENANT_SPAWNER.get(), 0.5F, Blocks.AIR),
 
@@ -405,10 +405,10 @@ public class IcariaProcessorLists {
 			IcariaProcessorLists.block(IcariaBlocks.YELLOWSTONE_ADOBE_DECO.stairs.get(), Blocks.AIR),
 			IcariaProcessorLists.block(IcariaBlocks.YELLOWSTONE_ADOBE_DECO.slab.get(), Blocks.AIR),
 
-			IcariaProcessorLists.block(pAdobeBlock, 0.375F, Blocks.COBWEB, 0.625F, Blocks.AIR, Direction.Axis.Y), // TODO: replace with Arachne web
+			IcariaProcessorLists.block(pAdobeBlock, 0.25F, Blocks.COBWEB, 0.25F, Blocks.AIR, Direction.Axis.Y), // TODO: replace with Arachne web
 
-			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.375F, Blocks.COBWEB, 0.625F, Blocks.AIR, Direction.Axis.Y), // TODO: replace with Arachne web
-			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.375F, IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), 0.375F, IcariaBlocks.MOSSY_RELICSTONE_TILES.get()),
+			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.25F, Blocks.COBWEB, 0.25F, Blocks.AIR, Direction.Axis.Y), // TODO: replace with Arachne web
+			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.5F, IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), 0.5F, IcariaBlocks.MOSSY_RELICSTONE_TILES.get()),
 			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILE_DECO.stairs.get(), Blocks.AIR),
 
 			IcariaProcessorLists.block(IcariaBlocks.CHEST.get(), Blocks.AIR),
