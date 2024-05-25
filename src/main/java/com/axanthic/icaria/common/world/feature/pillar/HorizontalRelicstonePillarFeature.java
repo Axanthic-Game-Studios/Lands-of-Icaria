@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.world.feature.pillar;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import com.mojang.serialization.Codec;
 
@@ -52,7 +53,7 @@ public class HorizontalRelicstonePillarFeature extends Feature<NoneFeatureConfig
     }
 
     public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
             this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, pDirection));
         }
     }
@@ -64,7 +65,7 @@ public class HorizontalRelicstonePillarFeature extends Feature<NoneFeatureConfig
     }
 
     public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
             this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, pDirection.getAxis()));
         }
     }

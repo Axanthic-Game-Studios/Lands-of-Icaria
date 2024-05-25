@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -50,7 +51,7 @@ public class IcariaGroundShroomsFeature extends Feature<NoneFeatureConfiguration
     }
 
     public void placeShrooms(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos.below(), Direction.UP) && pLevel.getBrightness(LightLayer.BLOCK, pPos) <= 12) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT) && pLevel.getBrightness(LightLayer.BLOCK, pPos) <= 12) {
             this.setBlock(pLevel, pPos, this.shrooms.defaultBlockState());
         }
     }

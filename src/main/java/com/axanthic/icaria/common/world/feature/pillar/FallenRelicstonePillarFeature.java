@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.world.feature.pillar;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import com.mojang.serialization.Codec;
 
@@ -61,7 +62,7 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
     }
 
     public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
             this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, pDirection));
         }
     }
@@ -73,7 +74,7 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
     }
 
     public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && (pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND) || pLevel.getBlockState(pPos.below()).is(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get()))) {
             this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, pDirection.getAxis()));
         }
     }
@@ -85,7 +86,7 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
     }
 
     public void placeRubble(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
             this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_RUBBLE.get().defaultBlockState());
         }
     }

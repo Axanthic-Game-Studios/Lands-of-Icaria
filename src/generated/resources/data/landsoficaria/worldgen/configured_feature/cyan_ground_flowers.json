@@ -29,11 +29,8 @@
                 ]
               },
               {
-                "type": "minecraft:matching_fluids",
-                "fluids": "minecraft:empty"
-              },
-              {
-                "type": "minecraft:replaceable"
+                "type": "minecraft:matching_blocks",
+                "blocks": "minecraft:air"
               }
             ]
           }

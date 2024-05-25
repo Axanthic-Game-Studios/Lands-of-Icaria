@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("unused")
+@SuppressWarnings("deprecation, unused")
 @ParametersAreNonnullByDefault
 
 public class IcariaHiddenFeature extends Feature<NoneFeatureConfiguration> {
@@ -29,11 +29,11 @@ public class IcariaHiddenFeature extends Feature<NoneFeatureConfiguration> {
         var level = pContext.level();
         var origin = pContext.origin();
 
-        this.placeHidden(level, origin);
-        this.placeHidden(level, origin.north(), 4);
-        this.placeHidden(level, origin.east(), 4);
-        this.placeHidden(level, origin.south(), 4);
-        this.placeHidden(level, origin.west(), 4);
+        this.placeHidden(level, origin.below(2));
+        this.placeHidden(level, origin.below(2).north(), 4);
+        this.placeHidden(level, origin.below(2).east(), 4);
+        this.placeHidden(level, origin.below(2).south(), 4);
+        this.placeHidden(level, origin.below(2).west(), 4);
 
         this.placeSurface(level, origin);
 
@@ -47,8 +47,8 @@ public class IcariaHiddenFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeHidden(WorldGenLevel pLevel, BlockPos pPos) {
-        if (!pLevel.getBlockState(pPos.below()).canBeReplaced()) {
-            this.setBlock(pLevel, pPos.below(2), this.hidden.defaultBlockState());
+        if (pLevel.getBlockState(pPos.above()).isSolid() && pLevel.getBlockState(pPos.below()).isSolid() && pLevel.getBlockState(pPos.north()).isSolid() && pLevel.getBlockState(pPos.east()).isSolid() && pLevel.getBlockState(pPos.south()).isSolid() && pLevel.getBlockState(pPos.west()).isSolid()) {
+            this.setBlock(pLevel, pPos, this.hidden.defaultBlockState());
         }
     }
 
@@ -59,6 +59,8 @@ public class IcariaHiddenFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeSurface(WorldGenLevel pLevel, BlockPos pPos) {
-        this.setBlock(pLevel, pPos, this.surface.defaultBlockState());
+        if (pLevel.getBlockState(pPos).isAir()) {
+            this.setBlock(pLevel, pPos, this.surface.defaultBlockState());
+        }
     }
 }

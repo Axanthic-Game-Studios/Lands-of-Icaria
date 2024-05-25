@@ -88,7 +88,7 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeFallen(WorldGenLevel pLevel, BlockPos pPos, int pHeight) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
             this.setBlock(pLevel, pPos, this.fallen.defaultBlockState().setValue(BlockStateProperties.LAYERS, pHeight));
         }
     }
@@ -188,7 +188,7 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeTwigs(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
             this.setBlock(pLevel, pPos, this.twigs.defaultBlockState());
         }
     }

@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.world.feature.dead;
 
-import com.axanthic.icaria.common.block.LayerBlock;
 import com.axanthic.icaria.common.properties.Moss;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
@@ -9,6 +8,7 @@ import com.mojang.serialization.Codec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -137,7 +137,7 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeDead(WorldGenLevel pLevel, BlockPos pPos, Direction.Axis pAxis) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && (pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT) || pLevel.getBlockState(pPos.below()).is(BlockTags.LOGS))) {
             this.setBlock(pLevel, pPos, this.dead.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
         }
     }
@@ -149,7 +149,7 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeLog(WorldGenLevel pLevel, BlockPos pPos, Direction.Axis pAxis) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
             this.setBlock(pLevel, pPos, this.log.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
         }
     }
@@ -161,7 +161,7 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeMoss(WorldGenLevel pLevel, BlockPos pPos, int pHeight) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP) && this.moss instanceof LayerBlock) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT) && this.moss.defaultBlockState().hasProperty(BlockStateProperties.LAYERS)) {
             this.setBlock(pLevel, pPos, this.moss.defaultBlockState().setValue(BlockStateProperties.LAYERS, pHeight));
             if (pLevel.getBlockState(pPos.below()).is(IcariaBlocks.GRASSY_MARL.get())) {
                 this.setBlock(pLevel, pPos.below(), IcariaBlocks.GRASSY_MARL.get().defaultBlockState().setValue(IcariaBlockStateProperties.MOSS, this.property));
@@ -176,7 +176,7 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeTwigs(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).isFaceSturdy(pLevel, pPos, Direction.UP)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
             this.setBlock(pLevel, pPos, this.twigs.defaultBlockState());
         }
     }

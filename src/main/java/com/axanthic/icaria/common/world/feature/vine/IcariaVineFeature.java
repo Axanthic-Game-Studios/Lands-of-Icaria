@@ -6,6 +6,7 @@ import com.mojang.serialization.Codec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -44,7 +45,7 @@ public class IcariaVineFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeVine(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).isAir() && IcariaVineBlock.isAcceptableNeighbour(pLevel, pPos.relative(pDirection), pDirection)) {
+        if (pLevel.getBlockState(pPos).isAir() && (pLevel.getBlockState(pPos.relative(pDirection)).is(BlockTags.LEAVES) || pLevel.getBlockState(pPos.relative(pDirection)).isSolidRender(pLevel, pPos.relative(pDirection))) && IcariaVineBlock.isAcceptableNeighbour(pLevel, pPos.relative(pDirection), pDirection)) {
             this.setBlock(pLevel, pPos, this.vine.defaultBlockState().setValue(IcariaVineBlock.getPropForFace(pDirection), true));
         }
     }

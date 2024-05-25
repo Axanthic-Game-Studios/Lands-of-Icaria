@@ -26,14 +26,11 @@
                   -1,
                   0
                 ],
-                "tag": "minecraft:sand"
+                "tag": "minecraft:dirt"
               },
               {
-                "type": "minecraft:matching_fluids",
-                "fluids": "minecraft:empty"
-              },
-              {
-                "type": "minecraft:replaceable"
+                "type": "minecraft:matching_blocks",
+                "blocks": "minecraft:air"
               }
             ]
           }

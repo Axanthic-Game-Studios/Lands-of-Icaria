@@ -6,7 +6,6 @@ import com.mojang.serialization.Codec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -41,6 +40,7 @@ public class BolbosFeature extends Feature<NoneFeatureConfiguration> {
                 for (int z = -size; z <= size; z++) {
                     if (test) {
                         this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
+                        this.placeRubble(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
                     }
                 }
             }
@@ -56,8 +56,20 @@ public class BolbosFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.SAND)) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlocks.GRAINEL.get())) {
             this.setBlock(pLevel, pPos, IcariaBlocks.BOLBOS.get().defaultBlockState());
+        }
+    }
+
+    public void placeRubble(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
+        if (pLevel.getRandom().nextInt(pChance) == 0) {
+            this.placeRubble(pLevel, pPos);
+        }
+    }
+
+    public void placeRubble(WorldGenLevel pLevel, BlockPos pPos) {
+        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlocks.GRAINEL.get())) {
+            this.setBlock(pLevel, pPos, IcariaBlocks.GRAINITE_RUBBLE.get().defaultBlockState());
         }
     }
 }

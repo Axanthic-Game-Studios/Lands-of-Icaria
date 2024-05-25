@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.world.feature;
 
-import com.axanthic.icaria.common.block.CardonCactusBlock;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import com.mojang.serialization.Codec;
@@ -9,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -45,7 +45,7 @@ public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
         this.placeTrunk(level, origin, 2);
         this.placeTrunk(level, origin, 3);
 
-        this.placeCactus(level, origin.above(4), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(CardonCactusBlock.DOWN, true));
+        this.placeCactus(level, origin.above(4), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.DOWN, true));
 
         return true;
     }
@@ -58,8 +58,8 @@ public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
 
     public void placeArm(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pOffset) {
         if (pLevel.getBlockState(pPos.above(pOffset).relative(pDirection)).isAir()) {
-            this.placeCactus(pLevel, pPos.above(pOffset).relative(pDirection), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(CardonCactusBlock.NORTH, pDirection.equals(Direction.SOUTH)).setValue(CardonCactusBlock.EAST, pDirection.equals(Direction.WEST)).setValue(CardonCactusBlock.SOUTH, pDirection.equals(Direction.NORTH)).setValue(CardonCactusBlock.WEST, pDirection.equals(Direction.EAST)).setValue(CardonCactusBlock.UP, true));
-            this.placeCactus(pLevel, pPos.above(pOffset + 1).relative(pDirection), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(CardonCactusBlock.DOWN, true));
+            this.placeCactus(pLevel, pPos.above(pOffset).relative(pDirection), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.NORTH, pDirection.equals(Direction.SOUTH)).setValue(BlockStateProperties.EAST, pDirection.equals(Direction.WEST)).setValue(BlockStateProperties.SOUTH, pDirection.equals(Direction.NORTH)).setValue(BlockStateProperties.WEST, pDirection.equals(Direction.EAST)).setValue(BlockStateProperties.UP, true));
+            this.placeCactus(pLevel, pPos.above(pOffset + 1).relative(pDirection), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.DOWN, true));
         }
     }
 
@@ -87,6 +87,6 @@ public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
         boolean south = pLevel.getBlockState(pPos.above(pOffset).south()).is(IcariaBlocks.CARDON_CACTUS.get()) && pLevel.getBlockState(pPos.above(pOffset + 1).south()).is(IcariaBlocks.CARDON_CACTUS.get());
         boolean west = pLevel.getBlockState(pPos.above(pOffset).west()).is(IcariaBlocks.CARDON_CACTUS.get()) && pLevel.getBlockState(pPos.above(pOffset + 1).west()).is(IcariaBlocks.CARDON_CACTUS.get());
 
-        this.placeCactus(pLevel, pPos.above(pOffset), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(CardonCactusBlock.NORTH, north).setValue(CardonCactusBlock.EAST, east).setValue(CardonCactusBlock.SOUTH, south).setValue(CardonCactusBlock.WEST, west).setValue(CardonCactusBlock.UP, true).setValue(CardonCactusBlock.DOWN, true));
+        this.placeCactus(pLevel, pPos.above(pOffset), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.NORTH, north).setValue(BlockStateProperties.EAST, east).setValue(BlockStateProperties.SOUTH, south).setValue(BlockStateProperties.WEST, west).setValue(BlockStateProperties.UP, true).setValue(BlockStateProperties.DOWN, true));
     }
 }

@@ -3,7 +3,7 @@
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 2
+      "chance": 16
     },
     {
       "type": "minecraft:in_square"
@@ -13,7 +13,7 @@
       "height": {
         "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 256
+          "absolute": 96
         },
         "min_inclusive": {
           "absolute": 84
@@ -23,12 +23,14 @@
     {
       "type": "minecraft:environment_scan",
       "allowed_search_condition": {
-        "type": "minecraft:replaceable"
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
       },
       "direction_of_search": "down",
       "max_steps": 16,
       "target_condition": {
-        "type": "minecraft:solid"
+        "type": "minecraft:matching_block_tag",
+        "tag": "minecraft:dirt"
       }
     },
     {
