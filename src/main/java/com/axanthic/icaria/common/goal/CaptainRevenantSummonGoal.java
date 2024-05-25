@@ -19,7 +19,7 @@ public class CaptainRevenantSummonGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        return !this.entity.onUnequips() && this.entity.onRallying() && this.entity.level().getNearbyEntities(CrawlerRevenantEntity.class, this.entity.targetingConditions, this.entity, this.entity.getBoundingBox().inflate(16.0D)).size() <= 2;
+        return !this.entity.onUnequips() && this.entity.onRallying() && this.entity.onReequips() && this.entity.getLastHurtByPlayerTime() > 0 && this.entity.level().getNearbyEntities(CrawlerRevenantEntity.class, this.entity.targetingConditions, this.entity, this.entity.getBoundingBox().inflate(16.0D)).size() <= 2;
     }
 
     @Override

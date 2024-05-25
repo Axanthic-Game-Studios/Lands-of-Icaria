@@ -62,7 +62,7 @@ public class CaptainRevenantEntity extends RevenantEntity {
     }
 
     public boolean doSummoning() {
-        return !this.onUnequips() && !this.onReequips() && !this.onRallying() && this.level().getNearbyEntities(CrawlerRevenantEntity.class, this.targetingConditions, this, this.getBoundingBox().inflate(16.0D)).size() <= 2;
+        return !this.onUnequips() && !this.onRallying() && !this.onReequips() && this.getLastHurtByPlayerTime() > 0 && this.level().getNearbyEntities(CrawlerRevenantEntity.class, this.targetingConditions, this, this.getBoundingBox().inflate(16.0D)).size() <= 2;
     }
 
     @Override
@@ -89,6 +89,10 @@ public class CaptainRevenantEntity extends RevenantEntity {
 
     public boolean onUnequips() {
         return this.getUnequips() > this.minUnequips;
+    }
+
+    public int getLastHurtByPlayerTime() {
+        return this.lastHurtByPlayerTime;
     }
 
     public int getRallying() {
