@@ -127,8 +127,9 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.neoforged:forge:${minecraft_version}-${neo_version}"
+    implementation fg.deobf("curse.maven:appleskin-248787:${appleskin_version}")
+    implementation fg.deobf("curse.maven:jade-324717:${jade_version}")
     implementation fg.deobf("curse.maven:jei-238222:${jei_version}")
-    implementation fg.deobf("curse.maven:the-one-probe-245211:${top_version}")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
