@@ -41,7 +41,7 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "landsoficaria:calcite_shard"
+          "name": "minecraft:bone"
         }
       ],
       "rolls": 1.0
@@ -70,7 +70,7 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "minecraft:bone"
+          "name": "landsoficaria:calcite_shard"
         }
       ],
       "rolls": 1.0

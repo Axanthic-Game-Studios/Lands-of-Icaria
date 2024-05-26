@@ -41,7 +41,7 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "landsoficaria:greenpowder"
+          "name": "minecraft:bone"
         }
       ],
       "rolls": 1.0
@@ -70,7 +70,7 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "landsoficaria:greek_fire_grenade"
+          "name": "landsoficaria:greenpowder"
         }
       ],
       "rolls": 1.0
@@ -99,7 +99,7 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "minecraft:bone"
+          "name": "landsoficaria:greek_fire_grenade"
         }
       ],
       "rolls": 1.0
