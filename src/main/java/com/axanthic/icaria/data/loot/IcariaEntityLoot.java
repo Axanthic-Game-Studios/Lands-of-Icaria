@@ -51,8 +51,9 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
         this.dropItem(IcariaEntityTypes.VOID_JELLYFISH.get(), IcariaItems.VOID_JELLYFISH_JELLY.get());
         this.dropItem(IcariaEntityTypes.WATER_JELLYFISH.get(), IcariaItems.WATER_JELLYFISH_JELLY.get());
         this.dropItem(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), IcariaItems.MYRMEKE_SCALES.get());
-        this.dropItem(IcariaEntityTypes.FOREST_SNULL.get(), IcariaItems.SNULL_CREAM.get());
-        this.dropItem(IcariaEntityTypes.SNULL.get(), IcariaItems.SNULL_CREAM.get());
+
+        this.dropItem(IcariaEntityTypes.FOREST_SNULL.get(), IcariaItems.LAUREL_FOREST_HAG_SKULL.get(), IcariaItems.SNULL_CREAM.get());
+        this.dropItem(IcariaEntityTypes.SNULL.get(), IcariaItems.REVENANT_SKULL.get(), IcariaItems.SNULL_CREAM.get());
 
         this.dropItem(IcariaEntityTypes.CAPTAIN_REVENANT.get(), IcariaItems.REVENANT_SKULL.get(), Items.BONE);
         this.dropItem(IcariaEntityTypes.CIVILIAN_REVENANT.get(), IcariaItems.REVENANT_SKULL.get(), Items.BONE);

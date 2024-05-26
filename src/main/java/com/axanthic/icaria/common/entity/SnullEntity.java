@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -27,7 +26,6 @@ import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
-import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
@@ -166,25 +164,6 @@ public class SnullEntity extends SizedPathfinderMobEntity {
         this.entityData.define(SnullEntity.COOLDOWN, this.minCooldown);
         this.entityData.define(SnullEntity.HIDE, this.minHide);
         this.entityData.define(SnullEntity.SHOW, this.minShow);
-    }
-
-    @Override
-    public void dropCustomDeathLoot(DamageSource pDamageSource, int pLooting, boolean pRecentlyHit) {
-        super.dropCustomDeathLoot(pDamageSource, pLooting, pRecentlyHit);
-        if (pDamageSource.getEntity() instanceof Creeper creeper) {
-            if (!this.isBaby()) {
-                if (creeper.isPowered()) {
-                    if (creeper.canDropMobsSkull()) {
-                        creeper.increaseDroppedSkulls();
-                        if (this.getType() == IcariaEntityTypes.SNULL.get()) {
-                            this.spawnAtLocation(IcariaItems.REVENANT_SKULL.get());
-                        } else if (this.getType() == IcariaEntityTypes.FOREST_SNULL.get()) {
-                            this.spawnAtLocation(IcariaItems.LAUREL_FOREST_HAG_SKULL.get());
-                        }
-                    }
-                }
-            }
-        }
     }
 
     @Override
