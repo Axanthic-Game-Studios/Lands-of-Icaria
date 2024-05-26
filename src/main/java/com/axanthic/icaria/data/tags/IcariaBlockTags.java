@@ -514,6 +514,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.HALITE_CRYSTAL.get())
 			.add(IcariaBlocks.JASPER_CRYSTAL.get())
 			.add(IcariaBlocks.ZIRCON_CRYSTAL.get())
+			.add(IcariaBlocks.ARISTONE.get())
+			.add(IcariaBlocks.PACKED_ARISTONE.get())
 			.add(IcariaBlocks.ROTTEN_BONES_BLOCK.get())
 			.add(IcariaBlocks.RAW_CHALKOS_BLOCK.get())
 			.add(IcariaBlocks.RAW_KASSITEROS_BLOCK.get())

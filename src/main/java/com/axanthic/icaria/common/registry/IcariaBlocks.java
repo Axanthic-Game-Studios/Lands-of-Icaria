@@ -700,7 +700,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesAristone(MapColor pColor, SoundType pSound) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(pSound).destroyTime(0.5F).explosionResistance(0.5F).friction(0.98F).noOcclusion().requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.NORMAL).sound(pSound).destroyTime(0.5F).explosionResistance(0.5F).friction(0.98F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesPackedAristone(MapColor pColor, SoundType pSound) {

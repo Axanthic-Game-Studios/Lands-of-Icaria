@@ -334,6 +334,8 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropOnlyWithSilk(IcariaBlocks.BAETYL_RUBBLE.get());
 		this.dropOnlyWithSilk(IcariaBlocks.RELICSTONE_RUBBLE.get());
 		this.dropOnlyWithSilk(IcariaBlocks.HYLIASTRUM_ORE.get());
+		this.dropOnlyWithSilk(IcariaBlocks.ARISTONE.get());
+		this.dropOnlyWithSilk(IcariaBlocks.PACKED_ARISTONE.get());
 
 		this.dropNone(IcariaBlocks.GRINDER.get());
 		this.dropNone(IcariaBlocks.KILN.get());
