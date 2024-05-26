@@ -52,7 +52,6 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
         this.dropItem(IcariaEntityTypes.WATER_JELLYFISH.get(), IcariaItems.WATER_JELLYFISH_JELLY.get());
         this.dropItem(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), IcariaItems.MYRMEKE_SCALES.get());
 
-        this.dropItem(IcariaEntityTypes.FOREST_SNULL.get(), IcariaItems.LAUREL_FOREST_HAG_SKULL.get(), IcariaItems.SNULL_CREAM.get());
         this.dropItem(IcariaEntityTypes.SNULL.get(), IcariaItems.REVENANT_SKULL.get(), IcariaItems.SNULL_CREAM.get());
 
         this.dropItem(IcariaEntityTypes.CAPTAIN_REVENANT.get(), IcariaItems.REVENANT_SKULL.get(), Items.BONE);
@@ -67,6 +66,7 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
         this.dropItemPlusScnd(IcariaEntityTypes.ENDER_JELLYFISH.get(), IcariaItems.ENDER_JELLYFISH_JELLY.get(), Items.ENDER_PEARL);
 
         this.dropItemPlusScnd(IcariaEntityTypes.OVERGROWN_REVENANT.get(), IcariaItems.REVENANT_SKULL.get(), IcariaItems.CALCITE_SHARD.get(), Items.BONE);
+        this.dropItemPlusScnd(IcariaEntityTypes.FOREST_SNULL.get(), IcariaItems.LAUREL_FOREST_HAG_SKULL.get(), IcariaItems.SNULL_CREAM.get(), IcariaItems.MOTH_AGARIC.get());
 
         this.dropItemPlusScndWithCookFunc(IcariaEntityTypes.AETERNAE.get(), IcariaItems.AETERNAE_SKULL.get(), IcariaItems.AETERNAE_HIDE.get(), IcariaItems.RAW_AETERNAE_MEAT.get());
         this.dropItemPlusScndWithCookFunc(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), IcariaItems.CYPRESS_FOREST_HAG_SKULL.get(), IcariaItems.CYPRESS_SAPLING.get(), IcariaItems.CYPRESS_LOG.get());
