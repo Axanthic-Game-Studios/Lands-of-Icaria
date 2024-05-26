@@ -1,6 +1,8 @@
 package com.axanthic.icaria.common.world.feature.vine;
 
 import com.axanthic.icaria.common.block.IcariaVineBlock;
+import com.axanthic.icaria.common.properties.Vine;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 
 import com.mojang.serialization.Codec;
 
@@ -46,7 +48,11 @@ public class IcariaVineFeature extends Feature<NoneFeatureConfiguration> {
 
     public void placeVine(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
         if (pLevel.getBlockState(pPos).isAir() && (pLevel.getBlockState(pPos.relative(pDirection)).is(BlockTags.LEAVES) || pLevel.getBlockState(pPos.relative(pDirection)).isSolidRender(pLevel, pPos.relative(pDirection))) && IcariaVineBlock.isAcceptableNeighbour(pLevel, pPos.relative(pDirection), pDirection)) {
-            this.setBlock(pLevel, pPos, this.vine.defaultBlockState().setValue(IcariaVineBlock.getPropForFace(pDirection), true));
+            if (pLevel.getRandom().nextBoolean()) {
+                this.setBlock(pLevel, pPos, this.vine.defaultBlockState().setValue(IcariaVineBlock.getPropForFace(pDirection), true).setValue(IcariaBlockStateProperties.VINE, Vine.NONE));
+            } else {
+                this.setBlock(pLevel, pPos, this.vine.defaultBlockState().setValue(IcariaVineBlock.getPropForFace(pDirection), true).setValue(IcariaBlockStateProperties.VINE, Vine.VINE));
+            }
         }
     }
 }
