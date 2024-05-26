@@ -1,26 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "A": {
-      "item": "landsoficaria:cooked_catoblepas_meat"
+  "ingredients": [
+    {
+      "item": "landsoficaria:raw_catoblepas_meat"
     },
-    "B": {
+    {
       "item": "landsoficaria:onion"
     },
-    "C": {
+    {
       "item": "landsoficaria:halite_dust"
     },
-    "D": {
+    {
       "item": "landsoficaria:loam_bowl"
     }
-  },
-  "pattern": [
-    "AB",
-    "CD"
   ],
   "result": {
     "item": "landsoficaria:catoblepas_stew"
-  },
-  "show_notification": true
+  }
 }

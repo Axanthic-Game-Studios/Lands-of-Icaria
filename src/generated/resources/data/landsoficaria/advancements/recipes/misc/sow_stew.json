@@ -25,18 +25,6 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_cooked_sow_meat": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:cooked_sow_meat"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_green_ground_shrooms": {
       "conditions": {
         "items": [
@@ -79,6 +67,18 @@
           {
             "items": [
               "landsoficaria:loam_bowl"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_raw_sow_meat": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:raw_sow_meat"
             ]
           }
         ]
@@ -142,7 +142,7 @@
   },
   "requirements": [
     [
-      "has_cooked_sow_meat",
+      "has_raw_sow_meat",
       "has_brown_mushroom",
       "has_red_mushroom",
       "has_brown_ground_shrooms",

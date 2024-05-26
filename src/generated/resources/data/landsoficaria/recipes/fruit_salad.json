@@ -1,36 +1,30 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "A": {
+  "ingredients": [
+    {
       "item": "landsoficaria:strawberries"
     },
-    "B": {
+    {
       "item": "landsoficaria:physalis"
     },
-    "C": {
+    {
       "item": "minecraft:cocoa_beans"
     },
-    "D": {
+    {
       "item": "minecraft:melon_slice"
     },
-    "E": {
+    {
       "item": "minecraft:golden_apple"
     },
-    "F": {
+    {
       "item": "landsoficaria:laurel_cherry"
     },
-    "G": {
+    {
       "item": "landsoficaria:loam_bowl"
     }
-  },
-  "pattern": [
-    "ABC",
-    "DEF",
-    "G  "
   ],
   "result": {
     "item": "landsoficaria:fruit_salad"
-  },
-  "show_notification": true
+  }
 }

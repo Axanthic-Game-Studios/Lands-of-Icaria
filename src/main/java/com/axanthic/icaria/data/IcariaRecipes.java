@@ -583,9 +583,9 @@ public class IcariaRecipes extends RecipeProvider {
 		this.foodCookingRecipes(pConsumer, IcariaItems.RAW_CERVER_MEAT.get(), IcariaItems.COOKED_CERVER_MEAT.get());
 		this.foodCookingRecipes(pConsumer, IcariaItems.RAW_SOW_MEAT.get(), IcariaItems.COOKED_SOW_MEAT.get());
 
-		this.stewRecipe(pConsumer, IcariaItems.COOKED_AETERNAE_MEAT.get(), Items.BEETROOT, IcariaItems.AETERNAE_STEW.get());
-		this.stewRecipe(pConsumer, IcariaItems.COOKED_CERVER_MEAT.get(), Items.CARROT, IcariaItems.CERVER_STEW.get());
-		this.stewRecipe(pConsumer, IcariaItems.COOKED_CATOBLEPAS_MEAT.get(), IcariaItems.ONION.get(), IcariaItems.CATOBLEPAS_STEW.get());
+		this.stewRecipe(pConsumer, IcariaItems.RAW_AETERNAE_MEAT.get(), Items.BEETROOT, IcariaItems.AETERNAE_STEW.get());
+		this.stewRecipe(pConsumer, IcariaItems.RAW_CATOBLEPAS_MEAT.get(), IcariaItems.ONION.get(), IcariaItems.CATOBLEPAS_STEW.get());
+		this.stewRecipe(pConsumer, IcariaItems.RAW_CERVER_MEAT.get(), Items.CARROT, IcariaItems.CERVER_STEW.get());
 
 		this.seedRecipe(pConsumer, IcariaItems.STRAWBERRIES.get(), IcariaItems.STRAWBERRY_SEEDS.get());
 		this.seedRecipe(pConsumer, IcariaItems.PHYSALIS.get(), IcariaItems.PHYSALIS_SEEDS.get());
@@ -1037,17 +1037,14 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.SPELT.get(), RecipeProvider.has(IcariaItems.SPELT.get()))
 			.save(pConsumer, IcariaItems.SPELT_BREAD.getId());
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.FRUIT_SALAD.get(), 1)
-			.pattern("ABC")
-			.pattern("DEF")
-			.pattern("G  ")
-			.define('A', IcariaItems.STRAWBERRIES.get())
-			.define('B', IcariaItems.PHYSALIS.get())
-			.define('C', Items.COCOA_BEANS)
-			.define('D', Items.MELON_SLICE)
-			.define('E', Items.GOLDEN_APPLE)
-			.define('F', IcariaItems.LAUREL_CHERRY.get())
-			.define('G', IcariaItems.LOAM_BOWL.get())
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.FRUIT_SALAD.get(), 1)
+			.requires(IcariaItems.STRAWBERRIES.get())
+			.requires(IcariaItems.PHYSALIS.get())
+			.requires(Items.COCOA_BEANS)
+			.requires(Items.MELON_SLICE)
+			.requires(Items.GOLDEN_APPLE)
+			.requires(IcariaItems.LAUREL_CHERRY.get())
+			.requires(IcariaItems.LOAM_BOWL.get())
 			.unlockedBy("has_" + IcariaItems.STRAWBERRIES.get(), RecipeProvider.has(IcariaItems.STRAWBERRIES.get()))
 			.unlockedBy("has_" + IcariaItems.PHYSALIS.get(), RecipeProvider.has(IcariaItems.PHYSALIS.get()))
 			.unlockedBy("has_" + Items.COCOA_BEANS, RecipeProvider.has(Items.COCOA_BEANS))
@@ -1057,25 +1054,21 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.LOAM_BOWL.get(), RecipeProvider.has(IcariaItems.LOAM_BOWL.get()))
 			.save(pConsumer, IcariaItems.FRUIT_SALAD.getId());
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.ONION_SOUP.get(), 1)
-			.pattern("XXX")
-			.pattern("YZ ")
-			.define('X', IcariaItems.ONION.get())
-			.define('Y', IcariaItems.HALITE_DUST.get())
-			.define('Z', IcariaItems.LOAM_BOWL.get())
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.ONION_SOUP.get(), 1)
+			.requires(IcariaItems.ONION.get(), 3)
+			.requires(IcariaItems.HALITE_DUST.get())
+			.requires(IcariaItems.LOAM_BOWL.get())
 			.unlockedBy("has_" + IcariaItems.ONION.get(), RecipeProvider.has(IcariaItems.ONION.get()))
 			.unlockedBy("has_" + IcariaItems.HALITE_DUST.get(), RecipeProvider.has(IcariaItems.HALITE_DUST.get()))
 			.unlockedBy("has_" + IcariaItems.LOAM_BOWL.get(), RecipeProvider.has(IcariaItems.LOAM_BOWL.get()))
 			.save(pConsumer, IcariaItems.ONION_SOUP.getId());
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.SOW_STEW.get(), 1)
-			.pattern("ABB")
-			.pattern("CD ")
-			.define('A', IcariaItems.COOKED_SOW_MEAT.get())
-			.define('B', Ingredient.of(Items.BROWN_MUSHROOM, Items.RED_MUSHROOM, IcariaItems.BROWN_GROUND_SHROOMS.get(), IcariaItems.GREEN_GROUND_SHROOMS.get(), IcariaItems.LARGE_BROWN_GROUND_SHROOMS.get(), IcariaItems.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaItems.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaItems.UNNAMED_TREE_SHROOMS.get()))
-			.define('C', IcariaItems.HALITE_DUST.get())
-			.define('D', IcariaItems.LOAM_BOWL.get())
-			.unlockedBy("has_" + IcariaItems.COOKED_SOW_MEAT.get(), RecipeProvider.has(IcariaItems.COOKED_SOW_MEAT.get()))
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.SOW_STEW.get(), 1)
+			.requires(IcariaItems.RAW_SOW_MEAT.get())
+			.requires(Ingredient.of(Items.BROWN_MUSHROOM, Items.RED_MUSHROOM, IcariaItems.BROWN_GROUND_SHROOMS.get(), IcariaItems.GREEN_GROUND_SHROOMS.get(), IcariaItems.LARGE_BROWN_GROUND_SHROOMS.get(), IcariaItems.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaItems.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaItems.UNNAMED_TREE_SHROOMS.get()))
+			.requires(IcariaItems.HALITE_DUST.get())
+			.requires(IcariaItems.LOAM_BOWL.get())
+			.unlockedBy("has_" + IcariaItems.RAW_SOW_MEAT.get(), RecipeProvider.has(IcariaItems.RAW_SOW_MEAT.get()))
 			.unlockedBy("has_" + Items.BROWN_MUSHROOM, RecipeProvider.has(Items.BROWN_MUSHROOM))
 			.unlockedBy("has_" + Items.RED_MUSHROOM, RecipeProvider.has(Items.RED_MUSHROOM))
 			.unlockedBy("has_" + IcariaItems.BROWN_GROUND_SHROOMS.get(), RecipeProvider.has(IcariaItems.BROWN_GROUND_SHROOMS.get()))
@@ -1792,13 +1785,11 @@ public class IcariaRecipes extends RecipeProvider {
 	}
 
 	public void stewRecipe(Consumer<FinishedRecipe> pConsumer, Item pMeat, Item pVegetable, Item pResult) {
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 1)
-			.pattern("AB")
-			.pattern("CD")
-			.define('A', pMeat)
-			.define('B', pVegetable)
-			.define('C', IcariaItems.HALITE_DUST.get())
-			.define('D', IcariaItems.LOAM_BOWL.get())
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 1)
+			.requires(pMeat)
+			.requires(pVegetable)
+			.requires(IcariaItems.HALITE_DUST.get())
+			.requires(IcariaItems.LOAM_BOWL.get())
 			.unlockedBy("has_" + pMeat, RecipeProvider.has(pMeat))
 			.unlockedBy("has_" + pVegetable, RecipeProvider.has(pVegetable))
 			.unlockedBy("has_" + IcariaItems.HALITE_DUST.get(), RecipeProvider.has(IcariaItems.HALITE_DUST.get()))
