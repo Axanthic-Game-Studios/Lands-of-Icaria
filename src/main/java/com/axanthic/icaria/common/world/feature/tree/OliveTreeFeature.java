@@ -222,7 +222,13 @@ public class OliveTreeFeature extends IcariaTreeFeature {
     public void placeLeaves(WorldGenLevel pLevel, BlockPos pPos) {
         if (pLevel.getBlockState(pPos).isAir()) {
             if (pLevel.getRandom().nextBoolean()) {
-                this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE));
+                if (pLevel.getRandom().nextInt(3) == 0) {
+                    this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE));
+                } else if (pLevel.getRandom().nextInt(3) == 1) {
+                    this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.GREEN));
+                } else if (pLevel.getRandom().nextInt(3) == 2) {
+                    this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.BLACK));
+                }
             } else {
                 this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.LEAVES));
             }
