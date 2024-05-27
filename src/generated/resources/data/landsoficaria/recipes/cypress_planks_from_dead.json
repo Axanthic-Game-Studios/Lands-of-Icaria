@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    [
+      {
+        "item": "landsoficaria:dead_cypress_log"
+      },
+      {
+        "item": "landsoficaria:stripped_dead_cypress_log"
+      }
+    ]
+  ],
+  "result": {
+    "count": 2,
+    "item": "landsoficaria:cypress_planks"
+  }
+}

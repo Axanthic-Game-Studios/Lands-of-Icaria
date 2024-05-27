@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    [
+      {
+        "item": "landsoficaria:dead_populus_log"
+      },
+      {
+        "item": "landsoficaria:stripped_dead_populus_log"
+      }
+    ]
+  ],
+  "result": {
+    "count": 2,
+    "item": "landsoficaria:populus_planks"
+  }
+}

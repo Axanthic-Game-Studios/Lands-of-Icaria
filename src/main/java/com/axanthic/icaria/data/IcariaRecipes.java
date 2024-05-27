@@ -450,21 +450,21 @@ public class IcariaRecipes extends RecipeProvider {
 		this.cakeRecipe(pConsumer, IcariaItems.VINEBERRIES.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.VINE_BERRY_CAKE.get());
 		this.cakeRecipe(pConsumer, IcariaItems.VINE_SPROUT.get(), IcariaItems.WATER_JELLYFISH_JELLY.get(), IcariaItems.VINE_SPROUT_CAKE.get());
 
-		this.woodRecipes(pConsumer, IcariaItems.CYPRESS_WOOD.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get());
-		this.woodRecipes(pConsumer, IcariaItems.DROUGHTROOT_WOOD.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get());
-		this.woodRecipes(pConsumer, IcariaItems.FIR_WOOD.get(), IcariaItems.STRIPPED_FIR_WOOD.get(), IcariaItems.FIR_LOG.get(), IcariaItems.STRIPPED_FIR_LOG.get());
-		this.woodRecipes(pConsumer, IcariaItems.LAUREL_WOOD.get(), IcariaItems.STRIPPED_LAUREL_WOOD.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.STRIPPED_LAUREL_LOG.get());
-		this.woodRecipes(pConsumer, IcariaItems.OLIVE_WOOD.get(), IcariaItems.STRIPPED_OLIVE_WOOD.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.STRIPPED_OLIVE_LOG.get());
-		this.woodRecipes(pConsumer, IcariaItems.PLANE_WOOD.get(), IcariaItems.STRIPPED_PLANE_WOOD.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get());
-		this.woodRecipes(pConsumer, IcariaItems.POPULUS_WOOD.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get());
+		this.woodRecipes(pConsumer, IcariaItems.CYPRESS_WOOD.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get(), IcariaItems.DEAD_CYPRESS_LOG.get(), IcariaItems.STRIPPED_DEAD_CYPRESS_LOG.get());
+		this.woodRecipes(pConsumer, IcariaItems.DROUGHTROOT_WOOD.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get(), IcariaItems.DEAD_DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DEAD_DROUGHTROOT_LOG.get());
+		this.woodRecipes(pConsumer, IcariaItems.FIR_WOOD.get(), IcariaItems.STRIPPED_FIR_WOOD.get(), IcariaItems.FIR_LOG.get(), IcariaItems.STRIPPED_FIR_LOG.get(), IcariaItems.DEAD_FIR_LOG.get(), IcariaItems.STRIPPED_DEAD_FIR_LOG.get());
+		this.woodRecipes(pConsumer, IcariaItems.LAUREL_WOOD.get(), IcariaItems.STRIPPED_LAUREL_WOOD.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.STRIPPED_LAUREL_LOG.get(), IcariaItems.DEAD_LAUREL_LOG.get(), IcariaItems.STRIPPED_DEAD_LAUREL_LOG.get());
+		this.woodRecipes(pConsumer, IcariaItems.OLIVE_WOOD.get(), IcariaItems.STRIPPED_OLIVE_WOOD.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.STRIPPED_OLIVE_LOG.get(), IcariaItems.DEAD_OLIVE_LOG.get(), IcariaItems.STRIPPED_DEAD_OLIVE_LOG.get());
+		this.woodRecipes(pConsumer, IcariaItems.PLANE_WOOD.get(), IcariaItems.STRIPPED_PLANE_WOOD.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get(), IcariaItems.DEAD_PLANE_LOG.get(), IcariaItems.STRIPPED_DEAD_PLANE_LOG.get());
+		this.woodRecipes(pConsumer, IcariaItems.POPULUS_WOOD.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get(), IcariaItems.DEAD_POPULUS_LOG.get(), IcariaItems.STRIPPED_DEAD_POPULUS_LOG.get());
 
-		this.planksRecipe(pConsumer, IcariaItems.CYPRESS_WOOD.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
-		this.planksRecipe(pConsumer, IcariaItems.DROUGHTROOT_WOOD.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
-		this.planksRecipe(pConsumer, IcariaItems.FIR_WOOD.get(), IcariaItems.STRIPPED_FIR_WOOD.get(), IcariaItems.FIR_LOG.get(), IcariaItems.STRIPPED_FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
-		this.planksRecipe(pConsumer, IcariaItems.LAUREL_WOOD.get(), IcariaItems.STRIPPED_LAUREL_WOOD.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.STRIPPED_LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
-		this.planksRecipe(pConsumer, IcariaItems.OLIVE_WOOD.get(), IcariaItems.STRIPPED_OLIVE_WOOD.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.STRIPPED_OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
-		this.planksRecipe(pConsumer, IcariaItems.PLANE_WOOD.get(), IcariaItems.STRIPPED_PLANE_WOOD.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
-		this.planksRecipe(pConsumer, IcariaItems.POPULUS_WOOD.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
+		this.planksRecipe(pConsumer, IcariaItems.CYPRESS_WOOD.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get(), IcariaItems.DEAD_CYPRESS_LOG.get(), IcariaItems.STRIPPED_DEAD_CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.planksRecipe(pConsumer, IcariaItems.DROUGHTROOT_WOOD.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get(), IcariaItems.DEAD_DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DEAD_DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.planksRecipe(pConsumer, IcariaItems.FIR_WOOD.get(), IcariaItems.STRIPPED_FIR_WOOD.get(), IcariaItems.FIR_LOG.get(), IcariaItems.STRIPPED_FIR_LOG.get(), IcariaItems.DEAD_FIR_LOG.get(), IcariaItems.STRIPPED_DEAD_FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
+		this.planksRecipe(pConsumer, IcariaItems.LAUREL_WOOD.get(), IcariaItems.STRIPPED_LAUREL_WOOD.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.STRIPPED_LAUREL_LOG.get(), IcariaItems.DEAD_LAUREL_LOG.get(), IcariaItems.STRIPPED_DEAD_LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.planksRecipe(pConsumer, IcariaItems.OLIVE_WOOD.get(), IcariaItems.STRIPPED_OLIVE_WOOD.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.STRIPPED_OLIVE_LOG.get(), IcariaItems.DEAD_OLIVE_LOG.get(), IcariaItems.STRIPPED_DEAD_OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.planksRecipe(pConsumer, IcariaItems.PLANE_WOOD.get(), IcariaItems.STRIPPED_PLANE_WOOD.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get(), IcariaItems.DEAD_PLANE_LOG.get(), IcariaItems.STRIPPED_DEAD_PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
+		this.planksRecipe(pConsumer, IcariaItems.POPULUS_WOOD.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get(), IcariaItems.DEAD_POPULUS_LOG.get(), IcariaItems.STRIPPED_DEAD_POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
 
 		this.doorRecipe(pConsumer, IcariaItems.CYPRESS_PLANKS.get(), IcariaItems.CYPRESS_DOOR.get());
 		this.doorRecipe(pConsumer, IcariaItems.DROUGHTROOT_PLANKS.get(), IcariaItems.DROUGHTROOT_DOOR.get());
@@ -1572,7 +1572,7 @@ public class IcariaRecipes extends RecipeProvider {
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult));
 	}
 
-	public void woodRecipes(Consumer<FinishedRecipe> pConsumer, Item pWood, Item pWoodStripped, Item pLog, Item pLogStripped) {
+	public void woodRecipes(Consumer<FinishedRecipe> pConsumer, Item pWood, Item pWoodStripped, Item pLog, Item pLogStripped, Item pDeadLog, Item pDeadLogStripped) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pWood, 3)
 			.pattern("XX")
 			.pattern("XX")
@@ -1586,9 +1586,23 @@ public class IcariaRecipes extends RecipeProvider {
 			.define('X', pLogStripped)
 			.unlockedBy("has_" + pLogStripped, RecipeProvider.has(pLogStripped))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pWoodStripped));
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pWood, 1)
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', pDeadLog)
+			.unlockedBy("has_" + pDeadLog, RecipeProvider.has(pDeadLog))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pWood) + "_from_dead");
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pWoodStripped, 1)
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', pDeadLogStripped)
+			.unlockedBy("has_" + pDeadLogStripped, RecipeProvider.has(pDeadLogStripped))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pWoodStripped) + "_from_dead");
 	}
 
-	public void planksRecipe(Consumer<FinishedRecipe> pConsumer, Item pWood, Item pWoodStripped, Item pLog, Item pLogStripped, Item pResult) {
+	public void planksRecipe(Consumer<FinishedRecipe> pConsumer, Item pWood, Item pWoodStripped, Item pLog, Item pLogStripped, Item pDeadLog, Item pDeadLogStripped, Item pResult) {
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 4)
 			.requires(Ingredient.of(pWood, pWoodStripped, pLog, pLogStripped))
 			.unlockedBy("has_" + pWood, RecipeProvider.has(pWood))
@@ -1596,6 +1610,12 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + pLog, RecipeProvider.has(pLog))
 			.unlockedBy("has_" + pLogStripped, RecipeProvider.has(pLogStripped))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult));
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 2)
+			.requires(Ingredient.of(pDeadLog, pDeadLogStripped))
+			.unlockedBy("has_" + pDeadLog, RecipeProvider.has(pDeadLog))
+			.unlockedBy("has_" + pDeadLogStripped, RecipeProvider.has(pDeadLogStripped))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_dead");
 	}
 
 	public void doorRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult) {
