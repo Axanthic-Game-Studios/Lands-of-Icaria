@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:olive_planks"
+    },
+    "Y": {
+      "item": "landsoficaria:olive_log"
+    }
+  },
+  "pattern": [
+    "X X",
+    "YYY"
+  ],
+  "result": {
+    "item": "landsoficaria:olive_trough"
+  },
+  "show_notification": true
+}

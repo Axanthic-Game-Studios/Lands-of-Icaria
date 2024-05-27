@@ -466,6 +466,14 @@ public class IcariaRecipes extends RecipeProvider {
 		this.planksRecipe(pConsumer, IcariaItems.PLANE_WOOD.get(), IcariaItems.STRIPPED_PLANE_WOOD.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get(), IcariaItems.DEAD_PLANE_LOG.get(), IcariaItems.STRIPPED_DEAD_PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
 		this.planksRecipe(pConsumer, IcariaItems.POPULUS_WOOD.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get(), IcariaItems.DEAD_POPULUS_LOG.get(), IcariaItems.STRIPPED_DEAD_POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
 
+		this.troughRecipe(pConsumer, IcariaItems.CYPRESS_PLANKS.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.CYPRESS_TROUGH.get());
+		this.troughRecipe(pConsumer, IcariaItems.DROUGHTROOT_PLANKS.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_TROUGH.get());
+		this.troughRecipe(pConsumer, IcariaItems.FIR_PLANKS.get(), IcariaItems.FIR_LOG.get(), IcariaItems.FIR_TROUGH.get());
+		this.troughRecipe(pConsumer, IcariaItems.LAUREL_PLANKS.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.LAUREL_TROUGH.get());
+		this.troughRecipe(pConsumer, IcariaItems.OLIVE_PLANKS.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.OLIVE_TROUGH.get());
+		this.troughRecipe(pConsumer, IcariaItems.PLANE_PLANKS.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.PLANE_TROUGH.get());
+		this.troughRecipe(pConsumer, IcariaItems.POPULUS_PLANKS.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.POPULUS_TROUGH.get());
+
 		this.doorRecipe(pConsumer, IcariaItems.CYPRESS_PLANKS.get(), IcariaItems.CYPRESS_DOOR.get());
 		this.doorRecipe(pConsumer, IcariaItems.DROUGHTROOT_PLANKS.get(), IcariaItems.DROUGHTROOT_DOOR.get());
 		this.doorRecipe(pConsumer, IcariaItems.FIR_PLANKS.get(), IcariaItems.FIR_DOOR.get());
@@ -1616,6 +1624,17 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + pDeadLog, RecipeProvider.has(pDeadLog))
 			.unlockedBy("has_" + pDeadLogStripped, RecipeProvider.has(pDeadLogStripped))
 			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult) + "_from_dead");
+	}
+
+	public void troughRecipe(Consumer<FinishedRecipe> pConsumer, Item pPlanks, Item pLog, Item pResult) {
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 1)
+			.pattern("X X")
+			.pattern("YYY")
+			.define('X', pPlanks)
+			.define('Y', pLog)
+			.unlockedBy("has_" + pPlanks, RecipeProvider.has(pPlanks))
+			.unlockedBy("has_" + pLog, RecipeProvider.has(pLog))
+			.save(pConsumer, ForgeRegistries.ITEMS.getKey(pResult));
 	}
 
 	public void doorRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult) {

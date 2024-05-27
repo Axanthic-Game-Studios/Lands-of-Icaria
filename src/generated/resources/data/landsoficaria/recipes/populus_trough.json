@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:populus_planks"
+    },
+    "Y": {
+      "item": "landsoficaria:populus_log"
+    }
+  },
+  "pattern": [
+    "X X",
+    "YYY"
+  ],
+  "result": {
+    "item": "landsoficaria:populus_trough"
+  },
+  "show_notification": true
+}

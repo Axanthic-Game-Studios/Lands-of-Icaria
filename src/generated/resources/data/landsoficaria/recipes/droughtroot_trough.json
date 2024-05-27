@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:droughtroot_planks"
+    },
+    "Y": {
+      "item": "landsoficaria:droughtroot_log"
+    }
+  },
+  "pattern": [
+    "X X",
+    "YYY"
+  ],
+  "result": {
+    "item": "landsoficaria:droughtroot_trough"
+  },
+  "show_notification": true
+}

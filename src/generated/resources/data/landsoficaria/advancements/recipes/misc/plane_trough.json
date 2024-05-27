@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_plane_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:plane_log"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_plane_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:plane_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:plane_trough"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_plane_planks",
+      "has_plane_log",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:plane_trough"
+    ]
+  },
+  "sends_telemetry_event": false
+}

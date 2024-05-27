@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:plane_planks"
+    },
+    "Y": {
+      "item": "landsoficaria:plane_log"
+    }
+  },
+  "pattern": [
+    "X X",
+    "YYY"
+  ],
+  "result": {
+    "item": "landsoficaria:plane_trough"
+  },
+  "show_notification": true
+}

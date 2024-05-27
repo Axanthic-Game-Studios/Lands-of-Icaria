@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "landsoficaria:cypress_planks"
+    },
+    "Y": {
+      "item": "landsoficaria:cypress_log"
+    }
+  },
+  "pattern": [
+    "X X",
+    "YYY"
+  ],
+  "result": {
+    "item": "landsoficaria:cypress_trough"
+  },
+  "show_notification": true
+}
