@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.ArachneHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.IcariaArachnidTargetGoal;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
@@ -109,11 +110,13 @@ public class ArachneEntity extends IcariaArachnidEntity {
     @Override
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         var itemStack = pPlayer.getItemInHand(pHand);
-        if (itemStack.is(IcariaItems.EMPTY_VIAL.get())) {
-            var filledResult = ItemUtils.createFilledResult(itemStack, pPlayer, IcariaItems.ARACHNE_VENOM_VIAL.get().getDefaultInstance());
-            pPlayer.playSound(SoundEvents.BOTTLE_FILL);
-            pPlayer.setItemInHand(pHand, filledResult);
-            return InteractionResult.sidedSuccess(this.level().isClientSide());
+        if (this.getType() == IcariaEntityTypes.ARACHNE.get()) {
+            if (itemStack.is(IcariaItems.EMPTY_VIAL.get())) {
+                var filledResult = ItemUtils.createFilledResult(itemStack, pPlayer, IcariaItems.ARACHNE_VENOM_VIAL.get().getDefaultInstance());
+                pPlayer.playSound(SoundEvents.BOTTLE_FILL);
+                pPlayer.setItemInHand(pHand, filledResult);
+                return InteractionResult.sidedSuccess(this.level().isClientSide());
+            }
         }
 
         return super.mobInteract(pPlayer, pHand);
