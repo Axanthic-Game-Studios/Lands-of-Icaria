@@ -113,6 +113,7 @@ public class ArachneEntity extends IcariaArachnidEntity {
         if (this.getType() == IcariaEntityTypes.ARACHNE.get()) {
             if (itemStack.is(IcariaItems.EMPTY_VIAL.get())) {
                 var filledResult = ItemUtils.createFilledResult(itemStack, pPlayer, IcariaItems.ARACHNE_VENOM_VIAL.get().getDefaultInstance());
+                this.setTarget(pPlayer);
                 pPlayer.playSound(SoundEvents.BOTTLE_FILL);
                 pPlayer.setItemInHand(pHand, filledResult);
                 return InteractionResult.sidedSuccess(this.level().isClientSide());
