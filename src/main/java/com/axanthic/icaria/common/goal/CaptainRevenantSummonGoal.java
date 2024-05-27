@@ -36,7 +36,7 @@ public class CaptainRevenantSummonGoal extends Goal {
             var blockPos = this.entity.blockPosition().offset(-8 + this.entity.getRandom().nextInt(16), 0, -8 + this.entity.getRandom().nextInt(16));
             if (entity != null) {
                 if (level.getBlockState(blockPos).canBeReplaced()) {
-                    if (this.entity.getBlockStateOn().is(IcariaBlockTags.DIRT_AND_SAND)) {
+                    if (level.getBlockState(blockPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
                         entity.moveTo(blockPos, 0.0F, 0.0F);
                         level.addFreshEntity(entity);
                     }
