@@ -37,7 +37,21 @@ import javax.imageio.ImageIO;
 
 public class IcariaClientHelper {
     public static float getLightBasedAlpha(LivingEntity pLivingEntity) {
-        return 1.0F;
+        if (pLivingEntity.level().getDayTime() >= IcariaValues.DUSK_INIT && pLivingEntity.level().getDayTime() < IcariaValues.DUSK_EXIT) {
+            return (pLivingEntity.level().getDayTime() - IcariaValues.DUSK_INIT) / (IcariaValues.DUSK_EXIT - IcariaValues.DUSK_INIT);
+        } else if (pLivingEntity.level().getDayTime() >= IcariaValues.DUSK_INIT && pLivingEntity.level().getDayTime() < IcariaValues.DAWN_INIT) {
+            return 1.0F;
+        } else if (pLivingEntity.level().getDayTime() >= IcariaValues.DAWN_INIT && pLivingEntity.level().getDayTime() < IcariaValues.DAWN_EXIT) {
+            return (IcariaValues.DAWN_EXIT - pLivingEntity.level().getDayTime()) / (IcariaValues.DAWN_EXIT - IcariaValues.DAWN_INIT);
+        } else {
+            return 0.0F;
+        }
+    }
+
+    public static float getLightBasedAlpha2(LivingEntity pLivingEntity, float pPartialTick) {
+        System.out.println(pLivingEntity.level().getSunAngle(pPartialTick));
+
+        return pLivingEntity.level().getSunAngle(pPartialTick) >= Math.PI ? 1.0F : 0.0F;
     }
 
     public static float getRed(BlockEntity pBlockEntity) {
@@ -91,6 +105,8 @@ public class IcariaClientHelper {
             }
         }
     }
+
+
 
     public static void renderRays(PoseStack pPoseStack, MultiBufferSource pBuffer, float pRed, float pGreen, float pBlue) {
         if (IcariaConfig.RENDER_CRYSTAL_RAYS.get()) {
