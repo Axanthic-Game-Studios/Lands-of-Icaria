@@ -99,18 +99,6 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     @Override
-    public void onAddedToWorld() {
-        super.onAddedToWorld();
-        if (this.getType().equals(IcariaEntityTypes.MYRMEKE_QUEEN.get())) {
-            if (this.level().isClientSide()) {
-                this.red = IcariaClientHelper.getRed(this);
-                this.green = IcariaClientHelper.getGreen(this);
-                this.blue = IcariaClientHelper.getBlue(this);
-            }
-        }
-    }
-
-    @Override
     public void playStepSound(BlockPos pPos, BlockState pState) {
         this.playSound(SoundEvents.SPIDER_STEP, 0.1F, 1.0F);
     }
@@ -143,8 +131,20 @@ public class MyrmekeQueenEntity extends Monster {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level().isClientSide()) {
+        if (this.level().isClientSide()) {
+            this.tickRegisterRaysValues();
+        } else {
             this.setClimbing(this.horizontalCollision);
+        }
+    }
+
+    public void tickRegisterRaysValues() {
+        if (this.getType() == IcariaEntityTypes.MYRMEKE_QUEEN.get()) {
+            if (this.tickCount < 20) {
+                this.red = IcariaClientHelper.getRed(this);
+                this.green = IcariaClientHelper.getGreen(this);
+                this.blue = IcariaClientHelper.getBlue(this);
+            }
         }
     }
 

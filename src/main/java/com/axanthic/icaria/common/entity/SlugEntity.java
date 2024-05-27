@@ -186,16 +186,6 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     }
 
     @Override
-    public void onAddedToWorld() {
-        super.onAddedToWorld();
-        if (this.level().isClientSide()) {
-            this.red = IcariaClientHelper.getRed(this);
-            this.green = IcariaClientHelper.getGreen(this);
-            this.blue = IcariaClientHelper.getBlue(this);
-        }
-    }
-
-    @Override
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         this.setCooldown(pCompound.getInt("Cooldown"));
@@ -255,6 +245,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
         super.tick();
         if (this.level().isClientSide()) {
             this.tickParticlePlusSounds();
+            this.tickRegisterRaysValues();
             if (this.isClimbing() || this.isMovingOnLand()) {
                 this.moveAnimationState.startIfStopped(this.tickCount);
             } else {
@@ -289,6 +280,14 @@ public class SlugEntity extends SizedPathfinderMobEntity {
                 double z = this.getZ() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
                 this.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, this.getBlockStateOn()), x, y, z, 0.0D, 0.0D, 0.0D);
             }
+        }
+    }
+
+    public void tickRegisterRaysValues() {
+        if (this.tickCount < 20) {
+            this.red = IcariaClientHelper.getRed(this);
+            this.green = IcariaClientHelper.getGreen(this);
+            this.blue = IcariaClientHelper.getBlue(this);
         }
     }
 

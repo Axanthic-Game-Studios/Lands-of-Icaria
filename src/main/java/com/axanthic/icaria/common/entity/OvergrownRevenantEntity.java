@@ -21,9 +21,15 @@ public class OvergrownRevenantEntity extends RevenantEntity {
     }
 
     @Override
-    public void onAddedToWorld() {
-        super.onAddedToWorld();
+    public void tick() {
+        super.tick();
         if (this.level().isClientSide()) {
+            this.tickRegisterRaysValues();
+        }
+    }
+
+    public void tickRegisterRaysValues() {
+        if (this.tickCount < 20) {
             this.red = IcariaClientHelper.getRed(this);
             this.green = IcariaClientHelper.getGreen(this);
             this.blue = IcariaClientHelper.getBlue(this);
