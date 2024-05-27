@@ -97,8 +97,10 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public void replaceRuined(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos.below()).isAir() && pLevel.getBlockState(pPos).is(IcariaBlockTags.RUINED_VILLAGE_REPLACE_BLOCKS)) {
-            this.place(pLevel, pPos, Blocks.AIR.defaultBlockState());
+        if (pLevel.getBlockState(pPos.below()).isAir() || pLevel.getBlockState(pPos.below()).is(Blocks.COBWEB)) {
+            if (pLevel.getBlockState(pPos).is(IcariaBlockTags.RUINED_VILLAGE_REPLACE_BLOCKS)) {
+                this.place(pLevel, pPos, Blocks.AIR.defaultBlockState());
+            }
         }
     }
 
