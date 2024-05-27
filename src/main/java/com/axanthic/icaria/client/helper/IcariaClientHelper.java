@@ -37,15 +37,7 @@ import javax.imageio.ImageIO;
 
 public class IcariaClientHelper {
     public static float getLightBasedAlpha(LivingEntity pLivingEntity) {
-        if (Minecraft.getInstance().level.getDayTime() >= IcariaValues.DUSK_INIT && Minecraft.getInstance().level.getDayTime() < IcariaValues.DUSK_EXIT) {
-            return (Minecraft.getInstance().level.getDayTime() - IcariaValues.DUSK_INIT) / (IcariaValues.DUSK_EXIT - IcariaValues.DUSK_INIT);
-        } else if (Minecraft.getInstance().level.getDayTime() >= IcariaValues.DUSK_INIT && Minecraft.getInstance().level.getDayTime() < IcariaValues.DAWN_INIT) {
-            return 1.0F;
-        } else if (Minecraft.getInstance().level.getDayTime() >= IcariaValues.DAWN_INIT && Minecraft.getInstance().level.getDayTime() < IcariaValues.DAWN_EXIT) {
-            return (IcariaValues.DAWN_EXIT - Minecraft.getInstance().level.getDayTime()) / (IcariaValues.DAWN_EXIT - IcariaValues.DAWN_INIT);
-        } else {
-            return 0.0F;
-        }
+        return 1.0F;
     }
 
     public static float getRed(BlockEntity pBlockEntity) {
