@@ -25,7 +25,7 @@ public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, Myrme
         this.getParentModel().translateToHead(pPoseStack);
         IcariaClientHelper.setPart(pPoseStack, this.getParentModel().head);
         IcariaClientHelper.setPositionAndSize(pPoseStack, -0.010F, -1.265F, 0.185F, 0.375F);
-        IcariaClientHelper.renderRays(pPoseStack, pBuffer, pLivingEntity, pLivingEntity.red, pLivingEntity.green, pLivingEntity.blue);
+        IcariaClientHelper.renderRays(pPoseStack, pBuffer, pLivingEntity, pPartialTick, pLivingEntity.red, pLivingEntity.green, pLivingEntity.blue);
         pPoseStack.popPose();
     }
 }

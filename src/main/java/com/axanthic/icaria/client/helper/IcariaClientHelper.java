@@ -36,21 +36,7 @@ import javax.imageio.ImageIO;
 @ParametersAreNonnullByDefault
 
 public class IcariaClientHelper {
-    public static float getLightBasedAlpha(LivingEntity pLivingEntity) {
-        if (pLivingEntity.level().getDayTime() >= IcariaValues.DUSK_INIT && pLivingEntity.level().getDayTime() < IcariaValues.DUSK_EXIT) {
-            return (pLivingEntity.level().getDayTime() - IcariaValues.DUSK_INIT) / (IcariaValues.DUSK_EXIT - IcariaValues.DUSK_INIT);
-        } else if (pLivingEntity.level().getDayTime() >= IcariaValues.DUSK_INIT && pLivingEntity.level().getDayTime() < IcariaValues.DAWN_INIT) {
-            return 1.0F;
-        } else if (pLivingEntity.level().getDayTime() >= IcariaValues.DAWN_INIT && pLivingEntity.level().getDayTime() < IcariaValues.DAWN_EXIT) {
-            return (IcariaValues.DAWN_EXIT - pLivingEntity.level().getDayTime()) / (IcariaValues.DAWN_EXIT - IcariaValues.DAWN_INIT);
-        } else {
-            return 0.0F;
-        }
-    }
-
-    public static float getLightBasedAlpha2(LivingEntity pLivingEntity, float pPartialTick) {
-        System.out.println(pLivingEntity.level().getSunAngle(pPartialTick));
-
+    public static float getLightBasedAlpha(LivingEntity pLivingEntity, float pPartialTick) {
         if (pLivingEntity.level().getSunAngle(pPartialTick) >= IcariaValues.DUSK_INIT && pLivingEntity.level().getSunAngle(pPartialTick) < IcariaValues.DUSK_EXIT) {
             return (pLivingEntity.level().getSunAngle(pPartialTick) - IcariaValues.DUSK_INIT) / (IcariaValues.DUSK_EXIT - IcariaValues.DUSK_INIT);
         } else if (pLivingEntity.level().getSunAngle(pPartialTick) >= IcariaValues.DUSK_INIT && pLivingEntity.level().getSunAngle(pPartialTick) < IcariaValues.DAWN_INIT) {
@@ -61,7 +47,6 @@ public class IcariaClientHelper {
             return 0.0F;
         }
     }
-
 
     public static float getRed(BlockEntity pBlockEntity) {
         return IcariaClientHelper.getImageBasedColor(pBlockEntity).getRed() / 255.0F;
@@ -87,13 +72,13 @@ public class IcariaClientHelper {
         return IcariaClientHelper.getImageBasedColor(pLivingEntity).getBlue() / 255.0F;
     }
 
-    public static void renderRays(PoseStack pPoseStack, MultiBufferSource pBuffer, LivingEntity pLivingEntity, float pRed, float pGreen, float pBlue) {
+    public static void renderRays(PoseStack pPoseStack, MultiBufferSource pBuffer, LivingEntity pLivingEntity, float pPartialTick, float pRed, float pGreen, float pBlue) {
         if (IcariaConfig.RENDER_CRYSTAL_RAYS.get()) {
             var matrix4f = pPoseStack.last().pose();
             var randomSource = RandomSource.create(432L);
             var vertexConsumer = pBuffer.getBuffer(IcariaRenderTypes.ADDITIVE_TRANSPARENT);
 
-            float alpha = (0.1F - Math.min(0.0F, 0.1F)) * (!pLivingEntity.isInvisible() ? IcariaClientHelper.getLightBasedAlpha(pLivingEntity) : 0.0F);
+            float alpha = (0.1F - Math.min(0.0F, 0.1F)) * (!pLivingEntity.isInvisible() ? IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick) : 0.0F);
             float length = randomSource.nextFloat() * 2.0F + 1.25F;
             float width = randomSource.nextFloat() * 0.5F + 0.25F;
 
@@ -114,36 +99,6 @@ public class IcariaClientHelper {
             }
         }
     }
-
-    public static void renderRays2(PoseStack pPoseStack, MultiBufferSource pBuffer, LivingEntity pLivingEntity, float pRed, float pGreen, float pBlue, float pPartialTick) {
-        if (IcariaConfig.RENDER_CRYSTAL_RAYS.get()) {
-            var matrix4f = pPoseStack.last().pose();
-            var randomSource = RandomSource.create(432L);
-            var vertexConsumer = pBuffer.getBuffer(IcariaRenderTypes.ADDITIVE_TRANSPARENT);
-
-            float alpha = (0.1F - Math.min(0.0F, 0.1F)) * (!pLivingEntity.isInvisible() ? IcariaClientHelper.getLightBasedAlpha2(pLivingEntity, pPartialTick) : 0.0F);
-            float length = randomSource.nextFloat() * 2.0F + 1.25F;
-            float width = randomSource.nextFloat() * 0.5F + 0.25F;
-
-            for (int i = 0; i < 96; ++i) {
-                pPoseStack.mulPose(Axis.XP.rotationDegrees(randomSource.nextFloat() * 360.0F));
-                pPoseStack.mulPose(Axis.YP.rotationDegrees(randomSource.nextFloat() * 360.0F));
-                pPoseStack.mulPose(Axis.ZP.rotationDegrees(randomSource.nextFloat() * 360.0F));
-
-                IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, alpha);
-                IcariaClientHelper.vertexB(vertexConsumer, matrix4f, length, width);
-                IcariaClientHelper.vertexC(vertexConsumer, matrix4f, length, width);
-                IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, alpha);
-                IcariaClientHelper.vertexC(vertexConsumer, matrix4f, length, width);
-                IcariaClientHelper.vertexD(vertexConsumer, matrix4f, length, width);
-                IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, alpha);
-                IcariaClientHelper.vertexD(vertexConsumer, matrix4f, length, width);
-                IcariaClientHelper.vertexB(vertexConsumer, matrix4f, length, width);
-            }
-        }
-    }
-
-
 
     public static void renderRays(PoseStack pPoseStack, MultiBufferSource pBuffer, float pRed, float pGreen, float pBlue) {
         if (IcariaConfig.RENDER_CRYSTAL_RAYS.get()) {
