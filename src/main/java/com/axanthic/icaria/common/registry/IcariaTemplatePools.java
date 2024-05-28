@@ -208,7 +208,6 @@ public class IcariaTemplatePools {
 	public static StructureTemplatePool revenant(Holder<StructureTemplatePool> pFallback) {
 		return new StructureTemplatePool(pFallback, ImmutableList.of(
 			Pair.of(StructurePoolElement.single(IcariaInfo.ID + ":" + "villages" + "/" + "civilian_revenant"), 1),
-			Pair.of(StructurePoolElement.single(IcariaInfo.ID + ":" + "villages" + "/" + "overgrown_revenant"), 1),
 			Pair.of(StructurePoolElement.single(IcariaInfo.ID + ":" + "villages" + "/" + "pyromancer_revenant"), 1),
 			Pair.of(StructurePoolElement.single(IcariaInfo.ID + ":" + "villages" + "/" + "soldier_revenant"), 1)
 		), StructureTemplatePool.Projection.RIGID);
