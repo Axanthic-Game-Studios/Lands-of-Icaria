@@ -72,10 +72,10 @@ public class IcariaRecipes extends RecipeProvider {
 		this.concoctingPotionRecipe(pConsumer, IcariaItems.PSILOCYBOS.get(), IcariaItems.MOTH_AGARIC.get(), IcariaItems.PSILOCYBOS.get(), IcariaPotions.NAUSEA.get(), 5.0F, 200, 5578058, 200);
 		this.concoctingPotionRecipe(pConsumer, IcariaItems.BONE_REMAINS.get(), IcariaItems.MOTH_AGARIC.get(), IcariaItems.ROWAN.get(), IcariaPotions.WITHER.get(), 5.0F, 200, 7561558, 200);
 
-		this.forgingRecipe(pConsumer, IcariaItems.RAW_CHALKOS.get(), IcariaItems.RAW_CHALKOS.get(), IcariaItems.RAW_KASSITEROS.get(), IcariaItems.ORICHALCUM_INGOT.get(), "_from_raw_forging", 0.3F, 200, 2);
+		this.forgingRecipe(pConsumer, IcariaItems.RAW_CHALKOS.get(), IcariaItems.RAW_CHALKOS.get(), IcariaItems.RAW_KASSITEROS.get(), IcariaItems.ORICHALCUM_INGOT.get(), "_from_raw_forging", 0.3F, 200, 1);
 		this.forgingRecipe(pConsumer, IcariaItems.LIGNITE.get(), IcariaItems.RAW_KASSITEROS.get(), IcariaItems.RAW_VANADIUM.get(), IcariaItems.VANADIUMSTEEL_INGOT.get(), "_from_raw_forging", 0.2F, 150, 1);
 		this.forgingRecipe(pConsumer, IcariaItems.ANTHRACITE.get(), IcariaItems.RAW_MOLYBDENUM.get(), IcariaItems.RAW_SIDEROS.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), "_from_raw_forging", 0.2F, 150, 1);
-		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_INGOT.get(), IcariaItems.CHALKOS_INGOT.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.ORICHALCUM_INGOT.get(), "_from_forging", 0.3F, 200, 3);
+		this.forgingRecipe(pConsumer, IcariaItems.CHALKOS_INGOT.get(), IcariaItems.CHALKOS_INGOT.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.ORICHALCUM_INGOT.get(), "_from_forging", 0.3F, 200, 2);
 		this.forgingRecipe(pConsumer, IcariaItems.LIGNITE.get(), IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.VANADIUM_INGOT.get(), IcariaItems.VANADIUMSTEEL_INGOT.get(), "_from_forging", 0.2F, 150, 2);
 		this.forgingRecipe(pConsumer, IcariaItems.ANTHRACITE.get(), IcariaItems.MOLYBDENUM_INGOT.get(), IcariaItems.SIDEROS_INGOT.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), "_from_forging", 0.2F, 150, 2);
 		this.forgingRecipe(pConsumer, IcariaItems.LIGNITE_ORE.get(), IcariaItems.LIGNITE.get(), 0.1F, 100, 1);
