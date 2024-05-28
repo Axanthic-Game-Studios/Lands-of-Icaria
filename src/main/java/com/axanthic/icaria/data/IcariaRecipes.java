@@ -1552,7 +1552,7 @@ public class IcariaRecipes extends RecipeProvider {
 	}
 
 	public void torchRecipe(Consumer<FinishedRecipe> pConsumer, Item pResource, Item pResult) {
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 2)
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 4)
 			.pattern("X")
 			.pattern("Y")
 			.define('X', pResource)
