@@ -21,32 +21,32 @@ public class CrystalSlugRaysLayer extends RenderLayer<SlugEntity, CrystalSlugMod
 
     @Override
     public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, SlugEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.neck(pPoseStack, pBuffer, pLivingEntity);
-        this.center(pPoseStack, pBuffer, pLivingEntity);
-        this.rear(pPoseStack, pBuffer, pLivingEntity);
+        this.neck(pPoseStack, pBuffer, pLivingEntity, pPartialTick);
+        this.center(pPoseStack, pBuffer, pLivingEntity, pPartialTick);
+        this.rear(pPoseStack, pBuffer, pLivingEntity, pPartialTick);
     }
 
-    public void neck(PoseStack pPoseStack, MultiBufferSource pBuffer, SlugEntity pLivingEntity) {
+    public void neck(PoseStack pPoseStack, MultiBufferSource pBuffer, SlugEntity pLivingEntity, float pPartialTick) {
         pPoseStack.pushPose();
         this.getParentModel().translateToNeck(pPoseStack);
         IcariaClientHelper.setPositionAndSize(pPoseStack, 0.125F, -0.060F, -0.095F, 0.375F);
-        IcariaClientHelper.renderRays(pPoseStack, pBuffer, pLivingEntity, pLivingEntity.red, pLivingEntity.green, pLivingEntity.blue);
+        IcariaClientHelper.renderRays2(pPoseStack, pBuffer, pLivingEntity, pLivingEntity.red, pLivingEntity.green, pLivingEntity.blue, pPartialTick);
         pPoseStack.popPose();
     }
 
-    public void center(PoseStack pPoseStack, MultiBufferSource pBuffer, SlugEntity pLivingEntity) {
+    public void center(PoseStack pPoseStack, MultiBufferSource pBuffer, SlugEntity pLivingEntity, float pPartialTick) {
         pPoseStack.pushPose();
         this.getParentModel().translateToCenter(pPoseStack);
         IcariaClientHelper.setPositionAndSize(pPoseStack, -0.060F, -0.055F, -0.310F, 0.375F);
-        IcariaClientHelper.renderRays(pPoseStack, pBuffer, pLivingEntity, pLivingEntity.red, pLivingEntity.green, pLivingEntity.blue);
+        IcariaClientHelper.renderRays2(pPoseStack, pBuffer, pLivingEntity, pLivingEntity.red, pLivingEntity.green, pLivingEntity.blue, pPartialTick);
         pPoseStack.popPose();
     }
 
-    public void rear(PoseStack pPoseStack, MultiBufferSource pBuffer, SlugEntity pLivingEntity) {
+    public void rear(PoseStack pPoseStack, MultiBufferSource pBuffer, SlugEntity pLivingEntity, float pPartialTick) {
         pPoseStack.pushPose();
         this.getParentModel().translateToRear(pPoseStack);
         IcariaClientHelper.setPositionAndSize(pPoseStack, 0.090F, -0.060F, 0.165F, 0.375F);
-        IcariaClientHelper.renderRays(pPoseStack, pBuffer, pLivingEntity, pLivingEntity.red, pLivingEntity.green, pLivingEntity.blue);
+        IcariaClientHelper.renderRays2(pPoseStack, pBuffer, pLivingEntity, pLivingEntity.red, pLivingEntity.green, pLivingEntity.blue, pPartialTick);
         pPoseStack.popPose();
     }
 }
