@@ -193,8 +193,8 @@ public class HyliasterEntity extends Monster {
             if (size > this.minSize) {
                 if (this.isDeadOrDying()) {
                     for (int l = 0; l < size; ++l) {
-                        float xOffset = ((float) (l % 2) - 0.5F) * size * 0.25F;
-                        float zOffset = ((float) (l / 2) - 0.5F) * size * 0.25F;
+                        float xOffset = ((float) (l % 2) - 0.5F) * size * 0.1F;
+                        float zOffset = ((float) (l / 2) - 0.5F) * size * 0.1F;
                         var entity = IcariaEntityTypes.HYLIASTER.get().create(this.level());
                         if (entity != null) {
                             entity.moveTo(this.getX() + xOffset, this.getY() + 0.5D, this.getZ() + zOffset, this.random.nextFloat() * 360.0F, 0.0F);
