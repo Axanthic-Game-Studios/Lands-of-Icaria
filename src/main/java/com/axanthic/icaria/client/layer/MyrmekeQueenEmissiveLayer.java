@@ -1,7 +1,8 @@
 package com.axanthic.icaria.client.layer;
 
-import com.axanthic.icaria.client.registry.IcariaRenderTypes;
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.model.MyrmekeQueenModel;
+import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -23,6 +24,6 @@ public class MyrmekeQueenEmissiveLayer extends RenderLayer<MyrmekeQueenEntity, M
 
     @Override
     public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, MyrmekeQueenEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(IcariaRenderTypes.MYRMEKE_QUEEN_EMISSIVE), LightTexture.FULL_SKY, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, !pLivingEntity.isInvisible() ? 1.0F : 0.0F);
+        this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(IcariaRenderTypes.MYRMEKE_QUEEN_EMISSIVE), LightTexture.FULL_SKY, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, !pLivingEntity.isInvisible() ? IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick) : 0.0F);
     }
 }
