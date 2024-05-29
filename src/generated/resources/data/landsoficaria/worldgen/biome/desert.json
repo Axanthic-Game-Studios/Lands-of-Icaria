@@ -104,13 +104,13 @@
         "type": "landsoficaria:crawler_revenant",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 10
+        "weight": 100
       },
       {
         "type": "landsoficaria:overgrown_revenant",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 10
+        "weight": 100
       },
       {
         "type": "landsoficaria:scorpion",
