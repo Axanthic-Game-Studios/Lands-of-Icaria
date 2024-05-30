@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -32,8 +33,17 @@ public class IcariaBushBlock extends BushBlock {
 	}
 
 	@Override
-	public boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-		return this.equals(IcariaBlocks.BOLBOS.get())|| this.equals(IcariaBlocks.MONDANOS.get()) ? pState.is(BlockTags.SAND) : pState.is(BlockTags.DIRT);
+	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+		var blockState = pLevel.getBlockState(pPos.below());
+		if (this.equals(IcariaBlocks.NAMDRAKE.get())) {
+			return blockState.is(IcariaBlocks.DRY_LAKE_BED.get());
+		} else if (this.equals(IcariaBlocks.MONDANOS.get())) {
+			return blockState.is(BlockTags.SAND);
+		} else if (this.equals(IcariaBlocks.BOLBOS.get())) {
+			return blockState.is(BlockTags.SAND);
+		} else {
+			return blockState.is(BlockTags.DIRT);
+		}
 	}
 
 	@Override
