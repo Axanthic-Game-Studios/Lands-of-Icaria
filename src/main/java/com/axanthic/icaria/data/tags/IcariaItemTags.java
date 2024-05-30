@@ -270,6 +270,9 @@ public class IcariaItemTags extends ItemTagsProvider {
 		this.tag(Tags.Items.GUNPOWDER)
 			.add(IcariaItems.GREENPOWDER.get());
 
+		this.tag(Tags.Items.ENCHANTING_FUELS)
+			.add(IcariaItems.ZIRCON_SHARD.get());
+
 		this.tag(IcariaItemTags.DUSTS_CALCITE).add(IcariaItems.CALCITE_DUST.get());
 		this.tag(IcariaItemTags.DUSTS_HALITE).add(IcariaItems.HALITE_DUST.get());
 
