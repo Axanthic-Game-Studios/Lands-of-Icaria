@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -79,21 +80,19 @@ public class TroughBlock extends Block {
         if (pState.getValue(IcariaBlockStateProperties.TROUGH_WATER)) {
             if (itemStack.is(Items.BUCKET)) {
                 pLevel.playSound(null, pPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
-                if (!pLevel.isClientSide()) {
-                    pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.TROUGH_WATER, false));
-                    if (!pPlayer.isCreative()) {
-                        pPlayer.setItemInHand(pHand, new ItemStack(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()));
-                    }
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.TROUGH_WATER, false));
+                pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));
+                if (!pPlayer.isCreative()) {
+                    pPlayer.setItemInHand(pHand, new ItemStack(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()));
                 }
             }
         } else {
             if (itemStack.is(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get())) {
                 pLevel.playSound(null, pPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
-                if (!pLevel.isClientSide()) {
-                    pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.TROUGH_WATER, true));
-                    if (!pPlayer.isCreative()) {
-                        pPlayer.setItemInHand(pHand, new ItemStack(Items.BUCKET));
-                    }
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.TROUGH_WATER, true));
+                pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()));
+                if (!pPlayer.isCreative()) {
+                    pPlayer.setItemInHand(pHand, new ItemStack(Items.BUCKET));
                 }
             }
         }
