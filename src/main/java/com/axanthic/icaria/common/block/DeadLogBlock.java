@@ -28,8 +28,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DeadLogBlock extends RotatedPillarBlock implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
-	public static final VoxelShape INSIDE_SHAPE = Block.box(2.0D, 8.0D, 2.0D, 14.0D, 16.0D, 14.0D);
-	public static final VoxelShape SHAPE = Shapes.join(Shapes.block(), Shapes.or(DeadLogBlock.INSIDE_SHAPE), BooleanOp.ONLY_FIRST);
+	public static final VoxelShape SHAPE = Shapes.join(Shapes.block(), Shapes.box(0.125D, 0.5D, 0.125D, 0.875D, 1.0D, 0.875D), BooleanOp.ONLY_FIRST);
 
 	public DeadLogBlock(Properties pProperties) {
 		super(pProperties);
