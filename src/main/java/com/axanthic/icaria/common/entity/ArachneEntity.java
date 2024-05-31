@@ -10,6 +10,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -114,6 +115,7 @@ public class ArachneEntity extends IcariaArachnidEntity {
             if (itemStack.is(IcariaItems.EMPTY_VIAL.get())) {
                 var filledResult = ItemUtils.createFilledResult(itemStack, pPlayer, IcariaItems.ARACHNE_VENOM_VIAL.get().getDefaultInstance());
                 this.setTarget(pPlayer);
+                pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.EMPTY_VIAL.get()));
                 pPlayer.playSound(SoundEvents.BOTTLE_FILL);
                 pPlayer.setItemInHand(pHand, filledResult);
                 return InteractionResult.sidedSuccess(this.level().isClientSide());
