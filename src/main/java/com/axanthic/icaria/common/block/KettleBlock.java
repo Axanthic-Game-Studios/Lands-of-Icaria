@@ -15,6 +15,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -232,6 +233,7 @@ public class KettleBlock extends BaseEntityBlock {
                         pLevel.playSound(null, pPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
                         pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.FILLED).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER));
                         pLevel.setBlockAndUpdate(pPos.above(), pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.FILLED).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
+                        pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()));
                         if (!pPlayer.isCreative()) {
                             pPlayer.setItemInHand(pHand, itemStack);
                         }
@@ -243,6 +245,7 @@ public class KettleBlock extends BaseEntityBlock {
                         pLevel.playSound(null, pPos, SoundEvents.VILLAGER_WORK_LEATHERWORKER, SoundSource.BLOCKS);
                         pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true));
                         pLevel.setBlockAndUpdate(pPos.above(), pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(BlockStateProperties.LIT, true));
+                        pPlayer.awardStat(Stats.ITEM_USED.get(item.getItem()));
                         if (!pPlayer.isCreative()) {
                             item.shrink(1);
                         }
