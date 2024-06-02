@@ -3,19 +3,16 @@
   "category": "misc",
   "ingredients": [
     {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "landsoficaria:vineberries"
+    },
+    {
       "item": "landsoficaria:strawberries"
     },
     {
       "item": "landsoficaria:physalis"
-    },
-    {
-      "item": "minecraft:cocoa_beans"
-    },
-    {
-      "item": "minecraft:melon_slice"
-    },
-    {
-      "item": "minecraft:golden_apple"
     },
     {
       "item": "landsoficaria:laurel_cherry"

@@ -1046,18 +1046,16 @@ public class IcariaRecipes extends RecipeProvider {
 			.save(pConsumer, IcariaItems.SPELT_BREAD.getId());
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.FRUIT_SALAD.get(), 1)
+			.requires(Items.SUGAR)
+			.requires(IcariaItems.VINEBERRIES.get())
 			.requires(IcariaItems.STRAWBERRIES.get())
 			.requires(IcariaItems.PHYSALIS.get())
-			.requires(Items.COCOA_BEANS)
-			.requires(Items.MELON_SLICE)
-			.requires(Items.GOLDEN_APPLE)
 			.requires(IcariaItems.LAUREL_CHERRY.get())
 			.requires(IcariaItems.LOAM_BOWL.get())
+			.unlockedBy("has_" + Items.SUGAR, RecipeProvider.has(Items.SUGAR))
+			.unlockedBy("has_" + IcariaItems.VINEBERRIES.get(), RecipeProvider.has(IcariaItems.VINEBERRIES.get()))
 			.unlockedBy("has_" + IcariaItems.STRAWBERRIES.get(), RecipeProvider.has(IcariaItems.STRAWBERRIES.get()))
 			.unlockedBy("has_" + IcariaItems.PHYSALIS.get(), RecipeProvider.has(IcariaItems.PHYSALIS.get()))
-			.unlockedBy("has_" + Items.COCOA_BEANS, RecipeProvider.has(Items.COCOA_BEANS))
-			.unlockedBy("has_" + Items.MELON_SLICE, RecipeProvider.has(Items.MELON_SLICE))
-			.unlockedBy("has_" + Items.GOLDEN_APPLE, RecipeProvider.has(Items.GOLDEN_APPLE))
 			.unlockedBy("has_" + IcariaItems.LAUREL_CHERRY.get(), RecipeProvider.has(IcariaItems.LAUREL_CHERRY.get()))
 			.unlockedBy("has_" + IcariaItems.LOAM_BOWL.get(), RecipeProvider.has(IcariaItems.LOAM_BOWL.get()))
 			.save(pConsumer, IcariaItems.FRUIT_SALAD.getId());
