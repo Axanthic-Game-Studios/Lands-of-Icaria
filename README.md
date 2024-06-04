@@ -45,7 +45,7 @@ This project is still very much work in progress and we hope to expand our team 
 
 ### License
 
-[![Assets License](https://img.shields.io/badge/assets-CC%20BY--NC--SA%204.0-808080?style=flat-square&labelColor=ffffff)](https://github.com/Axanthic-Game-Studios/Lands-of-Icaria?tab=License-2-ov-file) [![License](https://img.shields.io/badge/source-GPL--3.0-808080?style=flat-square&labelColor=ffffff)](https://github.com/Axanthic-Game-Studios/Lands-of-Icaria?tab=GPL-3.0-1-ov-file#readme)
+[![Assets License](https://img.shields.io/badge/assets-CC%20BY--NC--SA%204.0-808080?style=flat-square&labelColor=ffffff)](https://github.com/Axanthic-Game-Studios/Lands-of-Icaria?tab=License-1-ov-file) [![License](https://img.shields.io/badge/source-GPL--3.0-808080?style=flat-square&labelColor=ffffff)](https://github.com/Axanthic-Game-Studios/Lands-of-Icaria?tab=GPL-3.0-2-ov-file)
 
 Assets of this program are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. Source code of this program is redistributed under the GNU General Public License 3.0.
 
