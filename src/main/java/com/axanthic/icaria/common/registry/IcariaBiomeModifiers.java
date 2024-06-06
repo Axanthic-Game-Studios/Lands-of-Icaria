@@ -19,10 +19,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_ENDER_JELLYFISH = ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(IcariaInfo.ID, "add_ender_jellyfish"));
+    public static final ResourceKey<BiomeModifier> ADD_FIRE_JELLYFISH = ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(IcariaInfo.ID, "add_fire_jellyfish"));
     public static final ResourceKey<BiomeModifier> ADD_NETHER_PYROMANCER_REVENANT = ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(IcariaInfo.ID, "add_nether_pyromancer_revenant"));
 
     public static void bootstrap(BootstapContext<BiomeModifier> pContext) {
         pContext.register(IcariaBiomeModifiers.ADD_ENDER_JELLYFISH, ForgeBiomeModifiers.AddSpawnsBiomeModifier.singleSpawn(pContext.lookup(Registries.BIOME).getOrThrow(BiomeTags.IS_END), new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ENDER_JELLYFISH.get(), 10, 4, 4)));
+        pContext.register(IcariaBiomeModifiers.ADD_FIRE_JELLYFISH, ForgeBiomeModifiers.AddSpawnsBiomeModifier.singleSpawn(pContext.lookup(Registries.BIOME).getOrThrow(BiomeTags.IS_NETHER), new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FIRE_JELLYFISH.get(), 10, 4, 4)));
         pContext.register(IcariaBiomeModifiers.ADD_NETHER_PYROMANCER_REVENANT, ForgeBiomeModifiers.AddSpawnsBiomeModifier.singleSpawn(pContext.lookup(Registries.BIOME).getOrThrow(BiomeTags.IS_NETHER), new MobSpawnSettings.SpawnerData(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 10, 4, 4)));
     }
 }
