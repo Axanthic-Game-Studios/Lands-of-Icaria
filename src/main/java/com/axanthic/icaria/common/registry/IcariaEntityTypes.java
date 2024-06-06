@@ -34,7 +34,7 @@ public class IcariaEntityTypes {
 	public static final RegistryObject<EntityType<ForestHagEntity>> POPULUS_FOREST_HAG = IcariaEntityTypes.register("populus_forest_hag", Builder.of(ForestHagEntity::new, MobCategory.MONSTER).sized(0.99F, 2.99F));
 	public static final RegistryObject<EntityType<HyliasterEntity>> HYLIASTER = IcariaEntityTypes.register("hyliaster", Builder.of(HyliasterEntity::new, MobCategory.MONSTER).sized(0.18749F, 0.18749F));
 	public static final RegistryObject<EntityType<JellyfishEntity>> ENDER_JELLYFISH = IcariaEntityTypes.register("ender_jellyfish", Builder.of(JellyfishEntity::new, MobCategory.CREATURE).sized(0.749F, 0.749F));
-	public static final RegistryObject<EntityType<JellyfishEntity>> FIRE_JELLYFISH = IcariaEntityTypes.register("fire_jellyfish", Builder.of(JellyfishEntity::new, MobCategory.CREATURE).sized(0.749F, 0.749F));
+	public static final RegistryObject<EntityType<JellyfishEntity>> FIRE_JELLYFISH = IcariaEntityTypes.register("fire_jellyfish", Builder.of(JellyfishEntity::new, MobCategory.CREATURE).fireImmune().sized(0.749F, 0.749F));
 	public static final RegistryObject<EntityType<JellyfishEntity>> NATURE_JELLYFISH = IcariaEntityTypes.register("nature_jellyfish", Builder.of(JellyfishEntity::new, MobCategory.CREATURE).sized(0.749F, 0.749F));
 	public static final RegistryObject<EntityType<JellyfishEntity>> VOID_JELLYFISH = IcariaEntityTypes.register("void_jellyfish", Builder.of(JellyfishEntity::new, MobCategory.CREATURE).sized(0.749F, 0.749F));
 	public static final RegistryObject<EntityType<JellyfishEntity>> WATER_JELLYFISH = IcariaEntityTypes.register("water_jellyfish", Builder.of(JellyfishEntity::new, MobCategory.CREATURE).sized(0.749F, 0.749F));
