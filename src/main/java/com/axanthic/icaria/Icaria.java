@@ -1,160 +1,107 @@
 package com.axanthic.icaria;
 
-import com.axanthic.icaria.client.effects.IcariaSpecialEffects;
-import com.axanthic.icaria.client.proxy.ClientProxy;
+import com.axanthic.icaria.client.screen.ForgeScreen;
+import com.axanthic.icaria.client.screen.GrinderScreen;
+import com.axanthic.icaria.client.screen.KilnScreen;
+import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.config.IcariaConfig;
-import com.axanthic.icaria.common.proxy.CommonProxy;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
-import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
-import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.entity.living.MobEffectEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.Ingredient;
 
-import javax.annotation.Nonnull;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
+@ParametersAreNonnullByDefault
+
 @Mod(IcariaInfo.ID)
-@Mod.EventBusSubscriber(modid = IcariaInfo.ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class Icaria {
-	public CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
-
-	public Icaria() {
-		var eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+	public Icaria(IEventBus pBus) {
 		IcariaConfig.registerClientConfig();
 		IcariaConfig.registerCommonConfig();
 		IcariaConfig.registerServerConfig();
 
-		eventBus.addListener(this::onCreativeModeTabRegistration);
-		eventBus.addListener(this::onEntityAttributeCreation);
-		eventBus.addListener(this::onFMLClientSetup);
-		eventBus.addListener(this::onFMLCommonSetup);
-		eventBus.addListener(this::onFMLLoadComplete);
-		eventBus.addListener(this::onGatherData);
-		eventBus.addListener(this::onRegisterLayerDefinitions);
-		eventBus.addListener(this::onSpawnPlacementRegister);
+		pBus.addListener(this::onFMLClientSetup);
+		pBus.addListener(this::onFMLCommonSetup);
 
-		IcariaBlocks.BLOCKS.register(eventBus);
-		IcariaStoneDecoBlocks.BLOCKS.register(eventBus);
-		IcariaWoodDecoBlocks.BLOCKS.register(eventBus);
-		IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(eventBus);
-		IcariaCreativeModeTabs.CREATIVE_MODE_TABS.register(eventBus);
-		IcariaEntityTypes.ENTITY_TYPES.register(eventBus);
-		IcariaFeatures.FEATURES.register(eventBus);
-		IcariaFluids.FLUIDS.register(eventBus);
-		IcariaFluidTypes.FLUID_TYPES.register(eventBus);
-		IcariaItems.ITEMS.register(eventBus);
-		IcariaArmorItems.ITEMS.register(eventBus);
-		IcariaStoneDecoItems.ITEMS.register(eventBus);
-		IcariaToolItems.ITEMS.register(eventBus);
-		IcariaWoodDecoItems.ITEMS.register(eventBus);
-		IcariaMenus.MENUS.register(eventBus);
-		IcariaMobEffects.MOB_EFFECTS.register(eventBus);
-		IcariaPoiTypes.POI_TYPES.register(eventBus);
-		IcariaPotions.POTIONS.register(eventBus);
-		IcariaRecipeSerializers.RECIPE_SERIALIZERS.register(eventBus);
-		IcariaRecipeTypes.RECIPE_TYPES.register(eventBus);
-		IcariaStructureTypes.STRUCTURE_TYPES.register(eventBus);
-
-		MinecraftForge.EVENT_BUS.register(this);
-	}
-
-	public void onCreativeModeTabRegistration(BuildCreativeModeTabContentsEvent pEvent) {
-		this.proxy.onCreativeModeTabRegistration(pEvent);
-	}
-
-	public void onEntityAttributeCreation(EntityAttributeCreationEvent pEvent) {
-		this.proxy.onEntityAttributeCreation(pEvent);
+		IcariaBlocks.BLOCKS.register(pBus);
+		IcariaStoneDecoBlocks.BLOCKS.register(pBus);
+		IcariaWoodDecoBlocks.BLOCKS.register(pBus);
+		IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(pBus);
+		IcariaCreativeModeTabs.CREATIVE_MODE_TABS.register(pBus);
+		IcariaEntityTypes.ENTITY_TYPES.register(pBus);
+		IcariaFeatures.FEATURES.register(pBus);
+		IcariaFluids.FLUIDS.register(pBus);
+		IcariaFluidTypes.FLUID_TYPES.register(pBus);
+		IcariaItems.ITEMS.register(pBus);
+		IcariaArmorItems.ITEMS.register(pBus);
+		IcariaStoneDecoItems.ITEMS.register(pBus);
+		IcariaToolItems.ITEMS.register(pBus);
+		IcariaWoodDecoItems.ITEMS.register(pBus);
+		IcariaMenus.MENUS.register(pBus);
+		IcariaMobEffects.MOB_EFFECTS.register(pBus);
+		IcariaPoiTypes.POI_TYPES.register(pBus);
+		IcariaPotions.POTIONS.register(pBus);
+		IcariaRecipeSerializers.RECIPE_SERIALIZERS.register(pBus);
+		IcariaRecipeTypes.RECIPE_TYPES.register(pBus);
+		IcariaStructureTypes.STRUCTURE_TYPES.register(pBus);
 	}
 
 	public void onFMLClientSetup(FMLClientSetupEvent pEvent) {
-		this.proxy.onFMLClientSetup(pEvent);
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.FORGE.get(), ForgeScreen::new));
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.GRINDER.get(), GrinderScreen::new));
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.KILN.get(), KilnScreen::new));
+		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.STORAGE_VASE.get(), StorageVaseScreen::new));
+
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.CYPRESS));
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.DROUGHTROOT));
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.FIR));
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.LAUREL));
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.OLIVE));
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.PLANE));
+		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.POPULUS));
+
+		pEvent.enqueueWork(Sheets::translucentCullBlockSheet);
+
+		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), IcariaResourceLocations.THROWING, (pItemStack, pClientLevel, pLivingEntity, pId) -> pLivingEntity != null && pLivingEntity.isUsingItem() && pLivingEntity.getUseItem() == pItemStack ? 1.0F : 0.0F);
+		ItemProperties.register(IcariaItems.VINEGAR.get(), IcariaResourceLocations.THROWING, (pItemStack, pClientLevel, pLivingEntity, pId) -> pLivingEntity != null && pLivingEntity.isUsingItem() && pLivingEntity.getUseItem() == pItemStack ? 1.0F : 0.0F);
+
+		for (var items : IcariaToolItems.TOOL_ITEMS) {
+			ItemProperties.register(items.bident.get(), IcariaResourceLocations.THROWING, (pItemStack, pClientLevel, pLivingEntity, pId) -> pLivingEntity != null && pLivingEntity.isUsingItem() && pLivingEntity.getUseItem() == pItemStack ? 1.0F : 0.0F);
+		}
 	}
 
 	public void onFMLCommonSetup(FMLCommonSetupEvent pEvent) {
-		this.proxy.onFMLCommonSetup(pEvent);
+		pEvent.enqueueWork(IcariaCompostables::setup);
+		pEvent.enqueueWork(IcariaFlammables::setup);
+		pEvent.enqueueWork(IcariaPottables::setup);
+		pEvent.enqueueWork(IcariaStrippables::setup);
+		pEvent.enqueueWork(IcariaWoodTypes::setup);
+
+		pEvent.enqueueWork(() -> this.setupBrewing(IcariaItems.BLINDWEED.get(), Potions.AWKWARD, IcariaPotions.BLINDNESS.get()));
+		pEvent.enqueueWork(() -> this.setupBrewing(IcariaItems.SNULL_CREAM.get(), Potions.AWKWARD, IcariaPotions.NAUSEA.get()));
+		pEvent.enqueueWork(() -> this.setupBrewing(Items.WITHER_ROSE, Potions.AWKWARD, IcariaPotions.WITHER.get()));
 	}
 
-	public void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {
-		this.proxy.onFMLLoadComplete(pEvent);
-	}
-
-	public void onGatherData(GatherDataEvent pEvent) {
-		this.proxy.onGatherData(pEvent);
-	}
-
-	public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions pEvent) {
-		this.proxy.onRegisterLayerDefinitions(pEvent);
-	}
-
-	public void onSpawnPlacementRegister(SpawnPlacementRegisterEvent pEvent) {
-		this.proxy.onSpawnPlacementRegister(pEvent);
-	}
-
-	@SubscribeEvent
-	public void onEntityAttributeModification(EntityAttributeModificationEvent pEvent) {
-		this.proxy.onEntityAttributeModification(pEvent);
-	}
-
-	@SubscribeEvent
-	public void onLivingAttack(LivingAttackEvent pEvent) {
-		this.proxy.onLivingAttack(pEvent);
-	}
-
-	@SubscribeEvent
-	public void onMobEffectApplicable(MobEffectEvent.Applicable pEvent) {
-		this.proxy.onMobEffectApplicable(pEvent);
-	}
-
-	@SubscribeEvent
-	public void onPlayerInteract(PlayerInteractEvent pEvent) {
-		this.proxy.onPlayerInteract(pEvent);
-	}
-
-	@SubscribeEvent
-	public void onEntityInteract(PlayerInteractEvent.EntityInteract pEvent) {
-		this.proxy.onEntityInteract(pEvent);
-	}
-
-	@SubscribeEvent
-	public void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock pEvent) {
-		this.proxy.onLeftClickBlock(pEvent);
-	}
-
-	@SubscribeEvent
-	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock pEvent) {
-		this.proxy.onRightClickBlock(pEvent);
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	@SubscribeEvent
-	public static void onRegisterDimensionSpecialEffects(@Nonnull RegisterDimensionSpecialEffectsEvent pEvent) {
-		pEvent.register(IcariaResourceLocations.ICARIA, new IcariaSpecialEffects());
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	@SubscribeEvent
-	public void onRenderLivingPre(RenderLivingEvent.Pre<?, ?> pEvent) {
-		this.proxy.onRenderLivingPre(pEvent);
+	public void setupBrewing(Item pItem, Potion pPotion, Potion pResult) {
+		var potion = new ItemStack(Items.POTION);
+		BrewingRecipeRegistry.addRecipe(Ingredient.of(PotionUtils.setPotion(potion.copy(), pPotion)), Ingredient.of(pItem), PotionUtils.setPotion(potion.copy(), pResult));
 	}
 }

@@ -4,35 +4,35 @@ import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.FrameType;
-import net.minecraft.advancements.RequirementsStrategy;
+import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.common.data.ForgeAdvancementProvider;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.common.data.AdvancementProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.AdvancementGenerator {
+public class IcariaSimpleAdvancements implements AdvancementProvider.AdvancementGenerator {
+
     @Override
-    public void generate(HolderLookup.Provider pProvider, Consumer<Advancement> pConsumer, ExistingFileHelper pHelper) {
+    public void generate(HolderLookup.Provider pProvider, Consumer<AdvancementHolder> pConsumer, ExistingFileHelper pHelper) {
         var rootTrigger = ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(IcariaDimensions.ICARIA);
         var arachneTrigger = KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(IcariaEntityTypes.ARACHNE.get()));
         var captainRevenantTrigger = KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(IcariaEntityTypes.CAPTAIN_REVENANT.get()));
-        var chestTrigger = ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(IcariaBlocks.CHEST.get()).build()), ItemPredicate.Builder.item().of(IcariaItems.CHEST_LABEL.get()));
-        var barrelTrigger = EffectsChangedTrigger.TriggerInstance.gotEffectsFrom(EntityPredicate.Builder.entity().of(IcariaEntityTypes.BARREL.get()).build());
-        var lootVaseTrigger = EffectsChangedTrigger.TriggerInstance.gotEffectsFrom(EntityPredicate.Builder.entity().of(IcariaEntityTypes.LOOT_VASE.get()).build());
+        var chestTrigger = ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(IcariaBlocks.CHEST.get())), ItemPredicate.Builder.item().of(IcariaItems.CHEST_LABEL.get()));
+        var barrelTrigger = EffectsChangedTrigger.TriggerInstance.gotEffectsFrom(EntityPredicate.Builder.entity().of(IcariaEntityTypes.BARREL.get()));
+        var lootVaseTrigger = EffectsChangedTrigger.TriggerInstance.gotEffectsFrom(EntityPredicate.Builder.entity().of(IcariaEntityTypes.LOOT_VASE.get()));
         var storageVaseTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.STORAGE_VASE.get());
         var chertPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.CHERT_TOOLS.pickaxe.get());
         var chalkosPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.CHALKOS_TOOLS.pickaxe.get());
@@ -41,7 +41,7 @@ public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.Advanc
         var forgeTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.FORGE.get());
         var orichalcumPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.ORICHALCUM_TOOLS.pickaxe.get());
         var grinderTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.GRINDER.get());
-        var fertilizedFarmlandTrigger = ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(IcariaBlocks.FERTILIZED_FARMLAND.get()).build()), ItemPredicate.Builder.item().of(IcariaItems.CALCITE_DUST.get()));
+        var fertilizedFarmlandTrigger = ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(IcariaBlocks.FERTILIZED_FARMLAND.get())), ItemPredicate.Builder.item().of(IcariaItems.CALCITE_DUST.get()));
         var vanadiumsteelPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.VANADIUMSTEEL_TOOLS.pickaxe.get());
         var kettleTrigger = ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.KETTLE.get());
         var siderosPickaxeTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(IcariaItems.SIDEROS_TOOLS.pickaxe.get());
@@ -68,19 +68,19 @@ public class IcariaSimpleAdvancements implements ForgeAdvancementProvider.Advanc
         var molybdenumsteelPickaxe = IcariaSimpleAdvancements.advancement("molybdenumsteel_pickaxe", molybdenumsteelPickaxeTrigger, siderosPickaxe, pConsumer, IcariaItems.MOLYBDENUMSTEEL_TOOLS.pickaxe, FrameType.TASK, true, true, false);
     }
 
-    public static Advancement advancement(String pKey, AbstractCriterionTriggerInstance pTrigger, Consumer<Advancement> pConsumer, RegistryObject<Item> pItem, FrameType pFrame, boolean pToast, boolean pChat, boolean pHidden) {
+    public static AdvancementHolder advancement(String pKey, Criterion<?> pTrigger, Consumer<AdvancementHolder> pConsumer, Supplier<Item> pItem, FrameType pFrame, boolean pToast, boolean pChat, boolean pHidden) {
         return Advancement.Builder.advancement().addCriterion(pKey, pTrigger).display(pItem.get(), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "title"), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "description"), IcariaResourceLocations.BACKGROUND, pFrame, pToast, pChat, pHidden).save(pConsumer, IcariaInfo.ID + ":" + pKey);
     }
 
-    public static Advancement advancement(String pKey, AbstractCriterionTriggerInstance pTrigger, Advancement pParent, Consumer<Advancement> pConsumer, RegistryObject<Item> pItem, FrameType pFrame, boolean pToast, boolean pChat, boolean pHidden) {
+    public static AdvancementHolder advancement(String pKey, Criterion<?> pTrigger, AdvancementHolder pParent, Consumer<AdvancementHolder> pConsumer, Supplier<Item> pItem, FrameType pFrame, boolean pToast, boolean pChat, boolean pHidden) {
         return Advancement.Builder.advancement().addCriterion(pKey, pTrigger).display(pItem.get(), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "title"), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "description"), IcariaResourceLocations.BACKGROUND, pFrame, pToast, pChat, pHidden).parent(pParent).save(pConsumer, IcariaInfo.ID + ":" + pKey);
     }
 
-    public static Advancement icariaChest(String pKey, AbstractCriterionTriggerInstance pTrigger, Advancement pParent, Consumer<Advancement> pConsumer, RegistryObject<Item> pItem, FrameType pFrame, boolean pToast, boolean pChat, boolean pHidden) {
-        return Advancement.Builder.advancement().addCriterion(pKey, pTrigger).addCriterion("trapped_chest", ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(IcariaBlocks.TRAPPED_CHEST.get()).build()), ItemPredicate.Builder.item().of(IcariaItems.CHEST_LABEL.get()))).display(pItem.get(), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "title"), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "description"), IcariaResourceLocations.BACKGROUND, pFrame, pToast, pChat, pHidden).parent(pParent).requirements(RequirementsStrategy.OR).save(pConsumer, IcariaInfo.ID + ":" + pKey);
+    public static AdvancementHolder icariaChest(String pKey, Criterion<?> pTrigger, AdvancementHolder pParent, Consumer<AdvancementHolder> pConsumer, Supplier<Item> pItem, FrameType pFrame, boolean pToast, boolean pChat, boolean pHidden) {
+        return Advancement.Builder.advancement().addCriterion(pKey, pTrigger).addCriterion("trapped_chest", ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(IcariaBlocks.TRAPPED_CHEST.get())), ItemPredicate.Builder.item().of(IcariaItems.CHEST_LABEL.get()))).display(pItem.get(), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "title"), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "description"), IcariaResourceLocations.BACKGROUND, pFrame, pToast, pChat, pHidden).parent(pParent).requirements(AdvancementRequirements.Strategy.OR).save(pConsumer, IcariaInfo.ID + ":" + pKey);
     }
 
-    public static Advancement storageVase(String pKey, AbstractCriterionTriggerInstance pTrigger, Advancement pParent, Consumer<Advancement> pConsumer, RegistryObject<Item> pItem, FrameType pFrame, boolean pToast, boolean pChat, boolean pHidden) {
-        return Advancement.Builder.advancement().addCriterion(pKey, pTrigger).addCriterion("white_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.WHITE_STORAGE_VASE.get())).addCriterion("light_gray_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get())).addCriterion("gray_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.GRAY_STORAGE_VASE.get())).addCriterion("black_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.BLACK_STORAGE_VASE.get())).addCriterion("brown_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.BROWN_STORAGE_VASE.get())).addCriterion("red_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.RED_STORAGE_VASE.get())).addCriterion("orange_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.ORANGE_STORAGE_VASE.get())).addCriterion("yellow_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.YELLOW_STORAGE_VASE.get())).addCriterion("lime_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.LIME_STORAGE_VASE.get())).addCriterion("green_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.GREEN_STORAGE_VASE.get())).addCriterion("cyan_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.CYAN_STORAGE_VASE.get())).addCriterion("light_blue_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.LIGHT_BLUE_STORAGE_VASE.get())).addCriterion("blue_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.BLUE_STORAGE_VASE.get())).addCriterion("purple_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.PURPLE_STORAGE_VASE.get())).addCriterion("magenta_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.MAGENTA_STORAGE_VASE.get())).addCriterion("pink_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.PINK_STORAGE_VASE.get())).display(pItem.get(), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "title"), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "description"), IcariaResourceLocations.BACKGROUND, pFrame, pToast, pChat, pHidden).parent(pParent).requirements(RequirementsStrategy.OR).save(pConsumer, IcariaInfo.ID + ":" + pKey);
+    public static AdvancementHolder storageVase(String pKey, Criterion<?> pTrigger, AdvancementHolder pParent, Consumer<AdvancementHolder> pConsumer, Supplier<Item> pItem, FrameType pFrame, boolean pToast, boolean pChat, boolean pHidden) {
+        return Advancement.Builder.advancement().addCriterion(pKey, pTrigger).addCriterion("white_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.WHITE_STORAGE_VASE.get())).addCriterion("light_gray_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get())).addCriterion("gray_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.GRAY_STORAGE_VASE.get())).addCriterion("black_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.BLACK_STORAGE_VASE.get())).addCriterion("brown_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.BROWN_STORAGE_VASE.get())).addCriterion("red_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.RED_STORAGE_VASE.get())).addCriterion("orange_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.ORANGE_STORAGE_VASE.get())).addCriterion("yellow_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.YELLOW_STORAGE_VASE.get())).addCriterion("lime_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.LIME_STORAGE_VASE.get())).addCriterion("green_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.GREEN_STORAGE_VASE.get())).addCriterion("cyan_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.CYAN_STORAGE_VASE.get())).addCriterion("light_blue_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.LIGHT_BLUE_STORAGE_VASE.get())).addCriterion("blue_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.BLUE_STORAGE_VASE.get())).addCriterion("purple_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.PURPLE_STORAGE_VASE.get())).addCriterion("magenta_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.MAGENTA_STORAGE_VASE.get())).addCriterion("pink_storage_vase", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(IcariaBlocks.PINK_STORAGE_VASE.get())).display(pItem.get(), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "title"), Component.translatable("advancement" + "." + IcariaInfo.ID + "." + pKey + "." + "description"), IcariaResourceLocations.BACKGROUND, pFrame, pToast, pChat, pHidden).parent(pParent).requirements(AdvancementRequirements.Strategy.OR).save(pConsumer, IcariaInfo.ID + ":" + pKey);
     }
 }

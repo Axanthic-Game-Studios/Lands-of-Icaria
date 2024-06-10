@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_silkglass": {
+    "has_landsoficaria:silkglass": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_silkglass",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:silkglass"
     ]
   ],
   "rewards": {

@@ -8,7 +8,7 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.data.PackOutput;
 
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class IcariaEnglish extends LanguageProvider {
 	public IcariaEnglish(PackOutput pPackOutput, String pId, String pLanguage) {
@@ -17,7 +17,6 @@ public class IcariaEnglish extends LanguageProvider {
 
 	@Override
 	public void addTranslations() {
-		// ADVANCEMENTS
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "title", "The Lands of Icaria");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "arachne" + "." + "title", "Caught in the net!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "title", "Wasn't it dead already?");
@@ -58,7 +57,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "description", "Craft a Sideros Pickaxe");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "description", "Craft a Molybdenumsteel Pickaxe");
 
-		// BIOMES
 		this.add("biome" + "." + IcariaInfo.ID + "." + "forest", "Icarian Forest");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "forest_plateau", "Icarian Forest Plateau");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "scrubland", "Icarian Scrubland");
@@ -69,7 +67,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("biome" + "." + IcariaInfo.ID + "." + "desert_plateau", "Icarian Desert Plateau");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "void", "Icarian Void");
 
-		// BLOCKS
 		this.add(IcariaBlocks.GRASSY_MARL.get(), "Grassy Marl");
 		this.add(IcariaBlocks.MARL.get(), "Marl");
 		this.add(IcariaBlocks.MARL_CHERT.get(), "Chert Ore");
@@ -725,17 +722,14 @@ public class IcariaEnglish extends LanguageProvider {
 
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
-		// CATEGORIES
 		this.add("category" + "." + IcariaInfo.ID + "." + "firing", "Firing");
 		this.add("category" + "." + IcariaInfo.ID + "." + "forging", "Forging");
 		this.add("category" + "." + IcariaInfo.ID + "." + "grinding", "Grinding");
 
-		// EFFECTS
 		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), "Blindness Immunity");
 		this.add(IcariaMobEffects.FREEZING.get(), "Freezing");
 		this.add(IcariaMobEffects.LIFESTEAL.get(), "Lifesteal");
 
-		// ENTITY TYPES
 		this.add(IcariaEntityTypes.AETERNAE.get(), "Aeternae");
 		this.add(IcariaEntityTypes.ARACHNE.get(), "Arachne");
 		this.add(IcariaEntityTypes.ARACHNE_DRONE.get(), "Arachne Drone");
@@ -785,10 +779,8 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.VINEGAR.get(), "Vinegar");
 		this.add(IcariaEntityTypes.VINEGAROON.get(), "Vinegaroon");
 
-		// FLUIDS
 		this.add("fluid" + "." + IcariaInfo.ID + "." + "mediterranean_water", "Mediterranean Water");
 
-		// ITEMS
 		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "blindness", "Arrow of Blindness");
 		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "nausea", "Arrow of Nausea");
 		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "wither", "Arrow of Wither");
@@ -1065,18 +1057,15 @@ public class IcariaEnglish extends LanguageProvider {
 
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Mediterranean Water Bucket");
 
-		// ITEM GROUPS
 		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "blocks", "Lands of Icaria Blocks");
 		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "flora", "Lands of Icaria Flora");
 		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "items", "Lands of Icaria Items");
 
-		// MENU TYPES
 		this.add("menu" + "." + IcariaInfo.ID + "." + "forge", "Forge");
 		this.add("menu" + "." + IcariaInfo.ID + "." + "grinder", "Grinder");
 		this.add("menu" + "." + IcariaInfo.ID + "." + "kiln", "Kiln");
 		this.add("menu" + "." + IcariaInfo.ID + "." + "storage_vase", "Storage Vase");
 
-		// MESSAGES
 		this.add("message" + "." + IcariaInfo.ID + "." + "barrel", "Sneak to throw the barrel");
 		this.add("message" + "." + IcariaInfo.ID + "." + "chest_label", "Chest label name too long");
 		this.add("message" + "." + IcariaInfo.ID + "." + "loot_vase", "Sneak to throw loot vase");

@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "landsoficaria:vanadium_ingot_to_block"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vanadium_ingot": {
+    "has_landsoficaria:vanadium_ingot": {
       "conditions": {
         "items": [
           {
@@ -18,12 +12,18 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:vanadium_ingot_to_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_vanadium_ingot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:vanadium_ingot"
     ]
   ],
   "rewards": {

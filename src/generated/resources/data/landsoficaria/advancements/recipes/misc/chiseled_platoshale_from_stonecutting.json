@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_platoshale": {
+    "has_landsoficaria:platoshale": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_platoshale_bricks": {
+    "has_landsoficaria:platoshale_bricks": {
       "conditions": {
         "items": [
           {
@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
-      "has_platoshale",
-      "has_platoshale_bricks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:platoshale",
+      "has_landsoficaria:platoshale_bricks"
     ]
   ],
   "rewards": {

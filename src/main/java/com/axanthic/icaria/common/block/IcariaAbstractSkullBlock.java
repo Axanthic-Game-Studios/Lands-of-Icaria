@@ -16,6 +16,7 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 

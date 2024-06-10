@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ender_jellyfish_jelly": {
+    "has_landsoficaria:ender_jellyfish_jelly": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_laurel_cherry": {
+    "has_landsoficaria:laurel_cherry": {
       "conditions": {
         "items": [
           {
@@ -25,19 +25,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_milk_bucket": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:milk_bucket"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_spelt_flour": {
+    "has_landsoficaria:spelt_flour": {
       "conditions": {
         "items": [
           {
@@ -49,7 +37,19 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_sugar": {
+    "has_minecraft:milk_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:milk_bucket"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:sugar": {
       "conditions": {
         "items": [
           {
@@ -70,12 +70,12 @@
   },
   "requirements": [
     [
-      "has_ender_jellyfish_jelly",
-      "has_laurel_cherry",
-      "has_sugar",
-      "has_milk_bucket",
-      "has_spelt_flour",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:ender_jellyfish_jelly",
+      "has_landsoficaria:laurel_cherry",
+      "has_minecraft:sugar",
+      "has_minecraft:milk_bucket",
+      "has_landsoficaria:spelt_flour"
     ]
   ],
   "rewards": {

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_laurel_planks": {
+    "has_landsoficaria:laurel_planks": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_laurel_planks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:laurel_planks"
     ]
   ],
   "rewards": {

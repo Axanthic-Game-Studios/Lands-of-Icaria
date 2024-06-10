@@ -11,7 +11,7 @@
     }
   ],
   "output": {
-    "count": 4,
-    "item": "minecraft:magma_cream"
+    "Count": 4,
+    "id": "minecraft:magma_cream"
   }
 }

@@ -14,7 +14,7 @@
     }
   ],
   "output": {
-    "count": 1,
-    "item": "landsoficaria:magic_missile_spell"
+    "Count": 1,
+    "id": "landsoficaria:magic_missile_spell"
   }
 }

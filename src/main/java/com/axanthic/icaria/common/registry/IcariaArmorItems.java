@@ -6,12 +6,11 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
-
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -22,10 +21,10 @@ public class IcariaArmorItems {
 
     public static final List<IcariaArmorItems> ARMOR_ITEMS = new ArrayList<>();
 
-    public RegistryObject<Item> helmet;
-    public RegistryObject<Item> chestplate;
-    public RegistryObject<Item> leggings;
-    public RegistryObject<Item> boots;
+    public Supplier<Item> helmet;
+    public Supplier<Item> chestplate;
+    public Supplier<Item> leggings;
+    public Supplier<Item> boots;
 
     public IcariaArmorItems(IcariaArmorMaterials pMaterial) {
         var name = pMaterial.name;

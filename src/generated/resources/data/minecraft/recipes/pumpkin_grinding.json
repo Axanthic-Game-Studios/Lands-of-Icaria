@@ -11,7 +11,7 @@
     }
   ],
   "output": {
-    "count": 12,
-    "item": "minecraft:pumpkin_seeds"
+    "Count": 12,
+    "id": "minecraft:pumpkin_seeds"
   }
 }

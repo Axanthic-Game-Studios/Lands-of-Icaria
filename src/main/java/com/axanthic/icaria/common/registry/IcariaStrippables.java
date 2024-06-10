@@ -5,6 +5,7 @@ import com.axanthic.icaria.mixin.AxeItemMixin;
 import java.util.IdentityHashMap;
 
 public class IcariaStrippables {
+
 	public static void setup() {
 		var strippables = new IdentityHashMap<>(AxeItemMixin.getIcariaStrippables());
 

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_blue_hydracinth": {
+    "has_landsoficaria:blue_hydracinth": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_blue_hydracinth",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:blue_hydracinth"
     ]
   ],
   "rewards": {

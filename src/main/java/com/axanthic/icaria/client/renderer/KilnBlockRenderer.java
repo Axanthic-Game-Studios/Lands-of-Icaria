@@ -16,11 +16,12 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
+
 @ParametersAreNonnullByDefault
 
 public class KilnBlockRenderer implements BlockEntityRenderer<KilnBlockEntity> {
 	public KilnBlockRenderer(BlockEntityRendererProvider.Context pContext) {
-		// NOOP
+
 	}
 
 	@Override

@@ -15,14 +15,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.entity.BlockEntity;
-
-import net.minecraftforge.registries.ForgeRegistries;
 
 import org.joml.Matrix4f;
 
@@ -181,7 +180,7 @@ public class IcariaClientHelper {
     }
 
     public static Color getImageBasedColor(BlockEntity pBlockEntity) {
-        var resourceLocation = new ResourceLocation(IcariaInfo.ID + ":" + "textures" + "/" + "block" + "/" + ForgeRegistries.BLOCKS.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
+        var resourceLocation = new ResourceLocation(IcariaInfo.ID + ":" + "textures" + "/" + "block" + "/" + BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
 
         try {
             return new Color(ImageIO.read(Minecraft.getInstance().getResourceManager().getResource(resourceLocation).get().open()).getRGB(0, 0));
@@ -193,7 +192,7 @@ public class IcariaClientHelper {
     }
 
     public static Color getImageBasedColor(LivingEntity pLivingEntity) {
-        var resourceLocation = new ResourceLocation(IcariaInfo.ID + ":" + "textures" + "/" + "entity" + "/" + ForgeRegistries.ENTITY_TYPES.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
+        var resourceLocation = new ResourceLocation(IcariaInfo.ID + ":" + "textures" + "/" + "entity" + "/" + BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
 
         try {
             return new Color(ImageIO.read(Minecraft.getInstance().getResourceManager().getResource(resourceLocation).get().open()).getRGB(0, 0));

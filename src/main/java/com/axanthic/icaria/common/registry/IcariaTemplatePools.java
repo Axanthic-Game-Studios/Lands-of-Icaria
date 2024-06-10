@@ -32,8 +32,6 @@ public class IcariaTemplatePools {
 	public static final ResourceKey<StructureTemplatePool> CAPTAIN_REVENANT = IcariaTemplatePools.registerKey("villages/captain_revenant");
 	public static final ResourceKey<StructureTemplatePool> REVENANT = IcariaTemplatePools.registerKey("villages/revenant");
 
-	// FOREST
-
 	public static final ResourceKey<StructureTemplatePool> FOREST_ERODED_BUILDING = IcariaTemplatePools.registerKey("villages/forest/eroded/building");
 	public static final ResourceKey<StructureTemplatePool> FOREST_PRISTINE_BUILDING = IcariaTemplatePools.registerKey("villages/forest/pristine/building");
 	public static final ResourceKey<StructureTemplatePool> FOREST_RUINED_BUILDING = IcariaTemplatePools.registerKey("villages/forest/ruined/building");
@@ -49,8 +47,6 @@ public class IcariaTemplatePools {
 	public static final ResourceKey<StructureTemplatePool> FOREST_ERODED_WALK = IcariaTemplatePools.registerKey("villages/forest/eroded/walk");
 	public static final ResourceKey<StructureTemplatePool> FOREST_PRISTINE_WALK = IcariaTemplatePools.registerKey("villages/forest/pristine/walk");
 	public static final ResourceKey<StructureTemplatePool> FOREST_RUINED_WALK = IcariaTemplatePools.registerKey("villages/forest/ruined/walk");
-
-	// SCRUBLAND
 
 	public static final ResourceKey<StructureTemplatePool> SCRUBLAND_ERODED_BUILDING = IcariaTemplatePools.registerKey("villages/scrubland/eroded/building");
 	public static final ResourceKey<StructureTemplatePool> SCRUBLAND_PRISTINE_BUILDING = IcariaTemplatePools.registerKey("villages/scrubland/pristine/building");
@@ -68,8 +64,6 @@ public class IcariaTemplatePools {
 	public static final ResourceKey<StructureTemplatePool> SCRUBLAND_PRISTINE_WALK = IcariaTemplatePools.registerKey("villages/scrubland/pristine/walk");
 	public static final ResourceKey<StructureTemplatePool> SCRUBLAND_RUINED_WALK = IcariaTemplatePools.registerKey("villages/scrubland/ruined/walk");
 
-	// STEPPE
-
 	public static final ResourceKey<StructureTemplatePool> STEPPE_ERODED_BUILDING = IcariaTemplatePools.registerKey("villages/steppe/eroded/building");
 	public static final ResourceKey<StructureTemplatePool> STEPPE_PRISTINE_BUILDING = IcariaTemplatePools.registerKey("villages/steppe/pristine/building");
 	public static final ResourceKey<StructureTemplatePool> STEPPE_RUINED_BUILDING = IcariaTemplatePools.registerKey("villages/steppe/ruined/building");
@@ -85,8 +79,6 @@ public class IcariaTemplatePools {
 	public static final ResourceKey<StructureTemplatePool> STEPPE_ERODED_WALK = IcariaTemplatePools.registerKey("villages/steppe/eroded/walk");
 	public static final ResourceKey<StructureTemplatePool> STEPPE_PRISTINE_WALK = IcariaTemplatePools.registerKey("villages/steppe/pristine/walk");
 	public static final ResourceKey<StructureTemplatePool> STEPPE_RUINED_WALK = IcariaTemplatePools.registerKey("villages/steppe/ruined/walk");
-
-	// DESERT
 
 	public static final ResourceKey<StructureTemplatePool> DESERT_ERODED_BUILDING = IcariaTemplatePools.registerKey("villages/desert/eroded/building");
 	public static final ResourceKey<StructureTemplatePool> DESERT_PRISTINE_BUILDING = IcariaTemplatePools.registerKey("villages/desert/pristine/building");
@@ -114,8 +106,6 @@ public class IcariaTemplatePools {
 		pContext.register(IcariaTemplatePools.CAPTAIN_REVENANT, IcariaTemplatePools.captainRevenant(empty));
 		pContext.register(IcariaTemplatePools.REVENANT, IcariaTemplatePools.revenant(empty));
 
-		// FOREST
-
 		pContext.register(IcariaTemplatePools.FOREST_ERODED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.FOREST_ERODED_DOLOMITE), lists.getOrThrow(IcariaProcessorLists.FOREST_ERODED_SILKSTONE), lists.getOrThrow(IcariaProcessorLists.FOREST_ERODED_SUNSTONE)));
 		pContext.register(IcariaTemplatePools.FOREST_PRISTINE_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.FOREST_PRISTINE_DOLOMITE), lists.getOrThrow(IcariaProcessorLists.FOREST_PRISTINE_SILKSTONE), lists.getOrThrow(IcariaProcessorLists.FOREST_PRISTINE_SUNSTONE)));
 		pContext.register(IcariaTemplatePools.FOREST_RUINED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.FOREST_RUINED_DOLOMITE), lists.getOrThrow(IcariaProcessorLists.FOREST_RUINED_SILKSTONE), lists.getOrThrow(IcariaProcessorLists.FOREST_RUINED_SUNSTONE)));
@@ -131,8 +121,6 @@ public class IcariaTemplatePools {
 		pContext.register(IcariaTemplatePools.FOREST_ERODED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.FOREST, IcariaVillageTypes.ERODED));
 		pContext.register(IcariaTemplatePools.FOREST_PRISTINE_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.FOREST, IcariaVillageTypes.PRISTINE));
 		pContext.register(IcariaTemplatePools.FOREST_RUINED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.FOREST, IcariaVillageTypes.RUINED));
-
-		// SCRUBLAND
 
 		pContext.register(IcariaTemplatePools.SCRUBLAND_ERODED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_ERODED_SUNSTONE), lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_ERODED_VOIDSHALE), lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_ERODED_YELLOWSTONE)));
 		pContext.register(IcariaTemplatePools.SCRUBLAND_PRISTINE_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_PRISTINE_SUNSTONE), lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_PRISTINE_VOIDSHALE), lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_PRISTINE_YELLOWSTONE)));
@@ -150,8 +138,6 @@ public class IcariaTemplatePools {
 		pContext.register(IcariaTemplatePools.SCRUBLAND_PRISTINE_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.SCRUBLAND, IcariaVillageTypes.PRISTINE));
 		pContext.register(IcariaTemplatePools.SCRUBLAND_RUINED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.SCRUBLAND, IcariaVillageTypes.RUINED));
 
-		// STEPPE
-
 		pContext.register(IcariaTemplatePools.STEPPE_ERODED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.STEPPE_ERODED_GRAINITE), lists.getOrThrow(IcariaProcessorLists.STEPPE_ERODED_MARL), lists.getOrThrow(IcariaProcessorLists.STEPPE_ERODED_YELLOWSTONE)));
 		pContext.register(IcariaTemplatePools.STEPPE_PRISTINE_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.STEPPE_PRISTINE_GRAINITE), lists.getOrThrow(IcariaProcessorLists.STEPPE_PRISTINE_MARL), lists.getOrThrow(IcariaProcessorLists.STEPPE_PRISTINE_YELLOWSTONE)));
 		pContext.register(IcariaTemplatePools.STEPPE_RUINED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.STEPPE_RUINED_GRAINITE), lists.getOrThrow(IcariaProcessorLists.STEPPE_RUINED_MARL), lists.getOrThrow(IcariaProcessorLists.STEPPE_RUINED_YELLOWSTONE)));
@@ -167,8 +153,6 @@ public class IcariaTemplatePools {
 		pContext.register(IcariaTemplatePools.STEPPE_ERODED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.STEPPE, IcariaVillageTypes.ERODED));
 		pContext.register(IcariaTemplatePools.STEPPE_PRISTINE_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.STEPPE, IcariaVillageTypes.PRISTINE));
 		pContext.register(IcariaTemplatePools.STEPPE_RUINED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.STEPPE, IcariaVillageTypes.RUINED));
-
-		// DESERT
 
 		pContext.register(IcariaTemplatePools.DESERT_ERODED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.DESERT_ERODED_BAETYL), lists.getOrThrow(IcariaProcessorLists.DESERT_ERODED_GRAINITE), lists.getOrThrow(IcariaProcessorLists.DESERT_ERODED_VOIDSHALE)));
 		pContext.register(IcariaTemplatePools.DESERT_PRISTINE_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.DESERT_PRISTINE_BAETYL), lists.getOrThrow(IcariaProcessorLists.DESERT_PRISTINE_GRAINITE), lists.getOrThrow(IcariaProcessorLists.DESERT_PRISTINE_VOIDSHALE)));

@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "minecraft:white_dye_from_white_bromelia"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_white_bromelia": {
+    "has_landsoficaria:white_bromelia": {
       "conditions": {
         "items": [
           {
@@ -18,12 +12,18 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:white_dye_from_white_bromelia"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_white_bromelia",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:white_bromelia"
     ]
   ],
   "rewards": {

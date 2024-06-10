@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dead_populus_log": {
+    "has_landsoficaria:dead_populus_log": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_dead_populus_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:dead_populus_log"
     ]
   ],
   "rewards": {

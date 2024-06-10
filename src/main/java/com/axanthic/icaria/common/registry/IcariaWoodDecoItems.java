@@ -7,11 +7,11 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -24,13 +24,13 @@ public class IcariaWoodDecoItems {
 
     public static final List<IcariaWoodDecoItems> WOOD_DECO_ITEMS = new ArrayList<>();
 
-    public RegistryObject<Item> item;
-    public RegistryObject<Item> stairs;
-    public RegistryObject<Item> slab;
-    public RegistryObject<Item> fence;
-    public RegistryObject<Item> gate;
+    public Supplier<Item> item;
+    public Supplier<Item> stairs;
+    public Supplier<Item> slab;
+    public Supplier<Item> fence;
+    public Supplier<Item> gate;
 
-    public IcariaWoodDecoItems(IcariaWoodDecoBlocks pBlock, RegistryObject<Item> pItem) {
+    public IcariaWoodDecoItems(IcariaWoodDecoBlocks pBlock, Supplier<Item> pItem) {
         this.block = pBlock;
         this.item = pItem;
         this.stairs = IcariaWoodDecoItems.ITEMS.register(pBlock.name + "_stairs", () -> new BlockItem(pBlock.stairs.get(), new Item.Properties()));

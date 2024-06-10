@@ -20,13 +20,14 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
+
 @ParametersAreNonnullByDefault
 
 public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEntity> {
 	public int rotationModifier = -16;
 
 	public GrinderBlockRenderer(BlockEntityRendererProvider.Context pContext) {
-		// NOOP
+
 	}
 
 	@Override
@@ -58,7 +59,7 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 			itemRenderer.renderStatic(new ItemStack(IcariaItems.GRINDER_STONE.get()), ItemDisplayContext.FIXED, pPackedLight, pPackedOverlay, pPoseStack, pBufferSource, level, 1);
 			pPoseStack.popPose();
 
-			// SHAFT //
+			// SHAFT
 
 			pPoseStack.pushPose();
 			if (direction == Direction.NORTH) {
@@ -82,7 +83,7 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 			itemRenderer.renderStatic(new ItemStack(IcariaItems.GRINDER_SHAFT.get()), ItemDisplayContext.FIXED, pPackedLight, pPackedOverlay, pPoseStack, pBufferSource, level, 1);
 			pPoseStack.popPose();
 
-			// LEFT CHAIN //
+			// LEFT CHAIN
 
 			pPoseStack.pushPose();
 			if (direction == Direction.NORTH) {
@@ -115,7 +116,7 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 
 			pPoseStack.popPose();
 
-			// RIGHT CHAIN //
+			// RIGHT CHAIN
 
 			pPoseStack.pushPose();
 			if (direction == Direction.NORTH) {
@@ -148,7 +149,7 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 
 			pPoseStack.popPose();
 
-			// GEAR //
+			// GEAR
 
 			pPoseStack.pushPose();
 			if (direction == Direction.NORTH) {

@@ -2,13 +2,12 @@ package com.axanthic.icaria.common.recipe.serializer;
 
 import com.axanthic.icaria.common.recipe.ConcoctingEntityRecipe;
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
@@ -18,21 +17,22 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ConcoctingEntityRecipeSerializer implements RecipeSerializer<ConcoctingEntityRecipe> {
-    @Override
-    public ConcoctingEntityRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
-        int burnTime = GsonHelper.getAsInt(pSerializedRecipe, "burnTime");
-        int color = GsonHelper.getAsInt(pSerializedRecipe, "color");
-        var entity = GsonHelper.getAsString(pSerializedRecipe, "entity");
-        var ingredients = NonNullList.withSize(3, Ingredient.EMPTY);
-        for (int i = 0; i < ingredients.size(); i++) {
-            ingredients.set(i, Ingredient.fromJson(GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients").get(i)));
-        }
+    public static final Codec<ConcoctingEntityRecipe> CODEC = RecordCodecBuilder.create(
+        instance -> instance.group(
+            Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
+            Codec.INT.fieldOf("color").forGetter(recipe -> recipe.color),
+            Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
+            Codec.STRING.fieldOf("entity").forGetter(recipe -> recipe.entity)
+        ).apply(instance, ConcoctingEntityRecipe::new)
+    );
 
-        return new ConcoctingEntityRecipe(burnTime, color, ingredients, pRecipeId, entity);
+    @Override
+    public Codec<ConcoctingEntityRecipe> codec() {
+        return CODEC;
     }
 
     @Override
-    public ConcoctingEntityRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+    public ConcoctingEntityRecipe fromNetwork(FriendlyByteBuf pBuffer) {
         int burnTime = pBuffer.readInt();
         int color = pBuffer.readInt();
         var entity = pBuffer.readUtf();
@@ -41,7 +41,7 @@ public class ConcoctingEntityRecipeSerializer implements RecipeSerializer<Concoc
             ingredients.set(i, Ingredient.fromNetwork(pBuffer));
         }
 
-        return new ConcoctingEntityRecipe(burnTime, color, ingredients, pRecipeId, entity);
+        return new ConcoctingEntityRecipe(burnTime, color, ingredients, entity);
     }
 
     @Override

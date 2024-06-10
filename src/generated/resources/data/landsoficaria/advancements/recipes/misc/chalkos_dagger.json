@@ -1,24 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bone": {
+    "has_landsoficaria:chalkos_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:bone"
+              "landsoficaria:chalkos_ingot"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_chalkos_ingot": {
+    "has_minecraft:bone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:chalkos_ingot"
+              "minecraft:bone"
             ]
           }
         ]
@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
-      "has_chalkos_ingot",
-      "has_bone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:chalkos_ingot",
+      "has_minecraft:bone"
     ]
   ],
   "rewards": {

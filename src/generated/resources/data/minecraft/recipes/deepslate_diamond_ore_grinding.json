@@ -11,7 +11,7 @@
     }
   ],
   "output": {
-    "count": 2,
-    "item": "minecraft:diamond"
+    "Count": 2,
+    "id": "minecraft:diamond"
   }
 }

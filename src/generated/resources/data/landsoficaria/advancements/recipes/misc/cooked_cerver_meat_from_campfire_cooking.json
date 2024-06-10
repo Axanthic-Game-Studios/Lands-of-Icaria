@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_raw_cerver_meat": {
+    "has_landsoficaria:raw_cerver_meat": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_raw_cerver_meat",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:raw_cerver_meat"
     ]
   ],
   "rewards": {

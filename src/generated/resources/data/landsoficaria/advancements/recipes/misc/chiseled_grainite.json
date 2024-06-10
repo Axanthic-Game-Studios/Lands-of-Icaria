@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_grainite_brick_slab": {
+    "has_landsoficaria:grainite_brick_slab": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_grainite_brick_slab",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:grainite_brick_slab"
     ]
   ],
   "rewards": {

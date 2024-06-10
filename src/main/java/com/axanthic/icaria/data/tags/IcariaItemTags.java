@@ -1,8 +1,8 @@
 package com.axanthic.icaria.data.tags;
 
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaStoneDecoItems;
 import com.axanthic.icaria.common.registry.IcariaWoodDecoItems;
-import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -16,19 +16,22 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("unused")
+@SuppressWarnings("deprecation, unused")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaItemTags extends ItemTagsProvider {
+
 	// ITEM TAGS
+
 	public static final TagKey<Item> KETTLE_ITEMS = IcariaItemTags.forgeTag("kettle_items");
 
 	public static final TagKey<Item> GEMS_CHERT = IcariaItemTags.forgeTag("gems/chert");
@@ -82,6 +85,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final TagKey<Item> SEEDS_ONION = IcariaItemTags.forgeTag("seeds/onion");
 
 	// ITEMBLOCK TAGS
+
 	public static final TagKey<Item> ORES_CHERT = IcariaItemTags.forgeTag("ores/chert");
 	public static final TagKey<Item> ORES_LIGNITE = IcariaItemTags.forgeTag("ores/lignite");
 	public static final TagKey<Item> ORES_BLURIDIUM = IcariaItemTags.forgeTag("ores/bluridium");
@@ -152,7 +156,9 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
+
 		// ITEM TAGS
+
 		this.tag(ItemTags.STONE_CRAFTING_MATERIALS)
 			.add(IcariaItems.COBBLED_YELLOWSTONE.get())
 			.add(IcariaItems.COBBLED_SILKSTONE.get())
@@ -435,6 +441,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.ONION.get());
 
 		// ITEMBLOCK TAGS
+
 		for (var items : IcariaStoneDecoItems.STONE_DECO_ITEMS) {
 			this.tag(ItemTags.STAIRS).add(items.stairs.get());
 			this.tag(ItemTags.SLABS).add(items.slab.get());

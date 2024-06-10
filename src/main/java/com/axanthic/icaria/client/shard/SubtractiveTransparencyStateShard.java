@@ -7,14 +7,16 @@ import net.minecraft.client.renderer.RenderStateShard;
 
 public class SubtractiveTransparencyStateShard extends RenderStateShard.TransparencyStateShard {
     public SubtractiveTransparencyStateShard(String pName) {
-        super(pName, () -> {
-            RenderSystem.depthMask(false);
-            RenderSystem.enableBlend();
-            RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.SRC_COLOR, GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE);
-        }, () -> {
-            RenderSystem.depthMask(true);
-            RenderSystem.disableBlend();
-            RenderSystem.defaultBlendFunc();
-        });
+        super(
+            pName, () -> {
+                RenderSystem.depthMask(false);
+                RenderSystem.enableBlend();
+                RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.SRC_COLOR, GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE);
+                }, () -> {
+                RenderSystem.depthMask(true);
+                RenderSystem.disableBlend();
+                RenderSystem.defaultBlendFunc();
+            }
+        );
     }
 }

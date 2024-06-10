@@ -4,9 +4,9 @@ import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import net.minecraft.world.item.ItemStack;
 
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
+import net.neoforged.neoforge.common.CommonHooks;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.SlotItemHandler;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -19,6 +19,6 @@ public class ForgeFuelSlot extends SlotItemHandler {
 
     @Override
     public boolean mayPlace(ItemStack pStack) {
-        return ForgeHooks.getBurnTime(pStack, IcariaRecipeTypes.FORGING.get()) > 0;
+        return CommonHooks.getBurnTime(pStack, IcariaRecipeTypes.FORGING.get()) > 0;
     }
 }

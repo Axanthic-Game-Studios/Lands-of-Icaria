@@ -13,9 +13,9 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.BlockTagsProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -25,7 +25,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockTags extends BlockTagsProvider {
+
 	// BLOCK TAGS
+
 	public static final TagKey<Block> DIRT_AND_SAND = IcariaBlockTags.icariaTag("dirt_and_sand");
 
 	public static final TagKey<Block> RUBBLE_SPAWNS_ON = IcariaBlockTags.icariaTag("rubble_spawns_on");
@@ -72,6 +74,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> POPULUS_BARRELS = IcariaBlockTags.icariaTag("populus_barrels");
 
 	// ITEMBLOCK TAGS
+
 	public static final TagKey<Block> ORES_CHERT = IcariaBlockTags.forgeTag("ores/chert");
 	public static final TagKey<Block> ORES_LIGNITE = IcariaBlockTags.forgeTag("ores/lignite");
 	public static final TagKey<Block> ORES_BLURIDIUM = IcariaBlockTags.forgeTag("ores/bluridium");
@@ -142,7 +145,9 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
+
 		// BLOCK TAGS
+
 		this.tag(IcariaBlockTags.DIRT_AND_SAND)
 			.add(IcariaBlocks.GRASSY_MARL.get())
 			.add(IcariaBlocks.MARL.get())
@@ -185,7 +190,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.BAETYL.get());
 
 		this.tag(IcariaBlockTags.VILLAGE_REPLACE_BLOCKS)
-			.add(Blocks.COBWEB) // TODO: replace with Arachne web
+			.add(Blocks.COBWEB) // TODO replace with Arachne web
 			.add(Blocks.CHISELED_BOOKSHELF)
 			.add(Blocks.FLOWER_POT)
 			.add(Blocks.COMPOSTER)
@@ -754,7 +759,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(BlockTags.MINEABLE_WITH_HOE)
 			.addTag(BlockTags.REPLACEABLE);
 
-		this.tag(IcariaBlockTags.ICARIA_COBWEB_BLOCKS) // TODO: add Arachne web block
+		this.tag(IcariaBlockTags.ICARIA_COBWEB_BLOCKS) // TODO add Arachne web block
 			.add(Blocks.COBWEB);
 
 		this.tag(IcariaBlockTags.ICARIA_GRASS_BLOCKS)
@@ -1008,6 +1013,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.ICARIA_PORTAL.get());
 
 		// ITEMBLOCK TAGS
+
 		for (var items : IcariaStoneDecoItems.STONE_DECO_ITEMS) {
 			this.tag(BlockTags.STAIRS).add(items.block.stairs.get());
 			this.tag(BlockTags.SLABS).add(items.block.slab.get());

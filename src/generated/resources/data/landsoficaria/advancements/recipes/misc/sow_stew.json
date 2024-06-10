@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_brown_ground_shrooms": {
+    "has_landsoficaria:brown_ground_shrooms": {
       "conditions": {
         "items": [
           {
@@ -13,19 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_brown_mushroom": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:brown_mushroom"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_green_ground_shrooms": {
+    "has_landsoficaria:green_ground_shrooms": {
       "conditions": {
         "items": [
           {
@@ -37,7 +25,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_halite_dust": {
+    "has_landsoficaria:halite_dust": {
       "conditions": {
         "items": [
           {
@@ -49,7 +37,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_large_brown_ground_shrooms": {
+    "has_landsoficaria:large_brown_ground_shrooms": {
       "conditions": {
         "items": [
           {
@@ -61,7 +49,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_loam_bowl": {
+    "has_landsoficaria:loam_bowl": {
       "conditions": {
         "items": [
           {
@@ -73,7 +61,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_raw_sow_meat": {
+    "has_landsoficaria:raw_sow_meat": {
       "conditions": {
         "items": [
           {
@@ -85,7 +73,55 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_red_mushroom": {
+    "has_landsoficaria:tinder_fungus_tree_shrooms": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:tinder_fungus_tree_shrooms"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:turkey_tail_tree_shrooms": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:turkey_tail_tree_shrooms"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:unnamed_tree_shrooms": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:unnamed_tree_shrooms"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:brown_mushroom": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:brown_mushroom"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:red_mushroom": {
       "conditions": {
         "items": [
           {
@@ -102,58 +138,22 @@
         "recipe": "landsoficaria:sow_stew"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_tinder_fungus_tree_shrooms": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:tinder_fungus_tree_shrooms"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_turkey_tail_tree_shrooms": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:turkey_tail_tree_shrooms"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_unnamed_tree_shrooms": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:unnamed_tree_shrooms"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_raw_sow_meat",
-      "has_brown_mushroom",
-      "has_red_mushroom",
-      "has_brown_ground_shrooms",
-      "has_green_ground_shrooms",
-      "has_large_brown_ground_shrooms",
-      "has_tinder_fungus_tree_shrooms",
-      "has_turkey_tail_tree_shrooms",
-      "has_unnamed_tree_shrooms",
-      "has_halite_dust",
-      "has_loam_bowl",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:raw_sow_meat",
+      "has_minecraft:brown_mushroom",
+      "has_minecraft:red_mushroom",
+      "has_landsoficaria:brown_ground_shrooms",
+      "has_landsoficaria:green_ground_shrooms",
+      "has_landsoficaria:large_brown_ground_shrooms",
+      "has_landsoficaria:tinder_fungus_tree_shrooms",
+      "has_landsoficaria:turkey_tail_tree_shrooms",
+      "has_landsoficaria:unnamed_tree_shrooms",
+      "has_landsoficaria:halite_dust",
+      "has_landsoficaria:loam_bowl"
     ]
   ],
   "rewards": {

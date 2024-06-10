@@ -11,6 +11,7 @@ import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -29,8 +30,6 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -586,6 +585,6 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 
 	@Override
 	public Iterable<Block> getKnownBlocks() {
-		return ForgeRegistries.BLOCKS.getValues().stream().filter((pBlock) -> IcariaInfo.ID.equals(ForgeRegistries.BLOCKS.getKey(pBlock).getNamespace())).collect(Collectors.toList());
+		return BuiltInRegistries.BLOCK.stream().filter((pBlock) -> IcariaInfo.ID.equals(BuiltInRegistries.BLOCK.getKey(pBlock).getNamespace())).collect(Collectors.toList());
 	}
 }

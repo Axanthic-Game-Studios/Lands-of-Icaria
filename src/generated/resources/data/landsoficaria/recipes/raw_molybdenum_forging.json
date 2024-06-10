@@ -10,7 +10,7 @@
     []
   ],
   "output": {
-    "count": 1,
-    "item": "landsoficaria:molybdenum_ingot"
+    "Count": 1,
+    "id": "landsoficaria:molybdenum_ingot"
   }
 }

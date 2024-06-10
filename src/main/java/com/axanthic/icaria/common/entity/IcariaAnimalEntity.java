@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
+
 @ParametersAreNonnullByDefault
 
 public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implements IcariaBreedableEntity {

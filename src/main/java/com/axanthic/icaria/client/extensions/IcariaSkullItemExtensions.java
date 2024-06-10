@@ -5,7 +5,7 @@ import com.axanthic.icaria.client.renderer.IcariaSkullItemRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 
 public class IcariaSkullItemExtensions implements IClientItemExtensions {
     @Override

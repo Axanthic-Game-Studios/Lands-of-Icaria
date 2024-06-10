@@ -9,8 +9,9 @@ import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 
@@ -19,12 +20,12 @@ public class IcariaStoneDecoBlocks {
 
     public String name;
 
-    public RegistryObject<Block> block;
-    public RegistryObject<StairBlock> stairs;
-    public RegistryObject<SlabBlock> slab;
-    public RegistryObject<WallBlock> wall;
+    public Supplier<Block> block;
+    public Supplier<StairBlock> stairs;
+    public Supplier<SlabBlock> slab;
+    public Supplier<WallBlock> wall;
 
-    public IcariaStoneDecoBlocks(String pName, RegistryObject<Block> pBlock, BlockBehaviour.Properties pProperties, boolean pStairs, boolean pSlab, boolean pWall) {
+    public IcariaStoneDecoBlocks(String pName, Supplier<Block> pBlock, BlockBehaviour.Properties pProperties, boolean pStairs, boolean pSlab, boolean pWall) {
         this.name = pName;
         this.block = pBlock;
         this.stairs = IcariaStoneDecoBlocks.BLOCKS.register(pName + "_stairs", () -> new StairBlock(() -> pBlock.get().defaultBlockState(), pProperties));
@@ -32,7 +33,7 @@ public class IcariaStoneDecoBlocks {
         this.wall = IcariaStoneDecoBlocks.BLOCKS.register(pName + "_wall", () -> new WallBlock(pProperties));
     }
 
-    public IcariaStoneDecoBlocks(String pName, RegistryObject<Block> pBlock, BlockBehaviour.Properties pProperties) {
+    public IcariaStoneDecoBlocks(String pName, Supplier<Block> pBlock, BlockBehaviour.Properties pProperties) {
         this(pName, pBlock, pProperties, true, true, true);
     }
 }

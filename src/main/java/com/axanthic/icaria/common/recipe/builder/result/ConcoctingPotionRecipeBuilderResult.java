@@ -6,7 +6,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -24,7 +24,7 @@ public class ConcoctingPotionRecipeBuilderResult implements FinishedRecipe {
     public int color;
     public int potionDuration;
 
-    public Advancement.Builder advancement;
+    public AdvancementHolder advancement;
 
     public Ingredient ingredientA;
     public Ingredient ingredientB;
@@ -35,7 +35,7 @@ public class ConcoctingPotionRecipeBuilderResult implements FinishedRecipe {
 
     public String potion;
 
-    public ConcoctingPotionRecipeBuilderResult(float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration, Advancement.Builder pAdvancement, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, ResourceLocation pAdvancementId, ResourceLocation pId, String pPotion) {
+    public ConcoctingPotionRecipeBuilderResult(float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration, AdvancementHolder pAdvancement, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, ResourceLocation pAdvancementId, ResourceLocation pId, String pPotion) {
         this.potionRadius = pPotionRadius;
         this.burnTime = pBurnTime;
         this.color = pColor;
@@ -53,9 +53,9 @@ public class ConcoctingPotionRecipeBuilderResult implements FinishedRecipe {
     public void serializeRecipeData(JsonObject pJson) {
         var jsonArray = new JsonArray();
 
-        jsonArray.add(this.ingredientA.toJson());
-        jsonArray.add(this.ingredientB.toJson());
-        jsonArray.add(this.ingredientC.toJson());
+        jsonArray.add(this.ingredientA.toJson(true));
+        jsonArray.add(this.ingredientB.toJson(true));
+        jsonArray.add(this.ingredientC.toJson(true));
 
         pJson.addProperty("potionRadius", this.potionRadius);
         pJson.addProperty("burnTime", this.burnTime);
@@ -68,22 +68,17 @@ public class ConcoctingPotionRecipeBuilderResult implements FinishedRecipe {
     }
 
     @Override
-    public JsonObject serializeAdvancement() {
-        return this.advancement.serializeToJson();
-    }
-
-    @Override
-    public RecipeSerializer<?> getType() {
+    public RecipeSerializer<?> type() {
         return IcariaRecipeSerializers.CONCOCTING_POTION.get();
     }
 
     @Override
-    public ResourceLocation getAdvancementId() {
-        return this.advancementId;
+    public AdvancementHolder advancement() {
+        return this.advancement;
     }
 
     @Override
-    public ResourceLocation getId() {
+    public ResourceLocation id() {
         return this.id;
     }
 }

@@ -20,6 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaLootVaseLoot implements LootTableSubProvider {
+
     @Override
     public void generate(BiConsumer<ResourceLocation, LootTable.Builder> pConsumer) {
         pConsumer.accept(IcariaResourceLocations.RED_LOOT_VASE_LOOT, LootTable.lootTable()

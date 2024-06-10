@@ -27,9 +27,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.living.MobEffectEvent;
-import net.minecraftforge.eventbus.api.Event;
+import net.neoforged.bus.api.Event;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -48,7 +48,7 @@ public class ArachneEntity extends IcariaArachnidEntity {
     public boolean canBeAffected(MobEffectInstance pEffectInstance) {
         if (pEffectInstance.getEffect() == MobEffects.POISON) {
             var event = new MobEffectEvent.Applicable(this, pEffectInstance);
-            MinecraftForge.EVENT_BUS.post(event);
+            NeoForge.EVENT_BUS.post(event);
             return event.getResult() == Event.Result.ALLOW;
         }
 

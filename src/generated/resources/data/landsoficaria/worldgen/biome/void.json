@@ -14,38 +14,7 @@
   "spawners": {
     "ambient": [],
     "axolotls": [],
-    "creature": [
-      {
-        "type": "landsoficaria:ender_jellyfish",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:fire_jellyfish",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:nature_jellyfish",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:void_jellyfish",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:water_jellyfish",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      }
-    ],
+    "creature": [],
     "misc": [],
     "monster": [],
     "underground_water_creature": [],

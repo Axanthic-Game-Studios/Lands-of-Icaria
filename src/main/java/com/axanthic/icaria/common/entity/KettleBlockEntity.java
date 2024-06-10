@@ -25,16 +25,17 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.neoforged.neoforge.common.capabilities.Capability;
+import net.neoforged.neoforge.common.util.LazyOptional;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -150,39 +151,39 @@ public class KettleBlockEntity extends BlockEntity {
 
                 if (optionalEntityRecipe.isPresent()) {
                     var entityRecipe = optionalEntityRecipe.get();
-                    count = entityRecipe.getResultItem(null).getCount();
-                    item = entityRecipe.getResultItem(null).getItem();
-                    pBlockEntity.color = entityRecipe.getColor();
-                    pBlockEntity.maxProgress = entityRecipe.getBurnTime();
+                    count = entityRecipe.value().getResultItem(null).getCount();
+                    item = entityRecipe.value().getResultItem(null).getItem();
+                    pBlockEntity.color = entityRecipe.value().getColor();
+                    pBlockEntity.maxProgress = entityRecipe.value().getBurnTime();
                     if (pBlockEntity.progress >= pBlockEntity.maxProgress) {
-                        entityRecipe.performRecipe(pLevel, pPos);
+                        entityRecipe.value().performRecipe(pLevel, pPos);
                     }
                 } else if (optionalExplosionsRecipe.isPresent()) {
                     var explosionsRecipe = optionalExplosionsRecipe.get();
-                    count = explosionsRecipe.getResultItem(null).getCount();
-                    item = explosionsRecipe.getResultItem(null).getItem();
-                    pBlockEntity.color = explosionsRecipe.getColor();
-                    pBlockEntity.maxProgress = explosionsRecipe.getBurnTime();
+                    count = explosionsRecipe.value().getResultItem(null).getCount();
+                    item = explosionsRecipe.value().getResultItem(null).getItem();
+                    pBlockEntity.color = explosionsRecipe.value().getColor();
+                    pBlockEntity.maxProgress = explosionsRecipe.value().getBurnTime();
                     if (pBlockEntity.progress >= pBlockEntity.maxProgress) {
-                        explosionsRecipe.performRecipe(pLevel, pPos);
+                        explosionsRecipe.value().performRecipe(pLevel, pPos);
                     }
                 } else if  (optionalItemRecipe.isPresent()) {
                     var itemRecipe = optionalItemRecipe.get();
-                    count = itemRecipe.getResultItem(null).getCount();
-                    item = itemRecipe.getResultItem(null).getItem();
-                    pBlockEntity.color = itemRecipe.getColor();
-                    pBlockEntity.maxProgress = itemRecipe.getBurnTime();
+                    count = itemRecipe.value().getResultItem(null).getCount();
+                    item = itemRecipe.value().getResultItem(null).getItem();
+                    pBlockEntity.color = itemRecipe.value().getColor();
+                    pBlockEntity.maxProgress = itemRecipe.value().getBurnTime();
                     if (pBlockEntity.progress >= pBlockEntity.maxProgress) {
-                        itemRecipe.performRecipe(pLevel, pPos);
+                        itemRecipe.value().performRecipe(pLevel, pPos);
                     }
                 } else if (optionalPotionRecipe.isPresent()) {
                     var potionRecipe = optionalPotionRecipe.get();
-                    count = potionRecipe.getResultItem(null).getCount();
-                    item = potionRecipe.getResultItem(null).getItem();
-                    pBlockEntity.color = potionRecipe.getColor();
-                    pBlockEntity.maxProgress = potionRecipe.getBurnTime();
+                    count = potionRecipe.value().getResultItem(null).getCount();
+                    item = potionRecipe.value().getResultItem(null).getItem();
+                    pBlockEntity.color = potionRecipe.value().getColor();
+                    pBlockEntity.maxProgress = potionRecipe.value().getBurnTime();
                     if (pBlockEntity.progress >= pBlockEntity.maxProgress) {
-                        potionRecipe.performRecipe(pLevel, pPos);
+                        potionRecipe.value().performRecipe(pLevel, pPos);
                     }
                 }
 
@@ -200,7 +201,7 @@ public class KettleBlockEntity extends BlockEntity {
                     pLevel.setBlockAndUpdate(pPos.above(), pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
 
                     var entityBelow = pLevel.getBlockEntity(pPos.below());
-                    if (entityBelow == null || !entityBelow.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent()) {
+                    if (entityBelow == null || !entityBelow.getCapability(Capabilities.ITEM_HANDLER).isPresent()) {
                         var entity = EntityType.ITEM.create(pLevel);
                         if (entity != null) {
                             entity.setItem(pBlockEntity.stackHandler.getStackInSlot(3));
@@ -253,12 +254,12 @@ public class KettleBlockEntity extends BlockEntity {
         return this.stackHandler.getStackInSlot(2);
     }
 
-    public Optional<ConcoctingEntityRecipe> getEntityRecipe() {
+    public Optional<RecipeHolder<ConcoctingEntityRecipe>> getEntityRecipe() {
         for (int i = 0; i < this.size; i++) {
             this.simpleContainer.setItem(i, this.stackHandler.getStackInSlot(i));
         }
 
-        Optional<ConcoctingEntityRecipe> recipe = Optional.empty();
+        Optional<RecipeHolder<ConcoctingEntityRecipe>> recipe = Optional.empty();
         if (this.level != null) {
             recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.CONCOCTING_ENTITY.get(), this.simpleContainer, this.level);
         }
@@ -266,12 +267,12 @@ public class KettleBlockEntity extends BlockEntity {
         return recipe;
     }
 
-    public Optional<ConcoctingExplosionsRecipe> getExplosionsRecipe() {
+    public Optional<RecipeHolder<ConcoctingExplosionsRecipe>> getExplosionsRecipe() {
         for (int i = 0; i < this.size; i++) {
             this.simpleContainer.setItem(i, this.stackHandler.getStackInSlot(i));
         }
 
-        Optional<ConcoctingExplosionsRecipe> recipe = Optional.empty();
+        Optional<RecipeHolder<ConcoctingExplosionsRecipe>> recipe = Optional.empty();
         if (this.level != null) {
             recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.CONCOCTING_EXPLOSIONS.get(), this.simpleContainer, this.level);
         }
@@ -279,12 +280,12 @@ public class KettleBlockEntity extends BlockEntity {
         return recipe;
     }
 
-    public Optional<ConcoctingItemRecipe> getItemRecipe() {
+    public Optional<RecipeHolder<ConcoctingItemRecipe>> getItemRecipe() {
         for (int i = 0; i < this.size; i++) {
             this.simpleContainer.setItem(i, this.stackHandler.getStackInSlot(i));
         }
 
-        Optional<ConcoctingItemRecipe> recipe = Optional.empty();
+        Optional<RecipeHolder<ConcoctingItemRecipe>> recipe = Optional.empty();
         if (this.level != null) {
             recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.CONCOCTING_ITEM.get(), this.simpleContainer, this.level);
         }
@@ -292,12 +293,12 @@ public class KettleBlockEntity extends BlockEntity {
         return recipe;
     }
 
-    public Optional<ConcoctingPotionRecipe> getPotionRecipe() {
+    public Optional<RecipeHolder<ConcoctingPotionRecipe>> getPotionRecipe() {
         for (int i = 0; i < this.size; i++) {
             this.simpleContainer.setItem(i, this.stackHandler.getStackInSlot(i));
         }
 
-        Optional<ConcoctingPotionRecipe> recipe = Optional.empty();
+        Optional<RecipeHolder<ConcoctingPotionRecipe>> recipe = Optional.empty();
         if (this.level != null) {
             recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.CONCOCTING_POTION.get(), this.simpleContainer, this.level);
         }
@@ -312,7 +313,7 @@ public class KettleBlockEntity extends BlockEntity {
 
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
-        if (pCapability == ForgeCapabilities.ITEM_HANDLER) {
+        if (pCapability == Capabilities.ITEM_HANDLER) {
             if (pDirection != null) {
                 if (pDirection == Direction.DOWN) {
                     if (this.directionWrappedFuelHandler.containsKey(pDirection)) {

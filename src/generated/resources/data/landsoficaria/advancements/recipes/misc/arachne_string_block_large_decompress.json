@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_arachne_string_block": {
+    "has_landsoficaria:arachne_string_block": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_arachne_string_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:arachne_string_block"
     ]
   ],
   "rewards": {

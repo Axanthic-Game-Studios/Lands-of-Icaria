@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_red_ground_flowers": {
+    "has_landsoficaria:red_ground_flowers": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_red_ground_flowers",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:red_ground_flowers"
     ]
   ],
   "rewards": {

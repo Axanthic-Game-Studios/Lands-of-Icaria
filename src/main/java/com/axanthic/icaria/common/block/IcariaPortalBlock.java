@@ -22,13 +22,14 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.level.BlockEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.level.BlockEvent;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+
 @ParametersAreNonnullByDefault
 
 public class IcariaPortalBlock extends Block {
@@ -62,7 +63,7 @@ public class IcariaPortalBlock extends Block {
     }
 
     public boolean spawnPortalEvent(LevelAccessor pLevel, BlockPos pPos, IcariaPortalShape pShape) {
-        return MinecraftForge.EVENT_BUS.post(new BlockEvent.PortalSpawnEvent(pLevel, pPos, pLevel.getBlockState(pPos), pShape));
+        return NeoForge.EVENT_BUS.post(new BlockEvent.PortalSpawnEvent(pLevel, pPos, pLevel.getBlockState(pPos), pShape)).hasResult();
     }
 
     @Override

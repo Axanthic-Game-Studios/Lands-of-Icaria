@@ -14,7 +14,7 @@
     }
   ],
   "output": {
-    "count": 1,
-    "item": "minecraft:end_crystal"
+    "Count": 1,
+    "id": "minecraft:end_crystal"
   }
 }

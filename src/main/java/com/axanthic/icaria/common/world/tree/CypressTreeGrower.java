@@ -12,6 +12,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CypressTreeGrower extends AbstractTreeGrower {
+
     @Override
     public ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource pRandom, boolean pHasFlowers) {
         return IcariaConfiguredFeatures.CYPRESS_TREE;

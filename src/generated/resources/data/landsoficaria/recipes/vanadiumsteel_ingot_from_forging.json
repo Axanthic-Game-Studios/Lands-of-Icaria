@@ -14,7 +14,7 @@
     }
   ],
   "output": {
-    "count": 2,
-    "item": "landsoficaria:vanadiumsteel_ingot"
+    "Count": 2,
+    "id": "landsoficaria:vanadiumsteel_ingot"
   }
 }

@@ -9,15 +9,18 @@ public class IcariaResourceLocations {
     public static final ResourceLocation THROWING = new ResourceLocation(IcariaInfo.ID, "throwing");
 
     // ADVANCEMENT
+
     public static final ResourceLocation BACKGROUND = new ResourceLocation(IcariaInfo.ID, "textures/block/sunstone_bricks.png");
 
     // BLOCK
+
     public static final ResourceLocation CONCOCTION_FAST = new ResourceLocation(IcariaInfo.ID, "block/kettle_concoction_fast");
     public static final ResourceLocation CONCOCTION_SLOW = new ResourceLocation(IcariaInfo.ID, "block/kettle_concoction_slow");
     public static final ResourceLocation FLOWING_MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID, "block/flowing_mediterranean_water");
     public static final ResourceLocation MEDITERRANEAN_WATER_TEXTURE = new ResourceLocation(IcariaInfo.ID, "block/mediterranean_water");
 
     // ENTITY
+
     public static final ResourceLocation AETERNAE = new ResourceLocation(IcariaInfo.ID, "textures/entity/aeternae.png");
     public static final ResourceLocation ARACHNE = new ResourceLocation(IcariaInfo.ID, "textures/entity/arachne.png");
     public static final ResourceLocation ARACHNE_EMISSIVE = new ResourceLocation(IcariaInfo.ID, "textures/entity/arachne_emissive.png");
@@ -90,10 +93,12 @@ public class IcariaResourceLocations {
     public static final ResourceLocation VINEGAROON_EMISSIVE = new ResourceLocation(IcariaInfo.ID, "textures/entity/vinegaroon_emissive.png");
 
     // ENVIRONMENT
+
     public static final ResourceLocation MOON = new ResourceLocation("textures/environment/moon_phases.png");
     public static final ResourceLocation SUN = new ResourceLocation("textures/environment/sun.png");
 
     // GUI
+
     public static final ResourceLocation FORGE = new ResourceLocation(IcariaInfo.ID, "textures/gui/forge.png");
     public static final ResourceLocation FORGE_CATEGORY = new ResourceLocation(IcariaInfo.ID, "textures/gui/jei/forge.png");
     public static final ResourceLocation GRINDER = new ResourceLocation(IcariaInfo.ID, "textures/gui/grinder.png");
@@ -103,9 +108,11 @@ public class IcariaResourceLocations {
     public static final ResourceLocation STORAGE_VASE = new ResourceLocation(IcariaInfo.ID, "textures/gui/storage_vase.png");
 
     // ITEM
+
     public static final ResourceLocation SCROLL = new ResourceLocation(IcariaInfo.ID, "item/scroll");
 
     // LAYER
+
     public static final ResourceLocation AETERNAE_LAYER = new ResourceLocation(IcariaInfo.ID, "aeternae");
     public static final ResourceLocation AETERNAE_SKULL_LAYER = new ResourceLocation(IcariaInfo.ID, "aeternae_skull");
     public static final ResourceLocation ARACHNE_LAYER = new ResourceLocation(IcariaInfo.ID, "arachne");
@@ -158,6 +165,7 @@ public class IcariaResourceLocations {
     public static final ResourceLocation VINEGAROON_LAYER = new ResourceLocation(IcariaInfo.ID, "vinegaroon");
 
     // LOOT
+
     public static final ResourceLocation BARREL_LOOT = new ResourceLocation(IcariaInfo.ID, "barrels/barrel");
     public static final ResourceLocation CHEST_LOOT = new ResourceLocation(IcariaInfo.ID, "chests/chest");
     public static final ResourceLocation RED_LOOT_VASE_LOOT = new ResourceLocation(IcariaInfo.ID, "loot_vases/red_loot_vase");
@@ -166,6 +174,7 @@ public class IcariaResourceLocations {
     public static final ResourceLocation CYAN_STORAGE_VASE_LOOT = new ResourceLocation(IcariaInfo.ID, "storage_vases/cyan_storage_vase");
 
     // SOUND
+
     public static final ResourceLocation BARREL_BREAK = new ResourceLocation(IcariaInfo.ID, "block.barrel.break");
     public static final ResourceLocation GRINDER_GRIND = new ResourceLocation(IcariaInfo.ID, "block.grinder.grind");
     public static final ResourceLocation KETTLE_CONCOCT = new ResourceLocation(IcariaInfo.ID, "block.kettle.concoct");

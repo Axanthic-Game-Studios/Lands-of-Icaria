@@ -12,6 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation, unused")
+
 @ParametersAreNonnullByDefault
 
 public class IcariaHiddenFeature extends Feature<NoneFeatureConfiguration> {

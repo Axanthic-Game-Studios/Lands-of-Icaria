@@ -24,14 +24,15 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.lighting.BlockLightEngine;
 
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.PlantType;
-import net.minecraftforge.common.ToolAction;
-import net.minecraftforge.common.ToolActions;
+import net.neoforged.neoforge.common.IPlantable;
+import net.neoforged.neoforge.common.PlantType;
+import net.neoforged.neoforge.common.ToolAction;
+import net.neoforged.neoforge.common.ToolActions;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -84,7 +85,7 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
+	public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState) {
 		return pLevel.getBlockState(pPos.above()).isAir();
 	}
 

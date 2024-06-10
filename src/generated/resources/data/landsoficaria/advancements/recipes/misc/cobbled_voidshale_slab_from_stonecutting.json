@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cobbled_voidshale": {
+    "has_landsoficaria:cobbled_voidshale": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_cobbled_voidshale",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:cobbled_voidshale"
     ]
   ],
   "rewards": {

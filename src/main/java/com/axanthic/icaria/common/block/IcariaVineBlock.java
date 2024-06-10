@@ -43,18 +43,23 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaVineBlock extends Block {
 	public Map<BlockState, VoxelShape> map;
 
-	public static final Map<Direction, BooleanProperty> SET_PROP_FOR_FACE = ImmutableMap.copyOf(Util.make(Maps.newEnumMap(Direction.class), (map) -> {
-		map.put(Direction.NORTH, BlockStateProperties.NORTH);
-		map.put(Direction.EAST, BlockStateProperties.EAST);
-		map.put(Direction.SOUTH, BlockStateProperties.SOUTH);
-		map.put(Direction.WEST, BlockStateProperties.WEST);
-	}));
+	public static final Map<Direction, BooleanProperty> SET_PROP_FOR_FACE = ImmutableMap.copyOf(
+		Util.make(
+			Maps.newEnumMap(Direction.class), (map) -> {
+				map.put(Direction.NORTH, BlockStateProperties.NORTH);
+				map.put(Direction.EAST, BlockStateProperties.EAST);
+				map.put(Direction.SOUTH, BlockStateProperties.SOUTH);
+				map.put(Direction.WEST, BlockStateProperties.WEST);
+			}
+		)
+	);
 
 	public static final VoxelShape SHAPE_NORTH = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 1.0D);
 	public static final VoxelShape SHAPE_EAST = Block.box(15.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);

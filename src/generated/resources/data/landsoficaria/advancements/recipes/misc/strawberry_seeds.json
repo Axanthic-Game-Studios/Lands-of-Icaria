@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_strawberries": {
+    "has_landsoficaria:strawberries": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_strawberries",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:strawberries"
     ]
   ],
   "rewards": {

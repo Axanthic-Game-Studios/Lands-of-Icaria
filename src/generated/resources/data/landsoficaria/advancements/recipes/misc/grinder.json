@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_orichalcum_ingot": {
+    "has_landsoficaria:orichalcum_ingot": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_sunstone_bricks": {
+    "has_landsoficaria:sunstone_bricks": {
       "conditions": {
         "items": [
           {
@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
-      "has_sunstone_bricks",
-      "has_orichalcum_ingot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:sunstone_bricks",
+      "has_landsoficaria:orichalcum_ingot"
     ]
   ],
   "rewards": {

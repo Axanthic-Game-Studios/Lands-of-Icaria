@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rotten_bones_block": {
+    "has_landsoficaria:rotten_bones_block": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_rotten_bones_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:rotten_bones_block"
     ]
   ],
   "rewards": {

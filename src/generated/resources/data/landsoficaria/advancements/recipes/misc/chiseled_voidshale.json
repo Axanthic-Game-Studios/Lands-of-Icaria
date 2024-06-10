@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "landsoficaria:chiseled_voidshale"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_voidshale_brick_slab": {
+    "has_landsoficaria:voidshale_brick_slab": {
       "conditions": {
         "items": [
           {
@@ -18,12 +12,18 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:chiseled_voidshale"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_voidshale_brick_slab",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:voidshale_brick_slab"
     ]
   ],
   "rewards": {

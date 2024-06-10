@@ -13,7 +13,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 
-import net.minecraftforge.common.ForgeMod;
+import net.neoforged.neoforge.common.NeoForgeMod;
 
 import java.util.UUID;
 
@@ -35,11 +35,11 @@ public class DaggerItem extends SwordItem {
         super(pTier, pDamage, pAttackSpeed, pProperties);
         this.attackDamage = pDamage + pTier.attackDamageBonus;
         this.attackSpeed = pAttackSpeed;
-        this.entityReach = ForgeMod.ENTITY_REACH.isPresent() ? -2.0F : 0.0F;
+        this.entityReach = NeoForgeMod.ENTITY_REACH.isBound() ? -2.0F : 0.0F;
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(Item.BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", this.attackDamage, AttributeModifier.Operation.ADDITION));
         builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_UUID, "Weapon modifier", this.attackSpeed, AttributeModifier.Operation.ADDITION));
-        builder.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(DaggerItem.BASE_ATTACK_RANGE_UUID, "Weapon modifier", this.entityReach, AttributeModifier.Operation.ADDITION));
+        builder.put(NeoForgeMod.ENTITY_REACH.value(), new AttributeModifier(DaggerItem.BASE_ATTACK_RANGE_UUID, "Weapon modifier", this.entityReach, AttributeModifier.Operation.ADDITION));
         this.multimap = builder.build();
     }
 

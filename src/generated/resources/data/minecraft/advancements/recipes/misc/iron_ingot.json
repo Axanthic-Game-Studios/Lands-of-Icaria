@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_calcite_dust": {
+    "has_landsoficaria:calcite_dust": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_sideros_ingot": {
+    "has_landsoficaria:sideros_ingot": {
       "conditions": {
         "items": [
           {
@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
-      "has_sideros_ingot",
-      "has_calcite_dust",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:sideros_ingot",
+      "has_landsoficaria:calcite_dust"
     ]
   ],
   "rewards": {

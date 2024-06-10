@@ -14,7 +14,7 @@
     }
   ],
   "output": {
-    "count": 1,
-    "item": "minecraft:netherite_ingot"
+    "Count": 1,
+    "id": "minecraft:netherite_ingot"
   }
 }

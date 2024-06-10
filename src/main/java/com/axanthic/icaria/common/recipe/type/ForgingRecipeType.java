@@ -6,6 +6,6 @@ import net.minecraft.world.item.crafting.RecipeType;
 
 public class ForgingRecipeType implements RecipeType<ForgingRecipe> {
     public ForgingRecipeType() {
-        // NOOP
+
     }
 }

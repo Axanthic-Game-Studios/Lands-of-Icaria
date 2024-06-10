@@ -1,43 +1,54 @@
 package com.axanthic.icaria.common.registry;
 
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 
+import java.util.function.Supplier;
+
 public class IcariaPottables {
+
 	public static void setup() {
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.CYPRESS_SAPLING.getId(), IcariaBlocks.POTTED_CYPRESS_SAPLING);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.DROUGHTROOT_SAPLING.getId(), IcariaBlocks.POTTED_DROUGHTROOT_SAPLING);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.FIR_SAPLING.getId(), IcariaBlocks.POTTED_FIR_SAPLING);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.LAUREL_SAPLING.getId(), IcariaBlocks.POTTED_LAUREL_SAPLING);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.OLIVE_SAPLING.getId(), IcariaBlocks.POTTED_OLIVE_SAPLING);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.PLANE_SAPLING.getId(), IcariaBlocks.POTTED_PLANE_SAPLING);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.POPULUS_SAPLING.getId(), IcariaBlocks.POTTED_POPULUS_SAPLING);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.FERN.getId(), IcariaBlocks.POTTED_FERN);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.BLINDWEED.getId(), IcariaBlocks.POTTED_BLINDWEED);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.CHAMEOMILE.getId(), IcariaBlocks.POTTED_CHAMEOMILE);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.CHARMONDER.getId(), IcariaBlocks.POTTED_CHARMONDER);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.CLOVER.getId(), IcariaBlocks.POTTED_CLOVER);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.FIREHILT.getId(), IcariaBlocks.POTTED_FIREHILT);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.BLUE_HYDRACINTH.getId(), IcariaBlocks.POTTED_BLUE_HYDRACINTH);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.PURPLE_HYDRACINTH.getId(), IcariaBlocks.POTTED_PURPLE_HYDRACINTH);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.LIONFANGS.getId(), IcariaBlocks.POTTED_LIONFANGS);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.SPEARDROPS.getId(), IcariaBlocks.POTTED_SPEARDROPS);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.PURPLE_STAGHORN.getId(), IcariaBlocks.POTTED_PURPLE_STAGHORN);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.YELLOW_STAGHORN.getId(), IcariaBlocks.POTTED_YELLOW_STAGHORN);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.BLUE_STORMCOTTON.getId(), IcariaBlocks.POTTED_BLUE_STORMCOTTON);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.PINK_STORMCOTTON.getId(), IcariaBlocks.POTTED_PINK_STORMCOTTON);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.PURPLE_STORMCOTTON.getId(), IcariaBlocks.POTTED_PURPLE_STORMCOTTON);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.SUNKETTLE.getId(), IcariaBlocks.POTTED_SUNKETTLE);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.SUNSPONGE.getId(), IcariaBlocks.POTTED_SUNSPONGE);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.VOIDLILY.getId(), IcariaBlocks.POTTED_VOIDLILY);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.PALM_FERN.getId(), IcariaBlocks.POTTED_PALM_FERN);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.WHITE_BROMELIA.getId(), IcariaBlocks.POTTED_WHITE_BROMELIA);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.ORANGE_BROMELIA.getId(), IcariaBlocks.POTTED_ORANGE_BROMELIA);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.PINK_BROMELIA.getId(), IcariaBlocks.POTTED_PINK_BROMELIA);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.PURPLE_BROMELIA.getId(), IcariaBlocks.POTTED_PURPLE_BROMELIA);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.GREEN_GROUND_SHROOMS.getId(), IcariaBlocks.POTTED_GREEN_GROUND_SHROOMS);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.BROWN_GROUND_SHROOMS.getId(), IcariaBlocks.POTTED_BROWN_GROUND_SHROOMS);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.LARGE_BROWN_GROUND_SHROOMS.getId(), IcariaBlocks.POTTED_LARGE_BROWN_GROUND_SHROOMS);
-		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(IcariaBlocks.CARDON_CACTUS.getId(), IcariaBlocks.POTTED_CARDON_CACTUS);
+		IcariaPottables.set(IcariaBlocks.CYPRESS_SAPLING.get(), IcariaBlocks.POTTED_CYPRESS_SAPLING);
+		IcariaPottables.set(IcariaBlocks.DROUGHTROOT_SAPLING.get(), IcariaBlocks.POTTED_DROUGHTROOT_SAPLING);
+		IcariaPottables.set(IcariaBlocks.FIR_SAPLING.get(), IcariaBlocks.POTTED_FIR_SAPLING);
+		IcariaPottables.set(IcariaBlocks.LAUREL_SAPLING.get(), IcariaBlocks.POTTED_LAUREL_SAPLING);
+		IcariaPottables.set(IcariaBlocks.OLIVE_SAPLING.get(), IcariaBlocks.POTTED_OLIVE_SAPLING);
+		IcariaPottables.set(IcariaBlocks.PLANE_SAPLING.get(), IcariaBlocks.POTTED_PLANE_SAPLING);
+		IcariaPottables.set(IcariaBlocks.POPULUS_SAPLING.get(), IcariaBlocks.POTTED_POPULUS_SAPLING);
+		IcariaPottables.set(IcariaBlocks.FERN.get(), IcariaBlocks.POTTED_FERN);
+		IcariaPottables.set(IcariaBlocks.BLINDWEED.get(), IcariaBlocks.POTTED_BLINDWEED);
+		IcariaPottables.set(IcariaBlocks.CHAMEOMILE.get(), IcariaBlocks.POTTED_CHAMEOMILE);
+		IcariaPottables.set(IcariaBlocks.CHARMONDER.get(), IcariaBlocks.POTTED_CHARMONDER);
+		IcariaPottables.set(IcariaBlocks.CLOVER.get(), IcariaBlocks.POTTED_CLOVER);
+		IcariaPottables.set(IcariaBlocks.FIREHILT.get(), IcariaBlocks.POTTED_FIREHILT);
+		IcariaPottables.set(IcariaBlocks.BLUE_HYDRACINTH.get(), IcariaBlocks.POTTED_BLUE_HYDRACINTH);
+		IcariaPottables.set(IcariaBlocks.PURPLE_HYDRACINTH.get(), IcariaBlocks.POTTED_PURPLE_HYDRACINTH);
+		IcariaPottables.set(IcariaBlocks.LIONFANGS.get(), IcariaBlocks.POTTED_LIONFANGS);
+		IcariaPottables.set(IcariaBlocks.SPEARDROPS.get(), IcariaBlocks.POTTED_SPEARDROPS);
+		IcariaPottables.set(IcariaBlocks.PURPLE_STAGHORN.get(), IcariaBlocks.POTTED_PURPLE_STAGHORN);
+		IcariaPottables.set(IcariaBlocks.YELLOW_STAGHORN.get(), IcariaBlocks.POTTED_YELLOW_STAGHORN);
+		IcariaPottables.set(IcariaBlocks.BLUE_STORMCOTTON.get(), IcariaBlocks.POTTED_BLUE_STORMCOTTON);
+		IcariaPottables.set(IcariaBlocks.PINK_STORMCOTTON.get(), IcariaBlocks.POTTED_PINK_STORMCOTTON);
+		IcariaPottables.set(IcariaBlocks.PURPLE_STORMCOTTON.get(), IcariaBlocks.POTTED_PURPLE_STORMCOTTON);
+		IcariaPottables.set(IcariaBlocks.SUNKETTLE.get(), IcariaBlocks.POTTED_SUNKETTLE);
+		IcariaPottables.set(IcariaBlocks.SUNSPONGE.get(), IcariaBlocks.POTTED_SUNSPONGE);
+		IcariaPottables.set(IcariaBlocks.VOIDLILY.get(), IcariaBlocks.POTTED_VOIDLILY);
+		IcariaPottables.set(IcariaBlocks.PALM_FERN.get(), IcariaBlocks.POTTED_PALM_FERN);
+		IcariaPottables.set(IcariaBlocks.WHITE_BROMELIA.get(), IcariaBlocks.POTTED_WHITE_BROMELIA);
+		IcariaPottables.set(IcariaBlocks.ORANGE_BROMELIA.get(), IcariaBlocks.POTTED_ORANGE_BROMELIA);
+		IcariaPottables.set(IcariaBlocks.PINK_BROMELIA.get(), IcariaBlocks.POTTED_PINK_BROMELIA);
+		IcariaPottables.set(IcariaBlocks.PURPLE_BROMELIA.get(), IcariaBlocks.POTTED_PURPLE_BROMELIA);
+		IcariaPottables.set(IcariaBlocks.GREEN_GROUND_SHROOMS.get(), IcariaBlocks.POTTED_GREEN_GROUND_SHROOMS);
+		IcariaPottables.set(IcariaBlocks.BROWN_GROUND_SHROOMS.get(), IcariaBlocks.POTTED_BROWN_GROUND_SHROOMS);
+		IcariaPottables.set(IcariaBlocks.LARGE_BROWN_GROUND_SHROOMS.get(), IcariaBlocks.POTTED_LARGE_BROWN_GROUND_SHROOMS);
+		IcariaPottables.set(IcariaBlocks.CARDON_CACTUS.get(), IcariaBlocks.POTTED_CARDON_CACTUS);
+	}
+
+	public static void set(Block pBlock, Supplier<? extends Block> pSupplier) {
+		if (Blocks.FLOWER_POT instanceof FlowerPotBlock flowerPotBlock) {
+			flowerPotBlock.addPlant(BuiltInRegistries.BLOCK.getKey(pBlock), pSupplier);
+		}
 	}
 }

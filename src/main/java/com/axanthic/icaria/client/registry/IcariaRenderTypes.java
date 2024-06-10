@@ -12,7 +12,6 @@ import net.minecraft.client.renderer.RenderType;
 @SuppressWarnings("unused")
 
 public class IcariaRenderTypes {
-    // EMISSIVE
     public static final RenderType ARACHNE_EMISSIVE = RenderType.entityTranslucentEmissive(IcariaResourceLocations.ARACHNE_EMISSIVE);
     public static final RenderType ARACHNE_DRONE_EMISSIVE = RenderType.entityTranslucentEmissive(IcariaResourceLocations.ARACHNE_DRONE_EMISSIVE);
     public static final RenderType ARGAN_HOUND_EMISSIVE = RenderType.entityTranslucentEmissive(IcariaResourceLocations.ARGAN_HOUND_EMISSIVE);
@@ -47,10 +46,8 @@ public class IcariaRenderTypes {
     public static final RenderType SOLIFUGAE_EMISSIVE = RenderType.entityTranslucentEmissive(IcariaResourceLocations.SOLIFUGAE_EMISSIVE);
     public static final RenderType VINEGAROON_EMISSIVE = RenderType.entityTranslucentEmissive(IcariaResourceLocations.VINEGAROON_EMISSIVE);
 
-    // TRANSLUCENT
     public static final RenderType HYLIASTER_TRANSLUCENT = RenderType.entityTranslucent(IcariaResourceLocations.HYLIASTER_TRANSLUCENT);
 
-    // TRANSPARENT
     public static final RenderType ADDITIVE_TRANSPARENT = RenderType.create("additive_transparent", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(new RenderStateShard.ShaderStateShard(GameRenderer::getRendertypeLightningShader)).setTransparencyState(IcariaRenderStateShards.ADDITIVE_TRANSPARENCY).createCompositeState(false));
     public static final RenderType SUBTRACTIVE_TRANSPARENT = RenderType.create("subtractive_transparent", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(new RenderStateShard.ShaderStateShard(GameRenderer::getRendertypeLightningShader)).setTransparencyState(IcariaRenderStateShards.SUBTRACTIVE_TRANSPARENCY).createCompositeState(false));
 }

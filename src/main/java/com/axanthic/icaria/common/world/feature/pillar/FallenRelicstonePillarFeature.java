@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
+
 @ParametersAreNonnullByDefault
 
 public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfiguration> {

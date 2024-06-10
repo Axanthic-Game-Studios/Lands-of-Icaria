@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bluridium_nugget": {
+    "has_landsoficaria:bluridium_nugget": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_bluridium_nugget",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:bluridium_nugget"
     ]
   ],
   "rewards": {

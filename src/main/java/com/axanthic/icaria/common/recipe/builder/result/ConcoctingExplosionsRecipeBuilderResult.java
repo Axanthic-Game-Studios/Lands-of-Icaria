@@ -6,7 +6,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -23,7 +23,7 @@ public class ConcoctingExplosionsRecipeBuilderResult implements FinishedRecipe {
     public int burnTime;
     public int color;
 
-    public Advancement.Builder advancement;
+    public AdvancementHolder advancement;
 
     public Ingredient ingredientA;
     public Ingredient ingredientB;
@@ -32,7 +32,7 @@ public class ConcoctingExplosionsRecipeBuilderResult implements FinishedRecipe {
     public ResourceLocation advancementId;
     public ResourceLocation id;
 
-    public ConcoctingExplosionsRecipeBuilderResult(float pRadius, int pBurnTime, int pColor, Advancement.Builder pAdvancement, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, ResourceLocation pAdvancementId, ResourceLocation pId) {
+    public ConcoctingExplosionsRecipeBuilderResult(float pRadius, int pBurnTime, int pColor, AdvancementHolder pAdvancement, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, ResourceLocation pAdvancementId, ResourceLocation pId) {
         this.radius = pRadius;
         this.burnTime = pBurnTime;
         this.color = pColor;
@@ -48,9 +48,9 @@ public class ConcoctingExplosionsRecipeBuilderResult implements FinishedRecipe {
     public void serializeRecipeData(JsonObject pJson) {
         var jsonArray = new JsonArray();
 
-        jsonArray.add(this.ingredientA.toJson());
-        jsonArray.add(this.ingredientB.toJson());
-        jsonArray.add(this.ingredientC.toJson());
+        jsonArray.add(this.ingredientA.toJson(true));
+        jsonArray.add(this.ingredientB.toJson(true));
+        jsonArray.add(this.ingredientC.toJson(true));
 
         pJson.addProperty("radius", this.radius);
         pJson.addProperty("burnTime", this.burnTime);
@@ -60,22 +60,17 @@ public class ConcoctingExplosionsRecipeBuilderResult implements FinishedRecipe {
     }
 
     @Override
-    public JsonObject serializeAdvancement() {
-        return this.advancement.serializeToJson();
-    }
-
-    @Override
-    public RecipeSerializer<?> getType() {
+    public RecipeSerializer<?> type() {
         return IcariaRecipeSerializers.CONCOCTING_EXPLOSIONS.get();
     }
 
     @Override
-    public ResourceLocation getAdvancementId() {
-        return this.advancementId;
+    public AdvancementHolder advancement() {
+        return this.advancement;
     }
 
     @Override
-    public ResourceLocation getId() {
+    public ResourceLocation id() {
         return this.id;
     }
 }

@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_chain"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vanadiumsteel_ingot": {
+    "has_landsoficaria:vanadiumsteel_ingot": {
       "conditions": {
         "items": [
           {
@@ -19,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_vanadiumsteel_nugget": {
+    "has_landsoficaria:vanadiumsteel_nugget": {
       "conditions": {
         "items": [
           {
@@ -30,13 +24,19 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:vanadiumsteel_chain"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_vanadiumsteel_nugget",
-      "has_vanadiumsteel_ingot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:vanadiumsteel_nugget",
+      "has_landsoficaria:vanadiumsteel_ingot"
     ]
   ],
   "rewards": {

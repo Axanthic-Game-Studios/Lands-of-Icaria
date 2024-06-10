@@ -2,13 +2,12 @@ package com.axanthic.icaria.common.recipe.serializer;
 
 import com.axanthic.icaria.common.recipe.ConcoctingPotionRecipe;
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
@@ -18,23 +17,24 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ConcoctingPotionRecipeSerializer implements RecipeSerializer<ConcoctingPotionRecipe> {
-    @Override
-    public ConcoctingPotionRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
-        float potionRadius = GsonHelper.getAsFloat(pSerializedRecipe, "potionRadius");
-        int burnTime = GsonHelper.getAsInt(pSerializedRecipe, "burnTime");
-        int color = GsonHelper.getAsInt(pSerializedRecipe, "color");
-        int potionDuration = GsonHelper.getAsInt(pSerializedRecipe, "potionDuration");
-        var potion = GsonHelper.getAsString(pSerializedRecipe, "potion");
-        var ingredients = NonNullList.withSize(3, Ingredient.EMPTY);
-        for (int i = 0; i < ingredients.size(); i++) {
-            ingredients.set(i, Ingredient.fromJson(GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients").get(i)));
-        }
+    public static final Codec<ConcoctingPotionRecipe> CODEC = RecordCodecBuilder.create(
+        instance -> instance.group(
+            Codec.FLOAT.fieldOf("potionRadius").forGetter(recipe -> recipe.potionRadius),
+            Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
+            Codec.INT.fieldOf("color").forGetter(recipe -> recipe.color),
+            Codec.INT.fieldOf("potionDuration").forGetter(recipe -> recipe.potionDuration),
+            Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
+            Codec.STRING.fieldOf("potion").forGetter(recipe -> recipe.potion)
+        ).apply(instance, ConcoctingPotionRecipe::new)
+    );
 
-        return new ConcoctingPotionRecipe(potionRadius, burnTime, color, potionDuration, ingredients, pRecipeId, potion);
+    @Override
+    public Codec<ConcoctingPotionRecipe> codec() {
+        return CODEC;
     }
 
     @Override
-    public ConcoctingPotionRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+    public ConcoctingPotionRecipe fromNetwork(FriendlyByteBuf pBuffer) {
         float potionRadius = pBuffer.readFloat();
         int burnTime = pBuffer.readInt();
         int color = pBuffer.readInt();
@@ -45,7 +45,7 @@ public class ConcoctingPotionRecipeSerializer implements RecipeSerializer<Concoc
             ingredients.set(i, Ingredient.fromNetwork(pBuffer));
         }
 
-        return new ConcoctingPotionRecipe(potionRadius, burnTime, color, potionDuration, ingredients, pRecipeId, potion);
+        return new ConcoctingPotionRecipe(potionRadius, burnTime, color, potionDuration, ingredients, potion);
     }
 
     @Override

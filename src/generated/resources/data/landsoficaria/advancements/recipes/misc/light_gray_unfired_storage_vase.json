@@ -1,7 +1,19 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_light_gray_dye": {
+    "has_landsoficaria:unfired_storage_vase": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:unfired_storage_vase"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:light_gray_dye": {
       "conditions": {
         "items": [
           {
@@ -18,25 +30,13 @@
         "recipe": "landsoficaria:light_gray_unfired_storage_vase"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_unfired_storage_vase": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:unfired_storage_vase"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_light_gray_dye",
-      "has_unfired_storage_vase",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_minecraft:light_gray_dye",
+      "has_landsoficaria:unfired_storage_vase"
     ]
   ],
   "rewards": {

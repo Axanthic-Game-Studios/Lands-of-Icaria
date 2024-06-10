@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_greenpowder": {
+    "has_landsoficaria:greenpowder": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_paper": {
+    "has_minecraft:paper": {
       "conditions": {
         "items": [
           {
@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
-      "has_greenpowder",
-      "has_paper",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:greenpowder",
+      "has_minecraft:paper"
     ]
   ],
   "rewards": {

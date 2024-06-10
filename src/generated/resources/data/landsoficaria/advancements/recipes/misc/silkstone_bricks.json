@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_silkstone": {
+    "has_landsoficaria:silkstone": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_silkstone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:silkstone"
     ]
   ],
   "rewards": {

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stripped_dead_laurel_log": {
+    "has_landsoficaria:stripped_dead_laurel_log": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_stripped_dead_laurel_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:stripped_dead_laurel_log"
     ]
   ],
   "rewards": {

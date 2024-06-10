@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lionfangs": {
+    "has_landsoficaria:lionfangs": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_lionfangs",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:lionfangs"
     ]
   ],
   "rewards": {

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_firehilt": {
+    "has_landsoficaria:firehilt": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_firehilt",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:firehilt"
     ]
   ],
   "rewards": {

@@ -13,10 +13,10 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
+import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.items.wrapper.InvWrapper;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -37,14 +37,16 @@ public class ForgeMenu extends AbstractContainerMenu {
 		if (this.blockEntity != null) {
 			this.containerData = this.blockEntity.getData();
 			this.addDataSlots(this.containerData);
-			this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(pItemHandler -> {
-				this.addSlot(new SlotItemHandler(this.blockEntity.inputStackHandlerA, 0, 36, 22));
-				this.addSlot(new SlotItemHandler(this.blockEntity.inputStackHandlerB, 0, 54, 22));
-				this.addSlot(new SlotItemHandler(this.blockEntity.inputStackHandlerC, 0, 72, 22));
-				this.addSlot(new ForgeFuelSlot(this.blockEntity.stackHandler, 0, 54, 58));
-				this.addSlot(new ForgeOutputSlot(this.blockEntity.stackHandler, this.blockEntity, pPlayer, 1, 120, 54));
-				this.addSlot(new ForgeOutputSlot(this.blockEntity.stackHandler, this.blockEntity, pPlayer, 2, 120, 26));
-			});
+			this.blockEntity.getCapability(Capabilities.ITEM_HANDLER).ifPresent(
+				pItemHandler -> {
+					this.addSlot(new SlotItemHandler(this.blockEntity.inputStackHandlerA, 0, 36, 22));
+					this.addSlot(new SlotItemHandler(this.blockEntity.inputStackHandlerB, 0, 54, 22));
+					this.addSlot(new SlotItemHandler(this.blockEntity.inputStackHandlerC, 0, 72, 22));
+					this.addSlot(new ForgeFuelSlot(this.blockEntity.stackHandler, 0, 54, 58));
+					this.addSlot(new ForgeOutputSlot(this.blockEntity.stackHandler, this.blockEntity, pPlayer, 1, 120, 54));
+					this.addSlot(new ForgeOutputSlot(this.blockEntity.stackHandler, this.blockEntity, pPlayer, 2, 120, 26));
+				}
+			);
 		}
 
 		this.layoutPlayerInventorySlots(8, 76);

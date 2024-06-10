@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_halite_dust": {
+    "has_landsoficaria:halite_dust": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_loam_bowl": {
+    "has_landsoficaria:loam_bowl": {
       "conditions": {
         "items": [
           {
@@ -25,7 +25,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_onion": {
+    "has_landsoficaria:onion": {
       "conditions": {
         "items": [
           {
@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
-      "has_onion",
-      "has_halite_dust",
-      "has_loam_bowl",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:onion",
+      "has_landsoficaria:halite_dust",
+      "has_landsoficaria:loam_bowl"
     ]
   ],
   "rewards": {

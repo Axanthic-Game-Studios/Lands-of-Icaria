@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_spelt_flour": {
+    "has_landsoficaria:spelt_flour": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_spelt_flour",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:spelt_flour"
     ]
   ],
   "rewards": {

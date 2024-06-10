@@ -2,13 +2,12 @@ package com.axanthic.icaria.common.recipe.serializer;
 
 import com.axanthic.icaria.common.recipe.ConcoctingExplosionsRecipe;
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
@@ -18,21 +17,22 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ConcoctingExplosionsRecipeSerializer implements RecipeSerializer<ConcoctingExplosionsRecipe> {
-    @Override
-    public ConcoctingExplosionsRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
-        float radius = GsonHelper.getAsFloat(pSerializedRecipe, "radius");
-        int burnTime = GsonHelper.getAsInt(pSerializedRecipe, "burnTime");
-        int color = GsonHelper.getAsInt(pSerializedRecipe, "color");
-        var ingredients = NonNullList.withSize(3, Ingredient.EMPTY);
-        for (int i = 0; i < ingredients.size(); i++) {
-            ingredients.set(i, Ingredient.fromJson(GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients").get(i)));
-        }
+    public static final Codec<ConcoctingExplosionsRecipe> CODEC = RecordCodecBuilder.create(
+        instance -> instance.group(
+            Codec.FLOAT.fieldOf("radius").forGetter(recipe -> recipe.radius),
+            Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
+            Codec.INT.fieldOf("color").forGetter(recipe -> recipe.color),
+            Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients)
+        ).apply(instance, ConcoctingExplosionsRecipe::new)
+    );
 
-        return new ConcoctingExplosionsRecipe(radius, burnTime, color, ingredients, pRecipeId);
+    @Override
+    public Codec<ConcoctingExplosionsRecipe> codec() {
+        return CODEC;
     }
 
     @Override
-    public ConcoctingExplosionsRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+    public ConcoctingExplosionsRecipe fromNetwork(FriendlyByteBuf pBuffer) {
         float radius = pBuffer.readFloat();
         int burnTime = pBuffer.readInt();
         int color = pBuffer.readInt();
@@ -41,7 +41,7 @@ public class ConcoctingExplosionsRecipeSerializer implements RecipeSerializer<Co
             ingredients.set(i, Ingredient.fromNetwork(pBuffer));
         }
 
-        return new ConcoctingExplosionsRecipe(radius, burnTime, color, ingredients, pRecipeId);
+        return new ConcoctingExplosionsRecipe(radius, burnTime, color, ingredients);
     }
 
     @Override

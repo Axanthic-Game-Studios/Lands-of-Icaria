@@ -2,16 +2,15 @@ package com.axanthic.icaria.common.recipe.serializer;
 
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.ShapedRecipe;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -19,22 +18,23 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe> {
-    @Override
-    public GrindingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
-        float experience = GsonHelper.getAsFloat(pSerializedRecipe, "experience");
-        int burnTime = pSerializedRecipe.get("burnTime").getAsInt();
-        var gear = Ingredient.fromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "gear"));
-        var output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
-        var ingredients = NonNullList.withSize(1, Ingredient.EMPTY);
-        for (int i = 0; i < ingredients.size(); i++) {
-            ingredients.set(i, Ingredient.fromJson(GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients").get(i)));
-        }
+    public static final Codec<GrindingRecipe> CODEC = RecordCodecBuilder.create(
+        instance -> instance.group(
+            Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
+            Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
+            Ingredient.CODEC.fieldOf("gear").forGetter(recipe -> recipe.gear),
+            Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
+            ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)
+        ).apply(instance, GrindingRecipe::new)
+    );
 
-        return new GrindingRecipe(experience, burnTime, gear, ingredients, output, pRecipeId);
+    @Override
+    public Codec<GrindingRecipe> codec() {
+        return CODEC;
     }
 
     @Override
-    public GrindingRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+    public GrindingRecipe fromNetwork(FriendlyByteBuf pBuffer) {
         float experience = pBuffer.readFloat();
         int burnTime = pBuffer.readInt();
         var gear = Ingredient.fromNetwork(pBuffer);
@@ -44,7 +44,7 @@ public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe
             ingredients.set(i, Ingredient.fromNetwork(pBuffer));
         }
 
-        return new GrindingRecipe(experience, burnTime, gear, ingredients, output, pRecipeId);
+        return new GrindingRecipe(experience, burnTime, gear, ingredients, output);
     }
 
     @Override

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dolomite": {
+    "has_landsoficaria:dolomite": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_dolomite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:dolomite"
     ]
   ],
   "rewards": {

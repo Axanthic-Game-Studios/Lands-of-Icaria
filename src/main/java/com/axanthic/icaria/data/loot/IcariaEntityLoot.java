@@ -5,6 +5,7 @@ import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
@@ -21,11 +22,10 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyC
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
-import net.minecraftforge.registries.ForgeRegistries;
-
 import java.util.stream.Stream;
 
 @SuppressWarnings("unused")
+
 @MethodsReturnNonnullByDefault
 
 public class IcariaEntityLoot extends EntityLootSubProvider {
@@ -150,6 +150,6 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
 
     @Override
     public Stream<EntityType<?>> getKnownEntityTypes() {
-        return ForgeRegistries.ENTITY_TYPES.getValues().stream().filter(pEntityType -> ForgeRegistries.ENTITY_TYPES.getKey(pEntityType).getNamespace().equals(IcariaInfo.ID));
+        return BuiltInRegistries.ENTITY_TYPE.stream().filter(pEntityType -> BuiltInRegistries.ENTITY_TYPE.getKey(pEntityType).getNamespace().equals(IcariaInfo.ID));
     }
 }

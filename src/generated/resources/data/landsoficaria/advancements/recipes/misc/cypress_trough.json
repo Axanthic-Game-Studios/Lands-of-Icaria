@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cypress_log": {
+    "has_landsoficaria:cypress_log": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_cypress_planks": {
+    "has_landsoficaria:cypress_planks": {
       "conditions": {
         "items": [
           {
@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
-      "has_cypress_planks",
-      "has_cypress_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:cypress_planks",
+      "has_landsoficaria:cypress_log"
     ]
   ],
   "rewards": {

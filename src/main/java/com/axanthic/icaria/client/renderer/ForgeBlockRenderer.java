@@ -17,11 +17,12 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
+
 @ParametersAreNonnullByDefault
 
 public class ForgeBlockRenderer implements BlockEntityRenderer<ForgeBlockEntity> {
 	public ForgeBlockRenderer(BlockEntityRendererProvider.Context pContext) {
-		// NOOP
+
 	}
 
 	@Override

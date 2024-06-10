@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 

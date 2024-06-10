@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_raw_vanadium": {
+    "has_landsoficaria:raw_vanadium": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_raw_vanadium",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:raw_vanadium"
     ]
   ],
   "rewards": {

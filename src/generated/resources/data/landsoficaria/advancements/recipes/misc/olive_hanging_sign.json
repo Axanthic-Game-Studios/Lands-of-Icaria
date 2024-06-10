@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stripped_olive_log": {
+    "has_landsoficaria:stripped_olive_log": {
       "conditions": {
         "items": [
           {
@@ -13,13 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "landsoficaria:olive_hanging_sign"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vanadiumsteel_chain": {
+    "has_landsoficaria:vanadiumsteel_chain": {
       "conditions": {
         "items": [
           {
@@ -30,13 +24,19 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:olive_hanging_sign"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_vanadiumsteel_chain",
-      "has_stripped_olive_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:vanadiumsteel_chain",
+      "has_landsoficaria:stripped_olive_log"
     ]
   ],
   "rewards": {

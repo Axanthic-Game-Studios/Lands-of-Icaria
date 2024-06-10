@@ -12,7 +12,7 @@
     []
   ],
   "output": {
-    "count": 1,
-    "item": "landsoficaria:bone_remains"
+    "Count": 1,
+    "id": "landsoficaria:bone_remains"
   }
 }

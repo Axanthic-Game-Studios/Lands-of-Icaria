@@ -18,6 +18,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -32,18 +33,19 @@ import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
 
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.common.CommonHooks;
+import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.neoforged.neoforge.common.capabilities.Capability;
+import net.neoforged.neoforge.common.util.LazyOptional;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.List;
 import java.util.Map;
@@ -132,21 +134,21 @@ public class ForgeBlockEntity extends BlockEntity {
         this.simpleContainer.setItem(4, this.stackHandler.getStackInSlot(1));
         this.simpleContainer.setItem(5, this.stackHandler.getStackInSlot(2));
 
-        Optional<ForgingRecipe> recipe = Optional.empty();
+        Optional<RecipeHolder<ForgingRecipe>> recipe = Optional.empty();
         if (this.level != null) {
             recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.FORGING.get(), this.simpleContainer, this.level);
         }
 
         int burnTime = 0;
         if (recipe.isPresent()) {
-            burnTime = recipe.get().getBurnTime();
+            burnTime = recipe.get().value().getBurnTime();
         }
 
         if (this.maxProgress != burnTime) {
             this.maxProgress = burnTime;
         }
 
-        return (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get(), 4)) || (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get(), 5));
+        return (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 4)) || (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 5));
     }
 
     public int getComparatorInput() {
@@ -172,7 +174,7 @@ public class ForgeBlockEntity extends BlockEntity {
         this.simpleContainer.setItem(4, this.stackHandler.getStackInSlot(1));
         this.simpleContainer.setItem(5, this.stackHandler.getStackInSlot(2));
 
-        Optional<ForgingRecipe> recipe = Optional.empty();
+        Optional<RecipeHolder<ForgingRecipe>> recipe = Optional.empty();
         if (this.level != null) {
             recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.FORGING.get(), this.simpleContainer, this.level);
         }
@@ -181,14 +183,14 @@ public class ForgeBlockEntity extends BlockEntity {
             this.inputStackHandlerA.extractItem(0, 1, false);
             this.inputStackHandlerB.extractItem(0, 1, false);
             this.inputStackHandlerC.extractItem(0, 1, false);
-            if (this.canInsertInSlot(this.simpleContainer, recipe.get(), 5)) {
-                this.stackHandler.setStackInSlot(2, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(2).getCount()));
-            } else if (this.canInsertInSlot(this.simpleContainer, recipe.get(), 4)) {
-                this.stackHandler.setStackInSlot(1, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(1).getCount()));
+            if (this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 5)) {
+                this.stackHandler.setStackInSlot(2, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(2).getCount()));
+            } else if (this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 4)) {
+                this.stackHandler.setStackInSlot(1, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(1).getCount()));
             }
 
             this.resetProgress();
-            this.setRecipeUsed(recipe.get());
+            this.setRecipeUsed(recipe.get().value());
         }
     }
 
@@ -268,7 +270,7 @@ public class ForgeBlockEntity extends BlockEntity {
     }
 
     public void setRecipeUsed(Recipe<?> pRecipe) {
-        this.recipesUsed.addTo(pRecipe.getId(), 1);
+        this.recipesUsed.addTo(BuiltInRegistries.RECIPE_TYPE.getKey(pRecipe.getType()), 1);
     }
 
     @Override
@@ -284,7 +286,7 @@ public class ForgeBlockEntity extends BlockEntity {
         var stackHandler = pBlockEntity.stackHandler;
         var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
         var fuelSlot = stackHandler.getStackInSlot(0);
-        var fuelTime = ForgeHooks.getBurnTime(fuelSlot, IcariaRecipeTypes.FORGING.get());
+        var fuelTime = CommonHooks.getBurnTime(fuelSlot, IcariaRecipeTypes.FORGING.get());
         if (!pLevel.isClientSide()) {
             pBlockEntity.update(pPos, pState);
             if (!pBlockEntity.hasFuel() && pBlockEntity.hasRecipe() && fuelTime > 0) {
@@ -371,15 +373,17 @@ public class ForgeBlockEntity extends BlockEntity {
         return this.stackHandler.getStackInSlot(1);
     }
 
-    public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel pLevel, Vec3 pPopVec) {
-        List<Recipe<?>> list = Lists.newArrayList();
+    public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(ServerLevel pLevel, Vec3 pPopVec) {
+        List<RecipeHolder<?>> list = Lists.newArrayList();
         for (var entry : this.recipesUsed.object2IntEntrySet()) {
-            pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe) -> {
-                list.add(recipe);
-                if (recipe instanceof ForgingRecipe forgingRecipe) {
-                    this.createExperience(pLevel, pPopVec, entry.getIntValue(), forgingRecipe.getExperience());
+            pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent(
+                (recipe) -> {
+                    list.add(recipe);
+                    if (recipe.value() instanceof ForgingRecipe forgingRecipe) {
+                        this.createExperience(pLevel, pPopVec, entry.getIntValue(), forgingRecipe.getExperience());
+                    }
                 }
-            });
+            );
         }
 
         return list;
@@ -396,7 +400,7 @@ public class ForgeBlockEntity extends BlockEntity {
     }
 
     public <T> LazyOptional<T> getCapabilityForPos(Capability<T> pCapability, @Nullable Direction pDirection, BlockPos pPos) {
-        if (pCapability == ForgeCapabilities.ITEM_HANDLER) {
+        if (pCapability == Capabilities.ITEM_HANDLER) {
             if (pDirection == null) {
                 return this.itemHandler.cast();
             } else if (this.directionWrappedFuelHandler.containsKey(pDirection) || this.frontLeftInputHandler.containsKey(pDirection) || this.backLeftInputHandler.containsKey(pDirection) || this.backRightInputHandler.containsKey(pDirection)) {

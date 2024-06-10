@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_mossy_relicstone_bricks": {
+    "has_landsoficaria:mossy_relicstone_bricks": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_mossy_relicstone_bricks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:mossy_relicstone_bricks"
     ]
   ],
   "rewards": {

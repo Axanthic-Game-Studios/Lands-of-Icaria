@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.screen;
 
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.menu.StorageVaseMenu;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.util.IcariaColors;
 
 import net.minecraft.client.gui.GuiGraphics;
@@ -22,7 +22,7 @@ public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> 
 
 	@Override
 	public void render(GuiGraphics pGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-		this.renderBackground(pGraphics);
+		this.renderBackground(pGraphics, pMouseX, pMouseY, pPartialTick);
 		super.render(pGraphics, pMouseX, pMouseY, pPartialTick);
 		this.renderTooltip(pGraphics, pMouseX, pMouseY);
 	}

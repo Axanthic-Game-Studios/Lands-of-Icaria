@@ -16,7 +16,6 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.FastColor;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.DyeColor;
@@ -62,18 +61,6 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 		}
 	}
 
-	public int getDarkColor(SignText pSignText) {
-		int color = pSignText.getColor().getTextColor();
-		if (color == DyeColor.BLACK.getTextColor() && pSignText.hasGlowingText()) {
-			return -988212;
-		} else {
-			int red = (int) (FastColor.ARGB32.red(color) * 0.4D);
-			int green = (int) (FastColor.ARGB32.green(color) * 0.4D);
-			int blue = (int) (FastColor.ARGB32.blue(color) * 0.4D);
-			return FastColor.ARGB32.color(0, red, green, blue);
-		}
-	}
-
 	@Override
 	public void render(SignBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
 		var blockState = pBlockEntity.getBlockState();
@@ -98,21 +85,25 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 	}
 
 	public void renderSignModel(PoseStack pPoseStack, int pPackedLight, int pPackedOverlay, Model pModel, VertexConsumer pVertexConsumer) {
-		((SignModel) pModel).root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay);
+		if (pModel instanceof SignModel signModel) {
+			signModel.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay);
+		}
 	}
 
 	public void renderSignText(BlockPos pBlockPos, SignText pSignText, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pLineHeight, int pLineWidth, boolean pBack) {
 		boolean outline;
 
-		int darkColor = this.getDarkColor(pSignText);
+		int darkColor = SignRenderer.getDarkColor(pSignText);
 		int lineHeight = pLineHeight * 2;
 		int packedLight;
 		int textColor;
 
-		var formattedCharSequences = pSignText.getRenderMessages(Minecraft.getInstance().isTextFilteringEnabled(), (pComponent) -> {
-			var list = this.font.split(pComponent, pLineWidth);
-			return list.isEmpty() ? FormattedCharSequence.EMPTY : list.get(0);
-		});
+		var formattedCharSequences = pSignText.getRenderMessages(
+			Minecraft.getInstance().isTextFilteringEnabled(), (pComponent) -> {
+				var list = this.font.split(pComponent, pLineWidth);
+				return list.isEmpty() ? FormattedCharSequence.EMPTY : list.get(0);
+			}
+		);
 
 		pPoseStack.pushPose();
 

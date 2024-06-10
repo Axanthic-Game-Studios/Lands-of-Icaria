@@ -6,6 +6,6 @@ import net.minecraft.world.item.crafting.RecipeType;
 
 public class ConcoctingItemRecipeType implements RecipeType<ConcoctingItemRecipe> {
     public ConcoctingItemRecipeType() {
-        // NOOP
+
     }
 }

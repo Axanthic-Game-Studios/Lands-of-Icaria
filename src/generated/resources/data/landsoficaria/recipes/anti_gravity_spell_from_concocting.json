@@ -14,7 +14,7 @@
     }
   ],
   "output": {
-    "count": 1,
-    "item": "landsoficaria:anti_gravity_spell"
+    "Count": 1,
+    "id": "landsoficaria:anti_gravity_spell"
   }
 }

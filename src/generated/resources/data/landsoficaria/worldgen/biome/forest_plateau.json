@@ -91,7 +91,50 @@
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [],
+    "ambient": [
+      {
+        "type": "landsoficaria:ender_jellyfish",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:fire_jellyfish",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:nature_jellyfish",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:void_jellyfish",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:water_jellyfish",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:crystal_slug",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:forest_snull",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
+      }
+    ],
     "axolotls": [],
     "creature": [
       {
@@ -107,18 +150,6 @@
         "weight": 100
       },
       {
-        "type": "landsoficaria:crystal_slug",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:forest_snull",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
         "type": "landsoficaria:sow",
         "maxCount": 5,
         "minCount": 3,
@@ -129,9 +160,9 @@
     "monster": [
       {
         "type": "landsoficaria:arachne_drone",
-        "maxCount": 1,
+        "maxCount": 3,
         "minCount": 1,
-        "weight": 10
+        "weight": 100
       },
       {
         "type": "landsoficaria:argan_hound",
@@ -159,9 +190,9 @@
       },
       {
         "type": "landsoficaria:myrmeke_drone",
-        "maxCount": 1,
+        "maxCount": 3,
         "minCount": 1,
-        "weight": 10
+        "weight": 100
       },
       {
         "type": "landsoficaria:crawler_revenant",

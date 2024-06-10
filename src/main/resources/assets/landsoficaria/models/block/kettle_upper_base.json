@@ -34,12 +34,12 @@
 			"from": [8.125, 13.125, 12.625],
 			"to": [8.875, 14, 13.375],
 			"faces": {
-				"north": {"uv": [13, 9, 15, 11], "texture": "#kettle", "forge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
-				"east": {"uv": [13, 9, 15, 11], "texture": "#kettle", "forge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
-				"south": {"uv": [13, 9, 15, 11], "texture": "#kettle", "forge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
-				"west": {"uv": [13, 9, 15, 11], "texture": "#kettle", "forge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
-				"up": {"uv": [13, 9, 15, 11], "texture": "#kettle", "forge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
-				"down": {"uv": [13, 9, 15, 11], "texture": "#kettle", "forge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }}
+				"north": {"uv": [13, 9, 15, 11], "texture": "#kettle", "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
+				"east": {"uv": [13, 9, 15, 11], "texture": "#kettle", "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
+				"south": {"uv": [13, 9, 15, 11], "texture": "#kettle", "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
+				"west": {"uv": [13, 9, 15, 11], "texture": "#kettle", "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
+				"up": {"uv": [13, 9, 15, 11], "texture": "#kettle", "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
+				"down": {"uv": [13, 9, 15, 11], "texture": "#kettle", "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }}
 			}
 		},
 		{
@@ -202,12 +202,12 @@
 			"from": [5.125, -0.875, 9.625],
 			"to": [5.875, 1, 10.375],
 			"faces": {
-				"north": {"uv": [13, 9, 15, 11], "texture": "#kettle", "forge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
-				"east": {"uv": [13, 9, 15, 11], "texture": "#kettle", "forge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
-				"south": {"uv": [13, 9, 15, 11], "texture": "#kettle", "forge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
-				"west": {"uv": [13, 9, 15, 11], "texture": "#kettle", "forge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
-				"up": {"uv": [13, 9, 15, 11], "texture": "#kettle", "forge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
-				"down": {"uv": [13, 9, 15, 11], "texture": "#kettle", "forge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }}
+				"north": {"uv": [13, 9, 15, 11], "texture": "#kettle", "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
+				"east": {"uv": [13, 9, 15, 11], "texture": "#kettle", "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
+				"south": {"uv": [13, 9, 15, 11], "texture": "#kettle", "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
+				"west": {"uv": [13, 9, 15, 11], "texture": "#kettle", "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
+				"up": {"uv": [13, 9, 15, 11], "texture": "#kettle", "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }},
+				"down": {"uv": [13, 9, 15, 11], "texture": "#kettle", "neoforge_data": { "color": "FFFFFFFF", "block_light": 15, "sky_light": 15 }}
 			}
 		},
 		{

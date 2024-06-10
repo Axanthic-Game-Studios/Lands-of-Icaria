@@ -25,25 +25,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaStructures {
-	// FOREST
-
 	public static final ResourceKey<Structure> FOREST_ERODED = IcariaStructures.registerKey("villages/forest/eroded");
 	public static final ResourceKey<Structure> FOREST_PRISTINE = IcariaStructures.registerKey("villages/forest/pristine");
 	public static final ResourceKey<Structure> FOREST_RUINED = IcariaStructures.registerKey("villages/forest/ruined");
-
-	// SCRUBLAND
 
 	public static final ResourceKey<Structure> SCRUBLAND_ERODED = IcariaStructures.registerKey("villages/scrubland/eroded");
 	public static final ResourceKey<Structure> SCRUBLAND_PRISTINE = IcariaStructures.registerKey("villages/scrubland/pristine");
 	public static final ResourceKey<Structure> SCRUBLAND_RUINED = IcariaStructures.registerKey("villages/scrubland/ruined");
 
-	// STEPPE
-
 	public static final ResourceKey<Structure> STEPPE_ERODED = IcariaStructures.registerKey("villages/steppe/eroded");
 	public static final ResourceKey<Structure> STEPPE_PRISTINE = IcariaStructures.registerKey("villages/steppe/pristine");
 	public static final ResourceKey<Structure> STEPPE_RUINED = IcariaStructures.registerKey("villages/steppe/ruined");
-
-	// DESERT
 
 	public static final ResourceKey<Structure> DESERT_ERODED = IcariaStructures.registerKey("villages/desert/eroded");
 	public static final ResourceKey<Structure> DESERT_PRISTINE = IcariaStructures.registerKey("villages/desert/pristine");
@@ -53,25 +45,17 @@ public class IcariaStructures {
 		var biomes = pContext.lookup(Registries.BIOME);
 		var pools = pContext.lookup(Registries.TEMPLATE_POOL);
 
-		// FOREST
-
 		pContext.register(IcariaStructures.FOREST_ERODED, new VillageStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.FOREST_PLATEAU), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.FOREST_ERODED_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128));
 		pContext.register(IcariaStructures.FOREST_PRISTINE, new VillageStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.FOREST_PLATEAU), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.FOREST_PRISTINE_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128));
 		pContext.register(IcariaStructures.FOREST_RUINED, new VillageStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.FOREST_PLATEAU), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.FOREST_RUINED_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128));
-
-		// SCRUBLAND
 
 		pContext.register(IcariaStructures.SCRUBLAND_ERODED, new VillageStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.SCRUBLAND_PLATEAU), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.SCRUBLAND_ERODED_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128));
 		pContext.register(IcariaStructures.SCRUBLAND_PRISTINE, new VillageStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.SCRUBLAND_PLATEAU), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.SCRUBLAND_PRISTINE_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128));
 		pContext.register(IcariaStructures.SCRUBLAND_RUINED, new VillageStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.SCRUBLAND_PLATEAU), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.SCRUBLAND_RUINED_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128));
 
-		// STEPPE
-
 		pContext.register(IcariaStructures.STEPPE_ERODED, new VillageStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.STEPPE_PLATEAU), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.STEPPE_ERODED_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128));
 		pContext.register(IcariaStructures.STEPPE_PRISTINE, new VillageStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.STEPPE_PLATEAU), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.STEPPE_PRISTINE_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128));
 		pContext.register(IcariaStructures.STEPPE_RUINED, new VillageStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.STEPPE_PLATEAU), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.STEPPE_RUINED_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128));
-
-		// DESERT
 
 		pContext.register(IcariaStructures.DESERT_ERODED, new VillageStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.DESERT_PLATEAU), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.DESERT_ERODED_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128));
 		pContext.register(IcariaStructures.DESERT_PRISTINE, new VillageStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.DESERT_PLATEAU), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.DESERT_PRISTINE_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128));

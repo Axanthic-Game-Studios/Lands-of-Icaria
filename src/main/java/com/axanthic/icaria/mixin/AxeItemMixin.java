@@ -13,6 +13,7 @@ import java.util.Map;
 
 @Mixin(AxeItem.class)
 public interface AxeItemMixin {
+
 	@Accessor("STRIPPABLES")
 	static Map<Block, Block> getIcariaStrippables() {
 		throw new Error("Mixin did not apply.");

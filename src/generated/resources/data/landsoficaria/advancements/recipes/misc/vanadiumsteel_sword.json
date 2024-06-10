@@ -1,7 +1,19 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bone": {
+    "has_landsoficaria:vanadiumsteel_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:vanadiumsteel_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:bone": {
       "conditions": {
         "items": [
           {
@@ -18,25 +30,13 @@
         "recipe": "landsoficaria:vanadiumsteel_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vanadiumsteel_ingot": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:vanadiumsteel_ingot"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_vanadiumsteel_ingot",
-      "has_bone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:vanadiumsteel_ingot",
+      "has_minecraft:bone"
     ]
   ],
   "rewards": {

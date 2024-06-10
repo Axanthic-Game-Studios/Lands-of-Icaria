@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_spelt_bale_block": {
+    "has_landsoficaria:spelt_bale_block": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_spelt_bale_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:spelt_bale_block"
     ]
   ],
   "rewards": {

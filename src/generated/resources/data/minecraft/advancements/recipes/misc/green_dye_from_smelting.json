@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cardon_cactus": {
+    "has_landsoficaria:cardon_cactus": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_cardon_cactus",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:cardon_cactus"
     ]
   ],
   "rewards": {

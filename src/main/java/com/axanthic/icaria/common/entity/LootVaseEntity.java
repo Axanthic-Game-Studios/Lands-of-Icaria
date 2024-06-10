@@ -68,13 +68,8 @@ public class LootVaseEntity extends Entity {
     }
 
     @Override
-    public double getMyRidingOffset() {
-        return 0.525D;
-    }
-
-    @Override
     public void addAdditionalSaveData(CompoundTag pCompound) {
-        // NOOP
+
     }
 
     @Override
@@ -102,7 +97,7 @@ public class LootVaseEntity extends Entity {
 
     @Override
     public void readAdditionalSaveData(CompoundTag pCompound) {
-        // NOOP
+
     }
 
     @Override

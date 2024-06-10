@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_anthracite": {
+    "has_landsoficaria:anthracite": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_anthracite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:anthracite"
     ]
   ],
   "rewards": {

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_chert_block": {
+    "has_landsoficaria:chert_block": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_chert_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:chert_block"
     ]
   ],
   "rewards": {

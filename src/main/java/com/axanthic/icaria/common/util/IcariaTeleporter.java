@@ -8,6 +8,7 @@ import com.axanthic.icaria.common.registry.IcariaPoiTypes;
 import net.minecraft.BlockUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.TicketType;
 import net.minecraft.tags.BlockTags;
@@ -26,7 +27,7 @@ import net.minecraft.world.level.portal.PortalInfo;
 import net.minecraft.world.level.portal.PortalShape;
 import net.minecraft.world.phys.Vec3;
 
-import net.minecraftforge.common.util.ITeleporter;
+import net.neoforged.neoforge.common.util.ITeleporter;
 
 import java.util.Comparator;
 import java.util.Optional;
@@ -88,6 +89,7 @@ public class IcariaTeleporter implements ITeleporter {
         }
 
         // LEFT PILLARS
+
         for (int k1 = -1; k1 < 0; ++k1) {
             for (int i2 = 0; i2 < 3; ++i2) {
                 mutablePos.setWithOffset(blockPos, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
@@ -96,6 +98,7 @@ public class IcariaTeleporter implements ITeleporter {
         }
 
         // RIGHT PILLARS
+
         for (int k1 = 3; k1 < 4; ++k1) {
             for (int i2 = 0; i2 < 3; ++i2) {
                 mutablePos.setWithOffset(blockPos, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
@@ -104,6 +107,7 @@ public class IcariaTeleporter implements ITeleporter {
         }
 
         // LEFT PILLAR HEAD
+
         for (int k1 = -1; k1 < 0; ++k1) {
             for (int i2 = 3; i2 < 4; ++i2) {
                 mutablePos.setWithOffset(blockPos, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
@@ -112,6 +116,7 @@ public class IcariaTeleporter implements ITeleporter {
         }
 
         // RIGHT PILLAR HEAD
+
         for (int k1 = 3; k1 < 4; ++k1) {
             for (int i2 = 3; i2 < 4; ++i2) {
                 mutablePos.setWithOffset(blockPos, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
@@ -120,6 +125,7 @@ public class IcariaTeleporter implements ITeleporter {
         }
 
         // LEFT UPPER SLABS
+
         for (int k1 = -1; k1 < 1; ++k1) {
             for (int i2 = 4; i2 < 5; ++i2) {
                 mutablePos.setWithOffset(blockPos, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
@@ -128,6 +134,7 @@ public class IcariaTeleporter implements ITeleporter {
         }
 
         // RIGHT UPPER SLABS
+
         for (int k1 = 2; k1 < 4; ++k1) {
             for (int i2 = 4; i2 < 5; ++i2) {
                 mutablePos.setWithOffset(blockPos, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
@@ -136,6 +143,7 @@ public class IcariaTeleporter implements ITeleporter {
         }
 
         // LEFT LOWER SLAB
+
         for (int k1 = -2; k1 < -1; ++k1) {
             for (int i2 = 3; i2 < 4; ++i2) {
                 mutablePos.setWithOffset(blockPos, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
@@ -144,6 +152,7 @@ public class IcariaTeleporter implements ITeleporter {
         }
 
         // RIGHT LOWER SLAB
+
         for (int k1 = 4; k1 < 5; ++k1) {
             for (int i2 = 3; i2 < 4; ++i2) {
                 mutablePos.setWithOffset(blockPos, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
@@ -174,7 +183,7 @@ public class IcariaTeleporter implements ITeleporter {
     public Optional<BlockUtil.FoundRectangle> getPortal(BlockPos pPos) {
         this.level.getPoiManager().ensureLoadedAndValid(this.level, pPos, 64);
         var optional =  this.level.getPoiManager().getInSquare((pPoiType) ->
-            pPoiType.is(IcariaPoiTypes.ICARIA_PORTAL.getKey()), pPos, 64, PoiManager.Occupancy.ANY).sorted(Comparator.<PoiRecord>comparingDouble((pPoiRecord) ->
+            pPoiType.is(BuiltInRegistries.POINT_OF_INTEREST_TYPE.getKey(IcariaPoiTypes.ICARIA_PORTAL.get())), pPos, 64, PoiManager.Occupancy.ANY).sorted(Comparator.<PoiRecord>comparingDouble((pPoiRecord) ->
             pPoiRecord.getPos().distSqr(pPos)).thenComparingInt((pPoiRecord) ->
             pPoiRecord.getPos().getY())).filter((pPoiRecord) ->
             this.level.getBlockState(pPoiRecord.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS)).findFirst();

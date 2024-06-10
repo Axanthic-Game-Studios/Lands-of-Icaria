@@ -1,7 +1,19 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_blaze_powder": {
+    "has_landsoficaria:greenpowder": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:greenpowder"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:blaze_powder": {
       "conditions": {
         "items": [
           {
@@ -13,7 +25,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_charcoal": {
+    "has_minecraft:charcoal": {
       "conditions": {
         "items": [
           {
@@ -25,24 +37,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_coal": {
+    "has_minecraft:coal": {
       "conditions": {
         "items": [
           {
             "items": [
               "minecraft:coal"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_greenpowder": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:greenpowder"
             ]
           }
         ]
@@ -58,11 +58,11 @@
   },
   "requirements": [
     [
-      "has_greenpowder",
-      "has_blaze_powder",
-      "has_coal",
-      "has_charcoal",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:greenpowder",
+      "has_minecraft:blaze_powder",
+      "has_minecraft:coal",
+      "has_minecraft:charcoal"
     ]
   ],
   "rewards": {

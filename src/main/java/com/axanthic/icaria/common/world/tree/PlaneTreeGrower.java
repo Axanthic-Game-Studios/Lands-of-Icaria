@@ -12,6 +12,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class PlaneTreeGrower extends AbstractTreeGrower {
+
     @Override
     public ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource pRandom, boolean pHasFlowers) {
         return IcariaConfiguredFeatures.PLANE_TREE;

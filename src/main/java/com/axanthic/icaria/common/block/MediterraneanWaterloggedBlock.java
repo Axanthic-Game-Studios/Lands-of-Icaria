@@ -7,6 +7,7 @@ import com.axanthic.icaria.common.registry.IcariaItems;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
@@ -17,14 +18,16 @@ import net.minecraft.world.level.material.FluidState;
 
 import java.util.Optional;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public interface MediterraneanWaterloggedBlock extends SimpleWaterloggedBlock {
+
     @Override
-    default boolean canPlaceLiquid(BlockGetter pLevel, BlockPos pPos, BlockState pState, Fluid pFluid) {
+    default boolean canPlaceLiquid(@Nullable Player pPlayer, BlockGetter pLevel, BlockPos pPos, BlockState pState, Fluid pFluid) {
         return pFluid == IcariaFluids.MEDITERRANEAN_WATER.get();
     }
 
@@ -43,7 +46,7 @@ public interface MediterraneanWaterloggedBlock extends SimpleWaterloggedBlock {
     }
 
     @Override
-    default ItemStack pickupBlock(LevelAccessor pLevel, BlockPos pPos, BlockState pState) {
+    default ItemStack pickupBlock(@Nullable Player pPlayer, LevelAccessor pLevel, BlockPos pPos, BlockState pState) {
         if (pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)) {
             pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false), 3);
             if (!pState.canSurvive(pLevel, pPos)) {

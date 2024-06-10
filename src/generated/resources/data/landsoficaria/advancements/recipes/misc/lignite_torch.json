@@ -1,24 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bone": {
+    "has_landsoficaria:lignite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:bone"
+              "landsoficaria:lignite"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_lignite": {
+    "has_minecraft:bone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:lignite"
+              "minecraft:bone"
             ]
           }
         ]
@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
-      "has_lignite",
-      "has_bone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:lignite",
+      "has_minecraft:bone"
     ]
   ],
   "rewards": {

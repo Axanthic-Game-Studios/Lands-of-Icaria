@@ -2,16 +2,15 @@ package com.axanthic.icaria.common.recipe.serializer;
 
 import com.axanthic.icaria.common.recipe.ConcoctingItemRecipe;
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.ShapedRecipe;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -19,21 +18,22 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ConcoctingItemRecipeSerializer implements RecipeSerializer<ConcoctingItemRecipe> {
-    @Override
-    public ConcoctingItemRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
-        int burnTime = GsonHelper.getAsInt(pSerializedRecipe, "burnTime");
-        int color = GsonHelper.getAsInt(pSerializedRecipe, "color");
-        var output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
-        var ingredients = NonNullList.withSize(3, Ingredient.EMPTY);
-        for (int i = 0; i < ingredients.size(); i++) {
-            ingredients.set(i, Ingredient.fromJson(GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients").get(i)));
-        }
+    public static final Codec<ConcoctingItemRecipe> CODEC = RecordCodecBuilder.create(
+        instance -> instance.group(
+            Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
+            Codec.INT.fieldOf("color").forGetter(recipe -> recipe.color),
+            ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output),
+            Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients)
+        ).apply(instance, ConcoctingItemRecipe::new)
+    );
 
-        return new ConcoctingItemRecipe(burnTime, color, output, ingredients, pRecipeId);
+    @Override
+    public Codec<ConcoctingItemRecipe> codec() {
+        return CODEC;
     }
 
     @Override
-    public ConcoctingItemRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+    public ConcoctingItemRecipe fromNetwork(FriendlyByteBuf pBuffer) {
         int burnTime = pBuffer.readInt();
         int color = pBuffer.readInt();
         var output = pBuffer.readItem();
@@ -42,7 +42,7 @@ public class ConcoctingItemRecipeSerializer implements RecipeSerializer<Concocti
             ingredients.set(i, Ingredient.fromNetwork(pBuffer));
         }
 
-        return new ConcoctingItemRecipe(burnTime, color, output, ingredients, pRecipeId);
+        return new ConcoctingItemRecipe(burnTime, color, output, ingredients);
     }
 
     @Override

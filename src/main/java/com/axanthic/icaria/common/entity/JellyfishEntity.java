@@ -31,11 +31,12 @@ import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 
-import net.minecraftforge.event.ForgeEventFactory;
+import net.neoforged.neoforge.event.EventHooks;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -132,7 +133,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
         var blockState = this.level().getBlockState(mutablePos);
         if (blockState.blocksMotion() && !blockState.getFluidState().is(FluidTags.WATER)) {
             boolean flag = this.randomTeleport(pX, pY, pZ, true);
-            if (ForgeEventFactory.onEnderTeleport(this, pX, pY, pZ).isCanceled()) {
+            if (EventHooks.onEnderTeleport(this, pX, pY, pZ).isCanceled()) {
                 return false;
             }
 

@@ -1,29 +1,29 @@
 package com.axanthic.icaria.common.config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class IcariaConfig {
-	public static ForgeConfigSpec.BooleanValue RENDER_CRYSTAL_RAYS;
-	public static ForgeConfigSpec.BooleanValue RENDER_FORGE_ITEMS;
-	public static ForgeConfigSpec.BooleanValue RENDER_GRINDER_GEARS;
-	public static ForgeConfigSpec.BooleanValue RENDER_KETTLE_ITEMS;
-	public static ForgeConfigSpec.BooleanValue RENDER_KILN_ITEMS;
-	public static ForgeConfigSpec.BooleanValue FORGE_SOUNDS;
-	public static ForgeConfigSpec.BooleanValue GRINDER_SOUNDS;
-	public static ForgeConfigSpec.BooleanValue KETTLE_SOUNDS;
-	public static ForgeConfigSpec.BooleanValue KILN_SOUNDS;
-	public static ForgeConfigSpec.BooleanValue SPAWN_ARACHNIDS;
+	public static ModConfigSpec.BooleanValue RENDER_CRYSTAL_RAYS;
+	public static ModConfigSpec.BooleanValue RENDER_FORGE_ITEMS;
+	public static ModConfigSpec.BooleanValue RENDER_GRINDER_GEARS;
+	public static ModConfigSpec.BooleanValue RENDER_KETTLE_ITEMS;
+	public static ModConfigSpec.BooleanValue RENDER_KILN_ITEMS;
+	public static ModConfigSpec.BooleanValue FORGE_SOUNDS;
+	public static ModConfigSpec.BooleanValue GRINDER_SOUNDS;
+	public static ModConfigSpec.BooleanValue KETTLE_SOUNDS;
+	public static ModConfigSpec.BooleanValue KILN_SOUNDS;
+	public static ModConfigSpec.BooleanValue SPAWN_ARACHNIDS;
 
-	public static ForgeConfigSpec.IntValue RENDER_DISTANCE_CRYSTAL_RAYS;
-	public static ForgeConfigSpec.IntValue RENDER_DISTANCE_FORGE_ITEMS;
-	public static ForgeConfigSpec.IntValue RENDER_DISTANCE_GRINDER_GEARS;
-	public static ForgeConfigSpec.IntValue RENDER_DISTANCE_KETTLE_ITEMS;
-	public static ForgeConfigSpec.IntValue RENDER_DISTANCE_KILN_ITEMS;
+	public static ModConfigSpec.IntValue RENDER_DISTANCE_CRYSTAL_RAYS;
+	public static ModConfigSpec.IntValue RENDER_DISTANCE_FORGE_ITEMS;
+	public static ModConfigSpec.IntValue RENDER_DISTANCE_GRINDER_GEARS;
+	public static ModConfigSpec.IntValue RENDER_DISTANCE_KETTLE_ITEMS;
+	public static ModConfigSpec.IntValue RENDER_DISTANCE_KILN_ITEMS;
 
 	public static void registerClientConfig() {
-		var builder = new ForgeConfigSpec.Builder();
+		var builder = new ModConfigSpec.Builder();
 
 		builder.comment("Render settings").push("renderSettings");
 
@@ -44,7 +44,7 @@ public class IcariaConfig {
 	}
 
 	public static void registerCommonConfig() {
-		var builder = new ForgeConfigSpec.Builder();
+		var builder = new ModConfigSpec.Builder();
 
 		builder.comment("Sound settings").push("soundSettings");
 
@@ -64,7 +64,7 @@ public class IcariaConfig {
 	}
 
 	public static void registerServerConfig() {
-		var builder = new ForgeConfigSpec.Builder();
+		var builder = new ModConfigSpec.Builder();
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, builder.build());
 	}

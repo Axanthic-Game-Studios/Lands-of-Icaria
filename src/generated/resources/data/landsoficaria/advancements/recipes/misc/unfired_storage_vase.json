@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_loam_lump": {
+    "has_landsoficaria:loam_lump": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_loam_lump",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:loam_lump"
     ]
   ],
   "rewards": {

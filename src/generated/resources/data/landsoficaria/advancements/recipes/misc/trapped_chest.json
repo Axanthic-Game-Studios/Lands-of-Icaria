@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_chest": {
+    "has_landsoficaria:chest": {
       "conditions": {
         "items": [
           {
@@ -13,13 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "landsoficaria:trapped_chest"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_tripwire_hook": {
+    "has_minecraft:tripwire_hook": {
       "conditions": {
         "items": [
           {
@@ -30,13 +24,19 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:trapped_chest"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_chest",
-      "has_tripwire_hook",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:chest",
+      "has_minecraft:tripwire_hook"
     ]
   ],
   "rewards": {

@@ -4,15 +4,14 @@ import com.axanthic.icaria.common.entity.ForestHagEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.level.block.Blocks;
 
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.event.ForgeEventFactory;
+import net.neoforged.neoforge.common.IPlantable;
+import net.neoforged.neoforge.event.EventHooks;
 
 public class ForestHagPlaceSaplingGoal extends Goal {
     public ForestHagEntity entity;
@@ -23,7 +22,7 @@ public class ForestHagPlaceSaplingGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        return this.entity.getRandom().nextInt(Goal.reducedTickDelay(5000)) == 0 && !this.entity.isAggressive() && ForgeEventFactory.getMobGriefingEvent(this.entity.level(), this.entity);
+        return this.entity.getRandom().nextInt(Goal.reducedTickDelay(5000)) == 0 && !this.entity.isAggressive() && EventHooks.getMobGriefingEvent(this.entity.level(), this.entity);
     }
 
     @Override

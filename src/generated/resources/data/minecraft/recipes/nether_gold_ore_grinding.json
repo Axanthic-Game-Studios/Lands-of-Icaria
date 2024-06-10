@@ -11,7 +11,7 @@
     }
   ],
   "output": {
-    "count": 6,
-    "item": "minecraft:gold_nugget"
+    "Count": 6,
+    "id": "minecraft:gold_nugget"
   }
 }

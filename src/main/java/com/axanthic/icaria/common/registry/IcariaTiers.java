@@ -1,14 +1,14 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.util.IcariaInfo;
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
 import com.axanthic.icaria.common.util.IcariaTier;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import net.minecraftforge.common.TierSortingRegistry;
+import net.neoforged.neoforge.common.TierSortingRegistry;
 
 import java.util.List;
 

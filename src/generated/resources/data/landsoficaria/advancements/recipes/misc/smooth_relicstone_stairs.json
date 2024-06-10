@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_smooth_relicstone": {
+    "has_landsoficaria:smooth_relicstone": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_smooth_relicstone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:smooth_relicstone"
     ]
   ],
   "rewards": {

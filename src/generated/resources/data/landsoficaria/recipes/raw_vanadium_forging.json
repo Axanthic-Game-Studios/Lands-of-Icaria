@@ -10,7 +10,7 @@
     []
   ],
   "output": {
-    "count": 1,
-    "item": "landsoficaria:vanadium_ingot"
+    "Count": 1,
+    "id": "landsoficaria:vanadium_ingot"
   }
 }

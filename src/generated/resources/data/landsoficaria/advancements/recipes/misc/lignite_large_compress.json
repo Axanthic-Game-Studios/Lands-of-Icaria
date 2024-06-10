@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lignite": {
+    "has_landsoficaria:lignite": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_lignite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:lignite"
     ]
   ],
   "rewards": {

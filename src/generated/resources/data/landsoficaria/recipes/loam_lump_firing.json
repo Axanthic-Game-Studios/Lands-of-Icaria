@@ -8,6 +8,7 @@
     }
   ],
   "output": {
-    "item": "landsoficaria:loam_brick"
+    "Count": 1,
+    "id": "landsoficaria:loam_brick"
   }
 }

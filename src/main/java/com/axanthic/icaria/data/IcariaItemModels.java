@@ -5,14 +5,16 @@ import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaToolItems;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+
+import java.util.function.Supplier;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -30,7 +32,7 @@ public class IcariaItemModels extends ItemModelProvider {
 		}
 
 		for (var items : IcariaToolItems.TOOL_ITEMS) {
-			var name = items.bident.getId();
+			var name = BuiltInRegistries.ITEM.getKey(items.bident.get());
 			var model = this.singleTexture(name.getPath() + "_throwing", new ResourceLocation(IcariaInfo.ID, "item/bident_throwing"), "layer0", new ResourceLocation(name.getNamespace(), "item/" + name.getPath()));
 			this.itemWithModel(items.sword, "item/handheld");
 			this.itemWithModel(items.dagger, "item/handheld");
@@ -49,12 +51,12 @@ public class IcariaItemModels extends ItemModelProvider {
 		}
 	}
 
-	public void itemWithModel(RegistryObject<? extends Item> pItem, String pModel) {
+	public void itemWithModel(Supplier<? extends Item> pItem, String pModel) {
 		this.itemWithModel(pItem, new ResourceLocation(pModel));
 	}
 
-	public ItemModelBuilder itemWithModel(RegistryObject<? extends Item> pItem, ResourceLocation pModel) {
-		var name = pItem.getId();
+	public ItemModelBuilder itemWithModel(Supplier<? extends Item> pItem, ResourceLocation pModel) {
+		var name = BuiltInRegistries.ITEM.getKey(pItem.get());
 		var texture = new ResourceLocation(name.getNamespace(), "item/" + name.getPath());
 		return this.singleTexture(name.getPath(), pModel, "layer0", texture);
 	}

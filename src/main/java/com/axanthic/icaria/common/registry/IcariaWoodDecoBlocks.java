@@ -7,8 +7,9 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 
@@ -17,13 +18,13 @@ public class IcariaWoodDecoBlocks {
 
     public String name;
 
-    public RegistryObject<Block> block;
-    public RegistryObject<StairBlock> stairs;
-    public RegistryObject<SlabBlock> slab;
-    public RegistryObject<FenceBlock> fence;
-    public RegistryObject<FenceGateBlock> gate;
+    public Supplier<Block> block;
+    public Supplier<StairBlock> stairs;
+    public Supplier<SlabBlock> slab;
+    public Supplier<FenceBlock> fence;
+    public Supplier<FenceGateBlock> gate;
 
-    public IcariaWoodDecoBlocks(String pName, RegistryObject<Block> pBlock, BlockBehaviour.Properties pProperties, boolean pStairs, boolean pSlab, boolean pFence, boolean pGate) {
+    public IcariaWoodDecoBlocks(String pName, Supplier<Block> pBlock, BlockBehaviour.Properties pProperties, boolean pStairs, boolean pSlab, boolean pFence, boolean pGate) {
         this.name = pName;
         this.block = pBlock;
         this.stairs = IcariaWoodDecoBlocks.BLOCKS.register(pName + "_stairs", () -> new StairBlock(() -> pBlock.get().defaultBlockState(), pProperties));
@@ -32,7 +33,7 @@ public class IcariaWoodDecoBlocks {
         this.gate = IcariaWoodDecoBlocks.BLOCKS.register(pName + "_fence_gate", () -> new FenceGateBlock(pProperties, SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN));
     }
 
-    public IcariaWoodDecoBlocks(String pName, RegistryObject<Block> pBlock, BlockBehaviour.Properties pProperties) {
+    public IcariaWoodDecoBlocks(String pName, Supplier<Block> pBlock, BlockBehaviour.Properties pProperties) {
         this(pName, pBlock, pProperties, true, true, true, true);
     }
 }

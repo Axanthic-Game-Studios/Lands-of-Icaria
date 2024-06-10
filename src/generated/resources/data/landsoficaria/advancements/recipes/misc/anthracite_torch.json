@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_anthracite": {
+    "has_landsoficaria:anthracite": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_bone": {
+    "has_minecraft:bone": {
       "conditions": {
         "items": [
           {
@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
-      "has_anthracite",
-      "has_bone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:anthracite",
+      "has_minecraft:bone"
     ]
   ],
   "rewards": {

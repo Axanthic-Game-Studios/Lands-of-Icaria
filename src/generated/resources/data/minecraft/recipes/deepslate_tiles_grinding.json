@@ -11,7 +11,7 @@
     }
   ],
   "output": {
-    "count": 1,
-    "item": "minecraft:cracked_deepslate_tiles"
+    "Count": 1,
+    "id": "minecraft:cracked_deepslate_tiles"
   }
 }

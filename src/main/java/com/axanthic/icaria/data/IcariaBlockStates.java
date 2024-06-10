@@ -5,6 +5,7 @@ import com.axanthic.icaria.common.registry.IcariaStoneDecoItems;
 import com.axanthic.icaria.common.registry.IcariaWoodDecoItems;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -12,24 +13,23 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
-import net.minecraftforge.client.model.generators.BlockModelBuilder;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
+import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockStates extends BlockStateProvider {
-	public static final List<RegistryObject<? extends Block>> MIRRORED = new ArrayList<>();
-	public static final List<RegistryObject<? extends Block>> ROTATED = new ArrayList<>();
+	public static final List<Supplier<? extends Block>> MIRRORED = new ArrayList<>();
+	public static final List<Supplier<? extends Block>> ROTATED = new ArrayList<>();
 
 	public IcariaBlockStates(PackOutput pOutput, String pId, ExistingFileHelper pHelper) {
 		super(pOutput, pId, pHelper);
@@ -152,43 +152,43 @@ public class IcariaBlockStates extends BlockStateProvider {
 
 		for (var items : IcariaStoneDecoItems.STONE_DECO_ITEMS) {
 			var resourceLocation = this.blockTexture(items.block.block.get());
-			this.slabBlock(items.block.slab.get(), items.block.block.getId(), resourceLocation);
-			this.itemModels().slab(items.block.slab.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
+			this.slabBlock(items.block.slab.get(), BuiltInRegistries.BLOCK.getKey(items.block.block.get()), resourceLocation);
+			this.itemModels().slab(BuiltInRegistries.BLOCK.getKey(items.block.slab.get()).getPath(), resourceLocation, resourceLocation, resourceLocation);
 			this.stairsBlock(items.block.stairs.get(), resourceLocation);
-			this.itemModels().stairs(items.block.stairs.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
+			this.itemModels().stairs(BuiltInRegistries.BLOCK.getKey(items.block.stairs.get()).getPath(), resourceLocation, resourceLocation, resourceLocation);
 			this.wallBlock(items.block.wall.get(), resourceLocation);
-			this.itemModels().wallInventory(items.block.wall.getId().getPath(), resourceLocation);
+			this.itemModels().wallInventory(BuiltInRegistries.BLOCK.getKey(items.block.wall.get()).getPath(), resourceLocation);
 		}
 
 		for (var items : IcariaWoodDecoItems.WOOD_DECO_ITEMS) {
 			var resourceLocation = this.blockTexture(items.block.block.get());
-			this.slabBlock(items.block.slab.get(), items.block.block.getId(), resourceLocation);
-			this.itemModels().slab(items.block.slab.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
+			this.slabBlock(items.block.slab.get(), BuiltInRegistries.BLOCK.getKey(items.block.block.get()), resourceLocation);
+			this.itemModels().slab(BuiltInRegistries.BLOCK.getKey(items.block.slab.get()).getPath(), resourceLocation, resourceLocation, resourceLocation);
 			this.stairsBlock(items.block.stairs.get(), resourceLocation);
-			this.itemModels().stairs(items.block.stairs.getId().getPath(), resourceLocation, resourceLocation, resourceLocation);
+			this.itemModels().stairs(BuiltInRegistries.BLOCK.getKey(items.block.stairs.get()).getPath(), resourceLocation, resourceLocation, resourceLocation);
 			this.fenceBlock(items.block.fence.get(), resourceLocation);
-			this.itemModels().fenceInventory(items.block.fence.getId().getPath(), resourceLocation);
+			this.itemModels().fenceInventory(BuiltInRegistries.BLOCK.getKey(items.block.fence.get()).getPath(), resourceLocation);
 			this.fenceGateBlock(items.block.gate.get(), resourceLocation);
-			this.itemModels().fenceGate(items.block.gate.getId().getPath(), resourceLocation);
+			this.itemModels().fenceGate(BuiltInRegistries.BLOCK.getKey(items.block.gate.get()).getPath(), resourceLocation);
 		}
 	}
 
-	public void baseBlockWithItem(RegistryObject<? extends Block> pBlock) {
+	public void baseBlockWithItem(Supplier<? extends Block> pBlock) {
 		this.simpleBlock(pBlock.get());
 		this.itemBlock(pBlock);
 	}
 
-	public void axisBlockWithItem(RegistryObject<? extends RotatedPillarBlock> pBlock) {
+	public void axisBlockWithItem(Supplier<? extends RotatedPillarBlock> pBlock) {
 		this.axisBlock(pBlock.get());
 		this.itemBlock(pBlock);
 	}
 
-	public void paneBlock(RegistryObject<? extends IronBarsBlock> pPaneBlock, RegistryObject<? extends GlassBlock> pGlassBlock) {
-		this.paneBlock(pPaneBlock.get(), new ResourceLocation(pGlassBlock.getId().getNamespace(), "block/" + pGlassBlock.getId().getPath()), new ResourceLocation(pGlassBlock.getId().getNamespace(), "block/" + pGlassBlock.getId().getPath() + "_pane"));
+	public void paneBlock(Supplier<? extends IronBarsBlock> pPaneBlock, Supplier<? extends GlassBlock> pGlassBlock) {
+		this.paneBlock(pPaneBlock.get(), new ResourceLocation(BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getNamespace(), "block/" + BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getPath()), new ResourceLocation(BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getNamespace(), "block/" + BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getPath() + "_pane"));
 	}
 
-	public void doorBlock(RegistryObject<? extends DoorBlock> pBlock) {
-		this.doorBlock(pBlock.getId().getPath(), pBlock.get(), new ResourceLocation(IcariaInfo.ID + ":block/" + pBlock.getId().getPath() + "_bottom"), new ResourceLocation(IcariaInfo.ID + ":block/" + pBlock.getId().getPath() + "_top"));
+	public void doorBlock(Supplier<? extends DoorBlock> pBlock) {
+		this.doorBlock(BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath(), pBlock.get(), new ResourceLocation(IcariaInfo.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_bottom"), new ResourceLocation(IcariaInfo.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_top"));
 	}
 
 	public void doorBlock(String pName, Block pDoor, ResourceLocation pBottom, ResourceLocation pTop) {
@@ -225,27 +225,27 @@ public class IcariaBlockStates extends BlockStateProvider {
 		}, BlockStateProperties.POWERED);
 	}
 
-	public void trapDoorWithItem(RegistryObject<? extends TrapDoorBlock> pBlock) {
-		this.trapdoorBlock(pBlock.get(), new ResourceLocation(IcariaInfo.ID + ":block/" + pBlock.getId().getPath()), true);
+	public void trapDoorWithItem(Supplier<? extends TrapDoorBlock> pBlock) {
+		this.trapdoorBlock(pBlock.get(), new ResourceLocation(IcariaInfo.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath()), true);
 		this.itemBlockTrapDoor(pBlock);
 	}
 
-	public void itemBlock(RegistryObject<? extends Block> pBlock) {
-		this.itemModels().withExistingParent(pBlock.getId().getPath(), pBlock.getId().getNamespace() + ":block/" + pBlock.getId().getPath());
+	public void itemBlock(Supplier<? extends Block> pBlock) {
+		this.itemModels().withExistingParent(BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath(), BuiltInRegistries.BLOCK.getKey(pBlock.get()).getNamespace() + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath());
 	}
 
-	public void itemBlockTrapDoor(RegistryObject<? extends Block> pBlock) {
-		this.itemModels().withExistingParent(pBlock.getId().getPath(), pBlock.getId().getNamespace() + ":block/" + pBlock.getId().getPath() + "_bottom");
+	public void itemBlockTrapDoor(Supplier<? extends Block> pBlock) {
+		this.itemModels().withExistingParent(BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath(), BuiltInRegistries.BLOCK.getKey(pBlock.get()).getNamespace() + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_bottom");
 	}
 
-	public void mirroredBlockWithItem(RegistryObject<? extends Block> pBlock) {
+	public void mirroredBlockWithItem(Supplier<? extends Block> pBlock) {
 		var normal = this.cubeAll(pBlock.get());
-		var mirrored = this.models().singleTexture(ForgeRegistries.BLOCKS.getKey(pBlock.get()).getPath() + "_mirrored", new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/cube_mirrored_all"), "all", this.blockTexture(pBlock.get()));
+		var mirrored = this.models().singleTexture(BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_mirrored", new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/cube_mirrored_all"), "all", this.blockTexture(pBlock.get()));
 		this.getVariantBuilder(pBlock.get()).partialState().setModels(new ConfiguredModel(normal), new ConfiguredModel(normal, 0, 180, false), new ConfiguredModel(mirrored), new ConfiguredModel(mirrored, 0, 180, false));
 		this.itemBlock(pBlock);
 	}
 
-	public void rotatedBlockWithItem(RegistryObject<? extends Block> pBlock) {
+	public void rotatedBlockWithItem(Supplier<? extends Block> pBlock) {
 		this.getVariantBuilder(pBlock.get()).partialState().setModels(ConfiguredModel.allRotations(cubeAll(pBlock.get()), false));
 		this.itemBlock(pBlock);
 	}

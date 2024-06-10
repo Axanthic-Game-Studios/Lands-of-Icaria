@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bloomy_vine": {
+    "has_landsoficaria:bloomy_vine": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_branchy_vine": {
+    "has_landsoficaria:branchy_vine": {
       "conditions": {
         "items": [
           {
@@ -25,7 +25,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_brushy_vine": {
+    "has_landsoficaria:brushy_vine": {
       "conditions": {
         "items": [
           {
@@ -37,7 +37,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_dry_vine": {
+    "has_landsoficaria:dry_vine": {
       "conditions": {
         "items": [
           {
@@ -49,7 +49,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_reedy_vine": {
+    "has_landsoficaria:reedy_vine": {
       "conditions": {
         "items": [
           {
@@ -61,7 +61,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_relicstone_bricks": {
+    "has_landsoficaria:relicstone_bricks": {
       "conditions": {
         "items": [
           {
@@ -73,7 +73,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_swirly_vine": {
+    "has_landsoficaria:swirly_vine": {
       "conditions": {
         "items": [
           {
@@ -85,13 +85,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "landsoficaria:mossy_relicstone_bricks_from_vine"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_thorny_vine": {
+    "has_landsoficaria:thorny_vine": {
       "conditions": {
         "items": [
           {
@@ -103,7 +97,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_vine": {
+    "has_minecraft:vine": {
       "conditions": {
         "items": [
           {
@@ -114,20 +108,26 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:mossy_relicstone_bricks_from_vine"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_relicstone_bricks",
-      "has_vine",
-      "has_bloomy_vine",
-      "has_branchy_vine",
-      "has_brushy_vine",
-      "has_dry_vine",
-      "has_reedy_vine",
-      "has_swirly_vine",
-      "has_thorny_vine",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:relicstone_bricks",
+      "has_minecraft:vine",
+      "has_landsoficaria:bloomy_vine",
+      "has_landsoficaria:branchy_vine",
+      "has_landsoficaria:brushy_vine",
+      "has_landsoficaria:dry_vine",
+      "has_landsoficaria:reedy_vine",
+      "has_landsoficaria:swirly_vine",
+      "has_landsoficaria:thorny_vine"
     ]
   ],
   "rewards": {

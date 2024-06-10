@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_relicstone": {
+    "has_landsoficaria:relicstone": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_relicstone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:relicstone"
     ]
   ],
   "rewards": {

@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.handler;
 
 import com.axanthic.icaria.common.entity.ForgeBlockEntity;
 
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 

@@ -14,7 +14,7 @@
     }
   ],
   "output": {
-    "count": 2,
-    "item": "landsoficaria:molybdenumsteel_ingot"
+    "Count": 2,
+    "id": "landsoficaria:molybdenumsteel_ingot"
   }
 }

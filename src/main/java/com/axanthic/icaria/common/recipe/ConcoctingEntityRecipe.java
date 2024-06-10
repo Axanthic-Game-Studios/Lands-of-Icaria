@@ -10,7 +10,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
@@ -23,6 +23,8 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
+import java.util.List;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
@@ -32,17 +34,14 @@ public class ConcoctingEntityRecipe implements Recipe<SimpleContainer> {
     public int burnTime;
     public int color;
 
-    public NonNullList<Ingredient> ingredients;
-
-    public ResourceLocation id;
+    public List<Ingredient> ingredients;
 
     public String entity;
 
-    public ConcoctingEntityRecipe(int pBurnTime, int pColor, NonNullList<Ingredient> pIngredients, ResourceLocation pId, String pEntity) {
+    public ConcoctingEntityRecipe(int pBurnTime, int pColor, List<Ingredient> pIngredients, String pEntity) {
         this.burnTime = pBurnTime;
         this.color = pColor;
         this.ingredients = pIngredients;
-        this.id = pId;
         this.entity = pEntity;
     }
 
@@ -72,20 +71,20 @@ public class ConcoctingEntityRecipe implements Recipe<SimpleContainer> {
                 var state = pLevel.getBlockState(pPos);
                 if (state.getBlock() instanceof KettleBlock kettleBlock) {
                     var blockPos = pPos.offset(pLevel.getRandom().nextInt(8) - 4, 0, pLevel.getRandom().nextInt(8) - 4);
-                    if (this.entity.equals(IcariaEntityTypes.CAPTAIN_REVENANT.getId().toString())) {
+                    if (this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.CAPTAIN_REVENANT.get()).toString())) {
                         entity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.ORICHALCUM_TOOLS.sword.get()));
                         entity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
                         pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
                         pLevel.addFreshEntity(entity);
-                    } else if (this.entity.equals(IcariaEntityTypes.CRAWLER_REVENANT.getId().toString()) || this.entity.equals(IcariaEntityTypes.MYRMEKE_SOLDIER.getId().toString())) {
+                    } else if (this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.CRAWLER_REVENANT.get()).toString()) || this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.MYRMEKE_SOLDIER.get()).toString())) {
                         entity.moveTo(blockPos, 0.0F, 0.0F);
                         pLevel.addFreshEntity(entity);
-                    } else if (this.entity.equals(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.getId().toString())) {
+                    } else if (this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get()).toString())) {
                         entity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
                         entity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
                         pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
                         pLevel.addFreshEntity(entity);
-                    } else if (this.entity.equals(IcariaEntityTypes.SOLDIER_REVENANT.getId().toString())) {
+                    } else if (this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.SOLDIER_REVENANT.get()).toString())) {
                         entity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.KASSITEROS_TOOLS.sword.get()));
                         entity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
                         pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
@@ -112,7 +111,9 @@ public class ConcoctingEntityRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
-        return this.ingredients;
+        var list = NonNullList.<Ingredient>create();
+		list.addAll(this.ingredients);
+        return list;
     }
 
     @Override
@@ -123,10 +124,5 @@ public class ConcoctingEntityRecipe implements Recipe<SimpleContainer> {
     @Override
     public RecipeType<?> getType() {
         return IcariaRecipeTypes.CONCOCTING_ENTITY.get();
-    }
-
-    @Override
-    public ResourceLocation getId() {
-        return this.id;
     }
 }

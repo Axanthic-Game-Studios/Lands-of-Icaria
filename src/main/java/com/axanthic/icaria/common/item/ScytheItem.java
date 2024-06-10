@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
 import com.axanthic.icaria.common.util.IcariaTier;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import com.google.common.collect.Sets;
 
@@ -18,9 +18,9 @@ import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
-import net.minecraftforge.common.TierSortingRegistry;
-import net.minecraftforge.common.ToolAction;
-import net.minecraftforge.common.ToolActions;
+import net.neoforged.neoforge.common.TierSortingRegistry;
+import net.neoforged.neoforge.common.ToolAction;
+import net.neoforged.neoforge.common.ToolActions;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -30,6 +30,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+
 @ParametersAreNonnullByDefault
 
 public class ScytheItem extends HoeItem {
@@ -73,8 +74,9 @@ public class ScytheItem extends HoeItem {
 		var level = pPlayer.level();
 		if (this.isCorrectToolForDrops(level.getBlockState(pPos))) {
 			for (var blockPos : BlockPos.withinManhattan(pPos, 1, 1, 1)) {
-				if (!blockPos.equals(pPos) && this.isCorrectToolForDrops(level.getBlockState(blockPos)))
+				if (!blockPos.equals(pPos) && this.isCorrectToolForDrops(level.getBlockState(blockPos))) {
 					level.destroyBlock(blockPos, true, pPlayer);
+				}
 			}
 		}
 

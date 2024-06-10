@@ -8,7 +8,7 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.data.PackOutput;
 
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class IcariaGerman extends LanguageProvider {
 	public IcariaGerman(PackOutput pPackOutput, String pId, String pLanguage) {
@@ -17,7 +17,6 @@ public class IcariaGerman extends LanguageProvider {
 
 	@Override
 	public void addTranslations() {
-		// ADVANCEMENTS
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "title", "Die Lands of Icaria");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "arachne" + "." + "title", "Im Netz der Spinne!");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "title", "War es nicht schon längst tot?");
@@ -58,7 +57,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "description", "Stelle eine Schirbelspitzhacke her");
 		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "description", "Stelle eine Molybdänstahlspitzhacke her");
 
-		// BIOMES
 		this.add("biome" + "." + IcariaInfo.ID + "." + "forest", "Ikarisches Waldplateau");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "forest_plateau", "Ikarischer Wald");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "scrubland", "Ikarisches Buschland");
@@ -69,7 +67,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("biome" + "." + IcariaInfo.ID + "." + "desert_plateau", "Ikarisches Wüstenplateau");
 		this.add("biome" + "." + IcariaInfo.ID + "." + "void", "Ikarische Leere");
 
-		// BLOCKS
 		this.add(IcariaBlocks.GRASSY_MARL.get(), "Begraster Mergel");
 		this.add(IcariaBlocks.MARL.get(), "Mergel");
 		this.add(IcariaBlocks.MARL_CHERT.get(), "Hornsteinerz");
@@ -725,17 +722,14 @@ public class IcariaGerman extends LanguageProvider {
 
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
-		// CATEGORIES
 		this.add("category" + "." + IcariaInfo.ID + "." + "firing", "Brennen");
 		this.add("category" + "." + IcariaInfo.ID + "." + "forging", "Schmieden");
 		this.add("category" + "." + IcariaInfo.ID + "." + "grinding", "Mahlen");
 
-		// EFFECTS
 		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), "Erblindungsimmunität");
 		this.add(IcariaMobEffects.FREEZING.get(), "Vereisung");
 		this.add(IcariaMobEffects.LIFESTEAL.get(), "Lebensraub");
 
-		// ENTITY TYPES
 		this.add(IcariaEntityTypes.AETERNAE.get(), "Ätern");
 		this.add(IcariaEntityTypes.ARACHNE.get(), "Arachne");
 		this.add(IcariaEntityTypes.ARACHNE_DRONE.get(), "Arachnendrohne");
@@ -785,10 +779,8 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.VINEGAR.get(), "Essig");
 		this.add(IcariaEntityTypes.VINEGAROON.get(), "Geißelskorpion");
 
-		// FLUIDS
 		this.add("fluid" + "." + IcariaInfo.ID + "." + "mediterranean_water", "Mediterranes Wasser");
 
-		// ITEMS
 		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "blindness", "Pfeil der Blindheit");
 		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "nausea", "Pfeil der Übelkeit");
 		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "wither", "Pfeil der Verdorrung");
@@ -1065,18 +1057,15 @@ public class IcariaGerman extends LanguageProvider {
 
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Eimer mit mediterranem Wasser");
 
-		// ITEM GROUPS
 		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "blocks", "Lands of Icaria Blöcke");
 		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "flora", "Lands of Icaria Flora");
 		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "items", "Lands of Icaria Gegenstände");
 
-		// MENU TYPES
 		this.add("menu" + "." + IcariaInfo.ID + "." + "forge", "Schmiede");
 		this.add("menu" + "." + IcariaInfo.ID + "." + "grinder", "Mühle");
 		this.add("menu" + "." + IcariaInfo.ID + "." + "kiln", "Töpferofen");
 		this.add("menu" + "." + IcariaInfo.ID + "." + "storage_vase", "Speichervase");
 
-		// MESSAGES
 		this.add("message" + "." + IcariaInfo.ID + "." + "barrel", "Schleichen zum Werfen des Fasses");
 		this.add("message" + "." + IcariaInfo.ID + "." + "chest_label", "Name des Kistenetiketts zu lang");
 		this.add("message" + "." + IcariaInfo.ID + "." + "loot_vase", "Schleichen zum Werfen der Beutevase");

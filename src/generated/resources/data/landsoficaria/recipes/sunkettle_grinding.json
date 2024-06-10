@@ -11,7 +11,7 @@
     }
   ],
   "output": {
-    "count": 2,
-    "item": "minecraft:yellow_dye"
+    "Count": 2,
+    "id": "minecraft:yellow_dye"
   }
 }

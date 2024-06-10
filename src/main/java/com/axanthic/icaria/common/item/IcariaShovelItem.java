@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
 import com.axanthic.icaria.common.util.IcariaTier;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ItemStack;
@@ -9,11 +9,12 @@ import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.state.BlockState;
 
-import net.minecraftforge.common.TierSortingRegistry;
+import net.neoforged.neoforge.common.TierSortingRegistry;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+
 @ParametersAreNonnullByDefault
 
 public class IcariaShovelItem extends ShovelItem {

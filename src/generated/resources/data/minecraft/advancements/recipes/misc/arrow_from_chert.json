@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_chert": {
+    "has_landsoficaria:chert": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_feather": {
+    "has_minecraft:feather": {
       "conditions": {
         "items": [
           {
@@ -25,7 +25,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_stick": {
+    "has_minecraft:stick": {
       "conditions": {
         "items": [
           {
@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
-      "has_chert",
-      "has_stick",
-      "has_feather",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:chert",
+      "has_minecraft:stick",
+      "has_minecraft:feather"
     ]
   ],
   "rewards": {

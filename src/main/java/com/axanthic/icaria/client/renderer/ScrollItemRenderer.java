@@ -30,11 +30,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ScrollItemRenderer extends BlockEntityWithoutLevelRenderer {
-    public Font font;
-
     public ScrollItemRenderer(BlockEntityRenderDispatcher pBlockEntityRenderDispatcher, EntityModelSet pEntityModelSet) {
         super(pBlockEntityRenderDispatcher, pEntityModelSet);
-        this.font = pBlockEntityRenderDispatcher.font;
     }
 
     @Override
@@ -105,7 +102,7 @@ public class ScrollItemRenderer extends BlockEntityWithoutLevelRenderer {
                 itemRenderer.renderStatic(output, ItemDisplayContext.GUI, pPackedLight, pPackedOverlay, pPoseStack, pBuffer, level, 0);
             }
 
-            RenderSystem.setShaderTexture(0, player.getSkinTextureLocation());
+            RenderSystem.setShaderTexture(0, player.getSkin().texture());
 
             pPoseStack.scale(5.0F, 5.0F, 5.0F);
 
@@ -132,6 +129,6 @@ public class ScrollItemRenderer extends BlockEntityWithoutLevelRenderer {
     }
 
     public void renderString(int pOffset, int pPackedLight, Component pComponent, Matrix4f pMatrix4f, MultiBufferSource pBuffer) {
-        this.font.drawInBatch(pComponent, pOffset - this.font.width(pComponent) * 0.5F, 0.0F, IcariaColors.TEXT, false, pMatrix4f, pBuffer, Font.DisplayMode.POLYGON_OFFSET, 0, pPackedLight);
+        Minecraft.getInstance().font.drawInBatch(pComponent, pOffset - Minecraft.getInstance().font.width(pComponent) * 0.5F, 0.0F, IcariaColors.TEXT, false, pMatrix4f, pBuffer, Font.DisplayMode.POLYGON_OFFSET, 0, pPackedLight);
     }
 }

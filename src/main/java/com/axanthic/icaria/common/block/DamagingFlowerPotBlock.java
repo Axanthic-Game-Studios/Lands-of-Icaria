@@ -16,6 +16,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+
 @ParametersAreNonnullByDefault
 
 public class DamagingFlowerPotBlock extends FlowerPotBlock {

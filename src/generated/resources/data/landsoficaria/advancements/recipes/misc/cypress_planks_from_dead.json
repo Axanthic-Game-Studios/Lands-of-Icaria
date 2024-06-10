@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dead_cypress_log": {
+    "has_landsoficaria:dead_cypress_log": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_stripped_dead_cypress_log": {
+    "has_landsoficaria:stripped_dead_cypress_log": {
       "conditions": {
         "items": [
           {
@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
-      "has_dead_cypress_log",
-      "has_stripped_dead_cypress_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:dead_cypress_log",
+      "has_landsoficaria:stripped_dead_cypress_log"
     ]
   ],
   "rewards": {

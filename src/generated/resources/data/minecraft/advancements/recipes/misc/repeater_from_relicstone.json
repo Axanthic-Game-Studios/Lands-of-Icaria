@@ -1,7 +1,19 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_redstone": {
+    "has_landsoficaria:smooth_relicstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:smooth_relicstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:redstone": {
       "conditions": {
         "items": [
           {
@@ -13,24 +25,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_redstone_torch": {
+    "has_minecraft:redstone_torch": {
       "conditions": {
         "items": [
           {
             "items": [
               "minecraft:redstone_torch"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_smooth_relicstone": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:smooth_relicstone"
             ]
           }
         ]
@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
-      "has_redstone_torch",
-      "has_redstone",
-      "has_smooth_relicstone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_minecraft:redstone_torch",
+      "has_minecraft:redstone",
+      "has_landsoficaria:smooth_relicstone"
     ]
   ],
   "rewards": {

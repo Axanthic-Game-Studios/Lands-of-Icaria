@@ -1,19 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_blaze_powder": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:blaze_powder"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_ender_jellyfish_jelly": {
+    "has_landsoficaria:ender_jellyfish_jelly": {
       "conditions": {
         "items": [
           {
@@ -25,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_fire_jellyfish_jelly": {
+    "has_landsoficaria:fire_jellyfish_jelly": {
       "conditions": {
         "items": [
           {
@@ -37,7 +25,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_nature_jellyfish_jelly": {
+    "has_landsoficaria:nature_jellyfish_jelly": {
       "conditions": {
         "items": [
           {
@@ -49,13 +37,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "minecraft:magma_cream_from_jellyfish_jelly"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_void_jellyfish_jelly": {
+    "has_landsoficaria:void_jellyfish_jelly": {
       "conditions": {
         "items": [
           {
@@ -67,7 +49,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_water_jellyfish_jelly": {
+    "has_landsoficaria:water_jellyfish_jelly": {
       "conditions": {
         "items": [
           {
@@ -78,17 +60,35 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:blaze_powder": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:blaze_powder"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:magma_cream_from_jellyfish_jelly"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_blaze_powder",
-      "has_ender_jellyfish_jelly",
-      "has_fire_jellyfish_jelly",
-      "has_nature_jellyfish_jelly",
-      "has_void_jellyfish_jelly",
-      "has_water_jellyfish_jelly",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_minecraft:blaze_powder",
+      "has_landsoficaria:ender_jellyfish_jelly",
+      "has_landsoficaria:fire_jellyfish_jelly",
+      "has_landsoficaria:nature_jellyfish_jelly",
+      "has_landsoficaria:void_jellyfish_jelly",
+      "has_landsoficaria:water_jellyfish_jelly"
     ]
   ],
   "rewards": {

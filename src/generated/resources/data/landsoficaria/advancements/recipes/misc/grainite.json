@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_grainel": {
+    "has_landsoficaria:grainel": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_grainel",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:grainel"
     ]
   ],
   "rewards": {

@@ -14,7 +14,7 @@
     }
   ],
   "output": {
-    "count": 1,
-    "item": "landsoficaria:fortifying_spell"
+    "Count": 1,
+    "id": "landsoficaria:fortifying_spell"
   }
 }

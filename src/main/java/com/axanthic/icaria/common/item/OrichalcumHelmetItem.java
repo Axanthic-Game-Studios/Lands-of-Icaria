@@ -5,7 +5,7 @@ import com.axanthic.icaria.common.util.IcariaArmorMaterials;
 
 import net.minecraft.world.item.ArmorItem;
 
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 
 import java.util.function.Consumer;
 

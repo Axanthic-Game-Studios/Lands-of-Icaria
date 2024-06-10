@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ender_jellyfish_jelly": {
+    "has_landsoficaria:ender_jellyfish_jelly": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_ender_jellyfish_jelly",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:ender_jellyfish_jelly"
     ]
   ],
   "rewards": {

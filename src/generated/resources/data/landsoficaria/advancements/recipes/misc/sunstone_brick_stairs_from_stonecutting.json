@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sunstone_bricks": {
+    "has_landsoficaria:sunstone_bricks": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_sunstone_bricks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:sunstone_bricks"
     ]
   ],
   "rewards": {

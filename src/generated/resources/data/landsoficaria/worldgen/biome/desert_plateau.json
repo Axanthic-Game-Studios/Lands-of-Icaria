@@ -65,16 +65,47 @@
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [],
+    "ambient": [
+      {
+        "type": "landsoficaria:ender_jellyfish",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:fire_jellyfish",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:nature_jellyfish",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:void_jellyfish",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:water_jellyfish",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
+      }
+    ],
     "axolotls": [],
     "creature": [],
     "misc": [],
     "monster": [
       {
         "type": "landsoficaria:arachne_drone",
-        "maxCount": 1,
+        "maxCount": 3,
         "minCount": 1,
-        "weight": 10
+        "weight": 100
       },
       {
         "type": "landsoficaria:argan_hound",
@@ -96,9 +127,9 @@
       },
       {
         "type": "landsoficaria:myrmeke_drone",
-        "maxCount": 1,
+        "maxCount": 3,
         "minCount": 1,
-        "weight": 10
+        "weight": 100
       },
       {
         "type": "landsoficaria:crawler_revenant",

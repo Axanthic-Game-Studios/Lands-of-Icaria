@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dolomite": {
+    "has_landsoficaria:dolomite": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_loam_lump": {
+    "has_landsoficaria:loam_lump": {
       "conditions": {
         "items": [
           {
@@ -25,7 +25,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_spelt": {
+    "has_landsoficaria:spelt": {
       "conditions": {
         "items": [
           {
@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
-      "has_spelt",
-      "has_loam_lump",
-      "has_dolomite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:spelt",
+      "has_landsoficaria:loam_lump",
+      "has_landsoficaria:dolomite"
     ]
   ],
   "rewards": {

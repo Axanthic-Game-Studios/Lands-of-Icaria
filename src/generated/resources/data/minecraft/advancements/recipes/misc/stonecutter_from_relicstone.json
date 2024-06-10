@@ -1,24 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_ingot": {
+    "has_landsoficaria:smooth_relicstone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:iron_ingot"
+              "landsoficaria:smooth_relicstone"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_smooth_relicstone": {
+    "has_minecraft:iron_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "landsoficaria:smooth_relicstone"
+              "minecraft:iron_ingot"
             ]
           }
         ]
@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
-      "has_iron_ingot",
-      "has_smooth_relicstone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_minecraft:iron_ingot",
+      "has_landsoficaria:smooth_relicstone"
     ]
   ],
   "rewards": {

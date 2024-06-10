@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_nature_jellyfish_jelly": {
+    "has_landsoficaria:nature_jellyfish_jelly": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_nature_jellyfish_jelly",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:nature_jellyfish_jelly"
     ]
   ],
   "rewards": {

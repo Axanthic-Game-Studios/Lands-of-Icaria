@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_aeternae_hide": {
+    "has_landsoficaria:aeternae_hide": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_aeternae_hide",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:aeternae_hide"
     ]
   ],
   "rewards": {

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_grainglass_pane": {
+    "has_landsoficaria:grainglass_pane": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_grainglass_pane",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:grainglass_pane"
     ]
   ],
   "rewards": {

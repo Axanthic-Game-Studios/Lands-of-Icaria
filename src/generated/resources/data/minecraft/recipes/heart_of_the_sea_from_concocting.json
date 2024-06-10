@@ -14,7 +14,7 @@
     }
   ],
   "output": {
-    "count": 1,
-    "item": "minecraft:heart_of_the_sea"
+    "Count": 1,
+    "id": "minecraft:heart_of_the_sea"
   }
 }

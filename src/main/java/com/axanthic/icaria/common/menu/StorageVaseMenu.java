@@ -10,10 +10,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
+import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.items.wrapper.InvWrapper;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -30,7 +30,7 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 		this.blockEntity = (StorageVaseBlockEntity) pPlayer.getCommandSenderWorld().getBlockEntity(pPos);
 		this.itemHandler = new InvWrapper(pInventory);
 		if (this.blockEntity != null) {
-			this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> this.layoutVaseInventorySlots(handler, 26, 22));
+			this.blockEntity.getCapability(Capabilities.ITEM_HANDLER).ifPresent(handler -> this.layoutVaseInventorySlots(handler, 26, 22));
 		}
 
 		this.layoutPlayerInventorySlots(8, 130);

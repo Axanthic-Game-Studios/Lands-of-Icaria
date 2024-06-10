@@ -11,7 +11,7 @@
     }
   ],
   "output": {
-    "count": 1,
-    "item": "minecraft:cracked_polished_blackstone_bricks"
+    "Count": 1,
+    "id": "minecraft:cracked_polished_blackstone_bricks"
   }
 }

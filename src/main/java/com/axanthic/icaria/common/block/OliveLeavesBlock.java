@@ -24,6 +24,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 

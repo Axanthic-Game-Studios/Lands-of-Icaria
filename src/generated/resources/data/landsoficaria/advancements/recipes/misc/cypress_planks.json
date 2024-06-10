@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cypress_log": {
+    "has_landsoficaria:cypress_log": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_cypress_wood": {
+    "has_landsoficaria:cypress_wood": {
       "conditions": {
         "items": [
           {
@@ -25,7 +25,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_stripped_cypress_log": {
+    "has_landsoficaria:stripped_cypress_log": {
       "conditions": {
         "items": [
           {
@@ -37,7 +37,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_stripped_cypress_wood": {
+    "has_landsoficaria:stripped_cypress_wood": {
       "conditions": {
         "items": [
           {
@@ -58,11 +58,11 @@
   },
   "requirements": [
     [
-      "has_cypress_wood",
-      "has_stripped_cypress_wood",
-      "has_cypress_log",
-      "has_stripped_cypress_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:cypress_wood",
+      "has_landsoficaria:stripped_cypress_wood",
+      "has_landsoficaria:cypress_log",
+      "has_landsoficaria:stripped_cypress_log"
     ]
   ],
   "rewards": {

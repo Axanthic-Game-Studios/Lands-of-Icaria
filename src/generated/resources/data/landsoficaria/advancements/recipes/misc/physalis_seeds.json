@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_physalis": {
+    "has_landsoficaria:physalis": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_physalis",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:physalis"
     ]
   ],
   "rewards": {

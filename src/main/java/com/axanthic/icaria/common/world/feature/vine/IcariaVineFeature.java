@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
+
 @ParametersAreNonnullByDefault
 
 public class IcariaVineFeature extends Feature<NoneFeatureConfiguration> {

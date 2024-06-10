@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_baetyl_adobe": {
+    "has_landsoficaria:baetyl_adobe": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_baetyl_adobe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:baetyl_adobe"
     ]
   ],
   "rewards": {

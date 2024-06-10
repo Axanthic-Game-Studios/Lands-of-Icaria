@@ -8,12 +8,12 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 
-import net.minecraftforge.common.TierSortingRegistry;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.common.TierSortingRegistry;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class IcariaToolItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, IcariaInfo.ID);
@@ -22,13 +22,13 @@ public class IcariaToolItems {
 
     public static final List<IcariaToolItems> TOOL_ITEMS = new ArrayList<>();
 
-    public RegistryObject<Item> sword;
-    public RegistryObject<Item> dagger;
-    public RegistryObject<Item> shovel;
-    public RegistryObject<Item> pickaxe;
-    public RegistryObject<Item> axe;
-    public RegistryObject<Item> scythe;
-    public RegistryObject<Item> bident;
+    public Supplier<Item> sword;
+    public Supplier<Item> dagger;
+    public Supplier<Item> shovel;
+    public Supplier<Item> pickaxe;
+    public Supplier<Item> axe;
+    public Supplier<Item> scythe;
+    public Supplier<Item> bident;
 
     public IcariaToolItems(IcariaTier pTier) {
         var name = TierSortingRegistry.getName(pTier).getPath();

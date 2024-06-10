@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cracked_relicstone_tiles": {
+    "has_landsoficaria:cracked_relicstone_tiles": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_cracked_relicstone_tiles",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:cracked_relicstone_tiles"
     ]
   ],
   "rewards": {

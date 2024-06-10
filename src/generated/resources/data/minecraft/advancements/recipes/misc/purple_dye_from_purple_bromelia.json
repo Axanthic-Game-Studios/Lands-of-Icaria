@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_purple_bromelia": {
+    "has_landsoficaria:purple_bromelia": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_purple_bromelia",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:purple_bromelia"
     ]
   ],
   "rewards": {

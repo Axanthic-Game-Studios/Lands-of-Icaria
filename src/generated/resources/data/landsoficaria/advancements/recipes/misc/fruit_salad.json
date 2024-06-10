@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_laurel_cherry": {
+    "has_landsoficaria:laurel_cherry": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_loam_bowl": {
+    "has_landsoficaria:loam_bowl": {
       "conditions": {
         "items": [
           {
@@ -25,7 +25,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_physalis": {
+    "has_landsoficaria:physalis": {
       "conditions": {
         "items": [
           {
@@ -37,7 +37,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_strawberries": {
+    "has_landsoficaria:strawberries": {
       "conditions": {
         "items": [
           {
@@ -49,7 +49,19 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_sugar": {
+    "has_landsoficaria:vineberries": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "landsoficaria:vineberries"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:sugar": {
       "conditions": {
         "items": [
           {
@@ -66,29 +78,17 @@
         "recipe": "landsoficaria:fruit_salad"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vineberries": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "landsoficaria:vineberries"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_sugar",
-      "has_vineberries",
-      "has_strawberries",
-      "has_physalis",
-      "has_laurel_cherry",
-      "has_loam_bowl",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_minecraft:sugar",
+      "has_landsoficaria:vineberries",
+      "has_landsoficaria:strawberries",
+      "has_landsoficaria:physalis",
+      "has_landsoficaria:laurel_cherry",
+      "has_landsoficaria:loam_bowl"
     ]
   ],
   "rewards": {

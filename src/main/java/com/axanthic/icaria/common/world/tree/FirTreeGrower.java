@@ -12,6 +12,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class FirTreeGrower extends AbstractTreeGrower {
+
     @Override
     public ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource pRandom, boolean pHasFlowers) {
         return IcariaConfiguredFeatures.FIR_TREE;

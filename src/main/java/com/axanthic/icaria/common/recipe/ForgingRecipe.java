@@ -6,7 +6,6 @@ import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -14,6 +13,8 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+
+import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -25,18 +26,15 @@ public class ForgingRecipe implements Recipe<SimpleContainer> {
 
     public int burnTime;
 
-    public NonNullList<Ingredient> ingredients;
+    public List<Ingredient> ingredients;
 
     public ItemStack output;
 
-    public ResourceLocation id;
-
-    public ForgingRecipe(float pExperience, int pBurnTime, NonNullList<Ingredient> pIngredients, ItemStack pOutput, ResourceLocation pId) {
+    public ForgingRecipe(float pExperience, int pBurnTime, List<Ingredient> pIngredients, ItemStack pOutput) {
         this.experience = pExperience;
         this.burnTime = pBurnTime;
         this.ingredients = pIngredients;
         this.output = pOutput;
-        this.id = pId;
     }
 
     @Override
@@ -69,7 +67,9 @@ public class ForgingRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
-        return this.ingredients;
+        var list = NonNullList.<Ingredient>create();
+        list.addAll(this.ingredients);
+        return list;
     }
 
     @Override
@@ -80,10 +80,5 @@ public class ForgingRecipe implements Recipe<SimpleContainer> {
     @Override
     public RecipeType<?> getType() {
         return IcariaRecipeTypes.FORGING.get();
-    }
-
-    @Override
-    public ResourceLocation getId() {
-        return this.id;
     }
 }

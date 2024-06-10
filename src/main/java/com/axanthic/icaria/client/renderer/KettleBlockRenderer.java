@@ -26,13 +26,14 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
+
 @ParametersAreNonnullByDefault
 
 public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntity> {
 	public long prevTime;
 
 	public KettleBlockRenderer(BlockEntityRendererProvider.Context pContext) {
-		// NOOP
+
 	}
 
 	@Override
@@ -156,10 +157,10 @@ public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntit
 
 		pPoseStack.pushPose();
 
-		consumer.vertex(matrix4f, pMinX, height, pMinZ).color(r, g, b, 1.0F).uv(sprite.getU(4), sprite.getV(4)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
-		consumer.vertex(matrix4f, pMinX, height, pMaxZ).color(r, g, b, 1.0F).uv(sprite.getU(12), sprite.getV(4)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
-		consumer.vertex(matrix4f, pMaxX, height, pMaxZ).color(r, g, b, 1.0F).uv(sprite.getU(12), sprite.getV(12)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
-		consumer.vertex(matrix4f, pMaxX, height, pMinZ).color(r, g, b, 1.0F).uv(sprite.getU(4), sprite.getV(12)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
+		consumer.vertex(matrix4f, pMinX, height, pMinZ).color(r, g, b, 1.0F).uv(sprite.getU(0.25F), sprite.getV(0.25F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
+		consumer.vertex(matrix4f, pMinX, height, pMaxZ).color(r, g, b, 1.0F).uv(sprite.getU(0.75F), sprite.getV(0.25F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
+		consumer.vertex(matrix4f, pMaxX, height, pMaxZ).color(r, g, b, 1.0F).uv(sprite.getU(0.75F), sprite.getV(0.75F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
+		consumer.vertex(matrix4f, pMaxX, height, pMinZ).color(r, g, b, 1.0F).uv(sprite.getU(0.25F), sprite.getV(0.75F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
 
 		pPoseStack.popPose();
 	}

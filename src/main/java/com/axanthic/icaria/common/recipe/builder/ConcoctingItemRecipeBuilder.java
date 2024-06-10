@@ -3,19 +3,20 @@ package com.axanthic.icaria.common.recipe.builder;
 import com.axanthic.icaria.common.recipe.builder.result.ConcoctingItemRecipeBuilderResult;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
-import net.minecraft.advancements.CriterionTriggerInstance;
-import net.minecraft.advancements.RequirementsStrategy;
+import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
-import java.util.function.Consumer;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -28,7 +29,7 @@ public class ConcoctingItemRecipeBuilder implements RecipeBuilder {
     public int color;
     public int count;
 
-    public Advancement.Builder advancement = Advancement.Builder.recipeAdvancement();
+    public RecipeCategory category;
 
     public Ingredient ingredientA;
     public Ingredient ingredientB;
@@ -36,7 +37,9 @@ public class ConcoctingItemRecipeBuilder implements RecipeBuilder {
 
     public Item output;
 
-    public ConcoctingItemRecipeBuilder(int pBurnTime, int pColor, int pCount, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, ItemLike pOutput) {
+    public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
+
+    public ConcoctingItemRecipeBuilder(int pBurnTime, int pColor, int pCount, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, ItemLike pOutput, RecipeCategory pCategory) {
         this.burnTime = pBurnTime;
         this.color = pColor;
         this.count = pCount;
@@ -44,23 +47,24 @@ public class ConcoctingItemRecipeBuilder implements RecipeBuilder {
         this.ingredientB = pIngredientB;
         this.ingredientC = pIngredientC;
         this.output = pOutput.asItem();
+        this.category = pCategory;
     }
 
-    public static ConcoctingItemRecipeBuilder concoctingItem(ItemLike pOutput, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, int pBurnTime, int pColor, int pCount) {
-        return new ConcoctingItemRecipeBuilder(pBurnTime, pColor, pCount, pIngredientA, pIngredientB, pIngredientC, pOutput);
+    public static ConcoctingItemRecipeBuilder concoctingItem(RecipeCategory pCategory, ItemLike pOutput, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, int pBurnTime, int pColor, int pCount) {
+        return new ConcoctingItemRecipeBuilder(pBurnTime, pColor, pCount, pIngredientA, pIngredientB, pIngredientC, pOutput, pCategory);
     }
 
     public void ensureValid(ResourceLocation pId) {
-        if (this.advancement.getCriteria().isEmpty()) {
+        if (this.criteria.isEmpty()) {
             throw new IllegalStateException("No way of obtaining recipe " + pId);
         }
     }
 
     @Override
-    public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
-        this.advancement.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).parent(RecipeBuilder.ROOT_RECIPE_ADVANCEMENT).requirements(RequirementsStrategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
+    public void save(RecipeOutput pRecipeOutput, ResourceLocation pRecipeId) {
         this.ensureValid(pRecipeId);
-        pFinishedRecipeConsumer.accept(new ConcoctingItemRecipeBuilderResult(this.burnTime, this.color, this.count, this.advancement, this.ingredientA, this.ingredientB, this.ingredientC, this.output, new ResourceLocation(pRecipeId.getNamespace(),"recipes/" + pRecipeId.getPath()), pRecipeId));
+        var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
+        pRecipeOutput.accept(new ConcoctingItemRecipeBuilderResult(this.burnTime, this.color, this.count, builder.build(pRecipeId.withPrefix("recipes" + "/" + this.category.getFolderName() + "/")), this.ingredientA, this.ingredientB, this.ingredientC, this.output, new ResourceLocation(pRecipeId.getNamespace(),"recipes" + "/" + pRecipeId.getPath()), pRecipeId));
     }
 
     @Override
@@ -69,8 +73,8 @@ public class ConcoctingItemRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
-    public ConcoctingItemRecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
-        this.advancement.addCriterion(pCriterionName, pCriterionTrigger);
+    public ConcoctingItemRecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
+        this.criteria.put(pName, pCriterion);
         return this;
     }
 

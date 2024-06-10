@@ -17,6 +17,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -33,18 +34,19 @@ import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
 
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemHandlerHelper;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.neoforged.neoforge.common.capabilities.Capability;
+import net.neoforged.neoforge.common.util.LazyOptional;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemHandlerHelper;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.List;
 import java.util.Map;
@@ -108,21 +110,21 @@ public class GrinderBlockEntity extends BlockEntity {
 			this.simpleContainer.setItem(i, this.stackHandler.getStackInSlot(i));
 		}
 
-		Optional<GrindingRecipe> recipe = Optional.empty();
+		Optional<RecipeHolder<GrindingRecipe>> recipe = Optional.empty();
 		if (this.level != null) {
 			recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.GRINDING.get(), this.simpleContainer, this.level);
 		}
 
 		int burnTime = 0;
 		if (recipe.isPresent()) {
-			burnTime = recipe.get().getBurnTime();
+			burnTime = recipe.get().value().getBurnTime();
 		}
 
 		if (this.maxProgress != burnTime) {
 			this.maxProgress = burnTime;
 		}
 
-		return (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get(), 3)) || (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get(), 4)) || (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get(), 5));
+		return (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 3)) || (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 4)) || (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 5));
 	}
 
 	public boolean shouldBreak(GrinderBlockEntity pBlockEntity) {
@@ -144,23 +146,23 @@ public class GrinderBlockEntity extends BlockEntity {
 			this.simpleContainer.setItem(i, this.stackHandler.getStackInSlot(i));
 		}
 
-		Optional<GrindingRecipe> recipe = Optional.empty();
+		Optional<RecipeHolder<GrindingRecipe>> recipe = Optional.empty();
 		if (this.level != null) {
 			recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.GRINDING.get(), this.simpleContainer, this.level);
 		}
 
 		if (this.hasRecipe() && recipe.isPresent()) {
 			this.stackHandler.extractItem(0, 1, false);
-			if (this.canInsertInSlot(this.simpleContainer, recipe.get(), 5)) {
-				this.stackHandler.setStackInSlot(5, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(5).getCount()));
-			} else if (this.canInsertInSlot(this.simpleContainer, recipe.get(), 4)) {
-				this.stackHandler.setStackInSlot(4, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(4).getCount()));
-			} else if (this.canInsertInSlot(this.simpleContainer, recipe.get(), 3)) {
-				this.stackHandler.setStackInSlot(3, new ItemStack(recipe.get().getResultItem(null).getItem(), recipe.get().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(3).getCount()));
+			if (this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 5)) {
+				this.stackHandler.setStackInSlot(5, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(5).getCount()));
+			} else if (this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 4)) {
+				this.stackHandler.setStackInSlot(4, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(4).getCount()));
+			} else if (this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 3)) {
+				this.stackHandler.setStackInSlot(3, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(3).getCount()));
 			}
 
 			this.resetProgress();
-			this.setRecipeUsed(recipe.get());
+			this.setRecipeUsed(recipe.get().value());
 		}
 	}
 
@@ -223,7 +225,7 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public void setRecipeUsed(Recipe<?> pRecipe) {
-		this.recipesUsed.addTo(pRecipe.getId(), 1);
+		this.recipesUsed.addTo(BuiltInRegistries.RECIPE_TYPE.getKey(pRecipe.getType()), 1);
 	}
 
 	@Override
@@ -319,15 +321,17 @@ public class GrinderBlockEntity extends BlockEntity {
 		return this.stackHandler.getStackInSlot(2);
 	}
 
-	public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel pLevel, Vec3 pPopVec) {
-		List<Recipe<?>> list = Lists.newArrayList();
+	public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(ServerLevel pLevel, Vec3 pPopVec) {
+		List<RecipeHolder<?>> list = Lists.newArrayList();
 		for (var entry : this.recipesUsed.object2IntEntrySet()) {
-			pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe) -> {
-				list.add(recipe);
-				if (recipe instanceof GrindingRecipe firingRecipe) {
-					this.createExperience(pLevel, pPopVec, entry.getIntValue(), firingRecipe.getExperience());
+			pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent(
+				(recipe) -> {
+					list.add(recipe);
+					if (recipe.value() instanceof GrindingRecipe firingRecipe) {
+						this.createExperience(pLevel, pPopVec, entry.getIntValue(), firingRecipe.getExperience());
+					}
 				}
-			});
+			);
 		}
 
 		return list;
@@ -344,7 +348,7 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public <T> LazyOptional<T> getCapabilityForPos(Capability<T> pCapability, @Nullable Direction pDirection, BlockPos pPos) {
-		if (pCapability == ForgeCapabilities.ITEM_HANDLER) {
+		if (pCapability == Capabilities.ITEM_HANDLER) {
 			if (pDirection == null) {
 				return this.itemHandler.cast();
 			} else if (this.directionWrappedLeftHandler.containsKey(pDirection) || this.directionWrappedRightHandler.containsKey(pDirection)) {

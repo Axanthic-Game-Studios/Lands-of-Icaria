@@ -14,7 +14,7 @@
     }
   ],
   "output": {
-    "count": 1,
-    "item": "minecraft:sniffer_egg"
+    "Count": 1,
+    "id": "minecraft:sniffer_egg"
   }
 }

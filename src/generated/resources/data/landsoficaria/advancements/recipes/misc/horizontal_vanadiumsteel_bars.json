@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "landsoficaria:horizontal_vanadiumsteel_bars"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vanadiumsteel_bars": {
+    "has_landsoficaria:vanadiumsteel_bars": {
       "conditions": {
         "items": [
           {
@@ -18,12 +12,18 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:horizontal_vanadiumsteel_bars"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_vanadiumsteel_bars",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:vanadiumsteel_bars"
     ]
   ],
   "rewards": {

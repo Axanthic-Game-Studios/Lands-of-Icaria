@@ -5,8 +5,8 @@ import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import net.minecraft.world.item.ItemStack;
 
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.common.CommonHooks;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -23,8 +23,8 @@ public class KilnItemStackHandler extends ItemStackHandler {
     @Override
     public boolean isItemValid(int pIndex, ItemStack pStack) {
         return switch (pIndex) {
-            case 0 -> ForgeHooks.getBurnTime(pStack, IcariaRecipeTypes.FIRING.get()) <= 0;
-            case 1 -> ForgeHooks.getBurnTime(pStack, IcariaRecipeTypes.FIRING.get()) > 0;
+            case 0 -> CommonHooks.getBurnTime(pStack, IcariaRecipeTypes.FIRING.get()) <= 0;
+            case 1 -> CommonHooks.getBurnTime(pStack, IcariaRecipeTypes.FIRING.get()) > 0;
             case 2 -> false;
             default -> super.isItemValid(pIndex, pStack);
         };

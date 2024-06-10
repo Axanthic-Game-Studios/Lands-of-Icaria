@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_calcite_dust": {
+    "has_landsoficaria:calcite_dust": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_halite_dust": {
+    "has_landsoficaria:halite_dust": {
       "conditions": {
         "items": [
           {
@@ -25,7 +25,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_lignite": {
+    "has_landsoficaria:lignite": {
       "conditions": {
         "items": [
           {
@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
-      "has_calcite_dust",
-      "has_halite_dust",
-      "has_lignite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:calcite_dust",
+      "has_landsoficaria:halite_dust",
+      "has_landsoficaria:lignite"
     ]
   ],
   "rewards": {

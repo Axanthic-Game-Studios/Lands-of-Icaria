@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_greenpowder": {
+    "has_landsoficaria:greenpowder": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_red_sand": {
+    "has_minecraft:red_sand": {
       "conditions": {
         "items": [
           {
@@ -25,7 +25,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_sand": {
+    "has_minecraft:sand": {
       "conditions": {
         "items": [
           {
@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
-      "has_greenpowder",
-      "has_sand",
-      "has_red_sand",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:greenpowder",
+      "has_minecraft:sand",
+      "has_minecraft:red_sand"
     ]
   ],
   "rewards": {

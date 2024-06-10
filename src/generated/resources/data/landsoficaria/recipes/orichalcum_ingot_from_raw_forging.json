@@ -14,7 +14,7 @@
     }
   ],
   "output": {
-    "count": 1,
-    "item": "landsoficaria:orichalcum_ingot"
+    "Count": 1,
+    "id": "landsoficaria:orichalcum_ingot"
   }
 }

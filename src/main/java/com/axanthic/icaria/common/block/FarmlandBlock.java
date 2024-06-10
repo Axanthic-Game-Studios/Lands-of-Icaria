@@ -29,14 +29,15 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.minecraftforge.common.FarmlandWaterManager;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.PlantType;
+import net.neoforged.neoforge.common.CommonHooks;
+import net.neoforged.neoforge.common.FarmlandWaterManager;
+import net.neoforged.neoforge.common.IPlantable;
+import net.neoforged.neoforge.common.PlantType;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -77,7 +78,7 @@ public class FarmlandBlock extends FarmBlock {
 	public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
 		pEntity.causeFallDamage(pFallDistance, 1.0F, pEntity.damageSources().fall());
 		if (!pLevel.isClientSide()) {
-			if (ForgeHooks.onFarmlandTrample(pLevel, pPos, IcariaBlocks.MARL.get().defaultBlockState(), pFallDistance, pEntity)) {
+			if (CommonHooks.onFarmlandTrample(pLevel, pPos, IcariaBlocks.MARL.get().defaultBlockState(), pFallDistance, pEntity)) {
 				this.turnToMarl(pState, pLevel, pPos);
 			}
 		}

@@ -7,7 +7,6 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
@@ -17,6 +16,8 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+
+import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -29,16 +30,13 @@ public class ConcoctingItemRecipe implements Recipe<SimpleContainer> {
 
     public ItemStack output;
 
-    public NonNullList<Ingredient> ingredients;
+    public List<Ingredient> ingredients;
 
-    public ResourceLocation id;
-
-    public ConcoctingItemRecipe(int pBurnTime, int pColor, ItemStack pOutput, NonNullList<Ingredient> pIngredients, ResourceLocation pId) {
+    public ConcoctingItemRecipe(int pBurnTime, int pColor, ItemStack pOutput, List<Ingredient> pIngredients) {
         this.burnTime = pBurnTime;
         this.color = pColor;
         this.ingredients = pIngredients;
         this.output = pOutput;
-        this.id = pId;
     }
 
     @Override
@@ -75,7 +73,9 @@ public class ConcoctingItemRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
-        return this.ingredients;
+        var list = NonNullList.<Ingredient>create();
+        list.addAll(this.ingredients);
+        return list;
     }
 
     @Override
@@ -86,10 +86,5 @@ public class ConcoctingItemRecipe implements Recipe<SimpleContainer> {
     @Override
     public RecipeType<?> getType() {
         return IcariaRecipeTypes.CONCOCTING_ITEM.get();
-    }
-
-    @Override
-    public ResourceLocation getId() {
-        return this.id;
     }
 }

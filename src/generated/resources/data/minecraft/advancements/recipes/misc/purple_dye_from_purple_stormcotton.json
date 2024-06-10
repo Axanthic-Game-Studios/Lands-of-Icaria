@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_purple_stormcotton": {
+    "has_landsoficaria:purple_stormcotton": {
       "conditions": {
         "items": [
           {
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_purple_stormcotton",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_landsoficaria:purple_stormcotton"
     ]
   ],
   "rewards": {

@@ -2,8 +2,8 @@ package com.axanthic.icaria.data.tags;
 
 import com.axanthic.icaria.common.registry.IcariaStructures;
 import com.axanthic.icaria.common.util.IcariaInfo;
-
 import com.axanthic.icaria.common.util.IcariaRegistrySetBuilder;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistryAccess;
@@ -16,13 +16,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
