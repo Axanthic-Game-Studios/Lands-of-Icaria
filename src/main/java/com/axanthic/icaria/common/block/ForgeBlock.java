@@ -41,8 +41,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.neoforged.neoforge.network.NetworkHooks;
-
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -263,7 +261,7 @@ public class ForgeBlock extends BaseEntityBlock {
         if (!pLevel.isClientSide()) {
             if (pPlayer instanceof ServerPlayer serverPlayer) {
                 if (blockEntity instanceof ForgeBlockEntity || blockEntity instanceof ForgeRedirectorBlockEntity) {
-                    NetworkHooks.openScreen(serverPlayer, new ForgeMenuProvider(blockEntityPosition), blockEntityPosition);
+                    serverPlayer.openMenu(new ForgeMenuProvider(blockEntityPosition), blockEntityPosition);
                 }
             }
         }

@@ -30,8 +30,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.neoforged.neoforge.network.NetworkHooks;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
@@ -96,7 +94,7 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 		if (!pLevel.isClientSide()) {
 			if (pPlayer instanceof ServerPlayer serverPlayer) {
 				if (blockEntity instanceof StorageVaseBlockEntity) {
-					NetworkHooks.openScreen(serverPlayer, new StorageVaseMenuProvider(pPos), blockEntity.getBlockPos());
+					serverPlayer.openMenu(new StorageVaseMenuProvider(pPos), blockEntity.getBlockPos());
 				}
 			}
 		}

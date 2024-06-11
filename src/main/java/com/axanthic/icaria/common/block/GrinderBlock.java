@@ -39,8 +39,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.neoforged.neoforge.network.NetworkHooks;
-
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -176,7 +174,7 @@ public class GrinderBlock extends BaseEntityBlock {
 		if (!pLevel.isClientSide()) {
 			if (pPlayer instanceof ServerPlayer serverPlayer) {
 				if (blockEntity instanceof GrinderBlockEntity || blockEntity instanceof GrinderRedirectorBlockEntity) {
-					NetworkHooks.openScreen(serverPlayer, new GrinderMenuProvider(blockEntityPosition), blockEntityPosition);
+					serverPlayer.openMenu(new GrinderMenuProvider(blockEntityPosition), blockEntityPosition);
 				}
 			}
 		}

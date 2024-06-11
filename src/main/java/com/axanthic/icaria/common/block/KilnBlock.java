@@ -40,8 +40,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.neoforged.neoforge.network.NetworkHooks;
-
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -187,7 +185,7 @@ public class KilnBlock extends BaseEntityBlock {
         if (!pLevel.isClientSide()) {
             if (pPlayer instanceof ServerPlayer serverPlayer) {
                 if (blockEntity instanceof KilnBlockEntity || blockEntity instanceof KilnRedirectorBlockEntity) {
-                    NetworkHooks.openScreen(serverPlayer, new KilnMenuProvider(blockEntityPosition), blockEntityPosition);
+                    serverPlayer.openMenu(new KilnMenuProvider(blockEntityPosition), blockEntityPosition);
                 }
             }
         }
