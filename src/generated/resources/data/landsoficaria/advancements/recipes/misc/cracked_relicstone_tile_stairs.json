@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:cracked_relicstone_tile_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

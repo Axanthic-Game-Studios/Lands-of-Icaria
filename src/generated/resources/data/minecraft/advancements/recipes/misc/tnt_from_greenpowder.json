@@ -56,6 +56,5 @@
     "recipes": [
       "minecraft:tnt_from_greenpowder"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

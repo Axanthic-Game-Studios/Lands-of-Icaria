@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:surface_chert_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

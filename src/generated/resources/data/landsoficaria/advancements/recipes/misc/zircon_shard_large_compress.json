@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:zircon_shard_large_compress"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

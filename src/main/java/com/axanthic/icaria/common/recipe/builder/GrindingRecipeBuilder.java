@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.recipe.builder;
 
-import com.axanthic.icaria.common.recipe.builder.result.GrindingRecipeBuilderResult;
+import com.axanthic.icaria.common.recipe.GrindingRecipe;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.AdvancementRequirements;
@@ -12,10 +12,12 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Nullable;
@@ -63,7 +65,8 @@ public class GrindingRecipeBuilder implements RecipeBuilder {
 	public void save(RecipeOutput pRecipeOutput, ResourceLocation pRecipeId) {
 		this.ensureValid(pRecipeId);
 		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
-		pRecipeOutput.accept(new GrindingRecipeBuilderResult(this.experience, this.burnTime, this.count, builder.build(pRecipeId.withPrefix("recipes" + "/" + this.category.getFolderName() + "/")), this.gear, this.ingredient, this.output, new ResourceLocation(pRecipeId.getNamespace(),"recipes" + "/" + pRecipeId.getPath()), pRecipeId));
+		var recipe = new GrindingRecipe(this.experience, this.burnTime, this.gear, List.of(this.ingredient), new ItemStack(this.output, this.count));
+		pRecipeOutput.accept(pRecipeId, recipe, builder.build(pRecipeId.withPrefix("recipes" + "/" + this.category.getFolderName() + "/")));
 	}
 
 	@Override

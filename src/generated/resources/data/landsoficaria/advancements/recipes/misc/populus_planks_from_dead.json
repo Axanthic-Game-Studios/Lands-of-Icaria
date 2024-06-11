@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:populus_planks_from_dead"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

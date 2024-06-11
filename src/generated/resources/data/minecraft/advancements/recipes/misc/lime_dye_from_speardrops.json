@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:lime_dye_from_speardrops"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

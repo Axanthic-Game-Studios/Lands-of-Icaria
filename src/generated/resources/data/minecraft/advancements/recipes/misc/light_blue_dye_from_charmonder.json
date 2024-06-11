@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:light_blue_dye_from_charmonder"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

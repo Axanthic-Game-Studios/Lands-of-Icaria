@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:anti_gravity_flask"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:allium_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

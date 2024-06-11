@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:forest_snull_from_concocting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

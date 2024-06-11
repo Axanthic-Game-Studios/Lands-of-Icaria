@@ -2,13 +2,9 @@ package com.axanthic.icaria.data.tags;
 
 import com.axanthic.icaria.common.registry.IcariaStructures;
 import com.axanthic.icaria.common.util.IcariaInfo;
-import com.axanthic.icaria.common.util.IcariaRegistrySetBuilder;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.StructureTagsProvider;
@@ -39,8 +35,8 @@ public class IcariaStructureTags extends StructureTagsProvider {
 
 	public static final TagKey<Structure> VILLAGE = IcariaStructureTags.icariaTag("village");
 
-	public IcariaStructureTags(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, IcariaRegistrySetBuilder pBuilder, String pId, ExistingFileHelper pHelper) {
-		super(pOutput, pProvider.thenApply(provider -> IcariaStructureTags.append(provider, pBuilder)), pId, pHelper);
+	public IcariaStructureTags(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId, ExistingFileHelper pHelper) {
+		super(pOutput, pProvider, pId, pHelper);
 	}
 
 	@Override
@@ -96,10 +92,6 @@ public class IcariaStructureTags extends StructureTagsProvider {
 			.add(IcariaStructures.DESERT_ERODED)
 			.add(IcariaStructures.DESERT_PRISTINE)
 			.add(IcariaStructures.DESERT_RUINED);
-	}
-
-	public static HolderLookup.Provider append(HolderLookup.Provider pProvider, RegistrySetBuilder pBuilder) {
-		return pBuilder.buildPatch(RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY), pProvider);
 	}
 
 	public static TagKey<Structure> bind(String pName) {

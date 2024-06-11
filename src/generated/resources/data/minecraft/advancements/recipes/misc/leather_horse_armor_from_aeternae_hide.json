@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:leather_horse_armor_from_aeternae_hide"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

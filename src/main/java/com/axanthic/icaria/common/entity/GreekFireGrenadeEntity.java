@@ -25,11 +25,11 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
     public ItemStack stack = new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get());
 
     public GreekFireGrenadeEntity(EntityType<? extends GreekFireGrenadeEntity> pType, Level pLevel) {
-        super(pType, pLevel);
+        super(pType, pLevel, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
     }
 
     public GreekFireGrenadeEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
-        super(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), pEntity, pLevel);
+        super(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), pEntity, pLevel, pStack);
         this.stack = pStack.copy();
     }
 

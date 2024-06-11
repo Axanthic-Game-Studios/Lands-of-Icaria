@@ -3,6 +3,8 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.entity.IcariaSpawnerBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
+import com.mojang.serialization.MapCodec;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -13,6 +15,7 @@ import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -29,6 +32,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaSpawnerBlock extends BaseEntityBlock {
+    public static final MapCodec<IcariaSpawnerBlock> CODEC = Block.simpleCodec(IcariaSpawnerBlock::new);
+
     public IcariaSpawnerBlock(Properties pProperties) {
         super(pProperties);
     }
@@ -61,6 +66,11 @@ public class IcariaSpawnerBlock extends BaseEntityBlock {
         }
 
         return InteractionResult.CONSUME;
+    }
+
+    @Override
+    public MapCodec<? extends BaseEntityBlock> codec() {
+        return IcariaSpawnerBlock.CODEC;
     }
 
     @Override

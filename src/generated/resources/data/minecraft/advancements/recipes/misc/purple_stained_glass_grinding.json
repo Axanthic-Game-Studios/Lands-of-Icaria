@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:purple_stained_glass_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

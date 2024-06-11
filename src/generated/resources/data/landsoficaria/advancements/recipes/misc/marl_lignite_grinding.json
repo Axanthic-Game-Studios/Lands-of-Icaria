@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:marl_lignite_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:blaze_rod_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

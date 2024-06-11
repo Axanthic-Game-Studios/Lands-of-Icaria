@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:jasper_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

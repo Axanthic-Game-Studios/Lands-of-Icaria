@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:firework_rocket_from_greenpowder"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

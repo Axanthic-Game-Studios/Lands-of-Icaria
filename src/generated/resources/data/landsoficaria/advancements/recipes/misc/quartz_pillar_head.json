@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:quartz_pillar_head"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

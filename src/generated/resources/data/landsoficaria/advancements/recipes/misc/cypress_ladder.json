@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:cypress_ladder"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

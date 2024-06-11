@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:grainel_chert_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

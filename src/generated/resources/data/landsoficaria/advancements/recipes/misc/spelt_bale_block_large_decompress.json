@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:spelt_bale_block_large_decompress"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:voidshale_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

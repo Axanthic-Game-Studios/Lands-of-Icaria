@@ -36,11 +36,11 @@ public class BidentEntity extends AbstractArrow {
 	public ItemStack stack = new ItemStack(IcariaItems.CHALKOS_TOOLS.bident.get());
 
 	public BidentEntity(EntityType<? extends BidentEntity> pType, Level pLevel) {
-		super(pType, pLevel);
+		super(pType, pLevel, new ItemStack(IcariaItems.CHALKOS_TOOLS.bident.get()));
 	}
 
 	public BidentEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
-		super(IcariaEntityTypes.BIDENT.get(), pEntity, pLevel);
+		super(IcariaEntityTypes.BIDENT.get(), pEntity, pLevel, pStack);
 		this.stack = pStack.copy();
 		this.entityData.set(BidentEntity.ITEM_STACK, this.stack);
 	}

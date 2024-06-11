@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:light_blue_wool_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

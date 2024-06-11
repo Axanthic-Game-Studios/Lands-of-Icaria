@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:stonecutter_from_relicstone"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

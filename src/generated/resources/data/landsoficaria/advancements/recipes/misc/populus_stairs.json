@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:populus_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

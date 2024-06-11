@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:grainite_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:chalkos_leggings"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

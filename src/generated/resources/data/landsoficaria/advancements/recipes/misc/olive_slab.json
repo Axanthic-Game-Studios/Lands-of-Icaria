@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:olive_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

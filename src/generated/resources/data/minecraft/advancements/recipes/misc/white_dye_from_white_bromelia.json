@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:white_dye_from_white_bromelia"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

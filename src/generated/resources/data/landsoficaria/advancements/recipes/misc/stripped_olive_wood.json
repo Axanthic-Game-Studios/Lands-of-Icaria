@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:stripped_olive_wood"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

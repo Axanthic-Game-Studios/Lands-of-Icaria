@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:orichalcum_shovel"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

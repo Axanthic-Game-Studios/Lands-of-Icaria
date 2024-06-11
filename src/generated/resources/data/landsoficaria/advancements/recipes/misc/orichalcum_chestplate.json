@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:orichalcum_chestplate"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

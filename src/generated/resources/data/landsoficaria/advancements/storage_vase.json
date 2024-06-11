@@ -190,17 +190,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "background": "landsoficaria:textures/block/sunstone_bricks.png",
     "description": {
       "translate": "advancement.landsoficaria.storage_vase.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "landsoficaria:storage_vase"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.landsoficaria.storage_vase.title"
     }

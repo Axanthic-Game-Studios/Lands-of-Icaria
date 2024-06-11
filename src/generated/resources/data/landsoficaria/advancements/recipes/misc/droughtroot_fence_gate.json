@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:droughtroot_fence_gate"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

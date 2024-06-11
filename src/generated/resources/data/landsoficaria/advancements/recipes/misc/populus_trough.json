@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:populus_trough"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

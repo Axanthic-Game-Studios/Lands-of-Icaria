@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:pink_ground_flowers_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

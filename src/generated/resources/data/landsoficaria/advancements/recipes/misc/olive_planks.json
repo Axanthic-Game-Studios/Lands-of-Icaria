@@ -69,6 +69,5 @@
     "recipes": [
       "landsoficaria:olive_planks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

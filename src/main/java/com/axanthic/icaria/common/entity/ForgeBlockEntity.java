@@ -1,10 +1,8 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.block.ForgeBlock;
 import com.axanthic.icaria.common.container.data.ForgeContainerData;
 import com.axanthic.icaria.common.handler.ForgeInputItemStackHandler;
 import com.axanthic.icaria.common.handler.ForgeItemStackHandler;
-import com.axanthic.icaria.common.handler.WrappedHandler;
 import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.recipe.ForgingRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
@@ -17,7 +15,6 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -41,17 +38,11 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
 
 import net.neoforged.neoforge.common.CommonHooks;
-import net.neoforged.neoforge.common.capabilities.Capabilities;
-import net.neoforged.neoforge.common.capabilities.Capability;
-import net.neoforged.neoforge.common.util.LazyOptional;
-import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
@@ -69,50 +60,50 @@ public class ForgeBlockEntity extends BlockEntity {
     public ItemStackHandler inputStackHandlerB = new ForgeInputItemStackHandler(1, this);
     public ItemStackHandler inputStackHandlerC = new ForgeInputItemStackHandler(1, this);
 
-    public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> stackHandler);
-    public LazyOptional<IItemHandler> inputItemHandlerA = LazyOptional.of(() -> this.inputStackHandlerA);
-    public LazyOptional<IItemHandler> inputItemHandlerB = LazyOptional.of(() -> this.inputStackHandlerB);
-    public LazyOptional<IItemHandler> inputItemHandlerC = LazyOptional.of(() -> this.inputStackHandlerC);
+    //public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> stackHandler);
+    //public LazyOptional<IItemHandler> inputItemHandlerA = LazyOptional.of(() -> this.inputStackHandlerA);
+    //public LazyOptional<IItemHandler> inputItemHandlerB = LazyOptional.of(() -> this.inputStackHandlerB);
+    //public LazyOptional<IItemHandler> inputItemHandlerC = LazyOptional.of(() -> this.inputStackHandlerC);
 
     public Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
 
     public SimpleContainer simpleContainer = new SimpleContainer(this.size);
 
-    public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedFuelHandler = Map.of(
-        Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> index == 1 || index == 2, (index, stack) -> false)),
-        Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(0, stack)))
-    );
-
-    public Map<Direction, LazyOptional<WrappedHandler>> frontLeftInputHandler = Map.of(
-        Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> this.inputStackHandlerA.isItemValid(0, stack))),
-        Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false)),
-        Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false)),
-        Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false)),
-        Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false)),
-        Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false))
-    );
-
-    public Map<Direction, LazyOptional<WrappedHandler>> backLeftInputHandler = Map.of(
-        Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> this.inputStackHandlerB.isItemValid(0, stack))),
-        Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false)),
-        Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false)),
-        Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false)),
-        Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false)),
-        Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false))
-    );
-
-    public Map<Direction, LazyOptional<WrappedHandler>> backRightInputHandler = Map.of(
-        Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> this.inputStackHandlerC.isItemValid(0, stack))),
-        Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false)),
-        Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false)),
-        Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false)),
-        Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false)),
-        Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false))
-    );
+    //public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedFuelHandler = Map.of(
+    //    Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> index == 1 || index == 2, (index, stack) -> false)),
+    //    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(0, stack)))
+    //);
+    //
+    //public Map<Direction, LazyOptional<WrappedHandler>> frontLeftInputHandler = Map.of(
+    //    Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> this.inputStackHandlerA.isItemValid(0, stack))),
+    //    Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false)),
+    //    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false)),
+    //    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false)),
+    //    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false)),
+    //    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false))
+    //);
+    //
+    //public Map<Direction, LazyOptional<WrappedHandler>> backLeftInputHandler = Map.of(
+    //    Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> this.inputStackHandlerB.isItemValid(0, stack))),
+    //    Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false)),
+    //    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false)),
+    //    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false)),
+    //    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false)),
+    //    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false))
+    //);
+    //
+    //public Map<Direction, LazyOptional<WrappedHandler>> backRightInputHandler = Map.of(
+    //    Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> this.inputStackHandlerC.isItemValid(0, stack))),
+    //    Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false)),
+    //    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false)),
+    //    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false)),
+    //    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false)),
+    //    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false))
+    //);
 
     public ForgeBlockEntity(BlockPos pPos, BlockState pState) {
         super(IcariaBlockEntityTypes.FORGE.get(), pPos, pState);
@@ -215,14 +206,14 @@ public class ForgeBlockEntity extends BlockEntity {
         Containers.dropContents(pLevel, this.worldPosition, this.simpleContainer);
     }
 
-    @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        this.itemHandler.invalidate();
-        this.inputItemHandlerA.invalidate();
-        this.inputItemHandlerB.invalidate();
-        this.inputItemHandlerC.invalidate();
-    }
+    //@Override
+    //public void invalidateCaps() {
+    //    super.invalidateCaps();
+    //    this.itemHandler.invalidate();
+    //    this.inputItemHandlerA.invalidate();
+    //    this.inputItemHandlerB.invalidate();
+    //    this.inputItemHandlerC.invalidate();
+    //}
 
     @Override
     public void load(CompoundTag pTag) {
@@ -276,10 +267,10 @@ public class ForgeBlockEntity extends BlockEntity {
     @Override
     public void setRemoved() {
         super.setRemoved();
-        this.itemHandler.invalidate();
-        this.inputItemHandlerA.invalidate();
-        this.inputItemHandlerB.invalidate();
-        this.inputItemHandlerC.invalidate();
+        //this.itemHandler.invalidate();
+        //this.inputItemHandlerA.invalidate();
+        //this.inputItemHandlerB.invalidate();
+        //this.inputItemHandlerC.invalidate();
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, ForgeBlockEntity pBlockEntity) {
@@ -394,52 +385,52 @@ public class ForgeBlockEntity extends BlockEntity {
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
-    @Override
-    public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
-        return this.getCapabilityForPos(pCapability, pDirection, this.getBlockPos());
-    }
-
-    public <T> LazyOptional<T> getCapabilityForPos(Capability<T> pCapability, @Nullable Direction pDirection, BlockPos pPos) {
-        if (pCapability == Capabilities.ITEM_HANDLER) {
-            if (pDirection == null) {
-                return this.itemHandler.cast();
-            } else if (this.directionWrappedFuelHandler.containsKey(pDirection) || this.frontLeftInputHandler.containsKey(pDirection) || this.backLeftInputHandler.containsKey(pDirection) || this.backRightInputHandler.containsKey(pDirection)) {
-                var level = this.getLevel();
-                var state = this.getBlockState();
-                if (level != null) {
-                    state = level.getBlockState(ForgeBlock.getBlockEntityPosition(this.getBlockState(), pPos));
-                }
-
-                var corner  = state.getValue(IcariaBlockStateProperties.CORNER);
-                var facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-                if (pDirection == Direction.DOWN) {
-                    return this.directionWrappedFuelHandler.get(pDirection).cast();
-                }
-
-                if (pDirection == Direction.UP) {
-                    if (corner == Corner.TOP_FRONT_LEFT) {
-                        return this.frontLeftInputHandler.get(pDirection).cast();
-                    } else if (corner == Corner.TOP_BACK_LEFT) {
-                        return this.backLeftInputHandler.get(pDirection).cast();
-                    } else if (corner == Corner.TOP_BACK_RIGHT) {
-                        return this.backRightInputHandler.get(pDirection).cast();
-                    }
-                }
-
-                if (corner == Corner.BOTTOM_FRONT_LEFT) {
-                    if (facing == Direction.NORTH) {
-                        return this.directionWrappedFuelHandler.get(pDirection.getOpposite()).cast();
-                    } else if (facing == Direction.EAST) {
-                        return this.directionWrappedFuelHandler.get(pDirection.getClockWise()).cast();
-                    } else if (facing == Direction.SOUTH) {
-                        return this.directionWrappedFuelHandler.get(pDirection).cast();
-                    } else if (facing == Direction.WEST) {
-                        return this.directionWrappedFuelHandler.get(pDirection.getCounterClockWise()).cast();
-                    }
-                }
-            }
-        }
-
-        return super.getCapability(pCapability, pDirection);
-    }
+    //@Override
+    //public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
+    //    return this.getCapabilityForPos(pCapability, pDirection, this.getBlockPos());
+    //}
+    //
+    //public <T> LazyOptional<T> getCapabilityForPos(Capability<T> pCapability, @Nullable Direction pDirection, BlockPos pPos) {
+    //    if (pCapability == Capabilities.ITEM_HANDLER) {
+    //        if (pDirection == null) {
+    //            return this.itemHandler.cast();
+    //        } else if (this.directionWrappedFuelHandler.containsKey(pDirection) || this.frontLeftInputHandler.containsKey(pDirection) || this.backLeftInputHandler.containsKey(pDirection) || this.backRightInputHandler.containsKey(pDirection)) {
+    //            var level = this.getLevel();
+    //            var state = this.getBlockState();
+    //            if (level != null) {
+    //                state = level.getBlockState(ForgeBlock.getBlockEntityPosition(this.getBlockState(), pPos));
+    //            }
+    //
+    //            var corner  = state.getValue(IcariaBlockStateProperties.CORNER);
+    //            var facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+    //            if (pDirection == Direction.DOWN) {
+    //                return this.directionWrappedFuelHandler.get(pDirection).cast();
+    //            }
+    //
+    //            if (pDirection == Direction.UP) {
+    //                if (corner == Corner.TOP_FRONT_LEFT) {
+    //                    return this.frontLeftInputHandler.get(pDirection).cast();
+    //                } else if (corner == Corner.TOP_BACK_LEFT) {
+    //                    return this.backLeftInputHandler.get(pDirection).cast();
+    //                } else if (corner == Corner.TOP_BACK_RIGHT) {
+    //                    return this.backRightInputHandler.get(pDirection).cast();
+    //                }
+    //            }
+    //
+    //            if (corner == Corner.BOTTOM_FRONT_LEFT) {
+    //                if (facing == Direction.NORTH) {
+    //                    return this.directionWrappedFuelHandler.get(pDirection.getOpposite()).cast();
+    //                } else if (facing == Direction.EAST) {
+    //                    return this.directionWrappedFuelHandler.get(pDirection.getClockWise()).cast();
+    //                } else if (facing == Direction.SOUTH) {
+    //                    return this.directionWrappedFuelHandler.get(pDirection).cast();
+    //                } else if (facing == Direction.WEST) {
+    //                    return this.directionWrappedFuelHandler.get(pDirection.getCounterClockWise()).cast();
+    //                }
+    //            }
+    //        }
+    //    }
+    //
+    //    return super.getCapability(pCapability, pDirection);
+    //}
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:silkglass_pane"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

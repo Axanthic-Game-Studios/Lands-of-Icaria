@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:molybdenumsteel_bident_forging"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

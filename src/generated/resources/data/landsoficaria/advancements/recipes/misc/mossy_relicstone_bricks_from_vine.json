@@ -134,6 +134,5 @@
     "recipes": [
       "landsoficaria:mossy_relicstone_bricks_from_vine"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

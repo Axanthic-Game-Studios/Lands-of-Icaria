@@ -22,8 +22,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaCeilingHangingSignBlock extends CeilingHangingSignBlock implements MediterraneanWaterloggedBlock {
-    public IcariaCeilingHangingSignBlock(Properties pProperties, WoodType pType) {
-        super(pProperties, pType);
+    public IcariaCeilingHangingSignBlock(WoodType pType, Properties pProperties) {
+        super(pType, pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.ATTACHED, false).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.ROTATION_16, 0).setValue(BlockStateProperties.WATERLOGGED, false));
     }
 

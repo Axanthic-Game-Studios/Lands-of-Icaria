@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:loam_lump_firing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

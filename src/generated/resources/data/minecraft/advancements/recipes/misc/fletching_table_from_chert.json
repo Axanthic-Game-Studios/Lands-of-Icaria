@@ -238,6 +238,5 @@
     "recipes": [
       "minecraft:fletching_table_from_chert"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

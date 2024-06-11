@@ -22,7 +22,7 @@ public class ConcoctingExplosionsRecipeSerializer implements RecipeSerializer<Co
             Codec.FLOAT.fieldOf("radius").forGetter(recipe -> recipe.radius),
             Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
             Codec.INT.fieldOf("color").forGetter(recipe -> recipe.color),
-            Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients)
+            Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients)
         ).apply(instance, ConcoctingExplosionsRecipe::new)
     );
 

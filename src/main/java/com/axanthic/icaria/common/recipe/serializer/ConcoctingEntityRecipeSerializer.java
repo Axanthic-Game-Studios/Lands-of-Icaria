@@ -21,7 +21,7 @@ public class ConcoctingEntityRecipeSerializer implements RecipeSerializer<Concoc
         instance -> instance.group(
             Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
             Codec.INT.fieldOf("color").forGetter(recipe -> recipe.color),
-            Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
+            Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
             Codec.STRING.fieldOf("entity").forGetter(recipe -> recipe.entity)
         ).apply(instance, ConcoctingEntityRecipe::new)
     );

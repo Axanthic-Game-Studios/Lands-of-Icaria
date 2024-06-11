@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:orichalcum_helmet_forging"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

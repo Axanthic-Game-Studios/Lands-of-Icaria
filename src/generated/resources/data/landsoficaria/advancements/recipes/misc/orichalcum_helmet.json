@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:orichalcum_helmet"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

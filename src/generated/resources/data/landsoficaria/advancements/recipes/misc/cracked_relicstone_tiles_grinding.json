@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:cracked_relicstone_tiles_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -14,17 +14,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "background": "landsoficaria:textures/block/sunstone_bricks.png",
     "description": {
       "translate": "advancement.landsoficaria.forge.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "landsoficaria:forge"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.landsoficaria.forge.title"
     }

@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:scorpion_from_concocting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

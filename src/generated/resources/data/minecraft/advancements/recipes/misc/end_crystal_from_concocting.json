@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:end_crystal_from_concocting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

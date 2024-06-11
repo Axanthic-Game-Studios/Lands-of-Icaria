@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:iron_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

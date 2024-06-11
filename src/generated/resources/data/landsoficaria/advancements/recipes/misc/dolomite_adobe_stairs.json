@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:dolomite_adobe_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

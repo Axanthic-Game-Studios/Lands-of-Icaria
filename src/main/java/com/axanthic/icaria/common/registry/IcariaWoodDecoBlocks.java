@@ -3,9 +3,9 @@ package com.axanthic.icaria.common.registry;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.WoodType;
 
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -24,16 +24,16 @@ public class IcariaWoodDecoBlocks {
     public Supplier<FenceBlock> fence;
     public Supplier<FenceGateBlock> gate;
 
-    public IcariaWoodDecoBlocks(String pName, Supplier<Block> pBlock, BlockBehaviour.Properties pProperties, boolean pStairs, boolean pSlab, boolean pFence, boolean pGate) {
+    public IcariaWoodDecoBlocks(String pName, Supplier<Block> pBlock, WoodType pType, BlockBehaviour.Properties pProperties, boolean pStairs, boolean pSlab, boolean pFence, boolean pGate) {
         this.name = pName;
         this.block = pBlock;
         this.stairs = IcariaWoodDecoBlocks.BLOCKS.register(pName + "_stairs", () -> new StairBlock(() -> pBlock.get().defaultBlockState(), pProperties));
         this.slab = IcariaWoodDecoBlocks.BLOCKS.register(pName + "_slab", () -> new SlabBlock(pProperties));
         this.fence = IcariaWoodDecoBlocks.BLOCKS.register(pName + "_fence", () -> new FenceBlock(pProperties));
-        this.gate = IcariaWoodDecoBlocks.BLOCKS.register(pName + "_fence_gate", () -> new FenceGateBlock(pProperties, SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN));
+        this.gate = IcariaWoodDecoBlocks.BLOCKS.register(pName + "_fence_gate", () -> new FenceGateBlock(pType, pProperties));
     }
 
-    public IcariaWoodDecoBlocks(String pName, Supplier<Block> pBlock, BlockBehaviour.Properties pProperties) {
-        this(pName, pBlock, pProperties, true, true, true, true);
+    public IcariaWoodDecoBlocks(String pName, Supplier<Block> pBlock, WoodType pType, BlockBehaviour.Properties pProperties) {
+        this(pName, pBlock, pType, pProperties, true, true, true, true);
     }
 }

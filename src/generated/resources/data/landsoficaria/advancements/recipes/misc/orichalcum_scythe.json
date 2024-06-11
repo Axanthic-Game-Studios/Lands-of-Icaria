@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:orichalcum_scythe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

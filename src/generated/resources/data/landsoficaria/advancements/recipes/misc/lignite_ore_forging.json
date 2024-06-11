@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:lignite_ore_forging"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

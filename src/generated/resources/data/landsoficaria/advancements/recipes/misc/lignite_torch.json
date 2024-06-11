@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:lignite_torch"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:anthracite_large_compress"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:surface_bones_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

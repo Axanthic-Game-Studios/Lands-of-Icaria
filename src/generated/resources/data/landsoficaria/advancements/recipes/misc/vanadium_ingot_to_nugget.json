@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:vanadium_ingot_to_nugget"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:chert_shovel"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

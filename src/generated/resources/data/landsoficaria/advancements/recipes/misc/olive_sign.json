@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:olive_sign"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:cyan_dye_from_cyan_ground_flowers"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

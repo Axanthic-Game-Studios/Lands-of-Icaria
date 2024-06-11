@@ -9,6 +9,8 @@ import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
+import com.mojang.serialization.MapCodec;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -50,6 +52,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ForgeBlock extends BaseEntityBlock {
+    public static final MapCodec<ForgeBlock> CODEC = Block.simpleCodec(ForgeBlock::new);
+
     public ForgeBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(BlockStateProperties.LIT, false));
@@ -166,7 +170,7 @@ public class ForgeBlock extends BaseEntityBlock {
     }
 
     @Override
-    public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+    public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         var blockPos = ForgeBlock.getBlockEntityPosition(pState, pPos);
         var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 
@@ -184,7 +188,7 @@ public class ForgeBlock extends BaseEntityBlock {
             pLevel.setBlock(blockPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
         }
 
-        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+        return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
     }
 
     @Override
@@ -265,6 +269,11 @@ public class ForgeBlock extends BaseEntityBlock {
         }
 
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public MapCodec<? extends BaseEntityBlock> codec() {
+        return ForgeBlock.CODEC;
     }
 
     @Override

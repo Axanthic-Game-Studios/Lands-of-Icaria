@@ -22,7 +22,7 @@ public class ForgingRecipeSerializer implements RecipeSerializer<ForgingRecipe> 
         instance -> instance.group(
             Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
             Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
-            Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
+            Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
             ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)
         ).apply(instance, ForgingRecipe::new)
     );
@@ -49,7 +49,7 @@ public class ForgingRecipeSerializer implements RecipeSerializer<ForgingRecipe> 
     public void toNetwork(FriendlyByteBuf pBuffer, ForgingRecipe pRecipe) {
         pBuffer.writeFloat(pRecipe.experience);
         pBuffer.writeInt(pRecipe.burnTime);
-        pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
+        pBuffer.writeItem(pRecipe.getResultItem(null));
         pBuffer.writeInt(pRecipe.getIngredients().size());
         for (var ingredient : pRecipe.getIngredients()) {
             ingredient.toNetwork(pBuffer);

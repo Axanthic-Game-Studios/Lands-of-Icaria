@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:platoshale_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

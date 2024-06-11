@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:orichalcum_dagger"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

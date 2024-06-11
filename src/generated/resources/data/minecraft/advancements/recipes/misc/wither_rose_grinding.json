@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:wither_rose_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

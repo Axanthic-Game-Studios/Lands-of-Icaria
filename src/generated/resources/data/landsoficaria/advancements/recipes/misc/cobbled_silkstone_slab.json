@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:cobbled_silkstone_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

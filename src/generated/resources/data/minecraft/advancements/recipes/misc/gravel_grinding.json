@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:gravel_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

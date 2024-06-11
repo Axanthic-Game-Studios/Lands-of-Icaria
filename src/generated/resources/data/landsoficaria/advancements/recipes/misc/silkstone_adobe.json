@@ -56,6 +56,5 @@
     "recipes": [
       "landsoficaria:silkstone_adobe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

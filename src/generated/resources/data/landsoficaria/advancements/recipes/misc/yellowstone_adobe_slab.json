@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:yellowstone_adobe_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

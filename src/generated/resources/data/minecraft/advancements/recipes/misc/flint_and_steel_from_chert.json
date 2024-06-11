@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:flint_and_steel_from_chert"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

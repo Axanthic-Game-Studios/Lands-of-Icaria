@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:stripped_laurel_wood"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

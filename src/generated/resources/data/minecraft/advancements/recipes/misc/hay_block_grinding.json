@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:hay_block_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

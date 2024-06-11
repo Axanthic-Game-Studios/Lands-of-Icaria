@@ -23,7 +23,7 @@ public class ConcoctingItemRecipeSerializer implements RecipeSerializer<Concocti
             Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
             Codec.INT.fieldOf("color").forGetter(recipe -> recipe.color),
             ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output),
-            Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients)
+            Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients)
         ).apply(instance, ConcoctingItemRecipe::new)
     );
 
@@ -49,7 +49,7 @@ public class ConcoctingItemRecipeSerializer implements RecipeSerializer<Concocti
     public void toNetwork(FriendlyByteBuf pBuffer, ConcoctingItemRecipe pRecipe) {
         pBuffer.writeInt(pRecipe.burnTime);
         pBuffer.writeInt(pRecipe.color);
-        pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
+        pBuffer.writeItem(pRecipe.getResultItem(null));
         pBuffer.writeInt(pRecipe.getIngredients().size());
         for (var ingredient : pRecipe.getIngredients()) {
             ingredient.toNetwork(pBuffer);

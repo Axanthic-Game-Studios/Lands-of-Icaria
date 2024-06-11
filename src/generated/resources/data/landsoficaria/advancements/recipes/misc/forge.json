@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:forge"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:bone_remains_from_concocting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

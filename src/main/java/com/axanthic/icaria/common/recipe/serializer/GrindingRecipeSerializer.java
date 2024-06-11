@@ -23,7 +23,7 @@ public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe
             Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
             Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
             Ingredient.CODEC.fieldOf("gear").forGetter(recipe -> recipe.gear),
-            Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
+            Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
             ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)
         ).apply(instance, GrindingRecipe::new)
     );
@@ -52,7 +52,7 @@ public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe
         pBuffer.writeFloat(pRecipe.experience);
         pBuffer.writeInt(pRecipe.burnTime);
         pRecipe.gear.toNetwork(pBuffer);
-        pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
+        pBuffer.writeItem(pRecipe.getResultItem(null));
         pBuffer.writeInt(pRecipe.getIngredients().size());
         for (var ingredient : pRecipe.getIngredients()) {
             ingredient.toNetwork(pBuffer);

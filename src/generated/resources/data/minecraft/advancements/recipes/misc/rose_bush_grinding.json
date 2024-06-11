@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:rose_bush_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

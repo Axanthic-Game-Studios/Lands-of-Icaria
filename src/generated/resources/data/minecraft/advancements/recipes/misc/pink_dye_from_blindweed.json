@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:pink_dye_from_blindweed"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

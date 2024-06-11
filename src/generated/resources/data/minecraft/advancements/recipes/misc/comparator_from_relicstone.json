@@ -56,6 +56,5 @@
     "recipes": [
       "minecraft:comparator_from_relicstone"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:chalkos_leggings_forging"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

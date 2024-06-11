@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:oxeye_daisy_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

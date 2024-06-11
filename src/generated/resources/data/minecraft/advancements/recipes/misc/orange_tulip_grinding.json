@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:orange_tulip_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

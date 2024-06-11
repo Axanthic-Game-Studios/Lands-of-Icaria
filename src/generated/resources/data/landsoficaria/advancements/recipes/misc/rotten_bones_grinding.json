@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:rotten_bones_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

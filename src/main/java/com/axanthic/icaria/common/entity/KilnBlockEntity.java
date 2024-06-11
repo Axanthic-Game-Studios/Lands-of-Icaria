@@ -1,9 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.block.KilnBlock;
 import com.axanthic.icaria.common.container.data.KilnContainerData;
 import com.axanthic.icaria.common.handler.KilnItemStackHandler;
-import com.axanthic.icaria.common.handler.WrappedHandler;
 import com.axanthic.icaria.common.recipe.FiringRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
@@ -14,7 +12,6 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -39,18 +36,11 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.Vec3;
 
 import net.neoforged.neoforge.common.CommonHooks;
-import net.neoforged.neoforge.common.capabilities.Capabilities;
-import net.neoforged.neoforge.common.capabilities.Capability;
-import net.neoforged.neoforge.common.util.LazyOptional;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemHandlerHelper;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
@@ -65,29 +55,29 @@ public class KilnBlockEntity extends BlockEntity {
 
     public ItemStackHandler stackHandler = new KilnItemStackHandler(this.size, this);
 
-    public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> this.stackHandler);
+    //public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> this.stackHandler);
 
     public Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
 
     public SimpleContainer simpleContainer = new SimpleContainer(this.size);
 
-    public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedFuelHandler = Map.of(
-        Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> index == 2, (index, stack) -> false)),
-        Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(1, stack))),
-        Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false))
-    );
-
-    public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedInputHandler = Map.of(
-        Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(0, stack)))
-    );
+    //public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedFuelHandler = Map.of(
+    //    Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> index == 2, (index, stack) -> false)),
+    //    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(1, stack))),
+    //    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false))
+    //);
+    //
+    //public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedInputHandler = Map.of(
+    //    Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(0, stack)))
+    //);
 
     public KilnBlockEntity(BlockPos pPos, BlockState pState) {
         super(IcariaBlockEntityTypes.KILN.get(), pPos, pState);
@@ -124,7 +114,8 @@ public class KilnBlockEntity extends BlockEntity {
     }
 
     public int getComparatorInput() {
-        return this.itemHandler.map(ItemHandlerHelper::calcRedstoneFromInventory).orElse(0);
+        //return this.itemHandler.map(ItemHandlerHelper::calcRedstoneFromInventory).orElse(0);
+        return 0;
     }
 
     public void awardUsedRecipesAndPopExperience(ServerPlayer pPlayer) {
@@ -168,11 +159,11 @@ public class KilnBlockEntity extends BlockEntity {
         Containers.dropContents(pLevel, this.worldPosition, this.simpleContainer);
     }
 
-    @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        this.itemHandler.invalidate();
-    }
+    //@Override
+    //public void invalidateCaps() {
+    //    super.invalidateCaps();
+    //    this.itemHandler.invalidate();
+    //}
 
     @Override
     public void load(CompoundTag pTag) {
@@ -220,7 +211,7 @@ public class KilnBlockEntity extends BlockEntity {
     @Override
     public void setRemoved() {
         super.setRemoved();
-        this.itemHandler.invalidate();
+        //this.itemHandler.invalidate();
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, KilnBlockEntity pBlockEntity) {
@@ -308,52 +299,52 @@ public class KilnBlockEntity extends BlockEntity {
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
-    @Override
-    public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
-        return this.getCapabilityForPos(pCapability, pDirection, this.getBlockPos());
-    }
-
-    public <T> LazyOptional<T> getCapabilityForPos(Capability<T> pCapability, @Nullable Direction pDirection, BlockPos pPos) {
-        if (pCapability == Capabilities.ITEM_HANDLER) {
-            if (pDirection == null) {
-                return this.itemHandler.cast();
-            } else if (this.directionWrappedFuelHandler.containsKey(pDirection) || this.directionWrappedInputHandler.containsKey(pDirection)) {
-                var level = this.getLevel();
-                var state = this.getBlockState();
-                if (level != null) {
-                    state = level.getBlockState(KilnBlock.getBlockEntityPosition(this.getBlockState(), pPos));
-                }
-
-                var half  = state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF);
-                var facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-                if (pDirection == Direction.DOWN) {
-                    return this.directionWrappedFuelHandler.get(pDirection).cast();
-                }
-
-                if (half == DoubleBlockHalf.LOWER) {
-                    if (facing == Direction.NORTH) {
-                        return this.directionWrappedFuelHandler.get(pDirection).cast();
-                    } else if (facing == Direction.EAST) {
-                        return this.directionWrappedFuelHandler.get(pDirection.getCounterClockWise()).cast();
-                    } else if (facing == Direction.SOUTH) {
-                        return this.directionWrappedFuelHandler.get(pDirection.getOpposite()).cast();
-                    } else if (facing == Direction.WEST) {
-                        return this.directionWrappedFuelHandler.get(pDirection.getClockWise()).cast();
-                    }
-                } else if (half == DoubleBlockHalf.UPPER) {
-                    if (facing == Direction.NORTH) {
-                        return this.directionWrappedInputHandler.get(pDirection.getOpposite()).cast();
-                    } else if (facing == Direction.EAST) {
-                        return this.directionWrappedInputHandler.get(pDirection.getClockWise()).cast();
-                    } else if (facing == Direction.SOUTH) {
-                        return this.directionWrappedInputHandler.get(pDirection).cast();
-                    } else if (facing == Direction.WEST) {
-                        return this.directionWrappedInputHandler.get(pDirection.getCounterClockWise()).cast();
-                    }
-                }
-            }
-        }
-
-        return super.getCapability(pCapability, pDirection);
-    }
+    //@Override
+    //public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
+    //    return this.getCapabilityForPos(pCapability, pDirection, this.getBlockPos());
+    //}
+    //
+    //public <T> LazyOptional<T> getCapabilityForPos(Capability<T> pCapability, @Nullable Direction pDirection, BlockPos pPos) {
+    //    if (pCapability == Capabilities.ITEM_HANDLER) {
+    //        if (pDirection == null) {
+    //            return this.itemHandler.cast();
+    //        } else if (this.directionWrappedFuelHandler.containsKey(pDirection) || this.directionWrappedInputHandler.containsKey(pDirection)) {
+    //            var level = this.getLevel();
+    //            var state = this.getBlockState();
+    //            if (level != null) {
+    //                state = level.getBlockState(KilnBlock.getBlockEntityPosition(this.getBlockState(), pPos));
+    //            }
+    //
+    //            var half  = state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF);
+    //            var facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+    //            if (pDirection == Direction.DOWN) {
+    //                return this.directionWrappedFuelHandler.get(pDirection).cast();
+    //            }
+    //
+    //            if (half == DoubleBlockHalf.LOWER) {
+    //                if (facing == Direction.NORTH) {
+    //                    return this.directionWrappedFuelHandler.get(pDirection).cast();
+    //                } else if (facing == Direction.EAST) {
+    //                    return this.directionWrappedFuelHandler.get(pDirection.getCounterClockWise()).cast();
+    //                } else if (facing == Direction.SOUTH) {
+    //                    return this.directionWrappedFuelHandler.get(pDirection.getOpposite()).cast();
+    //                } else if (facing == Direction.WEST) {
+    //                    return this.directionWrappedFuelHandler.get(pDirection.getClockWise()).cast();
+    //                }
+    //            } else if (half == DoubleBlockHalf.UPPER) {
+    //                if (facing == Direction.NORTH) {
+    //                    return this.directionWrappedInputHandler.get(pDirection.getOpposite()).cast();
+    //                } else if (facing == Direction.EAST) {
+    //                    return this.directionWrappedInputHandler.get(pDirection.getClockWise()).cast();
+    //                } else if (facing == Direction.SOUTH) {
+    //                    return this.directionWrappedInputHandler.get(pDirection).cast();
+    //                } else if (facing == Direction.WEST) {
+    //                    return this.directionWrappedInputHandler.get(pDirection.getCounterClockWise()).cast();
+    //                }
+    //            }
+    //        }
+    //    }
+    //
+    //    return super.getCapability(pCapability, pDirection);
+    //}
 }

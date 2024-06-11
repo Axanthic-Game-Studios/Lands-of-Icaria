@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:dolomite_ore_forging"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

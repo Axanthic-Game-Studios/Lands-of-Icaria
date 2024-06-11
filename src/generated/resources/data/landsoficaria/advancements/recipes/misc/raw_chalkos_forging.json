@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:raw_chalkos_forging"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

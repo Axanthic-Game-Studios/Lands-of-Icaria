@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:fir_ladder"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

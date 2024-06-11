@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:gray_unfired_storage_vase"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

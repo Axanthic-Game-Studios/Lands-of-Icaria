@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:rotten_bones_block_large_decompress"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

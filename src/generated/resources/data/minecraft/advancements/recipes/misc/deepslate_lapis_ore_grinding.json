@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:deepslate_lapis_ore_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

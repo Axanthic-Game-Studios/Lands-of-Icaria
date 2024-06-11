@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:magenta_concrete_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

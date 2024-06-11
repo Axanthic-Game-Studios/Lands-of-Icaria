@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:kassiteros_bident"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

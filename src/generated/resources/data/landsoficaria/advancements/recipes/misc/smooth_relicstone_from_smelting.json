@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:smooth_relicstone_from_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

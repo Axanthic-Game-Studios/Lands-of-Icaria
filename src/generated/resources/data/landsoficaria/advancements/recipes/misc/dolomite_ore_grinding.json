@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:dolomite_ore_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

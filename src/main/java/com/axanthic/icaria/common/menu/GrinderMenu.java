@@ -2,9 +2,6 @@ package com.axanthic.icaria.common.menu;
 
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaMenus;
-import com.axanthic.icaria.common.slot.GrinderFuelSlot;
-import com.axanthic.icaria.common.slot.GrinderGearSlot;
-import com.axanthic.icaria.common.slot.GrinderOutputSlot;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -14,7 +11,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 
-import net.neoforged.neoforge.common.capabilities.Capabilities;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 import net.neoforged.neoforge.items.wrapper.InvWrapper;
@@ -38,16 +34,16 @@ public class GrinderMenu extends AbstractContainerMenu {
 		if (this.blockEntity != null) {
 			this.containerData = this.blockEntity.getData();
 			this.addDataSlots(this.containerData);
-			this.blockEntity.getCapability(Capabilities.ITEM_HANDLER).ifPresent(
-				pItemHandler -> {
-					this.addSlot(new SlotItemHandler(pItemHandler, 0, 36, 22));
-					this.addSlot(new GrinderFuelSlot(pItemHandler, 1, 36, 58));
-					this.addSlot(new GrinderGearSlot(pItemHandler, 2, 98, 49));
-					this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 3, 124, 58));
-					this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 4, 124, 40));
-					this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 5, 124, 22));
-				}
-			);
+			//this.blockEntity.getCapability(Capabilities.ITEM_HANDLER).ifPresent(
+			//	pItemHandler -> {
+			//		this.addSlot(new SlotItemHandler(pItemHandler, 0, 36, 22));
+			//		this.addSlot(new GrinderFuelSlot(pItemHandler, 1, 36, 58));
+			//		this.addSlot(new GrinderGearSlot(pItemHandler, 2, 98, 49));
+			//		this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 3, 124, 58));
+			//		this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 4, 124, 40));
+			//		this.addSlot(new GrinderOutputSlot(pItemHandler, this.blockEntity, pPlayer, 5, 124, 22));
+			//	}
+			//);
 		}
 
 		this.layoutPlayerInventorySlots(8, 76);

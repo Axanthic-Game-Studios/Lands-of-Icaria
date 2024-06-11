@@ -71,14 +71,14 @@ public class TripleBarrelRackBlock extends Block {
     }
 
     @Override
-    public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+    public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         var blockPos = TripleBarrelRackBlock.getPlacedBlockPosition(pState, pPos);
         var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
         pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
         pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
         pLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
         pLevel.setBlock(blockPos.above().offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+        return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
     }
 
     @Override

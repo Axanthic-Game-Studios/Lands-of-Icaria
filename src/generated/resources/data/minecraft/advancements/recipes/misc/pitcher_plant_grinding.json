@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:pitcher_plant_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

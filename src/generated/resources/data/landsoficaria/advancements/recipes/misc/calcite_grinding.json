@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:calcite_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

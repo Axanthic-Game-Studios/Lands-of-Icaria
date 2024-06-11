@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:pumpkin_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

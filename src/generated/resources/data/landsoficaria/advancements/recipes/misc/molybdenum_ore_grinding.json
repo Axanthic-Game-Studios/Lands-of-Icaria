@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:molybdenum_ore_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

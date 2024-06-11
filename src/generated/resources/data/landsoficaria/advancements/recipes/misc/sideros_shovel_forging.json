@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:sideros_shovel_forging"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

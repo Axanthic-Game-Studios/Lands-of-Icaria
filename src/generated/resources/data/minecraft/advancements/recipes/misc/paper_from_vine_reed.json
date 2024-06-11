@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:paper_from_vine_reed"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:molybdenumsteel_axe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

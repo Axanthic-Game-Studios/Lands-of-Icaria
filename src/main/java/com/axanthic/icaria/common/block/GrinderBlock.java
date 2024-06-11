@@ -8,6 +8,8 @@ import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
+import com.mojang.serialization.MapCodec;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -48,6 +50,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrinderBlock extends BaseEntityBlock {
+	public static final MapCodec<GrinderBlock> CODEC = Block.simpleCodec(GrinderBlock::new);
+
 	public GrinderBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.GRINDER_GRINDING, false).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, 0).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.SIDE, Side.LEFT));
@@ -110,12 +114,12 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
 		var blockPos = GrinderBlock.getBlockEntityPosition(pState, pPos);
 		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 		pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
 		pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-		super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
 	}
 
 	@Override
@@ -178,6 +182,11 @@ public class GrinderBlock extends BaseEntityBlock {
 		}
 
 		return InteractionResult.SUCCESS;
+	}
+
+	@Override
+	public MapCodec<? extends BaseEntityBlock> codec() {
+		return GrinderBlock.CODEC;
 	}
 
 	@Override

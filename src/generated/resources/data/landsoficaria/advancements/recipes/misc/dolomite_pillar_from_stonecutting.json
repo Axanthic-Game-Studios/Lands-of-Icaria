@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:dolomite_pillar_from_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -9,6 +9,8 @@ import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.data.tags.IcariaItemTags;
 
+import com.mojang.serialization.MapCodec;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -51,6 +53,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class KettleBlock extends BaseEntityBlock {
+    public static final MapCodec<KettleBlock> CODEC = Block.simpleCodec(KettleBlock::new);
+
     public static final VoxelShape SHAPE_NORTH = Block.box(0.0D, 0.0D, 7.5D, 16.0D, 14.0D, 16.0D);
     public static final VoxelShape SHAPE_EAST = Block.box(0.0D, 0.0D, 0.0D, 8.5D, 14.0D, 16.0D);
     public static final VoxelShape SHAPE_SOUTH = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 8.5D);
@@ -169,14 +173,14 @@ public class KettleBlock extends BaseEntityBlock {
     }
 
     @Override
-    public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+    public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
             pLevel.setBlock(pPos.above(), Blocks.AIR.defaultBlockState(), 3);
         } else {
             pLevel.setBlock(pPos.below(), Blocks.AIR.defaultBlockState(), 3);
         }
 
-        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+        return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
     }
 
     @Override
@@ -261,6 +265,11 @@ public class KettleBlock extends BaseEntityBlock {
         } else {
             return InteractionResult.PASS;
         }
+    }
+
+    @Override
+    public MapCodec<? extends BaseEntityBlock> codec() {
+        return KettleBlock.CODEC;
     }
 
     @Override

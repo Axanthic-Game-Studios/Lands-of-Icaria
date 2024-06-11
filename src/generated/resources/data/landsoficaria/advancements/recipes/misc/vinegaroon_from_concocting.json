@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:vinegaroon_from_concocting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

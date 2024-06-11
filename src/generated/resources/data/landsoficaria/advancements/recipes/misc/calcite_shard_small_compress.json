@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:calcite_shard_small_compress"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

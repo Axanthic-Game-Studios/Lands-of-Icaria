@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:chiseled_sunstone"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

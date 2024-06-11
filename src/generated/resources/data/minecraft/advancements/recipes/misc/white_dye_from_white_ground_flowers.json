@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:white_dye_from_white_ground_flowers"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

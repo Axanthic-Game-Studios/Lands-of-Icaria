@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:mossy_relicstone_tile_wall_from_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

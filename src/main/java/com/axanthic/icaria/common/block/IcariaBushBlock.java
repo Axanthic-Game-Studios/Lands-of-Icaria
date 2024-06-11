@@ -2,6 +2,8 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
+import com.mojang.serialization.MapCodec;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
@@ -22,6 +24,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBushBlock extends BushBlock {
+	public static final MapCodec<IcariaBushBlock> CODEC = Block.simpleCodec(IcariaBushBlock::new);
+
 	public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
 
 	public IcariaBushBlock(Properties pProperties) {
@@ -45,6 +49,11 @@ public class IcariaBushBlock extends BushBlock {
 		} else {
 			return blockState.is(BlockTags.DIRT);
 		}
+	}
+
+	@Override
+	public MapCodec<? extends BushBlock> codec() {
+		return IcariaBushBlock.CODEC;
 	}
 
 	@Override

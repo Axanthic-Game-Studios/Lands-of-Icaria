@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:arachne_string_large_compress"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

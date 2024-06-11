@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:fortifying_flask"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

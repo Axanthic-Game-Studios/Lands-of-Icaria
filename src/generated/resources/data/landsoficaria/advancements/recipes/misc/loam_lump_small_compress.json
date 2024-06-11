@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:loam_lump_small_compress"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

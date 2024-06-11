@@ -45,8 +45,8 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock, M
 	public static final VoxelShape WALL_SOUTH = Block.box(0.0D, 4.5D, 0.0D, 16.0D, 12.5D, 2.0D);
 	public static final VoxelShape WALL_WEST = Block.box(14.0D, 4.5D, 0.0D, 16.0D, 12.5D, 16.0D);
 
-	public IcariaWallSignBlock(Properties pProperties, WoodType pWoodType) {
-		super(pProperties, pWoodType);
+	public IcariaWallSignBlock(WoodType pWoodType, Properties pProperties) {
+		super(pWoodType, pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.ATTACH_FACE, AttachFace.WALL).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 

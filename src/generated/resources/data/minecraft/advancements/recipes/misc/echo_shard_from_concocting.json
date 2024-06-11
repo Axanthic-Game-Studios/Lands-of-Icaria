@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:echo_shard_from_concocting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

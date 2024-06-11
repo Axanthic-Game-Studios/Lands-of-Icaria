@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:chert_scythe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:unfired_loam_gear_firing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -23,7 +23,7 @@ public class ConcoctingPotionRecipeSerializer implements RecipeSerializer<Concoc
             Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
             Codec.INT.fieldOf("color").forGetter(recipe -> recipe.color),
             Codec.INT.fieldOf("potionDuration").forGetter(recipe -> recipe.potionDuration),
-            Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
+            Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
             Codec.STRING.fieldOf("potion").forGetter(recipe -> recipe.potion)
         ).apply(instance, ConcoctingPotionRecipe::new)
     );

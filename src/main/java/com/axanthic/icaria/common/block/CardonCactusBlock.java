@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.block;
 
+import com.mojang.serialization.MapCodec;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -31,6 +33,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CardonCactusBlock extends PipeBlock implements IPlantable {
+	public static final MapCodec<CardonCactusBlock> CODEC = Block.simpleCodec(CardonCactusBlock::new);
+
 	public CardonCactusBlock(Properties pProperties) {
 		super(0.25F, pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.NORTH, false).setValue(BlockStateProperties.EAST, false).setValue(BlockStateProperties.SOUTH, false).setValue(BlockStateProperties.WEST, false).setValue(BlockStateProperties.UP, false).setValue(BlockStateProperties.DOWN, false));
@@ -125,5 +129,10 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 		var checkBelowW = !pLevel.getBlockState(pCurrentPos.below()).is(BlockTags.SAND) && !pLevel.getBlockState(pCurrentPos.below()).is(this) && pLevel.getBlockState(pCurrentPos.west()).is(this);
 
 		return this.defaultBlockState().setValue(BlockStateProperties.UP, checkU).setValue(BlockStateProperties.DOWN, checkD).setValue(BlockStateProperties.NORTH, checkN || checkBelowN).setValue(BlockStateProperties.EAST, checkE || checkBelowE).setValue(BlockStateProperties.SOUTH, checkS || checkBelowS).setValue(BlockStateProperties.WEST, checkW || checkBelowW);
+	}
+
+	@Override
+	public MapCodec<? extends PipeBlock> codec() {
+		return CardonCactusBlock.CODEC;
 	}
 }

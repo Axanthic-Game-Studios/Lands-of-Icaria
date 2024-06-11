@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:cocoa_beans_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

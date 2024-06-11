@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:torchflower_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

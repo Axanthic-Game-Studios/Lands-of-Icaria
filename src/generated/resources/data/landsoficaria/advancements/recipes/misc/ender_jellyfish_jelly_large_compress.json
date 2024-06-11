@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:ender_jellyfish_jelly_large_compress"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

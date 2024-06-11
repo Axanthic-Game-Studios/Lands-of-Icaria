@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:clay_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

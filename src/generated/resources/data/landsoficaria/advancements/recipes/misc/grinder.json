@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:grinder"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

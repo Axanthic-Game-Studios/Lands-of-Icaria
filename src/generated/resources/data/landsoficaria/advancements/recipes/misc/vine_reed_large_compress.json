@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:vine_reed_large_compress"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

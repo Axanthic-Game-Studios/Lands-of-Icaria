@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:horizontal_grainglass_pane"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

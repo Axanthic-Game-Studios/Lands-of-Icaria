@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:blurred_platoshale_bricks_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

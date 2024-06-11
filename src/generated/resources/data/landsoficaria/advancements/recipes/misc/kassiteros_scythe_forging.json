@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:kassiteros_scythe_forging"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

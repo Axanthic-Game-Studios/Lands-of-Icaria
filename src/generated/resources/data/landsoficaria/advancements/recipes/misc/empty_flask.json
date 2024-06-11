@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:empty_flask"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

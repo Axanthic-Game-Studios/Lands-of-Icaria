@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:cooked_aeternae_meat_from_smoking"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

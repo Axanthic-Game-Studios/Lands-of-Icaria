@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:baetyl_adobe_wall_from_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

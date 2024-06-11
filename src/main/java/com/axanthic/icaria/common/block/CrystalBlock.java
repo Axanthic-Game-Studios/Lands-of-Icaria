@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.entity.CrystalBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 
+import com.mojang.serialization.MapCodec;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -34,6 +36,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CrystalBlock extends DirectionalBlock implements EntityBlock, MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
+	public static final MapCodec<CrystalBlock> CODEC = Block.simpleCodec(CrystalBlock::new);
+
 	public static final VoxelShape SHAPE_NORTH = Block.box(4.0D, 4.0D, 8.0D, 12.0D, 12.0D, 16.0D);
 	public static final VoxelShape SHAPE_EAST = Block.box(0.0D, 4.0D, 4.0D, 8.0D, 12.0D, 12.0D);
 	public static final VoxelShape SHAPE_SOUTH = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 8.0D);
@@ -107,6 +111,11 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Medit
 	@Override
 	public FluidState getFluidState(BlockState pState) {
 		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+	}
+
+	@Override
+	public MapCodec<? extends DirectionalBlock> codec() {
+		return CrystalBlock.CODEC;
 	}
 
 	@Override

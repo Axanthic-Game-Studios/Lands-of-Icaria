@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:pink_bromelia_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

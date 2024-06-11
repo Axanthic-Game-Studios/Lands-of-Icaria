@@ -3,7 +3,6 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.block.KettleBlock;
 import com.axanthic.icaria.common.container.data.KettleContainerData;
 import com.axanthic.icaria.common.handler.KettleItemStackHandler;
-import com.axanthic.icaria.common.handler.WrappedHandler;
 import com.axanthic.icaria.common.properties.Kettle;
 import com.axanthic.icaria.common.recipe.ConcoctingEntityRecipe;
 import com.axanthic.icaria.common.recipe.ConcoctingExplosionsRecipe;
@@ -15,7 +14,6 @@ import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -32,17 +30,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
-import net.neoforged.neoforge.common.capabilities.Capabilities;
-import net.neoforged.neoforge.common.capabilities.Capability;
-import net.neoforged.neoforge.common.util.LazyOptional;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Map;
 import java.util.Optional;
 
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
@@ -60,14 +53,14 @@ public class KettleBlockEntity extends BlockEntity {
 
     public SimpleContainer simpleContainer = new SimpleContainer(this.size);
 
-    public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedFuelHandler = Map.of(
-        Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> index == 3, (index, stack) -> false)),
-        Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-        Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false))
-    );
+    //public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedFuelHandler = Map.of(
+    //    Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> index == 3, (index, stack) -> false)),
+    //    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
+    //    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false))
+    //);
 
     public KettleBlockEntity(BlockPos pPos, BlockState pState) {
         super(IcariaBlockEntityTypes.KETTLE.get(), pPos, pState);
@@ -200,8 +193,8 @@ public class KettleBlockEntity extends BlockEntity {
                     pLevel.setBlockAndUpdate(pPos, pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
                     pLevel.setBlockAndUpdate(pPos.above(), pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
 
-                    var entityBelow = pLevel.getBlockEntity(pPos.below());
-                    if (entityBelow == null || !entityBelow.getCapability(Capabilities.ITEM_HANDLER).isPresent()) {
+                    //var entityBelow = pLevel.getBlockEntity(pPos.below());
+                    //if (entityBelow == null || !entityBelow.getCapability(Capabilities.ITEM_HANDLER).isPresent()) {
                         var entity = EntityType.ITEM.create(pLevel);
                         if (entity != null) {
                             entity.setItem(pBlockEntity.stackHandler.getStackInSlot(3));
@@ -212,7 +205,7 @@ public class KettleBlockEntity extends BlockEntity {
                                 pBlockEntity.stackHandler.setStackInSlot(3, ItemStack.EMPTY);
                             }
                         }
-                    }
+                    //}
                 } else {
                     pBlockEntity.progress++;
                 }
@@ -311,18 +304,18 @@ public class KettleBlockEntity extends BlockEntity {
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
-    @Override
-    public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
-        if (pCapability == Capabilities.ITEM_HANDLER) {
-            if (pDirection != null) {
-                if (pDirection == Direction.DOWN) {
-                    if (this.directionWrappedFuelHandler.containsKey(pDirection)) {
-                        return this.directionWrappedFuelHandler.get(pDirection).cast();
-                    }
-                }
-            }
-        }
-
-        return super.getCapability(pCapability, pDirection);
-    }
+    //@Override
+    //public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
+    //    if (pCapability == Capabilities.ITEM_HANDLER) {
+    //        if (pDirection != null) {
+    //            if (pDirection == Direction.DOWN) {
+    //                if (this.directionWrappedFuelHandler.containsKey(pDirection)) {
+    //                    return this.directionWrappedFuelHandler.get(pDirection).cast();
+    //                }
+    //            }
+    //        }
+    //    }
+    //
+    //    return super.getCapability(pCapability, pDirection);
+    //}
 }

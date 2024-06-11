@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:cypress_fence"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

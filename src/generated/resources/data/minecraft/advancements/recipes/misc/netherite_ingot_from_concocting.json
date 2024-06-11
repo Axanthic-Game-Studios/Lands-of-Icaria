@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:netherite_ingot_from_concocting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -17,17 +17,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "background": "landsoficaria:textures/block/sunstone_bricks.png",
     "description": {
       "translate": "advancement.landsoficaria.captain_revenant.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "landsoficaria:revenant_skull"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.landsoficaria.captain_revenant.title"
     }

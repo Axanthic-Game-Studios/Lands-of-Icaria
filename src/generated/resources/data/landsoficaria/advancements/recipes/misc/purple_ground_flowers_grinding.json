@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:purple_ground_flowers_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

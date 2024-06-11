@@ -28,7 +28,7 @@ public class IcariaSpawnerBlockRenderer implements BlockEntityRenderer<IcariaSpa
         pPoseStack.translate(0.5F, 0.0F, 0.5F);
         var blockEntity = pBlockEntity.getSpawner();
         if (pBlockEntity.getLevel() != null) {
-            var entity = blockEntity.getOrCreateDisplayEntity(pBlockEntity.getLevel(), pBlockEntity.getLevel().getRandom(), pBlockEntity.getBlockPos());
+            var entity = blockEntity.getOrCreateDisplayEntity(pBlockEntity.getLevel(), pBlockEntity.getBlockPos());
             if (entity != null) {
                 float size = 0.53125F;
                 float bb = Math.max(entity.getBbWidth(), entity.getBbHeight());

@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:populus_sign"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

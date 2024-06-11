@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:cornflower_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

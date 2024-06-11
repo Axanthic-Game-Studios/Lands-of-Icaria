@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:laurel_wood_from_dead"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

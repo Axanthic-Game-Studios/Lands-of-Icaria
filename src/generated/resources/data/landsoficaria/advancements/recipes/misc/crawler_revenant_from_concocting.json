@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:crawler_revenant_from_concocting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

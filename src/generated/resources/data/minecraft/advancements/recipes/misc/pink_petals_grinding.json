@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:pink_petals_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -7,6 +7,8 @@ import com.axanthic.icaria.common.menu.provider.KilnMenuProvider;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
+import com.mojang.serialization.MapCodec;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -49,6 +51,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 
 public class KilnBlock extends BaseEntityBlock {
+    public static final MapCodec<KilnBlock> CODEC = Block.simpleCodec(KilnBlock::new);
+
     public KilnBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(BlockStateProperties.LIT, false));
@@ -123,14 +127,14 @@ public class KilnBlock extends BaseEntityBlock {
     }
 
     @Override
-    public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+    public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
             pLevel.setBlock(pPos.above(), Blocks.AIR.defaultBlockState(), 3);
         } else {
             pLevel.setBlock(pPos.below(), Blocks.AIR.defaultBlockState(), 3);
         }
 
-        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+        return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
     }
 
     @Override
@@ -189,6 +193,11 @@ public class KilnBlock extends BaseEntityBlock {
         }
 
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public MapCodec<? extends BaseEntityBlock> codec() {
+        return KilnBlock.CODEC;
     }
 
     @Override

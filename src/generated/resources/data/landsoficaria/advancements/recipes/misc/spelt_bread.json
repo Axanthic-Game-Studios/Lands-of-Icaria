@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:spelt_bread"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -2,8 +2,6 @@ package com.axanthic.icaria.common.menu;
 
 import com.axanthic.icaria.common.entity.KilnBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaMenus;
-import com.axanthic.icaria.common.slot.KilnFuelSlot;
-import com.axanthic.icaria.common.slot.KilnOutputSlot;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -13,7 +11,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 
-import net.neoforged.neoforge.common.capabilities.Capabilities;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 import net.neoforged.neoforge.items.wrapper.InvWrapper;
@@ -37,13 +34,13 @@ public class KilnMenu extends AbstractContainerMenu {
 		if (this.blockEntity != null) {
 			this.containerData = this.blockEntity.getData();
 			this.addDataSlots(this.containerData);
-			this.blockEntity.getCapability(Capabilities.ITEM_HANDLER).ifPresent(
-				pItemHandler -> {
-					this.addSlot(new SlotItemHandler(pItemHandler, 0, 45, 22));
-					this.addSlot(new KilnFuelSlot(pItemHandler, 1, 45, 58));
-					this.addSlot(new KilnOutputSlot(pItemHandler, this.blockEntity, pPlayer, 2, 111, 40));
-				}
-			);
+			//this.blockEntity.getCapability(Capabilities.ITEM_HANDLER).ifPresent(
+			//	pItemHandler -> {
+			//		this.addSlot(new SlotItemHandler(pItemHandler, 0, 45, 22));
+			//		this.addSlot(new KilnFuelSlot(pItemHandler, 1, 45, 58));
+			//		this.addSlot(new KilnOutputSlot(pItemHandler, this.blockEntity, pPlayer, 2, 111, 40));
+			//	}
+			//);
 		}
 
 		this.layoutPlayerInventorySlots(8, 76);

@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:healing_flask"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

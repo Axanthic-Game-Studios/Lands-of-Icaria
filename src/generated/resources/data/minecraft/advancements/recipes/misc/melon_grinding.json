@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:melon_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

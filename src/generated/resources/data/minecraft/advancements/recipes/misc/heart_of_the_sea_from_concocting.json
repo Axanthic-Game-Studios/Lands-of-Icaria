@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:heart_of_the_sea_from_concocting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

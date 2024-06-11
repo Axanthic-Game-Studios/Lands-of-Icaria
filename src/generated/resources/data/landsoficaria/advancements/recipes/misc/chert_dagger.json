@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:chert_dagger"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

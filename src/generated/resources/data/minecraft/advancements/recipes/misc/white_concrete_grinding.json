@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:white_concrete_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

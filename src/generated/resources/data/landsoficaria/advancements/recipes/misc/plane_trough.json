@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:plane_trough"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

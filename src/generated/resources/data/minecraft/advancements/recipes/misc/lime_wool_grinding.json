@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:lime_wool_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

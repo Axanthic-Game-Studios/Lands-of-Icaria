@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:populus_trapdoor"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

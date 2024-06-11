@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:bone_meal_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

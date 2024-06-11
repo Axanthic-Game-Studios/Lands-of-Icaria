@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:lily_of_the_valley_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

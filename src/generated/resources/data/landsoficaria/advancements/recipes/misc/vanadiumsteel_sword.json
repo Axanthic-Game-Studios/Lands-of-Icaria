@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:vanadiumsteel_sword"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:molybdenumsteel_sword"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

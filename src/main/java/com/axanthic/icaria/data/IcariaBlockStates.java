@@ -183,7 +183,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		this.itemBlock(pBlock);
 	}
 
-	public void paneBlock(Supplier<? extends IronBarsBlock> pPaneBlock, Supplier<? extends GlassBlock> pGlassBlock) {
+	public void paneBlock(Supplier<? extends IronBarsBlock> pPaneBlock, Supplier<? extends Block> pGlassBlock) {
 		this.paneBlock(pPaneBlock.get(), new ResourceLocation(BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getNamespace(), "block/" + BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getPath()), new ResourceLocation(BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getNamespace(), "block/" + BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getPath() + "_pane"));
 	}
 

@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:orichalcum_bident"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

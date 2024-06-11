@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.block;
 
+import com.mojang.serialization.MapCodec;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -19,6 +21,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 
 public class PillarHeadBlock extends DirectionalBlock {
+	public static final MapCodec<PillarHeadBlock> CODEC = Block.simpleCodec(PillarHeadBlock::new);
+
 	public PillarHeadBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.FACING, Direction.NORTH));
@@ -48,5 +52,10 @@ public class PillarHeadBlock extends DirectionalBlock {
 	@Override
 	public BlockState rotate(BlockState pState, Rotation pRotation) {
 		return pState.setValue(BlockStateProperties.FACING, pRotation.rotate(pState.getValue(BlockStateProperties.FACING)));
+	}
+
+	@Override
+	public MapCodec<? extends DirectionalBlock> codec() {
+		return PillarHeadBlock.CODEC;
 	}
 }

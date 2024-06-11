@@ -17,6 +17,5 @@
     "recipes": [
       "minecraft:deepslate_diamond_ore_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

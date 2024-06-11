@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:anti_gravity_spell_from_concocting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

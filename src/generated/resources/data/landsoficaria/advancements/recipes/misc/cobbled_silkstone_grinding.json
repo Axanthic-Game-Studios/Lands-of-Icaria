@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:cobbled_silkstone_grinding"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

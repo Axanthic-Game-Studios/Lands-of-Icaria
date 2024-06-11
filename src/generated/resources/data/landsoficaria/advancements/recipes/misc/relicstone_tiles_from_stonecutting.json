@@ -43,6 +43,5 @@
     "recipes": [
       "landsoficaria:relicstone_tiles_from_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

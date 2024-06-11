@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:ender_jellyfish_from_concocting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

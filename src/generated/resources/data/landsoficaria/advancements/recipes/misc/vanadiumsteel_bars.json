@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:vanadiumsteel_bars"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

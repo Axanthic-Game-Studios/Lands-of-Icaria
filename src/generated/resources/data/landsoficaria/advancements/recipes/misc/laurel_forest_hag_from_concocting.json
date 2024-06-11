@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:laurel_forest_hag_from_concocting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:kiln"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

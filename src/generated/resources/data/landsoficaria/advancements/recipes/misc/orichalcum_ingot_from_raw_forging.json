@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:orichalcum_ingot_from_raw_forging"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

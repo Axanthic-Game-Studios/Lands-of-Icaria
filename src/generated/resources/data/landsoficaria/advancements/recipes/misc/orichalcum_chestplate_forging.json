@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:orichalcum_chestplate_forging"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

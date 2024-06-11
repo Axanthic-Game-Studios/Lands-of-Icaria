@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:vanadiumsteel_dagger_forging"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

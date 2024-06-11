@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:droughtroot_wood"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

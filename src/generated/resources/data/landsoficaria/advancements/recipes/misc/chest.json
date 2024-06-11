@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:chest"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

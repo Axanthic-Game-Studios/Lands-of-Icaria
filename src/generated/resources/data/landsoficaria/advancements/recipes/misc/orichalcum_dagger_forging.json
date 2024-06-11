@@ -17,6 +17,5 @@
     "recipes": [
       "landsoficaria:orichalcum_dagger_forging"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "landsoficaria:voidshale_adobe_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
