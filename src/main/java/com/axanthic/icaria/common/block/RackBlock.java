@@ -14,7 +14,9 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
@@ -213,22 +215,36 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        var itemStack = pPlayer.getItemInHand(pHand);
-        var item = itemStack.getItem();
+    public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
+        if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.isPassenger() || pPlayer.isVehicle() || !pState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
+            return InteractionResult.FAIL;
+        } else {
+            var entity = new IcariaBarrelEntity(IcariaEntityTypes.BARREL.get(), pLevel, pState, pPos);
+            entity.moveTo(pPlayer.blockPosition(), 0, 0);
+            entity.startRiding(pPlayer);
+            pLevel.addFreshEntity(entity);
+            pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.FULL_RACK, false).setValue(IcariaBlockStateProperties.LOADED_BARREL, false).setValue(IcariaBlockStateProperties.TAPPED_BARREL, false));
+            pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaInfo.ID + "." + "barrel"), true);
+            return InteractionResult.PASS;
+        }
+    }
+
+    @Override
+    public ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pResult) {
+        var item = pStack.getItem();
         var x = pPos.getX();
         var y = pPos.getY();
         var z = pPos.getZ();
         if (!pLevel.isClientSide()) {
             if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
-                if (itemStack.is(Items.FIRE_CHARGE) || itemStack.is(Items.FLINT_AND_STEEL)) {
+                if (pStack.is(Items.FIRE_CHARGE) || pStack.is(Items.FLINT_AND_STEEL)) {
                     pLevel.explode(null, x, y, z, 2.0F, Level.ExplosionInteraction.BLOCK);
                     pPlayer.awardStat(Stats.ITEM_USED.get(item));
                     if (!pPlayer.isCreative()) {
-                        if (itemStack.is(Items.FIRE_CHARGE)) {
-                            itemStack.shrink(1);
+                        if (pStack.is(Items.FIRE_CHARGE)) {
+                            pStack.shrink(1);
                         } else {
-                            itemStack.hurtAndBreak(1, pPlayer, (player) -> player.broadcastBreakEvent(pHand));
+                            pStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pHand));
                         }
                     }
 
@@ -250,34 +266,22 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
             }
         }
 
-        if (pState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
-            if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.isPassenger() || pPlayer.isVehicle()) {
-                return InteractionResult.FAIL;
-            } else {
-                var entity = new IcariaBarrelEntity(IcariaEntityTypes.BARREL.get(), pLevel, pState, pPos);
-                entity.moveTo(pPlayer.blockPosition(), 0, 0);
-                entity.startRiding(pPlayer);
-                pLevel.addFreshEntity(entity);
-                pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.FULL_RACK, false).setValue(IcariaBlockStateProperties.LOADED_BARREL, false).setValue(IcariaBlockStateProperties.TAPPED_BARREL, false));
-                pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaInfo.ID + "." + "barrel"), true);
-                return InteractionResult.PASS;
-            }
-        } else {
+        if (!pState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
             if (Block.byItem(item) instanceof IcariaBarrelBlock block) {
                 if (this.getType() == block.getType()) {
                     var state = block.defaultBlockState();
                     pLevel.playSound(null, pPos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS);
                     pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.FULL_RACK, true).setValue(IcariaBlockStateProperties.LOADED_BARREL, state.is(IcariaBlockTags.LOADED_BARRELS)).setValue(IcariaBlockStateProperties.TAPPED_BARREL, state.is(IcariaBlockTags.TAPPED_BARRELS)));
                     if (!pPlayer.isCreative()) {
-                        itemStack.shrink(1);
+                        pStack.shrink(1);
                     }
-                }
 
-                return InteractionResult.SUCCESS;
+                    return ItemInteractionResult.SUCCESS;
+                }
             }
         }
 
-        return InteractionResult.FAIL;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override
@@ -326,6 +330,6 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
     @Override
     public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pBuilder) {
         var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? pState.getValue(IcariaBlockStateProperties.LOADED_BARREL) || pState.getValue(IcariaBlockStateProperties.TAPPED_BARREL) ? List.of() : lootContext.getLevel().getServer().getLootData().getLootTable(IcariaResourceLocations.BARREL_LOOT).getRandomItems(lootContext) : List.of(new ItemStack(this));
+        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? pState.getValue(IcariaBlockStateProperties.LOADED_BARREL) || pState.getValue(IcariaBlockStateProperties.TAPPED_BARREL) ? List.of() : lootContext.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL_LOOT).getRandomItems(lootContext) : List.of(new ItemStack(this));
     }
 }

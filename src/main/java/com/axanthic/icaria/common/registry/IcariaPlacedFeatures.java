@@ -6,7 +6,7 @@ import com.axanthic.icaria.data.tags.IcariaBlockTags;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -144,7 +144,7 @@ public class IcariaPlacedFeatures {
 
 	public static final ResourceKey<PlacedFeature> VILLAGE = IcariaPlacedFeatures.registerKey("village");
 
-	public static void bootstrap(BootstapContext<PlacedFeature> pContext) {
+	public static void bootstrap(BootstrapContext<PlacedFeature> pContext) {
 		var configuredFeatures = pContext.lookup(Registries.CONFIGURED_FEATURE);
 
 		pContext.register(IcariaPlacedFeatures.MARL_CHERT, new PlacedFeature(configuredFeatures.getOrThrow(IcariaConfiguredFeatures.MARL_CHERT), List.of(CountPlacement.of(4), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(IcariaBlocks.GRASSY_MARL.get()), BlockPredicate.matchesBlocks(Blocks.AIR), 16), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome())));

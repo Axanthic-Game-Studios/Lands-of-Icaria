@@ -33,14 +33,14 @@ public class BidentRenderer extends EntityRenderer<BidentEntity> {
 	public void render(BidentEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
 		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
 
-		var bakedModel = this.itemRenderer.getModel(pEntity.getItem(), pEntity.level(), null, pEntity.getId());
+		var bakedModel = this.itemRenderer.getModel(pEntity.getStack(), pEntity.level(), null, pEntity.getId());
 
 		pMatrixStack.pushPose();
 		pMatrixStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot()) - 90.0F));
 		pMatrixStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot()) - 45.0F));
-		pMatrixStack.translate(-0.15, -0.15, 0);
+		pMatrixStack.translate(0.0D, 0.0D, 0.0D);
 
-		this.itemRenderer.render(pEntity.getItem(), ItemDisplayContext.NONE, false, pMatrixStack, pBuffer, pPackedLight, OverlayTexture.NO_OVERLAY, bakedModel);
+		this.itemRenderer.render(pEntity.getStack(), ItemDisplayContext.NONE, false, pMatrixStack, pBuffer, pPackedLight, OverlayTexture.NO_OVERLAY, bakedModel);
 
 		pMatrixStack.popPose();
 	}

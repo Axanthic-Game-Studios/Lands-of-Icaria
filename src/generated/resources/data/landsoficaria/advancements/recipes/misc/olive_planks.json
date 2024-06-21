@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:olive_log"
-            ]
+            "items": "landsoficaria:olive_log"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:olive_wood"
-            ]
+            "items": "landsoficaria:olive_wood"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:stripped_olive_log"
-            ]
+            "items": "landsoficaria:stripped_olive_log"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:stripped_olive_wood"
-            ]
+            "items": "landsoficaria:stripped_olive_wood"
           }
         ]
       },

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:loam_lump"
-            ]
+            "items": "landsoficaria:loam_lump"
           }
         ]
       },

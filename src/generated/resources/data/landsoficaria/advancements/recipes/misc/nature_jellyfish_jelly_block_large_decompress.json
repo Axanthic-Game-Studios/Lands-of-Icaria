@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:nature_jellyfish_jelly_block"
-            ]
+            "items": "landsoficaria:nature_jellyfish_jelly_block"
           }
         ]
       },

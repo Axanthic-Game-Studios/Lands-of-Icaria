@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:arachne_string"
-            ]
+            "items": "landsoficaria:arachne_string"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:greenpowder"
-            ]
+            "items": "landsoficaria:greenpowder"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:kassiteros_nugget"
-            ]
+            "items": "landsoficaria:kassiteros_nugget"
           }
         ]
       },

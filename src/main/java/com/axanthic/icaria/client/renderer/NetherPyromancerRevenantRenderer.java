@@ -1,11 +1,11 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.client.layer.NetherPyromancerRevenantEmissiveLayer;
 import com.axanthic.icaria.client.layer.NetherPyromancerRevenantItemLayer;
 import com.axanthic.icaria.client.model.NetherPyromancerRevenantModel;
+import com.axanthic.icaria.client.registry.IcariaLayerLocations;
 import com.axanthic.icaria.common.entity.NetherPyromancerRevenantEntity;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 

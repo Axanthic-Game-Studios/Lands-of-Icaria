@@ -8,10 +8,11 @@
     },
     {
       "item": "landsoficaria:arachne_venom_vial"
-    },
-    []
+    }
   ],
-  "potion": "minecraft:poison",
+  "potion": {
+    "potion": "minecraft:poison"
+  },
   "potionDuration": 200,
   "potionRadius": 5.0
 }

@@ -66,17 +66,17 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
         }
     }
 
+    @Override
+    public ItemStack getDefaultPickupItem() {
+        return ItemStack.EMPTY;
+    }
+
     public ItemStack getItem() {
         return this.stack;
     }
 
     @Override
-    public ItemStack getPickupItem() {
-        return ItemStack.EMPTY;
-    }
-
-    @Override
     public SoundEvent getDefaultHitGroundSoundEvent() {
-        return SoundEvents.GENERIC_EXPLODE;
+        return SoundEvents.GENERIC_EXPLODE.value();
     }
 }

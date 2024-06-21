@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:dead_plane_log"
-            ]
+            "items": "landsoficaria:dead_plane_log"
           }
         ]
       },

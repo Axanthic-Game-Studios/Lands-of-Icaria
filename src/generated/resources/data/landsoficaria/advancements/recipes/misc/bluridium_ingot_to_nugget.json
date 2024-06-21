@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:bluridium_ingot"
-            ]
+            "items": "landsoficaria:bluridium_ingot"
           }
         ]
       },

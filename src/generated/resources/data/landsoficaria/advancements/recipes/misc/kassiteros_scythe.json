@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:kassiteros_ingot"
-            ]
+            "items": "landsoficaria:kassiteros_ingot"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:bone"
-            ]
+            "items": "minecraft:bone"
           }
         ]
       },

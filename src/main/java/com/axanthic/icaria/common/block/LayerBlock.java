@@ -25,8 +25,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("deprecation")
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -61,7 +59,7 @@ public class LayerBlock extends Block implements MediterraneanWaterloggedBlock, 
 	}
 
 	@Override
-	public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
+	public boolean isPathfindable(BlockState pState, PathComputationType pType) {
 		if (pType == PathComputationType.LAND) {
 			return pState.getValue(BlockStateProperties.LAYERS) < 5;
 		}

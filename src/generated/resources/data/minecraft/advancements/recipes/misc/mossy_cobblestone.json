@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:bloomy_vine"
-            ]
+            "items": "landsoficaria:bloomy_vine"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:branchy_vine"
-            ]
+            "items": "landsoficaria:branchy_vine"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:brushy_vine"
-            ]
+            "items": "landsoficaria:brushy_vine"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:dry_vine"
-            ]
+            "items": "landsoficaria:dry_vine"
           }
         ]
       },
@@ -53,9 +45,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:reedy_vine"
-            ]
+            "items": "landsoficaria:reedy_vine"
           }
         ]
       },
@@ -65,9 +55,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:swirly_vine"
-            ]
+            "items": "landsoficaria:swirly_vine"
           }
         ]
       },
@@ -77,9 +65,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:thorny_vine"
-            ]
+            "items": "landsoficaria:thorny_vine"
           }
         ]
       },
@@ -89,9 +75,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:cobblestone"
-            ]
+            "items": "minecraft:cobblestone"
           }
         ]
       },

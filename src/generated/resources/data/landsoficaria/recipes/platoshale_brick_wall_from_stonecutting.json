@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "landsoficaria:platoshale_bricks"
   },
-  "result": "landsoficaria:platoshale_brick_wall"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:platoshale_brick_wall"
+  }
 }

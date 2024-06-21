@@ -21,7 +21,7 @@ import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -43,10 +43,10 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
     public static final EntityDataAccessor<Integer> DURATION = SynchedEntityData.defineId(IcariaAnimalEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(IcariaAnimalEntity.class, EntityDataSerializers.INT);
 
-    public IcariaAnimalEntity(EntityType<? extends IcariaAnimalEntity> pType, Level pLevel, float pBboxMult, float pEyesMult, float pSizeMult) {
-        super(pType, pLevel, pBboxMult, pEyesMult, pSizeMult);
-        this.setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, -1.0F);
-        this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 16.0F);
+    public IcariaAnimalEntity(EntityType<? extends IcariaAnimalEntity> pType, Level pLevel, float pAabbMult, float pRenderMult, float pShadowMult, float pSizeMult, float pSizeMultInverted) {
+        super(pType, pLevel, pAabbMult, pRenderMult, pShadowMult, pSizeMult, pSizeMultInverted);
+        this.setPathfindingMalus(PathType.DAMAGE_FIRE, -1.0F);
+        this.setPathfindingMalus(PathType.DANGER_FIRE, 16.0F);
     }
 
     public boolean canMate(IcariaAnimalEntity pEntity) {
@@ -159,11 +159,11 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
     }
 
     @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(IcariaAnimalEntity.COOLDOWN, this.minCooldown);
-        this.entityData.define(IcariaAnimalEntity.DURATION, this.minDuration);
-        this.entityData.define(IcariaAnimalEntity.TICK, this.minTick);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(IcariaAnimalEntity.COOLDOWN, this.minCooldown);
+        pBuilder.define(IcariaAnimalEntity.DURATION, this.minDuration);
+        pBuilder.define(IcariaAnimalEntity.TICK, this.minTick);
     }
 
     @Override
@@ -253,8 +253,8 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
     }
 
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        this.setTick(this.random.nextIntBetweenInclusive(this.minTick, this.maxTick));
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
+        this.setTick(this.random.nextIntBetweenInclusive(0, 64000));
+        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
     }
 }

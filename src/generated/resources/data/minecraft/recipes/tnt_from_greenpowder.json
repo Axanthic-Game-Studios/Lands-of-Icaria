@@ -20,6 +20,7 @@
     "XYX"
   ],
   "result": {
-    "item": "minecraft:tnt"
+    "count": 1,
+    "id": "minecraft:tnt"
   }
 }

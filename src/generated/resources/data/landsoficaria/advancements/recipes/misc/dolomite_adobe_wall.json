@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:dolomite_adobe"
-            ]
+            "items": "landsoficaria:dolomite_adobe"
           }
         ]
       },

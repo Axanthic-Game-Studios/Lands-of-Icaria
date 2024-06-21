@@ -5,12 +5,10 @@
   "ingredients": [
     {
       "item": "landsoficaria:orichalcum_axe"
-    },
-    [],
-    []
+    }
   ],
   "output": {
-    "Count": 1,
+    "count": 1,
     "id": "landsoficaria:orichalcum_nugget"
   }
 }

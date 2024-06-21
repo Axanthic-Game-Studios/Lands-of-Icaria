@@ -16,7 +16,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
@@ -29,7 +28,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -198,8 +197,8 @@ public class IcariaVineBlock extends Block {
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
-		return pState.is(IcariaBlocks.THORNY_VINE.get()) ? BlockPathTypes.DAMAGE_OTHER : super.getBlockPathType(pState, pLevel, pPos, pMob);
+	public PathType getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
+		return pState.is(IcariaBlocks.THORNY_VINE.get()) ? PathType.DAMAGE_OTHER : super.getBlockPathType(pState, pLevel, pPos, pMob);
 	}
 
 	@Override
@@ -282,7 +281,7 @@ public class IcariaVineBlock extends Block {
 	}
 
 	@Override
-	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+	public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
 		if (pState.is(IcariaBlocks.BLOOMY_VINE.get()) && pState.getValue(IcariaBlockStateProperties.VINE) == Vine.RIPE) {
 			pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
 			pLevel.setBlockAndUpdate(pPos, this.setPropForFace(pState).setValue(IcariaBlockStateProperties.VINE, Vine.NONE));

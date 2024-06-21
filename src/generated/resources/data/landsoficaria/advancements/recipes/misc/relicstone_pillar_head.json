@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:relicstone_bricks"
-            ]
+            "items": "landsoficaria:relicstone_bricks"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:relicstone_pillar"
-            ]
+            "items": "landsoficaria:relicstone_pillar"
           }
         ]
       },

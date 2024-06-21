@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:laurel_log"
-            ]
+            "items": "landsoficaria:laurel_log"
           }
         ]
       },

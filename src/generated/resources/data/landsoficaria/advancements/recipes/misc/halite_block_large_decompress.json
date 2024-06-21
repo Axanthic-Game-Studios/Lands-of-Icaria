@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:halite_block"
-            ]
+            "items": "landsoficaria:halite_block"
           }
         ]
       },

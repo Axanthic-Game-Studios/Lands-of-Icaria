@@ -10,7 +10,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -76,7 +76,7 @@ public class TroughBlock extends Block {
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pResult) {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (pState.getValue(IcariaBlockStateProperties.TROUGH_WATER)) {
             if (itemStack.is(Items.BUCKET)) {
@@ -86,6 +86,8 @@ public class TroughBlock extends Block {
                 if (!pPlayer.isCreative()) {
                     pPlayer.setItemInHand(pHand, new ItemStack(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()));
                 }
+
+                return ItemInteractionResult.SUCCESS;
             }
         } else {
             if (itemStack.is(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get())) {
@@ -95,10 +97,12 @@ public class TroughBlock extends Block {
                 if (!pPlayer.isCreative()) {
                     pPlayer.setItemInHand(pHand, new ItemStack(Items.BUCKET));
                 }
+
+                return ItemInteractionResult.SUCCESS;
             }
         }
 
-        return InteractionResult.SUCCESS;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override

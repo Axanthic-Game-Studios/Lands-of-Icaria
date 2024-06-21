@@ -1,15 +1,12 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.StorageVaseBlockEntity;
-import com.axanthic.icaria.common.menu.provider.StorageVaseMenuProvider;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Containers;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -89,13 +86,10 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 	}
 
 	@Override
-	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-		var blockEntity = pLevel.getBlockEntity(pPos);
+	public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
 		if (!pLevel.isClientSide()) {
-			if (pPlayer instanceof ServerPlayer serverPlayer) {
-				if (blockEntity instanceof StorageVaseBlockEntity) {
-					serverPlayer.openMenu(new StorageVaseMenuProvider(pPos), blockEntity.getBlockPos());
-				}
+			if (pLevel.getBlockEntity(pPos) instanceof StorageVaseBlockEntity storageVaseBlockEntity) {
+				pPlayer.openMenu(storageVaseBlockEntity);
 			}
 		}
 

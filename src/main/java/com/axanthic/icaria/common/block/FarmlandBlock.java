@@ -13,9 +13,10 @@ import net.minecraft.stats.Stats;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -35,8 +36,6 @@ import net.neoforged.neoforge.common.IPlantable;
 import net.neoforged.neoforge.common.PlantType;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -115,24 +114,21 @@ public class FarmlandBlock extends FarmBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-		var itemStack = pPlayer.getItemInHand(pHand);
-		if (itemStack.is(IcariaItems.CALCITE_DUST.get())) {
-			if (pState.getValue(BlockStateProperties.MOISTURE) == 7) {
-				pLevel.playSound(null, pPos, SoundEvents.HOE_TILL, SoundSource.BLOCKS);
-				if (!pLevel.isClientSide()) {
-					pLevel.setBlock(pPos, IcariaBlocks.FERTILIZED_FARMLAND.get().defaultBlockState(), 2);
-					pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CALCITE_DUST.get()));
-					if (!pPlayer.isCreative()) {
-						itemStack.shrink(1);
-					}
+	public ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pResult) {
+		if (pStack.is(IcariaItems.CALCITE_DUST.get()) && pState.getValue(BlockStateProperties.MOISTURE) == 7) {
+			pLevel.playSound(null, pPos, SoundEvents.HOE_TILL, SoundSource.BLOCKS);
+			if (!pLevel.isClientSide()) {
+				pLevel.setBlock(pPos, IcariaBlocks.FERTILIZED_FARMLAND.get().defaultBlockState(), 2);
+				pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CALCITE_DUST.get()));
+				if (!pPlayer.isCreative()) {
+					pStack.shrink(1);
 				}
 			}
 
-			return InteractionResult.SUCCESS;
+			return ItemInteractionResult.SUCCESS;
 		}
 
-		return InteractionResult.FAIL;
+		return ItemInteractionResult.FAIL;
 	}
 
 	@Override

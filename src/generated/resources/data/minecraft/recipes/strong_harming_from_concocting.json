@@ -13,7 +13,9 @@
       "item": "landsoficaria:bolbos"
     }
   ],
-  "potion": "minecraft:strong_harming",
+  "potion": {
+    "potion": "minecraft:strong_harming"
+  },
   "potionDuration": 200,
   "potionRadius": 5.0
 }

@@ -31,8 +31,6 @@ import net.neoforged.neoforge.common.ToolActions;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("deprecation")
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:purple_ground_flowers"
-            ]
+            "items": "landsoficaria:purple_ground_flowers"
           }
         ]
       },

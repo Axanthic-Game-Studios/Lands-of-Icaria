@@ -60,7 +60,7 @@ public class FreezingSpellEntity extends SpellEntity {
         super.onHitEntity(pResult);
         if (pResult.getEntity() instanceof LivingEntity livingEntity) {
             if (livingEntity.canFreeze()) {
-                livingEntity.addEffect(new MobEffectInstance(IcariaMobEffects.FREEZING.get(), 300));
+                livingEntity.addEffect(new MobEffectInstance(IcariaMobEffects.FREEZING, 300));
             }
         }
     }

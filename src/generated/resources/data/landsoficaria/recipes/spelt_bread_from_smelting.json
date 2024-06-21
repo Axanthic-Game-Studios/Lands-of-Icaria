@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "landsoficaria:spelt_flour"
   },
-  "result": "landsoficaria:spelt_bread"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:spelt_bread"
+  }
 }

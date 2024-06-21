@@ -111,11 +111,11 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
     }
 
     @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(NetherPyromancerRevenantEntity.AIMING, this.minAiming);
-        this.entityData.define(NetherPyromancerRevenantEntity.RELOAD, this.minReload);
-        this.entityData.define(NetherPyromancerRevenantEntity.THROWN, this.minThrown);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(NetherPyromancerRevenantEntity.AIMING, this.minAiming);
+        pBuilder.define(NetherPyromancerRevenantEntity.RELOAD, this.minReload);
+        pBuilder.define(NetherPyromancerRevenantEntity.THROWN, this.minThrown);
     }
 
     @Override

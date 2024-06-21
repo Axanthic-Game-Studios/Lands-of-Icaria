@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:greenpowder"
-            ]
+            "items": "landsoficaria:greenpowder"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:paper"
-            ]
+            "items": "minecraft:paper"
           }
         ]
       },

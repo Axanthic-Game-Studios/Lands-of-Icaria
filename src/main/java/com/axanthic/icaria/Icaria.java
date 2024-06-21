@@ -1,29 +1,17 @@
 package com.axanthic.icaria;
 
-import com.axanthic.icaria.client.screen.ForgeScreen;
-import com.axanthic.icaria.client.screen.GrinderScreen;
-import com.axanthic.icaria.client.screen.KilnScreen;
-import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.item.crafting.Ingredient;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -34,13 +22,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @Mod(IcariaInfo.ID)
 public class Icaria {
 	public Icaria(IEventBus pBus) {
+		pBus.addListener(this::onFMLClientSetup);
+		pBus.addListener(this::onFMLCommonSetup);
+
 		IcariaConfig.registerClientConfig();
 		IcariaConfig.registerCommonConfig();
 		IcariaConfig.registerServerConfig();
 
-		pBus.addListener(this::onFMLClientSetup);
-		pBus.addListener(this::onFMLCommonSetup);
-
+		IcariaArmorMaterials.ARMOR_MATERIALS.register(pBus);
 		IcariaBlocks.BLOCKS.register(pBus);
 		IcariaStoneDecoBlocks.BLOCKS.register(pBus);
 		IcariaWoodDecoBlocks.BLOCKS.register(pBus);
@@ -65,11 +54,6 @@ public class Icaria {
 	}
 
 	public void onFMLClientSetup(FMLClientSetupEvent pEvent) {
-		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.FORGE.get(), ForgeScreen::new));
-		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.GRINDER.get(), GrinderScreen::new));
-		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.KILN.get(), KilnScreen::new));
-		pEvent.enqueueWork(() -> MenuScreens.register(IcariaMenus.STORAGE_VASE.get(), StorageVaseScreen::new));
-
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.CYPRESS));
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.DROUGHTROOT));
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.FIR));
@@ -77,31 +61,26 @@ public class Icaria {
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.OLIVE));
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.PLANE));
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.POPULUS));
+		pEvent.enqueueWork(() -> Sheets.translucentCullBlockSheet());
 
-		pEvent.enqueueWork(Sheets::translucentCullBlockSheet);
-
-		ItemProperties.register(IcariaItems.GREEK_FIRE_GRENADE.get(), IcariaResourceLocations.THROWING, (pItemStack, pClientLevel, pLivingEntity, pId) -> pLivingEntity != null && pLivingEntity.isUsingItem() && pLivingEntity.getUseItem() == pItemStack ? 1.0F : 0.0F);
-		ItemProperties.register(IcariaItems.VINEGAR.get(), IcariaResourceLocations.THROWING, (pItemStack, pClientLevel, pLivingEntity, pId) -> pLivingEntity != null && pLivingEntity.isUsingItem() && pLivingEntity.getUseItem() == pItemStack ? 1.0F : 0.0F);
-
-		for (var items : IcariaToolItems.TOOL_ITEMS) {
-			ItemProperties.register(items.bident.get(), IcariaResourceLocations.THROWING, (pItemStack, pClientLevel, pLivingEntity, pId) -> pLivingEntity != null && pLivingEntity.isUsingItem() && pLivingEntity.getUseItem() == pItemStack ? 1.0F : 0.0F);
-		}
+		this.registerProperty(IcariaItems.CHERT_TOOLS.bident.get());
+		this.registerProperty(IcariaItems.CHALKOS_TOOLS.bident.get());
+		this.registerProperty(IcariaItems.KASSITEROS_TOOLS.bident.get());
+		this.registerProperty(IcariaItems.ORICHALCUM_TOOLS.bident.get());
+		this.registerProperty(IcariaItems.VANADIUMSTEEL_TOOLS.bident.get());
+		this.registerProperty(IcariaItems.SIDEROS_TOOLS.bident.get());
+		this.registerProperty(IcariaItems.MOLYBDENUMSTEEL_TOOLS.bident.get());
+		this.registerProperty(IcariaItems.GREEK_FIRE_GRENADE.get());
 	}
 
 	public void onFMLCommonSetup(FMLCommonSetupEvent pEvent) {
-		pEvent.enqueueWork(IcariaCompostables::setup);
 		pEvent.enqueueWork(IcariaFlammables::setup);
 		pEvent.enqueueWork(IcariaPottables::setup);
 		pEvent.enqueueWork(IcariaStrippables::setup);
 		pEvent.enqueueWork(IcariaWoodTypes::setup);
-
-		pEvent.enqueueWork(() -> this.setupBrewing(IcariaItems.BLINDWEED.get(), Potions.AWKWARD, IcariaPotions.BLINDNESS.get()));
-		pEvent.enqueueWork(() -> this.setupBrewing(IcariaItems.SNULL_CREAM.get(), Potions.AWKWARD, IcariaPotions.NAUSEA.get()));
-		pEvent.enqueueWork(() -> this.setupBrewing(Items.WITHER_ROSE, Potions.AWKWARD, IcariaPotions.WITHER.get()));
 	}
 
-	public void setupBrewing(Item pItem, Potion pPotion, Potion pResult) {
-		var potion = new ItemStack(Items.POTION);
-		BrewingRecipeRegistry.addRecipe(Ingredient.of(PotionUtils.setPotion(potion.copy(), pPotion)), Ingredient.of(pItem), PotionUtils.setPotion(potion.copy(), pResult));
+	public void registerProperty(Item pItem) {
+		ItemProperties.register(pItem, IcariaResourceLocations.THROWING, (pItemStack, pClientLevel, pLivingEntity, pId) -> pLivingEntity != null && pLivingEntity.isUsingItem() && pLivingEntity.getUseItem() == pItemStack ? 1.0F : 0.0F);
 	}
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:laurel_cherry"
-            ]
+            "items": "landsoficaria:laurel_cherry"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:loam_bowl"
-            ]
+            "items": "landsoficaria:loam_bowl"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:physalis"
-            ]
+            "items": "landsoficaria:physalis"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:strawberries"
-            ]
+            "items": "landsoficaria:strawberries"
           }
         ]
       },
@@ -53,9 +45,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:vineberries"
-            ]
+            "items": "landsoficaria:vineberries"
           }
         ]
       },
@@ -65,9 +55,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:sugar"
-            ]
+            "items": "minecraft:sugar"
           }
         ]
       },

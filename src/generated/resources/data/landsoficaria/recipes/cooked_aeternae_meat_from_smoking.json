@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "landsoficaria:raw_aeternae_meat"
   },
-  "result": "landsoficaria:cooked_aeternae_meat"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_aeternae_meat"
+  }
 }

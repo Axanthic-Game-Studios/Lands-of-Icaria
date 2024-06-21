@@ -26,8 +26,9 @@ public class RecipeManagerMixin {
 		var recipes = pStream.toList();
 		if (recipes.size() > 1) {
 			var icariaRecipes = recipes.stream().filter(recipe -> recipe.id().getNamespace().equals("landsoficaria")).toList();
-			if (!icariaRecipes.isEmpty())
+			if (!icariaRecipes.isEmpty()) {
 				return icariaRecipes.stream();
+			}
 		}
 
 		return recipes.stream();

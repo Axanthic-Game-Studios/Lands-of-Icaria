@@ -6,7 +6,7 @@ import com.axanthic.icaria.data.tags.IcariaBiomeTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -42,7 +42,7 @@ public class IcariaStructures {
 	public static final ResourceKey<Structure> DESERT_PRISTINE = IcariaStructures.registerKey("villages/desert/pristine");
 	public static final ResourceKey<Structure> DESERT_RUINED = IcariaStructures.registerKey("villages/desert/ruined");
 
-	public static void bootstrap(BootstapContext<Structure> pContext) {
+	public static void bootstrap(BootstrapContext<Structure> pContext) {
 		var biomes = pContext.lookup(Registries.BIOME);
 		var pools = pContext.lookup(Registries.TEMPLATE_POOL);
 

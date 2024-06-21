@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.layer;
 
-import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.client.model.ArachneModel;
+import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.common.entity.ArachneEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;

@@ -1,19 +1,14 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.common.util.IcariaTier;
-
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
-
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 
-import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.common.SimpleTier;
 
 import java.util.UUID;
 
@@ -23,28 +18,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DaggerItem extends SwordItem {
-    public float attackDamage;
-    public float attackSpeed;
-    public float entityReach;
-
-    public Multimap<Attribute, AttributeModifier> multimap;
-
     public static final UUID BASE_ATTACK_RANGE_UUID = UUID.fromString("971104f5-17b7-48d9-b16c-1109f0536884");
 
-    public DaggerItem(IcariaTier pTier, int pDamage, float pAttackSpeed, Properties pProperties) {
-        super(pTier, pDamage, pAttackSpeed, pProperties);
-        this.attackDamage = pDamage + pTier.attackDamageBonus;
-        this.attackSpeed = pAttackSpeed;
-        this.entityReach = NeoForgeMod.ENTITY_REACH.isBound() ? -2.0F : 0.0F;
-        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(Item.BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", this.attackDamage, AttributeModifier.Operation.ADDITION));
-        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_UUID, "Weapon modifier", this.attackSpeed, AttributeModifier.Operation.ADDITION));
-        builder.put(NeoForgeMod.ENTITY_REACH.value(), new AttributeModifier(DaggerItem.BASE_ATTACK_RANGE_UUID, "Weapon modifier", this.entityReach, AttributeModifier.Operation.ADDITION));
-        this.multimap = builder.build();
+    public DaggerItem(SimpleTier pTier, Properties pProperties) {
+        super(pTier, pProperties);
     }
 
-    @Override
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
-        return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.multimap : super.getDefaultAttributeModifiers(pEquipmentSlot);
+    public static ItemAttributeModifiers createAttributes(SimpleTier pTier, int pAttackDamage, float attackRange, float pAttackSpeed) {
+        return ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(Item.BASE_ATTACK_DAMAGE_UUID, "Tool modifier", pAttackDamage + pTier.getAttackDamageBonus(), AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_UUID, "Tool modifier", pAttackSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(DaggerItem.BASE_ATTACK_RANGE_UUID, "Weapon modifier", attackRange, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build();
     }
 }

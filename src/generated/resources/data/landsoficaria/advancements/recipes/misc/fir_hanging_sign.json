@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:stripped_fir_log"
-            ]
+            "items": "landsoficaria:stripped_fir_log"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:vanadiumsteel_chain"
-            ]
+            "items": "landsoficaria:vanadiumsteel_chain"
           }
         ]
       },

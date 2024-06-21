@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:yellow_staghorn"
-            ]
+            "items": "landsoficaria:yellow_staghorn"
           }
         ]
       },

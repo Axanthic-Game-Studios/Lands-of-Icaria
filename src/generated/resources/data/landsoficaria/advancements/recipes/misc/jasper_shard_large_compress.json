@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:jasper_shard"
-            ]
+            "items": "landsoficaria:jasper_shard"
           }
         ]
       },

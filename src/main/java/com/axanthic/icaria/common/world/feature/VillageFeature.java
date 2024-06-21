@@ -5,7 +5,7 @@ import com.axanthic.icaria.common.entity.IcariaSpawnerBlockEntity;
 import com.axanthic.icaria.common.entity.StorageVaseBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaLootTables;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import com.mojang.serialization.Codec;
@@ -148,16 +148,16 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 
     public void setLootForChest(WorldGenLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pLevel.getBlockEntity(pPos) instanceof IcariaChestBlockEntity blockEntity) {
-            blockEntity.setLootTable(IcariaResourceLocations.CHEST_LOOT, pRandom.nextLong());
+            blockEntity.setLootTable(IcariaLootTables.CHEST_LOOT, pRandom.nextLong());
         }
     }
 
     public void setLootForVases(WorldGenLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pLevel.getBlockEntity(pPos) instanceof StorageVaseBlockEntity blockEntity) {
             if (pLevel.getBlockState(pPos).is(IcariaBlocks.RED_STORAGE_VASE.get())) {
-                blockEntity.setLootTable(IcariaResourceLocations.RED_STORAGE_VASE_LOOT, pRandom.nextLong());
+                blockEntity.setLootTable(IcariaLootTables.RED_STORAGE_VASE_LOOT, pRandom.nextLong());
             } else if (pLevel.getBlockState(pPos).is(IcariaBlocks.CYAN_STORAGE_VASE.get())) {
-                blockEntity.setLootTable(IcariaResourceLocations.CYAN_STORAGE_VASE_LOOT, pRandom.nextLong());
+                blockEntity.setLootTable(IcariaLootTables.CYAN_LOOT_VASE_LOOT, pRandom.nextLong());
             }
         }
     }

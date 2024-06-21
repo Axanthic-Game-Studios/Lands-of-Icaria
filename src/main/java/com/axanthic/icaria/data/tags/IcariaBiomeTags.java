@@ -57,8 +57,8 @@ public class IcariaBiomeTags extends BiomeTagsProvider {
 		return TagKey.create(Registries.BIOME, new ResourceLocation(pName));
 	}
 
-	public static TagKey<Biome> forgeTag(String pName) {
-		return IcariaBiomeTags.bind(IcariaInfo.FORGE + ":" + pName);
+	public static TagKey<Biome> cTag(String pName) {
+		return IcariaBiomeTags.bind(IcariaInfo.C + ":" + pName);
 	}
 
 	public static TagKey<Biome> icariaTag(String pName) {

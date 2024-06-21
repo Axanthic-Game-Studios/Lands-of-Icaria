@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:calcite_dust"
-            ]
+            "items": "landsoficaria:calcite_dust"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:halite_dust"
-            ]
+            "items": "landsoficaria:halite_dust"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:lignite"
-            ]
+            "items": "landsoficaria:lignite"
           }
         ]
       },

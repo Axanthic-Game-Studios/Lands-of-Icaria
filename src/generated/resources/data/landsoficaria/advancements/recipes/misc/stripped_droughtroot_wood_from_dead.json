@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:stripped_dead_droughtroot_log"
-            ]
+            "items": "landsoficaria:stripped_dead_droughtroot_log"
           }
         ]
       },

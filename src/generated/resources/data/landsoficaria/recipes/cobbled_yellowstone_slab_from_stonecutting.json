@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
   "ingredient": {
     "item": "landsoficaria:cobbled_yellowstone"
   },
-  "result": "landsoficaria:cobbled_yellowstone_slab"
+  "result": {
+    "count": 2,
+    "id": "landsoficaria:cobbled_yellowstone_slab"
+  }
 }

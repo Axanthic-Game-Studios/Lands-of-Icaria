@@ -144,7 +144,7 @@ public class CatoblepasModel extends HierarchicalModel<CatoblepasEntity> {
     }
 
     public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-        pLimbSwing *= 1.8;
+        pLimbSwing *= 1.8F;
 
         this.legRightFront.xRot = Mth.cos(pLimbSwing * 0.5F) * 0.9F * pLimbSwingAmount + 0.091106186954104F;
         this.legRightFrontLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing)) * 0.5F) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount - 0.18203784098300857F;

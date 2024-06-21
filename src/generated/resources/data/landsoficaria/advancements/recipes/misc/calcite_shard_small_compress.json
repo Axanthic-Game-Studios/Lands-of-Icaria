@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:calcite_shard"
-            ]
+            "items": "landsoficaria:calcite_shard"
           }
         ]
       },

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:vanadium_ingot"
-            ]
+            "items": "landsoficaria:vanadium_ingot"
           }
         ]
       },

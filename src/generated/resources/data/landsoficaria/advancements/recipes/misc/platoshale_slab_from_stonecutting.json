@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:platoshale"
-            ]
+            "items": "landsoficaria:platoshale"
           }
         ]
       },

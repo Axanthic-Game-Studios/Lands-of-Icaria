@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
   "ingredient": {
     "item": "landsoficaria:yellowstone_adobe"
   },
-  "result": "landsoficaria:yellowstone_adobe_slab"
+  "result": {
+    "count": 2,
+    "id": "landsoficaria:yellowstone_adobe_slab"
+  }
 }

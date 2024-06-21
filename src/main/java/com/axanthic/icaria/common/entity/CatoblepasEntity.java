@@ -41,7 +41,7 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
     public AnimationState attackAnimationState = new AnimationState();
 
     public CatoblepasEntity(EntityType<? extends CatoblepasEntity> pType, Level pLevel) {
-        super(pType, pLevel, 0.25F, 0.3F, 0.25F);
+        super(pType, pLevel, 0.25F, 0.25F, 0.15F, 0.75F, 0.25F);
     }
 
     @Override

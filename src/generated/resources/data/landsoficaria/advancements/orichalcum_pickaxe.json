@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:orichalcum_pickaxe"
-            ]
+            "items": "landsoficaria:orichalcum_pickaxe"
           }
         ]
       },
@@ -20,8 +18,8 @@
       "translate": "advancement.landsoficaria.orichalcum_pickaxe.description"
     },
     "icon": {
-      "item": "landsoficaria:orichalcum_pickaxe",
-      "nbt": "{Damage:0}"
+      "count": 1,
+      "id": "landsoficaria:orichalcum_pickaxe"
     },
     "title": {
       "translate": "advancement.landsoficaria.orichalcum_pickaxe.title"

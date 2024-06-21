@@ -98,8 +98,8 @@ public class IcariaStructureTags extends StructureTagsProvider {
 		return TagKey.create(Registries.STRUCTURE, new ResourceLocation(pName));
 	}
 
-	public static TagKey<Structure> forgeTag(String pName) {
-		return IcariaStructureTags.bind(IcariaInfo.FORGE + ":" + pName);
+	public static TagKey<Structure> cTag(String pName) {
+		return IcariaStructureTags.bind(IcariaInfo.C + ":" + pName);
 	}
 
 	public static TagKey<Structure> icariaTag(String pName) {

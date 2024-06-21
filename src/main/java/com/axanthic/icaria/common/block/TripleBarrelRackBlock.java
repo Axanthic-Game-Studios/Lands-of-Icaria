@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.properties.VerticalCorner;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaLootTables;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -133,6 +133,6 @@ public class TripleBarrelRackBlock extends Block {
     @Override
     public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pBuilder) {
         var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-        return lootContext.getLevel().getServer().getLootData().getLootTable(IcariaResourceLocations.BARREL_LOOT).getRandomItems(lootContext);
+        return lootContext.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL_LOOT).getRandomItems(lootContext);
     }
 }

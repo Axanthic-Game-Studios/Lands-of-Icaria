@@ -55,7 +55,7 @@ public class SnullEntity extends SizedPathfinderMobEntity {
     public static final EntityDataAccessor<Integer> SHOW = SynchedEntityData.defineId(SnullEntity.class, EntityDataSerializers.INT);
 
     public SnullEntity(EntityType<? extends SnullEntity> pType, Level pLevel) {
-        super(pType, pLevel, 0.25F, 0.125F, 0.25F);
+        super(pType, pLevel, 0.25F, 0.25F, 0.15F, 0.75F, 0.25F);
     }
 
     public boolean doHide() {
@@ -158,12 +158,12 @@ public class SnullEntity extends SizedPathfinderMobEntity {
     }
 
     @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(SnullEntity.CLIMBING, (byte) 0);
-        this.entityData.define(SnullEntity.COOLDOWN, this.minCooldown);
-        this.entityData.define(SnullEntity.HIDE, this.minHide);
-        this.entityData.define(SnullEntity.SHOW, this.minShow);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(SnullEntity.CLIMBING, (byte) 0);
+        pBuilder.define(SnullEntity.COOLDOWN, this.minCooldown);
+        pBuilder.define(SnullEntity.HIDE, this.minHide);
+        pBuilder.define(SnullEntity.SHOW, this.minShow);
     }
 
     @Override

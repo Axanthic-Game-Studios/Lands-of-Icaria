@@ -24,14 +24,12 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -81,8 +79,8 @@ public class GroundDecoBlock extends Block implements MediterraneanWaterloggedBl
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
-		return pState.is(IcariaBlocks.SURFACE_LIGNITE.get()) && !pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pState.getValue(BlockStateProperties.WATERLOGGED) ? BlockPathTypes.DAMAGE_OTHER : super.getBlockPathType(pState, pLevel, pPos, pMob);
+	public PathType getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
+		return pState.is(IcariaBlocks.SURFACE_LIGNITE.get()) && !pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pState.getValue(BlockStateProperties.WATERLOGGED) ? PathType.DAMAGE_OTHER : super.getBlockPathType(pState, pLevel, pPos, pMob);
 	}
 
 	@Override

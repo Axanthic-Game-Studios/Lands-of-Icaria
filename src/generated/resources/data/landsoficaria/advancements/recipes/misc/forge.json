@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:grainite_bricks"
-            ]
+            "items": "landsoficaria:grainite_bricks"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:loam_bricks"
-            ]
+            "items": "landsoficaria:loam_bricks"
           }
         ]
       },

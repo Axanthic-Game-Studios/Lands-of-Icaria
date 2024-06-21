@@ -1,38 +1,37 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.block.KilnBlock;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import net.neoforged.neoforge.items.IItemHandler;
 
-@MethodsReturnNonnullByDefault
-@ParametersAreNonnullByDefault
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 public class KilnRedirectorBlockEntity extends BlockEntity {
-    public KilnBlockEntity original;
-
     public KilnRedirectorBlockEntity(BlockPos pPos, BlockState pState) {
         super(IcariaBlockEntityTypes.KILN_REDIRECTOR.get(), pPos, pState);
     }
 
-    @Override
-    public void onLoad() {
-        super.onLoad();
-        if (this.level instanceof ServerLevel serverLevel) {
-            if (serverLevel.getBlockEntity(KilnBlock.getBlockEntityPosition(serverLevel.getBlockState(this.getBlockPos()), this.getBlockPos())) instanceof KilnBlockEntity blockEntity) {
-                this.original = blockEntity;
+    public static @Nullable IItemHandler getCapability(@Nonnull KilnRedirectorBlockEntity pBlockEntity, Direction pDirection) {
+        var blockPos = pBlockEntity.getBlockPos();
+        var level = pBlockEntity.getLevel();
+        if (level != null) {
+            if (level.getBlockEntity(blockPos.below()) instanceof KilnBlockEntity kilnBlockEntity) {
+                if (level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise() == pDirection) {
+                    if (level.getBlockState(blockPos).getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER) {
+                        return kilnBlockEntity.inputHandler;
+                    }
+                }
             }
         }
-    }
 
-    //@Override
-    //public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
-    //    return this.original != null ? this.original.getCapabilityForPos(pCapability, pDirection, this.getBlockPos()) : LazyOptional.empty();
-    //}
+        return null;
+    }
 }

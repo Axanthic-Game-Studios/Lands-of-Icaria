@@ -60,6 +60,34 @@ public class IcariaTeleporter implements ITeleporter {
         return BlockPos.containing(Mth.clamp(pEntity.getX() * pCoordinateDifference, minX, maxX), this.level.getHeight(), Mth.clamp(pEntity.getZ() * pCoordinateDifference, minZ, maxZ));
     }
 
+    public Optional<BlockUtil.FoundRectangle> getOrMakePortal(BlockPos pPos) {
+        var axis = this.level.getBlockState(IcariaPortalBlock.entrancePos).getOptionalValue(BlockStateProperties.HORIZONTAL_AXIS).orElse(Direction.Axis.X);
+        var optional = this.getPortal(pPos);
+        if (optional.isPresent()) {
+            return optional;
+        } else {
+            return this.makePortal(pPos, axis);
+        }
+    }
+
+    public Optional<BlockUtil.FoundRectangle> getPortal(BlockPos pPos) {
+        this.level.getPoiManager().ensureLoadedAndValid(this.level, pPos, 64);
+        var optional =  this.level.getPoiManager().getInSquare(
+            (pPoiType) -> pPoiType.is(BuiltInRegistries.POINT_OF_INTEREST_TYPE.getKey(IcariaPoiTypes.ICARIA_PORTAL.get())), pPos, 64, PoiManager.Occupancy.ANY).sorted(Comparator.<PoiRecord>comparingDouble(
+            (pPoiRecord) -> pPoiRecord.getPos().distSqr(pPos)).thenComparingInt(
+            (pPoiRecord) -> pPoiRecord.getPos().getY())).filter(
+            (pPoiRecord) -> this.level.getBlockState(pPoiRecord.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS)).findFirst();
+
+        return optional.map(
+            (pPoiRecord) -> {
+                var blockPos = pPoiRecord.getPos();
+                var blockState = this.level.getBlockState(blockPos);
+                this.level.getChunkSource().addRegionTicket(TicketType.PORTAL, new ChunkPos(blockPos), 3, blockPos);
+                return BlockUtil.getLargestRectangleAround(blockPos, blockState.getValue(BlockStateProperties.HORIZONTAL_AXIS), 21, Direction.Axis.Y, 21, (pBlockPos) -> this.level.getBlockState(pBlockPos) == blockState);
+            }
+        );
+    }
+
     public Optional<BlockUtil.FoundRectangle> makePortal(BlockPos pPos, Direction.Axis pAxis) {
         double d = 0.0D;
 
@@ -168,34 +196,6 @@ public class IcariaTeleporter implements ITeleporter {
         }
 
         return Optional.of(foundRectangle);
-    }
-
-    public Optional<BlockUtil.FoundRectangle> getOrMakePortal(BlockPos pPos) {
-        var axis = this.level.getBlockState(IcariaPortalBlock.entrancePos).getOptionalValue(BlockStateProperties.HORIZONTAL_AXIS).orElse(Direction.Axis.X);
-        var optional = this.getPortal(pPos);
-        if (optional.isPresent()) {
-            return optional;
-        } else {
-            return this.makePortal(pPos, axis);
-        }
-    }
-
-    public Optional<BlockUtil.FoundRectangle> getPortal(BlockPos pPos) {
-        this.level.getPoiManager().ensureLoadedAndValid(this.level, pPos, 64);
-        var optional =  this.level.getPoiManager().getInSquare((pPoiType) ->
-            pPoiType.is(BuiltInRegistries.POINT_OF_INTEREST_TYPE.getKey(IcariaPoiTypes.ICARIA_PORTAL.get())), pPos, 64, PoiManager.Occupancy.ANY).sorted(Comparator.<PoiRecord>comparingDouble((pPoiRecord) ->
-            pPoiRecord.getPos().distSqr(pPos)).thenComparingInt((pPoiRecord) ->
-            pPoiRecord.getPos().getY())).filter((pPoiRecord) ->
-            this.level.getBlockState(pPoiRecord.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS)).findFirst();
-
-        return optional.map(
-            (pPoiRecord) -> {
-                var blockPos = pPoiRecord.getPos();
-                var blockState = this.level.getBlockState(blockPos);
-                this.level.getChunkSource().addRegionTicket(TicketType.PORTAL, new ChunkPos(blockPos), 3, blockPos);
-                return BlockUtil.getLargestRectangleAround(blockPos, blockState.getValue(BlockStateProperties.HORIZONTAL_AXIS), 21, Direction.Axis.Y, 21, (pBlockPos) -> this.level.getBlockState(pBlockPos) == blockState);
-            }
-        );
     }
 
     @Override

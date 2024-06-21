@@ -1,7 +1,5 @@
 package com.axanthic.icaria.data;
 
-import com.axanthic.icaria.common.util.IcariaRegistrySetBuilder;
-
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 

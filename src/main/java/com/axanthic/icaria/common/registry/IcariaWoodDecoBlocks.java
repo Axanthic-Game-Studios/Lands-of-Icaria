@@ -27,7 +27,7 @@ public class IcariaWoodDecoBlocks {
     public IcariaWoodDecoBlocks(String pName, Supplier<Block> pBlock, WoodType pType, BlockBehaviour.Properties pProperties, boolean pStairs, boolean pSlab, boolean pFence, boolean pGate) {
         this.name = pName;
         this.block = pBlock;
-        this.stairs = IcariaWoodDecoBlocks.BLOCKS.register(pName + "_stairs", () -> new StairBlock(() -> pBlock.get().defaultBlockState(), pProperties));
+        this.stairs = IcariaWoodDecoBlocks.BLOCKS.register(pName + "_stairs", () -> new StairBlock(pBlock.get().defaultBlockState(), pProperties));
         this.slab = IcariaWoodDecoBlocks.BLOCKS.register(pName + "_slab", () -> new SlabBlock(pProperties));
         this.fence = IcariaWoodDecoBlocks.BLOCKS.register(pName + "_fence", () -> new FenceBlock(pProperties));
         this.gate = IcariaWoodDecoBlocks.BLOCKS.register(pName + "_fence_gate", () -> new FenceGateBlock(pType, pProperties));

@@ -1,0 +1,118 @@
+{
+  "values": {
+    "landsoficaria:anthracite": {
+      "burn_time": 3200
+    },
+    "landsoficaria:anthracite_block": {
+      "burn_time": 28800
+    },
+    "landsoficaria:arachne_string_block": {
+      "burn_time": 100
+    },
+    "landsoficaria:chest": {
+      "burn_time": 300
+    },
+    "landsoficaria:cypress_crafting_table": {
+      "burn_time": 300
+    },
+    "landsoficaria:cypress_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:cypress_trough": {
+      "burn_time": 300
+    },
+    "landsoficaria:cypress_twigs": {
+      "burn_time": 100
+    },
+    "landsoficaria:droughtroot_crafting_table": {
+      "burn_time": 300
+    },
+    "landsoficaria:droughtroot_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:droughtroot_trough": {
+      "burn_time": 300
+    },
+    "landsoficaria:droughtroot_twigs": {
+      "burn_time": 100
+    },
+    "landsoficaria:fir_crafting_table": {
+      "burn_time": 300
+    },
+    "landsoficaria:fir_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:fir_trough": {
+      "burn_time": 300
+    },
+    "landsoficaria:fir_twigs": {
+      "burn_time": 100
+    },
+    "landsoficaria:laurel_crafting_table": {
+      "burn_time": 300
+    },
+    "landsoficaria:laurel_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:laurel_trough": {
+      "burn_time": 300
+    },
+    "landsoficaria:laurel_twigs": {
+      "burn_time": 100
+    },
+    "landsoficaria:laurel_wreath": {
+      "burn_time": 100
+    },
+    "landsoficaria:lignite": {
+      "burn_time": 800
+    },
+    "landsoficaria:lignite_block": {
+      "burn_time": 7200
+    },
+    "landsoficaria:olive_crafting_table": {
+      "burn_time": 300
+    },
+    "landsoficaria:olive_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:olive_trough": {
+      "burn_time": 300
+    },
+    "landsoficaria:olive_twigs": {
+      "burn_time": 100
+    },
+    "landsoficaria:plane_crafting_table": {
+      "burn_time": 300
+    },
+    "landsoficaria:plane_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:plane_trough": {
+      "burn_time": 300
+    },
+    "landsoficaria:plane_twigs": {
+      "burn_time": 100
+    },
+    "landsoficaria:populus_crafting_table": {
+      "burn_time": 300
+    },
+    "landsoficaria:populus_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:populus_trough": {
+      "burn_time": 300
+    },
+    "landsoficaria:populus_twigs": {
+      "burn_time": 100
+    },
+    "landsoficaria:surface_lignite": {
+      "burn_time": 800
+    },
+    "landsoficaria:trapped_chest": {
+      "burn_time": 300
+    },
+    "landsoficaria:vine_reed_block": {
+      "burn_time": 300
+    }
+  }
+}

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:nature_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:nature_jellyfish_jelly"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:physalis"
-            ]
+            "items": "landsoficaria:physalis"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:spelt_flour"
-            ]
+            "items": "landsoficaria:spelt_flour"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:milk_bucket"
-            ]
+            "items": "minecraft:milk_bucket"
           }
         ]
       },
@@ -53,9 +45,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:sugar"
-            ]
+            "items": "minecraft:sugar"
           }
         ]
       },

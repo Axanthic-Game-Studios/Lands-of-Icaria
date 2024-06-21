@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:raw_aeternae_meat"
-            ]
+            "items": "landsoficaria:raw_aeternae_meat"
           }
         ]
       },

@@ -8,11 +8,10 @@
     },
     {
       "item": "landsoficaria:bolbos"
-    },
-    []
+    }
   ],
   "output": {
-    "Count": 1,
+    "count": 1,
     "id": "landsoficaria:jasper_shard"
   }
 }

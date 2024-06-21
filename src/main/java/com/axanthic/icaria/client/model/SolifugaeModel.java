@@ -94,8 +94,8 @@ public class SolifugaeModel extends HierarchicalModel<SolifugaeEntity> {
         float frontZ = Math.abs(Mth.sin(pLimbSwing * 0.6662F + (Mth.PI * 1.5F)) * 0.4F) * pLimbSwingAmount;
         float centerFrontY = -(Mth.cos(pLimbSwing * 0.6662F * 2.0F + (Mth.PI * 0.5F)) * 0.4F) * pLimbSwingAmount;
         float centerFrontZ = Math.abs(Mth.sin(pLimbSwing * 0.6662F + (Mth.PI * 0.5F)) * 0.4F) * pLimbSwingAmount;
-        float centerRearY = -(Mth.cos(pLimbSwing * 0.6662F * 2.0F + (Mth.PI * 1.0F)) * 0.4F) * pLimbSwingAmount;
-        float centerRearZ = Math.abs(Mth.sin(pLimbSwing * 0.6662F + (Mth.PI * 1.0F)) * 0.4F) * pLimbSwingAmount;
+        float centerRearY = -(Mth.cos(pLimbSwing * 0.6662F * 2.0F + (Mth.PI)) * 0.4F) * pLimbSwingAmount;
+        float centerRearZ = Math.abs(Mth.sin(pLimbSwing * 0.6662F + (Mth.PI)) * 0.4F) * pLimbSwingAmount;
         float rearY = -(Mth.cos(pLimbSwing * 0.6662F * 2.0F + (Mth.PI * 0.0F)) * 0.4F) * pLimbSwingAmount;
         float rearZ = Math.abs(Mth.sin(pLimbSwing * 0.6662F + (Mth.PI * 0.0F)) * 0.4F) * pLimbSwingAmount;
 

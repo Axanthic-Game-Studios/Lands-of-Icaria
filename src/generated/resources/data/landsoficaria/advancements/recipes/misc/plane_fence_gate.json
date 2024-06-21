@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:plane_planks"
-            ]
+            "items": "landsoficaria:plane_planks"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:stick"
-            ]
+            "items": "minecraft:stick"
           }
         ]
       },

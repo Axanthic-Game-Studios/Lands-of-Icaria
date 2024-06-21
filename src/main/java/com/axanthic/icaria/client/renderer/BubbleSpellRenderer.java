@@ -29,10 +29,10 @@ public class BubbleSpellRenderer extends EntityRenderer<BubbleSpellEntity> {
     public void render(BubbleSpellEntity pEntity, float pEntityYaw, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight) {
         pPoseStack.pushPose();
 
+        var random = new Random(pEntity.getId());
+
         var consumer = pBufferSource.getBuffer(IcariaRenderTypes.ADDITIVE_TRANSPARENT);
         var matrix4f = pPoseStack.last().pose();
-
-        var random = new Random(pEntity.getId());
 
         float scale = 0.25F;
         float ticks = pPartialTick + pEntity.tickCount;

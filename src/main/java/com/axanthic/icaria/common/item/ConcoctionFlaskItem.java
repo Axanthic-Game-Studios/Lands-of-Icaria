@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.item;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.Holder;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -23,9 +24,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class ConcoctionFlaskItem extends Item {
     public int duration;
 
-    public MobEffect effect;
+    public Holder<MobEffect> effect;
 
-    public ConcoctionFlaskItem(Properties pProperties, MobEffect pEffect, int pDuration) {
+    public ConcoctionFlaskItem(Properties pProperties, Holder<MobEffect> pEffect, int pDuration) {
         super(pProperties);
         this.duration = pDuration;
         this.effect = pEffect;
@@ -37,27 +38,27 @@ public class ConcoctionFlaskItem extends Item {
     }
 
     @Override
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
+        pPlayer.startUsingItem(pHand);
+        return InteractionResultHolder.consume(pPlayer.getItemInHand(pHand));
+    }
+
+    @Override
     public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
+        var effect = new MobEffectInstance(this.effect, this.duration);
         if (pLivingEntity instanceof Player player) {
-            player.addEffect(this.getEffect());
+            player.addEffect(effect);
             player.awardStat(Stats.ITEM_USED.get(this));
+            if (player.isCreative()) {
+                return pStack;
+            }
         }
 
         return new ItemStack(IcariaItems.EMPTY_FLASK.get());
     }
 
-    public MobEffectInstance getEffect() {
-        return new MobEffectInstance(this.effect, this.duration);
-    }
-
     @Override
     public UseAnim getUseAnimation(ItemStack pStack) {
         return UseAnim.DRINK;
-    }
-
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
-        pPlayer.startUsingItem(pHand);
-        return InteractionResultHolder.consume(pPlayer.getItemInHand(pHand));
     }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:orichalcum_nugget"
-            ]
+            "items": "landsoficaria:orichalcum_nugget"
           }
         ]
       },

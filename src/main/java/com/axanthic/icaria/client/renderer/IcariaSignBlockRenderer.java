@@ -101,7 +101,7 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 		var formattedCharSequences = pSignText.getRenderMessages(
 			Minecraft.getInstance().isTextFilteringEnabled(), (pComponent) -> {
 				var list = this.font.split(pComponent, pLineWidth);
-				return list.isEmpty() ? FormattedCharSequence.EMPTY : list.get(0);
+				return list.isEmpty() ? FormattedCharSequence.EMPTY : list.getFirst();
 			}
 		);
 
@@ -145,24 +145,24 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 
 	public void translateSign(PoseStack pPoseStack, BlockState pBlockState) {
 		if (pBlockState.getBlock() instanceof StandingSignBlock) {
-			pPoseStack.translate(0.5D, 0.75F * this.getSignModelRenderScale(), 0.5D);
-			pPoseStack.mulPose(Axis.YP.rotationDegrees(((pBlockState.getValue(BlockStateProperties.ROTATION_16) * -360) / 16.0F)));
+			pPoseStack.translate(0.5D, 0.75D * this.getSignModelRenderScale(), 0.5D);
+			pPoseStack.mulPose(Axis.YP.rotationDegrees(((pBlockState.getValue(BlockStateProperties.ROTATION_16) * -360.0F) / 16.0F)));
 		} else {
 			if (pBlockState.getValue(BlockStateProperties.ATTACH_FACE) == AttachFace.WALL) {
 				pPoseStack.translate(0.5D, 0.5D, 0.5D);
-				pPoseStack.mulPose(Axis.YP.rotationDegrees(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() * -1));
+				pPoseStack.mulPose(Axis.YP.rotationDegrees(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() * -1.0F));
 				pPoseStack.translate(0.0D, -0.3125D, -0.4375D);
 			}
 			if (pBlockState.getValue(BlockStateProperties.ATTACH_FACE) == AttachFace.CEILING) {
 				pPoseStack.translate(0.5D, 0.5D, 0.5D);
-				pPoseStack.mulPose(Axis.YP.rotationDegrees(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite().toYRot() * -1));
-				pPoseStack.mulPose(Axis.XP.rotationDegrees(90));
+				pPoseStack.mulPose(Axis.YP.rotationDegrees(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite().toYRot() * -1.0F));
+				pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 				pPoseStack.translate(0.0D, -0.3125D, -0.4375D);
 			}
 			if (pBlockState.getValue(BlockStateProperties.ATTACH_FACE) == AttachFace.FLOOR) {
 				pPoseStack.translate(0.5D, 0.5D, 0.5D);
-				pPoseStack.mulPose(Axis.YP.rotationDegrees(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite().toYRot() * -1));
-				pPoseStack.mulPose(Axis.XP.rotationDegrees(-90));
+				pPoseStack.mulPose(Axis.YP.rotationDegrees(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite().toYRot() * -1.0F));
+				pPoseStack.mulPose(Axis.XP.rotationDegrees(-90.0F));
 				pPoseStack.translate(0.0D, -0.3125D, -0.4375D);
 			}
 		}

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:raw_chalkos_block"
-            ]
+            "items": "landsoficaria:raw_chalkos_block"
           }
         ]
       },

@@ -23,8 +23,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("deprecation")
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -72,7 +70,7 @@ public class GreekFireBlock extends Block {
         if (!pEntity.fireImmune()) {
             pEntity.setRemainingFireTicks(pEntity.getRemainingFireTicks() + 1);
             if (pEntity.getRemainingFireTicks() == 0) {
-                pEntity.setSecondsOnFire(8);
+                pEntity.igniteForSeconds(8);
             }
         }
 

@@ -18,6 +18,7 @@
     "Z"
   ],
   "result": {
-    "item": "minecraft:arrow"
+    "count": 1,
+    "id": "minecraft:arrow"
   }
 }

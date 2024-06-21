@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:cyan_ground_flowers"
-            ]
+            "items": "landsoficaria:cyan_ground_flowers"
           }
         ]
       },

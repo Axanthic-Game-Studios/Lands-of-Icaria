@@ -7,6 +7,7 @@ import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -27,7 +28,7 @@ import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownPotion;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 
@@ -57,7 +58,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
     public float oldZBodyRot;
 
     public JellyfishEntity(EntityType<? extends JellyfishEntity> pType, Level pLevel) {
-        super(pType, pLevel, 0.25F, 0.125F, 0.25F);
+        super(pType, pLevel, 0.25F, 0.25F, 0.15F, 0.75F, 0.25F);
         this.tentacleSpeed = 1.0F / (this.random.nextFloat() + 1.0F) * 0.2F;
     }
 
@@ -103,7 +104,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
     }
 
     public boolean hurtWithCleanWater(DamageSource pSource, ThrownPotion pPotion, float pAmount) {
-        return super.hurt(pSource, pAmount) && PotionUtils.getPotion(pPotion.getItem()) == Potions.WATER;
+        return super.hurt(pSource, pAmount) && pPotion.getItem().getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER);
     }
 
     @Override
@@ -188,8 +189,8 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
         }
 
         var vec3 = this.getDeltaMovement();
-        this.xBodyRot += (-(Mth.atan2(vec3.horizontalDistance(), vec3.y)) * (180.0F / Mth.PI)) * 0.1F - this.xBodyRot * 0.1F;
-        this.yBodyRot += (-(Mth.atan2(vec3.x, vec3.z)) * (180.0F / Mth.PI) - this.yBodyRot) * 0.1F;
+        this.xBodyRot += (float) ((-(Mth.atan2(vec3.horizontalDistance(), vec3.y)) * (180.0F / Mth.PI)) * 0.1F - this.xBodyRot * 0.1F);
+        this.yBodyRot += (float) ((-(Mth.atan2(vec3.x, vec3.z)) * (180.0F / Mth.PI) - this.yBodyRot) * 0.1F);
         this.zBodyRot += Mth.PI * this.rotateSpeed * 1.5F;
         this.setYRot(this.yBodyRot);
         if (this.getType() == IcariaEntityTypes.ENDER_JELLYFISH.get()) {
@@ -228,7 +229,7 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
                 if (this.getType() == IcariaEntityTypes.ENDER_JELLYFISH.get()) {
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, this.getSize() * 100, 0), this);
                 } else if (this.getType() == IcariaEntityTypes.FIRE_JELLYFISH.get()) {
-                    pPlayer.setSecondsOnFire(this.getSize() * 5);
+                    pPlayer.igniteForSeconds(this.getSize() * 5);
                 } else if (this.getType() == IcariaEntityTypes.NATURE_JELLYFISH.get()) {
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.POISON, this.getSize() * 100, 0), this);
                 } else if (this.getType() == IcariaEntityTypes.VOID_JELLYFISH.get()) {

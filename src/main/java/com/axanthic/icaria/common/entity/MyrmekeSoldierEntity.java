@@ -65,9 +65,9 @@ public class MyrmekeSoldierEntity extends MyrmekeDroneEntity {
     }
 
     @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(MyrmekeSoldierEntity.TICK, this.minTick);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(MyrmekeSoldierEntity.TICK, this.minTick);
     }
 
     @Override

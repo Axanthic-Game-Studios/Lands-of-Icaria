@@ -4,8 +4,8 @@ import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -47,7 +47,7 @@ public class GrindingRecipe implements Recipe<SimpleContainer> {
 
 	@Override
 	public boolean matches(SimpleContainer pContainer, Level pLevel) {
-		return !pLevel.isClientSide() && this.ingredients.get(0).test(pContainer.getItem(0)) && this.gear.test(pContainer.getItem(2));
+		return !pLevel.isClientSide() && this.gear.test(pContainer.getItem(1)) && this.ingredients.get(0).test(pContainer.getItem(2));
 	}
 
 	public float getExperience() {
@@ -59,12 +59,12 @@ public class GrindingRecipe implements Recipe<SimpleContainer> {
 	}
 
 	@Override
-	public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pAccess) {
+	public ItemStack assemble(SimpleContainer pContainer, HolderLookup.Provider pProvider) {
 		return this.output;
 	}
 
 	@Override
-	public ItemStack getResultItem(RegistryAccess pAccess) {
+	public ItemStack getResultItem(HolderLookup.Provider pProvider) {
 		return this.output.copy();
 	}
 

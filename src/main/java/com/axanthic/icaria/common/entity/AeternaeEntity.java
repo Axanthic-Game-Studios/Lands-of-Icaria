@@ -38,7 +38,7 @@ public class AeternaeEntity extends IcariaAnimalEntity {
     public IcariaEatBlockGoal eatBlockGoal;
 
     public AeternaeEntity(EntityType<? extends AeternaeEntity> pType, Level pLevel) {
-        super(pType, pLevel, 0.25F, 0.35F, 0.25F);
+        super(pType, pLevel, 0.25F, 0.25F, 0.15F, 0.75F, 0.25F);
     }
 
     @Override

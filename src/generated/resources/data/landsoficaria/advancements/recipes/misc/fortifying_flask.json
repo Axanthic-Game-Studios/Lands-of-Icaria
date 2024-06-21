@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:empty_flask"
-            ]
+            "items": "landsoficaria:empty_flask"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:fortifying_spell"
-            ]
+            "items": "landsoficaria:fortifying_spell"
           }
         ]
       },

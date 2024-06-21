@@ -62,6 +62,7 @@
     "YY"
   ],
   "result": {
-    "item": "minecraft:fletching_table"
+    "count": 1,
+    "id": "minecraft:fletching_table"
   }
 }

@@ -8,10 +8,7 @@
     }
   ],
   "output": {
-    "Count": 1,
-    "id": "landsoficaria:loam_gear",
-    "tag": {
-      "Damage": 0
-    }
+    "count": 1,
+    "id": "landsoficaria:loam_gear"
   }
 }

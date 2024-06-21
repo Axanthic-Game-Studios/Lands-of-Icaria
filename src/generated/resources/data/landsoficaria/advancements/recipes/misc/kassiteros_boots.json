@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:kassiteros_ingot"
-            ]
+            "items": "landsoficaria:kassiteros_ingot"
           }
         ]
       },

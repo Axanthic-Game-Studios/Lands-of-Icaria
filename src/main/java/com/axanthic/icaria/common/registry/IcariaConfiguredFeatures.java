@@ -6,7 +6,7 @@ import com.axanthic.icaria.data.tags.IcariaBlockTags;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -152,7 +152,7 @@ public class IcariaConfiguredFeatures {
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> VILLAGE = IcariaConfiguredFeatures.registerKey("village");
 
-	public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> pContext) {
+	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> pContext) {
 		pContext.register(IcariaConfiguredFeatures.MARL_CHERT, new ConfiguredFeature<>(IcariaFeatures.MARL_CHERT.get(), FeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.MARL_BONES, new ConfiguredFeature<>(IcariaFeatures.MARL_BONES.get(), FeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.MARL_LIGNITE, new ConfiguredFeature<>(IcariaFeatures.MARL_LIGNITE.get(), FeatureConfiguration.NONE));

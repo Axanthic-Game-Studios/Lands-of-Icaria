@@ -2,7 +2,10 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.container.data.GrinderContainerData;
-import com.axanthic.icaria.common.handler.GrinderItemStackHandler;
+import com.axanthic.icaria.common.handler.stack.GrinderFuelItemStackHandler;
+import com.axanthic.icaria.common.handler.stack.GrinderGearItemStackHandler;
+import com.axanthic.icaria.common.handler.stack.GrinderInputItemStackHandler;
+import com.axanthic.icaria.common.handler.stack.GrinderOutputItemStackHandler;
 import com.axanthic.icaria.common.item.GearItem;
 import com.axanthic.icaria.common.properties.Side;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
@@ -14,7 +17,8 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -24,13 +28,11 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -38,11 +40,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
 
+import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.List;
 import java.util.Optional;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
@@ -50,45 +54,28 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class GrinderBlockEntity extends BlockEntity {
 	public int lastSound = 6;
-	public int maxFuel = 0;
 	public int fuel = 0;
-	public int maxProgress = 0;
+	public int maxFuel = 0;
 	public int progress = 0;
+	public int maxProgress = 0;
 	public int rotation = 0;
 	public int size = 6;
 
-	public ItemStackHandler stackHandler = new GrinderItemStackHandler(this.size, this);
-
-	//public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> this.stackHandler);
+	public ItemStackHandler fuelHandler = new GrinderFuelItemStackHandler(1, this);
+	public ItemStackHandler gearHandler = new GrinderGearItemStackHandler(1, this);
+	public ItemStackHandler inputHandler = new GrinderInputItemStackHandler(1, this);
+	public ItemStackHandler outputHandler = new GrinderOutputItemStackHandler(3, this);
 
 	public Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
 
 	public SimpleContainer simpleContainer = new SimpleContainer(this.size);
-
-	//public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedLeftHandler = Map.of(
-	//	Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-	//	Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> index == 3 || index == 4 || index == 5, (index, stack) -> false)),
-	//	Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-	//	Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-	//	Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-	//	Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false))
-	//);
-	//
-	//public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedRightHandler = Map.of(
-	//	Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(0, stack))),
-	//	Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> index == 3 || index == 4 || index == 5, (index, stack) -> false)),
-	//	Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-	//	Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-	//	Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(1, stack))),
-	//	Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false))
-	//);
 
 	public GrinderBlockEntity(BlockPos pPos, BlockState pState) {
 		super(IcariaBlockEntityTypes.GRINDER.get(), pPos, pState);
 	}
 
 	public boolean canInsertInSlot(SimpleContainer pContainer, GrindingRecipe pRecipe, int pSlot) {
-		return (pContainer.getItem(pSlot).getItem() == pRecipe.getResultItem(null).getItem() || pContainer.getItem(pSlot).isEmpty()) && pContainer.getItem(pSlot).getMaxStackSize() >= pContainer.getItem(pSlot).getCount() + pRecipe.getResultItem(null).getCount();
+		return (pContainer.getItem(pSlot).getItem() == pRecipe.getResultItem(null).getItem() || pContainer.getItem(pSlot).isEmpty()) && pContainer.getItem(pSlot).getCount() + pRecipe.getResultItem(null).getCount() <= 64;
 	}
 
 	public boolean hasFuel() {
@@ -96,9 +83,12 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public boolean hasRecipe() {
-		for (int i = 0; i < this.size; i++) {
-			this.simpleContainer.setItem(i, this.stackHandler.getStackInSlot(i));
-		}
+		this.simpleContainer.setItem(0, this.fuelHandler.getStackInSlot(0));
+		this.simpleContainer.setItem(1, this.gearHandler.getStackInSlot(0));
+		this.simpleContainer.setItem(2, this.inputHandler.getStackInSlot(0));
+		this.simpleContainer.setItem(3, this.outputHandler.getStackInSlot(0));
+		this.simpleContainer.setItem(4, this.outputHandler.getStackInSlot(1));
+		this.simpleContainer.setItem(5, this.outputHandler.getStackInSlot(2));
 
 		Optional<RecipeHolder<GrindingRecipe>> recipe = Optional.empty();
 		if (this.level != null) {
@@ -118,13 +108,18 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public boolean shouldBreak(GrinderBlockEntity pBlockEntity) {
-		var itemStack = pBlockEntity.stackHandler.getStackInSlot(2);
+		var itemStack = pBlockEntity.gearHandler.getStackInSlot(0);
 		return itemStack.getMaxDamage() - itemStack.getDamageValue() <= 0;
 	}
 
 	public int getComparatorInput() {
-		//return this.itemHandler.map(ItemHandlerHelper::calcRedstoneFromInventory).orElse(0);
-		return 0;
+		int i = (this.fuelHandler.getStackInSlot(0).getCount() * 15) / 64;
+		int j = (this.gearHandler.getStackInSlot(0).getCount() * 15);
+		int k = (this.inputHandler.getStackInSlot(0).getCount() * 15) / 64;
+		int l = (this.outputHandler.getStackInSlot(0).getCount() * 15) / 64;
+		int m = (this.outputHandler.getStackInSlot(1).getCount() * 15) / 64;
+		int n = (this.outputHandler.getStackInSlot(2).getCount() * 15) / 64;
+		return (i + j + k + l + m + n) / this.size;
 	}
 
 	public void awardUsedRecipesAndPopExperience(ServerPlayer pPlayer) {
@@ -133,9 +128,12 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public void craftItem() {
-		for (int i = 0; i < this.size; i++) {
-			this.simpleContainer.setItem(i, this.stackHandler.getStackInSlot(i));
-		}
+		this.simpleContainer.setItem(0, this.fuelHandler.getStackInSlot(0));
+		this.simpleContainer.setItem(1, this.gearHandler.getStackInSlot(0));
+		this.simpleContainer.setItem(2, this.inputHandler.getStackInSlot(0));
+		this.simpleContainer.setItem(3, this.outputHandler.getStackInSlot(0));
+		this.simpleContainer.setItem(4, this.outputHandler.getStackInSlot(1));
+		this.simpleContainer.setItem(5, this.outputHandler.getStackInSlot(2));
 
 		Optional<RecipeHolder<GrindingRecipe>> recipe = Optional.empty();
 		if (this.level != null) {
@@ -143,17 +141,17 @@ public class GrinderBlockEntity extends BlockEntity {
 		}
 
 		if (this.hasRecipe() && recipe.isPresent()) {
-			this.stackHandler.extractItem(0, 1, false);
+			this.inputHandler.extractItem(0, 1, false);
 			if (this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 5)) {
-				this.stackHandler.setStackInSlot(5, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(5).getCount()));
+				this.outputHandler.setStackInSlot(2, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.outputHandler.getStackInSlot(2).getCount()));
 			} else if (this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 4)) {
-				this.stackHandler.setStackInSlot(4, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(4).getCount()));
+				this.outputHandler.setStackInSlot(1, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.outputHandler.getStackInSlot(1).getCount()));
 			} else if (this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 3)) {
-				this.stackHandler.setStackInSlot(3, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(3).getCount()));
+				this.outputHandler.setStackInSlot(0, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.outputHandler.getStackInSlot(0).getCount()));
 			}
 
 			this.resetProgress();
-			this.setRecipeUsed(recipe.get().value());
+			this.setRecipeUsed(recipe.get());
 		}
 	}
 
@@ -168,32 +166,29 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public void drops(Level pLevel) {
-		for (int i = 0; i < this.size; i++) {
-			this.simpleContainer.setItem(i, this.stackHandler.getStackInSlot(i));
-		}
-
+		this.simpleContainer.setItem(0, this.fuelHandler.getStackInSlot(0));
+		this.simpleContainer.setItem(1, this.gearHandler.getStackInSlot(0));
+		this.simpleContainer.setItem(2, this.inputHandler.getStackInSlot(0));
+		this.simpleContainer.setItem(3, this.outputHandler.getStackInSlot(0));
+		this.simpleContainer.setItem(4, this.outputHandler.getStackInSlot(1));
+		this.simpleContainer.setItem(5, this.outputHandler.getStackInSlot(2));
 		Containers.dropContents(pLevel, this.worldPosition, this.simpleContainer);
 	}
 
-	//@Override
-	//public void invalidateCaps() {
-	//	super.invalidateCaps();
-	//	this.itemHandler.invalidate();
-	//}
-
 	@Override
-	public void load(CompoundTag pTag) {
-		super.load(pTag);
-		if (pTag.contains("Inventory")) {
-			this.stackHandler.deserializeNBT(pTag.getCompound("Inventory"));
-			this.maxFuel = pTag.getInt("TotalFuelTime");
-			this.fuel = pTag.getInt("CurrentFuelTime");
-			this.maxProgress = pTag.getInt("TotalProgressTime");
-			this.progress = pTag.getInt("CurrentProgressTime");
-			var compoundTag = pTag.getCompound("RecipesUsed");
-			for(var string : compoundTag.getAllKeys()) {
-				this.recipesUsed.put(new ResourceLocation(string), compoundTag.getInt(string));
-			}
+	public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
+		super.loadAdditional(pTag, pProvider);
+		this.fuelHandler.deserializeNBT(pProvider, pTag.getCompound("FuelInventory"));
+		this.gearHandler.deserializeNBT(pProvider, pTag.getCompound("GearInventory"));
+		this.inputHandler.deserializeNBT(pProvider, pTag.getCompound("InputInventory"));
+		this.outputHandler.deserializeNBT(pProvider, pTag.getCompound("OutputInventory"));
+		this.fuel = pTag.getInt("CurrentFuelTime");
+		this.maxFuel = pTag.getInt("TotalFuelTime");
+		this.progress = pTag.getInt("CurrentProgressTime");
+		this.maxProgress = pTag.getInt("TotalProgressTime");
+		var compoundTag = pTag.getCompound("RecipesUsed");
+		for(var string : compoundTag.getAllKeys()) {
+			this.recipesUsed.put(new ResourceLocation(string), compoundTag.getInt(string));
 		}
 	}
 
@@ -203,44 +198,40 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	public void saveAdditional(CompoundTag pTag) {
-		super.saveAdditional(pTag);
-		pTag.put("Inventory", this.stackHandler.serializeNBT());
-		pTag.putInt("TotalFuelTime", this.maxFuel);
+	public void saveAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
+		super.saveAdditional(pTag, pProvider);
+		pTag.put("FuelInventory", this.fuelHandler.serializeNBT(pProvider));
+		pTag.put("GearInventory", this.gearHandler.serializeNBT(pProvider));
+		pTag.put("InputInventory", this.inputHandler.serializeNBT(pProvider));
+		pTag.put("OutputInventory", this.outputHandler.serializeNBT(pProvider));
 		pTag.putInt("CurrentFuelTime", this.fuel);
-		pTag.putInt("TotalProgressTime", this.maxProgress);
+		pTag.putInt("TotalFuelTime", this.maxFuel);
 		pTag.putInt("CurrentProgressTime", this.progress);
+		pTag.putInt("TotalProgressTime", this.maxProgress);
 		var compoundTag = new CompoundTag();
 		this.recipesUsed.forEach((resourceLocation, index) -> compoundTag.putInt(resourceLocation.toString(), index));
 		pTag.put("RecipesUsed", compoundTag);
 	}
 
-	public void setRecipeUsed(Recipe<?> pRecipe) {
-		this.recipesUsed.addTo(BuiltInRegistries.RECIPE_TYPE.getKey(pRecipe.getType()), 1);
-	}
-
-	@Override
-	public void setRemoved() {
-		super.setRemoved();
-		//this.itemHandler.invalidate();
+	public void setRecipeUsed(RecipeHolder<?> pRecipe) {
+		this.recipesUsed.addTo(pRecipe.id(), 1);
 	}
 
 	public static void tick(Level pLevel, BlockPos pPos, BlockState pState, GrinderBlockEntity pBlockEntity) {
-		var stackHandler = pBlockEntity.stackHandler;
 		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		var fuelSlot = stackHandler.getStackInSlot(1);
-		var gearSlot = stackHandler.getStackInSlot(2);
+		var fuelSlot = pBlockEntity.fuelHandler.getStackInSlot(0);
+		var gearSlot = pBlockEntity.gearHandler.getStackInSlot(0);
 		if (!pLevel.isClientSide()) {
 			pBlockEntity.update(pPos, pState);
 			if (!pBlockEntity.hasFuel()) {
 				if (fuelSlot.getItem() == IcariaItems.SLIVER.get()) {
 					int fuelTime = 800;
-					stackHandler.extractItem(1, 1, false);
+					pBlockEntity.fuelHandler.extractItem(0, 1, false);
 					pBlockEntity.fuel = fuelTime;
 					pBlockEntity.maxFuel = fuelTime;
 				} else if (fuelSlot.getItem() == IcariaItems.SLIVER_BLOCK.get()) {
 					int fuelTime = 7200;
-					stackHandler.extractItem(1, 1, false);
+					pBlockEntity.fuelHandler.extractItem(0, 1, false);
 					pBlockEntity.fuel = fuelTime;
 					pBlockEntity.maxFuel = fuelTime;
 				}
@@ -265,9 +256,9 @@ public class GrinderBlockEntity extends BlockEntity {
 				if (pBlockEntity.progress >= pBlockEntity.maxProgress) {
 					pBlockEntity.craftItem();
 					if (gearSlot.getItem() instanceof GearItem) {
-						gearSlot.hurt(1, RandomSource.create(), null);
+						gearSlot.setDamageValue(gearSlot.getDamageValue() + 1);
 						if (pBlockEntity.shouldBreak(pBlockEntity)) {
-							stackHandler.extractItem(2, 1, false);
+							pBlockEntity.gearHandler.extractItem(0, 1, false);
 						}
 					}
 				}
@@ -294,13 +285,16 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	public CompoundTag getUpdateTag() {
+	public CompoundTag getUpdateTag(HolderLookup.Provider pProvider) {
 		var compoundTag = new CompoundTag();
-		compoundTag.put("Inventory", this.stackHandler.serializeNBT());
-		compoundTag.putInt("TotalFuelTime", this.maxFuel);
+		compoundTag.put("FuelInventory", this.fuelHandler.serializeNBT(pProvider));
+		compoundTag.put("GearInventory", this.gearHandler.serializeNBT(pProvider));
+		compoundTag.put("InputInventory", this.inputHandler.serializeNBT(pProvider));
+		compoundTag.put("OutputInventory", this.outputHandler.serializeNBT(pProvider));
 		compoundTag.putInt("CurrentFuelTime", this.fuel);
-		compoundTag.putInt("TotalProgressTime", this.maxProgress);
+		compoundTag.putInt("TotalFuelTime", this.maxFuel);
 		compoundTag.putInt("CurrentProgressTime", this.progress);
+		compoundTag.putInt("TotalProgressTime", this.maxProgress);
 		return compoundTag;
 	}
 
@@ -308,15 +302,23 @@ public class GrinderBlockEntity extends BlockEntity {
 		return new GrinderContainerData(this);
 	}
 
+	public static @Nullable IItemHandler getCapability(GrinderBlockEntity pBlockEntity, Direction pDirection) {
+		if (pDirection == Direction.DOWN) {
+			return pBlockEntity.outputHandler;
+		}
+
+		return null;
+	}
+
 	public ItemStack getGear() {
-		return this.stackHandler.getStackInSlot(2);
+		return this.gearHandler.getStackInSlot(0);
 	}
 
 	public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(ServerLevel pLevel, Vec3 pPopVec) {
 		List<RecipeHolder<?>> list = Lists.newArrayList();
 		for (var entry : this.recipesUsed.object2IntEntrySet()) {
 			pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent(
-				(recipe) -> {
+				recipe -> {
 					list.add(recipe);
 					if (recipe.value() instanceof GrindingRecipe firingRecipe) {
 						this.createExperience(pLevel, pPopVec, entry.getIntValue(), firingRecipe.getExperience());
@@ -332,59 +334,4 @@ public class GrinderBlockEntity extends BlockEntity {
 	public Packet<ClientGamePacketListener> getUpdatePacket() {
 		return ClientboundBlockEntityDataPacket.create(this);
 	}
-
-	//@Override
-	//public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
-	//	return this.getCapabilityForPos(pCapability, pDirection, this.getBlockPos());
-	//}
-	//
-	//public <T> LazyOptional<T> getCapabilityForPos(Capability<T> pCapability, @Nullable Direction pDirection, BlockPos pPos) {
-	//	if (pCapability == Capabilities.ITEM_HANDLER) {
-	//		if (pDirection == null) {
-	//			return this.itemHandler.cast();
-	//		} else if (this.directionWrappedLeftHandler.containsKey(pDirection) || this.directionWrappedRightHandler.containsKey(pDirection)) {
-	//			var level = this.getLevel();
-	//			var state = this.getBlockState();
-	//			if (level != null) {
-	//				state = level.getBlockState(GrinderBlock.getBlockEntityPosition(this.getBlockState(), pPos));
-	//			}
-	//
-	//			var side  = state.getValue(IcariaBlockStateProperties.SIDE);
-	//			var facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-	//			if (pDirection == Direction.DOWN) {
-	//				return this.directionWrappedLeftHandler.get(pDirection).cast();
-	//			}
-	//
-	//			if (pDirection == Direction.UP) {
-	//				if (side == Side.RIGHT) {
-	//					return this.directionWrappedRightHandler.get(pDirection).cast();
-	//				}
-	//			}
-	//
-	//			if (side == Side.LEFT) {
-	//				if (facing == Direction.NORTH) {
-	//					return this.directionWrappedLeftHandler.get(pDirection).cast();
-	//				} else if (facing == Direction.EAST) {
-	//					return this.directionWrappedLeftHandler.get(pDirection.getCounterClockWise()).cast();
-	//				} else if (facing == Direction.SOUTH) {
-	//					return this.directionWrappedLeftHandler.get(pDirection.getOpposite()).cast();
-	//				} else if (facing == Direction.WEST) {
-	//					return this.directionWrappedLeftHandler.get(pDirection.getClockWise()).cast();
-	//				}
-	//			} else if (side == Side.RIGHT) {
-	//				if (facing == Direction.NORTH) {
-	//					return this.directionWrappedRightHandler.get(pDirection).cast();
-	//				} else if (facing == Direction.EAST) {
-	//					return this.directionWrappedRightHandler.get(pDirection.getCounterClockWise()).cast();
-	//				} else if (facing == Direction.SOUTH) {
-	//					return this.directionWrappedRightHandler.get(pDirection.getOpposite()).cast();
-	//				} else if (facing == Direction.WEST) {
-	//					return this.directionWrappedRightHandler.get(pDirection.getClockWise()).cast();
-	//				}
-	//			}
-	//		}
-	//	}
-	//
-	//	return super.getCapability(pCapability, pDirection);
-	//}
 }

@@ -56,8 +56,6 @@ public class ScrollItemRenderer extends BlockEntityWithoutLevelRenderer {
             var mainHandItem = player.getMainHandItem();
             var offHandItem = player.getOffhandItem();
 
-            var playerRenderer = (PlayerRenderer) minecraft.getEntityRenderDispatcher().getRenderer(player);
-
             pPoseStack.scale(1.0F,1.0F,1.0F);
 
             if (mainHandItem == pStack) {
@@ -66,10 +64,10 @@ public class ScrollItemRenderer extends BlockEntityWithoutLevelRenderer {
                 pPoseStack.translate((float) width / height * -0.85F + 1.25F, 0.5F, 0.0F);
             }
 
-            consumer.vertex(matrix4f, 0, 0, 0).color(1.0F, 1.0F, 1.0F, 1.0F).uv(sprite.getU0(), sprite.getV1()).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
-            consumer.vertex(matrix4f, 1, 0, 0).color(1.0F, 1.0F, 1.0F, 1.0F).uv(sprite.getU1(), sprite.getV1()).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
-            consumer.vertex(matrix4f, 1, 1, 0).color(1.0F, 1.0F, 1.0F, 1.0F).uv(sprite.getU1(), sprite.getV0()).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
-            consumer.vertex(matrix4f, 0, 1, 0).color(1.0F, 1.0F, 1.0F, 1.0F).uv(sprite.getU0(), sprite.getV0()).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
+            consumer.vertex(matrix4f, 0.0F, 0.0F, 0.0F).color(1.0F, 1.0F, 1.0F, 1.0F).uv(sprite.getU0(), sprite.getV1()).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
+            consumer.vertex(matrix4f, 1.0F, 0.0F, 0.0F).color(1.0F, 1.0F, 1.0F, 1.0F).uv(sprite.getU1(), sprite.getV1()).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
+            consumer.vertex(matrix4f, 1.0F, 1.0F, 0.0F).color(1.0F, 1.0F, 1.0F, 1.0F).uv(sprite.getU1(), sprite.getV0()).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
+            consumer.vertex(matrix4f, 0.0F, 1.0F, 0.0F).color(1.0F, 1.0F, 1.0F, 1.0F).uv(sprite.getU0(), sprite.getV0()).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
 
             if (pStack.getItem() instanceof ScrollItem scrollItem) {
                 var recipe = scrollItem.getRecipe();
@@ -106,21 +104,23 @@ public class ScrollItemRenderer extends BlockEntityWithoutLevelRenderer {
 
             pPoseStack.scale(5.0F, 5.0F, 5.0F);
 
-            if (offHandItem == pStack) {
-                pPoseStack.mulPose(Axis.XP.rotationDegrees(150.0F));
-                pPoseStack.mulPose(Axis.ZN.rotationDegrees(75.0F));
-                pPoseStack.translate(0.0F, -1.01F, -0.25F);
-                playerRenderer.renderLeftHand(pPoseStack, pBuffer, pPackedLight, player);
-            } else if (mainHandItem == pStack) {
-                pPoseStack.mulPose(Axis.XP.rotationDegrees(150.0F));
-                pPoseStack.mulPose(Axis.ZP.rotationDegrees(75.0F));
-                pPoseStack.translate(0.0F, -1.01F, -0.25F);
-                playerRenderer.renderRightHand(pPoseStack, pBuffer, pPackedLight, player);
-                if (offHandItem.isEmpty()) {
-                    pPoseStack.mulPose(Axis.XP.rotationDegrees(25.0F));
-                    pPoseStack.mulPose(Axis.ZP.rotationDegrees(122.5F));
-                    pPoseStack.translate(0.625F, -1.5F, -0.2F);
+            if (minecraft.getEntityRenderDispatcher().getRenderer(player) instanceof PlayerRenderer playerRenderer) {
+                if (offHandItem == pStack) {
+                    pPoseStack.mulPose(Axis.XP.rotationDegrees(150.0F));
+                    pPoseStack.mulPose(Axis.ZN.rotationDegrees(75.0F));
+                    pPoseStack.translate(0.0F, -1.01F, -0.25F);
                     playerRenderer.renderLeftHand(pPoseStack, pBuffer, pPackedLight, player);
+                } else if (mainHandItem == pStack) {
+                    pPoseStack.mulPose(Axis.XP.rotationDegrees(150.0F));
+                    pPoseStack.mulPose(Axis.ZP.rotationDegrees(75.0F));
+                    pPoseStack.translate(0.0F, -1.01F, -0.25F);
+                    playerRenderer.renderRightHand(pPoseStack, pBuffer, pPackedLight, player);
+                    if (offHandItem.isEmpty()) {
+                        pPoseStack.mulPose(Axis.XP.rotationDegrees(25.0F));
+                        pPoseStack.mulPose(Axis.ZP.rotationDegrees(122.5F));
+                        pPoseStack.translate(0.625F, -1.5F, -0.2F);
+                        playerRenderer.renderLeftHand(pPoseStack, pBuffer, pPackedLight, player);
+                    }
                 }
             }
         }

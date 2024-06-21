@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "landsoficaria:raw_sow_meat"
   },
-  "result": "landsoficaria:cooked_sow_meat"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_sow_meat"
+  }
 }

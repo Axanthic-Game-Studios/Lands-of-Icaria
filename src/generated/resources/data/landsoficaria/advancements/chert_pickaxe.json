@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:chert_pickaxe"
-            ]
+            "items": "landsoficaria:chert_pickaxe"
           }
         ]
       },
@@ -20,8 +18,8 @@
       "translate": "advancement.landsoficaria.chert_pickaxe.description"
     },
     "icon": {
-      "item": "landsoficaria:chert_pickaxe",
-      "nbt": "{Damage:0}"
+      "count": 1,
+      "id": "landsoficaria:chert_pickaxe"
     },
     "title": {
       "translate": "advancement.landsoficaria.chert_pickaxe.title"

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:greenpowder"
-            ]
+            "items": "landsoficaria:greenpowder"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:blaze_powder"
-            ]
+            "items": "minecraft:blaze_powder"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:charcoal"
-            ]
+            "items": "minecraft:charcoal"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:coal"
-            ]
+            "items": "minecraft:coal"
           }
         ]
       },

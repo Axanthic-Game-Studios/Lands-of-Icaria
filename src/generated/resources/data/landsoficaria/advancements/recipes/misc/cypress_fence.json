@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:cypress_planks"
-            ]
+            "items": "landsoficaria:cypress_planks"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:stick"
-            ]
+            "items": "minecraft:stick"
           }
         ]
       },

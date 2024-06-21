@@ -28,7 +28,7 @@ public class IcariaStoneDecoBlocks {
     public IcariaStoneDecoBlocks(String pName, Supplier<Block> pBlock, BlockBehaviour.Properties pProperties, boolean pStairs, boolean pSlab, boolean pWall) {
         this.name = pName;
         this.block = pBlock;
-        this.stairs = IcariaStoneDecoBlocks.BLOCKS.register(pName + "_stairs", () -> new StairBlock(() -> pBlock.get().defaultBlockState(), pProperties));
+        this.stairs = IcariaStoneDecoBlocks.BLOCKS.register(pName + "_stairs", () -> new StairBlock(pBlock.get().defaultBlockState(), pProperties));
         this.slab = IcariaStoneDecoBlocks.BLOCKS.register(pName + "_slab", () -> new SlabBlock(pProperties));
         this.wall = IcariaStoneDecoBlocks.BLOCKS.register(pName + "_wall", () -> new WallBlock(pProperties));
     }

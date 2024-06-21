@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:fire_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:fire_jellyfish_jelly"
           }
         ]
       },

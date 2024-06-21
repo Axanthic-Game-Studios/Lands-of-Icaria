@@ -11,7 +11,7 @@
     }
   ],
   "output": {
-    "Count": 3,
+    "count": 3,
     "id": "minecraft:sugar"
   }
 }

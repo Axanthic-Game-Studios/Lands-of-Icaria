@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "landsoficaria:sunstone_adobe"
   },
-  "result": "landsoficaria:sunstone_adobe_stairs"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:sunstone_adobe_stairs"
+  }
 }

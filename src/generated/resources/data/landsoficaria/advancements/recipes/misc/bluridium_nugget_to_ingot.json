@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:bluridium_nugget"
-            ]
+            "items": "landsoficaria:bluridium_nugget"
           }
         ]
       },

@@ -158,7 +158,7 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
     }
 
     public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-        pLimbSwing *= 1.8;
+        pLimbSwing *= 1.8F;
 
         float rightFront = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing)) * 0.5F) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount;
         float leftFront = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount;

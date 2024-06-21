@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "landsoficaria:relicstone"
   },
-  "result": "landsoficaria:relicstone_wall"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:relicstone_wall"
+  }
 }

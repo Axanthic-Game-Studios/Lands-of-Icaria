@@ -52,6 +52,7 @@ public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntit
 		var ingC = pBlockEntity.getIngC();
 
 		var level = pBlockEntity.getLevel();
+
 		var minecraft = Minecraft.getInstance();
 
 		var itemRenderer = minecraft.getItemRenderer();
@@ -126,42 +127,44 @@ public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntit
 	}
 
 	public void renderQuad(KettleBlockEntity pBlockEntity, PoseStack pPoseStack, MultiBufferSource pBufferSource, float pMinX, float pMaxX, float pMinZ, float pMaxZ, int pPackedLight, int pPackedOverlay) {
-		float height;
-		float r;
-		float g;
-		float b;
+		if (pBlockEntity.getLevel() != null) {
+			float height;
+			float r;
+			float g;
+			float b;
 
-		int endColor = pBlockEntity.color;
-		int startColor = BiomeColors.getAverageWaterColor(pBlockEntity.getLevel(), pBlockEntity.getBlockPos());
+			int endColor = pBlockEntity.color;
+			int startColor = BiomeColors.getAverageWaterColor(pBlockEntity.getLevel(), pBlockEntity.getBlockPos());
 
-		var consumer = pBufferSource.getBuffer(Sheets.translucentCullBlockSheet());
-		var matrix4f = pPoseStack.last().pose();
-		var minecraft = Minecraft.getInstance();
-		var state = pBlockEntity.getBlockState();
+			var consumer = pBufferSource.getBuffer(Sheets.translucentCullBlockSheet());
+			var matrix4f = pPoseStack.last().pose();
+			var minecraft = Minecraft.getInstance();
+			var state = pBlockEntity.getBlockState();
 
-		TextureAtlasSprite sprite;
+			TextureAtlasSprite sprite;
 
-		if (state.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.BREWING) {
-			height = 0.6875F + (float) pBlockEntity.progress / pBlockEntity.maxProgress * 0.09375F;
-			r = Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (startColor >> 16 & 255) / 255.0F, (endColor >> 16 & 255) / 255.0F);
-			g = Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (startColor >> 8 & 255) / 255.0F, (endColor >> 8 & 255) / 255.0F);
-			b = Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (startColor & 255) / 255.0F, (endColor & 255) / 255.0F);
-			sprite = minecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.CONCOCTION_FAST);
-		} else {
-			height = 0.6875F;
-			r = (startColor >> 16 & 255) / 255.0F;
-			g = (startColor >> 8 & 255) / 255.0F;
-			b = (startColor & 255) / 255.0F;
-			sprite = minecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.CONCOCTION_SLOW);
+			if (state.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.BREWING) {
+				height = 0.6875F + (float) pBlockEntity.progress / pBlockEntity.maxProgress * 0.09375F;
+				r = Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (startColor >> 16 & 255) / 255.0F, (endColor >> 16 & 255) / 255.0F);
+				g = Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (startColor >> 8 & 255) / 255.0F, (endColor >> 8 & 255) / 255.0F);
+				b = Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (startColor & 255) / 255.0F, (endColor & 255) / 255.0F);
+				sprite = minecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.CONCOCTION_FAST);
+			} else {
+				height = 0.6875F;
+				r = (startColor >> 16 & 255) / 255.0F;
+				g = (startColor >> 8 & 255) / 255.0F;
+				b = (startColor & 255) / 255.0F;
+				sprite = minecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.CONCOCTION_SLOW);
+			}
+
+			pPoseStack.pushPose();
+
+			consumer.vertex(matrix4f, pMinX, height, pMinZ).color(r, g, b, 1.0F).uv(sprite.getU(0.25F), sprite.getV(0.25F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
+			consumer.vertex(matrix4f, pMinX, height, pMaxZ).color(r, g, b, 1.0F).uv(sprite.getU(0.75F), sprite.getV(0.25F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
+			consumer.vertex(matrix4f, pMaxX, height, pMaxZ).color(r, g, b, 1.0F).uv(sprite.getU(0.75F), sprite.getV(0.75F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
+			consumer.vertex(matrix4f, pMaxX, height, pMinZ).color(r, g, b, 1.0F).uv(sprite.getU(0.25F), sprite.getV(0.75F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
+
+			pPoseStack.popPose();
 		}
-
-		pPoseStack.pushPose();
-
-		consumer.vertex(matrix4f, pMinX, height, pMinZ).color(r, g, b, 1.0F).uv(sprite.getU(0.25F), sprite.getV(0.25F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
-		consumer.vertex(matrix4f, pMinX, height, pMaxZ).color(r, g, b, 1.0F).uv(sprite.getU(0.75F), sprite.getV(0.25F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
-		consumer.vertex(matrix4f, pMaxX, height, pMaxZ).color(r, g, b, 1.0F).uv(sprite.getU(0.75F), sprite.getV(0.75F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
-		consumer.vertex(matrix4f, pMaxX, height, pMinZ).color(r, g, b, 1.0F).uv(sprite.getU(0.25F), sprite.getV(0.75F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0, 0, 1).endVertex();
-
-		pPoseStack.popPose();
 	}
 }

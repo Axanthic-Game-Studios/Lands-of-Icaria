@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:grainite_brick_slab"
-            ]
+            "items": "landsoficaria:grainite_brick_slab"
           }
         ]
       },

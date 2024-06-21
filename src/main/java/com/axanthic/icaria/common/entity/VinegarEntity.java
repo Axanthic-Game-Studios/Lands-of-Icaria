@@ -47,12 +47,12 @@ public class VinegarEntity extends AbstractArrow {
         pEntity.hurt(this.damageSources().mobProjectile(this, pEntity), 2.0F);
     }
 
-    public ItemStack getItem() {
-        return this.stack;
+    @Override
+    public ItemStack getDefaultPickupItem() {
+        return ItemStack.EMPTY;
     }
 
-    @Override
-    public ItemStack getPickupItem() {
-        return ItemStack.EMPTY;
+    public ItemStack getItem() {
+        return this.stack;
     }
 }

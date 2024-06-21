@@ -13,7 +13,9 @@
       "item": "landsoficaria:psilocybos"
     }
   ],
-  "potion": "minecraft:regeneration",
+  "potion": {
+    "potion": "minecraft:regeneration"
+  },
   "potionDuration": 200,
   "potionRadius": 5.0
 }

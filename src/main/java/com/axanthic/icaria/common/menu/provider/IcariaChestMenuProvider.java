@@ -41,10 +41,6 @@ public class IcariaChestMenuProvider implements MenuProvider {
 
     @Override
     public Component getDisplayName() {
-        if (this.first.hasCustomName()) {
-            return this.first.getDisplayName();
-        } else {
-            return this.second.hasCustomName() ? this.second.getDisplayName() : Component.translatable("container.chestDouble");
-        }
+        return this.first.hasCustomName() ? this.first.getDisplayName() : this.second.hasCustomName() ? this.second.getDisplayName() : Component.translatable("container.chestDouble");
     }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:cobbled_silkstone"
-            ]
+            "items": "landsoficaria:cobbled_silkstone"
           }
         ]
       },

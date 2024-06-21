@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:aeternae_hide"
-            ]
+            "items": "landsoficaria:aeternae_hide"
           }
         ]
       },

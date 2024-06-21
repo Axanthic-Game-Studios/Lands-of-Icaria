@@ -10,7 +10,7 @@ import com.mojang.datafixers.util.Pair;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -96,7 +96,7 @@ public class IcariaTemplatePools {
 	public static final ResourceKey<StructureTemplatePool> DESERT_PRISTINE_WALK = IcariaTemplatePools.registerKey("villages/desert/pristine/walk");
 	public static final ResourceKey<StructureTemplatePool> DESERT_RUINED_WALK = IcariaTemplatePools.registerKey("villages/desert/ruined/walk");
 
-	public static void bootstrap(BootstapContext<StructureTemplatePool> pContext) {
+	public static void bootstrap(BootstrapContext<StructureTemplatePool> pContext) {
 		var lists = pContext.lookup(Registries.PROCESSOR_LIST);
 		var pools = pContext.lookup(Registries.TEMPLATE_POOL);
 		var empty = pools.getOrThrow(Pools.EMPTY);

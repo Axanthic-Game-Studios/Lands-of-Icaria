@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:calcite_dust"
-            ]
+            "items": "landsoficaria:calcite_dust"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:chalkos_ingot"
-            ]
+            "items": "landsoficaria:chalkos_ingot"
           }
         ]
       },

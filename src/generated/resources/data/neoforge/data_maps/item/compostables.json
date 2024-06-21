@@ -1,0 +1,346 @@
+{
+  "values": {
+    "landsoficaria:black_olives": {
+      "chance": 0.3
+    },
+    "landsoficaria:blindweed": {
+      "chance": 0.3
+    },
+    "landsoficaria:bloomy_vine": {
+      "chance": 0.5
+    },
+    "landsoficaria:blue_ground_flowers": {
+      "chance": 0.3
+    },
+    "landsoficaria:blue_hydracinth": {
+      "chance": 0.3
+    },
+    "landsoficaria:blue_stormcotton": {
+      "chance": 0.3
+    },
+    "landsoficaria:bolbos": {
+      "chance": 0.65
+    },
+    "landsoficaria:branchy_vine": {
+      "chance": 0.5
+    },
+    "landsoficaria:brown_ground_shrooms": {
+      "chance": 0.65
+    },
+    "landsoficaria:brushy_vine": {
+      "chance": 0.5
+    },
+    "landsoficaria:cardon_cactus": {
+      "chance": 0.5
+    },
+    "landsoficaria:chameomile": {
+      "chance": 0.3
+    },
+    "landsoficaria:charmonder": {
+      "chance": 0.3
+    },
+    "landsoficaria:clover": {
+      "chance": 0.3
+    },
+    "landsoficaria:cyan_ground_flowers": {
+      "chance": 0.3
+    },
+    "landsoficaria:cypress_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:cypress_sapling": {
+      "chance": 0.3
+    },
+    "landsoficaria:cypress_twigs": {
+      "chance": 0.3
+    },
+    "landsoficaria:dathulla": {
+      "chance": 0.65
+    },
+    "landsoficaria:droughtroot_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:droughtroot_sapling": {
+      "chance": 0.3
+    },
+    "landsoficaria:droughtroot_twigs": {
+      "chance": 0.3
+    },
+    "landsoficaria:dry_vine": {
+      "chance": 0.5
+    },
+    "landsoficaria:fallen_cypress_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:fallen_droughtroot_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:fallen_fir_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:fallen_laurel_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:fallen_olive_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:fallen_plane_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:fallen_populus_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:fern": {
+      "chance": 0.65
+    },
+    "landsoficaria:fir_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:fir_sapling": {
+      "chance": 0.3
+    },
+    "landsoficaria:fir_twigs": {
+      "chance": 0.3
+    },
+    "landsoficaria:firehilt": {
+      "chance": 0.3
+    },
+    "landsoficaria:forest_moss": {
+      "chance": 0.3
+    },
+    "landsoficaria:garlic": {
+      "chance": 0.65
+    },
+    "landsoficaria:green_ground_shrooms": {
+      "chance": 0.65
+    },
+    "landsoficaria:green_olives": {
+      "chance": 0.3
+    },
+    "landsoficaria:large_brown_grain": {
+      "chance": 0.3
+    },
+    "landsoficaria:large_brown_ground_shrooms": {
+      "chance": 0.65
+    },
+    "landsoficaria:large_grass": {
+      "chance": 0.3
+    },
+    "landsoficaria:laurel_cherry": {
+      "chance": 0.3
+    },
+    "landsoficaria:laurel_cherry_cake": {
+      "chance": 1.0
+    },
+    "landsoficaria:laurel_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:laurel_sapling": {
+      "chance": 0.3
+    },
+    "landsoficaria:laurel_twigs": {
+      "chance": 0.3
+    },
+    "landsoficaria:laurel_wreath": {
+      "chance": 0.3
+    },
+    "landsoficaria:lionfangs": {
+      "chance": 0.3
+    },
+    "landsoficaria:medium_brown_grain": {
+      "chance": 0.3
+    },
+    "landsoficaria:medium_grass": {
+      "chance": 0.3
+    },
+    "landsoficaria:medium_mixed_grain": {
+      "chance": 0.3
+    },
+    "landsoficaria:medium_white_grain": {
+      "chance": 0.3
+    },
+    "landsoficaria:medium_yellow_grain": {
+      "chance": 0.3
+    },
+    "landsoficaria:mondanos": {
+      "chance": 0.65
+    },
+    "landsoficaria:moth_agaric": {
+      "chance": 0.65
+    },
+    "landsoficaria:namdrake": {
+      "chance": 0.65
+    },
+    "landsoficaria:olive_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:olive_sapling": {
+      "chance": 0.3
+    },
+    "landsoficaria:olive_twigs": {
+      "chance": 0.3
+    },
+    "landsoficaria:onion": {
+      "chance": 0.65
+    },
+    "landsoficaria:orange_bromelia": {
+      "chance": 0.3
+    },
+    "landsoficaria:palm_fern": {
+      "chance": 0.65
+    },
+    "landsoficaria:physalis": {
+      "chance": 0.3
+    },
+    "landsoficaria:physalis_cake": {
+      "chance": 1.0
+    },
+    "landsoficaria:physalis_seeds": {
+      "chance": 0.3
+    },
+    "landsoficaria:pink_bromelia": {
+      "chance": 0.3
+    },
+    "landsoficaria:pink_ground_flowers": {
+      "chance": 0.3
+    },
+    "landsoficaria:pink_stormcotton": {
+      "chance": 0.3
+    },
+    "landsoficaria:plane_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:plane_sapling": {
+      "chance": 0.3
+    },
+    "landsoficaria:plane_twigs": {
+      "chance": 0.3
+    },
+    "landsoficaria:populus_leaves": {
+      "chance": 0.3
+    },
+    "landsoficaria:populus_sapling": {
+      "chance": 0.3
+    },
+    "landsoficaria:populus_twigs": {
+      "chance": 0.3
+    },
+    "landsoficaria:psilocybos": {
+      "chance": 0.65
+    },
+    "landsoficaria:purple_bromelia": {
+      "chance": 0.3
+    },
+    "landsoficaria:purple_ground_flowers": {
+      "chance": 0.3
+    },
+    "landsoficaria:purple_hydracinth": {
+      "chance": 0.3
+    },
+    "landsoficaria:purple_staghorn": {
+      "chance": 0.3
+    },
+    "landsoficaria:purple_stormcotton": {
+      "chance": 0.3
+    },
+    "landsoficaria:red_ground_flowers": {
+      "chance": 0.3
+    },
+    "landsoficaria:reedy_vine": {
+      "chance": 0.5
+    },
+    "landsoficaria:rowan": {
+      "chance": 0.65
+    },
+    "landsoficaria:scrubland_moss": {
+      "chance": 0.3
+    },
+    "landsoficaria:small_grass": {
+      "chance": 0.3
+    },
+    "landsoficaria:small_mixed_grain": {
+      "chance": 0.3
+    },
+    "landsoficaria:speardrops": {
+      "chance": 0.3
+    },
+    "landsoficaria:spelt": {
+      "chance": 0.65
+    },
+    "landsoficaria:spelt_bale_block": {
+      "chance": 0.85
+    },
+    "landsoficaria:spelt_bread": {
+      "chance": 0.85
+    },
+    "landsoficaria:spelt_seeds": {
+      "chance": 0.3
+    },
+    "landsoficaria:steppe_moss": {
+      "chance": 0.3
+    },
+    "landsoficaria:strawberries": {
+      "chance": 0.3
+    },
+    "landsoficaria:strawberry_cake": {
+      "chance": 1.0
+    },
+    "landsoficaria:strawberry_seeds": {
+      "chance": 0.3
+    },
+    "landsoficaria:sunkettle": {
+      "chance": 0.3
+    },
+    "landsoficaria:sunsponge": {
+      "chance": 0.3
+    },
+    "landsoficaria:swirly_vine": {
+      "chance": 0.5
+    },
+    "landsoficaria:thorny_vine": {
+      "chance": 0.5
+    },
+    "landsoficaria:tinder_fungus_tree_shrooms": {
+      "chance": 0.65
+    },
+    "landsoficaria:turkey_tail_tree_shrooms": {
+      "chance": 0.65
+    },
+    "landsoficaria:unnamed_tree_shrooms": {
+      "chance": 0.65
+    },
+    "landsoficaria:vine_berry_cake": {
+      "chance": 1.0
+    },
+    "landsoficaria:vine_reed": {
+      "chance": 0.5
+    },
+    "landsoficaria:vine_reed_block": {
+      "chance": 0.85
+    },
+    "landsoficaria:vine_sprout": {
+      "chance": 0.3
+    },
+    "landsoficaria:vine_sprout_cake": {
+      "chance": 1.0
+    },
+    "landsoficaria:vineberries": {
+      "chance": 0.3
+    },
+    "landsoficaria:voidlily": {
+      "chance": 0.3
+    },
+    "landsoficaria:white_bromelia": {
+      "chance": 0.3
+    },
+    "landsoficaria:white_ground_flowers": {
+      "chance": 0.3
+    },
+    "landsoficaria:wilted_elm": {
+      "chance": 0.65
+    },
+    "landsoficaria:yellow_staghorn": {
+      "chance": 0.3
+    }
+  }
+}

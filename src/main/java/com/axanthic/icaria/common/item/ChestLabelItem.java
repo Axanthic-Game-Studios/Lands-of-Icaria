@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.item;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -29,7 +30,7 @@ public class ChestLabelItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         var stack = pPlayer.getItemInHand(pUsedHand);
         if (pPlayer.isShiftKeyDown()) {
-            stack.resetHoverName();
+            stack.remove(DataComponents.CUSTOM_NAME);
             return InteractionResultHolder.success(stack);
         } else {
             return InteractionResultHolder.fail(stack);

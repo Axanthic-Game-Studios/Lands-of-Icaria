@@ -37,11 +37,11 @@ public class TotemItem extends Item {
         var itemStack = new ItemStack(this);
         var minecraft = Minecraft.getInstance();
         var clientLevel = minecraft.level;
-        if (pEntity instanceof LocalPlayer) {
+        if (pEntity instanceof LocalPlayer localPlayer) {
             minecraft.gameRenderer.displayItemActivation(itemStack);
-            minecraft.particleEngine.createTrackingEmitter(pEntity, ParticleTypes.TOTEM_OF_UNDYING, 30);
+            minecraft.particleEngine.createTrackingEmitter(localPlayer, ParticleTypes.TOTEM_OF_UNDYING, 30);
             if (clientLevel != null) {
-                clientLevel.playLocalSound(pEntity.getX(), pEntity.getY(), pEntity.getZ(), SoundEvents.TOTEM_USE, pEntity.getSoundSource(), 1.0F, 1.0F, false);
+                clientLevel.playLocalSound(localPlayer.getX(), localPlayer.getY(), localPlayer.getZ(), SoundEvents.TOTEM_USE, localPlayer.getSoundSource(), 1.0F, 1.0F, false);
             }
         }
     }

@@ -37,6 +37,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("deprecation")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -46,9 +48,11 @@ public class HyliasterEntity extends Monster {
     public int minSize = 1;
     public int minTick = 0;
 
-    public float bboxMult;
-    public float eyesMult;
-    public float sizeMult;
+    public float aabbMult = 0.2F;
+    public float renderMult = 0.25F;
+    public float shadowMult = 0.15F;
+    public float sizeMult = 0.75F;
+    public float sizeMultInverted = 0.25F;
 
     public AnimationState moveAnimationState = new AnimationState();
 
@@ -57,9 +61,6 @@ public class HyliasterEntity extends Monster {
 
     public HyliasterEntity(EntityType<? extends HyliasterEntity> pType, Level pLevel) {
         super(pType, pLevel);
-        this.bboxMult = 1.125F;
-        this.eyesMult = 0.125F;
-        this.sizeMult = 0.175F;
     }
 
     @Override
@@ -81,27 +82,33 @@ public class HyliasterEntity extends Monster {
         return false;
     }
 
-    public float getInverseSize() {
-        return (this.getSize() * -1.0F) + 5.0F;
+    public float getSizeInverted() {
+        return this.getSize() * -1.0F + 5.0F;
     }
 
-    @Override
-    public float getScale() {
-        return this.getScaleFromSize() * this.bboxMult;
+    public float getScaleForRender() {
+        return this.getScaleFromSize() * this.renderMult;
+    }
+
+    public float getScaleForShadow() {
+        return this.getScaleFromSize() * this.shadowMult;
     }
 
     public float getScaleFromSize() {
-        return (this.getSize() + (this.getInverseSize() * this.sizeMult)) - 0.5F;
+        return this.getSizeWithMultInverted() + this.getSizeWithMult();
     }
 
-    @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
-        return this.getScaleFromSize() * this.eyesMult;
+    public float getSizeWithMult() {
+        return this.getSize() * this.sizeMult;
+    }
+
+    public float getSizeWithMultInverted() {
+        return this.getSizeInverted() * this.sizeMultInverted;
     }
 
     @Override
     public float getVoicePitch() {
-        return (this.getInverseSize() * 0.25F) + 0.75F;
+        return this.getSizeWithMultInverted() + 0.75F;
     }
 
     public int getSize() {
@@ -145,10 +152,10 @@ public class HyliasterEntity extends Monster {
     }
 
     @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(HyliasterEntity.SIZE, this.minSize);
-        this.entityData.define(HyliasterEntity.TICK, this.minTick);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(HyliasterEntity.SIZE, this.minSize);
+        pBuilder.define(HyliasterEntity.TICK, this.minTick);
     }
 
     @Override
@@ -243,6 +250,12 @@ public class HyliasterEntity extends Monster {
     }
 
     @Override
+    public EntityDimensions getDefaultDimensions(Pose pPose) {
+        float scale = this.getScaleFromSize() * this.aabbMult;
+        return this.getType().getDimensions().scale(scale);
+    }
+
+    @Override
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.is(IcariaItems.EMPTY_VIAL.get())) {
@@ -269,9 +282,9 @@ public class HyliasterEntity extends Monster {
     }
 
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        this.setSize(this.maxSize);
-        this.setTick(this.maxTick);
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
+        this.setSize(this.random.nextIntBetweenInclusive(0, 4));
+        this.setTick(this.random.nextIntBetweenInclusive(0, 64000));
+        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
     }
 }

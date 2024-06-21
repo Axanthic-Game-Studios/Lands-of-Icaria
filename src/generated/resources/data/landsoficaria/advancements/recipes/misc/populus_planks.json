@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:populus_log"
-            ]
+            "items": "landsoficaria:populus_log"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:populus_wood"
-            ]
+            "items": "landsoficaria:populus_wood"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:stripped_populus_log"
-            ]
+            "items": "landsoficaria:stripped_populus_log"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:stripped_populus_wood"
-            ]
+            "items": "landsoficaria:stripped_populus_wood"
           }
         ]
       },

@@ -5,12 +5,10 @@
   "ingredients": [
     {
       "item": "landsoficaria:kassiteros_leggings"
-    },
-    [],
-    []
+    }
   ],
   "output": {
-    "Count": 1,
+    "count": 1,
     "id": "landsoficaria:kassiteros_nugget"
   }
 }

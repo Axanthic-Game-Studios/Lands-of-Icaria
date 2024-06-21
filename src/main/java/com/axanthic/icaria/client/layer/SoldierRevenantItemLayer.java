@@ -1,8 +1,8 @@
 package com.axanthic.icaria.client.layer;
 
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.model.SoldierRevenantModel;
 import com.axanthic.icaria.common.entity.SoldierRevenantEntity;
-import com.axanthic.icaria.client.helper.IcariaClientHelper;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 

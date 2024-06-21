@@ -5,12 +5,10 @@
   "ingredients": [
     {
       "item": "landsoficaria:raw_molybdenum"
-    },
-    [],
-    []
+    }
   ],
   "output": {
-    "Count": 1,
+    "count": 1,
     "id": "landsoficaria:molybdenum_ingot"
   }
 }

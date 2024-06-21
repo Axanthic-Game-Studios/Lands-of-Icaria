@@ -8,14 +8,15 @@ import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
@@ -52,7 +53,23 @@ public class ConcoctingEntityRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        return !pLevel.isClientSide() && this.ingredients.get(0).test(pContainer.getItem(0)) && this.ingredients.get(1).test(pContainer.getItem(1)) && this.ingredients.get(2).test(pContainer.getItem(2));
+        return this.matches(pContainer) && !pLevel.isClientSide();
+    }
+
+    public boolean matches(SimpleContainer pContainer) {
+        return this.ingredients.size() < 3 ? this.ingredients.size() < 2 ? this.matchesSingle(pContainer) : this.matchesDouble(pContainer) : this.matchesTriple(pContainer);
+    }
+
+    public boolean matchesSingle(SimpleContainer pContainer) {
+        return this.ingredients.get(0).test(pContainer.getItem(0)) && pContainer.getItem(1).isEmpty() && pContainer.getItem(2).isEmpty();
+    }
+
+    public boolean matchesDouble(SimpleContainer pContainer) {
+        return this.ingredients.get(0).test(pContainer.getItem(0)) && this.ingredients.get(1).test(pContainer.getItem(1)) && pContainer.getItem(2).isEmpty();
+    }
+
+    public boolean matchesTriple(SimpleContainer pContainer) {
+        return this.ingredients.get(0).test(pContainer.getItem(0)) && this.ingredients.get(1).test(pContainer.getItem(1)) && this.ingredients.get(2).test(pContainer.getItem(2));
     }
 
     public int getBurnTime() {
@@ -67,32 +84,32 @@ public class ConcoctingEntityRecipe implements Recipe<SimpleContainer> {
         var optional = EntityType.byString(this.entity);
         if (optional.isPresent()) {
             var entity = optional.get().create(pLevel);
-            if (entity != null) {
+            if (entity instanceof LivingEntity livingEntity) {
                 var state = pLevel.getBlockState(pPos);
                 if (state.getBlock() instanceof KettleBlock kettleBlock) {
                     var blockPos = pPos.offset(pLevel.getRandom().nextInt(8) - 4, 0, pLevel.getRandom().nextInt(8) - 4);
                     if (this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.CAPTAIN_REVENANT.get()).toString())) {
-                        entity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.ORICHALCUM_TOOLS.sword.get()));
-                        entity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
+                        livingEntity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.ORICHALCUM_TOOLS.sword.get()));
+                        livingEntity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
                         pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
-                        pLevel.addFreshEntity(entity);
+                        pLevel.addFreshEntity(livingEntity);
                     } else if (this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.CRAWLER_REVENANT.get()).toString()) || this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.MYRMEKE_SOLDIER.get()).toString())) {
-                        entity.moveTo(blockPos, 0.0F, 0.0F);
-                        pLevel.addFreshEntity(entity);
+                        livingEntity.moveTo(blockPos, 0.0F, 0.0F);
+                        pLevel.addFreshEntity(livingEntity);
                     } else if (this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get()).toString())) {
-                        entity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
-                        entity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
+                        livingEntity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
+                        livingEntity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
                         pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
-                        pLevel.addFreshEntity(entity);
+                        pLevel.addFreshEntity(livingEntity);
                     } else if (this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.SOLDIER_REVENANT.get()).toString())) {
-                        entity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.KASSITEROS_TOOLS.sword.get()));
-                        entity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
+                        livingEntity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.KASSITEROS_TOOLS.sword.get()));
+                        livingEntity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
                         pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
-                        pLevel.addFreshEntity(entity);
+                        pLevel.addFreshEntity(livingEntity);
                     } else {
-                        entity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
+                        livingEntity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
                         pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
-                        pLevel.addFreshEntity(entity);
+                        pLevel.addFreshEntity(livingEntity);
                     }
                 }
             }
@@ -100,12 +117,12 @@ public class ConcoctingEntityRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
+    public ItemStack assemble(SimpleContainer pContainer, HolderLookup.Provider pProvider) {
         return ItemStack.EMPTY;
     }
 
     @Override
-    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+    public ItemStack getResultItem(HolderLookup.Provider pProvider) {
         return ItemStack.EMPTY;
     }
 

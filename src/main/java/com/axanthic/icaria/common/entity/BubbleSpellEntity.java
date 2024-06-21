@@ -31,8 +31,8 @@ public class BubbleSpellEntity extends ThrowableProjectile {
     }
 
     @Override
-    public float getGravity() {
-        return 0.0F;
+    public double getDefaultGravity() {
+        return 0.0D;
     }
 
     public int getAge() {
@@ -46,8 +46,8 @@ public class BubbleSpellEntity extends ThrowableProjectile {
     }
 
     @Override
-    public void defineSynchedData() {
-        this.entityData.define(BubbleSpellEntity.AGE, this.minAge);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        pBuilder.define(BubbleSpellEntity.AGE, this.minAge);
     }
 
     @Override

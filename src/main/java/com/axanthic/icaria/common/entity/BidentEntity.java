@@ -5,7 +5,6 @@ import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.Util;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -16,7 +15,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
@@ -29,20 +27,26 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class BidentEntity extends AbstractArrow {
-	public boolean dealtDamage;
-
-	public static final EntityDataAccessor<ItemStack> ITEM_STACK = SynchedEntityData.defineId(BidentEntity.class, EntityDataSerializers.ITEM_STACK);
-
-	public ItemStack stack = new ItemStack(IcariaItems.CHALKOS_TOOLS.bident.get());
+	public static final EntityDataAccessor<Boolean> DEALT = SynchedEntityData.defineId(BidentEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<ItemStack> STACK = SynchedEntityData.defineId(BidentEntity.class, EntityDataSerializers.ITEM_STACK);
 
 	public BidentEntity(EntityType<? extends BidentEntity> pType, Level pLevel) {
-		super(pType, pLevel, new ItemStack(IcariaItems.CHALKOS_TOOLS.bident.get()));
+		super(pType, pLevel);
 	}
 
 	public BidentEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
 		super(IcariaEntityTypes.BIDENT.get(), pEntity, pLevel, pStack);
-		this.stack = pStack.copy();
-		this.entityData.set(BidentEntity.ITEM_STACK, this.stack);
+		this.setDealt(false);
+		this.setStack(pStack);
+	}
+
+	public boolean getDealt() {
+		return this.getEntityData().get(BidentEntity.DEALT);
+	}
+
+	@Override
+	public boolean shouldRender(double pX, double pY, double pZ) {
+		return true;
 	}
 
 	@Override
@@ -51,30 +55,39 @@ public class BidentEntity extends AbstractArrow {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompound) {
-		super.addAdditionalSaveData(pCompound);
-		var itemStack = this.getRawItem();
-		pCompound.putBoolean("DealtDamage", this.dealtDamage);
-		if (!itemStack.isEmpty()) {
-			pCompound.put("Bident", itemStack.save(new CompoundTag()));
-		}
+	public float getWaterInertia() {
+		return 0.99F;
 	}
 
 	@Override
-	public void defineSynchedData() {
-		super.defineSynchedData();
-		this.getEntityData().define(BidentEntity.ITEM_STACK, ItemStack.EMPTY);
+	public void addAdditionalSaveData(CompoundTag pCompound) {
+		super.addAdditionalSaveData(pCompound);
+		pCompound.putBoolean("Dealt", this.getDealt());
+		pCompound.put("Stack", this.getStack().save(this.registryAccess()));
+	}
+
+	@Override
+	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+		super.defineSynchedData(pBuilder);
+		pBuilder.define(BidentEntity.DEALT, false);
+		pBuilder.define(BidentEntity.STACK, new ItemStack(this.getDefaultPickupItem().getItem()));
 	}
 
 	@Override
 	public void onHitEntity(EntityHitResult pResult) {
-		float damage = ((BidentItem) this.stack.getItem()).attackDamage;
+		float damage = 1.0F;
 
+		var item = this.getStack();
 		var owner = this.getOwner();
+
 		var target = pResult.getEntity();
 
+		if (item.getItem() instanceof BidentItem bidentItem) {
+			damage += bidentItem.getTier().getAttackDamageBonus() + 3.5F;
+		}
+
 		if (target instanceof LivingEntity livingEntity) {
-			damage += EnchantmentHelper.getDamageBonus(this.stack, livingEntity.getMobType());
+			damage += EnchantmentHelper.getDamageBonus(item, livingEntity.getType());
 		}
 
 		if (target.hurt(this.damageSources().trident(this, owner == null ? this : owner), damage)) {
@@ -83,14 +96,14 @@ public class BidentEntity extends AbstractArrow {
 			}
 		}
 
-		this.dealtDamage = true;
 		this.playSound(SoundEvents.TRIDENT_HIT, 0.1F, 1.0F);
+		this.setDealt(true);
 		this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
 	}
 
 	@Override
 	public void playerTouch(Player pEntity) {
-		if (this.ownedBy(pEntity) || this.getOwner() == null) {
+		if (this.getOwner() == null || this.ownedBy(pEntity)) {
 			super.playerTouch(pEntity);
 		}
 	}
@@ -98,14 +111,16 @@ public class BidentEntity extends AbstractArrow {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompound) {
 		super.readAdditionalSaveData(pCompound);
-		this.setItem(ItemStack.of(pCompound.getCompound("Bident")));
-		pCompound.putBoolean("DealtDamage", this.dealtDamage);
+		this.setDealt(pCompound.getBoolean("Dealt"));
+		ItemStack.parse(this.registryAccess(), pCompound.getCompound("Stack")).ifPresent(this::setStack);
 	}
 
-	public void setItem(ItemStack pStack) {
-		if (!pStack.is(this.getDefaultItem()) || pStack.hasTag()) {
-			this.getEntityData().set(BidentEntity.ITEM_STACK, Util.make(pStack.copy(), (pItemStack) -> pItemStack.setCount(1)));
-		}
+	public void setDealt(boolean pDealt) {
+		this.getEntityData().set(BidentEntity.DEALT, pDealt);
+	}
+
+	public void setStack(ItemStack pStack) {
+		this.getEntityData().set(BidentEntity.STACK, pStack.copy());
 	}
 
 	@Override
@@ -117,25 +132,16 @@ public class BidentEntity extends AbstractArrow {
 
 	@Override
 	public EntityHitResult findHitEntity(Vec3 pStartVec, Vec3 pEndVec) {
-		return this.dealtDamage ? null : super.findHitEntity(pStartVec, pEndVec);
+		return this.getDealt() ? null : super.findHitEntity(pStartVec, pEndVec);
 	}
 
-	public Item getDefaultItem() {
-		return this.stack.getItem();
-	}
-
-	public ItemStack getItem() {
-		var itemStack = this.getRawItem();
-		return itemStack.isEmpty() ? new ItemStack(this.getDefaultItem()) : itemStack;
+	public ItemStack getStack() {
+		return this.getEntityData().get(BidentEntity.STACK);
 	}
 
 	@Override
-	public ItemStack getPickupItem() {
-		return this.stack.copy();
-	}
-
-	public ItemStack getRawItem() {
-		return this.getEntityData().get(BidentEntity.ITEM_STACK);
+	public ItemStack getDefaultPickupItem() {
+		return new ItemStack(IcariaItems.CHERT_TOOLS.bident.get());
 	}
 
 	@Override

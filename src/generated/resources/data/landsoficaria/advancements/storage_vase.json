@@ -195,7 +195,8 @@
       "translate": "advancement.landsoficaria.storage_vase.description"
     },
     "icon": {
-      "item": "landsoficaria:storage_vase"
+      "count": 1,
+      "id": "landsoficaria:storage_vase"
     },
     "title": {
       "translate": "advancement.landsoficaria.storage_vase.title"

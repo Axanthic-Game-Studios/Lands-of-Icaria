@@ -22,7 +22,8 @@
       "translate": "advancement.landsoficaria.arachne.description"
     },
     "icon": {
-      "item": "landsoficaria:arachne_string"
+      "count": 1,
+      "id": "landsoficaria:arachne_string"
     },
     "title": {
       "translate": "advancement.landsoficaria.arachne.title"

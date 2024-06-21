@@ -1,10 +1,10 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.client.layer.ArachneEmissiveLayer;
 import com.axanthic.icaria.client.model.ArachneModel;
+import com.axanthic.icaria.client.registry.IcariaLayerLocations;
 import com.axanthic.icaria.common.entity.ArachneEntity;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

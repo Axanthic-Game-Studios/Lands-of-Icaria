@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:smooth_relicstone"
-            ]
+            "items": "landsoficaria:smooth_relicstone"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:quartz"
-            ]
+            "items": "minecraft:quartz"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:redstone_torch"
-            ]
+            "items": "minecraft:redstone_torch"
           }
         ]
       },

@@ -4,7 +4,7 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
@@ -21,7 +21,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaStructureSets {
 	public static final ResourceKey<StructureSet> VILLAGES = IcariaStructureSets.registerKey("villages");
 
-	public static void bootstrap(BootstapContext<StructureSet> pContext) {
+	public static void bootstrap(BootstrapContext<StructureSet> pContext) {
 		var structures = pContext.lookup(Registries.STRUCTURE);
 		pContext.register(IcariaStructureSets.VILLAGES, new StructureSet(List.of(
 			StructureSet.entry(structures.getOrThrow(IcariaStructures.FOREST_ERODED), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.FOREST_RUINED), 1),

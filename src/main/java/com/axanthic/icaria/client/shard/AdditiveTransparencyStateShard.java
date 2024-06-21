@@ -12,7 +12,7 @@ public class AdditiveTransparencyStateShard extends RenderStateShard.Transparenc
                 RenderSystem.depthMask(false);
                 RenderSystem.enableBlend();
                 RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);
-                }, () -> {
+            }, () -> {
                 RenderSystem.depthMask(true);
                 RenderSystem.disableBlend();
                 RenderSystem.defaultBlendFunc();

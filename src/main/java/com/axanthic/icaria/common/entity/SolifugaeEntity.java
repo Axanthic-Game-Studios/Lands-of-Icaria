@@ -13,7 +13,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -64,14 +65,9 @@ public class SolifugaeEntity extends IcariaArachnidEntity {
     }
 
     @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
-        return 0.5F;
-    }
-
-    @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(SolifugaeEntity.CLIMBING, (byte) 0);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(SolifugaeEntity.CLIMBING, (byte) 0);
     }
 
     @Override
@@ -119,11 +115,6 @@ public class SolifugaeEntity extends IcariaArachnidEntity {
 
     public static AttributeSupplier.Builder registerAttributes() {
         return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.MAX_HEALTH, 24.0D).add(Attributes.MOVEMENT_SPEED, 0.375D);
-    }
-
-    @Override
-    public MobType getMobType() {
-        return MobType.ARTHROPOD;
     }
 
     @Override

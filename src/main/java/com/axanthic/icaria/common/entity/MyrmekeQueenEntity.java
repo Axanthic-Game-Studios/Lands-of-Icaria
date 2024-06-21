@@ -17,7 +17,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -80,15 +81,10 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
-        return 0.25F;
-    }
-
-    @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(MyrmekeQueenEntity.CLIMBING, (byte) 0);
-        this.entityData.define(MyrmekeQueenEntity.SPELL, (byte) 0);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(MyrmekeQueenEntity.CLIMBING, (byte) 0);
+        pBuilder.define(MyrmekeQueenEntity.SPELL, (byte) 0);
     }
 
     @Override
@@ -150,11 +146,6 @@ public class MyrmekeQueenEntity extends Monster {
 
     public static AttributeSupplier.Builder registerAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
-    }
-
-    @Override
-    public MobType getMobType() {
-        return MobType.ARTHROPOD;
     }
 
     @Override

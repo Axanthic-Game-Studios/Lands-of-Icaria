@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:ender_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:ender_jellyfish_jelly"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:fire_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:fire_jellyfish_jelly"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:nature_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:nature_jellyfish_jelly"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:void_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:void_jellyfish_jelly"
           }
         ]
       },
@@ -53,9 +45,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:water_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:water_jellyfish_jelly"
           }
         ]
       },
@@ -65,9 +55,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:blaze_powder"
-            ]
+            "items": "minecraft:blaze_powder"
           }
         ]
       },

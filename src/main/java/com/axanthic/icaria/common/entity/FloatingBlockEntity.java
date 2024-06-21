@@ -80,22 +80,22 @@ public class FloatingBlockEntity extends Entity {
 
     @Override
     public void addAdditionalSaveData(CompoundTag pCompound) {
-        pCompound.put("BlockState", NbtUtils.writeBlockState(this.getBlockState()));
         pCompound.put("BlockPos", NbtUtils.writeBlockPos(this.getBlockPos()));
+        pCompound.put("BlockState", NbtUtils.writeBlockState(this.getBlockState()));
         pCompound.putInt("Tick", this.getTick());
     }
 
     @Override
-    public void defineSynchedData() {
-        this.entityData.define(FloatingBlockEntity.BLOCK_POS, BlockPos.ZERO);
-        this.entityData.define(FloatingBlockEntity.BLOCK_STATE, Blocks.AIR.defaultBlockState());
-        this.entityData.define(FloatingBlockEntity.TICK, this.minTick);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        pBuilder.define(FloatingBlockEntity.BLOCK_POS, BlockPos.ZERO);
+        pBuilder.define(FloatingBlockEntity.BLOCK_STATE, Blocks.AIR.defaultBlockState());
+        pBuilder.define(FloatingBlockEntity.TICK, this.minTick);
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag pCompound) {
+        NbtUtils.readBlockPos(pCompound, "BlockPos").ifPresent(this::setBlockPos);
         this.setBlockState(NbtUtils.readBlockState(this.level().holderLookup(Registries.BLOCK), pCompound.getCompound("BlockState")));
-        this.setBlockPos(NbtUtils.readBlockPos(pCompound.getCompound("BlockPos")));
         this.setTick(pCompound.getInt("Tick"));
     }
 

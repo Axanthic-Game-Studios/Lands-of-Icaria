@@ -5,7 +5,7 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.MobCategory;
@@ -24,9 +24,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-// TODO MC-186626
-// set temperatures to zero
-
 public class IcariaBiomes {
 	public static final ResourceKey<Biome> FOREST = IcariaBiomes.registerKey("forest");
 	public static final ResourceKey<Biome> FOREST_PLATEAU = IcariaBiomes.registerKey("forest_plateau");
@@ -38,7 +35,7 @@ public class IcariaBiomes {
 	public static final ResourceKey<Biome> DESERT_PLATEAU = IcariaBiomes.registerKey("desert_plateau");
 	public static final ResourceKey<Biome> VOID = IcariaBiomes.registerKey("void");
 
-	public static void bootstrap(BootstapContext<Biome> pContext) {
+	public static void bootstrap(BootstrapContext<Biome> pContext) {
 		var configuredCarvers = pContext.lookup(Registries.CONFIGURED_CARVER);
 		var placedFeatures = pContext.lookup(Registries.PLACED_FEATURE);
 

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:blindweed"
-            ]
+            "items": "landsoficaria:blindweed"
           }
         ]
       },

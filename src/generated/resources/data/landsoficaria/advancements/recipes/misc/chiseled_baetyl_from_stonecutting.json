@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:baetyl"
-            ]
+            "items": "landsoficaria:baetyl"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:baetyl_bricks"
-            ]
+            "items": "landsoficaria:baetyl_bricks"
           }
         ]
       },

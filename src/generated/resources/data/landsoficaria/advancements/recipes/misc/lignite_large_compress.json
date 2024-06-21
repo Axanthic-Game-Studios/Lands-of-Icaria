@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:lignite"
-            ]
+            "items": "landsoficaria:lignite"
           }
         ]
       },

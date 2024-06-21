@@ -1,10 +1,11 @@
 package com.axanthic.icaria.data.loot;
 
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaLootTables;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.LootTableSubProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -22,8 +23,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaLootVaseLoot implements LootTableSubProvider {
 
     @Override
-    public void generate(BiConsumer<ResourceLocation, LootTable.Builder> pConsumer) {
-        pConsumer.accept(IcariaResourceLocations.RED_LOOT_VASE_LOOT, LootTable.lootTable()
+    public void generate(HolderLookup.Provider pProvider, BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pConsumer) {
+        pConsumer.accept(IcariaLootTables.RED_LOOT_VASE_LOOT, LootTable.lootTable()
             .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 5.0F))
                 .add(LootItem.lootTableItem(IcariaItems.LOAM_LUMP.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                 .add(LootItem.lootTableItem(IcariaItems.CHERT.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
@@ -60,7 +61,7 @@ public class IcariaLootVaseLoot implements LootTableSubProvider {
             )
         );
 
-        pConsumer.accept(IcariaResourceLocations.CYAN_LOOT_VASE_LOOT, LootTable.lootTable()
+        pConsumer.accept(IcariaLootTables.CYAN_LOOT_VASE_LOOT, LootTable.lootTable()
             .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 5.0F))
                 .add(LootItem.lootTableItem(IcariaItems.BONE_REMAINS.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
                 .add(LootItem.lootTableItem(IcariaItems.CALCITE_SHARD.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))

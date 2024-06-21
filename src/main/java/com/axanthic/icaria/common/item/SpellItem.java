@@ -41,6 +41,7 @@ public class SpellItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         var itemStack = pPlayer.getItemInHand(pUsedHand);
         if (!pLevel.isClientSide()) {
+            pPlayer.playSound(SoundEvents.SNOWBALL_THROW);
             if (this.getEntity().create(pLevel) instanceof SpellEntity spellEntity) {
                 spellEntity.moveTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
                 spellEntity.setColor(this.color);
@@ -55,7 +56,6 @@ public class SpellItem extends Item {
             }
         }
 
-        pPlayer.playSound(SoundEvents.SNOWBALL_THROW);
         return InteractionResultHolder.sidedSuccess(itemStack, pLevel.isClientSide());
     }
 }

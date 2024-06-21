@@ -28,8 +28,6 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("deprecation")
-
 @ParametersAreNonnullByDefault
 
 public class IcariaPortalBlock extends Block {

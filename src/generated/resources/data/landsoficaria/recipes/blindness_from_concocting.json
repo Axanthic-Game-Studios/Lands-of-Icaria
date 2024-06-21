@@ -13,7 +13,9 @@
       "item": "landsoficaria:rowan"
     }
   ],
-  "potion": "landsoficaria:blindness",
+  "potion": {
+    "potion": "landsoficaria:blindness"
+  },
   "potionDuration": 200,
   "potionRadius": 5.0
 }

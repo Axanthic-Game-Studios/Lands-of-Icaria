@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:sunkettle"
-            ]
+            "items": "landsoficaria:sunkettle"
           }
         ]
       },

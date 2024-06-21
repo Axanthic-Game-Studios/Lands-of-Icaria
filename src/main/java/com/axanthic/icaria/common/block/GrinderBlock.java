@@ -18,7 +18,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -74,7 +73,7 @@ public class GrinderBlock extends BaseEntityBlock {
 	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
 		if (pState.getValue(IcariaBlockStateProperties.GRINDER_GRINDING)) {
 			if (pLevel.getBlockEntity(pPos) instanceof GrinderBlockEntity blockEntity) {
-				var itemStack = blockEntity.stackHandler.getStackInSlot(0);
+				var itemStack = blockEntity.inputHandler.getStackInSlot(0);
 				if (!itemStack.isEmpty()) {
 					pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pPos.getX() + 0.5D, pPos.getY() + 1.0D, pPos.getZ() + 0.5D, 0.0D, 0.25D, 0.0D);
 				}
@@ -168,7 +167,7 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+	public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
 		var blockEntityPosition = GrinderBlock.getBlockEntityPosition(pState, pPos);
 		var blockEntity = pLevel.getBlockEntity(blockEntityPosition);
 		if (!pLevel.isClientSide()) {

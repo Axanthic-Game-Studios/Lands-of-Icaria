@@ -22,7 +22,8 @@
       "translate": "advancement.landsoficaria.captain_revenant.description"
     },
     "icon": {
-      "item": "landsoficaria:revenant_skull"
+      "count": 1,
+      "id": "landsoficaria:revenant_skull"
     },
     "title": {
       "translate": "advancement.landsoficaria.captain_revenant.title"

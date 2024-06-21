@@ -8,7 +8,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
@@ -41,7 +41,7 @@ public class IcariaLevelStems {
 
     public static final ResourceKey<LevelStem> ICARIA = ResourceKey.create(Registries.LEVEL_STEM, new ResourceLocation(IcariaInfo.ID, "icaria"));
 
-    public static void bootstrap(BootstapContext<LevelStem> pContext) {
+    public static void bootstrap(BootstrapContext<LevelStem> pContext) {
         var biomes = pContext.lookup(Registries.BIOME);
         pContext.register(IcariaLevelStems.ICARIA, new LevelStem(pContext.lookup(Registries.DIMENSION_TYPE).getOrThrow(IcariaDimensionTypes.ICARIA), new NoiseBasedChunkGenerator(MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(List.of(IcariaLevelStems.forestParameters(biomes), IcariaLevelStems.forestPlateauParameters(biomes), IcariaLevelStems.scrublandParameters(biomes), IcariaLevelStems.scrublandPlateauParameters(biomes), IcariaLevelStems.steppeParameters(biomes), IcariaLevelStems.steppePlateauParameters(biomes), IcariaLevelStems.desertParameters(biomes), IcariaLevelStems.desertPlateauParameters(biomes), IcariaLevelStems.voidParameters(biomes)))), pContext.lookup(Registries.NOISE_SETTINGS).getOrThrow(IcariaNoiseSettings.ICARIA))));
     }

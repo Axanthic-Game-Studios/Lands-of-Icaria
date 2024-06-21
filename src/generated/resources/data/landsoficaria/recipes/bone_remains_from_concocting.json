@@ -8,11 +8,10 @@
     },
     {
       "item": "landsoficaria:dathulla"
-    },
-    []
+    }
   ],
   "output": {
-    "Count": 1,
+    "count": 1,
     "id": "landsoficaria:bone_remains"
   }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:marl_adobe"
-            ]
+            "items": "landsoficaria:marl_adobe"
           }
         ]
       },

@@ -20,7 +20,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -139,6 +139,7 @@ public class KettleBlock extends BaseEntityBlock {
                         if (item.is(IcariaItemTags.KETTLE_ITEMS)) {
                             var itemStack = new ItemStack(item.getItem());
                             item.shrink(1);
+                            kettleBlockEntity.resetProgress();
                             kettleBlockEntity.deque.offer(itemStack);
                             pLevel.playSound(null, pPos, SoundEvents.VILLAGER_WORK_LEATHERWORKER, SoundSource.BLOCKS);
                             pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true));
@@ -227,13 +228,14 @@ public class KettleBlock extends BaseEntityBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pResult) {
         var item = pPlayer.getItemInHand(pHand);
         if (pLevel.getBlockEntity(pPos) instanceof KettleBlockEntity kettleBlockEntity) {
             if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
                 if (pState.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.EMPTY) {
                     if (item.is(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get())) {
                         var itemStack = new ItemStack(Items.BUCKET);
+                        kettleBlockEntity.resetProgress();
                         kettleBlockEntity.deque.clear();
                         pLevel.playSound(null, pPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
                         pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.FILLED).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER));
@@ -242,10 +244,13 @@ public class KettleBlock extends BaseEntityBlock {
                         if (!pPlayer.isCreative()) {
                             pPlayer.setItemInHand(pHand, itemStack);
                         }
+
+                        return ItemInteractionResult.SUCCESS;
                     }
                 } else {
                     if (item.is(IcariaItemTags.KETTLE_ITEMS)) {
                         var itemStack = new ItemStack(item.getItem());
+                        kettleBlockEntity.resetProgress();
                         kettleBlockEntity.deque.offer(itemStack);
                         pLevel.playSound(null, pPos, SoundEvents.VILLAGER_WORK_LEATHERWORKER, SoundSource.BLOCKS);
                         pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true));
@@ -254,18 +259,21 @@ public class KettleBlock extends BaseEntityBlock {
                         if (!pPlayer.isCreative()) {
                             item.shrink(1);
                         }
+
+                        return ItemInteractionResult.SUCCESS;
                     }
+
+                    return ItemInteractionResult.FAIL;
                 }
 
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.FAIL;
+			}
 
-            } else {
-                return InteractionResult.PASS;
-            }
-        } else {
-            return InteractionResult.PASS;
-        }
-    }
+            return ItemInteractionResult.FAIL;
+		}
+
+		return ItemInteractionResult.FAIL;
+	}
 
     @Override
     public MapCodec<? extends BaseEntityBlock> codec() {

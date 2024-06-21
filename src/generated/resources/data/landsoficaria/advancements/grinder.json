@@ -19,7 +19,8 @@
       "translate": "advancement.landsoficaria.grinder.description"
     },
     "icon": {
-      "item": "landsoficaria:grinder"
+      "count": 1,
+      "id": "landsoficaria:grinder"
     },
     "title": {
       "translate": "advancement.landsoficaria.grinder.title"

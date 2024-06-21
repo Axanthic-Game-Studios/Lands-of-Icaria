@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -63,11 +64,11 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
     }
 
     @Override
-    public void load(@Nonnull CompoundTag pTag) {
-        super.load(pTag);
+    public void loadAdditional(@Nonnull CompoundTag pTag, @Nonnull HolderLookup.Provider pProvider) {
+        super.loadAdditional(pTag, pProvider);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         if (!this.tryLoadLootTable(pTag)) {
-            ContainerHelper.loadAllItems(pTag, this.items);
+            ContainerHelper.loadAllItems(pTag, this.items, pProvider);
         }
 
         if (pTag.contains("TextUp")) {
@@ -92,10 +93,10 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
     }
 
     @Override
-    public void saveAdditional(@Nonnull CompoundTag pTag) {
-        super.saveAdditional(pTag);
+    public void saveAdditional(@Nonnull CompoundTag pTag, @Nonnull HolderLookup.Provider pProvider) {
+        super.saveAdditional(pTag, pProvider);
         if (!this.trySaveLootTable(pTag)) {
-            ContainerHelper.saveAllItems(pTag, this.items);
+            ContainerHelper.saveAllItems(pTag, this.items, pProvider);
         }
 
         if (this.textUp != null) {
@@ -150,8 +151,8 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
     }
 
     @Override
-    public @Nonnull CompoundTag getUpdateTag() {
-        return this.saveWithoutMetadata();
+    public @Nonnull CompoundTag getUpdateTag(@Nonnull HolderLookup.Provider pProvider) {
+        return this.saveWithoutMetadata(pProvider);
     }
 
     @Override

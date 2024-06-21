@@ -109,11 +109,11 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
     }
 
     @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(PyromancerRevenantEntity.AIMING, this.minAiming);
-        this.entityData.define(PyromancerRevenantEntity.RELOAD, this.minReload);
-        this.entityData.define(PyromancerRevenantEntity.THROWN, this.minThrown);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(PyromancerRevenantEntity.AIMING, this.minAiming);
+        pBuilder.define(PyromancerRevenantEntity.RELOAD, this.minReload);
+        pBuilder.define(PyromancerRevenantEntity.THROWN, this.minThrown);
     }
 
     @Override

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:orichalcum_ingot"
-            ]
+            "items": "landsoficaria:orichalcum_ingot"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:vanadiumsteel_block"
-            ]
+            "items": "landsoficaria:vanadiumsteel_block"
           }
         ]
       },

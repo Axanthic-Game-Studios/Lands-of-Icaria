@@ -1,6 +1,5 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": [
     {
       "item": "landsoficaria:platoshale"
@@ -9,5 +8,8 @@
       "item": "landsoficaria:platoshale_bricks"
     }
   ],
-  "result": "landsoficaria:chiseled_platoshale"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:chiseled_platoshale"
+  }
 }

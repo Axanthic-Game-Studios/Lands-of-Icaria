@@ -8,7 +8,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -70,7 +70,7 @@ public class IcariaProcessorLists {
 	public static final ResourceKey<StructureProcessorList> DESERT_RUINED_GRAINITE = IcariaProcessorLists.registerKey("villages/desert/ruined/grainite");
 	public static final ResourceKey<StructureProcessorList> DESERT_RUINED_VOIDSHALE = IcariaProcessorLists.registerKey("villages/desert/ruined/voidshale");
 
-	public static void bootstrap(BootstapContext<StructureProcessorList> pContext) {
+	public static void bootstrap(BootstrapContext<StructureProcessorList> pContext) {
 		pContext.register(IcariaProcessorLists.FOREST_ERODED_DOLOMITE, IcariaProcessorLists.forestEroded(IcariaBlocks.DOLOMITE_ADOBE.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.stairs.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.slab.get()));
 		pContext.register(IcariaProcessorLists.FOREST_ERODED_SILKSTONE, IcariaProcessorLists.forestEroded(IcariaBlocks.SILKSTONE_ADOBE.get(), IcariaBlocks.SILKSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SILKSTONE_ADOBE_DECO.slab.get()));
 		pContext.register(IcariaProcessorLists.FOREST_ERODED_SUNSTONE, IcariaProcessorLists.forestEroded(IcariaBlocks.SUNSTONE_ADOBE.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.slab.get()));

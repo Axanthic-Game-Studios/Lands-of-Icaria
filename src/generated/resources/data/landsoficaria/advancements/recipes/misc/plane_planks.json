@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:plane_log"
-            ]
+            "items": "landsoficaria:plane_log"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:plane_wood"
-            ]
+            "items": "landsoficaria:plane_wood"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:stripped_plane_log"
-            ]
+            "items": "landsoficaria:stripped_plane_log"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:stripped_plane_wood"
-            ]
+            "items": "landsoficaria:stripped_plane_wood"
           }
         ]
       },

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:dead_plane_log"
-            ]
+            "items": "landsoficaria:dead_plane_log"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:stripped_dead_plane_log"
-            ]
+            "items": "landsoficaria:stripped_dead_plane_log"
           }
         ]
       },

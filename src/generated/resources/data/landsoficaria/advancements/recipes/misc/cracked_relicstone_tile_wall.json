@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:cracked_relicstone_tiles"
-            ]
+            "items": "landsoficaria:cracked_relicstone_tiles"
           }
         ]
       },

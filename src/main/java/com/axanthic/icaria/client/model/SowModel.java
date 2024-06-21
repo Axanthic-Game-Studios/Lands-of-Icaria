@@ -109,7 +109,7 @@ public class SowModel extends HierarchicalModel<SowEntity> {
     }
 
     public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-        pLimbSwing *= 1.8;
+        pLimbSwing *= 1.8F;
 
         this.legRightFront.xRot = Mth.cos(pLimbSwing * 0.5F) * 0.9F * pLimbSwingAmount;
         this.legLeftFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI) * 0.9F * pLimbSwingAmount;

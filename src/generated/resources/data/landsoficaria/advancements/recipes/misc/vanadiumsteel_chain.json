@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:vanadiumsteel_ingot"
-            ]
+            "items": "landsoficaria:vanadiumsteel_ingot"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:vanadiumsteel_nugget"
-            ]
+            "items": "landsoficaria:vanadiumsteel_nugget"
           }
         ]
       },

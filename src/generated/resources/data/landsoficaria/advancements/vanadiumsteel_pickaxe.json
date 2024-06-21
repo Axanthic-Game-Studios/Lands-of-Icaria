@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:vanadiumsteel_pickaxe"
-            ]
+            "items": "landsoficaria:vanadiumsteel_pickaxe"
           }
         ]
       },
@@ -20,8 +18,8 @@
       "translate": "advancement.landsoficaria.vanadiumsteel_pickaxe.description"
     },
     "icon": {
-      "item": "landsoficaria:vanadiumsteel_pickaxe",
-      "nbt": "{Damage:0}"
+      "count": 1,
+      "id": "landsoficaria:vanadiumsteel_pickaxe"
     },
     "title": {
       "translate": "advancement.landsoficaria.vanadiumsteel_pickaxe.title"

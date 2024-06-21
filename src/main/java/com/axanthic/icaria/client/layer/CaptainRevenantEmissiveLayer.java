@@ -1,9 +1,9 @@
 package com.axanthic.icaria.client.layer;
 
-import com.axanthic.icaria.client.registry.IcariaRenderTypes;
-import com.axanthic.icaria.client.model.CaptainRevenantModel;
-import com.axanthic.icaria.common.entity.CaptainRevenantEntity;
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
+import com.axanthic.icaria.client.model.CaptainRevenantModel;
+import com.axanthic.icaria.client.registry.IcariaRenderTypes;
+import com.axanthic.icaria.common.entity.CaptainRevenantEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 

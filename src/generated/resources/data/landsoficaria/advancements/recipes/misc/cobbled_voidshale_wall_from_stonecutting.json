@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:cobbled_voidshale"
-            ]
+            "items": "landsoficaria:cobbled_voidshale"
           }
         ]
       },

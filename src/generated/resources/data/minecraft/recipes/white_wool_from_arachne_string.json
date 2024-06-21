@@ -11,6 +11,7 @@
     "XX"
   ],
   "result": {
-    "item": "minecraft:white_wool"
+    "count": 1,
+    "id": "minecraft:white_wool"
   }
 }

@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "landsoficaria:cobbled_voidshale"
   },
-  "result": "landsoficaria:voidshale"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:voidshale"
+  }
 }

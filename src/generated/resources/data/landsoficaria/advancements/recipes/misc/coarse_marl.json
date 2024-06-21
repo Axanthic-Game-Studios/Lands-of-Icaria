@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:grainel"
-            ]
+            "items": "landsoficaria:grainel"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:marl"
-            ]
+            "items": "landsoficaria:marl"
           }
         ]
       },

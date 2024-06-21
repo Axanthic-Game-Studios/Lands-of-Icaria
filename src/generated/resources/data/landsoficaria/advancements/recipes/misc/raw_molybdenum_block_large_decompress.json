@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:raw_molybdenum_block"
-            ]
+            "items": "landsoficaria:raw_molybdenum_block"
           }
         ]
       },

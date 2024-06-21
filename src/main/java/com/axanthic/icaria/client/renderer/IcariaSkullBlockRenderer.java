@@ -37,21 +37,23 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkullBlockEntity> {
     public Map<IcariaSkullBlockType, SkullModel> map;
 
-    public static final Map<IcariaSkullBlockType, ResourceLocation> RL_BY_TYPE = Util.make(Maps.newHashMap(), (pMap) -> {
-        pMap.put(IcariaSkullBlockTypes.AETERNAE, IcariaResourceLocations.AETERNAE);
-        pMap.put(IcariaSkullBlockTypes.ARGAN_HOUND, IcariaResourceLocations.ARGAN_HOUND);
-        pMap.put(IcariaSkullBlockTypes.CATOBLEPAS, IcariaResourceLocations.CATOBLEPAS);
-        pMap.put(IcariaSkullBlockTypes.CERVER, IcariaResourceLocations.CERVER);
-        pMap.put(IcariaSkullBlockTypes.CYPRESS_FOREST_HAG, IcariaResourceLocations.CYPRESS_FOREST_HAG);
-        pMap.put(IcariaSkullBlockTypes.DROUGHTROOT_FOREST_HAG, IcariaResourceLocations.DROUGHTROOT_FOREST_HAG);
-        pMap.put(IcariaSkullBlockTypes.FIR_FOREST_HAG, IcariaResourceLocations.FIR_FOREST_HAG);
-        pMap.put(IcariaSkullBlockTypes.LAUREL_FOREST_HAG, IcariaResourceLocations.LAUREL_FOREST_HAG);
-        pMap.put(IcariaSkullBlockTypes.OLIVE_FOREST_HAG, IcariaResourceLocations.OLIVE_FOREST_HAG);
-        pMap.put(IcariaSkullBlockTypes.PLANE_FOREST_HAG, IcariaResourceLocations.PLANE_FOREST_HAG);
-        pMap.put(IcariaSkullBlockTypes.POPULUS_FOREST_HAG, IcariaResourceLocations.POPULUS_FOREST_HAG);
-        pMap.put(IcariaSkullBlockTypes.REVENANT, IcariaResourceLocations.CAPTAIN_REVENANT);
-        pMap.put(IcariaSkullBlockTypes.SOW, IcariaResourceLocations.SOW);
-    });
+    public static final Map<IcariaSkullBlockType, ResourceLocation> RL_BY_TYPE = Util.make(
+        Maps.newHashMap(), (pMap) -> {
+            pMap.put(IcariaSkullBlockTypes.AETERNAE, IcariaResourceLocations.AETERNAE);
+            pMap.put(IcariaSkullBlockTypes.ARGAN_HOUND, IcariaResourceLocations.ARGAN_HOUND);
+            pMap.put(IcariaSkullBlockTypes.CATOBLEPAS, IcariaResourceLocations.CATOBLEPAS);
+            pMap.put(IcariaSkullBlockTypes.CERVER, IcariaResourceLocations.CERVER);
+            pMap.put(IcariaSkullBlockTypes.CYPRESS_FOREST_HAG, IcariaResourceLocations.CYPRESS_FOREST_HAG);
+            pMap.put(IcariaSkullBlockTypes.DROUGHTROOT_FOREST_HAG, IcariaResourceLocations.DROUGHTROOT_FOREST_HAG);
+            pMap.put(IcariaSkullBlockTypes.FIR_FOREST_HAG, IcariaResourceLocations.FIR_FOREST_HAG);
+            pMap.put(IcariaSkullBlockTypes.LAUREL_FOREST_HAG, IcariaResourceLocations.LAUREL_FOREST_HAG);
+            pMap.put(IcariaSkullBlockTypes.OLIVE_FOREST_HAG, IcariaResourceLocations.OLIVE_FOREST_HAG);
+            pMap.put(IcariaSkullBlockTypes.PLANE_FOREST_HAG, IcariaResourceLocations.PLANE_FOREST_HAG);
+            pMap.put(IcariaSkullBlockTypes.POPULUS_FOREST_HAG, IcariaResourceLocations.POPULUS_FOREST_HAG);
+            pMap.put(IcariaSkullBlockTypes.REVENANT, IcariaResourceLocations.CAPTAIN_REVENANT);
+            pMap.put(IcariaSkullBlockTypes.SOW, IcariaResourceLocations.SOW);
+        }
+    );
 
     public IcariaSkullBlockRenderer(BlockEntityRendererProvider.Context pContext) {
         this.map = IcariaSkullBlockRenderer.createRenderers(pContext.getModelSet());
@@ -62,34 +64,35 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
         var blockState = pBlockEntity.getBlockState();
         boolean wall = blockState.getBlock() instanceof IcariaWallSkullBlock;
         var direction = wall ? blockState.getValue(BlockStateProperties.HORIZONTAL_FACING) : null;
-        float rotation = wall ? (2 + direction.get2DDataValue()) * 4 : blockState.getValue(BlockStateProperties.ROTATION_16);
+        float rotation = wall ? (direction.get2DDataValue() + 2.0F) * 4.0F : blockState.getValue(BlockStateProperties.ROTATION_16);
 
-        IcariaSkullBlockRenderer.renderSkull(direction, 22.5F * rotation, pPoseStack, pBufferSource, pCombinedLight, this.map, blockState.getBlock());
+        IcariaSkullBlockRenderer.renderSkull(direction, rotation * 22.5F, pPoseStack, pBufferSource, pCombinedLight, this.map, blockState.getBlock());
     }
 
     public static void renderSkull(@Nullable Direction pDirection, float pRotation, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pCombinedLight, Map<IcariaSkullBlockType, SkullModel> pMap, Block pBlock) {
-        float offset = ((IcariaAbstractSkullBlock) pBlock).getOffset();
+        if (pBlock instanceof IcariaAbstractSkullBlock icariaAbstractSkullBlock) {
+            float offset = icariaAbstractSkullBlock.getOffset();
 
-        var block = ((IcariaAbstractSkullBlock) pBlock).getType();
-        var resourceLocation = IcariaSkullBlockRenderer.RL_BY_TYPE.get(block);
-        var model = pMap.get(block);
+            var block = icariaAbstractSkullBlock.getType();
+            var model = pMap.get(block);
+            var resourceLocation = IcariaSkullBlockRenderer.RL_BY_TYPE.get(block);
+            var vertexConsumer = pBufferSource.getBuffer(RenderType.entityCutoutNoCullZOffset(resourceLocation));
 
-        pPoseStack.pushPose();
+            pPoseStack.pushPose();
 
-        if (pDirection == null) {
-            pPoseStack.translate(0.5D, 0.0D, 0.5D);
-        } else {
-            pPoseStack.translate(0.5F - pDirection.getStepX() * (0.25F + offset), 0.25D, 0.5F - pDirection.getStepZ() * (0.25F + offset));
+            if (pDirection == null) {
+                pPoseStack.translate(0.5D, 0.0D, 0.5D);
+            } else {
+                pPoseStack.translate(0.5D - pDirection.getStepX() * (0.25D + offset), 0.25D, 0.5D - pDirection.getStepZ() * (0.25D + offset));
+            }
+
+            pPoseStack.scale(-1.0F, -1.0F, 1.0F);
+
+            model.setupAnim(0.0F, pRotation, 0.0F);
+            model.renderToBuffer(pPoseStack, vertexConsumer, pCombinedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+
+            pPoseStack.popPose();
         }
-
-        pPoseStack.scale(-1.0F, -1.0F, 1.0F);
-
-        var vertexConsumer = pBufferSource.getBuffer(RenderType.entityCutoutNoCullZOffset(resourceLocation));
-
-        model.setupAnim(0.0F, pRotation, 0.0F);
-        model.renderToBuffer(pPoseStack, vertexConsumer, pCombinedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-
-        pPoseStack.popPose();
     }
 
     public static Map<IcariaSkullBlockType, SkullModel> createRenderers(EntityModelSet pSet) {

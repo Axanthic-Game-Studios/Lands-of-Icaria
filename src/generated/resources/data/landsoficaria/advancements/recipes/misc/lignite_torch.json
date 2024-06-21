@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:lignite"
-            ]
+            "items": "landsoficaria:lignite"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:bone"
-            ]
+            "items": "minecraft:bone"
           }
         ]
       },

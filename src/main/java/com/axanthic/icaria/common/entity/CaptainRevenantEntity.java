@@ -142,12 +142,12 @@ public class CaptainRevenantEntity extends RevenantEntity {
     }
 
     @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(CaptainRevenantEntity.SPELL, (byte) 0);
-        this.entityData.define(CaptainRevenantEntity.UNEQUIPS, this.minUnequips);
-        this.entityData.define(CaptainRevenantEntity.RALLYING, this.minRallying);
-        this.entityData.define(CaptainRevenantEntity.REEQUIPS, this.minReequips);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(CaptainRevenantEntity.SPELL, (byte) 0);
+        pBuilder.define(CaptainRevenantEntity.UNEQUIPS, this.minUnequips);
+        pBuilder.define(CaptainRevenantEntity.RALLYING, this.minRallying);
+        pBuilder.define(CaptainRevenantEntity.REEQUIPS, this.minReequips);
     }
 
     @Override

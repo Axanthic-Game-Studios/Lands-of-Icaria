@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.layer;
 
-import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.client.model.NetherPyromancerRevenantModel;
+import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.common.entity.NetherPyromancerRevenantEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;

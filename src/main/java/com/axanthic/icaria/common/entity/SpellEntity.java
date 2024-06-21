@@ -29,8 +29,8 @@ public class SpellEntity extends ThrowableProjectile {
     }
 
     @Override
-    public float getGravity() {
-        return 0.005F;
+    public double getDefaultGravity() {
+        return 0.005D;
     }
 
     public int getColor() {
@@ -44,8 +44,8 @@ public class SpellEntity extends ThrowableProjectile {
     }
 
     @Override
-    public void defineSynchedData() {
-        this.entityData.define(SpellEntity.COLOR, this.color);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        pBuilder.define(SpellEntity.COLOR, this.color);
     }
 
     @Override

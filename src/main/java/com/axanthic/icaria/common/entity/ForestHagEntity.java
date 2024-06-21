@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.ForestHagPlaceSaplingGoal;
-import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -12,7 +11,10 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -65,27 +67,6 @@ public class ForestHagEntity extends Monster {
     }
 
     @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
-        if (this.getType() == IcariaEntityTypes.CYPRESS_FOREST_HAG.get()) {
-            return 2.375F;
-        } else if (this.getType() == IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get()) {
-            return 2.125F;
-        } else if (this.getType() == IcariaEntityTypes.FIR_FOREST_HAG.get()) {
-            return 2.125F;
-        } else if (this.getType() == IcariaEntityTypes.LAUREL_FOREST_HAG.get()) {
-            return 2.125F;
-        } else if (this.getType() == IcariaEntityTypes.OLIVE_FOREST_HAG.get()) {
-            return 2.125F;
-        } else if (this.getType() == IcariaEntityTypes.PLANE_FOREST_HAG.get()) {
-            return 2.375F;
-        } else if (this.getType() == IcariaEntityTypes.POPULUS_FOREST_HAG.get()) {
-            return 2.125F;
-        } else {
-            return 0.0F;
-        }
-    }
-
-    @Override
     public void actuallyHurt(DamageSource pDamageSource, float pDamageAmount) {
         if (pDamageSource.getEntity() instanceof LivingEntity livingEntity) {
             if (livingEntity.getMainHandItem().getItem() instanceof AxeItem) {
@@ -101,9 +82,9 @@ public class ForestHagEntity extends Monster {
     }
 
     @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(ForestHagEntity.TARGETING, false);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(ForestHagEntity.TARGETING, false);
     }
 
     @Override

@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "landsoficaria:mossy_relicstone_bricks"
   },
-  "result": "landsoficaria:mossy_relicstone_brick_stairs"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:mossy_relicstone_brick_stairs"
+  }
 }

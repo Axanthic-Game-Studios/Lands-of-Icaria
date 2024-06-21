@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:loam_lump"
-            ]
+            "items": "landsoficaria:loam_lump"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:marl"
-            ]
+            "items": "landsoficaria:marl"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:spelt"
-            ]
+            "items": "landsoficaria:spelt"
           }
         ]
       },

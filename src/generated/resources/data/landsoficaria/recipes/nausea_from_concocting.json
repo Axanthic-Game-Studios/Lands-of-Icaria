@@ -13,7 +13,9 @@
       "item": "landsoficaria:psilocybos"
     }
   ],
-  "potion": "landsoficaria:nausea",
+  "potion": {
+    "potion": "landsoficaria:nausea"
+  },
   "potionDuration": 200,
   "potionRadius": 5.0
 }

@@ -20,12 +20,12 @@ public enum Vine implements StringRepresentable {
 	}
 
 	@Override
-	public String toString() {
+	public String getSerializedName() {
 		return this.name;
 	}
 
 	@Override
-	public String getSerializedName() {
+	public String toString() {
 		return this.name;
 	}
 }

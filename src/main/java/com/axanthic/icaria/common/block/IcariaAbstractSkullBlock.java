@@ -9,7 +9,6 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Equipable;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -17,8 +16,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -41,7 +38,7 @@ public class IcariaAbstractSkullBlock extends BaseEntityBlock implements Equipab
     }
 
     @Override
-    public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
+    public boolean isPathfindable(BlockState pState, PathComputationType pType) {
         return false;
     }
 

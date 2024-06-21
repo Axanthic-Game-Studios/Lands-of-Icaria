@@ -25,11 +25,11 @@ public class SpellRenderer extends EntityRenderer<SpellEntity> {
     }
 
     float getX(float pLength, float pTicks, float pSpeed, float pWiggle) {
-        return Mth.cos(pLength / 3.5F - pSpeed * pTicks / 2.0F) * pLength * pWiggle + Mth.cos(pLength / 2.0F - pSpeed * pTicks / 3.5F + 3) * pLength * pWiggle + Mth.sin(pLength / 7.5F - pSpeed * pTicks / 6.0F + 2) * pLength * pWiggle + Mth.sin(-pSpeed * pTicks / 5.0F + 2) * pLength * pWiggle;
+        return Mth.cos(pLength / 3.5F - pSpeed * pTicks / 2.0F) * pLength * pWiggle + Mth.cos(pLength / 2.0F - pSpeed * pTicks / 3.5F + 3.0F) * pLength * pWiggle + Mth.sin(pLength / 7.5F - pSpeed * pTicks / 6.0F + 2.0F) * pLength * pWiggle + Mth.sin(-pSpeed * pTicks / 5.0F + 2.0F) * pLength * pWiggle;
     }
 
     float getY(float pLength, float pTicks, float pSpeed, float pWiggle) {
-        return Mth.sin(pLength / 2.5F - pSpeed * pTicks / 3.0F) * pLength * pWiggle + Mth.sin(pLength / 3.0F - pSpeed * pTicks / 2.5F + 2) * pLength * pWiggle + Mth.cos(pLength / 7.0F - pSpeed * pTicks / 6.5F + 3) * pLength * pWiggle + Mth.cos(-pSpeed * pTicks / 4.0F + 3) * pLength * pWiggle;
+        return Mth.sin(pLength / 2.5F - pSpeed * pTicks / 3.0F) * pLength * pWiggle + Mth.sin(pLength / 3.0F - pSpeed * pTicks / 2.5F + 2.0F) * pLength * pWiggle + Mth.cos(pLength / 7.0F - pSpeed * pTicks / 6.5F + 3.0F) * pLength * pWiggle + Mth.cos(-pSpeed * pTicks / 4.0F + 3.0F) * pLength * pWiggle;
     }
 
     @Override

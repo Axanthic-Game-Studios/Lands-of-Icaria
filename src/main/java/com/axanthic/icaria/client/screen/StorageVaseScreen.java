@@ -22,7 +22,7 @@ public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> 
 
 	@Override
 	public void render(GuiGraphics pGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-		this.renderBackground(pGraphics, pMouseX, pMouseY, pPartialTick);
+		this.renderBg(pGraphics, pPartialTick, pMouseX, pMouseY);
 		super.render(pGraphics, pMouseX, pMouseY, pPartialTick);
 		this.renderTooltip(pGraphics, pMouseX, pMouseY);
 	}

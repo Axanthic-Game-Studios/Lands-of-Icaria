@@ -19,17 +19,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaPortalShape extends PortalShape {
     public int height;
-    public int maxHeight = 21;
-    public int maxWidth = 21;
     public int minHeight = 4;
-    public int minWidth = 3;
-    public int numPortalBlocks;
+    public int maxHeight = 21;
     public int width;
+    public int minWidth = 3;
+    public int maxWidth = 21;
+    public int numPortalBlocks;
 
     public BlockPos bottomLeft;
 
-    public Direction rightDir;
     public Direction leftDir;
+    public Direction rightDir;
 
     public Direction.Axis axis;
 
@@ -40,11 +40,11 @@ public class IcariaPortalShape extends PortalShape {
         this.axis = pAxis;
         this.level = pLevel;
         if (pAxis == Direction.Axis.X) {
-            this.rightDir = Direction.WEST;
             this.leftDir = Direction.EAST;
+            this.rightDir = Direction.WEST;
         } else {
-            this.rightDir = Direction.SOUTH;
             this.leftDir = Direction.NORTH;
+            this.rightDir = Direction.SOUTH;
         }
 
         int i = this.getDistanceUntilEdgeAboveFrame(pPos, this.leftDir) - 1;
@@ -64,7 +64,7 @@ public class IcariaPortalShape extends PortalShape {
 
     @Override
     public boolean isComplete() {
-        return this.isValid() && this.numPortalBlocks == this.width * this.height;
+        return this.isValid() && this.height * this.width == this.numPortalBlocks;
     }
 
     public boolean isEmpty(BlockState pState) {
@@ -73,7 +73,7 @@ public class IcariaPortalShape extends PortalShape {
 
     @Override
     public boolean isValid() {
-        return this.bottomLeft != null && this.width >= this.minWidth && this.width <= this.maxWidth && this.height >= this.minHeight && this.height <= this.maxHeight;
+        return this.bottomLeft != null && this.height >= this.minHeight && this.height <= this.maxHeight && this.width >= this.minWidth && this.width <= this.maxWidth;
     }
 
     public int calculateHeight() {
@@ -224,7 +224,7 @@ public class IcariaPortalShape extends PortalShape {
             }
         }
 
-        if (this.height <= this.maxHeight && this.height >= this.minHeight) {
+        if (this.height >= this.minHeight && this.height <= this.maxHeight) {
             return this.height;
         } else {
             this.bottomLeft = null;

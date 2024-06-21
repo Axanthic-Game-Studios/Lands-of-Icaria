@@ -62,7 +62,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     public static final EntityDataAccessor<Integer> SHOW = SynchedEntityData.defineId(SlugEntity.class, EntityDataSerializers.INT);
 
     public SlugEntity(EntityType<? extends SlugEntity> pType, Level pLevel) {
-        super(pType, pLevel, 0.25F, 0.125F, 0.25F);
+        super(pType, pLevel, 0.25F, 0.25F, 0.15F, 0.75F, 0.25F);
     }
 
     public boolean doHide() {
@@ -177,12 +177,12 @@ public class SlugEntity extends SizedPathfinderMobEntity {
     }
 
     @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(SlugEntity.CLIMBING, (byte) 0);
-        this.entityData.define(SlugEntity.COOLDOWN, this.minCooldown);
-        this.entityData.define(SlugEntity.HIDE, this.minHide);
-        this.entityData.define(SlugEntity.SHOW, this.minShow);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(SlugEntity.CLIMBING, (byte) 0);
+        pBuilder.define(SlugEntity.COOLDOWN, this.minCooldown);
+        pBuilder.define(SlugEntity.HIDE, this.minHide);
+        pBuilder.define(SlugEntity.SHOW, this.minShow);
     }
 
     @Override

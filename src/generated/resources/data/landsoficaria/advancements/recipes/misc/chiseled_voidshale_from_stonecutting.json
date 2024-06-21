@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:voidshale"
-            ]
+            "items": "landsoficaria:voidshale"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:voidshale_bricks"
-            ]
+            "items": "landsoficaria:voidshale_bricks"
           }
         ]
       },

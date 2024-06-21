@@ -10,7 +10,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -57,7 +56,7 @@ public class IcariaCakeBlock extends Block {
 	}
 
 	@Override
-	public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
+	protected boolean isPathfindable(BlockState pState, PathComputationType pType) {
 		return false;
 	}
 
@@ -77,7 +76,7 @@ public class IcariaCakeBlock extends Block {
 	}
 
 	@Override
-	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+	public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
 		if (!pPlayer.canEat(false)) {
 			return InteractionResult.PASS;
 		} else {
@@ -89,7 +88,7 @@ public class IcariaCakeBlock extends Block {
 			}
 
 			if (pState.is(IcariaBlocks.LAUREL_CHERRY_CAKE.get())) {
-				pPlayer.addEffect(new MobEffectInstance(IcariaMobEffects.LIFESTEAL.get(), 600));
+				pPlayer.addEffect(new MobEffectInstance(IcariaMobEffects.LIFESTEAL, 600));
 			} else if (pState.is(IcariaBlocks.STRAWBERRY_CAKE.get())) {
 				pPlayer.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 600));
 			} else if (pState.is(IcariaBlocks.PHYSALIS_CAKE.get())) {

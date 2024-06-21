@@ -5,8 +5,8 @@ import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
@@ -46,7 +46,23 @@ public class ConcoctingItemRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        return !pLevel.isClientSide() && this.ingredients.get(0).test(pContainer.getItem(0)) && this.ingredients.get(1).test(pContainer.getItem(1)) && this.ingredients.get(2).test(pContainer.getItem(2));
+        return this.matches(pContainer) && !pLevel.isClientSide();
+    }
+
+    public boolean matches(SimpleContainer pContainer) {
+        return this.ingredients.size() < 3 ? this.ingredients.size() < 2 ? this.matchesSingle(pContainer) : this.matchesDouble(pContainer) : this.matchesTriple(pContainer);
+    }
+
+    public boolean matchesSingle(SimpleContainer pContainer) {
+        return this.ingredients.get(0).test(pContainer.getItem(0)) && pContainer.getItem(1).isEmpty() && pContainer.getItem(2).isEmpty();
+    }
+
+    public boolean matchesDouble(SimpleContainer pContainer) {
+        return this.ingredients.get(0).test(pContainer.getItem(0)) && this.ingredients.get(1).test(pContainer.getItem(1)) && pContainer.getItem(2).isEmpty();
+    }
+
+    public boolean matchesTriple(SimpleContainer pContainer) {
+        return this.ingredients.get(0).test(pContainer.getItem(0)) && this.ingredients.get(1).test(pContainer.getItem(1)) && this.ingredients.get(2).test(pContainer.getItem(2));
     }
 
     public int getBurnTime() {
@@ -62,12 +78,12 @@ public class ConcoctingItemRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
+    public ItemStack assemble(SimpleContainer pContainer, HolderLookup.Provider pProvider) {
         return this.output;
     }
 
     @Override
-    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+    public ItemStack getResultItem(HolderLookup.Provider pProvider) {
         return this.output.copy();
     }
 

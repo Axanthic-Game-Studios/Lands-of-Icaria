@@ -12,6 +12,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
@@ -200,21 +202,35 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        var itemStack = pPlayer.getItemInHand(pHand);
+    public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
+        if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.isPassenger() || pPlayer.isVehicle()) {
+            return InteractionResult.FAIL;
+        } else {
+            var entity = new IcariaBarrelEntity(IcariaEntityTypes.BARREL.get(), pLevel, pState, pPos);
+            entity.moveTo(pPlayer.blockPosition(), 0, 0);
+            entity.startRiding(pPlayer);
+            pLevel.addFreshEntity(entity);
+            pLevel.removeBlock(pPos, false);
+            pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaInfo.ID + "." + "barrel"), true);
+            return InteractionResult.PASS;
+        }
+    }
+
+    @Override
+    public ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pResult) {
         var x = pPos.getX();
         var y = pPos.getY();
         var z = pPos.getZ();
         if (!pLevel.isClientSide()) {
             if (pState.is(IcariaBlockTags.LOADED_BARRELS)) {
-                if (itemStack.is(Items.FIRE_CHARGE) || itemStack.is(Items.FLINT_AND_STEEL)) {
+                if (pStack.is(Items.FIRE_CHARGE) || pStack.is(Items.FLINT_AND_STEEL)) {
                     pLevel.explode(null, x, y, z, 2.0F, Level.ExplosionInteraction.BLOCK);
-                    pPlayer.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
+                    pPlayer.awardStat(Stats.ITEM_USED.get(pStack.getItem()));
                     if (!pPlayer.isCreative()) {
-                        if (itemStack.is(Items.FIRE_CHARGE)) {
-                            itemStack.shrink(1);
+                        if (pStack.is(Items.FIRE_CHARGE)) {
+                            pStack.shrink(1);
                         } else {
-                            itemStack.hurtAndBreak(1, pPlayer, (player) -> player.broadcastBreakEvent(pHand));
+                            pStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pHand));
                         }
                     }
 
@@ -236,17 +252,7 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
             }
         }
 
-        if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.isPassenger() || pPlayer.isVehicle()) {
-            return InteractionResult.FAIL;
-        } else {
-            var entity = new IcariaBarrelEntity(IcariaEntityTypes.BARREL.get(), pLevel, pState, pPos);
-            entity.moveTo(pPlayer.blockPosition(), 0, 0);
-            entity.startRiding(pPlayer);
-            pLevel.addFreshEntity(entity);
-            pLevel.removeBlock(pPos, false);
-            pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaInfo.ID + "." + "barrel"), true);
-            return InteractionResult.PASS;
-        }
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override
@@ -275,6 +281,6 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
     @Override
     public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pBuilder) {
         var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-        return pState.is(IcariaBlockTags.LOADED_BARRELS) || pState.is(IcariaBlockTags.TAPPED_BARRELS) ? List.of() : lootContext.getLevel().getServer().getLootData().getLootTable(IcariaResourceLocations.BARREL_LOOT).getRandomItems(lootContext);
+        return pState.is(IcariaBlockTags.LOADED_BARRELS) || pState.is(IcariaBlockTags.TAPPED_BARRELS) ? List.of() : lootContext.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL_LOOT).getRandomItems(lootContext);
     }
 }

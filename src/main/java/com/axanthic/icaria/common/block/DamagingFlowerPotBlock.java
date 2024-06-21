@@ -8,14 +8,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 
 import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("deprecation")
 
 @ParametersAreNonnullByDefault
 
@@ -30,7 +28,7 @@ public class DamagingFlowerPotBlock extends FlowerPotBlock {
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
-		return BlockPathTypes.DAMAGE_OTHER;
+	public PathType getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
+		return PathType.DAMAGE_OTHER;
 	}
 }

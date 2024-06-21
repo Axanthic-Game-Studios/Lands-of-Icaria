@@ -13,7 +13,8 @@
       "translate": "advancement.landsoficaria.root.description"
     },
     "icon": {
-      "item": "landsoficaria:grassy_marl"
+      "count": 1,
+      "id": "landsoficaria:grassy_marl"
     },
     "title": {
       "translate": "advancement.landsoficaria.root.title"

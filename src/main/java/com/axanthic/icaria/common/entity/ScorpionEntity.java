@@ -77,14 +77,9 @@ public class ScorpionEntity extends IcariaArachnidEntity {
     }
 
     @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
-        return 0.625F;
-    }
-
-    @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(ScorpionEntity.CLIMBING, (byte) 0);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(ScorpionEntity.CLIMBING, (byte) 0);
     }
 
     @Override
@@ -141,11 +136,6 @@ public class ScorpionEntity extends IcariaArachnidEntity {
 
     public static AttributeSupplier.Builder registerAttributes() {
         return Mob.createMobAttributes().add(Attributes.ARMOR, 6.0D).add(Attributes.ATTACK_DAMAGE, 6.0D).add(Attributes.MAX_HEALTH, 32.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
-    }
-
-    @Override
-    public MobType getMobType() {
-        return MobType.ARTHROPOD;
     }
 
     @Override

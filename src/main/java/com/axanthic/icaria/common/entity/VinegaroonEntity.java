@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.IcariaArachnidTargetGoal;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+import com.axanthic.icaria.common.util.IcariaMath;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -34,8 +35,6 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.Event;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
-
-import org.joml.Vector3f;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -101,11 +100,6 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
         return this.getMaxHealth() * 0.5F;
     }
 
-    @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
-        return 0.75F;
-    }
-
     public int getCooldown() {
         return this.entityData.get(VinegaroonEntity.COOLDOWN);
     }
@@ -129,10 +123,10 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     }
 
     @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(VinegaroonEntity.CLIMBING, (byte) 0);
-        this.entityData.define(VinegaroonEntity.COOLDOWN, this.minCooldown);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(VinegaroonEntity.CLIMBING, (byte) 0);
+        pBuilder.define(VinegaroonEntity.COOLDOWN, this.minCooldown);
     }
 
     @Override
@@ -235,11 +229,6 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     }
 
     @Override
-    public MobType getMobType() {
-        return MobType.ARTHROPOD;
-    }
-
-    @Override
     public PathNavigation createNavigation(Level pLevel) {
         return new WallClimberNavigation(this, pLevel);
     }
@@ -260,7 +249,7 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
     }
 
     @Override
-    public Vector3f getPassengerAttachmentPoint(Entity pEntity, EntityDimensions pDimensions, float pScale) {
-        return new Vector3f(0.0F, pDimensions.height, 0.9375F);
+    public Vec3 getPassengerAttachmentPoint(Entity pEntity, EntityDimensions pDimensions, float pScale) {
+        return new Vec3(0.0D, pDimensions.height(), 0.9375D).yRot(IcariaMath.rad(this.getYHeadRot() * -1));
     }
 }

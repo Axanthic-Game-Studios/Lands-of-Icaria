@@ -50,7 +50,7 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 			// STONE
 
 			pPoseStack.pushPose();
-			pPoseStack.translate(0.5, 0.5F, 0.5F);
+			pPoseStack.translate(0.5F, 0.5F, 0.5F);
 			pPoseStack.scale(2.0F, 2.0F, 2.0F);
 			if (grinding) {
 				pPoseStack.mulPose(Axis.YP.rotationDegrees(rotation));
@@ -63,16 +63,16 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 
 			pPoseStack.pushPose();
 			if (direction == Direction.NORTH) {
-				pPoseStack.translate(-0.5, 0.5F, 0.5F);
+				pPoseStack.translate(-0.5F, 0.5F, 0.5F);
 				pPoseStack.scale(2.0F, 2.0F, 2.0F);
 			} else if (direction == Direction.EAST) {
 				pPoseStack.translate(0.5, 0.5F, -0.5F);
 				pPoseStack.scale(2.0F, 2.0F, 2.0F);
 			} else if (direction == Direction.SOUTH) {
-				pPoseStack.translate(1.5, 0.5F, 0.5F);
+				pPoseStack.translate(1.5F, 0.5F, 0.5F);
 				pPoseStack.scale(2.0F, 2.0F, 2.0F);
 			} else if (direction == Direction.WEST) {
-				pPoseStack.translate(0.5, 0.5F, 1.5F);
+				pPoseStack.translate(0.5F, 0.5F, 1.5F);
 				pPoseStack.scale(2.0F, 2.0F, 2.0F);
 			}
 
@@ -88,7 +88,7 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 			pPoseStack.pushPose();
 			if (direction == Direction.NORTH) {
 				pPoseStack.mulPose(Axis.YP.rotationDegrees(0.0F));
-				pPoseStack.translate(0.5, 0.4050F, 0.5F);
+				pPoseStack.translate(0.5F, 0.4050F, 0.5F);
 				pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 				pPoseStack.scale(1.0F, 1.0F, 1.0F);
 			} else if (direction == Direction.EAST) {
@@ -98,12 +98,12 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 				pPoseStack.scale(1.0F, 1.0F, 1.0F);
 			} else if (direction == Direction.SOUTH) {
 				pPoseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
-				pPoseStack.translate(-0.5, 0.4050F, -0.5F);
+				pPoseStack.translate(-0.5F, 0.4050F, -0.5F);
 				pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 				pPoseStack.scale(1.0F, 1.0F, 1.0F);
 			} else if (direction == Direction.WEST) {
 				pPoseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-				pPoseStack.translate(-0.5F, 0.4050F, 0.5);
+				pPoseStack.translate(-0.5F, 0.4050F, 0.5F);
 				pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 				pPoseStack.scale(1.0F, 1.0F, 1.0F);
 			}
@@ -121,7 +121,7 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 			pPoseStack.pushPose();
 			if (direction == Direction.NORTH) {
 				pPoseStack.mulPose(Axis.YP.rotationDegrees(0.0F));
-				pPoseStack.translate(-0.5, 0.4050F, 0.5F);
+				pPoseStack.translate(-0.5F, 0.4050F, 0.5F);
 				pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 				pPoseStack.scale(1.0F, 1.0F, 1.0F);
 			} else if (direction == Direction.EAST) {
@@ -131,12 +131,12 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 				pPoseStack.scale(1.0F, 1.0F, 1.0F);
 			} else if (direction == Direction.SOUTH) {
 				pPoseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
-				pPoseStack.translate(-1.5, 0.4050F, -0.5F);
+				pPoseStack.translate(-1.5F, 0.4050F, -0.5F);
 				pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 				pPoseStack.scale(1.0F, 1.0F, 1.0F);
 			} else if (direction == Direction.WEST) {
 				pPoseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-				pPoseStack.translate(-1.5F, 0.4050F, 0.5);
+				pPoseStack.translate(-1.5F, 0.4050F, 0.5F);
 				pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 				pPoseStack.scale(1.0F, 1.0F, 1.0F);
 			}
@@ -154,22 +154,22 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 			pPoseStack.pushPose();
 			if (direction == Direction.NORTH) {
 				pPoseStack.mulPose(Axis.YP.rotationDegrees(0.0F));
-				pPoseStack.translate(-0.5, 0.3425F, 0.5F);
+				pPoseStack.translate(-0.5F, 0.3425F, 0.5F);
 				pPoseStack.scale(0.625F, 1.0F, 0.625F);
 				pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 			} else if (direction == Direction.EAST) {
 				pPoseStack.mulPose(Axis.YP.rotationDegrees(0.0F));
-				pPoseStack.translate(0.5, 0.3425F, -0.5F);
+				pPoseStack.translate(0.5F, 0.3425F, -0.5F);
 				pPoseStack.scale(0.625F, 1.0F, 0.625F);
 				pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 			} else if (direction == Direction.SOUTH) {
 				pPoseStack.mulPose(Axis.YP.rotationDegrees(0.0F));
-				pPoseStack.translate(1.5, 0.3425F, 0.5F);
+				pPoseStack.translate(1.5F, 0.3425F, 0.5F);
 				pPoseStack.scale(0.625F, 1.0F, 0.625F);
 				pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 			} else if (direction == Direction.WEST) {
 				pPoseStack.mulPose(Axis.YP.rotationDegrees(0.0F));
-				pPoseStack.translate(0.5, 0.3425F, 1.5F);
+				pPoseStack.translate(0.5F, 0.3425F, 1.5F);
 				pPoseStack.scale(0.625F, 1.0F, 0.625F);
 				pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 			}

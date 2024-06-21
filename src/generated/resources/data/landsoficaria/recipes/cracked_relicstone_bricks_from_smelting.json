@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "landsoficaria:relicstone_bricks"
   },
-  "result": "landsoficaria:cracked_relicstone_bricks"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cracked_relicstone_bricks"
+  }
 }

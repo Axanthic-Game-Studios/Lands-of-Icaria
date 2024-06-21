@@ -315,7 +315,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.RAW_CHALKOS_BLOCK.get(), "Rohkuffarblock");
 		this.add(IcariaBlocks.RAW_KASSITEROS_BLOCK.get(), "Rohgalmeiblock");
 		this.add(IcariaBlocks.RAW_VANADIUM_BLOCK.get(), "Rohvanadinblock");
-		this.add(IcariaBlocks.SLIVER_BLOCK.get(), "Rohslibberblock");
 		this.add(IcariaBlocks.RAW_SIDEROS_BLOCK.get(), "Rohschirbelblock");
 		this.add(IcariaBlocks.RAW_MOLYBDENUM_BLOCK.get(), "Rohmolybdänblock");
 
@@ -329,6 +328,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.KASSITEROS_BLOCK.get(), "Galmeiblock");
 		this.add(IcariaBlocks.ORICHALCUM_BLOCK.get(), "Goldmessingblock");
 		this.add(IcariaBlocks.VANADIUM_BLOCK.get(), "Vanadinblock");
+		this.add(IcariaBlocks.SLIVER_BLOCK.get(), "Slibberblock");
 		this.add(IcariaBlocks.VANADIUMSTEEL_BLOCK.get(), "Vanadinstahlblock");
 		this.add(IcariaBlocks.SIDEROS_BLOCK.get(), "Schirbelblock");
 		this.add(IcariaBlocks.ANTHRACITE_BLOCK.get(), "Schwarzkohleblock");
@@ -726,9 +726,9 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("category" + "." + IcariaInfo.ID + "." + "forging", "Schmieden");
 		this.add("category" + "." + IcariaInfo.ID + "." + "grinding", "Mahlen");
 
-		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), "Erblindungsimmunität");
-		this.add(IcariaMobEffects.FREEZING.get(), "Vereisung");
-		this.add(IcariaMobEffects.LIFESTEAL.get(), "Lebensraub");
+		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.value(), "Erblindungsimmunität");
+		this.add(IcariaMobEffects.FREEZING.value(), "Vereisung");
+		this.add(IcariaMobEffects.LIFESTEAL.value(), "Lebensraub");
 
 		this.add(IcariaEntityTypes.AETERNAE.get(), "Ätern");
 		this.add(IcariaEntityTypes.ARACHNE.get(), "Arachne");

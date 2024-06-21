@@ -3,6 +3,7 @@ package com.axanthic.icaria.data;
 import com.axanthic.icaria.common.recipe.builder.*;
 import com.axanthic.icaria.common.registry.*;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -70,9 +72,9 @@ public class IcariaRecipes extends RecipeProvider {
 		this.concoctingPotionRecipe(pOutput, IcariaItems.BOLBOS.get(), IcariaItems.DATHULLA.get(), IcariaItems.PSILOCYBOS.get(), Potions.REGENERATION, 5.0F, 200, 13458603, 200);
 		this.concoctingPotionRecipe(pOutput, IcariaItems.NAMDRAKE.get(), IcariaItems.NAMDRAKE.get(), IcariaItems.NAMDRAKE.get(), Potions.SLOWNESS, 5.0F, 200, 9154528, 200);
 		this.concoctingPotionRecipe(pOutput, IcariaItems.BOLBOS.get(), IcariaItems.BOLBOS.get(), IcariaItems.BOLBOS.get(), Potions.STRONG_HARMING, 5.0F, 200, 11101546, 200);
-		this.concoctingPotionRecipe(pOutput, IcariaItems.ROWAN.get(), IcariaItems.ROWAN.get(), IcariaItems.ROWAN.get(), IcariaPotions.BLINDNESS.get(), 5.0F, 200, 2039587, 200);
-		this.concoctingPotionRecipe(pOutput, IcariaItems.PSILOCYBOS.get(), IcariaItems.MOTH_AGARIC.get(), IcariaItems.PSILOCYBOS.get(), IcariaPotions.NAUSEA.get(), 5.0F, 200, 5578058, 200);
-		this.concoctingPotionRecipe(pOutput, IcariaItems.BONE_REMAINS.get(), IcariaItems.MOTH_AGARIC.get(), IcariaItems.ROWAN.get(), IcariaPotions.WITHER.get(), 5.0F, 200, 7561558, 200);
+		this.concoctingPotionRecipe(pOutput, IcariaItems.ROWAN.get(), IcariaItems.ROWAN.get(), IcariaItems.ROWAN.get(), IcariaPotions.BLINDNESS, 5.0F, 200, 2039587, 200);
+		this.concoctingPotionRecipe(pOutput, IcariaItems.PSILOCYBOS.get(), IcariaItems.MOTH_AGARIC.get(), IcariaItems.PSILOCYBOS.get(), IcariaPotions.NAUSEA, 5.0F, 200, 5578058, 200);
+		this.concoctingPotionRecipe(pOutput, IcariaItems.BONE_REMAINS.get(), IcariaItems.MOTH_AGARIC.get(), IcariaItems.ROWAN.get(), IcariaPotions.WITHER, 5.0F, 200, 7561558, 200);
 
 		this.forgingRecipe(pOutput, IcariaItems.RAW_CHALKOS.get(), IcariaItems.RAW_CHALKOS.get(), IcariaItems.RAW_KASSITEROS.get(), IcariaItems.ORICHALCUM_INGOT.get(), "_from_raw_forging", 0.3F, 200, 1);
 		this.forgingRecipe(pOutput, IcariaItems.LIGNITE.get(), IcariaItems.RAW_KASSITEROS.get(), IcariaItems.RAW_VANADIUM.get(), IcariaItems.VANADIUMSTEEL_INGOT.get(), "_from_raw_forging", 0.2F, 150, 1);
@@ -1207,9 +1209,9 @@ public class IcariaRecipes extends RecipeProvider {
 			.pattern("XX ")
 			.pattern("XY ")
 			.pattern("  X")
-			.define('X', Tags.Items.STRING)
+			.define('X', Tags.Items.STRINGS)
 			.define('Y', Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
-			.unlockedBy("has_" + Tags.Items.STRING, RecipeProvider.has(Tags.Items.STRING))
+			.unlockedBy("has_" + Tags.Items.STRINGS, RecipeProvider.has(Tags.Items.STRINGS))
 			.unlockedBy("has_" + IcariaItems.ENDER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
 			.unlockedBy("has_" + IcariaItems.FIRE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
 			.unlockedBy("has_" + IcariaItems.NATURE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
@@ -1379,22 +1381,22 @@ public class IcariaRecipes extends RecipeProvider {
 			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_concocting");
 	}
 
-	public void concoctingPotionRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Item pResourceC, Potion pPotion, float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration) {
-		ConcoctingPotionRecipeBuilder.concoctingPotion(BuiltInRegistries.POTION.getKey(pPotion).toString(), RecipeCategory.MISC, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pPotionRadius, pBurnTime, pColor, pPotionDuration)
+	public void concoctingPotionRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Item pResourceC, Holder<Potion> pPotion, float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration) {
+		ConcoctingPotionRecipeBuilder.concoctingPotion(RecipeCategory.MISC, new PotionContents(pPotion), Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pPotionRadius, pBurnTime, pColor, pPotionDuration)
 			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
-			.save(pOutput, BuiltInRegistries.POTION.getKey(pPotion) + "_from_concocting");
+			.save(pOutput, BuiltInRegistries.POTION.getKey(pPotion.value()) + "_from_concocting");
 	}
 
-	public void concoctingPotionRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Potion pPotion, float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration) {
-		ConcoctingPotionRecipeBuilder.concoctingPotion(BuiltInRegistries.POTION.getKey(pPotion).toString(), RecipeCategory.MISC, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(), pPotionRadius, pBurnTime, pColor, pPotionDuration)
+	public void concoctingPotionRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Holder<Potion> pPotion, float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration) {
+		ConcoctingPotionRecipeBuilder.concoctingPotion(RecipeCategory.MISC, new PotionContents(pPotion), Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(), pPotionRadius, pBurnTime, pColor, pPotionDuration)
 			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
-			.save(pOutput, BuiltInRegistries.POTION.getKey(pPotion) + "_from_concocting");
+			.save(pOutput, BuiltInRegistries.POTION.getKey(pPotion.value()) + "_from_concocting");
 	}
 
-	public void concoctingPotionRecipe(RecipeOutput pOutput, Item pResource, Potion pPotion, float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration) {
-		ConcoctingPotionRecipeBuilder.concoctingPotion(BuiltInRegistries.POTION.getKey(pPotion).toString(), RecipeCategory.MISC, Ingredient.of(pResource), Ingredient.of(), Ingredient.of(), pPotionRadius, pBurnTime, pColor, pPotionDuration)
+	public void concoctingPotionRecipe(RecipeOutput pOutput, Item pResource, Holder<Potion> pPotion, float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration) {
+		ConcoctingPotionRecipeBuilder.concoctingPotion(RecipeCategory.MISC, new PotionContents(pPotion), Ingredient.of(pResource), Ingredient.of(), Ingredient.of(), pPotionRadius, pBurnTime, pColor, pPotionDuration)
 			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-			.save(pOutput, BuiltInRegistries.POTION.getKey(pPotion) + "_from_concocting");
+			.save(pOutput, BuiltInRegistries.POTION.getKey(pPotion.value()) + "_from_concocting");
 	}
 
 	public void forgingRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Item pResourceC, Item pResult, String pName, float pExperience, int pTime, int pCount) {

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_TagKey[minecraft:item / forge:string]": {
+    "has_TagKey[minecraft:item / c:strings]": {
       "conditions": {
         "items": [
           {
-            "tag": "forge:string"
+            "items": "#c:strings"
           }
         ]
       },
@@ -15,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:ender_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:ender_jellyfish_jelly"
           }
         ]
       },
@@ -27,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:fire_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:fire_jellyfish_jelly"
           }
         ]
       },
@@ -39,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:nature_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:nature_jellyfish_jelly"
           }
         ]
       },
@@ -51,9 +45,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:void_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:void_jellyfish_jelly"
           }
         ]
       },
@@ -63,9 +55,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:water_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:water_jellyfish_jelly"
           }
         ]
       },
@@ -81,7 +71,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_TagKey[minecraft:item / forge:string]",
+      "has_TagKey[minecraft:item / c:strings]",
       "has_landsoficaria:ender_jellyfish_jelly",
       "has_landsoficaria:fire_jellyfish_jelly",
       "has_landsoficaria:nature_jellyfish_jelly",

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:speardrops"
-            ]
+            "items": "landsoficaria:speardrops"
           }
         ]
       },

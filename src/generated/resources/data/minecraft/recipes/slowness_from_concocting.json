@@ -13,7 +13,9 @@
       "item": "landsoficaria:namdrake"
     }
   ],
-  "potion": "minecraft:slowness",
+  "potion": {
+    "potion": "minecraft:slowness"
+  },
   "potionDuration": 200,
   "potionRadius": 5.0
 }

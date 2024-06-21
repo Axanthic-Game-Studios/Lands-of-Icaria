@@ -8,18 +8,14 @@
             "condition": "minecraft:location_check",
             "predicate": {
               "block": {
-                "blocks": [
-                  "landsoficaria:fertilized_farmland"
-                ]
+                "blocks": "landsoficaria:fertilized_farmland"
               }
             }
           },
           {
             "condition": "minecraft:match_tool",
             "predicate": {
-              "items": [
-                "landsoficaria:calcite_dust"
-              ]
+              "items": "landsoficaria:calcite_dust"
             }
           }
         ]
@@ -33,7 +29,8 @@
       "translate": "advancement.landsoficaria.fertilized_farmland.description"
     },
     "icon": {
-      "item": "landsoficaria:calcite_dust"
+      "count": 1,
+      "id": "landsoficaria:calcite_dust"
     },
     "title": {
       "translate": "advancement.landsoficaria.fertilized_farmland.title"

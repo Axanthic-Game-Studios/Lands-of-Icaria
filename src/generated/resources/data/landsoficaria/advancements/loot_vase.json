@@ -22,7 +22,8 @@
       "translate": "advancement.landsoficaria.loot_vase.description"
     },
     "icon": {
-      "item": "landsoficaria:cyan_loot_vase"
+      "count": 1,
+      "id": "landsoficaria:cyan_loot_vase"
     },
     "title": {
       "translate": "advancement.landsoficaria.loot_vase.title"

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:populus_planks"
-            ]
+            "items": "landsoficaria:populus_planks"
           }
         ]
       },

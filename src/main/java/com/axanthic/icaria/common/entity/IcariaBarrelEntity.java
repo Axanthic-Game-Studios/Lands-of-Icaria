@@ -73,15 +73,15 @@ public class IcariaBarrelEntity extends Entity {
     }
 
     @Override
-    public void defineSynchedData() {
-        this.entityData.define(IcariaBarrelEntity.BLOCK_POS, BlockPos.ZERO);
-        this.entityData.define(IcariaBarrelEntity.BLOCK_STATE, Blocks.AIR.defaultBlockState());
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        pBuilder.define(IcariaBarrelEntity.BLOCK_POS, BlockPos.ZERO);
+        pBuilder.define(IcariaBarrelEntity.BLOCK_STATE, Blocks.AIR.defaultBlockState());
     }
 
     public void dropFromLootTable(DamageSource pDamageSource) {
         if (this.level().getServer() != null) {
             var lootContext = new LootParams.Builder((ServerLevel) this.level()).withOptionalParameter(LootContextParams.DIRECT_KILLER_ENTITY, pDamageSource.getDirectEntity()).withOptionalParameter(LootContextParams.KILLER_ENTITY, pDamageSource.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, pDamageSource).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).create(LootContextParamSets.ENTITY);
-            lootContext.getLevel().getServer().getLootData().getLootTable(IcariaResourceLocations.BARREL_LOOT).getRandomItems(lootContext).forEach(this::spawnAtLocation);
+            lootContext.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL_LOOT).getRandomItems(lootContext).forEach(this::spawnAtLocation);
         }
     }
 

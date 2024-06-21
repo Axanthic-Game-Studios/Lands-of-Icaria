@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:halite_dust"
-            ]
+            "items": "landsoficaria:halite_dust"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:loam_bowl"
-            ]
+            "items": "landsoficaria:loam_bowl"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:onion"
-            ]
+            "items": "landsoficaria:onion"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:raw_catoblepas_meat"
-            ]
+            "items": "landsoficaria:raw_catoblepas_meat"
           }
         ]
       },

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:droughtroot_log"
-            ]
+            "items": "landsoficaria:droughtroot_log"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:droughtroot_planks"
-            ]
+            "items": "landsoficaria:droughtroot_planks"
           }
         ]
       },

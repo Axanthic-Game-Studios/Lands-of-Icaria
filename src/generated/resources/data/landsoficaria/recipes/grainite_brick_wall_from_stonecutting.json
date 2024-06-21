@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "landsoficaria:grainite_bricks"
   },
-  "result": "landsoficaria:grainite_brick_wall"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:grainite_brick_wall"
+  }
 }

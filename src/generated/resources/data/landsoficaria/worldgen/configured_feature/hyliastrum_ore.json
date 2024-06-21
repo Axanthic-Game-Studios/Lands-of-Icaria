@@ -10,7 +10,7 @@
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
-          "tag": "forge:ore_bearing_ground/baetyl"
+          "tag": "c:ore_bearing_ground/baetyl"
         }
       }
     ]

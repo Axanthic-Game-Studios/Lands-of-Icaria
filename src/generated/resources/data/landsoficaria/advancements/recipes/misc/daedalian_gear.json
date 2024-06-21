@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:blue_gearfragment"
-            ]
+            "items": "landsoficaria:blue_gearfragment"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:green_gearfragment"
-            ]
+            "items": "landsoficaria:green_gearfragment"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:yellow_gearfragment"
-            ]
+            "items": "landsoficaria:yellow_gearfragment"
           }
         ]
       },

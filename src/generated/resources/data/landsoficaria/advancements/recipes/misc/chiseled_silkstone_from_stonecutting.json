@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:silkstone"
-            ]
+            "items": "landsoficaria:silkstone"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:silkstone_bricks"
-            ]
+            "items": "landsoficaria:silkstone_bricks"
           }
         ]
       },

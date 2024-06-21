@@ -6,6 +6,7 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -36,19 +37,19 @@ public class StorageVaseBlockEntity extends RandomizableContainerBlockEntity {
 	}
 
 	@Override
-	public void load(CompoundTag pTag) {
-		super.load(pTag);
+	public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
+		super.loadAdditional(pTag, pProvider);
 		this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
 		if (!this.tryLoadLootTable(pTag)) {
-			ContainerHelper.loadAllItems(pTag, this.items);
+			ContainerHelper.loadAllItems(pTag, this.items, pProvider);
 		}
 	}
 
 	@Override
-	public void saveAdditional(CompoundTag pTag) {
-		super.saveAdditional(pTag);
+	public void saveAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
+		super.saveAdditional(pTag, pProvider);
 		if (!this.trySaveLootTable(pTag)) {
-			ContainerHelper.saveAllItems(pTag, this.items);
+			ContainerHelper.saveAllItems(pTag, this.items, pProvider);
 		}
 	}
 
@@ -58,8 +59,8 @@ public class StorageVaseBlockEntity extends RandomizableContainerBlockEntity {
 	}
 
 	@Override
-	public AbstractContainerMenu createMenu(int pId, Inventory pPlayer) {
-		return new StorageVaseMenu(pId, this.worldPosition, pPlayer, pPlayer.player);
+	public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
+		return StorageVaseMenu.menu(pContainerId, pInventory, this);
 	}
 
 	@Override

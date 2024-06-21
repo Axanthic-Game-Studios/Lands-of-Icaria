@@ -38,7 +38,7 @@ public class VinegarRenderer extends EntityRenderer<VinegarEntity> {
         pMatrixStack.pushPose();
         pMatrixStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot())));
         pMatrixStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot())));
-        pMatrixStack.translate(0.0, 0.25, 0);
+        pMatrixStack.translate(0.0D, 0.0D, 0.0D);
 
         this.itemRenderer.render(pEntity.getItem(), ItemDisplayContext.NONE, false, pMatrixStack, pBuffer, pPackedLight, OverlayTexture.NO_OVERLAY, bakedModel);
 

@@ -4,7 +4,7 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Climate;
@@ -24,11 +24,11 @@ public class IcariaNoiseSettings {
 
 	public static final ResourceKey<NoiseGeneratorSettings> ICARIA = ResourceKey.create(Registries.NOISE_SETTINGS, new ResourceLocation(IcariaInfo.ID, "icaria"));
 
-	public static void bootstrap(BootstapContext<NoiseGeneratorSettings> pContext) {
+	public static void bootstrap(BootstrapContext<NoiseGeneratorSettings> pContext) {
 		pContext.register(IcariaNoiseSettings.ICARIA, new NoiseGeneratorSettings(new NoiseSettings(0, 96, 1, 1), Blocks.STONE.defaultBlockState(), Blocks.AIR.defaultBlockState(), IcariaNoiseSettings.noiseRouter(pContext), IcariaNoiseSettings.surfaceRules(), List.of(new Climate.ParameterPoint(Climate.Parameter.span(-1.0F, 1.0F), IcariaNoiseSettings.ZERO, Climate.Parameter.point(1.0F), IcariaNoiseSettings.ZERO, IcariaNoiseSettings.ZERO, IcariaNoiseSettings.ZERO, 0L)), -1, false, false, false, false));
 	}
 
-	public static NoiseRouter noiseRouter(BootstapContext<NoiseGeneratorSettings> pContext) {
+	public static NoiseRouter noiseRouter(BootstrapContext<NoiseGeneratorSettings> pContext) {
 		var noises = pContext.lookup(Registries.NOISE);
 		var densityFunctionA = DensityFunctions.noise(noises.getOrThrow(Noises.TEMPERATURE), 1.0D, 0.0D);
 		var densityFunctionB = DensityFunctions.noise(noises.getOrThrow(Noises.CONTINENTALNESS), 3.0D, 1.5D);

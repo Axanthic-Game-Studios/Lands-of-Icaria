@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:spelt_bale_block"
-            ]
+            "items": "landsoficaria:spelt_bale_block"
           }
         ]
       },

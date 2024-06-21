@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:rotten_bones"
-            ]
+            "items": "landsoficaria:rotten_bones"
           }
         ]
       },

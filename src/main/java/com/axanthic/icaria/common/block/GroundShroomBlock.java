@@ -20,8 +20,6 @@ import net.neoforged.neoforge.common.IPlantable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("deprecation")
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 

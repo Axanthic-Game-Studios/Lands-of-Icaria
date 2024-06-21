@@ -35,6 +35,7 @@ import javax.imageio.ImageIO;
 @ParametersAreNonnullByDefault
 
 public class IcariaClientHelper {
+
     public static float getLightBasedAlpha(LivingEntity pLivingEntity, float pPartialTick) {
         if (pLivingEntity.level().getSunAngle(pPartialTick) >= IcariaValues.DUSK_INIT && pLivingEntity.level().getSunAngle(pPartialTick) < IcariaValues.DUSK_EXIT) {
             return (pLivingEntity.level().getSunAngle(pPartialTick) - IcariaValues.DUSK_INIT) / (IcariaValues.DUSK_EXIT - IcariaValues.DUSK_INIT);
@@ -181,25 +182,31 @@ public class IcariaClientHelper {
 
     public static Color getImageBasedColor(BlockEntity pBlockEntity) {
         var resourceLocation = new ResourceLocation(IcariaInfo.ID + ":" + "textures" + "/" + "block" + "/" + BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
+        var optionalResource = Minecraft.getInstance().getResourceManager().getResource(resourceLocation);
 
-        try {
-            return new Color(ImageIO.read(Minecraft.getInstance().getResourceManager().getResource(resourceLocation).get().open()).getRGB(0, 0));
-        } catch (IOException pException) {
-            pException.printStackTrace();
-        }
+        if (optionalResource.isPresent()) {
+			try {
+				return new Color(ImageIO.read(optionalResource.get().open()).getRGB(0, 0));
+			} catch (IOException pException) {
+				throw new RuntimeException(pException);
+			}
+		}
 
-        return new Color(255, 255, 255);
+        return new Color(0, 0, 0);
     }
 
     public static Color getImageBasedColor(LivingEntity pLivingEntity) {
         var resourceLocation = new ResourceLocation(IcariaInfo.ID + ":" + "textures" + "/" + "entity" + "/" + BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
+        var optionalResource = Minecraft.getInstance().getResourceManager().getResource(resourceLocation);
 
-        try {
-            return new Color(ImageIO.read(Minecraft.getInstance().getResourceManager().getResource(resourceLocation).get().open()).getRGB(0, 0));
-        } catch (IOException pException) {
-            pException.printStackTrace();
+        if (optionalResource.isPresent()) {
+            try {
+                return new Color(ImageIO.read(optionalResource.get().open()).getRGB(0, 0));
+            } catch (IOException pException) {
+                throw new RuntimeException(pException);
+            }
         }
 
-        return new Color(255, 255, 255);
+        return new Color(0, 0, 0);
     }
 }

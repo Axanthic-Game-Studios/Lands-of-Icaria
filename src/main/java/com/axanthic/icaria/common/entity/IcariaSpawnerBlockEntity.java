@@ -5,6 +5,7 @@ import com.axanthic.icaria.common.util.IcariaBaseSpawner;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
@@ -53,14 +54,14 @@ public class IcariaSpawnerBlockEntity extends BlockEntity {
     }
 
     @Override
-    public void load(CompoundTag pTag) {
-        super.load(pTag);
+    public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
+        super.loadAdditional(pTag, pProvider);
         this.baseSpawner.load(this.level, this.worldPosition, pTag);
     }
 
     @Override
-    public void saveAdditional(CompoundTag pTag) {
-        super.saveAdditional(pTag);
+    public void saveAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
+        super.saveAdditional(pTag, pProvider);
         this.baseSpawner.save(pTag);
     }
 
@@ -82,8 +83,8 @@ public class IcariaSpawnerBlockEntity extends BlockEntity {
     }
 
     @Override
-    public CompoundTag getUpdateTag() {
-        var compoundTag = this.saveWithoutMetadata();
+    public CompoundTag getUpdateTag(HolderLookup.Provider pProvider) {
+        var compoundTag = this.saveWithoutMetadata(pProvider);
         compoundTag.remove("SpawnPotentials");
         return compoundTag;
     }

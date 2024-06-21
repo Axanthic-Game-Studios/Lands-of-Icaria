@@ -12,6 +12,7 @@
     "X X"
   ],
   "result": {
-    "item": "minecraft:leather_horse_armor"
+    "count": 1,
+    "id": "minecraft:leather_horse_armor"
   }
 }

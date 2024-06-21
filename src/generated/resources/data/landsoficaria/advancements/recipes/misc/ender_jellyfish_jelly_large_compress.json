@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:ender_jellyfish_jelly"
-            ]
+            "items": "landsoficaria:ender_jellyfish_jelly"
           }
         ]
       },

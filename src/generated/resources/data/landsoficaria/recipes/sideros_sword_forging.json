@@ -5,12 +5,10 @@
   "ingredients": [
     {
       "item": "landsoficaria:sideros_sword"
-    },
-    [],
-    []
+    }
   ],
   "output": {
-    "Count": 1,
+    "count": 1,
     "id": "landsoficaria:sideros_nugget"
   }
 }

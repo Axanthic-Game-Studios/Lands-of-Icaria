@@ -8,18 +8,14 @@
             "condition": "minecraft:location_check",
             "predicate": {
               "block": {
-                "blocks": [
-                  "landsoficaria:chest"
-                ]
+                "blocks": "landsoficaria:chest"
               }
             }
           },
           {
             "condition": "minecraft:match_tool",
             "predicate": {
-              "items": [
-                "landsoficaria:chest_label"
-              ]
+              "items": "landsoficaria:chest_label"
             }
           }
         ]
@@ -33,18 +29,14 @@
             "condition": "minecraft:location_check",
             "predicate": {
               "block": {
-                "blocks": [
-                  "landsoficaria:trapped_chest"
-                ]
+                "blocks": "landsoficaria:trapped_chest"
               }
             }
           },
           {
             "condition": "minecraft:match_tool",
             "predicate": {
-              "items": [
-                "landsoficaria:chest_label"
-              ]
+              "items": "landsoficaria:chest_label"
             }
           }
         ]
@@ -58,7 +50,8 @@
       "translate": "advancement.landsoficaria.chest.description"
     },
     "icon": {
-      "item": "landsoficaria:chest"
+      "count": 1,
+      "id": "landsoficaria:chest"
     },
     "title": {
       "translate": "advancement.landsoficaria.chest.title"

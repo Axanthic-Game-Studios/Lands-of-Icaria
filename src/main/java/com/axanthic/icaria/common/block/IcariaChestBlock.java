@@ -10,12 +10,13 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -87,20 +88,22 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 
     public void dropLabel(Direction pDirection, Level pLevel, BlockPos pPos, String pString) {
         var itemStack = new ItemStack(IcariaItems.CHEST_LABEL.get());
-        if (pString.equals(Component.empty().getString())) {
+        if (pString.isEmpty()) {
             Block.popResourceFromFace(pLevel, pPos, pDirection, itemStack);
         } else {
-            Block.popResourceFromFace(pLevel, pPos, pDirection, itemStack.setHoverName(Component.literal(pString)));
+            itemStack.set(DataComponents.CUSTOM_NAME, Component.literal(pString));
+            Block.popResourceFromFace(pLevel, pPos, pDirection, itemStack);
         }
     }
 
     public void dropLabel(Level pLevel, BlockPos pPos, BlockState pState, String pString, BooleanProperty pProperty) {
         var itemStack = new ItemStack(IcariaItems.CHEST_LABEL.get());
         if (pState.getValue(pProperty)) {
-            if (pString.equals(Component.empty().getString())) {
+            if (pString.isEmpty()) {
                 Block.popResource(pLevel, pPos, itemStack);
             } else {
-                Block.popResource(pLevel, pPos, itemStack.setHoverName(Component.literal(pString)));
+                itemStack.set(DataComponents.CUSTOM_NAME, Component.literal(pString));
+                Block.popResource(pLevel, pPos, itemStack);
             }
         }
     }
@@ -125,9 +128,9 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pResult) {
         var empty = Component.empty().getString();
-        var direction = pHit.getDirection();
+        var direction = pResult.getDirection();
         var stack = pPlayer.getItemInHand(pHand);
         var creative = pPlayer.isCreative();
         var name = stack.getHoverName();
@@ -135,7 +138,7 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
         if (pPlayer.isShiftKeyDown()) {
             if (pLevel.getBlockEntity(pPos) instanceof IcariaChestBlockEntity blockEntity) {
                 if (stack.is(IcariaItems.CHEST_LABEL.get())) {
-                    if (stack.hasCustomHoverName()) {
+                    if (stack.get(DataComponents.CUSTOM_NAME) != null) {
                         if (string.length() <= 12) {
                             if (direction.equals(Direction.UP)) {
                                 if (!pState.getValue(IcariaBlockStateProperties.TEXT_UP)) {
@@ -358,9 +361,9 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
                     }
                 }
             }
-            return InteractionResult.sidedSuccess(pLevel.isClientSide());
+            return ItemInteractionResult.sidedSuccess(pLevel.isClientSide());
         } else {
-            return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+            return super.useItemOn(pStack, pState, pLevel, pPos, pPlayer, pHand, pResult);
         }
     }
 

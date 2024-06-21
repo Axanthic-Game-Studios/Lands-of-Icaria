@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:yellowstone"
-            ]
+            "items": "landsoficaria:yellowstone"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:yellowstone_bricks"
-            ]
+            "items": "landsoficaria:yellowstone_bricks"
           }
         ]
       },

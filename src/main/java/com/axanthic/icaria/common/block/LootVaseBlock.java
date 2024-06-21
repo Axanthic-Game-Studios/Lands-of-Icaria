@@ -7,7 +7,6 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -31,8 +30,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -60,7 +57,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
         if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.isPassenger() || pPlayer.isVehicle()) {
             return InteractionResult.FAIL;
         } else {
@@ -82,7 +79,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
     @Override
     public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pBuilder) {
         var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-        var resourceLocation = pState.is(IcariaBlocks.RED_LOOT_VASE.get()) ? IcariaResourceLocations.RED_LOOT_VASE_LOOT : IcariaResourceLocations.CYAN_LOOT_VASE_LOOT;
-        return lootContext.getLevel().getServer().getLootData().getLootTable(resourceLocation).getRandomItems(lootContext);
+        var lootTable = pState.is(IcariaBlocks.RED_LOOT_VASE.get()) ? IcariaLootTables.RED_LOOT_VASE_LOOT : IcariaLootTables.CYAN_LOOT_VASE_LOOT;
+        return lootContext.getLevel().getServer().reloadableRegistries().getLootTable(lootTable).getRandomItems(lootContext);
     }
 }

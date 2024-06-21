@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:jasper_block"
-            ]
+            "items": "landsoficaria:jasper_block"
           }
         ]
       },

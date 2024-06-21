@@ -19,7 +19,8 @@
       "translate": "advancement.landsoficaria.forge.description"
     },
     "icon": {
-      "item": "landsoficaria:forge"
+      "count": 1,
+      "id": "landsoficaria:forge"
     },
     "title": {
       "translate": "advancement.landsoficaria.forge.title"

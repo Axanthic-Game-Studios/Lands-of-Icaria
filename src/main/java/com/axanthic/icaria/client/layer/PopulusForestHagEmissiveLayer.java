@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.layer;
 
-import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.client.model.PopulusForestHagModel;
+import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.common.entity.ForestHagEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;

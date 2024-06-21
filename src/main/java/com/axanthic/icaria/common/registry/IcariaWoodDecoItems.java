@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.item.FuelBlockItem;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.core.registries.Registries;
@@ -35,8 +34,8 @@ public class IcariaWoodDecoItems {
         this.item = pItem;
         this.stairs = IcariaWoodDecoItems.ITEMS.register(pBlock.name + "_stairs", () -> new BlockItem(pBlock.stairs.get(), new Item.Properties()));
         this.slab = IcariaWoodDecoItems.ITEMS.register(pBlock.name + "_slab", () -> new BlockItem(pBlock.slab.get(), new Item.Properties()));
-        this.fence = IcariaWoodDecoItems.ITEMS.register(pBlock.name + "_fence", () -> new FuelBlockItem(pBlock.fence.get(), new Item.Properties(), 300));
-        this.gate = IcariaWoodDecoItems.ITEMS.register(pBlock.name + "_fence_gate", () -> new FuelBlockItem(pBlock.gate.get(), new Item.Properties(), 300));
+        this.fence = IcariaWoodDecoItems.ITEMS.register(pBlock.name + "_fence", () -> new BlockItem(pBlock.fence.get(), new Item.Properties()));
+        this.gate = IcariaWoodDecoItems.ITEMS.register(pBlock.name + "_fence_gate", () -> new BlockItem(pBlock.gate.get(), new Item.Properties()));
         IcariaWoodDecoItems.WOOD_DECO_ITEMS.add(this);
     }
 }

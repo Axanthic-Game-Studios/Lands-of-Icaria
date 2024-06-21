@@ -12,7 +12,7 @@ public class SubtractiveTransparencyStateShard extends RenderStateShard.Transpar
                 RenderSystem.depthMask(false);
                 RenderSystem.enableBlend();
                 RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.SRC_COLOR, GlStateManager.SourceFactor.ZERO, GlStateManager.DestFactor.ONE);
-                }, () -> {
+            }, () -> {
                 RenderSystem.depthMask(true);
                 RenderSystem.disableBlend();
                 RenderSystem.defaultBlendFunc();

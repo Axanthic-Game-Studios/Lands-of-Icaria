@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:strawberries"
-            ]
+            "items": "landsoficaria:strawberries"
           }
         ]
       },

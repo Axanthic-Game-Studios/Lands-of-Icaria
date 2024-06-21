@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:chert"
-            ]
+            "items": "landsoficaria:chert"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:cypress_planks"
-            ]
+            "items": "landsoficaria:cypress_planks"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:droughtroot_planks"
-            ]
+            "items": "landsoficaria:droughtroot_planks"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:fir_planks"
-            ]
+            "items": "landsoficaria:fir_planks"
           }
         ]
       },
@@ -53,9 +45,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:laurel_planks"
-            ]
+            "items": "landsoficaria:laurel_planks"
           }
         ]
       },
@@ -65,9 +55,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:olive_planks"
-            ]
+            "items": "landsoficaria:olive_planks"
           }
         ]
       },
@@ -77,9 +65,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:plane_planks"
-            ]
+            "items": "landsoficaria:plane_planks"
           }
         ]
       },
@@ -89,9 +75,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:populus_planks"
-            ]
+            "items": "landsoficaria:populus_planks"
           }
         ]
       },
@@ -101,9 +85,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:acacia_planks"
-            ]
+            "items": "minecraft:acacia_planks"
           }
         ]
       },
@@ -113,9 +95,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:birch_planks"
-            ]
+            "items": "minecraft:birch_planks"
           }
         ]
       },
@@ -125,9 +105,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:crimson_planks"
-            ]
+            "items": "minecraft:crimson_planks"
           }
         ]
       },
@@ -137,9 +115,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:dark_oak_planks"
-            ]
+            "items": "minecraft:dark_oak_planks"
           }
         ]
       },
@@ -149,9 +125,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:jungle_planks"
-            ]
+            "items": "minecraft:jungle_planks"
           }
         ]
       },
@@ -161,9 +135,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:mangrove_planks"
-            ]
+            "items": "minecraft:mangrove_planks"
           }
         ]
       },
@@ -173,9 +145,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:oak_planks"
-            ]
+            "items": "minecraft:oak_planks"
           }
         ]
       },
@@ -185,9 +155,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:spruce_planks"
-            ]
+            "items": "minecraft:spruce_planks"
           }
         ]
       },
@@ -197,9 +165,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:warped_planks"
-            ]
+            "items": "minecraft:warped_planks"
           }
         ]
       },

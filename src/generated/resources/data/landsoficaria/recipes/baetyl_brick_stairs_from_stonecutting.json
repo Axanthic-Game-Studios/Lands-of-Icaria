@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "landsoficaria:baetyl_bricks"
   },
-  "result": "landsoficaria:baetyl_brick_stairs"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:baetyl_brick_stairs"
+  }
 }

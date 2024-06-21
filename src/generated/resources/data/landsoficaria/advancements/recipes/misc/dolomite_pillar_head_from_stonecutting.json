@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:dolomite_bricks"
-            ]
+            "items": "landsoficaria:dolomite_bricks"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:dolomite_pillar"
-            ]
+            "items": "landsoficaria:dolomite_pillar"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:smooth_dolomite"
-            ]
+            "items": "landsoficaria:smooth_dolomite"
           }
         ]
       },

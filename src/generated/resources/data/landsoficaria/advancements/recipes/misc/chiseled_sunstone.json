@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:sunstone_brick_slab"
-            ]
+            "items": "landsoficaria:sunstone_brick_slab"
           }
         ]
       },

@@ -13,7 +13,9 @@
       "item": "landsoficaria:mondanos"
     }
   ],
-  "potion": "minecraft:night_vision",
+  "potion": {
+    "potion": "minecraft:night_vision"
+  },
   "potionDuration": 200,
   "potionRadius": 5.0
 }

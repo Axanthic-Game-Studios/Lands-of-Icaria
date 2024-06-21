@@ -5,12 +5,10 @@
   "ingredients": [
     {
       "item": "landsoficaria:vanadiumsteel_dagger"
-    },
-    [],
-    []
+    }
   ],
   "output": {
-    "Count": 1,
+    "count": 1,
     "id": "landsoficaria:vanadiumsteel_nugget"
   }
 }

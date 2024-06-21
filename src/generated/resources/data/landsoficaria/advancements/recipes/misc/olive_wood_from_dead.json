@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:dead_olive_log"
-            ]
+            "items": "landsoficaria:dead_olive_log"
           }
         ]
       },

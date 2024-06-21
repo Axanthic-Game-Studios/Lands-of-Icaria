@@ -315,7 +315,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.RAW_CHALKOS_BLOCK.get(), "Block of Raw Chalkos");
 		this.add(IcariaBlocks.RAW_KASSITEROS_BLOCK.get(), "Block of Raw Kassiteros");
 		this.add(IcariaBlocks.RAW_VANADIUM_BLOCK.get(), "Block of Raw Vanadium");
-		this.add(IcariaBlocks.SLIVER_BLOCK.get(), "Block of Raw Sliver");
 		this.add(IcariaBlocks.RAW_SIDEROS_BLOCK.get(), "Block of Raw Sideros");
 		this.add(IcariaBlocks.RAW_MOLYBDENUM_BLOCK.get(), "Block of Raw Molybdenum");
 
@@ -329,6 +328,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.KASSITEROS_BLOCK.get(), "Block of Kassiteros");
 		this.add(IcariaBlocks.ORICHALCUM_BLOCK.get(), "Block of Orichalcum");
 		this.add(IcariaBlocks.VANADIUM_BLOCK.get(), "Block of Vanadium");
+		this.add(IcariaBlocks.SLIVER_BLOCK.get(), "Block of Sliver");
 		this.add(IcariaBlocks.VANADIUMSTEEL_BLOCK.get(), "Block of Vanadiumsteel");
 		this.add(IcariaBlocks.SIDEROS_BLOCK.get(), "Block of Sideros");
 		this.add(IcariaBlocks.ANTHRACITE_BLOCK.get(), "Block of Anthracite");
@@ -726,9 +726,9 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("category" + "." + IcariaInfo.ID + "." + "forging", "Forging");
 		this.add("category" + "." + IcariaInfo.ID + "." + "grinding", "Grinding");
 
-		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.get(), "Blindness Immunity");
-		this.add(IcariaMobEffects.FREEZING.get(), "Freezing");
-		this.add(IcariaMobEffects.LIFESTEAL.get(), "Lifesteal");
+		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.value(), "Blindness Immunity");
+		this.add(IcariaMobEffects.FREEZING.value(), "Freezing");
+		this.add(IcariaMobEffects.LIFESTEAL.value(), "Lifesteal");
 
 		this.add(IcariaEntityTypes.AETERNAE.get(), "Aeternae");
 		this.add(IcariaEntityTypes.ARACHNE.get(), "Arachne");

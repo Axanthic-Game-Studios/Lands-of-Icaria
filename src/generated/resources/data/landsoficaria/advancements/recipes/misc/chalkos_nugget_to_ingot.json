@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:chalkos_nugget"
-            ]
+            "items": "landsoficaria:chalkos_nugget"
           }
         ]
       },

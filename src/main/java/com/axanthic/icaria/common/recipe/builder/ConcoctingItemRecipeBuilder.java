@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.recipe.builder;
 
 import com.axanthic.icaria.common.recipe.ConcoctingItemRecipe;
+import com.axanthic.icaria.common.recipe.helper.IcariaRecipeHelper;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.AdvancementRequirements;
@@ -17,7 +18,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Nullable;
@@ -66,7 +66,7 @@ public class ConcoctingItemRecipeBuilder implements RecipeBuilder {
     public void save(RecipeOutput pRecipeOutput, ResourceLocation pRecipeId) {
         this.ensureValid(pRecipeId);
         var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
-        var recipe = new ConcoctingItemRecipe(this.burnTime, this.color, new ItemStack(this.output, this.count), List.of(this.ingredientA, this.ingredientB, this.ingredientC));
+        var recipe = new ConcoctingItemRecipe(this.burnTime, this.color, new ItemStack(this.output, this.count), IcariaRecipeHelper.helper(this.ingredientA, this.ingredientB, this.ingredientC));
         pRecipeOutput.accept(pRecipeId, recipe, builder.build(pRecipeId.withPrefix("recipes" + "/" + this.category.getFolderName() + "/")));
     }
 

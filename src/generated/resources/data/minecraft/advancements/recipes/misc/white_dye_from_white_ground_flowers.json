@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:white_ground_flowers"
-            ]
+            "items": "landsoficaria:white_ground_flowers"
           }
         ]
       },

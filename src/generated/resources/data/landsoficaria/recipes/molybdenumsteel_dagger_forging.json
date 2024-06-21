@@ -5,12 +5,10 @@
   "ingredients": [
     {
       "item": "landsoficaria:molybdenumsteel_dagger"
-    },
-    [],
-    []
+    }
   ],
   "output": {
-    "Count": 1,
+    "count": 1,
     "id": "landsoficaria:molybdenumsteel_nugget"
   }
 }

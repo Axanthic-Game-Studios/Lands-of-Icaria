@@ -9,12 +9,16 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -42,11 +46,6 @@ public class CrawlerRevenantEntity extends RevenantEntity {
         return this.getTick() / (float) this.maxTick;
     }
 
-    @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
-        return 0.375F;
-    }
-
     public int getTick() {
         return this.entityData.get(CrawlerRevenantEntity.TICK);
     }
@@ -70,9 +69,9 @@ public class CrawlerRevenantEntity extends RevenantEntity {
     }
 
     @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(CrawlerRevenantEntity.TICK, this.minTick);
+    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(CrawlerRevenantEntity.TICK, this.minTick);
     }
 
     @Override

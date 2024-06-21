@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:silkglass_pane"
-            ]
+            "items": "landsoficaria:silkglass_pane"
           }
         ]
       },

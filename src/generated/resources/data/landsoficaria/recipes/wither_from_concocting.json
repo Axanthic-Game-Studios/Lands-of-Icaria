@@ -13,7 +13,9 @@
       "item": "landsoficaria:rowan"
     }
   ],
-  "potion": "landsoficaria:wither",
+  "potion": {
+    "potion": "landsoficaria:wither"
+  },
   "potionDuration": 200,
   "potionRadius": 5.0
 }

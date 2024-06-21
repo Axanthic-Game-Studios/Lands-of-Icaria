@@ -206,7 +206,6 @@ public class IcariaBlocks {
 	public static final Supplier<Block> RAW_CHALKOS_BLOCK = IcariaBlocks.registerSimple("raw_chalkos_block", () -> new Block(IcariaBlocks.propertiesRawMetalBlock(MapColor.COLOR_GREEN, SoundType.METAL)));
 	public static final Supplier<Block> RAW_KASSITEROS_BLOCK = IcariaBlocks.registerSimple("raw_kassiteros_block", () -> new Block(IcariaBlocks.propertiesRawMetalBlock(MapColor.COLOR_LIGHT_BLUE, SoundType.METAL)));
 	public static final Supplier<Block> RAW_VANADIUM_BLOCK = IcariaBlocks.registerSimple("raw_vanadium_block", () -> new Block(IcariaBlocks.propertiesRawMetalBlock(MapColor.COLOR_YELLOW, SoundType.METAL)));
-	public static final Supplier<Block> SLIVER_BLOCK = IcariaBlocks.registerSimple("sliver_block", () -> new Block(IcariaBlocks.propertiesRawMetalBlock(MapColor.WOOD, SoundType.METAL)));
 	public static final Supplier<Block> RAW_SIDEROS_BLOCK = IcariaBlocks.registerSimple("raw_sideros_block", () -> new Block(IcariaBlocks.propertiesRawMetalBlock(MapColor.COLOR_ORANGE, SoundType.METAL)));
 	public static final Supplier<Block> RAW_MOLYBDENUM_BLOCK = IcariaBlocks.registerSimple("raw_molybdenum_block", () -> new Block(IcariaBlocks.propertiesRawMetalBlock(MapColor.COLOR_LIGHT_GRAY, SoundType.METAL)));
 
@@ -220,6 +219,7 @@ public class IcariaBlocks {
 	public static final Supplier<Block> KASSITEROS_BLOCK = IcariaBlocks.registerSimple("kassiteros_block", () -> new Block(IcariaBlocks.propertiesMetalBlock(MapColor.COLOR_LIGHT_BLUE, SoundType.METAL)));
 	public static final Supplier<Block> ORICHALCUM_BLOCK = IcariaBlocks.registerSimple("orichalcum_block", () -> new Block(IcariaBlocks.propertiesMetalBlock(MapColor.COLOR_ORANGE, SoundType.METAL)));
 	public static final Supplier<Block> VANADIUM_BLOCK = IcariaBlocks.registerSimple("vanadium_block", () -> new Block(IcariaBlocks.propertiesMetalBlock(MapColor.COLOR_YELLOW, SoundType.METAL)));
+	public static final Supplier<Block> SLIVER_BLOCK = IcariaBlocks.registerSimple("sliver_block", () -> new Block(IcariaBlocks.propertiesRawMetalBlock(MapColor.WOOD, SoundType.METAL)));
 	public static final Supplier<Block> VANADIUMSTEEL_BLOCK = IcariaBlocks.registerSimple("vanadiumsteel_block", () -> new Block(IcariaBlocks.propertiesMetalBlock(MapColor.COLOR_YELLOW, SoundType.METAL)));
 	public static final Supplier<Block> SIDEROS_BLOCK = IcariaBlocks.registerSimple("sideros_block", () -> new Block(IcariaBlocks.propertiesMetalBlock(MapColor.COLOR_ORANGE, SoundType.METAL)));
 	public static final Supplier<Block> ANTHRACITE_BLOCK = IcariaBlocks.registerSimple("anthracite_block", () -> new Block(IcariaBlocks.propertiesCoalBlock(MapColor.COLOR_BLACK, SoundType.STONE)));
@@ -615,7 +615,7 @@ public class IcariaBlocks {
 	public static final Supplier<Block> PHYSALIS_CROP = IcariaBlocks.register("physalis_crop", () -> new PhysalisCropBlock(IcariaBlocks.propertiesCrop(MapColor.NONE, SoundType.CROP)));
 	public static final Supplier<Block> ONION_CROP = IcariaBlocks.register("onion_crop", () -> new OnionCropBlock(IcariaBlocks.propertiesCrop(MapColor.NONE, SoundType.CROP)));
 
-	public static final Supplier<LiquidBlock> MEDITERRANEAN_WATER = IcariaBlocks.register("mediterranean_water", () -> new LiquidBlock(IcariaFluids.MEDITERRANEAN_WATER, IcariaBlocks.propertiesWater(MapColor.PLANT, SoundType.EMPTY)));
+	public static final Supplier<LiquidBlock> MEDITERRANEAN_WATER = IcariaBlocks.register("mediterranean_water", () -> new LiquidBlock(IcariaFluids.MEDITERRANEAN_WATER.get(), IcariaBlocks.propertiesWater(MapColor.PLANT, SoundType.EMPTY)));
 
 	public static final Supplier<Block> GREEK_FIRE = IcariaBlocks.register("greek_fire", () -> new GreekFireBlock(IcariaBlocks.propertiesFire(MapColor.COLOR_LIGHT_GREEN, SoundType.EMPTY)));
 

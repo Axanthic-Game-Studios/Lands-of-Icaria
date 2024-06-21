@@ -40,7 +40,7 @@ public class IcariaConfig {
 
 		builder.pop();
 
-		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, builder.build());
+		ModLoadingContext.get().getActiveContainer().registerConfig(ModConfig.Type.CLIENT, builder.build());
 	}
 
 	public static void registerCommonConfig() {
@@ -60,12 +60,12 @@ public class IcariaConfig {
 
 		builder.pop();
 
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, builder.build());
+		ModLoadingContext.get().getActiveContainer().registerConfig(ModConfig.Type.COMMON, builder.build());
 	}
 
 	public static void registerServerConfig() {
 		var builder = new ModConfigSpec.Builder();
 
-		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, builder.build());
+		ModLoadingContext.get().getActiveContainer().registerConfig(ModConfig.Type.SERVER, builder.build());
 	}
 }

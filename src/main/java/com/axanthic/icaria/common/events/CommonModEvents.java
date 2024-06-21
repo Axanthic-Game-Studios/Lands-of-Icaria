@@ -1,31 +1,28 @@
 package com.axanthic.icaria.common.events;
 
 import com.axanthic.icaria.common.entity.*;
+import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaCreativeModeTabs;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.util.IcariaInfo;
-import com.axanthic.icaria.data.IcariaBlockStates;
-import com.axanthic.icaria.data.IcariaBuiltinEntries;
-import com.axanthic.icaria.data.IcariaItemModels;
-import com.axanthic.icaria.data.IcariaRecipes;
+import com.axanthic.icaria.data.*;
 import com.axanthic.icaria.data.advancements.IcariaAdvancements;
 import com.axanthic.icaria.data.lang.IcariaEnglish;
 import com.axanthic.icaria.data.lang.IcariaGerman;
 import com.axanthic.icaria.data.loot.IcariaLoot;
 import com.axanthic.icaria.data.tags.*;
 
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
-import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
 import net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -34,7 +31,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 
-@Mod.EventBusSubscriber(modid = IcariaInfo.ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = IcariaInfo.ID, bus = EventBusSubscriber.Bus.MOD)
 public class CommonModEvents {
 
 	@SubscribeEvent
@@ -288,7 +285,6 @@ public class CommonModEvents {
 			pEvent.accept(IcariaItems.RAW_CHALKOS_BLOCK.get());
 			pEvent.accept(IcariaItems.RAW_KASSITEROS_BLOCK.get());
 			pEvent.accept(IcariaItems.RAW_VANADIUM_BLOCK.get());
-			pEvent.accept(IcariaItems.SLIVER_BLOCK.get());
 			pEvent.accept(IcariaItems.RAW_SIDEROS_BLOCK.get());
 			pEvent.accept(IcariaItems.RAW_MOLYBDENUM_BLOCK.get());
 
@@ -302,6 +298,7 @@ public class CommonModEvents {
 			pEvent.accept(IcariaItems.KASSITEROS_BLOCK.get());
 			pEvent.accept(IcariaItems.ORICHALCUM_BLOCK.get());
 			pEvent.accept(IcariaItems.VANADIUM_BLOCK.get());
+			pEvent.accept(IcariaItems.SLIVER_BLOCK.get());
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_BLOCK.get());
 			pEvent.accept(IcariaItems.SIDEROS_BLOCK.get());
 			pEvent.accept(IcariaItems.ANTHRACITE_BLOCK.get());
@@ -975,58 +972,65 @@ public class CommonModEvents {
 		generator.addProvider(pEvent.includeClient(), new IcariaItemModels(packOutput, IcariaInfo.ID, existingFileHelper));
 
 		generator.addProvider(pEvent.includeServer(), new IcariaAdvancements(packOutput, lookupProvider, existingFileHelper));
-		generator.addProvider(pEvent.includeServer(), new IcariaLoot(packOutput));
+		generator.addProvider(pEvent.includeServer(), new IcariaLoot(packOutput, lookupProvider));
 		generator.addProvider(pEvent.includeServer(), new IcariaBiomeTags(packOutput, registryProvider, IcariaInfo.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), blockTags);
 		generator.addProvider(pEvent.includeServer(), new IcariaFluidTags(packOutput, lookupProvider, IcariaInfo.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), new IcariaItemTags(packOutput, lookupProvider, tagLookup, IcariaInfo.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), new IcariaStructureTags(packOutput, registryProvider, IcariaInfo.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), builtinEntries);
+		generator.addProvider(pEvent.includeClient(), new IcariaDataMaps(packOutput, lookupProvider));
 		generator.addProvider(pEvent.includeServer(), new IcariaRecipes(packOutput, lookupProvider));
 	}
 
 	@SubscribeEvent
-	public static void onSpawnPlacementRegister(SpawnPlacementRegisterEvent pEvent) {
-		pEvent.register(IcariaEntityTypes.AETERNAE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AeternaeEntity::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.ARACHNE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ArachneEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.ARACHNE_DRONE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ArachneDroneEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.ARGAN_HOUND.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ArganHoundEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.CATOBLEPAS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CatoblepasEntity::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.CERVER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CerverEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.FIR_FOREST_HAG.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.PLANE_FOREST_HAG.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.HYLIASTER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, HyliasterEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.ENDER_JELLYFISH.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, JellyfishEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.FIRE_JELLYFISH.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, JellyfishEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.NATURE_JELLYFISH.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, JellyfishEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.VOID_JELLYFISH.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, JellyfishEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.WATER_JELLYFISH.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, JellyfishEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.MYRMEKE_DRONE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, MyrmekeDroneEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, MyrmekeSoldierEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.MYRMEKE_QUEEN.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, MyrmekeQueenEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.CAPTAIN_REVENANT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CaptainRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.CIVILIAN_REVENANT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CivilianRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.CRAWLER_REVENANT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CrawlerRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.OVERGROWN_REVENANT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, OvergrownRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.PYROMANCER_REVENANT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, PyromancerRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, NetherPyromancerRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.SOLDIER_REVENANT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SoldierRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.SCORPION.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ScorpionEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.CRYSTAL_SLUG.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SlugEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.FOREST_SNULL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnullEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.SNULL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnullEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.SOLIFUGAE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SolifugaeEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.SOW.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SowEntity::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.VINEGAROON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, VinegaroonEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+	public static void onRegisterCapabilities(RegisterCapabilitiesEvent pEvent) {
+		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.FORGE.get(), ForgeBlockEntity::getCapability);
+		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.FORGE_REDIRECTOR.get(), ForgeRedirectorBlockEntity::getCapability);
+		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockEntity::getCapability);
+		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.GRINDER_REDIRECTOR.get(), GrinderRedirectorBlockEntity::getCapability);
+		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.KETTLE.get(), KettleBlockEntity::getCapability);
+		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.KILN.get(), KilnBlockEntity::getCapability);
+		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.KILN_REDIRECTOR.get(), KilnRedirectorBlockEntity::getCapability);
 	}
 
 	@SubscribeEvent
-	public static void onEntityAttributeModification(EntityAttributeModificationEvent pEvent) {
-		pEvent.add(EntityType.PLAYER, NeoForgeMod.ENTITY_REACH.value());
+	public static void onSpawnPlacementRegister(SpawnPlacementRegisterEvent pEvent) {
+		pEvent.register(IcariaEntityTypes.AETERNAE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AeternaeEntity::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.ARACHNE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ArachneEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.ARACHNE_DRONE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ArachneDroneEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.ARGAN_HOUND.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ArganHoundEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.CATOBLEPAS.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CatoblepasEntity::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.CERVER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CerverEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.FIR_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.PLANE_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.HYLIASTER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, HyliasterEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.ENDER_JELLYFISH.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, JellyfishEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.FIRE_JELLYFISH.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, JellyfishEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.NATURE_JELLYFISH.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, JellyfishEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.VOID_JELLYFISH.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, JellyfishEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.WATER_JELLYFISH.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, JellyfishEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.MYRMEKE_DRONE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, MyrmekeDroneEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, MyrmekeSoldierEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.MYRMEKE_QUEEN.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, MyrmekeQueenEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.CAPTAIN_REVENANT.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CaptainRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.CIVILIAN_REVENANT.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CivilianRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.CRAWLER_REVENANT.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CrawlerRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.OVERGROWN_REVENANT.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, OvergrownRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.PYROMANCER_REVENANT.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, PyromancerRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, NetherPyromancerRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.SOLDIER_REVENANT.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SoldierRevenantEntity::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.SCORPION.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ScorpionEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.CRYSTAL_SLUG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SlugEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.FOREST_SNULL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnullEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.SNULL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnullEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.SOLIFUGAE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SolifugaeEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.SOW.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SowEntity::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.VINEGAROON.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, VinegaroonEntity::checkAnyLightArachnidSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
 	}
 }

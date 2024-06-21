@@ -5,12 +5,10 @@
   "ingredients": [
     {
       "item": "landsoficaria:raw_vanadium"
-    },
-    [],
-    []
+    }
   ],
   "output": {
-    "Count": 1,
+    "count": 1,
     "id": "landsoficaria:vanadium_ingot"
   }
 }

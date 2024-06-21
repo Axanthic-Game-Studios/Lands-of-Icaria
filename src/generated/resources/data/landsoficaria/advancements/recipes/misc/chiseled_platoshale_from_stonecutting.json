@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:platoshale"
-            ]
+            "items": "landsoficaria:platoshale"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:platoshale_bricks"
-            ]
+            "items": "landsoficaria:platoshale_bricks"
           }
         ]
       },

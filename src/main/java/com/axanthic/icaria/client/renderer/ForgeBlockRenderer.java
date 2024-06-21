@@ -81,13 +81,13 @@ public class ForgeBlockRenderer implements BlockEntityRenderer<ForgeBlockEntity>
 			if (!outputB.isEmpty()) {
 				pPoseStack.pushPose();
 				if (facing == Direction.NORTH) {
-					pPoseStack.translate(0.0, 0.9F, 0.3875);
+					pPoseStack.translate(0.0F, 0.9F, 0.3875);
 				} else if (facing == Direction.EAST) {
-					pPoseStack.translate(0.6125, 0.9F, 0.0);
+					pPoseStack.translate(0.6125, 0.9F, 0.0F);
 				} else if (facing == Direction.SOUTH) {
-					pPoseStack.translate(1.0, 0.9F, 0.6125);
+					pPoseStack.translate(1.0F, 0.9F, 0.6125);
 				} else if (facing == Direction.WEST) {
-					pPoseStack.translate(0.3875, 0.9F, 1.0);
+					pPoseStack.translate(0.3875, 0.9F, 1.0F);
 				}
 
 				pPoseStack.scale(0.375F, 0.375F, 0.375F);

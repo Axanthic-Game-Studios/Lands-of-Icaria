@@ -4,12 +4,13 @@ import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -40,11 +41,6 @@ public class RevenantEntity extends Monster {
     }
 
     @Override
-    public float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
-        return 1.75F;
-    }
-
-    @Override
     public void playStepSound(BlockPos pPos, BlockState pState) {
         this.playSound(SoundEvents.SKELETON_STEP, 0.1F, 1.0F);
     }
@@ -64,11 +60,6 @@ public class RevenantEntity extends Monster {
     }
 
     @Override
-    public MobType getMobType() {
-        return MobType.UNDEAD;
-    }
-
-    @Override
     public SoundEvent getAmbientSound() {
         return IcariaSoundEvents.REVENANT_AMBIENT;
     }
@@ -84,11 +75,11 @@ public class RevenantEntity extends Monster {
     }
 
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
         var randomSource = pLevel.getRandom();
         this.populateDefaultEquipmentEnchantments(randomSource, pDifficulty);
         this.populateDefaultEquipmentSlots(randomSource, pDifficulty);
         this.setCanPickUpLoot(true);
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
     }
 }

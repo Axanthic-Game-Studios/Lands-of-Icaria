@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:stripped_plane_log"
-            ]
+            "items": "landsoficaria:stripped_plane_log"
           }
         ]
       },

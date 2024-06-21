@@ -22,7 +22,8 @@
       "translate": "advancement.landsoficaria.barrel.description"
     },
     "icon": {
-      "item": "landsoficaria:laurel_barrel"
+      "count": 1,
+      "id": "landsoficaria:laurel_barrel"
     },
     "title": {
       "translate": "advancement.landsoficaria.barrel.title"

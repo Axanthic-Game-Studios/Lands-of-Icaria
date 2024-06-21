@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
   "ingredient": {
     "item": "landsoficaria:sunstone_bricks"
   },
-  "result": "landsoficaria:sunstone_brick_slab"
+  "result": {
+    "count": 2,
+    "id": "landsoficaria:sunstone_brick_slab"
+  }
 }

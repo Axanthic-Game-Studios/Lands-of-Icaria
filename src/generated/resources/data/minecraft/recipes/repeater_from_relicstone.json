@@ -17,6 +17,7 @@
     "ZZZ"
   ],
   "result": {
-    "item": "minecraft:repeater"
+    "count": 1,
+    "id": "minecraft:repeater"
   }
 }

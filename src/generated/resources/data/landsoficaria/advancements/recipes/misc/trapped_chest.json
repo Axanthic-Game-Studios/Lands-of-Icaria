@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:chest"
-            ]
+            "items": "landsoficaria:chest"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:tripwire_hook"
-            ]
+            "items": "minecraft:tripwire_hook"
           }
         ]
       },

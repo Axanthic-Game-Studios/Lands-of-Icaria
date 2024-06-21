@@ -19,7 +19,8 @@
       "translate": "advancement.landsoficaria.kettle.description"
     },
     "icon": {
-      "item": "landsoficaria:kettle"
+      "count": 1,
+      "id": "landsoficaria:kettle"
     },
     "title": {
       "translate": "advancement.landsoficaria.kettle.title"

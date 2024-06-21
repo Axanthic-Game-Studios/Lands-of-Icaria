@@ -4,6 +4,10 @@ import com.axanthic.icaria.client.effects.IcariaSpecialEffects;
 import com.axanthic.icaria.client.model.*;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
 import com.axanthic.icaria.client.renderer.*;
+import com.axanthic.icaria.client.screen.ForgeScreen;
+import com.axanthic.icaria.client.screen.GrinderScreen;
+import com.axanthic.icaria.client.screen.KilnScreen;
+import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaColors;
 import com.axanthic.icaria.common.util.IcariaInfo;
@@ -21,10 +25,11 @@ import net.minecraft.world.level.material.Fluid;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -32,7 +37,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = IcariaInfo.ID, value = Dist.CLIENT)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = IcariaInfo.ID, value = Dist.CLIENT)
 public class ClientModEvents {
 
 	@SubscribeEvent
@@ -311,6 +316,18 @@ public class ClientModEvents {
 		ClientModEvents.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER.get());
 		ClientModEvents.renderTranslucent(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get());
 
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.CHEST.get(), IcariaChestBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.CRYSTAL.get(), CrystalBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.FORGE.get(), ForgeBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.HANGING_SIGN.get(), HangingSignRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.KETTLE.get(), KettleBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.KILN.get(), KilnBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.SIGN.get(), IcariaSignBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.SKULL.get(), IcariaSkullBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.SPAWNER.get(), IcariaSpawnerBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.TRAPPED_CHEST.get(), IcariaChestBlockRenderer::new);
+
 		EntityRenderers.register(IcariaEntityTypes.AETERNAE.get(), AeternaeRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.ARACHNE.get(), ArachneRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.ARACHNE_DRONE.get(), ArachneDroneRenderer::new);
@@ -359,18 +376,6 @@ public class ClientModEvents {
 		EntityRenderers.register(IcariaEntityTypes.MAGIC_MISSILE_SPELL.get(), SpellRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.VINEGAR.get(), VinegarRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.VINEGAROON.get(), VinegaroonRenderer::new);
-
-		BlockEntityRenderers.register(IcariaBlockEntityTypes.CHEST.get(), IcariaChestBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntityTypes.CRYSTAL.get(), CrystalBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntityTypes.FORGE.get(), ForgeBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntityTypes.HANGING_SIGN.get(), HangingSignRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntityTypes.KETTLE.get(), KettleBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntityTypes.KILN.get(), KilnBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntityTypes.SIGN.get(), IcariaSignBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntityTypes.SKULL.get(), IcariaSkullBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntityTypes.SPAWNER.get(), IcariaSpawnerBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntityTypes.TRAPPED_CHEST.get(), IcariaChestBlockRenderer::new);
 	}
 
 	@SubscribeEvent
@@ -442,12 +447,28 @@ public class ClientModEvents {
 		pEvent.register(IcariaResourceLocations.ICARIA, new IcariaSpecialEffects());
 	}
 
+	@SubscribeEvent
+	public static void onRegisterMenuScreens(RegisterMenuScreensEvent pEvent) {
+		pEvent.register(IcariaMenus.FORGE.get(), ForgeScreen::new);
+		pEvent.register(IcariaMenus.GRINDER.get(), GrinderScreen::new);
+		pEvent.register(IcariaMenus.KILN.get(), KilnScreen::new);
+		pEvent.register(IcariaMenus.STORAGE_VASE.get(), StorageVaseScreen::new);
+	}
+
 	public static void grassColor(Block pBlock) {
-		Minecraft.getInstance().getBlockColors().register((pBlockState, pLevel, pBlockPos, pIndex) -> BiomeColors.getAverageGrassColor(pLevel, pBlockPos), pBlock);
+		Minecraft.getInstance().getBlockColors().register((pBlockState, pLevel, pBlockPos, pIndex) -> {
+			assert pLevel != null;
+			assert pBlockPos != null;
+			return BiomeColors.getAverageGrassColor(pLevel, pBlockPos);
+		}, pBlock);
 	}
 
 	public static void waterColor(Block pBlock) {
-		Minecraft.getInstance().getBlockColors().register((pBlockState, pLevel, pBlockPos, pIndex) -> BiomeColors.getAverageWaterColor(pLevel, pBlockPos), pBlock);
+		Minecraft.getInstance().getBlockColors().register((pBlockState, pLevel, pBlockPos, pIndex) -> {
+			assert pLevel != null;
+			assert pBlockPos != null;
+			return BiomeColors.getAverageWaterColor(pLevel, pBlockPos);
+		}, pBlock);
 	}
 
 	public static void itemColor(Item pItem) {

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:raw_catoblepas_meat"
-            ]
+            "items": "landsoficaria:raw_catoblepas_meat"
           }
         ]
       },

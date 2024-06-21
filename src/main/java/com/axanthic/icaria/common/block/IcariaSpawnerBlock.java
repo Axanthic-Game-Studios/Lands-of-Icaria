@@ -9,8 +9,9 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -49,23 +50,23 @@ public class IcariaSpawnerBlock extends BaseEntityBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pResult) {
         var itemStack = pPlayer.getItemInHand(pHand);
         if (itemStack.getItem() instanceof SpawnEggItem spawnEggItem) {
             if (pLevel.getBlockEntity(pPos) instanceof IcariaSpawnerBlockEntity icariaSpawnerBlockEntity) {
                 icariaSpawnerBlockEntity.setChanged();
-                icariaSpawnerBlockEntity.setEntityId(spawnEggItem.getType(itemStack.getTag()), pLevel.getRandom());
+                icariaSpawnerBlockEntity.setEntityId(spawnEggItem.getType(itemStack), pLevel.getRandom());
                 pLevel.gameEvent(pPlayer, GameEvent.BLOCK_CHANGE, pPos);
                 pLevel.sendBlockUpdated(pPos, pState, pState, 3);
                 if (!pPlayer.isCreative()) {
                     itemStack.shrink(1);
                 }
 
-                return InteractionResult.CONSUME;
+                return ItemInteractionResult.CONSUME;
             }
         }
 
-        return InteractionResult.CONSUME;
+        return ItemInteractionResult.CONSUME;
     }
 
     @Override

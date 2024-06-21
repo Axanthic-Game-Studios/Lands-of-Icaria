@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:cypress_log"
-            ]
+            "items": "landsoficaria:cypress_log"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:cypress_wood"
-            ]
+            "items": "landsoficaria:cypress_wood"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:stripped_cypress_log"
-            ]
+            "items": "landsoficaria:stripped_cypress_log"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:stripped_cypress_wood"
-            ]
+            "items": "landsoficaria:stripped_cypress_wood"
           }
         ]
       },

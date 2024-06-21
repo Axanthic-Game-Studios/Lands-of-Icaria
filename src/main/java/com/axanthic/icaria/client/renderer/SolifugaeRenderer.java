@@ -3,8 +3,8 @@ package com.axanthic.icaria.client.renderer;
 import com.axanthic.icaria.client.layer.SolifugaeEmissiveLayer;
 import com.axanthic.icaria.client.model.SolifugaeModel;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.entity.SolifugaeEntity;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 

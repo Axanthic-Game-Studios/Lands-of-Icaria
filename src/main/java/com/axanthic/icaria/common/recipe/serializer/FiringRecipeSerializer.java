@@ -3,11 +3,13 @@ package com.axanthic.icaria.common.recipe.serializer;
 import com.axanthic.icaria.common.recipe.FiringRecipe;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.NonNullList;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -18,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class FiringRecipeSerializer implements RecipeSerializer<FiringRecipe> {
-    public static final Codec<FiringRecipe> CODEC = RecordCodecBuilder.create(
+    public static final MapCodec<FiringRecipe> CODEC = RecordCodecBuilder.mapCodec(
         instance -> instance.group(
             Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
             Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
@@ -27,32 +29,40 @@ public class FiringRecipeSerializer implements RecipeSerializer<FiringRecipe> {
         ).apply(instance, FiringRecipe::new)
     );
 
+    public static final StreamCodec<RegistryFriendlyByteBuf, FiringRecipe> STREAM_CODEC = StreamCodec.of(
+        FiringRecipeSerializer::toNetwork,
+        FiringRecipeSerializer::fromNetwork
+    );
+
     @Override
-    public Codec<FiringRecipe> codec() {
+    public MapCodec<FiringRecipe> codec() {
         return CODEC;
     }
 
     @Override
-    public FiringRecipe fromNetwork(FriendlyByteBuf pBuffer) {
+    public StreamCodec<RegistryFriendlyByteBuf, FiringRecipe> streamCodec() {
+        return STREAM_CODEC;
+    }
+
+    public static FiringRecipe fromNetwork(RegistryFriendlyByteBuf pBuffer) {
         float experience = pBuffer.readFloat();
         int burnTime = pBuffer.readInt();
-        var output = pBuffer.readItem();
+        var output = ItemStack.OPTIONAL_STREAM_CODEC.decode(pBuffer);
         var ingredients = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
         for (int i = 0; i < ingredients.size(); i++) {
-            ingredients.set(i, Ingredient.fromNetwork(pBuffer));
+            ingredients.set(i, Ingredient.CONTENTS_STREAM_CODEC.decode(pBuffer));
         }
 
         return new FiringRecipe(experience, burnTime, ingredients, output);
     }
 
-    @Override
-    public void toNetwork(FriendlyByteBuf pBuffer, FiringRecipe pRecipe) {
+    public static void toNetwork(RegistryFriendlyByteBuf pBuffer, FiringRecipe pRecipe) {
         pBuffer.writeFloat(pRecipe.experience);
         pBuffer.writeInt(pRecipe.burnTime);
-        pBuffer.writeItem(pRecipe.getResultItem(null));
+        ItemStack.OPTIONAL_STREAM_CODEC.encode(pBuffer, pRecipe.output);
         pBuffer.writeInt(pRecipe.getIngredients().size());
         for (var ingredient : pRecipe.getIngredients()) {
-            ingredient.toNetwork(pBuffer);
+            Ingredient.CONTENTS_STREAM_CODEC.encode(pBuffer, ingredient);
         }
     }
 }

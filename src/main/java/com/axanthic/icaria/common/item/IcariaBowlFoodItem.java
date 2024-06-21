@@ -28,6 +28,9 @@ public class IcariaBowlFoodItem extends Item {
 	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
 		if (pLivingEntity instanceof Player player) {
 			player.eat(pLevel, pStack);
+			if (player.isCreative()) {
+				return pStack;
+			}
 		}
 
 		return new ItemStack(IcariaItems.LOAM_BOWL.get());

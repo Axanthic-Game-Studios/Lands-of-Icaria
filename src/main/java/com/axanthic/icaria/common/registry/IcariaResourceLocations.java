@@ -164,15 +164,6 @@ public class IcariaResourceLocations {
     public static final ResourceLocation SOW_SKULL_LAYER = new ResourceLocation(IcariaInfo.ID, "sow_skull");
     public static final ResourceLocation VINEGAROON_LAYER = new ResourceLocation(IcariaInfo.ID, "vinegaroon");
 
-    // LOOT
-
-    public static final ResourceLocation BARREL_LOOT = new ResourceLocation(IcariaInfo.ID, "barrels/barrel");
-    public static final ResourceLocation CHEST_LOOT = new ResourceLocation(IcariaInfo.ID, "chests/chest");
-    public static final ResourceLocation RED_LOOT_VASE_LOOT = new ResourceLocation(IcariaInfo.ID, "loot_vases/red_loot_vase");
-    public static final ResourceLocation CYAN_LOOT_VASE_LOOT = new ResourceLocation(IcariaInfo.ID, "loot_vases/cyan_loot_vase");
-    public static final ResourceLocation RED_STORAGE_VASE_LOOT = new ResourceLocation(IcariaInfo.ID, "storage_vases/red_storage_vase");
-    public static final ResourceLocation CYAN_STORAGE_VASE_LOOT = new ResourceLocation(IcariaInfo.ID, "storage_vases/cyan_storage_vase");
-
     // SOUND
 
     public static final ResourceLocation BARREL_BREAK = new ResourceLocation(IcariaInfo.ID, "block.barrel.break");

@@ -5,12 +5,10 @@
   "ingredients": [
     {
       "item": "landsoficaria:raw_kassiteros"
-    },
-    [],
-    []
+    }
   ],
   "output": {
-    "Count": 1,
+    "count": 1,
     "id": "landsoficaria:kassiteros_ingot"
   }
 }

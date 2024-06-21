@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "landsoficaria:relicstone"
   },
-  "result": "landsoficaria:smooth_relicstone"
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:smooth_relicstone"
+  }
 }

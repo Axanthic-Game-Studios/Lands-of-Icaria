@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:molybdenumsteel_nugget"
-            ]
+            "items": "landsoficaria:molybdenumsteel_nugget"
           }
         ]
       },

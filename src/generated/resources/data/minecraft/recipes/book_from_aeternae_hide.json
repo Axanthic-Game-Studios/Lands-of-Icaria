@@ -14,6 +14,7 @@
     "XY"
   ],
   "result": {
-    "item": "minecraft:book"
+    "count": 1,
+    "id": "minecraft:book"
   }
 }

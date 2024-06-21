@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:brown_ground_shrooms"
-            ]
+            "items": "landsoficaria:brown_ground_shrooms"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:green_ground_shrooms"
-            ]
+            "items": "landsoficaria:green_ground_shrooms"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:halite_dust"
-            ]
+            "items": "landsoficaria:halite_dust"
           }
         ]
       },
@@ -41,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:large_brown_ground_shrooms"
-            ]
+            "items": "landsoficaria:large_brown_ground_shrooms"
           }
         ]
       },
@@ -53,9 +45,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:loam_bowl"
-            ]
+            "items": "landsoficaria:loam_bowl"
           }
         ]
       },
@@ -65,9 +55,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:raw_sow_meat"
-            ]
+            "items": "landsoficaria:raw_sow_meat"
           }
         ]
       },
@@ -77,9 +65,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:tinder_fungus_tree_shrooms"
-            ]
+            "items": "landsoficaria:tinder_fungus_tree_shrooms"
           }
         ]
       },
@@ -89,9 +75,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:turkey_tail_tree_shrooms"
-            ]
+            "items": "landsoficaria:turkey_tail_tree_shrooms"
           }
         ]
       },
@@ -101,9 +85,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:unnamed_tree_shrooms"
-            ]
+            "items": "landsoficaria:unnamed_tree_shrooms"
           }
         ]
       },
@@ -113,9 +95,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:brown_mushroom"
-            ]
+            "items": "minecraft:brown_mushroom"
           }
         ]
       },
@@ -125,9 +105,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:red_mushroom"
-            ]
+            "items": "minecraft:red_mushroom"
           }
         ]
       },

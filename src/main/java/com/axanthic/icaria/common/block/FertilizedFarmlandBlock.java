@@ -14,8 +14,6 @@ import net.neoforged.neoforge.common.PlantType;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("deprecation")
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 

@@ -1,8 +1,9 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.container.data.ForgeContainerData;
-import com.axanthic.icaria.common.handler.ForgeInputItemStackHandler;
-import com.axanthic.icaria.common.handler.ForgeItemStackHandler;
+import com.axanthic.icaria.common.handler.stack.ForgeFuelItemStackHandler;
+import com.axanthic.icaria.common.handler.stack.ForgeInputItemStackHandler;
+import com.axanthic.icaria.common.handler.stack.ForgeOutputItemStackHandler;
 import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.recipe.ForgingRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
@@ -15,7 +16,8 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -29,7 +31,6 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -37,80 +38,41 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
 
-import net.neoforged.neoforge.common.CommonHooks;
+import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.List;
 import java.util.Optional;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class ForgeBlockEntity extends BlockEntity {
-    public int maxFuel = 0;
     public int fuel = 0;
-    public int maxProgress = 0;
+    public int maxFuel = 0;
     public int progress = 0;
+    public int maxProgress = 0;
     public int size = 6;
 
-    public ItemStackHandler stackHandler = new ForgeItemStackHandler(3, this);
-    public ItemStackHandler inputStackHandlerA = new ForgeInputItemStackHandler(1, this);
-    public ItemStackHandler inputStackHandlerB = new ForgeInputItemStackHandler(1, this);
-    public ItemStackHandler inputStackHandlerC = new ForgeInputItemStackHandler(1, this);
-
-    //public LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> stackHandler);
-    //public LazyOptional<IItemHandler> inputItemHandlerA = LazyOptional.of(() -> this.inputStackHandlerA);
-    //public LazyOptional<IItemHandler> inputItemHandlerB = LazyOptional.of(() -> this.inputStackHandlerB);
-    //public LazyOptional<IItemHandler> inputItemHandlerC = LazyOptional.of(() -> this.inputStackHandlerC);
+    public ItemStackHandler fuelHandler = new ForgeFuelItemStackHandler(1, this);
+    public ItemStackHandler inputHandlerA = new ForgeInputItemStackHandler(1, this);
+    public ItemStackHandler inputHandlerB = new ForgeInputItemStackHandler(1, this);
+    public ItemStackHandler inputHandlerC = new ForgeInputItemStackHandler(1, this);
+    public ItemStackHandler outputHandler = new ForgeOutputItemStackHandler(2, this);
 
     public Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
 
     public SimpleContainer simpleContainer = new SimpleContainer(this.size);
-
-    //public Map<Direction, LazyOptional<WrappedHandler>> directionWrappedFuelHandler = Map.of(
-    //    Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-    //    Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> index == 1 || index == 2, (index, stack) -> false)),
-    //    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-    //    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-    //    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> false)),
-    //    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.stackHandler, (index) -> false, (index, stack) -> this.stackHandler.isItemValid(0, stack)))
-    //);
-    //
-    //public Map<Direction, LazyOptional<WrappedHandler>> frontLeftInputHandler = Map.of(
-    //    Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> this.inputStackHandlerA.isItemValid(0, stack))),
-    //    Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false)),
-    //    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false)),
-    //    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false)),
-    //    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false)),
-    //    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerA, (index) -> false, (index, stack) -> false))
-    //);
-    //
-    //public Map<Direction, LazyOptional<WrappedHandler>> backLeftInputHandler = Map.of(
-    //    Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> this.inputStackHandlerB.isItemValid(0, stack))),
-    //    Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false)),
-    //    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false)),
-    //    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false)),
-    //    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false)),
-    //    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerB, (index) -> false, (index, stack) -> false))
-    //);
-    //
-    //public Map<Direction, LazyOptional<WrappedHandler>> backRightInputHandler = Map.of(
-    //    Direction.UP, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> this.inputStackHandlerC.isItemValid(0, stack))),
-    //    Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false)),
-    //    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false)),
-    //    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false)),
-    //    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false)),
-    //    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(this.inputStackHandlerC, (index) -> false, (index, stack) -> false))
-    //);
 
     public ForgeBlockEntity(BlockPos pPos, BlockState pState) {
         super(IcariaBlockEntityTypes.FORGE.get(), pPos, pState);
     }
 
     public boolean canInsertInSlot(SimpleContainer pContainer, ForgingRecipe pRecipe, int pSlot) {
-        return (pContainer.getItem(pSlot).getItem() == pRecipe.getResultItem(null).getItem() || pContainer.getItem(pSlot).isEmpty()) && pContainer.getItem(pSlot).getMaxStackSize() >= pContainer.getItem(pSlot).getCount() + pRecipe.getResultItem(null).getCount();
+        return (pContainer.getItem(pSlot).getItem() == pRecipe.getResultItem(null).getItem() || pContainer.getItem(pSlot).isEmpty()) && pContainer.getItem(pSlot).getCount() + pRecipe.getResultItem(null).getCount() <= 64;
     }
 
     public boolean hasFuel() {
@@ -118,12 +80,12 @@ public class ForgeBlockEntity extends BlockEntity {
     }
 
     public boolean hasRecipe() {
-        this.simpleContainer.setItem(0, this.inputStackHandlerA.getStackInSlot(0));
-        this.simpleContainer.setItem(1, this.inputStackHandlerB.getStackInSlot(0));
-        this.simpleContainer.setItem(2, this.inputStackHandlerC.getStackInSlot(0));
-        this.simpleContainer.setItem(3, this.stackHandler.getStackInSlot(0));
-        this.simpleContainer.setItem(4, this.stackHandler.getStackInSlot(1));
-        this.simpleContainer.setItem(5, this.stackHandler.getStackInSlot(2));
+        this.simpleContainer.setItem(0, this.fuelHandler.getStackInSlot(0));
+        this.simpleContainer.setItem(1, this.inputHandlerA.getStackInSlot(0));
+        this.simpleContainer.setItem(2, this.inputHandlerB.getStackInSlot(0));
+        this.simpleContainer.setItem(3, this.inputHandlerC.getStackInSlot(0));
+        this.simpleContainer.setItem(4, this.outputHandler.getStackInSlot(0));
+        this.simpleContainer.setItem(5, this.outputHandler.getStackInSlot(1));
 
         Optional<RecipeHolder<ForgingRecipe>> recipe = Optional.empty();
         if (this.level != null) {
@@ -143,12 +105,12 @@ public class ForgeBlockEntity extends BlockEntity {
     }
 
     public int getComparatorInput() {
-        int i = (this.stackHandler.getStackInSlot(0).getCount() * 15) / this.stackHandler.getStackInSlot(0).getMaxStackSize();
-        int j = (this.stackHandler.getStackInSlot(1).getCount() * 15) / this.stackHandler.getStackInSlot(1).getMaxStackSize();
-        int k = (this.stackHandler.getStackInSlot(2).getCount() * 15) / this.stackHandler.getStackInSlot(2).getMaxStackSize();
-        int l = (this.inputStackHandlerA.getStackInSlot(0).getCount() * 15) / this.inputStackHandlerA.getStackInSlot(0).getMaxStackSize();
-        int m = (this.inputStackHandlerB.getStackInSlot(0).getCount() * 15) / this.inputStackHandlerB.getStackInSlot(0).getMaxStackSize();
-        int n = (this.inputStackHandlerC.getStackInSlot(0).getCount() * 15) / this.inputStackHandlerC.getStackInSlot(0).getMaxStackSize();
+        int i = (this.fuelHandler.getStackInSlot(0).getCount() * 15) / 64;
+        int j = (this.inputHandlerA.getStackInSlot(0).getCount() * 15) / 64;
+        int k = (this.inputHandlerB.getStackInSlot(0).getCount() * 15) / 64;
+        int l = (this.inputHandlerC.getStackInSlot(0).getCount() * 15) / 64;
+        int m = (this.outputHandler.getStackInSlot(0).getCount() * 15) / 64;
+        int n = (this.outputHandler.getStackInSlot(1).getCount() * 15) / 64;
         return (i + j + k + l + m + n) / this.size;
     }
 
@@ -158,12 +120,12 @@ public class ForgeBlockEntity extends BlockEntity {
     }
 
     public void craftItem() {
-        this.simpleContainer.setItem(0, this.inputStackHandlerA.getStackInSlot(0));
-        this.simpleContainer.setItem(1, this.inputStackHandlerB.getStackInSlot(0));
-        this.simpleContainer.setItem(2, this.inputStackHandlerC.getStackInSlot(0));
-        this.simpleContainer.setItem(3, this.stackHandler.getStackInSlot(0));
-        this.simpleContainer.setItem(4, this.stackHandler.getStackInSlot(1));
-        this.simpleContainer.setItem(5, this.stackHandler.getStackInSlot(2));
+        this.simpleContainer.setItem(0, this.fuelHandler.getStackInSlot(0));
+        this.simpleContainer.setItem(1, this.inputHandlerA.getStackInSlot(0));
+        this.simpleContainer.setItem(2, this.inputHandlerB.getStackInSlot(0));
+        this.simpleContainer.setItem(3, this.inputHandlerC.getStackInSlot(0));
+        this.simpleContainer.setItem(4, this.outputHandler.getStackInSlot(0));
+        this.simpleContainer.setItem(5, this.outputHandler.getStackInSlot(1));
 
         Optional<RecipeHolder<ForgingRecipe>> recipe = Optional.empty();
         if (this.level != null) {
@@ -171,17 +133,17 @@ public class ForgeBlockEntity extends BlockEntity {
         }
 
         if (this.hasRecipe() && recipe.isPresent()) {
-            this.inputStackHandlerA.extractItem(0, 1, false);
-            this.inputStackHandlerB.extractItem(0, 1, false);
-            this.inputStackHandlerC.extractItem(0, 1, false);
+            this.inputHandlerA.extractItem(0, 1, false);
+            this.inputHandlerB.extractItem(0, 1, false);
+            this.inputHandlerC.extractItem(0, 1, false);
             if (this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 5)) {
-                this.stackHandler.setStackInSlot(2, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(2).getCount()));
+                this.outputHandler.setStackInSlot(1, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.outputHandler.getStackInSlot(1).getCount()));
             } else if (this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 4)) {
-                this.stackHandler.setStackInSlot(1, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.stackHandler.getStackInSlot(1).getCount()));
+                this.outputHandler.setStackInSlot(0, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.outputHandler.getStackInSlot(0).getCount()));
             }
 
             this.resetProgress();
-            this.setRecipeUsed(recipe.get().value());
+            this.setRecipeUsed(recipe.get());
         }
     }
 
@@ -196,41 +158,30 @@ public class ForgeBlockEntity extends BlockEntity {
     }
 
     public void drops(Level pLevel) {
-        this.simpleContainer.setItem(0, this.inputStackHandlerA.getStackInSlot(0));
-        this.simpleContainer.setItem(1, this.inputStackHandlerB.getStackInSlot(0));
-        this.simpleContainer.setItem(2, this.inputStackHandlerC.getStackInSlot(0));
-        this.simpleContainer.setItem(3, this.stackHandler.getStackInSlot(0));
-        this.simpleContainer.setItem(4, this.stackHandler.getStackInSlot(1));
-        this.simpleContainer.setItem(5, this.stackHandler.getStackInSlot(2));
-
+        this.simpleContainer.setItem(0, this.fuelHandler.getStackInSlot(0));
+        this.simpleContainer.setItem(1, this.inputHandlerA.getStackInSlot(0));
+        this.simpleContainer.setItem(2, this.inputHandlerB.getStackInSlot(0));
+        this.simpleContainer.setItem(3, this.inputHandlerC.getStackInSlot(0));
+        this.simpleContainer.setItem(4, this.outputHandler.getStackInSlot(0));
+        this.simpleContainer.setItem(5, this.outputHandler.getStackInSlot(1));
         Containers.dropContents(pLevel, this.worldPosition, this.simpleContainer);
     }
 
-    //@Override
-    //public void invalidateCaps() {
-    //    super.invalidateCaps();
-    //    this.itemHandler.invalidate();
-    //    this.inputItemHandlerA.invalidate();
-    //    this.inputItemHandlerB.invalidate();
-    //    this.inputItemHandlerC.invalidate();
-    //}
-
     @Override
-    public void load(CompoundTag pTag) {
-        super.load(pTag);
-        if (pTag.contains("Inventory")) {
-            this.stackHandler.deserializeNBT(pTag.getCompound("Inventory"));
-            this.inputStackHandlerA.deserializeNBT(pTag.getCompound("InputInventoryA"));
-            this.inputStackHandlerB.deserializeNBT(pTag.getCompound("InputInventoryB"));
-            this.inputStackHandlerC.deserializeNBT(pTag.getCompound("InputInventoryC"));
-            this.maxFuel = pTag.getInt("TotalFuelTime");
-            this.fuel = pTag.getInt("CurrentFuelTime");
-            this.maxProgress = pTag.getInt("TotalProgressTime");
-            this.progress = pTag.getInt("CurrentProgressTime");
-            var compoundTag = pTag.getCompound("RecipesUsed");
-            for (var string : compoundTag.getAllKeys()) {
-                this.recipesUsed.put(new ResourceLocation(string), compoundTag.getInt(string));
-            }
+    public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
+        super.loadAdditional(pTag, pProvider);
+        this.fuelHandler.deserializeNBT(pProvider, pTag.getCompound("FuelInventory"));
+        this.inputHandlerA.deserializeNBT(pProvider, pTag.getCompound("InputInventoryA"));
+        this.inputHandlerB.deserializeNBT(pProvider, pTag.getCompound("InputInventoryB"));
+        this.inputHandlerC.deserializeNBT(pProvider, pTag.getCompound("InputInventoryC"));
+        this.outputHandler.deserializeNBT(pProvider, pTag.getCompound("OutputInventory"));
+        this.fuel = pTag.getInt("CurrentFuelTime");
+        this.maxFuel = pTag.getInt("TotalFuelTime");
+        this.progress = pTag.getInt("CurrentProgressTime");
+        this.maxProgress = pTag.getInt("TotalProgressTime");
+        var compoundTag = pTag.getCompound("RecipesUsed");
+        for (var string : compoundTag.getAllKeys()) {
+            this.recipesUsed.put(new ResourceLocation(string), compoundTag.getInt(string));
         }
     }
 
@@ -245,43 +196,34 @@ public class ForgeBlockEntity extends BlockEntity {
     }
 
     @Override
-    public void saveAdditional(CompoundTag pTag) {
-        super.saveAdditional(pTag);
-        pTag.put("Inventory", this.stackHandler.serializeNBT());
-        pTag.put("InputInventoryA", this.inputStackHandlerA.serializeNBT());
-        pTag.put("InputInventoryB", this.inputStackHandlerB.serializeNBT());
-        pTag.put("InputInventoryC", this.inputStackHandlerC.serializeNBT());
-        pTag.putInt("TotalFuelTime", this.maxFuel);
+    public void saveAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
+        super.saveAdditional(pTag, pProvider);
+        pTag.put("FuelInventory", this.fuelHandler.serializeNBT(pProvider));
+        pTag.put("InputInventoryA", this.inputHandlerA.serializeNBT(pProvider));
+        pTag.put("InputInventoryB", this.inputHandlerB.serializeNBT(pProvider));
+        pTag.put("InputInventoryC", this.inputHandlerC.serializeNBT(pProvider));
+        pTag.put("OutputInventory", this.outputHandler.serializeNBT(pProvider));
         pTag.putInt("CurrentFuelTime", this.fuel);
-        pTag.putInt("TotalProgressTime", this.maxProgress);
+        pTag.putInt("TotalFuelTime", this.maxFuel);
         pTag.putInt("CurrentProgressTime", this.progress);
+        pTag.putInt("TotalProgressTime", this.maxProgress);
         var compoundTag = new CompoundTag();
         this.recipesUsed.forEach((resourceLocation, index) -> compoundTag.putInt(resourceLocation.toString(), index));
         pTag.put("RecipesUsed", compoundTag);
     }
 
-    public void setRecipeUsed(Recipe<?> pRecipe) {
-        this.recipesUsed.addTo(BuiltInRegistries.RECIPE_TYPE.getKey(pRecipe.getType()), 1);
-    }
-
-    @Override
-    public void setRemoved() {
-        super.setRemoved();
-        //this.itemHandler.invalidate();
-        //this.inputItemHandlerA.invalidate();
-        //this.inputItemHandlerB.invalidate();
-        //this.inputItemHandlerC.invalidate();
+    public void setRecipeUsed(RecipeHolder<?> pRecipe) {
+        this.recipesUsed.addTo(pRecipe.id(), 1);
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, ForgeBlockEntity pBlockEntity) {
-        var stackHandler = pBlockEntity.stackHandler;
         var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-        var fuelSlot = stackHandler.getStackInSlot(0);
-        var fuelTime = CommonHooks.getBurnTime(fuelSlot, IcariaRecipeTypes.FORGING.get());
+        var fuelSlot = pBlockEntity.fuelHandler.getStackInSlot(0);
+        var fuelTime = fuelSlot.getBurnTime(IcariaRecipeTypes.FORGING.get());
         if (!pLevel.isClientSide()) {
             pBlockEntity.update(pPos, pState);
             if (!pBlockEntity.hasFuel() && pBlockEntity.hasRecipe() && fuelTime > 0) {
-                stackHandler.extractItem(0, 1, false);
+                pBlockEntity.fuelHandler.extractItem(0, 1, false);
                 pBlockEntity.fuel = fuelTime + 1;
                 pBlockEntity.maxFuel = fuelTime;
             }
@@ -335,16 +277,17 @@ public class ForgeBlockEntity extends BlockEntity {
     }
 
     @Override
-    public CompoundTag getUpdateTag() {
+    public CompoundTag getUpdateTag(HolderLookup.Provider pProvider) {
         var compoundTag = new CompoundTag();
-        compoundTag.put("Inventory", this.stackHandler.serializeNBT());
-        compoundTag.put("InputInventoryA", this.inputStackHandlerA.serializeNBT());
-        compoundTag.put("InputInventoryB", this.inputStackHandlerB.serializeNBT());
-        compoundTag.put("InputInventoryC", this.inputStackHandlerC.serializeNBT());
-        compoundTag.putInt("TotalFuelTime", this.maxFuel);
+        compoundTag.put("FuelInventory", this.fuelHandler.serializeNBT(pProvider));
+        compoundTag.put("InputInventoryA", this.inputHandlerA.serializeNBT(pProvider));
+        compoundTag.put("InputInventoryB", this.inputHandlerB.serializeNBT(pProvider));
+        compoundTag.put("InputInventoryC", this.inputHandlerC.serializeNBT(pProvider));
+        compoundTag.put("OutputInventory", this.outputHandler.serializeNBT(pProvider));
         compoundTag.putInt("CurrentFuelTime", this.fuel);
-        compoundTag.putInt("TotalProgressTime", this.maxProgress);
+        compoundTag.putInt("TotalFuelTime", this.maxFuel);
         compoundTag.putInt("CurrentProgressTime", this.progress);
+        compoundTag.putInt("TotalProgressTime", this.maxProgress);
         return compoundTag;
     }
 
@@ -352,23 +295,33 @@ public class ForgeBlockEntity extends BlockEntity {
         return new ForgeContainerData(this);
     }
 
+    public static @Nullable IItemHandler getCapability(ForgeBlockEntity pBlockEntity, Direction pDirection) {
+        if (pDirection == pBlockEntity.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise()) {
+            return pBlockEntity.fuelHandler;
+        } else if (pDirection == Direction.DOWN) {
+            return pBlockEntity.outputHandler;
+        }
+
+        return null;
+    }
+
     public ItemStack getFuel() {
-        return this.stackHandler.getStackInSlot(0);
+        return this.fuelHandler.getStackInSlot(0);
     }
 
     public ItemStack getOutputA() {
-        return this.stackHandler.getStackInSlot(2);
+        return this.outputHandler.getStackInSlot(1);
     }
 
     public ItemStack getOutputB() {
-        return this.stackHandler.getStackInSlot(1);
+        return this.outputHandler.getStackInSlot(0);
     }
 
     public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(ServerLevel pLevel, Vec3 pPopVec) {
         List<RecipeHolder<?>> list = Lists.newArrayList();
         for (var entry : this.recipesUsed.object2IntEntrySet()) {
             pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent(
-                (recipe) -> {
+                recipe -> {
                     list.add(recipe);
                     if (recipe.value() instanceof ForgingRecipe forgingRecipe) {
                         this.createExperience(pLevel, pPopVec, entry.getIntValue(), forgingRecipe.getExperience());
@@ -384,53 +337,4 @@ public class ForgeBlockEntity extends BlockEntity {
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
     }
-
-    //@Override
-    //public <T> LazyOptional<T> getCapability(Capability<T> pCapability, @Nullable Direction pDirection) {
-    //    return this.getCapabilityForPos(pCapability, pDirection, this.getBlockPos());
-    //}
-    //
-    //public <T> LazyOptional<T> getCapabilityForPos(Capability<T> pCapability, @Nullable Direction pDirection, BlockPos pPos) {
-    //    if (pCapability == Capabilities.ITEM_HANDLER) {
-    //        if (pDirection == null) {
-    //            return this.itemHandler.cast();
-    //        } else if (this.directionWrappedFuelHandler.containsKey(pDirection) || this.frontLeftInputHandler.containsKey(pDirection) || this.backLeftInputHandler.containsKey(pDirection) || this.backRightInputHandler.containsKey(pDirection)) {
-    //            var level = this.getLevel();
-    //            var state = this.getBlockState();
-    //            if (level != null) {
-    //                state = level.getBlockState(ForgeBlock.getBlockEntityPosition(this.getBlockState(), pPos));
-    //            }
-    //
-    //            var corner  = state.getValue(IcariaBlockStateProperties.CORNER);
-    //            var facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-    //            if (pDirection == Direction.DOWN) {
-    //                return this.directionWrappedFuelHandler.get(pDirection).cast();
-    //            }
-    //
-    //            if (pDirection == Direction.UP) {
-    //                if (corner == Corner.TOP_FRONT_LEFT) {
-    //                    return this.frontLeftInputHandler.get(pDirection).cast();
-    //                } else if (corner == Corner.TOP_BACK_LEFT) {
-    //                    return this.backLeftInputHandler.get(pDirection).cast();
-    //                } else if (corner == Corner.TOP_BACK_RIGHT) {
-    //                    return this.backRightInputHandler.get(pDirection).cast();
-    //                }
-    //            }
-    //
-    //            if (corner == Corner.BOTTOM_FRONT_LEFT) {
-    //                if (facing == Direction.NORTH) {
-    //                    return this.directionWrappedFuelHandler.get(pDirection.getOpposite()).cast();
-    //                } else if (facing == Direction.EAST) {
-    //                    return this.directionWrappedFuelHandler.get(pDirection.getClockWise()).cast();
-    //                } else if (facing == Direction.SOUTH) {
-    //                    return this.directionWrappedFuelHandler.get(pDirection).cast();
-    //                } else if (facing == Direction.WEST) {
-    //                    return this.directionWrappedFuelHandler.get(pDirection.getCounterClockWise()).cast();
-    //                }
-    //            }
-    //        }
-    //    }
-    //
-    //    return super.getCapability(pCapability, pDirection);
-    //}
 }

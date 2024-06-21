@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "landsoficaria:vanadium_block"
-            ]
+            "items": "landsoficaria:vanadium_block"
           }
         ]
       },
