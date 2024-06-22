@@ -5,7 +5,6 @@ import com.axanthic.icaria.data.tags.IcariaBlockTags;
 import com.google.common.collect.Sets;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -35,13 +34,6 @@ public class ScytheItem extends HoeItem {
 		super(pTier, pProperties);
 	}
 
-	// TODO 1.20.6
-
-	//@Override
-	//public boolean canApplyAtEnchantingTable(ItemStack pStack, Enchantment pEnchantment) {
-	//	return pEnchantment.category == EnchantmentCategory.WEAPON || pEnchantment.category.canEnchant(pStack.getItem());
-	//}
-
 	@Override
 	public boolean canPerformAction(ItemStack pStack, ToolAction pAction) {
 		return ScytheItem.SCYTHE_ACTIONS.contains(pAction);
@@ -56,20 +48,6 @@ public class ScytheItem extends HoeItem {
 	@Override
 	public boolean isCorrectToolForDrops(ItemStack pStack, BlockState pState) {
 		return pState.is(IcariaBlockTags.MINEABLE_WITH_SCYTHE);
-	}
-
-	@Override
-	public boolean onBlockStartBreak(ItemStack pStack, BlockPos pPos, Player pPlayer) {
-		var level = pPlayer.level();
-		if (this.isCorrectToolForDrops(pStack, level.getBlockState(pPos))) {
-			for (var blockPos : BlockPos.withinManhattan(pPos, 1, 1, 1)) {
-				if (this.isCorrectToolForDrops(pStack, level.getBlockState(blockPos))) {
-					level.destroyBlock(blockPos, true, pPlayer);
-				}
-			}
-		}
-
-		return false;
 	}
 
 	@Override

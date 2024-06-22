@@ -70,7 +70,7 @@ public class IcariaEatBlockGoal extends Goal {
         if (this.eatAnimationTick == this.adjustedTickDelay(4)) {
             var blockPos = this.entity.blockPosition();
             if (this.level.getBlockState(blockPos).is(IcariaBlockTags.ICARIA_GRASS_BLOCKS)) {
-                if (EventHooks.getMobGriefingEvent(this.level, this.entity)) {
+                if (EventHooks.canEntityGrief(this.level, this.entity)) {
                     this.level.destroyBlock(blockPos, false);
                 }
 
@@ -78,7 +78,7 @@ public class IcariaEatBlockGoal extends Goal {
             } else {
                 var belowPos = blockPos.below();
                 if (this.level.getBlockState(belowPos).is(IcariaBlocks.GRASSY_MARL.get())) {
-                    if (EventHooks.getMobGriefingEvent(this.level, this.entity)) {
+                    if (EventHooks.canEntityGrief(this.level, this.entity)) {
                         this.level.levelEvent(2001, belowPos, Block.getId(IcariaBlocks.GRASSY_MARL.get().defaultBlockState()));
                         this.level.setBlock(belowPos, IcariaBlocks.MARL.get().defaultBlockState(), 2);
                     }

@@ -24,14 +24,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaSpawnerBlockEntity extends BlockEntity {
-    public IcariaBaseSpawner baseSpawner;
-
-    public BlockState blockState;
+    public IcariaBaseSpawner baseSpawner = new IcariaBaseSpawner();
 
     public IcariaSpawnerBlockEntity(BlockPos pPos, BlockState pState) {
         super(IcariaBlockEntityTypes.SPAWNER.get(), pPos, pState);
-        this.baseSpawner = this.getBaseSpawner(pState);
-        this.blockState = this.getBlockState();
     }
 
     @Override
@@ -41,12 +37,7 @@ public class IcariaSpawnerBlockEntity extends BlockEntity {
 
     @Override
     public boolean triggerEvent(int pId, int pType) {
-        boolean flag = false;
-        if (this.level != null) {
-            flag = this.baseSpawner.onEventTriggered(this.level, pId) || super.triggerEvent(pId, pType);
-        }
-
-        return flag;
+        return this.level != null && this.baseSpawner.onEventTriggered(this.level, pId);
     }
 
     public static void clientTick(Level pLevel, BlockPos pPos, BlockState pState, IcariaSpawnerBlockEntity pBlockEntity) {
@@ -66,7 +57,9 @@ public class IcariaSpawnerBlockEntity extends BlockEntity {
     }
 
     public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, IcariaSpawnerBlockEntity pBlockEntity) {
-        pBlockEntity.baseSpawner.serverTick((ServerLevel) pLevel, pPos);
+        if (pLevel instanceof  ServerLevel serverLevel) {
+            pBlockEntity.baseSpawner.serverTick(serverLevel, pPos);
+        }
     }
 
     public void setEntityId(EntityType<?> pType, RandomSource pRandom) {
@@ -87,9 +80,5 @@ public class IcariaSpawnerBlockEntity extends BlockEntity {
         var compoundTag = this.saveWithoutMetadata(pProvider);
         compoundTag.remove("SpawnPotentials");
         return compoundTag;
-    }
-
-    public IcariaBaseSpawner getBaseSpawner(BlockState pBlockState) {
-        return new IcariaBaseSpawner(this, pBlockState);
     }
 }

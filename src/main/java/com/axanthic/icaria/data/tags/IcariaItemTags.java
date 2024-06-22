@@ -314,6 +314,24 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.SIDEROS_TOOLS.shovel.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.shovel.get());
 
+		this.tag(ItemTags.SWORD_ENCHANTABLE)
+			.add(IcariaItems.CHERT_TOOLS.scythe.get())
+			.add(IcariaItems.CHALKOS_TOOLS.scythe.get())
+			.add(IcariaItems.KASSITEROS_TOOLS.scythe.get())
+			.add(IcariaItems.ORICHALCUM_TOOLS.scythe.get())
+			.add(IcariaItems.VANADIUMSTEEL_TOOLS.scythe.get())
+			.add(IcariaItems.SIDEROS_TOOLS.scythe.get())
+			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.scythe.get());
+
+		this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
+			.add(IcariaItems.CHERT_TOOLS.scythe.get())
+			.add(IcariaItems.CHALKOS_TOOLS.scythe.get())
+			.add(IcariaItems.KASSITEROS_TOOLS.scythe.get())
+			.add(IcariaItems.ORICHALCUM_TOOLS.scythe.get())
+			.add(IcariaItems.VANADIUMSTEEL_TOOLS.scythe.get())
+			.add(IcariaItems.SIDEROS_TOOLS.scythe.get())
+			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.scythe.get());
+
 		this.tag(Tags.Items.ENCHANTING_FUELS)
 			.add(IcariaItems.ZIRCON_SHARD.get());
 

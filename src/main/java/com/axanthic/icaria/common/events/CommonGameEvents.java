@@ -6,6 +6,7 @@ import com.axanthic.icaria.common.registry.IcariaMobEffects;
 import com.axanthic.icaria.common.registry.IcariaPotions;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -20,6 +21,7 @@ import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingAttackEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -29,6 +31,21 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = IcariaInfo.ID)
 public class CommonGameEvents {
+
+	@SubscribeEvent
+	public static void onBreak(BlockEvent.BreakEvent pEvent) {
+		var level = pEvent.getLevel();
+		var player = pEvent.getPlayer();
+		var pos = pEvent.getPos();
+		var stack = player.getMainHandItem();
+		if (stack.isCorrectToolForDrops(level.getBlockState(pos))) {
+			for (var blockPos : BlockPos.withinManhattan(pos, 1, 1, 1)) {
+				if (stack.isCorrectToolForDrops(level.getBlockState(blockPos))) {
+					level.destroyBlock(blockPos, true, player);
+				}
+			}
+		}
+	}
 
 	@SubscribeEvent
 	public static void onLivingAttack(LivingAttackEvent pEvent) {

@@ -22,7 +22,7 @@ public class ForestHagPlaceSaplingGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        return this.entity.getRandom().nextInt(Goal.reducedTickDelay(5000)) == 0 && !this.entity.isAggressive() && EventHooks.getMobGriefingEvent(this.entity.level(), this.entity);
+        return this.entity.getRandom().nextInt(Goal.reducedTickDelay(5000)) == 0 && !this.entity.isAggressive() && EventHooks.canEntityGrief(this.entity.level(), this.entity);
     }
 
     @Override

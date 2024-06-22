@@ -24,13 +24,6 @@ public class GreekFireGrenadeItem extends Item {
         super(pProperties);
     }
 
-    // TODO check 1.20.6
-
-    @Override
-    public boolean isEnchantable(ItemStack pStack) {
-        return false;
-    }
-
     @Override
     public int getUseDuration(ItemStack pStack) {
         return 72000;

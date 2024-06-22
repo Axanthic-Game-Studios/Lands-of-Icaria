@@ -26,10 +26,6 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-import net.neoforged.bus.api.Event;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
-
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -61,13 +57,7 @@ public class ArachneDroneEntity extends ArachneEntity {
 
     @Override
     public boolean canBeAffected(MobEffectInstance pEffectInstance) {
-        if (pEffectInstance.getEffect() == MobEffects.POISON) {
-            var event = new MobEffectEvent.Applicable(this, pEffectInstance);
-            NeoForge.EVENT_BUS.post(event);
-            return event.getResult() == Event.Result.ALLOW;
-        }
-
-        return super.canBeAffected(pEffectInstance);
+        return super.canBeAffected(pEffectInstance) && !pEffectInstance.is(MobEffects.POISON);
     }
 
     @Override
