@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.events;
 
 import com.axanthic.icaria.common.item.BidentItem;
+import com.axanthic.icaria.common.item.ScytheItem;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaMobEffects;
 import com.axanthic.icaria.common.registry.IcariaPotions;
@@ -38,10 +39,12 @@ public class CommonGameEvents {
 		var player = pEvent.getPlayer();
 		var pos = pEvent.getPos();
 		var stack = player.getMainHandItem();
-		if (stack.isCorrectToolForDrops(level.getBlockState(pos))) {
-			for (var blockPos : BlockPos.withinManhattan(pos, 1, 1, 1)) {
-				if (stack.isCorrectToolForDrops(level.getBlockState(blockPos))) {
-					level.destroyBlock(blockPos, true, player);
+		if (stack.getItem() instanceof ScytheItem) {
+			if (stack.isCorrectToolForDrops(level.getBlockState(pos))) {
+				for (var blockPos : BlockPos.withinManhattan(pos, 1, 1, 1)) {
+					if (stack.isCorrectToolForDrops(level.getBlockState(blockPos))) {
+						level.destroyBlock(blockPos, true, player);
+					}
 				}
 			}
 		}
