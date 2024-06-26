@@ -1,18 +1,18 @@
 {
   "values": [
     "landsoficaria:chert_dagger",
-    "landsoficaria:chert_scythe",
+    "landsoficaria:chert_bident",
     "landsoficaria:chalkos_dagger",
-    "landsoficaria:chalkos_scythe",
+    "landsoficaria:chalkos_bident",
     "landsoficaria:kassiteros_dagger",
-    "landsoficaria:kassiteros_scythe",
+    "landsoficaria:kassiteros_bident",
     "landsoficaria:orichalcum_dagger",
-    "landsoficaria:orichalcum_scythe",
+    "landsoficaria:orichalcum_bident",
     "landsoficaria:vanadiumsteel_dagger",
-    "landsoficaria:vanadiumsteel_scythe",
+    "landsoficaria:vanadiumsteel_bident",
     "landsoficaria:sideros_dagger",
-    "landsoficaria:sideros_scythe",
+    "landsoficaria:sideros_bident",
     "landsoficaria:molybdenumsteel_dagger",
-    "landsoficaria:molybdenumsteel_scythe"
+    "landsoficaria:molybdenumsteel_bident"
   ]
 }
