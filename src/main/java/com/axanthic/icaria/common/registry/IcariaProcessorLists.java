@@ -741,6 +741,6 @@ public class IcariaProcessorLists {
 	}
 
 	public static ResourceKey<StructureProcessorList> registerKey(String pName) {
-		return ResourceKey.create(Registries.PROCESSOR_LIST, new ResourceLocation(IcariaInfo.ID, pName));
+		return ResourceKey.create(Registries.PROCESSOR_LIST, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, pName));
 	}
 }

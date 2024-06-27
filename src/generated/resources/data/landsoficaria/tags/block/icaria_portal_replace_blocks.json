@@ -1,0 +1,7 @@
+{
+  "values": [
+    "minecraft:air",
+    "landsoficaria:icaria_portal",
+    "#landsoficaria:icaria_portal_blocks"
+  ]
+}

@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.LakeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.NoiseProvider;
@@ -25,8 +24,6 @@ import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -147,8 +144,8 @@ public class IcariaConfiguredFeatures {
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> STRAWBERRY_BUSH = IcariaConfiguredFeatures.registerKey("strawberry_bush");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LAKE = IcariaConfiguredFeatures.registerKey("lake");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DRY_LAKE = IcariaConfiguredFeatures.registerKey("dry_lake");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MEDITERRANEAN_WATER_LAKE = IcariaConfiguredFeatures.registerKey("mediterranean_water_lake");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> VILLAGE = IcariaConfiguredFeatures.registerKey("village");
 
@@ -268,13 +265,13 @@ public class IcariaConfiguredFeatures {
 
 		pContext.register(IcariaConfiguredFeatures.STRAWBERRY_BUSH, new ConfiguredFeature<>(IcariaFeatures.STRAWBERRY_BUSH.get(), NoneFeatureConfiguration.NONE));
 
-		pContext.register(IcariaConfiguredFeatures.LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(IcariaBlocks.MEDITERRANEAN_WATER.get().defaultBlockState()), BlockStateProvider.simple(IcariaBlocks.GRASSY_MARL.get().defaultBlockState()))));
-		pContext.register(IcariaConfiguredFeatures.DRY_LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.AIR.defaultBlockState()), BlockStateProvider.simple(IcariaBlocks.DRY_LAKE_BED.get().defaultBlockState()))));
+		pContext.register(IcariaConfiguredFeatures.DRY_LAKE, new ConfiguredFeature<>(IcariaFeatures.DRY_LAKE.get(), NoneFeatureConfiguration.NONE));
+		pContext.register(IcariaConfiguredFeatures.MEDITERRANEAN_WATER_LAKE, new ConfiguredFeature<>(IcariaFeatures.MEDITERRANEAN_WATER_LAKE.get(), NoneFeatureConfiguration.NONE));
 
 		pContext.register(IcariaConfiguredFeatures.VILLAGE, new ConfiguredFeature<>(IcariaFeatures.VILLAGE.get(), NoneFeatureConfiguration.NONE));
 	}
 
 	public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String pName) {
-		return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(IcariaInfo.ID, pName));
+		return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, pName));
 	}
 }

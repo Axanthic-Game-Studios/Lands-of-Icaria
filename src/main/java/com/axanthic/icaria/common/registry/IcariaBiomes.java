@@ -51,8 +51,8 @@ public class IcariaBiomes {
 	}
 
 	public static void forestBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
+		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.FALLEN_RELICSTONE_PILLAR);
@@ -162,8 +162,8 @@ public class IcariaBiomes {
 	}
 
 	public static void scrublandBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
+		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.YELLOWSTONE_BOULDER);
@@ -268,8 +268,8 @@ public class IcariaBiomes {
 	}
 
 	public static void steppeBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
+		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.YELLOWSTONE_BOULDER);
@@ -477,6 +477,6 @@ public class IcariaBiomes {
 	}
 
 	public static ResourceKey<Biome> registerKey(String pName) {
-		return ResourceKey.create(Registries.BIOME, new ResourceLocation(IcariaInfo.ID, pName));
+		return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, pName));
 	}
 }

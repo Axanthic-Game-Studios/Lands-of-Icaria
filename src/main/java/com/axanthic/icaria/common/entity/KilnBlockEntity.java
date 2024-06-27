@@ -30,6 +30,8 @@ import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeInput;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -83,7 +85,7 @@ public class KilnBlockEntity extends BlockEntity {
 
         Optional<RecipeHolder<FiringRecipe>> recipe = Optional.empty();
         if (this.level != null) {
-            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.FIRING.get(), this.simpleContainer, this.level);
+            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.FIRING.get(), this.getRecipeInput(), this.level);
         }
 
         int burnTime = 0;
@@ -117,7 +119,7 @@ public class KilnBlockEntity extends BlockEntity {
 
         Optional<RecipeHolder<FiringRecipe>> recipe = Optional.empty();
         if (this.level != null) {
-            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.FIRING.get(), this.simpleContainer, this.level);
+            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.FIRING.get(), this.getRecipeInput(), this.level);
         }
 
         if (this.hasRecipe() && recipe.isPresent()) {
@@ -157,7 +159,7 @@ public class KilnBlockEntity extends BlockEntity {
         this.maxProgress = pTag.getInt("TotalProgressTime");
         var compoundTag = pTag.getCompound("RecipesUsed");
         for (var string : compoundTag.getAllKeys()) {
-            this.recipesUsed.put(new ResourceLocation(string), compoundTag.getInt(string));
+            this.recipesUsed.put(ResourceLocation.parse(string), compoundTag.getInt(string));
         }
     }
 
@@ -269,7 +271,7 @@ public class KilnBlockEntity extends BlockEntity {
         List<RecipeHolder<?>> list = Lists.newArrayList();
         for (var entry : this.recipesUsed.object2IntEntrySet()) {
             pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent(
-                recipe -> {
+                (recipe) -> {
                     list.add(recipe);
                     if (recipe.value() instanceof FiringRecipe firingRecipe) {
                         this.createExperience(pLevel, pPopVec, entry.getIntValue(), firingRecipe.getExperience());
@@ -284,5 +286,9 @@ public class KilnBlockEntity extends BlockEntity {
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    public RecipeInput getRecipeInput() {
+        return new SingleRecipeInput(this.inputHandler.getStackInSlot(0));
     }
 }

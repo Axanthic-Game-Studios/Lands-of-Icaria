@@ -32,6 +32,6 @@ public class IcariaStructureSets {
 	}
 
 	public static ResourceKey<StructureSet> registerKey(String pName) {
-		return ResourceKey.create(Registries.STRUCTURE_SET, new ResourceLocation(IcariaInfo.ID, pName));
+		return ResourceKey.create(Registries.STRUCTURE_SET, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, pName));
 	}
 }

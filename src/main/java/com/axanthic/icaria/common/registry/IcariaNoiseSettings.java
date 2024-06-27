@@ -22,7 +22,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaNoiseSettings {
 	public static final Climate.Parameter ZERO = Climate.Parameter.point(0.0F);
 
-	public static final ResourceKey<NoiseGeneratorSettings> ICARIA = ResourceKey.create(Registries.NOISE_SETTINGS, new ResourceLocation(IcariaInfo.ID, "icaria"));
+	public static final ResourceKey<NoiseGeneratorSettings> ICARIA = ResourceKey.create(Registries.NOISE_SETTINGS, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "icaria"));
 
 	public static void bootstrap(BootstrapContext<NoiseGeneratorSettings> pContext) {
 		pContext.register(IcariaNoiseSettings.ICARIA, new NoiseGeneratorSettings(new NoiseSettings(0, 96, 1, 1), Blocks.STONE.defaultBlockState(), Blocks.AIR.defaultBlockState(), IcariaNoiseSettings.noiseRouter(pContext), IcariaNoiseSettings.surfaceRules(), List.of(new Climate.ParameterPoint(Climate.Parameter.span(-1.0F, 1.0F), IcariaNoiseSettings.ZERO, Climate.Parameter.point(1.0F), IcariaNoiseSettings.ZERO, IcariaNoiseSettings.ZERO, IcariaNoiseSettings.ZERO, 0L)), -1, false, false, false, false));

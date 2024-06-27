@@ -39,7 +39,7 @@ public class IcariaLevelStems {
 
     public static final Climate.Parameter ZERO = Climate.Parameter.point(0.0F);
 
-    public static final ResourceKey<LevelStem> ICARIA = ResourceKey.create(Registries.LEVEL_STEM, new ResourceLocation(IcariaInfo.ID, "icaria"));
+    public static final ResourceKey<LevelStem> ICARIA = ResourceKey.create(Registries.LEVEL_STEM, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "icaria"));
 
     public static void bootstrap(BootstrapContext<LevelStem> pContext) {
         var biomes = pContext.lookup(Registries.BIOME);

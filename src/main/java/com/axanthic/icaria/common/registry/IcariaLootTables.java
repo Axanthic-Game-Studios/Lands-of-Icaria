@@ -19,6 +19,6 @@ public class IcariaLootTables {
 	public static final ResourceKey<LootTable> CYAN_STORAGE_VASE_LOOT = IcariaLootTables.registerKey("storage_vases/cyan_storage_vase");
 
 	public static ResourceKey<LootTable> registerKey(String pName) {
-		return ResourceKey.create(Registries.LOOT_TABLE, new ResourceLocation(IcariaInfo.ID, pName));
+		return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, pName));
 	}
 }

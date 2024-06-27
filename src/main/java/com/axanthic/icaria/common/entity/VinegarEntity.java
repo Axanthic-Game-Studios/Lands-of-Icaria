@@ -23,11 +23,11 @@ public class VinegarEntity extends AbstractArrow {
     public ItemStack stack = new ItemStack(IcariaItems.VINEGAR.get());
 
     public VinegarEntity(EntityType<? extends VinegarEntity> pType, Level pLevel) {
-        super(pType, pLevel, new ItemStack(IcariaItems.VINEGAR.get()));
+        super(pType, pLevel);
     }
 
     public VinegarEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
-        super(IcariaEntityTypes.VINEGAR.get(), pEntity, pLevel, pStack);
+        super(IcariaEntityTypes.VINEGAR.get(), pEntity, pLevel, pStack, null);
         this.stack = pStack.copy();
     }
 

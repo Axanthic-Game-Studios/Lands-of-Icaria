@@ -22,6 +22,8 @@ import net.minecraft.world.level.material.FogType;
 import net.minecraft.world.phys.Vec3;
 
 import org.joml.Matrix4f;
+import org.joml.Quaternionf;
+import org.joml.Vector3f;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -59,7 +61,7 @@ public class IcariaSpecialEffects extends DimensionSpecialEffects {
         } else {
             var poseStack = new PoseStack();
 
-            var builder = Tesselator.getInstance().getBuilder();
+            var tesselator = Tesselator.getInstance();
             var positionShader = GameRenderer.getPositionShader();
             var shader = RenderSystem.getShader();
             var vec3 = pLevel.getSkyColor(Minecraft.getInstance().gameRenderer.getMainCamera().getPosition(), pPartialTick);
@@ -106,20 +108,20 @@ public class IcariaSpecialEffects extends DimensionSpecialEffects {
                 float blue = sunriseColor[2];
                 float alpha = sunriseColor[3];
 
+                var bufferBuilder = tesselator.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION_COLOR);
                 var matrix4f = poseStack.last().pose();
 
-                builder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION_COLOR);
-                builder.vertex(matrix4f, 0.0F, 100.0F, 0.0F).color(red, green, blue, alpha).endVertex();
+                bufferBuilder.addVertex(matrix4f, 0.0F, 100.0F, 0.0F).setColor(red, green, blue, alpha);
 
                 for (int k = 0; k <= 16; ++k) {
                     float f = k * (Mth.PI * 2.0F) / 16.0F;
                     float sin = Mth.sin(f);
                     float cos = Mth.cos(f);
 
-                    builder.vertex(matrix4f, sin * 120.0F, cos * 120.0F, -cos * 40.0F * alpha).color(red, green, blue, 0.0F).endVertex();
+                    bufferBuilder.addVertex(matrix4f, sin * 120.0F, cos * 120.0F, -cos * 40.0F * alpha).setColor(red, green, blue, 0.0F);
                 }
 
-                BufferUploader.drawWithShader(builder.end());
+                BufferUploader.drawWithShader(bufferBuilder.buildOrThrow());
 
                 poseStack.popPose();
             }
@@ -135,42 +137,43 @@ public class IcariaSpecialEffects extends DimensionSpecialEffects {
             poseStack.mulPose(Axis.ZP.rotationDegrees(45.0F));
             poseStack.mulPose(Axis.XP.rotationDegrees(pLevel.getTimeOfDay(pPartialTick) * 360.0F * 2.0F + 45.0F));
 
-            var matrix4f = poseStack.last().pose();
+            var moonAddition = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+            var mainMatrix4f = poseStack.last().pose();
 
             RenderSystem.setShaderTexture(0, IcariaResourceLocations.MOON);
 
-            builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-            builder.vertex(matrix4f, -20.0F, -100.0F, 20.0F).uv(0.0F, 0.0F).endVertex();
-            builder.vertex(matrix4f, 20.0F, -100.0F, 20.0F).uv(0.25F, 0.0F).endVertex();
-            builder.vertex(matrix4f, 20.0F, -100.0F, -20.0F).uv(0.25F, 0.5F).endVertex();
-            builder.vertex(matrix4f, -20.0F, -100.0F, -20.0F).uv(0.0F, 0.5F).endVertex();
+            moonAddition.addVertex(mainMatrix4f, -20.0F, -100.0F, 20.0F).setUv(0.0F, 0.0F);
+            moonAddition.addVertex(mainMatrix4f, 20.0F, -100.0F, 20.0F).setUv(0.25F, 0.0F);
+            moonAddition.addVertex(mainMatrix4f, 20.0F, -100.0F, -20.0F).setUv(0.25F, 0.5F);
+            moonAddition.addVertex(mainMatrix4f, -20.0F, -100.0F, -20.0F).setUv(0.0F, 0.5F);
 
-            BufferUploader.drawWithShader(builder.end());
+            BufferUploader.drawWithShader(moonAddition.buildOrThrow());
 
             poseStack.popPose();
             poseStack.mulPose(Axis.XP.rotationDegrees(pLevel.getTimeOfDay(pPartialTick) * 360.0F));
 
-            var extraMatrix4f = poseStack.last().pose();
+            var moonOriginal = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+            var xtraMatrix4f = poseStack.last().pose();
 
             RenderSystem.setShaderTexture(0, IcariaResourceLocations.MOON);
 
-            builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-            builder.vertex(extraMatrix4f, -20.0F, -100.0F, 20.0F).uv(u0, v0).endVertex();
-            builder.vertex(extraMatrix4f, 20.0F, -100.0F, 20.0F).uv(u1, v0).endVertex();
-            builder.vertex(extraMatrix4f, 20.0F, -100.0F, -20.0F).uv(u1, v1).endVertex();
-            builder.vertex(extraMatrix4f, -20.0F, -100.0F, -20.0F).uv(u0, v1).endVertex();
+            moonOriginal.addVertex(xtraMatrix4f, -20.0F, -100.0F, 20.0F).setUv(u0, v0);
+            moonOriginal.addVertex(xtraMatrix4f, 20.0F, -100.0F, 20.0F).setUv(u1, v0);
+            moonOriginal.addVertex(xtraMatrix4f, 20.0F, -100.0F, -20.0F).setUv(u1, v1);
+            moonOriginal.addVertex(xtraMatrix4f, -20.0F, -100.0F, -20.0F).setUv(u0, v1);
 
-            BufferUploader.drawWithShader(builder.end());
+            BufferUploader.drawWithShader(moonOriginal.buildOrThrow());
+
+            var bufferBuilder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
 
             RenderSystem.setShaderTexture(0, IcariaResourceLocations.SUN);
 
-            builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-            builder.vertex(extraMatrix4f, -30.0F, 100.0F, -30.0F).uv(0.0F, 0.0F).endVertex();
-            builder.vertex(extraMatrix4f, 30.0F, 100.0F, -30.0F).uv(1.0F, 0.0F).endVertex();
-            builder.vertex(extraMatrix4f, 30.0F, 100.0F, 30.0F).uv(1.0F, 1.0F).endVertex();
-            builder.vertex(extraMatrix4f, -30.0F, 100.0F, 30.0F).uv(0.0F, 1.0F).endVertex();
+            bufferBuilder.addVertex(xtraMatrix4f, -30.0F, 100.0F, -30.0F).setUv(0.0F, 0.0F);
+            bufferBuilder.addVertex(xtraMatrix4f, 30.0F, 100.0F, -30.0F).setUv(1.0F, 0.0F);
+            bufferBuilder.addVertex(xtraMatrix4f, 30.0F, 100.0F, 30.0F).setUv(1.0F, 1.0F);
+            bufferBuilder.addVertex(xtraMatrix4f, -30.0F, 100.0F, 30.0F).setUv(0.0F, 1.0F);
 
-            BufferUploader.drawWithShader(builder.end());
+            BufferUploader.drawWithShader(bufferBuilder.buildOrThrow());
 
             if (starBrightness > 0.0F) {
                 FogRenderer.setupNoFog();
@@ -207,7 +210,7 @@ public class IcariaSpecialEffects extends DimensionSpecialEffects {
 
         this.sky = new VertexBuffer(VertexBuffer.Usage.STATIC);
         this.sky.bind();
-        this.sky.upload(this.drawSky(Tesselator.getInstance().getBuilder()));
+        this.sky.upload(this.drawSky(Tesselator.getInstance()));
 
         VertexBuffer.unbind();
     }
@@ -221,69 +224,44 @@ public class IcariaSpecialEffects extends DimensionSpecialEffects {
 
         this.stars = new VertexBuffer(VertexBuffer.Usage.STATIC);
         this.stars.bind();
-        this.stars.upload(this.drawStars(Tesselator.getInstance().getBuilder()));
+        this.stars.upload(this.drawStars(Tesselator.getInstance()));
 
         VertexBuffer.unbind();
     }
 
-    public BufferBuilder.RenderedBuffer drawSky(BufferBuilder pBuilder) {
-        pBuilder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION);
-        pBuilder.vertex(0.0D, 16.0D, 0.0D).endVertex();
+    public MeshData drawSky(Tesselator pTesselator) {
+        var bufferBuilder = pTesselator.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION);
+        bufferBuilder.addVertex(0.0F, 16.0F, 0.0F);
 
         for (int i = -180; i <= 180; i += 45) {
-            pBuilder.vertex(Math.signum(16.0D) * Mth.cos(i * (Mth.PI / 180.0F)) * 512.0D, 16.0D, Mth.sin(i * (Mth.PI / 180.0F)) * 512.0D).endVertex();
+            bufferBuilder.addVertex((Math.signum(16.0F) * 512.0F) * Mth.cos((float)i * (float) (Math.PI / 180.0)), 16.0F, 512.0F * Mth.sin((float)i * (float) (Math.PI / 180.0)));
         }
 
-        return pBuilder.end();
+        return bufferBuilder.buildOrThrow();
     }
 
-    public BufferBuilder.RenderedBuffer drawStars(BufferBuilder pBuilder) {
+    public MeshData drawStars(Tesselator pTesselator) {
+        var bufferBuilder = pTesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
         var randomSource = RandomSource.create(10842L);
 
-        pBuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
-
-        for (int i = 0; i < 1500; ++i) {
-            double d0 = randomSource.nextFloat() * 2.0F - 1.0F;
-            double d1 = randomSource.nextFloat() * 2.0F - 1.0F;
-            double d2 = randomSource.nextFloat() * 2.0F - 1.0F;
-            double d3 = 0.15F + randomSource.nextFloat() * 0.1F;
-            double d4 = d0 * d0 + d1 * d1 + d2 * d2;
-
-            if (d4 < 1.0D && d4 > 0.01D) {
-                d4 = 1.0D / Math.sqrt(d4);
-                d0 *= d4;
-                d1 *= d4;
-                d2 *= d4;
-
-                double d5 = d0 * 100.0D;
-                double d6 = d1 * 100.0D;
-                double d7 = d2 * 100.0D;
-                double d8 = Math.atan2(d0, d2);
-                double d9 = Math.sin(d8);
-                double d10 = Math.cos(d8);
-                double d11 = Math.atan2(Math.sqrt(d0 * d0 + d2 * d2), d1);
-                double d12 = Math.sin(d11);
-                double d13 = Math.cos(d11);
-                double d14 = randomSource.nextDouble() * Mth.PI * 2.0D;
-                double d15 = Math.sin(d14);
-                double d16 = Math.cos(d14);
-
-                for (int j = 0; j < 4; ++j) {
-                    double d18 = ((j & 2) - 1) * d3;
-                    double d19 = ((j + 1 & 2) - 1) * d3;
-                    double d21 = d18 * d16 - d19 * d15;
-                    double d22 = d19 * d16 + d18 * d15;
-                    double d23 = d21 * d12 + 0.0D * d13;
-                    double d24 = 0.0D * d12 - d21 * d13;
-                    double d25 = d24 * d9 - d22 * d10;
-                    double d26 = d22 * d9 + d24 * d10;
-
-                    pBuilder.vertex(d5 + d25, d6 + d23, d7 + d26).endVertex();
-                }
+        for (int count = 0; count < 1500; count++) {
+            float f = randomSource.nextFloat() * 2.0F - 1.0F;
+            float g = randomSource.nextFloat() * 2.0F - 1.0F;
+            float h = randomSource.nextFloat() * 2.0F - 1.0F;
+            float i = randomSource.nextFloat() * 0.1F + 0.1F;
+            float j = Mth.lengthSquared(f, g, h);
+            if (j > 0.01F && j < 1.0F) {
+                float k = randomSource.nextFloat() * Mth.PI * 2.0F;
+                var vector3f = new Vector3f(f, g, h).normalize(100.0F);
+                var quaternionf = new Quaternionf().rotateTo(new Vector3f(0.0F, 0.0F, -1.0F), vector3f).rotateZ(k);
+                bufferBuilder.addVertex(vector3f.add(new Vector3f(i, -i, 0.0F).rotate(quaternionf)));
+                bufferBuilder.addVertex(vector3f.add(new Vector3f(i, i, 0.0F).rotate(quaternionf)));
+                bufferBuilder.addVertex(vector3f.add(new Vector3f(-i, i, 0.0F).rotate(quaternionf)));
+                bufferBuilder.addVertex(vector3f.add(new Vector3f(-i, -i, 0.0F).rotate(quaternionf)));
             }
         }
 
-        return pBuilder.end();
+        return bufferBuilder.buildOrThrow();
     }
 
     @Override

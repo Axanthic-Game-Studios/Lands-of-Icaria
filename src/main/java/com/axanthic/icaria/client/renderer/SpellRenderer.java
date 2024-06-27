@@ -70,85 +70,85 @@ public class SpellRenderer extends EntityRenderer<SpellEntity> {
             float x = this.getX(i, ticks, speed, wiggle);
             float y = this.getY(i, ticks, speed, wiggle);
 
-            consumer.vertex(matrix4f, x + width, y, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x + width, y + width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y + width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
+            consumer.addVertex(matrix4f, x + width, y, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x + width, y + width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y + width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
 
-            consumer.vertex(matrix4f, x, y - width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x + width, y - width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x + width, y, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
+            consumer.addVertex(matrix4f, x, y - width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x + width, y - width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x + width, y, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
 
-            consumer.vertex(matrix4f, x - width, y, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x - width, y - width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y - width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
+            consumer.addVertex(matrix4f, x - width, y, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x - width, y - width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y - width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
 
-            consumer.vertex(matrix4f, x, y + width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x - width, y + width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x - width, y, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
+            consumer.addVertex(matrix4f, x, y + width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x - width, y + width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x - width, y, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
 
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
-            consumer.vertex(matrix4f, x + width, y, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x + width, y + width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y + width, res).color(r0, g0, b0, a0).endVertex();
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
+            consumer.addVertex(matrix4f, x + width, y, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x + width, y + width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y + width, res).setColor(r0, g0, b0, a0);
 
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
-            consumer.vertex(matrix4f, x, y - width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x + width, y - width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x + width, y, res).color(r0, g0, b0, a0).endVertex();
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
+            consumer.addVertex(matrix4f, x, y - width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x + width, y - width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x + width, y, res).setColor(r0, g0, b0, a0);
 
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
-            consumer.vertex(matrix4f, x - width, y, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x - width, y - width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y - width, res).color(r0, g0, b0, a0).endVertex();
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
+            consumer.addVertex(matrix4f, x - width, y, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x - width, y - width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y - width, res).setColor(r0, g0, b0, a0);
 
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
-            consumer.vertex(matrix4f, x, y + width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x - width, y + width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x - width, y, res).color(r0, g0, b0, a0).endVertex();
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
+            consumer.addVertex(matrix4f, x, y + width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x - width, y + width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x - width, y, res).setColor(r0, g0, b0, a0);
 
-            consumer.vertex(matrix4f, x + width, y, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
-            consumer.vertex(matrix4f, x, y + width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x + width, y + width, res).color(r0, g0, b0, a0).endVertex();
+            consumer.addVertex(matrix4f, x + width, y, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
+            consumer.addVertex(matrix4f, x, y + width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x + width, y + width, res).setColor(r0, g0, b0, a0);
 
-            consumer.vertex(matrix4f, x, y - width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
-            consumer.vertex(matrix4f, x + width, y, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x + width, y - width, res).color(r0, g0, b0, a0).endVertex();
+            consumer.addVertex(matrix4f, x, y - width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
+            consumer.addVertex(matrix4f, x + width, y, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x + width, y - width, res).setColor(r0, g0, b0, a0);
 
-            consumer.vertex(matrix4f, x - width, y, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
-            consumer.vertex(matrix4f, x, y - width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x - width, y - width, res).color(r0, g0, b0, a0).endVertex();
+            consumer.addVertex(matrix4f, x - width, y, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
+            consumer.addVertex(matrix4f, x, y - width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x - width, y - width, res).setColor(r0, g0, b0, a0);
 
-            consumer.vertex(matrix4f, x, y + width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
-            consumer.vertex(matrix4f, x - width, y, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x - width, y + width, res).color(r0, g0, b0, a0).endVertex();
+            consumer.addVertex(matrix4f, x, y + width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
+            consumer.addVertex(matrix4f, x - width, y, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x - width, y + width, res).setColor(r0, g0, b0, a0);
 
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
-            consumer.vertex(matrix4f, x, y + width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x + width, y + width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x + width, y, res).color(r0, g0, b0, a0).endVertex();
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
+            consumer.addVertex(matrix4f, x, y + width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x + width, y + width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x + width, y, res).setColor(r0, g0, b0, a0);
 
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
-            consumer.vertex(matrix4f, x + width, y, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x + width, y - width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y - width, res).color(r0, g0, b0, a0).endVertex();
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
+            consumer.addVertex(matrix4f, x + width, y, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x + width, y - width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y - width, res).setColor(r0, g0, b0, a0);
 
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
-            consumer.vertex(matrix4f, x, y - width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x - width, y - width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x - width, y, res).color(r0, g0, b0, a0).endVertex();
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
+            consumer.addVertex(matrix4f, x, y - width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x - width, y - width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x - width, y, res).setColor(r0, g0, b0, a0);
 
-            consumer.vertex(matrix4f, x, y, res).color(r, g, b, a).endVertex();
-            consumer.vertex(matrix4f, x - width, y, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x - width, y + width, res).color(r0, g0, b0, a0).endVertex();
-            consumer.vertex(matrix4f, x, y + width, res).color(r0, g0, b0, a0).endVertex();
+            consumer.addVertex(matrix4f, x, y, res).setColor(r, g, b, a);
+            consumer.addVertex(matrix4f, x - width, y, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x - width, y + width, res).setColor(r0, g0, b0, a0);
+            consumer.addVertex(matrix4f, x, y + width, res).setColor(r0, g0, b0, a0);
         }
 
         pPoseStack.popPose();

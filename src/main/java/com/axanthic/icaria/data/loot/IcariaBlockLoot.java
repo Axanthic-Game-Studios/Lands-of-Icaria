@@ -8,7 +8,9 @@ import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.critereon.*;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -32,6 +34,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("unused")
+
 @MethodsReturnNonnullByDefault
 
 public class IcariaBlockLoot extends BlockLootSubProvider {
@@ -41,17 +45,8 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 	public static final float[] SEED_CHANCES = new float[]{0.05F, 0.06666666666F, 0.08333333333F, 0.1F};
 	public static final float[] STICK_CHANCES = new float[]{0.05F, 0.06666666666F, 0.08333333333F, 0.1F};
 
-	public static final EnchantmentPredicate SILK_TOUCH = new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1));
-
-	public static final LootItemCondition.Builder SILK = MatchTool.toolMatches(ItemPredicate.Builder.item().withSubPredicate(ItemSubPredicates.ENCHANTMENTS, ItemEnchantmentsPredicate.enchantments(List.of(IcariaBlockLoot.SILK_TOUCH))));
-	public static final LootItemCondition.Builder NO_SILK = IcariaBlockLoot.SILK.invert();
-	public static final LootItemCondition.Builder SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
-	public static final LootItemCondition.Builder NO_SHEARS = IcariaBlockLoot.SHEARS.invert();
-	public static final LootItemCondition.Builder SILK_OR_SHEARS = IcariaBlockLoot.SHEARS.or(IcariaBlockLoot.SILK);
-	public static final LootItemCondition.Builder NO_SILK_OR_SHEARS = IcariaBlockLoot.SILK_OR_SHEARS.invert();
-
-	public IcariaBlockLoot() {
-		super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+	public IcariaBlockLoot(HolderLookup.Provider pProvider) {
+		super(Set.of(), FeatureFlags.REGISTRY.allFlags(), pProvider);
 	}
 
 	@Override
@@ -502,87 +497,133 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 	}
 
 	public void dropThis(Block pBlock) {
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock))));
 	}
 
 	public void dropElseWithSilk(Block pBlock, Item pItem, float pValue, int pBonus) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SILK))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(IcariaBlockLoot.NO_SILK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, pBonus)))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.silk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(this.noSilk()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue))).apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE), pBonus)))));
 	}
 
 	public void dropElseWithSilk(Block pBlock, Item pRemains, Item pBone, float pValue, int pBonus) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SILK))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pRemains).when(IcariaBlockLoot.NO_SILK).when(LootItemRandomChanceCondition.randomChance(0.1F)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue))).otherwise(LootItem.lootTableItem(pBone).when(IcariaBlockLoot.NO_SILK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, pBonus))))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.silk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pRemains).when(this.noSilk()).when(LootItemRandomChanceCondition.randomChance(0.1F)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue))).otherwise(LootItem.lootTableItem(pBone).when(this.noSilk()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(pValue))).apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE), pBonus))))));
 	}
 
 	public void dropElse(Block pBlock, Item pItem) {
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem))));
 	}
 
 	public void dropOnlyWithSilk(Block pBlock) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SILK))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.silk()))));
 	}
 
 	public void dropNone(Block pBlock) {
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 		this.add(pBlock, LootTable.lootTable());
 	}
 
 	public void dropPots(Block pBlock, Item pItem) {
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Blocks.FLOWER_POT))));
 	}
 
 	public void dropLeaves(Block pLeavesBlock, Block pSaplingBlock) {
-		this.add(pLeavesBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLeavesBlock).when(IcariaBlockLoot.SILK_OR_SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSaplingBlock).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, IcariaBlockLoot.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, IcariaBlockLoot.STICK_CHANCES)))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pLeavesBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLeavesBlock).when(this.shearsOrSilk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSaplingBlock).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), IcariaBlockLoot.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), IcariaBlockLoot.STICK_CHANCES)))));
 	}
 
 	public void dropLayers(Block pBlock) {
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(AlternativesEntry.alternatives(LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.LAYERS, 1))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))), LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.LAYERS, 2))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))), LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.LAYERS, 3))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F))), LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.LAYERS, 4))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))), LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.LAYERS, 5))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5.0F))), LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.LAYERS, 6))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(6.0F))), LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.LAYERS, 7))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(7.0F))), LootItem.lootTableItem(pBlock).apply(SetItemCountFunction.setCount(ConstantValue.exactly(8.0F)))))));
 	}
 
 	public void dropDoor(Block pBlock) {
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER))))));
 	}
 
 	public void dropLaurelLeaves(Block pLeavesBlock, Block pSaplingBlock) {
-		this.add(pLeavesBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLeavesBlock).when(IcariaBlockLoot.SILK_OR_SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSaplingBlock).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, IcariaBlockLoot.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, IcariaBlockLoot.STICK_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get()).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, IcariaBlockLoot.CHERRY_CHANCES)))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pLeavesBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLeavesBlock).when(this.shearsOrSilk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSaplingBlock).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), IcariaBlockLoot.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), IcariaBlockLoot.STICK_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get()).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), IcariaBlockLoot.CHERRY_CHANCES)))));
 	}
 
 	public void dropOlivesLeaves(Block pLeavesBlock, Block pSaplingBlock) {
-		this.add(pLeavesBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLeavesBlock).when(IcariaBlockLoot.SILK_OR_SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSaplingBlock).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, IcariaBlockLoot.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(IcariaBlockLoot.NO_SILK_OR_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, IcariaBlockLoot.STICK_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GREEN_OLIVES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.GREEN))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, 2))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BLACK_OLIVES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.BLACK))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, 2))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pLeavesBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLeavesBlock).when(this.shearsOrSilk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSaplingBlock).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), IcariaBlockLoot.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), IcariaBlockLoot.STICK_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GREEN_OLIVES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.GREEN))).apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE), 2))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BLACK_OLIVES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pLeavesBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.BLACK))).apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE), 2))));
 	}
 
 	public void dropRipeVineWithLoot(Block pBlock, Item pItem, Item pLoot) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.BLOOMING))).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.RIPE))).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLoot).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.RIPE))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, 2)))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))).when(this.shears()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.BLOOMING))).when(this.shears()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.RIPE))).when(this.shears()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))).when(this.shears()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLoot).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.RIPE))).apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE), 2)))));
 	}
 
 	public void dropVine(Block pBlock, Item pItem) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))).when(IcariaBlockLoot.SHEARS))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))).when(this.shears()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))).when(this.shears()))));
 	}
 
 	public void dropVineWithLoot(Block pBlock, Item pItem, Item pLoot) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))).when(IcariaBlockLoot.SHEARS)).add(LootItem.lootTableItem(pLoot).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))).when(IcariaBlockLoot.NO_SHEARS).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, 2)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))).when(IcariaBlockLoot.SHEARS)).add(LootItem.lootTableItem(pLoot).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))).when(IcariaBlockLoot.NO_SHEARS).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, 2)))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))).when(this.shears())).add(LootItem.lootTableItem(pLoot).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))).when(this.noShears()).apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE), 2)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))).when(this.shears())).add(LootItem.lootTableItem(pLoot).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))).when(this.noShears()).apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE), 2)))));
 	}
 
 	public void dropSeed(Block pBlock) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.SPELT_SEEDS.get()).when(IcariaBlockLoot.NO_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, IcariaBlockLoot.SEED_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.STRAWBERRY_SEEDS.get()).when(IcariaBlockLoot.NO_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, IcariaBlockLoot.SEED_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.PHYSALIS_SEEDS.get()).when(IcariaBlockLoot.NO_SHEARS).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, IcariaBlockLoot.SEED_CHANCES)))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shears()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.SPELT_SEEDS.get()).when(this.noShears()).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), IcariaBlockLoot.SEED_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.STRAWBERRY_SEEDS.get()).when(this.noShears()).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), IcariaBlockLoot.SEED_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.PHYSALIS_SEEDS.get()).when(this.noShears()).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), IcariaBlockLoot.SEED_CHANCES)))));
 	}
 
 	public void dropBushWithLoot(Block pBlock, Item pLootItem) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(IcariaBlockLoot.SHEARS))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLootItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.RIPE, Ripe.RIPE))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, 2)))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shears()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pLootItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.RIPE, Ripe.RIPE))).apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE), 2)))));
 	}
 
 	public void dropCrop(Block pBlock, Item pCropItem, Item pSeedItem) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedItem))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, 2)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pCropItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, 2)))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedItem))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))).apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE), 2)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pCropItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))).apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE), 2)))));
 	}
 
 	public void dropOnions(Block pBlock, Item pCropItem, Item pSeedItem) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedItem))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, 2)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pCropItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, 2)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GARLIC.get()).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.FORTUNE, IcariaBlockLoot.GARLIC_CHANCES)))));
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedItem))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))).apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE), 2)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pCropItem).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))).apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE), 2)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GARLIC.get()).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), IcariaBlockLoot.GARLIC_CHANCES)))));
 	}
 
 	public void dropSlab(Block pBlock) {
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.SLAB_TYPE, SlabType.BOTTOM))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.SLAB_TYPE, SlabType.TOP))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE)))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))));
 	}
 
 	@Override
 	public Iterable<Block> getKnownBlocks() {
 		return BuiltInRegistries.BLOCK.stream().filter((pBlock) -> IcariaInfo.ID.equals(BuiltInRegistries.BLOCK.getKey(pBlock).getNamespace())).collect(Collectors.toList());
+	}
+
+	public LootItemCondition.Builder noShears() {
+		return this.shears().invert();
+	}
+
+	public LootItemCondition.Builder noShearsOrSilk() {
+		return this.shearsOrSilk().invert();
+	}
+
+	public LootItemCondition.Builder noSilk() {
+		return this.silk().invert();
+	}
+
+	public LootItemCondition.Builder shears() {
+		return MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
+	}
+
+	public LootItemCondition.Builder shearsOrSilk() {
+		return this.shears().or(this.silk());
+	}
+
+	public LootItemCondition.Builder silk() {
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		var enchantmentPredicate = new EnchantmentPredicate(registryLookup.getOrThrow(Enchantments.SILK_TOUCH), MinMaxBounds.Ints.atLeast(1));
+		return MatchTool.toolMatches(ItemPredicate.Builder.item().withSubPredicate(ItemSubPredicates.ENCHANTMENTS, ItemEnchantmentsPredicate.enchantments(List.of(enchantmentPredicate))));
 	}
 }

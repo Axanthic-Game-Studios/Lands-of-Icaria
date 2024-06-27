@@ -68,7 +68,7 @@ public class IcariaPortalShape extends PortalShape {
     }
 
     public boolean isEmpty(BlockState pState) {
-        return !pState.isAir() && !pState.is(IcariaBlocks.GREEK_FIRE.get());
+        return !pState.canBeReplaced() && !pState.is(IcariaBlocks.GREEK_FIRE.get());
     }
 
     @Override

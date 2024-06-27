@@ -17,6 +17,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.FastColor;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -70,6 +71,22 @@ public class IcariaClientHelper {
 
     public static float getBlue(LivingEntity pLivingEntity) {
         return IcariaClientHelper.getImageBasedColor(pLivingEntity).getBlue() / 255.0F;
+    }
+
+    public static int getColorAndAlpha(LivingEntity pLivingEntity) {
+        return FastColor.ARGB32.colorFromFloat(pLivingEntity.isInvisible() ? 0.0F : 1.0F, 1.0F, 1.0F, 1.0F);
+    }
+
+    public static int getColorAndAlpha(LivingEntity pLivingEntity, boolean pCondition) {
+        return FastColor.ARGB32.colorFromFloat(pLivingEntity.isInvisible() ? 0.0F : pCondition ? 1.0F : 0.0F, 1.0F, 1.0F, 1.0F);
+    }
+
+    public static int getColorAndAlpha(LivingEntity pLivingEntity, float pPartialTick) {
+        return FastColor.ARGB32.colorFromFloat(pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick), 1.0F, 1.0F, 1.0F);
+    }
+
+    public static int getColorAndAlpha(LivingEntity pLivingEntity, float pPartialTick, float pRed, float pGreen, float pBlue) {
+        return FastColor.ARGB32.colorFromFloat(pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick), pRed, pGreen, pBlue);
     }
 
     public static void renderRays(PoseStack pPoseStack, MultiBufferSource pBuffer, LivingEntity pLivingEntity, float pPartialTick, float pRed, float pGreen, float pBlue) {
@@ -165,23 +182,23 @@ public class IcariaClientHelper {
     }
 
     public static void vertexA(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pRed, float pGreen, float pBlue, float pAlpha) {
-        pVertexConsumer.vertex(pMatrix4f, 0.0F, 0.0F, 0.0F).color(pRed, pGreen, pBlue, pAlpha).endVertex();
+        pVertexConsumer.addVertex(pMatrix4f, 0.0F, 0.0F, 0.0F).setColor(pRed, pGreen, pBlue, pAlpha);
     }
 
     public static void vertexB(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pLength, float pWidth) {
-        pVertexConsumer.vertex(pMatrix4f, -IcariaMath.HALFSQRT3 * pWidth, pLength, -0.5F * pWidth).color(0.0F, 0.0F, 0.0F, 0.0F).endVertex();
+        pVertexConsumer.addVertex(pMatrix4f, -IcariaMath.HALFSQRT3 * pWidth, pLength, -0.5F * pWidth).setColor(0.0F, 0.0F, 0.0F, 0.0F);
     }
 
     public static void vertexC(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pLength, float pWidth) {
-        pVertexConsumer.vertex(pMatrix4f, IcariaMath.HALFSQRT3 * pWidth, pLength, -0.5F * pWidth).color(0.0F, 0.0F, 0.0F, 0.0F).endVertex();
+        pVertexConsumer.addVertex(pMatrix4f, IcariaMath.HALFSQRT3 * pWidth, pLength, -0.5F * pWidth).setColor(0.0F, 0.0F, 0.0F, 0.0F);
     }
 
     public static void vertexD(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pLength, float pWidth) {
-        pVertexConsumer.vertex(pMatrix4f, 0.0F, pLength, pWidth).color(0.0F, 0.0F, 0.0F, 0.0F).endVertex();
+        pVertexConsumer.addVertex(pMatrix4f, 0.0F, pLength, pWidth).setColor(0.0F, 0.0F, 0.0F, 0.0F);
     }
 
     public static Color getImageBasedColor(BlockEntity pBlockEntity) {
-        var resourceLocation = new ResourceLocation(IcariaInfo.ID + ":" + "textures" + "/" + "block" + "/" + BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
+        var resourceLocation = ResourceLocation.parse(IcariaInfo.ID + ":" + "textures" + "/" + "block" + "/" + BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
         var optionalResource = Minecraft.getInstance().getResourceManager().getResource(resourceLocation);
 
         if (optionalResource.isPresent()) {
@@ -196,7 +213,7 @@ public class IcariaClientHelper {
     }
 
     public static Color getImageBasedColor(LivingEntity pLivingEntity) {
-        var resourceLocation = new ResourceLocation(IcariaInfo.ID + ":" + "textures" + "/" + "entity" + "/" + BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
+        var resourceLocation = ResourceLocation.parse(IcariaInfo.ID + ":" + "textures" + "/" + "entity" + "/" + BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
         var optionalResource = Minecraft.getInstance().getResourceManager().getResource(resourceLocation);
 
         if (optionalResource.isPresent()) {

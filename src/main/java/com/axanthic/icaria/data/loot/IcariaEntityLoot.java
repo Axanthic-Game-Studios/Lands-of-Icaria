@@ -5,20 +5,19 @@ import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
+import net.minecraft.world.level.storage.loot.functions.EnchantedCountIncreaseFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.functions.SmeltItemFunction;
-import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
@@ -29,8 +28,8 @@ import java.util.stream.Stream;
 @MethodsReturnNonnullByDefault
 
 public class IcariaEntityLoot extends EntityLootSubProvider {
-    public IcariaEntityLoot() {
-        super(FeatureFlags.REGISTRY.allFlags());
+    public IcariaEntityLoot(HolderLookup.Provider pProvider) {
+        super(FeatureFlags.REGISTRY.allFlags(), pProvider);
     }
 
     @Override
@@ -85,11 +84,11 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
     }
 
     public void arachneQueen() {
-        this.add(IcariaEntityTypes.ARACHNE.get(), LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.ARACHNE_STRING.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_STUFFING.get())).add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_UNBLINDING.get())).add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_UNDROWNING.get())).add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_UNSHATTERING.get())).add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_UNSINKING.get()))));
+        this.add(IcariaEntityTypes.ARACHNE.get(), LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.ARACHNE_STRING.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_STUFFING.get())).add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_UNBLINDING.get())).add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_UNDROWNING.get())).add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_UNSHATTERING.get())).add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_UNSINKING.get()))));
     }
 
     public void laurelForest() {
-        this.add(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LAUREL_FOREST_HAG_SKULL.get())).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LAUREL_SAPLING.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LAUREL_WREATH.get()).when(LootItemRandomChanceCondition.randomChance(0.1F)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LAUREL_LOG.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, EntityLootSubProvider.ENTITY_ON_FIRE))))));
+        this.add(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LAUREL_FOREST_HAG_SKULL.get())).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LAUREL_SAPLING.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LAUREL_WREATH.get()).when(LootItemRandomChanceCondition.randomChance(0.1F)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LAUREL_LOG.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(this.shouldSmeltLoot())))));
     }
 
     public void dropNone(EntityType<?> pEntity) {
@@ -101,55 +100,55 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
     }
 
     public void dropItem(EntityType<?> pEntity, Item pItem) {
-        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))));
     }
 
     public void dropItem(EntityType<?> pEntity, Item pSkull, Item pItem) {
-        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSkull)).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSkull)).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))));
     }
 
     public void dropItemWithCookFunc(EntityType<?> pEntity, Item pItem) {
-        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, EntityLootSubProvider.ENTITY_ON_FIRE))))));
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(this.shouldSmeltLoot())))));
     }
 
     public void dropItemWithCookFunc(EntityType<?> pEntity, Item pSkull, Item pItem) {
-        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSkull)).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, EntityLootSubProvider.ENTITY_ON_FIRE))))));
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSkull)).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(this.shouldSmeltLoot())))));
     }
 
     public void dropItemPlusScnd(EntityType<?> pEntity, Item pItem, Item pScnd) {
-        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))));
     }
 
     public void dropItemPlusScnd(EntityType<?> pEntity, Item pSkull, Item pItem, Item pScnd) {
-        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSkull)).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSkull)).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))));
     }
 
     public void dropItemPlusScndWithCookFunc(EntityType<?> pEntity, Item pItem, Item pScnd) {
-        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, EntityLootSubProvider.ENTITY_ON_FIRE))))));
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(this.shouldSmeltLoot())))));
     }
 
     public void dropItemPlusScndWithCookFunc(EntityType<?> pEntity, Item pSkull, Item pItem, Item pScnd) {
-        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSkull)).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, EntityLootSubProvider.ENTITY_ON_FIRE))))));
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSkull)).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(this.shouldSmeltLoot())))));
     }
 
     public void dropItemPlusScndPlusThrd(EntityType<?> pEntity, Item pItem, Item pScnd, Item pThrd) {
-        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pThrd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pThrd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))));
     }
 
     public void dropItemPlusScndPlusThrd(EntityType<?> pEntity, Item pSkull, Item pItem, Item pScnd, Item pThrd) {
-        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSkull)).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pThrd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSkull)).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pThrd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))));
     }
 
     public void dropItemPlusScndPlusThrdWithCookFunc(EntityType<?> pEntity, Item pItem, Item pScnd, Item pThrd) {
-        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pThrd).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, EntityLootSubProvider.ENTITY_ON_FIRE))))));
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pThrd).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(this.shouldSmeltLoot())))));
     }
 
     public void dropItemPlusScndPlusThrdWithCookFunc(EntityType<?> pEntity, Item pSkull, Item pItem, Item pScnd, Item pThrd) {
-        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSkull)).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pThrd).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, EntityLootSubProvider.ENTITY_ON_FIRE))))));
+        this.add(pEntity, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSkull)).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pScnd).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pThrd).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(this.shouldSmeltLoot())))));
     }
 
     @Override
     public Stream<EntityType<?>> getKnownEntityTypes() {
-        return BuiltInRegistries.ENTITY_TYPE.stream().filter(pEntityType -> BuiltInRegistries.ENTITY_TYPE.getKey(pEntityType).getNamespace().equals(IcariaInfo.ID));
+        return BuiltInRegistries.ENTITY_TYPE.stream().filter((pEntityType) -> BuiltInRegistries.ENTITY_TYPE.getKey(pEntityType).getNamespace().equals(IcariaInfo.ID));
     }
 }

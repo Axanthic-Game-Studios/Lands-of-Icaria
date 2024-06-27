@@ -8,5 +8,5 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 
 public class IcariaDimensions {
-    public static final ResourceKey<Level> ICARIA = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(IcariaInfo.ID, "icaria"));
+    public static final ResourceKey<Level> ICARIA = ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "icaria"));
 }

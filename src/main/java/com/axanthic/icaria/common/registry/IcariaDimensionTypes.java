@@ -17,7 +17,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaDimensionTypes {
-    public static final ResourceKey<DimensionType> ICARIA = ResourceKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(IcariaInfo.ID, "icaria"));
+    public static final ResourceKey<DimensionType> ICARIA = ResourceKey.create(Registries.DIMENSION_TYPE, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "icaria"));
 
     public static void bootstrap(BootstrapContext<DimensionType> pContext) {
         pContext.register(IcariaDimensionTypes.ICARIA, new DimensionType(OptionalLong.empty(), true, false, false, true, 1.0D, false, false, -64, 384, 384, BlockTags.INFINIBURN_OVERWORLD, IcariaResourceLocations.ICARIA, 0.0F, new DimensionType.MonsterSettings(false, false, UniformInt.of(0, 7), 0)));

@@ -33,14 +33,14 @@ public class IcariaItemModels extends ItemModelProvider {
 
 		for (var items : IcariaToolItems.TOOL_ITEMS) {
 			var name = BuiltInRegistries.ITEM.getKey(items.bident.get());
-			var model = this.singleTexture(name.getPath() + "_throwing", new ResourceLocation(IcariaInfo.ID, "item/bident_throwing"), "layer0", new ResourceLocation(name.getNamespace(), "item/" + name.getPath()));
+			var model = this.singleTexture(name.getPath() + "_throwing", ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "item/bident_throwing"), "layer0", ResourceLocation.fromNamespaceAndPath(name.getNamespace(), "item/" + name.getPath()));
 			this.itemWithModel(items.sword, "item/handheld");
 			this.itemWithModel(items.dagger, "item/handheld");
 			this.itemWithModel(items.shovel, "item/handheld");
 			this.itemWithModel(items.pickaxe, "item/handheld");
 			this.itemWithModel(items.axe, "item/handheld");
 			this.itemWithModel(items.scythe, "item/handheld");
-			this.itemWithModel(items.bident, new ResourceLocation(IcariaInfo.ID, "item/bident")).override().predicate(new ResourceLocation(IcariaInfo.ID, "throwing"), 1.0F).model(model).end();
+			this.itemWithModel(items.bident, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "item/bident")).override().predicate(ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "throwing"), 1.0F).model(model).end();
 		}
 
 		for (var items : IcariaArmorItems.ARMOR_ITEMS) {
@@ -52,12 +52,12 @@ public class IcariaItemModels extends ItemModelProvider {
 	}
 
 	public void itemWithModel(Supplier<? extends Item> pItem, String pModel) {
-		this.itemWithModel(pItem, new ResourceLocation(pModel));
+		this.itemWithModel(pItem, ResourceLocation.parse(pModel));
 	}
 
 	public ItemModelBuilder itemWithModel(Supplier<? extends Item> pItem, ResourceLocation pModel) {
 		var name = BuiltInRegistries.ITEM.getKey(pItem.get());
-		var texture = new ResourceLocation(name.getNamespace(), "item/" + name.getPath());
+		var texture = ResourceLocation.fromNamespaceAndPath(name.getNamespace(), "item/" + name.getPath());
 		return this.singleTexture(name.getPath(), pModel, "layer0", texture);
 	}
 }

@@ -77,7 +77,7 @@ public class RevenantEntity extends Monster {
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
         var randomSource = pLevel.getRandom();
-        this.populateDefaultEquipmentEnchantments(randomSource, pDifficulty);
+        this.populateDefaultEquipmentEnchantments(pLevel, randomSource, pDifficulty);
         this.populateDefaultEquipmentSlots(randomSource, pDifficulty);
         this.setCanPickUpLoot(true);
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);

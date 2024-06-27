@@ -56,7 +56,7 @@ public class IcariaCakeBlock extends Block {
 	}
 
 	@Override
-	protected boolean isPathfindable(BlockState pState, PathComputationType pType) {
+	public boolean isPathfindable(BlockState pState, PathComputationType pType) {
 		return false;
 	}
 

@@ -64,10 +64,10 @@ public class ScrollItemRenderer extends BlockEntityWithoutLevelRenderer {
                 pPoseStack.translate((float) width / height * -0.85F + 1.25F, 0.5F, 0.0F);
             }
 
-            consumer.vertex(matrix4f, 0.0F, 0.0F, 0.0F).color(1.0F, 1.0F, 1.0F, 1.0F).uv(sprite.getU0(), sprite.getV1()).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
-            consumer.vertex(matrix4f, 1.0F, 0.0F, 0.0F).color(1.0F, 1.0F, 1.0F, 1.0F).uv(sprite.getU1(), sprite.getV1()).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
-            consumer.vertex(matrix4f, 1.0F, 1.0F, 0.0F).color(1.0F, 1.0F, 1.0F, 1.0F).uv(sprite.getU1(), sprite.getV0()).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
-            consumer.vertex(matrix4f, 0.0F, 1.0F, 0.0F).color(1.0F, 1.0F, 1.0F, 1.0F).uv(sprite.getU0(), sprite.getV0()).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
+            consumer.addVertex(matrix4f, 0.0F, 0.0F, 0.0F).setColor(1.0F, 1.0F, 1.0F, 1.0F).setUv(sprite.getU0(), sprite.getV1()).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(0.0F, 0.0F, 1.0F);
+            consumer.addVertex(matrix4f, 1.0F, 0.0F, 0.0F).setColor(1.0F, 1.0F, 1.0F, 1.0F).setUv(sprite.getU1(), sprite.getV1()).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(0.0F, 0.0F, 1.0F);
+            consumer.addVertex(matrix4f, 1.0F, 1.0F, 0.0F).setColor(1.0F, 1.0F, 1.0F, 1.0F).setUv(sprite.getU1(), sprite.getV0()).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(0.0F, 0.0F, 1.0F);
+            consumer.addVertex(matrix4f, 0.0F, 1.0F, 0.0F).setColor(1.0F, 1.0F, 1.0F, 1.0F).setUv(sprite.getU0(), sprite.getV0()).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(0.0F, 0.0F, 1.0F);
 
             if (pStack.getItem() instanceof ScrollItem scrollItem) {
                 var recipe = scrollItem.getRecipe();

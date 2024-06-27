@@ -315,22 +315,52 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.shovel.get());
 
 		this.tag(ItemTags.SWORD_ENCHANTABLE)
+			.add(IcariaItems.CHERT_TOOLS.dagger.get())
 			.add(IcariaItems.CHERT_TOOLS.scythe.get())
+			.add(IcariaItems.CHALKOS_TOOLS.dagger.get())
 			.add(IcariaItems.CHALKOS_TOOLS.scythe.get())
+			.add(IcariaItems.KASSITEROS_TOOLS.dagger.get())
 			.add(IcariaItems.KASSITEROS_TOOLS.scythe.get())
+			.add(IcariaItems.ORICHALCUM_TOOLS.dagger.get())
 			.add(IcariaItems.ORICHALCUM_TOOLS.scythe.get())
+			.add(IcariaItems.VANADIUMSTEEL_TOOLS.dagger.get())
 			.add(IcariaItems.VANADIUMSTEEL_TOOLS.scythe.get())
+			.add(IcariaItems.SIDEROS_TOOLS.dagger.get())
 			.add(IcariaItems.SIDEROS_TOOLS.scythe.get())
+			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.dagger.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.scythe.get());
 
 		this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
+			.add(IcariaItems.CHERT_TOOLS.dagger.get())
 			.add(IcariaItems.CHERT_TOOLS.scythe.get())
+			.add(IcariaItems.CHALKOS_TOOLS.dagger.get())
 			.add(IcariaItems.CHALKOS_TOOLS.scythe.get())
+			.add(IcariaItems.KASSITEROS_TOOLS.dagger.get())
 			.add(IcariaItems.KASSITEROS_TOOLS.scythe.get())
+			.add(IcariaItems.ORICHALCUM_TOOLS.dagger.get())
 			.add(IcariaItems.ORICHALCUM_TOOLS.scythe.get())
+			.add(IcariaItems.VANADIUMSTEEL_TOOLS.dagger.get())
 			.add(IcariaItems.VANADIUMSTEEL_TOOLS.scythe.get())
+			.add(IcariaItems.SIDEROS_TOOLS.dagger.get())
 			.add(IcariaItems.SIDEROS_TOOLS.scythe.get())
+			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.dagger.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.scythe.get());
+
+		this.tag(ItemTags.DURABILITY_ENCHANTABLE)
+			.add(IcariaItems.CHERT_TOOLS.dagger.get())
+			.add(IcariaItems.CHERT_TOOLS.bident.get())
+			.add(IcariaItems.CHALKOS_TOOLS.dagger.get())
+			.add(IcariaItems.CHALKOS_TOOLS.bident.get())
+			.add(IcariaItems.KASSITEROS_TOOLS.dagger.get())
+			.add(IcariaItems.KASSITEROS_TOOLS.bident.get())
+			.add(IcariaItems.ORICHALCUM_TOOLS.dagger.get())
+			.add(IcariaItems.ORICHALCUM_TOOLS.bident.get())
+			.add(IcariaItems.VANADIUMSTEEL_TOOLS.dagger.get())
+			.add(IcariaItems.VANADIUMSTEEL_TOOLS.bident.get())
+			.add(IcariaItems.SIDEROS_TOOLS.dagger.get())
+			.add(IcariaItems.SIDEROS_TOOLS.bident.get())
+			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.dagger.get())
+			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.bident.get());
 
 		this.tag(Tags.Items.ENCHANTING_FUELS)
 			.add(IcariaItems.ZIRCON_SHARD.get());
@@ -477,13 +507,6 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.MOLYBDENUMSTEEL_NUGGET.get())
 			.add(IcariaItems.BLURIDIUM_NUGGET.get());
 
-		this.tag(Tags.Items.RAW_BLOCKS)
-			.add(IcariaItems.RAW_CHALKOS_BLOCK.get())
-			.add(IcariaItems.RAW_KASSITEROS_BLOCK.get())
-			.add(IcariaItems.RAW_VANADIUM_BLOCK.get())
-			.add(IcariaItems.RAW_SIDEROS_BLOCK.get())
-			.add(IcariaItems.RAW_MOLYBDENUM_BLOCK.get());
-
 		this.tag(Tags.Items.RAW_MATERIALS)
 			.add(IcariaItems.RAW_CHALKOS.get())
 			.add(IcariaItems.RAW_KASSITEROS.get())
@@ -507,7 +530,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 		this.tag(Tags.Items.STRINGS)
 			.add(IcariaItems.ARACHNE_STRING.get());
 
-		this.tag(Tags.Items.TOOLS_SPEARS)
+		this.tag(Tags.Items.TOOLS_SPEAR)
 			.add(IcariaItems.CHERT_TOOLS.bident.get())
 			.add(IcariaItems.CHALKOS_TOOLS.bident.get())
 			.add(IcariaItems.KASSITEROS_TOOLS.bident.get())
@@ -984,7 +1007,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 	}
 
 	public static TagKey<Item> bind(String pName) {
-		return TagKey.create(Registries.ITEM, new ResourceLocation(pName));
+		return TagKey.create(Registries.ITEM, ResourceLocation.parse(pName));
 	}
 
 	public static TagKey<Item> cTag(String pName) {

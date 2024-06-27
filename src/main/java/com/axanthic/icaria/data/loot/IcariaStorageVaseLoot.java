@@ -18,12 +18,17 @@ import java.util.function.BiConsumer;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("unused")
+
 @ParametersAreNonnullByDefault
 
 public class IcariaStorageVaseLoot implements LootTableSubProvider {
+    public IcariaStorageVaseLoot(HolderLookup.Provider pProvider) {
+
+    }
 
     @Override
-    public void generate(HolderLookup.Provider pProvider, BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pConsumer) {
+    public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pConsumer) {
         pConsumer.accept(IcariaLootTables.RED_STORAGE_VASE_LOOT, LootTable.lootTable()
             .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 5.0F))
                 .add(LootItem.lootTableItem(IcariaItems.ENDER_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))

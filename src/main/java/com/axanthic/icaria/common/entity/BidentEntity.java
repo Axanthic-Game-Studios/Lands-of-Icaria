@@ -16,7 +16,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -35,7 +34,7 @@ public class BidentEntity extends AbstractArrow {
 	}
 
 	public BidentEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
-		super(IcariaEntityTypes.BIDENT.get(), pEntity, pLevel, pStack);
+		super(IcariaEntityTypes.BIDENT.get(), pEntity, pLevel, pStack, null);
 		this.setDealt(false);
 		this.setStack(pStack);
 	}
@@ -84,10 +83,6 @@ public class BidentEntity extends AbstractArrow {
 
 		if (item.getItem() instanceof BidentItem bidentItem) {
 			damage += bidentItem.getTier().getAttackDamageBonus() + 3.5F;
-		}
-
-		if (target instanceof LivingEntity livingEntity) {
-			damage += EnchantmentHelper.getDamageBonus(item, livingEntity.getType());
 		}
 
 		if (target.hurt(this.damageSources().trident(this, owner == null ? this : owner), damage)) {

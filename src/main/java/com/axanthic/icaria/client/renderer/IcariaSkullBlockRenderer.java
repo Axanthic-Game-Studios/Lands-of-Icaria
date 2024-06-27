@@ -89,7 +89,7 @@ public class IcariaSkullBlockRenderer implements BlockEntityRenderer<IcariaSkull
             pPoseStack.scale(-1.0F, -1.0F, 1.0F);
 
             model.setupAnim(0.0F, pRotation, 0.0F);
-            model.renderToBuffer(pPoseStack, vertexConsumer, pCombinedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            model.renderToBuffer(pPoseStack, vertexConsumer, pCombinedLight, OverlayTexture.NO_OVERLAY);
 
             pPoseStack.popPose();
         }

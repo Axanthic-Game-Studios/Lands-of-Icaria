@@ -539,6 +539,6 @@ public class IcariaTemplatePools {
 	}
 
 	public static ResourceKey<StructureTemplatePool> registerKey(String pName) {
-		return ResourceKey.create(Registries.TEMPLATE_POOL, new ResourceLocation(IcariaInfo.ID, pName));
+		return ResourceKey.create(Registries.TEMPLATE_POOL, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, pName));
 	}
 }

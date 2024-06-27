@@ -9,6 +9,7 @@ import com.axanthic.icaria.common.handler.stack.GrinderOutputItemStackHandler;
 import com.axanthic.icaria.common.item.GearItem;
 import com.axanthic.icaria.common.properties.Side;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
+import com.axanthic.icaria.common.recipe.input.DoubleRecipeInput;
 import com.axanthic.icaria.common.registry.*;
 
 import com.google.common.collect.Lists;
@@ -34,6 +35,7 @@ import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -92,7 +94,7 @@ public class GrinderBlockEntity extends BlockEntity {
 
 		Optional<RecipeHolder<GrindingRecipe>> recipe = Optional.empty();
 		if (this.level != null) {
-			recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.GRINDING.get(), this.simpleContainer, this.level);
+			recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.GRINDING.get(), this.getRecipeInput(), this.level);
 		}
 
 		int burnTime = 0;
@@ -137,7 +139,7 @@ public class GrinderBlockEntity extends BlockEntity {
 
 		Optional<RecipeHolder<GrindingRecipe>> recipe = Optional.empty();
 		if (this.level != null) {
-			recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.GRINDING.get(), this.simpleContainer, this.level);
+			recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.GRINDING.get(), this.getRecipeInput(), this.level);
 		}
 
 		if (this.hasRecipe() && recipe.isPresent()) {
@@ -188,7 +190,7 @@ public class GrinderBlockEntity extends BlockEntity {
 		this.maxProgress = pTag.getInt("TotalProgressTime");
 		var compoundTag = pTag.getCompound("RecipesUsed");
 		for(var string : compoundTag.getAllKeys()) {
-			this.recipesUsed.put(new ResourceLocation(string), compoundTag.getInt(string));
+			this.recipesUsed.put(ResourceLocation.parse(string), compoundTag.getInt(string));
 		}
 	}
 
@@ -318,7 +320,7 @@ public class GrinderBlockEntity extends BlockEntity {
 		List<RecipeHolder<?>> list = Lists.newArrayList();
 		for (var entry : this.recipesUsed.object2IntEntrySet()) {
 			pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent(
-				recipe -> {
+				(recipe) -> {
 					list.add(recipe);
 					if (recipe.value() instanceof GrindingRecipe firingRecipe) {
 						this.createExperience(pLevel, pPopVec, entry.getIntValue(), firingRecipe.getExperience());
@@ -333,5 +335,9 @@ public class GrinderBlockEntity extends BlockEntity {
 	@Override
 	public Packet<ClientGamePacketListener> getUpdatePacket() {
 		return ClientboundBlockEntityDataPacket.create(this);
+	}
+
+	public RecipeInput getRecipeInput() {
+		return new DoubleRecipeInput(this.gearHandler.getStackInSlot(0), this.inputHandler.getStackInSlot(0));
 	}
 }

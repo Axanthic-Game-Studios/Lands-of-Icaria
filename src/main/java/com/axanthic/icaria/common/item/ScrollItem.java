@@ -34,7 +34,7 @@ public class ScrollItem extends Item {
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
         super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
-        var recipe = pLevel.getRecipeManager().byKey(new ResourceLocation(IcariaInfo.ID, BuiltInRegistries.ITEM.getKey(this).getPath().replace("scroll", "") + "spell_from_concocting"));
+        var recipe = pLevel.getRecipeManager().byKey(ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, BuiltInRegistries.ITEM.getKey(this).getPath().replace("scroll", "") + "spell_from_concocting"));
         if (recipe.isPresent() && recipe.get().value() instanceof ConcoctingItemRecipe itemRecipe) {
             this.setRecipe(itemRecipe);
         }

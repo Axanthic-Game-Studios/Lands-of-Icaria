@@ -6,6 +6,7 @@ import com.axanthic.icaria.common.handler.stack.ForgeInputItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.ForgeOutputItemStackHandler;
 import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.recipe.ForgingRecipe;
+import com.axanthic.icaria.common.recipe.input.TripleRecipeInput;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
@@ -32,6 +33,7 @@ import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -89,7 +91,7 @@ public class ForgeBlockEntity extends BlockEntity {
 
         Optional<RecipeHolder<ForgingRecipe>> recipe = Optional.empty();
         if (this.level != null) {
-            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.FORGING.get(), this.simpleContainer, this.level);
+            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.FORGING.get(), this.getRecipeInput(), this.level);
         }
 
         int burnTime = 0;
@@ -129,7 +131,7 @@ public class ForgeBlockEntity extends BlockEntity {
 
         Optional<RecipeHolder<ForgingRecipe>> recipe = Optional.empty();
         if (this.level != null) {
-            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.FORGING.get(), this.simpleContainer, this.level);
+            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.FORGING.get(), this.getRecipeInput(), this.level);
         }
 
         if (this.hasRecipe() && recipe.isPresent()) {
@@ -181,7 +183,7 @@ public class ForgeBlockEntity extends BlockEntity {
         this.maxProgress = pTag.getInt("TotalProgressTime");
         var compoundTag = pTag.getCompound("RecipesUsed");
         for (var string : compoundTag.getAllKeys()) {
-            this.recipesUsed.put(new ResourceLocation(string), compoundTag.getInt(string));
+            this.recipesUsed.put(ResourceLocation.parse(string), compoundTag.getInt(string));
         }
     }
 
@@ -321,7 +323,7 @@ public class ForgeBlockEntity extends BlockEntity {
         List<RecipeHolder<?>> list = Lists.newArrayList();
         for (var entry : this.recipesUsed.object2IntEntrySet()) {
             pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent(
-                recipe -> {
+                (recipe) -> {
                     list.add(recipe);
                     if (recipe.value() instanceof ForgingRecipe forgingRecipe) {
                         this.createExperience(pLevel, pPopVec, entry.getIntValue(), forgingRecipe.getExperience());
@@ -336,5 +338,9 @@ public class ForgeBlockEntity extends BlockEntity {
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    public RecipeInput getRecipeInput() {
+        return new TripleRecipeInput(this.inputHandlerA.getStackInSlot(0), this.inputHandlerB.getStackInSlot(0), this.inputHandlerC.getStackInSlot(0));
     }
 }

@@ -184,11 +184,11 @@ public class IcariaBlockStates extends BlockStateProvider {
 	}
 
 	public void paneBlock(Supplier<? extends IronBarsBlock> pPaneBlock, Supplier<? extends Block> pGlassBlock) {
-		this.paneBlock(pPaneBlock.get(), new ResourceLocation(BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getNamespace(), "block/" + BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getPath()), new ResourceLocation(BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getNamespace(), "block/" + BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getPath() + "_pane"));
+		this.paneBlock(pPaneBlock.get(), ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getNamespace(), "block/" + BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getPath()), ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getNamespace(), "block/" + BuiltInRegistries.BLOCK.getKey(pGlassBlock.get()).getPath() + "_pane"));
 	}
 
 	public void doorBlock(Supplier<? extends DoorBlock> pBlock) {
-		this.doorBlock(BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath(), pBlock.get(), new ResourceLocation(IcariaInfo.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_bottom"), new ResourceLocation(IcariaInfo.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_top"));
+		this.doorBlock(BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath(), pBlock.get(), ResourceLocation.parse(IcariaInfo.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_bottom"), ResourceLocation.parse(IcariaInfo.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_top"));
 	}
 
 	public void doorBlock(String pName, Block pDoor, ResourceLocation pBottom, ResourceLocation pTop) {
@@ -201,7 +201,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 		var topRight = this.doorBlock(pName + "_top_right", "top_right", pBottom, pTop);
 		var topRightOpen = this.doorBlock(pName + "_top_right_open", "top_right_open", pBottom, pTop);
 
-		this.getVariantBuilder(pDoor).forAllStatesExcept(pState -> {
+		this.getVariantBuilder(pDoor).forAllStatesExcept((pState) -> {
 			int yRot = ((int) pState.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot()) + 90;
 
 			boolean open = pState.getValue(BlockStateProperties.OPEN);
@@ -226,7 +226,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 	}
 
 	public void trapDoorWithItem(Supplier<? extends TrapDoorBlock> pBlock) {
-		this.trapdoorBlock(pBlock.get(), new ResourceLocation(IcariaInfo.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath()), true);
+		this.trapdoorBlock(pBlock.get(), ResourceLocation.parse(IcariaInfo.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath()), true);
 		this.itemBlockTrapDoor(pBlock);
 	}
 
@@ -240,7 +240,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 
 	public void mirroredBlockWithItem(Supplier<? extends Block> pBlock) {
 		var normal = this.cubeAll(pBlock.get());
-		var mirrored = this.models().singleTexture(BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_mirrored", new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/cube_mirrored_all"), "all", this.blockTexture(pBlock.get()));
+		var mirrored = this.models().singleTexture(BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_mirrored", ResourceLocation.parse(ModelProvider.BLOCK_FOLDER + "/cube_mirrored_all"), "all", this.blockTexture(pBlock.get()));
 		this.getVariantBuilder(pBlock.get()).partialState().setModels(new ConfiguredModel(normal), new ConfiguredModel(normal, 0, 180, false), new ConfiguredModel(mirrored), new ConfiguredModel(mirrored, 0, 180, false));
 		this.itemBlock(pBlock);
 	}

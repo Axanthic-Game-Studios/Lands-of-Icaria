@@ -60,7 +60,7 @@ public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntit
 		if (level != null) {
 			long gameTime = level.getGameTime();
 
-			float time = Mth.lerp(minecraft.getFrameTime(), this.prevTime, gameTime) * -2.0F;
+			float time = Mth.lerp(minecraft.getTimer().getGameTimeDeltaTicks(), this.prevTime, gameTime) * -2.0F;
 
 			float radius = 0.15F;
 			float scale = 0.125F;
@@ -159,10 +159,10 @@ public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntit
 
 			pPoseStack.pushPose();
 
-			consumer.vertex(matrix4f, pMinX, height, pMinZ).color(r, g, b, 1.0F).uv(sprite.getU(0.25F), sprite.getV(0.25F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
-			consumer.vertex(matrix4f, pMinX, height, pMaxZ).color(r, g, b, 1.0F).uv(sprite.getU(0.75F), sprite.getV(0.25F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
-			consumer.vertex(matrix4f, pMaxX, height, pMaxZ).color(r, g, b, 1.0F).uv(sprite.getU(0.75F), sprite.getV(0.75F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
-			consumer.vertex(matrix4f, pMaxX, height, pMinZ).color(r, g, b, 1.0F).uv(sprite.getU(0.25F), sprite.getV(0.75F)).overlayCoords(pPackedOverlay).uv2(pPackedLight).normal(0.0F, 0.0F, 1.0F).endVertex();
+			consumer.addVertex(matrix4f, pMinX, height, pMinZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.25F), sprite.getV(0.25F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(0.0F, 0.0F, 1.0F);
+			consumer.addVertex(matrix4f, pMinX, height, pMaxZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.75F), sprite.getV(0.25F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(0.0F, 0.0F, 1.0F);
+			consumer.addVertex(matrix4f, pMaxX, height, pMaxZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.75F), sprite.getV(0.75F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(0.0F, 0.0F, 1.0F);
+			consumer.addVertex(matrix4f, pMaxX, height, pMinZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.25F), sprite.getV(0.75F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(0.0F, 0.0F, 1.0F);
 
 			pPoseStack.popPose();
 		}

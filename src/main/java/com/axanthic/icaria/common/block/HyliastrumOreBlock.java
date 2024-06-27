@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -28,8 +29,9 @@ public class HyliastrumOreBlock extends Block {
 	public void spawnAfterBreak(BlockState pState, ServerLevel pLevel, BlockPos pPos, ItemStack pStack, boolean pDropExperience) {
 		super.spawnAfterBreak(pState, pLevel, pPos, pStack, pDropExperience);
 		var entity = IcariaEntityTypes.HYLIASTER.get().create(pLevel);
+		var registryLookup = pLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
 		if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) {
-			if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, pStack) == 0) {
+			if (EnchantmentHelper.getItemEnchantmentLevel(registryLookup.getOrThrow(Enchantments.SILK_TOUCH), pStack) == 0) {
 				if (entity != null) {
 					entity.moveTo(pPos.getX() + 0.5D, pPos.getY(), pPos.getZ() + 0.5D, 0.0F, 0.0F);
 					entity.setTick(48000);

@@ -8,6 +8,8 @@ import com.axanthic.icaria.common.world.feature.hidden.GrainelChertFeature;
 import com.axanthic.icaria.common.world.feature.hidden.MarlBonesFeature;
 import com.axanthic.icaria.common.world.feature.hidden.MarlChertFeature;
 import com.axanthic.icaria.common.world.feature.hidden.MarlLigniteFeature;
+import com.axanthic.icaria.common.world.feature.lake.DryLakeFeature;
+import com.axanthic.icaria.common.world.feature.lake.MediterraneanWaterLakeFeature;
 import com.axanthic.icaria.common.world.feature.pillar.FallenRelicstonePillarFeature;
 import com.axanthic.icaria.common.world.feature.pillar.HorizontalRelicstonePillarFeature;
 import com.axanthic.icaria.common.world.feature.pillar.VerticalRelicstonePillarFeature;
@@ -83,6 +85,9 @@ public class IcariaFeatures {
     public static final Supplier<Feature<NoneFeatureConfiguration>> CARDON_CACTUS = IcariaFeatures.FEATURES.register("cardon_cactus", () -> new CardonCactusFeature(NoneFeatureConfiguration.CODEC));
 
     public static final Supplier<Feature<NoneFeatureConfiguration>> STRAWBERRY_BUSH = IcariaFeatures.FEATURES.register("strawberry_bush", () -> new StrawberryBushFeature(NoneFeatureConfiguration.CODEC));
+
+    public static final Supplier<Feature<NoneFeatureConfiguration>> DRY_LAKE = IcariaFeatures.FEATURES.register("dry_lake", () -> new DryLakeFeature(NoneFeatureConfiguration.CODEC));
+    public static final Supplier<Feature<NoneFeatureConfiguration>> MEDITERRANEAN_WATER_LAKE = IcariaFeatures.FEATURES.register("mediterranean_water_lake", () -> new MediterraneanWaterLakeFeature(NoneFeatureConfiguration.CODEC));
 
     public static final Supplier<Feature<NoneFeatureConfiguration>> VILLAGE = IcariaFeatures.FEATURES.register("village", () -> new VillageFeature(NoneFeatureConfiguration.CODEC));
 }

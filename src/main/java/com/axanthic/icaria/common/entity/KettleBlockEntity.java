@@ -9,6 +9,7 @@ import com.axanthic.icaria.common.recipe.ConcoctingEntityRecipe;
 import com.axanthic.icaria.common.recipe.ConcoctingExplosionsRecipe;
 import com.axanthic.icaria.common.recipe.ConcoctingItemRecipe;
 import com.axanthic.icaria.common.recipe.ConcoctingPotionRecipe;
+import com.axanthic.icaria.common.recipe.input.TripleRecipeInput;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
@@ -27,6 +28,7 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -261,7 +263,7 @@ public class KettleBlockEntity extends BlockEntity {
 
         Optional<RecipeHolder<ConcoctingEntityRecipe>> recipe = Optional.empty();
         if (this.level != null) {
-            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.CONCOCTING_ENTITY.get(), this.simpleContainer, this.level);
+            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.CONCOCTING_ENTITY.get(), this.getRecipeInput(), this.level);
         }
 
         return recipe;
@@ -275,7 +277,7 @@ public class KettleBlockEntity extends BlockEntity {
 
         Optional<RecipeHolder<ConcoctingExplosionsRecipe>> recipe = Optional.empty();
         if (this.level != null) {
-            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.CONCOCTING_EXPLOSIONS.get(), this.simpleContainer, this.level);
+            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.CONCOCTING_EXPLOSIONS.get(), this.getRecipeInput(), this.level);
         }
 
         return recipe;
@@ -289,7 +291,7 @@ public class KettleBlockEntity extends BlockEntity {
 
         Optional<RecipeHolder<ConcoctingItemRecipe>> recipe = Optional.empty();
         if (this.level != null) {
-            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.CONCOCTING_ITEM.get(), this.simpleContainer, this.level);
+            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.CONCOCTING_ITEM.get(), this.getRecipeInput(), this.level);
         }
 
         return recipe;
@@ -303,7 +305,7 @@ public class KettleBlockEntity extends BlockEntity {
 
         Optional<RecipeHolder<ConcoctingPotionRecipe>> recipe = Optional.empty();
         if (this.level != null) {
-            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.CONCOCTING_POTION.get(), this.simpleContainer, this.level);
+            recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.CONCOCTING_POTION.get(), this.getRecipeInput(), this.level);
         }
 
         return recipe;
@@ -312,5 +314,9 @@ public class KettleBlockEntity extends BlockEntity {
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    public RecipeInput getRecipeInput() {
+        return new TripleRecipeInput(this.inputHandler.getStackInSlot(0), this.inputHandler.getStackInSlot(1), this.inputHandler.getStackInSlot(2));
     }
 }

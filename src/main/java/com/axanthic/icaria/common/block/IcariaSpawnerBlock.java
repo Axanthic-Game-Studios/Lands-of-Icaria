@@ -40,7 +40,7 @@ public class IcariaSpawnerBlock extends BaseEntityBlock {
     }
 
     @Override
-    public int getExpDrop(BlockState pState, LevelReader pLevel, RandomSource pRandom, BlockPos pPos, int pFortune, int pSilktouch) {
+    public int getExpDrop(BlockState pState, LevelReader pLevel, RandomSource pRandom, BlockPos pPos) {
         return pRandom.nextInt(15) + pRandom.nextInt(15) + 15;
     }
 

@@ -17,12 +17,17 @@ import java.util.function.BiConsumer;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("unused")
+
 @ParametersAreNonnullByDefault
 
 public class IcariaChestLoot implements LootTableSubProvider {
+    public IcariaChestLoot(HolderLookup.Provider pProvider) {
+
+    }
 
     @Override
-    public void generate(HolderLookup.Provider pProvider, BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pConsumer) {
+    public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pConsumer) {
         pConsumer.accept(IcariaLootTables.CHEST_LOOT, LootTable.lootTable()
             .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 3.0F))
                 .add(LootItem.lootTableItem(IcariaItems.ARACHNE_STRING.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))

@@ -1,12 +1,13 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.block.IcariaPortalBlock;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.util.IcariaPortalShape;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
@@ -14,8 +15,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.HitResult;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
@@ -25,11 +28,11 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
     public ItemStack stack = new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get());
 
     public GreekFireGrenadeEntity(EntityType<? extends GreekFireGrenadeEntity> pType, Level pLevel) {
-        super(pType, pLevel, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
+        super(pType, pLevel);
     }
 
     public GreekFireGrenadeEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
-        super(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), pEntity, pLevel, pStack);
+        super(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), pEntity, pLevel, pStack, null);
         this.stack = pStack.copy();
     }
 
@@ -38,13 +41,21 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
         return false;
     }
 
+    public boolean spawnPortal(LevelAccessor pLevel, BlockPos pPos) {
+        var portalShape = this.getPortalShape(pLevel, pPos);
+        if (portalShape != null) {
+            portalShape.createPortalBlocks();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @Override
     public void onHit(HitResult pResult) {
-        if (IcariaBlocks.ICARIA_PORTAL.get() instanceof IcariaPortalBlock portalBlock) {
-            if (portalBlock.spawnPortal(this.level(), this.blockPosition())) {
-                this.discard();
-                return;
-            }
+        if (this.spawnPortal(this.level(), this.blockPosition())) {
+            this.discard();
+            return;
         }
 
         if (!this.level().isClientSide()) {
@@ -63,6 +74,18 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
                     }
                 }
             }
+        }
+    }
+
+    public @Nullable IcariaPortalShape getPortalShape(LevelAccessor pLevel, BlockPos pPos) {
+        var icariaPortalShapeX = new IcariaPortalShape(pLevel, pPos, Direction.Axis.X);
+        var icariaPortalShapeZ = new IcariaPortalShape(pLevel, pPos, Direction.Axis.Z);
+        if (icariaPortalShapeX.isValid() && icariaPortalShapeX.numPortalBlocks == 0) {
+            return icariaPortalShapeX;
+        } else if (icariaPortalShapeZ.isValid() && icariaPortalShapeZ.numPortalBlocks == 0) {
+            return icariaPortalShapeZ;
+        } else {
+            return null;
         }
     }
 

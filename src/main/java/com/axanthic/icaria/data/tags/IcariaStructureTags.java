@@ -95,7 +95,7 @@ public class IcariaStructureTags extends StructureTagsProvider {
 	}
 
 	public static TagKey<Structure> bind(String pName) {
-		return TagKey.create(Registries.STRUCTURE, new ResourceLocation(pName));
+		return TagKey.create(Registries.STRUCTURE, ResourceLocation.parse(pName));
 	}
 
 	public static TagKey<Structure> cTag(String pName) {

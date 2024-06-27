@@ -25,13 +25,13 @@ public class GreekFireGrenadeItem extends Item {
     }
 
     @Override
-    public int getUseDuration(ItemStack pStack) {
+    public int getUseDuration(ItemStack pStack, LivingEntity pLivingEntity) {
         return 72000;
     }
 
     @Override
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
-        if (pLivingEntity instanceof Player player && this.getUseDuration(pStack) - pTimeCharged >= 10) {
+        if (pLivingEntity instanceof Player player && this.getUseDuration(pStack, pLivingEntity) - pTimeCharged >= 10) {
             player.playSound(SoundEvents.ARROW_SHOOT);
             if (!pLevel.isClientSide()) {
                 var entity = new GreekFireGrenadeEntity(pLevel, player, pStack);

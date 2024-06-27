@@ -71,35 +71,35 @@ public class BubbleSpellRenderer extends EntityRenderer<BubbleSpellEntity> {
         pPoseStack.mulPose(Axis.YP.rotationDegrees(random.nextFloat() * 360.0F + ticks * 0.5F));
         pPoseStack.mulPose(Axis.ZP.rotationDegrees(random.nextFloat() * 360.0F + ticks * 0.5F));
 
-        consumer.vertex(matrix4f, -scale, -scale, scale).color(r0, g0, b0, alpha).endVertex();
-        consumer.vertex(matrix4f, -scale, scale, scale).color(r1, g1, b1, alpha).endVertex();
-        consumer.vertex(matrix4f, -scale, scale, -scale).color(r2, g2, b2, alpha).endVertex();
-        consumer.vertex(matrix4f, -scale, -scale, -scale).color(r3, g3, b3, alpha).endVertex();
+        consumer.addVertex(matrix4f, -scale, -scale, scale).setColor(r0, g0, b0, alpha);
+        consumer.addVertex(matrix4f, -scale, scale, scale).setColor(r1, g1, b1, alpha);
+        consumer.addVertex(matrix4f, -scale, scale, -scale).setColor(r2, g2, b2, alpha);
+        consumer.addVertex(matrix4f, -scale, -scale, -scale).setColor(r3, g3, b3, alpha);
 
-        consumer.vertex(matrix4f, -scale, -scale, -scale).color(r3, g3, b3, alpha).endVertex();
-        consumer.vertex(matrix4f, -scale, scale, -scale).color(r2, g2, b2, alpha).endVertex();
-        consumer.vertex(matrix4f, scale, scale, -scale).color(r4, g4, b4, alpha).endVertex();
-        consumer.vertex(matrix4f, scale, -scale, -scale).color(r5, g5, b5, alpha).endVertex();
+        consumer.addVertex(matrix4f, -scale, -scale, -scale).setColor(r3, g3, b3, alpha);
+        consumer.addVertex(matrix4f, -scale, scale, -scale).setColor(r2, g2, b2, alpha);
+        consumer.addVertex(matrix4f, scale, scale, -scale).setColor(r4, g4, b4, alpha);
+        consumer.addVertex(matrix4f, scale, -scale, -scale).setColor(r5, g5, b5, alpha);
 
-        consumer.vertex(matrix4f, scale, -scale, -scale).color(r5, g5, b5, alpha).endVertex();
-        consumer.vertex(matrix4f, scale, scale, -scale).color(r4, g4, b4, alpha).endVertex();
-        consumer.vertex(matrix4f, scale, scale, scale).color(r6, g6, b6, alpha).endVertex();
-        consumer.vertex(matrix4f, scale, -scale, scale).color(r7, g7, b7, alpha).endVertex();
+        consumer.addVertex(matrix4f, scale, -scale, -scale).setColor(r5, g5, b5, alpha);
+        consumer.addVertex(matrix4f, scale, scale, -scale).setColor(r4, g4, b4, alpha);
+        consumer.addVertex(matrix4f, scale, scale, scale).setColor(r6, g6, b6, alpha);
+        consumer.addVertex(matrix4f, scale, -scale, scale).setColor(r7, g7, b7, alpha);
 
-        consumer.vertex(matrix4f, scale, -scale, scale).color(r7, g7, b7, alpha).endVertex();
-        consumer.vertex(matrix4f, scale, scale, scale).color(r6, g6, b6, alpha).endVertex();
-        consumer.vertex(matrix4f, -scale, scale, scale).color(r1, g1, b1, alpha).endVertex();
-        consumer.vertex(matrix4f, -scale, -scale, scale).color(r0, g0, b0, alpha).endVertex();
+        consumer.addVertex(matrix4f, scale, -scale, scale).setColor(r7, g7, b7, alpha);
+        consumer.addVertex(matrix4f, scale, scale, scale).setColor(r6, g6, b6, alpha);
+        consumer.addVertex(matrix4f, -scale, scale, scale).setColor(r1, g1, b1, alpha);
+        consumer.addVertex(matrix4f, -scale, -scale, scale).setColor(r0, g0, b0, alpha);
 
-        consumer.vertex(matrix4f, scale, scale, scale).color(r6, g6, b6, alpha).endVertex();
-        consumer.vertex(matrix4f, scale, scale, -scale).color(r4, g4, b4, alpha).endVertex();
-        consumer.vertex(matrix4f, -scale, scale, -scale).color(r2, g2, b2, alpha).endVertex();
-        consumer.vertex(matrix4f, -scale, scale, scale).color(r1, g1, b1, alpha).endVertex();
+        consumer.addVertex(matrix4f, scale, scale, scale).setColor(r6, g6, b6, alpha);
+        consumer.addVertex(matrix4f, scale, scale, -scale).setColor(r4, g4, b4, alpha);
+        consumer.addVertex(matrix4f, -scale, scale, -scale).setColor(r2, g2, b2, alpha);
+        consumer.addVertex(matrix4f, -scale, scale, scale).setColor(r1, g1, b1, alpha);
 
-        consumer.vertex(matrix4f, -scale, -scale, -scale).color(r3, g3, b3, alpha).endVertex();
-        consumer.vertex(matrix4f, scale, -scale, -scale).color(r5, g5, b5, alpha).endVertex();
-        consumer.vertex(matrix4f, scale, -scale, scale).color(r7, g7, b7, alpha).endVertex();
-        consumer.vertex(matrix4f, -scale, -scale, scale).color(r0, g0, b0, alpha).endVertex();
+        consumer.addVertex(matrix4f, -scale, -scale, -scale).setColor(r3, g3, b3, alpha);
+        consumer.addVertex(matrix4f, scale, -scale, -scale).setColor(r5, g5, b5, alpha);
+        consumer.addVertex(matrix4f, scale, -scale, scale).setColor(r7, g7, b7, alpha);
+        consumer.addVertex(matrix4f, -scale, -scale, scale).setColor(r0, g0, b0, alpha);
 
         pPoseStack.popPose();
     }

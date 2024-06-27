@@ -49,14 +49,14 @@ public class BidentItem extends TieredItem {
 	}
 
 	@Override
-	public int getUseDuration(ItemStack pStack) {
+	public int getUseDuration(ItemStack pStack, LivingEntity pLivingEntity) {
 		return 72000;
 	}
 
 	@Override
 	public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
-		if (pLivingEntity instanceof Player player && this.getUseDuration(pStack) - pTimeCharged >= 10) {
-			player.playSound(SoundEvents.TRIDENT_THROW);
+		if (pLivingEntity instanceof Player player && this.getUseDuration(pStack, pLivingEntity) - pTimeCharged >= 10) {
+			player.playSound(SoundEvents.TRIDENT_THROW.value());
 			if (!pLevel.isClientSide()) {
 				player.awardStat(Stats.ITEM_USED.get(this));
 				pStack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(pLivingEntity.getUsedItemHand()));
@@ -84,7 +84,7 @@ public class BidentItem extends TieredItem {
 	}
 
 	public static ItemAttributeModifiers createAttributes(SimpleTier pTier, float pAttackDamage, float pAttackSpeed) {
-		return ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(Item.BASE_ATTACK_DAMAGE_UUID, "Tool modifier", pAttackDamage + pTier.getAttackDamageBonus(), AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_UUID, "Tool modifier", pAttackSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build();
+		return ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, pAttackDamage + pTier.getAttackDamageBonus(), AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, pAttackSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build();
 	}
 
 	public static Tool createToolProperties() {

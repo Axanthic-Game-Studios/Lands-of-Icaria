@@ -12,8 +12,6 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.phys.AABB;
 
-import net.neoforged.neoforge.client.extensions.IBlockEntityRendererExtension;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")

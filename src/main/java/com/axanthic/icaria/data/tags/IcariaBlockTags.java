@@ -46,6 +46,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> ICARIA_COBWEB_BLOCKS = IcariaBlockTags.icariaTag("icaria_cobweb_blocks");
 	public static final TagKey<Block> ICARIA_GRASS_BLOCKS = IcariaBlockTags.icariaTag("icaria_grass_blocks");
 	public static final TagKey<Block> ICARIA_PORTAL_BLOCKS = IcariaBlockTags.icariaTag("icaria_portal_blocks");
+	public static final TagKey<Block> ICARIA_PORTAL_REPLACE_BLOCKS = IcariaBlockTags.icariaTag("icaria_portal_replace_blocks");
 
 	public static final TagKey<Block> INCORRECT_FOR_CHERT_TOOL = IcariaBlockTags.icariaTag("incorrect_for_chert_tool");
 	public static final TagKey<Block> INCORRECT_FOR_CHALKOS_TOOL = IcariaBlockTags.icariaTag("incorrect_for_chalkos_tool");
@@ -809,6 +810,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.slab.get())
 			.add(IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.slab.get());
 
+		this.tag(IcariaBlockTags.ICARIA_PORTAL_REPLACE_BLOCKS)
+			.add(Blocks.AIR)
+			.add(IcariaBlocks.ICARIA_PORTAL.get())
+			.addTag(IcariaBlockTags.ICARIA_PORTAL_BLOCKS);
+
 		this.tag(IcariaBlockTags.INCORRECT_FOR_CHERT_TOOL)
 			.addTag(BlockTags.NEEDS_IRON_TOOL)
 			.addTag(BlockTags.NEEDS_DIAMOND_TOOL)
@@ -1546,7 +1552,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	}
 
 	public static TagKey<Block> bind(String pName) {
-		return TagKey.create(Registries.BLOCK, new ResourceLocation(pName));
+		return TagKey.create(Registries.BLOCK, ResourceLocation.parse(pName));
 	}
 
 	public static TagKey<Block> cTag(String pName) {

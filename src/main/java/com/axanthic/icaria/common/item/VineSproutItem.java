@@ -23,7 +23,7 @@ public class VineSproutItem extends Item {
 	}
 
 	@Override
-	public int getUseDuration(ItemStack pStack) {
+	public int getUseDuration(ItemStack pStack, LivingEntity pLivingEntity) {
 		return 16;
 	}
 

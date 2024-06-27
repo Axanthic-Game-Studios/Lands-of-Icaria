@@ -29,7 +29,7 @@ public class ChestLabelItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         var stack = pPlayer.getItemInHand(pUsedHand);
-        if (pPlayer.isShiftKeyDown()) {
+        if (stack.get(DataComponents.CUSTOM_NAME) != null && pPlayer.isShiftKeyDown()) {
             stack.remove(DataComponents.CUSTOM_NAME);
             return InteractionResultHolder.success(stack);
         } else {

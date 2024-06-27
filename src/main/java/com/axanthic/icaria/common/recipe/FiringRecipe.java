@@ -6,12 +6,8 @@ import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
@@ -21,7 +17,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class FiringRecipe implements Recipe<SimpleContainer> {
+public class FiringRecipe implements Recipe<RecipeInput> {
     public float experience;
 
     public int burnTime;
@@ -43,8 +39,8 @@ public class FiringRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        return !pLevel.isClientSide() && this.ingredients.get(0).test(pContainer.getItem(1));
+    public boolean matches(RecipeInput pInput, Level pLevel) {
+        return !pLevel.isClientSide() && this.ingredients.get(0).test(pInput.getItem(0));
     }
 
     public float getExperience() {
@@ -56,7 +52,7 @@ public class FiringRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer pContainer, HolderLookup.Provider pProvider) {
+    public ItemStack assemble(RecipeInput pInput, HolderLookup.Provider pProvider) {
         return this.output;
     }
 

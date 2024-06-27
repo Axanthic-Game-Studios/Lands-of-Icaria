@@ -1,36 +1,35 @@
 package com.axanthic.icaria.mixin;
 
-import com.llamalad7.mixinextras.injector.ModifyReceiver;
-
-import net.minecraft.world.Container;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.Level;
 
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.stream.Stream;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Collection;
+import java.util.Optional;
 
 @SuppressWarnings("unused")
-
-@ParametersAreNonnullByDefault
 
 @Mixin(RecipeManager.class)
 public class RecipeManagerMixin {
 
-	@ModifyReceiver(at = @At(value = "INVOKE", target = "java/util/stream/Stream.findFirst()Ljava/util/Optional;"), method = "getRecipeFor(Lnet/minecraft/world/item/crafting/RecipeType;Lnet/minecraft/world/Container;Lnet/minecraft/world/level/Level;)Ljava/util/Optional;")
-	private <C extends Container, T extends Recipe<C>> Stream<RecipeHolder<T>> modifyFoundRecipes(Stream<RecipeHolder<T>> pStream) {
-		var recipes = pStream.toList();
-		if (recipes.size() > 1) {
-			var icariaRecipes = recipes.stream().filter(recipe -> recipe.id().getNamespace().equals("landsoficaria")).toList();
-			if (!icariaRecipes.isEmpty()) {
-				return icariaRecipes.stream();
+	@Inject(at = @At("HEAD"), method = "getRecipeFor(Lnet/minecraft/world/item/crafting/RecipeType;Lnet/minecraft/world/item/crafting/RecipeInput;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/crafting/RecipeHolder;)Ljava/util/Optional;", cancellable = true)
+	private <I extends RecipeInput, T extends Recipe<I>> void getRecipeFor(RecipeType<T> pType, I pInput, Level pLevel, RecipeHolder<T> pHolder, CallbackInfoReturnable<Optional<RecipeHolder<T>>> pReturnable) {
+		var list = this.byType(pType).stream().filter((holder) -> holder.value().matches(pInput, pLevel)).toList();
+		if (list.size() > 1) {
+			var optional = list.stream().filter((holder) -> holder.id().getNamespace().equals("landsoficaria")).findFirst();
+			if (optional.isPresent()) {
+				pReturnable.setReturnValue(optional);
 			}
 		}
+	}
 
-		return recipes.stream();
+	@Shadow
+	private <I extends RecipeInput, T extends Recipe<I>> Collection<RecipeHolder<T>> byType(RecipeType<T> pType) {
+		throw new IllegalArgumentException("Recipe Manager Mixin failed.");
 	}
 }
