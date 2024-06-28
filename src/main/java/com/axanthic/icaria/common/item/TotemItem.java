@@ -2,16 +2,8 @@ package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.common.registry.IcariaItems;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -30,19 +22,5 @@ public class TotemItem extends Item {
     @Override
     public boolean isValidRepairItem(ItemStack pStack, ItemStack pRepairCandidate) {
         return pRepairCandidate.is(IcariaItems.BLURIDIUM_NUGGET.get());
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    public void totemAnimation(Entity pEntity) {
-        var itemStack = new ItemStack(this);
-        var minecraft = Minecraft.getInstance();
-        var clientLevel = minecraft.level;
-        if (pEntity instanceof LocalPlayer localPlayer) {
-            minecraft.gameRenderer.displayItemActivation(itemStack);
-            minecraft.particleEngine.createTrackingEmitter(localPlayer, ParticleTypes.TOTEM_OF_UNDYING, 30);
-            if (clientLevel != null) {
-                clientLevel.playLocalSound(localPlayer.getX(), localPlayer.getY(), localPlayer.getZ(), SoundEvents.TOTEM_USE, localPlayer.getSoundSource(), 1.0F, 1.0F, false);
-            }
-        }
     }
 }

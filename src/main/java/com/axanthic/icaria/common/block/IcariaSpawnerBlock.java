@@ -7,14 +7,14 @@ import com.mojang.serialization.MapCodec;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
@@ -40,8 +41,8 @@ public class IcariaSpawnerBlock extends BaseEntityBlock {
     }
 
     @Override
-    public int getExpDrop(BlockState pState, LevelReader pLevel, RandomSource pRandom, BlockPos pPos) {
-        return pRandom.nextInt(15) + pRandom.nextInt(15) + 15;
+    public int getExpDrop(BlockState pState, LevelAccessor pLevel, BlockPos pPos, @Nullable BlockEntity pBlockEntity, @Nullable Entity pBreaker, ItemStack pTool) {
+        return pLevel.getRandom().nextInt(15) + pLevel.getRandom().nextInt(15) + 15;
     }
 
     @Override

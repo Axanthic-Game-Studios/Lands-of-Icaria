@@ -1,6 +1,7 @@
 package com.axanthic.icaria;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
+import com.axanthic.icaria.common.network.TotemPacket;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
@@ -12,6 +13,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -24,6 +26,7 @@ public class Icaria {
 	public Icaria(IEventBus pBus) {
 		pBus.addListener(this::onFMLClientSetup);
 		pBus.addListener(this::onFMLCommonSetup);
+		pBus.addListener(this::onRegisterPayloadHandlers);
 
 		IcariaConfig.registerClientConfig();
 		IcariaConfig.registerCommonConfig();
@@ -78,6 +81,11 @@ public class Icaria {
 		pEvent.enqueueWork(IcariaPottables::setup);
 		pEvent.enqueueWork(IcariaStrippables::setup);
 		pEvent.enqueueWork(IcariaWoodTypes::setup);
+	}
+
+	public void onRegisterPayloadHandlers(RegisterPayloadHandlersEvent pEvent) {
+		var registrar = pEvent.registrar(IcariaInfo.ID);
+		registrar.playToClient(TotemPacket.TYPE, TotemPacket.STREAM_CODEC, TotemPacket::handler);
 	}
 
 	public void registerProperty(Item pItem) {

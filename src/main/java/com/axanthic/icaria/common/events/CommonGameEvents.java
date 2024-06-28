@@ -2,12 +2,16 @@ package com.axanthic.icaria.common.events;
 
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.ScytheItem;
+import com.axanthic.icaria.common.network.TotemPacket;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaMobEffects;
 import com.axanthic.icaria.common.registry.IcariaPotions;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -19,10 +23,11 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
-import net.neoforged.neoforge.event.entity.living.LivingAttackEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -51,7 +56,7 @@ public class CommonGameEvents {
 	}
 
 	@SubscribeEvent
-	public static void onLivingAttack(LivingAttackEvent pEvent) {
+	public static void onLivingIncomingDamage(LivingIncomingDamageEvent pEvent) {
 		float amount = pEvent.getAmount();
 		if (pEvent.getEntity() instanceof Player player) {
 			float health = player.getHealth();
@@ -68,6 +73,7 @@ public class CommonGameEvents {
 					player.awardStat(Stats.ITEM_USED.get(totem));
 					player.removeEffect(MobEffects.HUNGER);
 					player.setHealth(health + amount);
+					CommonGameEvents.sendPacket(totem, player);
 				} else if (offhandItem.getItem().equals(totem)) {
 					foodData.setFoodLevel(20);
 					foodData.setSaturation(20.0F);
@@ -76,6 +82,7 @@ public class CommonGameEvents {
 					player.awardStat(Stats.ITEM_USED.get(totem));
 					player.removeEffect(MobEffects.HUNGER);
 					player.setHealth(health + amount);
+					CommonGameEvents.sendPacket(totem, player);
 				}
 			}
 
@@ -87,12 +94,14 @@ public class CommonGameEvents {
 					player.awardStat(Stats.ITEM_USED.get(totem));
 					player.setAirSupply(300);
 					player.setHealth(health + amount);
+					CommonGameEvents.sendPacket(totem, player);
 				} else if (offhandItem.getItem().equals(totem)) {
 					offhandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
 					player.setAirSupply(300);
 					player.setHealth(health + amount);
+					CommonGameEvents.sendPacket(totem, player);
 				}
 			}
 
@@ -104,12 +113,14 @@ public class CommonGameEvents {
 					player.awardStat(Stats.ITEM_USED.get(totem));
 					player.moveTo(player.blockPosition().getX() + 0.5D, 320, player.blockPosition().getZ() + 0.5D);
 					player.setHealth(health + amount);
+					CommonGameEvents.sendPacket(totem, player);
 				} else if (offhandItem.getItem().equals(totem)) {
 					offhandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
 					player.moveTo(player.blockPosition().getX() + 0.5D, 320, player.blockPosition().getZ() + 0.5D);
 					player.setHealth(health + amount);
+					CommonGameEvents.sendPacket(totem, player);
 				}
 			}
 
@@ -122,10 +133,12 @@ public class CommonGameEvents {
 							itemStack.setDamageValue((int) (itemStack.getItem().getMaxDamage(itemStack) * 0.1F));
 							mainHandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 							player.awardStat(Stats.ITEM_USED.get(totem));
+							CommonGameEvents.sendPacket(totem, player);
 						} else if (offhandItem.getItem().equals(totem)) {
 							itemStack.setDamageValue((int) (itemStack.getItem().getMaxDamage(itemStack) * 0.1F));
 							offhandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 							player.awardStat(Stats.ITEM_USED.get(totem));
+							CommonGameEvents.sendPacket(totem, player);
 						}
 					}
 				}
@@ -142,6 +155,7 @@ public class CommonGameEvents {
 						mainHandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 						offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1F));
 						player.awardStat(Stats.ITEM_USED.get(totem));
+						CommonGameEvents.sendPacket(totem, player);
 					}
 				}
 			} else if (offhandItem.getItem().equals(totem)) {
@@ -150,6 +164,7 @@ public class CommonGameEvents {
 						mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1F));
 						offhandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 						player.awardStat(Stats.ITEM_USED.get(totem));
+						CommonGameEvents.sendPacket(totem, player);
 					}
 				}
 			}
@@ -174,10 +189,12 @@ public class CommonGameEvents {
 						mainHandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 						player.addEffect(new MobEffectInstance(IcariaMobEffects.BLINDNESS_IMMUNITY, 600));
 						player.awardStat(Stats.ITEM_USED.get(totem));
+						CommonGameEvents.sendPacket(totem, player);
 					} else if (offhandItem.getItem().equals(totem)) {
 						offhandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 						player.addEffect(new MobEffectInstance(IcariaMobEffects.BLINDNESS_IMMUNITY, 600));
 						player.awardStat(Stats.ITEM_USED.get(totem));
+						CommonGameEvents.sendPacket(totem, player);
 					}
 				}
 			}
@@ -196,6 +213,7 @@ public class CommonGameEvents {
 					mainHandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 					offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1F));
 					player.awardStat(Stats.ITEM_USED.get(totem));
+					CommonGameEvents.sendPacket(totem, player);
 				}
 			}
 		} else if (offhandItem.getItem().equals(totem)) {
@@ -204,6 +222,7 @@ public class CommonGameEvents {
 					mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1F));
 					offhandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 					player.awardStat(Stats.ITEM_USED.get(totem));
+					CommonGameEvents.sendPacket(totem, player);
 				}
 			}
 		}
@@ -221,6 +240,7 @@ public class CommonGameEvents {
 					mainHandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 					offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1F));
 					player.awardStat(Stats.ITEM_USED.get(totem));
+					CommonGameEvents.sendPacket(totem, player);
 				}
 			}
 		} else if (offhandItem.getItem().equals(totem)) {
@@ -229,6 +249,7 @@ public class CommonGameEvents {
 					mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1F));
 					offhandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 					player.awardStat(Stats.ITEM_USED.get(totem));
+					CommonGameEvents.sendPacket(totem, player);
 				}
 			}
 		}
@@ -246,6 +267,7 @@ public class CommonGameEvents {
 					mainHandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 					offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1F));
 					player.awardStat(Stats.ITEM_USED.get(totem));
+					CommonGameEvents.sendPacket(totem, player);
 				}
 			}
 		} else if (offhandItem.getItem().equals(totem)) {
@@ -254,6 +276,7 @@ public class CommonGameEvents {
 					mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1F));
 					offhandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 					player.awardStat(Stats.ITEM_USED.get(totem));
+					CommonGameEvents.sendPacket(totem, player);
 				}
 			}
 		}
@@ -271,6 +294,7 @@ public class CommonGameEvents {
 					mainHandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 					offhandItem.setDamageValue((int) (offhandItem.getItem().getMaxDamage(offhandItem) * 0.1F));
 					player.awardStat(Stats.ITEM_USED.get(totem));
+					CommonGameEvents.sendPacket(totem, player);
 				}
 			}
 		} else if (offhandItem.getItem().equals(totem)) {
@@ -279,6 +303,7 @@ public class CommonGameEvents {
 					mainHandItem.setDamageValue((int) (mainHandItem.getItem().getMaxDamage(mainHandItem) * 0.1F));
 					offhandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 					player.awardStat(Stats.ITEM_USED.get(totem));
+					CommonGameEvents.sendPacket(totem, player);
 				}
 			}
 		}
@@ -289,5 +314,11 @@ public class CommonGameEvents {
 		pEvent.getBuilder().addMix(Potions.AWKWARD, IcariaItems.BLINDWEED.get(), IcariaPotions.BLINDNESS);
 		pEvent.getBuilder().addMix(Potions.AWKWARD, IcariaItems.SNULL_CREAM.get(), IcariaPotions.NAUSEA);
 		pEvent.getBuilder().addMix(Potions.AWKWARD, Items.WITHER_ROSE, IcariaPotions.WITHER);
+	}
+
+	public static void sendPacket(Item pItem, Player pPlayer) {
+		if (pPlayer instanceof ServerPlayer serverPlayer) {
+			PacketDistributor.sendToPlayer(serverPlayer, new TotemPacket(new ItemStack(pItem), Holder.direct(SoundEvents.TOTEM_USE)));
+		}
 	}
 }
