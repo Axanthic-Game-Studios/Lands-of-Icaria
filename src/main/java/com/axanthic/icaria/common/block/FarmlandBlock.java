@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -32,8 +33,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.common.FarmlandWaterManager;
-import net.neoforged.neoforge.common.IPlantable;
-import net.neoforged.neoforge.common.PlantType;
+import net.neoforged.neoforge.common.util.TriState;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -48,11 +48,6 @@ public class FarmlandBlock extends FarmBlock {
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.MOISTURE, 0));
 	}
 
-	@Override
-	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pDirection, IPlantable pPlantable) {
-		return pPlantable.getPlantType(pLevel, pPos.relative(pDirection)) == PlantType.CROP;
-	}
-
 	public boolean isNearWater(LevelReader pLevel, BlockPos pPos) {
 		for (var blockPos : BlockPos.betweenClosed(pPos.offset(-4, 0, -4), pPos.offset(4, 1, 4))) {
 			if (pLevel.getFluidState(blockPos).is(FluidTags.WATER)) {
@@ -63,9 +58,8 @@ public class FarmlandBlock extends FarmBlock {
 		return FarmlandWaterManager.hasBlockWaterTicket(pLevel, pPos);
 	}
 
-	public boolean isUnderCrops(BlockGetter pLevel, BlockPos pPos) {
-		var aboveState = pLevel.getBlockState(pPos.above());
-		return aboveState.getBlock() instanceof IPlantable && pLevel.getBlockState(pPos).canSustainPlant(pLevel, pPos, Direction.UP, (IPlantable) aboveState.getBlock());
+	public boolean shouldMaintainFarmland(BlockGetter pLevel, BlockPos pPos) {
+		return pLevel.getBlockState(pPos.above()).is(BlockTags.MAINTAINS_FARMLAND);
 	}
 
 	@Override
@@ -89,7 +83,7 @@ public class FarmlandBlock extends FarmBlock {
 		if (!this.isNearWater(pLevel, pPos) && !pLevel.isRainingAt(pPos.above())) {
 			if (i > 0) {
 				pLevel.setBlock(pPos, pState.setValue(BlockStateProperties.MOISTURE, i - 1), 2);
-			} else if (!this.isUnderCrops(pLevel, pPos)) {
+			} else if (!this.shouldMaintainFarmland(pLevel, pPos)) {
 				this.turnToMarl(pState, pLevel, pPos);
 			}
 		} else if (i < 7) {
@@ -129,6 +123,11 @@ public class FarmlandBlock extends FarmBlock {
 		}
 
 		return ItemInteractionResult.FAIL;
+	}
+
+	@Override
+	public TriState canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pDirection, BlockState pPlant) {
+		return pPlant.is(BlockTags.MAINTAINS_FARMLAND) ? TriState.TRUE : TriState.DEFAULT;
 	}
 
 	@Override

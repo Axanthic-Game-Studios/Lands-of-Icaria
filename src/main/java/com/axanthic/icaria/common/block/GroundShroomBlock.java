@@ -16,14 +16,12 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.neoforged.neoforge.common.IPlantable;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class GroundShroomBlock extends Block implements IPlantable {
+public class GroundShroomBlock extends Block {
 	public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
 
 	public GroundShroomBlock(Properties pProperties) {
@@ -32,13 +30,9 @@ public class GroundShroomBlock extends Block implements IPlantable {
 
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		var belowPos = pPos.below();
-		var belowState = pLevel.getBlockState(belowPos);
-		if (belowState.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
-			return true;
-		} else {
-			return pLevel.getRawBrightness(pPos, 0) <= 12 && belowState.canSustainPlant(pLevel, belowPos, Direction.UP, this);
-		}
+		var blockPos = pPos.below();
+		var blockState = pLevel.getBlockState(blockPos);
+		return blockState.is(BlockTags.MUSHROOM_GROW_BLOCK) || blockState.isSolidRender(pLevel, blockPos) && pLevel.getRawBrightness(pPos, 0) <= 12;
 	}
 
 	@Override
@@ -72,11 +66,6 @@ public class GroundShroomBlock extends Block implements IPlantable {
 				pLevel.setBlock(offsetPos, pState, 2);
 			}
 		}
-	}
-
-	@Override
-	public BlockState getPlant(BlockGetter pLevel, BlockPos pPos) {
-		return pLevel.getBlockState(pPos);
 	}
 
 	@Override

@@ -14,14 +14,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.neoforged.neoforge.common.IPlantable;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class GroundFlowerBlock extends Block implements IPlantable {
+public class GroundFlowerBlock extends Block {
 	public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
 
 	public GroundFlowerBlock(Properties pProperties) {
@@ -36,11 +34,6 @@ public class GroundFlowerBlock extends Block implements IPlantable {
 	@Override
 	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		return pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT);
-	}
-
-	@Override
-	public BlockState getPlant(BlockGetter pLevel, BlockPos pPos) {
-		return pLevel.getBlockState(pPos);
 	}
 
 	@Override

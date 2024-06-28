@@ -28,11 +28,6 @@ public class SpeltCropBlock extends CropBlock {
 	}
 
 	@Override
-	public BlockState getPlant(BlockGetter pLevel, BlockPos pPos) {
-		return pLevel.getBlockState(pPos);
-	}
-
-	@Override
 	public ItemStack getCloneItemStack(LevelReader pLevel, BlockPos pPos, BlockState pState) {
 		return new ItemStack(IcariaItems.SPELT_SEEDS.get());
 	}

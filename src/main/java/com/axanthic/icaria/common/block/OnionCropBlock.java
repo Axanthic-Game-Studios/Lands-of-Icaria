@@ -28,11 +28,6 @@ public class OnionCropBlock extends CropBlock {
 	}
 
 	@Override
-	public BlockState getPlant(BlockGetter pLevel, BlockPos pPos) {
-		return pLevel.getBlockState(pPos);
-	}
-
-	@Override
 	public ItemStack getCloneItemStack(LevelReader pLevel, BlockPos pPos, BlockState pState) {
 		return new ItemStack(IcariaItems.ONION.get());
 	}

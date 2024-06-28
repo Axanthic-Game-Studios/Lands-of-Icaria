@@ -4,13 +4,10 @@ import com.axanthic.icaria.common.entity.ForestHagEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
-import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.level.block.Blocks;
 
-import net.neoforged.neoforge.common.IPlantable;
 import net.neoforged.neoforge.event.EventHooks;
 
 public class ForestHagPlaceSaplingGoal extends Goal {
@@ -27,29 +24,27 @@ public class ForestHagPlaceSaplingGoal extends Goal {
 
     @Override
     public void tick() {
-        var block = Blocks.AIR;
         var blockPos = this.entity.blockPosition();
-        var belowPos = blockPos.below();
         var level = this.entity.level();
-        if (this.entity.getType() == IcariaEntityTypes.CYPRESS_FOREST_HAG.get()) {
-            block = IcariaBlocks.CYPRESS_SAPLING.get();
-        } else if (this.entity.getType() == IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get()) {
+        var type = this.entity.getType();
+        var block = IcariaBlocks.CYPRESS_SAPLING.get();
+        if (type == IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get()) {
             block = IcariaBlocks.DROUGHTROOT_SAPLING.get();
-        } else if (this.entity.getType() == IcariaEntityTypes.FIR_FOREST_HAG.get()) {
+        } else if (type == IcariaEntityTypes.FIR_FOREST_HAG.get()) {
             block = IcariaBlocks.FIR_SAPLING.get();
-        } else if (this.entity.getType() == IcariaEntityTypes.LAUREL_FOREST_HAG.get()) {
+        } else if (type == IcariaEntityTypes.LAUREL_FOREST_HAG.get()) {
             block = IcariaBlocks.LAUREL_SAPLING.get();
-        } else if (this.entity.getType() == IcariaEntityTypes.OLIVE_FOREST_HAG.get()) {
+        } else if (type == IcariaEntityTypes.OLIVE_FOREST_HAG.get()) {
             block = IcariaBlocks.OLIVE_SAPLING.get();
-        } else if (this.entity.getType() == IcariaEntityTypes.PLANE_FOREST_HAG.get()) {
+        } else if (type == IcariaEntityTypes.PLANE_FOREST_HAG.get()) {
             block = IcariaBlocks.PLANE_SAPLING.get();
-        } else if (this.entity.getType() == IcariaEntityTypes.POPULUS_FOREST_HAG.get()) {
+        } else if (type == IcariaEntityTypes.POPULUS_FOREST_HAG.get()) {
             block = IcariaBlocks.POPULUS_SAPLING.get();
         }
 
-        if (level.getBlockState(blockPos).isAir() && level.getBlockState(belowPos).canSustainPlant(this.entity.level(), belowPos, Direction.UP, (IPlantable) block)) {
-            this.entity.level().playSound(null, blockPos, SoundEvents.GRASS_PLACE, SoundSource.BLOCKS);
-            this.entity.level().setBlock(blockPos, block.defaultBlockState(), 2);
+        if (level.getBlockState(blockPos).isAir() && block.defaultBlockState().canSurvive(level, blockPos.below())) {
+            level.playSound(null, blockPos, SoundEvents.GRASS_PLACE, SoundSource.BLOCKS);
+            level.setBlockAndUpdate(blockPos, block.defaultBlockState());
         }
     }
 }

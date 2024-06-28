@@ -22,15 +22,13 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.pathfinder.PathType;
 
-import net.neoforged.neoforge.common.IPlantable;
-
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CardonCactusBlock extends PipeBlock implements IPlantable {
+public class CardonCactusBlock extends PipeBlock {
 	public static final MapCodec<CardonCactusBlock> CODEC = Block.simpleCodec(CardonCactusBlock::new);
 
 	public CardonCactusBlock(Properties pProperties) {
@@ -96,11 +94,6 @@ public class CardonCactusBlock extends PipeBlock implements IPlantable {
 	@Override
 	public PathType getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
 		return PathType.DAMAGE_OTHER;
-	}
-
-	@Override
-	public BlockState getPlant(BlockGetter pLevel, BlockPos pPos) {
-		return pLevel.getBlockState(pPos);
 	}
 
 	@Override

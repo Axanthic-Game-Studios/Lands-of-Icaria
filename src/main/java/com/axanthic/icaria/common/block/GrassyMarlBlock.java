@@ -13,19 +13,15 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.lighting.BlockLightEngine;
 
-import net.neoforged.neoforge.common.IPlantable;
-import net.neoforged.neoforge.common.PlantType;
 import net.neoforged.neoforge.common.ToolAction;
 import net.neoforged.neoforge.common.ToolActions;
 
@@ -54,27 +50,6 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 
 	public boolean canPropagate(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 		return this.canBeGrass(pState, pLevel, pPos) && !pLevel.getFluidState(pPos.above()).is(FluidTags.WATER);
-	}
-
-	@Override
-	public boolean canSustainPlant(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pDirection, IPlantable pPlantable) {
-		var relativePos = pPos.relative(pDirection);
-		var plantType = pPlantable.getPlantType(pLevel, relativePos);
-		if (plantType == PlantType.BEACH) {
-			boolean water = false;
-			for (var direction : Direction.Plane.HORIZONTAL) {
-				var directionPos = pPos.relative(direction);
-				water = pLevel.getBlockState(directionPos).is(Blocks.FROSTED_ICE);
-				water |= pLevel.getFluidState(directionPos).is(FluidTags.WATER);
-				if (water) {
-					break;
-				}
-			}
-
-			return water;
-		} else {
-			return plantType == PlantType.CAVE || plantType == PlantType.PLAINS || pPlantable.getPlant(pLevel, relativePos).is(Blocks.DEAD_BUSH);
-		}
 	}
 
 	@Override
