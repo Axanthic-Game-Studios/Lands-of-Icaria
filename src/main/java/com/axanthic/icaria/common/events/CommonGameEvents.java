@@ -111,14 +111,14 @@ public class CommonGameEvents {
 					mainHandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					player.moveTo(player.blockPosition().getX() + 0.5D, 320, player.blockPosition().getZ() + 0.5D);
+					player.teleportTo(player.blockPosition().getX() + 0.5D, 320, player.blockPosition().getZ() + 0.5D);
 					player.setHealth(health + amount);
 					CommonGameEvents.sendPacket(totem, player);
 				} else if (offhandItem.getItem().equals(totem)) {
 					offhandItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
 					player.awardStat(Stats.ITEM_USED.get(totem));
-					player.moveTo(player.blockPosition().getX() + 0.5D, 320, player.blockPosition().getZ() + 0.5D);
+					player.teleportTo(player.blockPosition().getX() + 0.5D, 320, player.blockPosition().getZ() + 0.5D);
 					player.setHealth(health + amount);
 					CommonGameEvents.sendPacket(totem, player);
 				}
