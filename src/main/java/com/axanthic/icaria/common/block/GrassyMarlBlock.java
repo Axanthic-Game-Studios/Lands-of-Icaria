@@ -22,8 +22,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.lighting.BlockLightEngine;
 
-import net.neoforged.neoforge.common.ToolAction;
-import net.neoforged.neoforge.common.ToolActions;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -129,8 +129,8 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 	}
 
 	@Override
-	public BlockState getToolModifiedState(BlockState pState, UseOnContext pContext, ToolAction pToolAction, boolean pSimulate) {
-		if (pToolAction.equals(ToolActions.HOE_TILL) && pContext.getLevel().getBlockState(pContext.getClickedPos().above()).isAir()) {
+	public BlockState getToolModifiedState(BlockState pState, UseOnContext pContext, ItemAbility pToolAction, boolean pSimulate) {
+		if (pToolAction.equals(ItemAbilities.HOE_TILL) && pContext.getLevel().getBlockState(pContext.getClickedPos().above()).isAir()) {
 			return IcariaBlocks.FARMLAND.get().defaultBlockState();
 		}
 

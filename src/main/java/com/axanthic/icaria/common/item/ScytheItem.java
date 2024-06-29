@@ -14,9 +14,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 import net.neoforged.neoforge.common.SimpleTier;
-import net.neoforged.neoforge.common.ToolAction;
-import net.neoforged.neoforge.common.ToolActions;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -28,14 +28,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ScytheItem extends HoeItem {
-	public static final Set<ToolAction> SCYTHE_ACTIONS = Stream.of(ToolActions.HOE_TILL, ToolActions.SWORD_SWEEP).collect(Collectors.toCollection(Sets::newIdentityHashSet));
+	public static final Set<ItemAbility> SCYTHE_ACTIONS = Stream.of(ItemAbilities.HOE_TILL, ItemAbilities.SWORD_SWEEP).collect(Collectors.toCollection(Sets::newIdentityHashSet));
 
 	public ScytheItem(SimpleTier pTier, Properties pProperties) {
 		super(pTier, pProperties);
 	}
 
 	@Override
-	public boolean canPerformAction(ItemStack pStack, ToolAction pAction) {
+	public boolean canPerformAction(ItemStack pStack, ItemAbility pAction) {
 		return ScytheItem.SCYTHE_ACTIONS.contains(pAction);
 	}
 

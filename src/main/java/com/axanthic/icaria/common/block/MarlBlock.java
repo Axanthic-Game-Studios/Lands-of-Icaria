@@ -6,8 +6,8 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
-import net.neoforged.neoforge.common.ToolAction;
-import net.neoforged.neoforge.common.ToolActions;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -19,10 +19,16 @@ public class MarlBlock extends Block {
 	}
 
 	@Override
-	public BlockState getToolModifiedState(BlockState pState, UseOnContext pContext, ToolAction pToolAction, boolean pSimulate) {
-		if (pContext.getLevel().getBlockState(pContext.getClickedPos().above()).isAir()) {
-			if (pToolAction.equals(ToolActions.HOE_TILL)) {
-				return IcariaBlocks.FARMLAND.get().defaultBlockState();
+	public BlockState getToolModifiedState(BlockState pState, UseOnContext pContext, ItemAbility pToolAction, boolean pSimulate) {
+		var blockPos = pContext.getClickedPos();
+		var level = pContext.getLevel();
+		if (pToolAction.equals(ItemAbilities.HOE_TILL)) {
+			if (level.getBlockState(blockPos.above()).isAir()) {
+				if (level.getBlockState(blockPos).is(IcariaBlocks.COARSE_MARL.get())) {
+					return IcariaBlocks.MARL.get().defaultBlockState();
+				} else {
+					return IcariaBlocks.FARMLAND.get().defaultBlockState();
+				}
 			}
 		}
 
