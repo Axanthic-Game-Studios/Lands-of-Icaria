@@ -147,7 +147,6 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.VANADIUMSTEEL_BARS.get());
 		this.dropThis(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 		this.dropThis(IcariaBlocks.VANADIUMSTEEL_CHAIN.get());
-		this.dropThis(IcariaBlocks.KETTLE.get());
 		this.dropThis(IcariaBlocks.CHEST.get());
 		this.dropThis(IcariaBlocks.TRAPPED_CHEST.get());
 		this.dropThis(IcariaBlocks.STORAGE_VASE.get());
@@ -334,6 +333,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropOnlyWithSilk(IcariaBlocks.ARISTONE.get());
 		this.dropOnlyWithSilk(IcariaBlocks.PACKED_ARISTONE.get());
 
+		this.dropNone(IcariaBlocks.KETTLE.get());
 		this.dropNone(IcariaBlocks.GRINDER.get());
 		this.dropNone(IcariaBlocks.KILN.get());
 		this.dropNone(IcariaBlocks.FORGE.get());

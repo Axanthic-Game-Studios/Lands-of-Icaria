@@ -15,6 +15,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -165,8 +166,11 @@ public class KettleBlock extends BaseEntityBlock {
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
-            if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-                Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.KETTLE.get()));
+            if (pLevel.getBlockEntity(pPos) instanceof KettleBlockEntity blockEntity) {
+                if (pLevel instanceof ServerLevel serverLevel) {
+                    blockEntity.drops(serverLevel);
+                    Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.KETTLE.get()));
+                }
             }
         }
 
