@@ -611,6 +611,57 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.LOAM.get())
 			.add(IcariaBlocks.GRAINEL.get());
 
+		this.tag(BlockTags.INCORRECT_FOR_NETHERITE_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_KASSITEROS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_MOLYBDENUMSTEEL_TOOL);
+
+		this.tag(BlockTags.INCORRECT_FOR_DIAMOND_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_KASSITEROS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_MOLYBDENUMSTEEL_TOOL);
+
+		this.tag(BlockTags.INCORRECT_FOR_IRON_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_CHERT_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_KASSITEROS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_MOLYBDENUMSTEEL_TOOL);
+
+		this.tag(BlockTags.INCORRECT_FOR_STONE_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_CHERT_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_KASSITEROS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_MOLYBDENUMSTEEL_TOOL);
+
+		this.tag(BlockTags.INCORRECT_FOR_GOLD_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_CHERT_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_KASSITEROS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_MOLYBDENUMSTEEL_TOOL);
+
+		this.tag(BlockTags.INCORRECT_FOR_WOODEN_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_CHERT_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_CHALKOS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_KASSITEROS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_SIDEROS_TOOL)
+			.addTag(IcariaBlockTags.NEEDS_MOLYBDENUMSTEEL_TOOL);
+
 		this.tag(BlockTags.SNIFFER_DIGGABLE_BLOCK)
 			.add(IcariaBlocks.GRASSY_MARL.get())
 			.add(IcariaBlocks.MARL.get())
