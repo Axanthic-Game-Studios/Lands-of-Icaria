@@ -76,6 +76,9 @@ public class IcariaRecipes extends RecipeProvider {
 		this.concoctingPotionRecipe(pOutput, IcariaItems.PSILOCYBOS.get(), IcariaItems.MOTH_AGARIC.get(), IcariaItems.PSILOCYBOS.get(), IcariaPotions.NAUSEA, 5.0F, 200, 5578058, 200);
 		this.concoctingPotionRecipe(pOutput, IcariaItems.BONE_REMAINS.get(), IcariaItems.MOTH_AGARIC.get(), IcariaItems.ROWAN.get(), IcariaPotions.WITHER, 5.0F, 200, 7561558, 200);
 
+		this.forgingRecipe(pOutput, IcariaItems.CHALKOS_ORE.get(), IcariaItems.CHALKOS_ORE.get(), IcariaItems.KASSITEROS_ORE.get(), IcariaItems.ORICHALCUM_INGOT.get(), "_from_ore_forging", 0.3F, 400, 2);
+		this.forgingRecipe(pOutput, IcariaItems.LIGNITE_ORE.get(), IcariaItems.KASSITEROS_ORE.get(), IcariaItems.VANADIUM_ORE.get(), IcariaItems.VANADIUMSTEEL_INGOT.get(), "_from_ore_forging", 0.2F, 300, 2);
+		this.forgingRecipe(pOutput, IcariaItems.ANTHRACITE_ORE.get(), IcariaItems.MOLYBDENUM_ORE.get(), IcariaItems.SIDEROS_ORE.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), "_from_ore_forging", 0.2F, 300, 2);
 		this.forgingRecipe(pOutput, IcariaItems.RAW_CHALKOS.get(), IcariaItems.RAW_CHALKOS.get(), IcariaItems.RAW_KASSITEROS.get(), IcariaItems.ORICHALCUM_INGOT.get(), "_from_raw_forging", 0.3F, 200, 1);
 		this.forgingRecipe(pOutput, IcariaItems.LIGNITE.get(), IcariaItems.RAW_KASSITEROS.get(), IcariaItems.RAW_VANADIUM.get(), IcariaItems.VANADIUMSTEEL_INGOT.get(), "_from_raw_forging", 0.2F, 150, 1);
 		this.forgingRecipe(pOutput, IcariaItems.ANTHRACITE.get(), IcariaItems.RAW_MOLYBDENUM.get(), IcariaItems.RAW_SIDEROS.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), "_from_raw_forging", 0.2F, 150, 1);

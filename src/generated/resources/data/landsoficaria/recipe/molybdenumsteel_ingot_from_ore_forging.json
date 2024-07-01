@@ -1,0 +1,20 @@
+{
+  "type": "landsoficaria:forging",
+  "burnTime": 300,
+  "experience": 0.2,
+  "ingredients": [
+    {
+      "item": "landsoficaria:anthracite_ore"
+    },
+    {
+      "item": "landsoficaria:molybdenum_ore"
+    },
+    {
+      "item": "landsoficaria:sideros_ore"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "id": "landsoficaria:molybdenumsteel_ingot"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "landsoficaria:forging",
+  "burnTime": 400,
+  "experience": 0.3,
+  "ingredients": [
+    {
+      "item": "landsoficaria:chalkos_ore"
+    },
+    {
+      "item": "landsoficaria:chalkos_ore"
+    },
+    {
+      "item": "landsoficaria:kassiteros_ore"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "id": "landsoficaria:orichalcum_ingot"
+  }
+}
