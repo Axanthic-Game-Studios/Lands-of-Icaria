@@ -22,6 +22,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.inventory.ContainerData;
@@ -70,6 +71,14 @@ public class KettleBlockEntity extends BlockEntity {
         int j = (this.inputHandler.getStackInSlot(1).getCount() * 5);
         int k = (this.inputHandler.getStackInSlot(2).getCount() * 5);
         return i + j + k;
+    }
+
+    public void drops(Level pLevel) {
+        this.simpleContainer.setItem(0, this.inputHandler.getStackInSlot(0));
+        this.simpleContainer.setItem(1, this.inputHandler.getStackInSlot(1));
+        this.simpleContainer.setItem(2, this.inputHandler.getStackInSlot(2));
+        this.simpleContainer.setItem(3, this.outputHandler.getStackInSlot(0));
+        Containers.dropContents(pLevel, this.worldPosition, this.simpleContainer);
     }
 
     public void limitSlots() {
