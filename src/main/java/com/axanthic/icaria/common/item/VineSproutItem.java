@@ -1,6 +1,8 @@
 package com.axanthic.icaria.common.item;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -41,5 +43,10 @@ public class VineSproutItem extends Item {
 		}
 
 		return pStack;
+	}
+
+	@Override
+	public SoundEvent getBreakingSound() {
+		return SoundEvents.PLAYER_BURP;
 	}
 }
