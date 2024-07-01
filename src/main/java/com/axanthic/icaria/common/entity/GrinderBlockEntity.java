@@ -27,6 +27,7 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.Containers;
@@ -261,6 +262,7 @@ public class GrinderBlockEntity extends BlockEntity {
 						gearSlot.setDamageValue(gearSlot.getDamageValue() + 1);
 						if (pBlockEntity.shouldBreak(pBlockEntity)) {
 							pBlockEntity.gearHandler.extractItem(0, 1, false);
+							pLevel.playSound(null, pPos, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS);
 						}
 					}
 				}
