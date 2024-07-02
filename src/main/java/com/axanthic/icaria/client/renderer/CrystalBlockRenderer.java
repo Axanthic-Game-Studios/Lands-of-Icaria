@@ -38,7 +38,7 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 	}
 
 	@Override
-	public AABB getRenderBoundingBox(CrystalBlockEntity blockEntity) {
+	public AABB getRenderBoundingBox(CrystalBlockEntity pBlockEntity) {
 		return AABB.INFINITE;
 	}
 }

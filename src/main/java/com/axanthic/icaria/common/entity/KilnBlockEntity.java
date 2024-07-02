@@ -178,7 +178,7 @@ public class KilnBlockEntity extends BlockEntity {
         super.saveAdditional(pTag, pProvider);
         pTag.put("FuelInventory", this.fuelHandler.serializeNBT(pProvider));
         pTag.put("InputInventory", this.inputHandler.serializeNBT(pProvider));
-        pTag.put("OutputInventory", this.outputHandler.serializeNBT(pProvider));;
+        pTag.put("OutputInventory", this.outputHandler.serializeNBT(pProvider));
         pTag.putInt("CurrentFuelTime", this.fuel);
         pTag.putInt("TotalFuelTime", this.maxFuel);
         pTag.putInt("CurrentProgressTime", this.progress);
