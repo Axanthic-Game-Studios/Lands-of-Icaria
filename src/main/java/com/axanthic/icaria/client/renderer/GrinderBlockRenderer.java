@@ -8,6 +8,7 @@ import com.axanthic.icaria.common.registry.IcariaItems;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
@@ -16,11 +17,13 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.phys.AABB;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEntity> {
@@ -184,5 +187,10 @@ public class GrinderBlockRenderer implements BlockEntityRenderer<GrinderBlockEnt
 
 			pPoseStack.popPose();
 		}
+	}
+
+	@Override
+	public AABB getRenderBoundingBox(GrinderBlockEntity pBlockEntity) {
+		return AABB.INFINITE;
 	}
 }
