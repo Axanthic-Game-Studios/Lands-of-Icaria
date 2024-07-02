@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.registry.IcariaShapes;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -22,8 +24,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GroundShroomBlock extends Block {
-	public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
-
 	public GroundShroomBlock(Properties pProperties) {
 		super(pProperties);
 	}
@@ -76,6 +76,6 @@ public class GroundShroomBlock extends Block {
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		Vec3 vec3 = pState.getOffset(pLevel, pPos);
-		return GroundShroomBlock.SHAPE.move(vec3.x, vec3.y, vec3.z);
+		return IcariaShapes.UP.move(vec3.x, vec3.y, vec3.z);
 	}
 }

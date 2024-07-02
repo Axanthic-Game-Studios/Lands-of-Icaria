@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.entity.IcariaSignBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.registry.IcariaShapes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -32,19 +33,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock, MediterraneanWaterloggedBlock {
-	public static final VoxelShape CEILING_NORTH = Block.box(0.0D, 14.0D, 4.5D, 16.0D, 16.0D, 12.5D);
-	public static final VoxelShape CEILING_EAST = Block.box(3.5D, 14.0D, 0.0D, 11.5D, 16.0D, 16.0D);
-	public static final VoxelShape CEILING_SOUTH = Block.box(0.0D, 14.0D, 3.5D, 16.0D, 16.0D, 11.5D);
-	public static final VoxelShape CEILING_WEST = Block.box(4.5D, 14.0D, 0.0D, 12.5D, 16.0D, 16.0D);
-	public static final VoxelShape FLOOR_NORTH = Block.box(0.0D, 0.0D, 3.5D, 16.0D, 2.0D, 11.5D);
-	public static final VoxelShape FLOOR_EAST = Block.box(4.5D, 0.0D, 0.0D, 12.5D, 2.0D, 16.0D);
-	public static final VoxelShape FLOOR_SOUTH = Block.box(0.0D, 0.0D, 4.5D, 16.0D, 2.0D, 12.5D);
-	public static final VoxelShape FLOOR_WEST = Block.box(3.5D, 0.0D, 0.0D, 11.5D, 2.0D, 16.0D);
-	public static final VoxelShape WALL_NORTH = Block.box(0.0D, 4.5D, 14.0D, 16.0D, 12.5D, 16.0D);
-	public static final VoxelShape WALL_EAST = Block.box(0.0D, 4.5D, 0.0D, 2.0D, 12.5D, 16.0D);
-	public static final VoxelShape WALL_SOUTH = Block.box(0.0D, 4.5D, 0.0D, 16.0D, 12.5D, 2.0D);
-	public static final VoxelShape WALL_WEST = Block.box(14.0D, 4.5D, 0.0D, 16.0D, 12.5D, 16.0D);
-
 	public IcariaWallSignBlock(WoodType pWoodType, Properties pProperties) {
 		super(pWoodType, pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.ATTACH_FACE, AttachFace.WALL).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
@@ -94,9 +82,9 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock, M
 
 	public Direction getConnectedDirection(BlockState pState) {
 		return switch (pState.getValue(BlockStateProperties.ATTACH_FACE)) {
-			default -> pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 			case CEILING -> Direction.DOWN;
 			case FLOOR -> Direction.UP;
+			default -> pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 		};
 	}
 
@@ -108,25 +96,25 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock, M
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return switch (pState.getValue(BlockStateProperties.ATTACH_FACE)) {
-			default -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				default -> IcariaWallSignBlock.CEILING_NORTH;
-				case EAST -> IcariaWallSignBlock.CEILING_EAST;
-				case SOUTH -> IcariaWallSignBlock.CEILING_SOUTH;
-				case WEST -> IcariaWallSignBlock.CEILING_WEST;
-			};
-
 			case FLOOR -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				default -> IcariaWallSignBlock.FLOOR_NORTH;
-				case EAST -> IcariaWallSignBlock.FLOOR_EAST;
-				case SOUTH -> IcariaWallSignBlock.FLOOR_SOUTH;
-				case WEST -> IcariaWallSignBlock.FLOOR_WEST;
+				case NORTH -> IcariaShapes.WallSignShapes.FLOOR_NORTH;
+				case EAST -> IcariaShapes.WallSignShapes.FLOOR_EAST;
+				case SOUTH -> IcariaShapes.WallSignShapes.FLOOR_SOUTH;
+				default -> IcariaShapes.WallSignShapes.FLOOR_WEST;
 			};
 
 			case WALL -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				default -> IcariaWallSignBlock.WALL_NORTH;
-				case EAST -> IcariaWallSignBlock.WALL_EAST;
-				case SOUTH -> IcariaWallSignBlock.WALL_SOUTH;
-				case WEST -> IcariaWallSignBlock.WALL_WEST;
+				case NORTH -> IcariaShapes.WallSignShapes.WALL_NORTH;
+				case EAST -> IcariaShapes.WallSignShapes.WALL_EAST;
+				case SOUTH -> IcariaShapes.WallSignShapes.WALL_SOUTH;
+				default -> IcariaShapes.WallSignShapes.WALL_WEST;
+			};
+
+			default -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+				case NORTH -> IcariaShapes.WallSignShapes.CEILING_NORTH;
+				case EAST -> IcariaShapes.WallSignShapes.CEILING_EAST;
+				case SOUTH -> IcariaShapes.WallSignShapes.CEILING_SOUTH;
+				default -> IcariaShapes.WallSignShapes.CEILING_WEST;
 			};
 		};
 	}

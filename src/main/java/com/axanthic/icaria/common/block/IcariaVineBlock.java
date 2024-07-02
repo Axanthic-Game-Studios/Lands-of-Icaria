@@ -4,6 +4,7 @@ import com.axanthic.icaria.common.properties.Vine;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaShapes;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
@@ -59,11 +60,6 @@ public class IcariaVineBlock extends Block {
 			}
 		)
 	);
-
-	public static final VoxelShape SHAPE_NORTH = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 1.0D);
-	public static final VoxelShape SHAPE_EAST = Block.box(15.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-	public static final VoxelShape SHAPE_SOUTH = Block.box(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D);
-	public static final VoxelShape SHAPE_WEST = Block.box(0.0D, 0.0D, 0.0D, 1.0D, 16.0D, 16.0D);
 
 	public IcariaVineBlock(Properties pProperties) {
 		super(pProperties);
@@ -244,19 +240,19 @@ public class IcariaVineBlock extends Block {
 	@Override
 	public BlockState mirror(BlockState pState, Mirror pMirror) {
 		return switch (pMirror) {
-			default -> super.mirror(pState, pMirror);
 			case LEFT_RIGHT -> pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.NORTH));
 			case FRONT_BACK -> pState.setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.EAST));
+			default -> super.mirror(pState, pMirror);
 		};
 	}
 
 	@Override
 	public BlockState rotate(BlockState pState, Rotation pRotation) {
 		return switch (pRotation) {
-			default -> pState;
 			case CLOCKWISE_90 -> pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.SOUTH));
 			case CLOCKWISE_180 -> pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.EAST));
 			case COUNTERCLOCKWISE_90 -> pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.NORTH));
+			default -> pState;
 		};
 	}
 
@@ -301,19 +297,19 @@ public class IcariaVineBlock extends Block {
 		var voxelShape = Shapes.empty();
 
 		if (pState.getValue(BlockStateProperties.NORTH)) {
-			voxelShape = Shapes.or(voxelShape, IcariaVineBlock.SHAPE_NORTH);
+			voxelShape = Shapes.or(voxelShape, IcariaShapes.IcariaVineShapes.NORTH);
 		}
 
 		if (pState.getValue(BlockStateProperties.EAST)) {
-			voxelShape = Shapes.or(voxelShape, IcariaVineBlock.SHAPE_EAST);
+			voxelShape = Shapes.or(voxelShape, IcariaShapes.IcariaVineShapes.EAST);
 		}
 
 		if (pState.getValue(BlockStateProperties.SOUTH)) {
-			voxelShape = Shapes.or(voxelShape, IcariaVineBlock.SHAPE_SOUTH);
+			voxelShape = Shapes.or(voxelShape, IcariaShapes.IcariaVineShapes.SOUTH);
 		}
 
 		if (pState.getValue(BlockStateProperties.WEST)) {
-			voxelShape = Shapes.or(voxelShape, IcariaVineBlock.SHAPE_WEST);
+			voxelShape = Shapes.or(voxelShape, IcariaShapes.IcariaVineShapes.WEST);
 		}
 
 		return voxelShape.isEmpty() ? Shapes.block() : voxelShape;

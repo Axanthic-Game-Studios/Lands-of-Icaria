@@ -53,8 +53,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class RackBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
-    public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
-
     public RackBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.FULL_RACK, false).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.LOADED_BARREL, false).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.TAPPED_BARREL, false).setValue(BlockStateProperties.WATERLOGGED, false));
@@ -290,23 +288,13 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
     }
 
     @Override
-    public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+    public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         return Shapes.empty();
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : RackBlock.SHAPE;
-    }
-
-    @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : RackBlock.SHAPE;
-    }
-
-    @Override
-    public VoxelShape getVisualShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : RackBlock.SHAPE;
+        return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : IcariaShapes.Y4;
     }
 
     public WoodType getType() {

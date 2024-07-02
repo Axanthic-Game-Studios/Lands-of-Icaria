@@ -1,9 +1,7 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.registry.IcariaShapes;
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
-
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -19,8 +17,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import java.util.Map;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
@@ -29,8 +25,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaWallSkullBlock extends IcariaAbstractSkullBlock {
-    public static final Map<Direction, VoxelShape> SHAPES = Maps.newEnumMap(ImmutableMap.of(Direction.NORTH, Block.box(4.0D, 4.0D, 8.0D, 12.0D, 12.0D, 16.0D), Direction.EAST, Block.box(0.0D, 4.0D, 4.0D, 8.0D, 12.0D, 12.0D), Direction.SOUTH, Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 8.0D), Direction.WEST, Block.box(8.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D)));
-
     public IcariaWallSkullBlock(float pOffset, IcariaSkullBlockType pType, Properties pProperties) {
         super(pOffset, pType, pProperties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
@@ -73,6 +67,11 @@ public class IcariaWallSkullBlock extends IcariaAbstractSkullBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return IcariaWallSkullBlock.SHAPES.get(pState.getValue(BlockStateProperties.HORIZONTAL_FACING));
+        return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+            case NORTH -> IcariaShapes.NORTH;
+            case EAST -> IcariaShapes.EAST;
+            case SOUTH -> IcariaShapes.SOUTH;
+            default -> IcariaShapes.WEST;
+        };
     }
 }

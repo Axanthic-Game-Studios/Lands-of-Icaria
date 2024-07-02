@@ -1,9 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaDimensions;
-import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaPoiTypes;
+import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaPortalShape;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
@@ -51,9 +48,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaPortalBlock extends Block implements Portal {
-    public static final VoxelShape SHAPE_X = Block.box(0.0D, 0.0D, 6.0D, 16.0D, 16.0D, 10.0D);
-    public static final VoxelShape SHAPE_Z = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
-
     public IcariaPortalBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HORIZONTAL_AXIS, Direction.Axis.X));
@@ -337,6 +331,6 @@ public class IcariaPortalBlock extends Block implements Portal {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return pState.getValue(BlockStateProperties.HORIZONTAL_AXIS) == Direction.Axis.X ? IcariaPortalBlock.SHAPE_X : IcariaPortalBlock.SHAPE_Z;
+        return pState.getValue(BlockStateProperties.HORIZONTAL_AXIS) == Direction.Axis.X ? IcariaShapes.IcariaPortalShapes.X : IcariaShapes.IcariaPortalShapes.Z;
     }
 }

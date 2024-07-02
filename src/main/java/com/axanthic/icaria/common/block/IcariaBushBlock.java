@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaShapes;
 
 import com.mojang.serialization.MapCodec;
 
@@ -23,8 +24,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaBushBlock extends BushBlock {
 	public static final MapCodec<IcariaBushBlock> CODEC = Block.simpleCodec(IcariaBushBlock::new);
-
-	public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
 
 	public IcariaBushBlock(Properties pProperties) {
 		super(pProperties);
@@ -57,6 +56,6 @@ public class IcariaBushBlock extends BushBlock {
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		var vec3 = pState.getOffset(pLevel, pPos);
-		return IcariaBushBlock.SHAPE.move(vec3.x, vec3.y, vec3.z);
+		return IcariaShapes.UP.move(vec3.x, vec3.y, vec3.z);
 	}
 }

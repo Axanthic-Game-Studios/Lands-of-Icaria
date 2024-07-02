@@ -6,6 +6,7 @@ import com.axanthic.icaria.common.entity.KilnRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.KilnMenuProvider;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaShapes;
 
 import com.mojang.serialization.MapCodec;
 
@@ -36,7 +37,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
@@ -203,8 +204,22 @@ public class KilnBlock extends BaseEntityBlock {
     }
 
     @Override
-    public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
-        return Shapes.empty();
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return switch (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
+			case UPPER -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+                case NORTH -> IcariaShapes.KilnShapes.UPPER_NORTH;
+                case EAST -> IcariaShapes.KilnShapes.UPPER_EAST;
+                case SOUTH -> IcariaShapes.KilnShapes.UPPER_SOUTH;
+                default -> IcariaShapes.KilnShapes.UPPER_WEST;
+            };
+
+			case LOWER -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+                case NORTH -> IcariaShapes.KilnShapes.LOWER_NORTH;
+                case EAST -> IcariaShapes.KilnShapes.LOWER_EAST;
+                case SOUTH -> IcariaShapes.KilnShapes.LOWER_SOUTH;
+                default -> IcariaShapes.KilnShapes.LOWER_WEST;
+            };
+		};
     }
 
     @Override

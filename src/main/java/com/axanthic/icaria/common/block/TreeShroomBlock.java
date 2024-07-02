@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.registry.IcariaShapes;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,11 +28,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class TreeShroomBlock extends Block {
-	public static final VoxelShape SHAPE_NORTH = Block.box(4.0D, 4.0D, 12.0D, 12.0D, 12.0D, 16.0D);
-	public static final VoxelShape SHAPE_EAST = Block.box(0.0D, 4.0D, 4.0D, 4.0D, 12.0D, 12.0D);
-	public static final VoxelShape SHAPE_SOUTH = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 4.0D);
-	public static final VoxelShape SHAPE_WEST = Block.box(12.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
-
 	public TreeShroomBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
@@ -85,10 +82,10 @@ public class TreeShroomBlock extends Block {
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			default -> TreeShroomBlock.SHAPE_NORTH;
-			case EAST -> TreeShroomBlock.SHAPE_EAST;
-			case SOUTH -> TreeShroomBlock.SHAPE_SOUTH;
-			case WEST -> TreeShroomBlock.SHAPE_WEST;
+			case NORTH -> IcariaShapes.NORTH;
+			case EAST -> IcariaShapes.EAST;
+			case SOUTH -> IcariaShapes.SOUTH;
+			default -> IcariaShapes.WEST;
 		};
 	}
 }

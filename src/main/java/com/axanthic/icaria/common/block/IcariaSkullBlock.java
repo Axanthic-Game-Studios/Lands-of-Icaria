@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.registry.IcariaShapes;
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -25,8 +26,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaSkullBlock extends IcariaAbstractSkullBlock {
-    public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
-
     public IcariaSkullBlock(float pOffset, IcariaSkullBlockType pType, Properties pProperties) {
         super(pOffset, pType, pProperties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.ROTATION_16, 0));
@@ -59,6 +58,6 @@ public class IcariaSkullBlock extends IcariaAbstractSkullBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return IcariaSkullBlock.SHAPE;
+        return IcariaShapes.UP;
     }
 }

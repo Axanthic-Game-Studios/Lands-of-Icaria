@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaShapes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -35,11 +36,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class TroughBlock extends Block {
-    public static final VoxelShape SHAPE_NORTH = Block.box(0.0D, 0.0D, 8.0D, 16.0D, 5.0D, 16.0D);
-    public static final VoxelShape SHAPE_EAST = Block.box(0.0D, 0.0D, 0.0D, 8.0D, 5.0D, 16.0D);
-    public static final VoxelShape SHAPE_SOUTH = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 5.0D, 8.0D);
-    public static final VoxelShape SHAPE_WEST = Block.box(8.0D, 0.0D, 0.0D, 16.0D, 5.0D, 16.0D);
-
     public TroughBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.TROUGH_WATER, false));
@@ -108,10 +104,10 @@ public class TroughBlock extends Block {
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-            case NORTH -> TroughBlock.SHAPE_NORTH;
-            case EAST -> TroughBlock.SHAPE_EAST;
-            case SOUTH -> TroughBlock.SHAPE_SOUTH;
-            default ->  TroughBlock.SHAPE_WEST;
+            case NORTH -> IcariaShapes.TroughShapes.NORTH;
+            case EAST -> IcariaShapes.TroughShapes.EAST;
+            case SOUTH -> IcariaShapes.TroughShapes.SOUTH;
+            default ->  IcariaShapes.TroughShapes.WEST;
         };
     }
 }

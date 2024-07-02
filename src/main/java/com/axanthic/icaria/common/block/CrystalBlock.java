@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.entity.CrystalBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.registry.IcariaShapes;
 
 import com.mojang.serialization.MapCodec;
 
@@ -37,13 +38,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class CrystalBlock extends DirectionalBlock implements EntityBlock, MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public static final MapCodec<CrystalBlock> CODEC = Block.simpleCodec(CrystalBlock::new);
-
-	public static final VoxelShape SHAPE_NORTH = Block.box(4.0D, 4.0D, 8.0D, 12.0D, 12.0D, 16.0D);
-	public static final VoxelShape SHAPE_EAST = Block.box(0.0D, 4.0D, 4.0D, 8.0D, 12.0D, 12.0D);
-	public static final VoxelShape SHAPE_SOUTH = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 8.0D);
-	public static final VoxelShape SHAPE_WEST = Block.box(8.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
-	public static final VoxelShape SHAPE_UP = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
-	public static final VoxelShape SHAPE_DOWN = Block.box(4.0D, 8.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
 	public CrystalBlock(Properties pProperties) {
 		super(pProperties);
@@ -121,12 +115,12 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Medit
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return switch (pState.getValue(BlockStateProperties.FACING)) {
-			case NORTH -> CrystalBlock.SHAPE_NORTH;
-			case EAST -> CrystalBlock.SHAPE_EAST;
-			case SOUTH -> CrystalBlock.SHAPE_SOUTH;
-			case WEST -> CrystalBlock.SHAPE_WEST;
-			case UP -> CrystalBlock.SHAPE_UP;
-			case DOWN -> CrystalBlock.SHAPE_DOWN;
+			case NORTH -> IcariaShapes.NORTH;
+			case EAST -> IcariaShapes.EAST;
+			case SOUTH -> IcariaShapes.SOUTH;
+			case WEST -> IcariaShapes.WEST;
+			case UP -> IcariaShapes.UP;
+			case DOWN -> IcariaShapes.DOWN;
 		};
 	}
 }

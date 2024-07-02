@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaMobEffects;
+import com.axanthic.icaria.common.registry.IcariaShapes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -25,7 +26,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -36,10 +36,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaCakeBlock extends Block {
-	public static final VoxelShape[] SHAPES = new VoxelShape[] {
-		Block.box(1.0D, 0.0D, 1.0D, 15.0D, 8.0D, 15.0D), Shapes.or(Block.box(1.0D, 0.0D, 8.0D, 15.0D, 8.0D, 15.0D), Block.box(8.0D, 0.0D, 1.0D, 15.0D, 8.0D, 8.0D)), Block.box(1.0D, 0.0D, 8.0D, 15.0D, 8.0D, 15.0D), Block.box(1.0D, 0.0D, 8.0D, 8.0D, 8.0D, 15.0D)
-	};
-
 	public IcariaCakeBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.CAKE_BITE, 0));
@@ -120,6 +116,6 @@ public class IcariaCakeBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return IcariaCakeBlock.SHAPES[pState.getValue(IcariaBlockStateProperties.CAKE_BITE)];
+		return IcariaShapes.CAKE_BITE[pState.getValue(IcariaBlockStateProperties.CAKE_BITE)];
 	}
 }

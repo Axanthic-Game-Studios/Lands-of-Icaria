@@ -3,10 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.KettleBlockEntity;
 import com.axanthic.icaria.common.properties.Kettle;
-import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.tags.IcariaItemTags;
 
 import com.mojang.serialization.MapCodec;
@@ -42,7 +39,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
@@ -55,11 +51,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class KettleBlock extends BaseEntityBlock {
     public static final MapCodec<KettleBlock> CODEC = Block.simpleCodec(KettleBlock::new);
-
-    public static final VoxelShape SHAPE_NORTH = Block.box(0.0D, 0.0D, 7.5D, 16.0D, 14.0D, 16.0D);
-    public static final VoxelShape SHAPE_EAST = Block.box(0.0D, 0.0D, 0.0D, 8.5D, 14.0D, 16.0D);
-    public static final VoxelShape SHAPE_SOUTH = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 8.5D);
-    public static final VoxelShape SHAPE_WEST = Block.box(7.5D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
 
     public KettleBlock(Properties pProperties) {
         super(pProperties);
@@ -290,22 +281,21 @@ public class KettleBlock extends BaseEntityBlock {
     }
 
     @Override
-    public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
-        return Shapes.empty();
-    }
-
-    @Override
-    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER ? Block.box(0, 0, 0, 16, 12, 16) : this.getShape(pState, pLevel, pPos, pContext);
-    }
-
-    @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER ? Shapes.block() : switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-            case NORTH -> KettleBlock.SHAPE_NORTH;
-            case EAST -> KettleBlock.SHAPE_EAST;
-            case SOUTH -> KettleBlock.SHAPE_SOUTH;
-            default -> KettleBlock.SHAPE_WEST;
+        return switch (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
+            case UPPER -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+                case NORTH -> IcariaShapes.KettleShapes.UPPER_NORTH;
+                case EAST -> IcariaShapes.KettleShapes.UPPER_EAST;
+                case SOUTH -> IcariaShapes.KettleShapes.UPPER_SOUTH;
+                default -> IcariaShapes.KettleShapes.UPPER_WEST;
+            };
+
+            case LOWER -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+                case NORTH -> IcariaShapes.KettleShapes.LOWER_NORTH;
+                case EAST -> IcariaShapes.KettleShapes.LOWER_EAST;
+                case SOUTH -> IcariaShapes.KettleShapes.LOWER_SOUTH;
+                default -> IcariaShapes.KettleShapes.LOWER_WEST;
+            };
         };
     }
 
