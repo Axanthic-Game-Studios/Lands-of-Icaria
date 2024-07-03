@@ -757,6 +757,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.MYRMEKE_DRONE.get(), "Myrmeke Drone");
 		this.add(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), "Myrmeke Soldier");
 		this.add(IcariaEntityTypes.MYRMEKE_QUEEN.get(), "Myrmeke Queen");
+		this.add(IcariaEntityTypes.PAINTING.get(), "Painting");
 		this.add(IcariaEntityTypes.CAPTAIN_REVENANT.get(), "Captain Revenant");
 		this.add(IcariaEntityTypes.CIVILIAN_REVENANT.get(), "Civilian Revenant");
 		this.add(IcariaEntityTypes.CRAWLER_REVENANT.get(), "Crawler Revenant");
@@ -796,6 +797,8 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "blindness", "Lingering Potion of Blindness");
 		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "nausea", "Lingering Potion of Nausea");
 		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "wither", "Lingering Potion of Wither");
+
+		this.add(IcariaItems.PAINTING.get(), "Painting");
 
 		this.add(IcariaItems.BONE_REMAINS.get(), "Bone Remains");
 		this.add(IcariaItems.LOAM_LUMP.get(), "Loam Lump");
@@ -1069,5 +1072,19 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("message" + "." + IcariaInfo.ID + "." + "barrel", "Sneak to throw the barrel");
 		this.add("message" + "." + IcariaInfo.ID + "." + "chest_label", "Chest label name too long");
 		this.add("message" + "." + IcariaInfo.ID + "." + "loot_vase", "Sneak to throw loot vase");
+
+		this.add("painting" + "." + IcariaInfo.ID + "." + "bridge" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "cactus" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "moons" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "perfection" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "portal" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "pyro" + "." + "author", "Axanthic Studios");
+
+		this.add("painting" + "." + IcariaInfo.ID + "." + "bridge" + "." + "title", "Bridge");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "cactus" + "." + "title", "Cactus");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "moons" + "." + "title", "Moons");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "perfection" + "." + "title", "Perfection");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "portal" + "." + "title", "Portal");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "pyro" + "." + "title", "Pyro");
 	}
 }

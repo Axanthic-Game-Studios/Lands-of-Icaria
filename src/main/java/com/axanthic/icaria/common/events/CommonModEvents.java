@@ -651,6 +651,8 @@ public class CommonModEvents {
 		}
 
 		if (pEvent.getTab().equals(IcariaCreativeModeTabs.ITEMS.get())) {
+			pEvent.accept(IcariaItems.PAINTING.get());
+
 			pEvent.accept(IcariaItems.BONE_REMAINS.get());
 			pEvent.accept(IcariaItems.LOAM_LUMP.get());
 			pEvent.accept(IcariaItems.LOAM_BRICK.get());
@@ -977,6 +979,7 @@ public class CommonModEvents {
 		generator.addProvider(pEvent.includeServer(), blockTags);
 		generator.addProvider(pEvent.includeServer(), new IcariaFluidTags(packOutput, lookupProvider, IcariaInfo.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), new IcariaItemTags(packOutput, lookupProvider, tagLookup, IcariaInfo.ID, existingFileHelper));
+		generator.addProvider(pEvent.includeClient(), new IcariaPaintingVariantTags(packOutput, registryProvider, IcariaInfo.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), new IcariaStructureTags(packOutput, registryProvider, IcariaInfo.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), builtinEntries);
 		generator.addProvider(pEvent.includeClient(), new IcariaDataMaps(packOutput, lookupProvider));

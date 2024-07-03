@@ -1008,6 +1008,16 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + Items.TRIPWIRE_HOOK, RecipeProvider.has(Items.TRIPWIRE_HOOK))
 			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.TRAPPED_CHEST.get()));
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.PAINTING.get(), 1)
+			.pattern("XXX")
+			.pattern("XYX")
+			.pattern("XXX")
+			.define('X', Items.STICK)
+			.define('Y', IcariaItems.ARACHNE_STRING_BLOCK.get())
+			.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
+			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING_BLOCK.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING_BLOCK.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.PAINTING.get()));
+
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.GREENPOWDER.get(), 1)
 			.requires(IcariaItems.CALCITE_DUST.get())
 			.requires(IcariaItems.HALITE_DUST.get())

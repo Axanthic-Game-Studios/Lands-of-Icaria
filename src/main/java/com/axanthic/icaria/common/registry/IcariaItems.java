@@ -547,6 +547,8 @@ public class IcariaItems {
 	public static final Supplier<Item> GRINDER_SHAFT = IcariaItems.register("grinder_shaft", () -> new BlockItem(IcariaBlocks.GRINDER_SHAFT.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> GRINDER_STONE = IcariaItems.register("grinder_stone", () -> new BlockItem(IcariaBlocks.GRINDER_STONE.get(), IcariaItems.propertiesItem()));
 
+	public static final Supplier<Item> PAINTING = IcariaItems.registerSimple("painting", () -> new IcariaPaintingItem(IcariaItems.propertiesItem()));
+
 	public static final Supplier<Item> BONE_REMAINS = IcariaItems.registerSimple("bone_remains", () -> new Item(IcariaItems.propertiesItem()));
 	public static final Supplier<Item> LOAM_LUMP = IcariaItems.registerSimple("loam_lump", () -> new Item(IcariaItems.propertiesItem()));
 	public static final Supplier<Item> LOAM_BRICK = IcariaItems.registerSimple("loam_brick", () -> new Item(IcariaItems.propertiesItem()));

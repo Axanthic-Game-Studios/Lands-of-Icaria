@@ -757,6 +757,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.MYRMEKE_DRONE.get(), "Ameisendrohne");
 		this.add(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), "Ameisensoldat");
 		this.add(IcariaEntityTypes.MYRMEKE_QUEEN.get(), "Ameisenkönigin");
+		this.add(IcariaEntityTypes.PAINTING.get(), "Gemälde");
 		this.add(IcariaEntityTypes.CAPTAIN_REVENANT.get(), "Kommandanten-Wiedergänger");
 		this.add(IcariaEntityTypes.CIVILIAN_REVENANT.get(), "Zivilisten-Wiedergänger");
 		this.add(IcariaEntityTypes.CRAWLER_REVENANT.get(), "Kriechender Wiedergänger");
@@ -796,6 +797,8 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "blindness", "Verweiltrank der Blindheit");
 		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "nausea", "Verweiltrank der Übelkeit");
 		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "wither", "Verweiltrank der Verdorrung");
+
+		this.add(IcariaItems.PAINTING.get(), "Gemälde");
 
 		this.add(IcariaItems.BONE_REMAINS.get(), "Knochenreste");
 		this.add(IcariaItems.LOAM_LUMP.get(), "Lehmklumpen");
@@ -1069,5 +1072,19 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("message" + "." + IcariaInfo.ID + "." + "barrel", "Schleichen zum Werfen des Fasses");
 		this.add("message" + "." + IcariaInfo.ID + "." + "chest_label", "Name des Kistenetiketts zu lang");
 		this.add("message" + "." + IcariaInfo.ID + "." + "loot_vase", "Schleichen zum Werfen der Beutevase");
+
+		this.add("painting" + "." + IcariaInfo.ID + "." + "bridge" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "cactus" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "moons" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "perfection" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "portal" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "pyro" + "." + "author", "Axanthic Studios");
+
+		this.add("painting" + "." + IcariaInfo.ID + "." + "bridge" + "." + "title", "Brücke");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "cactus" + "." + "title", "Kaktus");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "moons" + "." + "title", "Monde");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "perfection" + "." + "title", "Perfektion");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "portal" + "." + "title", "Portal");
+		this.add("painting" + "." + IcariaInfo.ID + "." + "pyro" + "." + "title", "Pyro");
 	}
 }
