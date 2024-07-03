@@ -116,6 +116,6 @@ public class IcariaCakeBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return IcariaShapes.CAKE_BITE[pState.getValue(IcariaBlockStateProperties.CAKE_BITE)];
+		return IcariaShapes.CAKE[pState.getValue(IcariaBlockStateProperties.CAKE_BITE)];
 	}
 }
