@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class FirTreeFeature extends IcariaTreeFeature {
     public FirTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.FALLEN_FIR_LEAVES.get(), IcariaBlocks.FIR_LEAVES.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.FIR_SAPLING.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.FIR_TWIGS.get());
+        super(pCodec, IcariaBlocks.FALLEN_FIR_LEAVES.get(), IcariaBlocks.FIR_LEAVES.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.FIR_TWIGS.get());
     }
 
     @Override

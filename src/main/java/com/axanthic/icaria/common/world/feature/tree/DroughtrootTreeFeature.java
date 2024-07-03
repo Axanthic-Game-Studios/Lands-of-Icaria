@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class DroughtrootTreeFeature extends IcariaTreeFeature {
     public DroughtrootTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_SAPLING.get(), IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.DROUGHTROOT_TWIGS.get());
+        super(pCodec, IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.DROUGHTROOT_TWIGS.get());
     }
 
     @Override

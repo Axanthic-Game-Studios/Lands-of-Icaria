@@ -18,7 +18,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class PlaneTreeFeature extends IcariaTreeFeature {
     public PlaneTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.FALLEN_PLANE_LEAVES.get(), IcariaBlocks.PLANE_LEAVES.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.PLANE_SAPLING.get(), IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaBlocks.PLANE_TWIGS.get());
+        super(pCodec, IcariaBlocks.FALLEN_PLANE_LEAVES.get(), IcariaBlocks.PLANE_LEAVES.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaBlocks.PLANE_TWIGS.get());
     }
 
     @Override

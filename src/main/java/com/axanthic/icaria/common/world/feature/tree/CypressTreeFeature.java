@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class CypressTreeFeature extends IcariaTreeFeature {
     public CypressTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), IcariaBlocks.CYPRESS_LEAVES.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_SAPLING.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.CYPRESS_TWIGS.get());
+        super(pCodec, IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), IcariaBlocks.CYPRESS_LEAVES.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.CYPRESS_TWIGS.get());
     }
 
     @Override

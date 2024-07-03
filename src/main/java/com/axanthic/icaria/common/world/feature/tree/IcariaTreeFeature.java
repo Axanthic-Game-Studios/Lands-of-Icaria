@@ -22,16 +22,14 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
     public Block fallen;
     public Block leaves;
     public Block log;
-    public Block sapling;
     public Block shrooms;
     public Block twigs;
 
-    public IcariaTreeFeature(Codec<NoneFeatureConfiguration> pCodec, Block pFallen, Block pLeaves, Block pLog, Block pSapling, Block pShrooms, Block pTwigs) {
+    public IcariaTreeFeature(Codec<NoneFeatureConfiguration> pCodec, Block pFallen, Block pLeaves, Block pLog, Block pShrooms, Block pTwigs) {
         super(pCodec);
         this.fallen = pFallen;
         this.leaves = pLeaves;
         this.log = pLog;
-        this.sapling = pSapling;
         this.shrooms = pShrooms;
         this.twigs = pTwigs;
     }

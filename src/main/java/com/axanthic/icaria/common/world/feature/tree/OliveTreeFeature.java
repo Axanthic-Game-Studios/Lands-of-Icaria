@@ -19,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class OliveTreeFeature extends IcariaTreeFeature {
     public OliveTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), IcariaBlocks.OLIVE_LEAVES.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.OLIVE_SAPLING.get(), IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.OLIVE_TWIGS.get());
+        super(pCodec, IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), IcariaBlocks.OLIVE_LEAVES.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.OLIVE_TWIGS.get());
     }
 
     @Override

@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class PopulusTreeFeature extends IcariaTreeFeature {
     public PopulusTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.POPULUS_SAPLING.get(), IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaBlocks.POPULUS_TWIGS.get());
+        super(pCodec, IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaBlocks.POPULUS_TWIGS.get());
     }
 
     @Override
