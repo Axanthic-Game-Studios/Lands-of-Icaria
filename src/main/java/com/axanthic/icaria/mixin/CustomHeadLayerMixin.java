@@ -6,6 +6,7 @@ import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HeadedModel;
 import net.minecraft.client.model.SkullModel;
@@ -25,8 +26,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 @Mixin(CustomHeadLayer.class)
 public class CustomHeadLayerMixin<T extends LivingEntity, M extends EntityModel<T> & HeadedModel> {

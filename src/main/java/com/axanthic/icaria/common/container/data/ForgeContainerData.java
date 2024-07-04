@@ -1,8 +1,14 @@
 package com.axanthic.icaria.common.container.data;
 
-import com.axanthic.icaria.common.entity.ForgeBlockEntity;
+import com.axanthic.icaria.common.block.entity.ForgeBlockEntity;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.inventory.ContainerData;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class ForgeContainerData implements ContainerData {
     public ForgeBlockEntity blockEntity;

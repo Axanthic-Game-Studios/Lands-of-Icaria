@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.goal.CaptainRevenantSummonGoal;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.common.spell.IcariaSummonSpell;
+import com.axanthic.icaria.common.util.IcariaSummonSpellTypes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -189,7 +189,7 @@ public class CaptainRevenantEntity extends RevenantEntity {
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, ArganHoundEntity.class, true, true));
     }
 
-    public void setCasting(IcariaSummonSpell pSpell) {
+    public void setCasting(IcariaSummonSpellTypes pSpell) {
         this.entityData.set(CaptainRevenantEntity.SPELL, (byte) pSpell.id);
     }
 

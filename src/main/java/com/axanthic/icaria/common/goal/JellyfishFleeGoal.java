@@ -2,9 +2,15 @@ package com.axanthic.icaria.common.goal;
 
 import com.axanthic.icaria.common.entity.JellyfishEntity;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.phys.Vec3;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class JellyfishFleeGoal extends Goal {
     public int fleeTicks;

@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.goal;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.Entity;
@@ -10,8 +11,10 @@ import net.minecraft.world.level.BlockGetter;
 
 import java.util.EnumSet;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaPanicGoal extends Goal {
@@ -81,8 +84,7 @@ public class IcariaPanicGoal extends Goal {
         this.isRunning = false;
     }
 
-    public BlockPos lookForWater(BlockGetter pLevel, Entity pEntity, int pRange) {
-        var blockPos = pEntity.blockPosition();
-        return !pLevel.getBlockState(blockPos).getCollisionShape(pLevel, blockPos).isEmpty() ? null : BlockPos.findClosestMatch(pEntity.blockPosition(), pRange, 1, (pBlockPos) -> pLevel.getFluidState(pBlockPos).is(FluidTags.WATER)).orElse(null);
+    public @Nullable BlockPos lookForWater(BlockGetter pLevel, Entity pEntity, int pRange) {
+		return BlockPos.findClosestMatch(pEntity.blockPosition(), pRange, 1, (pBlockPos) -> pLevel.getFluidState(pBlockPos).is(FluidTags.WATER)).orElse(null);
     }
 }

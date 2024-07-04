@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.world.feature;
 
-import com.axanthic.icaria.common.entity.IcariaChestBlockEntity;
-import com.axanthic.icaria.common.entity.IcariaSpawnerBlockEntity;
-import com.axanthic.icaria.common.entity.StorageVaseBlockEntity;
+import com.axanthic.icaria.common.block.entity.IcariaChestBlockEntity;
+import com.axanthic.icaria.common.block.entity.IcariaSpawnerBlockEntity;
+import com.axanthic.icaria.common.block.entity.StorageVaseBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaLootTables;
@@ -10,6 +10,7 @@ import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import com.mojang.serialization.Codec;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class VillageFeature extends Feature<NoneFeatureConfiguration> {

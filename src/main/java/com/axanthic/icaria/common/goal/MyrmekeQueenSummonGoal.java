@@ -3,11 +3,17 @@ package com.axanthic.icaria.common.goal;
 import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
 import com.axanthic.icaria.common.entity.MyrmekeSoldierEntity;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.spell.IcariaSummonSpell;
+import com.axanthic.icaria.common.util.IcariaSummonSpellTypes;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class MyrmekeQueenSummonGoal extends Goal {
     public MyrmekeQueenEntity entity;
@@ -26,7 +32,7 @@ public class MyrmekeQueenSummonGoal extends Goal {
 
     @Override
     public void start() {
-        this.entity.setCasting(IcariaSummonSpell.SUMMON);
+        this.entity.setCasting(IcariaSummonSpellTypes.SUMMON);
     }
 
     @Override

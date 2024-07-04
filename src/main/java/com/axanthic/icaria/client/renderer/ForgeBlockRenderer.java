@@ -1,11 +1,12 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.common.block.entity.ForgeBlockEntity;
 import com.axanthic.icaria.common.config.IcariaConfig;
-import com.axanthic.icaria.common.entity.ForgeBlockEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
@@ -18,6 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class ForgeBlockRenderer implements BlockEntityRenderer<ForgeBlockEntity> {

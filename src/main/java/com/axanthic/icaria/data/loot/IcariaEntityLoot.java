@@ -1,8 +1,8 @@
 package com.axanthic.icaria.data.loot;
 
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
@@ -23,9 +23,12 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.stream.Stream;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaEntityLoot extends EntityLootSubProvider {
     public IcariaEntityLoot(HolderLookup.Provider pProvider) {
@@ -149,6 +152,6 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
 
     @Override
     public Stream<EntityType<?>> getKnownEntityTypes() {
-        return BuiltInRegistries.ENTITY_TYPE.stream().filter((pEntityType) -> BuiltInRegistries.ENTITY_TYPE.getKey(pEntityType).getNamespace().equals(IcariaInfo.ID));
+        return BuiltInRegistries.ENTITY_TYPE.stream().filter((pEntityType) -> BuiltInRegistries.ENTITY_TYPE.getKey(pEntityType).getNamespace().equals(IcariaIdents.ID));
     }
 }

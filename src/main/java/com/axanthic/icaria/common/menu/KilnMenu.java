@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.menu;
 
-import com.axanthic.icaria.common.entity.KilnBlockEntity;
+import com.axanthic.icaria.common.block.entity.KilnBlockEntity;
 import com.axanthic.icaria.common.handler.slot.KilnOutputSlotItemHandler;
 import com.axanthic.icaria.common.registry.IcariaMenus;
 

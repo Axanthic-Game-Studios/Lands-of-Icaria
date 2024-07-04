@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.handler.slot;
 
-import com.axanthic.icaria.common.entity.ForgeBlockEntity;
+import com.axanthic.icaria.common.block.entity.ForgeBlockEntity;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.server.level.ServerPlayer;

@@ -4,7 +4,6 @@ import com.axanthic.icaria.common.properties.Olives;
 import com.axanthic.icaria.common.properties.Ripe;
 import com.axanthic.icaria.common.properties.Vine;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.critereon.*;
@@ -34,9 +33,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaBlockLoot extends BlockLootSubProvider {
 	public static final float[] CHERRY_CHANCES = new float[]{0.05F, 0.006666666666F, 0.008333333333F, 0.01F};
@@ -598,7 +600,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 
 	@Override
 	public Iterable<Block> getKnownBlocks() {
-		return BuiltInRegistries.BLOCK.stream().filter((pBlock) -> IcariaInfo.ID.equals(BuiltInRegistries.BLOCK.getKey(pBlock).getNamespace())).collect(Collectors.toList());
+		return BuiltInRegistries.BLOCK.stream().filter((pBlock) -> IcariaIdents.ID.equals(BuiltInRegistries.BLOCK.getKey(pBlock).getNamespace())).collect(Collectors.toList());
 	}
 
 	public LootItemCondition.Builder noShears() {

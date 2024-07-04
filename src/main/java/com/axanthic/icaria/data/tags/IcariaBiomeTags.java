@@ -1,7 +1,7 @@
 package com.axanthic.icaria.data.tags;
 
 import com.axanthic.icaria.common.registry.IcariaBiomes;
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.registry.IcariaIdents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
@@ -58,10 +58,10 @@ public class IcariaBiomeTags extends BiomeTagsProvider {
 	}
 
 	public static TagKey<Biome> cTag(String pName) {
-		return IcariaBiomeTags.bind(IcariaInfo.C + ":" + pName);
+		return IcariaBiomeTags.bind(IcariaIdents.C + ":" + pName);
 	}
 
 	public static TagKey<Biome> icariaTag(String pName) {
-		return IcariaBiomeTags.bind(IcariaInfo.ID + ":" + pName);
+		return IcariaBiomeTags.bind(IcariaIdents.ID + ":" + pName);
 	}
 }

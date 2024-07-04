@@ -2,8 +2,8 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.recipe.*;
 import com.axanthic.icaria.common.recipe.type.*;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeType;
 
@@ -11,8 +11,13 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
 public class IcariaRecipeTypes {
-    public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, IcariaInfo.ID);
+    public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, IcariaIdents.ID);
 
     public static final Supplier<RecipeType<ConcoctingEntityRecipe>> CONCOCTING_ENTITY = IcariaRecipeTypes.RECIPE_TYPES.register("concocting_entity", ConcoctingEntityRecipeType::new);
     public static final Supplier<RecipeType<ConcoctingExplosionsRecipe>> CONCOCTING_EXPLOSIONS = IcariaRecipeTypes.RECIPE_TYPES.register("concocting_explosions", ConcoctingExplosionsRecipeType::new);

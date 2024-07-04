@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.goal;
 
 import com.axanthic.icaria.common.entity.IcariaAnimalEntity;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
@@ -9,8 +10,10 @@ import net.minecraft.world.level.Level;
 
 import java.util.EnumSet;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaBreedGoal extends Goal {
@@ -36,7 +39,7 @@ public class IcariaBreedGoal extends Goal {
         this.level = pEntity.level();
         this.partnerClass = pPartnerClass;
         this.speedModifier = pSpeedModifier;
-        this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
+        this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
     }
 
     @Override
@@ -46,11 +49,11 @@ public class IcariaBreedGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        if (!this.entity.inLove()) {
-            return false;
-        } else {
+        if (this.entity.inLove()) {
             this.partner = this.getFreePartner();
             return this.partner != null;
+        } else {
+            return false;
         }
     }
 
@@ -74,7 +77,7 @@ public class IcariaBreedGoal extends Goal {
         }
     }
 
-    public IcariaAnimalEntity getFreePartner() {
+    public @Nullable IcariaAnimalEntity getFreePartner() {
         double d = Double.MAX_VALUE;
         IcariaAnimalEntity entity = null;
         for (var partner : this.level.getNearbyEntities(this.partnerClass, IcariaBreedGoal.PARTNER_TARGETING, this.entity, this.entity.getBoundingBox().inflate(8.0D))) {

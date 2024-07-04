@@ -1,11 +1,13 @@
 package com.axanthic.icaria.common.util;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BaseSpawner;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaBaseSpawner extends BaseSpawner {

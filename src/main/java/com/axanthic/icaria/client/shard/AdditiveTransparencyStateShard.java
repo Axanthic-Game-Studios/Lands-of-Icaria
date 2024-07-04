@@ -3,7 +3,13 @@ package com.axanthic.icaria.client.shard;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.RenderStateShard;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class AdditiveTransparencyStateShard extends RenderStateShard.TransparencyStateShard {
     public AdditiveTransparencyStateShard(String pName) {

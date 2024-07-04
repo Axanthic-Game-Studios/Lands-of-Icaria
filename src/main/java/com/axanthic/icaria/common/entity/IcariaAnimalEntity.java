@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -29,6 +30,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implements IcariaBreedableEntity {

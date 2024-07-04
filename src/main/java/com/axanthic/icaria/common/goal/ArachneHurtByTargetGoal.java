@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.goal;
 import com.axanthic.icaria.common.entity.ArachneDroneEntity;
 import com.axanthic.icaria.common.entity.ArachneEntity;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -11,6 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class ArachneHurtByTargetGoal extends HurtByTargetGoal {

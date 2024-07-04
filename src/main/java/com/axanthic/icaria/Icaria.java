@@ -3,8 +3,8 @@ package com.axanthic.icaria;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.network.TotemPacket;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.Item;
@@ -19,9 +19,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@Mod(IcariaInfo.ID)
+@Mod(IcariaIdents.ID)
 public class Icaria {
 	public Icaria(IEventBus pBus) {
 		pBus.addListener(this::onFMLClientSetup);
@@ -84,7 +85,7 @@ public class Icaria {
 	}
 
 	public void onRegisterPayloadHandlers(RegisterPayloadHandlersEvent pEvent) {
-		var registrar = pEvent.registrar(IcariaInfo.ID);
+		var registrar = pEvent.registrar(IcariaIdents.ID);
 		registrar.playToClient(TotemPacket.TYPE, TotemPacket.STREAM_CODEC, TotemPacket::handler);
 	}
 

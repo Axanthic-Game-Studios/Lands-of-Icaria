@@ -9,9 +9,8 @@ import com.axanthic.icaria.client.screen.GrinderScreen;
 import com.axanthic.icaria.client.screen.KilnScreen;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.util.IcariaColors;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -36,9 +35,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation, unused")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = IcariaInfo.ID, value = Dist.CLIENT)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = IcariaIdents.ID, value = Dist.CLIENT)
 public class ClientModEvents {
 
 	@SubscribeEvent

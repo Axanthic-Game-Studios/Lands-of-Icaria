@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.handler.slot;
 
-import com.axanthic.icaria.common.entity.KilnBlockEntity;
+import com.axanthic.icaria.common.block.entity.KilnBlockEntity;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.server.level.ServerPlayer;

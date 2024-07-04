@@ -1,10 +1,11 @@
 package com.axanthic.icaria.data;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaStoneDecoItems;
 import com.axanthic.icaria.common.registry.IcariaWoodDecoItems;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -25,6 +26,7 @@ import java.util.function.Supplier;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockStates extends BlockStateProvider {
@@ -188,7 +190,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 	}
 
 	public void doorBlock(Supplier<? extends DoorBlock> pBlock) {
-		this.doorBlock(BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath(), pBlock.get(), ResourceLocation.parse(IcariaInfo.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_bottom"), ResourceLocation.parse(IcariaInfo.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_top"));
+		this.doorBlock(BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath(), pBlock.get(), ResourceLocation.parse(IcariaIdents.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_bottom"), ResourceLocation.parse(IcariaIdents.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath() + "_top"));
 	}
 
 	public void doorBlock(String pName, Block pDoor, ResourceLocation pBottom, ResourceLocation pTop) {
@@ -226,7 +228,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 	}
 
 	public void trapDoorWithItem(Supplier<? extends TrapDoorBlock> pBlock) {
-		this.trapdoorBlock(pBlock.get(), ResourceLocation.parse(IcariaInfo.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath()), true);
+		this.trapdoorBlock(pBlock.get(), ResourceLocation.parse(IcariaIdents.ID + ":block/" + BuiltInRegistries.BLOCK.getKey(pBlock.get()).getPath()), true);
 		this.itemBlockTrapDoor(pBlock);
 	}
 

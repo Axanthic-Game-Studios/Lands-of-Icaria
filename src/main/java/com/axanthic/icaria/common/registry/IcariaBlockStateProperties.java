@@ -2,13 +2,19 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.properties.*;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @SuppressWarnings("unused")
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaBlockStateProperties {
     public static final BooleanProperty FULL_RACK = BooleanProperty.create("full_rack");

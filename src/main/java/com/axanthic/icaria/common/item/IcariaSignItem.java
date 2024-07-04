@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.item;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -8,6 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaSignItem extends SignItem {

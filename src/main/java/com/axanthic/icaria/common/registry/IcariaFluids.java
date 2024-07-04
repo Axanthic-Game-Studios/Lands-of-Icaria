@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
-
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.material.FlowingFluid;
@@ -13,10 +11,13 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaFluids {
-	public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(Registries.FLUID, IcariaInfo.ID);
+	public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(Registries.FLUID, IcariaIdents.ID);
 
 	public static final Supplier<FlowingFluid> FLOWING_MEDITERRANEAN_WATER = IcariaFluids.registerMediterraneanWater("flowing_mediterranean_water", BaseFlowingFluid.Flowing::new);
 	public static final Supplier<FlowingFluid> MEDITERRANEAN_WATER = IcariaFluids.registerMediterraneanWater("mediterranean_water", BaseFlowingFluid.Source::new);

@@ -3,7 +3,10 @@ package com.axanthic.icaria.common.properties;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.util.StringRepresentable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public enum Kettle implements StringRepresentable {
     EMPTY("empty"),

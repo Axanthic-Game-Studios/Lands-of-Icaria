@@ -2,9 +2,15 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import net.neoforged.neoforge.common.SimpleTier;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaTiers {
 	public static final SimpleTier CHERT = new SimpleTier(IcariaBlockTags.INCORRECT_FOR_CHERT_TOOL, 59, 2.0F, 0.0F, 15, () -> Ingredient.of(IcariaItems.CHERT.get()));

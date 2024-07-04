@@ -1,6 +1,12 @@
 package com.axanthic.icaria.common.registry;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.sounds.SoundEvent;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaSoundEvents {
     public static final SoundEvent BARREL_BREAK = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.BARREL_BREAK);

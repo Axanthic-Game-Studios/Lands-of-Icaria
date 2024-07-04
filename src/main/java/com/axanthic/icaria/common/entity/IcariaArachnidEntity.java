@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
@@ -14,6 +15,7 @@ import net.minecraft.world.level.LevelAccessor;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaArachnidEntity extends Monster {

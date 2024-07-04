@@ -1,7 +1,8 @@
-package com.axanthic.icaria.common.entity;
+package com.axanthic.icaria.common.block.entity;
 
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -19,7 +20,11 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaChestBlockEntity extends ChestBlockEntity {
     public NonNullList<ItemStack> items = NonNullList.withSize(18, ItemStack.EMPTY);
@@ -38,23 +43,23 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
         this(IcariaBlockEntityTypes.CHEST.get(), pPos, pBlockState);
     }
 
-    public boolean  hasTextUp() {
+    public boolean hasTextUp() {
         return this.getTextUp() != null;
     }
 
-    public boolean  hasTextNorth() {
+    public boolean hasTextNorth() {
         return this.getTextNorth() != null;
     }
 
-    public boolean  hasTextEast() {
+    public boolean hasTextEast() {
         return this.getTextEast() != null;
     }
 
-    public boolean  hasTextSouth() {
+    public boolean hasTextSouth() {
         return this.getTextSouth() != null;
     }
 
-    public boolean  hasTextWest() {
+    public boolean hasTextWest() {
         return this.getTextWest() != null;
     }
 
@@ -64,7 +69,7 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
     }
 
     @Override
-    public void loadAdditional(@Nonnull CompoundTag pTag, @Nonnull HolderLookup.Provider pProvider) {
+    public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
         super.loadAdditional(pTag, pProvider);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         if (!this.tryLoadLootTable(pTag)) {
@@ -93,7 +98,7 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
     }
 
     @Override
-    public void saveAdditional(@Nonnull CompoundTag pTag, @Nonnull HolderLookup.Provider pProvider) {
+    public void saveAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
         super.saveAdditional(pTag, pProvider);
         if (!this.trySaveLootTable(pTag)) {
             ContainerHelper.saveAllItems(pTag, this.items, pProvider);
@@ -121,42 +126,42 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
     }
 
     @Override
-    public void setItems(@Nonnull NonNullList<ItemStack> pItems) {
+    public void setItems(NonNullList<ItemStack> pItems) {
         this.items = pItems;
     }
 
-    public void setTextUp(String pName) {
+    public void setTextUp(@Nullable String pName) {
         this.textUp = pName;
     }
 
-    public void setTextNorth(String pName) {
+    public void setTextNorth(@Nullable String pName) {
         this.textNorth = pName;
     }
 
-    public void setTextEast(String pName) {
+    public void setTextEast(@Nullable String pName) {
         this.textEast = pName;
     }
 
-    public void setTextSouth(String pName) {
+    public void setTextSouth(@Nullable String pName) {
         this.textSouth = pName;
     }
 
-    public void setTextWest(String pName) {
+    public void setTextWest(@Nullable String pName) {
         this.textWest = pName;
     }
 
     @Override
-    public @Nonnull AbstractContainerMenu createMenu(int pId, @Nonnull Inventory pPlayer) {
+    public AbstractContainerMenu createMenu(int pId, Inventory pPlayer) {
         return new ChestMenu(MenuType.GENERIC_9x2, pId, pPlayer, this, 2);
     }
 
     @Override
-    public @Nonnull CompoundTag getUpdateTag(@Nonnull HolderLookup.Provider pProvider) {
+    public CompoundTag getUpdateTag(HolderLookup.Provider pProvider) {
         return this.saveWithoutMetadata(pProvider);
     }
 
     @Override
-    public @Nonnull NonNullList<ItemStack> getItems() {
+    public NonNullList<ItemStack> getItems() {
         return this.items;
     }
 

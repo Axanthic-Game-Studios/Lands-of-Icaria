@@ -1,5 +1,6 @@
 package com.axanthic.icaria.mixin;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.level.block.Block;
 
@@ -9,7 +10,12 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 import java.util.Map;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @SuppressWarnings("unused")
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 @Mixin(AxeItem.class)
 public interface AxeItemMixin {

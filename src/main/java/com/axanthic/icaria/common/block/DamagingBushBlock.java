@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.block;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.pathfinder.PathType;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class DamagingBushBlock extends IcariaBushBlock {

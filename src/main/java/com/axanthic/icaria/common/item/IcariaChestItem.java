@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.client.extensions.IcariaChestItemExtensions;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 
@@ -11,6 +12,7 @@ import java.util.function.Consumer;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaChestItem extends BlockItem {

@@ -1,8 +1,8 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.common.entity.IcariaChestBlockEntity;
+import com.axanthic.icaria.common.block.entity.IcariaChestBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.registry.IcariaIdents;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -195,7 +195,7 @@ public class IcariaChestBlockRenderer extends ChestRenderer<IcariaChestBlockEnti
         pPoseStack.translate(0.5F, 0.5F, 0.5F);
         pPoseStack.scale(1.001F, 1.001F, 1.001F);
         pPoseStack.translate(-0.5F, -0.5F, -0.5F);
-        this.render(pAngle, pPackedLight, pPackedOverlay, pBottom, pLid, pLock, pPoseStack, new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "entity/chest/" + pString)).buffer(pBuffer, RenderType::entityCutout));
+        this.render(pAngle, pPackedLight, pPackedOverlay, pBottom, pLid, pLock, pPoseStack, new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity/chest/" + pString)).buffer(pBuffer, RenderType::entityCutout));
         pPoseStack.popPose();
     }
 
@@ -221,11 +221,11 @@ public class IcariaChestBlockRenderer extends ChestRenderer<IcariaChestBlockEnti
     @Override
     public Material getMaterial(IcariaChestBlockEntity pBlockEntity, ChestType pChestType) {
         if (pChestType.equals(ChestType.RIGHT)) {
-            return new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "entity/chest/" + this.getType(pBlockEntity) + "_" + "right"));
+            return new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity/chest/" + this.getType(pBlockEntity) + "_" + "right"));
         } else if (pChestType.equals(ChestType.LEFT)) {
-            return new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "entity/chest/" + this.getType(pBlockEntity) + "_" + "left"));
+            return new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity/chest/" + this.getType(pBlockEntity) + "_" + "left"));
         } else {
-            return new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "entity/chest/" + this.getType(pBlockEntity)));
+            return new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity/chest/" + this.getType(pBlockEntity)));
         }
     }
 

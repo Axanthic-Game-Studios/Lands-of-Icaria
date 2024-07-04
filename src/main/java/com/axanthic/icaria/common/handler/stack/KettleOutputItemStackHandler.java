@@ -1,13 +1,15 @@
 package com.axanthic.icaria.common.handler.stack;
 
-import com.axanthic.icaria.common.entity.KettleBlockEntity;
+import com.axanthic.icaria.common.block.entity.KettleBlockEntity;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.ItemStack;
 
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class KettleOutputItemStackHandler extends ItemStackHandler {

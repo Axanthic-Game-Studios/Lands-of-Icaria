@@ -3,6 +3,7 @@ package com.axanthic.icaria.data;
 import com.axanthic.icaria.common.recipe.builder.*;
 import com.axanthic.icaria.common.registry.*;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -24,6 +25,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaRecipes extends RecipeProvider {

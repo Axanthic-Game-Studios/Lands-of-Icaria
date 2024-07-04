@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.menu.IcariaCraftingMenu;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.MenuProvider;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaCraftingTableBlock extends CraftingTableBlock {

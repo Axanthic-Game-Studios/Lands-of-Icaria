@@ -1,8 +1,15 @@
 package com.axanthic.icaria.common.handler.stack;
 
-import com.axanthic.icaria.common.entity.ForgeBlockEntity;
+import com.axanthic.icaria.common.block.entity.ForgeBlockEntity;
+
+import net.minecraft.MethodsReturnNonnullByDefault;
 
 import net.neoforged.neoforge.items.ItemStackHandler;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class ForgeInputItemStackHandler extends ItemStackHandler {
     public ForgeBlockEntity blockEntity;

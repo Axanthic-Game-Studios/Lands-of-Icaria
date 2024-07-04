@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
-
 import com.mojang.datafixers.util.Pair;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -39,7 +37,7 @@ public class IcariaLevelStems {
 
     public static final Climate.Parameter ZERO = Climate.Parameter.point(0.0F);
 
-    public static final ResourceKey<LevelStem> ICARIA = ResourceKey.create(Registries.LEVEL_STEM, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "icaria"));
+    public static final ResourceKey<LevelStem> ICARIA = IcariaLevelStems.createKey("icaria");
 
     public static void bootstrap(BootstrapContext<LevelStem> pContext) {
         var biomes = pContext.lookup(Registries.BIOME);
@@ -80,5 +78,9 @@ public class IcariaLevelStems {
 
     public static Pair<Climate.ParameterPoint, Holder<Biome>> voidParameters(HolderGetter<Biome> pBiomes) {
         return new Pair<>(new Climate.ParameterPoint(IcariaLevelStems.FULL, IcariaLevelStems.ZERO, IcariaLevelStems.VOID, IcariaLevelStems.ZERO, IcariaLevelStems.ZERO, IcariaLevelStems.ZERO, 0L), pBiomes.getOrThrow(IcariaBiomes.VOID));
+    }
+
+    public static ResourceKey<LevelStem> createKey(String pName) {
+        return ResourceKey.create(Registries.LEVEL_STEM, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
     }
 }

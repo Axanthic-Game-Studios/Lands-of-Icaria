@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.world.feature.*;
 import com.axanthic.icaria.common.world.feature.dead.*;
 import com.axanthic.icaria.common.world.feature.herb.*;
@@ -19,6 +18,7 @@ import com.axanthic.icaria.common.world.feature.shrooms.LargeBrownGroundShroomsF
 import com.axanthic.icaria.common.world.feature.tree.*;
 import com.axanthic.icaria.common.world.feature.vine.*;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -27,8 +27,13 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
 public class IcariaFeatures {
-    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, IcariaInfo.ID);
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, IcariaIdents.ID);
 
     public static final Supplier<Feature<NoneFeatureConfiguration>> MARL_CHERT = IcariaFeatures.FEATURES.register("marl_chert", () -> new MarlChertFeature(NoneFeatureConfiguration.CODEC));
     public static final Supplier<Feature<NoneFeatureConfiguration>> MARL_BONES = IcariaFeatures.FEATURES.register("marl_bones", () -> new MarlBonesFeature(NoneFeatureConfiguration.CODEC));

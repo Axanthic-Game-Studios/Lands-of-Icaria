@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
-
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -22,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaNoiseSettings {
 	public static final Climate.Parameter ZERO = Climate.Parameter.point(0.0F);
 
-	public static final ResourceKey<NoiseGeneratorSettings> ICARIA = ResourceKey.create(Registries.NOISE_SETTINGS, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "icaria"));
+	public static final ResourceKey<NoiseGeneratorSettings> ICARIA = IcariaNoiseSettings.createKey("icaria");
 
 	public static void bootstrap(BootstrapContext<NoiseGeneratorSettings> pContext) {
 		pContext.register(IcariaNoiseSettings.ICARIA, new NoiseGeneratorSettings(new NoiseSettings(0, 96, 1, 1), Blocks.STONE.defaultBlockState(), Blocks.AIR.defaultBlockState(), IcariaNoiseSettings.noiseRouter(pContext), IcariaNoiseSettings.surfaceRules(), List.of(new Climate.ParameterPoint(Climate.Parameter.span(-1.0F, 1.0F), IcariaNoiseSettings.ZERO, Climate.Parameter.point(1.0F), IcariaNoiseSettings.ZERO, IcariaNoiseSettings.ZERO, IcariaNoiseSettings.ZERO, 0L)), -1, false, false, false, false));
@@ -65,5 +63,9 @@ public class IcariaNoiseSettings {
 		var surfaceRuleJ = SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.absolute(16), 2), SurfaceRules.state(IcariaBlocks.VOIDSHALE.get().defaultBlockState()));
 		var surfaceRuleK = SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.absolute(0), 0), SurfaceRules.state(IcariaBlocks.BAETYL.get().defaultBlockState()));
 		return SurfaceRules.sequence(surfaceRuleA, surfaceRuleB, surfaceRuleC, surfaceRuleD, surfaceRuleE, surfaceRuleF, surfaceRuleG, surfaceRuleH, surfaceRuleI, surfaceRuleJ, surfaceRuleK);
+	}
+
+	public static ResourceKey<NoiseGeneratorSettings> createKey(String pName) {
+		return ResourceKey.create(Registries.NOISE_SETTINGS, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
 	}
 }

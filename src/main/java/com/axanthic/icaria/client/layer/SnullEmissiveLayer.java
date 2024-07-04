@@ -7,6 +7,7 @@ import com.axanthic.icaria.common.entity.SnullEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
@@ -17,6 +18,7 @@ import java.awt.*;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class SnullEmissiveLayer extends RenderLayer<SnullEntity, SnullModel> {

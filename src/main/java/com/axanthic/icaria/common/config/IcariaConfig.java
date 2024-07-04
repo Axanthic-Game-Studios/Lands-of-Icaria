@@ -1,8 +1,15 @@
 package com.axanthic.icaria.common.config;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
+
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaConfig {
 	public static ModConfigSpec.BooleanValue RENDER_CRYSTAL_RAYS;

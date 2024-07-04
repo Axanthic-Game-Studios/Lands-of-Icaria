@@ -7,6 +7,7 @@ import com.axanthic.icaria.common.entity.ForestHagEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
@@ -15,6 +16,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class OliveForestHagEmissiveLayer extends RenderLayer<ForestHagEntity, OliveForestHagModel> {

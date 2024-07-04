@@ -2,7 +2,13 @@ package com.axanthic.icaria.client.registry;
 
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaLayerLocations {
     public static final ModelLayerLocation AETERNAE = new ModelLayerLocation(IcariaResourceLocations.AETERNAE_LAYER, "main");

@@ -1,9 +1,9 @@
 package com.axanthic.icaria.data.tags;
 
+import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaStoneDecoItems;
 import com.axanthic.icaria.common.registry.IcariaWoodDecoItems;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
@@ -1011,10 +1011,10 @@ public class IcariaItemTags extends ItemTagsProvider {
 	}
 
 	public static TagKey<Item> cTag(String pName) {
-		return IcariaItemTags.bind(IcariaInfo.C + ":" + pName);
+		return IcariaItemTags.bind(IcariaIdents.C + ":" + pName);
 	}
 
 	public static TagKey<Item> icariaTag(String pName) {
-		return IcariaItemTags.bind(IcariaInfo.ID + ":" + pName);
+		return IcariaItemTags.bind(IcariaIdents.ID + ":" + pName);
 	}
 }

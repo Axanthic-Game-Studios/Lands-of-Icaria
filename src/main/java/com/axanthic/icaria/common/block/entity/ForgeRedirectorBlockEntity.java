@@ -1,4 +1,4 @@
-package com.axanthic.icaria.common.entity;
+package com.axanthic.icaria.common.block.entity;
 
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import net.neoforged.neoforge.items.IItemHandler;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -23,7 +22,7 @@ public class ForgeRedirectorBlockEntity extends BlockEntity {
         super(IcariaBlockEntityTypes.FORGE_REDIRECTOR.get(), pPos, pState);
     }
 
-    public static @Nullable IItemHandler getCapability(@Nonnull ForgeRedirectorBlockEntity pBlockEntity, Direction pDirection) {
+    public static @Nullable IItemHandler getCapability(ForgeRedirectorBlockEntity pBlockEntity, Direction pDirection) {
         var blockPos = pBlockEntity.getBlockPos();
         var level = pBlockEntity.getLevel();
         if (level != null) {

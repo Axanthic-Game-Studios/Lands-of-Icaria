@@ -4,10 +4,16 @@ import com.axanthic.icaria.common.entity.CaptainRevenantEntity;
 import com.axanthic.icaria.common.entity.CrawlerRevenantEntity;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.common.spell.IcariaSummonSpell;
+import com.axanthic.icaria.common.util.IcariaSummonSpellTypes;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.ai.goal.Goal;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class CaptainRevenantSummonGoal extends Goal {
     public CaptainRevenantEntity entity;
@@ -25,7 +31,7 @@ public class CaptainRevenantSummonGoal extends Goal {
     @Override
     public void start() {
         this.entity.playSound(IcariaSoundEvents.CAPTAIN_REVENANT_RALLY, 0.1F, 1.0F);
-        this.entity.setCasting(IcariaSummonSpell.SUMMON);
+        this.entity.setCasting(IcariaSummonSpellTypes.SUMMON);
     }
 
     @Override

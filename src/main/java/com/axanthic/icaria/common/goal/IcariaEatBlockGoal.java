@@ -4,6 +4,7 @@ import com.axanthic.icaria.common.entity.IcariaAnimalEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -14,6 +15,7 @@ import java.util.EnumSet;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaEatBlockGoal extends Goal {

@@ -4,11 +4,17 @@ import com.axanthic.icaria.common.entity.ForestHagEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.ai.goal.Goal;
 
 import net.neoforged.neoforge.event.EventHooks;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class ForestHagPlaceSaplingGoal extends Goal {
     public ForestHagEntity entity;

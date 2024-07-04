@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.world.feature.lake;
 
 import com.mojang.serialization.Codec;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
@@ -15,6 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaLakeFeature extends Feature<NoneFeatureConfiguration> {

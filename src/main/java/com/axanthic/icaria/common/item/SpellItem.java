@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
@@ -33,7 +34,7 @@ public class SpellItem extends Item {
         this.cooldown = pCooldown;
     }
 
-    public EntityType<?> getEntity() {
+    public @Nullable EntityType<?> getEntity() {
         return null;
     }
 
@@ -42,16 +43,18 @@ public class SpellItem extends Item {
         var itemStack = pPlayer.getItemInHand(pUsedHand);
         if (!pLevel.isClientSide()) {
             pPlayer.playSound(SoundEvents.SNOWBALL_THROW);
-            if (this.getEntity().create(pLevel) instanceof SpellEntity spellEntity) {
-                spellEntity.moveTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
-                spellEntity.setColor(this.color);
-                spellEntity.setOwner(pPlayer);
-                spellEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, this.velocity, this.inaccuracy);
-                pLevel.addFreshEntity(spellEntity);
-                pPlayer.awardStat(Stats.ITEM_USED.get(this));
-                if (!pPlayer.isCreative()) {
-                    itemStack.shrink(1);
-                    pPlayer.getCooldowns().addCooldown(itemStack.getItem(), this.cooldown);
+            if (this.getEntity() != null) {
+                if (this.getEntity().create(pLevel) instanceof SpellEntity spellEntity) {
+                    spellEntity.moveTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
+                    spellEntity.setColor(this.color);
+                    spellEntity.setOwner(pPlayer);
+                    spellEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, this.velocity, this.inaccuracy);
+                    pLevel.addFreshEntity(spellEntity);
+                    pPlayer.awardStat(Stats.ITEM_USED.get(this));
+                    if (!pPlayer.isCreative()) {
+                        itemStack.shrink(1);
+                        pPlayer.getCooldowns().addCooldown(itemStack.getItem(), this.cooldown);
+                    }
                 }
             }
         }

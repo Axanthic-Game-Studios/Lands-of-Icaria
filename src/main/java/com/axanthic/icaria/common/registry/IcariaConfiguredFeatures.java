@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -29,125 +28,125 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaConfiguredFeatures {
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_CHERT = IcariaConfiguredFeatures.registerKey("marl_chert");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_BONES = IcariaConfiguredFeatures.registerKey("marl_bones");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_LIGNITE = IcariaConfiguredFeatures.registerKey("marl_lignite");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAINEL_CHERT = IcariaConfiguredFeatures.registerKey("grainel_chert");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_CHERT = IcariaConfiguredFeatures.createKey("marl_chert");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_BONES = IcariaConfiguredFeatures.createKey("marl_bones");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_LIGNITE = IcariaConfiguredFeatures.createKey("marl_lignite");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAINEL_CHERT = IcariaConfiguredFeatures.createKey("grainel_chert");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAINITE_SPIKE = IcariaConfiguredFeatures.registerKey("grainite_spike");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAINITE_SPIKE = IcariaConfiguredFeatures.createKey("grainite_spike");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOWSTONE_BOULDER = IcariaConfiguredFeatures.registerKey("yellowstone_boulder");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOWSTONE_BOULDER = IcariaConfiguredFeatures.createKey("yellowstone_boulder");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOWSTONE_RUBBLE = IcariaConfiguredFeatures.registerKey("yellowstone_rubble");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SILKSTONE_RUBBLE = IcariaConfiguredFeatures.registerKey("silkstone_rubble");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SUNSTONE_RUBBLE = IcariaConfiguredFeatures.registerKey("sunstone_rubble");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> VOIDSHALE_RUBBLE = IcariaConfiguredFeatures.registerKey("voidshale_rubble");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BAETYL_RUBBLE = IcariaConfiguredFeatures.registerKey("baetyl_rubble");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> RELICSTONE_RUBBLE = IcariaConfiguredFeatures.registerKey("relicstone_rubble");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOWSTONE_RUBBLE = IcariaConfiguredFeatures.createKey("yellowstone_rubble");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SILKSTONE_RUBBLE = IcariaConfiguredFeatures.createKey("silkstone_rubble");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SUNSTONE_RUBBLE = IcariaConfiguredFeatures.createKey("sunstone_rubble");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> VOIDSHALE_RUBBLE = IcariaConfiguredFeatures.createKey("voidshale_rubble");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BAETYL_RUBBLE = IcariaConfiguredFeatures.createKey("baetyl_rubble");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> RELICSTONE_RUBBLE = IcariaConfiguredFeatures.createKey("relicstone_rubble");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_RELICSTONE_PILLAR = IcariaConfiguredFeatures.registerKey("fallen_relicstone_pillar");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> HORIZONTAL_RELICSTONE_PILLAR = IcariaConfiguredFeatures.registerKey("horizontal_relicstone_pillar");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> VERTICAL_RELICSTONE_PILLAR = IcariaConfiguredFeatures.registerKey("vertical_relicstone_pillar");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_RELICSTONE_PILLAR = IcariaConfiguredFeatures.createKey("fallen_relicstone_pillar");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> HORIZONTAL_RELICSTONE_PILLAR = IcariaConfiguredFeatures.createKey("horizontal_relicstone_pillar");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> VERTICAL_RELICSTONE_PILLAR = IcariaConfiguredFeatures.createKey("vertical_relicstone_pillar");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LIGNITE_ORE = IcariaConfiguredFeatures.registerKey("lignite_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CHALKOS_ORE = IcariaConfiguredFeatures.registerKey("chalkos_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> KASSITEROS_ORE = IcariaConfiguredFeatures.registerKey("kassiteros_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DOLOMITE_ORE = IcariaConfiguredFeatures.registerKey("dolomite_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> VANADIUM_ORE = IcariaConfiguredFeatures.registerKey("vanadium_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SLIVER_ORE = IcariaConfiguredFeatures.registerKey("sliver_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SIDEROS_ORE = IcariaConfiguredFeatures.registerKey("sideros_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ANTHRACITE_ORE = IcariaConfiguredFeatures.registerKey("anthracite_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MOLYBDENUM_ORE = IcariaConfiguredFeatures.registerKey("molybdenum_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> HYLIASTRUM_ORE = IcariaConfiguredFeatures.registerKey("hyliastrum_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LIGNITE_ORE = IcariaConfiguredFeatures.createKey("lignite_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CHALKOS_ORE = IcariaConfiguredFeatures.createKey("chalkos_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> KASSITEROS_ORE = IcariaConfiguredFeatures.createKey("kassiteros_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DOLOMITE_ORE = IcariaConfiguredFeatures.createKey("dolomite_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> VANADIUM_ORE = IcariaConfiguredFeatures.createKey("vanadium_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SLIVER_ORE = IcariaConfiguredFeatures.createKey("sliver_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SIDEROS_ORE = IcariaConfiguredFeatures.createKey("sideros_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ANTHRACITE_ORE = IcariaConfiguredFeatures.createKey("anthracite_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MOLYBDENUM_ORE = IcariaConfiguredFeatures.createKey("molybdenum_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> HYLIASTRUM_ORE = IcariaConfiguredFeatures.createKey("hyliastrum_ore");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CALCITE_CRYSTAL = IcariaConfiguredFeatures.registerKey("calcite_crystal");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> HALITE_CRYSTAL = IcariaConfiguredFeatures.registerKey("halite_crystal");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> JASPER_CRYSTAL = IcariaConfiguredFeatures.registerKey("jasper_crystal");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ZIRCON_CRYSTAL = IcariaConfiguredFeatures.registerKey("zircon_crystal");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CALCITE_CRYSTAL = IcariaConfiguredFeatures.createKey("calcite_crystal");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> HALITE_CRYSTAL = IcariaConfiguredFeatures.createKey("halite_crystal");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> JASPER_CRYSTAL = IcariaConfiguredFeatures.createKey("jasper_crystal");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ZIRCON_CRYSTAL = IcariaConfiguredFeatures.createKey("zircon_crystal");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_TREE = IcariaConfiguredFeatures.registerKey("cypress_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DROUGHTROOT_TREE = IcariaConfiguredFeatures.registerKey("droughtroot_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FIR_TREE = IcariaConfiguredFeatures.registerKey("fir_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LAUREL_TREE = IcariaConfiguredFeatures.registerKey("laurel_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> OLIVE_TREE = IcariaConfiguredFeatures.registerKey("olive_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PLANE_TREE = IcariaConfiguredFeatures.registerKey("plane_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> POPULUS_TREE = IcariaConfiguredFeatures.registerKey("populus_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_TREE = IcariaConfiguredFeatures.createKey("cypress_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DROUGHTROOT_TREE = IcariaConfiguredFeatures.createKey("droughtroot_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FIR_TREE = IcariaConfiguredFeatures.createKey("fir_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LAUREL_TREE = IcariaConfiguredFeatures.createKey("laurel_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> OLIVE_TREE = IcariaConfiguredFeatures.createKey("olive_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PLANE_TREE = IcariaConfiguredFeatures.createKey("plane_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> POPULUS_TREE = IcariaConfiguredFeatures.createKey("populus_tree");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_CYPRESS_TREE = IcariaConfiguredFeatures.registerKey("dead_cypress_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_DROUGHTROOT_TREE = IcariaConfiguredFeatures.registerKey("dead_droughtroot_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_FIR_TREE = IcariaConfiguredFeatures.registerKey("dead_fir_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_LAUREL_TREE = IcariaConfiguredFeatures.registerKey("dead_laurel_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_OLIVE_TREE = IcariaConfiguredFeatures.registerKey("dead_olive_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_PLANE_TREE = IcariaConfiguredFeatures.registerKey("dead_plane_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_POPULUS_TREE = IcariaConfiguredFeatures.registerKey("dead_populus_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_CYPRESS_TREE = IcariaConfiguredFeatures.createKey("dead_cypress_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_DROUGHTROOT_TREE = IcariaConfiguredFeatures.createKey("dead_droughtroot_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_FIR_TREE = IcariaConfiguredFeatures.createKey("dead_fir_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_LAUREL_TREE = IcariaConfiguredFeatures.createKey("dead_laurel_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_OLIVE_TREE = IcariaConfiguredFeatures.createKey("dead_olive_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_PLANE_TREE = IcariaConfiguredFeatures.createKey("dead_plane_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_POPULUS_TREE = IcariaConfiguredFeatures.createKey("dead_populus_tree");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLOOMY_VINE = IcariaConfiguredFeatures.registerKey("bloomy_vine");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BRANCHY_VINE = IcariaConfiguredFeatures.registerKey("branchy_vine");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BRUSHY_VINE = IcariaConfiguredFeatures.registerKey("brushy_vine");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DRY_VINE = IcariaConfiguredFeatures.registerKey("dry_vine");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> REEDY_VINE = IcariaConfiguredFeatures.registerKey("reedy_vine");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SWIRLY_VINE = IcariaConfiguredFeatures.registerKey("swirly_vine");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> THORNY_VINE = IcariaConfiguredFeatures.registerKey("thorny_vine");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BLOOMY_VINE = IcariaConfiguredFeatures.createKey("bloomy_vine");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BRANCHY_VINE = IcariaConfiguredFeatures.createKey("branchy_vine");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BRUSHY_VINE = IcariaConfiguredFeatures.createKey("brushy_vine");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DRY_VINE = IcariaConfiguredFeatures.createKey("dry_vine");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> REEDY_VINE = IcariaConfiguredFeatures.createKey("reedy_vine");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SWIRLY_VINE = IcariaConfiguredFeatures.createKey("swirly_vine");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> THORNY_VINE = IcariaConfiguredFeatures.createKey("thorny_vine");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FERN = IcariaConfiguredFeatures.registerKey("fern");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS = IcariaConfiguredFeatures.registerKey("grass");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAIN = IcariaConfiguredFeatures.registerKey("grain");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FERN = IcariaConfiguredFeatures.createKey("fern");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS = IcariaConfiguredFeatures.createKey("grass");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAIN = IcariaConfiguredFeatures.createKey("grain");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ICARIA_BONEMEAL = IcariaConfiguredFeatures.registerKey("icaria_bonemeal");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ICARIA_BONEMEAL = IcariaConfiguredFeatures.createKey("icaria_bonemeal");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLINDWEED = IcariaConfiguredFeatures.registerKey("blindweed");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CHAMEOMILE = IcariaConfiguredFeatures.registerKey("chameomile");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CHARMONDER = IcariaConfiguredFeatures.registerKey("charmonder");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOVER = IcariaConfiguredFeatures.registerKey("clover");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FIREHILT = IcariaConfiguredFeatures.registerKey("firehilt");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_HYDRACINTH = IcariaConfiguredFeatures.registerKey("blue_hydracinth");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_HYDRACINTH = IcariaConfiguredFeatures.registerKey("purple_hydracinth");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LIONFANGS = IcariaConfiguredFeatures.registerKey("lionfangs");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SPEARDROPS = IcariaConfiguredFeatures.registerKey("speardrops");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_STAGHORN = IcariaConfiguredFeatures.registerKey("purple_staghorn");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_STAGHORN = IcariaConfiguredFeatures.registerKey("yellow_staghorn");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_STORMCOTTON = IcariaConfiguredFeatures.registerKey("blue_stormcotton");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_STORMCOTTON = IcariaConfiguredFeatures.registerKey("pink_stormcotton");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_STORMCOTTON = IcariaConfiguredFeatures.registerKey("purple_stormcotton");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SUNKETTLE = IcariaConfiguredFeatures.registerKey("sunkettle");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SUNSPONGE = IcariaConfiguredFeatures.registerKey("sunsponge");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> VOIDLILY = IcariaConfiguredFeatures.registerKey("voidlily");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BLINDWEED = IcariaConfiguredFeatures.createKey("blindweed");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CHAMEOMILE = IcariaConfiguredFeatures.createKey("chameomile");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CHARMONDER = IcariaConfiguredFeatures.createKey("charmonder");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOVER = IcariaConfiguredFeatures.createKey("clover");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FIREHILT = IcariaConfiguredFeatures.createKey("firehilt");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_HYDRACINTH = IcariaConfiguredFeatures.createKey("blue_hydracinth");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_HYDRACINTH = IcariaConfiguredFeatures.createKey("purple_hydracinth");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LIONFANGS = IcariaConfiguredFeatures.createKey("lionfangs");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SPEARDROPS = IcariaConfiguredFeatures.createKey("speardrops");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_STAGHORN = IcariaConfiguredFeatures.createKey("purple_staghorn");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_STAGHORN = IcariaConfiguredFeatures.createKey("yellow_staghorn");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_STORMCOTTON = IcariaConfiguredFeatures.createKey("blue_stormcotton");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_STORMCOTTON = IcariaConfiguredFeatures.createKey("pink_stormcotton");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_STORMCOTTON = IcariaConfiguredFeatures.createKey("purple_stormcotton");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SUNKETTLE = IcariaConfiguredFeatures.createKey("sunkettle");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SUNSPONGE = IcariaConfiguredFeatures.createKey("sunsponge");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> VOIDLILY = IcariaConfiguredFeatures.createKey("voidlily");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BOLBOS = IcariaConfiguredFeatures.registerKey("bolbos");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DATHULLA = IcariaConfiguredFeatures.registerKey("dathulla");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MONDANOS = IcariaConfiguredFeatures.registerKey("mondanos");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MOTH_AGARIC = IcariaConfiguredFeatures.registerKey("moth_agaric");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> NAMDRAKE = IcariaConfiguredFeatures.registerKey("namdrake");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PSILOCYBOS = IcariaConfiguredFeatures.registerKey("psilocybos");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ROWAN = IcariaConfiguredFeatures.registerKey("rowan");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> WILTED_ELM = IcariaConfiguredFeatures.registerKey("wilted_elm");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BOLBOS = IcariaConfiguredFeatures.createKey("bolbos");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DATHULLA = IcariaConfiguredFeatures.createKey("dathulla");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MONDANOS = IcariaConfiguredFeatures.createKey("mondanos");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MOTH_AGARIC = IcariaConfiguredFeatures.createKey("moth_agaric");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> NAMDRAKE = IcariaConfiguredFeatures.createKey("namdrake");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PSILOCYBOS = IcariaConfiguredFeatures.createKey("psilocybos");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ROWAN = IcariaConfiguredFeatures.createKey("rowan");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> WILTED_ELM = IcariaConfiguredFeatures.createKey("wilted_elm");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_GROUND_FLOWERS = IcariaConfiguredFeatures.registerKey("blue_ground_flowers");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CYAN_GROUND_FLOWERS = IcariaConfiguredFeatures.registerKey("cyan_ground_flowers");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_GROUND_FLOWERS = IcariaConfiguredFeatures.registerKey("pink_ground_flowers");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_GROUND_FLOWERS = IcariaConfiguredFeatures.registerKey("purple_ground_flowers");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> RED_GROUND_FLOWERS = IcariaConfiguredFeatures.registerKey("red_ground_flowers");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_GROUND_FLOWERS = IcariaConfiguredFeatures.registerKey("white_ground_flowers");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_GROUND_FLOWERS = IcariaConfiguredFeatures.createKey("blue_ground_flowers");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CYAN_GROUND_FLOWERS = IcariaConfiguredFeatures.createKey("cyan_ground_flowers");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_GROUND_FLOWERS = IcariaConfiguredFeatures.createKey("pink_ground_flowers");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_GROUND_FLOWERS = IcariaConfiguredFeatures.createKey("purple_ground_flowers");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> RED_GROUND_FLOWERS = IcariaConfiguredFeatures.createKey("red_ground_flowers");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_GROUND_FLOWERS = IcariaConfiguredFeatures.createKey("white_ground_flowers");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_FERN = IcariaConfiguredFeatures.registerKey("palm_fern");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_FERN = IcariaConfiguredFeatures.createKey("palm_fern");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_BROMELIA = IcariaConfiguredFeatures.registerKey("white_bromelia");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_BROMELIA = IcariaConfiguredFeatures.registerKey("orange_bromelia");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_BROMELIA = IcariaConfiguredFeatures.registerKey("pink_bromelia");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_BROMELIA = IcariaConfiguredFeatures.registerKey("purple_bromelia");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_BROMELIA = IcariaConfiguredFeatures.createKey("white_bromelia");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_BROMELIA = IcariaConfiguredFeatures.createKey("orange_bromelia");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_BROMELIA = IcariaConfiguredFeatures.createKey("pink_bromelia");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_BROMELIA = IcariaConfiguredFeatures.createKey("purple_bromelia");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_GROUND_SHROOMS = IcariaConfiguredFeatures.registerKey("green_ground_shrooms");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_GROUND_SHROOMS = IcariaConfiguredFeatures.registerKey("brown_ground_shrooms");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_BROWN_GROUND_SHROOMS = IcariaConfiguredFeatures.registerKey("large_brown_ground_shrooms");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_GROUND_SHROOMS = IcariaConfiguredFeatures.createKey("green_ground_shrooms");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_GROUND_SHROOMS = IcariaConfiguredFeatures.createKey("brown_ground_shrooms");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_BROWN_GROUND_SHROOMS = IcariaConfiguredFeatures.createKey("large_brown_ground_shrooms");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CARDON_CACTUS = IcariaConfiguredFeatures.registerKey("cardon_cactus");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CARDON_CACTUS = IcariaConfiguredFeatures.createKey("cardon_cactus");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> STRAWBERRY_BUSH = IcariaConfiguredFeatures.registerKey("strawberry_bush");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> STRAWBERRY_BUSH = IcariaConfiguredFeatures.createKey("strawberry_bush");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DRY_LAKE = IcariaConfiguredFeatures.registerKey("dry_lake");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MEDITERRANEAN_WATER_LAKE = IcariaConfiguredFeatures.registerKey("mediterranean_water_lake");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DRY_LAKE = IcariaConfiguredFeatures.createKey("dry_lake");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MEDITERRANEAN_WATER_LAKE = IcariaConfiguredFeatures.createKey("mediterranean_water_lake");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> VILLAGE = IcariaConfiguredFeatures.registerKey("village");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> VILLAGE = IcariaConfiguredFeatures.createKey("village");
 
 	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> pContext) {
 		pContext.register(IcariaConfiguredFeatures.MARL_CHERT, new ConfiguredFeature<>(IcariaFeatures.MARL_CHERT.get(), FeatureConfiguration.NONE));
@@ -271,7 +270,7 @@ public class IcariaConfiguredFeatures {
 		pContext.register(IcariaConfiguredFeatures.VILLAGE, new ConfiguredFeature<>(IcariaFeatures.VILLAGE.get(), NoneFeatureConfiguration.NONE));
 	}
 
-	public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String pName) {
-		return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, pName));
+	public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String pName) {
+		return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
 	}
 }

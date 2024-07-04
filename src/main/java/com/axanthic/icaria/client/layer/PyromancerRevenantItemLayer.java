@@ -6,6 +6,7 @@ import com.axanthic.icaria.common.entity.PyromancerRevenantEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
@@ -13,6 +14,7 @@ import net.minecraft.world.entity.HumanoidArm;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class PyromancerRevenantItemLayer extends RenderLayer<PyromancerRevenantEntity, PyromancerRevenantModel> {

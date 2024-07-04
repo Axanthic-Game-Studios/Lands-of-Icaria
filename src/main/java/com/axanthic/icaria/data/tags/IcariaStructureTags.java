@@ -1,7 +1,7 @@
 package com.axanthic.icaria.data.tags;
 
+import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaStructures;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
@@ -99,10 +99,10 @@ public class IcariaStructureTags extends StructureTagsProvider {
 	}
 
 	public static TagKey<Structure> cTag(String pName) {
-		return IcariaStructureTags.bind(IcariaInfo.C + ":" + pName);
+		return IcariaStructureTags.bind(IcariaIdents.C + ":" + pName);
 	}
 
 	public static TagKey<Structure> icariaTag(String pName) {
-		return IcariaStructureTags.bind(IcariaInfo.ID + ":" + pName);
+		return IcariaStructureTags.bind(IcariaIdents.ID + ":" + pName);
 	}
 }

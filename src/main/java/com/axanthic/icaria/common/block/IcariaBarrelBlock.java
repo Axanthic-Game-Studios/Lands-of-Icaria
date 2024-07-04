@@ -2,7 +2,6 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -211,7 +210,7 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
             entity.startRiding(pPlayer);
             pLevel.addFreshEntity(entity);
             pLevel.removeBlock(pPos, false);
-            pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaInfo.ID + "." + "barrel"), true);
+            pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaIdents.ID + "." + "barrel"), true);
             return InteractionResult.PASS;
         }
     }

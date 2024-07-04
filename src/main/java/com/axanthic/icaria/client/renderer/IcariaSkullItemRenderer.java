@@ -5,6 +5,7 @@ import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.SkullModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
@@ -17,6 +18,7 @@ import java.util.Map;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaSkullItemRenderer extends BlockEntityWithoutLevelRenderer {

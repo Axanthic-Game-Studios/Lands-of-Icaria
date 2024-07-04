@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.network;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.registry.IcariaIdents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Holder;
@@ -25,7 +25,7 @@ public class TotemPacket implements CustomPacketPayload {
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, TotemPacket> STREAM_CODEC = CustomPacketPayload.codec(TotemPacket::write, TotemPacket::new);
 
-	public static final Type<TotemPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, "totem"));
+	public static final Type<TotemPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "totem"));
 
 	public TotemPacket(ItemStack pStack, Holder<SoundEvent> pSound) {
 		this.sound = pSound;

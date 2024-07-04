@@ -1,13 +1,14 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.common.item.ScrollItem;
+import com.axanthic.icaria.common.registry.IcariaColors;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
-import com.axanthic.icaria.common.util.IcariaColors;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.model.geom.EntityModelSet;
@@ -27,6 +28,7 @@ import java.util.Arrays;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class ScrollItemRenderer extends BlockEntityWithoutLevelRenderer {

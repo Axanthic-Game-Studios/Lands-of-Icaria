@@ -2,9 +2,8 @@ package com.axanthic.icaria.client.helper;
 
 import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.common.config.IcariaConfig;
-import com.axanthic.icaria.common.util.IcariaInfo;
-import com.axanthic.icaria.common.util.IcariaMath;
-import com.axanthic.icaria.common.util.IcariaValues;
+import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaValues;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -186,11 +185,11 @@ public class IcariaClientHelper {
     }
 
     public static void vertexB(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pLength, float pWidth) {
-        pVertexConsumer.addVertex(pMatrix4f, -IcariaMath.HALFSQRT3 * pWidth, pLength, -0.5F * pWidth).setColor(0.0F, 0.0F, 0.0F, 0.0F);
+        pVertexConsumer.addVertex(pMatrix4f, -IcariaValues.HALFSQRT3 * pWidth, pLength, -0.5F * pWidth).setColor(0.0F, 0.0F, 0.0F, 0.0F);
     }
 
     public static void vertexC(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pLength, float pWidth) {
-        pVertexConsumer.addVertex(pMatrix4f, IcariaMath.HALFSQRT3 * pWidth, pLength, -0.5F * pWidth).setColor(0.0F, 0.0F, 0.0F, 0.0F);
+        pVertexConsumer.addVertex(pMatrix4f, IcariaValues.HALFSQRT3 * pWidth, pLength, -0.5F * pWidth).setColor(0.0F, 0.0F, 0.0F, 0.0F);
     }
 
     public static void vertexD(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pLength, float pWidth) {
@@ -198,7 +197,7 @@ public class IcariaClientHelper {
     }
 
     public static Color getImageBasedColor(BlockEntity pBlockEntity) {
-        var resourceLocation = ResourceLocation.parse(IcariaInfo.ID + ":" + "textures" + "/" + "block" + "/" + BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
+        var resourceLocation = ResourceLocation.parse(IcariaIdents.ID + ":" + "textures" + "/" + "block" + "/" + BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
         var optionalResource = Minecraft.getInstance().getResourceManager().getResource(resourceLocation);
 
         if (optionalResource.isPresent()) {
@@ -213,7 +212,7 @@ public class IcariaClientHelper {
     }
 
     public static Color getImageBasedColor(LivingEntity pLivingEntity) {
-        var resourceLocation = ResourceLocation.parse(IcariaInfo.ID + ":" + "textures" + "/" + "entity" + "/" + BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
+        var resourceLocation = ResourceLocation.parse(IcariaIdents.ID + ":" + "textures" + "/" + "entity" + "/" + BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
         var optionalResource = Minecraft.getInstance().getResourceManager().getResource(resourceLocation);
 
         if (optionalResource.isPresent()) {

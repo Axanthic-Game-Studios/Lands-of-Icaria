@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.util;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.portal.PortalShape;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaPortalShape extends PortalShape {

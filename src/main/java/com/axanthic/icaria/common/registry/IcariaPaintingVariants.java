@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
-
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -15,12 +13,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaPaintingVariants {
-	public static final ResourceKey<PaintingVariant> BRIDGE = IcariaPaintingVariants.registerKey("bridge");
-	public static final ResourceKey<PaintingVariant> CACTUS = IcariaPaintingVariants.registerKey("cactus");
-	public static final ResourceKey<PaintingVariant> MOONS = IcariaPaintingVariants.registerKey("moons");
-	public static final ResourceKey<PaintingVariant> PERFECTION = IcariaPaintingVariants.registerKey("perfection");
-	public static final ResourceKey<PaintingVariant> PORTAL = IcariaPaintingVariants.registerKey("portal");
-	public static final ResourceKey<PaintingVariant> PYRO = IcariaPaintingVariants.registerKey("pyro");
+	public static final ResourceKey<PaintingVariant> BRIDGE = IcariaPaintingVariants.createKey("bridge");
+	public static final ResourceKey<PaintingVariant> CACTUS = IcariaPaintingVariants.createKey("cactus");
+	public static final ResourceKey<PaintingVariant> MOONS = IcariaPaintingVariants.createKey("moons");
+	public static final ResourceKey<PaintingVariant> PERFECTION = IcariaPaintingVariants.createKey("perfection");
+	public static final ResourceKey<PaintingVariant> PORTAL = IcariaPaintingVariants.createKey("portal");
+	public static final ResourceKey<PaintingVariant> PYRO = IcariaPaintingVariants.createKey("pyro");
 
 	public static void bootstrap(BootstrapContext<PaintingVariant> pContext) {
 		pContext.register(IcariaPaintingVariants.BRIDGE, new PaintingVariant(2, 2, IcariaPaintingVariants.BRIDGE.location()));
@@ -31,7 +29,7 @@ public class IcariaPaintingVariants {
 		pContext.register(IcariaPaintingVariants.PYRO, new PaintingVariant(1, 2, IcariaPaintingVariants.PYRO.location()));
 	}
 
-	public static ResourceKey<PaintingVariant> registerKey(String pName) {
-		return ResourceKey.create(Registries.PAINTING_VARIANT, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, pName));
+	public static ResourceKey<PaintingVariant> createKey(String pName) {
+		return ResourceKey.create(Registries.PAINTING_VARIANT, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
 	}
 }

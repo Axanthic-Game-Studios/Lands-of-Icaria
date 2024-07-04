@@ -2,7 +2,13 @@ package com.axanthic.icaria.common.goal;
 
 import com.axanthic.icaria.common.entity.IcariaAnimalEntity;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.ai.goal.Goal;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaFollowParentGoal extends Goal {
     public double speedModifier;

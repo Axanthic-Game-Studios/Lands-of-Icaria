@@ -273,7 +273,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 
     public void tickParticlePlusSounds() {
         if ((this.onHide() && this.getHide() < 40) || (this.onShow() && this.getShow() > 40) && !this.onCooldown()) {
-            this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), this.getBlockStateOn().getSoundType().getBreakSound(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
+            this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), this.getBlockStateOn().getSoundType(this.level(), this.blockPosition(), this).getBreakSound(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
             for (int i = 0; i < 15; ++i) {
                 double x = this.getX() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
                 double y = this.getY();

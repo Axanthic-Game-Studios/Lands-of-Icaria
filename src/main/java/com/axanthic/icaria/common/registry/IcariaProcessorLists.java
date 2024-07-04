@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.properties.VerticalCorner;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import com.google.common.collect.ImmutableList;
 
@@ -22,53 +21,53 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaProcessorLists {
-	public static final ResourceKey<StructureProcessorList> FOREST_ERODED_DOLOMITE = IcariaProcessorLists.registerKey("villages/forest/eroded/dolomite");
-	public static final ResourceKey<StructureProcessorList> FOREST_ERODED_SILKSTONE = IcariaProcessorLists.registerKey("villages/forest/eroded/silkstone");
-	public static final ResourceKey<StructureProcessorList> FOREST_ERODED_SUNSTONE = IcariaProcessorLists.registerKey("villages/forest/eroded/sunstone");
+	public static final ResourceKey<StructureProcessorList> FOREST_ERODED_DOLOMITE = IcariaProcessorLists.createKey("villages/forest/eroded/dolomite");
+	public static final ResourceKey<StructureProcessorList> FOREST_ERODED_SILKSTONE = IcariaProcessorLists.createKey("villages/forest/eroded/silkstone");
+	public static final ResourceKey<StructureProcessorList> FOREST_ERODED_SUNSTONE = IcariaProcessorLists.createKey("villages/forest/eroded/sunstone");
 
-	public static final ResourceKey<StructureProcessorList> FOREST_PRISTINE_DOLOMITE = IcariaProcessorLists.registerKey("villages/forest/pristine/dolomite");
-	public static final ResourceKey<StructureProcessorList> FOREST_PRISTINE_SILKSTONE = IcariaProcessorLists.registerKey("villages/forest/pristine/silkstone");
-	public static final ResourceKey<StructureProcessorList> FOREST_PRISTINE_SUNSTONE = IcariaProcessorLists.registerKey("villages/forest/pristine/sunstone");
+	public static final ResourceKey<StructureProcessorList> FOREST_PRISTINE_DOLOMITE = IcariaProcessorLists.createKey("villages/forest/pristine/dolomite");
+	public static final ResourceKey<StructureProcessorList> FOREST_PRISTINE_SILKSTONE = IcariaProcessorLists.createKey("villages/forest/pristine/silkstone");
+	public static final ResourceKey<StructureProcessorList> FOREST_PRISTINE_SUNSTONE = IcariaProcessorLists.createKey("villages/forest/pristine/sunstone");
 
-	public static final ResourceKey<StructureProcessorList> FOREST_RUINED_DOLOMITE = IcariaProcessorLists.registerKey("villages/forest/ruined/dolomite");
-	public static final ResourceKey<StructureProcessorList> FOREST_RUINED_SILKSTONE = IcariaProcessorLists.registerKey("villages/forest/ruined/silkstone");
-	public static final ResourceKey<StructureProcessorList> FOREST_RUINED_SUNSTONE = IcariaProcessorLists.registerKey("villages/forest/ruined/sunstone");
+	public static final ResourceKey<StructureProcessorList> FOREST_RUINED_DOLOMITE = IcariaProcessorLists.createKey("villages/forest/ruined/dolomite");
+	public static final ResourceKey<StructureProcessorList> FOREST_RUINED_SILKSTONE = IcariaProcessorLists.createKey("villages/forest/ruined/silkstone");
+	public static final ResourceKey<StructureProcessorList> FOREST_RUINED_SUNSTONE = IcariaProcessorLists.createKey("villages/forest/ruined/sunstone");
 
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_ERODED_SUNSTONE = IcariaProcessorLists.registerKey("villages/scrubland/eroded/sunstone");
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_ERODED_VOIDSHALE = IcariaProcessorLists.registerKey("villages/scrubland/eroded/voidshale");
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_ERODED_YELLOWSTONE = IcariaProcessorLists.registerKey("villages/scrubland/eroded/yellowstone");
+	public static final ResourceKey<StructureProcessorList> SCRUBLAND_ERODED_SUNSTONE = IcariaProcessorLists.createKey("villages/scrubland/eroded/sunstone");
+	public static final ResourceKey<StructureProcessorList> SCRUBLAND_ERODED_VOIDSHALE = IcariaProcessorLists.createKey("villages/scrubland/eroded/voidshale");
+	public static final ResourceKey<StructureProcessorList> SCRUBLAND_ERODED_YELLOWSTONE = IcariaProcessorLists.createKey("villages/scrubland/eroded/yellowstone");
 
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_PRISTINE_SUNSTONE = IcariaProcessorLists.registerKey("villages/scrubland/pristine/sunstone");
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_PRISTINE_VOIDSHALE = IcariaProcessorLists.registerKey("villages/scrubland/pristine/voidshale");
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_PRISTINE_YELLOWSTONE = IcariaProcessorLists.registerKey("villages/scrubland/pristine/yellowstone");
+	public static final ResourceKey<StructureProcessorList> SCRUBLAND_PRISTINE_SUNSTONE = IcariaProcessorLists.createKey("villages/scrubland/pristine/sunstone");
+	public static final ResourceKey<StructureProcessorList> SCRUBLAND_PRISTINE_VOIDSHALE = IcariaProcessorLists.createKey("villages/scrubland/pristine/voidshale");
+	public static final ResourceKey<StructureProcessorList> SCRUBLAND_PRISTINE_YELLOWSTONE = IcariaProcessorLists.createKey("villages/scrubland/pristine/yellowstone");
 
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_RUINED_SUNSTONE = IcariaProcessorLists.registerKey("villages/scrubland/ruined/sunstone");
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_RUINED_VOIDSHALE = IcariaProcessorLists.registerKey("villages/scrubland/ruined/voidshale");
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_RUINED_YELLOWSTONE = IcariaProcessorLists.registerKey("villages/scrubland/ruined/yellowstone");
+	public static final ResourceKey<StructureProcessorList> SCRUBLAND_RUINED_SUNSTONE = IcariaProcessorLists.createKey("villages/scrubland/ruined/sunstone");
+	public static final ResourceKey<StructureProcessorList> SCRUBLAND_RUINED_VOIDSHALE = IcariaProcessorLists.createKey("villages/scrubland/ruined/voidshale");
+	public static final ResourceKey<StructureProcessorList> SCRUBLAND_RUINED_YELLOWSTONE = IcariaProcessorLists.createKey("villages/scrubland/ruined/yellowstone");
 
-	public static final ResourceKey<StructureProcessorList> STEPPE_ERODED_GRAINITE = IcariaProcessorLists.registerKey("villages/steppe/eroded/grainite");
-	public static final ResourceKey<StructureProcessorList> STEPPE_ERODED_MARL = IcariaProcessorLists.registerKey("villages/steppe/eroded/marl");
-	public static final ResourceKey<StructureProcessorList> STEPPE_ERODED_YELLOWSTONE = IcariaProcessorLists.registerKey("villages/steppe/eroded/yellowstone");
+	public static final ResourceKey<StructureProcessorList> STEPPE_ERODED_GRAINITE = IcariaProcessorLists.createKey("villages/steppe/eroded/grainite");
+	public static final ResourceKey<StructureProcessorList> STEPPE_ERODED_MARL = IcariaProcessorLists.createKey("villages/steppe/eroded/marl");
+	public static final ResourceKey<StructureProcessorList> STEPPE_ERODED_YELLOWSTONE = IcariaProcessorLists.createKey("villages/steppe/eroded/yellowstone");
 
-	public static final ResourceKey<StructureProcessorList> STEPPE_PRISTINE_GRAINITE = IcariaProcessorLists.registerKey("villages/steppe/pristine/grainite");
-	public static final ResourceKey<StructureProcessorList> STEPPE_PRISTINE_MARL = IcariaProcessorLists.registerKey("villages/steppe/pristine/marl");
-	public static final ResourceKey<StructureProcessorList> STEPPE_PRISTINE_YELLOWSTONE = IcariaProcessorLists.registerKey("villages/steppe/pristine/yellowstone");
+	public static final ResourceKey<StructureProcessorList> STEPPE_PRISTINE_GRAINITE = IcariaProcessorLists.createKey("villages/steppe/pristine/grainite");
+	public static final ResourceKey<StructureProcessorList> STEPPE_PRISTINE_MARL = IcariaProcessorLists.createKey("villages/steppe/pristine/marl");
+	public static final ResourceKey<StructureProcessorList> STEPPE_PRISTINE_YELLOWSTONE = IcariaProcessorLists.createKey("villages/steppe/pristine/yellowstone");
 
-	public static final ResourceKey<StructureProcessorList> STEPPE_RUINED_GRAINITE = IcariaProcessorLists.registerKey("villages/steppe/ruined/grainite");
-	public static final ResourceKey<StructureProcessorList> STEPPE_RUINED_MARL = IcariaProcessorLists.registerKey("villages/steppe/ruined/marl");
-	public static final ResourceKey<StructureProcessorList> STEPPE_RUINED_YELLOWSTONE = IcariaProcessorLists.registerKey("villages/steppe/ruined/yellowstone");
+	public static final ResourceKey<StructureProcessorList> STEPPE_RUINED_GRAINITE = IcariaProcessorLists.createKey("villages/steppe/ruined/grainite");
+	public static final ResourceKey<StructureProcessorList> STEPPE_RUINED_MARL = IcariaProcessorLists.createKey("villages/steppe/ruined/marl");
+	public static final ResourceKey<StructureProcessorList> STEPPE_RUINED_YELLOWSTONE = IcariaProcessorLists.createKey("villages/steppe/ruined/yellowstone");
 
-	public static final ResourceKey<StructureProcessorList> DESERT_ERODED_BAETYL = IcariaProcessorLists.registerKey("villages/desert/eroded/baetyl");
-	public static final ResourceKey<StructureProcessorList> DESERT_ERODED_GRAINITE = IcariaProcessorLists.registerKey("villages/desert/eroded/grainite");
-	public static final ResourceKey<StructureProcessorList> DESERT_ERODED_VOIDSHALE = IcariaProcessorLists.registerKey("villages/desert/eroded/voidshale");
+	public static final ResourceKey<StructureProcessorList> DESERT_ERODED_BAETYL = IcariaProcessorLists.createKey("villages/desert/eroded/baetyl");
+	public static final ResourceKey<StructureProcessorList> DESERT_ERODED_GRAINITE = IcariaProcessorLists.createKey("villages/desert/eroded/grainite");
+	public static final ResourceKey<StructureProcessorList> DESERT_ERODED_VOIDSHALE = IcariaProcessorLists.createKey("villages/desert/eroded/voidshale");
 
-	public static final ResourceKey<StructureProcessorList> DESERT_PRISTINE_BAETYL = IcariaProcessorLists.registerKey("villages/desert/pristine/baetyl");
-	public static final ResourceKey<StructureProcessorList> DESERT_PRISTINE_GRAINITE = IcariaProcessorLists.registerKey("villages/desert/pristine/grainite");
-	public static final ResourceKey<StructureProcessorList> DESERT_PRISTINE_VOIDSHALE = IcariaProcessorLists.registerKey("villages/desert/pristine/voidshale");
+	public static final ResourceKey<StructureProcessorList> DESERT_PRISTINE_BAETYL = IcariaProcessorLists.createKey("villages/desert/pristine/baetyl");
+	public static final ResourceKey<StructureProcessorList> DESERT_PRISTINE_GRAINITE = IcariaProcessorLists.createKey("villages/desert/pristine/grainite");
+	public static final ResourceKey<StructureProcessorList> DESERT_PRISTINE_VOIDSHALE = IcariaProcessorLists.createKey("villages/desert/pristine/voidshale");
 
-	public static final ResourceKey<StructureProcessorList> DESERT_RUINED_BAETYL = IcariaProcessorLists.registerKey("villages/desert/ruined/baetyl");
-	public static final ResourceKey<StructureProcessorList> DESERT_RUINED_GRAINITE = IcariaProcessorLists.registerKey("villages/desert/ruined/grainite");
-	public static final ResourceKey<StructureProcessorList> DESERT_RUINED_VOIDSHALE = IcariaProcessorLists.registerKey("villages/desert/ruined/voidshale");
+	public static final ResourceKey<StructureProcessorList> DESERT_RUINED_BAETYL = IcariaProcessorLists.createKey("villages/desert/ruined/baetyl");
+	public static final ResourceKey<StructureProcessorList> DESERT_RUINED_GRAINITE = IcariaProcessorLists.createKey("villages/desert/ruined/grainite");
+	public static final ResourceKey<StructureProcessorList> DESERT_RUINED_VOIDSHALE = IcariaProcessorLists.createKey("villages/desert/ruined/voidshale");
 
 	public static void bootstrap(BootstrapContext<StructureProcessorList> pContext) {
 		pContext.register(IcariaProcessorLists.FOREST_ERODED_DOLOMITE, IcariaProcessorLists.forestEroded(IcariaBlocks.DOLOMITE_ADOBE.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.stairs.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.slab.get()));
@@ -740,7 +739,7 @@ public class IcariaProcessorLists {
 		));
 	}
 
-	public static ResourceKey<StructureProcessorList> registerKey(String pName) {
-		return ResourceKey.create(Registries.PROCESSOR_LIST, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, pName));
+	public static ResourceKey<StructureProcessorList> createKey(String pName) {
+		return ResourceKey.create(Registries.PROCESSOR_LIST, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
 	}
 }

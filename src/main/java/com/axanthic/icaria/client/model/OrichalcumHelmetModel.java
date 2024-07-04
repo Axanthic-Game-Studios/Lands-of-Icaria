@@ -11,7 +11,10 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.world.entity.LivingEntity;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class OrichalcumHelmetModel<T extends LivingEntity> extends HumanoidModel<T> {
     public ModelPart helmet;

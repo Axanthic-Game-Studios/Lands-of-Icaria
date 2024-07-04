@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.entity.IcariaSignBlockEntity;
+import com.axanthic.icaria.common.block.entity.IcariaSignBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 

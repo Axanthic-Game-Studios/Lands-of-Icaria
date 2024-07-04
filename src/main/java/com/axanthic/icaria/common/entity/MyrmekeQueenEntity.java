@@ -4,7 +4,7 @@ import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.goal.MyrmekeQueenHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.MyrmekeQueenSummonGoal;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.spell.IcariaSummonSpell;
+import com.axanthic.icaria.common.util.IcariaSummonSpellTypes;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -101,7 +101,7 @@ public class MyrmekeQueenEntity extends Monster {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
-    public void setCasting(IcariaSummonSpell pSpell) {
+    public void setCasting(IcariaSummonSpellTypes pSpell) {
         this.entityData.set(MyrmekeQueenEntity.SPELL, (byte) pSpell.id);
     }
 

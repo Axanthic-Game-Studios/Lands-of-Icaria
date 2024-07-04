@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
@@ -18,6 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class HyliastrumOreBlock extends Block {

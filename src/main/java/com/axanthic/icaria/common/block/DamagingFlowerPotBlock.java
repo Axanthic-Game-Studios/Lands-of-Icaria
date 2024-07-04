@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.block;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
@@ -15,6 +16,7 @@ import java.util.function.Supplier;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class DamagingFlowerPotBlock extends FlowerPotBlock {

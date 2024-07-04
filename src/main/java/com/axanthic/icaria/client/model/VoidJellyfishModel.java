@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.common.entity.JellyfishEntity;
-import com.axanthic.icaria.common.util.IcariaMath;
+import com.axanthic.icaria.common.math.IcariaMath;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.HierarchicalModel;

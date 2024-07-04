@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.common.block.entity.GrinderBlockEntity;
 import com.axanthic.icaria.common.config.IcariaConfig;
-import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 

@@ -1,8 +1,14 @@
 package com.axanthic.icaria.common.registry;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.level.block.grower.TreeGrower;
 
 import java.util.Optional;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaTreeGrowers {
 	public static final TreeGrower CYPRESS = new TreeGrower("cypress", Optional.empty(), Optional.of(IcariaConfiguredFeatures.CYPRESS_TREE), Optional.empty());

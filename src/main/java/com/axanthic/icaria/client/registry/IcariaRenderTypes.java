@@ -5,11 +5,17 @@ import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @SuppressWarnings("unused")
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaRenderTypes {
     public static final RenderType ARACHNE_EMISSIVE = RenderType.entityTranslucentEmissive(IcariaResourceLocations.ARACHNE_EMISSIVE);

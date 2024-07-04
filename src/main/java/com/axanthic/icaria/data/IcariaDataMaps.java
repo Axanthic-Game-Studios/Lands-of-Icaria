@@ -2,6 +2,7 @@ package com.axanthic.icaria.data;
 
 import com.axanthic.icaria.common.registry.IcariaItems;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -13,6 +14,11 @@ import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 
 import java.util.concurrent.CompletableFuture;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaDataMaps extends DataMapProvider {
 	public IcariaDataMaps(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {

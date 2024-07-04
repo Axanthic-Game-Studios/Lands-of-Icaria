@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.item.*;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
@@ -20,12 +19,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaItems {
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, IcariaInfo.ID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, IcariaIdents.ID);
 
 	public static final List<Supplier<? extends Item>> SIMPLE_ITEMS = new ArrayList<>();
 

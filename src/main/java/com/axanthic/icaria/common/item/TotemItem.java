@@ -2,11 +2,13 @@ package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.common.registry.IcariaItems;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class TotemItem extends Item {

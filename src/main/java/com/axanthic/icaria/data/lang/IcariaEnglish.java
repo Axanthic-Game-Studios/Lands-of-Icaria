@@ -1,14 +1,16 @@
 package com.axanthic.icaria.data.lang;
 
-import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaMobEffects;
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.registry.*;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.PackOutput;
 
 import net.neoforged.neoforge.common.data.LanguageProvider;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaEnglish extends LanguageProvider {
 	public IcariaEnglish(PackOutput pPackOutput, String pId, String pLanguage) {
@@ -17,55 +19,55 @@ public class IcariaEnglish extends LanguageProvider {
 
 	@Override
 	public void addTranslations() {
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "title", "The Lands of Icaria");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "arachne" + "." + "title", "Caught in the net!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "title", "Wasn't it dead already?");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chest" + "." + "title", "Label everything");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "barrel" + "." + "title", "I got a Headache!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "title", "Heavy lifting");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "title", "Bigger than a Chest!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "title", "Chert Pickaxe");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chalkos_pickaxe" + "." + "title", "Chalkos Pickaxe");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kiln" + "." + "title", "I am Kiln' it!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kassiteros_pickaxe" + "." + "title", "Kassiteros Pickaxe");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "title", "Gettin' hot in here!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "title", "Orichalcum Pickaxe");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "title", "I had to grind for this!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilized_farmland" + "." + "title", "It's Food for Plants!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadiumsteel Pickaxe");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "title", "It's not a Teapot!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "title", "Sideros Pickaxe");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "title", "Molybdenumsteel Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "root" + "." + "title", "The Lands of Icaria");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "arachne" + "." + "title", "Caught in the net!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "captain_revenant" + "." + "title", "Wasn't it dead already?");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "title", "Label everything");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "barrel" + "." + "title", "I got a Headache!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "loot_vase" + "." + "title", "Heavy lifting");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "storage_vase" + "." + "title", "Bigger than a Chest!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chert_pickaxe" + "." + "title", "Chert Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chalkos_pickaxe" + "." + "title", "Chalkos Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kiln" + "." + "title", "I am Kiln' it!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kassiteros_pickaxe" + "." + "title", "Kassiteros Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "forge" + "." + "title", "Gettin' hot in here!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "orichalcum_pickaxe" + "." + "title", "Orichalcum Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "grinder" + "." + "title", "I had to grind for this!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "fertilized_farmland" + "." + "title", "It's Food for Plants!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadiumsteel Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kettle" + "." + "title", "It's not a Teapot!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "sideros_pickaxe" + "." + "title", "Sideros Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "molybdenumsteel_pickaxe" + "." + "title", "Molybdenumsteel Pickaxe");
 
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "description", "Travel to the Lands of Icaria");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "arachne" + "." + "description", "Kill an Arachne");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "description", "Kill a Captain Revenant");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chest" + "." + "description", "Place Chest Labels on a Chest");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "barrel" + "." + "description", "Carry a Barrel");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "description", "Carry a Loot Vase");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "description", "Place a Storage Vase");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "description", "Craft a Chert Pickaxe");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chalkos_pickaxe" + "." + "description", "Craft a Chalkos Pickaxe");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kiln" + "." + "description", "Place a Kiln");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kassiteros_pickaxe" + "." + "description", "Craft a Kassiteros Pickaxe");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "description", "Place a Forge");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "description", "Craft an Orichalcum Pickaxe");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "description", "Place a Grinder");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilized_farmland" + "." + "description", "Fertilize Farmland with Calcite");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "description", "Craft a Vanadiumsteel Pickaxe");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "description", "Place a Kettle");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "description", "Craft a Sideros Pickaxe");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "description", "Craft a Molybdenumsteel Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "root" + "." + "description", "Travel to the Lands of Icaria");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "arachne" + "." + "description", "Kill an Arachne");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "captain_revenant" + "." + "description", "Kill a Captain Revenant");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "description", "Place Chest Labels on a Chest");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "barrel" + "." + "description", "Carry a Barrel");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "loot_vase" + "." + "description", "Carry a Loot Vase");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "storage_vase" + "." + "description", "Place a Storage Vase");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chert_pickaxe" + "." + "description", "Craft a Chert Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chalkos_pickaxe" + "." + "description", "Craft a Chalkos Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kiln" + "." + "description", "Place a Kiln");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kassiteros_pickaxe" + "." + "description", "Craft a Kassiteros Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "forge" + "." + "description", "Place a Forge");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "orichalcum_pickaxe" + "." + "description", "Craft an Orichalcum Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "grinder" + "." + "description", "Place a Grinder");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "fertilized_farmland" + "." + "description", "Fertilize Farmland with Calcite");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "vanadiumsteel_pickaxe" + "." + "description", "Craft a Vanadiumsteel Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kettle" + "." + "description", "Place a Kettle");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "sideros_pickaxe" + "." + "description", "Craft a Sideros Pickaxe");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "molybdenumsteel_pickaxe" + "." + "description", "Craft a Molybdenumsteel Pickaxe");
 
-		this.add("biome" + "." + IcariaInfo.ID + "." + "forest", "Icarian Forest");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "forest_plateau", "Icarian Forest Plateau");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "scrubland", "Icarian Scrubland");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "scrubland_plateau", "Icarian Scrubland Plateau");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "steppe", "Icarian Steppe");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "steppe_plateau", "Icarian Steppe Plateau");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "desert", "Icarian Desert");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "desert_plateau", "Icarian Desert Plateau");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "void", "Icarian Void");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "forest", "Icarian Forest");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "forest_plateau", "Icarian Forest Plateau");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "scrubland", "Icarian Scrubland");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "scrubland_plateau", "Icarian Scrubland Plateau");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "steppe", "Icarian Steppe");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "steppe_plateau", "Icarian Steppe Plateau");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "desert", "Icarian Desert");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "desert_plateau", "Icarian Desert Plateau");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "void", "Icarian Void");
 
 		this.add(IcariaBlocks.GRASSY_MARL.get(), "Grassy Marl");
 		this.add(IcariaBlocks.MARL.get(), "Marl");
@@ -722,9 +724,9 @@ public class IcariaEnglish extends LanguageProvider {
 
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
-		this.add("category" + "." + IcariaInfo.ID + "." + "firing", "Firing");
-		this.add("category" + "." + IcariaInfo.ID + "." + "forging", "Forging");
-		this.add("category" + "." + IcariaInfo.ID + "." + "grinding", "Grinding");
+		this.add("category" + "." + IcariaIdents.ID + "." + "firing", "Firing");
+		this.add("category" + "." + IcariaIdents.ID + "." + "forging", "Forging");
+		this.add("category" + "." + IcariaIdents.ID + "." + "grinding", "Grinding");
 
 		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.value(), "Blindness Immunity");
 		this.add(IcariaMobEffects.FREEZING.value(), "Freezing");
@@ -780,23 +782,23 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.VINEGAR.get(), "Vinegar");
 		this.add(IcariaEntityTypes.VINEGAROON.get(), "Vinegaroon");
 
-		this.add("fluid" + "." + IcariaInfo.ID + "." + "mediterranean_water", "Mediterranean Water");
+		this.add("fluid" + "." + IcariaIdents.ID + "." + "mediterranean_water", "Mediterranean Water");
 
-		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "blindness", "Arrow of Blindness");
-		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "nausea", "Arrow of Nausea");
-		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "wither", "Arrow of Wither");
+		this.add("item" + "." + IcariaIdents.MC + "." + "tipped_arrow" + "." + "effect" + "." + "blindness", "Arrow of Blindness");
+		this.add("item" + "." + IcariaIdents.MC + "." + "tipped_arrow" + "." + "effect" + "." + "nausea", "Arrow of Nausea");
+		this.add("item" + "." + IcariaIdents.MC + "." + "tipped_arrow" + "." + "effect" + "." + "wither", "Arrow of Wither");
 
-		this.add("item" + "." + IcariaInfo.MC + "." + "potion" + "." + "effect" + "." + "blindness", "Potion of Blindness");
-		this.add("item" + "." + IcariaInfo.MC + "." + "potion" + "." + "effect" + "." + "nausea", "Potion of Nausea");
-		this.add("item" + "." + IcariaInfo.MC + "." + "potion" + "." + "effect" + "." + "wither", "Potion of Wither");
+		this.add("item" + "." + IcariaIdents.MC + "." + "potion" + "." + "effect" + "." + "blindness", "Potion of Blindness");
+		this.add("item" + "." + IcariaIdents.MC + "." + "potion" + "." + "effect" + "." + "nausea", "Potion of Nausea");
+		this.add("item" + "." + IcariaIdents.MC + "." + "potion" + "." + "effect" + "." + "wither", "Potion of Wither");
 
-		this.add("item" + "." + IcariaInfo.MC + "." + "splash_potion" + "." + "effect" + "." + "blindness", "Splash Potion of Blindness");
-		this.add("item" + "." + IcariaInfo.MC + "." + "splash_potion" + "." + "effect" + "." + "nausea", "Splash Potion of Nausea");
-		this.add("item" + "." + IcariaInfo.MC + "." + "splash_potion" + "." + "effect" + "." + "wither", "Splash Potion of Wither");
+		this.add("item" + "." + IcariaIdents.MC + "." + "splash_potion" + "." + "effect" + "." + "blindness", "Splash Potion of Blindness");
+		this.add("item" + "." + IcariaIdents.MC + "." + "splash_potion" + "." + "effect" + "." + "nausea", "Splash Potion of Nausea");
+		this.add("item" + "." + IcariaIdents.MC + "." + "splash_potion" + "." + "effect" + "." + "wither", "Splash Potion of Wither");
 
-		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "blindness", "Lingering Potion of Blindness");
-		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "nausea", "Lingering Potion of Nausea");
-		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "wither", "Lingering Potion of Wither");
+		this.add("item" + "." + IcariaIdents.MC + "." + "lingering_potion" + "." + "effect" + "." + "blindness", "Lingering Potion of Blindness");
+		this.add("item" + "." + IcariaIdents.MC + "." + "lingering_potion" + "." + "effect" + "." + "nausea", "Lingering Potion of Nausea");
+		this.add("item" + "." + IcariaIdents.MC + "." + "lingering_potion" + "." + "effect" + "." + "wither", "Lingering Potion of Wither");
 
 		this.add(IcariaItems.PAINTING.get(), "Painting");
 
@@ -1060,31 +1062,31 @@ public class IcariaEnglish extends LanguageProvider {
 
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Mediterranean Water Bucket");
 
-		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "blocks", "Lands of Icaria Blocks");
-		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "flora", "Lands of Icaria Flora");
-		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "items", "Lands of Icaria Items");
+		this.add("itemgroup" + "." + IcariaIdents.ID + "." + "blocks", "Lands of Icaria Blocks");
+		this.add("itemgroup" + "." + IcariaIdents.ID + "." + "flora", "Lands of Icaria Flora");
+		this.add("itemgroup" + "." + IcariaIdents.ID + "." + "items", "Lands of Icaria Items");
 
-		this.add("menu" + "." + IcariaInfo.ID + "." + "forge", "Forge");
-		this.add("menu" + "." + IcariaInfo.ID + "." + "grinder", "Grinder");
-		this.add("menu" + "." + IcariaInfo.ID + "." + "kiln", "Kiln");
-		this.add("menu" + "." + IcariaInfo.ID + "." + "storage_vase", "Storage Vase");
+		this.add("menu" + "." + IcariaIdents.ID + "." + "forge", "Forge");
+		this.add("menu" + "." + IcariaIdents.ID + "." + "grinder", "Grinder");
+		this.add("menu" + "." + IcariaIdents.ID + "." + "kiln", "Kiln");
+		this.add("menu" + "." + IcariaIdents.ID + "." + "storage_vase", "Storage Vase");
 
-		this.add("message" + "." + IcariaInfo.ID + "." + "barrel", "Sneak to throw the barrel");
-		this.add("message" + "." + IcariaInfo.ID + "." + "chest_label", "Chest label name too long");
-		this.add("message" + "." + IcariaInfo.ID + "." + "loot_vase", "Sneak to throw loot vase");
+		this.add("message" + "." + IcariaIdents.ID + "." + "barrel", "Sneak to throw the barrel");
+		this.add("message" + "." + IcariaIdents.ID + "." + "chest_label", "Chest label name too long");
+		this.add("message" + "." + IcariaIdents.ID + "." + "loot_vase", "Sneak to throw loot vase");
 
-		this.add("painting" + "." + IcariaInfo.ID + "." + "bridge" + "." + "author", "Axanthic Studios");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "cactus" + "." + "author", "Axanthic Studios");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "moons" + "." + "author", "Axanthic Studios");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "perfection" + "." + "author", "Axanthic Studios");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "portal" + "." + "author", "Axanthic Studios");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "pyro" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "bridge" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "cactus" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "moons" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "perfection" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "portal" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "pyro" + "." + "author", "Axanthic Studios");
 
-		this.add("painting" + "." + IcariaInfo.ID + "." + "bridge" + "." + "title", "Bridge");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "cactus" + "." + "title", "Cactus");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "moons" + "." + "title", "Moons");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "perfection" + "." + "title", "Perfection");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "portal" + "." + "title", "Portal");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "pyro" + "." + "title", "Pyro");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "bridge" + "." + "title", "Bridge");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "cactus" + "." + "title", "Cactus");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "moons" + "." + "title", "Moons");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "perfection" + "." + "title", "Perfection");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "portal" + "." + "title", "Portal");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "pyro" + "." + "title", "Pyro");
 	}
 }

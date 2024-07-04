@@ -1,10 +1,16 @@
 package com.axanthic.icaria.common.network;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.particles.ParticleTypes;
 
 import net.neoforged.neoforge.network.handling.IPayloadContext;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class TotemRunnable implements Runnable {
 	public IPayloadContext context;

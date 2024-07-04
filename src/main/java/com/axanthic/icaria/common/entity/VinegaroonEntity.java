@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.IcariaArachnidTargetGoal;
+import com.axanthic.icaria.common.math.IcariaMath;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.common.util.IcariaMath;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;

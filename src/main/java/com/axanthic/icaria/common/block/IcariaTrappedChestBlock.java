@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.entity.IcariaTrappedChestBlockEntity;
+import com.axanthic.icaria.common.block.entity.IcariaTrappedChestBlockEntity;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;

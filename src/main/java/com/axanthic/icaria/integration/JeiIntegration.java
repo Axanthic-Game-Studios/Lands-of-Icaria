@@ -3,10 +3,10 @@ package com.axanthic.icaria.integration;
 import com.axanthic.icaria.common.recipe.FiringRecipe;
 import com.axanthic.icaria.common.recipe.ForgingRecipe;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
+import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
-import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.integration.jei.category.FiringRecipeCategory;
 import com.axanthic.icaria.integration.jei.category.ForgingRecipeCategory;
 import com.axanthic.icaria.integration.jei.category.GrinderRecipeCategory;
@@ -33,14 +33,15 @@ import java.util.List;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 @JeiPlugin
 public class JeiIntegration implements IModPlugin {
-    public static final RecipeType<FiringRecipe> FIRING = RecipeType.create(IcariaInfo.ID, "firing", FiringRecipe.class);
-    public static final RecipeType<ForgingRecipe> FORGING = RecipeType.create(IcariaInfo.ID, "forging", ForgingRecipe.class);
-    public static final RecipeType<GrindingRecipe> GRINDING = RecipeType.create(IcariaInfo.ID, "grinding", GrindingRecipe.class);
+    public static final RecipeType<FiringRecipe> FIRING = RecipeType.create(IcariaIdents.ID, "firing", FiringRecipe.class);
+    public static final RecipeType<ForgingRecipe> FORGING = RecipeType.create(IcariaIdents.ID, "forging", ForgingRecipe.class);
+    public static final RecipeType<GrindingRecipe> GRINDING = RecipeType.create(IcariaIdents.ID, "grinding", GrindingRecipe.class);
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {

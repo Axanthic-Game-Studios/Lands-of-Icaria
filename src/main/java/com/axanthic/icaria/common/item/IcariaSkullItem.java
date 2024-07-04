@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.client.extensions.IcariaSkullItemExtensions;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
@@ -14,6 +15,7 @@ import java.util.function.Consumer;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaSkullItem extends StandingAndWallBlockItem {

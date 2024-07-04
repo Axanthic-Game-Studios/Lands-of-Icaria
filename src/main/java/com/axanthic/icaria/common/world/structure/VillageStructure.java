@@ -28,6 +28,8 @@ import java.util.Optional;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("OptionalUsedAsFieldOrParameterType")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 

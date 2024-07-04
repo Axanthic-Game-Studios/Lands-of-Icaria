@@ -1,11 +1,8 @@
 package com.axanthic.icaria.common.events;
 
+import com.axanthic.icaria.common.block.entity.*;
 import com.axanthic.icaria.common.entity.*;
-import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaCreativeModeTabs;
-import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.*;
 import com.axanthic.icaria.data.advancements.IcariaAdvancements;
 import com.axanthic.icaria.data.lang.IcariaEnglish;
@@ -13,6 +10,7 @@ import com.axanthic.icaria.data.lang.IcariaGerman;
 import com.axanthic.icaria.data.loot.IcariaLoot;
 import com.axanthic.icaria.data.tags.*;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.level.levelgen.Heightmap;
 
@@ -29,9 +27,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@EventBusSubscriber(modid = IcariaInfo.ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = IcariaIdents.ID, bus = EventBusSubscriber.Bus.MOD)
 public class CommonModEvents {
 
 	@SubscribeEvent
@@ -962,25 +961,25 @@ public class CommonModEvents {
 
 		var packOutput = generator.getPackOutput();
 
-		var blockTags = new IcariaBlockTags(packOutput, lookupProvider, IcariaInfo.ID, existingFileHelper);
-		var builtinEntries = new IcariaBuiltinEntries(packOutput, lookupProvider, IcariaInfo.ID);
+		var blockTags = new IcariaBlockTags(packOutput, lookupProvider, IcariaIdents.ID, existingFileHelper);
+		var builtinEntries = new IcariaBuiltinEntries(packOutput, lookupProvider, IcariaIdents.ID);
 
 		var registryProvider = builtinEntries.getRegistryProvider();
 		var tagLookup = blockTags.contentsGetter();
 
-		generator.addProvider(pEvent.includeClient(), new IcariaEnglish(packOutput, IcariaInfo.ID, "en_us"));
-		generator.addProvider(pEvent.includeClient(), new IcariaGerman(packOutput, IcariaInfo.ID, "de_de"));
-		generator.addProvider(pEvent.includeClient(), new IcariaBlockStates(packOutput, IcariaInfo.ID, existingFileHelper));
-		generator.addProvider(pEvent.includeClient(), new IcariaItemModels(packOutput, IcariaInfo.ID, existingFileHelper));
+		generator.addProvider(pEvent.includeClient(), new IcariaEnglish(packOutput, IcariaIdents.ID, "en_us"));
+		generator.addProvider(pEvent.includeClient(), new IcariaGerman(packOutput, IcariaIdents.ID, "de_de"));
+		generator.addProvider(pEvent.includeClient(), new IcariaBlockStates(packOutput, IcariaIdents.ID, existingFileHelper));
+		generator.addProvider(pEvent.includeClient(), new IcariaItemModels(packOutput, IcariaIdents.ID, existingFileHelper));
 
 		generator.addProvider(pEvent.includeServer(), new IcariaAdvancements(packOutput, lookupProvider, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), new IcariaLoot(packOutput, lookupProvider));
-		generator.addProvider(pEvent.includeServer(), new IcariaBiomeTags(packOutput, registryProvider, IcariaInfo.ID, existingFileHelper));
+		generator.addProvider(pEvent.includeServer(), new IcariaBiomeTags(packOutput, registryProvider, IcariaIdents.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), blockTags);
-		generator.addProvider(pEvent.includeServer(), new IcariaFluidTags(packOutput, lookupProvider, IcariaInfo.ID, existingFileHelper));
-		generator.addProvider(pEvent.includeServer(), new IcariaItemTags(packOutput, lookupProvider, tagLookup, IcariaInfo.ID, existingFileHelper));
-		generator.addProvider(pEvent.includeClient(), new IcariaPaintingVariantTags(packOutput, registryProvider, IcariaInfo.ID, existingFileHelper));
-		generator.addProvider(pEvent.includeServer(), new IcariaStructureTags(packOutput, registryProvider, IcariaInfo.ID, existingFileHelper));
+		generator.addProvider(pEvent.includeServer(), new IcariaFluidTags(packOutput, lookupProvider, IcariaIdents.ID, existingFileHelper));
+		generator.addProvider(pEvent.includeServer(), new IcariaItemTags(packOutput, lookupProvider, tagLookup, IcariaIdents.ID, existingFileHelper));
+		generator.addProvider(pEvent.includeClient(), new IcariaPaintingVariantTags(packOutput, registryProvider, IcariaIdents.ID, existingFileHelper));
+		generator.addProvider(pEvent.includeServer(), new IcariaStructureTags(packOutput, registryProvider, IcariaIdents.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), builtinEntries);
 		generator.addProvider(pEvent.includeClient(), new IcariaDataMaps(packOutput, lookupProvider));
 		generator.addProvider(pEvent.includeServer(), new IcariaRecipes(packOutput, lookupProvider));

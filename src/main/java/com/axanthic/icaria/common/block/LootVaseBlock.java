@@ -2,7 +2,6 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.LootVaseEntity;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -66,7 +65,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
             entity.startRiding(pPlayer);
             pLevel.addFreshEntity(entity);
             pLevel.removeBlock(pPos, false);
-            pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaInfo.ID + "." + "loot_vase"), true);
+            pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaIdents.ID + "." + "loot_vase"), true);
             return InteractionResult.PASS;
         }
     }

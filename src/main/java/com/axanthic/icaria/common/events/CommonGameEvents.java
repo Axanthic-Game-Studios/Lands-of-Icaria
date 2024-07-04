@@ -3,11 +3,12 @@ package com.axanthic.icaria.common.events;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.ScytheItem;
 import com.axanthic.icaria.common.network.TotemPacket;
+import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaMobEffects;
 import com.axanthic.icaria.common.registry.IcariaPotions;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerPlayer;
@@ -33,9 +34,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = IcariaInfo.ID)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = IcariaIdents.ID)
 public class CommonGameEvents {
 
 	@SubscribeEvent

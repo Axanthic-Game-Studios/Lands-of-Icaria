@@ -1,11 +1,11 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.entity.IcariaChestBlockEntity;
+import com.axanthic.icaria.common.block.entity.IcariaChestBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.util.IcariaChestBlockCombiner;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -227,7 +227,7 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
                                 }
                             }
                         } else {
-                            pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaInfo.ID + "." + "chest_label"), true);
+                            pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaIdents.ID + "." + "chest_label"), true);
                         }
                     } else {
                         if (direction.equals(Direction.UP)) {

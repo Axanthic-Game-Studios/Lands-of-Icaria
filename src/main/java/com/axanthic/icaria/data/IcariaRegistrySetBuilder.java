@@ -2,10 +2,16 @@ package com.axanthic.icaria.data;
 
 import com.axanthic.icaria.common.registry.*;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaRegistrySetBuilder extends RegistrySetBuilder {
     public IcariaRegistrySetBuilder() {

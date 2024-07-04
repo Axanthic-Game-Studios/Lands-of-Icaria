@@ -1,9 +1,9 @@
 package com.axanthic.icaria.integration.jei.category;
 
 import com.axanthic.icaria.common.recipe.FiringRecipe;
+import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -79,7 +79,7 @@ public class FiringRecipeCategory implements IRecipeCategory<FiringRecipe> {
 
     @Override
     public Component getTitle() {
-        return Component.translatable("category" + "." + IcariaInfo.ID + "." + "firing");
+        return Component.translatable("category" + "." + IcariaIdents.ID + "." + "firing");
     }
 
     @Override
@@ -94,6 +94,6 @@ public class FiringRecipeCategory implements IRecipeCategory<FiringRecipe> {
 
     @Override
     public RecipeType<FiringRecipe> getRecipeType() {
-        return RecipeType.create(IcariaInfo.ID, "firing", FiringRecipe.class);
+        return RecipeType.create(IcariaIdents.ID, "firing", FiringRecipe.class);
     }
 }

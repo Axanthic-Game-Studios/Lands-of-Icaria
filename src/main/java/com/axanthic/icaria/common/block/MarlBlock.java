@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -11,6 +12,7 @@ import net.neoforged.neoforge.common.ItemAbility;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class MarlBlock extends Block {

@@ -2,9 +2,15 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.mixin.FireBlockMixin;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaFlammables {
 

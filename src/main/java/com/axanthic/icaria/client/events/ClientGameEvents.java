@@ -1,8 +1,9 @@
 package com.axanthic.icaria.client.events;
 
 import com.axanthic.icaria.common.item.IcariaSkullItem;
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.registry.IcariaIdents;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.world.entity.EquipmentSlot;
 
@@ -15,9 +16,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = IcariaInfo.ID, value = Dist.CLIENT)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = IcariaIdents.ID, value = Dist.CLIENT)
 public class ClientGameEvents {
 
 	@SubscribeEvent

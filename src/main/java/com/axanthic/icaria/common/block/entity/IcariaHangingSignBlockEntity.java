@@ -1,4 +1,4 @@
-package com.axanthic.icaria.common.entity;
+package com.axanthic.icaria.common.block.entity;
 
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
@@ -8,7 +8,10 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.HangingSignBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaHangingSignBlockEntity extends HangingSignBlockEntity {
     public IcariaHangingSignBlockEntity(BlockPos pPos, BlockState pState) {

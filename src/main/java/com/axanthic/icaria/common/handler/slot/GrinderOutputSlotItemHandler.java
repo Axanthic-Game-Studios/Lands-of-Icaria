@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.handler.slot;
 
-import com.axanthic.icaria.common.entity.GrinderBlockEntity;
+import com.axanthic.icaria.common.block.entity.GrinderBlockEntity;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.server.level.ServerPlayer;

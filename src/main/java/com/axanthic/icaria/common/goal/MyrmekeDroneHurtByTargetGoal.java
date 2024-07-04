@@ -3,11 +3,13 @@ package com.axanthic.icaria.common.goal;
 import com.axanthic.icaria.common.entity.MyrmekeDroneEntity;
 import com.axanthic.icaria.common.entity.MyrmekeSoldierEntity;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class MyrmekeDroneHurtByTargetGoal extends MyrmekeQueenHurtByTargetGoal {

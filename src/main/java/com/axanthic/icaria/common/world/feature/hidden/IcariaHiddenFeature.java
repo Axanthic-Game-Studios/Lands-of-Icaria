@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.world.feature.hidden;
 
 import com.mojang.serialization.Codec;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -13,6 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation, unused")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaHiddenFeature extends Feature<NoneFeatureConfiguration> {

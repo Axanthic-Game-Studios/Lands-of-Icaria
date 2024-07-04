@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.block.*;
-import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -23,12 +22,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaBlocks {
-	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, IcariaInfo.ID);
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, IcariaIdents.ID);
 
 	public static final List<Supplier<? extends Block>> SIMPLE_BLOCKS = new ArrayList<>();
 

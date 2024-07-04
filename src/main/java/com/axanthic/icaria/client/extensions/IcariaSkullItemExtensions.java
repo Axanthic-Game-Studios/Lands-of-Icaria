@@ -8,7 +8,10 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaSkullItemExtensions implements IClientItemExtensions {
 

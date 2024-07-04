@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.entity.ForestHagEntity;
 import com.axanthic.icaria.common.registry.*;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -19,6 +20,7 @@ import net.minecraft.world.phys.AABB;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaLogBlock extends RotatedPillarBlock {

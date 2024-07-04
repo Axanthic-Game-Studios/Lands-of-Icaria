@@ -1,5 +1,6 @@
 package com.axanthic.icaria.mixin;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
@@ -12,7 +13,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Collection;
 import java.util.Optional;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @SuppressWarnings("unused")
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 @Mixin(RecipeManager.class)
 public class RecipeManagerMixin {

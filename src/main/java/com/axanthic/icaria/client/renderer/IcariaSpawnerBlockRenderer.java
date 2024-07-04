@@ -1,10 +1,11 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.common.entity.IcariaSpawnerBlockEntity;
+import com.axanthic.icaria.common.block.entity.IcariaSpawnerBlockEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -13,6 +14,7 @@ import net.minecraft.util.Mth;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaSpawnerBlockRenderer implements BlockEntityRenderer<IcariaSpawnerBlockEntity> {

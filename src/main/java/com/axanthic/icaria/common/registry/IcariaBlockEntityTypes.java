@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.entity.*;
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.block.entity.*;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
@@ -10,8 +10,13 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
 public class IcariaBlockEntityTypes {
-	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, IcariaInfo.ID);
+	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, IcariaIdents.ID);
 
 	public static final Supplier<BlockEntityType<IcariaChestBlockEntity>> CHEST = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("icaria_chest", () -> BlockEntityType.Builder.of(IcariaChestBlockEntity::new, IcariaBlocks.CHEST.get()).build(null));
 	public static final Supplier<BlockEntityType<CrystalBlockEntity>> CRYSTAL = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("crystal", () -> BlockEntityType.Builder.of(CrystalBlockEntity::new, IcariaBlocks.CALCITE_CRYSTAL.get(), IcariaBlocks.HALITE_CRYSTAL.get(), IcariaBlocks.JASPER_CRYSTAL.get(), IcariaBlocks.ZIRCON_CRYSTAL.get()).build(null));

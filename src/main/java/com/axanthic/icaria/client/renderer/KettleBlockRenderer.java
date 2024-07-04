@@ -1,8 +1,8 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.common.block.KettleBlock;
+import com.axanthic.icaria.common.block.entity.KettleBlockEntity;
 import com.axanthic.icaria.common.config.IcariaConfig;
-import com.axanthic.icaria.common.entity.KettleBlockEntity;
 import com.axanthic.icaria.common.properties.Kettle;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -10,6 +10,7 @@ import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -27,6 +28,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
+@MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntity> {

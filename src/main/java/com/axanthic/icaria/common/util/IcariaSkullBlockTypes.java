@@ -1,5 +1,12 @@
 package com.axanthic.icaria.common.util;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
 public enum IcariaSkullBlockTypes implements IcariaSkullBlockType{
     AETERNAE,
     ARGAN_HOUND,

@@ -1,14 +1,16 @@
 package com.axanthic.icaria.data.lang;
 
-import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaMobEffects;
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.registry.*;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.PackOutput;
 
 import net.neoforged.neoforge.common.data.LanguageProvider;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaGerman extends LanguageProvider {
 	public IcariaGerman(PackOutput pPackOutput, String pId, String pLanguage) {
@@ -17,55 +19,55 @@ public class IcariaGerman extends LanguageProvider {
 
 	@Override
 	public void addTranslations() {
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "title", "Die Lands of Icaria");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "arachne" + "." + "title", "Im Netz der Spinne!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "title", "War es nicht schon längst tot?");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chest" + "." + "title", "Alles etikettieren");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "barrel" + "." + "title", "Jetzt habe ich Kopfschmerzen!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "title", "Gewicht stemmen");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "title", "Größer als eine Kiste!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "title", "Hornsteinspitzhacke");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chalkos_pickaxe" + "." + "title", "Kuffarspitzhacke");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kiln" + "." + "title", "Ich habe es gerockt!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kassiteros_pickaxe" + "." + "title", "Galmeispitzhacke");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "title", "Hier gehts heiß her!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "title", "Goldmessingspitzhacke");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "title", "Das war mühlsame Arbeit!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilized_farmland" + "." + "title", "Wie Essen für Pflanzen!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadinstahlspitzhacke");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "title", "Das ist keine Teekanne!");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "title", "Schirbelspitzhacke");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "title", "Molybdänstahlspitzhacke");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "root" + "." + "title", "Die Lands of Icaria");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "arachne" + "." + "title", "Im Netz der Spinne!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "captain_revenant" + "." + "title", "War es nicht schon längst tot?");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "title", "Alles etikettieren");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "barrel" + "." + "title", "Jetzt habe ich Kopfschmerzen!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "loot_vase" + "." + "title", "Gewicht stemmen");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "storage_vase" + "." + "title", "Größer als eine Kiste!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chert_pickaxe" + "." + "title", "Hornsteinspitzhacke");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chalkos_pickaxe" + "." + "title", "Kuffarspitzhacke");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kiln" + "." + "title", "Ich habe es gerockt!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kassiteros_pickaxe" + "." + "title", "Galmeispitzhacke");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "forge" + "." + "title", "Hier gehts heiß her!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "orichalcum_pickaxe" + "." + "title", "Goldmessingspitzhacke");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "grinder" + "." + "title", "Das war mühlsame Arbeit!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "fertilized_farmland" + "." + "title", "Wie Essen für Pflanzen!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadinstahlspitzhacke");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kettle" + "." + "title", "Das ist keine Teekanne!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "sideros_pickaxe" + "." + "title", "Schirbelspitzhacke");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "molybdenumsteel_pickaxe" + "." + "title", "Molybdänstahlspitzhacke");
 
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "root" + "." + "description", "Reise in die Lands of Icaria");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "arachne" + "." + "description", "Töte eine Arachne");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "captain_revenant" + "." + "description", "Töte einen Kommandanten-Wiedergänger");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chest" + "." + "description", "Befestige ein Kistenetiekett an einer Kiste");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "barrel" + "." + "description", "Trage ein Fass umher");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "loot_vase" + "." + "description", "Trage eine Beutevase umher");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "storage_vase" + "." + "description", "Stelle eine Speichervase auf");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chert_pickaxe" + "." + "description", "Stelle eine Hornsteinspitzhacke her");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "chalkos_pickaxe" + "." + "description", "Stelle eine Kuffarspitzhacke her");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kiln" + "." + "description", "Stelle einen Töpferofen auf");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kassiteros_pickaxe" + "." + "description", "Stelle eine Galmeispitzhacke her");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "forge" + "." + "description", "Stelle eine Schmelze auf");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "orichalcum_pickaxe" + "." + "description", "Stelle eine Goldmessingspitzhacke her");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "grinder" + "." + "description", "Stelle eine Mühle auf");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "fertilized_farmland" + "." + "description", "Dünge Ackerboden mit Calcit");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "vanadiumsteel_pickaxe" + "." + "description", "Stelle eine Vanadinstahlspitzhacke her");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "kettle" + "." + "description", "Stelle einen Kessel auf");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "sideros_pickaxe" + "." + "description", "Stelle eine Schirbelspitzhacke her");
-		this.add("advancement" + "." + IcariaInfo.ID + "." + "molybdenumsteel_pickaxe" + "." + "description", "Stelle eine Molybdänstahlspitzhacke her");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "root" + "." + "description", "Reise in die Lands of Icaria");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "arachne" + "." + "description", "Töte eine Arachne");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "captain_revenant" + "." + "description", "Töte einen Kommandanten-Wiedergänger");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "description", "Befestige ein Kistenetiekett an einer Kiste");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "barrel" + "." + "description", "Trage ein Fass umher");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "loot_vase" + "." + "description", "Trage eine Beutevase umher");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "storage_vase" + "." + "description", "Stelle eine Speichervase auf");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chert_pickaxe" + "." + "description", "Stelle eine Hornsteinspitzhacke her");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chalkos_pickaxe" + "." + "description", "Stelle eine Kuffarspitzhacke her");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kiln" + "." + "description", "Stelle einen Töpferofen auf");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kassiteros_pickaxe" + "." + "description", "Stelle eine Galmeispitzhacke her");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "forge" + "." + "description", "Stelle eine Schmelze auf");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "orichalcum_pickaxe" + "." + "description", "Stelle eine Goldmessingspitzhacke her");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "grinder" + "." + "description", "Stelle eine Mühle auf");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "fertilized_farmland" + "." + "description", "Dünge Ackerboden mit Calcit");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "vanadiumsteel_pickaxe" + "." + "description", "Stelle eine Vanadinstahlspitzhacke her");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kettle" + "." + "description", "Stelle einen Kessel auf");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "sideros_pickaxe" + "." + "description", "Stelle eine Schirbelspitzhacke her");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "molybdenumsteel_pickaxe" + "." + "description", "Stelle eine Molybdänstahlspitzhacke her");
 
-		this.add("biome" + "." + IcariaInfo.ID + "." + "forest", "Ikarisches Waldplateau");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "forest_plateau", "Ikarischer Wald");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "scrubland", "Ikarisches Buschland");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "scrubland_plateau", "Ikarisches Buschlandplateau");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "steppe", "Ikarische Steppe");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "steppe_plateau", "Ikarisches Steppenplateau");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "desert", "Ikarische Wüste");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "desert_plateau", "Ikarisches Wüstenplateau");
-		this.add("biome" + "." + IcariaInfo.ID + "." + "void", "Ikarische Leere");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "forest", "Ikarisches Waldplateau");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "forest_plateau", "Ikarischer Wald");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "scrubland", "Ikarisches Buschland");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "scrubland_plateau", "Ikarisches Buschlandplateau");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "steppe", "Ikarische Steppe");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "steppe_plateau", "Ikarisches Steppenplateau");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "desert", "Ikarische Wüste");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "desert_plateau", "Ikarisches Wüstenplateau");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "void", "Ikarische Leere");
 
 		this.add(IcariaBlocks.GRASSY_MARL.get(), "Begraster Mergel");
 		this.add(IcariaBlocks.MARL.get(), "Mergel");
@@ -722,9 +724,9 @@ public class IcariaGerman extends LanguageProvider {
 
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
-		this.add("category" + "." + IcariaInfo.ID + "." + "firing", "Brennen");
-		this.add("category" + "." + IcariaInfo.ID + "." + "forging", "Schmieden");
-		this.add("category" + "." + IcariaInfo.ID + "." + "grinding", "Mahlen");
+		this.add("category" + "." + IcariaIdents.ID + "." + "firing", "Brennen");
+		this.add("category" + "." + IcariaIdents.ID + "." + "forging", "Schmieden");
+		this.add("category" + "." + IcariaIdents.ID + "." + "grinding", "Mahlen");
 
 		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.value(), "Erblindungsimmunität");
 		this.add(IcariaMobEffects.FREEZING.value(), "Vereisung");
@@ -780,23 +782,23 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.VINEGAR.get(), "Essig");
 		this.add(IcariaEntityTypes.VINEGAROON.get(), "Geißelskorpion");
 
-		this.add("fluid" + "." + IcariaInfo.ID + "." + "mediterranean_water", "Mediterranes Wasser");
+		this.add("fluid" + "." + IcariaIdents.ID + "." + "mediterranean_water", "Mediterranes Wasser");
 
-		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "blindness", "Pfeil der Blindheit");
-		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "nausea", "Pfeil der Übelkeit");
-		this.add("item" + "." + IcariaInfo.MC + "." + "tipped_arrow" + "." + "effect" + "." + "wither", "Pfeil der Verdorrung");
+		this.add("item" + "." + IcariaIdents.MC + "." + "tipped_arrow" + "." + "effect" + "." + "blindness", "Pfeil der Blindheit");
+		this.add("item" + "." + IcariaIdents.MC + "." + "tipped_arrow" + "." + "effect" + "." + "nausea", "Pfeil der Übelkeit");
+		this.add("item" + "." + IcariaIdents.MC + "." + "tipped_arrow" + "." + "effect" + "." + "wither", "Pfeil der Verdorrung");
 
-		this.add("item" + "." + IcariaInfo.MC + "." + "potion" + "." + "effect" + "." + "blindness", "Trank der Blindheit");
-		this.add("item" + "." + IcariaInfo.MC + "." + "potion" + "." + "effect" + "." + "nausea", "Trank der Übelkeit");
-		this.add("item" + "." + IcariaInfo.MC + "." + "potion" + "." + "effect" + "." + "wither", "Trank der Verdorrung");
+		this.add("item" + "." + IcariaIdents.MC + "." + "potion" + "." + "effect" + "." + "blindness", "Trank der Blindheit");
+		this.add("item" + "." + IcariaIdents.MC + "." + "potion" + "." + "effect" + "." + "nausea", "Trank der Übelkeit");
+		this.add("item" + "." + IcariaIdents.MC + "." + "potion" + "." + "effect" + "." + "wither", "Trank der Verdorrung");
 
-		this.add("item" + "." + IcariaInfo.MC + "." + "splash_potion" + "." + "effect" + "." + "blindness", "Wurftrank der Blindheit");
-		this.add("item" + "." + IcariaInfo.MC + "." + "splash_potion" + "." + "effect" + "." + "nausea", "Wurftrank der Übelkeit");
-		this.add("item" + "." + IcariaInfo.MC + "." + "splash_potion" + "." + "effect" + "." + "wither", "Wurftrank der Verdorrung");
+		this.add("item" + "." + IcariaIdents.MC + "." + "splash_potion" + "." + "effect" + "." + "blindness", "Wurftrank der Blindheit");
+		this.add("item" + "." + IcariaIdents.MC + "." + "splash_potion" + "." + "effect" + "." + "nausea", "Wurftrank der Übelkeit");
+		this.add("item" + "." + IcariaIdents.MC + "." + "splash_potion" + "." + "effect" + "." + "wither", "Wurftrank der Verdorrung");
 
-		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "blindness", "Verweiltrank der Blindheit");
-		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "nausea", "Verweiltrank der Übelkeit");
-		this.add("item" + "." + IcariaInfo.MC + "." + "lingering_potion" + "." + "effect" + "." + "wither", "Verweiltrank der Verdorrung");
+		this.add("item" + "." + IcariaIdents.MC + "." + "lingering_potion" + "." + "effect" + "." + "blindness", "Verweiltrank der Blindheit");
+		this.add("item" + "." + IcariaIdents.MC + "." + "lingering_potion" + "." + "effect" + "." + "nausea", "Verweiltrank der Übelkeit");
+		this.add("item" + "." + IcariaIdents.MC + "." + "lingering_potion" + "." + "effect" + "." + "wither", "Verweiltrank der Verdorrung");
 
 		this.add(IcariaItems.PAINTING.get(), "Gemälde");
 
@@ -1060,31 +1062,31 @@ public class IcariaGerman extends LanguageProvider {
 
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Eimer mit mediterranem Wasser");
 
-		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "blocks", "Lands of Icaria Blöcke");
-		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "flora", "Lands of Icaria Flora");
-		this.add("itemgroup" + "." + IcariaInfo.ID + "." + "items", "Lands of Icaria Gegenstände");
+		this.add("itemgroup" + "." + IcariaIdents.ID + "." + "blocks", "Lands of Icaria Blöcke");
+		this.add("itemgroup" + "." + IcariaIdents.ID + "." + "flora", "Lands of Icaria Flora");
+		this.add("itemgroup" + "." + IcariaIdents.ID + "." + "items", "Lands of Icaria Gegenstände");
 
-		this.add("menu" + "." + IcariaInfo.ID + "." + "forge", "Schmiede");
-		this.add("menu" + "." + IcariaInfo.ID + "." + "grinder", "Mühle");
-		this.add("menu" + "." + IcariaInfo.ID + "." + "kiln", "Töpferofen");
-		this.add("menu" + "." + IcariaInfo.ID + "." + "storage_vase", "Speichervase");
+		this.add("menu" + "." + IcariaIdents.ID + "." + "forge", "Schmiede");
+		this.add("menu" + "." + IcariaIdents.ID + "." + "grinder", "Mühle");
+		this.add("menu" + "." + IcariaIdents.ID + "." + "kiln", "Töpferofen");
+		this.add("menu" + "." + IcariaIdents.ID + "." + "storage_vase", "Speichervase");
 
-		this.add("message" + "." + IcariaInfo.ID + "." + "barrel", "Schleichen zum Werfen des Fasses");
-		this.add("message" + "." + IcariaInfo.ID + "." + "chest_label", "Name des Kistenetiketts zu lang");
-		this.add("message" + "." + IcariaInfo.ID + "." + "loot_vase", "Schleichen zum Werfen der Beutevase");
+		this.add("message" + "." + IcariaIdents.ID + "." + "barrel", "Schleichen zum Werfen des Fasses");
+		this.add("message" + "." + IcariaIdents.ID + "." + "chest_label", "Name des Kistenetiketts zu lang");
+		this.add("message" + "." + IcariaIdents.ID + "." + "loot_vase", "Schleichen zum Werfen der Beutevase");
 
-		this.add("painting" + "." + IcariaInfo.ID + "." + "bridge" + "." + "author", "Axanthic Studios");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "cactus" + "." + "author", "Axanthic Studios");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "moons" + "." + "author", "Axanthic Studios");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "perfection" + "." + "author", "Axanthic Studios");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "portal" + "." + "author", "Axanthic Studios");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "pyro" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "bridge" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "cactus" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "moons" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "perfection" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "portal" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "pyro" + "." + "author", "Axanthic Studios");
 
-		this.add("painting" + "." + IcariaInfo.ID + "." + "bridge" + "." + "title", "Brücke");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "cactus" + "." + "title", "Kaktus");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "moons" + "." + "title", "Monde");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "perfection" + "." + "title", "Perfektion");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "portal" + "." + "title", "Portal");
-		this.add("painting" + "." + IcariaInfo.ID + "." + "pyro" + "." + "title", "Pyro");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "bridge" + "." + "title", "Brücke");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "cactus" + "." + "title", "Kaktus");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "moons" + "." + "title", "Monde");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "perfection" + "." + "title", "Perfektion");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "portal" + "." + "title", "Portal");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "pyro" + "." + "title", "Pyro");
 	}
 }

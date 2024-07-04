@@ -2,7 +2,14 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.mixin.AxeItemMixin;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
+
 import java.util.IdentityHashMap;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class IcariaStrippables {
 

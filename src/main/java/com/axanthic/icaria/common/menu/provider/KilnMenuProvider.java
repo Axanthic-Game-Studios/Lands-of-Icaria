@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.menu.provider;
 
 import com.axanthic.icaria.common.menu.KilnMenu;
-import com.axanthic.icaria.common.util.IcariaInfo;
+import com.axanthic.icaria.common.registry.IcariaIdents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -30,6 +30,6 @@ public class KilnMenuProvider implements MenuProvider {
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("menu" + "." + IcariaInfo.ID + "." + "kiln");
+        return Component.translatable("menu" + "." + IcariaIdents.ID + "." + "kiln");
     }
 }

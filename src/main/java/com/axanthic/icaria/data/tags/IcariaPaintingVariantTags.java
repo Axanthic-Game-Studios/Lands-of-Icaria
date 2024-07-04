@@ -1,7 +1,7 @@
 package com.axanthic.icaria.data.tags;
 
+import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaPaintingVariants;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
@@ -46,10 +46,10 @@ public class IcariaPaintingVariantTags extends PaintingVariantTagsProvider {
 	}
 
 	public static TagKey<PaintingVariant> cTag(String pName) {
-		return IcariaPaintingVariantTags.bind(IcariaInfo.C + ":" + pName);
+		return IcariaPaintingVariantTags.bind(IcariaIdents.C + ":" + pName);
 	}
 
 	public static TagKey<PaintingVariant> icariaTag(String pName) {
-		return IcariaPaintingVariantTags.bind(IcariaInfo.ID + ":" + pName);
+		return IcariaPaintingVariantTags.bind(IcariaIdents.ID + ":" + pName);
 	}
 }

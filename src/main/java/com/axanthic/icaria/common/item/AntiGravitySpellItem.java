@@ -5,7 +5,10 @@ import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.EntityType;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class AntiGravitySpellItem extends SpellItem {
     public AntiGravitySpellItem(Properties pProperties, float pInaccuracy, float pVelocity, int pColor, int pCooldown) {

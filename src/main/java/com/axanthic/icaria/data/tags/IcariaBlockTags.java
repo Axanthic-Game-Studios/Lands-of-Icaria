@@ -1,7 +1,6 @@
 package com.axanthic.icaria.data.tags;
 
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
@@ -1607,10 +1606,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	}
 
 	public static TagKey<Block> cTag(String pName) {
-		return IcariaBlockTags.bind(IcariaInfo.C + ":" + pName);
+		return IcariaBlockTags.bind(IcariaIdents.C + ":" + pName);
 	}
 
 	public static TagKey<Block> icariaTag(String pName) {
-		return IcariaBlockTags.bind(IcariaInfo.ID + ":" + pName);
+		return IcariaBlockTags.bind(IcariaIdents.ID + ":" + pName);
 	}
 }

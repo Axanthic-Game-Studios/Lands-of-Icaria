@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
-
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -25,15 +23,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBiomes {
-	public static final ResourceKey<Biome> FOREST = IcariaBiomes.registerKey("forest");
-	public static final ResourceKey<Biome> FOREST_PLATEAU = IcariaBiomes.registerKey("forest_plateau");
-	public static final ResourceKey<Biome> SCRUBLAND = IcariaBiomes.registerKey("scrubland");
-	public static final ResourceKey<Biome> SCRUBLAND_PLATEAU = IcariaBiomes.registerKey("scrubland_plateau");
-	public static final ResourceKey<Biome> STEPPE = IcariaBiomes.registerKey("steppe");
-	public static final ResourceKey<Biome> STEPPE_PLATEAU = IcariaBiomes.registerKey("steppe_plateau");
-	public static final ResourceKey<Biome> DESERT = IcariaBiomes.registerKey("desert");
-	public static final ResourceKey<Biome> DESERT_PLATEAU = IcariaBiomes.registerKey("desert_plateau");
-	public static final ResourceKey<Biome> VOID = IcariaBiomes.registerKey("void");
+	public static final ResourceKey<Biome> FOREST = IcariaBiomes.createKey("forest");
+	public static final ResourceKey<Biome> FOREST_PLATEAU = IcariaBiomes.createKey("forest_plateau");
+	public static final ResourceKey<Biome> SCRUBLAND = IcariaBiomes.createKey("scrubland");
+	public static final ResourceKey<Biome> SCRUBLAND_PLATEAU = IcariaBiomes.createKey("scrubland_plateau");
+	public static final ResourceKey<Biome> STEPPE = IcariaBiomes.createKey("steppe");
+	public static final ResourceKey<Biome> STEPPE_PLATEAU = IcariaBiomes.createKey("steppe_plateau");
+	public static final ResourceKey<Biome> DESERT = IcariaBiomes.createKey("desert");
+	public static final ResourceKey<Biome> DESERT_PLATEAU = IcariaBiomes.createKey("desert_plateau");
+	public static final ResourceKey<Biome> VOID = IcariaBiomes.createKey("void");
 
 	public static void bootstrap(BootstrapContext<Biome> pContext) {
 		var configuredCarvers = pContext.lookup(Registries.CONFIGURED_CARVER);
@@ -476,7 +474,7 @@ public class IcariaBiomes {
 		return new Biome.BiomeBuilder().downfall(0.0F).hasPrecipitation(false).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
-	public static ResourceKey<Biome> registerKey(String pName) {
-		return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(IcariaInfo.ID, pName));
+	public static ResourceKey<Biome> createKey(String pName) {
+		return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
 	}
 }

@@ -1,7 +1,8 @@
-package com.axanthic.icaria.common.entity;
+package com.axanthic.icaria.common.block.entity;
 
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -11,15 +12,18 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
 import net.neoforged.neoforge.items.IItemHandler;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class KilnRedirectorBlockEntity extends BlockEntity {
     public KilnRedirectorBlockEntity(BlockPos pPos, BlockState pState) {
         super(IcariaBlockEntityTypes.KILN_REDIRECTOR.get(), pPos, pState);
     }
 
-    public static @Nullable IItemHandler getCapability(@Nonnull KilnRedirectorBlockEntity pBlockEntity, Direction pDirection) {
+    public static @Nullable IItemHandler getCapability(KilnRedirectorBlockEntity pBlockEntity, Direction pDirection) {
         var blockPos = pBlockEntity.getBlockPos();
         var level = pBlockEntity.getLevel();
         if (level != null) {

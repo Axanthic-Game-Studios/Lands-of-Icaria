@@ -2,7 +2,6 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -222,7 +221,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
             entity.startRiding(pPlayer);
             pLevel.addFreshEntity(entity);
             pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.FULL_RACK, false).setValue(IcariaBlockStateProperties.LOADED_BARREL, false).setValue(IcariaBlockStateProperties.TAPPED_BARREL, false));
-            pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaInfo.ID + "." + "barrel"), true);
+            pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaIdents.ID + "." + "barrel"), true);
             return InteractionResult.PASS;
         }
     }

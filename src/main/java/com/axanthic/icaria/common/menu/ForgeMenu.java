@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.menu;
 
-import com.axanthic.icaria.common.entity.ForgeBlockEntity;
+import com.axanthic.icaria.common.block.entity.ForgeBlockEntity;
 import com.axanthic.icaria.common.handler.slot.ForgeOutputSlotItemHandler;
 import com.axanthic.icaria.common.registry.IcariaMenus;
 

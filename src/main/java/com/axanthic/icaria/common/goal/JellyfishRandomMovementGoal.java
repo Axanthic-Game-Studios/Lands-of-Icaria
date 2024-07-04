@@ -2,8 +2,14 @@ package com.axanthic.icaria.common.goal;
 
 import com.axanthic.icaria.common.entity.JellyfishEntity;
 
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.ai.goal.Goal;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class JellyfishRandomMovementGoal extends Goal {
     public final JellyfishEntity entity;
