@@ -416,36 +416,36 @@ public class IcariaItemTags extends ItemTagsProvider {
 		this.tag(Tags.Items.DYED_MAGENTA).add(IcariaItems.MAGENTA_STORAGE_VASE.get());
 		this.tag(Tags.Items.DYED_PINK).add(IcariaItems.PINK_STORAGE_VASE.get());
 
-		this.tag(Tags.Items.FOODS_FRUITS)
+		this.tag(Tags.Items.FOODS_FRUIT)
 			.add(IcariaItems.PHYSALIS.get())
 			.add(IcariaItems.LAUREL_CHERRY.get());
 
-		this.tag(Tags.Items.FOODS_VEGETABLES)
+		this.tag(Tags.Items.FOODS_VEGETABLE)
 			.add(IcariaItems.BLACK_OLIVES.get())
 			.add(IcariaItems.GREEN_OLIVES.get())
 			.add(IcariaItems.GARLIC.get())
 			.add(IcariaItems.ONION.get());
 
-		this.tag(Tags.Items.FOODS_BERRIES)
+		this.tag(Tags.Items.FOODS_BERRY)
 			.add(IcariaItems.VINEBERRIES.get())
 			.add(IcariaItems.STRAWBERRIES.get());
 
-		this.tag(Tags.Items.FOODS_BREADS)
+		this.tag(Tags.Items.FOODS_BREAD)
 			.add(IcariaItems.SPELT_BREAD.get());
 
-		this.tag(Tags.Items.FOODS_RAW_MEATS)
+		this.tag(Tags.Items.FOODS_RAW_MEAT)
 			.add(IcariaItems.RAW_AETERNAE_MEAT.get())
 			.add(IcariaItems.RAW_CATOBLEPAS_MEAT.get())
 			.add(IcariaItems.RAW_CERVER_MEAT.get())
 			.add(IcariaItems.RAW_SOW_MEAT.get());
 
-		this.tag(Tags.Items.FOODS_COOKED_MEATS)
+		this.tag(Tags.Items.FOODS_COOKED_MEAT)
 			.add(IcariaItems.COOKED_AETERNAE_MEAT.get())
 			.add(IcariaItems.COOKED_CATOBLEPAS_MEAT.get())
 			.add(IcariaItems.COOKED_CERVER_MEAT.get())
 			.add(IcariaItems.COOKED_SOW_MEAT.get());
 
-		this.tag(Tags.Items.FOODS_SOUPS)
+		this.tag(Tags.Items.FOODS_SOUP)
 			.add(IcariaItems.ONION_SOUP.get())
 			.add(IcariaItems.AETERNAE_STEW.get())
 			.add(IcariaItems.CATOBLEPAS_STEW.get())
