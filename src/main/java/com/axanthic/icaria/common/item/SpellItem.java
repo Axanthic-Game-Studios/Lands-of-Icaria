@@ -41,8 +41,8 @@ public class SpellItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         var itemStack = pPlayer.getItemInHand(pUsedHand);
+        pPlayer.playSound(SoundEvents.SNOWBALL_THROW);
         if (!pLevel.isClientSide()) {
-            pPlayer.playSound(SoundEvents.SNOWBALL_THROW);
             if (this.getEntity() != null) {
                 if (this.getEntity().create(pLevel) instanceof SpellEntity spellEntity) {
                     spellEntity.moveTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
