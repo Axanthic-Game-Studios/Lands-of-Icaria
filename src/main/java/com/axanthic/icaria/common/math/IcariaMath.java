@@ -1,7 +1,8 @@
 package com.axanthic.icaria.common.math;
 
+import com.axanthic.icaria.common.registry.IcariaValues;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.util.Mth;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -10,6 +11,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaMath {
     public static float rad(float pDeg) {
-        return pDeg * Mth.PI / 180.0F;
+        return pDeg * IcariaValues.DEG_2_RAD;
     }
 }

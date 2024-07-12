@@ -242,6 +242,6 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
 
     @Override
     public Vec3 getPassengerAttachmentPoint(Entity pEntity, EntityDimensions pDimensions, float pScale) {
-        return new Vec3(0.0D, pDimensions.height(), 0.9375D).yRot(IcariaMath.rad(this.getYHeadRot() * -1));
+        return new Vec3(0.0D, pDimensions.height(), 0.9375D).yRot(IcariaMath.rad(-this.getYHeadRot()));
     }
 }
