@@ -84,7 +84,9 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 
 			if (aboveState.is(block)) {
 				if (pRandom.nextInt(10) == 0) {
-					((BonemealableBlock) block).performBonemeal(pLevel, pRandom, abovePos, aboveState);
+					if (block instanceof BonemealableBlock bonemealableBlock) {
+						bonemealableBlock.performBonemeal(pLevel, pRandom, abovePos, aboveState);
+					}
 				}
 			}
 
