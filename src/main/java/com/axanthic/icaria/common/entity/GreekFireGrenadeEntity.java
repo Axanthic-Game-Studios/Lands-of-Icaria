@@ -8,6 +8,7 @@ import com.axanthic.icaria.common.util.IcariaPortalShape;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
@@ -65,7 +66,7 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
                 var negPos = BlockPos.containing(this.getX() - i, this.getY() - i, this.getZ() - i);
                 var posPos = BlockPos.containing(this.getX() + i, this.getY() + i, this.getZ() + i);
                 for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-                    if (this.random.nextInt(10) == 0) {
+                    if (this.getRandom().nextInt(10) == 0) {
                         if (this.level().getBlockState(blockPos).isAir()) {
                             if (this.level().getBlockState(blockPos.below()).isSolidRender(this.level(), blockPos.below())) {
                                 this.level().setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
@@ -74,6 +75,14 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
                     }
                 }
             }
+        }
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.getRandom().nextBoolean()) {
+            this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
         }
     }
 

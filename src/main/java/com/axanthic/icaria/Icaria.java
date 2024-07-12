@@ -50,6 +50,7 @@ public class Icaria {
 		IcariaWoodDecoItems.ITEMS.register(pBus);
 		IcariaMenus.MENUS.register(pBus);
 		IcariaMobEffects.MOB_EFFECTS.register(pBus);
+		IcariaParticleTypes.PARTICLE_TYPES.register(pBus);
 		IcariaPoiTypes.POI_TYPES.register(pBus);
 		IcariaPotions.POTIONS.register(pBus);
 		IcariaRecipeSerializers.RECIPE_SERIALIZERS.register(pBus);

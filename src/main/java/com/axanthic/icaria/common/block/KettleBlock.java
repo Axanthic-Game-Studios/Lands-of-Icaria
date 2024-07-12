@@ -99,13 +99,14 @@ public class KettleBlock extends BaseEntityBlock {
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
             if (pState.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.ACTIVE) {
-                pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPos.getX() + this.getX(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 1.125D, pPos.getZ() + this.getZ(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.05D, 0.0D);
+                pLevel.addParticle(IcariaParticleTypes.STEAM.get(), pPos.getX() + this.getX(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.875D, pPos.getZ() + this.getZ(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
                 pLevel.addParticle(ParticleTypes.SMALL_FLAME, pPos.getX() + this.getX(pState) + pRandom.nextDouble() / 4.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.125D, pPos.getZ() + this.getZ(pState) + pRandom.nextDouble() / 4.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
                 if (IcariaConfig.KETTLE_SOUNDS.get() && pRandom.nextDouble() < 0.1D) {
                     pLevel.playLocalSound(pPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
                 }
             } else if (pState.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.BREWING) {
-                pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPos.getX() + this.getX(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 1.125D, pPos.getZ() + this.getZ(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.05D, 0.0D);
+                pLevel.addParticle(IcariaParticleTypes.BUBBLE.get(), pPos.getX() + this.getX(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.75D, pPos.getZ() + this.getZ(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+                pLevel.addParticle(IcariaParticleTypes.STEAM.get(), pPos.getX() + this.getX(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.875D, pPos.getZ() + this.getZ(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
                 pLevel.addParticle(ParticleTypes.SMALL_FLAME, pPos.getX() + this.getX(pState) + pRandom.nextDouble() / 4.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.125D, pPos.getZ() + this.getZ(pState) + pRandom.nextDouble() / 4.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
                 if (IcariaConfig.KETTLE_SOUNDS.get() && pRandom.nextDouble() < 0.1D) {
                     pLevel.playLocalSound(pPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);

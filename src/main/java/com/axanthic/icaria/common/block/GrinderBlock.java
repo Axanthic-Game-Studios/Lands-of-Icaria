@@ -65,6 +65,38 @@ public class GrinderBlock extends BaseEntityBlock {
 		return true;
 	}
 
+	public double getX(BlockState pState) {
+		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case EAST -> 1.25D;
+			case WEST -> -0.25D;
+			default -> 0.5D;
+		};
+	}
+
+	public double getZ(BlockState pState) {
+		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> -0.25D;
+			case SOUTH -> 1.25D;
+			default -> 0.5D;
+		};
+	}
+
+	public double getSpeedX(BlockState pState) {
+		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case EAST -> 0.25D;
+			case WEST -> -0.25D;
+			default -> 0.0D;
+		};
+	}
+
+	public double getSpeedZ(BlockState pState) {
+		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> -0.25D;
+			case SOUTH -> 0.25D;
+			default -> 0.0D;
+		};
+	}
+
 	@Override
 	public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
 		return pLevel.getBlockEntity(GrinderBlock.getBlockEntityPosition(pState, pPos)) instanceof GrinderBlockEntity blockEntity ? blockEntity.getComparatorInput() : 0;
@@ -77,6 +109,7 @@ public class GrinderBlock extends BaseEntityBlock {
 				var itemStack = blockEntity.inputHandler.getStackInSlot(0);
 				if (!itemStack.isEmpty()) {
 					pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pPos.getX() + 0.5D, pPos.getY() + 1.0D, pPos.getZ() + 0.5D, 0.0D, 0.25D, 0.0D);
+					pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pPos.getX() + this.getX(pState), pPos.getY() + 0.25D, pPos.getZ() + this.getZ(pState), this.getSpeedX(pState), -0.25D, this.getSpeedZ(pState));
 				}
 			}
 		}

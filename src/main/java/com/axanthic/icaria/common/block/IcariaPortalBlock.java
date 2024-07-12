@@ -105,6 +105,25 @@ public class IcariaPortalBlock extends Block implements Portal {
         if (pRandom.nextInt(100) == 0) {
             pLevel.playLocalSound(pPos.getX() + 0.5D, pPos.getY() + 0.5D, pPos.getZ() + 0.5D, SoundEvents.PORTAL_AMBIENT, SoundSource.BLOCKS, 0.5F, pRandom.nextFloat() * 0.4F + 0.8F, false);
         }
+
+        for (int i = 0; i < 4; i++) {
+            double d0 = pPos.getX() + pRandom.nextDouble();
+            double d1 = pPos.getY() + pRandom.nextDouble();
+            double d2 = pPos.getZ() + pRandom.nextDouble();
+            double d3 = (pRandom.nextFloat() - 0.5D) * 0.5D;
+            double d4 = (pRandom.nextFloat() - 0.5D) * 0.5D;
+            double d5 = (pRandom.nextFloat() - 0.5D) * 0.5D;
+            int j = pRandom.nextInt(2) * 2 - 1;
+            if (!pLevel.getBlockState(pPos.west()).is(this) && !pLevel.getBlockState(pPos.east()).is(this)) {
+                d0 = pPos.getX() + 0.5D + 0.25D * j;
+                d3 = pRandom.nextFloat() * 2.0D * j;
+            } else {
+                d2 = pPos.getZ() + 0.5D + 0.25D * j;
+                d5 = pRandom.nextFloat() * 2.0D * j;
+            }
+
+            pLevel.addParticle(IcariaParticleTypes.PORTAL.get(), d0, d1, d2, d3, d4, d5);
+        }
     }
 
     @Override

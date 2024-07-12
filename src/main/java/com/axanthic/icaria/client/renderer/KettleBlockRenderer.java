@@ -146,7 +146,7 @@ public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntit
 			TextureAtlasSprite sprite;
 
 			if (state.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.BREWING) {
-				height = 0.6875F + (float) pBlockEntity.progress / pBlockEntity.maxProgress * 0.09375F;
+				height = 0.6875F + (float) pBlockEntity.progress / pBlockEntity.maxProgress * 0.0625F;
 				r = Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (startColor >> 16 & 255) / 255.0F, (endColor >> 16 & 255) / 255.0F);
 				g = Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (startColor >> 8 & 255) / 255.0F, (endColor >> 8 & 255) / 255.0F);
 				b = Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (startColor & 255) / 255.0F, (endColor & 255) / 255.0F);

@@ -83,6 +83,24 @@ public class ForgeBlock extends BaseEntityBlock {
         };
     }
 
+    public double getLavaX(BlockState pState) {
+        return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+            case NORTH -> -0.5625D;
+            case EAST -> 0.3125D;
+            case SOUTH -> 1.5625D;
+            default -> 0.6875D;
+        };
+    }
+
+    public double getLavaZ(BlockState pState) {
+        return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+            case NORTH -> 0.6875D;
+            case EAST -> -0.5625D;
+            case SOUTH -> 0.3125D;
+            default -> 1.5625D;
+        };
+    }
+
     public double getSmokeX(BlockState pState) {
         return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
             case NORTH, EAST -> 0.0D;
@@ -113,13 +131,16 @@ public class ForgeBlock extends BaseEntityBlock {
             if (pState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_LEFT) {
                 pLevel.addParticle(ParticleTypes.LARGE_SMOKE, pPos.getX() + this.getSmokeX(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 2.0D, pPos.getZ() + this.getSmokeZ(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
                 pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + this.getSmokeX(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 2.0D, pPos.getZ() + this.getSmokeZ(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-                if (IcariaConfig.FORGE_SOUNDS.get() && pRandom.nextDouble() < 0.1D) {
-                    pLevel.playLocalSound(pPos.getX() + this.getFlameX(pState), pPos.getY() + 1.0D, pPos.getZ() + this.getFlameZ(pState), SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
-                }
-
                 if (IcariaConfig.RENDER_FORGE_ITEMS.get()) {
                     pLevel.addParticle(ParticleTypes.FLAME, pPos.getX() + this.getFlameX(pState) + pRandom.nextDouble() / 4.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.25D, pPos.getZ() + this.getFlameZ(pState) + pRandom.nextDouble() / 4.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
                     pLevel.addParticle(ParticleTypes.SMALL_FLAME, pPos.getX() + this.getFlameX(pState) + pRandom.nextDouble() / 4.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.25D, pPos.getZ() + this.getFlameZ(pState) + pRandom.nextDouble() / 4.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+                }
+
+                if (pRandom.nextDouble() < 0.1D) {
+                    pLevel.addParticle(ParticleTypes.LAVA, pPos.getX() + this.getLavaX(pState), pPos.getY() + 0.8125D, pPos.getZ() + this.getLavaZ(pState), 0.0D, 0.0D, 0.0D);
+                    if (IcariaConfig.FORGE_SOUNDS.get()) {
+                        pLevel.playLocalSound(pPos.getX() + this.getFlameX(pState), pPos.getY() + 1.0D, pPos.getZ() + this.getFlameZ(pState), SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+                    }
                 }
             }
         }

@@ -2,6 +2,9 @@ package com.axanthic.icaria.client.events;
 
 import com.axanthic.icaria.client.effects.IcariaSpecialEffects;
 import com.axanthic.icaria.client.model.*;
+import com.axanthic.icaria.client.particle.provider.IcariaBubbleParticleProvider;
+import com.axanthic.icaria.client.particle.provider.IcariaPortalParticleProvider;
+import com.axanthic.icaria.client.particle.provider.IcariaSteamParticleProvider;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
 import com.axanthic.icaria.client.renderer.*;
 import com.axanthic.icaria.client.screen.ForgeScreen;
@@ -30,6 +33,7 @@ import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -455,6 +459,13 @@ public class ClientModEvents {
 		pEvent.register(IcariaMenus.GRINDER.get(), GrinderScreen::new);
 		pEvent.register(IcariaMenus.KILN.get(), KilnScreen::new);
 		pEvent.register(IcariaMenus.STORAGE_VASE.get(), StorageVaseScreen::new);
+	}
+
+	@SubscribeEvent
+	public static void onRegisterParticleProviders(RegisterParticleProvidersEvent pEvent) {
+		pEvent.registerSpriteSet(IcariaParticleTypes.BUBBLE.get(), IcariaBubbleParticleProvider::new);
+		pEvent.registerSpriteSet(IcariaParticleTypes.PORTAL.get(), IcariaPortalParticleProvider::new);
+		pEvent.registerSpriteSet(IcariaParticleTypes.STEAM.get(), IcariaSteamParticleProvider::new);
 	}
 
 	public static void grassColor(Block pBlock) {
