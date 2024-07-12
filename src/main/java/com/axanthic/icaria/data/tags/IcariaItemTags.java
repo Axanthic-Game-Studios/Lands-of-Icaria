@@ -539,6 +539,40 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.SIDEROS_TOOLS.bident.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.bident.get());
 
+		this.tag(Tags.Items.MELEE_WEAPON_TOOLS)
+			.add(IcariaItems.CHERT_TOOLS.sword.get())
+			.add(IcariaItems.CHERT_TOOLS.axe.get())
+			.add(IcariaItems.CHALKOS_TOOLS.sword.get())
+			.add(IcariaItems.CHALKOS_TOOLS.axe.get())
+			.add(IcariaItems.KASSITEROS_TOOLS.sword.get())
+			.add(IcariaItems.KASSITEROS_TOOLS.axe.get())
+			.add(IcariaItems.ORICHALCUM_TOOLS.sword.get())
+			.add(IcariaItems.ORICHALCUM_TOOLS.axe.get())
+			.add(IcariaItems.VANADIUMSTEEL_TOOLS.sword.get())
+			.add(IcariaItems.VANADIUMSTEEL_TOOLS.axe.get())
+			.add(IcariaItems.SIDEROS_TOOLS.sword.get())
+			.add(IcariaItems.SIDEROS_TOOLS.axe.get())
+			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.sword.get())
+			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.axe.get());
+
+		this.tag(Tags.Items.RANGED_WEAPON_TOOLS)
+			.add(IcariaItems.CHERT_TOOLS.bident.get())
+			.add(IcariaItems.CHALKOS_TOOLS.bident.get())
+			.add(IcariaItems.KASSITEROS_TOOLS.bident.get())
+			.add(IcariaItems.ORICHALCUM_TOOLS.bident.get())
+			.add(IcariaItems.VANADIUMSTEEL_TOOLS.bident.get())
+			.add(IcariaItems.SIDEROS_TOOLS.bident.get())
+			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.bident.get());
+
+		this.tag(Tags.Items.MINING_TOOL_TOOLS)
+			.add(IcariaItems.CHERT_TOOLS.pickaxe.get())
+			.add(IcariaItems.CHALKOS_TOOLS.pickaxe.get())
+			.add(IcariaItems.KASSITEROS_TOOLS.pickaxe.get())
+			.add(IcariaItems.ORICHALCUM_TOOLS.pickaxe.get())
+			.add(IcariaItems.VANADIUMSTEEL_TOOLS.pickaxe.get())
+			.add(IcariaItems.SIDEROS_TOOLS.pickaxe.get())
+			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.pickaxe.get());
+
 		this.tag(IcariaItemTags.CROPS_SPELT).add(IcariaItems.SPELT.get());
 		this.tag(IcariaItemTags.CROPS_STRAWBERRIES).add(IcariaItems.STRAWBERRIES.get());
 		this.tag(IcariaItemTags.CROPS_GARLIC).add(IcariaItems.GARLIC.get());
