@@ -11,7 +11,6 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
@@ -107,65 +106,65 @@ public class IcariaTemplatePools {
 		pContext.register(IcariaTemplatePools.FOREST_PRISTINE_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.FOREST_PRISTINE_DOLOMITE), lists.getOrThrow(IcariaProcessorLists.FOREST_PRISTINE_SILKSTONE), lists.getOrThrow(IcariaProcessorLists.FOREST_PRISTINE_SUNSTONE)));
 		pContext.register(IcariaTemplatePools.FOREST_RUINED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.FOREST_RUINED_DOLOMITE), lists.getOrThrow(IcariaProcessorLists.FOREST_RUINED_SILKSTONE), lists.getOrThrow(IcariaProcessorLists.FOREST_RUINED_SUNSTONE)));
 
-		pContext.register(IcariaTemplatePools.FOREST_ERODED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomes.FOREST, IcariaVillageTypes.ERODED));
-		pContext.register(IcariaTemplatePools.FOREST_PRISTINE_CENTER, IcariaTemplatePools.center(empty, IcariaBiomes.FOREST, IcariaVillageTypes.PRISTINE));
-		pContext.register(IcariaTemplatePools.FOREST_RUINED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomes.FOREST, IcariaVillageTypes.RUINED));
+		pContext.register(IcariaTemplatePools.FOREST_ERODED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomeTypes.FOREST, IcariaVillageTypes.ERODED));
+		pContext.register(IcariaTemplatePools.FOREST_PRISTINE_CENTER, IcariaTemplatePools.center(empty, IcariaBiomeTypes.FOREST, IcariaVillageTypes.PRISTINE));
+		pContext.register(IcariaTemplatePools.FOREST_RUINED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomeTypes.FOREST, IcariaVillageTypes.RUINED));
 
-		pContext.register(IcariaTemplatePools.FOREST_ERODED_STREET, IcariaTemplatePools.street(empty, IcariaBiomes.FOREST, IcariaVillageTypes.ERODED));
-		pContext.register(IcariaTemplatePools.FOREST_PRISTINE_STREET, IcariaTemplatePools.street(empty, IcariaBiomes.FOREST, IcariaVillageTypes.PRISTINE));
-		pContext.register(IcariaTemplatePools.FOREST_RUINED_STREET, IcariaTemplatePools.street(empty, IcariaBiomes.FOREST, IcariaVillageTypes.RUINED));
+		pContext.register(IcariaTemplatePools.FOREST_ERODED_STREET, IcariaTemplatePools.street(empty, IcariaBiomeTypes.FOREST, IcariaVillageTypes.ERODED));
+		pContext.register(IcariaTemplatePools.FOREST_PRISTINE_STREET, IcariaTemplatePools.street(empty, IcariaBiomeTypes.FOREST, IcariaVillageTypes.PRISTINE));
+		pContext.register(IcariaTemplatePools.FOREST_RUINED_STREET, IcariaTemplatePools.street(empty, IcariaBiomeTypes.FOREST, IcariaVillageTypes.RUINED));
 
-		pContext.register(IcariaTemplatePools.FOREST_ERODED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.FOREST, IcariaVillageTypes.ERODED));
-		pContext.register(IcariaTemplatePools.FOREST_PRISTINE_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.FOREST, IcariaVillageTypes.PRISTINE));
-		pContext.register(IcariaTemplatePools.FOREST_RUINED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.FOREST, IcariaVillageTypes.RUINED));
+		pContext.register(IcariaTemplatePools.FOREST_ERODED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomeTypes.FOREST, IcariaVillageTypes.ERODED));
+		pContext.register(IcariaTemplatePools.FOREST_PRISTINE_WALK, IcariaTemplatePools.walk(empty, IcariaBiomeTypes.FOREST, IcariaVillageTypes.PRISTINE));
+		pContext.register(IcariaTemplatePools.FOREST_RUINED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomeTypes.FOREST, IcariaVillageTypes.RUINED));
 
 		pContext.register(IcariaTemplatePools.SCRUBLAND_ERODED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_ERODED_SUNSTONE), lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_ERODED_VOIDSHALE), lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_ERODED_YELLOWSTONE)));
 		pContext.register(IcariaTemplatePools.SCRUBLAND_PRISTINE_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_PRISTINE_SUNSTONE), lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_PRISTINE_VOIDSHALE), lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_PRISTINE_YELLOWSTONE)));
 		pContext.register(IcariaTemplatePools.SCRUBLAND_RUINED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_RUINED_SUNSTONE), lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_RUINED_VOIDSHALE), lists.getOrThrow(IcariaProcessorLists.SCRUBLAND_RUINED_YELLOWSTONE)));
 
-		pContext.register(IcariaTemplatePools.SCRUBLAND_ERODED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomes.SCRUBLAND, IcariaVillageTypes.ERODED));
-		pContext.register(IcariaTemplatePools.SCRUBLAND_PRISTINE_CENTER, IcariaTemplatePools.center(empty, IcariaBiomes.SCRUBLAND, IcariaVillageTypes.PRISTINE));
-		pContext.register(IcariaTemplatePools.SCRUBLAND_RUINED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomes.SCRUBLAND, IcariaVillageTypes.RUINED));
+		pContext.register(IcariaTemplatePools.SCRUBLAND_ERODED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomeTypes.SCRUBLAND, IcariaVillageTypes.ERODED));
+		pContext.register(IcariaTemplatePools.SCRUBLAND_PRISTINE_CENTER, IcariaTemplatePools.center(empty, IcariaBiomeTypes.SCRUBLAND, IcariaVillageTypes.PRISTINE));
+		pContext.register(IcariaTemplatePools.SCRUBLAND_RUINED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomeTypes.SCRUBLAND, IcariaVillageTypes.RUINED));
 
-		pContext.register(IcariaTemplatePools.SCRUBLAND_ERODED_STREET, IcariaTemplatePools.street(empty, IcariaBiomes.SCRUBLAND, IcariaVillageTypes.ERODED));
-		pContext.register(IcariaTemplatePools.SCRUBLAND_PRISTINE_STREET, IcariaTemplatePools.street(empty, IcariaBiomes.SCRUBLAND, IcariaVillageTypes.PRISTINE));
-		pContext.register(IcariaTemplatePools.SCRUBLAND_RUINED_STREET, IcariaTemplatePools.street(empty, IcariaBiomes.SCRUBLAND, IcariaVillageTypes.RUINED));
+		pContext.register(IcariaTemplatePools.SCRUBLAND_ERODED_STREET, IcariaTemplatePools.street(empty, IcariaBiomeTypes.SCRUBLAND, IcariaVillageTypes.ERODED));
+		pContext.register(IcariaTemplatePools.SCRUBLAND_PRISTINE_STREET, IcariaTemplatePools.street(empty, IcariaBiomeTypes.SCRUBLAND, IcariaVillageTypes.PRISTINE));
+		pContext.register(IcariaTemplatePools.SCRUBLAND_RUINED_STREET, IcariaTemplatePools.street(empty, IcariaBiomeTypes.SCRUBLAND, IcariaVillageTypes.RUINED));
 
-		pContext.register(IcariaTemplatePools.SCRUBLAND_ERODED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.SCRUBLAND, IcariaVillageTypes.ERODED));
-		pContext.register(IcariaTemplatePools.SCRUBLAND_PRISTINE_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.SCRUBLAND, IcariaVillageTypes.PRISTINE));
-		pContext.register(IcariaTemplatePools.SCRUBLAND_RUINED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.SCRUBLAND, IcariaVillageTypes.RUINED));
+		pContext.register(IcariaTemplatePools.SCRUBLAND_ERODED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomeTypes.SCRUBLAND, IcariaVillageTypes.ERODED));
+		pContext.register(IcariaTemplatePools.SCRUBLAND_PRISTINE_WALK, IcariaTemplatePools.walk(empty, IcariaBiomeTypes.SCRUBLAND, IcariaVillageTypes.PRISTINE));
+		pContext.register(IcariaTemplatePools.SCRUBLAND_RUINED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomeTypes.SCRUBLAND, IcariaVillageTypes.RUINED));
 
 		pContext.register(IcariaTemplatePools.STEPPE_ERODED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.STEPPE_ERODED_GRAINITE), lists.getOrThrow(IcariaProcessorLists.STEPPE_ERODED_MARL), lists.getOrThrow(IcariaProcessorLists.STEPPE_ERODED_YELLOWSTONE)));
 		pContext.register(IcariaTemplatePools.STEPPE_PRISTINE_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.STEPPE_PRISTINE_GRAINITE), lists.getOrThrow(IcariaProcessorLists.STEPPE_PRISTINE_MARL), lists.getOrThrow(IcariaProcessorLists.STEPPE_PRISTINE_YELLOWSTONE)));
 		pContext.register(IcariaTemplatePools.STEPPE_RUINED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.STEPPE_RUINED_GRAINITE), lists.getOrThrow(IcariaProcessorLists.STEPPE_RUINED_MARL), lists.getOrThrow(IcariaProcessorLists.STEPPE_RUINED_YELLOWSTONE)));
 
-		pContext.register(IcariaTemplatePools.STEPPE_ERODED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomes.STEPPE, IcariaVillageTypes.ERODED));
-		pContext.register(IcariaTemplatePools.STEPPE_PRISTINE_CENTER, IcariaTemplatePools.center(empty, IcariaBiomes.STEPPE, IcariaVillageTypes.PRISTINE));
-		pContext.register(IcariaTemplatePools.STEPPE_RUINED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomes.STEPPE, IcariaVillageTypes.RUINED));
+		pContext.register(IcariaTemplatePools.STEPPE_ERODED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomeTypes.STEPPE, IcariaVillageTypes.ERODED));
+		pContext.register(IcariaTemplatePools.STEPPE_PRISTINE_CENTER, IcariaTemplatePools.center(empty, IcariaBiomeTypes.STEPPE, IcariaVillageTypes.PRISTINE));
+		pContext.register(IcariaTemplatePools.STEPPE_RUINED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomeTypes.STEPPE, IcariaVillageTypes.RUINED));
 
-		pContext.register(IcariaTemplatePools.STEPPE_ERODED_STREET, IcariaTemplatePools.street(empty, IcariaBiomes.STEPPE, IcariaVillageTypes.ERODED));
-		pContext.register(IcariaTemplatePools.STEPPE_PRISTINE_STREET, IcariaTemplatePools.street(empty, IcariaBiomes.STEPPE, IcariaVillageTypes.PRISTINE));
-		pContext.register(IcariaTemplatePools.STEPPE_RUINED_STREET, IcariaTemplatePools.street(empty, IcariaBiomes.STEPPE, IcariaVillageTypes.RUINED));
+		pContext.register(IcariaTemplatePools.STEPPE_ERODED_STREET, IcariaTemplatePools.street(empty, IcariaBiomeTypes.STEPPE, IcariaVillageTypes.ERODED));
+		pContext.register(IcariaTemplatePools.STEPPE_PRISTINE_STREET, IcariaTemplatePools.street(empty, IcariaBiomeTypes.STEPPE, IcariaVillageTypes.PRISTINE));
+		pContext.register(IcariaTemplatePools.STEPPE_RUINED_STREET, IcariaTemplatePools.street(empty, IcariaBiomeTypes.STEPPE, IcariaVillageTypes.RUINED));
 
-		pContext.register(IcariaTemplatePools.STEPPE_ERODED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.STEPPE, IcariaVillageTypes.ERODED));
-		pContext.register(IcariaTemplatePools.STEPPE_PRISTINE_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.STEPPE, IcariaVillageTypes.PRISTINE));
-		pContext.register(IcariaTemplatePools.STEPPE_RUINED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.STEPPE, IcariaVillageTypes.RUINED));
+		pContext.register(IcariaTemplatePools.STEPPE_ERODED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomeTypes.STEPPE, IcariaVillageTypes.ERODED));
+		pContext.register(IcariaTemplatePools.STEPPE_PRISTINE_WALK, IcariaTemplatePools.walk(empty, IcariaBiomeTypes.STEPPE, IcariaVillageTypes.PRISTINE));
+		pContext.register(IcariaTemplatePools.STEPPE_RUINED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomeTypes.STEPPE, IcariaVillageTypes.RUINED));
 
 		pContext.register(IcariaTemplatePools.DESERT_ERODED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.DESERT_ERODED_BAETYL), lists.getOrThrow(IcariaProcessorLists.DESERT_ERODED_GRAINITE), lists.getOrThrow(IcariaProcessorLists.DESERT_ERODED_VOIDSHALE)));
 		pContext.register(IcariaTemplatePools.DESERT_PRISTINE_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.DESERT_PRISTINE_BAETYL), lists.getOrThrow(IcariaProcessorLists.DESERT_PRISTINE_GRAINITE), lists.getOrThrow(IcariaProcessorLists.DESERT_PRISTINE_VOIDSHALE)));
 		pContext.register(IcariaTemplatePools.DESERT_RUINED_BUILDING, IcariaTemplatePools.building(empty, lists.getOrThrow(IcariaProcessorLists.DESERT_RUINED_BAETYL), lists.getOrThrow(IcariaProcessorLists.DESERT_RUINED_GRAINITE), lists.getOrThrow(IcariaProcessorLists.DESERT_RUINED_VOIDSHALE)));
 
-		pContext.register(IcariaTemplatePools.DESERT_ERODED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomes.DESERT, IcariaVillageTypes.ERODED));
-		pContext.register(IcariaTemplatePools.DESERT_PRISTINE_CENTER, IcariaTemplatePools.center(empty, IcariaBiomes.DESERT, IcariaVillageTypes.PRISTINE));
-		pContext.register(IcariaTemplatePools.DESERT_RUINED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomes.DESERT, IcariaVillageTypes.RUINED));
+		pContext.register(IcariaTemplatePools.DESERT_ERODED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomeTypes.DESERT, IcariaVillageTypes.ERODED));
+		pContext.register(IcariaTemplatePools.DESERT_PRISTINE_CENTER, IcariaTemplatePools.center(empty, IcariaBiomeTypes.DESERT, IcariaVillageTypes.PRISTINE));
+		pContext.register(IcariaTemplatePools.DESERT_RUINED_CENTER, IcariaTemplatePools.center(empty, IcariaBiomeTypes.DESERT, IcariaVillageTypes.RUINED));
 
-		pContext.register(IcariaTemplatePools.DESERT_ERODED_STREET, IcariaTemplatePools.street(empty, IcariaBiomes.DESERT, IcariaVillageTypes.ERODED));
-		pContext.register(IcariaTemplatePools.DESERT_PRISTINE_STREET, IcariaTemplatePools.street(empty, IcariaBiomes.DESERT, IcariaVillageTypes.PRISTINE));
-		pContext.register(IcariaTemplatePools.DESERT_RUINED_STREET, IcariaTemplatePools.street(empty, IcariaBiomes.DESERT, IcariaVillageTypes.RUINED));
+		pContext.register(IcariaTemplatePools.DESERT_ERODED_STREET, IcariaTemplatePools.street(empty, IcariaBiomeTypes.DESERT, IcariaVillageTypes.ERODED));
+		pContext.register(IcariaTemplatePools.DESERT_PRISTINE_STREET, IcariaTemplatePools.street(empty, IcariaBiomeTypes.DESERT, IcariaVillageTypes.PRISTINE));
+		pContext.register(IcariaTemplatePools.DESERT_RUINED_STREET, IcariaTemplatePools.street(empty, IcariaBiomeTypes.DESERT, IcariaVillageTypes.RUINED));
 
-		pContext.register(IcariaTemplatePools.DESERT_ERODED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.DESERT, IcariaVillageTypes.ERODED));
-		pContext.register(IcariaTemplatePools.DESERT_PRISTINE_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.DESERT, IcariaVillageTypes.PRISTINE));
-		pContext.register(IcariaTemplatePools.DESERT_RUINED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomes.DESERT, IcariaVillageTypes.RUINED));
+		pContext.register(IcariaTemplatePools.DESERT_ERODED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomeTypes.DESERT, IcariaVillageTypes.ERODED));
+		pContext.register(IcariaTemplatePools.DESERT_PRISTINE_WALK, IcariaTemplatePools.walk(empty, IcariaBiomeTypes.DESERT, IcariaVillageTypes.PRISTINE));
+		pContext.register(IcariaTemplatePools.DESERT_RUINED_WALK, IcariaTemplatePools.walk(empty, IcariaBiomeTypes.DESERT, IcariaVillageTypes.RUINED));
 	}
 
 	public static StructureTemplatePool arachne(Holder<StructureTemplatePool> pFallback) {
@@ -499,39 +498,39 @@ public class IcariaTemplatePools {
 		), StructureTemplatePool.Projection.RIGID);
 	}
 
-	public static StructureTemplatePool center(Holder<StructureTemplatePool> pFallback, ResourceKey<Biome> pBiome, String pType) {
+	public static StructureTemplatePool center(Holder<StructureTemplatePool> pFallback, String pBiomeType, String pVillageType) {
 		return new StructureTemplatePool(pFallback, ImmutableList.of(
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "center"), 1)
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "center"), 1)
 		), StructureTemplatePool.Projection.TERRAIN_MATCHING);
 	}
 
-	public static StructureTemplatePool street(Holder<StructureTemplatePool> pFallback, ResourceKey<Biome> pBiome, String pType) {
+	public static StructureTemplatePool street(Holder<StructureTemplatePool> pFallback, String pBiomeType, String pVillageType) {
 		return new StructureTemplatePool(pFallback, ImmutableList.of(
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "street"), 4),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "street_stop"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "street_stop_arch"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "street_stop_junc"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "street_stop_long"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "street_turn"), 64),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "street_turn_half_long"), 16),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "street_turn_half_long_left"), 16),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "street_turn_semi"), 16),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "street_turn_semi_left"), 16),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "street_turn_semi_long"), 16),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "street_turn_semi_long_left"), 16)
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "street"), 4),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "street_stop"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "street_stop_arch"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "street_stop_junc"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "street_stop_long"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "street_turn"), 64),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "street_turn_half_long"), 16),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "street_turn_half_long_left"), 16),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "street_turn_semi"), 16),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "street_turn_semi_left"), 16),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "street_turn_semi_long"), 16),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "street_turn_semi_long_left"), 16)
 		), StructureTemplatePool.Projection.TERRAIN_MATCHING);
 	}
 
-	public static StructureTemplatePool walk(Holder<StructureTemplatePool> pFallback, ResourceKey<Biome> pBiome, String pType) {
+	public static StructureTemplatePool walk(Holder<StructureTemplatePool> pFallback, String pBiomeType, String pVillageType) {
 		return new StructureTemplatePool(pFallback, ImmutableList.of(
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "walk"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "walk_long"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "walk_turn"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "walk_turn_half"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "walk_turn_half_left"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "walk_turn_left"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "walk_turn_semi"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiome.location().getPath() + "/" + pType + "/" + "walk_turn_semi_left"), 1)
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "walk"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "walk_long"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "walk_turn"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "walk_turn_half"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "walk_turn_half_left"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "walk_turn_left"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "walk_turn_semi"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "villages" + "/" + pBiomeType + "/" + pVillageType + "/" + "walk_turn_semi_left"), 1)
 		), StructureTemplatePool.Projection.TERRAIN_MATCHING);
 	}
 

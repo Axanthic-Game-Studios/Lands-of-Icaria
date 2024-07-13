@@ -1,6 +1,9 @@
 {
   "values": [
+    "landsoficaria:desert_peak",
     "landsoficaria:desert",
-    "landsoficaria:desert_plateau"
+    "landsoficaria:arid_desert",
+    "landsoficaria:lost_desert",
+    "landsoficaria:deep_desert"
   ]
 }

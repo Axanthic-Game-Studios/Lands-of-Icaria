@@ -23,28 +23,60 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBiomes {
+	public static final ResourceKey<Biome> FOREST_PEAK = IcariaBiomes.createKey("forest_peak");
 	public static final ResourceKey<Biome> FOREST = IcariaBiomes.createKey("forest");
-	public static final ResourceKey<Biome> FOREST_PLATEAU = IcariaBiomes.createKey("forest_plateau");
+	public static final ResourceKey<Biome> LUSH_FOREST = IcariaBiomes.createKey("lush_forest");
+	public static final ResourceKey<Biome> LOST_FOREST = IcariaBiomes.createKey("lost_forest");
+	public static final ResourceKey<Biome> DEEP_FOREST = IcariaBiomes.createKey("deep_forest");
+
+	public static final ResourceKey<Biome> SCRUBLAND_PEAK = IcariaBiomes.createKey("scrubland_peak");
 	public static final ResourceKey<Biome> SCRUBLAND = IcariaBiomes.createKey("scrubland");
-	public static final ResourceKey<Biome> SCRUBLAND_PLATEAU = IcariaBiomes.createKey("scrubland_plateau");
+	public static final ResourceKey<Biome> LUSH_SCRUBLAND = IcariaBiomes.createKey("lush_scrubland");
+	public static final ResourceKey<Biome> LOST_SCRUBLAND = IcariaBiomes.createKey("lost_scrubland");
+	public static final ResourceKey<Biome> DEEP_SCRUBLAND = IcariaBiomes.createKey("deep_scrubland");
+
+	public static final ResourceKey<Biome> STEPPE_PEAK = IcariaBiomes.createKey("steppe_peak");
 	public static final ResourceKey<Biome> STEPPE = IcariaBiomes.createKey("steppe");
-	public static final ResourceKey<Biome> STEPPE_PLATEAU = IcariaBiomes.createKey("steppe_plateau");
+	public static final ResourceKey<Biome> LUSH_STEPPE = IcariaBiomes.createKey("lush_steppe");
+	public static final ResourceKey<Biome> LOST_STEPPE = IcariaBiomes.createKey("lost_steppe");
+	public static final ResourceKey<Biome> DEEP_STEPPE = IcariaBiomes.createKey("deep_steppe");
+
+	public static final ResourceKey<Biome> DESERT_PEAK = IcariaBiomes.createKey("desert_peak");
 	public static final ResourceKey<Biome> DESERT = IcariaBiomes.createKey("desert");
-	public static final ResourceKey<Biome> DESERT_PLATEAU = IcariaBiomes.createKey("desert_plateau");
+	public static final ResourceKey<Biome> ARID_DESERT = IcariaBiomes.createKey("arid_desert");
+	public static final ResourceKey<Biome> LOST_DESERT = IcariaBiomes.createKey("lost_desert");
+	public static final ResourceKey<Biome> DEEP_DESERT = IcariaBiomes.createKey("deep_desert");
+
 	public static final ResourceKey<Biome> VOID = IcariaBiomes.createKey("void");
 
 	public static void bootstrap(BootstrapContext<Biome> pContext) {
 		var configuredCarvers = pContext.lookup(Registries.CONFIGURED_CARVER);
 		var placedFeatures = pContext.lookup(Registries.PLACED_FEATURE);
 
+		pContext.register(IcariaBiomes.FOREST_PEAK, IcariaBiomes.forestBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.FOREST, IcariaBiomes.forestBiome(placedFeatures, configuredCarvers));
-		pContext.register(IcariaBiomes.FOREST_PLATEAU, IcariaBiomes.forestBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.LUSH_FOREST, IcariaBiomes.forestBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.LOST_FOREST, IcariaBiomes.forestBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.DEEP_FOREST, IcariaBiomes.forestBiome(placedFeatures, configuredCarvers));
+
+		pContext.register(IcariaBiomes.SCRUBLAND_PEAK, IcariaBiomes.scrublandBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.SCRUBLAND, IcariaBiomes.scrublandBiome(placedFeatures, configuredCarvers));
-		pContext.register(IcariaBiomes.SCRUBLAND_PLATEAU, IcariaBiomes.scrublandBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.LUSH_SCRUBLAND, IcariaBiomes.scrublandBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.LOST_SCRUBLAND, IcariaBiomes.scrublandBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.DEEP_SCRUBLAND, IcariaBiomes.scrublandBiome(placedFeatures, configuredCarvers));
+
+		pContext.register(IcariaBiomes.STEPPE_PEAK, IcariaBiomes.steppeBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.STEPPE, IcariaBiomes.steppeBiome(placedFeatures, configuredCarvers));
-		pContext.register(IcariaBiomes.STEPPE_PLATEAU, IcariaBiomes.steppeBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.LUSH_STEPPE, IcariaBiomes.steppeBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.LOST_STEPPE, IcariaBiomes.steppeBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.DEEP_STEPPE, IcariaBiomes.steppeBiome(placedFeatures, configuredCarvers));
+
+		pContext.register(IcariaBiomes.DESERT_PEAK, IcariaBiomes.desertBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.DESERT, IcariaBiomes.desertBiome(placedFeatures, configuredCarvers));
-		pContext.register(IcariaBiomes.DESERT_PLATEAU, IcariaBiomes.desertBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.ARID_DESERT, IcariaBiomes.desertBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.LOST_DESERT, IcariaBiomes.desertBiome(placedFeatures, configuredCarvers));
+		pContext.register(IcariaBiomes.DEEP_DESERT, IcariaBiomes.desertBiome(placedFeatures, configuredCarvers));
+
 		pContext.register(IcariaBiomes.VOID, IcariaBiomes.voidBiome(placedFeatures, configuredCarvers));
 	}
 

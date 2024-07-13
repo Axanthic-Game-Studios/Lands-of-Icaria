@@ -1,8 +1,4 @@
 {
   "feature": "landsoficaria:village",
-  "placement": [
-    {
-      "type": "minecraft:biome"
-    }
-  ]
+  "placement": []
 }

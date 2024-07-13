@@ -22,7 +22,13 @@
       "xz_scale": 3.0,
       "y_scale": 1.5
     },
-    "depth": 0.0,
+    "depth": {
+      "type": "minecraft:y_clamped_gradient",
+      "from_value": -1.0,
+      "from_y": 0,
+      "to_value": 1.0,
+      "to_y": 96
+    },
     "erosion": 0.0,
     "final_density": {
       "type": "minecraft:add",
@@ -131,7 +137,7 @@
   "spawn_target": [
     {
       "continentalness": 1.0,
-      "depth": 0.0,
+      "depth": 1.0,
       "erosion": 0.0,
       "humidity": 0.0,
       "offset": 0.0,
@@ -159,8 +165,11 @@
           "if_true": {
             "type": "minecraft:biome",
             "biome_is": [
+              "landsoficaria:forest_peak",
               "landsoficaria:forest",
-              "landsoficaria:forest_plateau"
+              "landsoficaria:lush_forest",
+              "landsoficaria:lost_forest",
+              "landsoficaria:deep_forest"
             ]
           },
           "then_run": {
@@ -217,8 +226,11 @@
           "if_true": {
             "type": "minecraft:biome",
             "biome_is": [
+              "landsoficaria:forest_peak",
               "landsoficaria:forest",
-              "landsoficaria:forest_plateau"
+              "landsoficaria:lush_forest",
+              "landsoficaria:lost_forest",
+              "landsoficaria:deep_forest"
             ]
           },
           "then_run": {
@@ -272,10 +284,16 @@
           "if_true": {
             "type": "minecraft:biome",
             "biome_is": [
+              "landsoficaria:scrubland_peak",
               "landsoficaria:scrubland",
-              "landsoficaria:scrubland_plateau",
+              "landsoficaria:lush_scrubland",
+              "landsoficaria:lost_scrubland",
+              "landsoficaria:deep_scrubland",
+              "landsoficaria:steppe_peak",
               "landsoficaria:steppe",
-              "landsoficaria:steppe_plateau"
+              "landsoficaria:lush_steppe",
+              "landsoficaria:lost_steppe",
+              "landsoficaria:deep_steppe"
             ]
           },
           "then_run": {
@@ -347,10 +365,16 @@
           "if_true": {
             "type": "minecraft:biome",
             "biome_is": [
+              "landsoficaria:scrubland_peak",
               "landsoficaria:scrubland",
-              "landsoficaria:scrubland_plateau",
+              "landsoficaria:lush_scrubland",
+              "landsoficaria:lost_scrubland",
+              "landsoficaria:deep_scrubland",
+              "landsoficaria:steppe_peak",
               "landsoficaria:steppe",
-              "landsoficaria:steppe_plateau"
+              "landsoficaria:lush_steppe",
+              "landsoficaria:lost_steppe",
+              "landsoficaria:deep_steppe"
             ]
           },
           "then_run": {
@@ -419,8 +443,11 @@
           "if_true": {
             "type": "minecraft:biome",
             "biome_is": [
+              "landsoficaria:desert_peak",
               "landsoficaria:desert",
-              "landsoficaria:desert_plateau"
+              "landsoficaria:arid_desert",
+              "landsoficaria:lost_desert",
+              "landsoficaria:deep_desert"
             ]
           },
           "then_run": {

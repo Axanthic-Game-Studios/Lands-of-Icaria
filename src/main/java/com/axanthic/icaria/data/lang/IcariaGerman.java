@@ -59,15 +59,27 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "sideros_pickaxe" + "." + "description", "Stelle eine Schirbelspitzhacke her");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "molybdenumsteel_pickaxe" + "." + "description", "Stelle eine Molybdänstahlspitzhacke her");
 
-		this.add("biome" + "." + IcariaIdents.ID + "." + "forest", "Ikarisches Waldplateau");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "forest_plateau", "Ikarischer Wald");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "scrubland", "Ikarisches Buschland");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "scrubland_plateau", "Ikarisches Buschlandplateau");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "steppe", "Ikarische Steppe");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "steppe_plateau", "Ikarisches Steppenplateau");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "desert", "Ikarische Wüste");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "desert_plateau", "Ikarisches Wüstenplateau");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "void", "Ikarische Leere");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "forest_peak", "Waldgipfel");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "forest", "Wald");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "lush_forest", "Üppiger Wald");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "lost_forest", "Verlorener Wald");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "deep_forest", "Tiefer Wald");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "scrubland_peak", "Buschlandgipfel");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "scrubland", "Buschland");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "lush_scrubland", "Üppiges Buschland");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "lost_scrubland", "Verlorenes Buschland");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "deep_scrubland", "Tiefes Buschland");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "steppe_peak", "Steppengipfel");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "steppe", "Steppe");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "lush_steppe", "Üppige Steppe");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "lost_steppe", "Verlorene Steppe");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "deep_steppe", "Tiefe Steppe");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "desert_peak", "Wüstengipfel");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "desert", "Wüste");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "arid_desert", "Trockene Wüste");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "lost_desert", "Verlorene Wüste");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "deep_desert", "Tiefe Wüste");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "void", "Leere");
 
 		this.add(IcariaBlocks.GRASSY_MARL.get(), "Begraster Mergel");
 		this.add(IcariaBlocks.MARL.get(), "Mergel");

@@ -6,13 +6,16 @@
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "landsoficaria:forest",
+          "biome": "landsoficaria:forest_peak",
           "parameters": {
             "continentalness": [
               0.0,
               0.75
             ],
-            "depth": 0.0,
+            "depth": [
+              0.875,
+              1.0
+            ],
             "erosion": 0.0,
             "humidity": 0.0,
             "offset": 0.0,
@@ -24,19 +27,106 @@
           }
         },
         {
-          "biome": "landsoficaria:forest_plateau",
+          "biome": "landsoficaria:forest",
           "parameters": {
             "continentalness": [
-              1.0,
-              2.0
+              0.0,
+              0.75
             ],
-            "depth": 0.0,
+            "depth": [
+              0.5,
+              0.875
+            ],
             "erosion": 0.0,
             "humidity": 0.0,
             "offset": 0.0,
             "temperature": [
               -1.0,
               -0.5
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:lush_forest",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              0.0,
+              0.5
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              -1.0,
+              -0.5
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:lost_forest",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              -0.5,
+              0.0
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              -1.0,
+              -0.5
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:deep_forest",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              -1.0,
+              -0.5
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              -1.0,
+              -0.5
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:scrubland_peak",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              0.875,
+              1.0
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              -0.5,
+              0.0
             ],
             "weirdness": 0.0
           }
@@ -48,7 +138,10 @@
               0.0,
               0.75
             ],
-            "depth": 0.0,
+            "depth": [
+              0.5,
+              0.875
+            ],
             "erosion": 0.0,
             "humidity": 0.0,
             "offset": 0.0,
@@ -60,19 +153,85 @@
           }
         },
         {
-          "biome": "landsoficaria:scrubland_plateau",
+          "biome": "landsoficaria:lush_scrubland",
           "parameters": {
             "continentalness": [
-              1.0,
-              2.0
+              0.0,
+              0.75
             ],
-            "depth": 0.0,
+            "depth": [
+              0.0,
+              0.5
+            ],
             "erosion": 0.0,
             "humidity": 0.0,
             "offset": 0.0,
             "temperature": [
               -0.5,
               0.0
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:lost_scrubland",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              -0.5,
+              0.0
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              -0.5,
+              0.0
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:deep_scrubland",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              -1.0,
+              -0.5
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              -0.5,
+              0.0
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:steppe_peak",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              0.875,
+              1.0
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              0.0,
+              0.5
             ],
             "weirdness": 0.0
           }
@@ -84,7 +243,10 @@
               0.0,
               0.75
             ],
-            "depth": 0.0,
+            "depth": [
+              0.5,
+              0.875
+            ],
             "erosion": 0.0,
             "humidity": 0.0,
             "offset": 0.0,
@@ -96,31 +258,79 @@
           }
         },
         {
-          "biome": "landsoficaria:steppe_plateau",
-          "parameters": {
-            "continentalness": [
-              1.0,
-              2.0
-            ],
-            "depth": 0.0,
-            "erosion": 0.0,
-            "humidity": 0.0,
-            "offset": 0.0,
-            "temperature": [
-              0.0,
-              0.5
-            ],
-            "weirdness": 0.0
-          }
-        },
-        {
-          "biome": "landsoficaria:desert",
+          "biome": "landsoficaria:lush_steppe",
           "parameters": {
             "continentalness": [
               0.0,
               0.75
             ],
-            "depth": 0.0,
+            "depth": [
+              0.0,
+              0.5
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              0.0,
+              0.5
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:lost_steppe",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              -0.5,
+              0.0
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              0.0,
+              0.5
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:deep_steppe",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              -1.0,
+              -0.5
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              0.0,
+              0.5
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:desert_peak",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              0.875,
+              1.0
+            ],
             "erosion": 0.0,
             "humidity": 0.0,
             "offset": 0.0,
@@ -132,13 +342,79 @@
           }
         },
         {
-          "biome": "landsoficaria:desert_plateau",
+          "biome": "landsoficaria:desert",
           "parameters": {
             "continentalness": [
-              1.0,
-              2.0
+              0.0,
+              0.75
             ],
-            "depth": 0.0,
+            "depth": [
+              0.5,
+              0.875
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              0.5,
+              1.0
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:arid_desert",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              0.0,
+              0.5
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              0.5,
+              1.0
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:lost_desert",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              -0.5,
+              0.0
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": [
+              0.5,
+              1.0
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "landsoficaria:deep_desert",
+          "parameters": {
+            "continentalness": [
+              0.0,
+              0.75
+            ],
+            "depth": [
+              -1.0,
+              -0.5
+            ],
             "erosion": 0.0,
             "humidity": 0.0,
             "offset": 0.0,
@@ -156,7 +432,10 @@
               -1.0,
               0.0
             ],
-            "depth": 0.0,
+            "depth": [
+              -1.0,
+              1.0
+            ],
             "erosion": 0.0,
             "humidity": 0.0,
             "offset": 0.0,

@@ -1,6 +1,6 @@
 {
   "type": "landsoficaria:village",
-  "biomes": "#landsoficaria:forest_plateau",
+  "biomes": "landsoficaria:forest_peak",
   "max_distance_from_center": 128,
   "project_start_to_heightmap": "WORLD_SURFACE_WG",
   "size": 16,
