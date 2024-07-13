@@ -91,6 +91,11 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
         return this.getCooldown() > this.minCooldown;
     }
 
+    @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return false;
+    }
+
     public int getCooldown() {
         return this.entityData.get(IcariaAnimalEntity.COOLDOWN);
     }

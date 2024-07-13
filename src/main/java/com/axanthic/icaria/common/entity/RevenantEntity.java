@@ -36,11 +36,6 @@ public class RevenantEntity extends Monster {
     }
 
     @Override
-    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-        return false;
-    }
-
-    @Override
     public void playStepSound(BlockPos pPos, BlockState pState) {
         this.playSound(SoundEvents.SKELETON_STEP, 0.1F, 1.0F);
     }

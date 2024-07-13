@@ -24,6 +24,11 @@ public class CivilianRevenantEntity extends RevenantEntity {
     }
 
     @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return false;
+    }
+
+    @Override
     public void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
         if (pRandom.nextInt(3) == 0) {
             this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.CHALKOS_TOOLS.dagger.get()));

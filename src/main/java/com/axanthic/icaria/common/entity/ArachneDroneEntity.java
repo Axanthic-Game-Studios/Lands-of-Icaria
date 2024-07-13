@@ -74,6 +74,11 @@ public class ArachneDroneEntity extends ArachneEntity {
         return this.isClimbing();
     }
 
+    @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return true;
+    }
+
     public float getSizeInverted() {
         return this.getSize() * -1.0F + 5.0F;
     }

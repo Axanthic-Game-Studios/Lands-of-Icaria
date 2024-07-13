@@ -40,11 +40,6 @@ public class ArganHoundEntity extends Monster {
     }
 
     @Override
-    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-        return false;
-    }
-
-    @Override
     public float getVoicePitch() {
         return 0.75F;
     }

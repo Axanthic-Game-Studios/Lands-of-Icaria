@@ -62,11 +62,6 @@ public class ForestHagEntity extends Monster {
     }
 
     @Override
-    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-        return false;
-    }
-
-    @Override
     public void actuallyHurt(DamageSource pDamageSource, float pDamageAmount) {
         if (pDamageSource.getEntity() instanceof LivingEntity livingEntity) {
             if (livingEntity.getMainHandItem().getItem() instanceof AxeItem) {

@@ -29,6 +29,11 @@ public class SoldierRevenantEntity extends RevenantEntity {
     }
 
     @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return false;
+    }
+
+    @Override
     public void playStepSound(BlockPos pPos, BlockState pState) {
         this.playSound(IcariaSoundEvents.SOLDIER_REVENANT_STEP, 0.1F, 1.0F);
     }

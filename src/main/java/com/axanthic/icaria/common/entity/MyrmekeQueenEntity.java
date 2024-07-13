@@ -68,11 +68,6 @@ public class MyrmekeQueenEntity extends Monster {
     }
 
     @Override
-    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-        return false;
-    }
-
-    @Override
     public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
         super.defineSynchedData(pBuilder);
         pBuilder.define(MyrmekeQueenEntity.CLIMBING, (byte) 0);

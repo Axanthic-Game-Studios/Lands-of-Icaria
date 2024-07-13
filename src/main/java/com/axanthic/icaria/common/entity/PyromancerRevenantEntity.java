@@ -59,6 +59,11 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
         return this.getThrown() > this.minThrown;
     }
 
+    @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return false;
+    }
+
     public int getAiming() {
         return this.entityData.get(PyromancerRevenantEntity.AIMING);
     }

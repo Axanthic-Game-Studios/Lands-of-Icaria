@@ -77,11 +77,6 @@ public class HyliasterEntity extends Monster {
         return false;
     }
 
-    @Override
-    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-        return false;
-    }
-
     public float getSizeInverted() {
         return this.getSize() * -1.0F + 5.0F;
     }

@@ -91,6 +91,11 @@ public class CaptainRevenantEntity extends RevenantEntity {
         return this.getUnequips() > this.minUnequips;
     }
 
+    @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return false;
+    }
+
     public int getLastHurtByPlayerTime() {
         return this.lastHurtByPlayerTime;
     }
