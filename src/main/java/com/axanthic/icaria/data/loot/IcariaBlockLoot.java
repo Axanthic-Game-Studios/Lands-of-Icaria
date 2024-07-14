@@ -60,7 +60,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropElseWithSilk(IcariaBlocks.GRASSY_MARL.get(), IcariaItems.MARL.get(), 1.0F, 0);
 		this.dropElseWithSilk(IcariaBlocks.MARL_CHERT.get(), IcariaItems.CHERT.get(), 1.0F, 2);
 		this.dropElseWithSilk(IcariaBlocks.SURFACE_CHERT.get(), IcariaItems.CHERT.get(), 1.0F, 2);
-		this.dropElseWithSilk(IcariaBlocks.MARL_BONES.get(), IcariaItems.ROTTEN_BONES.get(), 1.0F, 2);
+		this.dropElseWithSilk(IcariaBlocks.MARL_BONES.get(), Items.BONE, IcariaItems.ROTTEN_BONES.get(), 1.0F, 2);
 		this.dropElseWithSilk(IcariaBlocks.SURFACE_BONES.get(), IcariaItems.BONE_REMAINS.get(), Items.BONE, 1.0F, 2);
 		this.dropElseWithSilk(IcariaBlocks.MARL_LIGNITE.get(), IcariaItems.LIGNITE.get(), 1.0F, 2);
 		this.dropElseWithSilk(IcariaBlocks.SURFACE_LIGNITE.get(), IcariaItems.LIGNITE.get(), 1.0F, 2);
