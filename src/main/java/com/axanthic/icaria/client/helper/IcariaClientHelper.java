@@ -21,6 +21,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
 import org.joml.Matrix4f;
@@ -36,7 +37,7 @@ import javax.imageio.ImageIO;
 
 public class IcariaClientHelper {
 
-    public static float getLightBasedAlpha(LivingEntity pLivingEntity, float pPartialTick) {
+    public static float getAngleBasedAlpha(LivingEntity pLivingEntity, float pPartialTick) {
         if (pLivingEntity.level().getSunAngle(pPartialTick) >= IcariaValues.DUSK_INIT && pLivingEntity.level().getSunAngle(pPartialTick) < IcariaValues.DUSK_EXIT) {
             return (pLivingEntity.level().getSunAngle(pPartialTick) - IcariaValues.DUSK_INIT) / (IcariaValues.DUSK_EXIT - IcariaValues.DUSK_INIT);
         } else if (pLivingEntity.level().getSunAngle(pPartialTick) >= IcariaValues.DUSK_INIT && pLivingEntity.level().getSunAngle(pPartialTick) < IcariaValues.DAWN_INIT) {
@@ -46,6 +47,18 @@ public class IcariaClientHelper {
         } else {
             return 0.0F;
         }
+    }
+
+    public static float getLightBasedAlpha(LivingEntity pLivingEntity, float pPartialTick) {
+        return Math.max(IcariaClientHelper.getAngleBasedAlpha(pLivingEntity, pPartialTick) * IcariaClientHelper.getBlockBasedAlpha(pLivingEntity), IcariaClientHelper.getLocalBasedAlpha(pLivingEntity));
+    }
+
+    public static float getBlockBasedAlpha(LivingEntity pLivingEntity) {
+        return (15.0F - pLivingEntity.level().getBrightness(LightLayer.BLOCK, pLivingEntity.blockPosition())) / 15.0F;
+    }
+
+    public static float getLocalBasedAlpha(LivingEntity pLivingEntity) {
+        return (15.0F - pLivingEntity.level().getMaxLocalRawBrightness(pLivingEntity.blockPosition())) / 15.0F;
     }
 
     public static float getRed(BlockEntity pBlockEntity) {
