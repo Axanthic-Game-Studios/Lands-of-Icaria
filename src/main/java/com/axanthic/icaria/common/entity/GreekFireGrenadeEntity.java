@@ -54,22 +54,23 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
 
     @Override
     public void onHit(HitResult pResult) {
-        if (this.spawnPortal(this.level(), this.blockPosition())) {
-            this.discard();
+        if (this.level().isClientSide()) {
             return;
-        }
-
-        if (!this.level().isClientSide()) {
-            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 1.5F, Level.ExplosionInteraction.NONE);
-            this.discard();
-            for (int i = -2; i <= 2; i++) {
-                var negPos = BlockPos.containing(this.getX() - i, this.getY() - i, this.getZ() - i);
-                var posPos = BlockPos.containing(this.getX() + i, this.getY() + i, this.getZ() + i);
-                for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-                    if (this.getRandom().nextInt(10) == 0) {
-                        if (this.level().getBlockState(blockPos).isAir()) {
-                            if (this.level().getBlockState(blockPos.below()).isSolidRender(this.level(), blockPos.below())) {
-                                this.level().setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
+        } else {
+            if (this.spawnPortal(this.level(), BlockPos.containing(pResult.getLocation().x(), pResult.getLocation().y(), pResult.getLocation().z()))) {
+                this.discard();
+            } else {
+                this.level().explode(this, this.getX(), this.getY(), this.getZ(), 1.5F, Level.ExplosionInteraction.NONE);
+                this.discard();
+                for (int i = -2; i <= 2; i++) {
+                    var negPos = BlockPos.containing(this.getX() - i, this.getY() - i, this.getZ() - i);
+                    var posPos = BlockPos.containing(this.getX() + i, this.getY() + i, this.getZ() + i);
+                    for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
+                        if (this.getRandom().nextInt(10) == 0) {
+                            if (this.level().getBlockState(blockPos).isAir()) {
+                                if (this.level().getBlockState(blockPos.below()).isSolidRender(this.level(), blockPos.below())) {
+                                    this.level().setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
+                                }
                             }
                         }
                     }
