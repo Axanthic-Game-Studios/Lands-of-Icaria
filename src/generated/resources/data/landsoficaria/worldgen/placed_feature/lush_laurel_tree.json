@@ -1,9 +1,9 @@
 {
-  "feature": "landsoficaria:cypress_tree",
+  "feature": "landsoficaria:laurel_tree",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 6
+      "count": 48
     },
     {
       "type": "minecraft:in_square"

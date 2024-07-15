@@ -363,7 +363,7 @@
           }
         },
         {
-          "biome": "landsoficaria:arid_desert",
+          "biome": "landsoficaria:lush_desert",
           "parameters": {
             "continentalness": [
               0.0,

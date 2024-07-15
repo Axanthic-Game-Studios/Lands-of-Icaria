@@ -14,25 +14,23 @@
     [],
     [],
     [
-      "landsoficaria:village",
-      "landsoficaria:grainite_spike",
-      "landsoficaria:fallen_relicstone_pillar",
-      "landsoficaria:horizontal_relicstone_pillar",
-      "landsoficaria:vertical_relicstone_pillar"
+      "landsoficaria:village"
     ],
     [],
     [
       "landsoficaria:lignite_ore",
-      "landsoficaria:chalkos_ore"
+      "landsoficaria:chalkos_ore",
+      "landsoficaria:kassiteros_ore",
+      "landsoficaria:dolomite_ore"
     ],
     [],
     [],
     [
       "landsoficaria:grainel_chert",
       "landsoficaria:yellowstone_rubble",
-      "landsoficaria:relicstone_rubble",
-      "landsoficaria:calcite_crystal",
-      "landsoficaria:droughtroot_tree",
+      "landsoficaria:silkstone_rubble",
+      "landsoficaria:halite_crystal",
+      "landsoficaria:lush_droughtroot_tree",
       "landsoficaria:dead_droughtroot_tree",
       "landsoficaria:dry_vine",
       "landsoficaria:sunkettle",
@@ -56,19 +54,25 @@
     "misc": [],
     "monster": [
       {
-        "type": "landsoficaria:argan_hound",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:cerver",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
         "type": "landsoficaria:droughtroot_forest_hag",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
+        "type": "landsoficaria:myrmeke_drone",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:myrmeke_soldier",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:myrmeke_queen",
         "maxCount": 1,
         "minCount": 1,
         "weight": 10

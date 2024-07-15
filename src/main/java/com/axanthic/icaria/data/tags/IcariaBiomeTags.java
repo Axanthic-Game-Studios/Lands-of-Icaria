@@ -27,7 +27,7 @@ public class IcariaBiomeTags extends BiomeTagsProvider {
 		this.tag(BiomeTags.SNOW_GOLEM_MELTS)
 			.add(IcariaBiomes.DESERT_PEAK)
 			.add(IcariaBiomes.DESERT)
-			.add(IcariaBiomes.ARID_DESERT)
+			.add(IcariaBiomes.LUSH_DESERT)
 			.add(IcariaBiomes.LOST_DESERT)
 			.add(IcariaBiomes.DEEP_DESERT);
 	}

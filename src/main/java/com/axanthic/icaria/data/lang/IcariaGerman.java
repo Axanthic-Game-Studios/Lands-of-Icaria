@@ -76,7 +76,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("biome" + "." + IcariaIdents.ID + "." + "deep_steppe", "Tiefe Steppe");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "desert_peak", "Wüstengipfel");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "desert", "Wüste");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "arid_desert", "Trockene Wüste");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "lush_desert", "Üppige Wüste");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "lost_desert", "Verlorene Wüste");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "deep_desert", "Tiefe Wüste");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "void", "Leere");

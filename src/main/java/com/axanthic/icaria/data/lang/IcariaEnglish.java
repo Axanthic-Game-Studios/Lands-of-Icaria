@@ -76,7 +76,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("biome" + "." + IcariaIdents.ID + "." + "deep_steppe", "Deep Steppe");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "desert_peak", "Desert Peak");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "desert", "Desert");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "arid_desert", "Arid Desert");
+		this.add("biome" + "." + IcariaIdents.ID + "." + "lush_desert", "Lush Desert");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "lost_desert", "Lost Desert");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "deep_desert", "Deep Desert");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "void", "Void");

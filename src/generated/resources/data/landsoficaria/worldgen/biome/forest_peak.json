@@ -25,15 +25,7 @@
     [],
     [
       "landsoficaria:lignite_ore",
-      "landsoficaria:chalkos_ore",
-      "landsoficaria:kassiteros_ore",
-      "landsoficaria:dolomite_ore",
-      "landsoficaria:vanadium_ore",
-      "landsoficaria:sliver_ore",
-      "landsoficaria:sideros_ore",
-      "landsoficaria:anthracite_ore",
-      "landsoficaria:molybdenum_ore",
-      "landsoficaria:hyliastrum_ore"
+      "landsoficaria:chalkos_ore"
     ],
     [],
     [],
@@ -42,15 +34,8 @@
       "landsoficaria:marl_bones",
       "landsoficaria:marl_lignite",
       "landsoficaria:yellowstone_rubble",
-      "landsoficaria:silkstone_rubble",
-      "landsoficaria:sunstone_rubble",
-      "landsoficaria:voidshale_rubble",
-      "landsoficaria:baetyl_rubble",
       "landsoficaria:relicstone_rubble",
       "landsoficaria:calcite_crystal",
-      "landsoficaria:halite_crystal",
-      "landsoficaria:jasper_crystal",
-      "landsoficaria:zircon_crystal",
       "landsoficaria:fir_tree",
       "landsoficaria:dead_fir_tree",
       "landsoficaria:populus_tree",
@@ -91,50 +76,7 @@
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [
-      {
-        "type": "landsoficaria:ender_jellyfish",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:fire_jellyfish",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:nature_jellyfish",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:void_jellyfish",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:water_jellyfish",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:crystal_slug",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:forest_snull",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      }
-    ],
+    "ambient": [],
     "axolotls": [],
     "creature": [
       {
@@ -159,12 +101,6 @@
     "misc": [],
     "monster": [
       {
-        "type": "landsoficaria:arachne_drone",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
         "type": "landsoficaria:argan_hound",
         "maxCount": 3,
         "minCount": 1,
@@ -184,36 +120,6 @@
       },
       {
         "type": "landsoficaria:populus_forest_hag",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 10
-      },
-      {
-        "type": "landsoficaria:myrmeke_drone",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:crawler_revenant",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:overgrown_revenant",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:solifugae",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:vinegaroon",
         "maxCount": 1,
         "minCount": 1,
         "weight": 10
