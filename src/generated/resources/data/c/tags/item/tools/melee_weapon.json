@@ -1,18 +1,32 @@
 {
   "values": [
     "landsoficaria:chert_sword",
+    "landsoficaria:chert_dagger",
     "landsoficaria:chert_axe",
+    "landsoficaria:chert_scythe",
     "landsoficaria:chalkos_sword",
+    "landsoficaria:chalkos_dagger",
     "landsoficaria:chalkos_axe",
+    "landsoficaria:chalkos_scythe",
     "landsoficaria:kassiteros_sword",
+    "landsoficaria:kassiteros_dagger",
     "landsoficaria:kassiteros_axe",
+    "landsoficaria:kassiteros_scythe",
     "landsoficaria:orichalcum_sword",
+    "landsoficaria:orichalcum_dagger",
     "landsoficaria:orichalcum_axe",
+    "landsoficaria:orichalcum_scythe",
     "landsoficaria:vanadiumsteel_sword",
+    "landsoficaria:vanadiumsteel_dagger",
     "landsoficaria:vanadiumsteel_axe",
+    "landsoficaria:vanadiumsteel_scythe",
     "landsoficaria:sideros_sword",
+    "landsoficaria:sideros_dagger",
     "landsoficaria:sideros_axe",
+    "landsoficaria:sideros_scythe",
     "landsoficaria:molybdenumsteel_sword",
-    "landsoficaria:molybdenumsteel_axe"
+    "landsoficaria:molybdenumsteel_dagger",
+    "landsoficaria:molybdenumsteel_axe",
+    "landsoficaria:molybdenumsteel_scythe"
   ]
 }
