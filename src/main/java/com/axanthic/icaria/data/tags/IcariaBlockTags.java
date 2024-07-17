@@ -487,6 +487,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.PLATOSHALE_BRICKS.get())
 			.add(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get())
 			.add(IcariaBlocks.CHISELED_PLATOSHALE.get())
+			.add(IcariaBlocks.QUARTZ_WALL.get())
 			.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get())
 			.add(IcariaBlocks.LIGNITE_ORE.get())
 			.add(IcariaBlocks.CHALKOS_ORE.get())
@@ -1262,6 +1263,9 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.addTag(IcariaBlockTags.LOGS_OLIVE)
 			.addTag(IcariaBlockTags.LOGS_PLANE)
 			.addTag(IcariaBlockTags.LOGS_POPULUS);
+
+		this.tag(BlockTags.WALLS)
+			.add(IcariaBlocks.QUARTZ_WALL.get());
 
 		this.tag(BlockTags.LEAVES)
 			.add(IcariaBlocks.CYPRESS_LEAVES.get())

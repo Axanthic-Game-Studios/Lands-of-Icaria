@@ -162,6 +162,7 @@ public class IcariaItems {
 	public static final Supplier<Item> BLURRED_PLATOSHALE_BRICKS = IcariaItems.register("blurred_platoshale_bricks", () -> new BlockItem(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> CHISELED_PLATOSHALE = IcariaItems.register("chiseled_platoshale", () -> new BlockItem(IcariaBlocks.CHISELED_PLATOSHALE.get(), IcariaItems.propertiesItem()));
 
+	public static final Supplier<Item> QUARTZ_WALL = IcariaItems.register("quartz_wall", () -> new BlockItem(IcariaBlocks.QUARTZ_WALL.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> QUARTZ_PILLAR_HEAD = IcariaItems.register("quartz_pillar_head", () -> new BlockItem(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), IcariaItems.propertiesItem()));
 
 	public static final Supplier<Item> LIGNITE_ORE = IcariaItems.register("lignite_ore", () -> new BlockItem(IcariaBlocks.LIGNITE_ORE.get(), IcariaItems.propertiesItem()));

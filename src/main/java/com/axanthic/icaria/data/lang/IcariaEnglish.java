@@ -286,6 +286,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get(), "Blurred Platoshale Bricks");
 		this.add(IcariaBlocks.CHISELED_PLATOSHALE.get(), "Chiseled Platoshale");
 
+		this.add(IcariaBlocks.QUARTZ_WALL.get(), "Quartz Wall");
 		this.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), "Quartz Pillar Head");
 
 		this.add(IcariaBlocks.LIGNITE_ORE.get(), "Lignite Ore");

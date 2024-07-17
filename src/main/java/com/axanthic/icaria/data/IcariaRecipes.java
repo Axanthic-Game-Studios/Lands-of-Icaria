@@ -900,6 +900,17 @@ public class IcariaRecipes extends RecipeProvider {
 
 		// QUARTZ
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.QUARTZ_WALL.get(), 6)
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', Items.QUARTZ_BLOCK)
+			.unlockedBy("has_" + Items.QUARTZ_BLOCK, RecipeProvider.has(Items.QUARTZ_BLOCK))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.QUARTZ_WALL.get()));
+
+		SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.QUARTZ_BLOCK), RecipeCategory.MISC, IcariaItems.QUARTZ_WALL.get(), 1)
+			.unlockedBy("has_" + Items.QUARTZ_BLOCK, RecipeProvider.has(Items.QUARTZ_BLOCK))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.QUARTZ_WALL.get()) + "_from_stonecutting");
+
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.QUARTZ_PILLAR_HEAD.get(), 2)
 			.pattern("X")
 			.pattern("Y")

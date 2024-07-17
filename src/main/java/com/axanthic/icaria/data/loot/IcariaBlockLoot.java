@@ -131,6 +131,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get());
 		this.dropThis(IcariaBlocks.RELICSTONE_PILLAR.get());
 		this.dropThis(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get());
+		this.dropThis(IcariaBlocks.QUARTZ_WALL.get());
 		this.dropThis(IcariaBlocks.QUARTZ_PILLAR_HEAD.get());
 		this.dropThis(IcariaBlocks.CALCITE.get());
 		this.dropThis(IcariaBlocks.BUDDING_CALCITE.get());

@@ -165,6 +165,7 @@ public class IcariaBlocks {
 	public static final Supplier<Block> BLURRED_PLATOSHALE_BRICKS = IcariaBlocks.register("blurred_platoshale_bricks", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_BLACK, SoundType.STONE)));
 	public static final Supplier<Block> CHISELED_PLATOSHALE = IcariaBlocks.registerSimple("chiseled_platoshale", () -> new Block(IcariaBlocks.propertiesStone(MapColor.COLOR_BLACK, SoundType.STONE)));
 
+	public static final Supplier<Block> QUARTZ_WALL = IcariaBlocks.register("quartz_wall", () -> new WallBlock(IcariaBlocks.propertiesQuartz(MapColor.QUARTZ, SoundType.STONE)));
 	public static final Supplier<Block> QUARTZ_PILLAR_HEAD = IcariaBlocks.register("quartz_pillar_head", () -> new PillarHeadBlock(IcariaBlocks.propertiesQuartz(MapColor.QUARTZ, SoundType.STONE)));
 
 	public static final Supplier<Block> LIGNITE_ORE = IcariaBlocks.register("lignite_ore", () -> new Block(IcariaBlocks.propertiesStone(MapColor.WOOD, SoundType.STONE)));

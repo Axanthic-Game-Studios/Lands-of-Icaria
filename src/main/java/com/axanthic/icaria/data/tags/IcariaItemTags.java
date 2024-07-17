@@ -724,6 +724,9 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.addTag(IcariaItemTags.LOGS_PLANE)
 			.addTag(IcariaItemTags.LOGS_POPULUS);
 
+		this.tag(ItemTags.WALLS)
+			.add(IcariaItems.QUARTZ_WALL.get());
+
 		this.tag(ItemTags.LEAVES)
 			.add(IcariaItems.CYPRESS_LEAVES.get())
 			.add(IcariaItems.DROUGHTROOT_LEAVES.get())

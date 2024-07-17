@@ -241,6 +241,7 @@ public class CommonModEvents {
 			pEvent.accept(IcariaItems.BLURRED_PLATOSHALE_BRICKS.get());
 			pEvent.accept(IcariaItems.CHISELED_PLATOSHALE.get());
 
+			pEvent.accept(IcariaItems.QUARTZ_WALL.get());
 			pEvent.accept(IcariaItems.QUARTZ_PILLAR_HEAD.get());
 
 			pEvent.accept(IcariaItems.LIGNITE_ORE.get());
