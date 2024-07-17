@@ -286,8 +286,8 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get(), "Bluritdurchzogener Platoschieferziegel");
 		this.add(IcariaBlocks.CHISELED_PLATOSHALE.get(), "Gemeißelter Platoschiefer");
 
-		this.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), "Quartzsäulenende");
 		this.add(IcariaBlocks.QUARTZ_WALL.get(), "Quarzmauer");
+		this.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), "Quarzsäulenende");
 
 		this.add(IcariaBlocks.LIGNITE_ORE.get(), "Braunkohleerz");
 		this.add(IcariaBlocks.CHALKOS_ORE.get(), "Kuffarerz");
