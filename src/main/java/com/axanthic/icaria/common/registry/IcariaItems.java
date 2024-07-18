@@ -259,6 +259,7 @@ public class IcariaItems {
 	public static final Supplier<Item> PINK_STORAGE_VASE = IcariaItems.register("pink_storage_vase", () -> new BlockItem(IcariaBlocks.PINK_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
 
 	public static final Supplier<Item> RED_LOOT_VASE = IcariaItems.register("red_loot_vase", () -> new BlockItem(IcariaBlocks.RED_LOOT_VASE.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LOST_LOOT_VASE = IcariaItems.register("lost_loot_vase", () -> new BlockItem(IcariaBlocks.LOST_LOOT_VASE.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> CYAN_LOOT_VASE = IcariaItems.register("cyan_loot_vase", () -> new BlockItem(IcariaBlocks.CYAN_LOOT_VASE.get(), IcariaItems.propertiesItem()));
 
 	public static final Supplier<Item> ARACHNE_SPAWNER = IcariaItems.register("arachne_spawner", () -> new BlockItem(IcariaBlocks.ARACHNE_SPAWNER.get(), IcariaItems.propertiesItem()));

@@ -383,6 +383,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.PINK_STORAGE_VASE.get(), "Rosa Speichervase");
 
 		this.add(IcariaBlocks.RED_LOOT_VASE.get(), "Rote Beutevase");
+		this.add(IcariaBlocks.LOST_LOOT_VASE.get(), "Verlorene Beutevase");
 		this.add(IcariaBlocks.CYAN_LOOT_VASE.get(), "Türkise Beutevase");
 
 		this.add(IcariaBlocks.ARACHNE_SPAWNER.get(), "Arachnen-Spawner");

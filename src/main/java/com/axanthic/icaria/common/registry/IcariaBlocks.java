@@ -262,6 +262,7 @@ public class IcariaBlocks {
 	public static final Supplier<Block> PINK_STORAGE_VASE = IcariaBlocks.register("pink_storage_vase", () -> new StorageVaseBlock(IcariaBlocks.propertiesStorageVase(MapColor.COLOR_PINK, IcariaSoundTypes.VASE)));
 
 	public static final Supplier<Block> RED_LOOT_VASE = IcariaBlocks.register("red_loot_vase", () -> new LootVaseBlock(IcariaBlocks.propertiesLootVase(MapColor.COLOR_RED, IcariaSoundTypes.VASE)));
+	public static final Supplier<Block> LOST_LOOT_VASE = IcariaBlocks.register("lost_loot_vase", () -> new LootVaseBlock(IcariaBlocks.propertiesLootVase(MapColor.PODZOL, IcariaSoundTypes.VASE)));
 	public static final Supplier<Block> CYAN_LOOT_VASE = IcariaBlocks.register("cyan_loot_vase", () -> new LootVaseBlock(IcariaBlocks.propertiesLootVase(MapColor.COLOR_CYAN, IcariaSoundTypes.VASE)));
 
 	public static final Supplier<Block> ARACHNE_SPAWNER = IcariaBlocks.register("arachne_spawner", () -> new IcariaSpawnerBlock(IcariaBlocks.propertiesSpawner(MapColor.COLOR_LIGHT_GRAY, SoundType.METAL)));
