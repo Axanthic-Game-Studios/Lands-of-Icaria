@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.world.structure.IcariaJigsawStructure;
+import com.axanthic.icaria.data.tags.IcariaBiomeTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderSet;
@@ -27,6 +28,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaStructures {
+	public static final ResourceKey<Structure> TEMPLE = IcariaStructures.createKey("temple");
+
 	public static final ResourceKey<Structure> ERODED_FOREST_VILLAGE = IcariaStructures.createKey("villages/forest/eroded");
 	public static final ResourceKey<Structure> PRISTINE_FOREST_VILLAGE = IcariaStructures.createKey("villages/forest/pristine");
 	public static final ResourceKey<Structure> RUINED_FOREST_VILLAGE = IcariaStructures.createKey("villages/forest/ruined");
@@ -47,6 +50,8 @@ public class IcariaStructures {
 		var biomes = pContext.lookup(Registries.BIOME);
 		var pools = pContext.lookup(Registries.TEMPLATE_POOL);
 
+		pContext.register(IcariaStructures.TEMPLE, new IcariaJigsawStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.IS_PEAK), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.TEMPLE_HALL), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
+
 		pContext.register(IcariaStructures.ERODED_FOREST_VILLAGE, new IcariaJigsawStructure(new Structure.StructureSettings(HolderSet.direct(biomes.getOrThrow(IcariaBiomes.FOREST_PEAK)), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.ERODED_FOREST_VILLAGE_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
 		pContext.register(IcariaStructures.PRISTINE_FOREST_VILLAGE, new IcariaJigsawStructure(new Structure.StructureSettings(HolderSet.direct(biomes.getOrThrow(IcariaBiomes.FOREST_PEAK)), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.PRISTINE_FOREST_VILLAGE_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
 		pContext.register(IcariaStructures.RUINED_FOREST_VILLAGE, new IcariaJigsawStructure(new Structure.StructureSettings(HolderSet.direct(biomes.getOrThrow(IcariaBiomes.FOREST_PEAK)), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.RUINED_FOREST_VILLAGE_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
@@ -62,7 +67,6 @@ public class IcariaStructures {
 		pContext.register(IcariaStructures.ERODED_DESERT_VILLAGE, new IcariaJigsawStructure(new Structure.StructureSettings(HolderSet.direct(biomes.getOrThrow(IcariaBiomes.DESERT_PEAK)), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.ERODED_DESERT_VILLAGE_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
 		pContext.register(IcariaStructures.PRISTINE_DESERT_VILLAGE, new IcariaJigsawStructure(new Structure.StructureSettings(HolderSet.direct(biomes.getOrThrow(IcariaBiomes.DESERT_PEAK)), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.PRISTINE_DESERT_VILLAGE_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
 		pContext.register(IcariaStructures.RUINED_DESERT_VILLAGE, new IcariaJigsawStructure(new Structure.StructureSettings(HolderSet.direct(biomes.getOrThrow(IcariaBiomes.DESERT_PEAK)), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.RUINED_DESERT_VILLAGE_CENTER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Optional.of(Heightmap.Types.WORLD_SURFACE_WG), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
-
 	}
 
 	public static ResourceKey<Structure> createKey(String pName) {

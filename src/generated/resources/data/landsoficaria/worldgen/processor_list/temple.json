@@ -1,0 +1,70 @@
+{
+  "processors": [
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:red_loot_vase",
+              "Properties": {
+                "mediterranean_waterlogged": "false",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cyan_loot_vase",
+            "Properties": {
+              "mediterranean_waterlogged": "false",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:red_loot_vase",
+              "Properties": {
+                "mediterranean_waterlogged": "false",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.2
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:revenant_spawner"
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:red_loot_vase",
+              "Properties": {
+                "mediterranean_waterlogged": "false",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.2
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:air"
+          }
+        }
+      ]
+    }
+  ]
+}

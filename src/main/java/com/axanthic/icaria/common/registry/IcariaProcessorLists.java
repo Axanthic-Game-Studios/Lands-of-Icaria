@@ -17,10 +17,14 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("unused")
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaProcessorLists {
+	public static final ResourceKey<StructureProcessorList> TEMPLE = IcariaProcessorLists.createKey("temple");
+
 	public static final ResourceKey<StructureProcessorList> ERODED_DOLOMITE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/eroded/dolomite");
 	public static final ResourceKey<StructureProcessorList> ERODED_SILKSTONE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/eroded/silkstone");
 	public static final ResourceKey<StructureProcessorList> ERODED_SUNSTONE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/eroded/sunstone");
@@ -70,6 +74,8 @@ public class IcariaProcessorLists {
 	public static final ResourceKey<StructureProcessorList> RUINED_VOIDSHALE_DESERT_VILLAGE = IcariaProcessorLists.createKey("villages/desert/ruined/voidshale");
 
 	public static void bootstrap(BootstrapContext<StructureProcessorList> pContext) {
+		pContext.register(IcariaProcessorLists.TEMPLE, IcariaProcessorLists.temple());
+
 		pContext.register(IcariaProcessorLists.ERODED_DOLOMITE_FOREST_VILLAGE, IcariaProcessorLists.erodedForestVillage(IcariaBlocks.DOLOMITE_ADOBE.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.stairs.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.slab.get()));
 		pContext.register(IcariaProcessorLists.ERODED_SILKSTONE_FOREST_VILLAGE, IcariaProcessorLists.erodedForestVillage(IcariaBlocks.SILKSTONE_ADOBE.get(), IcariaBlocks.SILKSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SILKSTONE_ADOBE_DECO.slab.get()));
 		pContext.register(IcariaProcessorLists.ERODED_SUNSTONE_FOREST_VILLAGE, IcariaProcessorLists.erodedForestVillage(IcariaBlocks.SUNSTONE_ADOBE.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.slab.get()));
@@ -117,7 +123,12 @@ public class IcariaProcessorLists {
 		pContext.register(IcariaProcessorLists.RUINED_BAETYL_DESERT_VILLAGE, IcariaProcessorLists.ruinedDesertVillage(IcariaBlocks.BAETYL_ADOBE.get()));
 		pContext.register(IcariaProcessorLists.RUINED_GRAINITE_DESERT_VILLAGE, IcariaProcessorLists.ruinedDesertVillage(IcariaBlocks.GRAINITE_ADOBE.get()));
 		pContext.register(IcariaProcessorLists.RUINED_VOIDSHALE_DESERT_VILLAGE, IcariaProcessorLists.ruinedDesertVillage(IcariaBlocks.VOIDSHALE_ADOBE.get()));
+	}
 
+	public static StructureProcessorList temple() {
+		return new StructureProcessorList(ImmutableList.of(
+			IcariaProcessorLists.block(IcariaBlocks.RED_LOOT_VASE.get(), 0.1F, IcariaBlocks.CYAN_LOOT_VASE.get(), 0.2F, IcariaBlocks.REVENANT_SPAWNER.get(), 0.2F, Blocks.AIR)
+		));
 	}
 
 	public static StructureProcessorList erodedForestVillage(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
@@ -311,7 +322,6 @@ public class IcariaProcessorLists {
 	public static StructureProcessorList ruinedDesertVillage(Block pAdobeBlock) {
 		return IcariaProcessorLists.ruinedVillage(pAdobeBlock);
 	}
-	}
 
 	public static StructureProcessorList erodedVillage(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab, Block pStrippedLog, Block pLaurelStairs, Block pLaurelSlab, Block pSimpleRack, Block pRack, Block pBarrel, Block pLoadedBarrel, Block pTappedBarrel, Block pTripleBarrel, Block pWallSign, Block pPlanePlanks, Block pPlaneSlab, Block pPlaneFence, Block pCraftingTable, Block pDoor, Block pTrapdoor, Block pLadder) {
 		return new StructureProcessorList(ImmutableList.of(
@@ -423,13 +433,25 @@ public class IcariaProcessorLists {
 
 	public static RuleProcessor block(Block pOld, Block pNew) {
 		return new RuleProcessor(ImmutableList.of(
-				new ProcessorRule(new BlockMatchTest(pOld), AlwaysTrueTest.INSTANCE, pNew.defaultBlockState())
+			new ProcessorRule(new BlockMatchTest(pOld), AlwaysTrueTest.INSTANCE, pNew.defaultBlockState())
+		));
+	}
+
+	public static RuleProcessor block(Block pOld, Block pNew, Direction.Axis pAxis) {
+		return new RuleProcessor(ImmutableList.of(
+			new ProcessorRule(new BlockMatchTest(pOld), AlwaysTrueTest.INSTANCE, new AxisAlignedLinearPosTest(0.0F, 1.0F, 0, 8, pAxis), pNew.defaultBlockState())
 		));
 	}
 
 	public static RuleProcessor block(Block pOld, float pChance, Block pNew) {
 		return new RuleProcessor(ImmutableList.of(
 			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState(), pChance), AlwaysTrueTest.INSTANCE, pNew.defaultBlockState())
+		));
+	}
+
+	public static RuleProcessor block(Block pOld, float pChance, Block pNew, Direction.Axis pAxis) {
+		return new RuleProcessor(ImmutableList.of(
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState(), pChance), AlwaysTrueTest.INSTANCE, new AxisAlignedLinearPosTest(0.0F, 1.0F, 0, 8, pAxis), pNew.defaultBlockState())
 		));
 	}
 
@@ -444,6 +466,22 @@ public class IcariaProcessorLists {
 		return new RuleProcessor(ImmutableList.of(
 			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState(), pChanceA), AlwaysTrueTest.INSTANCE, new AxisAlignedLinearPosTest(0.0F, 1.0F, 0, 8, pAxis), pNewA.defaultBlockState()),
 			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState(), pChanceB), AlwaysTrueTest.INSTANCE, new AxisAlignedLinearPosTest(0.0F, 1.0F, 0, 8, pAxis), pNewB.defaultBlockState())
+		));
+	}
+
+	public static RuleProcessor block(Block pOld, float pChanceA, Block pNewA, float pChanceB, Block pNewB, float pChanceC, Block pNewC) {
+		return new RuleProcessor(ImmutableList.of(
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState(), pChanceA), AlwaysTrueTest.INSTANCE, pNewA.defaultBlockState()),
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState(), pChanceB), AlwaysTrueTest.INSTANCE, pNewB.defaultBlockState()),
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState(), pChanceC), AlwaysTrueTest.INSTANCE, pNewC.defaultBlockState())
+		));
+	}
+
+	public static RuleProcessor block(Block pOld, float pChanceA, Block pNewA, float pChanceB, Block pNewB, float pChanceC, Block pNewC, Direction.Axis pAxis) {
+		return new RuleProcessor(ImmutableList.of(
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState(), pChanceA), AlwaysTrueTest.INSTANCE, new AxisAlignedLinearPosTest(0.0F, 1.0F, 0, 8, pAxis), pNewA.defaultBlockState()),
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState(), pChanceB), AlwaysTrueTest.INSTANCE, new AxisAlignedLinearPosTest(0.0F, 1.0F, 0, 8, pAxis), pNewB.defaultBlockState()),
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState(), pChanceC), AlwaysTrueTest.INSTANCE, new AxisAlignedLinearPosTest(0.0F, 1.0F, 0, 8, pAxis), pNewC.defaultBlockState())
 		));
 	}
 
