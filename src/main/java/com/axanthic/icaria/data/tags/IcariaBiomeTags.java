@@ -25,15 +25,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBiomeTags extends BiomeTagsProvider {
-	public static final TagKey<Biome> FOREST = IcariaBiomeTags.icariaTag("forest");
-	public static final TagKey<Biome> SCRUBLAND = IcariaBiomeTags.icariaTag("scrubland");
-	public static final TagKey<Biome> STEPPE = IcariaBiomeTags.icariaTag("steppe");
-	public static final TagKey<Biome> DESERT = IcariaBiomeTags.icariaTag("desert");
+	public static final TagKey<Biome> IS_FOREST = IcariaBiomeTags.icariaTag("is_forest");
+	public static final TagKey<Biome> IS_SCRUBLAND = IcariaBiomeTags.icariaTag("is_scrubland");
+	public static final TagKey<Biome> IS_STEPPE = IcariaBiomeTags.icariaTag("is_steppe");
+	public static final TagKey<Biome> IS_DESERT = IcariaBiomeTags.icariaTag("is_desert");
 
-	public static final TagKey<Biome> PEAK = IcariaBiomeTags.icariaTag("peak");
-	public static final TagKey<Biome> LUSH = IcariaBiomeTags.icariaTag("lush");
-	public static final TagKey<Biome> LOST = IcariaBiomeTags.icariaTag("lost");
-	public static final TagKey<Biome> DEEP = IcariaBiomeTags.icariaTag("deep");
+	public static final TagKey<Biome> IS_PEAK = IcariaBiomeTags.icariaTag("is_peak");
+	public static final TagKey<Biome> IS_LUSH = IcariaBiomeTags.icariaTag("is_lush");
+	public static final TagKey<Biome> IS_LOST = IcariaBiomeTags.icariaTag("is_lost");
+	public static final TagKey<Biome> IS_DEEP = IcariaBiomeTags.icariaTag("is_deep");
 
 	public IcariaBiomeTags(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId, ExistingFileHelper pHelper) {
 		super(pOutput, pProvider, pId, pHelper);
@@ -48,53 +48,53 @@ public class IcariaBiomeTags extends BiomeTagsProvider {
 			.add(IcariaBiomes.LOST_DESERT)
 			.add(IcariaBiomes.DEEP_DESERT);
 
-		this.tag(IcariaBiomeTags.FOREST)
+		this.tag(IcariaBiomeTags.IS_FOREST)
 			.add(IcariaBiomes.FOREST_PEAK)
 			.add(IcariaBiomes.FOREST)
 			.add(IcariaBiomes.LUSH_FOREST)
 			.add(IcariaBiomes.LOST_FOREST)
 			.add(IcariaBiomes.DEEP_FOREST);
 
-		this.tag(IcariaBiomeTags.SCRUBLAND)
+		this.tag(IcariaBiomeTags.IS_SCRUBLAND)
 			.add(IcariaBiomes.SCRUBLAND_PEAK)
 			.add(IcariaBiomes.SCRUBLAND)
 			.add(IcariaBiomes.LUSH_SCRUBLAND)
 			.add(IcariaBiomes.LOST_SCRUBLAND)
 			.add(IcariaBiomes.DEEP_SCRUBLAND);
 
-		this.tag(IcariaBiomeTags.STEPPE)
+		this.tag(IcariaBiomeTags.IS_STEPPE)
 			.add(IcariaBiomes.STEPPE_PEAK)
 			.add(IcariaBiomes.STEPPE)
 			.add(IcariaBiomes.LUSH_STEPPE)
 			.add(IcariaBiomes.LOST_STEPPE)
 			.add(IcariaBiomes.DEEP_STEPPE);
 
-		this.tag(IcariaBiomeTags.DESERT)
+		this.tag(IcariaBiomeTags.IS_DESERT)
 			.add(IcariaBiomes.DESERT_PEAK)
 			.add(IcariaBiomes.DESERT)
 			.add(IcariaBiomes.LUSH_DESERT)
 			.add(IcariaBiomes.LOST_DESERT)
 			.add(IcariaBiomes.DEEP_DESERT);
 
-		this.tag(IcariaBiomeTags.PEAK)
+		this.tag(IcariaBiomeTags.IS_PEAK)
 			.add(IcariaBiomes.FOREST_PEAK)
 			.add(IcariaBiomes.SCRUBLAND_PEAK)
 			.add(IcariaBiomes.STEPPE_PEAK)
 			.add(IcariaBiomes.DESERT_PEAK);
 
-		this.tag(IcariaBiomeTags.LUSH)
+		this.tag(IcariaBiomeTags.IS_LUSH)
 			.add(IcariaBiomes.LUSH_FOREST)
 			.add(IcariaBiomes.LUSH_SCRUBLAND)
 			.add(IcariaBiomes.LUSH_STEPPE)
 			.add(IcariaBiomes.LUSH_DESERT);
 
-		this.tag(IcariaBiomeTags.LOST)
+		this.tag(IcariaBiomeTags.IS_LOST)
 			.add(IcariaBiomes.LOST_FOREST)
 			.add(IcariaBiomes.LOST_SCRUBLAND)
 			.add(IcariaBiomes.LOST_STEPPE)
 			.add(IcariaBiomes.LOST_DESERT);
 
-		this.tag(IcariaBiomeTags.DEEP)
+		this.tag(IcariaBiomeTags.IS_DEEP)
 			.add(IcariaBiomes.DEEP_FOREST)
 			.add(IcariaBiomes.DEEP_SCRUBLAND)
 			.add(IcariaBiomes.DEEP_STEPPE)
