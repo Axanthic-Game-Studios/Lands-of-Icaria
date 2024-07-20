@@ -1,0 +1,449 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:bone"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:vanadiumsteel_chain"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:bone_remains"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:calcite_shard"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:halite_shard"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:jasper_shard"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:zircon_shard"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 56.0,
+                "min": 24.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:dolomite"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:raw_sideros"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:anthracite"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:orichalcum_ingot"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:vanadiumsteel_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:vanadiumsteel_dagger"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:vanadiumsteel_shovel"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:vanadiumsteel_pickaxe"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:vanadiumsteel_axe"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:vanadiumsteel_scythe"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:vanadiumsteel_bident"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:vanadiumsteel_dagger"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:sideros_dagger"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:kassiteros_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:kassiteros_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:kassiteros_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.9,
+                "min": 0.1
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "landsoficaria:kassiteros_boots"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:greek_fire_grenade"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:bubble_spell"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:anti_gravity_flask"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:fortifying_flask"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:healing_flask"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:chest_label"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:loam_gear"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:blue_gearfragment"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:green_gearfragment"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:yellow_gearfragment"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 5.0,
+        "min": 1.0
+      }
+    }
+  ],
+  "random_sequence": "landsoficaria:loot_vases/lost_loot_vase"
+}

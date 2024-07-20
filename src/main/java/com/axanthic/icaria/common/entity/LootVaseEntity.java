@@ -82,7 +82,7 @@ public class LootVaseEntity extends Entity {
         if (this.level().getServer() != null) {
             if (this.level() instanceof ServerLevel serverLevel) {
                 var lootContext = new LootParams.Builder(serverLevel).withOptionalParameter(LootContextParams.DIRECT_ATTACKING_ENTITY, pDamageSource.getDirectEntity()).withOptionalParameter(LootContextParams.ATTACKING_ENTITY, pDamageSource.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, pDamageSource).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).create(LootContextParamSets.ENTITY);
-                var lootTable = this.getBlockState().is(IcariaBlocks.RED_LOOT_VASE.get()) ? IcariaLootTables.RED_LOOT_VASE_LOOT : IcariaLootTables.CYAN_LOOT_VASE_LOOT;
+                var lootTable = this.getBlockState().is(IcariaBlocks.RED_LOOT_VASE.get()) ? IcariaLootTables.RED_LOOT_VASE_LOOT : this.getBlockState().is(IcariaBlocks.LOST_LOOT_VASE.get()) ? IcariaLootTables.LOST_LOOT_VASE_LOOT : IcariaLootTables.CYAN_LOOT_VASE_LOOT;
                 lootContext.getLevel().getServer().reloadableRegistries().getLootTable(lootTable).getRandomItems(lootContext).forEach(this::spawnAtLocation);
             }
         }
