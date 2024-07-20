@@ -102,8 +102,8 @@ public class IcariaTemplatePools {
 		var empty = pools.getOrThrow(Pools.EMPTY);
 
 		pContext.register(IcariaTemplatePools.TEMPLE_BACK, IcariaTemplatePools.templeBack(empty, lists.getOrThrow(IcariaProcessorLists.TEMPLE)));
-		pContext.register(IcariaTemplatePools.TEMPLE_HALL, IcariaTemplatePools.templeHall(empty));
-		pContext.register(IcariaTemplatePools.TEMPLE_OPEN, IcariaTemplatePools.templeOpen(empty));
+		pContext.register(IcariaTemplatePools.TEMPLE_HALL, IcariaTemplatePools.templeHall(empty, lists.getOrThrow(IcariaProcessorLists.TEMPLE)));
+		pContext.register(IcariaTemplatePools.TEMPLE_OPEN, IcariaTemplatePools.templeOpen(empty, lists.getOrThrow(IcariaProcessorLists.TEMPLE)));
 
 		pContext.register(IcariaTemplatePools.ERODED_FOREST_VILLAGE_BUILDING, IcariaTemplatePools.villagesBuilding(empty, lists.getOrThrow(IcariaProcessorLists.ERODED_DOLOMITE_FOREST_VILLAGE), lists.getOrThrow(IcariaProcessorLists.ERODED_SILKSTONE_FOREST_VILLAGE), lists.getOrThrow(IcariaProcessorLists.ERODED_SUNSTONE_FOREST_VILLAGE)));
 		pContext.register(IcariaTemplatePools.PRISTINE_FOREST_VILLAGE_BUILDING, IcariaTemplatePools.villagesBuilding(empty, lists.getOrThrow(IcariaProcessorLists.PRISTINE_DOLOMITE_FOREST_VILLAGE), lists.getOrThrow(IcariaProcessorLists.PRISTINE_SILKSTONE_FOREST_VILLAGE), lists.getOrThrow(IcariaProcessorLists.PRISTINE_SUNSTONE_FOREST_VILLAGE)));
@@ -175,50 +175,50 @@ public class IcariaTemplatePools {
 		pContext.register(IcariaTemplatePools.REVENANT, IcariaTemplatePools.revenant(empty));
 	}
 
-	public static StructureTemplatePool templeBack(Holder<StructureTemplatePool> pFallback, Holder<StructureProcessorList> pProcessorA) {
+	public static StructureTemplatePool templeBack(Holder<StructureTemplatePool> pFallback, Holder<StructureProcessorList> pProcessor) {
 		return new StructureTemplatePool(pFallback, ImmutableList.of(
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_back_4000", pProcessorA), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_back_4001", pProcessorA), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_back_4002", pProcessorA), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_back_4003", pProcessorA), 1)
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_back_4000", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_back_4001", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_back_4002", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_back_4003", pProcessor), 1)
 		), StructureTemplatePool.Projection.RIGID);
 	}
 
-	public static StructureTemplatePool templeHall(Holder<StructureTemplatePool> pFallback) {
+	public static StructureTemplatePool templeHall(Holder<StructureTemplatePool> pFallback, Holder<StructureProcessorList> pProcessor) {
 		return new StructureTemplatePool(pFallback, ImmutableList.of(
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_4000"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_4001"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_4002"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_4003"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_5000"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_5001"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_5002"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_5003"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_6000"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_6001"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_6002"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_6003"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_4000"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_4001"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_4002"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_4003"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_5000"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_5001"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_5002"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_5003"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_6000"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_6001"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_6002"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_6003"), 1)
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_4000", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_4001", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_4002", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_4003", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_5000", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_5001", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_5002", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_5003", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_6000", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_6001", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_6002", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "mirrored_ruined_temple_hall_6003", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_4000", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_4001", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_4002", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_4003", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_5000", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_5001", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_5002", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_5003", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_6000", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_6001", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_6002", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_hall_6003", pProcessor), 1)
 		), StructureTemplatePool.Projection.RIGID);
 	}
 
-	public static StructureTemplatePool templeOpen(Holder<StructureTemplatePool> pFallback) {
+	public static StructureTemplatePool templeOpen(Holder<StructureTemplatePool> pFallback, Holder<StructureProcessorList> pProcessor) {
 		return new StructureTemplatePool(pFallback, ImmutableList.of(
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_open_3000"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_open_3001"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_open_3002"), 1),
-			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_open_3003"), 1)
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_open_3000", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_open_3001", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_open_3002", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "temple" + "/" + "ruined_temple_open_3003", pProcessor), 1)
 		), StructureTemplatePool.Projection.RIGID);
 	}
 

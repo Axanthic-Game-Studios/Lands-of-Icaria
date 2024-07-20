@@ -127,6 +127,12 @@ public class IcariaProcessorLists {
 
 	public static StructureProcessorList temple() {
 		return new StructureProcessorList(ImmutableList.of(
+			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_BRICKS.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get()),
+			IcariaProcessorLists.stairs(IcariaBlocks.RELICSTONE_BRICK_DECO.stairs.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_BRICK_DECO.stairs.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_BRICK_DECO.stairs.get()),
+			IcariaProcessorLists.slab(IcariaBlocks.RELICSTONE_BRICK_DECO.slab.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_BRICK_DECO.slab.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_BRICK_DECO.slab.get()),
+			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILES.get()),
+			IcariaProcessorLists.stairs(IcariaBlocks.RELICSTONE_TILE_DECO.stairs.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.stairs.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.stairs.get()),
+			IcariaProcessorLists.slab(IcariaBlocks.RELICSTONE_TILE_DECO.slab.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.slab.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.slab.get()),
 			IcariaProcessorLists.block(IcariaBlocks.RED_LOOT_VASE.get(), 0.1F, IcariaBlocks.CYAN_LOOT_VASE.get(), 0.2F, IcariaBlocks.REVENANT_SPAWNER.get(), 0.2F, Blocks.AIR)
 		));
 	}
@@ -620,6 +626,17 @@ public class IcariaProcessorLists {
 			new ProcessorRule(new BlockStateMatchTest(pOld.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.TOP)), AlwaysTrueTest.INSTANCE, pNew.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.TOP)),
 			new ProcessorRule(new BlockStateMatchTest(pOld.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.BOTTOM)), AlwaysTrueTest.INSTANCE, pNew.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.BOTTOM)),
 			new ProcessorRule(new BlockStateMatchTest(pOld.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE)), AlwaysTrueTest.INSTANCE, pNew.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE))
+		));
+	}
+
+	public static RuleProcessor slab(Block pOld, float pChanceA, Block pNewA, float pChanceB, Block pNewB) {
+		return new RuleProcessor(ImmutableList.of(
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.TOP), pChanceA), AlwaysTrueTest.INSTANCE, pNewA.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.TOP)),
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.BOTTOM), pChanceA), AlwaysTrueTest.INSTANCE, pNewA.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.BOTTOM)),
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE), pChanceA), AlwaysTrueTest.INSTANCE, pNewA.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE)),
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.TOP), pChanceB), AlwaysTrueTest.INSTANCE, pNewB.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.TOP)),
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.BOTTOM), pChanceB), AlwaysTrueTest.INSTANCE, pNewB.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.BOTTOM)),
+			new ProcessorRule(new RandomBlockStateMatchTest(pOld.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE), pChanceB), AlwaysTrueTest.INSTANCE, pNewB.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE))
 		));
 	}
 
