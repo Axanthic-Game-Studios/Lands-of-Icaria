@@ -146,10 +146,10 @@ public class JeiIntegration implements IModPlugin {
         this.anvilRecipes(pRegistration, IcariaItems.KASSITEROS_ARMOR.chestplate.get(), IcariaItems.KASSITEROS_INGOT.get());
         this.anvilRecipes(pRegistration, IcariaItems.KASSITEROS_ARMOR.leggings.get(), IcariaItems.KASSITEROS_INGOT.get());
         this.anvilRecipes(pRegistration, IcariaItems.KASSITEROS_ARMOR.boots.get(), IcariaItems.KASSITEROS_INGOT.get());
-        this.anvilRecipes(pRegistration, IcariaItems.ORICHALCUM_HELMET.get(), IcariaItems.ORICHALCUM_INGOT.get());
-        this.anvilRecipes(pRegistration, IcariaItems.ORICHALCUM_CHESTPLATE.get(), IcariaItems.ORICHALCUM_INGOT.get());
-        this.anvilRecipes(pRegistration, IcariaItems.ORICHALCUM_LEGGINGS.get(), IcariaItems.ORICHALCUM_INGOT.get());
-        this.anvilRecipes(pRegistration, IcariaItems.ORICHALCUM_BOOTS.get(), IcariaItems.ORICHALCUM_INGOT.get());
+        this.anvilRecipes(pRegistration, IcariaItems.ORICHALCUM_ARMOR.helmet.get(), IcariaItems.ORICHALCUM_INGOT.get());
+        this.anvilRecipes(pRegistration, IcariaItems.ORICHALCUM_ARMOR.chestplate.get(), IcariaItems.ORICHALCUM_INGOT.get());
+        this.anvilRecipes(pRegistration, IcariaItems.ORICHALCUM_ARMOR.leggings.get(), IcariaItems.ORICHALCUM_INGOT.get());
+        this.anvilRecipes(pRegistration, IcariaItems.ORICHALCUM_ARMOR.boots.get(), IcariaItems.ORICHALCUM_INGOT.get());
         this.anvilRecipes(pRegistration, IcariaItems.VANADIUMSTEEL_ARMOR.helmet.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
         this.anvilRecipes(pRegistration, IcariaItems.VANADIUMSTEEL_ARMOR.chestplate.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
         this.anvilRecipes(pRegistration, IcariaItems.VANADIUMSTEEL_ARMOR.leggings.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());

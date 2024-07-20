@@ -614,10 +614,7 @@ public class IcariaItems {
 	public static final IcariaArmorItems AETERNAE_HIDE_ARMOR = new IcariaArmorItems("aeternae_hide", IcariaArmorMaterials.AETERNAE_HIDE, 11);
 	public static final IcariaArmorItems CHALKOS_ARMOR = new IcariaArmorItems("chalkos", IcariaArmorMaterials.CHALKOS, 11);
 	public static final IcariaArmorItems KASSITEROS_ARMOR = new IcariaArmorItems("kassiteros", IcariaArmorMaterials.KASSITEROS, 15);
-	public static final Supplier<Item> ORICHALCUM_HELMET = IcariaItems.registerSimple("orichalcum_helmet", () -> new OrichalcumHelmetItem(IcariaArmorMaterials.ORICHALCUM, ArmorItem.Type.HELMET, IcariaItems.propertiesItem().durability(ArmorItem.Type.HELMET.getDurability(24))));
-	public static final Supplier<Item> ORICHALCUM_CHESTPLATE = IcariaItems.registerSimple("orichalcum_chestplate", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorItem.Type.CHESTPLATE, IcariaItems.propertiesItem().durability(ArmorItem.Type.CHESTPLATE.getDurability(24))));
-	public static final Supplier<Item> ORICHALCUM_LEGGINGS = IcariaItems.registerSimple("orichalcum_leggings", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorItem.Type.LEGGINGS, IcariaItems.propertiesItem().durability(ArmorItem.Type.LEGGINGS.getDurability(24))));
-	public static final Supplier<Item> ORICHALCUM_BOOTS = IcariaItems.registerSimple("orichalcum_boots", () -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorItem.Type.BOOTS, IcariaItems.propertiesItem().durability(ArmorItem.Type.BOOTS.getDurability(24))));
+	public static final IcariaArmorItems ORICHALCUM_ARMOR = new IcariaArmorItems("orichalcum", IcariaArmorMaterials.ORICHALCUM, 24);
 	public static final IcariaArmorItems VANADIUMSTEEL_ARMOR = new IcariaArmorItems("vanadiumsteel", IcariaArmorMaterials.VANADIUMSTEEL, 27);
 	public static final Supplier<Item> LAUREL_WREATH = IcariaItems.registerSimple("laurel_wreath", () -> new ArmorItem(IcariaArmorMaterials.LAUREL, ArmorItem.Type.HELMET, IcariaItems.propertiesItem()));
 

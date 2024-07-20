@@ -151,10 +151,10 @@ public class IcariaRecipes extends RecipeProvider {
 		this.forgingRecipe(pOutput, IcariaItems.KASSITEROS_ARMOR.chestplate.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
 		this.forgingRecipe(pOutput, IcariaItems.KASSITEROS_ARMOR.leggings.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
 		this.forgingRecipe(pOutput, IcariaItems.KASSITEROS_ARMOR.boots.get(), IcariaItems.KASSITEROS_NUGGET.get(), 0.1F, 100, 1);
-		this.forgingRecipe(pOutput, IcariaItems.ORICHALCUM_HELMET.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
-		this.forgingRecipe(pOutput, IcariaItems.ORICHALCUM_CHESTPLATE.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
-		this.forgingRecipe(pOutput, IcariaItems.ORICHALCUM_LEGGINGS.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
-		this.forgingRecipe(pOutput, IcariaItems.ORICHALCUM_BOOTS.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pOutput, IcariaItems.ORICHALCUM_ARMOR.helmet.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pOutput, IcariaItems.ORICHALCUM_ARMOR.chestplate.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pOutput, IcariaItems.ORICHALCUM_ARMOR.leggings.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
+		this.forgingRecipe(pOutput, IcariaItems.ORICHALCUM_ARMOR.boots.get(), IcariaItems.ORICHALCUM_NUGGET.get(), 0.1F, 100, 1);
 		this.forgingRecipe(pOutput, IcariaItems.VANADIUMSTEEL_ARMOR.helmet.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
 		this.forgingRecipe(pOutput, IcariaItems.VANADIUMSTEEL_ARMOR.chestplate.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
 		this.forgingRecipe(pOutput, IcariaItems.VANADIUMSTEEL_ARMOR.leggings.get(), IcariaItems.VANADIUMSTEEL_NUGGET.get(), 0.1F, 100, 1);
@@ -562,7 +562,7 @@ public class IcariaRecipes extends RecipeProvider {
 		this.armorRecipes(pOutput, IcariaItems.AETERNAE_HIDE.get(), IcariaItems.AETERNAE_HIDE_ARMOR.helmet.get(), IcariaItems.AETERNAE_HIDE_ARMOR.chestplate.get(), IcariaItems.AETERNAE_HIDE_ARMOR.leggings.get(), IcariaItems.AETERNAE_HIDE_ARMOR.boots.get());
 		this.armorRecipes(pOutput, IcariaItems.CHALKOS_INGOT.get(), IcariaItems.CHALKOS_ARMOR.helmet.get(), IcariaItems.CHALKOS_ARMOR.chestplate.get(), IcariaItems.CHALKOS_ARMOR.leggings.get(), IcariaItems.CHALKOS_ARMOR.boots.get());
 		this.armorRecipes(pOutput, IcariaItems.KASSITEROS_INGOT.get(), IcariaItems.KASSITEROS_ARMOR.helmet.get(), IcariaItems.KASSITEROS_ARMOR.chestplate.get(), IcariaItems.KASSITEROS_ARMOR.leggings.get(), IcariaItems.KASSITEROS_ARMOR.boots.get());
-		this.armorRecipes(pOutput, IcariaItems.ORICHALCUM_INGOT.get(), IcariaItems.ORICHALCUM_HELMET.get(), IcariaItems.ORICHALCUM_CHESTPLATE.get(), IcariaItems.ORICHALCUM_LEGGINGS.get(), IcariaItems.ORICHALCUM_BOOTS.get());
+		this.armorRecipes(pOutput, IcariaItems.ORICHALCUM_INGOT.get(), IcariaItems.ORICHALCUM_ARMOR.helmet.get(), IcariaItems.ORICHALCUM_ARMOR.chestplate.get(), IcariaItems.ORICHALCUM_ARMOR.leggings.get(), IcariaItems.ORICHALCUM_ARMOR.boots.get());
 		this.armorRecipes(pOutput, IcariaItems.VANADIUMSTEEL_INGOT.get(), IcariaItems.VANADIUMSTEEL_ARMOR.helmet.get(), IcariaItems.VANADIUMSTEEL_ARMOR.chestplate.get(), IcariaItems.VANADIUMSTEEL_ARMOR.leggings.get(), IcariaItems.VANADIUMSTEEL_ARMOR.boots.get());
 
 		this.vaseRecipe(pOutput, Items.WHITE_DYE, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get());

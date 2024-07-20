@@ -162,8 +162,8 @@ public class CaptainRevenantEntity extends RevenantEntity {
 
     @Override
     public void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
-        this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(IcariaItems.ORICHALCUM_HELMET.get()));
-        this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(IcariaItems.ORICHALCUM_CHESTPLATE.get()));
+        this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(IcariaItems.ORICHALCUM_ARMOR.helmet.get()));
+        this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(IcariaItems.ORICHALCUM_ARMOR.chestplate.get()));
         if (pRandom.nextInt(6) == 0) {
             this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.ORICHALCUM_TOOLS.bident.get()));
         } else {

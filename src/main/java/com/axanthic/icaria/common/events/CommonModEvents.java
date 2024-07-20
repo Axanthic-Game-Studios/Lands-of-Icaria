@@ -766,10 +766,10 @@ public class CommonModEvents {
 			pEvent.accept(IcariaItems.KASSITEROS_ARMOR.chestplate.get());
 			pEvent.accept(IcariaItems.KASSITEROS_ARMOR.leggings.get());
 			pEvent.accept(IcariaItems.KASSITEROS_ARMOR.boots.get());
-			pEvent.accept(IcariaItems.ORICHALCUM_HELMET.get());
-			pEvent.accept(IcariaItems.ORICHALCUM_CHESTPLATE.get());
-			pEvent.accept(IcariaItems.ORICHALCUM_LEGGINGS.get());
-			pEvent.accept(IcariaItems.ORICHALCUM_BOOTS.get());
+			pEvent.accept(IcariaItems.ORICHALCUM_ARMOR.helmet.get());
+			pEvent.accept(IcariaItems.ORICHALCUM_ARMOR.chestplate.get());
+			pEvent.accept(IcariaItems.ORICHALCUM_ARMOR.leggings.get());
+			pEvent.accept(IcariaItems.ORICHALCUM_ARMOR.boots.get());
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_ARMOR.helmet.get());
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_ARMOR.chestplate.get());
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_ARMOR.leggings.get());

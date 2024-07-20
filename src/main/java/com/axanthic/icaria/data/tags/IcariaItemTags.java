@@ -230,28 +230,28 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.AETERNAE_HIDE_ARMOR.boots.get())
 			.add(IcariaItems.CHALKOS_ARMOR.boots.get())
 			.add(IcariaItems.KASSITEROS_ARMOR.boots.get())
-			.add(IcariaItems.ORICHALCUM_BOOTS.get())
+			.add(IcariaItems.ORICHALCUM_ARMOR.boots.get())
 			.add(IcariaItems.VANADIUMSTEEL_ARMOR.boots.get());
 
 		this.tag(ItemTags.LEG_ARMOR)
 			.add(IcariaItems.AETERNAE_HIDE_ARMOR.leggings.get())
 			.add(IcariaItems.CHALKOS_ARMOR.leggings.get())
 			.add(IcariaItems.KASSITEROS_ARMOR.leggings.get())
-			.add(IcariaItems.ORICHALCUM_LEGGINGS.get())
+			.add(IcariaItems.ORICHALCUM_ARMOR.leggings.get())
 			.add(IcariaItems.VANADIUMSTEEL_ARMOR.leggings.get());
 
 		this.tag(ItemTags.CHEST_ARMOR)
 			.add(IcariaItems.AETERNAE_HIDE_ARMOR.chestplate.get())
 			.add(IcariaItems.CHALKOS_ARMOR.chestplate.get())
 			.add(IcariaItems.KASSITEROS_ARMOR.chestplate.get())
-			.add(IcariaItems.ORICHALCUM_CHESTPLATE.get())
+			.add(IcariaItems.ORICHALCUM_ARMOR.chestplate.get())
 			.add(IcariaItems.VANADIUMSTEEL_ARMOR.chestplate.get());
 
 		this.tag(ItemTags.HEAD_ARMOR)
 			.add(IcariaItems.AETERNAE_HIDE_ARMOR.helmet.get())
 			.add(IcariaItems.CHALKOS_ARMOR.helmet.get())
 			.add(IcariaItems.KASSITEROS_ARMOR.helmet.get())
-			.add(IcariaItems.ORICHALCUM_HELMET.get())
+			.add(IcariaItems.ORICHALCUM_ARMOR.helmet.get())
 			.add(IcariaItems.VANADIUMSTEEL_ARMOR.helmet.get());
 
 		this.tag(ItemTags.SKULLS)

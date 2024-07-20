@@ -10,9 +10,12 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.Item;
 
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -59,6 +62,8 @@ public class Icaria {
 	}
 
 	public void onFMLClientSetup(FMLClientSetupEvent pEvent) {
+		ModLoadingContext.get().getActiveContainer().registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.CYPRESS));
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.DROUGHTROOT));
 		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.FIR));

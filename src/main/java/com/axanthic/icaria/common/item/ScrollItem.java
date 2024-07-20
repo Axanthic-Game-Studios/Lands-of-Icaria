@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.client.extensions.ScrollItemExtensions;
 import com.axanthic.icaria.common.recipe.ConcoctingItemRecipe;
 import com.axanthic.icaria.common.registry.IcariaIdents;
 
@@ -12,10 +11,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
-
-import java.util.function.Consumer;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
@@ -26,11 +21,6 @@ public class ScrollItem extends Item {
 
     public ScrollItem(Properties pProperties) {
         super(pProperties);
-    }
-
-    @Override
-    public void initializeClient(Consumer<IClientItemExtensions> pConsumer) {
-        pConsumer.accept(new ScrollItemExtensions());
     }
 
     @Override
