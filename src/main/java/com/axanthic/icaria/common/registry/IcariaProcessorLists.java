@@ -21,106 +21,107 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaProcessorLists {
-	public static final ResourceKey<StructureProcessorList> FOREST_ERODED_DOLOMITE = IcariaProcessorLists.createKey("villages/forest/eroded/dolomite");
-	public static final ResourceKey<StructureProcessorList> FOREST_ERODED_SILKSTONE = IcariaProcessorLists.createKey("villages/forest/eroded/silkstone");
-	public static final ResourceKey<StructureProcessorList> FOREST_ERODED_SUNSTONE = IcariaProcessorLists.createKey("villages/forest/eroded/sunstone");
+	public static final ResourceKey<StructureProcessorList> ERODED_DOLOMITE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/eroded/dolomite");
+	public static final ResourceKey<StructureProcessorList> ERODED_SILKSTONE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/eroded/silkstone");
+	public static final ResourceKey<StructureProcessorList> ERODED_SUNSTONE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/eroded/sunstone");
 
-	public static final ResourceKey<StructureProcessorList> FOREST_PRISTINE_DOLOMITE = IcariaProcessorLists.createKey("villages/forest/pristine/dolomite");
-	public static final ResourceKey<StructureProcessorList> FOREST_PRISTINE_SILKSTONE = IcariaProcessorLists.createKey("villages/forest/pristine/silkstone");
-	public static final ResourceKey<StructureProcessorList> FOREST_PRISTINE_SUNSTONE = IcariaProcessorLists.createKey("villages/forest/pristine/sunstone");
+	public static final ResourceKey<StructureProcessorList> PRISTINE_DOLOMITE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/pristine/dolomite");
+	public static final ResourceKey<StructureProcessorList> PRISTINE_SILKSTONE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/pristine/silkstone");
+	public static final ResourceKey<StructureProcessorList> PRISTINE_SUNSTONE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/pristine/sunstone");
 
-	public static final ResourceKey<StructureProcessorList> FOREST_RUINED_DOLOMITE = IcariaProcessorLists.createKey("villages/forest/ruined/dolomite");
-	public static final ResourceKey<StructureProcessorList> FOREST_RUINED_SILKSTONE = IcariaProcessorLists.createKey("villages/forest/ruined/silkstone");
-	public static final ResourceKey<StructureProcessorList> FOREST_RUINED_SUNSTONE = IcariaProcessorLists.createKey("villages/forest/ruined/sunstone");
+	public static final ResourceKey<StructureProcessorList> RUINED_DOLOMITE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/ruined/dolomite");
+	public static final ResourceKey<StructureProcessorList> RUINED_SILKSTONE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/ruined/silkstone");
+	public static final ResourceKey<StructureProcessorList> RUINED_SUNSTONE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/ruined/sunstone");
 
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_ERODED_SUNSTONE = IcariaProcessorLists.createKey("villages/scrubland/eroded/sunstone");
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_ERODED_VOIDSHALE = IcariaProcessorLists.createKey("villages/scrubland/eroded/voidshale");
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_ERODED_YELLOWSTONE = IcariaProcessorLists.createKey("villages/scrubland/eroded/yellowstone");
+	public static final ResourceKey<StructureProcessorList> ERODED_SUNSTONE_SCRUBLAND_VILLAGE = IcariaProcessorLists.createKey("villages/scrubland/eroded/sunstone");
+	public static final ResourceKey<StructureProcessorList> ERODED_VOIDSHALE_SCRUBLAND_VILLAGE = IcariaProcessorLists.createKey("villages/scrubland/eroded/voidshale");
+	public static final ResourceKey<StructureProcessorList> ERODED_YELLOWSTONE_SCRUBLAND_VILLAGE = IcariaProcessorLists.createKey("villages/scrubland/eroded/yellowstone");
 
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_PRISTINE_SUNSTONE = IcariaProcessorLists.createKey("villages/scrubland/pristine/sunstone");
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_PRISTINE_VOIDSHALE = IcariaProcessorLists.createKey("villages/scrubland/pristine/voidshale");
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_PRISTINE_YELLOWSTONE = IcariaProcessorLists.createKey("villages/scrubland/pristine/yellowstone");
+	public static final ResourceKey<StructureProcessorList> PRISTINE_SUNSTONE_SCRUBLAND_VILLAGE = IcariaProcessorLists.createKey("villages/scrubland/pristine/sunstone");
+	public static final ResourceKey<StructureProcessorList> PRISTINE_VOIDSHALE_SCRUBLAND_VILLAGE = IcariaProcessorLists.createKey("villages/scrubland/pristine/voidshale");
+	public static final ResourceKey<StructureProcessorList> PRISTINE_YELLOWSTONE_SCRUBLAND_VILLAGE = IcariaProcessorLists.createKey("villages/scrubland/pristine/yellowstone");
 
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_RUINED_SUNSTONE = IcariaProcessorLists.createKey("villages/scrubland/ruined/sunstone");
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_RUINED_VOIDSHALE = IcariaProcessorLists.createKey("villages/scrubland/ruined/voidshale");
-	public static final ResourceKey<StructureProcessorList> SCRUBLAND_RUINED_YELLOWSTONE = IcariaProcessorLists.createKey("villages/scrubland/ruined/yellowstone");
+	public static final ResourceKey<StructureProcessorList> RUINED_SUNSTONE_SCRUBLAND_VILLAGE = IcariaProcessorLists.createKey("villages/scrubland/ruined/sunstone");
+	public static final ResourceKey<StructureProcessorList> RUINED_VOIDSHALE_SCRUBLAND_VILLAGE = IcariaProcessorLists.createKey("villages/scrubland/ruined/voidshale");
+	public static final ResourceKey<StructureProcessorList> RUINED_YELLOWSTONE_SCRUBLAND_VILLAGE = IcariaProcessorLists.createKey("villages/scrubland/ruined/yellowstone");
 
-	public static final ResourceKey<StructureProcessorList> STEPPE_ERODED_GRAINITE = IcariaProcessorLists.createKey("villages/steppe/eroded/grainite");
-	public static final ResourceKey<StructureProcessorList> STEPPE_ERODED_MARL = IcariaProcessorLists.createKey("villages/steppe/eroded/marl");
-	public static final ResourceKey<StructureProcessorList> STEPPE_ERODED_YELLOWSTONE = IcariaProcessorLists.createKey("villages/steppe/eroded/yellowstone");
+	public static final ResourceKey<StructureProcessorList> ERODED_GRAINITE_STEPPE_VILLAGE = IcariaProcessorLists.createKey("villages/steppe/eroded/grainite");
+	public static final ResourceKey<StructureProcessorList> ERODED_MARL_STEPPE_VILLAGE = IcariaProcessorLists.createKey("villages/steppe/eroded/marl");
+	public static final ResourceKey<StructureProcessorList> ERODED_YELLOWSTONE_STEPPE_VILLAGE = IcariaProcessorLists.createKey("villages/steppe/eroded/yellowstone");
 
-	public static final ResourceKey<StructureProcessorList> STEPPE_PRISTINE_GRAINITE = IcariaProcessorLists.createKey("villages/steppe/pristine/grainite");
-	public static final ResourceKey<StructureProcessorList> STEPPE_PRISTINE_MARL = IcariaProcessorLists.createKey("villages/steppe/pristine/marl");
-	public static final ResourceKey<StructureProcessorList> STEPPE_PRISTINE_YELLOWSTONE = IcariaProcessorLists.createKey("villages/steppe/pristine/yellowstone");
+	public static final ResourceKey<StructureProcessorList> PRISTINE_GRAINITE_STEPPE_VILLAGE = IcariaProcessorLists.createKey("villages/steppe/pristine/grainite");
+	public static final ResourceKey<StructureProcessorList> PRISTINE_MARL_STEPPE_VILLAGE = IcariaProcessorLists.createKey("villages/steppe/pristine/marl");
+	public static final ResourceKey<StructureProcessorList> PRISTINE_YELLOWSTONE_STEPPE_VILLAGE = IcariaProcessorLists.createKey("villages/steppe/pristine/yellowstone");
 
-	public static final ResourceKey<StructureProcessorList> STEPPE_RUINED_GRAINITE = IcariaProcessorLists.createKey("villages/steppe/ruined/grainite");
-	public static final ResourceKey<StructureProcessorList> STEPPE_RUINED_MARL = IcariaProcessorLists.createKey("villages/steppe/ruined/marl");
-	public static final ResourceKey<StructureProcessorList> STEPPE_RUINED_YELLOWSTONE = IcariaProcessorLists.createKey("villages/steppe/ruined/yellowstone");
+	public static final ResourceKey<StructureProcessorList> RUINED_GRAINITE_STEPPE_VILLAGE = IcariaProcessorLists.createKey("villages/steppe/ruined/grainite");
+	public static final ResourceKey<StructureProcessorList> RUINED_MARL_STEPPE_VILLAGE = IcariaProcessorLists.createKey("villages/steppe/ruined/marl");
+	public static final ResourceKey<StructureProcessorList> RUINED_YELLOWSTONE_STEPPE_VILLAGE = IcariaProcessorLists.createKey("villages/steppe/ruined/yellowstone");
 
-	public static final ResourceKey<StructureProcessorList> DESERT_ERODED_BAETYL = IcariaProcessorLists.createKey("villages/desert/eroded/baetyl");
-	public static final ResourceKey<StructureProcessorList> DESERT_ERODED_GRAINITE = IcariaProcessorLists.createKey("villages/desert/eroded/grainite");
-	public static final ResourceKey<StructureProcessorList> DESERT_ERODED_VOIDSHALE = IcariaProcessorLists.createKey("villages/desert/eroded/voidshale");
+	public static final ResourceKey<StructureProcessorList> ERODED_BAETYL_DESERT_VILLAGE = IcariaProcessorLists.createKey("villages/desert/eroded/baetyl");
+	public static final ResourceKey<StructureProcessorList> ERODED_GRAINITE_DESERT_VILLAGE = IcariaProcessorLists.createKey("villages/desert/eroded/grainite");
+	public static final ResourceKey<StructureProcessorList> ERODED_VOIDSHALE_DESERT_VILLAGE = IcariaProcessorLists.createKey("villages/desert/eroded/voidshale");
 
-	public static final ResourceKey<StructureProcessorList> DESERT_PRISTINE_BAETYL = IcariaProcessorLists.createKey("villages/desert/pristine/baetyl");
-	public static final ResourceKey<StructureProcessorList> DESERT_PRISTINE_GRAINITE = IcariaProcessorLists.createKey("villages/desert/pristine/grainite");
-	public static final ResourceKey<StructureProcessorList> DESERT_PRISTINE_VOIDSHALE = IcariaProcessorLists.createKey("villages/desert/pristine/voidshale");
+	public static final ResourceKey<StructureProcessorList> PRISTINE_BAETYL_DESERT_VILLAGE = IcariaProcessorLists.createKey("villages/desert/pristine/baetyl");
+	public static final ResourceKey<StructureProcessorList> PRISTINE_GRAINITE_DESERT_VILLAGE = IcariaProcessorLists.createKey("villages/desert/pristine/grainite");
+	public static final ResourceKey<StructureProcessorList> PRISTINE_VOIDSHALE_DESERT_VILLAGE = IcariaProcessorLists.createKey("villages/desert/pristine/voidshale");
 
-	public static final ResourceKey<StructureProcessorList> DESERT_RUINED_BAETYL = IcariaProcessorLists.createKey("villages/desert/ruined/baetyl");
-	public static final ResourceKey<StructureProcessorList> DESERT_RUINED_GRAINITE = IcariaProcessorLists.createKey("villages/desert/ruined/grainite");
-	public static final ResourceKey<StructureProcessorList> DESERT_RUINED_VOIDSHALE = IcariaProcessorLists.createKey("villages/desert/ruined/voidshale");
+	public static final ResourceKey<StructureProcessorList> RUINED_BAETYL_DESERT_VILLAGE = IcariaProcessorLists.createKey("villages/desert/ruined/baetyl");
+	public static final ResourceKey<StructureProcessorList> RUINED_GRAINITE_DESERT_VILLAGE = IcariaProcessorLists.createKey("villages/desert/ruined/grainite");
+	public static final ResourceKey<StructureProcessorList> RUINED_VOIDSHALE_DESERT_VILLAGE = IcariaProcessorLists.createKey("villages/desert/ruined/voidshale");
 
 	public static void bootstrap(BootstrapContext<StructureProcessorList> pContext) {
-		pContext.register(IcariaProcessorLists.FOREST_ERODED_DOLOMITE, IcariaProcessorLists.forestEroded(IcariaBlocks.DOLOMITE_ADOBE.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.stairs.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.FOREST_ERODED_SILKSTONE, IcariaProcessorLists.forestEroded(IcariaBlocks.SILKSTONE_ADOBE.get(), IcariaBlocks.SILKSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SILKSTONE_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.FOREST_ERODED_SUNSTONE, IcariaProcessorLists.forestEroded(IcariaBlocks.SUNSTONE_ADOBE.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.ERODED_DOLOMITE_FOREST_VILLAGE, IcariaProcessorLists.erodedForestVillage(IcariaBlocks.DOLOMITE_ADOBE.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.stairs.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.ERODED_SILKSTONE_FOREST_VILLAGE, IcariaProcessorLists.erodedForestVillage(IcariaBlocks.SILKSTONE_ADOBE.get(), IcariaBlocks.SILKSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SILKSTONE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.ERODED_SUNSTONE_FOREST_VILLAGE, IcariaProcessorLists.erodedForestVillage(IcariaBlocks.SUNSTONE_ADOBE.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.slab.get()));
 
-		pContext.register(IcariaProcessorLists.FOREST_PRISTINE_DOLOMITE, IcariaProcessorLists.forestPristine(IcariaBlocks.DOLOMITE_ADOBE.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.stairs.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.FOREST_PRISTINE_SILKSTONE, IcariaProcessorLists.forestPristine(IcariaBlocks.SILKSTONE_ADOBE.get(), IcariaBlocks.SILKSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SILKSTONE_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.FOREST_PRISTINE_SUNSTONE, IcariaProcessorLists.forestPristine(IcariaBlocks.SUNSTONE_ADOBE.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.PRISTINE_DOLOMITE_FOREST_VILLAGE, IcariaProcessorLists.pristineForestVillage(IcariaBlocks.DOLOMITE_ADOBE.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.stairs.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.PRISTINE_SILKSTONE_FOREST_VILLAGE, IcariaProcessorLists.pristineForestVillage(IcariaBlocks.SILKSTONE_ADOBE.get(), IcariaBlocks.SILKSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SILKSTONE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.PRISTINE_SUNSTONE_FOREST_VILLAGE, IcariaProcessorLists.pristineForestVillage(IcariaBlocks.SUNSTONE_ADOBE.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.slab.get()));
 
-		pContext.register(IcariaProcessorLists.FOREST_RUINED_DOLOMITE, IcariaProcessorLists.forestRuined(IcariaBlocks.DOLOMITE_ADOBE.get()));
-		pContext.register(IcariaProcessorLists.FOREST_RUINED_SILKSTONE, IcariaProcessorLists.forestRuined(IcariaBlocks.SILKSTONE_ADOBE.get()));
-		pContext.register(IcariaProcessorLists.FOREST_RUINED_SUNSTONE, IcariaProcessorLists.forestRuined(IcariaBlocks.SUNSTONE_ADOBE.get()));
+		pContext.register(IcariaProcessorLists.RUINED_DOLOMITE_FOREST_VILLAGE, IcariaProcessorLists.ruinedForestVillage(IcariaBlocks.DOLOMITE_ADOBE.get()));
+		pContext.register(IcariaProcessorLists.RUINED_SILKSTONE_FOREST_VILLAGE, IcariaProcessorLists.ruinedForestVillage(IcariaBlocks.SILKSTONE_ADOBE.get()));
+		pContext.register(IcariaProcessorLists.RUINED_SUNSTONE_FOREST_VILLAGE, IcariaProcessorLists.ruinedForestVillage(IcariaBlocks.SUNSTONE_ADOBE.get()));
 
-		pContext.register(IcariaProcessorLists.SCRUBLAND_ERODED_SUNSTONE, IcariaProcessorLists.scrublandEroded(IcariaBlocks.SUNSTONE_ADOBE.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.SCRUBLAND_ERODED_VOIDSHALE, IcariaProcessorLists.scrublandEroded(IcariaBlocks.VOIDSHALE_ADOBE.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.stairs.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.SCRUBLAND_ERODED_YELLOWSTONE, IcariaProcessorLists.scrublandEroded(IcariaBlocks.YELLOWSTONE_ADOBE.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.ERODED_SUNSTONE_SCRUBLAND_VILLAGE, IcariaProcessorLists.erodedScrublandVillage(IcariaBlocks.SUNSTONE_ADOBE.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.ERODED_VOIDSHALE_SCRUBLAND_VILLAGE, IcariaProcessorLists.erodedScrublandVillage(IcariaBlocks.VOIDSHALE_ADOBE.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.stairs.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.ERODED_YELLOWSTONE_SCRUBLAND_VILLAGE, IcariaProcessorLists.erodedScrublandVillage(IcariaBlocks.YELLOWSTONE_ADOBE.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.slab.get()));
 
-		pContext.register(IcariaProcessorLists.SCRUBLAND_PRISTINE_SUNSTONE, IcariaProcessorLists.scrublandPristine(IcariaBlocks.SUNSTONE_ADOBE.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.SCRUBLAND_PRISTINE_VOIDSHALE, IcariaProcessorLists.scrublandPristine(IcariaBlocks.VOIDSHALE_ADOBE.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.stairs.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.SCRUBLAND_PRISTINE_YELLOWSTONE, IcariaProcessorLists.scrublandPristine(IcariaBlocks.YELLOWSTONE_ADOBE.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.PRISTINE_SUNSTONE_SCRUBLAND_VILLAGE, IcariaProcessorLists.pristineScrublandVillage(IcariaBlocks.SUNSTONE_ADOBE.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.SUNSTONE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.PRISTINE_VOIDSHALE_SCRUBLAND_VILLAGE, IcariaProcessorLists.pristineScrublandVillage(IcariaBlocks.VOIDSHALE_ADOBE.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.stairs.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.PRISTINE_YELLOWSTONE_SCRUBLAND_VILLAGE, IcariaProcessorLists.pristineScrublandVillage(IcariaBlocks.YELLOWSTONE_ADOBE.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.slab.get()));
 
-		pContext.register(IcariaProcessorLists.SCRUBLAND_RUINED_SUNSTONE, IcariaProcessorLists.scrublandRuined(IcariaBlocks.SUNSTONE_ADOBE.get()));
-		pContext.register(IcariaProcessorLists.SCRUBLAND_RUINED_VOIDSHALE, IcariaProcessorLists.scrublandRuined(IcariaBlocks.VOIDSHALE_ADOBE.get()));
-		pContext.register(IcariaProcessorLists.SCRUBLAND_RUINED_YELLOWSTONE, IcariaProcessorLists.scrublandRuined(IcariaBlocks.YELLOWSTONE_ADOBE.get()));
+		pContext.register(IcariaProcessorLists.RUINED_SUNSTONE_SCRUBLAND_VILLAGE, IcariaProcessorLists.ruinedScrublandVillage(IcariaBlocks.SUNSTONE_ADOBE.get()));
+		pContext.register(IcariaProcessorLists.RUINED_VOIDSHALE_SCRUBLAND_VILLAGE, IcariaProcessorLists.ruinedScrublandVillage(IcariaBlocks.VOIDSHALE_ADOBE.get()));
+		pContext.register(IcariaProcessorLists.RUINED_YELLOWSTONE_SCRUBLAND_VILLAGE, IcariaProcessorLists.ruinedScrublandVillage(IcariaBlocks.YELLOWSTONE_ADOBE.get()));
 
-		pContext.register(IcariaProcessorLists.STEPPE_ERODED_GRAINITE, IcariaProcessorLists.steppeEroded(IcariaBlocks.GRAINITE_ADOBE.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.stairs.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.STEPPE_ERODED_MARL, IcariaProcessorLists.steppeEroded(IcariaBlocks.MARL_ADOBE.get(), IcariaBlocks.MARL_ADOBE_DECO.stairs.get(), IcariaBlocks.MARL_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.STEPPE_ERODED_YELLOWSTONE, IcariaProcessorLists.steppeEroded(IcariaBlocks.YELLOWSTONE_ADOBE.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.ERODED_GRAINITE_STEPPE_VILLAGE, IcariaProcessorLists.erodedSteppeVillage(IcariaBlocks.GRAINITE_ADOBE.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.stairs.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.ERODED_MARL_STEPPE_VILLAGE, IcariaProcessorLists.erodedSteppeVillage(IcariaBlocks.MARL_ADOBE.get(), IcariaBlocks.MARL_ADOBE_DECO.stairs.get(), IcariaBlocks.MARL_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.ERODED_YELLOWSTONE_STEPPE_VILLAGE, IcariaProcessorLists.erodedSteppeVillage(IcariaBlocks.YELLOWSTONE_ADOBE.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.slab.get()));
 
-		pContext.register(IcariaProcessorLists.STEPPE_PRISTINE_GRAINITE, IcariaProcessorLists.steppePristine(IcariaBlocks.GRAINITE_ADOBE.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.stairs.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.STEPPE_PRISTINE_MARL, IcariaProcessorLists.steppePristine(IcariaBlocks.MARL_ADOBE.get(), IcariaBlocks.MARL_ADOBE_DECO.stairs.get(), IcariaBlocks.MARL_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.STEPPE_PRISTINE_YELLOWSTONE, IcariaProcessorLists.steppePristine(IcariaBlocks.YELLOWSTONE_ADOBE.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.PRISTINE_GRAINITE_STEPPE_VILLAGE, IcariaProcessorLists.pristineSteppeVillage(IcariaBlocks.GRAINITE_ADOBE.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.stairs.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.PRISTINE_MARL_STEPPE_VILLAGE, IcariaProcessorLists.pristineSteppeVillage(IcariaBlocks.MARL_ADOBE.get(), IcariaBlocks.MARL_ADOBE_DECO.stairs.get(), IcariaBlocks.MARL_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.PRISTINE_YELLOWSTONE_STEPPE_VILLAGE, IcariaProcessorLists.pristineSteppeVillage(IcariaBlocks.YELLOWSTONE_ADOBE.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.stairs.get(), IcariaBlocks.YELLOWSTONE_ADOBE_DECO.slab.get()));
 
-		pContext.register(IcariaProcessorLists.STEPPE_RUINED_GRAINITE, IcariaProcessorLists.steppeRuined(IcariaBlocks.GRAINITE_ADOBE.get()));
-		pContext.register(IcariaProcessorLists.STEPPE_RUINED_MARL, IcariaProcessorLists.steppeRuined(IcariaBlocks.MARL_ADOBE.get()));
-		pContext.register(IcariaProcessorLists.STEPPE_RUINED_YELLOWSTONE, IcariaProcessorLists.steppeRuined(IcariaBlocks.YELLOWSTONE_ADOBE.get()));
+		pContext.register(IcariaProcessorLists.RUINED_GRAINITE_STEPPE_VILLAGE, IcariaProcessorLists.ruinedSteppeVillage(IcariaBlocks.GRAINITE_ADOBE.get()));
+		pContext.register(IcariaProcessorLists.RUINED_MARL_STEPPE_VILLAGE, IcariaProcessorLists.ruinedSteppeVillage(IcariaBlocks.MARL_ADOBE.get()));
+		pContext.register(IcariaProcessorLists.RUINED_YELLOWSTONE_STEPPE_VILLAGE, IcariaProcessorLists.ruinedSteppeVillage(IcariaBlocks.YELLOWSTONE_ADOBE.get()));
 
-		pContext.register(IcariaProcessorLists.DESERT_ERODED_BAETYL, IcariaProcessorLists.desertEroded(IcariaBlocks.BAETYL_ADOBE.get(), IcariaBlocks.BAETYL_ADOBE_DECO.stairs.get(), IcariaBlocks.BAETYL_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.DESERT_ERODED_GRAINITE, IcariaProcessorLists.desertEroded(IcariaBlocks.GRAINITE_ADOBE.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.stairs.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.DESERT_ERODED_VOIDSHALE, IcariaProcessorLists.desertEroded(IcariaBlocks.VOIDSHALE_ADOBE.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.stairs.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.ERODED_BAETYL_DESERT_VILLAGE, IcariaProcessorLists.erodedDesertVillage(IcariaBlocks.BAETYL_ADOBE.get(), IcariaBlocks.BAETYL_ADOBE_DECO.stairs.get(), IcariaBlocks.BAETYL_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.ERODED_GRAINITE_DESERT_VILLAGE, IcariaProcessorLists.erodedDesertVillage(IcariaBlocks.GRAINITE_ADOBE.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.stairs.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.ERODED_VOIDSHALE_DESERT_VILLAGE, IcariaProcessorLists.erodedDesertVillage(IcariaBlocks.VOIDSHALE_ADOBE.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.stairs.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.slab.get()));
 
-		pContext.register(IcariaProcessorLists.DESERT_PRISTINE_BAETYL, IcariaProcessorLists.desertPristine(IcariaBlocks.BAETYL_ADOBE.get(), IcariaBlocks.BAETYL_ADOBE_DECO.stairs.get(), IcariaBlocks.BAETYL_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.DESERT_PRISTINE_GRAINITE, IcariaProcessorLists.desertPristine(IcariaBlocks.GRAINITE_ADOBE.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.stairs.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.slab.get()));
-		pContext.register(IcariaProcessorLists.DESERT_PRISTINE_VOIDSHALE, IcariaProcessorLists.desertPristine(IcariaBlocks.VOIDSHALE_ADOBE.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.stairs.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.PRISTINE_BAETYL_DESERT_VILLAGE, IcariaProcessorLists.pristineDesertVillage(IcariaBlocks.BAETYL_ADOBE.get(), IcariaBlocks.BAETYL_ADOBE_DECO.stairs.get(), IcariaBlocks.BAETYL_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.PRISTINE_GRAINITE_DESERT_VILLAGE, IcariaProcessorLists.pristineDesertVillage(IcariaBlocks.GRAINITE_ADOBE.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.stairs.get(), IcariaBlocks.GRAINITE_ADOBE_DECO.slab.get()));
+		pContext.register(IcariaProcessorLists.PRISTINE_VOIDSHALE_DESERT_VILLAGE, IcariaProcessorLists.pristineDesertVillage(IcariaBlocks.VOIDSHALE_ADOBE.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.stairs.get(), IcariaBlocks.VOIDSHALE_ADOBE_DECO.slab.get()));
 
-		pContext.register(IcariaProcessorLists.DESERT_RUINED_BAETYL, IcariaProcessorLists.desertRuined(IcariaBlocks.BAETYL_ADOBE.get()));
-		pContext.register(IcariaProcessorLists.DESERT_RUINED_GRAINITE, IcariaProcessorLists.desertRuined(IcariaBlocks.GRAINITE_ADOBE.get()));
-		pContext.register(IcariaProcessorLists.DESERT_RUINED_VOIDSHALE, IcariaProcessorLists.desertRuined(IcariaBlocks.VOIDSHALE_ADOBE.get()));
+		pContext.register(IcariaProcessorLists.RUINED_BAETYL_DESERT_VILLAGE, IcariaProcessorLists.ruinedDesertVillage(IcariaBlocks.BAETYL_ADOBE.get()));
+		pContext.register(IcariaProcessorLists.RUINED_GRAINITE_DESERT_VILLAGE, IcariaProcessorLists.ruinedDesertVillage(IcariaBlocks.GRAINITE_ADOBE.get()));
+		pContext.register(IcariaProcessorLists.RUINED_VOIDSHALE_DESERT_VILLAGE, IcariaProcessorLists.ruinedDesertVillage(IcariaBlocks.VOIDSHALE_ADOBE.get()));
+
 	}
 
-	public static StructureProcessorList forestEroded(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
-		return IcariaProcessorLists.eroded(pAdobeBlock, pAdobeStairs, pAdobeSlab,
+	public static StructureProcessorList erodedForestVillage(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
+		return IcariaProcessorLists.erodedVillage(pAdobeBlock, pAdobeStairs, pAdobeSlab,
 			IcariaBlocks.STRIPPED_POPULUS_LOG.get(),
 			IcariaBlocks.POPULUS_DECO.stairs.get(),
 			IcariaBlocks.POPULUS_DECO.slab.get(),
@@ -141,8 +142,8 @@ public class IcariaProcessorLists {
 		);
 	}
 
-	public static StructureProcessorList forestPristine(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
-		return IcariaProcessorLists.pristine(pAdobeBlock, pAdobeStairs, pAdobeSlab,
+	public static StructureProcessorList pristineForestVillage(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
+		return IcariaProcessorLists.pristineVillage(pAdobeBlock, pAdobeStairs, pAdobeSlab,
 			IcariaBlocks.STRIPPED_POPULUS_LOG.get(),
 			IcariaBlocks.POPULUS_DECO.stairs.get(),
 			IcariaBlocks.POPULUS_DECO.slab.get(),
@@ -163,12 +164,12 @@ public class IcariaProcessorLists {
 		);
 	}
 
-	public static StructureProcessorList forestRuined(Block pAdobeBlock) {
-		return IcariaProcessorLists.ruined(pAdobeBlock);
+	public static StructureProcessorList ruinedForestVillage(Block pAdobeBlock) {
+		return IcariaProcessorLists.ruinedVillage(pAdobeBlock);
 	}
 
-	public static StructureProcessorList scrublandEroded(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
-		return IcariaProcessorLists.eroded(pAdobeBlock, pAdobeStairs, pAdobeSlab,
+	public static StructureProcessorList erodedScrublandVillage(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
+		return IcariaProcessorLists.erodedVillage(pAdobeBlock, pAdobeStairs, pAdobeSlab,
 			IcariaBlocks.STRIPPED_LAUREL_LOG.get(),
 			IcariaBlocks.LAUREL_DECO.stairs.get(),
 			IcariaBlocks.LAUREL_DECO.slab.get(),
@@ -189,8 +190,8 @@ public class IcariaProcessorLists {
 		);
 	}
 
-	public static StructureProcessorList scrublandPristine(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
-		return IcariaProcessorLists.pristine(pAdobeBlock, pAdobeStairs, pAdobeSlab,
+	public static StructureProcessorList pristineScrublandVillage(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
+		return IcariaProcessorLists.pristineVillage(pAdobeBlock, pAdobeStairs, pAdobeSlab,
 			IcariaBlocks.STRIPPED_LAUREL_LOG.get(),
 			IcariaBlocks.LAUREL_DECO.stairs.get(),
 			IcariaBlocks.LAUREL_DECO.slab.get(),
@@ -211,12 +212,12 @@ public class IcariaProcessorLists {
 		);
 	}
 
-	public static StructureProcessorList scrublandRuined(Block pAdobeBlock) {
-		return IcariaProcessorLists.ruined(pAdobeBlock);
+	public static StructureProcessorList ruinedScrublandVillage(Block pAdobeBlock) {
+		return IcariaProcessorLists.ruinedVillage(pAdobeBlock);
 	}
 
-	public static StructureProcessorList steppeEroded(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
-		return IcariaProcessorLists.eroded(pAdobeBlock, pAdobeStairs, pAdobeSlab,
+	public static StructureProcessorList erodedSteppeVillage(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
+		return IcariaProcessorLists.erodedVillage(pAdobeBlock, pAdobeStairs, pAdobeSlab,
 			IcariaBlocks.STRIPPED_CYPRESS_LOG.get(),
 			IcariaBlocks.CYPRESS_DECO.stairs.get(),
 			IcariaBlocks.CYPRESS_DECO.slab.get(),
@@ -237,8 +238,8 @@ public class IcariaProcessorLists {
 		);
 	}
 
-	public static StructureProcessorList steppePristine(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
-		return IcariaProcessorLists.pristine(pAdobeBlock, pAdobeStairs, pAdobeSlab,
+	public static StructureProcessorList pristineSteppeVillage(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
+		return IcariaProcessorLists.pristineVillage(pAdobeBlock, pAdobeStairs, pAdobeSlab,
 			IcariaBlocks.STRIPPED_CYPRESS_LOG.get(),
 			IcariaBlocks.CYPRESS_DECO.stairs.get(),
 			IcariaBlocks.CYPRESS_DECO.slab.get(),
@@ -259,12 +260,12 @@ public class IcariaProcessorLists {
 		);
 	}
 
-	public static StructureProcessorList steppeRuined(Block pAdobeBlock) {
-		return IcariaProcessorLists.ruined(pAdobeBlock);
+	public static StructureProcessorList ruinedSteppeVillage(Block pAdobeBlock) {
+		return IcariaProcessorLists.ruinedVillage(pAdobeBlock);
 	}
 
-	public static StructureProcessorList desertEroded(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
-		return IcariaProcessorLists.eroded(pAdobeBlock, pAdobeStairs, pAdobeSlab,
+	public static StructureProcessorList erodedDesertVillage(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
+		return IcariaProcessorLists.erodedVillage(pAdobeBlock, pAdobeStairs, pAdobeSlab,
 			IcariaBlocks.STRIPPED_CYPRESS_LOG.get(),
 			IcariaBlocks.CYPRESS_DECO.stairs.get(),
 			IcariaBlocks.CYPRESS_DECO.slab.get(),
@@ -285,8 +286,8 @@ public class IcariaProcessorLists {
 		);
 	}
 
-	public static StructureProcessorList desertPristine(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
-		return IcariaProcessorLists.pristine(pAdobeBlock, pAdobeStairs, pAdobeSlab,
+	public static StructureProcessorList pristineDesertVillage(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab) {
+		return IcariaProcessorLists.pristineVillage(pAdobeBlock, pAdobeStairs, pAdobeSlab,
 			IcariaBlocks.STRIPPED_CYPRESS_LOG.get(),
 			IcariaBlocks.CYPRESS_DECO.stairs.get(),
 			IcariaBlocks.CYPRESS_DECO.slab.get(),
@@ -307,11 +308,12 @@ public class IcariaProcessorLists {
 		);
 	}
 
-	public static StructureProcessorList desertRuined(Block pAdobeBlock) {
-		return IcariaProcessorLists.ruined(pAdobeBlock);
+	public static StructureProcessorList ruinedDesertVillage(Block pAdobeBlock) {
+		return IcariaProcessorLists.ruinedVillage(pAdobeBlock);
+	}
 	}
 
-	public static StructureProcessorList eroded(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab, Block pStrippedLog, Block pLaurelStairs, Block pLaurelSlab, Block pSimpleRack, Block pRack, Block pBarrel, Block pLoadedBarrel, Block pTappedBarrel, Block pTripleBarrel, Block pWallSign, Block pPlanePlanks, Block pPlaneSlab, Block pPlaneFence, Block pCraftingTable, Block pDoor, Block pTrapdoor, Block pLadder) {
+	public static StructureProcessorList erodedVillage(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab, Block pStrippedLog, Block pLaurelStairs, Block pLaurelSlab, Block pSimpleRack, Block pRack, Block pBarrel, Block pLoadedBarrel, Block pTappedBarrel, Block pTripleBarrel, Block pWallSign, Block pPlanePlanks, Block pPlaneSlab, Block pPlaneFence, Block pCraftingTable, Block pDoor, Block pTrapdoor, Block pLadder) {
 		return new StructureProcessorList(ImmutableList.of(
 			IcariaProcessorLists.block(IcariaBlocks.YELLOWSTONE_ADOBE.get(), pAdobeBlock),
 			IcariaProcessorLists.stairs(IcariaBlocks.YELLOWSTONE_ADOBE_DECO.stairs.get(), pAdobeStairs),
@@ -343,7 +345,7 @@ public class IcariaProcessorLists {
 		));
 	}
 
-	public static StructureProcessorList pristine(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab, Block pStrippedLog, Block pLaurelStairs, Block pLaurelSlab, Block pSimpleRack, Block pRack, Block pBarrel, Block pLoadedBarrel, Block pTappedBarrel, Block pTripleBarrel, Block pWallSign, Block pPlanePlanks, Block pPlaneSlab, Block pPlaneFence, Block pCraftingTable, Block pDoor, Block pTrapdoor, Block pLadder) {
+	public static StructureProcessorList pristineVillage(Block pAdobeBlock, Block pAdobeStairs, Block pAdobeSlab, Block pStrippedLog, Block pLaurelStairs, Block pLaurelSlab, Block pSimpleRack, Block pRack, Block pBarrel, Block pLoadedBarrel, Block pTappedBarrel, Block pTripleBarrel, Block pWallSign, Block pPlanePlanks, Block pPlaneSlab, Block pPlaneFence, Block pCraftingTable, Block pDoor, Block pTrapdoor, Block pLadder) {
 		return new StructureProcessorList(ImmutableList.of(
 			IcariaProcessorLists.block(IcariaBlocks.YELLOWSTONE_ADOBE.get(), pAdobeBlock),
 			IcariaProcessorLists.stairs(IcariaBlocks.YELLOWSTONE_ADOBE_DECO.stairs.get(), pAdobeStairs),
@@ -372,7 +374,7 @@ public class IcariaProcessorLists {
 		));
 	}
 
-	public static StructureProcessorList ruined(Block pAdobeBlock) {
+	public static StructureProcessorList ruinedVillage(Block pAdobeBlock) {
 		return new StructureProcessorList(ImmutableList.of(
 			IcariaProcessorLists.block(Blocks.CHISELED_BOOKSHELF, Blocks.AIR),
 			IcariaProcessorLists.block(Blocks.COMPOSTER, Blocks.AIR),

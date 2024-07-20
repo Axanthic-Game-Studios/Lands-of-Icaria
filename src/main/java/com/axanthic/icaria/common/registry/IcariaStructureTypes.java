@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.world.structure.VillageStructure;
+import com.axanthic.icaria.common.world.structure.IcariaJigsawStructure;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
@@ -18,5 +18,5 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaStructureTypes {
     public static final DeferredRegister<StructureType<?>> STRUCTURE_TYPES = DeferredRegister.create(Registries.STRUCTURE_TYPE, IcariaIdents.ID);
 
-    public static final Supplier<StructureType<VillageStructure>> VILLAGE = IcariaStructureTypes.STRUCTURE_TYPES.register("village", () -> () -> VillageStructure.CODEC);
+    public static final Supplier<StructureType<IcariaJigsawStructure>> JIGSAW = IcariaStructureTypes.STRUCTURE_TYPES.register("jigsaw", () -> () -> IcariaJigsawStructure.CODEC);
 }

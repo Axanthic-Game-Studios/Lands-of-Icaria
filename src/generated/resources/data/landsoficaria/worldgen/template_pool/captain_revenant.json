@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "landsoficaria:villages/captain_revenant",
+        "location": "landsoficaria:captain_revenant",
         "processors": {
           "processors": []
         },

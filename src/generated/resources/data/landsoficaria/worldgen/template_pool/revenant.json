@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "landsoficaria:villages/civilian_revenant",
+        "location": "landsoficaria:civilian_revenant",
         "processors": {
           "processors": []
         },
@@ -14,7 +14,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "landsoficaria:villages/pyromancer_revenant",
+        "location": "landsoficaria:pyromancer_revenant",
         "processors": {
           "processors": []
         },
@@ -25,7 +25,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "landsoficaria:villages/soldier_revenant",
+        "location": "landsoficaria:soldier_revenant",
         "processors": {
           "processors": []
         },

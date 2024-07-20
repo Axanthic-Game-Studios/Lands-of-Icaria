@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "landsoficaria:villages/arachne_drone",
+        "location": "landsoficaria:arachne_drone",
         "processors": {
           "processors": []
         },

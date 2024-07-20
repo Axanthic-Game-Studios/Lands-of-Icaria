@@ -33,7 +33,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class VillageStructure extends Structure {
+public class IcariaJigsawStructure extends Structure {
     public boolean useExpansionHack;
 
     public int maxDepth;
@@ -49,12 +49,12 @@ public class VillageStructure extends Structure {
 
     public List<PoolAliasBinding> poolAliases;
 
-    public static final MapCodec<VillageStructure> CODEC = RecordCodecBuilder.<VillageStructure>mapCodec((pInstance) -> pInstance.group(Structure.settingsCodec(pInstance), StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter((pStructure) -> pStructure.startPool), ResourceLocation.CODEC.optionalFieldOf("start_jigsaw_name").forGetter((pStructure) -> pStructure.startJigsawName), Codec.intRange(0, 64).fieldOf("size").forGetter((pStructure) -> pStructure.maxDepth), HeightProvider.CODEC.fieldOf("start_height").forGetter((pStructure) -> pStructure.startHeight), Codec.BOOL.fieldOf("use_expansion_hack").forGetter((pStructure) -> pStructure.useExpansionHack), Heightmap.Types.CODEC.optionalFieldOf("project_start_to_heightmap").forGetter((pStructure) -> pStructure.projectStartToHeightmap), Codec.intRange(1, 256).fieldOf("max_distance_from_center").forGetter((pStructure) -> pStructure.maxDistanceFromCenter), Codec.list(PoolAliasBinding.CODEC).optionalFieldOf("pool_aliases", List.of()).forGetter((pStructure) -> pStructure.poolAliases), DimensionPadding.CODEC.optionalFieldOf("dimension_padding", DimensionPadding.ZERO).forGetter((pStructure) -> pStructure.dimensionPadding), LiquidSettings.CODEC.optionalFieldOf("liquid_settings", LiquidSettings.APPLY_WATERLOGGING).forGetter((pStructure) -> pStructure.liquidSettings)).apply(pInstance, VillageStructure::new)).validate(VillageStructure::verifyRange);
+    public static final MapCodec<IcariaJigsawStructure> CODEC = RecordCodecBuilder.<IcariaJigsawStructure>mapCodec((pInstance) -> pInstance.group(Structure.settingsCodec(pInstance), StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter((pStructure) -> pStructure.startPool), ResourceLocation.CODEC.optionalFieldOf("start_jigsaw_name").forGetter((pStructure) -> pStructure.startJigsawName), Codec.intRange(0, 64).fieldOf("size").forGetter((pStructure) -> pStructure.maxDepth), HeightProvider.CODEC.fieldOf("start_height").forGetter((pStructure) -> pStructure.startHeight), Codec.BOOL.fieldOf("use_expansion_hack").forGetter((pStructure) -> pStructure.useExpansionHack), Heightmap.Types.CODEC.optionalFieldOf("project_start_to_heightmap").forGetter((pStructure) -> pStructure.projectStartToHeightmap), Codec.intRange(1, 256).fieldOf("max_distance_from_center").forGetter((pStructure) -> pStructure.maxDistanceFromCenter), Codec.list(PoolAliasBinding.CODEC).optionalFieldOf("pool_aliases", List.of()).forGetter((pStructure) -> pStructure.poolAliases), DimensionPadding.CODEC.optionalFieldOf("dimension_padding", DimensionPadding.ZERO).forGetter((pStructure) -> pStructure.dimensionPadding), LiquidSettings.CODEC.optionalFieldOf("liquid_settings", LiquidSettings.APPLY_WATERLOGGING).forGetter((pStructure) -> pStructure.liquidSettings)).apply(pInstance, IcariaJigsawStructure::new)).validate(IcariaJigsawStructure::verifyRange);
 
     public Optional<Heightmap.Types> projectStartToHeightmap;
     public Optional<ResourceLocation> startJigsawName;
 
-    public VillageStructure(Structure.StructureSettings pStructureSettings, Holder<StructureTemplatePool> pStartPool, Optional<ResourceLocation> pStartJigsaw, int pMaxDepth, HeightProvider pStartHeight, boolean pUseExpansionHack, Optional<Heightmap.Types> pProjectStartToHeightmap, int pMaxDistanceFromCenter, List<PoolAliasBinding> pPoolAliases, DimensionPadding pDimensionPadding, LiquidSettings pLiquidSettings) {
+    public IcariaJigsawStructure(Structure.StructureSettings pStructureSettings, Holder<StructureTemplatePool> pStartPool, Optional<ResourceLocation> pStartJigsaw, int pMaxDepth, HeightProvider pStartHeight, boolean pUseExpansionHack, Optional<Heightmap.Types> pProjectStartToHeightmap, int pMaxDistanceFromCenter, List<PoolAliasBinding> pPoolAliases, DimensionPadding pDimensionPadding, LiquidSettings pLiquidSettings) {
         super(pStructureSettings);
         this.startPool = pStartPool;
         this.startJigsawName = pStartJigsaw;
@@ -68,7 +68,7 @@ public class VillageStructure extends Structure {
         this.liquidSettings = pLiquidSettings;
     }
 
-    public static DataResult<VillageStructure> verifyRange(VillageStructure pStructure) {
+    public static DataResult<IcariaJigsawStructure> verifyRange(IcariaJigsawStructure pStructure) {
         int i = switch (pStructure.terrainAdaptation()) {
             case NONE -> 0;
             case BURY, BEARD_THIN, BEARD_BOX, ENCAPSULATE -> 12;
@@ -87,6 +87,6 @@ public class VillageStructure extends Structure {
 
     @Override
     public StructureType<?> type() {
-        return IcariaStructureTypes.VILLAGE.get();
+        return IcariaStructureTypes.JIGSAW.get();
     }
 }

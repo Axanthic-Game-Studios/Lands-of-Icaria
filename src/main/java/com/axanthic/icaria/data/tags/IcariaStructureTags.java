@@ -42,56 +42,56 @@ public class IcariaStructureTags extends StructureTagsProvider {
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
 		this.tag(IcariaStructureTags.FOREST_VILLAGE)
-			.add(IcariaStructures.FOREST_ERODED)
-			.add(IcariaStructures.FOREST_PRISTINE)
-			.add(IcariaStructures.FOREST_RUINED);
+			.add(IcariaStructures.ERODED_FOREST_VILLAGE)
+			.add(IcariaStructures.PRISTINE_FOREST_VILLAGE)
+			.add(IcariaStructures.RUINED_FOREST_VILLAGE);
 
 		this.tag(IcariaStructureTags.SCRUBLAND_VILLAGE)
-			.add(IcariaStructures.SCRUBLAND_ERODED)
-			.add(IcariaStructures.SCRUBLAND_PRISTINE)
-			.add(IcariaStructures.SCRUBLAND_RUINED);
+			.add(IcariaStructures.ERODED_SCRUBLAND_VILLAGE)
+			.add(IcariaStructures.PRISTINE_SCRUBLAND_VILLAGE)
+			.add(IcariaStructures.RUINED_SCRUBLAND_VILLAGE);
 
 		this.tag(IcariaStructureTags.STEPPE_VILLAGE)
-			.add(IcariaStructures.STEPPE_ERODED)
-			.add(IcariaStructures.STEPPE_PRISTINE)
-			.add(IcariaStructures.STEPPE_RUINED);
+			.add(IcariaStructures.ERODED_STEPPE_VILLAGE)
+			.add(IcariaStructures.PRISTINE_STEPPE_VILLAGE)
+			.add(IcariaStructures.RUINED_STEPPE_VILLAGE);
 
 		this.tag(IcariaStructureTags.DESERT_VILLAGE)
-			.add(IcariaStructures.DESERT_ERODED)
-			.add(IcariaStructures.DESERT_PRISTINE)
-			.add(IcariaStructures.DESERT_RUINED);
+			.add(IcariaStructures.ERODED_DESERT_VILLAGE)
+			.add(IcariaStructures.PRISTINE_DESERT_VILLAGE)
+			.add(IcariaStructures.RUINED_DESERT_VILLAGE);
 
 		this.tag(IcariaStructureTags.ERODED_VILLAGE)
-			.add(IcariaStructures.FOREST_ERODED)
-			.add(IcariaStructures.SCRUBLAND_ERODED)
-			.add(IcariaStructures.STEPPE_ERODED)
-			.add(IcariaStructures.DESERT_ERODED);
+			.add(IcariaStructures.ERODED_FOREST_VILLAGE)
+			.add(IcariaStructures.ERODED_SCRUBLAND_VILLAGE)
+			.add(IcariaStructures.ERODED_STEPPE_VILLAGE)
+			.add(IcariaStructures.ERODED_DESERT_VILLAGE);
 
 		this.tag(IcariaStructureTags.PRISTINE_VILLAGE)
-			.add(IcariaStructures.FOREST_PRISTINE)
-			.add(IcariaStructures.SCRUBLAND_PRISTINE)
-			.add(IcariaStructures.STEPPE_PRISTINE)
-			.add(IcariaStructures.DESERT_PRISTINE);
+			.add(IcariaStructures.PRISTINE_FOREST_VILLAGE)
+			.add(IcariaStructures.PRISTINE_SCRUBLAND_VILLAGE)
+			.add(IcariaStructures.PRISTINE_STEPPE_VILLAGE)
+			.add(IcariaStructures.PRISTINE_DESERT_VILLAGE);
 
 		this.tag(IcariaStructureTags.RUINED_VILLAGE)
-			.add(IcariaStructures.FOREST_RUINED)
-			.add(IcariaStructures.SCRUBLAND_RUINED)
-			.add(IcariaStructures.STEPPE_RUINED)
-			.add(IcariaStructures.DESERT_RUINED);
+			.add(IcariaStructures.RUINED_FOREST_VILLAGE)
+			.add(IcariaStructures.RUINED_SCRUBLAND_VILLAGE)
+			.add(IcariaStructures.RUINED_STEPPE_VILLAGE)
+			.add(IcariaStructures.RUINED_DESERT_VILLAGE);
 
 		this.tag(IcariaStructureTags.VILLAGE)
-			.add(IcariaStructures.FOREST_ERODED)
-			.add(IcariaStructures.FOREST_PRISTINE)
-			.add(IcariaStructures.FOREST_RUINED)
-			.add(IcariaStructures.SCRUBLAND_ERODED)
-			.add(IcariaStructures.SCRUBLAND_PRISTINE)
-			.add(IcariaStructures.SCRUBLAND_RUINED)
-			.add(IcariaStructures.STEPPE_ERODED)
-			.add(IcariaStructures.STEPPE_PRISTINE)
-			.add(IcariaStructures.STEPPE_RUINED)
-			.add(IcariaStructures.DESERT_ERODED)
-			.add(IcariaStructures.DESERT_PRISTINE)
-			.add(IcariaStructures.DESERT_RUINED);
+			.add(IcariaStructures.ERODED_FOREST_VILLAGE)
+			.add(IcariaStructures.PRISTINE_FOREST_VILLAGE)
+			.add(IcariaStructures.RUINED_FOREST_VILLAGE)
+			.add(IcariaStructures.ERODED_SCRUBLAND_VILLAGE)
+			.add(IcariaStructures.PRISTINE_SCRUBLAND_VILLAGE)
+			.add(IcariaStructures.RUINED_SCRUBLAND_VILLAGE)
+			.add(IcariaStructures.ERODED_STEPPE_VILLAGE)
+			.add(IcariaStructures.PRISTINE_STEPPE_VILLAGE)
+			.add(IcariaStructures.RUINED_STEPPE_VILLAGE)
+			.add(IcariaStructures.ERODED_DESERT_VILLAGE)
+			.add(IcariaStructures.PRISTINE_DESERT_VILLAGE)
+			.add(IcariaStructures.RUINED_DESERT_VILLAGE);
 	}
 
 	public static TagKey<Structure> bind(String pName) {
