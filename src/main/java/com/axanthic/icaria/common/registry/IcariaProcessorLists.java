@@ -23,6 +23,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaProcessorLists {
+	public static final ResourceKey<StructureProcessorList> RUIN = IcariaProcessorLists.createKey("ruin");
+
 	public static final ResourceKey<StructureProcessorList> TEMPLE = IcariaProcessorLists.createKey("temple");
 
 	public static final ResourceKey<StructureProcessorList> ERODED_DOLOMITE_FOREST_VILLAGE = IcariaProcessorLists.createKey("villages/forest/eroded/dolomite");
@@ -74,6 +76,8 @@ public class IcariaProcessorLists {
 	public static final ResourceKey<StructureProcessorList> RUINED_VOIDSHALE_DESERT_VILLAGE = IcariaProcessorLists.createKey("villages/desert/ruined/voidshale");
 
 	public static void bootstrap(BootstrapContext<StructureProcessorList> pContext) {
+		pContext.register(IcariaProcessorLists.RUIN, IcariaProcessorLists.ruin());
+
 		pContext.register(IcariaProcessorLists.TEMPLE, IcariaProcessorLists.temple());
 
 		pContext.register(IcariaProcessorLists.ERODED_DOLOMITE_FOREST_VILLAGE, IcariaProcessorLists.erodedForestVillage(IcariaBlocks.DOLOMITE_ADOBE.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.stairs.get(), IcariaBlocks.DOLOMITE_ADOBE_DECO.slab.get()));
@@ -123,6 +127,15 @@ public class IcariaProcessorLists {
 		pContext.register(IcariaProcessorLists.RUINED_BAETYL_DESERT_VILLAGE, IcariaProcessorLists.ruinedDesertVillage(IcariaBlocks.BAETYL_ADOBE.get()));
 		pContext.register(IcariaProcessorLists.RUINED_GRAINITE_DESERT_VILLAGE, IcariaProcessorLists.ruinedDesertVillage(IcariaBlocks.GRAINITE_ADOBE.get()));
 		pContext.register(IcariaProcessorLists.RUINED_VOIDSHALE_DESERT_VILLAGE, IcariaProcessorLists.ruinedDesertVillage(IcariaBlocks.VOIDSHALE_ADOBE.get()));
+	}
+
+	public static StructureProcessorList ruin() {
+		return new StructureProcessorList(ImmutableList.of(
+			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILES.get()),
+			IcariaProcessorLists.stairs(IcariaBlocks.RELICSTONE_TILE_DECO.stairs.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.stairs.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.stairs.get()),
+			IcariaProcessorLists.slab(IcariaBlocks.RELICSTONE_TILE_DECO.slab.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.slab.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.slab.get()),
+			IcariaProcessorLists.block(IcariaBlocks.LOST_LOOT_VASE.get(), 0.5F, IcariaBlocks.REVENANT_SPAWNER.get())
+		));
 	}
 
 	public static StructureProcessorList temple() {

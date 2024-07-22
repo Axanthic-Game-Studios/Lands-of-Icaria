@@ -23,6 +23,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaTemplatePools {
+	public static final ResourceKey<StructureTemplatePool> RUIN_BUILDING = IcariaTemplatePools.createKey("ruin/building");
+	public static final ResourceKey<StructureTemplatePool> RUIN_ENDING = IcariaTemplatePools.createKey("ruin/ending");
+	public static final ResourceKey<StructureTemplatePool> RUIN_STREET = IcariaTemplatePools.createKey("ruin/street");
+	public static final ResourceKey<StructureTemplatePool> RUIN_WALK = IcariaTemplatePools.createKey("ruin/walk");
+
 	public static final ResourceKey<StructureTemplatePool> TEMPLE_BACK = IcariaTemplatePools.createKey("temple/back");
 	public static final ResourceKey<StructureTemplatePool> TEMPLE_HALL = IcariaTemplatePools.createKey("temple/hall");
 	public static final ResourceKey<StructureTemplatePool> TEMPLE_OPEN = IcariaTemplatePools.createKey("temple/open");
@@ -101,6 +106,11 @@ public class IcariaTemplatePools {
 		var pools = pContext.lookup(Registries.TEMPLATE_POOL);
 		var empty = pools.getOrThrow(Pools.EMPTY);
 
+		pContext.register(IcariaTemplatePools.RUIN_BUILDING, IcariaTemplatePools.ruinBuilding(empty, lists.getOrThrow(IcariaProcessorLists.RUIN)));
+		pContext.register(IcariaTemplatePools.RUIN_ENDING, IcariaTemplatePools.ruinEnding(empty));
+		pContext.register(IcariaTemplatePools.RUIN_STREET, IcariaTemplatePools.ruinStreet(empty));
+		pContext.register(IcariaTemplatePools.RUIN_WALK, IcariaTemplatePools.ruinWalk(empty));
+
 		pContext.register(IcariaTemplatePools.TEMPLE_BACK, IcariaTemplatePools.templeBack(empty, lists.getOrThrow(IcariaProcessorLists.TEMPLE)));
 		pContext.register(IcariaTemplatePools.TEMPLE_HALL, IcariaTemplatePools.templeHall(empty, lists.getOrThrow(IcariaProcessorLists.TEMPLE)));
 		pContext.register(IcariaTemplatePools.TEMPLE_OPEN, IcariaTemplatePools.templeOpen(empty, lists.getOrThrow(IcariaProcessorLists.TEMPLE)));
@@ -173,6 +183,150 @@ public class IcariaTemplatePools {
 		pContext.register(IcariaTemplatePools.ARACHNE_DRONE, IcariaTemplatePools.arachneDrone(empty));
 		pContext.register(IcariaTemplatePools.CAPTAIN_REVENANT, IcariaTemplatePools.captainRevenant(empty));
 		pContext.register(IcariaTemplatePools.REVENANT, IcariaTemplatePools.revenant(empty));
+	}
+
+	public static StructureTemplatePool ruinBuilding(Holder<StructureTemplatePool> pFallback, Holder<StructureProcessorList> pProcessor) {
+		return new StructureTemplatePool(pFallback, ImmutableList.<Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer>>of(
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1000", pProcessor), 100),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1001", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1002", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1003", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1004", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1005", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1006", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1007", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1008", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1009", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1010", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1011", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1012", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1013", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1014", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1015", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1016", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1017", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1018", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1019", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1020", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1021", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1022", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1023", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1024", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1025", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1026", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1027", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1028", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1029", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1030", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1031", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1032", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1033", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1034", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1035", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1036", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1037", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1038", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1039", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1040", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1041", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1042", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1043", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1044", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1045", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1046", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1047", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1048", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1049", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1050", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1051", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1052", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1053", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1054", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1055", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1056", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1057", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1058", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1059", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1060", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1061", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1062", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1063", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1064", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1065", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1066", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1067", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1068", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1069", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1070", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1071", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1072", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1073", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1074", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1075", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1076", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1077", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1078", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1079", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1080", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1081", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1082", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1083", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1084", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1085", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1086", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1087", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1088", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1089", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1090", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1091", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1092", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1093", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1094", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1095", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1096", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1097", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1098", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1099", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1100", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1101", pProcessor), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1102", pProcessor), 4),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1103", pProcessor), 4),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1104", pProcessor), 4),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "building" + "/" + "ruin_1105", pProcessor), 4)
+		), StructureTemplatePool.Projection.RIGID);
+	}
+
+	public static StructureTemplatePool ruinEnding(Holder<StructureTemplatePool> pFallback) {
+		return new StructureTemplatePool(pFallback, ImmutableList.of(
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "ending" + "/" + "ending"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "ending" + "/" + "ending_arch"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "ending" + "/" + "ending_junc"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "ending" + "/" + "ending_long"), 1)
+		), StructureTemplatePool.Projection.RIGID);
+	}
+
+	public static StructureTemplatePool ruinStreet(Holder<StructureTemplatePool> pFallback) {
+		return new StructureTemplatePool(pFallback, ImmutableList.of(
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "street" + "/" + "street"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "street" + "/" + "street_turn"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "street" + "/" + "street_turn_half_long"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "street" + "/" + "street_turn_half_long_left"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "street" + "/" + "street_turn_semi"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "street" + "/" + "street_turn_semi_left"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "street" + "/" + "street_turn_semi_long"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "street" + "/" + "street_turn_semi_long_left"), 1)
+		), StructureTemplatePool.Projection.RIGID);
+	}
+
+	public static StructureTemplatePool ruinWalk(Holder<StructureTemplatePool> pFallback) {
+		return new StructureTemplatePool(pFallback, ImmutableList.of(
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "walk" + "/" + "walk"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "walk" + "/" + "walk_long"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "walk" + "/" + "walk_turn_half"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "walk" + "/" + "walk_turn_half_left"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "walk" + "/" + "walk_turn_semi"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "ruin" + "/" + "walk" + "/" + "walk_turn_semi_left"), 1)
+		), StructureTemplatePool.Projection.RIGID);
 	}
 
 	public static StructureTemplatePool templeBack(Holder<StructureTemplatePool> pFallback, Holder<StructureProcessorList> pProcessor) {

@@ -146,6 +146,7 @@ public class IcariaConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DRY_LAKE = IcariaConfiguredFeatures.createKey("dry_lake");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MEDITERRANEAN_WATER_LAKE = IcariaConfiguredFeatures.createKey("mediterranean_water_lake");
 
+	public static final ResourceKey<ConfiguredFeature<?, ?>> RUIN = IcariaConfiguredFeatures.createKey("ruin");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> VILLAGE = IcariaConfiguredFeatures.createKey("village");
 
 	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> pContext) {
@@ -267,6 +268,7 @@ public class IcariaConfiguredFeatures {
 		pContext.register(IcariaConfiguredFeatures.DRY_LAKE, new ConfiguredFeature<>(IcariaFeatures.DRY_LAKE.get(), NoneFeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.MEDITERRANEAN_WATER_LAKE, new ConfiguredFeature<>(IcariaFeatures.MEDITERRANEAN_WATER_LAKE.get(), NoneFeatureConfiguration.NONE));
 
+		pContext.register(IcariaConfiguredFeatures.RUIN, new ConfiguredFeature<>(IcariaFeatures.RUIN.get(), NoneFeatureConfiguration.NONE));
 		pContext.register(IcariaConfiguredFeatures.VILLAGE, new ConfiguredFeature<>(IcariaFeatures.VILLAGE.get(), NoneFeatureConfiguration.NONE));
 	}
 

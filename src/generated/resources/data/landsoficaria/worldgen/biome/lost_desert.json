@@ -19,7 +19,9 @@
       "landsoficaria:horizontal_relicstone_pillar",
       "landsoficaria:vertical_relicstone_pillar"
     ],
-    [],
+    [
+      "landsoficaria:ruin"
+    ],
     [
       "landsoficaria:vanadium_ore",
       "landsoficaria:sliver_ore",

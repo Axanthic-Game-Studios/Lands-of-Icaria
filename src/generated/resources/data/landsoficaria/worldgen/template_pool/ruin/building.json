@@ -1,0 +1,959 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1000",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 100
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1001",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1002",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1003",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1004",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1005",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1006",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1007",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1008",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1009",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1010",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1011",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1012",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1013",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1014",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1015",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1016",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1017",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1018",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1019",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1020",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1021",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1022",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1023",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1024",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1025",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1026",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1027",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1028",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1029",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1030",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1031",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1032",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1033",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1034",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1035",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1036",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1037",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1038",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1039",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1040",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1041",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1042",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1043",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1044",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1045",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1046",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1047",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1048",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1049",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1050",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1051",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1052",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1053",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1054",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1055",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1056",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1057",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1058",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1059",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1060",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1061",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1062",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1063",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1064",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1065",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1066",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1067",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1068",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1069",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1070",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1071",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1072",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1073",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1074",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1075",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1076",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1077",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1078",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1079",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1080",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1081",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1082",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1083",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1084",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1085",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1086",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1087",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1088",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1089",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1090",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1091",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1092",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1093",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1094",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1095",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1096",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1097",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1098",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1099",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1100",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1101",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1102",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1103",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1104",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "landsoficaria:ruin/building/ruin_1105",
+        "processors": "landsoficaria:ruin",
+        "projection": "rigid"
+      },
+      "weight": 4
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

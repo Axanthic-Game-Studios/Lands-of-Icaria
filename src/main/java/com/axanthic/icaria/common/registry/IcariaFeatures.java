@@ -94,5 +94,6 @@ public class IcariaFeatures {
     public static final Supplier<Feature<NoneFeatureConfiguration>> DRY_LAKE = IcariaFeatures.FEATURES.register("dry_lake", () -> new DryLakeFeature(NoneFeatureConfiguration.CODEC));
     public static final Supplier<Feature<NoneFeatureConfiguration>> MEDITERRANEAN_WATER_LAKE = IcariaFeatures.FEATURES.register("mediterranean_water_lake", () -> new MediterraneanWaterLakeFeature(NoneFeatureConfiguration.CODEC));
 
+    public static final Supplier<Feature<NoneFeatureConfiguration>> RUIN = IcariaFeatures.FEATURES.register("ruin", () -> new RuinFeature(NoneFeatureConfiguration.CODEC));
     public static final Supplier<Feature<NoneFeatureConfiguration>> VILLAGE = IcariaFeatures.FEATURES.register("village", () -> new VillageFeature(NoneFeatureConfiguration.CODEC));
 }

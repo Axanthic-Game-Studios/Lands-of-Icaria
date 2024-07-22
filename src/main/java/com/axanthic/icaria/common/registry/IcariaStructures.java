@@ -27,6 +27,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaStructures {
+	public static final ResourceKey<Structure> RUIN = IcariaStructures.createKey("ruin");
+
 	public static final ResourceKey<Structure> TEMPLE = IcariaStructures.createKey("temple");
 
 	public static final ResourceKey<Structure> ERODED_FOREST_VILLAGE = IcariaStructures.createKey("villages/forest/eroded");
@@ -49,6 +51,7 @@ public class IcariaStructures {
 		var biomes = pContext.lookup(Registries.BIOME);
 		var pools = pContext.lookup(Registries.TEMPLATE_POOL);
 
+		pContext.register(IcariaStructures.RUIN, new IcariaJigsawStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.IS_LOST), Map.of(), GenerationStep.Decoration.STRONGHOLDS, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.RUIN_BUILDING), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(40)), ConstantHeight.of(VerticalAnchor.absolute(48)), false, Optional.empty(), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
 
 		pContext.register(IcariaStructures.TEMPLE, new IcariaJigsawStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.IS_BASE), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.TEMPLE_HALL), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(88)), ConstantHeight.of(VerticalAnchor.absolute(96)), false, Optional.empty(), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
 

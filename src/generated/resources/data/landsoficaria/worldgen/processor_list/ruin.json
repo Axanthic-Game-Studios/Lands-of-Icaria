@@ -1,0 +1,2371 @@
+{
+  "processors": [
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tiles"
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tiles"
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tiles"
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tiles"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "top",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "top",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "top",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "top",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "bottom",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "bottom",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "bottom",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "bottom",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "top",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "top",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "top",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "top",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "bottom",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "bottom",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "bottom",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "bottom",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "top",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "top",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "top",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "top",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "bottom",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "bottom",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "bottom",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "bottom",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "top",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "top",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "top",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "top",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "bottom",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "bottom",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "bottom",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "bottom",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "top",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "top",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "top",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "top",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "bottom",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "bottom",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "bottom",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "bottom",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "top",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "top",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "top",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "top",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "bottom",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "bottom",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "bottom",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "straight",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "bottom",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "top",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "top",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "top",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "top",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "bottom",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "bottom",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "bottom",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "inner_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "bottom",
+              "shape": "inner_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "top",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "top",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "top",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "top",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "bottom",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "bottom",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "bottom",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "inner_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "bottom",
+              "shape": "inner_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "top",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "top",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "top",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "top",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "bottom",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "bottom",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "bottom",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "outer_left",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "bottom",
+              "shape": "outer_left",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "top",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "top",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "top",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "top",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "bottom",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "east",
+              "half": "bottom",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "south",
+              "half": "bottom",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "outer_right",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_stairs",
+            "Properties": {
+              "facing": "west",
+              "half": "bottom",
+              "shape": "outer_right",
+              "waterlogged": "false"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_slab",
+              "Properties": {
+                "type": "top",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_slab",
+            "Properties": {
+              "type": "top",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_slab",
+              "Properties": {
+                "type": "bottom",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_slab",
+            "Properties": {
+              "type": "bottom",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_slab",
+              "Properties": {
+                "type": "double",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:cracked_relicstone_tile_slab",
+            "Properties": {
+              "type": "double",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_slab",
+              "Properties": {
+                "type": "top",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_slab",
+            "Properties": {
+              "type": "top",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_slab",
+              "Properties": {
+                "type": "bottom",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_slab",
+            "Properties": {
+              "type": "bottom",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:relicstone_tile_slab",
+              "Properties": {
+                "type": "double",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:mossy_relicstone_tile_slab",
+            "Properties": {
+              "type": "double",
+              "waterlogged": "false"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "landsoficaria:lost_loot_vase",
+              "Properties": {
+                "mediterranean_waterlogged": "false",
+                "waterlogged": "false"
+              }
+            },
+            "predicate_type": "minecraft:random_blockstate_match",
+            "probability": 0.5
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "landsoficaria:revenant_spawner"
+          }
+        }
+      ]
+    }
+  ]
+}
