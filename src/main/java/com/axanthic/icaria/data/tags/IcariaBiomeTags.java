@@ -30,7 +30,7 @@ public class IcariaBiomeTags extends BiomeTagsProvider {
 	public static final TagKey<Biome> IS_STEPPE = IcariaBiomeTags.icariaTag("is_steppe");
 	public static final TagKey<Biome> IS_DESERT = IcariaBiomeTags.icariaTag("is_desert");
 
-	public static final TagKey<Biome> IS_PEAK = IcariaBiomeTags.icariaTag("is_peak");
+	public static final TagKey<Biome> IS_BASE = IcariaBiomeTags.icariaTag("is_base");
 	public static final TagKey<Biome> IS_LUSH = IcariaBiomeTags.icariaTag("is_lush");
 	public static final TagKey<Biome> IS_LOST = IcariaBiomeTags.icariaTag("is_lost");
 	public static final TagKey<Biome> IS_DEEP = IcariaBiomeTags.icariaTag("is_deep");
@@ -42,45 +42,40 @@ public class IcariaBiomeTags extends BiomeTagsProvider {
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
 		this.tag(BiomeTags.SNOW_GOLEM_MELTS)
-			.add(IcariaBiomes.DESERT_PEAK)
 			.add(IcariaBiomes.DESERT)
 			.add(IcariaBiomes.LUSH_DESERT)
 			.add(IcariaBiomes.LOST_DESERT)
 			.add(IcariaBiomes.DEEP_DESERT);
 
 		this.tag(IcariaBiomeTags.IS_FOREST)
-			.add(IcariaBiomes.FOREST_PEAK)
 			.add(IcariaBiomes.FOREST)
 			.add(IcariaBiomes.LUSH_FOREST)
 			.add(IcariaBiomes.LOST_FOREST)
 			.add(IcariaBiomes.DEEP_FOREST);
 
 		this.tag(IcariaBiomeTags.IS_SCRUBLAND)
-			.add(IcariaBiomes.SCRUBLAND_PEAK)
 			.add(IcariaBiomes.SCRUBLAND)
 			.add(IcariaBiomes.LUSH_SCRUBLAND)
 			.add(IcariaBiomes.LOST_SCRUBLAND)
 			.add(IcariaBiomes.DEEP_SCRUBLAND);
 
 		this.tag(IcariaBiomeTags.IS_STEPPE)
-			.add(IcariaBiomes.STEPPE_PEAK)
 			.add(IcariaBiomes.STEPPE)
 			.add(IcariaBiomes.LUSH_STEPPE)
 			.add(IcariaBiomes.LOST_STEPPE)
 			.add(IcariaBiomes.DEEP_STEPPE);
 
 		this.tag(IcariaBiomeTags.IS_DESERT)
-			.add(IcariaBiomes.DESERT_PEAK)
 			.add(IcariaBiomes.DESERT)
 			.add(IcariaBiomes.LUSH_DESERT)
 			.add(IcariaBiomes.LOST_DESERT)
 			.add(IcariaBiomes.DEEP_DESERT);
 
-		this.tag(IcariaBiomeTags.IS_PEAK)
-			.add(IcariaBiomes.FOREST_PEAK)
-			.add(IcariaBiomes.SCRUBLAND_PEAK)
-			.add(IcariaBiomes.STEPPE_PEAK)
-			.add(IcariaBiomes.DESERT_PEAK);
+		this.tag(IcariaBiomeTags.IS_BASE)
+			.add(IcariaBiomes.FOREST)
+			.add(IcariaBiomes.SCRUBLAND)
+			.add(IcariaBiomes.STEPPE)
+			.add(IcariaBiomes.DESERT);
 
 		this.tag(IcariaBiomeTags.IS_LUSH)
 			.add(IcariaBiomes.LUSH_FOREST)

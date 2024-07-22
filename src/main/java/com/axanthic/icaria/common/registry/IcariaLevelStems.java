@@ -33,8 +33,7 @@ public class IcariaLevelStems {
     public static final Climate.Parameter LAND = Climate.Parameter.span(0.0F, 0.75F);
     public static final Climate.Parameter VOID = Climate.Parameter.span(-1.0F, 0.0F);
 
-    public static final Climate.Parameter PEAK = Climate.Parameter.span(0.875F, 1.0F);
-    public static final Climate.Parameter BASE = Climate.Parameter.span(0.5F, 0.875F);
+    public static final Climate.Parameter BASE = Climate.Parameter.span(0.5F, 1.0F);
     public static final Climate.Parameter LUSH = Climate.Parameter.span(0.0F, 0.5F);
     public static final Climate.Parameter LOST = Climate.Parameter.span(-0.5F, 0.0F);
     public static final Climate.Parameter DEEP = Climate.Parameter.span(-1.0F, -0.5F);
@@ -45,11 +44,7 @@ public class IcariaLevelStems {
 
     public static void bootstrap(BootstrapContext<LevelStem> pContext) {
         var biomes = pContext.lookup(Registries.BIOME);
-        pContext.register(IcariaLevelStems.ICARIA, new LevelStem(pContext.lookup(Registries.DIMENSION_TYPE).getOrThrow(IcariaDimensionTypes.ICARIA), new NoiseBasedChunkGenerator(MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(List.of(IcariaLevelStems.forestPeakParameters(biomes), IcariaLevelStems.forestParameters(biomes), IcariaLevelStems.lushForestParameters(biomes), IcariaLevelStems.lostForestParameters(biomes), IcariaLevelStems.deepForestParameters(biomes), IcariaLevelStems.scrublandPeakParameters(biomes), IcariaLevelStems.scrublandParameters(biomes), IcariaLevelStems.lushScrublandParameters(biomes), IcariaLevelStems.lostScrublandParameters(biomes), IcariaLevelStems.deepScrublandParameters(biomes), IcariaLevelStems.steppePeakParameters(biomes), IcariaLevelStems.steppeParameters(biomes), IcariaLevelStems.lushSteppeParameters(biomes), IcariaLevelStems.lostSteppeParameters(biomes), IcariaLevelStems.deepSteppeParameters(biomes), IcariaLevelStems.desertPeakParameters(biomes), IcariaLevelStems.desertParameters(biomes), IcariaLevelStems.lushDesertParameters(biomes), IcariaLevelStems.lostDesertParameters(biomes), IcariaLevelStems.deepDesertParameters(biomes), IcariaLevelStems.voidParameters(biomes)))), pContext.lookup(Registries.NOISE_SETTINGS).getOrThrow(IcariaNoiseSettings.ICARIA))));
-    }
-
-    public static Pair<Climate.ParameterPoint, Holder<Biome>> forestPeakParameters(HolderGetter<Biome> pBiomes) {
-        return new Pair<>(new Climate.ParameterPoint(IcariaLevelStems.VERY_COLD, IcariaLevelStems.ZERO, IcariaLevelStems.LAND, IcariaLevelStems.ZERO, IcariaLevelStems.PEAK, IcariaLevelStems.ZERO, 0L), pBiomes.getOrThrow(IcariaBiomes.FOREST_PEAK));
+        pContext.register(IcariaLevelStems.ICARIA, new LevelStem(pContext.lookup(Registries.DIMENSION_TYPE).getOrThrow(IcariaDimensionTypes.ICARIA), new NoiseBasedChunkGenerator(MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(List.of(IcariaLevelStems.forestParameters(biomes), IcariaLevelStems.lushForestParameters(biomes), IcariaLevelStems.lostForestParameters(biomes), IcariaLevelStems.deepForestParameters(biomes), IcariaLevelStems.scrublandParameters(biomes), IcariaLevelStems.lushScrublandParameters(biomes), IcariaLevelStems.lostScrublandParameters(biomes), IcariaLevelStems.deepScrublandParameters(biomes), IcariaLevelStems.steppeParameters(biomes), IcariaLevelStems.lushSteppeParameters(biomes), IcariaLevelStems.lostSteppeParameters(biomes), IcariaLevelStems.deepSteppeParameters(biomes), IcariaLevelStems.desertParameters(biomes), IcariaLevelStems.lushDesertParameters(biomes), IcariaLevelStems.lostDesertParameters(biomes), IcariaLevelStems.deepDesertParameters(biomes), IcariaLevelStems.voidParameters(biomes)))), pContext.lookup(Registries.NOISE_SETTINGS).getOrThrow(IcariaNoiseSettings.ICARIA))));
     }
 
     public static Pair<Climate.ParameterPoint, Holder<Biome>> forestParameters(HolderGetter<Biome> pBiomes) {
@@ -68,10 +63,6 @@ public class IcariaLevelStems {
         return new Pair<>(new Climate.ParameterPoint(IcariaLevelStems.VERY_COLD, IcariaLevelStems.ZERO, IcariaLevelStems.LAND, IcariaLevelStems.ZERO, IcariaLevelStems.DEEP, IcariaLevelStems.ZERO, 0L), pBiomes.getOrThrow(IcariaBiomes.DEEP_FOREST));
     }
 
-    public static Pair<Climate.ParameterPoint, Holder<Biome>> scrublandPeakParameters(HolderGetter<Biome> pBiomes) {
-        return new Pair<>(new Climate.ParameterPoint(IcariaLevelStems.COLD, IcariaLevelStems.ZERO, IcariaLevelStems.LAND, IcariaLevelStems.ZERO, IcariaLevelStems.PEAK, IcariaLevelStems.ZERO, 0L), pBiomes.getOrThrow(IcariaBiomes.SCRUBLAND_PEAK));
-    }
-
     public static Pair<Climate.ParameterPoint, Holder<Biome>> scrublandParameters(HolderGetter<Biome> pBiomes) {
         return new Pair<>(new Climate.ParameterPoint(IcariaLevelStems.COLD, IcariaLevelStems.ZERO, IcariaLevelStems.LAND, IcariaLevelStems.ZERO, IcariaLevelStems.BASE, IcariaLevelStems.ZERO, 0L), pBiomes.getOrThrow(IcariaBiomes.SCRUBLAND));
     }
@@ -88,10 +79,6 @@ public class IcariaLevelStems {
         return new Pair<>(new Climate.ParameterPoint(IcariaLevelStems.COLD, IcariaLevelStems.ZERO, IcariaLevelStems.LAND, IcariaLevelStems.ZERO, IcariaLevelStems.DEEP, IcariaLevelStems.ZERO, 0L), pBiomes.getOrThrow(IcariaBiomes.DEEP_SCRUBLAND));
     }
 
-    public static Pair<Climate.ParameterPoint, Holder<Biome>> steppePeakParameters(HolderGetter<Biome> pBiomes) {
-        return new Pair<>(new Climate.ParameterPoint(IcariaLevelStems.WARM, IcariaLevelStems.ZERO, IcariaLevelStems.LAND, IcariaLevelStems.ZERO, IcariaLevelStems.PEAK, IcariaLevelStems.ZERO, 0L), pBiomes.getOrThrow(IcariaBiomes.STEPPE_PEAK));
-    }
-
     public static Pair<Climate.ParameterPoint, Holder<Biome>> steppeParameters(HolderGetter<Biome> pBiomes) {
         return new Pair<>(new Climate.ParameterPoint(IcariaLevelStems.WARM, IcariaLevelStems.ZERO, IcariaLevelStems.LAND, IcariaLevelStems.ZERO, IcariaLevelStems.BASE, IcariaLevelStems.ZERO, 0L), pBiomes.getOrThrow(IcariaBiomes.STEPPE));
     }
@@ -106,10 +93,6 @@ public class IcariaLevelStems {
 
     public static Pair<Climate.ParameterPoint, Holder<Biome>> deepSteppeParameters(HolderGetter<Biome> pBiomes) {
         return new Pair<>(new Climate.ParameterPoint(IcariaLevelStems.WARM, IcariaLevelStems.ZERO, IcariaLevelStems.LAND, IcariaLevelStems.ZERO, IcariaLevelStems.DEEP, IcariaLevelStems.ZERO, 0L), pBiomes.getOrThrow(IcariaBiomes.DEEP_STEPPE));
-    }
-
-    public static Pair<Climate.ParameterPoint, Holder<Biome>> desertPeakParameters(HolderGetter<Biome> pBiomes) {
-        return new Pair<>(new Climate.ParameterPoint(IcariaLevelStems.VERY_WARM, IcariaLevelStems.ZERO, IcariaLevelStems.LAND, IcariaLevelStems.ZERO, IcariaLevelStems.PEAK, IcariaLevelStems.ZERO, 0L), pBiomes.getOrThrow(IcariaBiomes.DESERT_PEAK));
     }
 
     public static Pair<Climate.ParameterPoint, Holder<Biome>> desertParameters(HolderGetter<Biome> pBiomes) {

@@ -59,22 +59,18 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "sideros_pickaxe" + "." + "description", "Craft a Sideros Pickaxe");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "molybdenumsteel_pickaxe" + "." + "description", "Craft a Molybdenumsteel Pickaxe");
 
-		this.add("biome" + "." + IcariaIdents.ID + "." + "forest_peak", "Forest Peak");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "forest", "Forest");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "lush_forest", "Lush Forest");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "lost_forest", "Lost Forest");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "deep_forest", "Deep Forest");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "scrubland_peak", "Scrubland Peak");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "scrubland", "Scrubland");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "lush_scrubland", "Lush Scrubland");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "lost_scrubland", "Lost Scrubland");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "deep_scrubland", "Deep Scrubland");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "steppe_peak", "Steppe Peak");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "steppe", "Steppe");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "lush_steppe", "Lush Steppe");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "lost_steppe", "Lost Steppe");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "deep_steppe", "Deep Steppe");
-		this.add("biome" + "." + IcariaIdents.ID + "." + "desert_peak", "Desert Peak");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "desert", "Desert");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "lush_desert", "Lush Desert");
 		this.add("biome" + "." + IcariaIdents.ID + "." + "lost_desert", "Lost Desert");

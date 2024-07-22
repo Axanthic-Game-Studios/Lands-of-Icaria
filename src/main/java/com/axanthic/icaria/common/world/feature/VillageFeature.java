@@ -29,10 +29,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class StructureFeature extends Feature<NoneFeatureConfiguration> {
+public class VillageFeature extends Feature<NoneFeatureConfiguration> {
     public ArrayList<EntityType<?>> mobs = new ArrayList<>();
 
-    public StructureFeature(Codec<NoneFeatureConfiguration> pCodec) {
+    public VillageFeature(Codec<NoneFeatureConfiguration> pCodec) {
         super(pCodec);
     }
 

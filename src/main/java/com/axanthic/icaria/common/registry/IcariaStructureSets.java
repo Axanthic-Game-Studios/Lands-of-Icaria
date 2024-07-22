@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -16,7 +17,7 @@ import java.util.Optional;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings("deprecation, OptionalUsedAsFieldOrParameterType")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -29,8 +30,12 @@ public class IcariaStructureSets {
 		var structures = pContext.lookup(Registries.STRUCTURE);
 		var structureSets = pContext.lookup(Registries.STRUCTURE_SET);
 
-		pContext.register(IcariaStructureSets.TEMPLE, new StructureSet(List.of(StructureSet.entry(structures.getOrThrow(IcariaStructures.TEMPLE), 1)), new RandomSpreadStructurePlacement(Vec3i.ZERO, StructurePlacement.FrequencyReductionMethod.DEFAULT, 1.0F, 1821000543, Optional.of(new StructurePlacement.ExclusionZone(structureSets.getOrThrow(IcariaStructureSets.VILLAGES), 2)), 4, 3, RandomSpreadType.LINEAR)));
-		pContext.register(IcariaStructureSets.VILLAGES, new StructureSet(List.of(StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_FOREST_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_FOREST_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_SCRUBLAND_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_SCRUBLAND_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_STEPPE_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_STEPPE_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_DESERT_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_DESERT_VILLAGE), 1)), new RandomSpreadStructurePlacement(8, 6, RandomSpreadType.LINEAR, 1117821874)));
+		IcariaStructureSets.register(pContext, IcariaStructureSets.TEMPLE, List.of(StructureSet.entry(structures.getOrThrow(IcariaStructures.TEMPLE), 1)), Optional.of(new StructurePlacement.ExclusionZone(structureSets.getOrThrow(IcariaStructureSets.VILLAGES), 2)), 6, 4, 1821000543);
+		IcariaStructureSets.register(pContext, IcariaStructureSets.VILLAGES, List.of(StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_FOREST_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_FOREST_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_SCRUBLAND_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_SCRUBLAND_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_STEPPE_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_STEPPE_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_DESERT_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_DESERT_VILLAGE), 1)), Optional.empty(), 10, 8, 1117821874);
+	}
+
+	public static Holder.Reference<StructureSet> register(BootstrapContext<StructureSet> pContext, ResourceKey<StructureSet> pKey, List<StructureSet.StructureSelectionEntry> pStructure, Optional<StructurePlacement.ExclusionZone> pExclusion, int pSpacing, int pSeparation, int pSalt) {
+		return pContext.register(pKey, new StructureSet(pStructure, new RandomSpreadStructurePlacement(Vec3i.ZERO, StructurePlacement.FrequencyReductionMethod.DEFAULT, 1.0F, pSalt, pExclusion, pSpacing, pSeparation, RandomSpreadType.LINEAR)));
 	}
 
 	public static ResourceKey<StructureSet> createKey(String pName) {

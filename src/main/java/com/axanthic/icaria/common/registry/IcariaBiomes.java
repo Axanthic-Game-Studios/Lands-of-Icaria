@@ -23,25 +23,21 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBiomes {
-	public static final ResourceKey<Biome> FOREST_PEAK = IcariaBiomes.createKey("forest_peak");
 	public static final ResourceKey<Biome> FOREST = IcariaBiomes.createKey("forest");
 	public static final ResourceKey<Biome> LUSH_FOREST = IcariaBiomes.createKey("lush_forest");
 	public static final ResourceKey<Biome> LOST_FOREST = IcariaBiomes.createKey("lost_forest");
 	public static final ResourceKey<Biome> DEEP_FOREST = IcariaBiomes.createKey("deep_forest");
 
-	public static final ResourceKey<Biome> SCRUBLAND_PEAK = IcariaBiomes.createKey("scrubland_peak");
 	public static final ResourceKey<Biome> SCRUBLAND = IcariaBiomes.createKey("scrubland");
 	public static final ResourceKey<Biome> LUSH_SCRUBLAND = IcariaBiomes.createKey("lush_scrubland");
 	public static final ResourceKey<Biome> LOST_SCRUBLAND = IcariaBiomes.createKey("lost_scrubland");
 	public static final ResourceKey<Biome> DEEP_SCRUBLAND = IcariaBiomes.createKey("deep_scrubland");
 
-	public static final ResourceKey<Biome> STEPPE_PEAK = IcariaBiomes.createKey("steppe_peak");
 	public static final ResourceKey<Biome> STEPPE = IcariaBiomes.createKey("steppe");
 	public static final ResourceKey<Biome> LUSH_STEPPE = IcariaBiomes.createKey("lush_steppe");
 	public static final ResourceKey<Biome> LOST_STEPPE = IcariaBiomes.createKey("lost_steppe");
 	public static final ResourceKey<Biome> DEEP_STEPPE = IcariaBiomes.createKey("deep_steppe");
 
-	public static final ResourceKey<Biome> DESERT_PEAK = IcariaBiomes.createKey("desert_peak");
 	public static final ResourceKey<Biome> DESERT = IcariaBiomes.createKey("desert");
 	public static final ResourceKey<Biome> LUSH_DESERT = IcariaBiomes.createKey("lush_desert");
 	public static final ResourceKey<Biome> LOST_DESERT = IcariaBiomes.createKey("lost_desert");
@@ -53,25 +49,21 @@ public class IcariaBiomes {
 		var configuredCarvers = pContext.lookup(Registries.CONFIGURED_CARVER);
 		var placedFeatures = pContext.lookup(Registries.PLACED_FEATURE);
 
-		pContext.register(IcariaBiomes.FOREST_PEAK, IcariaBiomes.forestBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.FOREST, IcariaBiomes.forestBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.LUSH_FOREST, IcariaBiomes.lushForestBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.LOST_FOREST, IcariaBiomes.lostForestBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.DEEP_FOREST, IcariaBiomes.deepForestBiome(placedFeatures, configuredCarvers));
 
-		pContext.register(IcariaBiomes.SCRUBLAND_PEAK, IcariaBiomes.scrublandBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.SCRUBLAND, IcariaBiomes.scrublandBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.LUSH_SCRUBLAND, IcariaBiomes.lushScrublandBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.LOST_SCRUBLAND, IcariaBiomes.lostScrublandBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.DEEP_SCRUBLAND, IcariaBiomes.deepScrublandBiome(placedFeatures, configuredCarvers));
 
-		pContext.register(IcariaBiomes.STEPPE_PEAK, IcariaBiomes.steppeBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.STEPPE, IcariaBiomes.steppeBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.LUSH_STEPPE, IcariaBiomes.lushSteppeBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.LOST_STEPPE, IcariaBiomes.lostSteppeBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.DEEP_STEPPE, IcariaBiomes.deepSteppeBiome(placedFeatures, configuredCarvers));
 
-		pContext.register(IcariaBiomes.DESERT_PEAK, IcariaBiomes.desertBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.DESERT, IcariaBiomes.desertBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.LUSH_DESERT, IcariaBiomes.lushDesertBiome(placedFeatures, configuredCarvers));
 		pContext.register(IcariaBiomes.LOST_DESERT, IcariaBiomes.lostDesertBiome(placedFeatures, configuredCarvers));
@@ -84,7 +76,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.FALLEN_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VERTICAL_RELICSTONE_PILLAR);
@@ -166,7 +158,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.LIGNITE_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.CHALKOS_ORE);
@@ -247,7 +239,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.FALLEN_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VERTICAL_RELICSTONE_PILLAR);
@@ -329,7 +321,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SIDEROS_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.ANTHRACITE_ORE);
@@ -406,7 +398,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.YELLOWSTONE_BOULDER);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.FALLEN_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
@@ -483,7 +475,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.LIGNITE_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.CHALKOS_ORE);
@@ -558,7 +550,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.FALLEN_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VERTICAL_RELICSTONE_PILLAR);
@@ -634,7 +626,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SIDEROS_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.ANTHRACITE_ORE);
@@ -705,7 +697,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.YELLOWSTONE_BOULDER);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.FALLEN_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
@@ -782,7 +774,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.LIGNITE_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.CHALKOS_ORE);
@@ -857,7 +849,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.FALLEN_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VERTICAL_RELICSTONE_PILLAR);
@@ -933,7 +925,7 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.DRY_LAKE);
 		pBuilder.addFeature(GenerationStep.Decoration.LAKES, IcariaPlacedFeatures.MEDITERRANEAN_WATER_LAKE);
 
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SIDEROS_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.ANTHRACITE_ORE);
@@ -1001,7 +993,7 @@ public class IcariaBiomes {
 	}
 
 	public static void desertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.GRAINITE_SPIKE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.FALLEN_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
@@ -1052,7 +1044,7 @@ public class IcariaBiomes {
 	}
 
 	public static void lushDesertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.LIGNITE_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.CHALKOS_ORE);
@@ -1102,7 +1094,7 @@ public class IcariaBiomes {
 	}
 
 	public static void lostDesertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.FALLEN_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VERTICAL_RELICSTONE_PILLAR);
@@ -1156,7 +1148,7 @@ public class IcariaBiomes {
 	}
 
 	public static void deepDesertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
-		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.STRUCTURE);
+		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VILLAGE);
 
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SIDEROS_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.ANTHRACITE_ORE);

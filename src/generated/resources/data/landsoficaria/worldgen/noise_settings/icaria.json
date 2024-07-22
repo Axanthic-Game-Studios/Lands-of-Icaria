@@ -165,7 +165,6 @@
           "if_true": {
             "type": "minecraft:biome",
             "biome_is": [
-              "landsoficaria:forest_peak",
               "landsoficaria:forest",
               "landsoficaria:lush_forest",
               "landsoficaria:lost_forest",
@@ -226,7 +225,6 @@
           "if_true": {
             "type": "minecraft:biome",
             "biome_is": [
-              "landsoficaria:forest_peak",
               "landsoficaria:forest",
               "landsoficaria:lush_forest",
               "landsoficaria:lost_forest",
@@ -284,12 +282,10 @@
           "if_true": {
             "type": "minecraft:biome",
             "biome_is": [
-              "landsoficaria:scrubland_peak",
               "landsoficaria:scrubland",
               "landsoficaria:lush_scrubland",
               "landsoficaria:lost_scrubland",
               "landsoficaria:deep_scrubland",
-              "landsoficaria:steppe_peak",
               "landsoficaria:steppe",
               "landsoficaria:lush_steppe",
               "landsoficaria:lost_steppe",
@@ -365,12 +361,10 @@
           "if_true": {
             "type": "minecraft:biome",
             "biome_is": [
-              "landsoficaria:scrubland_peak",
               "landsoficaria:scrubland",
               "landsoficaria:lush_scrubland",
               "landsoficaria:lost_scrubland",
               "landsoficaria:deep_scrubland",
-              "landsoficaria:steppe_peak",
               "landsoficaria:steppe",
               "landsoficaria:lush_steppe",
               "landsoficaria:lost_steppe",
@@ -443,7 +437,6 @@
           "if_true": {
             "type": "minecraft:biome",
             "biome_is": [
-              "landsoficaria:desert_peak",
               "landsoficaria:desert",
               "landsoficaria:lush_desert",
               "landsoficaria:lost_desert",
