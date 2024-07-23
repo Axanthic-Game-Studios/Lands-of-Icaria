@@ -24,65 +24,65 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class RuinFeature extends Feature<NoneFeatureConfiguration> {
-    public ArrayList<EntityType<?>> mobs = new ArrayList<>();
+	public ArrayList<EntityType<?>> mobs = new ArrayList<>();
 
-    public RuinFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec);
-    }
+	public RuinFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec);
+	}
 
-    @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-        var level = pContext.level();
-        var origin = pContext.origin();
-        var random = pContext.random();
+	@Override
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
+		var level = pContext.level();
+		var origin = pContext.origin();
+		var random = pContext.random();
 
-        this.setMobs();
+		this.setMobs();
 
-        for (int x = 0; x < 16; x++) {
-            int pX = origin.getX() + x;
-            for (int z = 0; z < 16; z++) {
-                int pZ = origin.getZ() + z;
-                for (int y = 40; y < 48; y++) {
-                    var blockPos = new BlockPos(pX, y, pZ);
-                    var belowPos = new BlockPos(pX, y, pZ).below();
-                    var oldState = level.getBlockState(belowPos);
-                    var newState = oldState.is(IcariaBlocks.MARL.get()) ? IcariaBlocks.GRASSY_MARL.get().defaultBlockState() : oldState;
+		for (int x = 0; x < 16; x++) {
+			int pX = origin.getX() + x;
+			for (int z = 0; z < 16; z++) {
+				int pZ = origin.getZ() + z;
+				for (int y = 40; y < 48; y++) {
+					var blockPos = new BlockPos(pX, y, pZ);
+					var belowPos = new BlockPos(pX, y, pZ).below();
+					var oldState = level.getBlockState(belowPos);
+					var newState = oldState.is(IcariaBlocks.MARL.get()) ? IcariaBlocks.GRASSY_MARL.get().defaultBlockState() : oldState;
 
-                    this.replaceRelicstone(level, blockPos, newState, 10);
+					this.replaceRelicstone(level, blockPos, newState, 10);
 
-                    this.setMobsForSpawners(level, blockPos, random);
-                }
-            }
-        }
+					this.setMobsForSpawners(level, blockPos, random);
+				}
+			}
+		}
 
-        return true;
-    }
+		return true;
+	}
 
-    public void replaceRelicstone(WorldGenLevel pLevel, BlockPos pPos, BlockState pState, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.replaceRelicstone(pLevel, pPos, pState);
-        }
-    }
+	public void replaceRelicstone(WorldGenLevel pLevel, BlockPos pPos, BlockState pState, int pChance) {
+		if (pLevel.getRandom().nextInt(pChance) == 0) {
+			this.replaceRelicstone(pLevel, pPos, pState);
+		}
+	}
 
-    public void replaceRelicstone(WorldGenLevel pLevel, BlockPos pPos, BlockState pState) {
-        if (pLevel.getBlockState(pPos).is(IcariaBlocks.RELICSTONE.get())) {
-            this.setBlock(pLevel, pPos, pState);
-        }
-    }
+	public void replaceRelicstone(WorldGenLevel pLevel, BlockPos pPos, BlockState pState) {
+		if (pLevel.getBlockState(pPos).is(IcariaBlocks.RELICSTONE.get())) {
+			this.setBlock(pLevel, pPos, pState);
+		}
+	}
 
-    public void setMobsForSpawners(WorldGenLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        if (pLevel.getBlockEntity(pPos) instanceof IcariaSpawnerBlockEntity blockEntity) {
-            blockEntity.setEntityId(this.getMob(pRandom), pRandom);
-        }
-    }
+	public void setMobsForSpawners(WorldGenLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+		if (pLevel.getBlockEntity(pPos) instanceof IcariaSpawnerBlockEntity blockEntity) {
+			blockEntity.setEntityId(this.getMob(pRandom), pRandom);
+		}
+	}
 
-    public void setMobs() {
-        this.mobs.add(IcariaEntityTypes.CIVILIAN_REVENANT.get());
-        this.mobs.add(IcariaEntityTypes.PYROMANCER_REVENANT.get());
-        this.mobs.add(IcariaEntityTypes.SOLDIER_REVENANT.get());
-    }
+	public void setMobs() {
+		this.mobs.add(IcariaEntityTypes.CIVILIAN_REVENANT.get());
+		this.mobs.add(IcariaEntityTypes.PYROMANCER_REVENANT.get());
+		this.mobs.add(IcariaEntityTypes.SOLDIER_REVENANT.get());
+	}
 
-    public EntityType<?> getMob(RandomSource pRandom) {
-        return this.mobs.get(pRandom.nextInt(this.mobs.size()));
-    }
+	public EntityType<?> getMob(RandomSource pRandom) {
+		return this.mobs.get(pRandom.nextInt(this.mobs.size()));
+	}
 }

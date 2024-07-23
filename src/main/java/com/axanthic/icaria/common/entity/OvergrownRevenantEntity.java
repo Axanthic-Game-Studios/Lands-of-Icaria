@@ -15,31 +15,31 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class OvergrownRevenantEntity extends RevenantEntity {
-    public float red;
-    public float green;
-    public float blue;
+	public float red;
+	public float green;
+	public float blue;
 
-    public OvergrownRevenantEntity(EntityType<? extends OvergrownRevenantEntity> pType, Level pLevel) {
-        super(pType, pLevel);
-    }
+	public OvergrownRevenantEntity(EntityType<? extends OvergrownRevenantEntity> pType, Level pLevel) {
+		super(pType, pLevel);
+	}
 
-    @Override
-    public void tick() {
-        super.tick();
-        if (this.level().isClientSide()) {
-            this.tickRegisterRaysValues();
-        }
-    }
+	@Override
+	public void tick() {
+		super.tick();
+		if (this.level().isClientSide()) {
+			this.tickRegisterRaysValues();
+		}
+	}
 
-    public void tickRegisterRaysValues() {
-        if (this.tickCount < 20) {
-            this.red = IcariaClientHelper.getRed(this);
-            this.green = IcariaClientHelper.getGreen(this);
-            this.blue = IcariaClientHelper.getBlue(this);
-        }
-    }
+	public void tickRegisterRaysValues() {
+		if (this.tickCount < 20) {
+			this.red = IcariaClientHelper.getRed(this);
+			this.green = IcariaClientHelper.getGreen(this);
+			this.blue = IcariaClientHelper.getBlue(this);
+		}
+	}
 
-    public static AttributeSupplier.Builder registerAttributes() {
-        return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 3.0D).add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
-    }
+	public static AttributeSupplier.Builder registerAttributes() {
+		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 3.0D).add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+	}
 }

@@ -327,8 +327,8 @@ public class IcariaBlocks {
 	public static final Supplier<Block> TRIPLE_CYPRESS_BARREL_RACK = IcariaBlocks.register("triple_cypress_barrel_rack", () -> new TripleBarrelRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, IcariaSoundTypes.BARREL)));
 	public static final Supplier<Block> CYPRESS_TROUGH = IcariaBlocks.register("cypress_trough", () -> new TroughBlock(IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> CYPRESS_CRAFTING_TABLE = IcariaBlocks.register("cypress_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_BROWN, SoundType.WOOD)));
-	public static final Supplier<DoorBlock> CYPRESS_DOOR = IcariaBlocks.register("cypress_door", ()-> new DoorBlock(IcariaBlockSetTypes.CYPRESS, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
-	public static final Supplier<TrapDoorBlock> CYPRESS_TRAPDOOR = IcariaBlocks.register("cypress_trapdoor", ()-> new TrapDoorBlock(IcariaBlockSetTypes.CYPRESS, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD)));
+	public static final Supplier<DoorBlock> CYPRESS_DOOR = IcariaBlocks.register("cypress_door", () -> new DoorBlock(IcariaBlockSetTypes.CYPRESS, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
+	public static final Supplier<TrapDoorBlock> CYPRESS_TRAPDOOR = IcariaBlocks.register("cypress_trapdoor", () -> new TrapDoorBlock(IcariaBlockSetTypes.CYPRESS, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD)));
 	public static final Supplier<Block> CYPRESS_LADDER = IcariaBlocks.register("cypress_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER)));
 	public static final Supplier<Block> CYPRESS_SIGN = IcariaBlocks.register("cypress_sign", () -> new IcariaStandingSignBlock(IcariaWoodTypes.CYPRESS, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> CYPRESS_WALL_SIGN = IcariaBlocks.register("cypress_wall_sign", () -> new IcariaWallSignBlock(IcariaWoodTypes.CYPRESS, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
@@ -356,8 +356,8 @@ public class IcariaBlocks {
 	public static final Supplier<Block> TRIPLE_DROUGHTROOT_BARREL_RACK = IcariaBlocks.register("triple_droughtroot_barrel_rack", () -> new TripleBarrelRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_GRAY, IcariaSoundTypes.BARREL)));
 	public static final Supplier<Block> DROUGHTROOT_TROUGH = IcariaBlocks.register("droughtroot_trough", () -> new TroughBlock(IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> DROUGHTROOT_CRAFTING_TABLE = IcariaBlocks.register("droughtroot_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_GRAY, SoundType.WOOD)));
-	public static final Supplier<DoorBlock> DROUGHTROOT_DOOR = IcariaBlocks.register("droughtroot_door", ()-> new DoorBlock(IcariaBlockSetTypes.DROUGHTROOT, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
-	public static final Supplier<TrapDoorBlock> DROUGHTROOT_TRAPDOOR = IcariaBlocks.register("droughtroot_trapdoor", ()-> new TrapDoorBlock(IcariaBlockSetTypes.DROUGHTROOT, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_GRAY, SoundType.WOOD)));
+	public static final Supplier<DoorBlock> DROUGHTROOT_DOOR = IcariaBlocks.register("droughtroot_door", () -> new DoorBlock(IcariaBlockSetTypes.DROUGHTROOT, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
+	public static final Supplier<TrapDoorBlock> DROUGHTROOT_TRAPDOOR = IcariaBlocks.register("droughtroot_trapdoor", () -> new TrapDoorBlock(IcariaBlockSetTypes.DROUGHTROOT, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_GRAY, SoundType.WOOD)));
 	public static final Supplier<Block> DROUGHTROOT_LADDER = IcariaBlocks.register("droughtroot_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER)));
 	public static final Supplier<Block> DROUGHTROOT_SIGN = IcariaBlocks.register("droughtroot_sign", () -> new IcariaStandingSignBlock(IcariaWoodTypes.DROUGHTROOT, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> DROUGHTROOT_WALL_SIGN = IcariaBlocks.register("droughtroot_wall_sign", () -> new IcariaWallSignBlock(IcariaWoodTypes.DROUGHTROOT, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
@@ -385,8 +385,8 @@ public class IcariaBlocks {
 	public static final Supplier<Block> TRIPLE_FIR_BARREL_RACK = IcariaBlocks.register("triple_fir_barrel_rack", () -> new TripleBarrelRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_ORANGE, IcariaSoundTypes.BARREL)));
 	public static final Supplier<Block> FIR_TROUGH = IcariaBlocks.register("fir_trough", () -> new TroughBlock(IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> FIR_CRAFTING_TABLE = IcariaBlocks.register("fir_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_ORANGE, SoundType.WOOD)));
-	public static final Supplier<DoorBlock> FIR_DOOR = IcariaBlocks.register("fir_door", ()-> new DoorBlock(IcariaBlockSetTypes.FIR, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
-	public static final Supplier<TrapDoorBlock> FIR_TRAPDOOR = IcariaBlocks.register("fir_trapdoor", ()-> new TrapDoorBlock(IcariaBlockSetTypes.FIR, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD)));
+	public static final Supplier<DoorBlock> FIR_DOOR = IcariaBlocks.register("fir_door", () -> new DoorBlock(IcariaBlockSetTypes.FIR, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
+	public static final Supplier<TrapDoorBlock> FIR_TRAPDOOR = IcariaBlocks.register("fir_trapdoor", () -> new TrapDoorBlock(IcariaBlockSetTypes.FIR, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD)));
 	public static final Supplier<Block> FIR_LADDER = IcariaBlocks.register("fir_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER)));
 	public static final Supplier<Block> FIR_SIGN = IcariaBlocks.register("fir_sign", () -> new IcariaStandingSignBlock(IcariaWoodTypes.FIR, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> FIR_WALL_SIGN = IcariaBlocks.register("fir_wall_sign", () -> new IcariaWallSignBlock(IcariaWoodTypes.FIR, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
@@ -414,8 +414,8 @@ public class IcariaBlocks {
 	public static final Supplier<Block> TRIPLE_LAUREL_BARREL_RACK = IcariaBlocks.register("triple_laurel_barrel_rack", () -> new TripleBarrelRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, IcariaSoundTypes.BARREL)));
 	public static final Supplier<Block> LAUREL_TROUGH = IcariaBlocks.register("laurel_trough", () -> new TroughBlock(IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> LAUREL_CRAFTING_TABLE = IcariaBlocks.register("laurel_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_BROWN, SoundType.WOOD)));
-	public static final Supplier<DoorBlock> LAUREL_DOOR = IcariaBlocks.register("laurel_door", ()-> new DoorBlock(IcariaBlockSetTypes.LAUREL, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
-	public static final Supplier<TrapDoorBlock> LAUREL_TRAPDOOR = IcariaBlocks.register("laurel_trapdoor", ()-> new TrapDoorBlock(IcariaBlockSetTypes.LAUREL, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_BROWN, SoundType.WOOD)));
+	public static final Supplier<DoorBlock> LAUREL_DOOR = IcariaBlocks.register("laurel_door", () -> new DoorBlock(IcariaBlockSetTypes.LAUREL, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
+	public static final Supplier<TrapDoorBlock> LAUREL_TRAPDOOR = IcariaBlocks.register("laurel_trapdoor", () -> new TrapDoorBlock(IcariaBlockSetTypes.LAUREL, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_BROWN, SoundType.WOOD)));
 	public static final Supplier<Block> LAUREL_LADDER = IcariaBlocks.register("laurel_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER)));
 	public static final Supplier<Block> LAUREL_SIGN = IcariaBlocks.register("laurel_sign", () -> new IcariaStandingSignBlock(IcariaWoodTypes.LAUREL, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> LAUREL_WALL_SIGN = IcariaBlocks.register("laurel_wall_sign", () -> new IcariaWallSignBlock(IcariaWoodTypes.LAUREL, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
@@ -443,8 +443,8 @@ public class IcariaBlocks {
 	public static final Supplier<Block> TRIPLE_OLIVE_BARREL_RACK = IcariaBlocks.register("triple_olive_barrel_rack", () -> new TripleBarrelRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_ORANGE, IcariaSoundTypes.BARREL)));
 	public static final Supplier<Block> OLIVE_TROUGH = IcariaBlocks.register("olive_trough", () -> new TroughBlock(IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> OLIVE_CRAFTING_TABLE = IcariaBlocks.register("olive_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_ORANGE, SoundType.WOOD)));
-	public static final Supplier<DoorBlock> OLIVE_DOOR = IcariaBlocks.register("olive_door", ()-> new DoorBlock(IcariaBlockSetTypes.OLIVE, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
-	public static final Supplier<TrapDoorBlock> OLIVE_TRAPDOOR = IcariaBlocks.register("olive_trapdoor", ()-> new TrapDoorBlock(IcariaBlockSetTypes.OLIVE, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD)));
+	public static final Supplier<DoorBlock> OLIVE_DOOR = IcariaBlocks.register("olive_door", () -> new DoorBlock(IcariaBlockSetTypes.OLIVE, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
+	public static final Supplier<TrapDoorBlock> OLIVE_TRAPDOOR = IcariaBlocks.register("olive_trapdoor", () -> new TrapDoorBlock(IcariaBlockSetTypes.OLIVE, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD)));
 	public static final Supplier<Block> OLIVE_LADDER = IcariaBlocks.register("olive_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER)));
 	public static final Supplier<Block> OLIVE_SIGN = IcariaBlocks.register("olive_sign", () -> new IcariaStandingSignBlock(IcariaWoodTypes.OLIVE, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> OLIVE_WALL_SIGN = IcariaBlocks.register("olive_wall_sign", () -> new IcariaWallSignBlock(IcariaWoodTypes.OLIVE, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
@@ -472,8 +472,8 @@ public class IcariaBlocks {
 	public static final Supplier<Block> TRIPLE_PLANE_BARREL_RACK = IcariaBlocks.register("triple_plane_barrel_rack", () -> new TripleBarrelRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_BROWN, IcariaSoundTypes.BARREL)));
 	public static final Supplier<Block> PLANE_TROUGH = IcariaBlocks.register("plane_trough", () -> new TroughBlock(IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> PLANE_CRAFTING_TABLE = IcariaBlocks.register("plane_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_BROWN, SoundType.WOOD)));
-	public static final Supplier<DoorBlock> PLANE_DOOR = IcariaBlocks.register("plane_door", ()-> new DoorBlock(IcariaBlockSetTypes.PLANE, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
-	public static final Supplier<TrapDoorBlock> PLANE_TRAPDOOR = IcariaBlocks.register("plane_trapdoor", ()-> new TrapDoorBlock(IcariaBlockSetTypes.PLANE, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD)));
+	public static final Supplier<DoorBlock> PLANE_DOOR = IcariaBlocks.register("plane_door", () -> new DoorBlock(IcariaBlockSetTypes.PLANE, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
+	public static final Supplier<TrapDoorBlock> PLANE_TRAPDOOR = IcariaBlocks.register("plane_trapdoor", () -> new TrapDoorBlock(IcariaBlockSetTypes.PLANE, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD)));
 	public static final Supplier<Block> PLANE_LADDER = IcariaBlocks.register("plane_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER)));
 	public static final Supplier<Block> PLANE_SIGN = IcariaBlocks.register("plane_sign", () -> new IcariaStandingSignBlock(IcariaWoodTypes.PLANE, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> PLANE_WALL_SIGN = IcariaBlocks.register("plane_wall_sign", () -> new IcariaWallSignBlock(IcariaWoodTypes.PLANE, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
@@ -501,8 +501,8 @@ public class IcariaBlocks {
 	public static final Supplier<Block> TRIPLE_POPULUS_BARREL_RACK = IcariaBlocks.register("triple_populus_barrel_rack", () -> new TripleBarrelRackBlock(IcariaBlocks.propertiesBarrel(MapColor.COLOR_GREEN, IcariaSoundTypes.BARREL)));
 	public static final Supplier<Block> POPULUS_TROUGH = IcariaBlocks.register("populus_trough", () -> new TroughBlock(IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> POPULUS_CRAFTING_TABLE = IcariaBlocks.register("populus_crafting_table", () -> new IcariaCraftingTableBlock(IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_GREEN, SoundType.WOOD)));
-	public static final Supplier<DoorBlock> POPULUS_DOOR = IcariaBlocks.register("populus_door", ()-> new DoorBlock(IcariaBlockSetTypes.POPULUS, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
-	public static final Supplier<TrapDoorBlock> POPULUS_TRAPDOOR = IcariaBlocks.register("populus_trapdoor", ()-> new TrapDoorBlock(IcariaBlockSetTypes.POPULUS, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_YELLOW, SoundType.WOOD)));
+	public static final Supplier<DoorBlock> POPULUS_DOOR = IcariaBlocks.register("populus_door", () -> new DoorBlock(IcariaBlockSetTypes.POPULUS, IcariaBlocks.propertiesDoor(MapColor.NONE, SoundType.WOOD)));
+	public static final Supplier<TrapDoorBlock> POPULUS_TRAPDOOR = IcariaBlocks.register("populus_trapdoor", () -> new TrapDoorBlock(IcariaBlockSetTypes.POPULUS, IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_YELLOW, SoundType.WOOD)));
 	public static final Supplier<Block> POPULUS_LADDER = IcariaBlocks.register("populus_ladder", () -> new LadderBlock(IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER)));
 	public static final Supplier<Block> POPULUS_SIGN = IcariaBlocks.register("populus_sign", () -> new IcariaStandingSignBlock(IcariaWoodTypes.POPULUS, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));
 	public static final Supplier<Block> POPULUS_WALL_SIGN = IcariaBlocks.register("populus_wall_sign", () -> new IcariaWallSignBlock(IcariaWoodTypes.POPULUS, IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD)));

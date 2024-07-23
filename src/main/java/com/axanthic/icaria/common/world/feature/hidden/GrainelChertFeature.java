@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrainelChertFeature extends IcariaHiddenFeature {
-    public GrainelChertFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.GRAINEL_CHERT.get(), IcariaBlocks.SURFACE_CHERT.get());
-    }
+	public GrainelChertFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.GRAINEL_CHERT.get(), IcariaBlocks.SURFACE_CHERT.get());
+	}
 }

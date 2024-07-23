@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DryLakeFeature extends IcariaLakeFeature {
-    public DryLakeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.DRY_LAKE_BED.get(), Blocks.AIR);
-    }
+	public DryLakeFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.DRY_LAKE_BED.get(), Blocks.AIR);
+	}
 }

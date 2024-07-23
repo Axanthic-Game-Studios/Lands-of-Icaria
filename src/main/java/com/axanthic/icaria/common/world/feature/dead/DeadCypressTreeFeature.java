@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DeadCypressTreeFeature extends IcariaDeadTreeFeature {
-    public DeadCypressTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.DEAD_CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.STEPPE_MOSS.get(), IcariaBlocks.CYPRESS_TWIGS.get(), Moss.STEPPE);
-    }
+	public DeadCypressTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.DEAD_CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.STEPPE_MOSS.get(), IcariaBlocks.CYPRESS_TWIGS.get(), Moss.STEPPE);
+	}
 }

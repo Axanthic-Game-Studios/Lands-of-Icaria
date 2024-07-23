@@ -22,46 +22,46 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class EnderJellyfishRenderer extends MobRenderer<JellyfishEntity, EnderJellyfishModel> {
-    public EnderJellyfishRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new EnderJellyfishModel(pContext.bakeLayer(IcariaLayerLocations.ENDER_JELLYFISH)), 1.0F);
-        this.addLayer(new EnderJellyfishEmissiveLayer(this));
-    }
+	public EnderJellyfishRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new EnderJellyfishModel(pContext.bakeLayer(IcariaLayerLocations.ENDER_JELLYFISH)), 1.0F);
+		this.addLayer(new EnderJellyfishEmissiveLayer(this));
+	}
 
-    @Override
-    public float getShadowRadius(JellyfishEntity pEntity) {
-        return pEntity.getScaleForShadow();
-    }
+	@Override
+	public float getShadowRadius(JellyfishEntity pEntity) {
+		return pEntity.getScaleForShadow();
+	}
 
-    @Override
-    public float getBob(JellyfishEntity pLivingBase, float pPartialTicks) {
-        return Mth.lerp(pPartialTicks, pLivingBase.oldTentacleAngle, pLivingBase.tentacleAngle);
-    }
+	@Override
+	public float getBob(JellyfishEntity pLivingBase, float pPartialTicks) {
+		return Mth.lerp(pPartialTicks, pLivingBase.oldTentacleAngle, pLivingBase.tentacleAngle);
+	}
 
-    @Override
-    public void render(JellyfishEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+	@Override
+	public void render(JellyfishEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 
-    @Override
-    public void scale(JellyfishEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
-    }
+	@Override
+	public void scale(JellyfishEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
+	}
 
-    @Override
-    public void setupRotations(JellyfishEntity pEntityLiving, PoseStack pMatrixStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks, float pScale) {
-        float yRotation = 180.0F - pRotationYaw;
-        float xRotation = Mth.lerp(pPartialTicks, pEntityLiving.oldXBodyRot, pEntityLiving.xBodyRot);
-        float zRotation = Mth.lerp(pPartialTicks, pEntityLiving.oldZBodyRot, pEntityLiving.zBodyRot);
+	@Override
+	public void setupRotations(JellyfishEntity pEntityLiving, PoseStack pMatrixStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks, float pScale) {
+		float yRotation = 180.0F - pRotationYaw;
+		float xRotation = Mth.lerp(pPartialTicks, pEntityLiving.oldXBodyRot, pEntityLiving.xBodyRot);
+		float zRotation = Mth.lerp(pPartialTicks, pEntityLiving.oldZBodyRot, pEntityLiving.zBodyRot);
 
-        pMatrixStack.translate(0.0F, pEntityLiving.getScaleForRender() * 0.5F, 0.0F);
-        pMatrixStack.mulPose(Axis.YP.rotationDegrees(yRotation));
-        pMatrixStack.mulPose(Axis.XP.rotationDegrees(xRotation));
-        pMatrixStack.mulPose(Axis.YP.rotationDegrees(zRotation));
-        pMatrixStack.translate(0.0F, pEntityLiving.getScaleForRender() * -1.0F, 0.0F);
-    }
+		pMatrixStack.translate(0.0F, pEntityLiving.getScaleForRender() * 0.5F, 0.0F);
+		pMatrixStack.mulPose(Axis.YP.rotationDegrees(yRotation));
+		pMatrixStack.mulPose(Axis.XP.rotationDegrees(xRotation));
+		pMatrixStack.mulPose(Axis.YP.rotationDegrees(zRotation));
+		pMatrixStack.translate(0.0F, pEntityLiving.getScaleForRender() * -1.0F, 0.0F);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(JellyfishEntity pEntity) {
-        return IcariaResourceLocations.ENDER_JELLYFISH;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(JellyfishEntity pEntity) {
+		return IcariaResourceLocations.ENDER_JELLYFISH;
+	}
 }

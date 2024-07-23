@@ -20,12 +20,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class EnderJellyfishEmissiveLayer extends RenderLayer<JellyfishEntity, EnderJellyfishModel> {
-    public EnderJellyfishEmissiveLayer(RenderLayerParent<JellyfishEntity, EnderJellyfishModel> pRenderer) {
-        super(pRenderer);
-    }
+	public EnderJellyfishEmissiveLayer(RenderLayerParent<JellyfishEntity, EnderJellyfishModel> pRenderer) {
+		super(pRenderer);
+	}
 
-    @Override
-    public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, JellyfishEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(IcariaRenderTypes.ENDER_JELLYFISH_EMISSIVE), LightTexture.FULL_SKY, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getColorAndAlpha(pLivingEntity, pPartialTick));
-    }
+	@Override
+	public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, JellyfishEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+		this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(IcariaRenderTypes.ENDER_JELLYFISH_EMISSIVE), LightTexture.FULL_SKY, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getColorAndAlpha(pLivingEntity, pPartialTick));
+	}
 }

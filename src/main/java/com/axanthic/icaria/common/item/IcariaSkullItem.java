@@ -13,12 +13,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaSkullItem extends StandingAndWallBlockItem {
-    public IcariaSkullItem(Block pBlock, Block pWallBlock, Properties pProperties, Direction pAttachmentDirection) {
-        super(pBlock, pWallBlock, pProperties, pAttachmentDirection);
-    }
+	public IcariaSkullItem(Block pBlock, Block pWallBlock, Properties pProperties, Direction pAttachmentDirection) {
+		super(pBlock, pWallBlock, pProperties, pAttachmentDirection);
+	}
 
-    @Override
-    public EquipmentSlot getEquipmentSlot(ItemStack pStack) {
-        return EquipmentSlot.HEAD;
-    }
+	@Override
+	public EquipmentSlot getEquipmentSlot(ItemStack pStack) {
+		return EquipmentSlot.HEAD;
+	}
 }

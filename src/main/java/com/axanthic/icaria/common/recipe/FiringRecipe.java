@@ -18,63 +18,63 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class FiringRecipe implements Recipe<RecipeInput> {
-    public float experience;
+	public float experience;
 
-    public int burnTime;
+	public int burnTime;
 
-    public List<Ingredient> ingredients;
+	public List<Ingredient> ingredients;
 
-    public ItemStack output;
+	public ItemStack output;
 
-    public FiringRecipe(float pExperience, int pBurnTime, List<Ingredient> pIngredients, ItemStack pOutput) {
-        this.experience = pExperience;
-        this.burnTime = pBurnTime;
-        this.ingredients = pIngredients;
-        this.output = pOutput;
-    }
+	public FiringRecipe(float pExperience, int pBurnTime, List<Ingredient> pIngredients, ItemStack pOutput) {
+		this.experience = pExperience;
+		this.burnTime = pBurnTime;
+		this.ingredients = pIngredients;
+		this.output = pOutput;
+	}
 
-    @Override
-    public boolean canCraftInDimensions(int pWidth, int pHeight) {
-        return true;
-    }
+	@Override
+	public boolean canCraftInDimensions(int pWidth, int pHeight) {
+		return true;
+	}
 
-    @Override
-    public boolean matches(RecipeInput pInput, Level pLevel) {
-        return !pLevel.isClientSide() && this.ingredients.get(0).test(pInput.getItem(0));
-    }
+	@Override
+	public boolean matches(RecipeInput pInput, Level pLevel) {
+		return !pLevel.isClientSide() && this.ingredients.get(0).test(pInput.getItem(0));
+	}
 
-    public float getExperience() {
-        return this.experience;
-    }
+	public float getExperience() {
+		return this.experience;
+	}
 
-    public int getBurnTime() {
-        return this.burnTime;
-    }
+	public int getBurnTime() {
+		return this.burnTime;
+	}
 
-    @Override
-    public ItemStack assemble(RecipeInput pInput, HolderLookup.Provider pProvider) {
-        return this.output;
-    }
+	@Override
+	public ItemStack assemble(RecipeInput pInput, HolderLookup.Provider pProvider) {
+		return this.output;
+	}
 
-    @Override
-    public ItemStack getResultItem(HolderLookup.Provider pProvider) {
-        return this.output.copy();
-    }
+	@Override
+	public ItemStack getResultItem(HolderLookup.Provider pProvider) {
+		return this.output.copy();
+	}
 
-    @Override
-    public NonNullList<Ingredient> getIngredients() {
-        var list = NonNullList.<Ingredient>create();
-        list.addAll(this.ingredients);
-        return list;
-    }
+	@Override
+	public NonNullList<Ingredient> getIngredients() {
+		var list = NonNullList.<Ingredient>create();
+		list.addAll(this.ingredients);
+		return list;
+	}
 
-    @Override
-    public RecipeSerializer<?> getSerializer() {
-        return IcariaRecipeSerializers.FIRING.get();
-    }
+	@Override
+	public RecipeSerializer<?> getSerializer() {
+		return IcariaRecipeSerializers.FIRING.get();
+	}
 
-    @Override
-    public RecipeType<?> getType() {
-        return IcariaRecipeTypes.FIRING.get();
-    }
+	@Override
+	public RecipeType<?> getType() {
+		return IcariaRecipeTypes.FIRING.get();
+	}
 }

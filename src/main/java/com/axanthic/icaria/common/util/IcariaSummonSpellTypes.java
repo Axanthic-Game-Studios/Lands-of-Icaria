@@ -8,12 +8,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public enum IcariaSummonSpellTypes {
-    NONE(0),
-    SUMMON(1);
+	NONE(0),
+	SUMMON(1);
 
-    public final int id;
+	public final int id;
 
-    IcariaSummonSpellTypes(int pId) {
-        this.id = pId;
-    }
+	IcariaSummonSpellTypes(int pId) {
+		this.id = pId;
+	}
 }

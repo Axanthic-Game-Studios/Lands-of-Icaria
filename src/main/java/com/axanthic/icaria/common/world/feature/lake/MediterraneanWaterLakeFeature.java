@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MediterraneanWaterLakeFeature extends IcariaLakeFeature {
-    public MediterraneanWaterLakeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.GRASSY_MARL.get(), IcariaBlocks.MEDITERRANEAN_WATER.get());
-    }
+	public MediterraneanWaterLakeFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.GRASSY_MARL.get(), IcariaBlocks.MEDITERRANEAN_WATER.get());
+	}
 }

@@ -19,12 +19,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class HyliasterTranslucentLayer extends RenderLayer<HyliasterEntity, HyliasterModel> {
-    public HyliasterTranslucentLayer(RenderLayerParent<HyliasterEntity, HyliasterModel> pRenderer) {
-        super(pRenderer);
-    }
+	public HyliasterTranslucentLayer(RenderLayerParent<HyliasterEntity, HyliasterModel> pRenderer) {
+		super(pRenderer);
+	}
 
-    @Override
-    public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, HyliasterEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(IcariaRenderTypes.HYLIASTER_TRANSLUCENT), pPackedLight, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getColorAndAlpha(pLivingEntity));
-    }
+	@Override
+	public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, HyliasterEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+		this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(IcariaRenderTypes.HYLIASTER_TRANSLUCENT), pPackedLight, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getColorAndAlpha(pLivingEntity));
+	}
 }

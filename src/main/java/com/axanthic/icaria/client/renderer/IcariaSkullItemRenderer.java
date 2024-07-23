@@ -22,17 +22,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaSkullItemRenderer extends BlockEntityWithoutLevelRenderer {
-    public Map<IcariaSkullBlockType, SkullModel> map;
+	public Map<IcariaSkullBlockType, SkullModel> map;
 
-    public IcariaSkullItemRenderer(BlockEntityRenderDispatcher pDispatcher, EntityModelSet pSet) {
-        super(pDispatcher, pSet);
-        this.map = IcariaSkullBlockRenderer.createRenderers(pSet);
-    }
+	public IcariaSkullItemRenderer(BlockEntityRenderDispatcher pDispatcher, EntityModelSet pSet) {
+		super(pDispatcher, pSet);
+		this.map = IcariaSkullBlockRenderer.createRenderers(pSet);
+	}
 
-    @Override
-    public void renderByItem(ItemStack pStack, ItemDisplayContext pDisplayContext, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
-        if (pStack.getItem() instanceof IcariaSkullItem skullItem) {
-            IcariaSkullBlockRenderer.renderSkull(null, 180.0F, pPoseStack, pBuffer, pPackedLight, this.map, skullItem.getBlock());
-        }
-    }
+	@Override
+	public void renderByItem(ItemStack pStack, ItemDisplayContext pDisplayContext, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
+		if (pStack.getItem() instanceof IcariaSkullItem skullItem) {
+			IcariaSkullBlockRenderer.renderSkull(null, 180.0F, pPoseStack, pBuffer, pPackedLight, this.map, skullItem.getBlock());
+		}
+	}
 }

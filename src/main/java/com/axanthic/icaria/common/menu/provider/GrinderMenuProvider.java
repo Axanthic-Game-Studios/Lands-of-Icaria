@@ -17,19 +17,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrinderMenuProvider implements MenuProvider {
-    public BlockPos pos;
+	public BlockPos pos;
 
-    public GrinderMenuProvider(BlockPos pPos) {
-        this.pos = pPos;
-    }
+	public GrinderMenuProvider(BlockPos pPos) {
+		this.pos = pPos;
+	}
 
-    @Override
-    public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new GrinderMenu(pContainerId, this.pos, pInventory, pPlayer);
-    }
+	@Override
+	public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
+		return new GrinderMenu(pContainerId, this.pos, pInventory, pPlayer);
+	}
 
-    @Override
-    public Component getDisplayName() {
-        return Component.translatable("menu" + "." + IcariaIdents.ID + "." + "grinder");
-    }
+	@Override
+	public Component getDisplayName() {
+		return Component.translatable("menu" + "." + IcariaIdents.ID + "." + "grinder");
+	}
 }

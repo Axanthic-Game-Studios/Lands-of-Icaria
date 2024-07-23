@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ReedyVineFeature extends IcariaVineFeature {
-    public ReedyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.REEDY_VINE.get());
-    }
+	public ReedyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.REEDY_VINE.get());
+	}
 }

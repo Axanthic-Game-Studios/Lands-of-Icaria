@@ -10,7 +10,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaMath {
-    public static float rad(float pDeg) {
-        return pDeg * IcariaValues.DEG_2_RAD;
-    }
+	public static float rad(float pDeg) {
+		return pDeg * IcariaValues.DEG_2_RAD;
+	}
 }

@@ -12,15 +12,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class KettleInputItemStackHandler extends ItemStackHandler {
-    public KettleBlockEntity blockEntity;
+	public KettleBlockEntity blockEntity;
 
-    public KettleInputItemStackHandler(int pSize, KettleBlockEntity pBlockEntity) {
-        super(pSize);
-        this.blockEntity = pBlockEntity;
-    }
+	public KettleInputItemStackHandler(int pSize, KettleBlockEntity pBlockEntity) {
+		super(pSize);
+		this.blockEntity = pBlockEntity;
+	}
 
-    @Override
-    public void onContentsChanged(int pIndex) {
-        this.blockEntity.setChanged();
-    }
+	@Override
+	public void onContentsChanged(int pIndex) {
+		this.blockEntity.setChanged();
+	}
 }

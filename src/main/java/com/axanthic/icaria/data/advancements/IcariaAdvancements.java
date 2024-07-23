@@ -16,7 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaAdvancements extends AdvancementProvider {
-    public IcariaAdvancements(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {
-        super(output, registries, existingFileHelper, List.of(new IcariaSimpleAdvancements()));
-    }
+	public IcariaAdvancements(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {
+		super(output, registries, existingFileHelper, List.of(new IcariaSimpleAdvancements()));
+	}
 }

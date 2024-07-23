@@ -16,12 +16,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CerverRenderer extends MobRenderer<CerverEntity, CerverModel> {
-    public CerverRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new CerverModel(pContext.bakeLayer(IcariaLayerLocations.CERVER)), 1.0F);
-    }
+	public CerverRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new CerverModel(pContext.bakeLayer(IcariaLayerLocations.CERVER)), 1.0F);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(CerverEntity pEntity) {
-        return IcariaResourceLocations.CERVER;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(CerverEntity pEntity) {
+		return IcariaResourceLocations.CERVER;
+	}
 }

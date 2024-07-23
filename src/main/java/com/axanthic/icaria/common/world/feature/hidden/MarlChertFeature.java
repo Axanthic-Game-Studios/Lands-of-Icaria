@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MarlChertFeature extends IcariaHiddenFeature {
-    public MarlChertFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.MARL_CHERT.get(), IcariaBlocks.SURFACE_CHERT.get());
-    }
+	public MarlChertFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.MARL_CHERT.get(), IcariaBlocks.SURFACE_CHERT.get());
+	}
 }

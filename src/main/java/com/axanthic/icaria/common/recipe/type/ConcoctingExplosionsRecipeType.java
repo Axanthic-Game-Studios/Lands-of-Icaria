@@ -11,7 +11,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ConcoctingExplosionsRecipeType implements RecipeType<ConcoctingExplosionsRecipe> {
-    public ConcoctingExplosionsRecipeType() {
+	public ConcoctingExplosionsRecipeType() {
 
-    }
+	}
 }

@@ -22,75 +22,75 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfiguration> {
-    public FallenRelicstonePillarFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec);
-    }
+	public FallenRelicstonePillarFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec);
+	}
 
-    @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-        var level = pContext.level();
-        var origin = pContext.origin();
-        var random = pContext.random();
-        var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+	@Override
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
+		var level = pContext.level();
+		var origin = pContext.origin();
+		var random = pContext.random();
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-        int length = random.nextIntBetweenInclusive(1, 3);
-        int offset = 2;
+		int length = random.nextIntBetweenInclusive(1, 3);
+		int offset = 2;
 
-        this.placeHead(level, origin, Direction.UP);
+		this.placeHead(level, origin, Direction.UP);
 
-        this.placePillar(level, origin.above(), Direction.UP);
+		this.placePillar(level, origin.above(), Direction.UP);
 
-        this.placeRubble(level, origin.relative(direction), 4);
-        this.placeRubble(level, origin.relative(direction).relative(direction.getClockWise()), 4);
-        this.placeRubble(level, origin.relative(direction).relative(direction.getCounterClockWise()), 4);
-        this.placeRubble(level, origin.relative(direction, 2), 4);
-        this.placeRubble(level, origin.relative(direction, 2).relative(direction.getClockWise()), 4);
-        this.placeRubble(level, origin.relative(direction, 2).relative(direction.getCounterClockWise()), 4);
+		this.placeRubble(level, origin.relative(direction), 4);
+		this.placeRubble(level, origin.relative(direction).relative(direction.getClockWise()), 4);
+		this.placeRubble(level, origin.relative(direction).relative(direction.getCounterClockWise()), 4);
+		this.placeRubble(level, origin.relative(direction, 2), 4);
+		this.placeRubble(level, origin.relative(direction, 2).relative(direction.getClockWise()), 4);
+		this.placeRubble(level, origin.relative(direction, 2).relative(direction.getCounterClockWise()), 4);
 
-        for (int i = 1; i <= length; ++i) {
-            ++offset;
-            this.placePillar(level, origin.relative(direction, offset), direction);
-        }
+		for (int i = 1; i <= length; ++i) {
+			++offset;
+			this.placePillar(level, origin.relative(direction, offset), direction);
+		}
 
-        ++offset;
-        this.placeHead(level, origin.relative(direction, offset), direction.getOpposite());
+		++offset;
+		this.placeHead(level, origin.relative(direction, offset), direction.getOpposite());
 
-        return true;
-    }
+		return true;
+	}
 
-    public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placeHead(pLevel, pPos, pDirection);
-        }
-    }
+	public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pChance) {
+		if (pLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeHead(pLevel, pPos, pDirection);
+		}
+	}
 
-    public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
-            this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, pDirection));
-        }
-    }
+	public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
+		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
+			this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, pDirection));
+		}
+	}
 
-    public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placePillar(pLevel, pPos, pDirection);
-        }
-    }
+	public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pChance) {
+		if (pLevel.getRandom().nextInt(pChance) == 0) {
+			this.placePillar(pLevel, pPos, pDirection);
+		}
+	}
 
-    public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).isAir() && (pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND) || pLevel.getBlockState(pPos.below()).is(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get()))) {
-            this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, pDirection.getAxis()));
-        }
-    }
+	public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
+		if (pLevel.getBlockState(pPos).isAir() && (pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND) || pLevel.getBlockState(pPos.below()).is(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get()))) {
+			this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, pDirection.getAxis()));
+		}
+	}
 
-    public void placeRubble(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placeRubble(pLevel, pPos);
-        }
-    }
+	public void placeRubble(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
+		if (pLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeRubble(pLevel, pPos);
+		}
+	}
 
-    public void placeRubble(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
-            this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_RUBBLE.get().defaultBlockState());
-        }
-    }
+	public void placeRubble(WorldGenLevel pLevel, BlockPos pPos) {
+		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
+			this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_RUBBLE.get().defaultBlockState());
+		}
+	}
 }

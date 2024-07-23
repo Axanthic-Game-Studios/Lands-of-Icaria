@@ -17,13 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ArachneRenderer extends MobRenderer<ArachneEntity, ArachneModel> {
-    public ArachneRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new ArachneModel(pContext.bakeLayer(IcariaLayerLocations.ARACHNE)), 1.25F);
-        this.addLayer(new ArachneEmissiveLayer(this));
-    }
+	public ArachneRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new ArachneModel(pContext.bakeLayer(IcariaLayerLocations.ARACHNE)), 1.25F);
+		this.addLayer(new ArachneEmissiveLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(ArachneEntity pEntity) {
-        return IcariaResourceLocations.ARACHNE;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(ArachneEntity pEntity) {
+		return IcariaResourceLocations.ARACHNE;
+	}
 }

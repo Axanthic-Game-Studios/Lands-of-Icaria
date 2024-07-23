@@ -13,17 +13,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaTrappedChestBlockEntity extends IcariaChestBlockEntity {
-    public IcariaTrappedChestBlockEntity(BlockPos pPos, BlockState pState) {
-        super(IcariaBlockEntityTypes.TRAPPED_CHEST.get(), pPos, pState);
-    }
+	public IcariaTrappedChestBlockEntity(BlockPos pPos, BlockState pState) {
+		super(IcariaBlockEntityTypes.TRAPPED_CHEST.get(), pPos, pState);
+	}
 
-    @Override
-    public void signalOpenCount(Level pLevel, BlockPos pPos, BlockState pState, int pEventId, int pEventParam) {
-        super.signalOpenCount(pLevel, pPos, pState, pEventId, pEventParam);
-        if (pEventId != pEventParam) {
-            var block = pState.getBlock();
-            pLevel.updateNeighborsAt(pPos, block);
-            pLevel.updateNeighborsAt(pPos.below(), block);
-        }
-    }
+	@Override
+	public void signalOpenCount(Level pLevel, BlockPos pPos, BlockState pState, int pEventId, int pEventParam) {
+		super.signalOpenCount(pLevel, pPos, pState, pEventId, pEventParam);
+		if (pEventId != pEventParam) {
+			var block = pState.getBlock();
+			pLevel.updateNeighborsAt(pPos, block);
+			pLevel.updateNeighborsAt(pPos.below(), block);
+		}
+	}
 }

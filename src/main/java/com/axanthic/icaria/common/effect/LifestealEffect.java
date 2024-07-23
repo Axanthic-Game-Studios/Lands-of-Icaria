@@ -10,12 +10,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class LifestealEffect extends MobEffect {
-    public LifestealEffect(MobEffectCategory pCategory, int pColor) {
-        super(pCategory, pColor);
-    }
+	public LifestealEffect(MobEffectCategory pCategory, int pColor) {
+		super(pCategory, pColor);
+	}
 
-    @Override
-    public boolean shouldApplyEffectTickThisTick(int pDuration, int pAmplifier) {
-        return true;
-    }
+	@Override
+	public boolean shouldApplyEffectTickThisTick(int pDuration, int pAmplifier) {
+		return true;
+	}
 }

@@ -17,13 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class PlaneForestHagRenderer extends MobRenderer<ForestHagEntity, PlaneForestHagModel> {
-    public PlaneForestHagRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new PlaneForestHagModel(pContext.bakeLayer(IcariaLayerLocations.PLANE_FOREST_HAG)), 0.75F);
-        this.addLayer(new PlaneForestHagEmissiveLayer(this));
-    }
+	public PlaneForestHagRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new PlaneForestHagModel(pContext.bakeLayer(IcariaLayerLocations.PLANE_FOREST_HAG)), 0.75F);
+		this.addLayer(new PlaneForestHagEmissiveLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
-        return IcariaResourceLocations.PLANE_FOREST_HAG;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
+		return IcariaResourceLocations.PLANE_FOREST_HAG;
+	}
 }

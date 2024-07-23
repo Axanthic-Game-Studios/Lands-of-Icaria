@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class SwirlyVineFeature extends IcariaVineFeature {
-    public SwirlyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.SWIRLY_VINE.get());
-    }
+	public SwirlyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.SWIRLY_VINE.get());
+	}
 }

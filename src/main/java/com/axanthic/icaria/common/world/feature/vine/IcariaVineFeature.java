@@ -24,38 +24,38 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaVineFeature extends Feature<NoneFeatureConfiguration> {
-    public Block vine;
+	public Block vine;
 
-    public IcariaVineFeature(Codec<NoneFeatureConfiguration> pCodec, Block pVine) {
-        super(pCodec);
-        this.vine = pVine;
-    }
+	public IcariaVineFeature(Codec<NoneFeatureConfiguration> pCodec, Block pVine) {
+		super(pCodec);
+		this.vine = pVine;
+	}
 
-    @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-        var level = pContext.level();
-        var origin = pContext.origin();
+	@Override
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
+		var level = pContext.level();
+		var origin = pContext.origin();
 
-        for (var direction : Direction.Plane.HORIZONTAL) {
-            this.placeVine(level, origin, direction);
-        }
+		for (var direction : Direction.Plane.HORIZONTAL) {
+			this.placeVine(level, origin, direction);
+		}
 
-        return true;
-    }
+		return true;
+	}
 
-    public void placeVine(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placeVine(pLevel, pPos, pDirection);
-        }
-    }
+	public void placeVine(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pChance) {
+		if (pLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeVine(pLevel, pPos, pDirection);
+		}
+	}
 
-    public void placeVine(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).isAir() && (pLevel.getBlockState(pPos.relative(pDirection)).is(BlockTags.LEAVES) || pLevel.getBlockState(pPos.relative(pDirection)).isSolidRender(pLevel, pPos.relative(pDirection))) && IcariaVineBlock.isAcceptableNeighbour(pLevel, pPos.relative(pDirection), pDirection)) {
-            if (pLevel.getRandom().nextBoolean()) {
-                this.setBlock(pLevel, pPos, this.vine.defaultBlockState().setValue(IcariaVineBlock.getPropForFace(pDirection), true).setValue(IcariaBlockStateProperties.VINE, Vine.NONE));
-            } else {
-                this.setBlock(pLevel, pPos, this.vine.defaultBlockState().setValue(IcariaVineBlock.getPropForFace(pDirection), true).setValue(IcariaBlockStateProperties.VINE, Vine.VINE));
-            }
-        }
-    }
+	public void placeVine(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
+		if (pLevel.getBlockState(pPos).isAir() && (pLevel.getBlockState(pPos.relative(pDirection)).is(BlockTags.LEAVES) || pLevel.getBlockState(pPos.relative(pDirection)).isSolidRender(pLevel, pPos.relative(pDirection))) && IcariaVineBlock.isAcceptableNeighbour(pLevel, pPos.relative(pDirection), pDirection)) {
+			if (pLevel.getRandom().nextBoolean()) {
+				this.setBlock(pLevel, pPos, this.vine.defaultBlockState().setValue(IcariaVineBlock.getPropForFace(pDirection), true).setValue(IcariaBlockStateProperties.VINE, Vine.NONE));
+			} else {
+				this.setBlock(pLevel, pPos, this.vine.defaultBlockState().setValue(IcariaVineBlock.getPropForFace(pDirection), true).setValue(IcariaBlockStateProperties.VINE, Vine.VINE));
+			}
+		}
+	}
 }

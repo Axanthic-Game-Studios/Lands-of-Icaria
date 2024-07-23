@@ -20,12 +20,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CaptainRevenantEmissiveLayer extends RenderLayer<CaptainRevenantEntity, CaptainRevenantModel> {
-    public CaptainRevenantEmissiveLayer(RenderLayerParent<CaptainRevenantEntity, CaptainRevenantModel> pRenderer) {
-        super(pRenderer);
-    }
+	public CaptainRevenantEmissiveLayer(RenderLayerParent<CaptainRevenantEntity, CaptainRevenantModel> pRenderer) {
+		super(pRenderer);
+	}
 
-    @Override
-    public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, CaptainRevenantEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(IcariaRenderTypes.CAPTAIN_REVENANT_EMISSIVE), LightTexture.FULL_SKY, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getColorAndAlpha(pLivingEntity, pPartialTick));
-    }
+	@Override
+	public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, CaptainRevenantEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+		this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(IcariaRenderTypes.CAPTAIN_REVENANT_EMISSIVE), LightTexture.FULL_SKY, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getColorAndAlpha(pLivingEntity, pPartialTick));
+	}
 }

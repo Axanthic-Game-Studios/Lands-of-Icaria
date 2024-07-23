@@ -9,22 +9,22 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public enum Ripe implements StringRepresentable {
-    NONE("none"),
-    RIPE("ripe");
+	NONE("none"),
+	RIPE("ripe");
 
-    public final String name;
+	public final String name;
 
-    Ripe(String pName) {
-        this.name = pName;
-    }
+	Ripe(String pName) {
+		this.name = pName;
+	}
 
-    @Override
-    public String getSerializedName() {
-        return this.name;
-    }
+	@Override
+	public String getSerializedName() {
+		return this.name;
+	}
 
-    @Override
-    public String toString() {
-        return this.name;
-    }
+	@Override
+	public String toString() {
+		return this.name;
+	}
 }

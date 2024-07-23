@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class BrownGroundShroomsFeature extends IcariaGroundShroomsFeature {
-    public BrownGroundShroomsFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.BROWN_GROUND_SHROOMS.get());
-    }
+	public BrownGroundShroomsFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.BROWN_GROUND_SHROOMS.get());
+	}
 }

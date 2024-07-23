@@ -18,25 +18,25 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrinderRedirectorBlockEntity extends BlockEntity {
-    public GrinderRedirectorBlockEntity(BlockPos pPos, BlockState pState) {
-        super(IcariaBlockEntityTypes.GRINDER_REDIRECTOR.get(), pPos, pState);
-    }
+	public GrinderRedirectorBlockEntity(BlockPos pPos, BlockState pState) {
+		super(IcariaBlockEntityTypes.GRINDER_REDIRECTOR.get(), pPos, pState);
+	}
 
-    public static @Nullable IItemHandler getCapability(GrinderRedirectorBlockEntity pBlockEntity, Direction pDirection) {
-        var blockPos = pBlockEntity.getBlockPos();
-        var level = pBlockEntity.getLevel();
-        if (level != null) {
-            if (level.getBlockEntity(blockPos.relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise())) instanceof GrinderBlockEntity grinderBlockEntity) {
-                if (level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite() == pDirection) {
-                    return grinderBlockEntity.fuelHandler;
-                } else if (pDirection == Direction.UP) {
-                    return grinderBlockEntity.inputHandler;
-                } else if (pDirection == Direction.DOWN) {
-                    return grinderBlockEntity.outputHandler;
-                }
-            }
-        }
+	public static @Nullable IItemHandler getCapability(GrinderRedirectorBlockEntity pBlockEntity, Direction pDirection) {
+		var blockPos = pBlockEntity.getBlockPos();
+		var level = pBlockEntity.getLevel();
+		if (level != null) {
+			if (level.getBlockEntity(blockPos.relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise())) instanceof GrinderBlockEntity grinderBlockEntity) {
+				if (level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite() == pDirection) {
+					return grinderBlockEntity.fuelHandler;
+				} else if (pDirection == Direction.UP) {
+					return grinderBlockEntity.inputHandler;
+				} else if (pDirection == Direction.DOWN) {
+					return grinderBlockEntity.outputHandler;
+				}
+			}
+		}
 
-        return null;
-    }
+		return null;
+	}
 }

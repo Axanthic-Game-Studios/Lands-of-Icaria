@@ -19,23 +19,23 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class MediterraneanWaterFluidTypeExtensions implements IClientFluidTypeExtensions {
 
-    @Override
-    public int getTintColor(FluidStack pStack) {
-        return 0xFF4D9352;
-    }
+	@Override
+	public int getTintColor(FluidStack pStack) {
+		return 0xFF4D9352;
+	}
 
-    @Override
-    public int getTintColor(FluidState pState, BlockAndTintGetter pLevel, BlockPos pPos) {
-        return BiomeColors.getAverageWaterColor(pLevel, pPos) | 0xFF000000;
-    }
+	@Override
+	public int getTintColor(FluidState pState, BlockAndTintGetter pLevel, BlockPos pPos) {
+		return BiomeColors.getAverageWaterColor(pLevel, pPos) | 0xFF000000;
+	}
 
-    @Override
-    public ResourceLocation getFlowingTexture() {
-        return IcariaResourceLocations.FLOWING_MEDITERRANEAN_WATER_TEXTURE;
-    }
+	@Override
+	public ResourceLocation getFlowingTexture() {
+		return IcariaResourceLocations.FLOWING_MEDITERRANEAN_WATER_TEXTURE;
+	}
 
-    @Override
-    public ResourceLocation getStillTexture() {
-        return IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE;
-    }
+	@Override
+	public ResourceLocation getStillTexture() {
+		return IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE;
+	}
 }

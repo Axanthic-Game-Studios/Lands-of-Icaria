@@ -20,12 +20,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class OliveForestHagEmissiveLayer extends RenderLayer<ForestHagEntity, OliveForestHagModel> {
-    public OliveForestHagEmissiveLayer(RenderLayerParent<ForestHagEntity, OliveForestHagModel> pRenderer) {
-        super(pRenderer);
-    }
+	public OliveForestHagEmissiveLayer(RenderLayerParent<ForestHagEntity, OliveForestHagModel> pRenderer) {
+		super(pRenderer);
+	}
 
-    @Override
-    public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, ForestHagEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(IcariaRenderTypes.OLIVE_FOREST_HAG_EMISSIVE), LightTexture.FULL_SKY, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getColorAndAlpha(pLivingEntity, pLivingEntity.isTargeting()));
-    }
+	@Override
+	public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, ForestHagEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+		this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(IcariaRenderTypes.OLIVE_FOREST_HAG_EMISSIVE), LightTexture.FULL_SKY, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getColorAndAlpha(pLivingEntity, pLivingEntity.isTargeting()));
+	}
 }

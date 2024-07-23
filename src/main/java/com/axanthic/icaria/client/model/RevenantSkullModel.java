@@ -19,32 +19,32 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class RevenantSkullModel extends SkullModel {
-    public ModelPart head;
+	public ModelPart head;
 
-    public RevenantSkullModel(ModelPart pModelPart) {
-        super(pModelPart);
-        this.head = pModelPart.getChild("head");
-    }
+	public RevenantSkullModel(ModelPart pModelPart) {
+		super(pModelPart);
+		this.head = pModelPart.getChild("head");
+	}
 
-    @Override
-    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, int pColor) {
-        this.head.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pColor);
-    }
+	@Override
+	public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, int pColor) {
+		this.head.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pColor);
+	}
 
-    @Override
-    public void setupAnim(float pX, float pY, float pZ) {
-        this.head.xRot = pZ * (Mth.PI / 180.0F);
-        this.head.yRot = pY * (Mth.PI / 180.0F);
-    }
+	@Override
+	public void setupAnim(float pX, float pY, float pZ) {
+		this.head.xRot = pZ * (Mth.PI / 180.0F);
+		this.head.yRot = pY * (Mth.PI / 180.0F);
+	}
 
-    public static LayerDefinition createLayer() {
-        var meshDefinition = new MeshDefinition();
-        var partDefinition = meshDefinition.getRoot();
+	public static LayerDefinition createLayer() {
+		var meshDefinition = new MeshDefinition();
+		var partDefinition = meshDefinition.getRoot();
 
-        var head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 29).addBox(-3.5F, -8.0F, -4.0F, 7.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.1047F, 0.0F, 0.0F));
-        var jawUpper = head.addOrReplaceChild("jawUpper", CubeListBuilder.create().texOffs(53, 55).addBox(-2.5F, -2.0F, -3.5F, 5.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
-        jawUpper.addOrReplaceChild("jawLower", CubeListBuilder.create().texOffs(55, 38).addBox(-2.5F, -0.8F, -3.3F, 5.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.1047F, 0.0F, 0.0F));
+		var head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 29).addBox(-3.5F, -8.0F, -4.0F, 7.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.1047F, 0.0F, 0.0F));
+		var jawUpper = head.addOrReplaceChild("jawUpper", CubeListBuilder.create().texOffs(53, 55).addBox(-2.5F, -2.0F, -3.5F, 5.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		jawUpper.addOrReplaceChild("jawLower", CubeListBuilder.create().texOffs(55, 38).addBox(-2.5F, -0.8F, -3.3F, 5.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.1047F, 0.0F, 0.0F));
 
-        return LayerDefinition.create(meshDefinition, 128, 128);
-    }
+		return LayerDefinition.create(meshDefinition, 128, 128);
+	}
 }

@@ -20,19 +20,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CaptainRevenantRenderer extends MobRenderer<CaptainRevenantEntity, CaptainRevenantModel> {
-    public CaptainRevenantRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new CaptainRevenantModel(pContext.bakeLayer(IcariaLayerLocations.CAPTAIN_REVENANT_BODY)), 0.5F);
-        this.addLayer(new CaptainRevenantEmissiveLayer(this));
-        this.addLayer(new CaptainRevenantItemLayer(this));
-    }
+	public CaptainRevenantRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new CaptainRevenantModel(pContext.bakeLayer(IcariaLayerLocations.CAPTAIN_REVENANT_BODY)), 0.5F);
+		this.addLayer(new CaptainRevenantEmissiveLayer(this));
+		this.addLayer(new CaptainRevenantItemLayer(this));
+	}
 
-    @Override
-    public void scale(CaptainRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(0.875F, 0.875F, 0.875F);
-    }
+	@Override
+	public void scale(CaptainRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(0.875F, 0.875F, 0.875F);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(CaptainRevenantEntity pEntity) {
-        return IcariaResourceLocations.CAPTAIN_REVENANT;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(CaptainRevenantEntity pEntity) {
+		return IcariaResourceLocations.CAPTAIN_REVENANT;
+	}
 }

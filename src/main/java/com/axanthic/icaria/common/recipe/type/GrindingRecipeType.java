@@ -11,7 +11,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GrindingRecipeType implements RecipeType<GrindingRecipe> {
-    public GrindingRecipeType() {
+	public GrindingRecipeType() {
 
-    }
+	}
 }

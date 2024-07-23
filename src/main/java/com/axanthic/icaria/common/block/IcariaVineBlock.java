@@ -51,14 +51,14 @@ public class IcariaVineBlock extends Block {
 	public Map<BlockState, VoxelShape> map;
 
 	public static final Map<Direction, BooleanProperty> SET_PROP_FOR_FACE = ImmutableMap.copyOf(
-		Util.make(
-			Maps.newEnumMap(Direction.class), (map) -> {
-				map.put(Direction.NORTH, BlockStateProperties.NORTH);
-				map.put(Direction.EAST, BlockStateProperties.EAST);
-				map.put(Direction.SOUTH, BlockStateProperties.SOUTH);
-				map.put(Direction.WEST, BlockStateProperties.WEST);
-			}
-		)
+			Util.make(
+					Maps.newEnumMap(Direction.class), (map) -> {
+						map.put(Direction.NORTH, BlockStateProperties.NORTH);
+						map.put(Direction.EAST, BlockStateProperties.EAST);
+						map.put(Direction.SOUTH, BlockStateProperties.SOUTH);
+						map.put(Direction.WEST, BlockStateProperties.WEST);
+					}
+			)
 	);
 
 	public IcariaVineBlock(Properties pProperties) {
@@ -240,8 +240,10 @@ public class IcariaVineBlock extends Block {
 	@Override
 	public BlockState mirror(BlockState pState, Mirror pMirror) {
 		return switch (pMirror) {
-			case LEFT_RIGHT -> pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.NORTH));
-			case FRONT_BACK -> pState.setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.EAST));
+			case LEFT_RIGHT ->
+					pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.NORTH));
+			case FRONT_BACK ->
+					pState.setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.EAST));
 			default -> super.mirror(pState, pMirror);
 		};
 	}
@@ -249,9 +251,12 @@ public class IcariaVineBlock extends Block {
 	@Override
 	public BlockState rotate(BlockState pState, Rotation pRotation) {
 		return switch (pRotation) {
-			case CLOCKWISE_90 -> pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.SOUTH));
-			case CLOCKWISE_180 -> pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.EAST));
-			case COUNTERCLOCKWISE_90 -> pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.NORTH));
+			case CLOCKWISE_90 ->
+					pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.SOUTH));
+			case CLOCKWISE_180 ->
+					pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.NORTH)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.EAST));
+			case COUNTERCLOCKWISE_90 ->
+					pState.setValue(BlockStateProperties.NORTH, pState.getValue(BlockStateProperties.EAST)).setValue(BlockStateProperties.EAST, pState.getValue(BlockStateProperties.SOUTH)).setValue(BlockStateProperties.SOUTH, pState.getValue(BlockStateProperties.WEST)).setValue(BlockStateProperties.WEST, pState.getValue(BlockStateProperties.NORTH));
 			default -> pState;
 		};
 	}

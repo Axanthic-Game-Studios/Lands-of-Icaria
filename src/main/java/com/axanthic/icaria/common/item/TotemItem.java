@@ -12,17 +12,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class TotemItem extends Item {
-    public TotemItem(Properties pProperties) {
-        super(pProperties);
-    }
+	public TotemItem(Properties pProperties) {
+		super(pProperties);
+	}
 
-    @Override
-    public boolean isEnchantable(ItemStack pStack) {
-        return false;
-    }
+	@Override
+	public boolean isEnchantable(ItemStack pStack) {
+		return false;
+	}
 
-    @Override
-    public boolean isValidRepairItem(ItemStack pStack, ItemStack pRepairCandidate) {
-        return pRepairCandidate.is(IcariaItems.BLURIDIUM_NUGGET.get());
-    }
+	@Override
+	public boolean isValidRepairItem(ItemStack pStack, ItemStack pRepairCandidate) {
+		return pRepairCandidate.is(IcariaItems.BLURIDIUM_NUGGET.get());
+	}
 }

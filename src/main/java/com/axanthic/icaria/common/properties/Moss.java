@@ -9,24 +9,24 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public enum Moss implements StringRepresentable {
-    NONE("none"),
-    FOREST("forest"),
-    SCRUBLAND("scrubland"),
-    STEPPE("steppe");
+	NONE("none"),
+	FOREST("forest"),
+	SCRUBLAND("scrubland"),
+	STEPPE("steppe");
 
-    public final String name;
+	public final String name;
 
-    Moss(String pName) {
-        this.name = pName;
-    }
+	Moss(String pName) {
+		this.name = pName;
+	}
 
-    @Override
-    public String getSerializedName() {
-        return this.name;
-    }
+	@Override
+	public String getSerializedName() {
+		return this.name;
+	}
 
-    @Override
-    public String toString() {
-        return this.name;
-    }
+	@Override
+	public String toString() {
+		return this.name;
+	}
 }

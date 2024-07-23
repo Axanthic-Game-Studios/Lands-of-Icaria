@@ -20,19 +20,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CivilianRevenantRenderer extends MobRenderer<CivilianRevenantEntity, CivilianRevenantModel> {
-    public CivilianRevenantRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new CivilianRevenantModel(pContext.bakeLayer(IcariaLayerLocations.CIVILIAN_REVENANT_BODY)), 0.5F);
-        this.addLayer(new CivilianRevenantEmissiveLayer(this));
-        this.addLayer(new CivilianRevenantItemLayer(this));
-    }
+	public CivilianRevenantRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new CivilianRevenantModel(pContext.bakeLayer(IcariaLayerLocations.CIVILIAN_REVENANT_BODY)), 0.5F);
+		this.addLayer(new CivilianRevenantEmissiveLayer(this));
+		this.addLayer(new CivilianRevenantItemLayer(this));
+	}
 
-    @Override
-    public void scale(CivilianRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(0.875F, 0.875F, 0.875F);
-    }
+	@Override
+	public void scale(CivilianRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(0.875F, 0.875F, 0.875F);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(CivilianRevenantEntity pEntity) {
-        return IcariaResourceLocations.CIVILIAN_REVENANT;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(CivilianRevenantEntity pEntity) {
+		return IcariaResourceLocations.CIVILIAN_REVENANT;
+	}
 }

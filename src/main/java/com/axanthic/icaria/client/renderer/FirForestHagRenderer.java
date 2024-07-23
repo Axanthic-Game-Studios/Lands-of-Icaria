@@ -17,13 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class FirForestHagRenderer extends MobRenderer<ForestHagEntity, FirForestHagModel> {
-    public FirForestHagRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new FirForestHagModel(pContext.bakeLayer(IcariaLayerLocations.FIR_FOREST_HAG)), 0.75F);
-        this.addLayer(new FirForestHagEmissiveLayer(this));
-    }
+	public FirForestHagRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new FirForestHagModel(pContext.bakeLayer(IcariaLayerLocations.FIR_FOREST_HAG)), 0.75F);
+		this.addLayer(new FirForestHagEmissiveLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
-        return IcariaResourceLocations.FIR_FOREST_HAG;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
+		return IcariaResourceLocations.FIR_FOREST_HAG;
+	}
 }

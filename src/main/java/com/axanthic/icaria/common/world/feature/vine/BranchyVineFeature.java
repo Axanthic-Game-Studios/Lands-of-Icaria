@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class BranchyVineFeature extends IcariaVineFeature {
-    public BranchyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.BRANCHY_VINE.get());
-    }
+	public BranchyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.BRANCHY_VINE.get());
+	}
 }

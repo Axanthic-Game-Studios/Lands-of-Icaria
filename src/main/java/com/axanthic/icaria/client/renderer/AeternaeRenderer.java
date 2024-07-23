@@ -19,27 +19,27 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class AeternaeRenderer extends MobRenderer<AeternaeEntity, AeternaeModel> {
-    public AeternaeRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new AeternaeModel(pContext.bakeLayer(IcariaLayerLocations.AETERNAE)), 1.0F);
-    }
+	public AeternaeRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new AeternaeModel(pContext.bakeLayer(IcariaLayerLocations.AETERNAE)), 1.0F);
+	}
 
-    @Override
-    public float getShadowRadius(AeternaeEntity pEntity) {
-        return pEntity.getScaleForShadow();
-    }
+	@Override
+	public float getShadowRadius(AeternaeEntity pEntity) {
+		return pEntity.getScaleForShadow();
+	}
 
-    @Override
-    public void render(AeternaeEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+	@Override
+	public void render(AeternaeEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 
-    @Override
-    public void scale(AeternaeEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
-    }
+	@Override
+	public void scale(AeternaeEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(AeternaeEntity pEntity) {
-        return IcariaResourceLocations.AETERNAE;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(AeternaeEntity pEntity) {
+		return IcariaResourceLocations.AETERNAE;
+	}
 }

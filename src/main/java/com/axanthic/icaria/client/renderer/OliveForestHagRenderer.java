@@ -17,13 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class OliveForestHagRenderer extends MobRenderer<ForestHagEntity, OliveForestHagModel> {
-    public OliveForestHagRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new OliveForestHagModel(pContext.bakeLayer(IcariaLayerLocations.OLIVE_FOREST_HAG)), 0.75F);
-        this.addLayer(new OliveForestHagEmissiveLayer(this));
-    }
+	public OliveForestHagRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new OliveForestHagModel(pContext.bakeLayer(IcariaLayerLocations.OLIVE_FOREST_HAG)), 0.75F);
+		this.addLayer(new OliveForestHagEmissiveLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
-        return IcariaResourceLocations.OLIVE_FOREST_HAG;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
+		return IcariaResourceLocations.OLIVE_FOREST_HAG;
+	}
 }

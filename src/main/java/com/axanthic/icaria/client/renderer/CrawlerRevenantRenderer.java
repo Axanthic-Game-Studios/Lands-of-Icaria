@@ -21,25 +21,25 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CrawlerRevenantRenderer extends MobRenderer<CrawlerRevenantEntity, CrawlerRevenantModel> {
-    public CrawlerRevenantRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new CrawlerRevenantModel(pContext.bakeLayer(IcariaLayerLocations.CRAWLER_REVENANT_BODY)), 0.5F);
-        this.addLayer(new CrawlerRevenantEmissiveLayer(this));
-        this.addLayer(new CrawlerRevenantItemLayer(this));
-    }
+	public CrawlerRevenantRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new CrawlerRevenantModel(pContext.bakeLayer(IcariaLayerLocations.CRAWLER_REVENANT_BODY)), 0.5F);
+		this.addLayer(new CrawlerRevenantEmissiveLayer(this));
+		this.addLayer(new CrawlerRevenantItemLayer(this));
+	}
 
-    @Override
-    public void render(CrawlerRevenantEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-        this.shadowStrength = pEntity.getShadowStrength();
-    }
+	@Override
+	public void render(CrawlerRevenantEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+		this.shadowStrength = pEntity.getShadowStrength();
+	}
 
-    @Override
-    public void scale(CrawlerRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(0.875F, 0.875F, 0.875F);
-    }
+	@Override
+	public void scale(CrawlerRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(0.875F, 0.875F, 0.875F);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(CrawlerRevenantEntity pEntity) {
-        return IcariaResourceLocations.CRAWLER_REVENANT;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(CrawlerRevenantEntity pEntity) {
+		return IcariaResourceLocations.CRAWLER_REVENANT;
+	}
 }

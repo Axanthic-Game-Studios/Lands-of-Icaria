@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DeadPopulusTreeFeature extends IcariaDeadTreeFeature {
-    public DeadPopulusTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.DEAD_POPULUS_LOG.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.FOREST_MOSS.get(), IcariaBlocks.POPULUS_TWIGS.get(), Moss.FOREST);
-    }
+	public DeadPopulusTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.DEAD_POPULUS_LOG.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.FOREST_MOSS.get(), IcariaBlocks.POPULUS_TWIGS.get(), Moss.FOREST);
+	}
 }

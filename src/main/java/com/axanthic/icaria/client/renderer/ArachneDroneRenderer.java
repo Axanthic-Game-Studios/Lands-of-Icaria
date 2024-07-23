@@ -20,28 +20,28 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ArachneDroneRenderer extends MobRenderer<ArachneDroneEntity, ArachneDroneModel> {
-    public ArachneDroneRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new ArachneDroneModel(pContext.bakeLayer(IcariaLayerLocations.ARACHNE_DRONE)), 1.0F);
-        this.addLayer(new ArachneDroneEmissiveLayer(this));
-    }
+	public ArachneDroneRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new ArachneDroneModel(pContext.bakeLayer(IcariaLayerLocations.ARACHNE_DRONE)), 1.0F);
+		this.addLayer(new ArachneDroneEmissiveLayer(this));
+	}
 
-    @Override
-    public float getShadowRadius(ArachneDroneEntity pEntity) {
-        return pEntity.getScaleForShadow();
-    }
+	@Override
+	public float getShadowRadius(ArachneDroneEntity pEntity) {
+		return pEntity.getScaleForShadow();
+	}
 
-    @Override
-    public void render(ArachneDroneEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+	@Override
+	public void render(ArachneDroneEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 
-    @Override
-    public void scale(ArachneDroneEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
-    }
+	@Override
+	public void scale(ArachneDroneEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(ArachneDroneEntity pEntity) {
-        return IcariaResourceLocations.ARACHNE_DRONE;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(ArachneDroneEntity pEntity) {
+		return IcariaResourceLocations.ARACHNE_DRONE;
+	}
 }

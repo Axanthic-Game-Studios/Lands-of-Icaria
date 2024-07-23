@@ -15,7 +15,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBuiltinEntries extends DatapackBuiltinEntriesProvider {
-    public IcariaBuiltinEntries(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
-        super(pOutput, pProvider, new IcariaRegistrySetBuilder(), Set.of(pId));
-    }
+	public IcariaBuiltinEntries(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
+		super(pOutput, pProvider, new IcariaRegistrySetBuilder(), Set.of(pId));
+	}
 }

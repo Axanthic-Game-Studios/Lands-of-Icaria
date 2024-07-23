@@ -25,7 +25,7 @@ public class IcariaFluidTags extends FluidTagsProvider {
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
 		this.tag(FluidTags.WATER)
-			.add(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get())
-			.add(IcariaFluids.MEDITERRANEAN_WATER.get());
+				.add(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get())
+				.add(IcariaFluids.MEDITERRANEAN_WATER.get());
 	}
 }

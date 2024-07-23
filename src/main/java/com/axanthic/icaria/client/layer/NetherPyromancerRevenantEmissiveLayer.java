@@ -20,12 +20,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class NetherPyromancerRevenantEmissiveLayer extends RenderLayer<NetherPyromancerRevenantEntity, NetherPyromancerRevenantModel> {
-    public NetherPyromancerRevenantEmissiveLayer(RenderLayerParent<NetherPyromancerRevenantEntity, NetherPyromancerRevenantModel> pRenderer) {
-        super(pRenderer);
-    }
+	public NetherPyromancerRevenantEmissiveLayer(RenderLayerParent<NetherPyromancerRevenantEntity, NetherPyromancerRevenantModel> pRenderer) {
+		super(pRenderer);
+	}
 
-    @Override
-    public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, NetherPyromancerRevenantEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(IcariaRenderTypes.NETHER_PYROMANCER_REVENANT_EMISSIVE), LightTexture.FULL_SKY, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getColorAndAlpha(pLivingEntity));
-    }
+	@Override
+	public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, NetherPyromancerRevenantEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+		this.getParentModel().renderToBuffer(pPoseStack, pBuffer.getBuffer(IcariaRenderTypes.NETHER_PYROMANCER_REVENANT_EMISSIVE), LightTexture.FULL_SKY, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getColorAndAlpha(pLivingEntity));
+	}
 }

@@ -18,14 +18,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeQueenRenderer extends MobRenderer<MyrmekeQueenEntity, MyrmekeQueenModel> {
-    public MyrmekeQueenRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new MyrmekeQueenModel(pContext.bakeLayer(IcariaLayerLocations.MYRMEKE_QUEEN_BODY)), 0.75F);
-        this.addLayer(new MyrmekeQueenEmissiveLayer(this));
-        this.addLayer(new MyrmekeQueenRaysLayer(this));
-    }
+	public MyrmekeQueenRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new MyrmekeQueenModel(pContext.bakeLayer(IcariaLayerLocations.MYRMEKE_QUEEN_BODY)), 0.75F);
+		this.addLayer(new MyrmekeQueenEmissiveLayer(this));
+		this.addLayer(new MyrmekeQueenRaysLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(MyrmekeQueenEntity pEntity) {
-        return IcariaResourceLocations.MYRMEKE_QUEEN;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(MyrmekeQueenEntity pEntity) {
+		return IcariaResourceLocations.MYRMEKE_QUEEN;
+	}
 }

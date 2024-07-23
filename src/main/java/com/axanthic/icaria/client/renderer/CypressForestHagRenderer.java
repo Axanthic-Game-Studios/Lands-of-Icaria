@@ -17,13 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CypressForestHagRenderer extends MobRenderer<ForestHagEntity, CypressForestHagModel> {
-    public CypressForestHagRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new CypressForestHagModel(pContext.bakeLayer(IcariaLayerLocations.CYPRESS_FOREST_HAG)), 0.75F);
-        this.addLayer(new CypressForestHagEmissiveLayer(this));
-    }
+	public CypressForestHagRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new CypressForestHagModel(pContext.bakeLayer(IcariaLayerLocations.CYPRESS_FOREST_HAG)), 0.75F);
+		this.addLayer(new CypressForestHagEmissiveLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
-        return IcariaResourceLocations.CYPRESS_FOREST_HAG;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
+		return IcariaResourceLocations.CYPRESS_FOREST_HAG;
+	}
 }

@@ -21,47 +21,47 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaAbstractSkullBlock extends BaseEntityBlock implements Equipable {
-    public float offset;
+	public float offset;
 
-    public IcariaSkullBlockType type;
+	public IcariaSkullBlockType type;
 
-    public static final MapCodec<IcariaAbstractSkullBlock> CODEC = Block.simpleCodec(IcariaAbstractSkullBlock::new);
+	public static final MapCodec<IcariaAbstractSkullBlock> CODEC = Block.simpleCodec(IcariaAbstractSkullBlock::new);
 
-    public IcariaAbstractSkullBlock(Properties pProperties) {
-        super(pProperties);
-    }
+	public IcariaAbstractSkullBlock(Properties pProperties) {
+		super(pProperties);
+	}
 
-    public IcariaAbstractSkullBlock(float pOffset, IcariaSkullBlockType pType, Properties pProperties) {
-        this(pProperties);
-        this.type = pType;
-        this.offset = pOffset;
-    }
+	public IcariaAbstractSkullBlock(float pOffset, IcariaSkullBlockType pType, Properties pProperties) {
+		this(pProperties);
+		this.type = pType;
+		this.offset = pOffset;
+	}
 
-    @Override
-    public boolean isPathfindable(BlockState pState, PathComputationType pType) {
-        return false;
-    }
+	@Override
+	public boolean isPathfindable(BlockState pState, PathComputationType pType) {
+		return false;
+	}
 
-    public float getOffset() {
-        return this.offset;
-    }
+	public float getOffset() {
+		return this.offset;
+	}
 
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new IcariaSkullBlockEntity(pPos, pState);
-    }
+	@Override
+	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+		return new IcariaSkullBlockEntity(pPos, pState);
+	}
 
-    @Override
-    public EquipmentSlot getEquipmentSlot() {
-        return EquipmentSlot.HEAD;
-    }
+	@Override
+	public EquipmentSlot getEquipmentSlot() {
+		return EquipmentSlot.HEAD;
+	}
 
-    public IcariaSkullBlockType getType() {
-        return this.type;
-    }
+	public IcariaSkullBlockType getType() {
+		return this.type;
+	}
 
-    @Override
-    public MapCodec<? extends BaseEntityBlock> codec() {
-        return IcariaAbstractSkullBlock.CODEC;
-    }
+	@Override
+	public MapCodec<? extends BaseEntityBlock> codec() {
+		return IcariaAbstractSkullBlock.CODEC;
+	}
 }

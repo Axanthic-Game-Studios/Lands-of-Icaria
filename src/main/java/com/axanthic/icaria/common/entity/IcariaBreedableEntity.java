@@ -11,6 +11,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public interface IcariaBreedableEntity {
 
-    @Nullable
-    IcariaAnimalEntity getBreedOffspring(ServerLevel pLevel, IcariaAnimalEntity pEntity);
+	@Nullable
+	IcariaAnimalEntity getBreedOffspring(ServerLevel pLevel, IcariaAnimalEntity pEntity);
 }

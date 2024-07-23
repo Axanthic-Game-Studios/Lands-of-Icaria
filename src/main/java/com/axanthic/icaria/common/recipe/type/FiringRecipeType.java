@@ -11,7 +11,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class FiringRecipeType implements RecipeType<FiringRecipe> {
-    public FiringRecipeType() {
+	public FiringRecipeType() {
 
-    }
+	}
 }

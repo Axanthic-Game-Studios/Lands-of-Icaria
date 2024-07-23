@@ -19,27 +19,27 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class SowRenderer extends MobRenderer<SowEntity, SowModel> {
-    public SowRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new SowModel(pContext.bakeLayer(IcariaLayerLocations.SOW)), 1.0F);
-    }
+	public SowRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new SowModel(pContext.bakeLayer(IcariaLayerLocations.SOW)), 1.0F);
+	}
 
-    @Override
-    public float getShadowRadius(SowEntity pEntity) {
-        return pEntity.getScaleForShadow();
-    }
+	@Override
+	public float getShadowRadius(SowEntity pEntity) {
+		return pEntity.getScaleForShadow();
+	}
 
-    @Override
-    public void render(SowEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+	@Override
+	public void render(SowEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 
-    @Override
-    public void scale(SowEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
-    }
+	@Override
+	public void scale(SowEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(SowEntity pEntity) {
-        return IcariaResourceLocations.SOW;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(SowEntity pEntity) {
+		return IcariaResourceLocations.SOW;
+	}
 }

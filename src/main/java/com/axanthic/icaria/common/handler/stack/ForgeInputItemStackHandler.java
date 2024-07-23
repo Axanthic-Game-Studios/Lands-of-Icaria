@@ -12,15 +12,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ForgeInputItemStackHandler extends ItemStackHandler {
-    public ForgeBlockEntity blockEntity;
+	public ForgeBlockEntity blockEntity;
 
-    public ForgeInputItemStackHandler(int pSize, ForgeBlockEntity pBlockEntity) {
-        super(pSize);
-        this.blockEntity = pBlockEntity;
-    }
+	public ForgeInputItemStackHandler(int pSize, ForgeBlockEntity pBlockEntity) {
+		super(pSize);
+		this.blockEntity = pBlockEntity;
+	}
 
-    @Override
-    public void onContentsChanged(int pIndex) {
-        this.blockEntity.setChanged();
-    }
+	@Override
+	public void onContentsChanged(int pIndex) {
+		this.blockEntity.setChanged();
+	}
 }

@@ -15,7 +15,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DeadDroughtrootTreeFeature extends IcariaDeadTreeFeature {
-    public DeadDroughtrootTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), Blocks.AIR, IcariaBlocks.DROUGHTROOT_TWIGS.get(), Moss.NONE);
-    }
+	public DeadDroughtrootTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), Blocks.AIR, IcariaBlocks.DROUGHTROOT_TWIGS.get(), Moss.NONE);
+	}
 }

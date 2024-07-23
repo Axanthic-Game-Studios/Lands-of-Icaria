@@ -18,74 +18,74 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class BubbleSpellEntity extends ThrowableProjectile {
-    public int minAge = 0;
-    public int maxAge = 400;
+	public int minAge = 0;
+	public int maxAge = 400;
 
-    public static final EntityDataAccessor<Integer> AGE = SynchedEntityData.defineId(BubbleSpellEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> AGE = SynchedEntityData.defineId(BubbleSpellEntity.class, EntityDataSerializers.INT);
 
-    public BubbleSpellEntity(EntityType<? extends BubbleSpellEntity> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
-    }
+	public BubbleSpellEntity(EntityType<? extends BubbleSpellEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
+	}
 
-    @Override
-    public boolean isInWater() {
-        return false;
-    }
+	@Override
+	public boolean isInWater() {
+		return false;
+	}
 
-    @Override
-    public double getDefaultGravity() {
-        return 0.0D;
-    }
+	@Override
+	public double getDefaultGravity() {
+		return 0.0D;
+	}
 
-    public int getAge() {
-        return this.entityData.get(BubbleSpellEntity.AGE);
-    }
+	public int getAge() {
+		return this.entityData.get(BubbleSpellEntity.AGE);
+	}
 
-    @Override
-    public void addAdditionalSaveData(CompoundTag pCompound) {
-        super.addAdditionalSaveData(pCompound);
-        pCompound.putInt("Age", this.getAge());
-    }
+	@Override
+	public void addAdditionalSaveData(CompoundTag pCompound) {
+		super.addAdditionalSaveData(pCompound);
+		pCompound.putInt("Age", this.getAge());
+	}
 
-    @Override
-    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
-        pBuilder.define(BubbleSpellEntity.AGE, this.minAge);
-    }
+	@Override
+	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+		pBuilder.define(BubbleSpellEntity.AGE, this.minAge);
+	}
 
-    @Override
-    public void onHitBlock(BlockHitResult pResult) {
-        super.onHitBlock(pResult);
-        this.discard();
-    }
+	@Override
+	public void onHitBlock(BlockHitResult pResult) {
+		super.onHitBlock(pResult);
+		this.discard();
+	}
 
-    @Override
-    public void onHitEntity(EntityHitResult pResult) {
-        super.onHitEntity(pResult);
-        if (pResult.getEntity() instanceof LivingEntity livingEntity) {
-            livingEntity.hurt(this.damageSources().magic(), 2.0F);
-            this.discard();
-        }
-    }
+	@Override
+	public void onHitEntity(EntityHitResult pResult) {
+		super.onHitEntity(pResult);
+		if (pResult.getEntity() instanceof LivingEntity livingEntity) {
+			livingEntity.hurt(this.damageSources().magic(), 2.0F);
+			this.discard();
+		}
+	}
 
-    @Override
-    public void readAdditionalSaveData(CompoundTag pCompound) {
-        super.readAdditionalSaveData(pCompound);
-        this.setAge(pCompound.getInt("Age"));
-    }
+	@Override
+	public void readAdditionalSaveData(CompoundTag pCompound) {
+		super.readAdditionalSaveData(pCompound);
+		this.setAge(pCompound.getInt("Age"));
+	}
 
-    public void setAge(int pAge) {
-        this.entityData.set(BubbleSpellEntity.AGE, pAge);
-    }
+	public void setAge(int pAge) {
+		this.entityData.set(BubbleSpellEntity.AGE, pAge);
+	}
 
-    @Override
-    public void tick() {
-        super.tick();
-        int age = this.getAge();
-        if (age < this.maxAge) {
-            age++;
-            this.setAge(age);
-        } else {
-            this.discard();
-        }
-    }
+	@Override
+	public void tick() {
+		super.tick();
+		int age = this.getAge();
+		if (age < this.maxAge) {
+			age++;
+			this.setAge(age);
+		} else {
+			this.discard();
+		}
+	}
 }

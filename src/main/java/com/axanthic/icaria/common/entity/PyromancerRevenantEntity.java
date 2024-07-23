@@ -29,172 +29,172 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class PyromancerRevenantEntity extends RevenantEntity implements RangedAttackMob {
-    public int maxAiming = 40;
-    public int minAiming = 0;
-    public int maxReload = 80;
-    public int minReload = 0;
-    public int maxThrown = 40;
-    public int minThrown = 0;
+	public int maxAiming = 40;
+	public int minAiming = 0;
+	public int maxReload = 80;
+	public int minReload = 0;
+	public int maxThrown = 40;
+	public int minThrown = 0;
 
-    public AnimationState reloadAnimationState = new AnimationState();
-    public AnimationState thrownAnimationState = new AnimationState();
+	public AnimationState reloadAnimationState = new AnimationState();
+	public AnimationState thrownAnimationState = new AnimationState();
 
-    public static final EntityDataAccessor<Integer> AIMING = SynchedEntityData.defineId(PyromancerRevenantEntity.class, EntityDataSerializers.INT);
-    public static final EntityDataAccessor<Integer> RELOAD = SynchedEntityData.defineId(PyromancerRevenantEntity.class, EntityDataSerializers.INT);
-    public static final EntityDataAccessor<Integer> THROWN = SynchedEntityData.defineId(PyromancerRevenantEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> AIMING = SynchedEntityData.defineId(PyromancerRevenantEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> RELOAD = SynchedEntityData.defineId(PyromancerRevenantEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> THROWN = SynchedEntityData.defineId(PyromancerRevenantEntity.class, EntityDataSerializers.INT);
 
-    public PyromancerRevenantEntity(EntityType<? extends PyromancerRevenantEntity> pType, Level pLevel) {
-        super(pType, pLevel);
-    }
+	public PyromancerRevenantEntity(EntityType<? extends PyromancerRevenantEntity> pType, Level pLevel) {
+		super(pType, pLevel);
+	}
 
-    public boolean onAiming() {
-        return this.getAiming() > this.minAiming;
-    }
+	public boolean onAiming() {
+		return this.getAiming() > this.minAiming;
+	}
 
-    public boolean onReload() {
-        return this.getReload() > this.minReload;
-    }
+	public boolean onReload() {
+		return this.getReload() > this.minReload;
+	}
 
-    public boolean onThrown() {
-        return this.getThrown() > this.minThrown;
-    }
+	public boolean onThrown() {
+		return this.getThrown() > this.minThrown;
+	}
 
-    @Override
-    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-        return false;
-    }
+	@Override
+	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+		return false;
+	}
 
-    public int getAiming() {
-        return this.entityData.get(PyromancerRevenantEntity.AIMING);
-    }
+	public int getAiming() {
+		return this.entityData.get(PyromancerRevenantEntity.AIMING);
+	}
 
-    public int getReload() {
-        return this.entityData.get(PyromancerRevenantEntity.RELOAD);
-    }
+	public int getReload() {
+		return this.entityData.get(PyromancerRevenantEntity.RELOAD);
+	}
 
-    public int getThrown() {
-        return this.entityData.get(PyromancerRevenantEntity.THROWN);
-    }
+	public int getThrown() {
+		return this.entityData.get(PyromancerRevenantEntity.THROWN);
+	}
 
-    @Override
-    public void addAdditionalSaveData(CompoundTag pCompound) {
-        super.addAdditionalSaveData(pCompound);
-        pCompound.putInt("Aiming", this.getAiming());
-        pCompound.putInt("Reload", this.getReload());
-        pCompound.putInt("Thrown", this.getThrown());
-    }
+	@Override
+	public void addAdditionalSaveData(CompoundTag pCompound) {
+		super.addAdditionalSaveData(pCompound);
+		pCompound.putInt("Aiming", this.getAiming());
+		pCompound.putInt("Reload", this.getReload());
+		pCompound.putInt("Thrown", this.getThrown());
+	}
 
-    @Override
-    public void aiStep() {
-        super.aiStep();
-        if (this.onThrown()) {
-            int thrown = this.getThrown();
-            if (thrown > this.minThrown) {
-                --thrown;
-                this.setThrown(thrown);
-                this.setReload(this.maxReload);
-            }
-        } else if (this.onReload()) {
-            int reload = this.getReload();
-            if (reload > this.minReload) {
-                --reload;
-                this.setReload(reload);
-                this.setAiming(this.maxAiming);
-                if (reload < this.maxReload / 2) {
-                    this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
-                }
-            }
-        } else if (this.onAiming()) {
-            int aiming = this.getAiming();
-            if (aiming > this.minAiming) {
-                --aiming;
-                this.setAiming(aiming);
-            }
-        }
-    }
+	@Override
+	public void aiStep() {
+		super.aiStep();
+		if (this.onThrown()) {
+			int thrown = this.getThrown();
+			if (thrown > this.minThrown) {
+				--thrown;
+				this.setThrown(thrown);
+				this.setReload(this.maxReload);
+			}
+		} else if (this.onReload()) {
+			int reload = this.getReload();
+			if (reload > this.minReload) {
+				--reload;
+				this.setReload(reload);
+				this.setAiming(this.maxAiming);
+				if (reload < this.maxReload / 2) {
+					this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
+				}
+			}
+		} else if (this.onAiming()) {
+			int aiming = this.getAiming();
+			if (aiming > this.minAiming) {
+				--aiming;
+				this.setAiming(aiming);
+			}
+		}
+	}
 
-    @Override
-    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
-        super.defineSynchedData(pBuilder);
-        pBuilder.define(PyromancerRevenantEntity.AIMING, this.minAiming);
-        pBuilder.define(PyromancerRevenantEntity.RELOAD, this.minReload);
-        pBuilder.define(PyromancerRevenantEntity.THROWN, this.minThrown);
-    }
+	@Override
+	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+		super.defineSynchedData(pBuilder);
+		pBuilder.define(PyromancerRevenantEntity.AIMING, this.minAiming);
+		pBuilder.define(PyromancerRevenantEntity.RELOAD, this.minReload);
+		pBuilder.define(PyromancerRevenantEntity.THROWN, this.minThrown);
+	}
 
-    @Override
-    public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
-        if (!this.onAiming()) {
-            var entity = new GreekFireGrenadeEntity(this.level(), this, this.useItem);
+	@Override
+	public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
+		if (!this.onAiming()) {
+			var entity = new GreekFireGrenadeEntity(this.level(), this, this.useItem);
 
-            double d0 = pTarget.getX() - this.getX();
-            double d1 = pTarget.getY(0.3D) - entity.getY();
-            double d2 = pTarget.getZ() - this.getZ();
-            double d3 = Math.sqrt(d0 * d0 + d2 * d2);
+			double d0 = pTarget.getX() - this.getX();
+			double d1 = pTarget.getY(0.3D) - entity.getY();
+			double d2 = pTarget.getZ() - this.getZ();
+			double d3 = Math.sqrt(d0 * d0 + d2 * d2);
 
-            entity.shoot(d0, d1 + d3 * 0.2D, d2, 1.0F, 8.0F);
+			entity.shoot(d0, d1 + d3 * 0.2D, d2, 1.0F, 8.0F);
 
-            this.level().addFreshEntity(entity);
-            this.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
-            this.setThrown(this.maxThrown);
-            if (!this.isSilent()) {
-                this.level().playSound(null, this.blockPosition(), SoundEvents.ARROW_SHOOT, SoundSource.HOSTILE, 0.1F, 1.0F);
-            }
-        }
-    }
+			this.level().addFreshEntity(entity);
+			this.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
+			this.setThrown(this.maxThrown);
+			if (!this.isSilent()) {
+				this.level().playSound(null, this.blockPosition(), SoundEvents.ARROW_SHOOT, SoundSource.HOSTILE, 0.1F, 1.0F);
+			}
+		}
+	}
 
-    @Override
-    public void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
-        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
-    }
+	@Override
+	public void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
+		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
+	}
 
-    @Override
-    public void readAdditionalSaveData(CompoundTag pCompound) {
-        super.readAdditionalSaveData(pCompound);
-        this.setAiming(pCompound.getInt("Aiming"));
-        this.setReload(pCompound.getInt("Reload"));
-        this.setAiming(pCompound.getInt("Thrown"));
-    }
+	@Override
+	public void readAdditionalSaveData(CompoundTag pCompound) {
+		super.readAdditionalSaveData(pCompound);
+		this.setAiming(pCompound.getInt("Aiming"));
+		this.setReload(pCompound.getInt("Reload"));
+		this.setAiming(pCompound.getInt("Thrown"));
+	}
 
-    @Override
-    public void registerGoals() {
-        this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 80, 12.0F));
-        this.goalSelector.addGoal(3, new MoveTowardsRestrictionGoal(this, 1.0D));
-        this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
-        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
-        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true, true));
-    }
+	@Override
+	public void registerGoals() {
+		this.goalSelector.addGoal(1, new FloatGoal(this));
+		this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 80, 12.0F));
+		this.goalSelector.addGoal(3, new MoveTowardsRestrictionGoal(this, 1.0D));
+		this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
+		this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
+		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true, true));
+	}
 
-    public void setAiming(int pTick) {
-        this.entityData.set(PyromancerRevenantEntity.AIMING, pTick);
-    }
+	public void setAiming(int pTick) {
+		this.entityData.set(PyromancerRevenantEntity.AIMING, pTick);
+	}
 
-    public void setReload(int pTick) {
-        this.entityData.set(PyromancerRevenantEntity.RELOAD, pTick);
-    }
+	public void setReload(int pTick) {
+		this.entityData.set(PyromancerRevenantEntity.RELOAD, pTick);
+	}
 
-    public void setThrown(int pTick) {
-        this.entityData.set(PyromancerRevenantEntity.THROWN, pTick);
-    }
+	public void setThrown(int pTick) {
+		this.entityData.set(PyromancerRevenantEntity.THROWN, pTick);
+	}
 
-    @Override
-    public void tick() {
-        super.tick();
-        if (this.level().isClientSide()) {
-            if (this.onThrown()) {
-                this.thrownAnimationState.startIfStopped(this.tickCount);
-                this.reloadAnimationState.stop();
-            } else if (this.onReload()) {
-                this.reloadAnimationState.startIfStopped(this.tickCount);
-                this.thrownAnimationState.stop();
-            }
-        }
-    }
+	@Override
+	public void tick() {
+		super.tick();
+		if (this.level().isClientSide()) {
+			if (this.onThrown()) {
+				this.thrownAnimationState.startIfStopped(this.tickCount);
+				this.reloadAnimationState.stop();
+			} else if (this.onReload()) {
+				this.reloadAnimationState.startIfStopped(this.tickCount);
+				this.thrownAnimationState.stop();
+			}
+		}
+	}
 
-    public static AttributeSupplier.Builder registerAttributes() {
-        return Mob.createMobAttributes().add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
-    }
+	public static AttributeSupplier.Builder registerAttributes() {
+		return Mob.createMobAttributes().add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+	}
 }

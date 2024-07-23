@@ -13,25 +13,25 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MagicMissileSpellEntity extends SpellEntity {
-    public MagicMissileSpellEntity(EntityType<? extends SpellEntity> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
-    }
+	public MagicMissileSpellEntity(EntityType<? extends SpellEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
+	}
 
-    @Override
-    public void onHitBlock(BlockHitResult pResult) {
-        super.onHitBlock(pResult);
-        var level = this.level();
-        var blockPos = pResult.getBlockPos();
-        if (level.getBlockState(blockPos).getDestroySpeed(level, blockPos) > 0) {
-            level.destroyBlock(blockPos, false);
-        }
-    }
+	@Override
+	public void onHitBlock(BlockHitResult pResult) {
+		super.onHitBlock(pResult);
+		var level = this.level();
+		var blockPos = pResult.getBlockPos();
+		if (level.getBlockState(blockPos).getDestroySpeed(level, blockPos) > 0) {
+			level.destroyBlock(blockPos, false);
+		}
+	}
 
-    @Override
-    public void onHitEntity(EntityHitResult pResult) {
-        super.onHitEntity(pResult);
-        if (pResult.getEntity() instanceof LivingEntity livingEntity) {
-            livingEntity.hurt(this.damageSources().magic(), 8.0F);
-        }
-    }
+	@Override
+	public void onHitEntity(EntityHitResult pResult) {
+		super.onHitEntity(pResult);
+		if (pResult.getEntity() instanceof LivingEntity livingEntity) {
+			livingEntity.hurt(this.damageSources().magic(), 8.0F);
+		}
+	}
 }

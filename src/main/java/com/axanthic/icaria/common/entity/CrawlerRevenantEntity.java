@@ -24,88 +24,88 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CrawlerRevenantEntity extends RevenantEntity {
-    public int maxTick = 60;
-    public int minTick = 0;
+	public int maxTick = 60;
+	public int minTick = 0;
 
-    public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(CrawlerRevenantEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(CrawlerRevenantEntity.class, EntityDataSerializers.INT);
 
-    public CrawlerRevenantEntity(EntityType<? extends CrawlerRevenantEntity> pType, Level pLevel) {
-        super(pType, pLevel);
-    }
+	public CrawlerRevenantEntity(EntityType<? extends CrawlerRevenantEntity> pType, Level pLevel) {
+		super(pType, pLevel);
+	}
 
-    @Override
-    public boolean canRide(Entity pVehicle) {
-        return false;
-    }
+	@Override
+	public boolean canRide(Entity pVehicle) {
+		return false;
+	}
 
-    public boolean onTick() {
-        return this.getTick() < this.maxTick;
-    }
+	public boolean onTick() {
+		return this.getTick() < this.maxTick;
+	}
 
-    public float getShadowStrength() {
-        return this.getTick() / (float) this.maxTick;
-    }
+	public float getShadowStrength() {
+		return this.getTick() / (float) this.maxTick;
+	}
 
-    public int getTick() {
-        return this.entityData.get(CrawlerRevenantEntity.TICK);
-    }
+	public int getTick() {
+		return this.entityData.get(CrawlerRevenantEntity.TICK);
+	}
 
-    @Override
-    public void addAdditionalSaveData(CompoundTag pCompound) {
-        super.addAdditionalSaveData(pCompound);
-        pCompound.putInt("Tick", this.getTick());
-    }
+	@Override
+	public void addAdditionalSaveData(CompoundTag pCompound) {
+		super.addAdditionalSaveData(pCompound);
+		pCompound.putInt("Tick", this.getTick());
+	}
 
-    @Override
-    public void aiStep() {
-        super.aiStep();
-        if (this.isAlive()) {
-            int tick = this.getTick();
-            if (tick < this.maxTick) {
-                ++tick;
-                this.setTick(tick);
-            }
-        }
-    }
+	@Override
+	public void aiStep() {
+		super.aiStep();
+		if (this.isAlive()) {
+			int tick = this.getTick();
+			if (tick < this.maxTick) {
+				++tick;
+				this.setTick(tick);
+			}
+		}
+	}
 
-    @Override
-    public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
-        super.defineSynchedData(pBuilder);
-        pBuilder.define(CrawlerRevenantEntity.TICK, this.minTick);
-    }
+	@Override
+	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+		super.defineSynchedData(pBuilder);
+		pBuilder.define(CrawlerRevenantEntity.TICK, this.minTick);
+	}
 
-    @Override
-    public void readAdditionalSaveData(CompoundTag pCompound) {
-        super.readAdditionalSaveData(pCompound);
-        this.setTick(pCompound.getInt("Tick"));
-    }
+	@Override
+	public void readAdditionalSaveData(CompoundTag pCompound) {
+		super.readAdditionalSaveData(pCompound);
+		this.setTick(pCompound.getInt("Tick"));
+	}
 
-    public void setTick(int pSize) {
-        int tick = Mth.clamp(pSize, this.minTick, this.maxTick);
-        this.entityData.set(CrawlerRevenantEntity.TICK, tick);
-    }
+	public void setTick(int pSize) {
+		int tick = Mth.clamp(pSize, this.minTick, this.maxTick);
+		this.entityData.set(CrawlerRevenantEntity.TICK, tick);
+	}
 
-    @Override
-    public void tick() {
-        super.tick();
-        if (this.level().isClientSide()) {
-            this.tickParticlePlusSounds();
-        }
-    }
+	@Override
+	public void tick() {
+		super.tick();
+		if (this.level().isClientSide()) {
+			this.tickParticlePlusSounds();
+		}
+	}
 
-    public void tickParticlePlusSounds() {
-        if (this.onTick()) {
-            this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), this.getBlockStateOn().getSoundType().getBreakSound(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
-            for (int i = 0; i < 15; ++i) {
-                double x = this.getX() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
-                double y = this.getY();
-                double z = this.getZ() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
-                this.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, this.getBlockStateOn()), x, y, z, 0.0D, 0.0D, 0.0D);
-            }
-        }
-    }
+	public void tickParticlePlusSounds() {
+		if (this.onTick()) {
+			this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), this.getBlockStateOn().getSoundType().getBreakSound(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
+			for (int i = 0; i < 15; ++i) {
+				double x = this.getX() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
+				double y = this.getY();
+				double z = this.getZ() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
+				this.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, this.getBlockStateOn()), x, y, z, 0.0D, 0.0D, 0.0D);
+			}
+		}
+	}
 
-    public static AttributeSupplier.Builder registerAttributes() {
-        return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.125D);
-    }
+	public static AttributeSupplier.Builder registerAttributes() {
+		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.125D);
+	}
 }

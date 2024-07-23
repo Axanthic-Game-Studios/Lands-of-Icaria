@@ -17,13 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class LaurelForestHagRenderer extends MobRenderer<ForestHagEntity, LaurelForestHagModel> {
-    public LaurelForestHagRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new LaurelForestHagModel(pContext.bakeLayer(IcariaLayerLocations.LAUREL_FOREST_HAG)), 0.75F);
-        this.addLayer(new LaurelForestHagEmissiveLayer(this));
-    }
+	public LaurelForestHagRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new LaurelForestHagModel(pContext.bakeLayer(IcariaLayerLocations.LAUREL_FOREST_HAG)), 0.75F);
+		this.addLayer(new LaurelForestHagEmissiveLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
-        return IcariaResourceLocations.LAUREL_FOREST_HAG;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
+		return IcariaResourceLocations.LAUREL_FOREST_HAG;
+	}
 }

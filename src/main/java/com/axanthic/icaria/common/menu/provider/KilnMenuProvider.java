@@ -17,19 +17,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class KilnMenuProvider implements MenuProvider {
-    public BlockPos pos;
+	public BlockPos pos;
 
-    public KilnMenuProvider(BlockPos pPos) {
-        this.pos = pPos;
-    }
+	public KilnMenuProvider(BlockPos pPos) {
+		this.pos = pPos;
+	}
 
-    @Override
-    public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new KilnMenu(pContainerId, this.pos, pInventory, pPlayer);
-    }
+	@Override
+	public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
+		return new KilnMenu(pContainerId, this.pos, pInventory, pPlayer);
+	}
 
-    @Override
-    public Component getDisplayName() {
-        return Component.translatable("menu" + "." + IcariaIdents.ID + "." + "kiln");
-    }
+	@Override
+	public Component getDisplayName() {
+		return Component.translatable("menu" + "." + IcariaIdents.ID + "." + "kiln");
+	}
 }

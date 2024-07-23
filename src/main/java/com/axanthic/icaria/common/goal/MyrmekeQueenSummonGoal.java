@@ -16,39 +16,39 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeQueenSummonGoal extends Goal {
-    public MyrmekeQueenEntity entity;
+	public MyrmekeQueenEntity entity;
 
-    public TargetingConditions targetingConditions = TargetingConditions.forNonCombat().range(16.0D).ignoreLineOfSight().ignoreInvisibilityTesting();
+	public TargetingConditions targetingConditions = TargetingConditions.forNonCombat().range(16.0D).ignoreLineOfSight().ignoreInvisibilityTesting();
 
-    public MyrmekeQueenSummonGoal(MyrmekeQueenEntity pEntity) {
-        super();
-        this.entity = pEntity;
-    }
+	public MyrmekeQueenSummonGoal(MyrmekeQueenEntity pEntity) {
+		super();
+		this.entity = pEntity;
+	}
 
-    @Override
-    public boolean canUse() {
-        return this.entity.level().getNearbyEntities(MyrmekeSoldierEntity.class, this.targetingConditions, this.entity, this.entity.getBoundingBox().inflate(32.0D)).size() <= 2;
-    }
+	@Override
+	public boolean canUse() {
+		return this.entity.level().getNearbyEntities(MyrmekeSoldierEntity.class, this.targetingConditions, this.entity, this.entity.getBoundingBox().inflate(32.0D)).size() <= 2;
+	}
 
-    @Override
-    public void start() {
-        this.entity.setCasting(IcariaSummonSpellTypes.SUMMON);
-    }
+	@Override
+	public void start() {
+		this.entity.setCasting(IcariaSummonSpellTypes.SUMMON);
+	}
 
-    @Override
-    public void tick() {
-        for (int i = 0; i < this.entity.getRandom().nextIntBetweenInclusive(3, 4); ++i) {
-            var level = this.entity.level();
-            var entity = IcariaEntityTypes.MYRMEKE_SOLDIER.get().create(level);
-            var blockPos = this.entity.blockPosition().offset(-4 + this.entity.getRandom().nextInt(8), 0, -4 + this.entity.getRandom().nextInt(8));
-            if (entity != null) {
-                if (level.getBlockState(blockPos).canBeReplaced()) {
-                    if (this.entity.getBlockStateOn().is(IcariaBlockTags.DIRT_AND_SAND)) {
-                        entity.moveTo(blockPos, 0.0F, 0.0F);
-                        level.addFreshEntity(entity);
-                    }
-                }
-            }
-        }
-    }
+	@Override
+	public void tick() {
+		for (int i = 0; i < this.entity.getRandom().nextIntBetweenInclusive(3, 4); ++i) {
+			var level = this.entity.level();
+			var entity = IcariaEntityTypes.MYRMEKE_SOLDIER.get().create(level);
+			var blockPos = this.entity.blockPosition().offset(-4 + this.entity.getRandom().nextInt(8), 0, -4 + this.entity.getRandom().nextInt(8));
+			if (entity != null) {
+				if (level.getBlockState(blockPos).canBeReplaced()) {
+					if (this.entity.getBlockStateOn().is(IcariaBlockTags.DIRT_AND_SAND)) {
+						entity.moveTo(blockPos, 0.0F, 0.0F);
+						level.addFreshEntity(entity);
+					}
+				}
+			}
+		}
+	}
 }

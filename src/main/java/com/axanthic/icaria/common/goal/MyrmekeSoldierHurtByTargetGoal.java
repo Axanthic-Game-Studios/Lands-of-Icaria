@@ -10,7 +10,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeSoldierHurtByTargetGoal extends MyrmekeDroneHurtByTargetGoal {
-    public MyrmekeSoldierHurtByTargetGoal(MyrmekeSoldierEntity pEntity) {
-        super(pEntity);
-    }
+	public MyrmekeSoldierHurtByTargetGoal(MyrmekeSoldierEntity pEntity) {
+		super(pEntity);
+	}
 }

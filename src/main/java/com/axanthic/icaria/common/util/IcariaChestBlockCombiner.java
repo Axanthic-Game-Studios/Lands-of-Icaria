@@ -17,18 +17,18 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaChestBlockCombiner implements DoubleBlockCombiner.Combiner<ChestBlockEntity, Optional<MenuProvider>> {
 
-    @Override
-    public Optional<MenuProvider> acceptDouble(ChestBlockEntity pFirst, ChestBlockEntity pSecond) {
-        return Optional.of(new IcariaChestMenuProvider(pFirst, pSecond, new CompoundContainer(pFirst, pSecond)));
-    }
+	@Override
+	public Optional<MenuProvider> acceptDouble(ChestBlockEntity pFirst, ChestBlockEntity pSecond) {
+		return Optional.of(new IcariaChestMenuProvider(pFirst, pSecond, new CompoundContainer(pFirst, pSecond)));
+	}
 
-    @Override
-    public Optional<MenuProvider> acceptSingle(ChestBlockEntity pSingle) {
-        return Optional.of(pSingle);
-    }
+	@Override
+	public Optional<MenuProvider> acceptSingle(ChestBlockEntity pSingle) {
+		return Optional.of(pSingle);
+	}
 
-    @Override
-    public Optional<MenuProvider> acceptNone() {
-        return Optional.empty();
-    }
+	@Override
+	public Optional<MenuProvider> acceptNone() {
+		return Optional.empty();
+	}
 }

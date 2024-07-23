@@ -20,45 +20,45 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class SpellItem extends Item {
-    public float inaccuracy;
-    public float velocity;
+	public float inaccuracy;
+	public float velocity;
 
-    public int color;
-    public int cooldown;
+	public int color;
+	public int cooldown;
 
-    public SpellItem(Properties pProperties, float pInaccuracy, float pVelocity, int pColor, int pCooldown) {
-        super(pProperties);
-        this.inaccuracy = pInaccuracy;
-        this.velocity = pVelocity;
-        this.color = pColor;
-        this.cooldown = pCooldown;
-    }
+	public SpellItem(Properties pProperties, float pInaccuracy, float pVelocity, int pColor, int pCooldown) {
+		super(pProperties);
+		this.inaccuracy = pInaccuracy;
+		this.velocity = pVelocity;
+		this.color = pColor;
+		this.cooldown = pCooldown;
+	}
 
-    public @Nullable EntityType<?> getEntity() {
-        return null;
-    }
+	public @Nullable EntityType<?> getEntity() {
+		return null;
+	}
 
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-        var itemStack = pPlayer.getItemInHand(pUsedHand);
-        pPlayer.playSound(SoundEvents.SNOWBALL_THROW);
-        if (!pLevel.isClientSide()) {
-            if (this.getEntity() != null) {
-                if (this.getEntity().create(pLevel) instanceof SpellEntity spellEntity) {
-                    spellEntity.moveTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
-                    spellEntity.setColor(this.color);
-                    spellEntity.setOwner(pPlayer);
-                    spellEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, this.velocity, this.inaccuracy);
-                    pLevel.addFreshEntity(spellEntity);
-                    pPlayer.awardStat(Stats.ITEM_USED.get(this));
-                    if (!pPlayer.isCreative()) {
-                        itemStack.shrink(1);
-                        pPlayer.getCooldowns().addCooldown(itemStack.getItem(), this.cooldown);
-                    }
-                }
-            }
-        }
+	@Override
+	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+		var itemStack = pPlayer.getItemInHand(pUsedHand);
+		pPlayer.playSound(SoundEvents.SNOWBALL_THROW);
+		if (!pLevel.isClientSide()) {
+			if (this.getEntity() != null) {
+				if (this.getEntity().create(pLevel) instanceof SpellEntity spellEntity) {
+					spellEntity.moveTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
+					spellEntity.setColor(this.color);
+					spellEntity.setOwner(pPlayer);
+					spellEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, this.velocity, this.inaccuracy);
+					pLevel.addFreshEntity(spellEntity);
+					pPlayer.awardStat(Stats.ITEM_USED.get(this));
+					if (!pPlayer.isCreative()) {
+						itemStack.shrink(1);
+						pPlayer.getCooldowns().addCooldown(itemStack.getItem(), this.cooldown);
+					}
+				}
+			}
+		}
 
-        return InteractionResultHolder.sidedSuccess(itemStack, pLevel.isClientSide());
-    }
+		return InteractionResultHolder.sidedSuccess(itemStack, pLevel.isClientSide());
+	}
 }

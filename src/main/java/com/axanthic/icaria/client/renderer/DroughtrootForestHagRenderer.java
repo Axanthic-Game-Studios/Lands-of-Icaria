@@ -17,13 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DroughtrootForestHagRenderer extends MobRenderer<ForestHagEntity, DroughtrootForestHagModel> {
-    public DroughtrootForestHagRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new DroughtrootForestHagModel(pContext.bakeLayer(IcariaLayerLocations.DROUGHTROOT_FOREST_HAG)), 0.75F);
-        this.addLayer(new DroughtrootForestHagEmissiveLayer(this));
-    }
+	public DroughtrootForestHagRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new DroughtrootForestHagModel(pContext.bakeLayer(IcariaLayerLocations.DROUGHTROOT_FOREST_HAG)), 0.75F);
+		this.addLayer(new DroughtrootForestHagEmissiveLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
-        return IcariaResourceLocations.DROUGHTROOT_FOREST_HAG;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
+		return IcariaResourceLocations.DROUGHTROOT_FOREST_HAG;
+	}
 }

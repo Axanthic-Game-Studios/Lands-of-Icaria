@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DeadOliveTreeFeature extends IcariaDeadTreeFeature {
-    public DeadOliveTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.DEAD_OLIVE_LOG.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.STEPPE_MOSS.get(), IcariaBlocks.OLIVE_TWIGS.get(), Moss.STEPPE);
-    }
+	public DeadOliveTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.DEAD_OLIVE_LOG.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.STEPPE_MOSS.get(), IcariaBlocks.OLIVE_TWIGS.get(), Moss.STEPPE);
+	}
 }

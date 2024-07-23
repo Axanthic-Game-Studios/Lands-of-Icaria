@@ -22,31 +22,31 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class VinegarRenderer extends EntityRenderer<VinegarEntity> {
-    public ItemRenderer itemRenderer;
+	public ItemRenderer itemRenderer;
 
-    public VinegarRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext);
-        this.itemRenderer = pContext.getItemRenderer();
-    }
+	public VinegarRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext);
+		this.itemRenderer = pContext.getItemRenderer();
+	}
 
-    @Override
-    public void render(VinegarEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	@Override
+	public void render(VinegarEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
 
-        var bakedModel = this.itemRenderer.getModel(pEntity.getItem(), pEntity.level(), null, pEntity.getId());
+		var bakedModel = this.itemRenderer.getModel(pEntity.getItem(), pEntity.level(), null, pEntity.getId());
 
-        pMatrixStack.pushPose();
-        pMatrixStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot())));
-        pMatrixStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot())));
-        pMatrixStack.translate(0.0D, 0.0D, 0.0D);
+		pMatrixStack.pushPose();
+		pMatrixStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot())));
+		pMatrixStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot())));
+		pMatrixStack.translate(0.0D, 0.0D, 0.0D);
 
-        this.itemRenderer.render(pEntity.getItem(), ItemDisplayContext.NONE, false, pMatrixStack, pBuffer, pPackedLight, OverlayTexture.NO_OVERLAY, bakedModel);
+		this.itemRenderer.render(pEntity.getItem(), ItemDisplayContext.NONE, false, pMatrixStack, pBuffer, pPackedLight, OverlayTexture.NO_OVERLAY, bakedModel);
 
-        pMatrixStack.popPose();
-    }
+		pMatrixStack.popPose();
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(VinegarEntity pEntity) {
-        return InventoryMenu.BLOCK_ATLAS;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(VinegarEntity pEntity) {
+		return InventoryMenu.BLOCK_ATLAS;
+	}
 }

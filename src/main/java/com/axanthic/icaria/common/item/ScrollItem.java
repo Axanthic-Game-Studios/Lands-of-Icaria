@@ -17,26 +17,26 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ScrollItem extends Item {
-    public ConcoctingItemRecipe recipe;
+	public ConcoctingItemRecipe recipe;
 
-    public ScrollItem(Properties pProperties) {
-        super(pProperties);
-    }
+	public ScrollItem(Properties pProperties) {
+		super(pProperties);
+	}
 
-    @Override
-    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
-        var recipe = pLevel.getRecipeManager().byKey(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ITEM.getKey(this).getPath().replace("scroll", "") + "spell_from_concocting"));
-        if (recipe.isPresent() && recipe.get().value() instanceof ConcoctingItemRecipe itemRecipe) {
-            this.setRecipe(itemRecipe);
-        }
-    }
+	@Override
+	public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+		super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
+		var recipe = pLevel.getRecipeManager().byKey(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ITEM.getKey(this).getPath().replace("scroll", "") + "spell_from_concocting"));
+		if (recipe.isPresent() && recipe.get().value() instanceof ConcoctingItemRecipe itemRecipe) {
+			this.setRecipe(itemRecipe);
+		}
+	}
 
-    public void setRecipe(ConcoctingItemRecipe pRecipe) {
-        this.recipe = pRecipe;
-    }
+	public void setRecipe(ConcoctingItemRecipe pRecipe) {
+		this.recipe = pRecipe;
+	}
 
-    public ConcoctingItemRecipe getRecipe() {
-        return this.recipe;
-    }
+	public ConcoctingItemRecipe getRecipe() {
+		return this.recipe;
+	}
 }

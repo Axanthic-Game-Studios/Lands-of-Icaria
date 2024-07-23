@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DeadFirTreeFeature extends IcariaDeadTreeFeature {
-    public DeadFirTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.DEAD_FIR_LOG.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.FOREST_MOSS.get(), IcariaBlocks.FIR_TWIGS.get(), Moss.FOREST);
-    }
+	public DeadFirTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.DEAD_FIR_LOG.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.FOREST_MOSS.get(), IcariaBlocks.FIR_TWIGS.get(), Moss.FOREST);
+	}
 }

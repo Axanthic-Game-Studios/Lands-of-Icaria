@@ -16,27 +16,27 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ArachneHurtByTargetGoal extends HurtByTargetGoal {
-    public ArachneHurtByTargetGoal(ArachneEntity pEntity) {
-        super(pEntity);
-    }
+	public ArachneHurtByTargetGoal(ArachneEntity pEntity) {
+		super(pEntity);
+	}
 
-    @Override
-    public void alertOther(Mob pMob, LivingEntity pTarget) {
-        if (pMob instanceof ArachneDroneEntity) {
-            pMob.setTarget(pTarget);
-        }
-    }
+	@Override
+	public void alertOther(Mob pMob, LivingEntity pTarget) {
+		if (pMob instanceof ArachneDroneEntity) {
+			pMob.setTarget(pTarget);
+		}
+	}
 
-    @Override
-    public void tick() {
-        super.tick();
-        if (RandomSource.create().nextInt(100) == 0) {
-            var livingEntity = this.mob.getTarget();
-            if (livingEntity != null) {
-                if (this.mob.distanceTo(this.mob.getTarget()) <= 10.0D) {
-                    this.mob.level().setBlockAndUpdate(livingEntity.blockPosition(), Blocks.COBWEB.defaultBlockState()); // TODO replace with Arachne web
-                }
-            }
-        }
-    }
+	@Override
+	public void tick() {
+		super.tick();
+		if (RandomSource.create().nextInt(100) == 0) {
+			var livingEntity = this.mob.getTarget();
+			if (livingEntity != null) {
+				if (this.mob.distanceTo(this.mob.getTarget()) <= 10.0D) {
+					this.mob.level().setBlockAndUpdate(livingEntity.blockPosition(), Blocks.COBWEB.defaultBlockState()); // TODO replace with Arachne web
+				}
+			}
+		}
+	}
 }

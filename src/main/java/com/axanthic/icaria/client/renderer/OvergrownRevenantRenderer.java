@@ -21,20 +21,20 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class OvergrownRevenantRenderer extends MobRenderer<OvergrownRevenantEntity, OvergrownRevenantModel> {
-    public OvergrownRevenantRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new OvergrownRevenantModel(pContext.bakeLayer(IcariaLayerLocations.OVERGROWN_REVENANT_BODY)), 0.5F);
-        this.addLayer(new OvergrownRevenantEmissiveLayer(this));
-        this.addLayer(new OvergrownRevenantItemLayer(this));
-        this.addLayer(new OvergrownRevenantRaysLayer(this));
-    }
+	public OvergrownRevenantRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new OvergrownRevenantModel(pContext.bakeLayer(IcariaLayerLocations.OVERGROWN_REVENANT_BODY)), 0.5F);
+		this.addLayer(new OvergrownRevenantEmissiveLayer(this));
+		this.addLayer(new OvergrownRevenantItemLayer(this));
+		this.addLayer(new OvergrownRevenantRaysLayer(this));
+	}
 
-    @Override
-    public void scale(OvergrownRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(0.875F, 0.875F, 0.875F);
-    }
+	@Override
+	public void scale(OvergrownRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(0.875F, 0.875F, 0.875F);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(OvergrownRevenantEntity pEntity) {
-        return IcariaResourceLocations.OVERGROWN_REVENANT;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(OvergrownRevenantEntity pEntity) {
+		return IcariaResourceLocations.OVERGROWN_REVENANT;
+	}
 }

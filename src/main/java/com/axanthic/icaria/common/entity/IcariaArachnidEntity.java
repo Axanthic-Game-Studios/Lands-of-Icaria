@@ -19,11 +19,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaArachnidEntity extends Monster {
-    public IcariaArachnidEntity(EntityType<? extends IcariaArachnidEntity> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
-    }
+	public IcariaArachnidEntity(EntityType<? extends IcariaArachnidEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
+	}
 
-    public static boolean checkAnyLightArachnidSpawnRules(EntityType<? extends IcariaArachnidEntity> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        return pLevel.getDifficulty() != Difficulty.PEACEFUL && IcariaConfig.SPAWN_ARACHNIDS.get() && Mob.checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom);
-    }
+	public static boolean checkAnyLightArachnidSpawnRules(EntityType<? extends IcariaArachnidEntity> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+		return pLevel.getDifficulty() != Difficulty.PEACEFUL && IcariaConfig.SPAWN_ARACHNIDS.get() && Mob.checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom);
+	}
 }

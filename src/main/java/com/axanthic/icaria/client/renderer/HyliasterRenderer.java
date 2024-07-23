@@ -20,28 +20,28 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class HyliasterRenderer extends MobRenderer<HyliasterEntity, HyliasterModel> {
-    public HyliasterRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new HyliasterModel(pContext.bakeLayer(IcariaLayerLocations.HYLIASTER)), 1.0F);
-        this.addLayer(new HyliasterTranslucentLayer(this));
-    }
+	public HyliasterRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new HyliasterModel(pContext.bakeLayer(IcariaLayerLocations.HYLIASTER)), 1.0F);
+		this.addLayer(new HyliasterTranslucentLayer(this));
+	}
 
-    @Override
-    public float getShadowRadius(HyliasterEntity pEntity) {
-        return pEntity.getScaleForShadow();
-    }
+	@Override
+	public float getShadowRadius(HyliasterEntity pEntity) {
+		return pEntity.getScaleForShadow();
+	}
 
-    @Override
-    public void render(HyliasterEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+	@Override
+	public void render(HyliasterEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 
-    @Override
-    public void scale(HyliasterEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
-    }
+	@Override
+	public void scale(HyliasterEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(HyliasterEntity pEntity) {
-        return IcariaResourceLocations.HYLIASTER;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(HyliasterEntity pEntity) {
+		return IcariaResourceLocations.HYLIASTER;
+	}
 }

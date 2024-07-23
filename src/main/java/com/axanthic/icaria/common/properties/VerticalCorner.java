@@ -9,33 +9,33 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public enum VerticalCorner implements StringRepresentable {
-    BOTTOM_LEFT("bottom_left"),
-    BOTTOM_RIGHT("bottom_right"),
-    TOP_LEFT("top_left"),
-    TOP_RIGHT("top_right");
+	BOTTOM_LEFT("bottom_left"),
+	BOTTOM_RIGHT("bottom_right"),
+	TOP_LEFT("top_left"),
+	TOP_RIGHT("top_right");
 
-    public final String name;
+	public final String name;
 
-    VerticalCorner(String pName) {
-        this.name = pName;
-    }
+	VerticalCorner(String pName) {
+		this.name = pName;
+	}
 
-    public VerticalCorner getOpposite() {
-        return switch (this) {
-            case BOTTOM_LEFT -> BOTTOM_RIGHT;
-            case BOTTOM_RIGHT -> BOTTOM_LEFT;
-            case TOP_LEFT -> TOP_RIGHT;
-            case TOP_RIGHT -> TOP_LEFT;
-        };
-    }
+	public VerticalCorner getOpposite() {
+		return switch (this) {
+			case BOTTOM_LEFT -> BOTTOM_RIGHT;
+			case BOTTOM_RIGHT -> BOTTOM_LEFT;
+			case TOP_LEFT -> TOP_RIGHT;
+			case TOP_RIGHT -> TOP_LEFT;
+		};
+	}
 
-    @Override
-    public String getSerializedName() {
-        return this.name;
-    }
+	@Override
+	public String getSerializedName() {
+		return this.name;
+	}
 
-    @Override
-    public String toString() {
-        return this.name;
-    }
+	@Override
+	public String toString() {
+		return this.name;
+	}
 }

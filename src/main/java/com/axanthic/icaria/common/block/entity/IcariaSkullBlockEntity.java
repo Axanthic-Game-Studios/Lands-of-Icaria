@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaSkullBlockEntity extends BlockEntity {
-    public IcariaSkullBlockEntity(BlockPos pPos, BlockState pState) {
-        super(IcariaBlockEntityTypes.SKULL.get(), pPos, pState);
-    }
+	public IcariaSkullBlockEntity(BlockPos pPos, BlockState pState) {
+		super(IcariaBlockEntityTypes.SKULL.get(), pPos, pState);
+	}
 }

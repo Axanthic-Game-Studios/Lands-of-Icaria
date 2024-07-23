@@ -21,45 +21,45 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class RowanFeature extends Feature<NoneFeatureConfiguration> {
-    public RowanFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec);
-    }
+	public RowanFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec);
+	}
 
-    @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-        var level = pContext.level();
-        var origin = pContext.origin();
-        var random = pContext.random();
-        var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+	@Override
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
+		var level = pContext.level();
+		var origin = pContext.origin();
+		var random = pContext.random();
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-        int size = 2;
+		int size = 2;
 
-        var aabb = AABB.ofSize(origin.relative(direction).getCenter(), 0, 4, 0);
+		var aabb = AABB.ofSize(origin.relative(direction).getCenter(), 0, 4, 0);
 
-        boolean test = level.getBlockStates(aabb).allMatch((pState) -> pState.is(Blocks.AIR));
+		boolean test = level.getBlockStates(aabb).allMatch((pState) -> pState.is(Blocks.AIR));
 
-        for (int x = -size; x <= size; x++) {
-            for (int y = -size; y <= size; y++) {
-                for (int z = -size; z <= size; z++) {
-                    if (test) {
-                        this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
-                    }
-                }
-            }
-        }
+		for (int x = -size; x <= size; x++) {
+			for (int y = -size; y <= size; y++) {
+				for (int z = -size; z <= size; z++) {
+					if (test) {
+						this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
+					}
+				}
+			}
+		}
 
-        return true;
-    }
+		return true;
+	}
 
-    public void placeHerb(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placeHerb(pLevel, pPos);
-        }
-    }
+	public void placeHerb(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
+		if (pLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeHerb(pLevel, pPos);
+		}
+	}
 
-    public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
-            this.setBlock(pLevel, pPos, IcariaBlocks.ROWAN.get().defaultBlockState());
-        }
-    }
+	public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
+		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
+			this.setBlock(pLevel, pPos, IcariaBlocks.ROWAN.get().defaultBlockState());
+		}
+	}
 }

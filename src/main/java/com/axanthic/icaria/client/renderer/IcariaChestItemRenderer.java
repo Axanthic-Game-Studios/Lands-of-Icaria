@@ -21,15 +21,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaChestItemRenderer extends BlockEntityWithoutLevelRenderer {
-    public IcariaChestItemRenderer(BlockEntityRenderDispatcher pBlockEntityRenderDispatcher, EntityModelSet pEntityModelSet) {
-        super(pBlockEntityRenderDispatcher, pEntityModelSet);
-    }
+	public IcariaChestItemRenderer(BlockEntityRenderDispatcher pBlockEntityRenderDispatcher, EntityModelSet pEntityModelSet) {
+		super(pBlockEntityRenderDispatcher, pEntityModelSet);
+	}
 
-    @Override
-    public void renderByItem(ItemStack pStack, ItemDisplayContext pDisplayContext, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
-        if (pStack.getItem() instanceof IcariaChestItem chestItem) {
-            var entity = new IcariaChestBlockEntity(BlockPos.ZERO, chestItem.getBlock().defaultBlockState());
-            Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(entity, pPoseStack, pBuffer, pPackedLight, pPackedOverlay);
-        }
-    }
+	@Override
+	public void renderByItem(ItemStack pStack, ItemDisplayContext pDisplayContext, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
+		if (pStack.getItem() instanceof IcariaChestItem chestItem) {
+			var entity = new IcariaChestBlockEntity(BlockPos.ZERO, chestItem.getBlock().defaultBlockState());
+			Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(entity, pPoseStack, pBuffer, pPackedLight, pPackedOverlay);
+		}
+	}
 }

@@ -11,12 +11,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBaseSpawner extends BaseSpawner {
-    public IcariaBaseSpawner() {
+	public IcariaBaseSpawner() {
 
-    }
+	}
 
-    @Override
-    public void broadcastEvent(Level pLevel, BlockPos pPos, int pEventId) {
-        pLevel.blockEvent(pPos, pLevel.getBlockState(pPos).getBlock(), pEventId, 0);
-    }
+	@Override
+	public void broadcastEvent(Level pLevel, BlockPos pPos, int pEventId) {
+		pLevel.blockEvent(pPos, pLevel.getBlockState(pPos).getBlock(), pEventId, 0);
+	}
 }

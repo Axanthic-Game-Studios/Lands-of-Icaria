@@ -22,54 +22,54 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class HorizontalRelicstonePillarFeature extends Feature<NoneFeatureConfiguration> {
-    public HorizontalRelicstonePillarFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec);
-    }
+	public HorizontalRelicstonePillarFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec);
+	}
 
-    @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-        var level = pContext.level();
-        var origin = pContext.origin();
-        var random = pContext.random();
-        var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+	@Override
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
+		var level = pContext.level();
+		var origin = pContext.origin();
+		var random = pContext.random();
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-        int length = random.nextIntBetweenInclusive(2, 4);
-        int offset = 0;
+		int length = random.nextIntBetweenInclusive(2, 4);
+		int offset = 0;
 
-        this.placeHead(level, origin, direction);
+		this.placeHead(level, origin, direction);
 
-        for (int i = 1; i <= length; ++i) {
-            ++offset;
-            this.placePillar(level, origin.relative(direction, offset), direction);
-        }
+		for (int i = 1; i <= length; ++i) {
+			++offset;
+			this.placePillar(level, origin.relative(direction, offset), direction);
+		}
 
-        ++offset;
-        this.placeHead(level, origin.relative(direction, offset), direction.getOpposite());
+		++offset;
+		this.placeHead(level, origin.relative(direction, offset), direction.getOpposite());
 
-        return true;
-    }
+		return true;
+	}
 
-    public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placeHead(pLevel, pPos, pDirection);
-        }
-    }
+	public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pChance) {
+		if (pLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeHead(pLevel, pPos, pDirection);
+		}
+	}
 
-    public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
-            this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, pDirection));
-        }
-    }
+	public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
+		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
+			this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, pDirection));
+		}
+	}
 
-    public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placePillar(pLevel, pPos, pDirection);
-        }
-    }
+	public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pChance) {
+		if (pLevel.getRandom().nextInt(pChance) == 0) {
+			this.placePillar(pLevel, pPos, pDirection);
+		}
+	}
 
-    public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
-            this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, pDirection.getAxis()));
-        }
-    }
+	public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
+		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
+			this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, pDirection.getAxis()));
+		}
+	}
 }

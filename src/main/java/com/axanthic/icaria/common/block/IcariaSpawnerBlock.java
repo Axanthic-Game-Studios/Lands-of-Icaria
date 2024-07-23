@@ -34,54 +34,54 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaSpawnerBlock extends BaseEntityBlock {
-    public static final MapCodec<IcariaSpawnerBlock> CODEC = Block.simpleCodec(IcariaSpawnerBlock::new);
+	public static final MapCodec<IcariaSpawnerBlock> CODEC = Block.simpleCodec(IcariaSpawnerBlock::new);
 
-    public IcariaSpawnerBlock(Properties pProperties) {
-        super(pProperties);
-    }
+	public IcariaSpawnerBlock(Properties pProperties) {
+		super(pProperties);
+	}
 
-    @Override
-    public int getExpDrop(BlockState pState, LevelAccessor pLevel, BlockPos pPos, @Nullable BlockEntity pBlockEntity, @Nullable Entity pBreaker, ItemStack pTool) {
-        return pLevel.getRandom().nextInt(15) + pLevel.getRandom().nextInt(15) + 15;
-    }
+	@Override
+	public int getExpDrop(BlockState pState, LevelAccessor pLevel, BlockPos pPos, @Nullable BlockEntity pBlockEntity, @Nullable Entity pBreaker, ItemStack pTool) {
+		return pLevel.getRandom().nextInt(15) + pLevel.getRandom().nextInt(15) + 15;
+	}
 
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new IcariaSpawnerBlockEntity(pPos, pState);
-    }
+	@Override
+	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+		return new IcariaSpawnerBlockEntity(pPos, pState);
+	}
 
-    @Override
-    public ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pResult) {
-        var itemStack = pPlayer.getItemInHand(pHand);
-        if (itemStack.getItem() instanceof SpawnEggItem spawnEggItem) {
-            if (pLevel.getBlockEntity(pPos) instanceof IcariaSpawnerBlockEntity icariaSpawnerBlockEntity) {
-                icariaSpawnerBlockEntity.setChanged();
-                icariaSpawnerBlockEntity.setEntityId(spawnEggItem.getType(itemStack), pLevel.getRandom());
-                pLevel.gameEvent(pPlayer, GameEvent.BLOCK_CHANGE, pPos);
-                pLevel.sendBlockUpdated(pPos, pState, pState, 3);
-                if (!pPlayer.isCreative()) {
-                    itemStack.shrink(1);
-                }
+	@Override
+	public ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pResult) {
+		var itemStack = pPlayer.getItemInHand(pHand);
+		if (itemStack.getItem() instanceof SpawnEggItem spawnEggItem) {
+			if (pLevel.getBlockEntity(pPos) instanceof IcariaSpawnerBlockEntity icariaSpawnerBlockEntity) {
+				icariaSpawnerBlockEntity.setChanged();
+				icariaSpawnerBlockEntity.setEntityId(spawnEggItem.getType(itemStack), pLevel.getRandom());
+				pLevel.gameEvent(pPlayer, GameEvent.BLOCK_CHANGE, pPos);
+				pLevel.sendBlockUpdated(pPos, pState, pState, 3);
+				if (!pPlayer.isCreative()) {
+					itemStack.shrink(1);
+				}
 
-                return ItemInteractionResult.CONSUME;
-            }
-        }
+				return ItemInteractionResult.CONSUME;
+			}
+		}
 
-        return ItemInteractionResult.CONSUME;
-    }
+		return ItemInteractionResult.CONSUME;
+	}
 
-    @Override
-    public MapCodec<? extends BaseEntityBlock> codec() {
-        return IcariaSpawnerBlock.CODEC;
-    }
+	@Override
+	public MapCodec<? extends BaseEntityBlock> codec() {
+		return IcariaSpawnerBlock.CODEC;
+	}
 
-    @Override
-    public RenderShape getRenderShape(BlockState pState) {
-        return RenderShape.MODEL;
-    }
+	@Override
+	public RenderShape getRenderShape(BlockState pState) {
+		return RenderShape.MODEL;
+	}
 
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.SPAWNER.get(), pLevel.isClientSide() ? IcariaSpawnerBlockEntity::clientTick : IcariaSpawnerBlockEntity::serverTick);
-    }
+	@Override
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+		return BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.SPAWNER.get(), pLevel.isClientSide() ? IcariaSpawnerBlockEntity::clientTick : IcariaSpawnerBlockEntity::serverTick);
+	}
 }

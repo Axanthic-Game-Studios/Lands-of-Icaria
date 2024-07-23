@@ -19,27 +19,27 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CatoblepasRenderer extends MobRenderer<CatoblepasEntity, CatoblepasModel> {
-    public CatoblepasRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new CatoblepasModel(pContext.bakeLayer(IcariaLayerLocations.CATOBLEPAS)), 1.0F);
-    }
+	public CatoblepasRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new CatoblepasModel(pContext.bakeLayer(IcariaLayerLocations.CATOBLEPAS)), 1.0F);
+	}
 
-    @Override
-    public float getShadowRadius(CatoblepasEntity pEntity) {
-        return pEntity.getScaleForShadow();
-    }
+	@Override
+	public float getShadowRadius(CatoblepasEntity pEntity) {
+		return pEntity.getScaleForShadow();
+	}
 
-    @Override
-    public void render(CatoblepasEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+	@Override
+	public void render(CatoblepasEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 
-    @Override
-    public void scale(CatoblepasEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
-    }
+	@Override
+	public void scale(CatoblepasEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(CatoblepasEntity pEntity) {
-        return IcariaResourceLocations.CATOBLEPAS;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(CatoblepasEntity pEntity) {
+		return IcariaResourceLocations.CATOBLEPAS;
+	}
 }

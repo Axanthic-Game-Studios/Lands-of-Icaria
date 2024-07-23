@@ -19,18 +19,18 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class SolifugaeRenderer extends MobRenderer<SolifugaeEntity, SolifugaeModel> {
-    public SolifugaeRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new SolifugaeModel(pContext.bakeLayer(IcariaLayerLocations.SOLIFUGAE)), 0.75F);
-        this.addLayer(new SolifugaeEmissiveLayer(this));
-    }
+	public SolifugaeRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new SolifugaeModel(pContext.bakeLayer(IcariaLayerLocations.SOLIFUGAE)), 0.75F);
+		this.addLayer(new SolifugaeEmissiveLayer(this));
+	}
 
-    @Override
-    public void scale(SolifugaeEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(0.625F, 0.625F, 0.625F);
-    }
+	@Override
+	public void scale(SolifugaeEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(0.625F, 0.625F, 0.625F);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(SolifugaeEntity pEntity) {
-        return IcariaResourceLocations.SOLIFUGAE;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(SolifugaeEntity pEntity) {
+		return IcariaResourceLocations.SOLIFUGAE;
+	}
 }

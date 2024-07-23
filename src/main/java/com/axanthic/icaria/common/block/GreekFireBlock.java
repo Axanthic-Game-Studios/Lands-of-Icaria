@@ -28,101 +28,101 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GreekFireBlock extends Block {
-    public GreekFireBlock(Properties pProperties) {
-        super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.AGE_15, 0));
-    }
+	public GreekFireBlock(Properties pProperties) {
+		super(pProperties);
+		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.AGE_15, 0));
+	}
 
-    @Override
-    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        var belowPos = pPos.below();
-        return pLevel.getBlockState(belowPos).isFaceSturdy(pLevel, belowPos, Direction.UP);
-    }
+	@Override
+	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+		var belowPos = pPos.below();
+		return pLevel.getBlockState(belowPos).isFaceSturdy(pLevel, belowPos, Direction.UP);
+	}
 
-    public boolean isNearRain(Level pLevel, BlockPos pPos) {
-        return pLevel.isRainingAt(pPos) || pLevel.isRainingAt(pPos.west()) || pLevel.isRainingAt(pPos.east()) || pLevel.isRainingAt(pPos.north()) || pLevel.isRainingAt(pPos.south());
-    }
+	public boolean isNearRain(Level pLevel, BlockPos pPos) {
+		return pLevel.isRainingAt(pPos) || pLevel.isRainingAt(pPos.west()) || pLevel.isRainingAt(pPos.east()) || pLevel.isRainingAt(pPos.north()) || pLevel.isRainingAt(pPos.south());
+	}
 
-    public int getFireTickDelay(RandomSource pRandom) {
-        return pRandom.nextInt(10) + 30;
-    }
+	public int getFireTickDelay(RandomSource pRandom) {
+		return pRandom.nextInt(10) + 30;
+	}
 
-    @Override
-    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-        if (pRandom.nextInt(24) == 0) {
-            pLevel.playLocalSound(pPos.getX() + 0.5D, pPos.getY() + 0.5D, pPos.getZ() + 0.5D, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, pRandom.nextFloat() + 1.0F, pRandom.nextFloat() * 0.7F + 0.3F, false);
-        }
+	@Override
+	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+		if (pRandom.nextInt(24) == 0) {
+			pLevel.playLocalSound(pPos.getX() + 0.5D, pPos.getY() + 0.5D, pPos.getZ() + 0.5D, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, pRandom.nextFloat() + 1.0F, pRandom.nextFloat() * 0.7F + 0.3F, false);
+		}
 
-        for (int i = 0; i < 3; ++i) {
-            pLevel.addParticle(ParticleTypes.LARGE_SMOKE, pPos.getX() + pRandom.nextDouble(), pPos.getY() + pRandom.nextDouble() * 0.5D + 0.5D, pPos.getZ() + pRandom.nextDouble(), 0.0D, 0.0D, 0.0D);
-        }
-    }
+		for (int i = 0; i < 3; ++i) {
+			pLevel.addParticle(ParticleTypes.LARGE_SMOKE, pPos.getX() + pRandom.nextDouble(), pPos.getY() + pRandom.nextDouble() * 0.5D + 0.5D, pPos.getZ() + pRandom.nextDouble(), 0.0D, 0.0D, 0.0D);
+		}
+	}
 
-    @Override
-    public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(BlockStateProperties.AGE_15);
-    }
+	@Override
+	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+		pBuilder.add(BlockStateProperties.AGE_15);
+	}
 
-    @Override
-    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-        super.entityInside(pState, pLevel, pPos, pEntity);
-        if (!pEntity.fireImmune()) {
-            pEntity.setRemainingFireTicks(pEntity.getRemainingFireTicks() + 1);
-            if (pEntity.getRemainingFireTicks() == 0) {
-                pEntity.igniteForSeconds(8);
-            }
-        }
+	@Override
+	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+		super.entityInside(pState, pLevel, pPos, pEntity);
+		if (!pEntity.fireImmune()) {
+			pEntity.setRemainingFireTicks(pEntity.getRemainingFireTicks() + 1);
+			if (pEntity.getRemainingFireTicks() == 0) {
+				pEntity.igniteForSeconds(8);
+			}
+		}
 
-        pEntity.hurt(pLevel.damageSources().inFire(), 1.5F);
-    }
+		pEntity.hurt(pLevel.damageSources().inFire(), 1.5F);
+	}
 
-    @Override
-    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
-        super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
-        pLevel.scheduleTick(pPos, this, this.getFireTickDelay(pLevel.random));
-    }
+	@Override
+	public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+		super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
+		pLevel.scheduleTick(pPos, this, this.getFireTickDelay(pLevel.random));
+	}
 
-    @Override
-    public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-        if (!pLevel.isClientSide()) {
-            pLevel.levelEvent(null, 1009, pPos, 0);
-        }
+	@Override
+	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+		if (!pLevel.isClientSide()) {
+			pLevel.levelEvent(null, 1009, pPos, 0);
+		}
 
-        return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
-    }
+		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+	}
 
-    @Override
-    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        pLevel.scheduleTick(pPos, this, this.getFireTickDelay(pLevel.random));
-        if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOFIRETICK)) {
-            int i = pState.getValue(BlockStateProperties.AGE_15);
-            if (pLevel.isRaining() && this.isNearRain(pLevel, pPos) && pRandom.nextFloat() < 0.2F + i * 0.03F) {
-                pLevel.removeBlock(pPos, false);
-            } else {
-                int j = Math.min(15, i + pRandom.nextInt(3) / 2);
-                if (i != j) {
-                    pLevel.setBlock(pPos, pState.setValue(BlockStateProperties.AGE_15, j), 4);
-                }
+	@Override
+	public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+		pLevel.scheduleTick(pPos, this, this.getFireTickDelay(pLevel.random));
+		if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOFIRETICK)) {
+			int i = pState.getValue(BlockStateProperties.AGE_15);
+			if (pLevel.isRaining() && this.isNearRain(pLevel, pPos) && pRandom.nextFloat() < 0.2F + i * 0.03F) {
+				pLevel.removeBlock(pPos, false);
+			} else {
+				int j = Math.min(15, i + pRandom.nextInt(3) / 2);
+				if (i != j) {
+					pLevel.setBlock(pPos, pState.setValue(BlockStateProperties.AGE_15, j), 4);
+				}
 
-                if (i > 3) {
-                    pLevel.removeBlock(pPos, false);
-                }
-            }
-        }
-    }
+				if (i > 3) {
+					pLevel.removeBlock(pPos, false);
+				}
+			}
+		}
+	}
 
-    public BlockState getStateWithAge(int pAge) {
-        var blockState = IcariaBlocks.GREEK_FIRE.get().defaultBlockState();
-        return blockState.is(IcariaBlocks.GREEK_FIRE.get()) ? blockState.setValue(BlockStateProperties.AGE_15, pAge) : blockState;
-    }
+	public BlockState getStateWithAge(int pAge) {
+		var blockState = IcariaBlocks.GREEK_FIRE.get().defaultBlockState();
+		return blockState.is(IcariaBlocks.GREEK_FIRE.get()) ? blockState.setValue(BlockStateProperties.AGE_15, pAge) : blockState;
+	}
 
-    @Override
-    public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-        return this.canSurvive(pState, pLevel, pCurrentPos) ? this.getStateWithAge(pState.getValue(BlockStateProperties.AGE_15)) : Blocks.AIR.defaultBlockState();
-    }
+	@Override
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		return this.canSurvive(pState, pLevel, pCurrentPos) ? this.getStateWithAge(pState.getValue(BlockStateProperties.AGE_15)) : Blocks.AIR.defaultBlockState();
+	}
 
-    @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return IcariaShapes.Y1;
-    }
+	@Override
+	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+		return IcariaShapes.Y1;
+	}
 }

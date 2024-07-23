@@ -19,23 +19,23 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class KilnRedirectorBlockEntity extends BlockEntity {
-    public KilnRedirectorBlockEntity(BlockPos pPos, BlockState pState) {
-        super(IcariaBlockEntityTypes.KILN_REDIRECTOR.get(), pPos, pState);
-    }
+	public KilnRedirectorBlockEntity(BlockPos pPos, BlockState pState) {
+		super(IcariaBlockEntityTypes.KILN_REDIRECTOR.get(), pPos, pState);
+	}
 
-    public static @Nullable IItemHandler getCapability(KilnRedirectorBlockEntity pBlockEntity, Direction pDirection) {
-        var blockPos = pBlockEntity.getBlockPos();
-        var level = pBlockEntity.getLevel();
-        if (level != null) {
-            if (level.getBlockEntity(blockPos.below()) instanceof KilnBlockEntity kilnBlockEntity) {
-                if (level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise() == pDirection) {
-                    if (level.getBlockState(blockPos).getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER) {
-                        return kilnBlockEntity.inputHandler;
-                    }
-                }
-            }
-        }
+	public static @Nullable IItemHandler getCapability(KilnRedirectorBlockEntity pBlockEntity, Direction pDirection) {
+		var blockPos = pBlockEntity.getBlockPos();
+		var level = pBlockEntity.getLevel();
+		if (level != null) {
+			if (level.getBlockEntity(blockPos.below()) instanceof KilnBlockEntity kilnBlockEntity) {
+				if (level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise() == pDirection) {
+					if (level.getBlockState(blockPos).getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER) {
+						return kilnBlockEntity.inputHandler;
+					}
+				}
+			}
+		}
 
-        return null;
-    }
+		return null;
+	}
 }

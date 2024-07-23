@@ -10,12 +10,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class GearItem extends Item {
-    public GearItem(Properties pProperties) {
-        super(pProperties);
-    }
+	public GearItem(Properties pProperties) {
+		super(pProperties);
+	}
 
-    @Override
-    public boolean isEnchantable(ItemStack pStack) {
-        return false;
-    }
+	@Override
+	public boolean isEnchantable(ItemStack pStack) {
+		return false;
+	}
 }

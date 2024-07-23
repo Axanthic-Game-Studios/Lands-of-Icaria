@@ -12,9 +12,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaDimensions {
-    public static final ResourceKey<Level> ICARIA = IcariaDimensions.createKey("icaria");
+	public static final ResourceKey<Level> ICARIA = IcariaDimensions.createKey("icaria");
 
-    public static ResourceKey<Level> createKey(String pName) {
-        return ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
-    }
+	public static ResourceKey<Level> createKey(String pName) {
+		return ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+	}
 }

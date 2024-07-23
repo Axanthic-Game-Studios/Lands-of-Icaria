@@ -22,43 +22,43 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ConcoctionFlaskItem extends Item {
-    public int duration;
+	public int duration;
 
-    public Holder<MobEffect> effect;
+	public Holder<MobEffect> effect;
 
-    public ConcoctionFlaskItem(Properties pProperties, Holder<MobEffect> pEffect, int pDuration) {
-        super(pProperties);
-        this.duration = pDuration;
-        this.effect = pEffect;
-    }
+	public ConcoctionFlaskItem(Properties pProperties, Holder<MobEffect> pEffect, int pDuration) {
+		super(pProperties);
+		this.duration = pDuration;
+		this.effect = pEffect;
+	}
 
-    @Override
-    public int getUseDuration(ItemStack pStack, LivingEntity pLivingEntity) {
-        return 32;
-    }
+	@Override
+	public int getUseDuration(ItemStack pStack, LivingEntity pLivingEntity) {
+		return 32;
+	}
 
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
-        pPlayer.startUsingItem(pHand);
-        return InteractionResultHolder.consume(pPlayer.getItemInHand(pHand));
-    }
+	@Override
+	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
+		pPlayer.startUsingItem(pHand);
+		return InteractionResultHolder.consume(pPlayer.getItemInHand(pHand));
+	}
 
-    @Override
-    public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
-        var effect = new MobEffectInstance(this.effect, this.duration);
-        if (pLivingEntity instanceof Player player) {
-            player.addEffect(effect);
-            player.awardStat(Stats.ITEM_USED.get(this));
-            if (player.isCreative()) {
-                return pStack;
-            }
-        }
+	@Override
+	public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
+		var effect = new MobEffectInstance(this.effect, this.duration);
+		if (pLivingEntity instanceof Player player) {
+			player.addEffect(effect);
+			player.awardStat(Stats.ITEM_USED.get(this));
+			if (player.isCreative()) {
+				return pStack;
+			}
+		}
 
-        return new ItemStack(IcariaItems.EMPTY_FLASK.get());
-    }
+		return new ItemStack(IcariaItems.EMPTY_FLASK.get());
+	}
 
-    @Override
-    public UseAnim getUseAnimation(ItemStack pStack) {
-        return UseAnim.DRINK;
-    }
+	@Override
+	public UseAnim getUseAnimation(ItemStack pStack) {
+		return UseAnim.DRINK;
+	}
 }

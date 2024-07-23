@@ -10,7 +10,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaChestItem extends BlockItem {
-    public IcariaChestItem(Block pBlock, Properties pProperties) {
-        super(pBlock, pProperties);
-    }
+	public IcariaChestItem(Block pBlock, Properties pProperties) {
+		super(pBlock, pProperties);
+	}
 }

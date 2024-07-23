@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ThornyVineFeature extends IcariaVineFeature {
-    public ThornyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.THORNY_VINE.get());
-    }
+	public ThornyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.THORNY_VINE.get());
+	}
 }

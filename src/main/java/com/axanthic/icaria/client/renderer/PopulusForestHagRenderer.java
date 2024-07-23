@@ -17,13 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class PopulusForestHagRenderer extends MobRenderer<ForestHagEntity, PopulusForestHagModel> {
-    public PopulusForestHagRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new PopulusForestHagModel(pContext.bakeLayer(IcariaLayerLocations.POPULUS_FOREST_HAG)), 0.75F);
-        this.addLayer(new PopulusForestHagEmissiveLayer(this));
-    }
+	public PopulusForestHagRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new PopulusForestHagModel(pContext.bakeLayer(IcariaLayerLocations.POPULUS_FOREST_HAG)), 0.75F);
+		this.addLayer(new PopulusForestHagEmissiveLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
-        return IcariaResourceLocations.POPULUS_FOREST_HAG;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(ForestHagEntity pEntity) {
+		return IcariaResourceLocations.POPULUS_FOREST_HAG;
+	}
 }

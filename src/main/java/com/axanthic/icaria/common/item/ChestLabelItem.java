@@ -17,23 +17,23 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ChestLabelItem extends Item {
-    public ChestLabelItem(Properties pProperties) {
-        super(pProperties);
-    }
+	public ChestLabelItem(Properties pProperties) {
+		super(pProperties);
+	}
 
-    @Override
-    public boolean doesSneakBypassUse(ItemStack pStack, LevelReader pLevel, BlockPos pPos, Player pPlayer) {
-        return true;
-    }
+	@Override
+	public boolean doesSneakBypassUse(ItemStack pStack, LevelReader pLevel, BlockPos pPos, Player pPlayer) {
+		return true;
+	}
 
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-        var stack = pPlayer.getItemInHand(pUsedHand);
-        if (stack.get(DataComponents.CUSTOM_NAME) != null && pPlayer.isShiftKeyDown()) {
-            stack.remove(DataComponents.CUSTOM_NAME);
-            return InteractionResultHolder.success(stack);
-        } else {
-            return InteractionResultHolder.fail(stack);
-        }
-    }
+	@Override
+	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+		var stack = pPlayer.getItemInHand(pUsedHand);
+		if (stack.get(DataComponents.CUSTOM_NAME) != null && pPlayer.isShiftKeyDown()) {
+			stack.remove(DataComponents.CUSTOM_NAME);
+			return InteractionResultHolder.success(stack);
+		} else {
+			return InteractionResultHolder.fail(stack);
+		}
+	}
 }

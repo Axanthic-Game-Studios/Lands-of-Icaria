@@ -21,91 +21,91 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class BubbleSpellRenderer extends EntityRenderer<BubbleSpellEntity> {
-    public BubbleSpellRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext);
-    }
+	public BubbleSpellRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext);
+	}
 
-    @Override
-    public void render(BubbleSpellEntity pEntity, float pEntityYaw, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight) {
-        pPoseStack.pushPose();
+	@Override
+	public void render(BubbleSpellEntity pEntity, float pEntityYaw, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight) {
+		pPoseStack.pushPose();
 
-        var random = new Random(pEntity.getId());
+		var random = new Random(pEntity.getId());
 
-        var consumer = pBufferSource.getBuffer(IcariaRenderTypes.ADDITIVE_TRANSPARENT);
-        var matrix4f = pPoseStack.last().pose();
+		var consumer = pBufferSource.getBuffer(IcariaRenderTypes.ADDITIVE_TRANSPARENT);
+		var matrix4f = pPoseStack.last().pose();
 
-        float scale = 0.25F;
-        float ticks = pPartialTick + pEntity.tickCount;
+		float scale = 0.25F;
+		float ticks = pPartialTick + pEntity.tickCount;
 
-        int alpha = 255;
-        int brightness = 50;
+		int alpha = 255;
+		int brightness = 50;
 
-        int r0 = random.nextInt(brightness);
-        int g0 = random.nextInt(brightness);
-        int b0 = random.nextInt(brightness);
-        int r1 = random.nextInt(brightness);
-        int g1 = random.nextInt(brightness);
-        int b1 = random.nextInt(brightness);
-        int r2 = random.nextInt(brightness);
-        int g2 = random.nextInt(brightness);
-        int b2 = random.nextInt(brightness);
-        int r3 = random.nextInt(brightness);
-        int g3 = random.nextInt(brightness);
-        int b3 = random.nextInt(brightness);
-        int r4 = random.nextInt(brightness);
-        int g4 = random.nextInt(brightness);
-        int b4 = random.nextInt(brightness);
-        int r5 = random.nextInt(brightness);
-        int g5 = random.nextInt(brightness);
-        int b5 = random.nextInt(brightness);
-        int r6 = random.nextInt(brightness);
-        int g6 = random.nextInt(brightness);
-        int b6 = random.nextInt(brightness);
-        int r7 = random.nextInt(brightness);
-        int g7 = random.nextInt(brightness);
-        int b7 = random.nextInt(brightness);
+		int r0 = random.nextInt(brightness);
+		int g0 = random.nextInt(brightness);
+		int b0 = random.nextInt(brightness);
+		int r1 = random.nextInt(brightness);
+		int g1 = random.nextInt(brightness);
+		int b1 = random.nextInt(brightness);
+		int r2 = random.nextInt(brightness);
+		int g2 = random.nextInt(brightness);
+		int b2 = random.nextInt(brightness);
+		int r3 = random.nextInt(brightness);
+		int g3 = random.nextInt(brightness);
+		int b3 = random.nextInt(brightness);
+		int r4 = random.nextInt(brightness);
+		int g4 = random.nextInt(brightness);
+		int b4 = random.nextInt(brightness);
+		int r5 = random.nextInt(brightness);
+		int g5 = random.nextInt(brightness);
+		int b5 = random.nextInt(brightness);
+		int r6 = random.nextInt(brightness);
+		int g6 = random.nextInt(brightness);
+		int b6 = random.nextInt(brightness);
+		int r7 = random.nextInt(brightness);
+		int g7 = random.nextInt(brightness);
+		int b7 = random.nextInt(brightness);
 
-        pPoseStack.translate(0.0D, 0.25D, 0.0D);
+		pPoseStack.translate(0.0D, 0.25D, 0.0D);
 
-        pPoseStack.mulPose(Axis.XP.rotationDegrees(random.nextFloat() * 360.0F + ticks * 0.5F));
-        pPoseStack.mulPose(Axis.YP.rotationDegrees(random.nextFloat() * 360.0F + ticks * 0.5F));
-        pPoseStack.mulPose(Axis.ZP.rotationDegrees(random.nextFloat() * 360.0F + ticks * 0.5F));
+		pPoseStack.mulPose(Axis.XP.rotationDegrees(random.nextFloat() * 360.0F + ticks * 0.5F));
+		pPoseStack.mulPose(Axis.YP.rotationDegrees(random.nextFloat() * 360.0F + ticks * 0.5F));
+		pPoseStack.mulPose(Axis.ZP.rotationDegrees(random.nextFloat() * 360.0F + ticks * 0.5F));
 
-        consumer.addVertex(matrix4f, -scale, -scale, scale).setColor(r0, g0, b0, alpha);
-        consumer.addVertex(matrix4f, -scale, scale, scale).setColor(r1, g1, b1, alpha);
-        consumer.addVertex(matrix4f, -scale, scale, -scale).setColor(r2, g2, b2, alpha);
-        consumer.addVertex(matrix4f, -scale, -scale, -scale).setColor(r3, g3, b3, alpha);
+		consumer.addVertex(matrix4f, -scale, -scale, scale).setColor(r0, g0, b0, alpha);
+		consumer.addVertex(matrix4f, -scale, scale, scale).setColor(r1, g1, b1, alpha);
+		consumer.addVertex(matrix4f, -scale, scale, -scale).setColor(r2, g2, b2, alpha);
+		consumer.addVertex(matrix4f, -scale, -scale, -scale).setColor(r3, g3, b3, alpha);
 
-        consumer.addVertex(matrix4f, -scale, -scale, -scale).setColor(r3, g3, b3, alpha);
-        consumer.addVertex(matrix4f, -scale, scale, -scale).setColor(r2, g2, b2, alpha);
-        consumer.addVertex(matrix4f, scale, scale, -scale).setColor(r4, g4, b4, alpha);
-        consumer.addVertex(matrix4f, scale, -scale, -scale).setColor(r5, g5, b5, alpha);
+		consumer.addVertex(matrix4f, -scale, -scale, -scale).setColor(r3, g3, b3, alpha);
+		consumer.addVertex(matrix4f, -scale, scale, -scale).setColor(r2, g2, b2, alpha);
+		consumer.addVertex(matrix4f, scale, scale, -scale).setColor(r4, g4, b4, alpha);
+		consumer.addVertex(matrix4f, scale, -scale, -scale).setColor(r5, g5, b5, alpha);
 
-        consumer.addVertex(matrix4f, scale, -scale, -scale).setColor(r5, g5, b5, alpha);
-        consumer.addVertex(matrix4f, scale, scale, -scale).setColor(r4, g4, b4, alpha);
-        consumer.addVertex(matrix4f, scale, scale, scale).setColor(r6, g6, b6, alpha);
-        consumer.addVertex(matrix4f, scale, -scale, scale).setColor(r7, g7, b7, alpha);
+		consumer.addVertex(matrix4f, scale, -scale, -scale).setColor(r5, g5, b5, alpha);
+		consumer.addVertex(matrix4f, scale, scale, -scale).setColor(r4, g4, b4, alpha);
+		consumer.addVertex(matrix4f, scale, scale, scale).setColor(r6, g6, b6, alpha);
+		consumer.addVertex(matrix4f, scale, -scale, scale).setColor(r7, g7, b7, alpha);
 
-        consumer.addVertex(matrix4f, scale, -scale, scale).setColor(r7, g7, b7, alpha);
-        consumer.addVertex(matrix4f, scale, scale, scale).setColor(r6, g6, b6, alpha);
-        consumer.addVertex(matrix4f, -scale, scale, scale).setColor(r1, g1, b1, alpha);
-        consumer.addVertex(matrix4f, -scale, -scale, scale).setColor(r0, g0, b0, alpha);
+		consumer.addVertex(matrix4f, scale, -scale, scale).setColor(r7, g7, b7, alpha);
+		consumer.addVertex(matrix4f, scale, scale, scale).setColor(r6, g6, b6, alpha);
+		consumer.addVertex(matrix4f, -scale, scale, scale).setColor(r1, g1, b1, alpha);
+		consumer.addVertex(matrix4f, -scale, -scale, scale).setColor(r0, g0, b0, alpha);
 
-        consumer.addVertex(matrix4f, scale, scale, scale).setColor(r6, g6, b6, alpha);
-        consumer.addVertex(matrix4f, scale, scale, -scale).setColor(r4, g4, b4, alpha);
-        consumer.addVertex(matrix4f, -scale, scale, -scale).setColor(r2, g2, b2, alpha);
-        consumer.addVertex(matrix4f, -scale, scale, scale).setColor(r1, g1, b1, alpha);
+		consumer.addVertex(matrix4f, scale, scale, scale).setColor(r6, g6, b6, alpha);
+		consumer.addVertex(matrix4f, scale, scale, -scale).setColor(r4, g4, b4, alpha);
+		consumer.addVertex(matrix4f, -scale, scale, -scale).setColor(r2, g2, b2, alpha);
+		consumer.addVertex(matrix4f, -scale, scale, scale).setColor(r1, g1, b1, alpha);
 
-        consumer.addVertex(matrix4f, -scale, -scale, -scale).setColor(r3, g3, b3, alpha);
-        consumer.addVertex(matrix4f, scale, -scale, -scale).setColor(r5, g5, b5, alpha);
-        consumer.addVertex(matrix4f, scale, -scale, scale).setColor(r7, g7, b7, alpha);
-        consumer.addVertex(matrix4f, -scale, -scale, scale).setColor(r0, g0, b0, alpha);
+		consumer.addVertex(matrix4f, -scale, -scale, -scale).setColor(r3, g3, b3, alpha);
+		consumer.addVertex(matrix4f, scale, -scale, -scale).setColor(r5, g5, b5, alpha);
+		consumer.addVertex(matrix4f, scale, -scale, scale).setColor(r7, g7, b7, alpha);
+		consumer.addVertex(matrix4f, -scale, -scale, scale).setColor(r0, g0, b0, alpha);
 
-        pPoseStack.popPose();
-    }
+		pPoseStack.popPose();
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(BubbleSpellEntity pEntity) {
-        return InventoryMenu.BLOCK_ATLAS;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(BubbleSpellEntity pEntity) {
+		return InventoryMenu.BLOCK_ATLAS;
+	}
 }

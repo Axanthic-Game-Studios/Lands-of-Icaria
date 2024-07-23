@@ -20,48 +20,48 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class WiltedElmFeature extends Feature<NoneFeatureConfiguration> {
-    public WiltedElmFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec);
-    }
+	public WiltedElmFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec);
+	}
 
-    @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-        var level = pContext.level();
-        var origin = pContext.origin();
-        var random = pContext.random();
-        var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+	@Override
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
+		var level = pContext.level();
+		var origin = pContext.origin();
+		var random = pContext.random();
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-        int size = 2;
+		int size = 2;
 
-        var aabb = AABB.ofSize(origin.getCenter(), 16, 0, 16);
-        var list = level.getBlockStates(aabb).toList();
+		var aabb = AABB.ofSize(origin.getCenter(), 16, 0, 16);
+		var list = level.getBlockStates(aabb).toList();
 
-        boolean leaves = list.contains(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_FIR_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_LAUREL_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_OLIVE_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_PLANE_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_POPULUS_LEAVES.get().defaultBlockState());
-        boolean moss = list.contains(IcariaBlocks.FOREST_MOSS.get().defaultBlockState()) || list.contains(IcariaBlocks.SCRUBLAND_MOSS.get().defaultBlockState()) || list.contains(IcariaBlocks.STEPPE_MOSS.get().defaultBlockState());
-        boolean test = leaves && moss;
+		boolean leaves = list.contains(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_FIR_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_LAUREL_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_OLIVE_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_PLANE_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_POPULUS_LEAVES.get().defaultBlockState());
+		boolean moss = list.contains(IcariaBlocks.FOREST_MOSS.get().defaultBlockState()) || list.contains(IcariaBlocks.SCRUBLAND_MOSS.get().defaultBlockState()) || list.contains(IcariaBlocks.STEPPE_MOSS.get().defaultBlockState());
+		boolean test = leaves && moss;
 
-        for (int x = -size; x <= size; x++) {
-            for (int y = -size; y <= size; y++) {
-                for (int z = -size; z <= size; z++) {
-                    if (test) {
-                        this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
-                    }
-                }
-            }
-        }
+		for (int x = -size; x <= size; x++) {
+			for (int y = -size; y <= size; y++) {
+				for (int z = -size; z <= size; z++) {
+					if (test) {
+						this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
+					}
+				}
+			}
+		}
 
-        return true;
-    }
+		return true;
+	}
 
-    public void placeHerb(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placeHerb(pLevel, pPos);
-        }
-    }
+	public void placeHerb(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
+		if (pLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeHerb(pLevel, pPos);
+		}
+	}
 
-    public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
-            this.setBlock(pLevel, pPos, IcariaBlocks.WILTED_ELM.get().defaultBlockState());
-        }
-    }
+	public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
+		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
+			this.setBlock(pLevel, pPos, IcariaBlocks.WILTED_ELM.get().defaultBlockState());
+		}
+	}
 }

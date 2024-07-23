@@ -9,29 +9,29 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public enum Side implements StringRepresentable {
-    LEFT("left"),
-    RIGHT("right");
+	LEFT("left"),
+	RIGHT("right");
 
-    public final String name;
+	public final String name;
 
-    Side(String pName) {
-        this.name = pName;
-    }
+	Side(String pName) {
+		this.name = pName;
+	}
 
-    public Side getOpposite() {
-        return switch (this) {
-            case LEFT -> RIGHT;
-            case RIGHT -> LEFT;
-        };
-    }
+	public Side getOpposite() {
+		return switch (this) {
+			case LEFT -> RIGHT;
+			case RIGHT -> LEFT;
+		};
+	}
 
-    @Override
-    public String getSerializedName() {
-        return this.name;
-    }
+	@Override
+	public String getSerializedName() {
+		return this.name;
+	}
 
-    @Override
-    public String toString() {
-        return this.name;
-    }
+	@Override
+	public String toString() {
+		return this.name;
+	}
 }

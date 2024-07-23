@@ -24,61 +24,61 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaSpawnerBlockEntity extends BlockEntity {
-    public IcariaBaseSpawner baseSpawner = new IcariaBaseSpawner();
+	public IcariaBaseSpawner baseSpawner = new IcariaBaseSpawner();
 
-    public IcariaSpawnerBlockEntity(BlockPos pPos, BlockState pState) {
-        super(IcariaBlockEntityTypes.SPAWNER.get(), pPos, pState);
-    }
+	public IcariaSpawnerBlockEntity(BlockPos pPos, BlockState pState) {
+		super(IcariaBlockEntityTypes.SPAWNER.get(), pPos, pState);
+	}
 
-    @Override
-    public boolean onlyOpCanSetNbt() {
-        return true;
-    }
+	@Override
+	public boolean onlyOpCanSetNbt() {
+		return true;
+	}
 
-    @Override
-    public boolean triggerEvent(int pId, int pType) {
-        return this.level != null && this.baseSpawner.onEventTriggered(this.level, pId);
-    }
+	@Override
+	public boolean triggerEvent(int pId, int pType) {
+		return this.level != null && this.baseSpawner.onEventTriggered(this.level, pId);
+	}
 
-    public static void clientTick(Level pLevel, BlockPos pPos, BlockState pState, IcariaSpawnerBlockEntity pBlockEntity) {
-        pBlockEntity.baseSpawner.clientTick(pLevel, pPos);
-    }
+	public static void clientTick(Level pLevel, BlockPos pPos, BlockState pState, IcariaSpawnerBlockEntity pBlockEntity) {
+		pBlockEntity.baseSpawner.clientTick(pLevel, pPos);
+	}
 
-    @Override
-    public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
-        super.loadAdditional(pTag, pProvider);
-        this.baseSpawner.load(this.level, this.worldPosition, pTag);
-    }
+	@Override
+	public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
+		super.loadAdditional(pTag, pProvider);
+		this.baseSpawner.load(this.level, this.worldPosition, pTag);
+	}
 
-    @Override
-    public void saveAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
-        super.saveAdditional(pTag, pProvider);
-        this.baseSpawner.save(pTag);
-    }
+	@Override
+	public void saveAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
+		super.saveAdditional(pTag, pProvider);
+		this.baseSpawner.save(pTag);
+	}
 
-    public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, IcariaSpawnerBlockEntity pBlockEntity) {
-        if (pLevel instanceof  ServerLevel serverLevel) {
-            pBlockEntity.baseSpawner.serverTick(serverLevel, pPos);
-        }
-    }
+	public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, IcariaSpawnerBlockEntity pBlockEntity) {
+		if (pLevel instanceof ServerLevel serverLevel) {
+			pBlockEntity.baseSpawner.serverTick(serverLevel, pPos);
+		}
+	}
 
-    public void setEntityId(EntityType<?> pType, RandomSource pRandom) {
-        this.baseSpawner.setEntityId(pType, this.level, pRandom, this.worldPosition);
-    }
+	public void setEntityId(EntityType<?> pType, RandomSource pRandom) {
+		this.baseSpawner.setEntityId(pType, this.level, pRandom, this.worldPosition);
+	}
 
-    public BaseSpawner getSpawner() {
-        return this.baseSpawner;
-    }
+	public BaseSpawner getSpawner() {
+		return this.baseSpawner;
+	}
 
-    @Override
-    public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
-    }
+	@Override
+	public ClientboundBlockEntityDataPacket getUpdatePacket() {
+		return ClientboundBlockEntityDataPacket.create(this);
+	}
 
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider pProvider) {
-        var compoundTag = this.saveWithoutMetadata(pProvider);
-        compoundTag.remove("SpawnPotentials");
-        return compoundTag;
-    }
+	@Override
+	public CompoundTag getUpdateTag(HolderLookup.Provider pProvider) {
+		var compoundTag = this.saveWithoutMetadata(pProvider);
+		compoundTag.remove("SpawnPotentials");
+		return compoundTag;
+	}
 }

@@ -11,12 +11,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class FreezingSpellItem extends SpellItem {
-    public FreezingSpellItem(Properties pProperties, float pInaccuracy, float pVelocity, int pColor, int pCooldown) {
-        super(pProperties, pInaccuracy, pVelocity, pColor, pCooldown);
-    }
+	public FreezingSpellItem(Properties pProperties, float pInaccuracy, float pVelocity, int pColor, int pCooldown) {
+		super(pProperties, pInaccuracy, pVelocity, pColor, pCooldown);
+	}
 
-    @Override
-    public EntityType<?> getEntity() {
-        return IcariaEntityTypes.FREEZING_SPELL.get();
-    }
+	@Override
+	public EntityType<?> getEntity() {
+		return IcariaEntityTypes.FREEZING_SPELL.get();
+	}
 }

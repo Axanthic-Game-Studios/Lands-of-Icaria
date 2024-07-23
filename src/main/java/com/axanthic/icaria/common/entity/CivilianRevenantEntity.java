@@ -19,25 +19,25 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CivilianRevenantEntity extends RevenantEntity {
-    public CivilianRevenantEntity(EntityType<? extends CivilianRevenantEntity> pType, Level pLevel) {
-        super(pType, pLevel);
-    }
+	public CivilianRevenantEntity(EntityType<? extends CivilianRevenantEntity> pType, Level pLevel) {
+		super(pType, pLevel);
+	}
 
-    @Override
-    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-        return false;
-    }
+	@Override
+	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+		return false;
+	}
 
-    @Override
-    public void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
-        if (pRandom.nextInt(3) == 0) {
-            this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.CHALKOS_TOOLS.dagger.get()));
-        } else {
-            this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.CHALKOS_TOOLS.shovel.get()));
-        }
-    }
+	@Override
+	public void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
+		if (pRandom.nextInt(3) == 0) {
+			this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.CHALKOS_TOOLS.dagger.get()));
+		} else {
+			this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.CHALKOS_TOOLS.shovel.get()));
+		}
+	}
 
-    public static AttributeSupplier.Builder registerAttributes() {
-        return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 3.0D).add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
-    }
+	public static AttributeSupplier.Builder registerAttributes() {
+		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 3.0D).add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+	}
 }

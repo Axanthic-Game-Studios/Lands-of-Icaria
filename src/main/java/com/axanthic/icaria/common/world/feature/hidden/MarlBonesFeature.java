@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MarlBonesFeature extends IcariaHiddenFeature {
-    public MarlBonesFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.MARL_BONES.get(), IcariaBlocks.SURFACE_BONES.get());
-    }
+	public MarlBonesFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.MARL_BONES.get(), IcariaBlocks.SURFACE_BONES.get());
+	}
 }

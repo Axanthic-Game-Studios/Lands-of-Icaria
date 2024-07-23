@@ -17,13 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ArganHoundRenderer extends MobRenderer<ArganHoundEntity, ArganHoundModel> {
-    public ArganHoundRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new ArganHoundModel(pContext.bakeLayer(IcariaLayerLocations.ARGAN_HOUND)), 0.75F);
-        this.addLayer(new ArganHoundEmissiveLayer(this));
-    }
+	public ArganHoundRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new ArganHoundModel(pContext.bakeLayer(IcariaLayerLocations.ARGAN_HOUND)), 0.75F);
+		this.addLayer(new ArganHoundEmissiveLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(ArganHoundEntity pEntity) {
-        return IcariaResourceLocations.ARGAN_HOUND;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(ArganHoundEntity pEntity) {
+		return IcariaResourceLocations.ARGAN_HOUND;
+	}
 }

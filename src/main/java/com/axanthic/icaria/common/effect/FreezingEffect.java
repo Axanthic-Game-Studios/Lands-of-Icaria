@@ -11,18 +11,18 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class FreezingEffect extends MobEffect {
-    public FreezingEffect(MobEffectCategory pCategory, int pColor) {
-        super(pCategory, pColor);
-    }
+	public FreezingEffect(MobEffectCategory pCategory, int pColor) {
+		super(pCategory, pColor);
+	}
 
-    @Override
-    public boolean shouldApplyEffectTickThisTick(int pDuration, int pAmplifier) {
-        return true;
-    }
+	@Override
+	public boolean shouldApplyEffectTickThisTick(int pDuration, int pAmplifier) {
+		return true;
+	}
 
-    @Override
-    public boolean applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        pLivingEntity.setTicksFrozen(100);
-        return true;
-    }
+	@Override
+	public boolean applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
+		pLivingEntity.setTicksFrozen(100);
+		return true;
+	}
 }

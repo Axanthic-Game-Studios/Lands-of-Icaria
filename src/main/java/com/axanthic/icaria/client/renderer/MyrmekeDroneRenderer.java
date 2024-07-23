@@ -17,13 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeDroneRenderer extends MobRenderer<MyrmekeDroneEntity, MyrmekeDroneModel> {
-    public MyrmekeDroneRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new MyrmekeDroneModel(pContext.bakeLayer(IcariaLayerLocations.MYRMEKE_DRONE)), 0.75F);
-        this.addLayer(new MyrmekeDroneEmissiveLayer(this));
-    }
+	public MyrmekeDroneRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new MyrmekeDroneModel(pContext.bakeLayer(IcariaLayerLocations.MYRMEKE_DRONE)), 0.75F);
+		this.addLayer(new MyrmekeDroneEmissiveLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(MyrmekeDroneEntity pEntity) {
-        return IcariaResourceLocations.MYRMEKE_DRONE;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(MyrmekeDroneEntity pEntity) {
+		return IcariaResourceLocations.MYRMEKE_DRONE;
+	}
 }

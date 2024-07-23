@@ -12,19 +12,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class BlindnessImmunityEffect extends MobEffect {
-    public BlindnessImmunityEffect(MobEffectCategory pCategory, int pColor) {
-        super(pCategory, pColor);
-    }
+	public BlindnessImmunityEffect(MobEffectCategory pCategory, int pColor) {
+		super(pCategory, pColor);
+	}
 
-    @Override
-    public boolean shouldApplyEffectTickThisTick(int pDuration, int pAmplifier) {
-        return true;
-    }
+	@Override
+	public boolean shouldApplyEffectTickThisTick(int pDuration, int pAmplifier) {
+		return true;
+	}
 
-    @Override
-    public boolean applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        pLivingEntity.removeEffect(MobEffects.BLINDNESS);
-        pLivingEntity.removeEffect(MobEffects.DARKNESS);
-        return true;
-    }
+	@Override
+	public boolean applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
+		pLivingEntity.removeEffect(MobEffects.BLINDNESS);
+		pLivingEntity.removeEffect(MobEffects.DARKNESS);
+		return true;
+	}
 }

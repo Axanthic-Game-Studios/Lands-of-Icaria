@@ -17,13 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class VinegaroonRenderer extends MobRenderer<VinegaroonEntity, VinegaroonModel> {
-    public VinegaroonRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new VinegaroonModel(pContext.bakeLayer(IcariaLayerLocations.VINEGAROON)), 1.375F);
-        this.addLayer(new VinegaroonEmissiveLayer(this));
-    }
+	public VinegaroonRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new VinegaroonModel(pContext.bakeLayer(IcariaLayerLocations.VINEGAROON)), 1.375F);
+		this.addLayer(new VinegaroonEmissiveLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(VinegaroonEntity pEntity) {
-        return IcariaResourceLocations.VINEGAROON;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(VinegaroonEntity pEntity) {
+		return IcariaResourceLocations.VINEGAROON;
+	}
 }

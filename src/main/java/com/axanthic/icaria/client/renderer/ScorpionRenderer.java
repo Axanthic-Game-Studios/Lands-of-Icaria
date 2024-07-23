@@ -17,13 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ScorpionRenderer extends MobRenderer<ScorpionEntity, ScorpionModel> {
-    public ScorpionRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new ScorpionModel(pContext.bakeLayer(IcariaLayerLocations.SCORPION)), 1.375F);
-        this.addLayer(new ScorpionEmissiveLayer(this));
-    }
+	public ScorpionRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new ScorpionModel(pContext.bakeLayer(IcariaLayerLocations.SCORPION)), 1.375F);
+		this.addLayer(new ScorpionEmissiveLayer(this));
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(ScorpionEntity pEntity) {
-        return IcariaResourceLocations.SCORPION;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(ScorpionEntity pEntity) {
+		return IcariaResourceLocations.SCORPION;
+	}
 }

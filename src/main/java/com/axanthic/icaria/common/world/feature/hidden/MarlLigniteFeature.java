@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MarlLigniteFeature extends IcariaHiddenFeature {
-    public MarlLigniteFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec, IcariaBlocks.MARL_LIGNITE.get(), IcariaBlocks.SURFACE_LIGNITE.get());
-    }
+	public MarlLigniteFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.MARL_LIGNITE.get(), IcariaBlocks.SURFACE_LIGNITE.get());
+	}
 }

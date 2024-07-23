@@ -12,6 +12,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaRenderStateShards {
-    public static final RenderStateShard.TransparencyStateShard ADDITIVE_TRANSPARENCY = new AdditiveTransparencyStateShard("additive_transparency");
-    public static final RenderStateShard.TransparencyStateShard SUBTRACTIVE_TRANSPARENCY = new SubtractiveTransparencyStateShard("subtractive_transparency");
+	public static final RenderStateShard.TransparencyStateShard ADDITIVE_TRANSPARENCY = new AdditiveTransparencyStateShard("additive_transparency");
+	public static final RenderStateShard.TransparencyStateShard SUBTRACTIVE_TRANSPARENCY = new SubtractiveTransparencyStateShard("subtractive_transparency");
 }

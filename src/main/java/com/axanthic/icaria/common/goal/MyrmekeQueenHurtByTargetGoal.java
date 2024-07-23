@@ -14,14 +14,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeQueenHurtByTargetGoal extends HurtByTargetGoal {
-    public MyrmekeQueenHurtByTargetGoal(MyrmekeQueenEntity pEntity) {
-        super(pEntity);
-    }
+	public MyrmekeQueenHurtByTargetGoal(MyrmekeQueenEntity pEntity) {
+		super(pEntity);
+	}
 
-    @Override
-    public void alertOther(Mob pMob, LivingEntity pTarget) {
-        if (pMob instanceof MyrmekeDroneEntity) {
-            pMob.setTarget(pTarget);
-        }
-    }
+	@Override
+	public void alertOther(Mob pMob, LivingEntity pTarget) {
+		if (pMob instanceof MyrmekeDroneEntity) {
+			pMob.setTarget(pTarget);
+		}
+	}
 }

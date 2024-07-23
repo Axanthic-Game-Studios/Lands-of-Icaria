@@ -11,12 +11,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class AntiGravitySpellItem extends SpellItem {
-    public AntiGravitySpellItem(Properties pProperties, float pInaccuracy, float pVelocity, int pColor, int pCooldown) {
-        super(pProperties, pInaccuracy, pVelocity, pColor, pCooldown);
-    }
+	public AntiGravitySpellItem(Properties pProperties, float pInaccuracy, float pVelocity, int pColor, int pCooldown) {
+		super(pProperties, pInaccuracy, pVelocity, pColor, pCooldown);
+	}
 
-    @Override
-    public EntityType<?> getEntity() {
-        return IcariaEntityTypes.ANTI_GRAVITY_SPELL.get();
-    }
+	@Override
+	public EntityType<?> getEntity() {
+		return IcariaEntityTypes.ANTI_GRAVITY_SPELL.get();
+	}
 }

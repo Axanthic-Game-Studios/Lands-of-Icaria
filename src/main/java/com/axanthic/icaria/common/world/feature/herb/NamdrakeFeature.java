@@ -18,39 +18,39 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class NamdrakeFeature extends Feature<NoneFeatureConfiguration> {
-    public NamdrakeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-        super(pCodec);
-    }
+	public NamdrakeFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec);
+	}
 
-    @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-        var level = pContext.level();
-        var origin = pContext.origin();
-        var random = pContext.random();
-        var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+	@Override
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
+		var level = pContext.level();
+		var origin = pContext.origin();
+		var random = pContext.random();
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-        int size = 2;
+		int size = 2;
 
-        for (int x = -size; x <= size; x++) {
-            for (int y = -size; y <= size; y++) {
-                for (int z = -size; z <= size; z++) {
-                    this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
-                }
-            }
-        }
+		for (int x = -size; x <= size; x++) {
+			for (int y = -size; y <= size; y++) {
+				for (int z = -size; z <= size; z++) {
+					this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
+				}
+			}
+		}
 
-        return true;
-    }
+		return true;
+	}
 
-    public void placeHerb(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placeHerb(pLevel, pPos);
-        }
-    }
+	public void placeHerb(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
+		if (pLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeHerb(pLevel, pPos);
+		}
+	}
 
-    public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlocks.DRY_LAKE_BED.get())) {
-            this.setBlock(pLevel, pPos, IcariaBlocks.NAMDRAKE.get().defaultBlockState());
-        }
-    }
+	public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
+		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlocks.DRY_LAKE_BED.get())) {
+			this.setBlock(pLevel, pPos, IcariaBlocks.NAMDRAKE.get().defaultBlockState());
+		}
+	}
 }

@@ -14,12 +14,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaHangingSignBlockEntity extends HangingSignBlockEntity {
-    public IcariaHangingSignBlockEntity(BlockPos pPos, BlockState pState) {
-        super(pPos, pState);
-    }
+	public IcariaHangingSignBlockEntity(BlockPos pPos, BlockState pState) {
+		super(pPos, pState);
+	}
 
-    @Override
-    public BlockEntityType<?> getType() {
-        return IcariaBlockEntityTypes.HANGING_SIGN.get();
-    }
+	@Override
+	public BlockEntityType<?> getType() {
+		return IcariaBlockEntityTypes.HANGING_SIGN.get();
+	}
 }

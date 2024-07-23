@@ -17,19 +17,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ForgeMenuProvider implements MenuProvider {
-    public BlockPos pos;
+	public BlockPos pos;
 
-    public ForgeMenuProvider(BlockPos pPos) {
-        this.pos = pPos;
-    }
+	public ForgeMenuProvider(BlockPos pPos) {
+		this.pos = pPos;
+	}
 
-    @Override
-    public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new ForgeMenu(pContainerId, this.pos, pInventory, pPlayer);
-    }
+	@Override
+	public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
+		return new ForgeMenu(pContainerId, this.pos, pInventory, pPlayer);
+	}
 
-    @Override
-    public Component getDisplayName() {
-        return Component.translatable("menu" + "." + IcariaIdents.ID + "." + "forge");
-    }
+	@Override
+	public Component getDisplayName() {
+		return Component.translatable("menu" + "." + IcariaIdents.ID + "." + "forge");
+	}
 }

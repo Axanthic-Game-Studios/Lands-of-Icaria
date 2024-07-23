@@ -27,59 +27,59 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class FiringRecipeBuilder implements RecipeBuilder {
-    public float experience;
+	public float experience;
 
-    public int burnTime;
-    public int count;
+	public int burnTime;
+	public int count;
 
-    public RecipeCategory category;
+	public RecipeCategory category;
 
-    public Ingredient ingredient;
+	public Ingredient ingredient;
 
-    public Item output;
+	public Item output;
 
-    public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
+	public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
 
-    public FiringRecipeBuilder(float pExperience, int pBurnTime, int pCount, Ingredient pIngredients, ItemLike pOutput, RecipeCategory pCategory) {
-        this.experience = pExperience;
-        this.burnTime = pBurnTime;
-        this.count = pCount;
-        this.ingredient = pIngredients;
-        this.output = pOutput.asItem();
-        this.category = pCategory;
-    }
+	public FiringRecipeBuilder(float pExperience, int pBurnTime, int pCount, Ingredient pIngredients, ItemLike pOutput, RecipeCategory pCategory) {
+		this.experience = pExperience;
+		this.burnTime = pBurnTime;
+		this.count = pCount;
+		this.ingredient = pIngredients;
+		this.output = pOutput.asItem();
+		this.category = pCategory;
+	}
 
-    public static FiringRecipeBuilder firing(RecipeCategory pCategory, ItemLike pOutput, Ingredient pIngredient, float pExperience, int pBurnTime, int pCount) {
-        return new FiringRecipeBuilder(pExperience, pBurnTime, pCount, pIngredient, pOutput, pCategory);
-    }
+	public static FiringRecipeBuilder firing(RecipeCategory pCategory, ItemLike pOutput, Ingredient pIngredient, float pExperience, int pBurnTime, int pCount) {
+		return new FiringRecipeBuilder(pExperience, pBurnTime, pCount, pIngredient, pOutput, pCategory);
+	}
 
-    public void ensureValid(ResourceLocation pId) {
-        if (this.criteria.isEmpty()) {
-            throw new IllegalStateException("No way of obtaining recipe " + pId);
-        }
-    }
+	public void ensureValid(ResourceLocation pId) {
+		if (this.criteria.isEmpty()) {
+			throw new IllegalStateException("No way of obtaining recipe " + pId);
+		}
+	}
 
-    @Override
-    public void save(RecipeOutput pRecipeOutput, ResourceLocation pRecipeId) {
-        this.ensureValid(pRecipeId);
-        var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
-        var recipe = new FiringRecipe(this.experience, this.burnTime, List.of(this.ingredient), new ItemStack(this.output, this.count));
-        pRecipeOutput.accept(pRecipeId, recipe, builder.build(pRecipeId.withPrefix("recipes" + "/" + this.category.getFolderName() + "/")));
-    }
+	@Override
+	public void save(RecipeOutput pRecipeOutput, ResourceLocation pRecipeId) {
+		this.ensureValid(pRecipeId);
+		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
+		var recipe = new FiringRecipe(this.experience, this.burnTime, List.of(this.ingredient), new ItemStack(this.output, this.count));
+		pRecipeOutput.accept(pRecipeId, recipe, builder.build(pRecipeId.withPrefix("recipes" + "/" + this.category.getFolderName() + "/")));
+	}
 
-    @Override
-    public FiringRecipeBuilder group(@Nullable String pGroupName) {
-        return this;
-    }
+	@Override
+	public FiringRecipeBuilder group(@Nullable String pGroupName) {
+		return this;
+	}
 
-    @Override
-    public FiringRecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
-        this.criteria.put(pName, pCriterion);
-        return this;
-    }
+	@Override
+	public FiringRecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
+		this.criteria.put(pName, pCriterion);
+		return this;
+	}
 
-    @Override
-    public Item getResult() {
-        return this.output;
-    }
+	@Override
+	public Item getResult() {
+		return this.output;
+	}
 }

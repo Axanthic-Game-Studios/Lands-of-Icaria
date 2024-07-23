@@ -30,51 +30,51 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class RevenantEntity extends Monster {
-    public RevenantEntity(EntityType<? extends RevenantEntity> pType, Level pLevel) {
-        super(pType, pLevel);
-        this.xpReward = 10;
-    }
+	public RevenantEntity(EntityType<? extends RevenantEntity> pType, Level pLevel) {
+		super(pType, pLevel);
+		this.xpReward = 10;
+	}
 
-    @Override
-    public void playStepSound(BlockPos pPos, BlockState pState) {
-        this.playSound(SoundEvents.SKELETON_STEP, 0.1F, 1.0F);
-    }
+	@Override
+	public void playStepSound(BlockPos pPos, BlockState pState) {
+		this.playSound(SoundEvents.SKELETON_STEP, 0.1F, 1.0F);
+	}
 
-    @Override
-    public void registerGoals() {
-        this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.addGoal(3, new MoveTowardsRestrictionGoal(this, 1.0D));
-        this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
-        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
-        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true, true));
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, ArganHoundEntity.class, true, true));
-    }
+	@Override
+	public void registerGoals() {
+		this.goalSelector.addGoal(1, new FloatGoal(this));
+		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, true));
+		this.goalSelector.addGoal(3, new MoveTowardsRestrictionGoal(this, 1.0D));
+		this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
+		this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
+		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true, true));
+		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, ArganHoundEntity.class, true, true));
+	}
 
-    @Override
-    public SoundEvent getAmbientSound() {
-        return IcariaSoundEvents.REVENANT_AMBIENT;
-    }
+	@Override
+	public SoundEvent getAmbientSound() {
+		return IcariaSoundEvents.REVENANT_AMBIENT;
+	}
 
-    @Override
-    public SoundEvent getDeathSound() {
-        return IcariaSoundEvents.REVENANT_DEATH;
-    }
+	@Override
+	public SoundEvent getDeathSound() {
+		return IcariaSoundEvents.REVENANT_DEATH;
+	}
 
-    @Override
-    public SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return IcariaSoundEvents.REVENANT_HURT;
-    }
+	@Override
+	public SoundEvent getHurtSound(DamageSource pDamageSource) {
+		return IcariaSoundEvents.REVENANT_HURT;
+	}
 
-    @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
-        var randomSource = pLevel.getRandom();
-        this.populateDefaultEquipmentEnchantments(pLevel, randomSource, pDifficulty);
-        this.populateDefaultEquipmentSlots(randomSource, pDifficulty);
-        this.setCanPickUpLoot(true);
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
-    }
+	@Override
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
+		var randomSource = pLevel.getRandom();
+		this.populateDefaultEquipmentEnchantments(pLevel, randomSource, pDifficulty);
+		this.populateDefaultEquipmentSlots(randomSource, pDifficulty);
+		this.setCanPickUpLoot(true);
+		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
+	}
 }

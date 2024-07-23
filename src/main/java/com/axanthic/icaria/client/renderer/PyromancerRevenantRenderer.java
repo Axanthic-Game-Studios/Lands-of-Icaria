@@ -20,19 +20,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class PyromancerRevenantRenderer extends MobRenderer<PyromancerRevenantEntity, PyromancerRevenantModel> {
-    public PyromancerRevenantRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new PyromancerRevenantModel(pContext.bakeLayer(IcariaLayerLocations.PYROMANCER_REVENANT_BODY)), 0.5F);
-        this.addLayer(new PyromancerRevenantEmissiveLayer(this));
-        this.addLayer(new PyromancerRevenantItemLayer(this));
-    }
+	public PyromancerRevenantRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new PyromancerRevenantModel(pContext.bakeLayer(IcariaLayerLocations.PYROMANCER_REVENANT_BODY)), 0.5F);
+		this.addLayer(new PyromancerRevenantEmissiveLayer(this));
+		this.addLayer(new PyromancerRevenantItemLayer(this));
+	}
 
-    @Override
-    public void scale(PyromancerRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(0.875F, 0.875F, 0.875F);
-    }
+	@Override
+	public void scale(PyromancerRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(0.875F, 0.875F, 0.875F);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(PyromancerRevenantEntity pEntity) {
-        return IcariaResourceLocations.PYROMANCER_REVENANT;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(PyromancerRevenantEntity pEntity) {
+		return IcariaResourceLocations.PYROMANCER_REVENANT;
+	}
 }

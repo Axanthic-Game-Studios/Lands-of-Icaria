@@ -19,42 +19,42 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaGroundShroomsFeature extends Feature<NoneFeatureConfiguration> {
-    public Block shrooms;
+	public Block shrooms;
 
-    public IcariaGroundShroomsFeature(Codec<NoneFeatureConfiguration> pCodec, Block pShrooms) {
-        super(pCodec);
-        this.shrooms = pShrooms;
-    }
+	public IcariaGroundShroomsFeature(Codec<NoneFeatureConfiguration> pCodec, Block pShrooms) {
+		super(pCodec);
+		this.shrooms = pShrooms;
+	}
 
-    @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-        var level = pContext.level();
-        var origin = pContext.origin();
-        var random = pContext.random();
-        var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+	@Override
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
+		var level = pContext.level();
+		var origin = pContext.origin();
+		var random = pContext.random();
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-        int size = 2;
+		int size = 2;
 
-        for (int x = -size; x <= size; x++) {
-            for (int y = -size; y <= size; y++) {
-                for (int z = -size; z <= size; z++) {
-                    this.placeShrooms(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
-                }
-            }
-        }
+		for (int x = -size; x <= size; x++) {
+			for (int y = -size; y <= size; y++) {
+				for (int z = -size; z <= size; z++) {
+					this.placeShrooms(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
+				}
+			}
+		}
 
-        return true;
-    }
+		return true;
+	}
 
-    public void placeShrooms(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
-        if (pLevel.getRandom().nextInt(pChance) == 0) {
-            this.placeShrooms(pLevel, pPos);
-        }
-    }
+	public void placeShrooms(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
+		if (pLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeShrooms(pLevel, pPos);
+		}
+	}
 
-    public void placeShrooms(WorldGenLevel pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT) && pLevel.getBrightness(LightLayer.BLOCK, pPos) <= 12) {
-            this.setBlock(pLevel, pPos, this.shrooms.defaultBlockState());
-        }
-    }
+	public void placeShrooms(WorldGenLevel pLevel, BlockPos pPos) {
+		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT) && pLevel.getBrightness(LightLayer.BLOCK, pPos) <= 12) {
+			this.setBlock(pLevel, pPos, this.shrooms.defaultBlockState());
+		}
+	}
 }

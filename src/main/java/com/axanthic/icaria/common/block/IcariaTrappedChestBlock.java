@@ -25,32 +25,32 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaTrappedChestBlock extends IcariaChestBlock {
-    public IcariaTrappedChestBlock(Properties pProperties, Supplier<BlockEntityType<? extends ChestBlockEntity>> pBlockEntityType) {
-        super(pProperties, pBlockEntityType);
-    }
+	public IcariaTrappedChestBlock(Properties pProperties, Supplier<BlockEntityType<? extends ChestBlockEntity>> pBlockEntityType) {
+		super(pProperties, pBlockEntityType);
+	}
 
-    @Override
-    public boolean isSignalSource(BlockState pState) {
-        return true;
-    }
+	@Override
+	public boolean isSignalSource(BlockState pState) {
+		return true;
+	}
 
-    @Override
-    public int getDirectSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
-        return pSide == Direction.UP ? pBlockState.getSignal(pBlockAccess, pPos, pSide) : 0;
-    }
+	@Override
+	public int getDirectSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
+		return pSide == Direction.UP ? pBlockState.getSignal(pBlockAccess, pPos, pSide) : 0;
+	}
 
-    @Override
-    public int getSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
-        return Mth.clamp(ChestBlockEntity.getOpenCount(pBlockAccess, pPos), 0, 15);
-    }
+	@Override
+	public int getSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
+		return Mth.clamp(ChestBlockEntity.getOpenCount(pBlockAccess, pPos), 0, 15);
+	}
 
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new IcariaTrappedChestBlockEntity(pPos, pState);
-    }
+	@Override
+	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+		return new IcariaTrappedChestBlockEntity(pPos, pState);
+	}
 
-    @Override
-    public Stat<ResourceLocation> getOpenChestStat() {
-        return Stats.CUSTOM.get(Stats.TRIGGER_TRAPPED_CHEST);
-    }
+	@Override
+	public Stat<ResourceLocation> getOpenChestStat() {
+		return Stats.CUSTOM.get(Stats.TRIGGER_TRAPPED_CHEST);
+	}
 }

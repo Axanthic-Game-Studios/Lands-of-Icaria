@@ -18,33 +18,33 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ForgeRedirectorBlockEntity extends BlockEntity {
-    public ForgeRedirectorBlockEntity(BlockPos pPos, BlockState pState) {
-        super(IcariaBlockEntityTypes.FORGE_REDIRECTOR.get(), pPos, pState);
-    }
+	public ForgeRedirectorBlockEntity(BlockPos pPos, BlockState pState) {
+		super(IcariaBlockEntityTypes.FORGE_REDIRECTOR.get(), pPos, pState);
+	}
 
-    public static @Nullable IItemHandler getCapability(ForgeRedirectorBlockEntity pBlockEntity, Direction pDirection) {
-        var blockPos = pBlockEntity.getBlockPos();
-        var level = pBlockEntity.getLevel();
-        if (level != null) {
-            if (pDirection == Direction.UP) {
-                if (level.getBlockEntity(blockPos.below()) instanceof ForgeBlockEntity forgeBlockEntity) {
-                    return forgeBlockEntity.inputHandlerA;
-                } else if (level.getBlockEntity(blockPos.below().relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING))) instanceof ForgeBlockEntity forgeBlockEntity) {
-                    return forgeBlockEntity.inputHandlerB;
-                } else if (level.getBlockEntity(blockPos.below().relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING)).relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise())) instanceof ForgeBlockEntity forgeBlockEntity) {
-                    return forgeBlockEntity.inputHandlerC;
-                }
-            } else if (pDirection == Direction.DOWN) {
-                if (level.getBlockEntity(blockPos.relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING))) instanceof ForgeBlockEntity forgeBlockEntity) {
-                    return forgeBlockEntity.outputHandler;
-                } else if (level.getBlockEntity(blockPos.relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING)).relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise())) instanceof ForgeBlockEntity forgeBlockEntity) {
-                    return forgeBlockEntity.outputHandler;
-                } else if (level.getBlockEntity(blockPos.relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise())) instanceof ForgeBlockEntity forgeBlockEntity) {
-                    return forgeBlockEntity.outputHandler;
-                }
-            }
-        }
+	public static @Nullable IItemHandler getCapability(ForgeRedirectorBlockEntity pBlockEntity, Direction pDirection) {
+		var blockPos = pBlockEntity.getBlockPos();
+		var level = pBlockEntity.getLevel();
+		if (level != null) {
+			if (pDirection == Direction.UP) {
+				if (level.getBlockEntity(blockPos.below()) instanceof ForgeBlockEntity forgeBlockEntity) {
+					return forgeBlockEntity.inputHandlerA;
+				} else if (level.getBlockEntity(blockPos.below().relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING))) instanceof ForgeBlockEntity forgeBlockEntity) {
+					return forgeBlockEntity.inputHandlerB;
+				} else if (level.getBlockEntity(blockPos.below().relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING)).relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise())) instanceof ForgeBlockEntity forgeBlockEntity) {
+					return forgeBlockEntity.inputHandlerC;
+				}
+			} else if (pDirection == Direction.DOWN) {
+				if (level.getBlockEntity(blockPos.relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING))) instanceof ForgeBlockEntity forgeBlockEntity) {
+					return forgeBlockEntity.outputHandler;
+				} else if (level.getBlockEntity(blockPos.relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING)).relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise())) instanceof ForgeBlockEntity forgeBlockEntity) {
+					return forgeBlockEntity.outputHandler;
+				} else if (level.getBlockEntity(blockPos.relative(level.getBlockState(blockPos).getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise())) instanceof ForgeBlockEntity forgeBlockEntity) {
+					return forgeBlockEntity.outputHandler;
+				}
+			}
+		}
 
-        return null;
-    }
+		return null;
+	}
 }

@@ -9,24 +9,24 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public enum Olives implements StringRepresentable {
-    NONE("none"),
-    GREEN("green"),
-    BLACK("black"),
-    LEAVES("leaves");
+	NONE("none"),
+	GREEN("green"),
+	BLACK("black"),
+	LEAVES("leaves");
 
-    public final String name;
+	public final String name;
 
-    Olives(String pName) {
-        this.name = pName;
-    }
+	Olives(String pName) {
+		this.name = pName;
+	}
 
-    @Override
-    public String getSerializedName() {
-        return this.name;
-    }
+	@Override
+	public String getSerializedName() {
+		return this.name;
+	}
 
-    @Override
-    public String toString() {
-        return this.name;
-    }
+	@Override
+	public String toString() {
+		return this.name;
+	}
 }

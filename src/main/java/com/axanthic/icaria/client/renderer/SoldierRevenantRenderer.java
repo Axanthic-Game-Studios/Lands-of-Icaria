@@ -20,19 +20,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class SoldierRevenantRenderer extends MobRenderer<SoldierRevenantEntity, SoldierRevenantModel> {
-    public SoldierRevenantRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new SoldierRevenantModel(pContext.bakeLayer(IcariaLayerLocations.SOLDIER_REVENANT_BODY)), 0.5F);
-        this.addLayer(new SoldierRevenantEmissiveLayer(this));
-        this.addLayer(new SoldierRevenantItemLayer(this));
-    }
+	public SoldierRevenantRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new SoldierRevenantModel(pContext.bakeLayer(IcariaLayerLocations.SOLDIER_REVENANT_BODY)), 0.5F);
+		this.addLayer(new SoldierRevenantEmissiveLayer(this));
+		this.addLayer(new SoldierRevenantItemLayer(this));
+	}
 
-    @Override
-    public void scale(SoldierRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(0.875F, 0.875F, 0.875F);
-    }
+	@Override
+	public void scale(SoldierRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+		pMatrixStack.scale(0.875F, 0.875F, 0.875F);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(SoldierRevenantEntity pEntity) {
-        return IcariaResourceLocations.SOLDIER_REVENANT;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(SoldierRevenantEntity pEntity) {
+		return IcariaResourceLocations.SOLDIER_REVENANT;
+	}
 }

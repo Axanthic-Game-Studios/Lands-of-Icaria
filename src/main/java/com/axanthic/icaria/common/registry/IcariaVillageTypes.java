@@ -8,7 +8,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaVillageTypes {
-    public static final String ERODED = "eroded";
-    public static final String PRISTINE = "pristine";
-    public static final String RUINED = "ruined";
+	public static final String ERODED = "eroded";
+	public static final String PRISTINE = "pristine";
+	public static final String RUINED = "ruined";
 }

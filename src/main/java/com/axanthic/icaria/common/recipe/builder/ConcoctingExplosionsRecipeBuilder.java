@@ -26,60 +26,60 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ConcoctingExplosionsRecipeBuilder implements RecipeBuilder {
-    public float radius;
+	public float radius;
 
-    public int burnTime;
-    public int color;
+	public int burnTime;
+	public int color;
 
-    public RecipeCategory category;
+	public RecipeCategory category;
 
-    public Ingredient ingredientA;
-    public Ingredient ingredientB;
-    public Ingredient ingredientC;
+	public Ingredient ingredientA;
+	public Ingredient ingredientB;
+	public Ingredient ingredientC;
 
-    public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
+	public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
 
-    public ConcoctingExplosionsRecipeBuilder(float pRadius, int pBurnTime, int pColor, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, RecipeCategory pCategory) {
-        this.radius = pRadius;
-        this.burnTime = pBurnTime;
-        this.color = pColor;
-        this.ingredientA = pIngredientA;
-        this.ingredientB = pIngredientB;
-        this.ingredientC = pIngredientC;
-        this.category = pCategory;
-    }
+	public ConcoctingExplosionsRecipeBuilder(float pRadius, int pBurnTime, int pColor, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, RecipeCategory pCategory) {
+		this.radius = pRadius;
+		this.burnTime = pBurnTime;
+		this.color = pColor;
+		this.ingredientA = pIngredientA;
+		this.ingredientB = pIngredientB;
+		this.ingredientC = pIngredientC;
+		this.category = pCategory;
+	}
 
-    public static ConcoctingExplosionsRecipeBuilder concoctingExplosions(RecipeCategory pCategory, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, float pRadius, int pBurnTime, int pColor) {
-        return new ConcoctingExplosionsRecipeBuilder(pRadius, pBurnTime, pColor, pIngredientA, pIngredientB, pIngredientC, pCategory);
-    }
+	public static ConcoctingExplosionsRecipeBuilder concoctingExplosions(RecipeCategory pCategory, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, float pRadius, int pBurnTime, int pColor) {
+		return new ConcoctingExplosionsRecipeBuilder(pRadius, pBurnTime, pColor, pIngredientA, pIngredientB, pIngredientC, pCategory);
+	}
 
-    public void ensureValid(ResourceLocation pId) {
-        if (this.criteria.isEmpty()) {
-            throw new IllegalStateException("No way of obtaining recipe " + pId);
-        }
-    }
+	public void ensureValid(ResourceLocation pId) {
+		if (this.criteria.isEmpty()) {
+			throw new IllegalStateException("No way of obtaining recipe " + pId);
+		}
+	}
 
-    @Override
-    public void save(RecipeOutput pRecipeOutput, ResourceLocation pRecipeId) {
-        this.ensureValid(pRecipeId);
-        var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
-        var recipe = new ConcoctingExplosionsRecipe(this.radius, this.burnTime, this.color, IcariaRecipeHelper.helper(this.ingredientA, this.ingredientB, this.ingredientC));
-        pRecipeOutput.accept(pRecipeId, recipe, builder.build(pRecipeId.withPrefix("recipes" + "/" + this.category.getFolderName() + "/")));
-    }
+	@Override
+	public void save(RecipeOutput pRecipeOutput, ResourceLocation pRecipeId) {
+		this.ensureValid(pRecipeId);
+		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
+		var recipe = new ConcoctingExplosionsRecipe(this.radius, this.burnTime, this.color, IcariaRecipeHelper.helper(this.ingredientA, this.ingredientB, this.ingredientC));
+		pRecipeOutput.accept(pRecipeId, recipe, builder.build(pRecipeId.withPrefix("recipes" + "/" + this.category.getFolderName() + "/")));
+	}
 
-    @Override
-    public ConcoctingExplosionsRecipeBuilder group(@Nullable String pGroupName) {
-        return this;
-    }
+	@Override
+	public ConcoctingExplosionsRecipeBuilder group(@Nullable String pGroupName) {
+		return this;
+	}
 
-    @Override
-    public ConcoctingExplosionsRecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
-        this.criteria.put(pName, pCriterion);
-        return this;
-    }
+	@Override
+	public ConcoctingExplosionsRecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
+		this.criteria.put(pName, pCriterion);
+		return this;
+	}
 
-    @Override
-    public Item getResult() {
-        return ItemStack.EMPTY.getItem();
-    }
+	@Override
+	public Item getResult() {
+		return ItemStack.EMPTY.getItem();
+	}
 }

@@ -20,39 +20,39 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class VinegarEntity extends AbstractArrow {
-    public ItemStack stack = new ItemStack(IcariaItems.VINEGAR.get());
+	public ItemStack stack = new ItemStack(IcariaItems.VINEGAR.get());
 
-    public VinegarEntity(EntityType<? extends VinegarEntity> pType, Level pLevel) {
-        super(pType, pLevel);
-    }
+	public VinegarEntity(EntityType<? extends VinegarEntity> pType, Level pLevel) {
+		super(pType, pLevel);
+	}
 
-    public VinegarEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
-        super(IcariaEntityTypes.VINEGAR.get(), pEntity, pLevel, pStack, null);
-        this.stack = pStack.copy();
-    }
+	public VinegarEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
+		super(IcariaEntityTypes.VINEGAR.get(), pEntity, pLevel, pStack, null);
+		this.stack = pStack.copy();
+	}
 
-    @Override
-    public boolean displayFireAnimation() {
-        return false;
-    }
+	@Override
+	public boolean displayFireAnimation() {
+		return false;
+	}
 
-    @Override
-    public void onHit(HitResult pResult) {
-        this.discard();
-    }
+	@Override
+	public void onHit(HitResult pResult) {
+		this.discard();
+	}
 
-    @Override
-    public void playerTouch(Player pEntity) {
-        pEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 120, 0), this);
-        pEntity.hurt(this.damageSources().mobProjectile(this, pEntity), 2.0F);
-    }
+	@Override
+	public void playerTouch(Player pEntity) {
+		pEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 120, 0), this);
+		pEntity.hurt(this.damageSources().mobProjectile(this, pEntity), 2.0F);
+	}
 
-    @Override
-    public ItemStack getDefaultPickupItem() {
-        return ItemStack.EMPTY;
-    }
+	@Override
+	public ItemStack getDefaultPickupItem() {
+		return ItemStack.EMPTY;
+	}
 
-    public ItemStack getItem() {
-        return this.stack;
-    }
+	public ItemStack getItem() {
+		return this.stack;
+	}
 }

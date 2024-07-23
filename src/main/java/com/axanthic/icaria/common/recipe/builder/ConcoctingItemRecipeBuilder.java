@@ -27,62 +27,62 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class ConcoctingItemRecipeBuilder implements RecipeBuilder {
-    public int burnTime;
-    public int color;
-    public int count;
+	public int burnTime;
+	public int color;
+	public int count;
 
-    public RecipeCategory category;
+	public RecipeCategory category;
 
-    public Ingredient ingredientA;
-    public Ingredient ingredientB;
-    public Ingredient ingredientC;
+	public Ingredient ingredientA;
+	public Ingredient ingredientB;
+	public Ingredient ingredientC;
 
-    public Item output;
+	public Item output;
 
-    public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
+	public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
 
-    public ConcoctingItemRecipeBuilder(int pBurnTime, int pColor, int pCount, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, ItemLike pOutput, RecipeCategory pCategory) {
-        this.burnTime = pBurnTime;
-        this.color = pColor;
-        this.count = pCount;
-        this.ingredientA = pIngredientA;
-        this.ingredientB = pIngredientB;
-        this.ingredientC = pIngredientC;
-        this.output = pOutput.asItem();
-        this.category = pCategory;
-    }
+	public ConcoctingItemRecipeBuilder(int pBurnTime, int pColor, int pCount, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, ItemLike pOutput, RecipeCategory pCategory) {
+		this.burnTime = pBurnTime;
+		this.color = pColor;
+		this.count = pCount;
+		this.ingredientA = pIngredientA;
+		this.ingredientB = pIngredientB;
+		this.ingredientC = pIngredientC;
+		this.output = pOutput.asItem();
+		this.category = pCategory;
+	}
 
-    public static ConcoctingItemRecipeBuilder concoctingItem(RecipeCategory pCategory, ItemLike pOutput, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, int pBurnTime, int pColor, int pCount) {
-        return new ConcoctingItemRecipeBuilder(pBurnTime, pColor, pCount, pIngredientA, pIngredientB, pIngredientC, pOutput, pCategory);
-    }
+	public static ConcoctingItemRecipeBuilder concoctingItem(RecipeCategory pCategory, ItemLike pOutput, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, int pBurnTime, int pColor, int pCount) {
+		return new ConcoctingItemRecipeBuilder(pBurnTime, pColor, pCount, pIngredientA, pIngredientB, pIngredientC, pOutput, pCategory);
+	}
 
-    public void ensureValid(ResourceLocation pId) {
-        if (this.criteria.isEmpty()) {
-            throw new IllegalStateException("No way of obtaining recipe " + pId);
-        }
-    }
+	public void ensureValid(ResourceLocation pId) {
+		if (this.criteria.isEmpty()) {
+			throw new IllegalStateException("No way of obtaining recipe " + pId);
+		}
+	}
 
-    @Override
-    public void save(RecipeOutput pRecipeOutput, ResourceLocation pRecipeId) {
-        this.ensureValid(pRecipeId);
-        var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
-        var recipe = new ConcoctingItemRecipe(this.burnTime, this.color, new ItemStack(this.output, this.count), IcariaRecipeHelper.helper(this.ingredientA, this.ingredientB, this.ingredientC));
-        pRecipeOutput.accept(pRecipeId, recipe, builder.build(pRecipeId.withPrefix("recipes" + "/" + this.category.getFolderName() + "/")));
-    }
+	@Override
+	public void save(RecipeOutput pRecipeOutput, ResourceLocation pRecipeId) {
+		this.ensureValid(pRecipeId);
+		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
+		var recipe = new ConcoctingItemRecipe(this.burnTime, this.color, new ItemStack(this.output, this.count), IcariaRecipeHelper.helper(this.ingredientA, this.ingredientB, this.ingredientC));
+		pRecipeOutput.accept(pRecipeId, recipe, builder.build(pRecipeId.withPrefix("recipes" + "/" + this.category.getFolderName() + "/")));
+	}
 
-    @Override
-    public ConcoctingItemRecipeBuilder group(@Nullable String pGroupName) {
-        return this;
-    }
+	@Override
+	public ConcoctingItemRecipeBuilder group(@Nullable String pGroupName) {
+		return this;
+	}
 
-    @Override
-    public ConcoctingItemRecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
-        this.criteria.put(pName, pCriterion);
-        return this;
-    }
+	@Override
+	public ConcoctingItemRecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
+		this.criteria.put(pName, pCriterion);
+		return this;
+	}
 
-    @Override
-    public Item getResult() {
-        return this.output;
-    }
+	@Override
+	public Item getResult() {
+		return this.output;
+	}
 }

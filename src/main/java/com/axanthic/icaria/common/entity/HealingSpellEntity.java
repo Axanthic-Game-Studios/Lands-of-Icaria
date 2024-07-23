@@ -14,15 +14,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class HealingSpellEntity extends SpellEntity {
-    public HealingSpellEntity(EntityType<? extends SpellEntity> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
-    }
+	public HealingSpellEntity(EntityType<? extends SpellEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
+	}
 
-    @Override
-    public void onHitEntity(EntityHitResult pResult) {
-        super.onHitEntity(pResult);
-        if (pResult.getEntity() instanceof LivingEntity livingEntity) {
-            livingEntity.addEffect(new MobEffectInstance(MobEffects.HEAL, 1, 1));
-        }
-    }
+	@Override
+	public void onHitEntity(EntityHitResult pResult) {
+		super.onHitEntity(pResult);
+		if (pResult.getEntity() instanceof LivingEntity livingEntity) {
+			livingEntity.addEffect(new MobEffectInstance(MobEffects.HEAL, 1, 1));
+		}
+	}
 }

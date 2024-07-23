@@ -15,9 +15,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaSkullItemExtensions implements IClientItemExtensions {
 
-    @Override
-    public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-        var minecraft = Minecraft.getInstance();
-        return new IcariaSkullItemRenderer(minecraft.getBlockEntityRenderDispatcher(), minecraft.getEntityModels());
-    }
+	@Override
+	public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+		var minecraft = Minecraft.getInstance();
+		return new IcariaSkullItemRenderer(minecraft.getBlockEntityRenderDispatcher(), minecraft.getEntityModels());
+	}
 }

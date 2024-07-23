@@ -9,24 +9,24 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public enum Kettle implements StringRepresentable {
-    EMPTY("empty"),
-    FILLED("filled"),
-    ACTIVE("active"),
-    BREWING("brewing");
+	EMPTY("empty"),
+	FILLED("filled"),
+	ACTIVE("active"),
+	BREWING("brewing");
 
-    public final String name;
+	public final String name;
 
-    Kettle(String pName) {
-        this.name = pName;
-    }
+	Kettle(String pName) {
+		this.name = pName;
+	}
 
-    @Override
-    public String getSerializedName() {
-        return this.name;
-    }
+	@Override
+	public String getSerializedName() {
+		return this.name;
+	}
 
-    @Override
-    public String toString() {
-        return this.name;
-    }
+	@Override
+	public String toString() {
+		return this.name;
+	}
 }

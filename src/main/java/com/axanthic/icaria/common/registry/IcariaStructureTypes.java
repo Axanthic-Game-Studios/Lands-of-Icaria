@@ -16,7 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaStructureTypes {
-    public static final DeferredRegister<StructureType<?>> STRUCTURE_TYPES = DeferredRegister.create(Registries.STRUCTURE_TYPE, IcariaIdents.ID);
+	public static final DeferredRegister<StructureType<?>> STRUCTURE_TYPES = DeferredRegister.create(Registries.STRUCTURE_TYPE, IcariaIdents.ID);
 
-    public static final Supplier<StructureType<IcariaJigsawStructure>> JIGSAW = IcariaStructureTypes.STRUCTURE_TYPES.register("jigsaw", () -> () -> IcariaJigsawStructure.CODEC);
+	public static final Supplier<StructureType<IcariaJigsawStructure>> JIGSAW = IcariaStructureTypes.STRUCTURE_TYPES.register("jigsaw", () -> () -> IcariaJigsawStructure.CODEC);
 }

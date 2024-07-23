@@ -20,19 +20,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeSoldierRenderer extends MobRenderer<MyrmekeSoldierEntity, MyrmekeSoldierModel> {
-    public MyrmekeSoldierRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new MyrmekeSoldierModel(pContext.bakeLayer(IcariaLayerLocations.MYRMEKE_SOLDIER)), 0.75F);
-        this.addLayer(new MyrmekeSoldierEmissiveLayer(this));
-    }
+	public MyrmekeSoldierRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new MyrmekeSoldierModel(pContext.bakeLayer(IcariaLayerLocations.MYRMEKE_SOLDIER)), 0.75F);
+		this.addLayer(new MyrmekeSoldierEmissiveLayer(this));
+	}
 
-    @Override
-    public void render(MyrmekeSoldierEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-        this.shadowStrength = pEntity.getShadowStrength();
-    }
+	@Override
+	public void render(MyrmekeSoldierEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+		this.shadowStrength = pEntity.getShadowStrength();
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(MyrmekeSoldierEntity pEntity) {
-        return IcariaResourceLocations.MYRMEKE_SOLDIER;
-    }
+	@Override
+	public ResourceLocation getTextureLocation(MyrmekeSoldierEntity pEntity) {
+		return IcariaResourceLocations.MYRMEKE_SOLDIER;
+	}
 }
