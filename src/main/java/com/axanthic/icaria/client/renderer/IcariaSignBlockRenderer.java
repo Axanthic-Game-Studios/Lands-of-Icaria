@@ -101,10 +101,10 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 		int textColor;
 
 		var formattedCharSequences = pSignText.getRenderMessages(
-				Minecraft.getInstance().isTextFilteringEnabled(), (pComponent) -> {
-					var list = this.font.split(pComponent, pLineWidth);
-					return list.isEmpty() ? FormattedCharSequence.EMPTY : list.getFirst();
-				}
+			Minecraft.getInstance().isTextFilteringEnabled(), (pComponent) -> {
+				var list = this.font.split(pComponent, pLineWidth);
+				return list.isEmpty() ? FormattedCharSequence.EMPTY : list.getFirst();
+			}
 		);
 
 		pPoseStack.pushPose();

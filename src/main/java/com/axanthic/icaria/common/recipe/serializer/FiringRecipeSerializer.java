@@ -21,17 +21,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class FiringRecipeSerializer implements RecipeSerializer<FiringRecipe> {
 	public static final MapCodec<FiringRecipe> CODEC = RecordCodecBuilder.mapCodec(
-			instance -> instance.group(
-					Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
-					Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
-					Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
-					ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)
-			).apply(instance, FiringRecipe::new)
+		instance -> instance.group(
+			Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
+			Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
+			Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
+			ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)
+		).apply(instance, FiringRecipe::new)
 	);
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, FiringRecipe> STREAM_CODEC = StreamCodec.of(
-			FiringRecipeSerializer::toNetwork,
-			FiringRecipeSerializer::fromNetwork
+		FiringRecipeSerializer::toNetwork,
+		FiringRecipeSerializer::fromNetwork
 	);
 
 	@Override

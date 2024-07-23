@@ -72,10 +72,10 @@ public class IcariaPaintingEntity extends Painting {
 		} else {
 			painting.setDirection(pDirection);
 			list.removeIf(
-					holder -> {
-						painting.setVariant(holder);
-						return !painting.survives();
-					}
+				holder -> {
+					painting.setVariant(holder);
+					return !painting.survives();
+				}
 			);
 
 			if (list.isEmpty()) {

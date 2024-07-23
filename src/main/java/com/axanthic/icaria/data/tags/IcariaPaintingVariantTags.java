@@ -33,12 +33,12 @@ public class IcariaPaintingVariantTags extends PaintingVariantTagsProvider {
 	@Override
 	protected void addTags(HolderLookup.Provider pProvider) {
 		this.tag(IcariaPaintingVariantTags.PLACEABLE)
-				.add(IcariaPaintingVariants.BRIDGE)
-				.add(IcariaPaintingVariants.CACTUS)
-				.add(IcariaPaintingVariants.MOONS)
-				.add(IcariaPaintingVariants.PERFECTION)
-				.add(IcariaPaintingVariants.PORTAL)
-				.add(IcariaPaintingVariants.PYRO);
+			.add(IcariaPaintingVariants.BRIDGE)
+			.add(IcariaPaintingVariants.CACTUS)
+			.add(IcariaPaintingVariants.MOONS)
+			.add(IcariaPaintingVariants.PERFECTION)
+			.add(IcariaPaintingVariants.PORTAL)
+			.add(IcariaPaintingVariants.PYRO);
 	}
 
 	public static TagKey<PaintingVariant> bind(String pName) {

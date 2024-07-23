@@ -322,12 +322,12 @@ public class GrinderBlockEntity extends BlockEntity {
 		List<RecipeHolder<?>> list = Lists.newArrayList();
 		for (var entry : this.recipesUsed.object2IntEntrySet()) {
 			pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent(
-					(recipe) -> {
-						list.add(recipe);
-						if (recipe.value() instanceof GrindingRecipe firingRecipe) {
-							this.createExperience(pLevel, pPopVec, entry.getIntValue(), firingRecipe.getExperience());
-						}
+				(recipe) -> {
+					list.add(recipe);
+					if (recipe.value() instanceof GrindingRecipe firingRecipe) {
+						this.createExperience(pLevel, pPopVec, entry.getIntValue(), firingRecipe.getExperience());
 					}
+				}
 			);
 		}
 

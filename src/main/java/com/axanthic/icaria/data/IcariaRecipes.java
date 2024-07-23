@@ -609,1300 +609,1300 @@ public class IcariaRecipes extends RecipeProvider {
 
 		for (var items : IcariaStoneDecoItems.STONE_DECO_ITEMS) {
 			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.stairs.get(), 4)
-					.pattern("X  ")
-					.pattern("XX ")
-					.pattern("XXX")
-					.define('X', items.item.get())
-					.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
-					.save(pOutput, BuiltInRegistries.ITEM.getKey(items.stairs.get()));
+				.pattern("X  ")
+				.pattern("XX ")
+				.pattern("XXX")
+				.define('X', items.item.get())
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pOutput, BuiltInRegistries.ITEM.getKey(items.stairs.get()));
 
 			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.slab.get(), 6)
-					.pattern("XXX")
-					.define('X', items.item.get())
-					.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
-					.save(pOutput, BuiltInRegistries.ITEM.getKey(items.slab.get()));
+				.pattern("XXX")
+				.define('X', items.item.get())
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pOutput, BuiltInRegistries.ITEM.getKey(items.slab.get()));
 
 			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.wall.get(), 6)
-					.pattern("XXX")
-					.pattern("XXX")
-					.define('X', items.item.get())
-					.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
-					.save(pOutput, BuiltInRegistries.ITEM.getKey(items.wall.get()));
+				.pattern("XXX")
+				.pattern("XXX")
+				.define('X', items.item.get())
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pOutput, BuiltInRegistries.ITEM.getKey(items.wall.get()));
 
 			SingleItemRecipeBuilder.stonecutting(Ingredient.of(items.item.get()), RecipeCategory.MISC, items.stairs.get())
-					.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
-					.save(pOutput, BuiltInRegistries.ITEM.getKey(items.stairs.get()) + "_from_stonecutting");
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pOutput, BuiltInRegistries.ITEM.getKey(items.stairs.get()) + "_from_stonecutting");
 
 			SingleItemRecipeBuilder.stonecutting(Ingredient.of(items.item.get()), RecipeCategory.MISC, items.slab.get(), 2)
-					.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
-					.save(pOutput, BuiltInRegistries.ITEM.getKey(items.slab.get()) + "_from_stonecutting");
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pOutput, BuiltInRegistries.ITEM.getKey(items.slab.get()) + "_from_stonecutting");
 
 			SingleItemRecipeBuilder.stonecutting(Ingredient.of(items.item.get()), RecipeCategory.MISC, items.wall.get())
-					.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
-					.save(pOutput, BuiltInRegistries.ITEM.getKey(items.wall.get()) + "_from_stonecutting");
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pOutput, BuiltInRegistries.ITEM.getKey(items.wall.get()) + "_from_stonecutting");
 		}
 
 		for (var items : IcariaWoodDecoItems.WOOD_DECO_ITEMS) {
 			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.stairs.get(), 4)
-					.pattern("X  ")
-					.pattern("XX ")
-					.pattern("XXX")
-					.define('X', items.item.get())
-					.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
-					.save(pOutput, BuiltInRegistries.ITEM.getKey(items.stairs.get()));
+				.pattern("X  ")
+				.pattern("XX ")
+				.pattern("XXX")
+				.define('X', items.item.get())
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pOutput, BuiltInRegistries.ITEM.getKey(items.stairs.get()));
 
 			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.slab.get(), 6)
-					.pattern("XXX")
-					.define('X', items.item.get())
-					.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
-					.save(pOutput, BuiltInRegistries.ITEM.getKey(items.slab.get()));
+				.pattern("XXX")
+				.define('X', items.item.get())
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.save(pOutput, BuiltInRegistries.ITEM.getKey(items.slab.get()));
 
 			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.fence.get(), 3)
-					.pattern("XYX")
-					.pattern("XYX")
-					.define('X', items.item.get())
-					.define('Y', Items.STICK)
-					.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
-					.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
-					.save(pOutput, BuiltInRegistries.ITEM.getKey(items.fence.get()));
+				.pattern("XYX")
+				.pattern("XYX")
+				.define('X', items.item.get())
+				.define('Y', Items.STICK)
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
+				.save(pOutput, BuiltInRegistries.ITEM.getKey(items.fence.get()));
 
 			ShapedRecipeBuilder.shaped(RecipeCategory.MISC, items.gate.get(), 1)
-					.pattern("YXY")
-					.pattern("YXY")
-					.define('X', items.item.get())
-					.define('Y', Items.STICK)
-					.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
-					.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
-					.save(pOutput, BuiltInRegistries.ITEM.getKey(items.gate.get()));
+				.pattern("YXY")
+				.pattern("YXY")
+				.define('X', items.item.get())
+				.define('Y', Items.STICK)
+				.unlockedBy("has_" + items.item.get(), RecipeProvider.has(items.item.get()))
+				.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
+				.save(pOutput, BuiltInRegistries.ITEM.getKey(items.gate.get()));
 		}
 
 		// DOLOMITE
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.SMOOTH_DOLOMITE.get(), 1)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', IcariaItems.DOLOMITE.get())
-				.unlockedBy("has_" + IcariaItems.DOLOMITE.get(), RecipeProvider.has(IcariaItems.DOLOMITE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.SMOOTH_DOLOMITE.get()));
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', IcariaItems.DOLOMITE.get())
+			.unlockedBy("has_" + IcariaItems.DOLOMITE.get(), RecipeProvider.has(IcariaItems.DOLOMITE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.SMOOTH_DOLOMITE.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.DOLOMITE_BRICKS.get(), 4)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', IcariaItems.SMOOTH_DOLOMITE.get())
-				.unlockedBy("has_" + IcariaItems.SMOOTH_DOLOMITE.get(), RecipeProvider.has(IcariaItems.SMOOTH_DOLOMITE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DOLOMITE_BRICKS.get()));
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', IcariaItems.SMOOTH_DOLOMITE.get())
+			.unlockedBy("has_" + IcariaItems.SMOOTH_DOLOMITE.get(), RecipeProvider.has(IcariaItems.SMOOTH_DOLOMITE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DOLOMITE_BRICKS.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.DOLOMITE_PILLAR.get(), 2)
-				.pattern("X")
-				.pattern("X")
-				.define('X', IcariaItems.DOLOMITE_BRICKS.get())
-				.unlockedBy("has_" + IcariaItems.DOLOMITE_BRICKS.get(), RecipeProvider.has(IcariaItems.DOLOMITE_BRICKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DOLOMITE_PILLAR.get()));
+			.pattern("X")
+			.pattern("X")
+			.define('X', IcariaItems.DOLOMITE_BRICKS.get())
+			.unlockedBy("has_" + IcariaItems.DOLOMITE_BRICKS.get(), RecipeProvider.has(IcariaItems.DOLOMITE_BRICKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DOLOMITE_PILLAR.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.DOLOMITE_PILLAR_HEAD.get(), 2)
-				.pattern("X")
-				.pattern("Y")
-				.define('X', IcariaItems.DOLOMITE_BRICKS.get())
-				.define('Y', IcariaItems.DOLOMITE_PILLAR.get())
-				.unlockedBy("has_" + IcariaItems.DOLOMITE_BRICKS.get(), RecipeProvider.has(IcariaItems.DOLOMITE_BRICKS.get()))
-				.unlockedBy("has_" + IcariaItems.DOLOMITE_PILLAR.get(), RecipeProvider.has(IcariaItems.DOLOMITE_PILLAR.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DOLOMITE_PILLAR_HEAD.get()));
+			.pattern("X")
+			.pattern("Y")
+			.define('X', IcariaItems.DOLOMITE_BRICKS.get())
+			.define('Y', IcariaItems.DOLOMITE_PILLAR.get())
+			.unlockedBy("has_" + IcariaItems.DOLOMITE_BRICKS.get(), RecipeProvider.has(IcariaItems.DOLOMITE_BRICKS.get()))
+			.unlockedBy("has_" + IcariaItems.DOLOMITE_PILLAR.get(), RecipeProvider.has(IcariaItems.DOLOMITE_PILLAR.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DOLOMITE_PILLAR_HEAD.get()));
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.SMOOTH_DOLOMITE.get()), RecipeCategory.MISC, IcariaItems.DOLOMITE_BRICKS.get())
-				.unlockedBy("has_" + IcariaItems.SMOOTH_DOLOMITE.get(), RecipeProvider.has(IcariaItems.SMOOTH_DOLOMITE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DOLOMITE_BRICKS.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + IcariaItems.SMOOTH_DOLOMITE.get(), RecipeProvider.has(IcariaItems.SMOOTH_DOLOMITE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DOLOMITE_BRICKS.get()) + "_from_stonecutting");
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.SMOOTH_DOLOMITE.get(), IcariaItems.DOLOMITE_BRICKS.get()), RecipeCategory.MISC, IcariaItems.DOLOMITE_PILLAR.get())
-				.unlockedBy("has_" + IcariaItems.SMOOTH_DOLOMITE.get(), RecipeProvider.has(IcariaItems.SMOOTH_DOLOMITE.get()))
-				.unlockedBy("has_" + IcariaItems.DOLOMITE_BRICKS.get(), RecipeProvider.has(IcariaItems.DOLOMITE_BRICKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DOLOMITE_PILLAR.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + IcariaItems.SMOOTH_DOLOMITE.get(), RecipeProvider.has(IcariaItems.SMOOTH_DOLOMITE.get()))
+			.unlockedBy("has_" + IcariaItems.DOLOMITE_BRICKS.get(), RecipeProvider.has(IcariaItems.DOLOMITE_BRICKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DOLOMITE_PILLAR.get()) + "_from_stonecutting");
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.SMOOTH_DOLOMITE.get(), IcariaItems.DOLOMITE_BRICKS.get(), IcariaItems.DOLOMITE_PILLAR.get()), RecipeCategory.MISC, IcariaItems.DOLOMITE_PILLAR_HEAD.get())
-				.unlockedBy("has_" + IcariaItems.SMOOTH_DOLOMITE.get(), RecipeProvider.has(IcariaItems.SMOOTH_DOLOMITE.get()))
-				.unlockedBy("has_" + IcariaItems.DOLOMITE_BRICKS.get(), RecipeProvider.has(IcariaItems.DOLOMITE_BRICKS.get()))
-				.unlockedBy("has_" + IcariaItems.DOLOMITE_PILLAR.get(), RecipeProvider.has(IcariaItems.DOLOMITE_PILLAR.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DOLOMITE_PILLAR_HEAD.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + IcariaItems.SMOOTH_DOLOMITE.get(), RecipeProvider.has(IcariaItems.SMOOTH_DOLOMITE.get()))
+			.unlockedBy("has_" + IcariaItems.DOLOMITE_BRICKS.get(), RecipeProvider.has(IcariaItems.DOLOMITE_BRICKS.get()))
+			.unlockedBy("has_" + IcariaItems.DOLOMITE_PILLAR.get(), RecipeProvider.has(IcariaItems.DOLOMITE_PILLAR.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DOLOMITE_PILLAR_HEAD.get()) + "_from_stonecutting");
 
 		// GRAINITE
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.GRAINITE.get(), 1)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', IcariaItems.GRAINEL.get())
-				.unlockedBy("has_" + IcariaItems.GRAINEL.get(), RecipeProvider.has(IcariaItems.GRAINEL.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.GRAINITE.get()));
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', IcariaItems.GRAINEL.get())
+			.unlockedBy("has_" + IcariaItems.GRAINEL.get(), RecipeProvider.has(IcariaItems.GRAINEL.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.GRAINITE.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.GRAINITE_BRICKS.get(), 4)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', IcariaItems.GRAINITE.get())
-				.unlockedBy("has_" + IcariaItems.GRAINITE.get(), RecipeProvider.has(IcariaItems.GRAINITE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.GRAINITE_BRICKS.get()));
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', IcariaItems.GRAINITE.get())
+			.unlockedBy("has_" + IcariaItems.GRAINITE.get(), RecipeProvider.has(IcariaItems.GRAINITE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.GRAINITE_BRICKS.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.CHISELED_GRAINITE.get(), 1)
-				.pattern("X")
-				.pattern("X")
-				.define('X', IcariaItems.GRAINITE_BRICK_DECO.slab.get())
-				.unlockedBy("has_" + IcariaItems.GRAINITE_BRICK_DECO.slab.get(), RecipeProvider.has(IcariaItems.GRAINITE_BRICK_DECO.slab.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHISELED_GRAINITE.get()));
+			.pattern("X")
+			.pattern("X")
+			.define('X', IcariaItems.GRAINITE_BRICK_DECO.slab.get())
+			.unlockedBy("has_" + IcariaItems.GRAINITE_BRICK_DECO.slab.get(), RecipeProvider.has(IcariaItems.GRAINITE_BRICK_DECO.slab.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHISELED_GRAINITE.get()));
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.GRAINITE.get()), RecipeCategory.MISC, IcariaItems.GRAINITE_BRICKS.get())
-				.unlockedBy("has_" + IcariaItems.GRAINITE.get(), RecipeProvider.has(IcariaItems.GRAINITE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.GRAINITE_BRICKS.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + IcariaItems.GRAINITE.get(), RecipeProvider.has(IcariaItems.GRAINITE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.GRAINITE_BRICKS.get()) + "_from_stonecutting");
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.GRAINITE.get(), IcariaItems.GRAINITE_BRICKS.get()), RecipeCategory.MISC, IcariaItems.CHISELED_GRAINITE.get())
-				.unlockedBy("has_" + IcariaItems.GRAINITE.get(), RecipeProvider.has(IcariaItems.GRAINITE.get()))
-				.unlockedBy("has_" + IcariaItems.GRAINITE_BRICKS.get(), RecipeProvider.has(IcariaItems.GRAINITE_BRICKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHISELED_GRAINITE.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + IcariaItems.GRAINITE.get(), RecipeProvider.has(IcariaItems.GRAINITE.get()))
+			.unlockedBy("has_" + IcariaItems.GRAINITE_BRICKS.get(), RecipeProvider.has(IcariaItems.GRAINITE_BRICKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHISELED_GRAINITE.get()) + "_from_stonecutting");
 
 		// RELICSTONE
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.RELICSTONE_BRICKS.get(), 4)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', IcariaItems.RELICSTONE.get())
-				.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_BRICKS.get()));
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', IcariaItems.RELICSTONE.get())
+			.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_BRICKS.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.RELICSTONE_TILES.get(), 4)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', IcariaItems.RELICSTONE_BRICKS.get())
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_TILES.get()));
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', IcariaItems.RELICSTONE_BRICKS.get())
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_TILES.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.CHISELED_RELICSTONE.get(), 1)
-				.pattern("X")
-				.pattern("X")
-				.define('X', IcariaItems.RELICSTONE_BRICK_DECO.slab.get())
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICK_DECO.slab.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICK_DECO.slab.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHISELED_RELICSTONE.get()));
+			.pattern("X")
+			.pattern("X")
+			.define('X', IcariaItems.RELICSTONE_BRICK_DECO.slab.get())
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICK_DECO.slab.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICK_DECO.slab.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHISELED_RELICSTONE.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.RELICSTONE_PILLAR.get(), 2)
-				.pattern("X")
-				.pattern("X")
-				.define('X', IcariaItems.RELICSTONE_BRICKS.get())
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_PILLAR.get()));
+			.pattern("X")
+			.pattern("X")
+			.define('X', IcariaItems.RELICSTONE_BRICKS.get())
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_PILLAR.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.RELICSTONE_PILLAR_HEAD.get(), 2)
-				.pattern("X")
-				.pattern("Y")
-				.define('X', IcariaItems.RELICSTONE_BRICKS.get())
-				.define('Y', IcariaItems.RELICSTONE_PILLAR.get())
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_PILLAR.get(), RecipeProvider.has(IcariaItems.RELICSTONE_PILLAR.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_PILLAR_HEAD.get()));
+			.pattern("X")
+			.pattern("Y")
+			.define('X', IcariaItems.RELICSTONE_BRICKS.get())
+			.define('Y', IcariaItems.RELICSTONE_PILLAR.get())
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_PILLAR.get(), RecipeProvider.has(IcariaItems.RELICSTONE_PILLAR.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_PILLAR_HEAD.get()));
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.MOSSY_RELICSTONE_BRICKS.get(), 1)
-				.requires(IcariaItems.RELICSTONE_BRICKS.get())
-				.requires(Items.MOSS_BLOCK)
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
-				.unlockedBy("has_" + Items.MOSS_BLOCK, RecipeProvider.has(Items.MOSS_BLOCK))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.MOSSY_RELICSTONE_BRICKS.get()) + "_from_moss_block");
+			.requires(IcariaItems.RELICSTONE_BRICKS.get())
+			.requires(Items.MOSS_BLOCK)
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
+			.unlockedBy("has_" + Items.MOSS_BLOCK, RecipeProvider.has(Items.MOSS_BLOCK))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.MOSSY_RELICSTONE_BRICKS.get()) + "_from_moss_block");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.MOSSY_RELICSTONE_BRICKS.get(), 1)
-				.requires(IcariaItems.RELICSTONE_BRICKS.get())
-				.requires(Ingredient.of(Items.VINE, IcariaItems.BLOOMY_VINE.get(), IcariaItems.BRANCHY_VINE.get(), IcariaItems.BRUSHY_VINE.get(), IcariaItems.DRY_VINE.get(), IcariaItems.REEDY_VINE.get(), IcariaItems.SWIRLY_VINE.get(), IcariaItems.THORNY_VINE.get()))
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
-				.unlockedBy("has_" + Items.VINE, RecipeProvider.has(Items.VINE))
-				.unlockedBy("has_" + IcariaItems.BLOOMY_VINE.get(), RecipeProvider.has((IcariaItems.BLOOMY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.BRANCHY_VINE.get(), RecipeProvider.has((IcariaItems.BRANCHY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.BRUSHY_VINE.get(), RecipeProvider.has((IcariaItems.BRUSHY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.DRY_VINE.get(), RecipeProvider.has((IcariaItems.DRY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.REEDY_VINE.get(), RecipeProvider.has((IcariaItems.REEDY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.SWIRLY_VINE.get(), RecipeProvider.has((IcariaItems.SWIRLY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.THORNY_VINE.get(), RecipeProvider.has((IcariaItems.THORNY_VINE.get())))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.MOSSY_RELICSTONE_BRICKS.get()) + "_from_vine");
+			.requires(IcariaItems.RELICSTONE_BRICKS.get())
+			.requires(Ingredient.of(Items.VINE, IcariaItems.BLOOMY_VINE.get(), IcariaItems.BRANCHY_VINE.get(), IcariaItems.BRUSHY_VINE.get(), IcariaItems.DRY_VINE.get(), IcariaItems.REEDY_VINE.get(), IcariaItems.SWIRLY_VINE.get(), IcariaItems.THORNY_VINE.get()))
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
+			.unlockedBy("has_" + Items.VINE, RecipeProvider.has(Items.VINE))
+			.unlockedBy("has_" + IcariaItems.BLOOMY_VINE.get(), RecipeProvider.has((IcariaItems.BLOOMY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.BRANCHY_VINE.get(), RecipeProvider.has((IcariaItems.BRANCHY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.BRUSHY_VINE.get(), RecipeProvider.has((IcariaItems.BRUSHY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.DRY_VINE.get(), RecipeProvider.has((IcariaItems.DRY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.REEDY_VINE.get(), RecipeProvider.has((IcariaItems.REEDY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.SWIRLY_VINE.get(), RecipeProvider.has((IcariaItems.SWIRLY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.THORNY_VINE.get(), RecipeProvider.has((IcariaItems.THORNY_VINE.get())))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.MOSSY_RELICSTONE_BRICKS.get()) + "_from_vine");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.MOSSY_RELICSTONE_TILES.get(), 1)
-				.requires(IcariaItems.RELICSTONE_TILES.get())
-				.requires(Items.MOSS_BLOCK)
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_TILES.get(), RecipeProvider.has(IcariaItems.RELICSTONE_TILES.get()))
-				.unlockedBy("has_" + Items.MOSS_BLOCK, RecipeProvider.has(Items.MOSS_BLOCK))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.MOSSY_RELICSTONE_TILES.get()) + "_from_moss_block");
+			.requires(IcariaItems.RELICSTONE_TILES.get())
+			.requires(Items.MOSS_BLOCK)
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_TILES.get(), RecipeProvider.has(IcariaItems.RELICSTONE_TILES.get()))
+			.unlockedBy("has_" + Items.MOSS_BLOCK, RecipeProvider.has(Items.MOSS_BLOCK))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.MOSSY_RELICSTONE_TILES.get()) + "_from_moss_block");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.MOSSY_RELICSTONE_TILES.get(), 1)
-				.requires(IcariaItems.RELICSTONE_TILES.get())
-				.requires(Ingredient.of(Items.VINE, IcariaItems.BLOOMY_VINE.get(), IcariaItems.BRANCHY_VINE.get(), IcariaItems.BRUSHY_VINE.get(), IcariaItems.DRY_VINE.get(), IcariaItems.REEDY_VINE.get(), IcariaItems.SWIRLY_VINE.get(), IcariaItems.THORNY_VINE.get()))
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_TILES.get(), RecipeProvider.has(IcariaItems.RELICSTONE_TILES.get()))
-				.unlockedBy("has_" + Items.VINE, RecipeProvider.has(Items.VINE))
-				.unlockedBy("has_" + IcariaItems.BLOOMY_VINE.get(), RecipeProvider.has((IcariaItems.BLOOMY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.BRANCHY_VINE.get(), RecipeProvider.has((IcariaItems.BRANCHY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.BRUSHY_VINE.get(), RecipeProvider.has((IcariaItems.BRUSHY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.DRY_VINE.get(), RecipeProvider.has((IcariaItems.DRY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.REEDY_VINE.get(), RecipeProvider.has((IcariaItems.REEDY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.SWIRLY_VINE.get(), RecipeProvider.has((IcariaItems.SWIRLY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.THORNY_VINE.get(), RecipeProvider.has((IcariaItems.THORNY_VINE.get())))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.MOSSY_RELICSTONE_TILES.get()) + "_from_vine");
+			.requires(IcariaItems.RELICSTONE_TILES.get())
+			.requires(Ingredient.of(Items.VINE, IcariaItems.BLOOMY_VINE.get(), IcariaItems.BRANCHY_VINE.get(), IcariaItems.BRUSHY_VINE.get(), IcariaItems.DRY_VINE.get(), IcariaItems.REEDY_VINE.get(), IcariaItems.SWIRLY_VINE.get(), IcariaItems.THORNY_VINE.get()))
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_TILES.get(), RecipeProvider.has(IcariaItems.RELICSTONE_TILES.get()))
+			.unlockedBy("has_" + Items.VINE, RecipeProvider.has(Items.VINE))
+			.unlockedBy("has_" + IcariaItems.BLOOMY_VINE.get(), RecipeProvider.has((IcariaItems.BLOOMY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.BRANCHY_VINE.get(), RecipeProvider.has((IcariaItems.BRANCHY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.BRUSHY_VINE.get(), RecipeProvider.has((IcariaItems.BRUSHY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.DRY_VINE.get(), RecipeProvider.has((IcariaItems.DRY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.REEDY_VINE.get(), RecipeProvider.has((IcariaItems.REEDY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.SWIRLY_VINE.get(), RecipeProvider.has((IcariaItems.SWIRLY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.THORNY_VINE.get(), RecipeProvider.has((IcariaItems.THORNY_VINE.get())))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.MOSSY_RELICSTONE_TILES.get()) + "_from_vine");
 
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(IcariaItems.RELICSTONE.get()), RecipeCategory.MISC, IcariaItems.SMOOTH_RELICSTONE.get(), 0.1F, 200)
-				.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.SMOOTH_RELICSTONE.get()) + "_from_smelting");
+			.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.SMOOTH_RELICSTONE.get()) + "_from_smelting");
 
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(IcariaItems.RELICSTONE_BRICKS.get()), RecipeCategory.MISC, IcariaItems.CRACKED_RELICSTONE_BRICKS.get(), 0.1F, 200)
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CRACKED_RELICSTONE_BRICKS.get()) + "_from_smelting");
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CRACKED_RELICSTONE_BRICKS.get()) + "_from_smelting");
 
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(IcariaItems.RELICSTONE_TILES.get()), RecipeCategory.MISC, IcariaItems.CRACKED_RELICSTONE_TILES.get(), 0.1F, 200)
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_TILES.get(), RecipeProvider.has(IcariaItems.RELICSTONE_TILES.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CRACKED_RELICSTONE_TILES.get()) + "_from_smelting");
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_TILES.get(), RecipeProvider.has(IcariaItems.RELICSTONE_TILES.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CRACKED_RELICSTONE_TILES.get()) + "_from_smelting");
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.RELICSTONE.get()), RecipeCategory.MISC, IcariaItems.RELICSTONE_BRICKS.get())
-				.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_BRICKS.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_BRICKS.get()) + "_from_stonecutting");
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.RELICSTONE.get(), IcariaItems.RELICSTONE_BRICKS.get()), RecipeCategory.MISC, IcariaItems.RELICSTONE_TILES.get())
-				.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_TILES.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_TILES.get()) + "_from_stonecutting");
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.RELICSTONE.get(), IcariaItems.RELICSTONE_BRICKS.get()), RecipeCategory.MISC, IcariaItems.CHISELED_RELICSTONE.get())
-				.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHISELED_RELICSTONE.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHISELED_RELICSTONE.get()) + "_from_stonecutting");
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.RELICSTONE.get(), IcariaItems.RELICSTONE_BRICKS.get()), RecipeCategory.MISC, IcariaItems.RELICSTONE_PILLAR.get())
-				.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_PILLAR.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_PILLAR.get()) + "_from_stonecutting");
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.RELICSTONE.get(), IcariaItems.RELICSTONE_BRICKS.get(), IcariaItems.RELICSTONE_PILLAR.get()), RecipeCategory.MISC, IcariaItems.RELICSTONE_PILLAR_HEAD.get())
-				.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
-				.unlockedBy("has_" + IcariaItems.RELICSTONE_PILLAR.get(), RecipeProvider.has(IcariaItems.RELICSTONE_PILLAR.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_PILLAR_HEAD.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + IcariaItems.RELICSTONE.get(), RecipeProvider.has(IcariaItems.RELICSTONE.get()))
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.RELICSTONE_BRICKS.get()))
+			.unlockedBy("has_" + IcariaItems.RELICSTONE_PILLAR.get(), RecipeProvider.has(IcariaItems.RELICSTONE_PILLAR.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.RELICSTONE_PILLAR_HEAD.get()) + "_from_stonecutting");
 
 		// PLATOSHALE
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.PLATOSHALE_BRICKS.get(), 4)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', IcariaItems.PLATOSHALE.get())
-				.unlockedBy("has_" + IcariaItems.PLATOSHALE.get(), RecipeProvider.has(IcariaItems.PLATOSHALE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.PLATOSHALE_BRICKS.get()));
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', IcariaItems.PLATOSHALE.get())
+			.unlockedBy("has_" + IcariaItems.PLATOSHALE.get(), RecipeProvider.has(IcariaItems.PLATOSHALE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.PLATOSHALE_BRICKS.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.CHISELED_PLATOSHALE.get(), 1)
-				.pattern("X")
-				.pattern("X")
-				.define('X', IcariaItems.PLATOSHALE_BRICK_DECO.slab.get())
-				.unlockedBy("has_" + IcariaItems.PLATOSHALE_BRICK_DECO.slab.get(), RecipeProvider.has(IcariaItems.PLATOSHALE_BRICK_DECO.slab.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHISELED_PLATOSHALE.get()));
+			.pattern("X")
+			.pattern("X")
+			.define('X', IcariaItems.PLATOSHALE_BRICK_DECO.slab.get())
+			.unlockedBy("has_" + IcariaItems.PLATOSHALE_BRICK_DECO.slab.get(), RecipeProvider.has(IcariaItems.PLATOSHALE_BRICK_DECO.slab.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHISELED_PLATOSHALE.get()));
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.PLATOSHALE.get()), RecipeCategory.MISC, IcariaItems.PLATOSHALE_BRICKS.get())
-				.unlockedBy("has_" + IcariaItems.PLATOSHALE.get(), RecipeProvider.has(IcariaItems.PLATOSHALE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.PLATOSHALE_BRICKS.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + IcariaItems.PLATOSHALE.get(), RecipeProvider.has(IcariaItems.PLATOSHALE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.PLATOSHALE_BRICKS.get()) + "_from_stonecutting");
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(IcariaItems.PLATOSHALE.get(), IcariaItems.PLATOSHALE_BRICKS.get()), RecipeCategory.MISC, IcariaItems.CHISELED_PLATOSHALE.get())
-				.unlockedBy("has_" + IcariaItems.PLATOSHALE.get(), RecipeProvider.has(IcariaItems.PLATOSHALE.get()))
-				.unlockedBy("has_" + IcariaItems.PLATOSHALE_BRICKS.get(), RecipeProvider.has(IcariaItems.PLATOSHALE_BRICKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHISELED_PLATOSHALE.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + IcariaItems.PLATOSHALE.get(), RecipeProvider.has(IcariaItems.PLATOSHALE.get()))
+			.unlockedBy("has_" + IcariaItems.PLATOSHALE_BRICKS.get(), RecipeProvider.has(IcariaItems.PLATOSHALE_BRICKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHISELED_PLATOSHALE.get()) + "_from_stonecutting");
 
 		// QUARTZ
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.QUARTZ_WALL.get(), 6)
-				.pattern("XXX")
-				.pattern("XXX")
-				.define('X', Items.QUARTZ_BLOCK)
-				.unlockedBy("has_" + Items.QUARTZ_BLOCK, RecipeProvider.has(Items.QUARTZ_BLOCK))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.QUARTZ_WALL.get()));
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', Items.QUARTZ_BLOCK)
+			.unlockedBy("has_" + Items.QUARTZ_BLOCK, RecipeProvider.has(Items.QUARTZ_BLOCK))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.QUARTZ_WALL.get()));
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.QUARTZ_BLOCK), RecipeCategory.MISC, IcariaItems.QUARTZ_WALL.get(), 1)
-				.unlockedBy("has_" + Items.QUARTZ_BLOCK, RecipeProvider.has(Items.QUARTZ_BLOCK))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.QUARTZ_WALL.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + Items.QUARTZ_BLOCK, RecipeProvider.has(Items.QUARTZ_BLOCK))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.QUARTZ_WALL.get()) + "_from_stonecutting");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.QUARTZ_PILLAR_HEAD.get(), 2)
-				.pattern("X")
-				.pattern("Y")
-				.define('X', Items.QUARTZ_BRICKS)
-				.define('Y', Items.QUARTZ_PILLAR)
-				.unlockedBy("has_" + Items.QUARTZ_BRICKS, RecipeProvider.has(Items.QUARTZ_BRICKS))
-				.unlockedBy("has_" + Items.QUARTZ_PILLAR, RecipeProvider.has(Items.QUARTZ_PILLAR))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.QUARTZ_PILLAR_HEAD.get()));
+			.pattern("X")
+			.pattern("Y")
+			.define('X', Items.QUARTZ_BRICKS)
+			.define('Y', Items.QUARTZ_PILLAR)
+			.unlockedBy("has_" + Items.QUARTZ_BRICKS, RecipeProvider.has(Items.QUARTZ_BRICKS))
+			.unlockedBy("has_" + Items.QUARTZ_PILLAR, RecipeProvider.has(Items.QUARTZ_PILLAR))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.QUARTZ_PILLAR_HEAD.get()));
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.QUARTZ_BLOCK, Items.QUARTZ_BRICKS, Items.QUARTZ_PILLAR), RecipeCategory.MISC, IcariaItems.QUARTZ_PILLAR_HEAD.get(), 1)
-				.unlockedBy("has_" + Items.QUARTZ_BLOCK, RecipeProvider.has(Items.QUARTZ_BLOCK))
-				.unlockedBy("has_" + Items.QUARTZ_BRICKS, RecipeProvider.has(Items.QUARTZ_BRICKS))
-				.unlockedBy("has_" + Items.QUARTZ_PILLAR, RecipeProvider.has(Items.QUARTZ_PILLAR))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.QUARTZ_PILLAR_HEAD.get()) + "_from_stonecutting");
+			.unlockedBy("has_" + Items.QUARTZ_BLOCK, RecipeProvider.has(Items.QUARTZ_BLOCK))
+			.unlockedBy("has_" + Items.QUARTZ_BRICKS, RecipeProvider.has(Items.QUARTZ_BRICKS))
+			.unlockedBy("has_" + Items.QUARTZ_PILLAR, RecipeProvider.has(Items.QUARTZ_PILLAR))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.QUARTZ_PILLAR_HEAD.get()) + "_from_stonecutting");
 
 		// MISC
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.COARSE_MARL.get(), 4)
-				.pattern("XY")
-				.pattern("YX")
-				.define('Y', IcariaItems.MARL.get())
-				.define('X', IcariaItems.GRAINEL.get())
-				.unlockedBy("has_" + IcariaItems.MARL.get(), RecipeProvider.has(IcariaItems.MARL.get()))
-				.unlockedBy("has_" + IcariaItems.GRAINEL.get(), RecipeProvider.has(IcariaItems.GRAINEL.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.COARSE_MARL.get()));
+			.pattern("XY")
+			.pattern("YX")
+			.define('Y', IcariaItems.MARL.get())
+			.define('X', IcariaItems.GRAINEL.get())
+			.unlockedBy("has_" + IcariaItems.MARL.get(), RecipeProvider.has(IcariaItems.MARL.get()))
+			.unlockedBy("has_" + IcariaItems.GRAINEL.get(), RecipeProvider.has(IcariaItems.GRAINEL.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.COARSE_MARL.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.PACKED_ARISTONE.get(), 1)
-				.pattern("XXX")
-				.pattern("XXX")
-				.pattern("XXX")
-				.define('X', IcariaItems.ARISTONE.get())
-				.unlockedBy("has_" + IcariaItems.ARISTONE.get(), RecipeProvider.has(IcariaItems.ARISTONE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.PACKED_ARISTONE.get()));
+			.pattern("XXX")
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', IcariaItems.ARISTONE.get())
+			.unlockedBy("has_" + IcariaItems.ARISTONE.get(), RecipeProvider.has(IcariaItems.ARISTONE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.PACKED_ARISTONE.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.VANADIUMSTEEL_BARS.get(), 16)
-				.pattern("XXX")
-				.pattern("XXX")
-				.define('X', IcariaItems.VANADIUMSTEEL_INGOT.get())
-				.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_INGOT.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_INGOT.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.VANADIUMSTEEL_BARS.get()));
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', IcariaItems.VANADIUMSTEEL_INGOT.get())
+			.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_INGOT.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_INGOT.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.VANADIUMSTEEL_BARS.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.get(), 2)
-				.pattern("XX")
-				.define('X', IcariaItems.VANADIUMSTEEL_BARS.get())
-				.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_BARS.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_BARS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.get()));
+			.pattern("XX")
+			.define('X', IcariaItems.VANADIUMSTEEL_BARS.get())
+			.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_BARS.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_BARS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.VANADIUMSTEEL_CHAIN.get(), 1)
-				.pattern("X")
-				.pattern("Y")
-				.pattern("X")
-				.define('X', IcariaItems.VANADIUMSTEEL_NUGGET.get())
-				.define('Y', IcariaItems.VANADIUMSTEEL_INGOT.get())
-				.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_NUGGET.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_NUGGET.get()))
-				.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_INGOT.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_INGOT.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.VANADIUMSTEEL_CHAIN.get()));
+			.pattern("X")
+			.pattern("Y")
+			.pattern("X")
+			.define('X', IcariaItems.VANADIUMSTEEL_NUGGET.get())
+			.define('Y', IcariaItems.VANADIUMSTEEL_INGOT.get())
+			.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_NUGGET.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_NUGGET.get()))
+			.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_INGOT.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_INGOT.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.VANADIUMSTEEL_CHAIN.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.KETTLE.get(), 1)
-				.pattern("X X")
-				.pattern("Y Y")
-				.pattern("XYX")
-				.define('X', IcariaItems.ORICHALCUM_INGOT.get())
-				.define('Y', IcariaItems.VANADIUMSTEEL_BLOCK.get())
-				.unlockedBy("has_" + IcariaItems.ORICHALCUM_INGOT.get(), RecipeProvider.has(IcariaItems.ORICHALCUM_INGOT.get()))
-				.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_BLOCK.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_BLOCK.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.KETTLE.get()));
+			.pattern("X X")
+			.pattern("Y Y")
+			.pattern("XYX")
+			.define('X', IcariaItems.ORICHALCUM_INGOT.get())
+			.define('Y', IcariaItems.VANADIUMSTEEL_BLOCK.get())
+			.unlockedBy("has_" + IcariaItems.ORICHALCUM_INGOT.get(), RecipeProvider.has(IcariaItems.ORICHALCUM_INGOT.get()))
+			.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_BLOCK.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_BLOCK.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.KETTLE.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.GRINDER.get(), 1)
-				.pattern("XXX")
-				.pattern("XYX")
-				.pattern("XXX")
-				.define('X', IcariaItems.SUNSTONE_BRICKS.get())
-				.define('Y', IcariaItems.ORICHALCUM_INGOT.get())
-				.unlockedBy("has_" + IcariaItems.SUNSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.SUNSTONE_BRICKS.get()))
-				.unlockedBy("has_" + IcariaItems.ORICHALCUM_INGOT.get(), RecipeProvider.has(IcariaItems.ORICHALCUM_INGOT.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.GRINDER.get()));
+			.pattern("XXX")
+			.pattern("XYX")
+			.pattern("XXX")
+			.define('X', IcariaItems.SUNSTONE_BRICKS.get())
+			.define('Y', IcariaItems.ORICHALCUM_INGOT.get())
+			.unlockedBy("has_" + IcariaItems.SUNSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.SUNSTONE_BRICKS.get()))
+			.unlockedBy("has_" + IcariaItems.ORICHALCUM_INGOT.get(), RecipeProvider.has(IcariaItems.ORICHALCUM_INGOT.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.GRINDER.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.KILN.get(), 1)
-				.pattern("XXX")
-				.pattern("X X")
-				.pattern("XXX")
-				.define('X', IcariaItems.YELLOWSTONE_BRICKS.get())
-				.unlockedBy("has_" + IcariaItems.YELLOWSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.YELLOWSTONE_BRICKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.KILN.get()));
+			.pattern("XXX")
+			.pattern("X X")
+			.pattern("XXX")
+			.define('X', IcariaItems.YELLOWSTONE_BRICKS.get())
+			.unlockedBy("has_" + IcariaItems.YELLOWSTONE_BRICKS.get(), RecipeProvider.has(IcariaItems.YELLOWSTONE_BRICKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.KILN.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.FORGE.get(), 1)
-				.pattern("XYX")
-				.pattern("X X")
-				.pattern("XYX")
-				.define('X', IcariaItems.GRAINITE_BRICKS.get())
-				.define('Y', IcariaItems.LOAM_BRICKS.get())
-				.unlockedBy("has_" + IcariaItems.GRAINITE_BRICKS.get(), RecipeProvider.has(IcariaItems.GRAINITE_BRICKS.get()))
-				.unlockedBy("has_" + IcariaItems.LOAM_BRICKS.get(), RecipeProvider.has(IcariaItems.LOAM_BRICKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.FORGE.get()));
+			.pattern("XYX")
+			.pattern("X X")
+			.pattern("XYX")
+			.define('X', IcariaItems.GRAINITE_BRICKS.get())
+			.define('Y', IcariaItems.LOAM_BRICKS.get())
+			.unlockedBy("has_" + IcariaItems.GRAINITE_BRICKS.get(), RecipeProvider.has(IcariaItems.GRAINITE_BRICKS.get()))
+			.unlockedBy("has_" + IcariaItems.LOAM_BRICKS.get(), RecipeProvider.has(IcariaItems.LOAM_BRICKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.FORGE.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.CHEST.get(), 1)
-				.pattern("XXX")
-				.pattern("X X")
-				.pattern("XXX")
-				.define('X', IcariaItems.LAUREL_PLANKS.get())
-				.unlockedBy("has_" + IcariaItems.LAUREL_PLANKS.get(), RecipeProvider.has(IcariaItems.LAUREL_PLANKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHEST.get()));
+			.pattern("XXX")
+			.pattern("X X")
+			.pattern("XXX")
+			.define('X', IcariaItems.LAUREL_PLANKS.get())
+			.unlockedBy("has_" + IcariaItems.LAUREL_PLANKS.get(), RecipeProvider.has(IcariaItems.LAUREL_PLANKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHEST.get()));
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.TRAPPED_CHEST.get(), 1)
-				.requires(IcariaItems.CHEST.get())
-				.requires(Items.TRIPWIRE_HOOK)
-				.unlockedBy("has_" + IcariaItems.CHEST.get(), RecipeProvider.has(IcariaItems.CHEST.get()))
-				.unlockedBy("has_" + Items.TRIPWIRE_HOOK, RecipeProvider.has(Items.TRIPWIRE_HOOK))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.TRAPPED_CHEST.get()));
+			.requires(IcariaItems.CHEST.get())
+			.requires(Items.TRIPWIRE_HOOK)
+			.unlockedBy("has_" + IcariaItems.CHEST.get(), RecipeProvider.has(IcariaItems.CHEST.get()))
+			.unlockedBy("has_" + Items.TRIPWIRE_HOOK, RecipeProvider.has(Items.TRIPWIRE_HOOK))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.TRAPPED_CHEST.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.PAINTING.get(), 1)
-				.pattern("XXX")
-				.pattern("XYX")
-				.pattern("XXX")
-				.define('X', Items.STICK)
-				.define('Y', IcariaItems.ARACHNE_STRING_BLOCK.get())
-				.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
-				.unlockedBy("has_" + IcariaItems.ARACHNE_STRING_BLOCK.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING_BLOCK.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.PAINTING.get()));
+			.pattern("XXX")
+			.pattern("XYX")
+			.pattern("XXX")
+			.define('X', Items.STICK)
+			.define('Y', IcariaItems.ARACHNE_STRING_BLOCK.get())
+			.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
+			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING_BLOCK.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING_BLOCK.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.PAINTING.get()));
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.GREENPOWDER.get(), 1)
-				.requires(IcariaItems.CALCITE_DUST.get())
-				.requires(IcariaItems.HALITE_DUST.get())
-				.requires(IcariaItems.LIGNITE.get())
-				.unlockedBy("has_" + IcariaItems.CALCITE_DUST.get(), RecipeProvider.has(IcariaItems.CALCITE_DUST.get()))
-				.unlockedBy("has_" + IcariaItems.HALITE_DUST.get(), RecipeProvider.has(IcariaItems.HALITE_DUST.get()))
-				.unlockedBy("has_" + IcariaItems.LIGNITE.get(), RecipeProvider.has(IcariaItems.LIGNITE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.GREENPOWDER.get()));
+			.requires(IcariaItems.CALCITE_DUST.get())
+			.requires(IcariaItems.HALITE_DUST.get())
+			.requires(IcariaItems.LIGNITE.get())
+			.unlockedBy("has_" + IcariaItems.CALCITE_DUST.get(), RecipeProvider.has(IcariaItems.CALCITE_DUST.get()))
+			.unlockedBy("has_" + IcariaItems.HALITE_DUST.get(), RecipeProvider.has(IcariaItems.HALITE_DUST.get()))
+			.unlockedBy("has_" + IcariaItems.LIGNITE.get(), RecipeProvider.has(IcariaItems.LIGNITE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.GREENPOWDER.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.GREEK_FIRE_GRENADE.get(), 1)
-				.pattern(" X ")
-				.pattern("YYY")
-				.pattern("ZZZ")
-				.define('X', IcariaItems.ARACHNE_STRING.get())
-				.define('Y', IcariaItems.KASSITEROS_NUGGET.get())
-				.define('Z', IcariaItems.GREENPOWDER.get())
-				.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
-				.unlockedBy("has_" + IcariaItems.KASSITEROS_NUGGET.get(), RecipeProvider.has(IcariaItems.KASSITEROS_NUGGET.get()))
-				.unlockedBy("has_" + IcariaItems.GREENPOWDER.get(), RecipeProvider.has(IcariaItems.GREENPOWDER.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.GREEK_FIRE_GRENADE.get()));
+			.pattern(" X ")
+			.pattern("YYY")
+			.pattern("ZZZ")
+			.define('X', IcariaItems.ARACHNE_STRING.get())
+			.define('Y', IcariaItems.KASSITEROS_NUGGET.get())
+			.define('Z', IcariaItems.GREENPOWDER.get())
+			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
+			.unlockedBy("has_" + IcariaItems.KASSITEROS_NUGGET.get(), RecipeProvider.has(IcariaItems.KASSITEROS_NUGGET.get()))
+			.unlockedBy("has_" + IcariaItems.GREENPOWDER.get(), RecipeProvider.has(IcariaItems.GREENPOWDER.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.GREEK_FIRE_GRENADE.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.UNFIRED_STORAGE_VASE.get(), 1)
-				.pattern("XXX")
-				.pattern("X X")
-				.pattern("XXX")
-				.define('X', IcariaItems.LOAM_LUMP.get())
-				.unlockedBy("has_" + IcariaItems.LOAM_LUMP.get(), RecipeProvider.has(IcariaItems.LOAM_LUMP.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.UNFIRED_STORAGE_VASE.get()));
+			.pattern("XXX")
+			.pattern("X X")
+			.pattern("XXX")
+			.define('X', IcariaItems.LOAM_LUMP.get())
+			.unlockedBy("has_" + IcariaItems.LOAM_LUMP.get(), RecipeProvider.has(IcariaItems.LOAM_LUMP.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.UNFIRED_STORAGE_VASE.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.CHEST_LABEL.get(), 1)
-				.pattern("XXX")
-				.define('X', Items.PAPER)
-				.unlockedBy("has_" + Items.PAPER, RecipeProvider.has(Items.PAPER))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHEST_LABEL.get()));
+			.pattern("XXX")
+			.define('X', Items.PAPER)
+			.unlockedBy("has_" + Items.PAPER, RecipeProvider.has(Items.PAPER))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.CHEST_LABEL.get()));
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.DAEDALIAN_GEAR.get(), 1)
-				.requires(IcariaItems.BLUE_GEARFRAGMENT.get())
-				.requires(IcariaItems.GREEN_GEARFRAGMENT.get())
-				.requires(IcariaItems.YELLOW_GEARFRAGMENT.get())
-				.unlockedBy("has_" + IcariaItems.BLUE_GEARFRAGMENT.get(), RecipeProvider.has(IcariaItems.BLUE_GEARFRAGMENT.get()))
-				.unlockedBy("has_" + IcariaItems.GREEN_GEARFRAGMENT.get(), RecipeProvider.has(IcariaItems.GREEN_GEARFRAGMENT.get()))
-				.unlockedBy("has_" + IcariaItems.YELLOW_GEARFRAGMENT.get(), RecipeProvider.has(IcariaItems.YELLOW_GEARFRAGMENT.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DAEDALIAN_GEAR.get()));
+			.requires(IcariaItems.BLUE_GEARFRAGMENT.get())
+			.requires(IcariaItems.GREEN_GEARFRAGMENT.get())
+			.requires(IcariaItems.YELLOW_GEARFRAGMENT.get())
+			.unlockedBy("has_" + IcariaItems.BLUE_GEARFRAGMENT.get(), RecipeProvider.has(IcariaItems.BLUE_GEARFRAGMENT.get()))
+			.unlockedBy("has_" + IcariaItems.GREEN_GEARFRAGMENT.get(), RecipeProvider.has(IcariaItems.GREEN_GEARFRAGMENT.get()))
+			.unlockedBy("has_" + IcariaItems.YELLOW_GEARFRAGMENT.get(), RecipeProvider.has(IcariaItems.YELLOW_GEARFRAGMENT.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.DAEDALIAN_GEAR.get()));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IcariaItems.SPELT_BREAD.get(), 1)
-				.pattern("XXX")
-				.define('X', IcariaItems.SPELT.get())
-				.unlockedBy("has_" + IcariaItems.SPELT.get(), RecipeProvider.has(IcariaItems.SPELT.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.SPELT_BREAD.get()));
+			.pattern("XXX")
+			.define('X', IcariaItems.SPELT.get())
+			.unlockedBy("has_" + IcariaItems.SPELT.get(), RecipeProvider.has(IcariaItems.SPELT.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.SPELT_BREAD.get()));
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.FRUIT_SALAD.get(), 1)
-				.requires(Items.SUGAR)
-				.requires(IcariaItems.VINEBERRIES.get())
-				.requires(IcariaItems.STRAWBERRIES.get())
-				.requires(IcariaItems.PHYSALIS.get())
-				.requires(IcariaItems.LAUREL_CHERRY.get())
-				.requires(IcariaItems.LOAM_BOWL.get())
-				.unlockedBy("has_" + Items.SUGAR, RecipeProvider.has(Items.SUGAR))
-				.unlockedBy("has_" + IcariaItems.VINEBERRIES.get(), RecipeProvider.has(IcariaItems.VINEBERRIES.get()))
-				.unlockedBy("has_" + IcariaItems.STRAWBERRIES.get(), RecipeProvider.has(IcariaItems.STRAWBERRIES.get()))
-				.unlockedBy("has_" + IcariaItems.PHYSALIS.get(), RecipeProvider.has(IcariaItems.PHYSALIS.get()))
-				.unlockedBy("has_" + IcariaItems.LAUREL_CHERRY.get(), RecipeProvider.has(IcariaItems.LAUREL_CHERRY.get()))
-				.unlockedBy("has_" + IcariaItems.LOAM_BOWL.get(), RecipeProvider.has(IcariaItems.LOAM_BOWL.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.FRUIT_SALAD.get()));
+			.requires(Items.SUGAR)
+			.requires(IcariaItems.VINEBERRIES.get())
+			.requires(IcariaItems.STRAWBERRIES.get())
+			.requires(IcariaItems.PHYSALIS.get())
+			.requires(IcariaItems.LAUREL_CHERRY.get())
+			.requires(IcariaItems.LOAM_BOWL.get())
+			.unlockedBy("has_" + Items.SUGAR, RecipeProvider.has(Items.SUGAR))
+			.unlockedBy("has_" + IcariaItems.VINEBERRIES.get(), RecipeProvider.has(IcariaItems.VINEBERRIES.get()))
+			.unlockedBy("has_" + IcariaItems.STRAWBERRIES.get(), RecipeProvider.has(IcariaItems.STRAWBERRIES.get()))
+			.unlockedBy("has_" + IcariaItems.PHYSALIS.get(), RecipeProvider.has(IcariaItems.PHYSALIS.get()))
+			.unlockedBy("has_" + IcariaItems.LAUREL_CHERRY.get(), RecipeProvider.has(IcariaItems.LAUREL_CHERRY.get()))
+			.unlockedBy("has_" + IcariaItems.LOAM_BOWL.get(), RecipeProvider.has(IcariaItems.LOAM_BOWL.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.FRUIT_SALAD.get()));
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.ONION_SOUP.get(), 1)
-				.requires(IcariaItems.ONION.get(), 3)
-				.requires(IcariaItems.HALITE_DUST.get())
-				.requires(IcariaItems.LOAM_BOWL.get())
-				.unlockedBy("has_" + IcariaItems.ONION.get(), RecipeProvider.has(IcariaItems.ONION.get()))
-				.unlockedBy("has_" + IcariaItems.HALITE_DUST.get(), RecipeProvider.has(IcariaItems.HALITE_DUST.get()))
-				.unlockedBy("has_" + IcariaItems.LOAM_BOWL.get(), RecipeProvider.has(IcariaItems.LOAM_BOWL.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.ONION_SOUP.get()));
+			.requires(IcariaItems.ONION.get(), 3)
+			.requires(IcariaItems.HALITE_DUST.get())
+			.requires(IcariaItems.LOAM_BOWL.get())
+			.unlockedBy("has_" + IcariaItems.ONION.get(), RecipeProvider.has(IcariaItems.ONION.get()))
+			.unlockedBy("has_" + IcariaItems.HALITE_DUST.get(), RecipeProvider.has(IcariaItems.HALITE_DUST.get()))
+			.unlockedBy("has_" + IcariaItems.LOAM_BOWL.get(), RecipeProvider.has(IcariaItems.LOAM_BOWL.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.ONION_SOUP.get()));
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, IcariaItems.SOW_STEW.get(), 1)
-				.requires(IcariaItems.RAW_SOW_MEAT.get())
-				.requires(Ingredient.of(Items.BROWN_MUSHROOM, Items.RED_MUSHROOM, IcariaItems.BROWN_GROUND_SHROOMS.get(), IcariaItems.GREEN_GROUND_SHROOMS.get(), IcariaItems.LARGE_BROWN_GROUND_SHROOMS.get(), IcariaItems.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaItems.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaItems.UNNAMED_TREE_SHROOMS.get()))
-				.requires(IcariaItems.HALITE_DUST.get())
-				.requires(IcariaItems.LOAM_BOWL.get())
-				.unlockedBy("has_" + IcariaItems.RAW_SOW_MEAT.get(), RecipeProvider.has(IcariaItems.RAW_SOW_MEAT.get()))
-				.unlockedBy("has_" + Items.BROWN_MUSHROOM, RecipeProvider.has(Items.BROWN_MUSHROOM))
-				.unlockedBy("has_" + Items.RED_MUSHROOM, RecipeProvider.has(Items.RED_MUSHROOM))
-				.unlockedBy("has_" + IcariaItems.BROWN_GROUND_SHROOMS.get(), RecipeProvider.has(IcariaItems.BROWN_GROUND_SHROOMS.get()))
-				.unlockedBy("has_" + IcariaItems.GREEN_GROUND_SHROOMS.get(), RecipeProvider.has(IcariaItems.GREEN_GROUND_SHROOMS.get()))
-				.unlockedBy("has_" + IcariaItems.LARGE_BROWN_GROUND_SHROOMS.get(), RecipeProvider.has(IcariaItems.LARGE_BROWN_GROUND_SHROOMS.get()))
-				.unlockedBy("has_" + IcariaItems.TINDER_FUNGUS_TREE_SHROOMS.get(), RecipeProvider.has(IcariaItems.TINDER_FUNGUS_TREE_SHROOMS.get()))
-				.unlockedBy("has_" + IcariaItems.TURKEY_TAIL_TREE_SHROOMS.get(), RecipeProvider.has(IcariaItems.TURKEY_TAIL_TREE_SHROOMS.get()))
-				.unlockedBy("has_" + IcariaItems.UNNAMED_TREE_SHROOMS.get(), RecipeProvider.has(IcariaItems.UNNAMED_TREE_SHROOMS.get()))
-				.unlockedBy("has_" + IcariaItems.HALITE_DUST.get(), RecipeProvider.has(IcariaItems.HALITE_DUST.get()))
-				.unlockedBy("has_" + IcariaItems.LOAM_BOWL.get(), RecipeProvider.has(IcariaItems.LOAM_BOWL.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.SOW_STEW.get()));
+			.requires(IcariaItems.RAW_SOW_MEAT.get())
+			.requires(Ingredient.of(Items.BROWN_MUSHROOM, Items.RED_MUSHROOM, IcariaItems.BROWN_GROUND_SHROOMS.get(), IcariaItems.GREEN_GROUND_SHROOMS.get(), IcariaItems.LARGE_BROWN_GROUND_SHROOMS.get(), IcariaItems.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaItems.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaItems.UNNAMED_TREE_SHROOMS.get()))
+			.requires(IcariaItems.HALITE_DUST.get())
+			.requires(IcariaItems.LOAM_BOWL.get())
+			.unlockedBy("has_" + IcariaItems.RAW_SOW_MEAT.get(), RecipeProvider.has(IcariaItems.RAW_SOW_MEAT.get()))
+			.unlockedBy("has_" + Items.BROWN_MUSHROOM, RecipeProvider.has(Items.BROWN_MUSHROOM))
+			.unlockedBy("has_" + Items.RED_MUSHROOM, RecipeProvider.has(Items.RED_MUSHROOM))
+			.unlockedBy("has_" + IcariaItems.BROWN_GROUND_SHROOMS.get(), RecipeProvider.has(IcariaItems.BROWN_GROUND_SHROOMS.get()))
+			.unlockedBy("has_" + IcariaItems.GREEN_GROUND_SHROOMS.get(), RecipeProvider.has(IcariaItems.GREEN_GROUND_SHROOMS.get()))
+			.unlockedBy("has_" + IcariaItems.LARGE_BROWN_GROUND_SHROOMS.get(), RecipeProvider.has(IcariaItems.LARGE_BROWN_GROUND_SHROOMS.get()))
+			.unlockedBy("has_" + IcariaItems.TINDER_FUNGUS_TREE_SHROOMS.get(), RecipeProvider.has(IcariaItems.TINDER_FUNGUS_TREE_SHROOMS.get()))
+			.unlockedBy("has_" + IcariaItems.TURKEY_TAIL_TREE_SHROOMS.get(), RecipeProvider.has(IcariaItems.TURKEY_TAIL_TREE_SHROOMS.get()))
+			.unlockedBy("has_" + IcariaItems.UNNAMED_TREE_SHROOMS.get(), RecipeProvider.has(IcariaItems.UNNAMED_TREE_SHROOMS.get()))
+			.unlockedBy("has_" + IcariaItems.HALITE_DUST.get(), RecipeProvider.has(IcariaItems.HALITE_DUST.get()))
+			.unlockedBy("has_" + IcariaItems.LOAM_BOWL.get(), RecipeProvider.has(IcariaItems.LOAM_BOWL.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(IcariaItems.SOW_STEW.get()));
 
 		// VANILLA
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ARROW, 1)
-				.pattern("X")
-				.pattern("Y")
-				.pattern("Z")
-				.define('X', IcariaItems.CHERT.get())
-				.define('Y', Items.STICK)
-				.define('Z', Items.FEATHER)
-				.unlockedBy("has_" + IcariaItems.CHERT.get(), RecipeProvider.has(IcariaItems.CHERT.get()))
-				.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
-				.unlockedBy("has_" + Items.FEATHER, RecipeProvider.has(Items.FEATHER))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.ARROW) + "_from_chert");
+			.pattern("X")
+			.pattern("Y")
+			.pattern("Z")
+			.define('X', IcariaItems.CHERT.get())
+			.define('Y', Items.STICK)
+			.define('Z', Items.FEATHER)
+			.unlockedBy("has_" + IcariaItems.CHERT.get(), RecipeProvider.has(IcariaItems.CHERT.get()))
+			.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
+			.unlockedBy("has_" + Items.FEATHER, RecipeProvider.has(Items.FEATHER))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.ARROW) + "_from_chert");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.BOOK, 1)
-				.pattern("XX")
-				.pattern("XY")
-				.define('X', Items.PAPER)
-				.define('Y', IcariaItems.AETERNAE_HIDE.get())
-				.unlockedBy("has_" + Items.PAPER, RecipeProvider.has(Items.PAPER))
-				.unlockedBy("has_" + IcariaItems.AETERNAE_HIDE.get(), RecipeProvider.has(IcariaItems.AETERNAE_HIDE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.BOOK) + "_from_aeternae_hide");
+			.pattern("XX")
+			.pattern("XY")
+			.define('X', Items.PAPER)
+			.define('Y', IcariaItems.AETERNAE_HIDE.get())
+			.unlockedBy("has_" + Items.PAPER, RecipeProvider.has(Items.PAPER))
+			.unlockedBy("has_" + IcariaItems.AETERNAE_HIDE.get(), RecipeProvider.has(IcariaItems.AETERNAE_HIDE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.BOOK) + "_from_aeternae_hide");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.COMPARATOR, 1)
-				.pattern(" X ")
-				.pattern("XYX")
-				.pattern("ZZZ")
-				.define('X', Items.REDSTONE_TORCH)
-				.define('Y', Items.QUARTZ)
-				.define('Z', IcariaItems.SMOOTH_RELICSTONE.get())
-				.unlockedBy("has_" + Items.REDSTONE_TORCH, RecipeProvider.has(Items.REDSTONE_TORCH))
-				.unlockedBy("has_" + Items.QUARTZ, RecipeProvider.has(Items.QUARTZ))
-				.unlockedBy("has_" + IcariaItems.SMOOTH_RELICSTONE.get(), RecipeProvider.has(IcariaItems.SMOOTH_RELICSTONE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.COMPARATOR) + "_from_relicstone");
+			.pattern(" X ")
+			.pattern("XYX")
+			.pattern("ZZZ")
+			.define('X', Items.REDSTONE_TORCH)
+			.define('Y', Items.QUARTZ)
+			.define('Z', IcariaItems.SMOOTH_RELICSTONE.get())
+			.unlockedBy("has_" + Items.REDSTONE_TORCH, RecipeProvider.has(Items.REDSTONE_TORCH))
+			.unlockedBy("has_" + Items.QUARTZ, RecipeProvider.has(Items.QUARTZ))
+			.unlockedBy("has_" + IcariaItems.SMOOTH_RELICSTONE.get(), RecipeProvider.has(IcariaItems.SMOOTH_RELICSTONE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.COMPARATOR) + "_from_relicstone");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.COPPER_INGOT, 1)
-				.requires(IcariaItems.CHALKOS_INGOT.get())
-				.requires(IcariaItems.CALCITE_DUST.get())
-				.unlockedBy("has_" + IcariaItems.CHALKOS_INGOT.get(), RecipeProvider.has(IcariaItems.CHALKOS_INGOT.get()))
-				.unlockedBy("has_" + IcariaItems.CALCITE_DUST.get(), RecipeProvider.has(IcariaItems.CALCITE_DUST.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.COPPER_INGOT));
+			.requires(IcariaItems.CHALKOS_INGOT.get())
+			.requires(IcariaItems.CALCITE_DUST.get())
+			.unlockedBy("has_" + IcariaItems.CHALKOS_INGOT.get(), RecipeProvider.has(IcariaItems.CHALKOS_INGOT.get()))
+			.unlockedBy("has_" + IcariaItems.CALCITE_DUST.get(), RecipeProvider.has(IcariaItems.CALCITE_DUST.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.COPPER_INGOT));
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.FIRE_CHARGE, 3)
-				.requires(IcariaItems.GREENPOWDER.get())
-				.requires(Items.BLAZE_POWDER)
-				.requires(Ingredient.of(Items.COAL, Items.CHARCOAL))
-				.unlockedBy("has_" + IcariaItems.GREENPOWDER.get(), RecipeProvider.has(IcariaItems.GREENPOWDER.get()))
-				.unlockedBy("has_" + Items.BLAZE_POWDER, RecipeProvider.has(Items.BLAZE_POWDER))
-				.unlockedBy("has_" + Items.COAL, RecipeProvider.has(Items.COAL))
-				.unlockedBy("has_" + Items.CHARCOAL, RecipeProvider.has(Items.CHARCOAL))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.FIRE_CHARGE) + "_from_greenpowder");
+			.requires(IcariaItems.GREENPOWDER.get())
+			.requires(Items.BLAZE_POWDER)
+			.requires(Ingredient.of(Items.COAL, Items.CHARCOAL))
+			.unlockedBy("has_" + IcariaItems.GREENPOWDER.get(), RecipeProvider.has(IcariaItems.GREENPOWDER.get()))
+			.unlockedBy("has_" + Items.BLAZE_POWDER, RecipeProvider.has(Items.BLAZE_POWDER))
+			.unlockedBy("has_" + Items.COAL, RecipeProvider.has(Items.COAL))
+			.unlockedBy("has_" + Items.CHARCOAL, RecipeProvider.has(Items.CHARCOAL))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.FIRE_CHARGE) + "_from_greenpowder");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.FIREWORK_ROCKET, 3)
-				.requires(IcariaItems.GREENPOWDER.get())
-				.requires(Items.PAPER)
-				.unlockedBy("has_" + IcariaItems.GREENPOWDER.get(), RecipeProvider.has(IcariaItems.GREENPOWDER.get()))
-				.unlockedBy("has_" + Items.PAPER, RecipeProvider.has(Items.PAPER))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.FIREWORK_ROCKET) + "_from_greenpowder");
+			.requires(IcariaItems.GREENPOWDER.get())
+			.requires(Items.PAPER)
+			.unlockedBy("has_" + IcariaItems.GREENPOWDER.get(), RecipeProvider.has(IcariaItems.GREENPOWDER.get()))
+			.unlockedBy("has_" + Items.PAPER, RecipeProvider.has(Items.PAPER))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.FIREWORK_ROCKET) + "_from_greenpowder");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.FLETCHING_TABLE, 1)
-				.pattern("XX")
-				.pattern("YY")
-				.pattern("YY")
-				.define('X', IcariaItems.CHERT.get())
-				.define('Y', Ingredient.of(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS, Items.JUNGLE_PLANKS, Items.ACACIA_PLANKS, Items.DARK_OAK_PLANKS, Items.MANGROVE_PLANKS, Items.CRIMSON_PLANKS, Items.WARPED_PLANKS, IcariaItems.CYPRESS_PLANKS.get(), IcariaItems.DROUGHTROOT_PLANKS.get(), IcariaItems.FIR_PLANKS.get(), IcariaItems.LAUREL_PLANKS.get(), IcariaItems.OLIVE_PLANKS.get(), IcariaItems.PLANE_PLANKS.get(), IcariaItems.POPULUS_PLANKS.get()))
-				.unlockedBy("has_" + IcariaItems.CHERT.get(), RecipeProvider.has(IcariaItems.CHERT.get()))
-				.unlockedBy("has_" + Items.OAK_PLANKS, RecipeProvider.has(Items.OAK_PLANKS))
-				.unlockedBy("has_" + Items.SPRUCE_PLANKS, RecipeProvider.has(Items.SPRUCE_PLANKS))
-				.unlockedBy("has_" + Items.BIRCH_PLANKS, RecipeProvider.has(Items.BIRCH_PLANKS))
-				.unlockedBy("has_" + Items.JUNGLE_PLANKS, RecipeProvider.has(Items.JUNGLE_PLANKS))
-				.unlockedBy("has_" + Items.ACACIA_PLANKS, RecipeProvider.has(Items.ACACIA_PLANKS))
-				.unlockedBy("has_" + Items.DARK_OAK_PLANKS, RecipeProvider.has(Items.DARK_OAK_PLANKS))
-				.unlockedBy("has_" + Items.MANGROVE_PLANKS, RecipeProvider.has(Items.MANGROVE_PLANKS))
-				.unlockedBy("has_" + Items.CRIMSON_PLANKS, RecipeProvider.has(Items.CRIMSON_PLANKS))
-				.unlockedBy("has_" + Items.WARPED_PLANKS, RecipeProvider.has(Items.WARPED_PLANKS))
-				.unlockedBy("has_" + IcariaItems.CYPRESS_PLANKS.get(), RecipeProvider.has(IcariaItems.CYPRESS_PLANKS.get()))
-				.unlockedBy("has_" + IcariaItems.DROUGHTROOT_PLANKS.get(), RecipeProvider.has(IcariaItems.DROUGHTROOT_PLANKS.get()))
-				.unlockedBy("has_" + IcariaItems.FIR_PLANKS.get(), RecipeProvider.has(IcariaItems.FIR_PLANKS.get()))
-				.unlockedBy("has_" + IcariaItems.LAUREL_PLANKS.get(), RecipeProvider.has(IcariaItems.LAUREL_PLANKS.get()))
-				.unlockedBy("has_" + IcariaItems.OLIVE_PLANKS.get(), RecipeProvider.has(IcariaItems.OLIVE_PLANKS.get()))
-				.unlockedBy("has_" + IcariaItems.PLANE_PLANKS.get(), RecipeProvider.has(IcariaItems.PLANE_PLANKS.get()))
-				.unlockedBy("has_" + IcariaItems.POPULUS_PLANKS.get(), RecipeProvider.has(IcariaItems.POPULUS_PLANKS.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.FLETCHING_TABLE) + "_from_chert");
+			.pattern("XX")
+			.pattern("YY")
+			.pattern("YY")
+			.define('X', IcariaItems.CHERT.get())
+			.define('Y', Ingredient.of(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS, Items.JUNGLE_PLANKS, Items.ACACIA_PLANKS, Items.DARK_OAK_PLANKS, Items.MANGROVE_PLANKS, Items.CRIMSON_PLANKS, Items.WARPED_PLANKS, IcariaItems.CYPRESS_PLANKS.get(), IcariaItems.DROUGHTROOT_PLANKS.get(), IcariaItems.FIR_PLANKS.get(), IcariaItems.LAUREL_PLANKS.get(), IcariaItems.OLIVE_PLANKS.get(), IcariaItems.PLANE_PLANKS.get(), IcariaItems.POPULUS_PLANKS.get()))
+			.unlockedBy("has_" + IcariaItems.CHERT.get(), RecipeProvider.has(IcariaItems.CHERT.get()))
+			.unlockedBy("has_" + Items.OAK_PLANKS, RecipeProvider.has(Items.OAK_PLANKS))
+			.unlockedBy("has_" + Items.SPRUCE_PLANKS, RecipeProvider.has(Items.SPRUCE_PLANKS))
+			.unlockedBy("has_" + Items.BIRCH_PLANKS, RecipeProvider.has(Items.BIRCH_PLANKS))
+			.unlockedBy("has_" + Items.JUNGLE_PLANKS, RecipeProvider.has(Items.JUNGLE_PLANKS))
+			.unlockedBy("has_" + Items.ACACIA_PLANKS, RecipeProvider.has(Items.ACACIA_PLANKS))
+			.unlockedBy("has_" + Items.DARK_OAK_PLANKS, RecipeProvider.has(Items.DARK_OAK_PLANKS))
+			.unlockedBy("has_" + Items.MANGROVE_PLANKS, RecipeProvider.has(Items.MANGROVE_PLANKS))
+			.unlockedBy("has_" + Items.CRIMSON_PLANKS, RecipeProvider.has(Items.CRIMSON_PLANKS))
+			.unlockedBy("has_" + Items.WARPED_PLANKS, RecipeProvider.has(Items.WARPED_PLANKS))
+			.unlockedBy("has_" + IcariaItems.CYPRESS_PLANKS.get(), RecipeProvider.has(IcariaItems.CYPRESS_PLANKS.get()))
+			.unlockedBy("has_" + IcariaItems.DROUGHTROOT_PLANKS.get(), RecipeProvider.has(IcariaItems.DROUGHTROOT_PLANKS.get()))
+			.unlockedBy("has_" + IcariaItems.FIR_PLANKS.get(), RecipeProvider.has(IcariaItems.FIR_PLANKS.get()))
+			.unlockedBy("has_" + IcariaItems.LAUREL_PLANKS.get(), RecipeProvider.has(IcariaItems.LAUREL_PLANKS.get()))
+			.unlockedBy("has_" + IcariaItems.OLIVE_PLANKS.get(), RecipeProvider.has(IcariaItems.OLIVE_PLANKS.get()))
+			.unlockedBy("has_" + IcariaItems.PLANE_PLANKS.get(), RecipeProvider.has(IcariaItems.PLANE_PLANKS.get()))
+			.unlockedBy("has_" + IcariaItems.POPULUS_PLANKS.get(), RecipeProvider.has(IcariaItems.POPULUS_PLANKS.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.FLETCHING_TABLE) + "_from_chert");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.FLINT_AND_STEEL, 1)
-				.requires(Items.IRON_INGOT)
-				.requires(IcariaItems.CHERT.get())
-				.unlockedBy("has_" + Items.IRON_INGOT, RecipeProvider.has(Items.IRON_INGOT))
-				.unlockedBy("has_" + IcariaItems.CHERT.get(), RecipeProvider.has(IcariaItems.CHERT.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.FLINT_AND_STEEL) + "_from_chert");
+			.requires(Items.IRON_INGOT)
+			.requires(IcariaItems.CHERT.get())
+			.unlockedBy("has_" + Items.IRON_INGOT, RecipeProvider.has(Items.IRON_INGOT))
+			.unlockedBy("has_" + IcariaItems.CHERT.get(), RecipeProvider.has(IcariaItems.CHERT.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.FLINT_AND_STEEL) + "_from_chert");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.IRON_INGOT, 1)
-				.requires(IcariaItems.SIDEROS_INGOT.get())
-				.requires(IcariaItems.CALCITE_DUST.get())
-				.unlockedBy("has_" + IcariaItems.SIDEROS_INGOT.get(), RecipeProvider.has(IcariaItems.SIDEROS_INGOT.get()))
-				.unlockedBy("has_" + IcariaItems.CALCITE_DUST.get(), RecipeProvider.has(IcariaItems.CALCITE_DUST.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.IRON_INGOT));
+			.requires(IcariaItems.SIDEROS_INGOT.get())
+			.requires(IcariaItems.CALCITE_DUST.get())
+			.unlockedBy("has_" + IcariaItems.SIDEROS_INGOT.get(), RecipeProvider.has(IcariaItems.SIDEROS_INGOT.get()))
+			.unlockedBy("has_" + IcariaItems.CALCITE_DUST.get(), RecipeProvider.has(IcariaItems.CALCITE_DUST.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.IRON_INGOT));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ITEM_FRAME, 1)
-				.pattern("XXX")
-				.pattern("XYX")
-				.pattern("XXX")
-				.define('X', Items.STICK)
-				.define('Y', IcariaItems.AETERNAE_HIDE.get())
-				.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
-				.unlockedBy("has_" + IcariaItems.AETERNAE_HIDE.get(), RecipeProvider.has(IcariaItems.AETERNAE_HIDE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.ITEM_FRAME) + "_from_aeternae_hide");
+			.pattern("XXX")
+			.pattern("XYX")
+			.pattern("XXX")
+			.define('X', Items.STICK)
+			.define('Y', IcariaItems.AETERNAE_HIDE.get())
+			.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
+			.unlockedBy("has_" + IcariaItems.AETERNAE_HIDE.get(), RecipeProvider.has(IcariaItems.AETERNAE_HIDE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.ITEM_FRAME) + "_from_aeternae_hide");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.LEAD, 2)
-				.pattern("XX ")
-				.pattern("XY ")
-				.pattern("  X")
-				.define('X', Tags.Items.STRINGS)
-				.define('Y', Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + Tags.Items.STRINGS, RecipeProvider.has(Tags.Items.STRINGS))
-				.unlockedBy("has_" + IcariaItems.ENDER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + IcariaItems.FIRE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + IcariaItems.NATURE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + IcariaItems.VOID_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.VOID_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + IcariaItems.WATER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.WATER_JELLYFISH_JELLY.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.LEAD) + "_from_jellyfish_jelly");
+			.pattern("XX ")
+			.pattern("XY ")
+			.pattern("  X")
+			.define('X', Tags.Items.STRINGS)
+			.define('Y', Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + Tags.Items.STRINGS, RecipeProvider.has(Tags.Items.STRINGS))
+			.unlockedBy("has_" + IcariaItems.ENDER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.FIRE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.NATURE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.VOID_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.VOID_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.WATER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.WATER_JELLYFISH_JELLY.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.LEAD) + "_from_jellyfish_jelly");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.LEATHER_HORSE_ARMOR, 1)
-				.pattern("X X")
-				.pattern("XXX")
-				.pattern("X X")
-				.define('X', IcariaItems.AETERNAE_HIDE.get())
-				.unlockedBy("has_" + IcariaItems.AETERNAE_HIDE.get(), RecipeProvider.has(IcariaItems.AETERNAE_HIDE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.LEATHER_HORSE_ARMOR) + "_from_aeternae_hide");
+			.pattern("X X")
+			.pattern("XXX")
+			.pattern("X X")
+			.define('X', IcariaItems.AETERNAE_HIDE.get())
+			.unlockedBy("has_" + IcariaItems.AETERNAE_HIDE.get(), RecipeProvider.has(IcariaItems.AETERNAE_HIDE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.LEATHER_HORSE_ARMOR) + "_from_aeternae_hide");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.MAGMA_CREAM, 1)
-				.requires(Items.BLAZE_POWDER)
-				.requires(Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + Items.BLAZE_POWDER, RecipeProvider.has(Items.BLAZE_POWDER))
-				.unlockedBy("has_" + IcariaItems.ENDER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + IcariaItems.FIRE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + IcariaItems.NATURE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + IcariaItems.VOID_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.VOID_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + IcariaItems.WATER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.WATER_JELLYFISH_JELLY.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.MAGMA_CREAM) + "_from_jellyfish_jelly");
+			.requires(Items.BLAZE_POWDER)
+			.requires(Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + Items.BLAZE_POWDER, RecipeProvider.has(Items.BLAZE_POWDER))
+			.unlockedBy("has_" + IcariaItems.ENDER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.FIRE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.NATURE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.VOID_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.VOID_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.WATER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.WATER_JELLYFISH_JELLY.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.MAGMA_CREAM) + "_from_jellyfish_jelly");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.MOSSY_COBBLESTONE, 1)
-				.requires(Items.COBBLESTONE)
-				.requires(Ingredient.of(IcariaItems.BLOOMY_VINE.get(), IcariaItems.BRANCHY_VINE.get(), IcariaItems.BRUSHY_VINE.get(), IcariaItems.DRY_VINE.get(), IcariaItems.REEDY_VINE.get(), IcariaItems.SWIRLY_VINE.get(), IcariaItems.THORNY_VINE.get()))
-				.unlockedBy("has_" + Items.COBBLESTONE, RecipeProvider.has(Items.COBBLESTONE))
-				.unlockedBy("has_" + IcariaItems.BLOOMY_VINE.get(), RecipeProvider.has((IcariaItems.BLOOMY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.BRANCHY_VINE.get(), RecipeProvider.has((IcariaItems.BRANCHY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.BRUSHY_VINE.get(), RecipeProvider.has((IcariaItems.BRUSHY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.DRY_VINE.get(), RecipeProvider.has((IcariaItems.DRY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.REEDY_VINE.get(), RecipeProvider.has((IcariaItems.REEDY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.SWIRLY_VINE.get(), RecipeProvider.has((IcariaItems.SWIRLY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.THORNY_VINE.get(), RecipeProvider.has((IcariaItems.THORNY_VINE.get())))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.MOSSY_COBBLESTONE));
+			.requires(Items.COBBLESTONE)
+			.requires(Ingredient.of(IcariaItems.BLOOMY_VINE.get(), IcariaItems.BRANCHY_VINE.get(), IcariaItems.BRUSHY_VINE.get(), IcariaItems.DRY_VINE.get(), IcariaItems.REEDY_VINE.get(), IcariaItems.SWIRLY_VINE.get(), IcariaItems.THORNY_VINE.get()))
+			.unlockedBy("has_" + Items.COBBLESTONE, RecipeProvider.has(Items.COBBLESTONE))
+			.unlockedBy("has_" + IcariaItems.BLOOMY_VINE.get(), RecipeProvider.has((IcariaItems.BLOOMY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.BRANCHY_VINE.get(), RecipeProvider.has((IcariaItems.BRANCHY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.BRUSHY_VINE.get(), RecipeProvider.has((IcariaItems.BRUSHY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.DRY_VINE.get(), RecipeProvider.has((IcariaItems.DRY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.REEDY_VINE.get(), RecipeProvider.has((IcariaItems.REEDY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.SWIRLY_VINE.get(), RecipeProvider.has((IcariaItems.SWIRLY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.THORNY_VINE.get(), RecipeProvider.has((IcariaItems.THORNY_VINE.get())))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.MOSSY_COBBLESTONE));
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.MOSSY_STONE_BRICKS, 1)
-				.requires(Items.STONE_BRICKS)
-				.requires(Ingredient.of(IcariaItems.BLOOMY_VINE.get(), IcariaItems.BRANCHY_VINE.get(), IcariaItems.BRUSHY_VINE.get(), IcariaItems.DRY_VINE.get(), IcariaItems.REEDY_VINE.get(), IcariaItems.SWIRLY_VINE.get(), IcariaItems.THORNY_VINE.get()))
-				.unlockedBy("has_" + Items.STONE_BRICKS, RecipeProvider.has(Items.STONE_BRICKS))
-				.unlockedBy("has_" + IcariaItems.BLOOMY_VINE.get(), RecipeProvider.has((IcariaItems.BLOOMY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.BRANCHY_VINE.get(), RecipeProvider.has((IcariaItems.BRANCHY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.BRUSHY_VINE.get(), RecipeProvider.has((IcariaItems.BRUSHY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.DRY_VINE.get(), RecipeProvider.has((IcariaItems.DRY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.REEDY_VINE.get(), RecipeProvider.has((IcariaItems.REEDY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.SWIRLY_VINE.get(), RecipeProvider.has((IcariaItems.SWIRLY_VINE.get())))
-				.unlockedBy("has_" + IcariaItems.THORNY_VINE.get(), RecipeProvider.has((IcariaItems.THORNY_VINE.get())))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.MOSSY_STONE_BRICKS));
+			.requires(Items.STONE_BRICKS)
+			.requires(Ingredient.of(IcariaItems.BLOOMY_VINE.get(), IcariaItems.BRANCHY_VINE.get(), IcariaItems.BRUSHY_VINE.get(), IcariaItems.DRY_VINE.get(), IcariaItems.REEDY_VINE.get(), IcariaItems.SWIRLY_VINE.get(), IcariaItems.THORNY_VINE.get()))
+			.unlockedBy("has_" + Items.STONE_BRICKS, RecipeProvider.has(Items.STONE_BRICKS))
+			.unlockedBy("has_" + IcariaItems.BLOOMY_VINE.get(), RecipeProvider.has((IcariaItems.BLOOMY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.BRANCHY_VINE.get(), RecipeProvider.has((IcariaItems.BRANCHY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.BRUSHY_VINE.get(), RecipeProvider.has((IcariaItems.BRUSHY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.DRY_VINE.get(), RecipeProvider.has((IcariaItems.DRY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.REEDY_VINE.get(), RecipeProvider.has((IcariaItems.REEDY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.SWIRLY_VINE.get(), RecipeProvider.has((IcariaItems.SWIRLY_VINE.get())))
+			.unlockedBy("has_" + IcariaItems.THORNY_VINE.get(), RecipeProvider.has((IcariaItems.THORNY_VINE.get())))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.MOSSY_STONE_BRICKS));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.PAPER, 3)
-				.pattern("XXX")
-				.define('X', IcariaItems.VINE_REED.get())
-				.unlockedBy("has_" + IcariaItems.VINE_REED.get(), RecipeProvider.has(IcariaItems.VINE_REED.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.PAPER) + "_from_vine_reed");
+			.pattern("XXX")
+			.define('X', IcariaItems.VINE_REED.get())
+			.unlockedBy("has_" + IcariaItems.VINE_REED.get(), RecipeProvider.has(IcariaItems.VINE_REED.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.PAPER) + "_from_vine_reed");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.REPEATER, 1)
-				.pattern("XYX")
-				.pattern("ZZZ")
-				.define('X', Items.REDSTONE_TORCH)
-				.define('Y', Items.REDSTONE)
-				.define('Z', IcariaItems.SMOOTH_RELICSTONE.get())
-				.unlockedBy("has_" + Items.REDSTONE_TORCH, RecipeProvider.has(Items.REDSTONE_TORCH))
-				.unlockedBy("has_" + Items.REDSTONE, RecipeProvider.has(Items.REDSTONE))
-				.unlockedBy("has_" + IcariaItems.SMOOTH_RELICSTONE.get(), RecipeProvider.has(IcariaItems.SMOOTH_RELICSTONE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.REPEATER) + "_from_relicstone");
+			.pattern("XYX")
+			.pattern("ZZZ")
+			.define('X', Items.REDSTONE_TORCH)
+			.define('Y', Items.REDSTONE)
+			.define('Z', IcariaItems.SMOOTH_RELICSTONE.get())
+			.unlockedBy("has_" + Items.REDSTONE_TORCH, RecipeProvider.has(Items.REDSTONE_TORCH))
+			.unlockedBy("has_" + Items.REDSTONE, RecipeProvider.has(Items.REDSTONE))
+			.unlockedBy("has_" + IcariaItems.SMOOTH_RELICSTONE.get(), RecipeProvider.has(IcariaItems.SMOOTH_RELICSTONE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.REPEATER) + "_from_relicstone");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STICKY_PISTON, 1)
-				.pattern("X")
-				.pattern("Y")
-				.define('X', Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
-				.define('Y', Items.PISTON)
-				.unlockedBy("has_" + IcariaItems.ENDER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + IcariaItems.FIRE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + IcariaItems.NATURE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + IcariaItems.VOID_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.VOID_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + IcariaItems.WATER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.WATER_JELLYFISH_JELLY.get()))
-				.unlockedBy("has_" + Items.PISTON, RecipeProvider.has(Items.PISTON))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.STICKY_PISTON) + "_from_jellyfish_jelly");
+			.pattern("X")
+			.pattern("Y")
+			.define('X', Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
+			.define('Y', Items.PISTON)
+			.unlockedBy("has_" + IcariaItems.ENDER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.FIRE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.NATURE_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.VOID_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.VOID_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + IcariaItems.WATER_JELLYFISH_JELLY.get(), RecipeProvider.has(IcariaItems.WATER_JELLYFISH_JELLY.get()))
+			.unlockedBy("has_" + Items.PISTON, RecipeProvider.has(Items.PISTON))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.STICKY_PISTON) + "_from_jellyfish_jelly");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.STONECUTTER, 1)
-				.pattern(" X ")
-				.pattern("YYY")
-				.define('X', Items.IRON_INGOT)
-				.define('Y', IcariaItems.SMOOTH_RELICSTONE.get())
-				.unlockedBy("has_" + Items.IRON_INGOT, RecipeProvider.has(Items.IRON_INGOT))
-				.unlockedBy("has_" + IcariaItems.SMOOTH_RELICSTONE.get(), RecipeProvider.has(IcariaItems.SMOOTH_RELICSTONE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.STONECUTTER) + "_from_relicstone");
+			.pattern(" X ")
+			.pattern("YYY")
+			.define('X', Items.IRON_INGOT)
+			.define('Y', IcariaItems.SMOOTH_RELICSTONE.get())
+			.unlockedBy("has_" + Items.IRON_INGOT, RecipeProvider.has(Items.IRON_INGOT))
+			.unlockedBy("has_" + IcariaItems.SMOOTH_RELICSTONE.get(), RecipeProvider.has(IcariaItems.SMOOTH_RELICSTONE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.STONECUTTER) + "_from_relicstone");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.SUGAR, 1)
-				.requires(IcariaItems.VINE_REED.get())
-				.unlockedBy("has_" + IcariaItems.VINE_REED.get(), RecipeProvider.has(IcariaItems.VINE_REED.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.SUGAR) + "_from_vine_reed");
+			.requires(IcariaItems.VINE_REED.get())
+			.unlockedBy("has_" + IcariaItems.VINE_REED.get(), RecipeProvider.has(IcariaItems.VINE_REED.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.SUGAR) + "_from_vine_reed");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.TNT, 1)
-				.pattern("XYX")
-				.pattern("YXY")
-				.pattern("XYX")
-				.define('X', IcariaItems.GREENPOWDER.get())
-				.define('Y', Ingredient.of(Items.SAND, Items.RED_SAND))
-				.unlockedBy("has_" + IcariaItems.GREENPOWDER.get(), RecipeProvider.has(IcariaItems.GREENPOWDER.get()))
-				.unlockedBy("has_" + Items.SAND, RecipeProvider.has(Items.SAND))
-				.unlockedBy("has_" + Items.RED_SAND, RecipeProvider.has(Items.RED_SAND))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.TNT) + "_from_greenpowder");
+			.pattern("XYX")
+			.pattern("YXY")
+			.pattern("XYX")
+			.define('X', IcariaItems.GREENPOWDER.get())
+			.define('Y', Ingredient.of(Items.SAND, Items.RED_SAND))
+			.unlockedBy("has_" + IcariaItems.GREENPOWDER.get(), RecipeProvider.has(IcariaItems.GREENPOWDER.get()))
+			.unlockedBy("has_" + Items.SAND, RecipeProvider.has(Items.SAND))
+			.unlockedBy("has_" + Items.RED_SAND, RecipeProvider.has(Items.RED_SAND))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.TNT) + "_from_greenpowder");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.WHITE_WOOL, 1)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', IcariaItems.ARACHNE_STRING.get())
-				.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.WHITE_WOOL) + "_from_arachne_string");
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', IcariaItems.ARACHNE_STRING.get())
+			.unlockedBy("has_" + IcariaItems.ARACHNE_STRING.get(), RecipeProvider.has(IcariaItems.ARACHNE_STRING.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.WHITE_WOOL) + "_from_arachne_string");
 	}
 
 	public void concoctingEntityRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Item pResourceC, EntityType<?> pEntity, int pBurnTime, int pColor) {
 		ConcoctingEntityRecipeBuilder.concoctingEntity(RecipeCategory.MISC, BuiltInRegistries.ENTITY_TYPE.getKey(pEntity).toString(), Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pBurnTime, pColor)
-				.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
-				.save(pOutput, BuiltInRegistries.ENTITY_TYPE.getKey(pEntity) + "_from_concocting");
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pOutput, BuiltInRegistries.ENTITY_TYPE.getKey(pEntity) + "_from_concocting");
 	}
 
 	public void concoctingEntityRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, EntityType<?> pEntity, int pBurnTime, int pColor) {
 		ConcoctingEntityRecipeBuilder.concoctingEntity(RecipeCategory.MISC, BuiltInRegistries.ENTITY_TYPE.getKey(pEntity).toString(), Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(), pBurnTime, pColor)
-				.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
-				.save(pOutput, BuiltInRegistries.ENTITY_TYPE.getKey(pEntity) + "_from_concocting");
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pOutput, BuiltInRegistries.ENTITY_TYPE.getKey(pEntity) + "_from_concocting");
 	}
 
 	public void concoctingEntityRecipe(RecipeOutput pOutput, Item pResource, EntityType<?> pEntity, int pBurnTime, int pColor) {
 		ConcoctingEntityRecipeBuilder.concoctingEntity(RecipeCategory.MISC, BuiltInRegistries.ENTITY_TYPE.getKey(pEntity).toString(), Ingredient.of(pResource), Ingredient.of(), Ingredient.of(), pBurnTime, pColor)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ENTITY_TYPE.getKey(pEntity) + "_from_concocting");
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ENTITY_TYPE.getKey(pEntity) + "_from_concocting");
 	}
 
 	public void concoctingExplosionsRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Item pResourceC, float pRadius, int pBurnTime, int pColor) {
 		ConcoctingExplosionsRecipeBuilder.concoctingExplosions(RecipeCategory.MISC, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pRadius, pBurnTime, pColor)
-				.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
-				.save(pOutput, "large_explosion_from_concocting");
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pOutput, "large_explosion_from_concocting");
 	}
 
 	public void concoctingExplosionsRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, float pRadius, int pBurnTime, int pColor) {
 		ConcoctingExplosionsRecipeBuilder.concoctingExplosions(RecipeCategory.MISC, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(), pRadius, pBurnTime, pColor)
-				.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
-				.save(pOutput, "small_explosion_from_concocting");
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pOutput, "small_explosion_from_concocting");
 	}
 
 	public void concoctingExplosionsRecipe(RecipeOutput pOutput, Item pResource, float pRadius, int pBurnTime, int pColor) {
 		ConcoctingExplosionsRecipeBuilder.concoctingExplosions(RecipeCategory.MISC, Ingredient.of(pResource), Ingredient.of(), Ingredient.of(), pRadius, pBurnTime, pColor)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, "micro_explosion_from_concocting");
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, "micro_explosion_from_concocting");
 	}
 
 	public void concoctingItemRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Item pResourceC, Item pResult, int pBurnTime, int pColor, int pCount) {
 		ConcoctingItemRecipeBuilder.concoctingItem(RecipeCategory.MISC, pResult, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pBurnTime, pColor, pCount)
-				.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_concocting");
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_concocting");
 	}
 
 	public void concoctingItemRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Item pResult, int pBurnTime, int pColor, int pCount) {
 		ConcoctingItemRecipeBuilder.concoctingItem(RecipeCategory.MISC, pResult, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(), pBurnTime, pColor, pCount)
-				.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_concocting");
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_concocting");
 	}
 
 	public void concoctingItemRecipe(RecipeOutput pOutput, Item pResource, Item pResult, int pBurnTime, int pColor, int pCount) {
 		ConcoctingItemRecipeBuilder.concoctingItem(RecipeCategory.MISC, pResult, Ingredient.of(pResource), Ingredient.of(), Ingredient.of(), pBurnTime, pColor, pCount)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_concocting");
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_concocting");
 	}
 
 	public void concoctingPotionRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Item pResourceC, Holder<Potion> pPotion, float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration) {
 		ConcoctingPotionRecipeBuilder.concoctingPotion(RecipeCategory.MISC, new PotionContents(pPotion), Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pPotionRadius, pBurnTime, pColor, pPotionDuration)
-				.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
-				.save(pOutput, BuiltInRegistries.POTION.getKey(pPotion.value()) + "_from_concocting");
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pOutput, BuiltInRegistries.POTION.getKey(pPotion.value()) + "_from_concocting");
 	}
 
 	public void concoctingPotionRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Holder<Potion> pPotion, float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration) {
 		ConcoctingPotionRecipeBuilder.concoctingPotion(RecipeCategory.MISC, new PotionContents(pPotion), Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(), pPotionRadius, pBurnTime, pColor, pPotionDuration)
-				.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
-				.save(pOutput, BuiltInRegistries.POTION.getKey(pPotion.value()) + "_from_concocting");
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pOutput, BuiltInRegistries.POTION.getKey(pPotion.value()) + "_from_concocting");
 	}
 
 	public void concoctingPotionRecipe(RecipeOutput pOutput, Item pResource, Holder<Potion> pPotion, float pPotionRadius, int pBurnTime, int pColor, int pPotionDuration) {
 		ConcoctingPotionRecipeBuilder.concoctingPotion(RecipeCategory.MISC, new PotionContents(pPotion), Ingredient.of(pResource), Ingredient.of(), Ingredient.of(), pPotionRadius, pBurnTime, pColor, pPotionDuration)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.POTION.getKey(pPotion.value()) + "_from_concocting");
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.POTION.getKey(pPotion.value()) + "_from_concocting");
 	}
 
 	public void forgingRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Item pResourceC, Item pResult, String pName, float pExperience, int pTime, int pCount) {
 		ForgingRecipeBuilder.forging(RecipeCategory.MISC, pResult, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(pResourceC), pExperience, pTime, pCount)
-				.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + pName);
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + pName);
 	}
 
 	public void forgingRecipe(RecipeOutput pOutput, Item pResourceA, Item pResourceB, Item pResult, float pExperience, int pTime, int pCount) {
 		ForgingRecipeBuilder.forging(RecipeCategory.MISC, pResult, Ingredient.of(pResourceA), Ingredient.of(pResourceB), Ingredient.of(), pExperience, pTime, pCount)
-				.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_forging");
+			.unlockedBy("has_" + pResourceA, RecipeProvider.has(pResourceA))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_forging");
 	}
 
 	public void forgingRecipe(RecipeOutput pOutput, Item pResource, Item pResult, float pExperience, int pTime, int pCount) {
 		ForgingRecipeBuilder.forging(RecipeCategory.MISC, pResult, Ingredient.of(pResource), Ingredient.of(), Ingredient.of(), pExperience, pTime, pCount)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResource) + "_forging");
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResource) + "_forging");
 	}
 
 	public void firingRecipe(RecipeOutput pOutput, Item pResource, Item pResult, float pExperience, int pTime, int pCount) {
 		FiringRecipeBuilder.firing(RecipeCategory.MISC, pResult, Ingredient.of(pResource), pExperience, pTime, pCount)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResource) + "_firing");
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResource) + "_firing");
 	}
 
 	public void grindingRecipe(RecipeOutput pOutput, Item pGear, Item pResource, Item pResult, float pExperience, int pTime, int pCount) {
 		GrindingRecipeBuilder.grinding(RecipeCategory.MISC, pGear, Ingredient.of(pResource), pResult, pExperience, pTime, pCount)
-				.unlockedBy("has_" + pGear, RecipeProvider.has(pGear))
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResource) + "_grinding");
+			.unlockedBy("has_" + pGear, RecipeProvider.has(pGear))
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResource) + "_grinding");
 	}
 
 	public void smeltingRecipe(RecipeOutput pOutput, Item pResource, Item pResult, float pExperience, int pTime) {
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(pResource), RecipeCategory.MISC, pResult, pExperience, pTime)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_smelting");
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_smelting");
 	}
 
 	public void adobeRecipe(RecipeOutput pOutput, Item pResource, Item pResult) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 4)
-				.pattern("XYX")
-				.pattern("YZY")
-				.pattern("XYX")
-				.define('X', IcariaItems.SPELT.get())
-				.define('Y', IcariaItems.LOAM_LUMP.get())
-				.define('Z', pResource)
-				.unlockedBy("has_" + IcariaItems.SPELT.get(), RecipeProvider.has(IcariaItems.SPELT.get()))
-				.unlockedBy("has_" + IcariaItems.LOAM_LUMP.get(), RecipeProvider.has(IcariaItems.LOAM_LUMP.get()))
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.pattern("XYX")
+			.pattern("YZY")
+			.pattern("XYX")
+			.define('X', IcariaItems.SPELT.get())
+			.define('Y', IcariaItems.LOAM_LUMP.get())
+			.define('Z', pResource)
+			.unlockedBy("has_" + IcariaItems.SPELT.get(), RecipeProvider.has(IcariaItems.SPELT.get()))
+			.unlockedBy("has_" + IcariaItems.LOAM_LUMP.get(), RecipeProvider.has(IcariaItems.LOAM_LUMP.get()))
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void smallCompressDecompressRecipes(RecipeOutput pOutput, Item pUncompressed, Item pCompressed) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pCompressed, 1)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', pUncompressed)
-				.unlockedBy("has_" + pUncompressed, RecipeProvider.has(pUncompressed))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pUncompressed) + "_small_compress");
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', pUncompressed)
+			.unlockedBy("has_" + pUncompressed, RecipeProvider.has(pUncompressed))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pUncompressed) + "_small_compress");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pUncompressed, 4)
-				.requires(pCompressed)
-				.unlockedBy("has_" + pCompressed, RecipeProvider.has(pCompressed))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pCompressed) + "_small_decompress");
+			.requires(pCompressed)
+			.unlockedBy("has_" + pCompressed, RecipeProvider.has(pCompressed))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pCompressed) + "_small_decompress");
 	}
 
 	public void smallCompressRecipe(RecipeOutput pOutput, Item pUncompressed, Item pCompressed) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pCompressed, 1)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', pUncompressed)
-				.unlockedBy("has_" + pUncompressed, RecipeProvider.has(pUncompressed))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pUncompressed) + "_small_compress");
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', pUncompressed)
+			.unlockedBy("has_" + pUncompressed, RecipeProvider.has(pUncompressed))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pUncompressed) + "_small_compress");
 	}
 
 	public void glassRecipes(RecipeOutput pOutput, Item pGlass, Item pPane, Item pPaneHorizontal) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pPane, 16)
-				.pattern("XXX")
-				.pattern("XXX")
-				.define('X', pGlass)
-				.unlockedBy("has_" + pGlass, RecipeProvider.has(pGlass))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pPane));
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', pGlass)
+			.unlockedBy("has_" + pGlass, RecipeProvider.has(pGlass))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pPane));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pPaneHorizontal, 2)
-				.pattern("XX")
-				.define('X', pPane)
-				.unlockedBy("has_" + pPane, RecipeProvider.has(pPane))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pPaneHorizontal));
+			.pattern("XX")
+			.define('X', pPane)
+			.unlockedBy("has_" + pPane, RecipeProvider.has(pPane))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pPaneHorizontal));
 	}
 
 	public void stoneRecipes(RecipeOutput pOutput, Item pCobbled, Item pStone, Item pBricks, Item pChiseled, IcariaStoneDecoItems pDeco) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pBricks, 4)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', pStone)
-				.unlockedBy("has_" + pStone, RecipeProvider.has(pStone))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pBricks));
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', pStone)
+			.unlockedBy("has_" + pStone, RecipeProvider.has(pStone))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pBricks));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pChiseled, 1)
-				.pattern("X")
-				.pattern("X")
-				.define('X', pDeco.slab.get())
-				.unlockedBy("has_" + pDeco.slab.get(), RecipeProvider.has(pDeco.slab.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pChiseled));
+			.pattern("X")
+			.pattern("X")
+			.define('X', pDeco.slab.get())
+			.unlockedBy("has_" + pDeco.slab.get(), RecipeProvider.has(pDeco.slab.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pChiseled));
 
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(pCobbled), RecipeCategory.MISC, pStone, 0.1F, 200)
-				.unlockedBy("has_" + pCobbled, RecipeProvider.has(pCobbled))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pStone) + "_from_smelting");
+			.unlockedBy("has_" + pCobbled, RecipeProvider.has(pCobbled))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pStone) + "_from_smelting");
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(pStone), RecipeCategory.MISC, pBricks)
-				.unlockedBy("has_" + pStone, RecipeProvider.has(pStone))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pBricks) + "_from_stonecutting");
+			.unlockedBy("has_" + pStone, RecipeProvider.has(pStone))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pBricks) + "_from_stonecutting");
 
 		SingleItemRecipeBuilder.stonecutting(Ingredient.of(pStone, pBricks), RecipeCategory.MISC, pChiseled)
-				.unlockedBy("has_" + pStone, RecipeProvider.has(pStone))
-				.unlockedBy("has_" + pBricks, RecipeProvider.has(pBricks))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pChiseled) + "_from_stonecutting");
+			.unlockedBy("has_" + pStone, RecipeProvider.has(pStone))
+			.unlockedBy("has_" + pBricks, RecipeProvider.has(pBricks))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pChiseled) + "_from_stonecutting");
 	}
 
 	public void largeCompressDecompressRecipes(RecipeOutput pOutput, Item pUncompressed, Item pCompressed) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pCompressed, 1)
-				.pattern("XXX")
-				.pattern("XXX")
-				.pattern("XXX")
-				.define('X', pUncompressed)
-				.unlockedBy("has_" + pUncompressed, RecipeProvider.has(pUncompressed))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pUncompressed) + "_large_compress");
+			.pattern("XXX")
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', pUncompressed)
+			.unlockedBy("has_" + pUncompressed, RecipeProvider.has(pUncompressed))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pUncompressed) + "_large_compress");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pUncompressed, 9)
-				.requires(pCompressed)
-				.unlockedBy("has_" + pCompressed, RecipeProvider.has(pCompressed))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pCompressed) + "_large_decompress");
+			.requires(pCompressed)
+			.unlockedBy("has_" + pCompressed, RecipeProvider.has(pCompressed))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pCompressed) + "_large_decompress");
 	}
 
 	public void blockIngotNuggetRecipes(RecipeOutput pOutput, Item pBlock, Item pIngot, Item pNugget) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pBlock, 1)
-				.pattern("XXX")
-				.pattern("XXX")
-				.pattern("XXX")
-				.define('X', pIngot)
-				.unlockedBy("has_" + pIngot, RecipeProvider.has(pIngot))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pIngot) + "_to_block");
+			.pattern("XXX")
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', pIngot)
+			.unlockedBy("has_" + pIngot, RecipeProvider.has(pIngot))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pIngot) + "_to_block");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pIngot, 1)
-				.pattern("XXX")
-				.pattern("XXX")
-				.pattern("XXX")
-				.define('X', pNugget)
-				.unlockedBy("has_" + pNugget, RecipeProvider.has(pNugget))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pNugget) + "_to_ingot");
+			.pattern("XXX")
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', pNugget)
+			.unlockedBy("has_" + pNugget, RecipeProvider.has(pNugget))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pNugget) + "_to_ingot");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pIngot, 9)
-				.requires(pBlock)
-				.unlockedBy("has_" + pBlock, RecipeProvider.has(pBlock))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pBlock) + "_to_ingot");
+			.requires(pBlock)
+			.unlockedBy("has_" + pBlock, RecipeProvider.has(pBlock))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pBlock) + "_to_ingot");
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pNugget, 9)
-				.requires(pIngot)
-				.unlockedBy("has_" + pIngot, RecipeProvider.has(pIngot))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pIngot) + "_to_nugget");
+			.requires(pIngot)
+			.unlockedBy("has_" + pIngot, RecipeProvider.has(pIngot))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pIngot) + "_to_nugget");
 	}
 
 	public void torchRecipe(RecipeOutput pOutput, Item pResource, Item pResult) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 4)
-				.pattern("X")
-				.pattern("Y")
-				.define('X', pResource)
-				.define('Y', Items.BONE)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.pattern("X")
+			.pattern("Y")
+			.define('X', pResource)
+			.define('Y', Items.BONE)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void cakeRecipe(RecipeOutput pOutput, Item pFruit, Item pJelly, Item pResult) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 1)
-				.pattern("ABA")
-				.pattern("CDC")
-				.pattern("EEE")
-				.define('A', pJelly)
-				.define('B', pFruit)
-				.define('C', Items.SUGAR)
-				.define('D', Items.MILK_BUCKET)
-				.define('E', IcariaItems.SPELT_FLOUR.get())
-				.unlockedBy("has_" + pJelly, RecipeProvider.has(pJelly))
-				.unlockedBy("has_" + pFruit, RecipeProvider.has(pFruit))
-				.unlockedBy("has_" + Items.SUGAR, RecipeProvider.has(Items.SUGAR))
-				.unlockedBy("has_" + Items.MILK_BUCKET, RecipeProvider.has(Items.MILK_BUCKET))
-				.unlockedBy("has_" + IcariaItems.SPELT_FLOUR.get(), RecipeProvider.has(IcariaItems.SPELT_FLOUR.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.pattern("ABA")
+			.pattern("CDC")
+			.pattern("EEE")
+			.define('A', pJelly)
+			.define('B', pFruit)
+			.define('C', Items.SUGAR)
+			.define('D', Items.MILK_BUCKET)
+			.define('E', IcariaItems.SPELT_FLOUR.get())
+			.unlockedBy("has_" + pJelly, RecipeProvider.has(pJelly))
+			.unlockedBy("has_" + pFruit, RecipeProvider.has(pFruit))
+			.unlockedBy("has_" + Items.SUGAR, RecipeProvider.has(Items.SUGAR))
+			.unlockedBy("has_" + Items.MILK_BUCKET, RecipeProvider.has(Items.MILK_BUCKET))
+			.unlockedBy("has_" + IcariaItems.SPELT_FLOUR.get(), RecipeProvider.has(IcariaItems.SPELT_FLOUR.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void woodRecipes(RecipeOutput pOutput, Item pWood, Item pWoodStripped, Item pLog, Item pLogStripped, Item pDeadLog, Item pDeadLogStripped) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pWood, 3)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', pLog)
-				.unlockedBy("has_" + pLog, RecipeProvider.has(pLog))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pWood));
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', pLog)
+			.unlockedBy("has_" + pLog, RecipeProvider.has(pLog))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pWood));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pWoodStripped, 3)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', pLogStripped)
-				.unlockedBy("has_" + pLogStripped, RecipeProvider.has(pLogStripped))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pWoodStripped));
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', pLogStripped)
+			.unlockedBy("has_" + pLogStripped, RecipeProvider.has(pLogStripped))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pWoodStripped));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pWood, 1)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', pDeadLog)
-				.unlockedBy("has_" + pDeadLog, RecipeProvider.has(pDeadLog))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pWood) + "_from_dead");
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', pDeadLog)
+			.unlockedBy("has_" + pDeadLog, RecipeProvider.has(pDeadLog))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pWood) + "_from_dead");
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pWoodStripped, 1)
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', pDeadLogStripped)
-				.unlockedBy("has_" + pDeadLogStripped, RecipeProvider.has(pDeadLogStripped))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pWoodStripped) + "_from_dead");
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', pDeadLogStripped)
+			.unlockedBy("has_" + pDeadLogStripped, RecipeProvider.has(pDeadLogStripped))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pWoodStripped) + "_from_dead");
 	}
 
 	public void planksRecipe(RecipeOutput pOutput, Item pWood, Item pWoodStripped, Item pLog, Item pLogStripped, Item pDeadLog, Item pDeadLogStripped, Item pResult) {
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 4)
-				.requires(Ingredient.of(pWood, pWoodStripped, pLog, pLogStripped))
-				.unlockedBy("has_" + pWood, RecipeProvider.has(pWood))
-				.unlockedBy("has_" + pWoodStripped, RecipeProvider.has(pWoodStripped))
-				.unlockedBy("has_" + pLog, RecipeProvider.has(pLog))
-				.unlockedBy("has_" + pLogStripped, RecipeProvider.has(pLogStripped))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.requires(Ingredient.of(pWood, pWoodStripped, pLog, pLogStripped))
+			.unlockedBy("has_" + pWood, RecipeProvider.has(pWood))
+			.unlockedBy("has_" + pWoodStripped, RecipeProvider.has(pWoodStripped))
+			.unlockedBy("has_" + pLog, RecipeProvider.has(pLog))
+			.unlockedBy("has_" + pLogStripped, RecipeProvider.has(pLogStripped))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 2)
-				.requires(Ingredient.of(pDeadLog, pDeadLogStripped))
-				.unlockedBy("has_" + pDeadLog, RecipeProvider.has(pDeadLog))
-				.unlockedBy("has_" + pDeadLogStripped, RecipeProvider.has(pDeadLogStripped))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_dead");
+			.requires(Ingredient.of(pDeadLog, pDeadLogStripped))
+			.unlockedBy("has_" + pDeadLog, RecipeProvider.has(pDeadLog))
+			.unlockedBy("has_" + pDeadLogStripped, RecipeProvider.has(pDeadLogStripped))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_dead");
 	}
 
 	public void troughRecipe(RecipeOutput pOutput, Item pPlanks, Item pLog, Item pResult) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 1)
-				.pattern("X X")
-				.pattern("YYY")
-				.define('X', pPlanks)
-				.define('Y', pLog)
-				.unlockedBy("has_" + pPlanks, RecipeProvider.has(pPlanks))
-				.unlockedBy("has_" + pLog, RecipeProvider.has(pLog))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.pattern("X X")
+			.pattern("YYY")
+			.define('X', pPlanks)
+			.define('Y', pLog)
+			.unlockedBy("has_" + pPlanks, RecipeProvider.has(pPlanks))
+			.unlockedBy("has_" + pLog, RecipeProvider.has(pLog))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void doorRecipe(RecipeOutput pOutput, Item pResource, Item pResult) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 3)
-				.pattern("XX")
-				.pattern("XX")
-				.pattern("XX")
-				.define('X', pResource)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.pattern("XX")
+			.pattern("XX")
+			.pattern("XX")
+			.define('X', pResource)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void trapdoorRecipe(RecipeOutput pOutput, Item pResource, Item pResult) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 2)
-				.pattern("XXX")
-				.pattern("XXX")
-				.define('X', pResource)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', pResource)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void ladderRecipe(RecipeOutput pOutput, Item pResource, Item pResult) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 6)
-				.pattern("X X")
-				.pattern("XXX")
-				.pattern("X X")
-				.define('X', pResource)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.pattern("X X")
+			.pattern("XXX")
+			.pattern("X X")
+			.define('X', pResource)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void signRecipe(RecipeOutput pOutput, Item pResource, Item pResult) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 3)
-				.pattern("XXX")
-				.pattern("XXX")
-				.pattern(" Y ")
-				.define('X', pResource)
-				.define('Y', Items.STICK)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.pattern("XXX")
+			.pattern("XXX")
+			.pattern(" Y ")
+			.define('X', pResource)
+			.define('Y', Items.STICK)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.unlockedBy("has_" + Items.STICK, RecipeProvider.has(Items.STICK))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void hangingSignRecipe(RecipeOutput pOutput, Item pResource, Item pResult) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 6)
-				.pattern("X X")
-				.pattern("YYY")
-				.pattern("YYY")
-				.define('X', IcariaItems.VANADIUMSTEEL_CHAIN.get())
-				.define('Y', pResource)
-				.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_CHAIN.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_CHAIN.get()))
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.pattern("X X")
+			.pattern("YYY")
+			.pattern("YYY")
+			.define('X', IcariaItems.VANADIUMSTEEL_CHAIN.get())
+			.define('Y', pResource)
+			.unlockedBy("has_" + IcariaItems.VANADIUMSTEEL_CHAIN.get(), RecipeProvider.has(IcariaItems.VANADIUMSTEEL_CHAIN.get()))
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void dyesFromFlowerRecipe(RecipeOutput pOutput, Item pResource, Item pResult) {
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 1)
-				.requires(pResource)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_" + BuiltInRegistries.ITEM.getKey(pResource).getPath());
+			.requires(pResource)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_" + BuiltInRegistries.ITEM.getKey(pResource).getPath());
 	}
 
 	public void toolRecipes(RecipeOutput pOutput, Item pResource, Item pSword, Item pDagger, Item pShovel, Item pPickaxe, Item pAxe, Item pScythe, Item pBident) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pSword, 1)
-				.pattern("X")
-				.pattern("X")
-				.pattern("Y")
-				.define('X', pResource)
-				.define('Y', Items.BONE)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pSword));
+			.pattern("X")
+			.pattern("X")
+			.pattern("Y")
+			.define('X', pResource)
+			.define('Y', Items.BONE)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pSword));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pDagger, 1)
-				.pattern("X")
-				.pattern("Y")
-				.define('X', pResource)
-				.define('Y', Items.BONE)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pDagger));
+			.pattern("X")
+			.pattern("Y")
+			.define('X', pResource)
+			.define('Y', Items.BONE)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pDagger));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pShovel, 1)
-				.pattern("X")
-				.pattern("Y")
-				.pattern("Y")
-				.define('X', pResource)
-				.define('Y', Items.BONE)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pShovel));
+			.pattern("X")
+			.pattern("Y")
+			.pattern("Y")
+			.define('X', pResource)
+			.define('Y', Items.BONE)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pShovel));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pPickaxe, 1)
-				.pattern("XXX")
-				.pattern(" Y ")
-				.pattern(" Y ")
-				.define('X', pResource)
-				.define('Y', Items.BONE)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pPickaxe));
+			.pattern("XXX")
+			.pattern(" Y ")
+			.pattern(" Y ")
+			.define('X', pResource)
+			.define('Y', Items.BONE)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pPickaxe));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pAxe, 1)
-				.pattern("XX ")
-				.pattern("XY ")
-				.pattern(" Y ")
-				.define('X', pResource)
-				.define('Y', Items.BONE)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pAxe));
+			.pattern("XX ")
+			.pattern("XY ")
+			.pattern(" Y ")
+			.define('X', pResource)
+			.define('Y', Items.BONE)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pAxe));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pScythe, 1)
-				.pattern(" XX")
-				.pattern("X Y")
-				.pattern("  Y")
-				.define('X', pResource)
-				.define('Y', Items.BONE)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pScythe));
+			.pattern(" XX")
+			.pattern("X Y")
+			.pattern("  Y")
+			.define('X', pResource)
+			.define('Y', Items.BONE)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pScythe));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pBident, 1)
-				.pattern("X X")
-				.pattern(" Y ")
-				.pattern(" Y ")
-				.define('X', pResource)
-				.define('Y', Items.BONE)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pBident));
+			.pattern("X X")
+			.pattern(" Y ")
+			.pattern(" Y ")
+			.define('X', pResource)
+			.define('Y', Items.BONE)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.unlockedBy("has_" + Items.BONE, RecipeProvider.has(Items.BONE))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pBident));
 	}
 
 	public void armorRecipes(RecipeOutput pOutput, Item pResource, Item pHelmet, Item pChestplate, Item pLeggings, Item pBoots) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pHelmet, 1)
-				.pattern("XXX")
-				.pattern("X X")
-				.define('X', pResource)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pHelmet));
+			.pattern("XXX")
+			.pattern("X X")
+			.define('X', pResource)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pHelmet));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pChestplate, 1)
-				.pattern("X X")
-				.pattern("XXX")
-				.pattern("XXX")
-				.define('X', pResource)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pChestplate));
+			.pattern("X X")
+			.pattern("XXX")
+			.pattern("XXX")
+			.define('X', pResource)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pChestplate));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pLeggings, 1)
-				.pattern("XXX")
-				.pattern("X X")
-				.pattern("X X")
-				.define('X', pResource)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pLeggings));
+			.pattern("XXX")
+			.pattern("X X")
+			.pattern("X X")
+			.define('X', pResource)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pLeggings));
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pBoots, 1)
-				.pattern("X X")
-				.pattern("X X")
-				.define('X', pResource)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pBoots));
+			.pattern("X X")
+			.pattern("X X")
+			.define('X', pResource)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pBoots));
 	}
 
 	public void vaseRecipe(RecipeOutput pOutput, Item pResource, Item pResult) {
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 1)
-				.requires(pResource)
-				.requires(IcariaItems.UNFIRED_STORAGE_VASE.get())
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.unlockedBy("has_" + IcariaItems.UNFIRED_STORAGE_VASE.get(), RecipeProvider.has(IcariaItems.UNFIRED_STORAGE_VASE.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.requires(pResource)
+			.requires(IcariaItems.UNFIRED_STORAGE_VASE.get())
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.unlockedBy("has_" + IcariaItems.UNFIRED_STORAGE_VASE.get(), RecipeProvider.has(IcariaItems.UNFIRED_STORAGE_VASE.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void bowlFlaskVialRecipe(RecipeOutput pOutput, Item pResource, Item pResult, int pCount) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, pCount)
-				.pattern("X X")
-				.pattern(" X ")
-				.define('X', pResource)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.pattern("X X")
+			.pattern(" X ")
+			.define('X', pResource)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void spellToFlaskRecipe(RecipeOutput pOutput, Item pResource, Item pResult) {
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 1)
-				.requires(pResource)
-				.requires(IcariaItems.EMPTY_FLASK.get())
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.unlockedBy("has_" + IcariaItems.EMPTY_FLASK.get(), RecipeProvider.has(IcariaItems.EMPTY_FLASK.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.requires(pResource)
+			.requires(IcariaItems.EMPTY_FLASK.get())
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.unlockedBy("has_" + IcariaItems.EMPTY_FLASK.get(), RecipeProvider.has(IcariaItems.EMPTY_FLASK.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void gearRecipe(RecipeOutput pOutput, Item pResource, Item pResult) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pResult, 1)
-				.pattern(" X ")
-				.pattern("X X")
-				.pattern(" X ")
-				.define('X', pResource)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.pattern(" X ")
+			.pattern("X X")
+			.pattern(" X ")
+			.define('X', pResource)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void foodCookingRecipes(RecipeOutput pOutput, Item pResource, Item pResult) {
 		SimpleCookingRecipeBuilder.campfireCooking((Ingredient.of(pResource)), RecipeCategory.MISC, pResult, 0.35F, 600)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_campfire_cooking");
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_campfire_cooking");
 
 		SimpleCookingRecipeBuilder.smelting((Ingredient.of(pResource)), RecipeCategory.MISC, pResult, 0.35F, 200)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_smelting");
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_smelting");
 
 		SimpleCookingRecipeBuilder.smoking((Ingredient.of(pResource)), RecipeCategory.MISC, pResult, 0.35F, 100)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_smoking");
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult) + "_from_smoking");
 	}
 
 	public void stewRecipe(RecipeOutput pOutput, Item pMeat, Item pVegetable, Item pResult) {
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 1)
-				.requires(pMeat)
-				.requires(pVegetable)
-				.requires(IcariaItems.HALITE_DUST.get())
-				.requires(IcariaItems.LOAM_BOWL.get())
-				.unlockedBy("has_" + pMeat, RecipeProvider.has(pMeat))
-				.unlockedBy("has_" + pVegetable, RecipeProvider.has(pVegetable))
-				.unlockedBy("has_" + IcariaItems.HALITE_DUST.get(), RecipeProvider.has(IcariaItems.HALITE_DUST.get()))
-				.unlockedBy("has_" + IcariaItems.LOAM_BOWL.get(), RecipeProvider.has(IcariaItems.LOAM_BOWL.get()))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.requires(pMeat)
+			.requires(pVegetable)
+			.requires(IcariaItems.HALITE_DUST.get())
+			.requires(IcariaItems.LOAM_BOWL.get())
+			.unlockedBy("has_" + pMeat, RecipeProvider.has(pMeat))
+			.unlockedBy("has_" + pVegetable, RecipeProvider.has(pVegetable))
+			.unlockedBy("has_" + IcariaItems.HALITE_DUST.get(), RecipeProvider.has(IcariaItems.HALITE_DUST.get()))
+			.unlockedBy("has_" + IcariaItems.LOAM_BOWL.get(), RecipeProvider.has(IcariaItems.LOAM_BOWL.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 
 	public void seedRecipe(RecipeOutput pOutput, Item pResource, Item pResult) {
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pResult, 1)
-				.requires(pResource)
-				.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
-				.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
+			.requires(pResource)
+			.unlockedBy("has_" + pResource, RecipeProvider.has(pResource))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(pResult));
 	}
 }

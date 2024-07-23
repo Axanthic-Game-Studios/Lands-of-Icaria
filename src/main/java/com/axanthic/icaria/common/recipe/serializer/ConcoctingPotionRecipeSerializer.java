@@ -21,19 +21,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class ConcoctingPotionRecipeSerializer implements RecipeSerializer<ConcoctingPotionRecipe> {
 	public static final MapCodec<ConcoctingPotionRecipe> CODEC = RecordCodecBuilder.mapCodec(
-			instance -> instance.group(
-					Codec.FLOAT.fieldOf("potionRadius").forGetter(recipe -> recipe.potionRadius),
-					Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
-					Codec.INT.fieldOf("color").forGetter(recipe -> recipe.color),
-					Codec.INT.fieldOf("potionDuration").forGetter(recipe -> recipe.potionDuration),
-					Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
-					PotionContents.CODEC.fieldOf("potion").forGetter(recipe -> recipe.potion)
-			).apply(instance, ConcoctingPotionRecipe::new)
+		instance -> instance.group(
+			Codec.FLOAT.fieldOf("potionRadius").forGetter(recipe -> recipe.potionRadius),
+			Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
+			Codec.INT.fieldOf("color").forGetter(recipe -> recipe.color),
+			Codec.INT.fieldOf("potionDuration").forGetter(recipe -> recipe.potionDuration),
+			Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
+			PotionContents.CODEC.fieldOf("potion").forGetter(recipe -> recipe.potion)
+		).apply(instance, ConcoctingPotionRecipe::new)
 	);
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, ConcoctingPotionRecipe> STREAM_CODEC = StreamCodec.of(
-			ConcoctingPotionRecipeSerializer::toNetwork,
-			ConcoctingPotionRecipeSerializer::fromNetwork
+		ConcoctingPotionRecipeSerializer::toNetwork,
+		ConcoctingPotionRecipeSerializer::fromNetwork
 	);
 
 	@Override

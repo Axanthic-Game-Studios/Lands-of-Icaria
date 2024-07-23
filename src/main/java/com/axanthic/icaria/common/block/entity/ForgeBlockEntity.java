@@ -323,12 +323,12 @@ public class ForgeBlockEntity extends BlockEntity {
 		List<RecipeHolder<?>> list = Lists.newArrayList();
 		for (var entry : this.recipesUsed.object2IntEntrySet()) {
 			pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent(
-					(recipe) -> {
-						list.add(recipe);
-						if (recipe.value() instanceof ForgingRecipe forgingRecipe) {
-							this.createExperience(pLevel, pPopVec, entry.getIntValue(), forgingRecipe.getExperience());
-						}
+				(recipe) -> {
+					list.add(recipe);
+					if (recipe.value() instanceof ForgingRecipe forgingRecipe) {
+						this.createExperience(pLevel, pPopVec, entry.getIntValue(), forgingRecipe.getExperience());
 					}
+				}
 			);
 		}
 

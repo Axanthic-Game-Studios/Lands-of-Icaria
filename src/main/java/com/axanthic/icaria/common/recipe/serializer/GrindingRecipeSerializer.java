@@ -21,18 +21,18 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe> {
 	public static final MapCodec<GrindingRecipe> CODEC = RecordCodecBuilder.mapCodec(
-			instance -> instance.group(
-					Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
-					Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
-					Ingredient.CODEC.fieldOf("gear").forGetter(recipe -> recipe.gear),
-					Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
-					ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)
-			).apply(instance, GrindingRecipe::new)
+		instance -> instance.group(
+			Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
+			Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
+			Ingredient.CODEC.fieldOf("gear").forGetter(recipe -> recipe.gear),
+			Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
+			ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)
+		).apply(instance, GrindingRecipe::new)
 	);
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, GrindingRecipe> STREAM_CODEC = StreamCodec.of(
-			GrindingRecipeSerializer::toNetwork,
-			GrindingRecipeSerializer::fromNetwork
+		GrindingRecipeSerializer::toNetwork,
+		GrindingRecipeSerializer::fromNetwork
 	);
 
 	@Override

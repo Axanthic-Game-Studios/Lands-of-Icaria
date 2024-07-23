@@ -21,17 +21,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class ForgingRecipeSerializer implements RecipeSerializer<ForgingRecipe> {
 	public static final MapCodec<ForgingRecipe> CODEC = RecordCodecBuilder.mapCodec(
-			instance -> instance.group(
-					Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
-					Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
-					Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
-					ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)
-			).apply(instance, ForgingRecipe::new)
+		instance -> instance.group(
+			Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
+			Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
+			Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
+			ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)
+		).apply(instance, ForgingRecipe::new)
 	);
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, ForgingRecipe> STREAM_CODEC = StreamCodec.of(
-			ForgingRecipeSerializer::toNetwork,
-			ForgingRecipeSerializer::fromNetwork
+		ForgingRecipeSerializer::toNetwork,
+		ForgingRecipeSerializer::fromNetwork
 	);
 
 	@Override

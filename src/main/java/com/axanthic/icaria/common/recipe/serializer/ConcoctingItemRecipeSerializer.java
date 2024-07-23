@@ -21,17 +21,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class ConcoctingItemRecipeSerializer implements RecipeSerializer<ConcoctingItemRecipe> {
 	public static final MapCodec<ConcoctingItemRecipe> CODEC = RecordCodecBuilder.mapCodec(
-			instance -> instance.group(
-					Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
-					Codec.INT.fieldOf("color").forGetter(recipe -> recipe.color),
-					ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output),
-					Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients)
-			).apply(instance, ConcoctingItemRecipe::new)
+		instance -> instance.group(
+			Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
+			Codec.INT.fieldOf("color").forGetter(recipe -> recipe.color),
+			ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output),
+			Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients)
+		).apply(instance, ConcoctingItemRecipe::new)
 	);
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, ConcoctingItemRecipe> STREAM_CODEC = StreamCodec.of(
-			ConcoctingItemRecipeSerializer::toNetwork,
-			ConcoctingItemRecipeSerializer::fromNetwork
+		ConcoctingItemRecipeSerializer::toNetwork,
+		ConcoctingItemRecipeSerializer::fromNetwork
 	);
 
 	@Override
