@@ -11,7 +11,7 @@
   "size": 16,
   "spawn_overrides": {},
   "start_pool": "landsoficaria:ruin/building",
-  "step": "strongholds",
+  "step": "underground_decoration",
   "terrain_adaptation": "beard_thin",
   "use_expansion_hack": false
 }

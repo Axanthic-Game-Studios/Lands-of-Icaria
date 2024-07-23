@@ -19,16 +19,16 @@
       "landsoficaria:horizontal_relicstone_pillar",
       "landsoficaria:vertical_relicstone_pillar"
     ],
-    [
-      "landsoficaria:ruin"
-    ],
+    [],
     [
       "landsoficaria:vanadium_ore",
       "landsoficaria:sliver_ore",
       "landsoficaria:sideros_ore",
       "landsoficaria:anthracite_ore"
     ],
-    [],
+    [
+      "landsoficaria:ruin"
+    ],
     [],
     [
       "landsoficaria:grainel_chert",

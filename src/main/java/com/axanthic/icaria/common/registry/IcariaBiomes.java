@@ -244,12 +244,12 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VERTICAL_RELICSTONE_PILLAR);
 
-		pBuilder.addFeature(GenerationStep.Decoration.STRONGHOLDS, IcariaPlacedFeatures.RUIN);
-
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.VANADIUM_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SLIVER_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SIDEROS_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.ANTHRACITE_ORE);
+
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, IcariaPlacedFeatures.RUIN);
 
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MARL_CHERT);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MARL_BONES);
@@ -557,12 +557,12 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VERTICAL_RELICSTONE_PILLAR);
 
-		pBuilder.addFeature(GenerationStep.Decoration.STRONGHOLDS, IcariaPlacedFeatures.RUIN);
-
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.VANADIUM_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SLIVER_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SIDEROS_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.ANTHRACITE_ORE);
+
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, IcariaPlacedFeatures.RUIN);
 
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MARL_CHERT);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MARL_BONES);
@@ -858,12 +858,12 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VERTICAL_RELICSTONE_PILLAR);
 
-		pBuilder.addFeature(GenerationStep.Decoration.STRONGHOLDS, IcariaPlacedFeatures.RUIN);
-
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.VANADIUM_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SLIVER_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SIDEROS_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.ANTHRACITE_ORE);
+
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, IcariaPlacedFeatures.RUIN);
 
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MARL_CHERT);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.MARL_BONES);
@@ -1105,12 +1105,12 @@ public class IcariaBiomes {
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.HORIZONTAL_RELICSTONE_PILLAR);
 		pBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, IcariaPlacedFeatures.VERTICAL_RELICSTONE_PILLAR);
 
-		pBuilder.addFeature(GenerationStep.Decoration.STRONGHOLDS, IcariaPlacedFeatures.RUIN);
-
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.VANADIUM_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SLIVER_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.SIDEROS_ORE);
 		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, IcariaPlacedFeatures.ANTHRACITE_ORE);
+
+		pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, IcariaPlacedFeatures.RUIN);
 
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.GRAINEL_CHERT);
 		pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, IcariaPlacedFeatures.SUNSTONE_RUBBLE);
