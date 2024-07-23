@@ -23,6 +23,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaTemplatePools {
+	public static final ResourceKey<StructureTemplatePool> PORTAL_ICARIA = IcariaTemplatePools.createKey("portal/icaria");
+	public static final ResourceKey<StructureTemplatePool> PORTAL_NETHER = IcariaTemplatePools.createKey("portal/nether");
+
 	public static final ResourceKey<StructureTemplatePool> RUIN_BUILDING = IcariaTemplatePools.createKey("ruin/building");
 	public static final ResourceKey<StructureTemplatePool> RUIN_ENDING = IcariaTemplatePools.createKey("ruin/ending");
 	public static final ResourceKey<StructureTemplatePool> RUIN_STREET = IcariaTemplatePools.createKey("ruin/street");
@@ -106,6 +109,9 @@ public class IcariaTemplatePools {
 		var pools = pContext.lookup(Registries.TEMPLATE_POOL);
 		var empty = pools.getOrThrow(Pools.EMPTY);
 
+		pContext.register(IcariaTemplatePools.PORTAL_ICARIA, IcariaTemplatePools.portalIcaria(empty));
+		pContext.register(IcariaTemplatePools.PORTAL_NETHER, IcariaTemplatePools.portalNether(empty));
+
 		pContext.register(IcariaTemplatePools.RUIN_BUILDING, IcariaTemplatePools.ruinBuilding(empty, lists.getOrThrow(IcariaProcessorLists.RUIN)));
 		pContext.register(IcariaTemplatePools.RUIN_ENDING, IcariaTemplatePools.ruinEnding(empty));
 		pContext.register(IcariaTemplatePools.RUIN_STREET, IcariaTemplatePools.ruinStreet(empty));
@@ -183,6 +189,36 @@ public class IcariaTemplatePools {
 		pContext.register(IcariaTemplatePools.ARACHNE_DRONE, IcariaTemplatePools.arachneDrone(empty));
 		pContext.register(IcariaTemplatePools.CAPTAIN_REVENANT, IcariaTemplatePools.captainRevenant(empty));
 		pContext.register(IcariaTemplatePools.REVENANT, IcariaTemplatePools.revenant(empty));
+	}
+
+	public static StructureTemplatePool portalIcaria(Holder<StructureTemplatePool> pFallback) {
+		return new StructureTemplatePool(pFallback, ImmutableList.of(
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "ruined_portal_icaria_1000"), 2),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "ruined_portal_icaria_1001"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "ruined_portal_icaria_1002"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "ruined_portal_icaria_1003"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "ruined_portal_icaria_1004"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "mirrored_ruined_portal_icaria_1000"), 2),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "mirrored_ruined_portal_icaria_1001"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "mirrored_ruined_portal_icaria_1002"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "mirrored_ruined_portal_icaria_1003"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "mirrored_ruined_portal_icaria_1004"), 1)
+		), StructureTemplatePool.Projection.RIGID);
+	}
+
+	public static StructureTemplatePool portalNether(Holder<StructureTemplatePool> pFallback) {
+		return new StructureTemplatePool(pFallback, ImmutableList.of(
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "ruined_portal_nether_1000"), 2),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "ruined_portal_nether_1001"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "ruined_portal_nether_1002"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "ruined_portal_nether_1003"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "ruined_portal_nether_1004"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "mirrored_ruined_portal_nether_1000"), 2),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "mirrored_ruined_portal_nether_1001"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "mirrored_ruined_portal_nether_1002"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "mirrored_ruined_portal_nether_1003"), 1),
+			Pair.of(StructurePoolElement.single(IcariaIdents.ID + ":" + "portal" + "/" + "mirrored_ruined_portal_nether_1004"), 1)
+		), StructureTemplatePool.Projection.RIGID);
 	}
 
 	public static StructureTemplatePool ruinBuilding(Holder<StructureTemplatePool> pFallback, Holder<StructureProcessorList> pProcessor) {

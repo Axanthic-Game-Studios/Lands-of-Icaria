@@ -23,6 +23,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaStructureSets {
+	public static final ResourceKey<StructureSet> PORTAL = IcariaStructureSets.createKey("portal");
 	public static final ResourceKey<StructureSet> RUIN = IcariaStructureSets.createKey("ruin");
 	public static final ResourceKey<StructureSet> TEMPLE = IcariaStructureSets.createKey("temple");
 	public static final ResourceKey<StructureSet> VILLAGES = IcariaStructureSets.createKey("villages");
@@ -31,6 +32,7 @@ public class IcariaStructureSets {
 		var structures = pContext.lookup(Registries.STRUCTURE);
 		var structureSets = pContext.lookup(Registries.STRUCTURE_SET);
 
+		IcariaStructureSets.register(pContext, IcariaStructureSets.PORTAL, List.of(StructureSet.entry(structures.getOrThrow(IcariaStructures.PORTAL_ICARIA), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.PORTAL_NETHER), 1)), Optional.of(new StructurePlacement.ExclusionZone(structureSets.getOrThrow(IcariaStructureSets.VILLAGES), 2)), 6, 4, 1797898789);
 		IcariaStructureSets.register(pContext, IcariaStructureSets.RUIN, List.of(StructureSet.entry(structures.getOrThrow(IcariaStructures.RUIN), 1)), Optional.empty(), 4, 2, 1347443952);
 		IcariaStructureSets.register(pContext, IcariaStructureSets.TEMPLE, List.of(StructureSet.entry(structures.getOrThrow(IcariaStructures.TEMPLE), 1)), Optional.of(new StructurePlacement.ExclusionZone(structureSets.getOrThrow(IcariaStructureSets.VILLAGES), 2)), 6, 4, 1821000543);
 		IcariaStructureSets.register(pContext, IcariaStructureSets.VILLAGES, List.of(StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_FOREST_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_FOREST_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_SCRUBLAND_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_SCRUBLAND_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_STEPPE_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_STEPPE_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_DESERT_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_DESERT_VILLAGE), 1)), Optional.empty(), 10, 8, 1117821874);

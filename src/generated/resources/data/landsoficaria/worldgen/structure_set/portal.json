@@ -1,0 +1,22 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "exclusion_zone": {
+      "chunk_count": 2,
+      "other_set": "landsoficaria:villages"
+    },
+    "salt": 1797898789,
+    "separation": 4,
+    "spacing": 6
+  },
+  "structures": [
+    {
+      "structure": "landsoficaria:portal/icaria",
+      "weight": 1
+    },
+    {
+      "structure": "landsoficaria:portal/nether",
+      "weight": 1
+    }
+  ]
+}
