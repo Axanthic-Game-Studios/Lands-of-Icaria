@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.block.KettleBlock;
 import com.axanthic.icaria.common.block.TripleBarrelRackBlock;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
@@ -31,7 +32,7 @@ public class AntiGravitySpellEntity extends SpellEntity {
 		var blockState = level.getBlockState(blockPos);
 		var block = blockState.getBlock();
 		var entity = new FloatingBlockEntity(IcariaEntityTypes.FLOATING_BLOCK.get(), level, blockState, blockPos);
-		if (level.getBlockEntity(blockPos) == null && !(block instanceof TripleBarrelRackBlock) && !(block instanceof DoorBlock)) {
+		if (level.getBlockState(blockPos).getDestroySpeed(level, blockPos) > 0 && level.getBlockEntity(blockPos) == null && !(block instanceof DoorBlock) && !(block instanceof KettleBlock) && !(block instanceof TripleBarrelRackBlock)) {
 			entity.moveTo(blockPos, 0.0F, 0.0F);
 			entity.setDeltaMovement(0.0D, 0.05D, 0.0D);
 			level.addFreshEntity(entity);
