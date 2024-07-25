@@ -1,10 +1,10 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#minecraft:is_nether",
+  "biomes": "minecraft:crimson_forest",
   "spawners": {
     "type": "landsoficaria:nether_pyromancer_revenant",
     "maxCount": 1,
     "minCount": 1,
-    "weight": 100
+    "weight": 5
   }
 }

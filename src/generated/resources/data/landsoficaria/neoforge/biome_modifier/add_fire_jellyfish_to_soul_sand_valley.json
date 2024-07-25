@@ -1,10 +1,10 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#minecraft:is_nether",
+  "biomes": "minecraft:soul_sand_valley",
   "spawners": {
     "type": "landsoficaria:fire_jellyfish",
-    "maxCount": 5,
-    "minCount": 3,
-    "weight": 100
+    "maxCount": 1,
+    "minCount": 1,
+    "weight": 20
   }
 }

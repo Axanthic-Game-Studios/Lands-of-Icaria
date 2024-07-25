@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "minecraft:warped_forest",
+  "spawners": {
+    "type": "landsoficaria:fire_jellyfish",
+    "maxCount": 1,
+    "minCount": 1,
+    "weight": 1
+  }
+}

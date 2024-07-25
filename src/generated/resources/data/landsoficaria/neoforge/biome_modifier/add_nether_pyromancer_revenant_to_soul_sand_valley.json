@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "minecraft:soul_sand_valley",
+  "spawners": {
+    "type": "landsoficaria:nether_pyromancer_revenant",
+    "maxCount": 1,
+    "minCount": 1,
+    "weight": 20
+  }
+}

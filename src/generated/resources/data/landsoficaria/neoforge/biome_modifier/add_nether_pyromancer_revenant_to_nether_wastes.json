@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "minecraft:nether_wastes",
+  "spawners": {
+    "type": "landsoficaria:nether_pyromancer_revenant",
+    "maxCount": 1,
+    "minCount": 1,
+    "weight": 100
+  }
+}
