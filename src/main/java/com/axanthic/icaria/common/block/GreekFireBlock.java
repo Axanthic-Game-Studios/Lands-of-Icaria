@@ -78,7 +78,6 @@ public class GreekFireBlock extends Block {
 
 	@Override
 	public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
-		super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
 		pLevel.scheduleTick(pPos, this, this.getFireTickDelay(pLevel.random));
 	}
 
