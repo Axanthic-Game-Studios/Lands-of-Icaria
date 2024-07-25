@@ -5,13 +5,17 @@ import com.axanthic.icaria.common.registry.*;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -45,9 +49,30 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 	}
 
 	@Override
+	public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+		pLevel.scheduleTick(pPos, this, 2);
+	}
+
+	@Override
+	public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+		if (pLevel.getBlockState(pPos.below()).canBeReplaced()) {
+			var entity = new LootVaseEntity(IcariaEntityTypes.LOOT_VASE.get(), pLevel, pState, pPos);
+			entity.moveTo(pPos, 0, 0);
+			pLevel.addFreshEntity(entity);
+			pLevel.removeBlock(pPos, false);
+		}
+	}
+
+	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
 		var fluid = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
 		return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+	}
+
+	@Override
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		pLevel.scheduleTick(pCurrentPos, this, 2);
+		return super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 	}
 
 	@Override

@@ -8,7 +8,9 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -21,6 +23,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
@@ -104,6 +107,11 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 	}
 
 	@Override
+	public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+		pLevel.scheduleTick(pPos, this, 2);
+	}
+
+	@Override
 	public void onProjectileHit(Level pLevel, BlockState pState, BlockHitResult pHit, Projectile pProjectile) {
 		var pos = pHit.getBlockPos();
 		var x = pos.getX();
@@ -178,6 +186,16 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 	}
 
 	@Override
+	public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+		if (pLevel.getBlockState(pPos.below()).canBeReplaced()) {
+			var entity = new IcariaBarrelEntity(IcariaEntityTypes.BARREL.get(), pLevel, pState, pPos);
+			entity.moveTo(pPos, 0, 0);
+			pLevel.addFreshEntity(entity);
+			pLevel.removeBlock(pPos, false);
+		}
+	}
+
+	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
 		var fluidState = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
 		var horizontalDirection = pContext.getHorizontalDirection();
@@ -193,6 +211,12 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 	@Override
 	public BlockState rotate(BlockState pState, Rotation pRotation) {
 		return pState.setValue(IcariaBlockStateProperties.BARREL_FACING, pRotation.rotate(pState.getValue(IcariaBlockStateProperties.BARREL_FACING))).setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	}
+
+	@Override
+	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+		pLevel.scheduleTick(pCurrentPos, this, 2);
+		return super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
 	}
 
 	@Override
