@@ -104,18 +104,6 @@
         "maxCount": 3,
         "minCount": 1,
         "weight": 100
-      },
-      {
-        "type": "landsoficaria:myrmeke_soldier",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:myrmeke_queen",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 10
       }
     ],
     "underground_water_creature": [],

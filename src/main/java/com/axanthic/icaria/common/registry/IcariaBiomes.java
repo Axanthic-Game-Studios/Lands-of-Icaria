@@ -219,8 +219,6 @@ public class IcariaBiomes {
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FIR_FOREST_HAG.get(), 10, 1, 1));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), 10, 1, 1));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_DRONE.get(), 100, 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), 100, 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_QUEEN.get(), 10, 1, 1));
 	}
 
 	public static Biome lushForestBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
@@ -532,8 +530,6 @@ public class IcariaBiomes {
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), 10, 1, 1));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.PLANE_FOREST_HAG.get(), 10, 1, 1));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_DRONE.get(), 100, 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), 100, 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_QUEEN.get(), 10, 1, 1));
 	}
 
 	public static Biome lushScrublandBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
@@ -833,8 +829,6 @@ public class IcariaBiomes {
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), 10, 1, 1));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), 10, 1, 1));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_DRONE.get(), 100, 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), 100, 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_QUEEN.get(), 10, 1, 1));
 	}
 
 	public static Biome lushSteppeBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
@@ -1083,8 +1077,6 @@ public class IcariaBiomes {
 	public static void lushDesertMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), 10, 1, 1));
 		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_DRONE.get(), 100, 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), 100, 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_QUEEN.get(), 10, 1, 1));
 	}
 
 	public static Biome lushDesertBiome(HolderGetter<PlacedFeature> pFeatures, HolderGetter<ConfiguredWorldCarver<?>> pCarvers) {
