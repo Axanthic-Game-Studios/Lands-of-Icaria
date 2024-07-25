@@ -846,20 +846,11 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 		this.tag(IcariaBlockTags.ICARIA_PORTAL_BLOCKS)
 			.add(Blocks.QUARTZ_SLAB)
-			.add(Blocks.SMOOTH_QUARTZ_SLAB)
 			.add(Blocks.QUARTZ_PILLAR)
 			.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get())
 			.add(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get())
 			.add(IcariaBlocks.DOLOMITE_PILLAR.get())
-			.add(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get())
-			.add(IcariaBlocks.RELICSTONE_DECO.slab.get())
-			.add(IcariaBlocks.SMOOTH_RELICSTONE_DECO.slab.get())
-			.add(IcariaBlocks.RELICSTONE_BRICK_DECO.slab.get())
-			.add(IcariaBlocks.CRACKED_RELICSTONE_BRICK_DECO.slab.get())
-			.add(IcariaBlocks.MOSSY_RELICSTONE_BRICK_DECO.slab.get())
-			.add(IcariaBlocks.RELICSTONE_TILE_DECO.slab.get())
-			.add(IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO.slab.get())
-			.add(IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO.slab.get());
+			.add(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get());
 
 		this.tag(IcariaBlockTags.ICARIA_PORTAL_REPLACE_BLOCKS)
 			.add(Blocks.AIR)

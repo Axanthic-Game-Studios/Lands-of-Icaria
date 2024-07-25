@@ -1,19 +1,10 @@
 {
   "values": [
     "minecraft:quartz_slab",
-    "minecraft:smooth_quartz_slab",
     "minecraft:quartz_pillar",
     "landsoficaria:quartz_pillar_head",
     "landsoficaria:smooth_dolomite_slab",
     "landsoficaria:dolomite_pillar",
-    "landsoficaria:dolomite_pillar_head",
-    "landsoficaria:relicstone_slab",
-    "landsoficaria:smooth_relicstone_slab",
-    "landsoficaria:relicstone_brick_slab",
-    "landsoficaria:cracked_relicstone_brick_slab",
-    "landsoficaria:mossy_relicstone_brick_slab",
-    "landsoficaria:relicstone_tile_slab",
-    "landsoficaria:cracked_relicstone_tile_slab",
-    "landsoficaria:mossy_relicstone_tile_slab"
+    "landsoficaria:dolomite_pillar_head"
   ]
 }
