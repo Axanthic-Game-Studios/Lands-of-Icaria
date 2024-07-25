@@ -31,7 +31,7 @@ public class CypressTreeFeature extends IcariaTreeFeature {
 		int heightLimit = heightTotal + 6;
 		int heightAxisY = heightLimit + origin.getY();
 
-		if (heightAxisY < level.getMaxBuildHeight()) {
+		if (heightAxisY < level.getMaxBuildHeight() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
 			for (int i = 1; i <= heightTrunk; ++i) {
 				this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
 			}

@@ -36,7 +36,7 @@ public class LaurelTreeFeature extends IcariaTreeFeature {
 		int heightLimit = heightTrunk + 4;
 		int heightAxisY = heightLimit + origin.getY();
 
-		if (heightAxisY < level.getMaxBuildHeight()) {
+		if (heightAxisY < level.getMaxBuildHeight() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
 			for (var direction : Direction.Plane.HORIZONTAL) {
 				directions.add(direction);
 			}

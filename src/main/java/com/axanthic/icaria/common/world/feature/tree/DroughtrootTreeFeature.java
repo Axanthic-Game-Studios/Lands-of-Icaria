@@ -33,7 +33,7 @@ public class DroughtrootTreeFeature extends IcariaTreeFeature {
 		int heightTotal = heightTrunk + heightLower + heightInner + heightUpper;
 		int heightAxisY = heightTotal + origin.getY();
 
-		if (heightAxisY < level.getMaxBuildHeight()) {
+		if (heightAxisY < level.getMaxBuildHeight() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
 			for (int i = 1; i <= heightTrunk; ++i) {
 				this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
 			}
