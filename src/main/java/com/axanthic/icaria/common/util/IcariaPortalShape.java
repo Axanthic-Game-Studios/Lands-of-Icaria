@@ -21,10 +21,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaPortalShape extends PortalShape {
 	public int height;
-	public int minHeight = 4;
+	public int minHeight = 2;
 	public int maxHeight = 21;
 	public int width;
-	public int minWidth = 3;
+	public int minWidth = 1;
 	public int maxWidth = 21;
 	public int numPortalBlocks;
 
