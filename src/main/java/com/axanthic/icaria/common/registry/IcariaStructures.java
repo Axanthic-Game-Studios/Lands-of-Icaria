@@ -9,7 +9,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
@@ -56,7 +55,7 @@ public class IcariaStructures {
 		var pools = pContext.lookup(Registries.TEMPLATE_POOL);
 
 		pContext.register(IcariaStructures.PORTAL_ICARIA, new IcariaJigsawStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.IS_BASE), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.PORTAL_ICARIA), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(88)), ConstantHeight.of(VerticalAnchor.absolute(96)), false, Optional.empty(), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
-		pContext.register(IcariaStructures.PORTAL_NETHER, new IcariaJigsawStructure(new Structure.StructureSettings(biomes.getOrThrow(BiomeTags.IS_NETHER), Map.of(), GenerationStep.Decoration.UNDERGROUND_DECORATION, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.PORTAL_NETHER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(32)), ConstantHeight.of(VerticalAnchor.absolute(96)), false, Optional.empty(), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
+		pContext.register(IcariaStructures.PORTAL_NETHER, new IcariaJigsawStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.HAS_PORTAL), Map.of(), GenerationStep.Decoration.UNDERGROUND_DECORATION, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.PORTAL_NETHER), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(32)), ConstantHeight.of(VerticalAnchor.absolute(96)), false, Optional.empty(), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
 
 		pContext.register(IcariaStructures.RUIN, new IcariaJigsawStructure(new Structure.StructureSettings(biomes.getOrThrow(IcariaBiomeTags.IS_LOST), Map.of(), GenerationStep.Decoration.UNDERGROUND_DECORATION, TerrainAdjustment.BEARD_THIN), pools.getOrThrow(IcariaTemplatePools.RUIN_BUILDING), Optional.empty(), 16, ConstantHeight.of(VerticalAnchor.absolute(40)), ConstantHeight.of(VerticalAnchor.absolute(48)), false, Optional.empty(), 128, List.of(), DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING));
 

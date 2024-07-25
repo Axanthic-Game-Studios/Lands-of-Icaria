@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -25,6 +26,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBiomeTags extends BiomeTagsProvider {
+	public static final TagKey<Biome> HAS_PORTAL = IcariaBiomeTags.icariaTag("has_portal");
+
 	public static final TagKey<Biome> IS_FOREST = IcariaBiomeTags.icariaTag("is_forest");
 	public static final TagKey<Biome> IS_SCRUBLAND = IcariaBiomeTags.icariaTag("is_scrubland");
 	public static final TagKey<Biome> IS_STEPPE = IcariaBiomeTags.icariaTag("is_steppe");
@@ -46,6 +49,12 @@ public class IcariaBiomeTags extends BiomeTagsProvider {
 			.add(IcariaBiomes.LUSH_DESERT)
 			.add(IcariaBiomes.LOST_DESERT)
 			.add(IcariaBiomes.DEEP_DESERT);
+
+		this.tag(IcariaBiomeTags.HAS_PORTAL)
+			.add(Biomes.NETHER_WASTES)
+			.add(Biomes.WARPED_FOREST)
+			.add(Biomes.CRIMSON_FOREST)
+			.add(Biomes.SOUL_SAND_VALLEY);
 
 		this.tag(IcariaBiomeTags.IS_FOREST)
 			.add(IcariaBiomes.FOREST)

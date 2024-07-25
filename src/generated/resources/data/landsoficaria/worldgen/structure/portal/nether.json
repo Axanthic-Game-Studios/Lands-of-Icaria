@@ -1,6 +1,6 @@
 {
   "type": "landsoficaria:jigsaw",
-  "biomes": "#minecraft:is_nether",
+  "biomes": "#landsoficaria:has_portal",
   "max_distance_from_center": 128,
   "max_height": {
     "absolute": 96
