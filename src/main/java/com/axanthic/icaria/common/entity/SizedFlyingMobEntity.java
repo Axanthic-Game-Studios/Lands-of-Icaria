@@ -17,7 +17,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings("deprecation, unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -134,7 +134,7 @@ public class SizedFlyingMobEntity extends FlyingMob {
 
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
-		this.setSize(this.random.nextIntBetweenInclusive(0, 4));
+		this.setSize(this.random.nextIntBetweenInclusive(1, 4));
 		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
 	}
 }

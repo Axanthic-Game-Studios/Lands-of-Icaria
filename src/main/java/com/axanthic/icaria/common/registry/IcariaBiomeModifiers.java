@@ -22,42 +22,42 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBiomeModifiers {
-	public static final ResourceKey<BiomeModifier> ADD_ENDER_JELLYFISH_TO_THE_END = IcariaBiomeModifiers.createKey("add_ender_jellyfish_to_the_end");
-	public static final ResourceKey<BiomeModifier> ADD_ENDER_JELLYFISH_TO_END_HIGHLANDS = IcariaBiomeModifiers.createKey("add_ender_jellyfish_to_end_highlands");
-	public static final ResourceKey<BiomeModifier> ADD_ENDER_JELLYFISH_TO_END_MIDLANDS = IcariaBiomeModifiers.createKey("add_ender_jellyfish_to_end_midlands");
-	public static final ResourceKey<BiomeModifier> ADD_ENDER_JELLYFISH_TO_SMALL_END_ISLANDS = IcariaBiomeModifiers.createKey("add_ender_jellyfish_to_small_end_islands");
-	public static final ResourceKey<BiomeModifier> ADD_ENDER_JELLYFISH_TO_END_BARRENS = IcariaBiomeModifiers.createKey("add_ender_jellyfish_to_end_barrens");
+	public static final ResourceKey<BiomeModifier> THE_END_ENDER_JELLYFISH = IcariaBiomeModifiers.createKey("the_end_ender_jellyfish");
+	public static final ResourceKey<BiomeModifier> END_HIGHLANDS_ENDER_JELLYFISH = IcariaBiomeModifiers.createKey("end_highlands_ender_jellyfish");
+	public static final ResourceKey<BiomeModifier> END_MIDLANDS_ENDER_JELLYFISH = IcariaBiomeModifiers.createKey("end_midlands_ender_jellyfish");
+	public static final ResourceKey<BiomeModifier> SMALL_END_ISLANDS_ENDER_JELLYFISH = IcariaBiomeModifiers.createKey("small_end_islands_ender_jellyfish");
+	public static final ResourceKey<BiomeModifier> END_BARRENS_ENDER_JELLYFISH = IcariaBiomeModifiers.createKey("end_barrens_ender_jellyfish");
 
-	public static final ResourceKey<BiomeModifier> ADD_FIRE_JELLYFISH_TO_NETHER_WASTES = IcariaBiomeModifiers.createKey("add_fire_jellyfish_to_nether_wastes");
-	public static final ResourceKey<BiomeModifier> ADD_FIRE_JELLYFISH_TO_WARPED_FOREST = IcariaBiomeModifiers.createKey("add_fire_jellyfish_to_warped_forest");
-	public static final ResourceKey<BiomeModifier> ADD_FIRE_JELLYFISH_TO_CRIMSON_FOREST = IcariaBiomeModifiers.createKey("add_fire_jellyfish_to_crimson_forest");
-	public static final ResourceKey<BiomeModifier> ADD_FIRE_JELLYFISH_TO_SOUL_SAND_VALLEY = IcariaBiomeModifiers.createKey("add_fire_jellyfish_to_soul_sand_valley");
-	public static final ResourceKey<BiomeModifier> ADD_FIRE_JELLYFISH_TO_BASALT_DELTAS = IcariaBiomeModifiers.createKey("add_fire_jellyfish_to_basalt_deltas");
+	public static final ResourceKey<BiomeModifier> NETHER_WASTES_FIRE_JELLYFISH = IcariaBiomeModifiers.createKey("nether_wastes_fire_jellyfish");
+	public static final ResourceKey<BiomeModifier> WARPED_FOREST_FIRE_JELLYFISH = IcariaBiomeModifiers.createKey("warped_forest_fire_jellyfish");
+	public static final ResourceKey<BiomeModifier> CRIMSON_FOREST_FIRE_JELLYFISH = IcariaBiomeModifiers.createKey("crimson_forest_fire_jellyfish");
+	public static final ResourceKey<BiomeModifier> SOUL_SAND_VALLEY_FIRE_JELLYFISH = IcariaBiomeModifiers.createKey("soul_sand_valley_fire_jellyfish");
+	public static final ResourceKey<BiomeModifier> BASALT_DELTAS_FIRE_JELLYFISH = IcariaBiomeModifiers.createKey("basalt_deltas_fire_jellyfish");
 
-	public static final ResourceKey<BiomeModifier> ADD_NETHER_PYROMANCER_REVENANT_TO_NETHER_WASTES = IcariaBiomeModifiers.createKey("add_nether_pyromancer_revenant_to_nether_wastes");
-	public static final ResourceKey<BiomeModifier> ADD_NETHER_PYROMANCER_REVENANT_TO_WARPED_FOREST = IcariaBiomeModifiers.createKey("add_nether_pyromancer_revenant_to_warped_forest");
-	public static final ResourceKey<BiomeModifier> ADD_NETHER_PYROMANCER_REVENANT_TO_CRIMSON_FOREST = IcariaBiomeModifiers.createKey("add_nether_pyromancer_revenant_to_crimson_forest");
-	public static final ResourceKey<BiomeModifier> ADD_NETHER_PYROMANCER_REVENANT_TO_SOUL_SAND_VALLEY = IcariaBiomeModifiers.createKey("add_nether_pyromancer_revenant_to_soul_sand_valley");
-	public static final ResourceKey<BiomeModifier> ADD_NETHER_PYROMANCER_REVENANT_TO_BASALT_DELTAS = IcariaBiomeModifiers.createKey("add_nether_pyromancer_revenant_to_basalt_deltas");
+	public static final ResourceKey<BiomeModifier> NETHER_WASTES_NETHER_PYROMANCER_REVENANT = IcariaBiomeModifiers.createKey("nether_wastes_nether_pyromancer_revenant");
+	public static final ResourceKey<BiomeModifier> WARPED_FOREST_NETHER_PYROMANCER_REVENANT = IcariaBiomeModifiers.createKey("warped_forest_nether_pyromancer_revenant");
+	public static final ResourceKey<BiomeModifier> CRIMSON_FOREST_NETHER_PYROMANCER_REVENANT = IcariaBiomeModifiers.createKey("crimson_forest_nether_pyromancer_revenant");
+	public static final ResourceKey<BiomeModifier> SOUL_SAND_VALLEY_NETHER_PYROMANCER_REVENANT = IcariaBiomeModifiers.createKey("soul_sand_valley_nether_pyromancer_revenant");
+	public static final ResourceKey<BiomeModifier> BASALT_DELTAS_NETHER_PYROMANCER_REVENANT = IcariaBiomeModifiers.createKey("basalt_deltas_nether_pyromancer_revenant");
 
 	public static void bootstrap(BootstrapContext<BiomeModifier> pContext) {
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_ENDER_JELLYFISH_TO_THE_END, Biomes.THE_END, IcariaEntityTypes.ENDER_JELLYFISH.get(), 10, 1, 1);
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_ENDER_JELLYFISH_TO_END_HIGHLANDS, Biomes.END_HIGHLANDS, IcariaEntityTypes.ENDER_JELLYFISH.get(), 10, 1, 1);
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_ENDER_JELLYFISH_TO_END_MIDLANDS, Biomes.END_MIDLANDS, IcariaEntityTypes.ENDER_JELLYFISH.get(), 10, 1, 1);
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_ENDER_JELLYFISH_TO_SMALL_END_ISLANDS, Biomes.SMALL_END_ISLANDS, IcariaEntityTypes.ENDER_JELLYFISH.get(), 10, 1, 1);
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_ENDER_JELLYFISH_TO_END_BARRENS, Biomes.END_BARRENS, IcariaEntityTypes.ENDER_JELLYFISH.get(), 10, 1, 1);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.THE_END_ENDER_JELLYFISH, Biomes.THE_END, IcariaEntityTypes.ENDER_JELLYFISH.get(), 10, 1, 3);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.END_HIGHLANDS_ENDER_JELLYFISH, Biomes.END_HIGHLANDS, IcariaEntityTypes.ENDER_JELLYFISH.get(), 10, 1, 3);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.END_MIDLANDS_ENDER_JELLYFISH, Biomes.END_MIDLANDS, IcariaEntityTypes.ENDER_JELLYFISH.get(), 10, 1, 3);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.SMALL_END_ISLANDS_ENDER_JELLYFISH, Biomes.SMALL_END_ISLANDS, IcariaEntityTypes.ENDER_JELLYFISH.get(), 10, 1, 3);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.END_BARRENS_ENDER_JELLYFISH, Biomes.END_BARRENS, IcariaEntityTypes.ENDER_JELLYFISH.get(), 10, 1, 3);
 
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_FIRE_JELLYFISH_TO_NETHER_WASTES, Biomes.NETHER_WASTES, IcariaEntityTypes.FIRE_JELLYFISH.get(), 100, 1, 1);
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_FIRE_JELLYFISH_TO_WARPED_FOREST, Biomes.WARPED_FOREST, IcariaEntityTypes.FIRE_JELLYFISH.get(), 1, 1, 1);
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_FIRE_JELLYFISH_TO_CRIMSON_FOREST, Biomes.CRIMSON_FOREST, IcariaEntityTypes.FIRE_JELLYFISH.get(), 5, 1, 1);
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_FIRE_JELLYFISH_TO_SOUL_SAND_VALLEY, Biomes.SOUL_SAND_VALLEY, IcariaEntityTypes.FIRE_JELLYFISH.get(), 20, 1, 1);
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_FIRE_JELLYFISH_TO_BASALT_DELTAS, Biomes.BASALT_DELTAS, IcariaEntityTypes.FIRE_JELLYFISH.get(), 100, 1, 1);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.NETHER_WASTES_FIRE_JELLYFISH, Biomes.NETHER_WASTES, IcariaEntityTypes.FIRE_JELLYFISH.get(), 100, 1, 3);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.WARPED_FOREST_FIRE_JELLYFISH, Biomes.WARPED_FOREST, IcariaEntityTypes.FIRE_JELLYFISH.get(), 1, 1, 3);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.CRIMSON_FOREST_FIRE_JELLYFISH, Biomes.CRIMSON_FOREST, IcariaEntityTypes.FIRE_JELLYFISH.get(), 5, 1, 3);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.SOUL_SAND_VALLEY_FIRE_JELLYFISH, Biomes.SOUL_SAND_VALLEY, IcariaEntityTypes.FIRE_JELLYFISH.get(), 20, 1, 3);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.BASALT_DELTAS_FIRE_JELLYFISH, Biomes.BASALT_DELTAS, IcariaEntityTypes.FIRE_JELLYFISH.get(), 100, 1, 3);
 
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_NETHER_PYROMANCER_REVENANT_TO_NETHER_WASTES, Biomes.NETHER_WASTES, IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 100, 1, 1);
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_NETHER_PYROMANCER_REVENANT_TO_WARPED_FOREST, Biomes.WARPED_FOREST, IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 1, 1, 1);
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_NETHER_PYROMANCER_REVENANT_TO_CRIMSON_FOREST, Biomes.CRIMSON_FOREST, IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 5, 1, 1);
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_NETHER_PYROMANCER_REVENANT_TO_SOUL_SAND_VALLEY, Biomes.SOUL_SAND_VALLEY, IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 20, 1, 1);
-		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.ADD_NETHER_PYROMANCER_REVENANT_TO_BASALT_DELTAS, Biomes.BASALT_DELTAS, IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 100, 1, 1);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.NETHER_WASTES_NETHER_PYROMANCER_REVENANT, Biomes.NETHER_WASTES, IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 100, 1, 1);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.WARPED_FOREST_NETHER_PYROMANCER_REVENANT, Biomes.WARPED_FOREST, IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 1, 1, 1);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.CRIMSON_FOREST_NETHER_PYROMANCER_REVENANT, Biomes.CRIMSON_FOREST, IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 5, 1, 1);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.SOUL_SAND_VALLEY_NETHER_PYROMANCER_REVENANT, Biomes.SOUL_SAND_VALLEY, IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 20, 1, 1);
+		IcariaBiomeModifiers.register(pContext, IcariaBiomeModifiers.BASALT_DELTAS_NETHER_PYROMANCER_REVENANT, Biomes.BASALT_DELTAS, IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 100, 1, 1);
 	}
 
 	public static Holder.Reference<BiomeModifier> register(BootstrapContext<BiomeModifier> pContext, ResourceKey<BiomeModifier> pModifier, ResourceKey<Biome> pBiome, EntityType<?> pType, int pWeight, int pMinCount, int pMaxCount) {

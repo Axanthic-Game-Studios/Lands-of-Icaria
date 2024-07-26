@@ -127,7 +127,7 @@ public class SizedPathfinderMobEntity extends PathfinderMob {
 
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
-		this.setSize(this.random.nextIntBetweenInclusive(0, 4));
+		this.setSize(this.random.nextIntBetweenInclusive(1, 4));
 		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
 	}
 }

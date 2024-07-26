@@ -1,10 +1,10 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "minecraft:warped_forest",
+  "biomes": "minecraft:soul_sand_valley",
   "spawners": {
     "type": "landsoficaria:fire_jellyfish",
-    "maxCount": 1,
+    "maxCount": 3,
     "minCount": 1,
-    "weight": 1
+    "weight": 20
   }
 }

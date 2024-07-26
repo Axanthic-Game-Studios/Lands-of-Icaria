@@ -3,7 +3,7 @@
   "biomes": "minecraft:end_midlands",
   "spawners": {
     "type": "landsoficaria:ender_jellyfish",
-    "maxCount": 1,
+    "maxCount": 3,
     "minCount": 1,
     "weight": 10
   }

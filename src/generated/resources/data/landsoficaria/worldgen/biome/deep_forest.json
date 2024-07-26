@@ -73,24 +73,23 @@
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [
-      {
-        "type": "landsoficaria:crystal_slug",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:forest_snull",
-        "maxCount": 5,
-        "minCount": 3,
-        "weight": 100
-      }
-    ],
+    "ambient": [],
     "axolotls": [],
     "creature": [],
     "misc": [],
     "monster": [
+      {
+        "type": "landsoficaria:crystal_slug",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:forest_snull",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 100
+      },
       {
         "type": "landsoficaria:scorpion",
         "maxCount": 1,

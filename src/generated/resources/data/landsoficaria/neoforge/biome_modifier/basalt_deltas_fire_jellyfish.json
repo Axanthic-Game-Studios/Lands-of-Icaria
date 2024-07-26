@@ -1,10 +1,10 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "minecraft:soul_sand_valley",
+  "biomes": "minecraft:basalt_deltas",
   "spawners": {
     "type": "landsoficaria:fire_jellyfish",
-    "maxCount": 1,
+    "maxCount": 3,
     "minCount": 1,
-    "weight": 20
+    "weight": 100
   }
 }

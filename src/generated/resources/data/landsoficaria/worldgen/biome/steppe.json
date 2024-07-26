@@ -76,20 +76,20 @@
     "creature": [
       {
         "type": "landsoficaria:aeternae",
-        "maxCount": 5,
-        "minCount": 3,
+        "maxCount": 3,
+        "minCount": 1,
         "weight": 100
       },
       {
         "type": "landsoficaria:catoblepas",
-        "maxCount": 5,
-        "minCount": 3,
+        "maxCount": 35,
+        "minCount": 1,
         "weight": 100
       },
       {
         "type": "landsoficaria:sow",
-        "maxCount": 5,
-        "minCount": 3,
+        "maxCount": 3,
+        "minCount": 1,
         "weight": 100
       }
     ],
@@ -111,13 +111,13 @@
         "type": "landsoficaria:cypress_forest_hag",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 10
+        "weight": 1
       },
       {
         "type": "landsoficaria:olive_forest_hag",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 10
+        "weight": 1
       }
     ],
     "underground_water_creature": [],

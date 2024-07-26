@@ -71,7 +71,7 @@
         "type": "landsoficaria:droughtroot_forest_hag",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 10
+        "weight": 1
       }
     ],
     "underground_water_creature": [],

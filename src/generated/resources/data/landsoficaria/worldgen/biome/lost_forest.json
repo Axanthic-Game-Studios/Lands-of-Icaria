@@ -96,13 +96,13 @@
         "type": "landsoficaria:fir_forest_hag",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 10
+        "weight": 1
       },
       {
         "type": "landsoficaria:populus_forest_hag",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 10
+        "weight": 1
       },
       {
         "type": "landsoficaria:crawler_revenant",

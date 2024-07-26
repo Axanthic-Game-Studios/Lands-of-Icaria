@@ -1,9 +1,9 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "minecraft:the_end",
+  "biomes": "minecraft:end_barrens",
   "spawners": {
     "type": "landsoficaria:ender_jellyfish",
-    "maxCount": 1,
+    "maxCount": 3,
     "minCount": 1,
     "weight": 10
   }

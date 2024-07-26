@@ -90,13 +90,13 @@
         "type": "landsoficaria:cypress_forest_hag",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 10
+        "weight": 1
       },
       {
         "type": "landsoficaria:olive_forest_hag",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 10
+        "weight": 1
       },
       {
         "type": "landsoficaria:crawler_revenant",

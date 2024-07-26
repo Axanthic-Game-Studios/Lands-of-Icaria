@@ -1,9 +1,9 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "minecraft:small_end_islands",
+  "biomes": "minecraft:end_highlands",
   "spawners": {
     "type": "landsoficaria:ender_jellyfish",
-    "maxCount": 1,
+    "maxCount": 3,
     "minCount": 1,
     "weight": 10
   }
