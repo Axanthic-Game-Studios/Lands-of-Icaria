@@ -416,6 +416,9 @@ public class IcariaItemTags extends ItemTagsProvider {
 		this.tag(Tags.Items.DYED_MAGENTA).add(IcariaItems.MAGENTA_STORAGE_VASE.get());
 		this.tag(Tags.Items.DYED_PINK).add(IcariaItems.PINK_STORAGE_VASE.get());
 
+		this.tag(Tags.Items.FERTILIZERS)
+			.add(IcariaItems.CALCITE_DUST.get());
+
 		this.tag(Tags.Items.FOODS_FRUIT)
 			.add(IcariaItems.PHYSALIS.get())
 			.add(IcariaItems.LAUREL_CHERRY.get());
