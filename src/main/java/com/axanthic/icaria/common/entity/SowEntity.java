@@ -85,6 +85,7 @@ public class SowEntity extends IcariaAnimalEntity {
 		this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
 		this.getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(size * 0.5D);
 		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
+		this.setHealth(size * size);
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
