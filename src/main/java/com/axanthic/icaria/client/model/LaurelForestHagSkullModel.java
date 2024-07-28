@@ -11,7 +11,6 @@ import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
-import net.minecraft.util.Mth;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -29,12 +28,6 @@ public class LaurelForestHagSkullModel extends SkullModel {
 	@Override
 	public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, int pColor) {
 		this.head.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pColor);
-	}
-
-	@Override
-	public void setupAnim(float pX, float pY, float pZ) {
-		this.head.xRot = pZ * (Mth.PI / 180.0F);
-		this.head.yRot = pY * (Mth.PI / 180.0F);
 	}
 
 	public static LayerDefinition createLayer() {
