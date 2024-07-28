@@ -54,18 +54,18 @@ public class NatureJellyfishModel extends HierarchicalModel<JellyfishEntity> {
 	}
 
 	public void swimAnim(float pAgeInTicks) {
-		this.root.xScale = (pAgeInTicks / 5.0F) + 0.85F;
-		this.root.yScale = -(pAgeInTicks / 7.5F) + 1.15F;
-		this.root.zScale = (pAgeInTicks / 5.0F) + 0.85F;
-		this.tentacleNorth.xRot = -(pAgeInTicks * IcariaMath.rad(22.5F)) - IcariaMath.rad(22.5F);
-		this.tentacleEast.xRot = -(pAgeInTicks * IcariaMath.rad(22.5F)) - IcariaMath.rad(22.5F);
-		this.tentacleSouth.xRot = (pAgeInTicks * IcariaMath.rad(22.5F)) + IcariaMath.rad(22.5F);
-		this.tentacleWest.xRot = (pAgeInTicks * IcariaMath.rad(22.5F)) + IcariaMath.rad(22.5F);
-		this.armNorthEast.xRot = -(pAgeInTicks * IcariaMath.rad(22.5F)) - IcariaMath.rad(22.5F);
-		this.armSouthEast.xRot = -(pAgeInTicks * IcariaMath.rad(22.5F)) - IcariaMath.rad(22.5F);
-		this.armSouth.xRot = -(pAgeInTicks * IcariaMath.rad(22.5F)) - IcariaMath.rad(22.5F);
-		this.armSouthWest.xRot = -(pAgeInTicks * IcariaMath.rad(22.5F)) - IcariaMath.rad(22.5F);
-		this.armNorthWest.xRot = -(pAgeInTicks * IcariaMath.rad(22.5F)) - IcariaMath.rad(22.5F);
+		this.root.xScale = pAgeInTicks / 5.0F + 0.85F;
+		this.root.yScale = -pAgeInTicks / 7.5F + 1.15F;
+		this.root.zScale = pAgeInTicks / 5.0F + 0.85F;
+		this.tentacleNorth.xRot = -pAgeInTicks * IcariaMath.rad(22.5F) - IcariaMath.rad(22.5F);
+		this.tentacleEast.xRot = -pAgeInTicks * IcariaMath.rad(22.5F) - IcariaMath.rad(22.5F);
+		this.tentacleSouth.xRot = pAgeInTicks * IcariaMath.rad(22.5F) + IcariaMath.rad(22.5F);
+		this.tentacleWest.xRot = pAgeInTicks * IcariaMath.rad(22.5F) + IcariaMath.rad(22.5F);
+		this.armNorthEast.xRot = -pAgeInTicks * IcariaMath.rad(22.5F) - IcariaMath.rad(22.5F);
+		this.armSouthEast.xRot = -pAgeInTicks * IcariaMath.rad(22.5F) - IcariaMath.rad(22.5F);
+		this.armSouth.xRot = -pAgeInTicks * IcariaMath.rad(22.5F) - IcariaMath.rad(22.5F);
+		this.armSouthWest.xRot = -pAgeInTicks * IcariaMath.rad(22.5F) - IcariaMath.rad(22.5F);
+		this.armNorthWest.xRot = -pAgeInTicks * IcariaMath.rad(22.5F) - IcariaMath.rad(22.5F);
 	}
 
 	public static LayerDefinition createLayer() {

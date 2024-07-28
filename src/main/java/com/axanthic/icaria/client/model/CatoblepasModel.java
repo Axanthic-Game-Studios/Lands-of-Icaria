@@ -2,6 +2,7 @@ package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
 import com.axanthic.icaria.common.entity.CatoblepasEntity;
+import com.axanthic.icaria.common.math.IcariaMath;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -22,8 +23,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CatoblepasModel extends HierarchicalModel<CatoblepasEntity> {
-	public float kneebend = 0.9F;
-
 	public CatoblepasEntity entity;
 
 	public ModelPart root;
@@ -138,22 +137,23 @@ public class CatoblepasModel extends HierarchicalModel<CatoblepasEntity> {
 	}
 
 	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		this.skull.xRot = pHeadPitch * 0.017453292F + 0.39269908169872414F;
-		this.skull.yRot = pNetHeadYaw * 0.017453292F;
-		this.skull.zRot = pNetHeadYaw * 0.0045F;
+		this.skull.xRot = IcariaMath.rad(pHeadPitch) + 0.3927F;
+		this.skull.yRot = IcariaMath.rad(pNetHeadYaw);
 	}
 
 	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		pLimbSwing *= 1.8F;
+		pLimbSwing *= Mth.lerp(this.entity.getSize(), 0.5F, 1.0F);
 
-		this.legRightFront.xRot = Mth.cos(pLimbSwing * 0.5F) * 0.9F * pLimbSwingAmount + 0.091106186954104F;
-		this.legRightFrontLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing)) * 0.5F) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount - 0.18203784098300857F;
-		this.legLeftFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI) * 0.9F * pLimbSwingAmount + 0.091106186954104F;
-		this.legLeftFrontLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount - 0.18203784098300857F;
-		this.legRightRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.5F) * 0.9F * pLimbSwingAmount - 0.091106186954104F;
-		this.legRightRearLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount + 0.18203784098300857F;
-		this.legLeftRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.5F) * 0.9F * pLimbSwingAmount - 0.091106186954104F;
-		this.legLeftRearLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount + 0.18203784098300857F;
+		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount * 0.5F;
+
+		this.legRightFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount + 0.0911F;
+		this.legRightFrontLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount + pLimbSwingAmount - 0.182F;
+		this.legLeftFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount + 0.0911F;
+		this.legLeftFrontLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount + pLimbSwingAmount - 0.182F;
+		this.legRightRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount - 0.0911F;
+		this.legRightRearLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount + pLimbSwingAmount + 0.182F;
+		this.legLeftRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount - 0.0911F;
+		this.legLeftRearLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount + pLimbSwingAmount + 0.182F;
 	}
 
 	public static LayerDefinition createLayer() {

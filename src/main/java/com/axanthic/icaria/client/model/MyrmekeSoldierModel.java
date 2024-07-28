@@ -2,6 +2,7 @@ package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
 import com.axanthic.icaria.common.entity.MyrmekeSoldierEntity;
+import com.axanthic.icaria.common.math.IcariaMath;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.HierarchicalModel;
@@ -52,32 +53,32 @@ public class MyrmekeSoldierModel extends HierarchicalModel<MyrmekeSoldierEntity>
 	}
 
 	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		this.head.xRot = 0.39269908169872414F + pHeadPitch * 0.017453292F;
-		this.head.yRot = pNetHeadYaw * 0.017453292F;
+		this.head.xRot = IcariaMath.rad(pHeadPitch) + 0.2618F;
+		this.head.yRot = IcariaMath.rad(pNetHeadYaw);
 	}
 
 	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		float f0 = -(Mth.cos(pLimbSwing * 0.6662F * 2.0F + 0.0F) * 0.4F) * pLimbSwingAmount;
-		float f1 = -(Mth.cos(pLimbSwing * 0.6662F * 2.0F + Mth.PI) * 0.4F) * pLimbSwingAmount;
-		float f2 = -(Mth.cos(pLimbSwing * 0.6662F * 2.0F + (Mth.PI / 2F)) * 0.4F) * pLimbSwingAmount;
-		float f3 = -(Mth.cos(pLimbSwing * 0.6662F * 2.0F + (Mth.PI * 3F / 2F)) * 0.4F) * pLimbSwingAmount;
-		float f4 = Mth.abs(Mth.sin(pLimbSwing * 0.6662F + 0.0F) * 0.4F) * pLimbSwingAmount;
-		float f5 = Mth.abs(Mth.sin(pLimbSwing * 0.6662F + Mth.PI) * 0.4F) * pLimbSwingAmount;
-		float f6 = Mth.abs(Mth.sin(pLimbSwing * 0.6662F + (Mth.PI / 2F)) * 0.4F) * pLimbSwingAmount;
-		float f7 = Mth.abs(Mth.sin(pLimbSwing * 0.6662F + (Mth.PI * 3F / 2F)) * 0.4F) * pLimbSwingAmount;
+		float f0 = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 0.0F) * 0.4F * pLimbSwingAmount;
+		float f1 = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 1.0F) * 0.4F * pLimbSwingAmount;
+		float f2 = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 0.5F) * 0.4F * pLimbSwingAmount;
+		float f3 = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 1.5F) * 0.4F * pLimbSwingAmount;
+		float f4 = Mth.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 0.0F) * 0.4F) * pLimbSwingAmount;
+		float f5 = Mth.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 1.0F) * 0.4F) * pLimbSwingAmount;
+		float f6 = Mth.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 0.5F) * 0.4F) * pLimbSwingAmount;
+		float f7 = Mth.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 1.5F) * 0.4F) * pLimbSwingAmount;
 
-		this.legRightFront.yRot = 2.1205750411731104F + f3 * 2;
-		this.legLeftFront.yRot = 1.0210176124166828F - f4 * 2;
-		this.legRightCenter.yRot = 3.141592653589793F + f1 * 2;
-		this.legLeftCenter.yRot = -0.0F - f2 * 2;
-		this.legRightRear.yRot = -2.356194490192345F + f0 * 2;
-		this.legLeftRear.yRot = -0.7853981633974483F - f1 * 2;
-		this.legRightFront.zRot = 0F + f7 * 2;
-		this.legLeftFront.zRot = -0F - f0 * 2;
-		this.legRightCenter.zRot = 0F + f5 * 2;
-		this.legLeftCenter.zRot = -0F - f6 * 2;
-		this.legRightRear.zRot = 0F + f4 * 2;
-		this.legLeftRear.zRot = -0F - f5 * 2;
+		this.legRightFront.yRot = f3 + 2.2253F;
+		this.legLeftFront.yRot = -f4 + 0.829F;
+		this.legRightCenter.yRot = f1 + 3.1416F;
+		this.legLeftCenter.yRot = -f2;
+		this.legRightRear.yRot = f0 - 2.618F;
+		this.legLeftRear.yRot = -f1 - 0.4363F;
+		this.legRightFront.zRot = f7;
+		this.legLeftFront.zRot = -f0;
+		this.legRightCenter.zRot = f5;
+		this.legLeftCenter.zRot = -f6;
+		this.legRightRear.zRot = f4;
+		this.legLeftRear.zRot = -f5;
 	}
 
 	public static LayerDefinition createLayer() {

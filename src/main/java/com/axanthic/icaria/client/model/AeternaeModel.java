@@ -2,6 +2,7 @@ package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
 import com.axanthic.icaria.common.entity.AeternaeEntity;
+import com.axanthic.icaria.common.math.IcariaMath;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -22,8 +23,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
-	public float kneebend = 1.0F;
-
 	public AeternaeEntity entity;
 
 	public ModelPart root;
@@ -151,32 +150,35 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
 	}
 
 	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		this.head.yRot = pNetHeadYaw * 0.003F;
-		this.neck.yRot = pNetHeadYaw * 0.005F;
-		this.skull.xRot = pHeadPitch * 0.017453292F;
-		this.skull.yRot = pNetHeadYaw * 0.005F;
+		float yRot = IcariaMath.rad(pNetHeadYaw) / 3.0F;
+		this.head.yRot = yRot;
+		this.neck.yRot = yRot;
+		this.skull.yRot = yRot;
+		this.skull.xRot = IcariaMath.rad(pHeadPitch);
 	}
 
 	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		pLimbSwing *= 1.8F;
+		pLimbSwing *= Mth.lerp(this.entity.getSize(), 0.5F, 1.0F);
 
-		float rightFront = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing)) * 0.5F) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount;
-		float leftFront = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount;
-		float rightRear = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount;
-		float leftRear = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * this.kneebend * pLimbSwingAmount + this.kneebend * pLimbSwingAmount;
+		float rightFront = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount + pLimbSwingAmount;
+		float leftFront = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount + pLimbSwingAmount;
+		float rightRear = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount + pLimbSwingAmount;
+		float leftRear = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount + pLimbSwingAmount;
 
-		this.legRightFront.xRot = Mth.cos(pLimbSwing * 0.5F) * 0.7F * pLimbSwingAmount + 0.18203784098300857F;
-		this.legRightFrontUpper.xRot = -rightFront - 0.091106186954104F;
-		this.legRightFrontLower.xRot = rightFront * 1.5F - 0.091106186954104F;
-		this.legLeftFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI) * 0.7F * pLimbSwingAmount + 0.18203784098300857F;
-		this.legLeftFrontUpper.xRot = -leftFront - 0.091106186954104F;
-		this.legLeftFrontLower.xRot = leftFront * 1.5F - 0.091106186954104F;
-		this.legRightRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.5F) * 0.7F * pLimbSwingAmount - 0.39269908169872414F;
-		this.legRightRearUpper.xRot = rightRear + 0.7285004297824331F;
-		this.legRightRearLower.xRot = -rightRear - 0.22759093446006054F;
-		this.legLeftRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.5F) * 0.7F * pLimbSwingAmount - 0.39269908169872414F;
-		this.legLeftRearUpper.xRot = leftRear + 0.7285004297824331F;
-		this.legLeftRearLower.xRot = -leftRear - 0.22759093446006054F;
+		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount * 0.5F;
+
+		this.legRightFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount + 0.0909F;
+		this.legRightFrontUpper.xRot = -rightFront - 0.0911F;
+		this.legRightFrontLower.xRot = rightFront - 0.0911F;
+		this.legLeftFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount + 0.0909F;
+		this.legLeftFrontUpper.xRot = -leftFront - 0.0911F;
+		this.legLeftFrontLower.xRot = leftFront - 0.0911F;
+		this.legRightRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount - 0.4838F;
+		this.legRightRearUpper.xRot = rightRear + 0.7285F;
+		this.legRightRearLower.xRot = -rightRear - 0.2276F;
+		this.legLeftRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount - 0.4838F;
+		this.legLeftRearUpper.xRot = leftRear + 0.7285F;
+		this.legLeftRearLower.xRot = -leftRear - 0.2276F;
 	}
 
 	public static LayerDefinition createLayer() {

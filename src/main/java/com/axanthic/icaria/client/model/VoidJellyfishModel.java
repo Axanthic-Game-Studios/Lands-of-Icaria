@@ -82,28 +82,28 @@ public class VoidJellyfishModel extends HierarchicalModel<JellyfishEntity> {
 	}
 
 	public void swimAnim(float pAgeInTicks) {
-		this.root.xScale = (pAgeInTicks / 5.0F) + 0.85F;
-		this.root.yScale = -(pAgeInTicks / 7.5F) + 1.15F;
-		this.root.zScale = (pAgeInTicks / 5.0F) + 0.85F;
-		this.tentacleNorthLeftOuter.xRot = -(pAgeInTicks * IcariaMath.rad(5.0F));
-		this.tentacleNorthLeftInner.xRot = -(pAgeInTicks * IcariaMath.rad(5.0F)) - IcariaMath.rad(5.0F);
-		this.tentacleNorthRightInner.xRot = -(pAgeInTicks * IcariaMath.rad(5.0F)) - IcariaMath.rad(5.0F);
-		this.tentacleNorthRightOuter.xRot = -(pAgeInTicks * IcariaMath.rad(5.0F));
-		this.tentacleEastLeftOuter.xRot = -(pAgeInTicks * IcariaMath.rad(5.0F));
-		this.tentacleEastLeftInner.xRot = -(pAgeInTicks * IcariaMath.rad(5.0F)) - IcariaMath.rad(5.0F);
-		this.tentacleEastRightInner.xRot = -(pAgeInTicks * IcariaMath.rad(5.0F)) - IcariaMath.rad(5.0F);
-		this.tentacleEastRightOuter.xRot = -(pAgeInTicks * IcariaMath.rad(5.0F));
-		this.tentacleSouthLeftOuter.xRot = (pAgeInTicks * IcariaMath.rad(5.0F));
-		this.tentacleSouthLeftInner.xRot = (pAgeInTicks * IcariaMath.rad(5.0F)) + IcariaMath.rad(5.0F);
-		this.tentacleSouthRightInner.xRot = (pAgeInTicks * IcariaMath.rad(5.0F)) + IcariaMath.rad(5.0F);
-		this.tentacleSouthRightOuter.xRot = (pAgeInTicks * IcariaMath.rad(5.0F));
-		this.tentacleWestLeftOuter.xRot = (pAgeInTicks * IcariaMath.rad(5.0F));
-		this.tentacleWestLeftInner.xRot = (pAgeInTicks * IcariaMath.rad(5.0F)) + IcariaMath.rad(5.0F);
-		this.tentacleWestRightInner.xRot = (pAgeInTicks * IcariaMath.rad(5.0F)) + IcariaMath.rad(5.0F);
-		this.tentacleWestRightOuter.xRot = (pAgeInTicks * IcariaMath.rad(5.0F));
-		this.armNorthEast.xRot = -(pAgeInTicks * IcariaMath.rad(5.0F)) - IcariaMath.rad(5.0F);
-		this.armSouth.xRot = -(pAgeInTicks * IcariaMath.rad(5.0F)) - IcariaMath.rad(5.0F);
-		this.armNorthWest.xRot = -(pAgeInTicks * IcariaMath.rad(5.0F)) - IcariaMath.rad(5.0F);
+		this.root.xScale = pAgeInTicks / 5.0F + 0.85F;
+		this.root.yScale = -pAgeInTicks / 7.5F + 1.15F;
+		this.root.zScale = pAgeInTicks / 5.0F + 0.85F;
+		this.tentacleNorthLeftOuter.xRot = -pAgeInTicks * IcariaMath.rad(5.0F) - IcariaMath.rad(5.0F);
+		this.tentacleNorthLeftInner.xRot = -pAgeInTicks * IcariaMath.rad(10.0F) - IcariaMath.rad(10.0F);
+		this.tentacleNorthRightInner.xRot = -pAgeInTicks * IcariaMath.rad(10.0F) - IcariaMath.rad(10.0F);
+		this.tentacleNorthRightOuter.xRot = -pAgeInTicks * IcariaMath.rad(5.0F) - IcariaMath.rad(5.0F);
+		this.tentacleEastLeftOuter.xRot = -pAgeInTicks * IcariaMath.rad(5.0F) - IcariaMath.rad(5.0F);
+		this.tentacleEastLeftInner.xRot = -pAgeInTicks * IcariaMath.rad(10.0F) - IcariaMath.rad(10.0F);
+		this.tentacleEastRightInner.xRot = -pAgeInTicks * IcariaMath.rad(10.0F) - IcariaMath.rad(10.0F);
+		this.tentacleEastRightOuter.xRot = -pAgeInTicks * IcariaMath.rad(5.0F) - IcariaMath.rad(5.0F);
+		this.tentacleSouthLeftOuter.xRot = pAgeInTicks * IcariaMath.rad(5.0F) + IcariaMath.rad(5.0F);
+		this.tentacleSouthLeftInner.xRot = pAgeInTicks * IcariaMath.rad(10.0F) + IcariaMath.rad(10.0F);
+		this.tentacleSouthRightInner.xRot = pAgeInTicks * IcariaMath.rad(10.0F) + IcariaMath.rad(10.0F);
+		this.tentacleSouthRightOuter.xRot = pAgeInTicks * IcariaMath.rad(5.0F) + IcariaMath.rad(5.0F);
+		this.tentacleWestLeftOuter.xRot = pAgeInTicks * IcariaMath.rad(5.0F) + IcariaMath.rad(5.0F);
+		this.tentacleWestLeftInner.xRot = pAgeInTicks * IcariaMath.rad(10.0F) + IcariaMath.rad(10.0F);
+		this.tentacleWestRightInner.xRot = pAgeInTicks * IcariaMath.rad(10.0F) + IcariaMath.rad(10.0F);
+		this.tentacleWestRightOuter.xRot = pAgeInTicks * IcariaMath.rad(5.0F) + IcariaMath.rad(5.0F);
+		this.armNorthEast.xRot = -pAgeInTicks * IcariaMath.rad(22.5F) - IcariaMath.rad(22.5F);
+		this.armSouth.xRot = -pAgeInTicks * IcariaMath.rad(22.5F) - IcariaMath.rad(22.5F);
+		this.armNorthWest.xRot = -pAgeInTicks * IcariaMath.rad(22.5F) - IcariaMath.rad(22.5F);
 	}
 
 	public static LayerDefinition createLayer() {

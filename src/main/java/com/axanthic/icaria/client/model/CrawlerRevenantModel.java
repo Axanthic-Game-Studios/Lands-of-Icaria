@@ -1,6 +1,7 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.common.entity.CrawlerRevenantEntity;
+import com.axanthic.icaria.common.math.IcariaMath;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
@@ -23,9 +24,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class CrawlerRevenantModel extends HierarchicalModel<CrawlerRevenantEntity> implements ArmedModel {
-	public float armBend = 1.25F;
-	public float ulnaBend = 1.00F;
-
 	public ModelPart root;
 	public ModelPart bodyUpper;
 	public ModelPart headMain;
@@ -77,21 +75,19 @@ public class CrawlerRevenantModel extends HierarchicalModel<CrawlerRevenantEntit
 	}
 
 	public void idleAnim(float pAgeInTicks) {
-		this.headMain.xRot += Mth.sin(pAgeInTicks * 0.067F) * 0.05F;
+		this.headMain.xRot += Mth.sin(pAgeInTicks * 0.06F) * 0.05F;
 	}
 
 	public void lookAnim(float pHeadPitch, float pNetHeadYaw) {
-		this.headMain.xRot += pHeadPitch * (Mth.PI / 180.0F);
-		this.headMain.zRot -= pNetHeadYaw * (Mth.PI / 180.0F);
+		this.headMain.xRot += IcariaMath.rad(pHeadPitch);
+		this.headMain.zRot -= IcariaMath.rad(pNetHeadYaw);
 	}
 
 	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		pLimbSwingAmount *= 1.7F;
-
-		this.armRightUpper.xRot -= Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * armBend * pLimbSwingAmount;
-		this.armRightLower.xRot += Mth.cos(-0.6F + pLimbSwing * 0.6662F + Mth.PI) * ulnaBend * pLimbSwingAmount - 0.7F * pLimbSwingAmount;
-		this.armLeftUpper.xRot -= Mth.cos(pLimbSwing * 0.6662F) * armBend * pLimbSwingAmount;
-		this.armLeftLower.xRot += Mth.cos(-0.6F + pLimbSwing * 0.6662F) * ulnaBend * pLimbSwingAmount - 0.7F * pLimbSwingAmount;
+		this.armRightUpper.xRot += Mth.cos(pLimbSwing + Mth.PI) * pLimbSwingAmount;
+		this.armRightLower.xRot -= Mth.cos(pLimbSwing + Mth.PI) * pLimbSwingAmount * pLimbSwingAmount;
+		this.armLeftUpper.xRot += Mth.cos(pLimbSwing) * pLimbSwingAmount;
+		this.armLeftLower.xRot -= Mth.cos(pLimbSwing) * pLimbSwingAmount * pLimbSwingAmount;
 	}
 
 	@Override

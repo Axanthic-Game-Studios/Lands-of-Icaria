@@ -1,6 +1,7 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.common.entity.ForestHagEntity;
+import com.axanthic.icaria.common.math.IcariaMath;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.HierarchicalModel;
@@ -18,11 +19,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity> {
-	public float armBend = 1.00F;
-	public float ulnaBend = 1.00F;
-	public float legBend = 1.50F;
-	public float kneeBend = 1.25F;
-
 	public ModelPart root;
 	public ModelPart bodyBase;
 	public ModelPart bodyLower;
@@ -77,7 +73,6 @@ public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity
 
 	@Override
 	public void setupAnim(ForestHagEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.bodyBase.y = -Mth.cos(pLimbSwing * 1.25F + 2.75F) * pLimbSwingAmount + 4.0F;
 		this.armRightUpper.xRot = -0.3491F;
 		this.armRightUpper.zRot = 0.4427F;
 		this.armLeftUpper.xRot = -0.1745F;
@@ -98,40 +93,42 @@ public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity
 	}
 
 	public void idleAnim(float pAgeInTicks) {
+		this.armRightUpper.xRot += Mth.sin(pAgeInTicks * 0.06F) * 0.05F;
 		this.armRightUpper.zRot += Mth.cos(pAgeInTicks * 0.09F) * 0.05F;
+		this.armLeftUpper.xRot -= Mth.sin(pAgeInTicks * 0.06F) * 0.05F;
 		this.armLeftUpper.zRot -= Mth.cos(pAgeInTicks * 0.09F) * 0.05F;
-		this.armRightUpper.xRot += Mth.sin(pAgeInTicks * 0.067F) * 0.05F;
-		this.armLeftUpper.xRot -= Mth.sin(pAgeInTicks * 0.067F) * 0.05F;
 
-		this.wiggleRotateAngles(this.bodyLower, 0.08726646259971647F, 0.08726646259971647F, 0.04363323129985824F, pAgeInTicks);
-		this.wiggleRotateAngles(this.bodyCenter, 0.08726646259971647F, 0.08726646259971647F, 0.04363323129985824F, pAgeInTicks);
-		this.wiggleRotateAngles(this.bodyCenterLeavesMain, -0.091106186954104F, 0.08726646259971647F, 0.04363323129985824F, pAgeInTicks);
-		this.wiggleRotateAngles(this.bodyUpper, 0.17453292519943295F, 0.08203047484373349F, 0.04363323129985824F, pAgeInTicks);
-		this.wiggleRotateAngles(this.neckMain, -0.6981317007977318F, -0.06981317007977318F, 0.17453292519943295F, pAgeInTicks);
-		this.wiggleRotateAngles(this.shoulderRight, 0.17453292519943295F, -0.13962634015954636F, 0.04363323129985824F, pAgeInTicks);
-		this.wiggleRotateAngles(this.shoulderLeft, 0.17453292519943295F, 0.08203047484373349F, 0.04363323129985824F, pAgeInTicks);
-		this.wiggleRotateAngles(this.bodyUpperBranchLower, 0.0F, -0.06981317007977318F, 0.17453292519943295F, pAgeInTicks);
-		this.wiggleRotateAngles(this.bodyUpperBranchCenter, 0.2617993877991494F, 0.0F, -0.08726646259971647F, pAgeInTicks);
-		this.wiggleRotateAngles(this.bodyUpperLeavesLower, 0.0F, 0.7853981633974483F, 0.0F, pAgeInTicks);
-		this.wiggleRotateAngles(this.bodyUpperTwigMain, -0.9105382707654417F, -0.5462880558742251F, -0.18203784098300857F, pAgeInTicks);
-		this.wiggleRotateAngles(this.bodyUpperBranchUpper, 0.2617993877991494F, 0.0F, -0.08726646259971647F, pAgeInTicks);
-		this.wiggleRotateAngles(this.bodyUpperLeavesCenter, 0.0F, 0.7853981633974483F, 0.0F, pAgeInTicks);
+		this.wiggleRotateAngles(this.bodyLower, 0.1023F, 0.0873F, 0.0286F, pAgeInTicks);
+		this.wiggleRotateAngles(this.bodyCenter, 0.1023F, 0.0873F, 0.0286F, pAgeInTicks);
+		this.wiggleRotateAngles(this.bodyCenterLeavesMain, -0.0761F, 0.0873F, 0.0286F, pAgeInTicks);
+		this.wiggleRotateAngles(this.bodyUpper, 0.1895F, 0.082F, 0.0286F, pAgeInTicks);
+		this.wiggleRotateAngles(this.neckMain, -0.6831F, -0.0698F, 0.1595F, pAgeInTicks);
+		this.wiggleRotateAngles(this.shoulderRight, 0.1895F, -0.1396F, 0.0286F, pAgeInTicks);
+		this.wiggleRotateAngles(this.shoulderLeft, 0.1895F, 0.082F, 0.0286F, pAgeInTicks);
+		this.wiggleRotateAngles(this.bodyUpperBranchLower, 0.015F, -0.0698F, 0.1595F, pAgeInTicks);
+		this.wiggleRotateAngles(this.bodyUpperBranchCenter, 0.2768F, 0.0F, -0.1023F, pAgeInTicks);
+		this.wiggleRotateAngles(this.bodyUpperTwigMain, -0.8955F, -0.5463F, -0.197F, pAgeInTicks);
+		this.wiggleRotateAngles(this.bodyUpperLeavesLower, 0.015F, 0.7854F, -0.015F, pAgeInTicks);
+		this.wiggleRotateAngles(this.bodyUpperBranchUpper, 0.2768F, 0.0F, -0.1023F, pAgeInTicks);
+		this.wiggleRotateAngles(this.bodyUpperLeavesCenter, 0.015F, 0.7854F, -0.015F, pAgeInTicks);
 	}
 
 	public void lookAnim(float pHeadPitch, float pNetHeadYaw) {
-		this.headMain.xRot = pHeadPitch * 0.017453292F + 0.4363323129985824F;
-		this.headMain.yRot = pNetHeadYaw * 0.017453292F - 0.08726646259971647F;
+		this.headMain.xRot = IcariaMath.rad(pHeadPitch) + 0.4363F;
+		this.headMain.yRot = IcariaMath.rad(pNetHeadYaw) - 0.0873F;
 	}
 
 	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		this.armRightUpper.xRot = Mth.cos(pLimbSwing * 0.6662F) * this.armBend * pLimbSwingAmount - 0.3490658503988659F;
-		this.armRightLower.xRot = Mth.cos(pLimbSwing * 0.6662F) * this.ulnaBend * pLimbSwingAmount - this.ulnaBend * pLimbSwingAmount - 0.17453292519943295F;
-		this.thighRight.xRot = Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * this.legBend * pLimbSwingAmount;
-		this.legRight.xRot = Mth.sin(pLimbSwing * 0.6662F + Mth.PI) * this.kneeBend * pLimbSwingAmount + this.kneeBend * pLimbSwingAmount + 0.08726646259971647F;
-		this.armLeftUpper.xRot = Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * this.armBend * pLimbSwingAmount - 0.17453292519943295F;
-		this.armLeftLower.xRot = Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * this.ulnaBend * pLimbSwingAmount - this.ulnaBend * pLimbSwingAmount - 0.3490658503988659F;
-		this.thighLeft.xRot = Mth.cos(pLimbSwing * 0.6662F) * this.legBend * pLimbSwingAmount;
-		this.legLeft.xRot = Mth.sin(pLimbSwing * 0.6662F) * this.kneeBend * pLimbSwingAmount + this.kneeBend * pLimbSwingAmount + 0.08726646259971647F;
+		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount;
+
+		this.armRightUpper.xRot = Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount - 0.3491F;
+		this.armRightLower.xRot = Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount - pLimbSwingAmount - 0.1745F;
+		this.thighRight.xRot = Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount;
+		this.legRight.xRot = Mth.sin(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount + pLimbSwingAmount + 0.0873F;
+		this.armLeftUpper.xRot = Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount - 0.1745F;
+		this.armLeftLower.xRot = Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount - pLimbSwingAmount - 0.3491F;
+		this.thighLeft.xRot = Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount;
+		this.legLeft.xRot = Mth.sin(pLimbSwing * 0.6F) * pLimbSwingAmount + pLimbSwingAmount;
 	}
 
 	public void wiggleRotateAngles(ModelPart pModelPart, float pX, float pY, float pZ, float pAgeInTicks) {

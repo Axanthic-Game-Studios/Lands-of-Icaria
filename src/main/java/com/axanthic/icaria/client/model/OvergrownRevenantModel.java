@@ -1,6 +1,7 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.common.entity.OvergrownRevenantEntity;
+import com.axanthic.icaria.common.math.IcariaMath;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
@@ -69,9 +70,6 @@ public class OvergrownRevenantModel extends HierarchicalModel<OvergrownRevenantE
 	public void setupAnim(OvergrownRevenantEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
 		var randomSource = RandomSource.create(pEntity.getId());
 
-		this.bodyUpper.y = -Mth.cos(pLimbSwing * 1.25F + 2.75F) * pLimbSwingAmount + 10.0F;
-		this.bodyLower.y = -Mth.cos(pLimbSwing * 1.25F + 2.75F) * pLimbSwingAmount + 10.0F;
-
 		this.setRotateAngles(this.headMain, -0.2721F, 0.0F, randomSource.nextIntBetweenInclusive(-50, 50) * 0.005F);
 		this.setRotateAngles(this.jawLower, 0.1047F, 0.0F, 0.0F);
 		this.setRotateAngles(this.armRightUpper, -0.2731F, 0.0F, 0.2047F);
@@ -86,7 +84,6 @@ public class OvergrownRevenantModel extends HierarchicalModel<OvergrownRevenantE
 		this.attackAnim();
 		this.idleAnim(pAgeInTicks);
 		this.lookAnim(pHeadPitch, pNetHeadYaw);
-		this.rideAnim();
 		this.walkAnim(pLimbSwing, pLimbSwingAmount);
 	}
 
@@ -101,43 +98,30 @@ public class OvergrownRevenantModel extends HierarchicalModel<OvergrownRevenantE
 	}
 
 	public void idleAnim(float pAgeInTicks) {
-		this.headMain.zRot += Mth.sin(pAgeInTicks * 0.067F) * 0.05F;
-		this.jawLower.xRot += Mth.sin(pAgeInTicks * 0.067F) * 0.05F;
-		this.armRightUpper.xRot += Mth.sin(pAgeInTicks * 0.067F) * 0.05F;
+		this.headMain.zRot += Mth.sin(pAgeInTicks * 0.06F) * 0.05F;
+		this.jawLower.xRot += Mth.sin(pAgeInTicks * 0.06F) * 0.05F;
+		this.armRightUpper.xRot += Mth.sin(pAgeInTicks * 0.06F) * 0.05F;
 		this.armRightUpper.zRot += Mth.cos(pAgeInTicks * 0.09F) * 0.05F + 0.05F;
-		this.armLeftUpper.xRot -= Mth.sin(pAgeInTicks * 0.067F) * 0.05F;
+		this.armLeftUpper.xRot -= Mth.sin(pAgeInTicks * 0.06F) * 0.05F;
 		this.armLeftUpper.zRot -= Mth.cos(pAgeInTicks * 0.09F) * 0.05F + 0.05F;
 	}
 
 	public void lookAnim(float pHeadPitch, float pNetHeadYaw) {
-		this.headMain.xRot += pHeadPitch * (Mth.PI / 180.0F);
-		this.headMain.yRot += pNetHeadYaw * (Mth.PI / 180.0F);
-	}
-
-	public void rideAnim() {
-		if (this.riding) {
-			this.armRightUpper.xRot -= (Mth.PI / 5.0F);
-			this.armLeftUpper.xRot -= (Mth.PI / 5.0F);
-			this.thighRight.xRot -= 1.2F;
-			this.thighRight.yRot += (Mth.PI / 10.0F);
-			this.thighRight.zRot += 0.07F;
-			this.thighLeft.xRot -= 1.2F;
-			this.thighLeft.yRot -= (Mth.PI / 10.0F);
-			this.thighLeft.zRot -= 0.07F;
-			this.legRight.xRot += 0.7F;
-			this.legLeft.xRot += 0.7F;
-		}
+		this.headMain.xRot += IcariaMath.rad(pHeadPitch);
+		this.headMain.yRot += IcariaMath.rad(pNetHeadYaw);
 	}
 
 	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		this.armRightUpper.xRot += Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * 2.0F * pLimbSwingAmount * 0.5F;
-		this.armRightLower.xRot -= Mth.cos(pLimbSwing * 0.6662F) * 2.0F * pLimbSwingAmount * 0.5F + 2.0F * pLimbSwingAmount * 0.5F;
-		this.armLeftUpper.xRot += Mth.cos(pLimbSwing * 0.6662F) * 2.0F * pLimbSwingAmount * 0.5F;
-		this.armLeftLower.xRot -= Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * 2.0F * pLimbSwingAmount * 0.5F + 2.0F * pLimbSwingAmount * 0.5F;
-		this.thighRight.xRot += Mth.cos(pLimbSwing * 0.6662F) * 0.5F * pLimbSwingAmount;
-		this.thighLeft.xRot += Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * 0.5F * pLimbSwingAmount;
-		this.legRight.xRot += Mth.cos(pLimbSwing * 0.6662F) * 0.8F * pLimbSwingAmount + 0.8F * pLimbSwingAmount;
-		this.legLeft.xRot += Mth.cos(pLimbSwing * 0.6662F + Mth.PI) * 0.8F * pLimbSwingAmount + 0.8F * pLimbSwingAmount;
+		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount;
+
+		this.armRightUpper.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount;
+		this.armLeftUpper.xRot += Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount;
+		this.armRightLower.xRot -= Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount + pLimbSwingAmount;
+		this.armLeftLower.xRot -= Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount + pLimbSwingAmount;
+		this.thighRight.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * 0.5F * pLimbSwingAmount;
+		this.thighLeft.xRot += Mth.cos(pLimbSwing * 0.6F) * 0.5F * pLimbSwingAmount;
+		this.legRight.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * 0.8F * pLimbSwingAmount + 0.8F * pLimbSwingAmount;
+		this.legLeft.xRot += Mth.cos(pLimbSwing * 0.6F) * 0.8F * pLimbSwingAmount + 0.8F * pLimbSwingAmount;
 	}
 
 	public void translateToBiceps(PoseStack pPoseStack) {

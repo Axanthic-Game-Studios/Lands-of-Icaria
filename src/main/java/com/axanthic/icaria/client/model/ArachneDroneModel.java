@@ -2,6 +2,7 @@ package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
 import com.axanthic.icaria.common.entity.ArachneDroneEntity;
+import com.axanthic.icaria.common.math.IcariaMath;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.HierarchicalModel;
@@ -54,38 +55,39 @@ public class ArachneDroneModel extends HierarchicalModel<ArachneDroneEntity> {
 	}
 
 	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		this.head.xRot = pHeadPitch * (Mth.PI / 360.0F) - 0.1745F;
-		this.head.yRot = pNetHeadYaw * (Mth.PI / 360.0F);
+		this.head.xRot = IcariaMath.rad(pHeadPitch) - 0.1745F;
+		this.head.yRot = IcariaMath.rad(pNetHeadYaw);
 	}
 
 	public void walkAnim(ArachneDroneEntity pEntity, float pLimbSwing, float pLimbSwingAmount) {
-		float animSpeed = 5.0F - pEntity.getSize();
+		pLimbSwing *= Mth.lerp(pEntity.getSizeInverted(), 1.0F, 1.25F);
+		pLimbSwingAmount *= Mth.lerp(pEntity.getSizeInverted(), 0.125F, 0.5F);
 
-		float f0 = -(Mth.cos((pLimbSwing * animSpeed)) * 0.5F) * pLimbSwingAmount * animSpeed * 0.5F;
-		float f1 = -(Mth.cos((pLimbSwing * animSpeed) + (Mth.PI)) * 0.5F) * pLimbSwingAmount * animSpeed * 0.5F;
-		float f2 = -(Mth.cos((pLimbSwing * animSpeed) + (Mth.PI * 0.5F)) * 0.5F) * pLimbSwingAmount * animSpeed * 0.5F;
-		float f3 = -(Mth.cos((pLimbSwing * animSpeed) + (Mth.PI * 1.5F)) * 0.5F) * pLimbSwingAmount * animSpeed * 0.5F;
-		float f4 = Mth.abs(Mth.sin((pLimbSwing * animSpeed)) * 0.5F) * pLimbSwingAmount * animSpeed * 0.5F;
-		float f5 = Mth.abs(Mth.sin((pLimbSwing * animSpeed) + (Mth.PI)) * 0.5F) * pLimbSwingAmount * animSpeed * 0.5F;
-		float f6 = Mth.abs(Mth.sin((pLimbSwing * animSpeed) + (Mth.PI * 0.5F)) * 0.5F) * pLimbSwingAmount * animSpeed * 0.5F;
-		float f7 = Mth.abs(Mth.sin((pLimbSwing * animSpeed) + (Mth.PI * 1.5F)) * 0.5F) * pLimbSwingAmount * animSpeed * 0.5F;
+		float f0 = -Mth.cos(pLimbSwing + Mth.PI * 0.0F) * 0.5F * pLimbSwingAmount;
+		float f1 = -Mth.cos(pLimbSwing + Mth.PI * 1.0F) * 0.5F * pLimbSwingAmount;
+		float f2 = -Mth.cos(pLimbSwing + Mth.PI * 0.5F) * 0.5F * pLimbSwingAmount;
+		float f3 = -Mth.cos(pLimbSwing + Mth.PI * 1.5F) * 0.5F * pLimbSwingAmount;
+		float f4 = Mth.abs(Mth.sin(pLimbSwing + Mth.PI * 0.0F) * 0.5F) * pLimbSwingAmount;
+		float f5 = Mth.abs(Mth.sin(pLimbSwing + Mth.PI * 1.0F) * 0.5F) * pLimbSwingAmount;
+		float f6 = Mth.abs(Mth.sin(pLimbSwing + Mth.PI * 0.5F) * 0.5F) * pLimbSwingAmount;
+		float f7 = Mth.abs(Mth.sin(pLimbSwing + Mth.PI * 1.5F) * 0.5F) * pLimbSwingAmount;
 
-		this.legRightFront.yRot = -0.3927F + f3;
+		this.legRightFront.yRot = f3 - 0.3927F;
 		this.legRightCenterFront.yRot = f2;
-		this.legRightCenterRear.yRot = 0.3927F + f1;
-		this.legRightRear.yRot = 0.7854F + f0;
-		this.legLeftFront.yRot = 0.3927F - f3;
+		this.legRightCenterRear.yRot = f1 + 0.3927F;
+		this.legRightRear.yRot = f0 + 0.7854F;
+		this.legLeftFront.yRot =  -f3 + 0.3927F;
 		this.legLeftCenterFront.yRot = -f2;
-		this.legLeftCenterRear.yRot = -0.3927F - f1;
-		this.legLeftRear.yRot = -0.7854F - f0;
-		this.legRightFront.zRot = 0.3927F + f7;
-		this.legRightCenterFront.zRot = 0.3927F + f6;
-		this.legRightCenterRear.zRot = 0.3927F + f5;
-		this.legRightRear.zRot = 0.3927F + f4;
-		this.legLeftFront.zRot = -0.3927F - f7;
-		this.legLeftCenterFront.zRot = -0.3927F - f6;
-		this.legLeftCenterRear.zRot = -0.3927F - f5;
-		this.legLeftRear.zRot = -0.3927F - f4;
+		this.legLeftCenterRear.yRot = -f1 - 0.3927F;
+		this.legLeftRear.yRot = -f0 - 0.7854F;
+		this.legRightFront.zRot = f7 + 0.3927F;
+		this.legRightCenterFront.zRot = f6 + 0.3927F;
+		this.legRightCenterRear.zRot = f5 + 0.3927F;
+		this.legRightRear.zRot = f4 + 0.3927F;
+		this.legLeftFront.zRot = -f7 - 0.3927F;
+		this.legLeftCenterFront.zRot = -f6 - 0.3927F;
+		this.legLeftCenterRear.zRot = -f5 - 0.3927F;
+		this.legLeftRear.zRot = -f4 - 0.3927F;
 	}
 
 	public static LayerDefinition createLayer() {

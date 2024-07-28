@@ -2,6 +2,7 @@ package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
 import com.axanthic.icaria.common.entity.ArachneEntity;
+import com.axanthic.icaria.common.math.IcariaMath;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.HierarchicalModel;
@@ -58,30 +59,30 @@ public class ArachneModel extends HierarchicalModel<ArachneEntity> {
 	}
 
 	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		this.skull.xRot = pHeadPitch * (Mth.PI / 360.0F) + 1.3963F;
-		this.skull.zRot = pNetHeadYaw * (Mth.PI / 360.0F);
+		this.skull.xRot = IcariaMath.rad(pHeadPitch) + 1.3963F;
+		this.skull.zRot = IcariaMath.rad(pNetHeadYaw);
 	}
 
 	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		float f0 = -(Mth.cos(pLimbSwing + (Mth.PI)) * 0.5F) * pLimbSwingAmount;
-		float f1 = -(Mth.cos(pLimbSwing + (Mth.PI * 0.5F)) * 0.5F) * pLimbSwingAmount;
-		float f2 = -(Mth.cos(pLimbSwing + (Mth.PI * 1.5F)) * 0.5F) * pLimbSwingAmount;
-		float f3 = Mth.abs(Mth.sin(pLimbSwing + (Mth.PI)) * 0.5F) * pLimbSwingAmount;
-		float f4 = Mth.abs(Mth.sin(pLimbSwing + (Mth.PI * 0.5F)) * 0.5F) * pLimbSwingAmount;
-		float f5 = Mth.abs(Mth.sin(pLimbSwing + (Mth.PI * 1.5F)) * 0.5F) * pLimbSwingAmount;
+		float f0 = -Mth.cos(pLimbSwing + Mth.PI * 1.0F) * 0.5F * pLimbSwingAmount;
+		float f1 = -Mth.cos(pLimbSwing + Mth.PI * 0.5F) * 0.5F * pLimbSwingAmount;
+		float f2 = -Mth.cos(pLimbSwing + Mth.PI * 1.5F) * 0.5F * pLimbSwingAmount;
+		float f3 = Mth.abs(Mth.sin(pLimbSwing + Mth.PI * 1.0F) * 0.5F) * pLimbSwingAmount;
+		float f4 = Mth.abs(Mth.sin(pLimbSwing + Mth.PI * 0.5F) * 0.5F) * pLimbSwingAmount;
+		float f5 = Mth.abs(Mth.sin(pLimbSwing + Mth.PI * 1.5F) * 0.5F) * pLimbSwingAmount;
 
-		this.legRightFront.yRot = -0.576F + f2;
+		this.legRightFront.yRot = f2 - 0.576F;
 		this.legRightCenter.yRot = f1;
-		this.legRightRear.yRot = 0.576F + f0;
-		this.legLeftFront.yRot = 0.576F - f2;
+		this.legRightRear.yRot = f0 + 0.576F;
+		this.legLeftFront.yRot = -f2 + 0.576F;
 		this.legLeftCenter.yRot = -f1;
-		this.legLeftRear.yRot = -0.576F - f0;
-		this.legRightFront.zRot = 0.3927F + f5;
-		this.legRightCenter.zRot = 0.3927F + f4;
-		this.legRightRear.zRot = 0.3927F + f3;
-		this.legLeftFront.zRot = -0.3927F - f5;
-		this.legLeftCenter.zRot = -0.3927F - f4;
-		this.legLeftRear.zRot = -0.3927F - f3;
+		this.legLeftRear.yRot = -f0 - 0.576F;
+		this.legRightFront.zRot = f5 + 0.3927F;
+		this.legRightCenter.zRot = f4 + 0.3927F;
+		this.legRightRear.zRot = f3 + 0.3927F;
+		this.legLeftFront.zRot = -f5 - 0.3927F;
+		this.legLeftCenter.zRot = -f4 - 0.3927F;
+		this.legLeftRear.zRot = -f3 - 0.3927F;
 	}
 
 	public static LayerDefinition createLayer() {

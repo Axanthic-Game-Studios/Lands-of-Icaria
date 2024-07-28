@@ -3,6 +3,7 @@ package com.axanthic.icaria.client.model;
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.registry.IcariaAnimations;
 import com.axanthic.icaria.common.entity.ScorpionEntity;
+import com.axanthic.icaria.common.math.IcariaMath;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.HierarchicalModel;
@@ -88,19 +89,19 @@ public class ScorpionModel extends HierarchicalModel<ScorpionEntity> {
 	}
 
 	public void lookAnim(float pHeadPitch, float pNetHeadYaw) {
-		this.headMain.xRot += pHeadPitch * (Mth.PI / 180.0F);
-		this.headMain.yRot += pNetHeadYaw * (Mth.PI / 180.0F);
+		this.headMain.xRot += IcariaMath.rad(pHeadPitch);
+		this.headMain.yRot += IcariaMath.rad(pNetHeadYaw);
 	}
 
 	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		float frontY = -(Mth.cos(pLimbSwing * 0.6662F * 2.0F + (Mth.PI * 1.5F)) * 0.4F) * pLimbSwingAmount;
-		float frontZ = Math.abs(Mth.sin(pLimbSwing * 0.6662F + (Mth.PI * 1.5F)) * 0.4F) * pLimbSwingAmount;
-		float centerFrontY = -(Mth.cos(pLimbSwing * 0.6662F * 2.0F + (Mth.PI * 0.5F)) * 0.4F) * pLimbSwingAmount;
-		float centerFrontZ = Math.abs(Mth.sin(pLimbSwing * 0.6662F + (Mth.PI * 0.5F)) * 0.4F) * pLimbSwingAmount;
-		float centerRearY = -(Mth.cos(pLimbSwing * 0.6662F * 2.0F + (Mth.PI)) * 0.4F) * pLimbSwingAmount;
-		float centerRearZ = Math.abs(Mth.sin(pLimbSwing * 0.6662F + (Mth.PI)) * 0.4F) * pLimbSwingAmount;
-		float rearY = -(Mth.cos(pLimbSwing * 0.6662F * 2.0F + (Mth.PI * 0.0F)) * 0.4F) * pLimbSwingAmount;
-		float rearZ = Math.abs(Mth.sin(pLimbSwing * 0.6662F + (Mth.PI * 0.0F)) * 0.4F) * pLimbSwingAmount;
+		float frontY = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 1.5F) * 0.4F * pLimbSwingAmount;
+		float frontZ = Math.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 1.5F) * 0.4F) * pLimbSwingAmount;
+		float centerFrontY = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 0.5F) * 0.4F * pLimbSwingAmount;
+		float centerFrontZ = Math.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 0.5F) * 0.4F) * pLimbSwingAmount;
+		float centerRearY = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 1.0F) * 0.4F * pLimbSwingAmount;
+		float centerRearZ = Math.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 1.0F) * 0.4F) * pLimbSwingAmount;
+		float rearY = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 0.0F) * 0.4F * pLimbSwingAmount;
+		float rearZ = Math.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 0.0F) * 0.4F) * pLimbSwingAmount;
 
 		this.legRightFrontUpper.yRot += frontY;
 		this.legRightFrontUpper.zRot += frontZ;
