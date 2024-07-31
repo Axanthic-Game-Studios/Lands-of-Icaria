@@ -10,7 +10,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -35,11 +34,6 @@ public class EnderJellyfishRenderer extends MobRenderer<JellyfishEntity, EnderJe
 	@Override
 	public float getBob(JellyfishEntity pLivingBase, float pPartialTicks) {
 		return Mth.lerp(pPartialTicks, pLivingBase.oldTentacleAngle, pLivingBase.tentacleAngle);
-	}
-
-	@Override
-	public void render(JellyfishEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
 	}
 
 	@Override

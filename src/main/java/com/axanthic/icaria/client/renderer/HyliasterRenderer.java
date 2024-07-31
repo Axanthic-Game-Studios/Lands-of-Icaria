@@ -9,7 +9,6 @@ import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -28,11 +27,6 @@ public class HyliasterRenderer extends MobRenderer<HyliasterEntity, HyliasterMod
 	@Override
 	public float getShadowRadius(HyliasterEntity pEntity) {
 		return pEntity.getScaleForShadow();
-	}
-
-	@Override
-	public void render(HyliasterEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
 	}
 
 	@Override
