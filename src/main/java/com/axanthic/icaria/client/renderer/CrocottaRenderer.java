@@ -17,7 +17,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class CrocottaRenderer extends MobRenderer<CrocottaEntity, CrocottaModel> {
 	public CrocottaRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new CrocottaModel(pContext.bakeLayer(IcariaLayerLocations.CROCOTTA)), 1.0F);
+		super(pContext, new CrocottaModel(pContext.bakeLayer(IcariaLayerLocations.CROCOTTA)), 0.75F);
 	}
 
 	@Override
