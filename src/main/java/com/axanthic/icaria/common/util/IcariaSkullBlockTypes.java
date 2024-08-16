@@ -10,6 +10,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public enum IcariaSkullBlockTypes implements IcariaSkullBlockType {
 	AETERNAE,
 	ARGAN_HOUND,
+	CAPELLA,
 	CATOBLEPAS,
 	CERVER,
 	CYPRESS_FOREST_HAG,

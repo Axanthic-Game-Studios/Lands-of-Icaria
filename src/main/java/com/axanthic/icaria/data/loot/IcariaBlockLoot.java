@@ -99,6 +99,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropElse(IcariaBlocks.FERTILIZED_FARMLAND.get(), IcariaItems.MARL.get());
 		this.dropElse(IcariaBlocks.AETERNAE_WALL_SKULL.get(), IcariaItems.AETERNAE_SKULL.get());
 		this.dropElse(IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), IcariaItems.ARGAN_HOUND_SKULL.get());
+		this.dropElse(IcariaBlocks.CAPELLA_WALL_SKULL.get(), IcariaItems.CAPELLA_SKULL.get());
 		this.dropElse(IcariaBlocks.CATOBLEPAS_WALL_SKULL.get(), IcariaItems.CATOBLEPAS_SKULL.get());
 		this.dropElse(IcariaBlocks.CERVER_WALL_SKULL.get(), IcariaItems.CERVER_SKULL.get());
 		this.dropElse(IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get(), IcariaItems.CYPRESS_FOREST_HAG_SKULL.get());
@@ -166,6 +167,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.PINK_STORAGE_VASE.get());
 		this.dropThis(IcariaBlocks.AETERNAE_SKULL.get());
 		this.dropThis(IcariaBlocks.ARGAN_HOUND_SKULL.get());
+		this.dropThis(IcariaBlocks.CAPELLA_SKULL.get());
 		this.dropThis(IcariaBlocks.CATOBLEPAS_SKULL.get());
 		this.dropThis(IcariaBlocks.CERVER_SKULL.get());
 		this.dropThis(IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get());

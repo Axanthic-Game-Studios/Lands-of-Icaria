@@ -40,6 +40,7 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation ARACHNE_DRONE_EMISSIVE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/arachne_drone_emissive.png");
 	public static final ResourceLocation ARGAN_HOUND = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/argan_hound.png");
 	public static final ResourceLocation ARGAN_HOUND_EMISSIVE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/argan_hound_emissive.png");
+	public static final ResourceLocation CAPELLA = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/capella.png");
 	public static final ResourceLocation CATOBLEPAS = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/catoblepas.png");
 	public static final ResourceLocation CERVER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/cerver.png");
 	public static final ResourceLocation CYPRESS_FOREST_HAG = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/cypress_forest_hag.png");
@@ -131,6 +132,8 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation ARACHNE_DRONE_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "arachne_drone");
 	public static final ResourceLocation ARGAN_HOUND_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "argan_hound");
 	public static final ResourceLocation ARGAN_HOUND_SKULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "argan_hound_skull");
+	public static final ResourceLocation CAPELLA_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "capella");
+	public static final ResourceLocation CAPELLA_SKULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "capella_skull");
 	public static final ResourceLocation CATOBLEPAS_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "catoblepas");
 	public static final ResourceLocation CATOBLEPAS_SKULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "catoblepas_skull");
 	public static final ResourceLocation CERVER_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "cerver");

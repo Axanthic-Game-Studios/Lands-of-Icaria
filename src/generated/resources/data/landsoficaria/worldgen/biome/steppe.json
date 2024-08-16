@@ -81,6 +81,12 @@
         "weight": 100
       },
       {
+        "type": "landsoficaria:capella",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 100
+      },
+      {
         "type": "landsoficaria:catoblepas",
         "maxCount": 35,
         "minCount": 1,

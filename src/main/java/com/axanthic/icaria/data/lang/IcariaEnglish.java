@@ -387,6 +387,7 @@ public class IcariaEnglish extends LanguageProvider {
 
 		this.add(IcariaBlocks.AETERNAE_SKULL.get(), "Aeternae Skull");
 		this.add(IcariaBlocks.ARGAN_HOUND_SKULL.get(), "Argan Hound Skull");
+		this.add(IcariaBlocks.CAPELLA_SKULL.get(), "Capella Skull");
 		this.add(IcariaBlocks.CATOBLEPAS_SKULL.get(), "Catoblepas Skull");
 		this.add(IcariaBlocks.CERVER_SKULL.get(), "Cerver Skull");
 		this.add(IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), "Cypress Forest Hag Skull");
@@ -785,6 +786,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaEntityTypes.ARGAN_HOUND.get(), "Argan Hound");
 		this.add(IcariaEntityTypes.BARREL.get(), "Barrel");
 		this.add(IcariaEntityTypes.BIDENT.get(), "Bident");
+		this.add(IcariaEntityTypes.CAPELLA.get(), "Capella");
 		this.add(IcariaEntityTypes.CATOBLEPAS.get(), "Catoblepas");
 		this.add(IcariaEntityTypes.CERVER.get(), "Cerver");
 		this.add(IcariaEntityTypes.FLOATING_BLOCK.get(), "Floating Block");
@@ -1074,6 +1076,7 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.ARACHNE_SPAWN_EGG.get(), "Arachne Spawn Egg");
 		this.add(IcariaItems.ARACHNE_DRONE_SPAWN_EGG.get(), "Arachne Drone Spawn Egg");
 		this.add(IcariaItems.ARGAN_HOUND_SPAWN_EGG.get(), "Argan Hound Spawn Egg");
+		this.add(IcariaItems.CAPELLA_SPAWN_EGG.get(), "Capella Spawn Egg");
 		this.add(IcariaItems.CATOBLEPAS_SPAWN_EGG.get(), "Catoblepas Spawn Egg");
 		this.add(IcariaItems.CERVER_SPAWN_EGG.get(), "Cerver Spawn Egg");
 		this.add(IcariaItems.CYPRESS_FOREST_HAG_SPAWN_EGG.get(), "Cypress Forest Hag Spawn Egg");

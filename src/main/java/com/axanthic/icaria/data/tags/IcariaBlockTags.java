@@ -739,6 +739,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.AETERNAE_WALL_SKULL.get())
 			.add(IcariaBlocks.ARGAN_HOUND_SKULL.get())
 			.add(IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get())
+			.add(IcariaBlocks.CAPELLA_SKULL.get())
+			.add(IcariaBlocks.CAPELLA_WALL_SKULL.get())
 			.add(IcariaBlocks.CATOBLEPAS_SKULL.get())
 			.add(IcariaBlocks.CATOBLEPAS_WALL_SKULL.get())
 			.add(IcariaBlocks.CERVER_SKULL.get())

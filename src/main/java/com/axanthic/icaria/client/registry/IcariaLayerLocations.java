@@ -17,6 +17,8 @@ public class IcariaLayerLocations {
 	public static final ModelLayerLocation ARACHNE_DRONE = new ModelLayerLocation(IcariaResourceLocations.ARACHNE_DRONE_LAYER, "main");
 	public static final ModelLayerLocation ARGAN_HOUND = new ModelLayerLocation(IcariaResourceLocations.ARGAN_HOUND_LAYER, "main");
 	public static final ModelLayerLocation ARGAN_HOUND_SKULL = new ModelLayerLocation(IcariaResourceLocations.ARGAN_HOUND_SKULL_LAYER, "main");
+	public static final ModelLayerLocation CAPELLA = new ModelLayerLocation(IcariaResourceLocations.CAPELLA_LAYER, "main");
+	public static final ModelLayerLocation CAPELLA_SKULL = new ModelLayerLocation(IcariaResourceLocations.CAPELLA_SKULL_LAYER, "main");
 	public static final ModelLayerLocation CATOBLEPAS = new ModelLayerLocation(IcariaResourceLocations.CATOBLEPAS_LAYER, "main");
 	public static final ModelLayerLocation CATOBLEPAS_SKULL = new ModelLayerLocation(IcariaResourceLocations.CATOBLEPAS_SKULL_LAYER, "main");
 	public static final ModelLayerLocation CERVER = new ModelLayerLocation(IcariaResourceLocations.CERVER_LAYER, "main");

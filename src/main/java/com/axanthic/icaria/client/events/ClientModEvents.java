@@ -341,6 +341,7 @@ public class ClientModEvents {
 		EntityRenderers.register(IcariaEntityTypes.ARGAN_HOUND.get(), ArganHoundRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.BARREL.get(), IcariaBarrelRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.BIDENT.get(), BidentRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.CAPELLA.get(), CapellaRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CATOBLEPAS.get(), CatoblepasRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CERVER.get(), CerverRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FLOATING_BLOCK.get(), FloatingBlockRenderer::new);
@@ -394,6 +395,8 @@ public class ClientModEvents {
 		pEvent.registerLayerDefinition(IcariaLayerLocations.ARACHNE_DRONE, ArachneDroneModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.ARGAN_HOUND, ArganHoundModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.ARGAN_HOUND_SKULL, ArganHoundSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CAPELLA, CapellaModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaLayerLocations.CAPELLA_SKULL, CapellaSkullModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.CATOBLEPAS, CatoblepasModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.CATOBLEPAS_SKULL, CatoblepasSkullModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaLayerLocations.CERVER, CerverModel::createLayer);
@@ -454,7 +457,7 @@ public class ClientModEvents {
 	public static void onRegisterClientExtensions(RegisterClientExtensionsEvent pEvent) {
 		pEvent.registerFluidType(new MediterraneanWaterFluidTypeExtensions(), IcariaFluidTypes.MEDITERRANEAN_WATER.get());
 		pEvent.registerItem(new IcariaChestItemExtensions(), IcariaItems.CHEST.get(), IcariaItems.TRAPPED_CHEST.get());
-		pEvent.registerItem(new IcariaSkullItemExtensions(), IcariaItems.AETERNAE_SKULL.get(), IcariaItems.ARGAN_HOUND_SKULL.get(), IcariaItems.CATOBLEPAS_SKULL.get(), IcariaItems.CERVER_SKULL.get(), IcariaItems.CYPRESS_FOREST_HAG_SKULL.get(), IcariaItems.DROUGHTROOT_FOREST_HAG_SKULL.get(), IcariaItems.FIR_FOREST_HAG_SKULL.get(), IcariaItems.LAUREL_FOREST_HAG_SKULL.get(), IcariaItems.OLIVE_FOREST_HAG_SKULL.get(), IcariaItems.PLANE_FOREST_HAG_SKULL.get(), IcariaItems.POPULUS_FOREST_HAG_SKULL.get(), IcariaItems.REVENANT_SKULL.get(), IcariaItems.SOW_SKULL.get());
+		pEvent.registerItem(new IcariaSkullItemExtensions(), IcariaItems.AETERNAE_SKULL.get(), IcariaItems.ARGAN_HOUND_SKULL.get(), IcariaItems.CAPELLA_SKULL.get(), IcariaItems.CATOBLEPAS_SKULL.get(), IcariaItems.CERVER_SKULL.get(), IcariaItems.CYPRESS_FOREST_HAG_SKULL.get(), IcariaItems.DROUGHTROOT_FOREST_HAG_SKULL.get(), IcariaItems.FIR_FOREST_HAG_SKULL.get(), IcariaItems.LAUREL_FOREST_HAG_SKULL.get(), IcariaItems.OLIVE_FOREST_HAG_SKULL.get(), IcariaItems.PLANE_FOREST_HAG_SKULL.get(), IcariaItems.POPULUS_FOREST_HAG_SKULL.get(), IcariaItems.REVENANT_SKULL.get(), IcariaItems.SOW_SKULL.get());
 		pEvent.registerItem(new OrichalcumHelmetItemExtensions(), IcariaItems.ORICHALCUM_ARMOR.helmet.get());
 		pEvent.registerItem(new ScrollItemExtensions(), IcariaItems.ANTI_GRAVITY_SCROLL.get(), IcariaItems.FORTIFYING_SCROLL.get(), IcariaItems.HEALING_SCROLL.get(), IcariaItems.BUBBLE_SCROLL.get(), IcariaItems.FREEZING_SCROLL.get(), IcariaItems.MAGIC_MISSILE_SCROLL.get());
 	}
