@@ -74,16 +74,16 @@ public class CerverModel extends HierarchicalModel<CerverEntity> {
 
 		this.legRightFront.xRot = -Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.0F) * 0.6F * pLimbSwingAmount + 0.182F;
 		this.legRightFrontLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount - pLimbSwingAmount - 0.3187F;
-		this.pawRightFront.xRot = -Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * 1.7F * pLimbSwingAmount + 1.7F * pLimbSwingAmount + 0.1367F;
+		this.pawRightFront.xRot = -Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount + pLimbSwingAmount + 0.1367F;
 		this.legLeftFront.xRot = -Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.0F) * 0.6F * pLimbSwingAmount + 0.182F;
 		this.legLeftFrontLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount - pLimbSwingAmount - 0.3187F;
-		this.pawLeftFront.xRot = -Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * 1.7F * pLimbSwingAmount + 1.7F * pLimbSwingAmount + 0.1367F;
+		this.pawLeftFront.xRot = -Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount + pLimbSwingAmount + 0.1367F;
 		this.legRightRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.5F) * 1.2F * pLimbSwingAmount - 0.4383F;
 		this.legRightRearLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount + pLimbSwingAmount + 0.5918F;
-		this.pawRightRear.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * 1.7F * pLimbSwingAmount + 1.0F * pLimbSwingAmount - 0.1367F;
+		this.pawRightRear.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount + pLimbSwingAmount - 0.1367F;
 		this.legLeftRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.5F) * 1.2F * pLimbSwingAmount - 0.4383F;
 		this.legLeftRearLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount + pLimbSwingAmount + 0.5918F;
-		this.pawLeftRear.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * 1.7F * pLimbSwingAmount + 1.0F * pLimbSwingAmount - 0.1367F;
+		this.pawLeftRear.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount + pLimbSwingAmount - 0.1367F;
 	}
 
 	public static LayerDefinition createLayer() {
