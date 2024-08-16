@@ -349,6 +349,7 @@ public class CommonModEvents {
 			pEvent.accept(IcariaItems.CAPELLA_SKULL.get());
 			pEvent.accept(IcariaItems.CATOBLEPAS_SKULL.get());
 			pEvent.accept(IcariaItems.CERVER_SKULL.get());
+			pEvent.accept(IcariaItems.CROCOTTA_SKULL.get());
 			pEvent.accept(IcariaItems.CYPRESS_FOREST_HAG_SKULL.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_FOREST_HAG_SKULL.get());
 			pEvent.accept(IcariaItems.FIR_FOREST_HAG_SKULL.get());
@@ -882,6 +883,7 @@ public class CommonModEvents {
 			pEvent.accept(IcariaItems.CAPELLA_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.CATOBLEPAS_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.CERVER_SPAWN_EGG.get());
+			pEvent.accept(IcariaItems.CROCOTTA_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.CYPRESS_FOREST_HAG_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_FOREST_HAG_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.FIR_FOREST_HAG_SPAWN_EGG.get());
@@ -926,6 +928,7 @@ public class CommonModEvents {
 		pEvent.put(IcariaEntityTypes.CAPELLA.get(), CapellaEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.CATOBLEPAS.get(), CatoblepasEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.CERVER.get(), CerverEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.CROCOTTA.get(), CrocottaEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.FIR_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
@@ -1011,6 +1014,7 @@ public class CommonModEvents {
 		pEvent.register(IcariaEntityTypes.CAPELLA.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CapellaEntity::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.CATOBLEPAS.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CatoblepasEntity::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.CERVER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CerverEntity::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.CROCOTTA.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CrocottaEntity::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.FIR_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);

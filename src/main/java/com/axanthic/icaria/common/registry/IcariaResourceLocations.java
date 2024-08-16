@@ -43,6 +43,7 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation CAPELLA = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/capella.png");
 	public static final ResourceLocation CATOBLEPAS = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/catoblepas.png");
 	public static final ResourceLocation CERVER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/cerver.png");
+	public static final ResourceLocation CROCOTTA = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/crocotta.png");
 	public static final ResourceLocation CYPRESS_FOREST_HAG = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/cypress_forest_hag.png");
 	public static final ResourceLocation CYPRESS_FOREST_HAG_EMISSIVE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/cypress_forest_hag_emissive.png");
 	public static final ResourceLocation DROUGHTROOT_FOREST_HAG = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/droughtroot_forest_hag.png");
@@ -138,6 +139,8 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation CATOBLEPAS_SKULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "catoblepas_skull");
 	public static final ResourceLocation CERVER_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "cerver");
 	public static final ResourceLocation CERVER_SKULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "cerver_skull");
+	public static final ResourceLocation CROCOTTA_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "crocotta");
+	public static final ResourceLocation CROCOTTA_SKULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "crocotta_skull");
 	public static final ResourceLocation CYPRESS_FOREST_HAG_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "cypress_forest_hag");
 	public static final ResourceLocation CYPRESS_FOREST_HAG_SKULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "cypress_forest_hag_skull");
 	public static final ResourceLocation DROUGHTROOT_FOREST_HAG_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "droughtroot_forest_hag");

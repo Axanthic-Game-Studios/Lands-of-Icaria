@@ -390,6 +390,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.CAPELLA_SKULL.get(), "Ziegenschädel");
 		this.add(IcariaBlocks.CATOBLEPAS_SKULL.get(), "Katoblepasschädel");
 		this.add(IcariaBlocks.CERVER_SKULL.get(), "Pantherschädel");
+		this.add(IcariaBlocks.CROCOTTA_SKULL.get(), "Hundewolfschädel");
 		this.add(IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), "Zypressen-Baumwächterschädel");
 		this.add(IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get(), "Dürrwurzel-Baumwächterschädel");
 		this.add(IcariaBlocks.FIR_FOREST_HAG_SKULL.get(), "Tannen-Baumwächterschädel");
@@ -789,6 +790,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.CAPELLA.get(), "Ziege");
 		this.add(IcariaEntityTypes.CATOBLEPAS.get(), "Katoblepas");
 		this.add(IcariaEntityTypes.CERVER.get(), "Panther");
+		this.add(IcariaEntityTypes.CROCOTTA.get(), "Hundewolf");
 		this.add(IcariaEntityTypes.FLOATING_BLOCK.get(), "Schwebender Block");
 		this.add(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), "Griechische Feuergranate");
 		this.add(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), "Zypressen-Baumwächter");
@@ -1079,6 +1081,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.CAPELLA_SPAWN_EGG.get(), "Ziegen-Spawn-Ei");
 		this.add(IcariaItems.CATOBLEPAS_SPAWN_EGG.get(), "Katoblepas-Spawn-Ei");
 		this.add(IcariaItems.CERVER_SPAWN_EGG.get(), "Panther-Spawn-Ei");
+		this.add(IcariaItems.CROCOTTA_SPAWN_EGG.get(), "Hundewolf-Spawn-Ei");
 		this.add(IcariaItems.CYPRESS_FOREST_HAG_SPAWN_EGG.get(), "Zypressen-Baumwächter-Spawn-Ei");
 		this.add(IcariaItems.DROUGHTROOT_FOREST_HAG_SPAWN_EGG.get(), "Dürrwurzel-Baumwächter-Spawn-Ei");
 		this.add(IcariaItems.FIR_FOREST_HAG_SPAWN_EGG.get(), "Tannen-Baumwächter-Spawn-Ei");

@@ -50,6 +50,7 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
 
 		this.dropNone(IcariaEntityTypes.ARGAN_HOUND.get(), IcariaItems.ARGAN_HOUND_SKULL.get());
 		this.dropNone(IcariaEntityTypes.CAPELLA.get(), IcariaItems.CAPELLA_SKULL.get());
+		this.dropNone(IcariaEntityTypes.CROCOTTA.get(), IcariaItems.CROCOTTA_SKULL.get());
 
 		this.dropItem(IcariaEntityTypes.ARACHNE_DRONE.get(), IcariaItems.ARACHNE_STRING.get());
 		this.dropItem(IcariaEntityTypes.FIRE_JELLYFISH.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get());

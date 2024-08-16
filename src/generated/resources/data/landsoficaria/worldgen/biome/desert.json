@@ -59,10 +59,16 @@
         "type": "landsoficaria:argan_hound",
         "maxCount": 3,
         "minCount": 1,
-        "weight": 100
+        "weight": 1
       },
       {
         "type": "landsoficaria:cerver",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 1
+      },
+      {
+        "type": "landsoficaria:crocotta",
         "maxCount": 3,
         "minCount": 1,
         "weight": 100

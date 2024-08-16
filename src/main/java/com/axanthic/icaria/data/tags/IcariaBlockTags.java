@@ -745,6 +745,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.CATOBLEPAS_WALL_SKULL.get())
 			.add(IcariaBlocks.CERVER_SKULL.get())
 			.add(IcariaBlocks.CERVER_WALL_SKULL.get())
+			.add(IcariaBlocks.CROCOTTA_SKULL.get())
+			.add(IcariaBlocks.CROCOTTA_WALL_SKULL.get())
 			.add(IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get())
 			.add(IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get())
 			.add(IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get())
