@@ -17,7 +17,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class CerverRenderer extends MobRenderer<CerverEntity, CerverModel> {
 	public CerverRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new CerverModel(pContext.bakeLayer(IcariaLayerLocations.CERVER)), 1.0F);
+		super(pContext, new CerverModel(pContext.bakeLayer(IcariaLayerLocations.CERVER)), 0.75F);
 	}
 
 	@Override
