@@ -1290,6 +1290,13 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.THORNY_VINE.get(), RecipeProvider.has(IcariaItems.THORNY_VINE.get()))
 			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.MOSSY_STONE_BRICKS));
 
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PACKED_MUD, 1)
+			.requires(Items.MUD)
+			.requires(IcariaItems.SPELT.get())
+			.unlockedBy("has_" + Items.MUD, RecipeProvider.has(Items.MUD))
+			.unlockedBy("has_" + IcariaItems.SPELT.get(), RecipeProvider.has(IcariaItems.SPELT.get()))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.PACKED_MUD) + "_from_spelt");
+
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.PAPER, 3)
 			.pattern("XXX")
 			.define('X', IcariaItems.VINE_REED.get())

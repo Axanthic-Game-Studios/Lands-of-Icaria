@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:spelt": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:spelt"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:mud": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:mud"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:packed_mud_from_spelt"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:mud",
+      "has_landsoficaria:spelt"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:packed_mud_from_spelt"
+    ]
+  }
+}
