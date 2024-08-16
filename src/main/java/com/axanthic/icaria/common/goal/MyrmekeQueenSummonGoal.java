@@ -18,7 +18,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class MyrmekeQueenSummonGoal extends Goal {
 	public MyrmekeQueenEntity entity;
 
-	public TargetingConditions targetingConditions = TargetingConditions.forNonCombat().range(16.0D).ignoreLineOfSight().ignoreInvisibilityTesting();
+	public TargetingConditions targetingConditions = TargetingConditions.forNonCombat().range(16.0D);
 
 	public MyrmekeQueenSummonGoal(MyrmekeQueenEntity pEntity) {
 		super();

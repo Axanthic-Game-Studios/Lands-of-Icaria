@@ -28,7 +28,7 @@ public class IcariaBreedGoal extends Goal {
 
 	public Level level;
 
-	public static final TargetingConditions PARTNER_TARGETING = TargetingConditions.forNonCombat().range(8.0D).ignoreLineOfSight();
+	public TargetingConditions targetingConditions = TargetingConditions.forNonCombat().range(8.0D);
 
 	public IcariaBreedGoal(IcariaAnimalEntity pEntity, double pSpeedModifier) {
 		this(pEntity, pSpeedModifier, pEntity.getClass());
@@ -80,7 +80,7 @@ public class IcariaBreedGoal extends Goal {
 	public @Nullable IcariaAnimalEntity getFreePartner() {
 		double d = Double.MAX_VALUE;
 		IcariaAnimalEntity entity = null;
-		for (var partner : this.level.getNearbyEntities(this.partnerClass, IcariaBreedGoal.PARTNER_TARGETING, this.entity, this.entity.getBoundingBox().inflate(8.0D))) {
+		for (var partner : this.level.getNearbyEntities(this.partnerClass, this.targetingConditions, this.entity, this.entity.getBoundingBox().inflate(8.0D))) {
 			if (this.entity.canMate(partner) && this.entity.distanceToSqr(partner) < d) {
 				entity = partner;
 				d = this.entity.distanceToSqr(partner);

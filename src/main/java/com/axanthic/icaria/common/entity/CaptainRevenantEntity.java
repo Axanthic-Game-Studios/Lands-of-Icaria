@@ -26,7 +26,6 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
-import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -55,7 +54,7 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	public static final EntityDataAccessor<Integer> RALLYING = SynchedEntityData.defineId(CaptainRevenantEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> REEQUIPS = SynchedEntityData.defineId(CaptainRevenantEntity.class, EntityDataSerializers.INT);
 
-	public TargetingConditions targetingConditions = TargetingConditions.forNonCombat().range(16.0D).ignoreLineOfSight().ignoreInvisibilityTesting();
+	public TargetingConditions targetingConditions = TargetingConditions.forCombat().range(16.0D);
 
 	public CaptainRevenantEntity(EntityType<? extends CaptainRevenantEntity> pType, Level pLevel) {
 		super(pType, pLevel);
@@ -190,8 +189,6 @@ public class CaptainRevenantEntity extends RevenantEntity {
 		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
-		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true, true));
-		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, ArganHoundEntity.class, true, true));
 	}
 
 	public void setCasting(IcariaSummonSpellTypes pSpell) {
