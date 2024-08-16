@@ -150,11 +150,14 @@ public class AeternaeModel extends HierarchicalModel<AeternaeEntity> {
 	}
 
 	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
+		float xRot = IcariaMath.rad(pHeadPitch) / 3.0F;
 		float yRot = IcariaMath.rad(pNetHeadYaw) / 3.0F;
+		this.head.xRot = xRot - 0.5465F;
 		this.head.yRot = yRot;
+		this.neck.xRot = xRot + 0.9105F;
 		this.neck.yRot = yRot;
+		this.skull.xRot = xRot;
 		this.skull.yRot = yRot;
-		this.skull.xRot = IcariaMath.rad(pHeadPitch);
 	}
 
 	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
