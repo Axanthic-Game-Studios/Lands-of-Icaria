@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": [
+      {
+        "item": "landsoficaria:cypress_crafting_table"
+      },
+      {
+        "item": "landsoficaria:droughtroot_crafting_table"
+      },
+      {
+        "item": "landsoficaria:fir_crafting_table"
+      },
+      {
+        "item": "landsoficaria:laurel_crafting_table"
+      },
+      {
+        "item": "landsoficaria:olive_crafting_table"
+      },
+      {
+        "item": "landsoficaria:plane_crafting_table"
+      },
+      {
+        "item": "landsoficaria:populus_crafting_table"
+      }
+    ],
+    "C": {
+      "item": "minecraft:redstone"
+    },
+    "D": {
+      "item": "minecraft:dropper"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "CDC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:crafter"
+  }
+}

@@ -1165,6 +1165,26 @@ public class IcariaRecipes extends RecipeProvider {
 			.unlockedBy("has_" + IcariaItems.CALCITE_DUST.get(), RecipeProvider.has(IcariaItems.CALCITE_DUST.get()))
 			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.COPPER_INGOT));
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.CRAFTER, 1)
+			.pattern("AAA")
+			.pattern("ABA")
+			.pattern("CDC")
+			.define('A', Items.IRON_INGOT)
+			.define('B', Ingredient.of(IcariaItems.CYPRESS_CRAFTING_TABLE.get(), IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get(), IcariaItems.FIR_CRAFTING_TABLE.get(), IcariaItems.LAUREL_CRAFTING_TABLE.get(), IcariaItems.OLIVE_CRAFTING_TABLE.get(), IcariaItems.PLANE_CRAFTING_TABLE.get(), IcariaItems.POPULUS_CRAFTING_TABLE.get()))
+			.define('C', Items.REDSTONE)
+			.define('D', Items.DROPPER)
+			.unlockedBy("has_" + Items.IRON_INGOT, RecipeProvider.has(Items.IRON_INGOT))
+			.unlockedBy("has_" + IcariaItems.CYPRESS_CRAFTING_TABLE.get(), RecipeProvider.has(IcariaItems.CYPRESS_CRAFTING_TABLE.get()))
+			.unlockedBy("has_" + IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get(), RecipeProvider.has(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get()))
+			.unlockedBy("has_" + IcariaItems.FIR_CRAFTING_TABLE.get(), RecipeProvider.has(IcariaItems.FIR_CRAFTING_TABLE.get()))
+			.unlockedBy("has_" + IcariaItems.LAUREL_CRAFTING_TABLE.get(), RecipeProvider.has(IcariaItems.LAUREL_CRAFTING_TABLE.get()))
+			.unlockedBy("has_" + IcariaItems.OLIVE_CRAFTING_TABLE.get(), RecipeProvider.has(IcariaItems.OLIVE_CRAFTING_TABLE.get()))
+			.unlockedBy("has_" + IcariaItems.PLANE_CRAFTING_TABLE.get(), RecipeProvider.has(IcariaItems.PLANE_CRAFTING_TABLE.get()))
+			.unlockedBy("has_" + IcariaItems.POPULUS_CRAFTING_TABLE.get(), RecipeProvider.has(IcariaItems.POPULUS_CRAFTING_TABLE.get()))
+			.unlockedBy("has_" + Items.REDSTONE, RecipeProvider.has(Items.REDSTONE))
+			.unlockedBy("has_" + Items.DROPPER, RecipeProvider.has(Items.DROPPER))
+			.save(pOutput, BuiltInRegistries.ITEM.getKey(Items.CRAFTER) + "_from_crafting_table");
+
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.FIRE_CHARGE, 3)
 			.requires(IcariaItems.GREENPOWDER.get())
 			.requires(Items.BLAZE_POWDER)
