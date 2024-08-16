@@ -387,10 +387,10 @@ public class IcariaGerman extends LanguageProvider {
 
 		this.add(IcariaBlocks.AETERNAE_SKULL.get(), "Äternschädel");
 		this.add(IcariaBlocks.ARGAN_HOUND_SKULL.get(), "Arganischer Hundeschädel");
-		this.add(IcariaBlocks.CAPELLA_SKULL.get(), "Ziegenschädel");
+		this.add(IcariaBlocks.CAPELLA_SKULL.get(), "Kapellaschädel");
 		this.add(IcariaBlocks.CATOBLEPAS_SKULL.get(), "Katoblepasschädel");
 		this.add(IcariaBlocks.CERVER_SKULL.get(), "Pantherschädel");
-		this.add(IcariaBlocks.CROCOTTA_SKULL.get(), "Hundewolfschädel");
+		this.add(IcariaBlocks.CROCOTTA_SKULL.get(), "Hyänenschädel");
 		this.add(IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), "Zypressen-Baumwächterschädel");
 		this.add(IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get(), "Dürrwurzel-Baumwächterschädel");
 		this.add(IcariaBlocks.FIR_FOREST_HAG_SKULL.get(), "Tannen-Baumwächterschädel");
@@ -787,10 +787,10 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaEntityTypes.ARGAN_HOUND.get(), "Arganischer Hund");
 		this.add(IcariaEntityTypes.BARREL.get(), "Fass");
 		this.add(IcariaEntityTypes.BIDENT.get(), "Zweizack");
-		this.add(IcariaEntityTypes.CAPELLA.get(), "Ziege");
+		this.add(IcariaEntityTypes.CAPELLA.get(), "Kapella");
 		this.add(IcariaEntityTypes.CATOBLEPAS.get(), "Katoblepas");
 		this.add(IcariaEntityTypes.CERVER.get(), "Panther");
-		this.add(IcariaEntityTypes.CROCOTTA.get(), "Hundewolf");
+		this.add(IcariaEntityTypes.CROCOTTA.get(), "Hyäne");
 		this.add(IcariaEntityTypes.FLOATING_BLOCK.get(), "Schwebender Block");
 		this.add(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), "Griechische Feuergranate");
 		this.add(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), "Zypressen-Baumwächter");
@@ -1078,10 +1078,10 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.ARACHNE_SPAWN_EGG.get(), "Arachnendrohnen-Spawn-Ei");
 		this.add(IcariaItems.ARACHNE_DRONE_SPAWN_EGG.get(), "Arachnen-Spawn-Ei");
 		this.add(IcariaItems.ARGAN_HOUND_SPAWN_EGG.get(), "Arganischer Hund-Spawn-Ei");
-		this.add(IcariaItems.CAPELLA_SPAWN_EGG.get(), "Ziegen-Spawn-Ei");
+		this.add(IcariaItems.CAPELLA_SPAWN_EGG.get(), "Kapella-Spawn-Ei");
 		this.add(IcariaItems.CATOBLEPAS_SPAWN_EGG.get(), "Katoblepas-Spawn-Ei");
 		this.add(IcariaItems.CERVER_SPAWN_EGG.get(), "Panther-Spawn-Ei");
-		this.add(IcariaItems.CROCOTTA_SPAWN_EGG.get(), "Hundewolf-Spawn-Ei");
+		this.add(IcariaItems.CROCOTTA_SPAWN_EGG.get(), "Hyänen-Spawn-Ei");
 		this.add(IcariaItems.CYPRESS_FOREST_HAG_SPAWN_EGG.get(), "Zypressen-Baumwächter-Spawn-Ei");
 		this.add(IcariaItems.DROUGHTROOT_FOREST_HAG_SPAWN_EGG.get(), "Dürrwurzel-Baumwächter-Spawn-Ei");
 		this.add(IcariaItems.FIR_FOREST_HAG_SPAWN_EGG.get(), "Tannen-Baumwächter-Spawn-Ei");
