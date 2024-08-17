@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.common.entity.BubbleSpellEntity;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.stats.Stats;
@@ -30,11 +31,12 @@ public class BubbleSpellItem extends Item {
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
 		var itemStack = pPlayer.getItemInHand(pUsedHand);
+		pPlayer.playSound(IcariaSoundEvents.BUBBLE_SPELL_CAST);
 		if (!pLevel.isClientSide()) {
 			for (int i = 0; i < pLevel.getRandom().nextInt(4) + 4; ++i) {
 				if (this.getEntity().create(pLevel) instanceof BubbleSpellEntity spellEntity) {
 					spellEntity.moveTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
-					spellEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 0.05F, 20.0F);
+					spellEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 0.1F, 20.0F);
 					pLevel.addFreshEntity(spellEntity);
 				}
 			}

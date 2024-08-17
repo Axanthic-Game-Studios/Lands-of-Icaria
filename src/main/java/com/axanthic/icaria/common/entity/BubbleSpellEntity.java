@@ -5,6 +5,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
@@ -18,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class BubbleSpellEntity extends ThrowableProjectile {
-	public int minAge = 0;
+	public int minAge = 200;
 	public int maxAge = 400;
 
 	public static final EntityDataAccessor<Integer> AGE = SynchedEntityData.defineId(BubbleSpellEntity.class, EntityDataSerializers.INT);
@@ -49,22 +50,26 @@ public class BubbleSpellEntity extends ThrowableProjectile {
 
 	@Override
 	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
-		pBuilder.define(BubbleSpellEntity.AGE, this.minAge);
+		pBuilder.define(BubbleSpellEntity.AGE, 0);
 	}
 
 	@Override
 	public void onHitBlock(BlockHitResult pResult) {
 		super.onHitBlock(pResult);
-		this.discard();
+		this.pop();
 	}
 
 	@Override
 	public void onHitEntity(EntityHitResult pResult) {
-		super.onHitEntity(pResult);
 		if (pResult.getEntity() instanceof LivingEntity livingEntity) {
 			livingEntity.hurt(this.damageSources().magic(), 2.0F);
-			this.discard();
+			this.pop();
 		}
+	}
+
+	public void pop() {
+		this.discard();
+		this.playSound(SoundEvents.BUBBLE_COLUMN_BUBBLE_POP);
 	}
 
 	@Override
@@ -81,11 +86,11 @@ public class BubbleSpellEntity extends ThrowableProjectile {
 	public void tick() {
 		super.tick();
 		int age = this.getAge();
-		if (age < this.maxAge) {
+		if (age < this.getRandom().nextIntBetweenInclusive(this.minAge, this.maxAge)) {
 			age++;
 			this.setAge(age);
 		} else {
-			this.discard();
+			this.pop();
 		}
 	}
 }

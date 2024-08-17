@@ -10,6 +10,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaSoundEvents {
 	public static final SoundEvent BARREL_BREAK = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.BARREL_BREAK);
+	public static final SoundEvent BUBBLE_SPELL_CAST = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.BUBBLE_SPELL_CAST);
 	public static final SoundEvent GRINDER_GRIND = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.GRINDER_GRIND);
 	public static final SoundEvent KETTLE_CONCOCT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.KETTLE_CONCOCT);
 	public static final SoundEvent CAPTAIN_REVENANT_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CAPTAIN_REVENANT_DEATH);

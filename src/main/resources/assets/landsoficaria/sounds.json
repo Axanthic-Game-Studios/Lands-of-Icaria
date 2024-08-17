@@ -148,5 +148,12 @@
       "landsoficaria:entity/scorpion/hurt_01",
       "landsoficaria:entity/scorpion/hurt_02"
     ]
+  },
+  "item.bubble_spell.cast": {
+    "sounds": [
+      "landsoficaria:item/bubble_spell/cast_00",
+      "landsoficaria:item/bubble_spell/cast_01",
+      "landsoficaria:item/bubble_spell/cast_02"
+    ]
   }
 }
