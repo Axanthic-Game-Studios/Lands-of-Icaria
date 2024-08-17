@@ -60,7 +60,7 @@ public class IcariaItemTags extends ItemTagsProvider {
 	public static final TagKey<Item> INGOTS_MOLYBDENUMSTEEL = IcariaItemTags.cTag("ingots/molybdenumsteel");
 	public static final TagKey<Item> INGOTS_BLURIDIUM = IcariaItemTags.cTag("ingots/bluridium");
 
-	public static final TagKey<Item> KETTLE_ITEMS = IcariaItemTags.cTag("kettle_items");
+	public static final TagKey<Item> KETTLE_ITEMS = IcariaItemTags.icariaTag("kettle_items");
 
 	public static final TagKey<Item> NUGGETS_CHALKOS = IcariaItemTags.cTag("nuggets/chalkos");
 	public static final TagKey<Item> NUGGETS_KASSITEROS = IcariaItemTags.cTag("nuggets/kassiteros");
