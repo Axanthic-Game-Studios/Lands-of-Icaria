@@ -83,6 +83,30 @@
       "landsoficaria:entity/captain_revenant/step_03"
     ]
   },
+  "entity.crocotta.ambient": {
+    "sounds": [
+      "landsoficaria:entity/crocotta/ambient_00",
+      "landsoficaria:entity/crocotta/ambient_01",
+      "landsoficaria:entity/crocotta/ambient_02",
+      "landsoficaria:entity/crocotta/ambient_03",
+      "landsoficaria:entity/crocotta/ambient_04",
+      "landsoficaria:entity/crocotta/ambient_05"
+    ]
+  },
+  "entity.crocotta.death": {
+    "sounds": [
+      "landsoficaria:entity/crocotta/death_00",
+      "landsoficaria:entity/crocotta/death_01",
+      "landsoficaria:entity/crocotta/death_02"
+    ]
+  },
+  "entity.crocotta.hurt": {
+    "sounds": [
+      "landsoficaria:entity/crocotta/hurt_00",
+      "landsoficaria:entity/crocotta/hurt_01",
+      "landsoficaria:entity/crocotta/hurt_02"
+    ]
+  },
   "entity.pyromancer_revenant.ambient": {
     "sounds": [
       "landsoficaria:entity/pyromancer_revenant/ambient_00",

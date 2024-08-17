@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.CrocottaTargetGoal;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -37,11 +38,6 @@ public class CrocottaEntity extends Monster {
 	public boolean doHurtTarget(Entity pEntity) {
 		this.level().broadcastEntityEvent(this, (byte) 4);
 		return super.doHurtTarget(pEntity);
-	}
-
-	@Override
-	public float getVoicePitch() {
-		return 0.25F;
 	}
 
 	@Override
@@ -82,16 +78,16 @@ public class CrocottaEntity extends Monster {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return SoundEvents.WOLF_AMBIENT;
+		return IcariaSoundEvents.CROCOTTA_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.WOLF_DEATH;
+		return IcariaSoundEvents.CROCOTTA_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.WOLF_HURT;
+		return IcariaSoundEvents.CROCOTTA_HURT;
 	}
 }

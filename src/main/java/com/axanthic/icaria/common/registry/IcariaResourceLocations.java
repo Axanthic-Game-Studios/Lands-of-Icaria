@@ -186,6 +186,9 @@ public class IcariaResourceLocations {
 
 	public static final ResourceLocation BARREL_BREAK = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block.barrel.break");
 	public static final ResourceLocation BUBBLE_SPELL_CAST = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.bubble_spell.cast");
+	public static final ResourceLocation CROCOTTA_AMBIENT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.crocotta.ambient");
+	public static final ResourceLocation CROCOTTA_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.crocotta.death");
+	public static final ResourceLocation CROCOTTA_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.crocotta.hurt");
 	public static final ResourceLocation GRINDER_GRIND = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block.grinder.grind");
 	public static final ResourceLocation KETTLE_CONCOCT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block.kettle.concoct");
 	public static final ResourceLocation CAPTAIN_REVENANT_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.captain_revenant.death");
