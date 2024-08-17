@@ -118,7 +118,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> ORES_IN_GROUND_VOIDSHALE = IcariaBlockTags.cTag("ores_in_ground/voidshale");
 	public static final TagKey<Block> ORES_IN_GROUND_BAETYL = IcariaBlockTags.cTag("ores_in_ground/baetyl");
 
-	public static final TagKey<Block> STORAGE_BLOCKS_PACKED_ARISTONE = IcariaBlockTags.cTag("storage_blocks/packed_aristone");
+	public static final TagKey<Block> STORAGE_BLOCKS_ARISTONE = IcariaBlockTags.cTag("storage_blocks/aristone");
 	public static final TagKey<Block> STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY = IcariaBlockTags.cTag("storage_blocks/ender_jellyfish_jelly");
 	public static final TagKey<Block> STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY = IcariaBlockTags.cTag("storage_blocks/fire_jellyfish_jelly");
 	public static final TagKey<Block> STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY = IcariaBlockTags.cTag("storage_blocks/nature_jellyfish_jelly");
@@ -1558,7 +1558,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.MOLYBDENUM_ORE.get())
 			.add(IcariaBlocks.HYLIASTRUM_ORE.get());
 
-		this.tag(IcariaBlockTags.STORAGE_BLOCKS_PACKED_ARISTONE).add(IcariaBlocks.PACKED_ARISTONE.get());
+		this.tag(IcariaBlockTags.STORAGE_BLOCKS_ARISTONE).add(IcariaBlocks.PACKED_ARISTONE.get());
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY).add(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK.get());
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY).add(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK.get());
 		this.tag(IcariaBlockTags.STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY).add(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get());
