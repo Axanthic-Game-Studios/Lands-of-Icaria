@@ -206,7 +206,7 @@ public class IcariaPortalShape extends PortalShape {
 		}
 
 		var blockPos = pPos.relative(pDirection, i);
-		return this.level.getBlockState(blockPos).is(IcariaBlockTags.ICARIA_PORTAL_BLOCKS) ? i : 0;
+		return this.level.getBlockState(blockPos).is(IcariaBlockTags.PORTAL_BLOCKS) ? i : 0;
 	}
 
 	@Override

@@ -63,7 +63,7 @@ public class SolifugaeEntity extends IcariaArachnidEntity {
 
 	@Override
 	public void makeStuckInBlock(BlockState pState, Vec3 pMotionMultiplier) {
-		if (!pState.is(IcariaBlockTags.ICARIA_COBWEB_BLOCKS)) {
+		if (!pState.is(IcariaBlockTags.COBWEB_BLOCKS)) {
 			super.makeStuckInBlock(pState, pMotionMultiplier);
 		}
 	}

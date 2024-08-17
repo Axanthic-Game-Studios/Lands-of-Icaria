@@ -42,10 +42,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 	public static final TagKey<Block> DIRT_AND_SAND = IcariaBlockTags.icariaTag("dirt_and_sand");
 
-	public static final TagKey<Block> ICARIA_COBWEB_BLOCKS = IcariaBlockTags.icariaTag("icaria_cobweb_blocks");
-	public static final TagKey<Block> ICARIA_GRASS_BLOCKS = IcariaBlockTags.icariaTag("icaria_grass_blocks");
-	public static final TagKey<Block> ICARIA_PORTAL_BLOCKS = IcariaBlockTags.icariaTag("icaria_portal_blocks");
-	public static final TagKey<Block> ICARIA_PORTAL_REPLACE_BLOCKS = IcariaBlockTags.icariaTag("icaria_portal_replace_blocks");
+	public static final TagKey<Block> COBWEB_BLOCKS = IcariaBlockTags.icariaTag("cobweb_blocks");
+	public static final TagKey<Block> GRASS_BLOCKS = IcariaBlockTags.icariaTag("grass_blocks");
+	public static final TagKey<Block> PORTAL_BLOCKS = IcariaBlockTags.icariaTag("portal_blocks");
+	public static final TagKey<Block> PORTAL_REPLACE_BLOCKS = IcariaBlockTags.icariaTag("portal_replace_blocks");
 
 	public static final TagKey<Block> INCORRECT_FOR_CHERT_TOOL = IcariaBlockTags.icariaTag("incorrect_for_chert_tool");
 	public static final TagKey<Block> INCORRECT_FOR_CHALKOS_TOOL = IcariaBlockTags.icariaTag("incorrect_for_chalkos_tool");
@@ -840,15 +840,15 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.SILKSAND.get());
 
-		this.tag(IcariaBlockTags.ICARIA_COBWEB_BLOCKS) // TODO add Arachne web block
+		this.tag(IcariaBlockTags.COBWEB_BLOCKS) // TODO add Arachne web block
 			.add(Blocks.COBWEB);
 
-		this.tag(IcariaBlockTags.ICARIA_GRASS_BLOCKS)
+		this.tag(IcariaBlockTags.GRASS_BLOCKS)
 			.add(IcariaBlocks.SMALL_GRASS.get())
 			.add(IcariaBlocks.MEDIUM_GRASS.get())
 			.add(IcariaBlocks.LARGE_GRASS.get());
 
-		this.tag(IcariaBlockTags.ICARIA_PORTAL_BLOCKS)
+		this.tag(IcariaBlockTags.PORTAL_BLOCKS)
 			.add(Blocks.QUARTZ_SLAB)
 			.add(Blocks.QUARTZ_PILLAR)
 			.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get())
@@ -856,10 +856,10 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.DOLOMITE_PILLAR.get())
 			.add(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get());
 
-		this.tag(IcariaBlockTags.ICARIA_PORTAL_REPLACE_BLOCKS)
+		this.tag(IcariaBlockTags.PORTAL_REPLACE_BLOCKS)
 			.add(Blocks.AIR)
 			.add(IcariaBlocks.ICARIA_PORTAL.get())
-			.addTag(IcariaBlockTags.ICARIA_PORTAL_BLOCKS);
+			.addTag(IcariaBlockTags.PORTAL_BLOCKS);
 
 		this.tag(IcariaBlockTags.INCORRECT_FOR_CHERT_TOOL)
 			.addTag(BlockTags.NEEDS_IRON_TOOL)

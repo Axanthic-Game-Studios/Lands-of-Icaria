@@ -42,7 +42,7 @@ public class IcariaEatBlockGoal extends Goal {
 		if (this.entity.getRandom().nextInt(this.entity.isBaby() ? 50 : 1000) != 0) {
 			return false;
 		} else {
-			if (this.level.getBlockState(blockPos).is(IcariaBlockTags.ICARIA_GRASS_BLOCKS)) {
+			if (this.level.getBlockState(blockPos).is(IcariaBlockTags.GRASS_BLOCKS)) {
 				return true;
 			} else {
 				return this.level.getBlockState(blockPos.below()).is(IcariaBlocks.GRASSY_MARL.get());
@@ -71,7 +71,7 @@ public class IcariaEatBlockGoal extends Goal {
 		this.eatAnimationTick = Math.max(0, this.eatAnimationTick - 1);
 		if (this.eatAnimationTick == this.adjustedTickDelay(4)) {
 			var blockPos = this.entity.blockPosition();
-			if (this.level.getBlockState(blockPos).is(IcariaBlockTags.ICARIA_GRASS_BLOCKS)) {
+			if (this.level.getBlockState(blockPos).is(IcariaBlockTags.GRASS_BLOCKS)) {
 				if (EventHooks.canEntityGrief(this.level, this.entity)) {
 					this.level.destroyBlock(blockPos, false);
 				}

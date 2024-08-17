@@ -59,10 +59,10 @@ public class IcariaPortalBlock extends Block implements Portal {
 		var aabbSouth = AABB.ofSize(pPos.above(3).south().getCenter(), 2, 6, 2);
 		var aabbWest = AABB.ofSize(pPos.above(3).west().getCenter(), 2, 6, 2);
 
-		boolean testNorth = pLevel.getBlockStates(aabbNorth).allMatch((pState) -> pState.is(IcariaBlockTags.ICARIA_PORTAL_REPLACE_BLOCKS));
-		boolean testEast = pLevel.getBlockStates(aabbEast).allMatch((pState) -> pState.is(IcariaBlockTags.ICARIA_PORTAL_REPLACE_BLOCKS));
-		boolean testSouth = pLevel.getBlockStates(aabbSouth).allMatch((pState) -> pState.is(IcariaBlockTags.ICARIA_PORTAL_REPLACE_BLOCKS));
-		boolean testWest = pLevel.getBlockStates(aabbWest).allMatch((pState) -> pState.is(IcariaBlockTags.ICARIA_PORTAL_REPLACE_BLOCKS));
+		boolean testNorth = pLevel.getBlockStates(aabbNorth).allMatch((pState) -> pState.is(IcariaBlockTags.PORTAL_REPLACE_BLOCKS));
+		boolean testEast = pLevel.getBlockStates(aabbEast).allMatch((pState) -> pState.is(IcariaBlockTags.PORTAL_REPLACE_BLOCKS));
+		boolean testSouth = pLevel.getBlockStates(aabbSouth).allMatch((pState) -> pState.is(IcariaBlockTags.PORTAL_REPLACE_BLOCKS));
+		boolean testWest = pLevel.getBlockStates(aabbWest).allMatch((pState) -> pState.is(IcariaBlockTags.PORTAL_REPLACE_BLOCKS));
 
 		return testNorth && testEast && testSouth && testWest;
 	}
@@ -157,7 +157,7 @@ public class IcariaPortalBlock extends Block implements Portal {
 		var horizontalAxis = pState.getValue(BlockStateProperties.HORIZONTAL_AXIS);
 		var portalShape = new IcariaPortalShape(pLevel, pPos, horizontalAxis);
 		boolean flag = axis.isHorizontal() && horizontalAxis != axis;
-		return !flag && !portalShape.isComplete() && !pNeighborState.is(this) && !pNeighborState.is(IcariaBlockTags.ICARIA_PORTAL_BLOCKS) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
+		return !flag && !portalShape.isComplete() && !pNeighborState.is(this) && !pNeighborState.is(IcariaBlockTags.PORTAL_BLOCKS) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
 	}
 
 	@Override
