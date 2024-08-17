@@ -24,16 +24,16 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaStructureTags extends StructureTagsProvider {
-	public static final TagKey<Structure> FOREST_VILLAGE = IcariaStructureTags.icariaTag("forest_village");
-	public static final TagKey<Structure> SCRUBLAND_VILLAGE = IcariaStructureTags.icariaTag("scrubland_village");
-	public static final TagKey<Structure> STEPPE_VILLAGE = IcariaStructureTags.icariaTag("steppe_village");
-	public static final TagKey<Structure> DESERT_VILLAGE = IcariaStructureTags.icariaTag("desert_village");
+	public static final TagKey<Structure> FOREST_VILLAGES = IcariaStructureTags.icariaTag("forest_villages");
+	public static final TagKey<Structure> SCRUBLAND_VILLAGES = IcariaStructureTags.icariaTag("scrubland_villages");
+	public static final TagKey<Structure> STEPPE_VILLAGES = IcariaStructureTags.icariaTag("steppe_villages");
+	public static final TagKey<Structure> DESERT_VILLAGES = IcariaStructureTags.icariaTag("desert_villages");
 
-	public static final TagKey<Structure> ERODED_VILLAGE = IcariaStructureTags.icariaTag("eroded_village");
-	public static final TagKey<Structure> PRISTINE_VILLAGE = IcariaStructureTags.icariaTag("pristine_village");
-	public static final TagKey<Structure> RUINED_VILLAGE = IcariaStructureTags.icariaTag("ruined_village");
+	public static final TagKey<Structure> ERODED_VILLAGES = IcariaStructureTags.icariaTag("eroded_villages");
+	public static final TagKey<Structure> PRISTINE_VILLAGES = IcariaStructureTags.icariaTag("pristine_villages");
+	public static final TagKey<Structure> RUINED_VILLAGES = IcariaStructureTags.icariaTag("ruined_villages");
 
-	public static final TagKey<Structure> VILLAGE = IcariaStructureTags.icariaTag("village");
+	public static final TagKey<Structure> VILLAGES = IcariaStructureTags.icariaTag("villages");
 
 	public IcariaStructureTags(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId, ExistingFileHelper pHelper) {
 		super(pOutput, pProvider, pId, pHelper);
@@ -41,45 +41,45 @@ public class IcariaStructureTags extends StructureTagsProvider {
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
-		this.tag(IcariaStructureTags.FOREST_VILLAGE)
+		this.tag(IcariaStructureTags.FOREST_VILLAGES)
 			.add(IcariaStructures.ERODED_FOREST_VILLAGE)
 			.add(IcariaStructures.PRISTINE_FOREST_VILLAGE)
 			.add(IcariaStructures.RUINED_FOREST_VILLAGE);
 
-		this.tag(IcariaStructureTags.SCRUBLAND_VILLAGE)
+		this.tag(IcariaStructureTags.SCRUBLAND_VILLAGES)
 			.add(IcariaStructures.ERODED_SCRUBLAND_VILLAGE)
 			.add(IcariaStructures.PRISTINE_SCRUBLAND_VILLAGE)
 			.add(IcariaStructures.RUINED_SCRUBLAND_VILLAGE);
 
-		this.tag(IcariaStructureTags.STEPPE_VILLAGE)
+		this.tag(IcariaStructureTags.STEPPE_VILLAGES)
 			.add(IcariaStructures.ERODED_STEPPE_VILLAGE)
 			.add(IcariaStructures.PRISTINE_STEPPE_VILLAGE)
 			.add(IcariaStructures.RUINED_STEPPE_VILLAGE);
 
-		this.tag(IcariaStructureTags.DESERT_VILLAGE)
+		this.tag(IcariaStructureTags.DESERT_VILLAGES)
 			.add(IcariaStructures.ERODED_DESERT_VILLAGE)
 			.add(IcariaStructures.PRISTINE_DESERT_VILLAGE)
 			.add(IcariaStructures.RUINED_DESERT_VILLAGE);
 
-		this.tag(IcariaStructureTags.ERODED_VILLAGE)
+		this.tag(IcariaStructureTags.ERODED_VILLAGES)
 			.add(IcariaStructures.ERODED_FOREST_VILLAGE)
 			.add(IcariaStructures.ERODED_SCRUBLAND_VILLAGE)
 			.add(IcariaStructures.ERODED_STEPPE_VILLAGE)
 			.add(IcariaStructures.ERODED_DESERT_VILLAGE);
 
-		this.tag(IcariaStructureTags.PRISTINE_VILLAGE)
+		this.tag(IcariaStructureTags.PRISTINE_VILLAGES)
 			.add(IcariaStructures.PRISTINE_FOREST_VILLAGE)
 			.add(IcariaStructures.PRISTINE_SCRUBLAND_VILLAGE)
 			.add(IcariaStructures.PRISTINE_STEPPE_VILLAGE)
 			.add(IcariaStructures.PRISTINE_DESERT_VILLAGE);
 
-		this.tag(IcariaStructureTags.RUINED_VILLAGE)
+		this.tag(IcariaStructureTags.RUINED_VILLAGES)
 			.add(IcariaStructures.RUINED_FOREST_VILLAGE)
 			.add(IcariaStructures.RUINED_SCRUBLAND_VILLAGE)
 			.add(IcariaStructures.RUINED_STEPPE_VILLAGE)
 			.add(IcariaStructures.RUINED_DESERT_VILLAGE);
 
-		this.tag(IcariaStructureTags.VILLAGE)
+		this.tag(IcariaStructureTags.VILLAGES)
 			.add(IcariaStructures.ERODED_FOREST_VILLAGE)
 			.add(IcariaStructures.PRISTINE_FOREST_VILLAGE)
 			.add(IcariaStructures.RUINED_FOREST_VILLAGE)
