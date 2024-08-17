@@ -1,6 +1,7 @@
 package com.axanthic.icaria.data.lang;
 
 import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.data.tags.*;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.PackOutput;
@@ -1141,5 +1142,279 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("painting" + "." + IcariaIdents.ID + "." + "perfection" + "." + "title", "Perfection");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "portal" + "." + "title", "Portal");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "pyro" + "." + "title", "Pyro");
+
+		this.add(IcariaBiomeTags.HAS_PORTAL, "Has Portal");
+
+		this.add(IcariaBiomeTags.IS_FOREST, "Is Forest");
+		this.add(IcariaBiomeTags.IS_SCRUBLAND, "Is Scrubland");
+		this.add(IcariaBiomeTags.IS_STEPPE, "Is Steppe");
+		this.add(IcariaBiomeTags.IS_DESERT, "Is Desert");
+
+		this.add(IcariaBiomeTags.IS_SURFACE, "Is Surface");
+		this.add(IcariaBiomeTags.IS_LUSH, "Is Lush");
+		this.add(IcariaBiomeTags.IS_LOST, "Is Lost");
+		this.add(IcariaBiomeTags.IS_DEEP, "Is Deep");
+
+		this.add(IcariaBlockTags.CYPRESS_BARRELS, "Cypress Barrels");
+		this.add(IcariaBlockTags.DROUGHTROOT_BARRELS, "Droughtroot Barrels");
+		this.add(IcariaBlockTags.FIR_BARRELS, "Fir Barrels");
+		this.add(IcariaBlockTags.LAUREL_BARRELS, "Laurel Barrels");
+		this.add(IcariaBlockTags.OLIVE_BARRELS, "Olive Barrels");
+		this.add(IcariaBlockTags.PLANE_BARRELS, "Plane Barrels");
+		this.add(IcariaBlockTags.POPULUS_BARRELS, "Populus Barrels");
+
+		this.add(IcariaBlockTags.LOADED_BARRELS, "Loaded Barrels");
+		this.add(IcariaBlockTags.TAPPED_BARRELS, "Tapped Barrels");
+
+		this.add(IcariaBlockTags.CRYSTAL_SPAWNS_ON, "Crystal Spawns On");
+
+		this.add(IcariaBlockTags.DIRT_AND_SAND, "Dirt And Sand");
+
+		this.add(IcariaBlockTags.COBWEB_BLOCKS, "Cobweb Blocks");
+		this.add(IcariaBlockTags.GRASS_BLOCKS, "Grass Blocks");
+		this.add(IcariaBlockTags.PORTAL_BLOCKS, "Portal Blocks");
+		this.add(IcariaBlockTags.PORTAL_REPLACE_BLOCKS, "Portal Replace Blocks");
+
+		this.add(IcariaBlockTags.INCORRECT_FOR_CHERT_TOOL, "Incorrect For Chert Tool");
+		this.add(IcariaBlockTags.INCORRECT_FOR_CHALKOS_TOOL, "Incorrect For Chalkos Tool");
+		this.add(IcariaBlockTags.INCORRECT_FOR_KASSITEROS_TOOL, "Incorrect For Kassiteros Tool");
+		this.add(IcariaBlockTags.INCORRECT_FOR_ORICHALCUM_TOOL, "Incorrect For Orichalcum Tool");
+		this.add(IcariaBlockTags.INCORRECT_FOR_VANADIUMSTEEL_TOOL, "Incorrect For Vanadiumsteel Tool");
+		this.add(IcariaBlockTags.INCORRECT_FOR_SIDEROS_TOOL, "Incorrect For Sideros Tool");
+		this.add(IcariaBlockTags.INCORRECT_FOR_MOLYBDENUMSTEEL_TOOL, "Incorrect For Molybdenumsteel Tool");
+
+		this.add(IcariaBlockTags.MINEABLE_WITH_SCYTHE, "Mineable With Scythe");
+
+		this.add(IcariaBlockTags.NEEDS_CHERT_TOOL, "Needs Chert Tool");
+		this.add(IcariaBlockTags.NEEDS_CHALKOS_TOOL, "Needs Chalkos Tool");
+		this.add(IcariaBlockTags.NEEDS_KASSITEROS_TOOL, "Needs Kassiteros Tool");
+		this.add(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, "Needs Orichalcum Tool");
+		this.add(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, "Needs Vanadiumsteel Tool");
+		this.add(IcariaBlockTags.NEEDS_SIDEROS_TOOL, "Needs Sideros Tool");
+		this.add(IcariaBlockTags.NEEDS_MOLYBDENUMSTEEL_TOOL, "Needs Molybdenumsteel Tool");
+
+		this.add(IcariaBlockTags.CYPRESS_RACKS, "Cypress Racks");
+		this.add(IcariaBlockTags.DROUGHTROOT_RACKS, "Droughtroot Racks");
+		this.add(IcariaBlockTags.FIR_RACKS, "Fir Racks");
+		this.add(IcariaBlockTags.LAUREL_RACKS, "Laurel Racks");
+		this.add(IcariaBlockTags.OLIVE_RACKS, "Olive Racks");
+		this.add(IcariaBlockTags.PLANE_RACKS, "Plane Racks");
+		this.add(IcariaBlockTags.POPULUS_RACKS, "Populus Racks");
+
+		this.add(IcariaBlockTags.RUBBLE_SPAWNS_ON, "Rubble Spawns On");
+		this.add(IcariaBlockTags.RELICSTONE_RUBBLE_SPAWNS_ON, "Relicstone Rubble Spawns On");
+
+		this.add(IcariaBlockTags.VILLAGE_REPLACE_BLOCKS, "Village Replace Blocks");
+		this.add(IcariaBlockTags.RUINED_VILLAGE_REPLACE_BLOCKS, "Ruined Village Replace Blocks");
+
+		this.add(IcariaBlockTags.LOGS_CYPRESS, "Cypress Logs");
+		this.add(IcariaBlockTags.LOGS_DROUGHTROOT, "Droughtroot Logs");
+		this.add(IcariaBlockTags.LOGS_FIR, "Fir Logs");
+		this.add(IcariaBlockTags.LOGS_LAUREL, "Laurel Logs");
+		this.add(IcariaBlockTags.LOGS_OLIVE, "Olive Logs");
+		this.add(IcariaBlockTags.LOGS_PLANE, "Plane Logs");
+		this.add(IcariaBlockTags.LOGS_POPULUS, "Populus Logs");
+
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_MARL, "Marl Ore Bearing Ground");
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_GRAINEL, "Grainel Ore Bearing Ground");
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_YELLOWSTONE, "Yellowstone Ore Bearing Ground");
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_SILKSTONE, "Silkstone Ore Bearing Ground");
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_SUNSTONE, "Sunstone Ore Bearing Ground");
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_VOIDSHALE, "Voidshale Ore Bearing Ground");
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_BAETYL, "Baetyl Ore Bearing Ground");
+
+		this.add(IcariaBlockTags.ORES_CHERT, "Chert Ores");
+		this.add(IcariaBlockTags.ORES_BONES, "Chert Bones");
+		this.add(IcariaBlockTags.ORES_LIGNITE, "Chert Lignite");
+		this.add(IcariaBlockTags.ORES_CHALKOS, "Chert Chalkos");
+		this.add(IcariaBlockTags.ORES_KASSITEROS, "Chert Kassiteros");
+		this.add(IcariaBlockTags.ORES_DOLOMITE, "Chert Dolomite");
+		this.add(IcariaBlockTags.ORES_VANADIUM, "Chert Vanadium");
+		this.add(IcariaBlockTags.ORES_SLIVER, "Chert Sliver");
+		this.add(IcariaBlockTags.ORES_SIDEROS, "Chert Sideros");
+		this.add(IcariaBlockTags.ORES_ANTHRACITE, "Chert Anthracite");
+		this.add(IcariaBlockTags.ORES_MOLYBDENUM, "Chert Molybdenum");
+		this.add(IcariaBlockTags.ORES_HYLIASTRUM, "Chert Hyliastrum");
+
+		this.add(IcariaBlockTags.ORES_IN_GROUND_MARL, "Marl Ores In Ground");
+		this.add(IcariaBlockTags.ORES_IN_GROUND_GRAINEL, "Grainel Ores In Ground");
+		this.add(IcariaBlockTags.ORES_IN_GROUND_YELLOWSTONE, "Yellowstone Ores In Ground");
+		this.add(IcariaBlockTags.ORES_IN_GROUND_SILKSTONE, "Silkstone Ores In Ground");
+		this.add(IcariaBlockTags.ORES_IN_GROUND_SUNSTONE, "Sunstone Ores In Ground");
+		this.add(IcariaBlockTags.ORES_IN_GROUND_VOIDSHALE, "Voidshale Ores In Ground");
+		this.add(IcariaBlockTags.ORES_IN_GROUND_BAETYL, "Baetyl Ores In Ground");
+
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ARISTONE, "Aristone Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY, "Ender Jellyfish Jelly Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY, "Fire Jellyfish Jelly Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY, "Nature Jellyfish Jelly Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY, "Void Jellyfish Jelly Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY, "Water Jellyfish Jelly Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ARACHNE_STRING, "Arachne String Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_SPELT, "Spelt Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_VINE_REED, "Vine Reed Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ROTTEN_BONES, "Rotten Bones Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_RAW_CHALKOS, "Raw Chalkos Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_RAW_KASSITEROS, "Raw Kassiteros Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_RAW_VANADIUM, "Raw Vanadium Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_RAW_SIDEROS, "Raw Sideros Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_RAW_MOLYBDENUM, "Raw Molybdenum Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_CALCITE, "Calcite Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_HALITE, "Halite Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_JASPER, "Jasper Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ZIRCON, "Zircon Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_CHERT, "Chert Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_LIGNITE, "Lignite Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_CHALKOS, "Chalkos Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_KASSITEROS, "Kassiteros Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ORICHALCUM, "Orichalcum Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_VANADIUM, "Vanadium Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_VANADIUMSTEEL, "Vanadiumsteel Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_SLIVER, "Sliver Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_SIDEROS, "Sideros Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ANTHRACITE, "Anthracite Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_MOLYBDENUM, "Molybdenum Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_MOLYBDENUMSTEEL, "Molybdenumsteel Storage Blocks");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_BLURIDIUM, "Bluridium Storage Blocks");
+
+		this.add(IcariaItemTags.CROPS_SPELT, "Spelt Crops");
+		this.add(IcariaItemTags.CROPS_STRAWBERRIES, "Strawberries Crops");
+		this.add(IcariaItemTags.CROPS_GARLIC, "Garlic Crops");
+		this.add(IcariaItemTags.CROPS_ONION, "Onion Crops");
+
+		this.add(IcariaItemTags.DUSTS_CALCITE, "Calcite Dusts");
+		this.add(IcariaItemTags.DUSTS_HALITE, "Halite Dusts");
+
+		this.add(IcariaItemTags.GEMS_CHERT, "Chert Gems");
+		this.add(IcariaItemTags.GEMS_LIGNITE, "Lignite Gems");
+		this.add(IcariaItemTags.GEMS_DOLOMITE, "Dolomite Gems");
+		this.add(IcariaItemTags.GEMS_SLIVER, "Sliver Gems");
+		this.add(IcariaItemTags.GEMS_ANTHRACITE, "Anthracite Gems");
+		this.add(IcariaItemTags.GEMS_CALCITE, "Calcite Gems");
+		this.add(IcariaItemTags.GEMS_HALITE, "Halite Gems");
+		this.add(IcariaItemTags.GEMS_JASPER, "Jasper Gems");
+		this.add(IcariaItemTags.GEMS_ZIRCON, "Zircon Gems");
+
+		this.add(IcariaItemTags.INGOTS_CHALKOS, "Chalkos Ingots");
+		this.add(IcariaItemTags.INGOTS_KASSITEROS, "Kassiteros Ingots");
+		this.add(IcariaItemTags.INGOTS_ORICHALCUM, "Orichalcum Ingots");
+		this.add(IcariaItemTags.INGOTS_VANADIUM, "Vanadium Ingots");
+		this.add(IcariaItemTags.INGOTS_VANADIUMSTEEL, "Vanadiumsteel Ingots");
+		this.add(IcariaItemTags.INGOTS_SIDEROS, "Sideros Ingots");
+		this.add(IcariaItemTags.INGOTS_MOLYBDENUM, "Molybdenum Ingots");
+		this.add(IcariaItemTags.INGOTS_MOLYBDENUMSTEEL, "Molybdenumsteel Ingots");
+		this.add(IcariaItemTags.INGOTS_BLURIDIUM, "Bluridium Ingots");
+
+		this.add(IcariaItemTags.KETTLE_ITEMS, "Kettle Items");
+
+		this.add(IcariaItemTags.NUGGETS_CHALKOS, "Chalkos Nuggets");
+		this.add(IcariaItemTags.NUGGETS_KASSITEROS, "Kassiteros Nuggets");
+		this.add(IcariaItemTags.NUGGETS_ORICHALCUM, "Orichalcum Nuggets");
+		this.add(IcariaItemTags.NUGGETS_VANADIUM, "Vanadium Nuggets");
+		this.add(IcariaItemTags.NUGGETS_VANADIUMSTEEL, "Vanadiumsteel Nuggets");
+		this.add(IcariaItemTags.NUGGETS_SIDEROS, "Sideros Nuggets");
+		this.add(IcariaItemTags.NUGGETS_MOLYBDENUM, "Molybdenum Nuggets");
+		this.add(IcariaItemTags.NUGGETS_MOLYBDENUMSTEEL, "Molybdenumsteel Nuggets");
+		this.add(IcariaItemTags.NUGGETS_BLURIDIUM, "Bluridium Nuggets");
+
+		this.add(IcariaItemTags.RAW_BLOCKS_CHALKOS, "Chalkos Raw Blocks");
+		this.add(IcariaItemTags.RAW_BLOCKS_KASSITEROS, "Kassiteros Raw Blocks");
+		this.add(IcariaItemTags.RAW_BLOCKS_VANADIUM, "Vanadium Raw Blocks");
+		this.add(IcariaItemTags.RAW_BLOCKS_SIDEROS, "Sideros Raw Blocks");
+		this.add(IcariaItemTags.RAW_BLOCKS_MOLYBDENUM, "Molybdenum Raw Blocks");
+
+		this.add(IcariaItemTags.RAW_MATERIALS_CHALKOS, "Chalkos Raw Materials");
+		this.add(IcariaItemTags.RAW_MATERIALS_KASSITEROS, "Kassiteros Raw Materials");
+		this.add(IcariaItemTags.RAW_MATERIALS_VANADIUM, "Vanadium Raw Materials");
+		this.add(IcariaItemTags.RAW_MATERIALS_SIDEROS, "Sideros Raw Materials");
+		this.add(IcariaItemTags.RAW_MATERIALS_MOLYBDENUM, "Molybdenum Raw Materials");
+
+		this.add(IcariaItemTags.SEEDS_SPELT, "Spelt Seeds");
+		this.add(IcariaItemTags.SEEDS_STRAWBERRY, "Strawberry Seeds");
+		this.add(IcariaItemTags.SEEDS_PHYSALIS, "Physalis Seeds");
+		this.add(IcariaItemTags.SEEDS_ONION, "Onion Seeds");
+
+		this.add(IcariaItemTags.LOGS_CYPRESS, "Cypress Logs");
+		this.add(IcariaItemTags.LOGS_DROUGHTROOT, "Droughtroot Logs");
+		this.add(IcariaItemTags.LOGS_FIR, "Fir Logs");
+		this.add(IcariaItemTags.LOGS_LAUREL, "Laurel Logs");
+		this.add(IcariaItemTags.LOGS_OLIVE, "Olive Logs");
+		this.add(IcariaItemTags.LOGS_PLANE, "Plane Logs");
+		this.add(IcariaItemTags.LOGS_POPULUS, "Populus Logs");
+
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_MARL, "Marl Ore Bearing Ground");
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_GRAINEL, "Grainel Ore Bearing Ground");
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_YELLOWSTONE, "Yellowstone Ore Bearing Ground");
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_SILKSTONE, "Silkstone Ore Bearing Ground");
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_SUNSTONE, "Sunstone Ore Bearing Ground");
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_VOIDSHALE, "Voidshale Ore Bearing Ground");
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_BAETYL, "Baetyl Ore Bearing Ground");
+
+		this.add(IcariaItemTags.ORES_CHERT, "Chert Ores");
+		this.add(IcariaItemTags.ORES_BONES, "Chert Bones");
+		this.add(IcariaItemTags.ORES_LIGNITE, "Chert Lignite");
+		this.add(IcariaItemTags.ORES_CHALKOS, "Chert Chalkos");
+		this.add(IcariaItemTags.ORES_KASSITEROS, "Chert Kassiteros");
+		this.add(IcariaItemTags.ORES_DOLOMITE, "Chert Dolomite");
+		this.add(IcariaItemTags.ORES_VANADIUM, "Chert Vanadium");
+		this.add(IcariaItemTags.ORES_SLIVER, "Chert Sliver");
+		this.add(IcariaItemTags.ORES_SIDEROS, "Chert Sideros");
+		this.add(IcariaItemTags.ORES_ANTHRACITE, "Chert Anthracite");
+		this.add(IcariaItemTags.ORES_MOLYBDENUM, "Chert Molybdenum");
+		this.add(IcariaItemTags.ORES_HYLIASTRUM, "Chert Hyliastrum");
+
+		this.add(IcariaItemTags.ORES_IN_GROUND_MARL, "Marl Ores In Ground");
+		this.add(IcariaItemTags.ORES_IN_GROUND_GRAINEL, "Grainel Ores In Ground");
+		this.add(IcariaItemTags.ORES_IN_GROUND_YELLOWSTONE, "Yellowstone Ores In Ground");
+		this.add(IcariaItemTags.ORES_IN_GROUND_SILKSTONE, "Silkstone Ores In Ground");
+		this.add(IcariaItemTags.ORES_IN_GROUND_SUNSTONE, "Sunstone Ores In Ground");
+		this.add(IcariaItemTags.ORES_IN_GROUND_VOIDSHALE, "Voidshale Ores In Ground");
+		this.add(IcariaItemTags.ORES_IN_GROUND_BAETYL, "Baetyl Ores In Ground");
+
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ARISTONE, "Aristone Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY, "Ender Jellyfish Jelly Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY, "Fire Jellyfish Jelly Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY, "Nature Jellyfish Jelly Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY, "Void Jellyfish Jelly Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY, "Water Jellyfish Jelly Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ARACHNE_STRING, "Arachne String Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_SPELT, "Spelt Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_VINE_REED, "Vine Reed Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ROTTEN_BONES, "Rotten Bones Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_RAW_CHALKOS, "Raw Chalkos Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_RAW_KASSITEROS, "Raw Kassiteros Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_RAW_VANADIUM, "Raw Vanadium Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_RAW_SIDEROS, "Raw Sideros Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_RAW_MOLYBDENUM, "Raw Molybdenum Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_CALCITE, "Calcite Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_HALITE, "Halite Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_JASPER, "Jasper Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ZIRCON, "Zircon Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_CHERT, "Chert Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_LIGNITE, "Lignite Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_CHALKOS, "Chalkos Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_KASSITEROS, "Kassiteros Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ORICHALCUM, "Orichalcum Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_VANADIUM, "Vanadium Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_VANADIUMSTEEL, "Vanadiumsteel Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_SLIVER, "Sliver Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_SIDEROS, "Sideros Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ANTHRACITE, "Anthracite Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_MOLYBDENUM, "Molybdenum Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_MOLYBDENUMSTEEL, "Molybdenumsteel Storage Blocks");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_BLURIDIUM, "Bluridium Storage Blocks");
+
+		this.add(IcariaPaintingVariantTags.PLACEABLE, "Placeable");
+
+		this.add(IcariaStructureTags.FOREST_VILLAGES, "Forest Villages");
+		this.add(IcariaStructureTags.SCRUBLAND_VILLAGES, "Scrubland Villages");
+		this.add(IcariaStructureTags.STEPPE_VILLAGES, "Steppe Villages");
+		this.add(IcariaStructureTags.DESERT_VILLAGES, "Desert Villages");
+
+		this.add(IcariaStructureTags.ERODED_VILLAGES, "Eroded Villages");
+		this.add(IcariaStructureTags.PRISTINE_VILLAGES, "Pristine Villages");
+		this.add(IcariaStructureTags.RUINED_VILLAGES, "Ruined Villages");
+
+		this.add(IcariaStructureTags.VILLAGES, "Villages");
 	}
 }
