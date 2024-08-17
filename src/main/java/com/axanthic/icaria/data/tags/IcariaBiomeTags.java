@@ -33,7 +33,7 @@ public class IcariaBiomeTags extends BiomeTagsProvider {
 	public static final TagKey<Biome> IS_STEPPE = IcariaBiomeTags.icariaTag("is_steppe");
 	public static final TagKey<Biome> IS_DESERT = IcariaBiomeTags.icariaTag("is_desert");
 
-	public static final TagKey<Biome> IS_BASE = IcariaBiomeTags.icariaTag("is_base");
+	public static final TagKey<Biome> IS_SURFACE = IcariaBiomeTags.icariaTag("is_surface");
 	public static final TagKey<Biome> IS_LUSH = IcariaBiomeTags.icariaTag("is_lush");
 	public static final TagKey<Biome> IS_LOST = IcariaBiomeTags.icariaTag("is_lost");
 	public static final TagKey<Biome> IS_DEEP = IcariaBiomeTags.icariaTag("is_deep");
@@ -80,7 +80,7 @@ public class IcariaBiomeTags extends BiomeTagsProvider {
 			.add(IcariaBiomes.LOST_DESERT)
 			.add(IcariaBiomes.DEEP_DESERT);
 
-		this.tag(IcariaBiomeTags.IS_BASE)
+		this.tag(IcariaBiomeTags.IS_SURFACE)
 			.add(IcariaBiomes.FOREST)
 			.add(IcariaBiomes.SCRUBLAND)
 			.add(IcariaBiomes.STEPPE)

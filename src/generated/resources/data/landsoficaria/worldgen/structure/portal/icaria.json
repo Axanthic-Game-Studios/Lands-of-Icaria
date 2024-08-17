@@ -1,6 +1,6 @@
 {
   "type": "landsoficaria:jigsaw",
-  "biomes": "#landsoficaria:is_base",
+  "biomes": "#landsoficaria:is_surface",
   "max_distance_from_center": 128,
   "max_height": {
     "absolute": 96
