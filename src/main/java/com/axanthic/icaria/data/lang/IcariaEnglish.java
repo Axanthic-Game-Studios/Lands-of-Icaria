@@ -1224,17 +1224,17 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaBlockTags.ORE_BEARING_GROUND_BAETYL, "Baetyl Ore Bearing Ground");
 
 		this.add(IcariaBlockTags.ORES_CHERT, "Chert Ores");
-		this.add(IcariaBlockTags.ORES_BONES, "Chert Bones");
-		this.add(IcariaBlockTags.ORES_LIGNITE, "Chert Lignite");
-		this.add(IcariaBlockTags.ORES_CHALKOS, "Chert Chalkos");
-		this.add(IcariaBlockTags.ORES_KASSITEROS, "Chert Kassiteros");
-		this.add(IcariaBlockTags.ORES_DOLOMITE, "Chert Dolomite");
-		this.add(IcariaBlockTags.ORES_VANADIUM, "Chert Vanadium");
-		this.add(IcariaBlockTags.ORES_SLIVER, "Chert Sliver");
-		this.add(IcariaBlockTags.ORES_SIDEROS, "Chert Sideros");
-		this.add(IcariaBlockTags.ORES_ANTHRACITE, "Chert Anthracite");
-		this.add(IcariaBlockTags.ORES_MOLYBDENUM, "Chert Molybdenum");
-		this.add(IcariaBlockTags.ORES_HYLIASTRUM, "Chert Hyliastrum");
+		this.add(IcariaBlockTags.ORES_BONES, "Bones Ores");
+		this.add(IcariaBlockTags.ORES_LIGNITE, "Lignite Ores");
+		this.add(IcariaBlockTags.ORES_CHALKOS, "Chalkos Ores");
+		this.add(IcariaBlockTags.ORES_KASSITEROS, "Kassiteros Ores");
+		this.add(IcariaBlockTags.ORES_DOLOMITE, "Dolomite Ores");
+		this.add(IcariaBlockTags.ORES_VANADIUM, "Vanadium Ores");
+		this.add(IcariaBlockTags.ORES_SLIVER, "Sliver Ores");
+		this.add(IcariaBlockTags.ORES_SIDEROS, "Sideros Ores");
+		this.add(IcariaBlockTags.ORES_ANTHRACITE, "Anthracite Ores");
+		this.add(IcariaBlockTags.ORES_MOLYBDENUM, "Molybdenum Ores");
+		this.add(IcariaBlockTags.ORES_HYLIASTRUM, "Hyliastrum Ores");
 
 		this.add(IcariaBlockTags.ORES_IN_GROUND_MARL, "Marl Ores In Ground");
 		this.add(IcariaBlockTags.ORES_IN_GROUND_GRAINEL, "Grainel Ores In Ground");
@@ -1351,17 +1351,17 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItemTags.ORE_BEARING_GROUND_BAETYL, "Baetyl Ore Bearing Ground");
 
 		this.add(IcariaItemTags.ORES_CHERT, "Chert Ores");
-		this.add(IcariaItemTags.ORES_BONES, "Chert Bones");
-		this.add(IcariaItemTags.ORES_LIGNITE, "Chert Lignite");
-		this.add(IcariaItemTags.ORES_CHALKOS, "Chert Chalkos");
-		this.add(IcariaItemTags.ORES_KASSITEROS, "Chert Kassiteros");
-		this.add(IcariaItemTags.ORES_DOLOMITE, "Chert Dolomite");
-		this.add(IcariaItemTags.ORES_VANADIUM, "Chert Vanadium");
-		this.add(IcariaItemTags.ORES_SLIVER, "Chert Sliver");
-		this.add(IcariaItemTags.ORES_SIDEROS, "Chert Sideros");
-		this.add(IcariaItemTags.ORES_ANTHRACITE, "Chert Anthracite");
-		this.add(IcariaItemTags.ORES_MOLYBDENUM, "Chert Molybdenum");
-		this.add(IcariaItemTags.ORES_HYLIASTRUM, "Chert Hyliastrum");
+		this.add(IcariaItemTags.ORES_BONES, "Bones Ores");
+		this.add(IcariaItemTags.ORES_LIGNITE, "Lignite Ores");
+		this.add(IcariaItemTags.ORES_CHALKOS, "Chalkos Ores");
+		this.add(IcariaItemTags.ORES_KASSITEROS, "Kassiteros Ores");
+		this.add(IcariaItemTags.ORES_DOLOMITE, "Dolomite Ores");
+		this.add(IcariaItemTags.ORES_VANADIUM, "Vanadium Ores");
+		this.add(IcariaItemTags.ORES_SLIVER, "Sliver Ores");
+		this.add(IcariaItemTags.ORES_SIDEROS, "Sideros Ores");
+		this.add(IcariaItemTags.ORES_ANTHRACITE, "Anthracite Ores");
+		this.add(IcariaItemTags.ORES_MOLYBDENUM, "Molybdenum Ores");
+		this.add(IcariaItemTags.ORES_HYLIASTRUM, "Hyliastrum Ores");
 
 		this.add(IcariaItemTags.ORES_IN_GROUND_MARL, "Marl Ores In Ground");
 		this.add(IcariaItemTags.ORES_IN_GROUND_GRAINEL, "Grainel Ores In Ground");
