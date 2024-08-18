@@ -1,6 +1,7 @@
 package com.axanthic.icaria.data.lang;
 
 import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.data.tags.*;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.PackOutput;
@@ -1141,5 +1142,279 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("painting" + "." + IcariaIdents.ID + "." + "perfection" + "." + "title", "Perfektion");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "portal" + "." + "title", "Portal");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "pyro" + "." + "title", "Pyro");
+
+		this.add(IcariaBiomeTags.HAS_PORTAL, "Hat Portal");
+
+		this.add(IcariaBiomeTags.IS_FOREST, "Ist Wald");
+		this.add(IcariaBiomeTags.IS_SCRUBLAND, "Ist Buschland");
+		this.add(IcariaBiomeTags.IS_STEPPE, "Ist Steppe");
+		this.add(IcariaBiomeTags.IS_DESERT, "Ist Wüste");
+
+		this.add(IcariaBiomeTags.IS_SURFACE, "Ist Oberfläche");
+		this.add(IcariaBiomeTags.IS_LUSH, "Ist üppig");
+		this.add(IcariaBiomeTags.IS_LOST, "Ist verloren");
+		this.add(IcariaBiomeTags.IS_DEEP, "Ist tief");
+
+		this.add(IcariaBlockTags.CYPRESS_BARRELS, "Zypressenholzfässer");
+		this.add(IcariaBlockTags.DROUGHTROOT_BARRELS, "Dürrwurzelholzfässer");
+		this.add(IcariaBlockTags.FIR_BARRELS, "Tannenholzfässer");
+		this.add(IcariaBlockTags.LAUREL_BARRELS, "Lorbeerholzfässer");
+		this.add(IcariaBlockTags.OLIVE_BARRELS, "Olivenholzfässer");
+		this.add(IcariaBlockTags.PLANE_BARRELS, "Plantanenholzfässer");
+		this.add(IcariaBlockTags.POPULUS_BARRELS, "Pappelholzfässer");
+
+		this.add(IcariaBlockTags.LOADED_BARRELS, "Geladene Fässer");
+		this.add(IcariaBlockTags.TAPPED_BARRELS, "Gezapfte Fässer");
+
+		this.add(IcariaBlockTags.CRYSTAL_SPAWNS_ON, "Kristalle spawnen darauf");
+
+		this.add(IcariaBlockTags.DIRT_AND_SAND, "Erde und Sand");
+
+		this.add(IcariaBlockTags.COBWEB_BLOCKS, "Spinnennetzblöcke");
+		this.add(IcariaBlockTags.GRASS_BLOCKS, "Grasblöcke");
+		this.add(IcariaBlockTags.PORTAL_BLOCKS, "Portalblöcke");
+		this.add(IcariaBlockTags.PORTAL_REPLACE_BLOCKS, "Portalersatzblöcke");
+
+		this.add(IcariaBlockTags.INCORRECT_FOR_CHERT_TOOL, "Falsch für Hornsteinwerkzeug");
+		this.add(IcariaBlockTags.INCORRECT_FOR_CHALKOS_TOOL, "Falsch für Kuffarwerkzeug");
+		this.add(IcariaBlockTags.INCORRECT_FOR_KASSITEROS_TOOL, "Falsch für Galmeiwerkzeug");
+		this.add(IcariaBlockTags.INCORRECT_FOR_ORICHALCUM_TOOL, "Falsch für Goldmessingwerkzeug");
+		this.add(IcariaBlockTags.INCORRECT_FOR_VANADIUMSTEEL_TOOL, "Falsch für Vanadinstahlwerkzeug");
+		this.add(IcariaBlockTags.INCORRECT_FOR_SIDEROS_TOOL, "Falsch für Schirbelwerkzeug");
+		this.add(IcariaBlockTags.INCORRECT_FOR_MOLYBDENUMSTEEL_TOOL, "Falsch für Molybdänstahlwerkzeug");
+
+		this.add(IcariaBlockTags.MINEABLE_WITH_SCYTHE, "Abbaubar mit Sense");
+
+		this.add(IcariaBlockTags.NEEDS_CHERT_TOOL, "Braucht Hornsteinwerkzeug");
+		this.add(IcariaBlockTags.NEEDS_CHALKOS_TOOL, "Braucht Kuffarwerkzeug");
+		this.add(IcariaBlockTags.NEEDS_KASSITEROS_TOOL, "Braucht Galmeiwerkzeug");
+		this.add(IcariaBlockTags.NEEDS_ORICHALCUM_TOOL, "Braucht Goldmessingwerkzeug");
+		this.add(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL, "Braucht Vanadinstahlwerkzeug");
+		this.add(IcariaBlockTags.NEEDS_SIDEROS_TOOL, "Braucht Schirbelwerkzeug");
+		this.add(IcariaBlockTags.NEEDS_MOLYBDENUMSTEEL_TOOL, "Braucht Molybdänstahlwerkzeug");
+
+		this.add(IcariaBlockTags.CYPRESS_RACKS, "Zypressenholzgestelle");
+		this.add(IcariaBlockTags.DROUGHTROOT_RACKS, "Dürrwurzelholzgestelle");
+		this.add(IcariaBlockTags.FIR_RACKS, "Tannenholzgestelle");
+		this.add(IcariaBlockTags.LAUREL_RACKS, "Lorbeerholzgestelle");
+		this.add(IcariaBlockTags.OLIVE_RACKS, "Olivenholzgestelle");
+		this.add(IcariaBlockTags.PLANE_RACKS, "Plantanenholzgestelle");
+		this.add(IcariaBlockTags.POPULUS_RACKS, "Pappelholzgestelle");
+
+		this.add(IcariaBlockTags.RUBBLE_SPAWNS_ON, "Geröll spawnt darauf");
+		this.add(IcariaBlockTags.RELICSTONE_RUBBLE_SPAWNS_ON, "Reliktensteingeröll spawnt darauf");
+
+		this.add(IcariaBlockTags.VILLAGE_REPLACE_BLOCKS, "Dorfersatzblöcke");
+		this.add(IcariaBlockTags.RUINED_VILLAGE_REPLACE_BLOCKS, "Ruinierte Dorfersatzblöcke");
+
+		this.add(IcariaBlockTags.LOGS_CYPRESS, "Zypressenholzstämme");
+		this.add(IcariaBlockTags.LOGS_DROUGHTROOT, "Dürrwurzelholzstämme");
+		this.add(IcariaBlockTags.LOGS_FIR, "Tannenholzstämme");
+		this.add(IcariaBlockTags.LOGS_LAUREL, "Lorbeerholzstämme");
+		this.add(IcariaBlockTags.LOGS_OLIVE, "Olivenholzstämme");
+		this.add(IcariaBlockTags.LOGS_PLANE, "Plantanenholzstämme");
+		this.add(IcariaBlockTags.LOGS_POPULUS, "Pappelholzstämme");
+
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_MARL, "Erztragender Mergelboden");
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_GRAINEL, "Erztragender Schluffsandboden");
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_YELLOWSTONE, "Erztragender Gelbsteinboden");
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_SILKSTONE, "Erztragender Seidensteinboden");
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_SUNSTONE, "Erztragender Sonnensteinboden");
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_VOIDSHALE, "Erztragender Leerenschieferboden");
+		this.add(IcariaBlockTags.ORE_BEARING_GROUND_BAETYL, "Erztragender Bätylboden");
+
+		this.add(IcariaBlockTags.ORES_CHERT, "Hornsteinerze");
+		this.add(IcariaBlockTags.ORES_BONES, "Knochenerze");
+		this.add(IcariaBlockTags.ORES_LIGNITE, "Braunkohleerze");
+		this.add(IcariaBlockTags.ORES_CHALKOS, "Kuffarerze");
+		this.add(IcariaBlockTags.ORES_KASSITEROS, "Galmeierze");
+		this.add(IcariaBlockTags.ORES_DOLOMITE, "Dolomiterze");
+		this.add(IcariaBlockTags.ORES_VANADIUM, "Vanadinerze");
+		this.add(IcariaBlockTags.ORES_SLIVER, "Slibbererze");
+		this.add(IcariaBlockTags.ORES_SIDEROS, "Schirbelerze");
+		this.add(IcariaBlockTags.ORES_ANTHRACITE, "Schwarzkohleerze");
+		this.add(IcariaBlockTags.ORES_MOLYBDENUM, "Molybdänerze");
+		this.add(IcariaBlockTags.ORES_HYLIASTRUM, "Hyliastrumerze");
+
+		this.add(IcariaBlockTags.ORES_IN_GROUND_MARL, "Erze in Mergelboden");
+		this.add(IcariaBlockTags.ORES_IN_GROUND_GRAINEL, "Erze in Schluffsandboden");
+		this.add(IcariaBlockTags.ORES_IN_GROUND_YELLOWSTONE, "Erze in Gelbsteinboden");
+		this.add(IcariaBlockTags.ORES_IN_GROUND_SILKSTONE, "Erze in Seidensteinboden");
+		this.add(IcariaBlockTags.ORES_IN_GROUND_SUNSTONE, "Erze in Sonnensteinboden");
+		this.add(IcariaBlockTags.ORES_IN_GROUND_VOIDSHALE, "Erze in Leerenschieferboden");
+		this.add(IcariaBlockTags.ORES_IN_GROUND_BAETYL, "Erze in Bätylboden");
+
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ARISTONE, "Aristeinspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY, "Ender-Quallengeleespeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY, "Feuer-Quallengeleespeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY, "Natur-Quallengeleespeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY, "Leeren-Quallengeleespeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY, "Wasser-Quallengeleespeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ARACHNE_STRING, "Arachnefadenspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_SPELT, "Dinkelspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_VINE_REED, "Weinschilfspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ROTTEN_BONES, "Verrottete Knochenspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_RAW_CHALKOS, "Rohkuffarspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_RAW_KASSITEROS, "Rohgalmeispeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_RAW_VANADIUM, "Rohvanadinspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_RAW_SIDEROS, "Rohschirbelspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_RAW_MOLYBDENUM, "Rohmolybdänspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_CALCITE, "Calcitspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_HALITE, "Halitspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_JASPER, "Jaspisspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ZIRCON, "Zirkonspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_CHERT, "Hornsteinspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_LIGNITE, "Braunkohlespeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_CHALKOS, "Kuffarspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_KASSITEROS, "Galmeispeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ORICHALCUM, "Goldmessingspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_VANADIUM, "Vanadinspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_VANADIUMSTEEL, "Vanadinstahlspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_SLIVER, "Slibberspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_SIDEROS, "Schirbelspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_ANTHRACITE, "Schwarzkohlespeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_MOLYBDENUM, "Molybdänspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_MOLYBDENUMSTEEL, "Molybdänstahlspeicherblöcke");
+		this.add(IcariaBlockTags.STORAGE_BLOCKS_BLURIDIUM, "Bluritspeicherblöcke");
+
+		this.add(IcariaItemTags.CROPS_SPELT, "Dinkel");
+		this.add(IcariaItemTags.CROPS_STRAWBERRIES, "Erdbeeren");
+		this.add(IcariaItemTags.CROPS_GARLIC, "Knoblauch");
+		this.add(IcariaItemTags.CROPS_ONION, "Zwiebeln");
+
+		this.add(IcariaItemTags.DUSTS_CALCITE, "Calcitstaub");
+		this.add(IcariaItemTags.DUSTS_HALITE, "Halitstaub");
+
+		this.add(IcariaItemTags.GEMS_CHERT, "Hornsteinedelsteine");
+		this.add(IcariaItemTags.GEMS_LIGNITE, "Braunkohleedelsteine");
+		this.add(IcariaItemTags.GEMS_DOLOMITE, "Dolomitedelsteine");
+		this.add(IcariaItemTags.GEMS_SLIVER, "Slibberedelsteine");
+		this.add(IcariaItemTags.GEMS_ANTHRACITE, "Schwarzkohleedelsteine");
+		this.add(IcariaItemTags.GEMS_CALCITE, "Calcitedelsteine");
+		this.add(IcariaItemTags.GEMS_HALITE, "Halitedelsteine");
+		this.add(IcariaItemTags.GEMS_JASPER, "Jaspisedelsteine");
+		this.add(IcariaItemTags.GEMS_ZIRCON, "Zirkonedelsteine");
+
+		this.add(IcariaItemTags.INGOTS_CHALKOS, "Kuffarbarren");
+		this.add(IcariaItemTags.INGOTS_KASSITEROS, "Galmeibarren");
+		this.add(IcariaItemTags.INGOTS_ORICHALCUM, "Goldmessingbarren");
+		this.add(IcariaItemTags.INGOTS_VANADIUM, "Vanadinbarren");
+		this.add(IcariaItemTags.INGOTS_VANADIUMSTEEL, "Vanadinstahlbarren");
+		this.add(IcariaItemTags.INGOTS_SIDEROS, "Schirbelbarren");
+		this.add(IcariaItemTags.INGOTS_MOLYBDENUM, "Molybdänbarren");
+		this.add(IcariaItemTags.INGOTS_MOLYBDENUMSTEEL, "Molybdänstahlbarren");
+		this.add(IcariaItemTags.INGOTS_BLURIDIUM, "Bluritbarren");
+
+		this.add(IcariaItemTags.KETTLE_ITEMS, "Kesselgegenstände");
+
+		this.add(IcariaItemTags.NUGGETS_CHALKOS, "Kuffarklumpen");
+		this.add(IcariaItemTags.NUGGETS_KASSITEROS, "Galmeiklumpen");
+		this.add(IcariaItemTags.NUGGETS_ORICHALCUM, "Goldmessingklumpen");
+		this.add(IcariaItemTags.NUGGETS_VANADIUM, "Vanadinklumpen");
+		this.add(IcariaItemTags.NUGGETS_VANADIUMSTEEL, "Vanadinstahlklumpen");
+		this.add(IcariaItemTags.NUGGETS_SIDEROS, "Schirbelklumpen");
+		this.add(IcariaItemTags.NUGGETS_MOLYBDENUM, "Molybdänklumpen");
+		this.add(IcariaItemTags.NUGGETS_MOLYBDENUMSTEEL, "Molybdänstahlklumpen");
+		this.add(IcariaItemTags.NUGGETS_BLURIDIUM, "Bluritklumpen");
+
+		this.add(IcariaItemTags.RAW_BLOCKS_CHALKOS, "Rohkuffarblöcke");
+		this.add(IcariaItemTags.RAW_BLOCKS_KASSITEROS, "Rohgalmeiblöcke");
+		this.add(IcariaItemTags.RAW_BLOCKS_VANADIUM, "Rohvanadinblöcke");
+		this.add(IcariaItemTags.RAW_BLOCKS_SIDEROS, "Rohschirbelblöcke");
+		this.add(IcariaItemTags.RAW_BLOCKS_MOLYBDENUM, "Rohmolybdänblöcke");
+
+		this.add(IcariaItemTags.RAW_MATERIALS_CHALKOS, "Rohkuffar");
+		this.add(IcariaItemTags.RAW_MATERIALS_KASSITEROS, "Rohgalmei");
+		this.add(IcariaItemTags.RAW_MATERIALS_VANADIUM, "Rohvanadin");
+		this.add(IcariaItemTags.RAW_MATERIALS_SIDEROS, "Rohschirbel");
+		this.add(IcariaItemTags.RAW_MATERIALS_MOLYBDENUM, "Rohmolybdän");
+
+		this.add(IcariaItemTags.SEEDS_SPELT, "Dinkelsamen");
+		this.add(IcariaItemTags.SEEDS_STRAWBERRY, "Erdbeersamen");
+		this.add(IcariaItemTags.SEEDS_PHYSALIS, "Physalissamen");
+		this.add(IcariaItemTags.SEEDS_ONION, "Zwiebeln");
+
+		this.add(IcariaItemTags.LOGS_CYPRESS, "Zypressenholzstämme");
+		this.add(IcariaItemTags.LOGS_DROUGHTROOT, "Dürrwurzelholzstämme");
+		this.add(IcariaItemTags.LOGS_FIR, "Tannenholzstämme");
+		this.add(IcariaItemTags.LOGS_LAUREL, "Lorbeerholzstämme");
+		this.add(IcariaItemTags.LOGS_OLIVE, "Olivenholzstämme");
+		this.add(IcariaItemTags.LOGS_PLANE, "Plantanenholzstämme");
+		this.add(IcariaItemTags.LOGS_POPULUS, "Pappelholzstämme");
+
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_MARL, "Erztragender Mergelboden");
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_GRAINEL, "Erztragender Schluffsandboden");
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_YELLOWSTONE, "Erztragender Gelbsteinboden");
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_SILKSTONE, "Erztragender Seidensteinboden");
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_SUNSTONE, "Erztragender Sonnensteinboden");
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_VOIDSHALE, "Erztragender Leerenschieferboden");
+		this.add(IcariaItemTags.ORE_BEARING_GROUND_BAETYL, "Erztragender Bätylboden");
+
+		this.add(IcariaItemTags.ORES_CHERT, "Hornsteinerze");
+		this.add(IcariaItemTags.ORES_BONES, "Knochenerze");
+		this.add(IcariaItemTags.ORES_LIGNITE, "Braunkohleerze");
+		this.add(IcariaItemTags.ORES_CHALKOS, "Kuffarerze");
+		this.add(IcariaItemTags.ORES_KASSITEROS, "Galmeierze");
+		this.add(IcariaItemTags.ORES_DOLOMITE, "Dolomiterze");
+		this.add(IcariaItemTags.ORES_VANADIUM, "Vanadinerze");
+		this.add(IcariaItemTags.ORES_SLIVER, "Slibbererze");
+		this.add(IcariaItemTags.ORES_SIDEROS, "Schirbelerze");
+		this.add(IcariaItemTags.ORES_ANTHRACITE, "Schwarzkohleerze");
+		this.add(IcariaItemTags.ORES_MOLYBDENUM, "Molybdänerze");
+		this.add(IcariaItemTags.ORES_HYLIASTRUM, "Hyliastrumerze");
+
+		this.add(IcariaItemTags.ORES_IN_GROUND_MARL, "Erze in Mergelboden");
+		this.add(IcariaItemTags.ORES_IN_GROUND_GRAINEL, "Erze in Schluffsandboden");
+		this.add(IcariaItemTags.ORES_IN_GROUND_YELLOWSTONE, "Erze in Gelbsteinboden");
+		this.add(IcariaItemTags.ORES_IN_GROUND_SILKSTONE, "Erze in Seidensteinboden");
+		this.add(IcariaItemTags.ORES_IN_GROUND_SUNSTONE, "Erze in Sonnensteinboden");
+		this.add(IcariaItemTags.ORES_IN_GROUND_VOIDSHALE, "Erze in Leerenschieferboden");
+		this.add(IcariaItemTags.ORES_IN_GROUND_BAETYL, "Erze in Bätylboden");
+
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ARISTONE, "Aristeinspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY, "Ender-Quallengeleespeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY, "Feuer-Quallengeleespeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY, "Natur-Quallengeleespeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY, "Leeren-Quallengeleespeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY, "Wasser-Quallengeleespeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ARACHNE_STRING, "Arachnefadenspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_SPELT, "Dinkelspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_VINE_REED, "Weinschilfspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ROTTEN_BONES, "Verrottete Knochenspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_RAW_CHALKOS, "Rohkuffarspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_RAW_KASSITEROS, "Rohgalmeispeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_RAW_VANADIUM, "Rohvanadinspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_RAW_SIDEROS, "Rohschirbelspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_RAW_MOLYBDENUM, "Rohmolybdänspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_CALCITE, "Calcitspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_HALITE, "Halitspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_JASPER, "Jaspisspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ZIRCON, "Zirkonspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_CHERT, "Hornsteinspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_LIGNITE, "Braunkohlespeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_CHALKOS, "Kuffarspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_KASSITEROS, "Galmeispeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ORICHALCUM, "Goldmessingspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_VANADIUM, "Vanadinspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_VANADIUMSTEEL, "Vanadinstahlspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_SLIVER, "Slibberspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_SIDEROS, "Schirbelspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_ANTHRACITE, "Schwarzkohlespeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_MOLYBDENUM, "Molybdänspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_MOLYBDENUMSTEEL, "Molybdänstahlspeicherblöcke");
+		this.add(IcariaItemTags.STORAGE_BLOCKS_BLURIDIUM, "Bluritspeicherblöcke");
+
+		this.add(IcariaPaintingVariantTags.PLACEABLE, "Platzierbar");
+
+		this.add(IcariaStructureTags.FOREST_VILLAGES, "Walddörfer");
+		this.add(IcariaStructureTags.SCRUBLAND_VILLAGES, "Buschlanddörfer");
+		this.add(IcariaStructureTags.STEPPE_VILLAGES, "Steppendörfer");
+		this.add(IcariaStructureTags.DESERT_VILLAGES, "Wüstendörfer");
+
+		this.add(IcariaStructureTags.ERODED_VILLAGES, "Erodierte Dörfer");
+		this.add(IcariaStructureTags.PRISTINE_VILLAGES, "Makellose Dörfer");
+		this.add(IcariaStructureTags.RUINED_VILLAGES, "Ruinierte Dörfer");
+
+		this.add(IcariaStructureTags.VILLAGES, "Dörfer");
 	}
 }
