@@ -2,12 +2,12 @@ package com.axanthic.icaria.common.recipe;
 
 import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
@@ -86,7 +86,7 @@ public class ConcoctingPotionRecipe implements Recipe<RecipeInput> {
 			entity.setRadiusPerTick(entity.getRadius() / -entity.getDuration());
 			entity.setWaitTime(0);
 			pLevel.addFreshEntity(entity);
-			pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
+			pLevel.playSound(null, pPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 		}
 	}
 

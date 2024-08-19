@@ -1,9 +1,9 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.Entity;
@@ -17,7 +17,6 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -53,11 +52,6 @@ public class CerverEntity extends Monster {
 	}
 
 	@Override
-	public void playStepSound(BlockPos pPos, BlockState pState) {
-		this.playSound(SoundEvents.WOLF_STEP, 0.1F, 1.0F);
-	}
-
-	@Override
 	public void registerGoals() {
 		this.goalSelector.addGoal(1, new FloatGoal(this));
 		this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.25F));
@@ -75,16 +69,16 @@ public class CerverEntity extends Monster {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return SoundEvents.CAT_AMBIENT;
+		return IcariaSoundEvents.CERVER_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.CAT_DEATH;
+		return IcariaSoundEvents.CERVER_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.CAT_HURT;
+		return IcariaSoundEvents.CERVER_HURT;
 	}
 }

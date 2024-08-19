@@ -30,7 +30,7 @@ public class CaptainRevenantSummonGoal extends Goal {
 
 	@Override
 	public void start() {
-		this.entity.playSound(IcariaSoundEvents.CAPTAIN_REVENANT_RALLY, 0.1F, 1.0F);
+		this.entity.playSound(IcariaSoundEvents.CAPTAIN_REVENANT_RALLY);
 		this.entity.setCasting(IcariaSummonSpellTypes.SUMMON);
 	}
 

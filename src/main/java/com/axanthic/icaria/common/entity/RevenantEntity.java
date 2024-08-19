@@ -5,7 +5,6 @@ import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -36,7 +35,7 @@ public class RevenantEntity extends Monster {
 
 	@Override
 	public void playStepSound(BlockPos pPos, BlockState pState) {
-		this.playSound(SoundEvents.SKELETON_STEP, 0.1F, 1.0F);
+		this.playSound(IcariaSoundEvents.REVENANT_STEP, 0.1F, 1.0F);
 	}
 
 	@Override

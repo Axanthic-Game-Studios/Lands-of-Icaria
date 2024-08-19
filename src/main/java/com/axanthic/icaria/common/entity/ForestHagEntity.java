@@ -1,13 +1,13 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.ForestHagPlaceSaplingGoal;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -98,7 +98,7 @@ public class ForestHagEntity extends Monster {
 		if (this.tickCount >= this.targetSoundsTime + 400) {
 			this.targetSoundsTime = this.tickCount;
 			if (!this.isSilent()) {
-				this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.ENDERMAN_STARE, SoundSource.HOSTILE, 1.0F, 1.0F, false);
+				this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), IcariaSoundEvents.FOREST_HAG_TARGET, SoundSource.HOSTILE, 1.0F, 1.0F, false);
 			}
 		}
 	}
@@ -132,16 +132,16 @@ public class ForestHagEntity extends Monster {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return this.isTargeting() ? SoundEvents.ENDERMAN_SCREAM : SoundEvents.ENDERMAN_AMBIENT;
+		return this.isTargeting() ? IcariaSoundEvents.FOREST_HAG_SCREAM : IcariaSoundEvents.FOREST_HAG_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.ENDERMAN_DEATH;
+		return IcariaSoundEvents.FOREST_HAG_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.ENDERMAN_HURT;
+		return IcariaSoundEvents.FOREST_HAG_HURT;
 	}
 }

@@ -1,0 +1,1047 @@
+{
+  "block.barrel.break": {
+    "sounds": [
+      "landsoficaria:block/barrel/break_00",
+      "landsoficaria:block/barrel/break_01",
+      "landsoficaria:block/barrel/break_02",
+      "landsoficaria:block/barrel/break_03"
+    ],
+    "subtitle": "subtitle.landsoficaria.barrel.break"
+  },
+  "block.grinder.grind": {
+    "sounds": [
+      "landsoficaria:block/grinder/grind_00",
+      "landsoficaria:block/grinder/grind_01",
+      "landsoficaria:block/grinder/grind_02",
+      "landsoficaria:block/grinder/grind_03",
+      "landsoficaria:block/grinder/grind_04",
+      "landsoficaria:block/grinder/grind_05",
+      "landsoficaria:block/grinder/grind_06",
+      "landsoficaria:block/grinder/grind_07",
+      "landsoficaria:block/grinder/grind_08",
+      "landsoficaria:block/grinder/grind_09",
+      "landsoficaria:block/grinder/grind_10",
+      "landsoficaria:block/grinder/grind_11",
+      "landsoficaria:block/grinder/grind_12",
+      "landsoficaria:block/grinder/grind_13",
+      "landsoficaria:block/grinder/grind_14",
+      "landsoficaria:block/grinder/grind_15",
+      "landsoficaria:block/grinder/grind_16",
+      "landsoficaria:block/grinder/grind_17",
+      "landsoficaria:block/grinder/grind_18",
+      "landsoficaria:block/grinder/grind_19",
+      "landsoficaria:block/grinder/grind_20",
+      "landsoficaria:block/grinder/grind_21",
+      "landsoficaria:block/grinder/grind_22",
+      "landsoficaria:block/grinder/grind_23",
+      "landsoficaria:block/grinder/grind_24",
+      "landsoficaria:block/grinder/grind_25",
+      "landsoficaria:block/grinder/grind_26",
+      "landsoficaria:block/grinder/grind_27",
+      "landsoficaria:block/grinder/grind_28",
+      "landsoficaria:block/grinder/grind_29",
+      "landsoficaria:block/grinder/grind_30"
+    ],
+    "subtitle": "subtitle.landsoficaria.grinder.grind"
+  },
+  "block.kettle.concoct": {
+    "sounds": [
+      "landsoficaria:block/kettle/concoct_00",
+      "landsoficaria:block/kettle/concoct_01",
+      "landsoficaria:block/kettle/concoct_02",
+      "landsoficaria:block/kettle/concoct_03"
+    ],
+    "subtitle": "subtitle.landsoficaria.kettle.concoct"
+  },
+  "block.kettle.consume": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.villager.work_leatherworker"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.kettle.consume"
+  },
+  "block.kettle.pop": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.item.pickup"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.kettle.pop"
+  },
+  "block.vase.break": {
+    "sounds": [
+      "landsoficaria:block/vase/break_00",
+      "landsoficaria:block/vase/break_01",
+      "landsoficaria:block/vase/break_02",
+      "landsoficaria:block/vase/break_03"
+    ],
+    "subtitle": "subtitle.landsoficaria.vase.break"
+  },
+  "entity.aeternae.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.cow.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.aeternae.ambient"
+  },
+  "entity.aeternae.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.cow.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.aeternae.death"
+  },
+  "entity.aeternae.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.cow.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.aeternae.hurt"
+  },
+  "entity.aeternae.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.cow.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.aeternae.step"
+  },
+  "entity.arachne.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.arachne.ambient"
+  },
+  "entity.arachne.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.arachne.death"
+  },
+  "entity.arachne.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.arachne.hurt"
+  },
+  "entity.arachne.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.arachne.step"
+  },
+  "entity.arachne_drone.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.arachne_drone.ambient"
+  },
+  "entity.arachne_drone.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.arachne_drone.death"
+  },
+  "entity.arachne_drone.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.arachne_drone.hurt"
+  },
+  "entity.arachne_drone.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.arachne_drone.step"
+  },
+  "entity.argan_hound.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.wolf.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.argan_hound.ambient"
+  },
+  "entity.argan_hound.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.wolf.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.argan_hound.death"
+  },
+  "entity.argan_hound.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.wolf.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.argan_hound.hurt"
+  },
+  "entity.argan_hound.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.wolf.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.argan_hound.step"
+  },
+  "entity.capella.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.goat.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.capella.ambient"
+  },
+  "entity.capella.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.goat.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.capella.death"
+  },
+  "entity.capella.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.goat.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.capella.hurt"
+  },
+  "entity.capella.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.goat.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.capella.step"
+  },
+  "entity.captain_revenant.death": {
+    "sounds": [
+      "landsoficaria:entity/captain_revenant/death_00"
+    ],
+    "subtitle": "subtitle.landsoficaria.captain_revenant.death"
+  },
+  "entity.captain_revenant.hurt": {
+    "sounds": [
+      "landsoficaria:entity/captain_revenant/hurt_00",
+      "landsoficaria:entity/captain_revenant/hurt_01",
+      "landsoficaria:entity/captain_revenant/hurt_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.captain_revenant.hurt"
+  },
+  "entity.captain_revenant.rally": {
+    "sounds": [
+      "landsoficaria:entity/captain_revenant/rally_00"
+    ],
+    "subtitle": "subtitle.landsoficaria.captain_revenant.rally"
+  },
+  "entity.captain_revenant.step": {
+    "sounds": [
+      "landsoficaria:entity/captain_revenant/step_00",
+      "landsoficaria:entity/captain_revenant/step_01",
+      "landsoficaria:entity/captain_revenant/step_02",
+      "landsoficaria:entity/captain_revenant/step_03"
+    ],
+    "subtitle": "subtitle.landsoficaria.captain_revenant.step"
+  },
+  "entity.catoblepas.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.cow.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.catoblepas.ambient"
+  },
+  "entity.catoblepas.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.cow.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.catoblepas.death"
+  },
+  "entity.catoblepas.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.cow.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.catoblepas.hurt"
+  },
+  "entity.catoblepas.milk": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.cow.milk"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.catoblepas.milk"
+  },
+  "entity.catoblepas.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.cow.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.catoblepas.step"
+  },
+  "entity.cerver.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.cat.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.cerver.ambient"
+  },
+  "entity.cerver.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.cat.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.cerver.death"
+  },
+  "entity.cerver.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.cat.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.cerver.hurt"
+  },
+  "entity.crocotta.ambient": {
+    "sounds": [
+      "landsoficaria:entity/crocotta/ambient_00",
+      "landsoficaria:entity/crocotta/ambient_01",
+      "landsoficaria:entity/crocotta/ambient_02",
+      "landsoficaria:entity/crocotta/ambient_03",
+      "landsoficaria:entity/crocotta/ambient_04",
+      "landsoficaria:entity/crocotta/ambient_05"
+    ],
+    "subtitle": "subtitle.landsoficaria.crocotta.ambient"
+  },
+  "entity.crocotta.death": {
+    "sounds": [
+      "landsoficaria:entity/crocotta/death_00",
+      "landsoficaria:entity/crocotta/death_01",
+      "landsoficaria:entity/crocotta/death_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.crocotta.death"
+  },
+  "entity.crocotta.hurt": {
+    "sounds": [
+      "landsoficaria:entity/crocotta/hurt_00",
+      "landsoficaria:entity/crocotta/hurt_01",
+      "landsoficaria:entity/crocotta/hurt_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.crocotta.hurt"
+  },
+  "entity.crocotta.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.wolf.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.crocotta.step"
+  },
+  "entity.forest_hag.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.enderman.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.forest_hag.ambient"
+  },
+  "entity.forest_hag.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.enderman.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.forest_hag.death"
+  },
+  "entity.forest_hag.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.enderman.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.forest_hag.hurt"
+  },
+  "entity.forest_hag.scream": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.enderman.scream"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.forest_hag.scream"
+  },
+  "entity.forest_hag.target": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.enderman.stare"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.forest_hag.target"
+  },
+  "entity.hyliaster.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.slime.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.hyliaster.death"
+  },
+  "entity.hyliaster.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.slime.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.hyliaster.hurt"
+  },
+  "entity.hyliaster.squish": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.slime.squish"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.hyliaster.squish"
+  },
+  "entity.jellyfish.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.squid.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.jellyfish.ambient"
+  },
+  "entity.jellyfish.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.squid.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.jellyfish.death"
+  },
+  "entity.jellyfish.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.squid.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.jellyfish.hurt"
+  },
+  "entity.myrmeke_drone.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.myrmeke_drone.ambient"
+  },
+  "entity.myrmeke_drone.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.myrmeke_drone.death"
+  },
+  "entity.myrmeke_drone.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.myrmeke_drone.hurt"
+  },
+  "entity.myrmeke_drone.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.myrmeke_drone.step"
+  },
+  "entity.myrmeke_queen.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.myrmeke_queen.ambient"
+  },
+  "entity.myrmeke_queen.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.myrmeke_queen.death"
+  },
+  "entity.myrmeke_queen.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.myrmeke_queen.hurt"
+  },
+  "entity.myrmeke_queen.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.myrmeke_queen.step"
+  },
+  "entity.myrmeke_soldier.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.myrmeke_soldier.ambient"
+  },
+  "entity.myrmeke_soldier.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.myrmeke_soldier.death"
+  },
+  "entity.myrmeke_soldier.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.myrmeke_soldier.hurt"
+  },
+  "entity.myrmeke_soldier.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.myrmeke_soldier.step"
+  },
+  "entity.nether_pyromancer_revenant.ambient": {
+    "sounds": [
+      "landsoficaria:entity/nether_pyromancer_revenant/ambient_00",
+      "landsoficaria:entity/nether_pyromancer_revenant/ambient_01",
+      "landsoficaria:entity/nether_pyromancer_revenant/ambient_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.nether_pyromancer_revenant.ambient"
+  },
+  "entity.revenant.ambient": {
+    "sounds": [
+      "landsoficaria:entity/revenant/ambient_00",
+      "landsoficaria:entity/revenant/ambient_01",
+      "landsoficaria:entity/revenant/ambient_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.revenant.ambient"
+  },
+  "entity.revenant.death": {
+    "sounds": [
+      "landsoficaria:entity/revenant/death_00"
+    ],
+    "subtitle": "subtitle.landsoficaria.revenant.death"
+  },
+  "entity.revenant.hurt": {
+    "sounds": [
+      "landsoficaria:entity/revenant/hurt_00",
+      "landsoficaria:entity/revenant/hurt_01",
+      "landsoficaria:entity/revenant/hurt_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.revenant.hurt"
+  },
+  "entity.revenant.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.skeleton.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.revenant.step"
+  },
+  "entity.scorpion.ambient": {
+    "sounds": [
+      "landsoficaria:entity/scorpion/ambient_00",
+      "landsoficaria:entity/scorpion/ambient_01",
+      "landsoficaria:entity/scorpion/ambient_02",
+      "landsoficaria:entity/scorpion/ambient_03"
+    ],
+    "subtitle": "subtitle.landsoficaria.scorpion.ambient"
+  },
+  "entity.scorpion.death": {
+    "sounds": [
+      "landsoficaria:entity/scorpion/death_00"
+    ],
+    "subtitle": "subtitle.landsoficaria.scorpion.death"
+  },
+  "entity.scorpion.hurt": {
+    "sounds": [
+      "landsoficaria:entity/scorpion/hurt_00",
+      "landsoficaria:entity/scorpion/hurt_01",
+      "landsoficaria:entity/scorpion/hurt_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.scorpion.hurt"
+  },
+  "entity.scorpion.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.scorpion.step"
+  },
+  "entity.slug.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.slime.squish"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.slug.ambient"
+  },
+  "entity.slug.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.slime.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.slug.death"
+  },
+  "entity.slug.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.slime.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.slug.hurt"
+  },
+  "entity.snull.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.slime.squish"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.snull.ambient"
+  },
+  "entity.snull.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.slime.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.snull.death"
+  },
+  "entity.snull.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.slime.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.snull.hurt"
+  },
+  "entity.soldier_revenant.death": {
+    "sounds": [
+      "landsoficaria:entity/soldier_revenant/death_00"
+    ],
+    "subtitle": "subtitle.landsoficaria.soldier_revenant.death"
+  },
+  "entity.soldier_revenant.hurt": {
+    "sounds": [
+      "landsoficaria:entity/soldier_revenant/hurt_00",
+      "landsoficaria:entity/soldier_revenant/hurt_01",
+      "landsoficaria:entity/soldier_revenant/hurt_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.soldier_revenant.hurt"
+  },
+  "entity.soldier_revenant.step": {
+    "sounds": [
+      "landsoficaria:entity/soldier_revenant/step_00",
+      "landsoficaria:entity/soldier_revenant/step_01",
+      "landsoficaria:entity/soldier_revenant/step_02",
+      "landsoficaria:entity/soldier_revenant/step_03"
+    ],
+    "subtitle": "subtitle.landsoficaria.soldier_revenant.step"
+  },
+  "entity.solifugae.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.solifugae.ambient"
+  },
+  "entity.solifugae.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.solifugae.death"
+  },
+  "entity.solifugae.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.solifugae.hurt"
+  },
+  "entity.solifugae.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.solifugae.step"
+  },
+  "entity.sow.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.pig.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.sow.ambient"
+  },
+  "entity.sow.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.pig.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.sow.death"
+  },
+  "entity.sow.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.pig.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.sow.hurt"
+  },
+  "entity.sow.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.pig.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.sow.step"
+  },
+  "entity.vinegaroon.ambient": {
+    "sounds": [
+      "landsoficaria:entity/vinegaroon/ambient_00",
+      "landsoficaria:entity/vinegaroon/ambient_01",
+      "landsoficaria:entity/vinegaroon/ambient_02",
+      "landsoficaria:entity/vinegaroon/ambient_03"
+    ],
+    "subtitle": "subtitle.landsoficaria.vinegaroon.ambient"
+  },
+  "entity.vinegaroon.death": {
+    "sounds": [
+      "landsoficaria:entity/vinegaroon/death_00"
+    ],
+    "subtitle": "subtitle.landsoficaria.vinegaroon.death"
+  },
+  "entity.vinegaroon.hurt": {
+    "sounds": [
+      "landsoficaria:entity/vinegaroon/hurt_00",
+      "landsoficaria:entity/vinegaroon/hurt_01",
+      "landsoficaria:entity/vinegaroon/hurt_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.vinegaroon.hurt"
+  },
+  "entity.vinegaroon.shoot": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.arrow.shoot"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.vinegaroon.shoot"
+  },
+  "entity.vinegaroon.step": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.spider.step"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.vinegaroon.step"
+  },
+  "item.aeternae_hide_armor.equip": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.armor.equip_leather"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.aeternae_hide_armor.equip"
+  },
+  "item.bident.hit": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.trident.hit"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.bident.hit"
+  },
+  "item.bident.hit_ground": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.trident.hit_ground"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.bident.hit_ground"
+  },
+  "item.bident.throw": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.trident.throw"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.bident.throw"
+  },
+  "item.bubble_spell.pop": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "block.bubble_column.bubble_pop"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.bubble_spell.pop"
+  },
+  "item.bubble_spell.shoot": {
+    "sounds": [
+      "landsoficaria:item/bubble_spell/shoot_00",
+      "landsoficaria:item/bubble_spell/shoot_01",
+      "landsoficaria:item/bubble_spell/shoot_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.bubble_spell.shoot"
+  },
+  "item.calcite.fertilize": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.hoe.till"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.calcite.fertilize"
+  },
+  "item.chalkos_armor.equip": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.armor.equip_iron"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.chalkos_armor.equip"
+  },
+  "item.chest_label.apply": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.axe.strip"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.chest_label.apply"
+  },
+  "item.chest_label.clear": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.axe.strip"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.chest_label.clear"
+  },
+  "item.chest_label.reset": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.villager.work_cartographer"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.chest_label.reset"
+  },
+  "item.greek_fire_grenade.throw": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.witch.throw"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.greek_fire_grenade.throw"
+  },
+  "item.kassiteros_armor.equip": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.armor.equip_iron"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.kassiteros_armor.equip"
+  },
+  "item.laurel_wreath.equip": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.armor.equip_generic"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.laurel_wreath.equip"
+  },
+  "item.olives.pop": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "block.cave_vines.pick_berries"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.olives.pop"
+  },
+  "item.orichalcum_armor.equip": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.armor.equip_gold"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.orichalcum_armor.equip"
+  },
+  "item.spell.shoot": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.arrow.shoot"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.spell.shoot"
+  },
+  "item.vanadiumsteel.equip": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.armor.equip_chain"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.vanadiumsteel_armor.equip"
+  },
+  "item.vial.empty": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.bottle.empty"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.vial.empty"
+  },
+  "item.vial.fill": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "item.bottle.fill"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.vial.fill"
+  }
+}

@@ -1,9 +1,10 @@
 package com.axanthic.icaria.common.item;
 
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -32,7 +33,7 @@ public class ChestLabelItem extends Item {
 		var stack = pPlayer.getItemInHand(pUsedHand);
 		if (stack.get(DataComponents.CUSTOM_NAME) != null && pPlayer.isShiftKeyDown()) {
 			stack.remove(DataComponents.CUSTOM_NAME);
-			pPlayer.playSound(SoundEvents.VILLAGER_WORK_CARTOGRAPHER);
+			pPlayer.playSound(IcariaSoundEvents.CHEST_LABEL_RESET);
 			return InteractionResultHolder.success(stack);
 		} else {
 			return InteractionResultHolder.fail(stack);

@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -10,7 +11,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
@@ -162,7 +162,7 @@ public class HyliasterEntity extends Monster {
 
 	@Override
 	public void playStepSound(BlockPos pPos, BlockState pState) {
-		this.playSound(SoundEvents.SLIME_SQUISH, 0.1F, 1.0F);
+		this.playSound(IcariaSoundEvents.HYLIASTER_SQUISH, 0.1F, 1.0F);
 	}
 
 	@Override
@@ -256,7 +256,7 @@ public class HyliasterEntity extends Monster {
 			this.remove();
 			this.setTick(this.getTick() - 16000);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.EMPTY_VIAL.get()));
-			pPlayer.playSound(SoundEvents.BOTTLE_FILL);
+			pPlayer.playSound(IcariaSoundEvents.VIAL_FILL);
 			pPlayer.setItemInHand(pHand, filledResult);
 			return InteractionResult.sidedSuccess(this.level().isClientSide());
 		}
@@ -266,12 +266,12 @@ public class HyliasterEntity extends Monster {
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.SLIME_DEATH;
+		return IcariaSoundEvents.HYLIASTER_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.SLIME_HURT;
+		return IcariaSoundEvents.HYLIASTER_HURT;
 	}
 
 	@Override

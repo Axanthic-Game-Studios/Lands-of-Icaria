@@ -4,12 +4,12 @@ import com.axanthic.icaria.common.goal.ArachneHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.IcariaArachnidTargetGoal;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -78,7 +78,7 @@ public class ArachneEntity extends IcariaArachnidEntity {
 
 	@Override
 	public void playStepSound(BlockPos pPos, BlockState pState) {
-		this.playSound(SoundEvents.SPIDER_STEP, 0.1F, 1.0F);
+		this.playSound(IcariaSoundEvents.ARACHNE_STEP, 0.1F, 1.0F);
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class ArachneEntity extends IcariaArachnidEntity {
 				var filledResult = ItemUtils.createFilledResult(itemStack, pPlayer, IcariaItems.ARACHNE_VENOM_VIAL.get().getDefaultInstance());
 				this.setTarget(pPlayer);
 				pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.EMPTY_VIAL.get()));
-				pPlayer.playSound(SoundEvents.BOTTLE_FILL);
+				pPlayer.playSound(IcariaSoundEvents.VIAL_FILL);
 				pPlayer.setItemInHand(pHand, filledResult);
 				return InteractionResult.sidedSuccess(this.level().isClientSide());
 			}
@@ -115,16 +115,16 @@ public class ArachneEntity extends IcariaArachnidEntity {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return SoundEvents.SPIDER_AMBIENT;
+		return IcariaSoundEvents.ARACHNE_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.SPIDER_DEATH;
+		return IcariaSoundEvents.ARACHNE_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.SPIDER_HURT;
+		return IcariaSoundEvents.ARACHNE_HURT;
 	}
 }

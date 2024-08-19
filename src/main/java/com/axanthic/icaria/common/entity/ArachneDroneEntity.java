@@ -1,15 +1,19 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.IcariaArachnidTargetGoal;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -171,6 +175,11 @@ public class ArachneDroneEntity extends ArachneEntity {
 	}
 
 	@Override
+	public void playStepSound(BlockPos pPos, BlockState pState) {
+		this.playSound(IcariaSoundEvents.ARACHNE_DRONE_STEP, 0.1F, 1.0F);
+	}
+
+	@Override
 	public void readAdditionalSaveData(CompoundTag pCompound) {
 		super.readAdditionalSaveData(pCompound);
 		this.setSize(pCompound.getInt("Size"));
@@ -236,6 +245,21 @@ public class ArachneDroneEntity extends ArachneEntity {
 	@Override
 	public PathNavigation createNavigation(Level pLevel) {
 		return new WallClimberNavigation(this, pLevel);
+	}
+
+	@Override
+	public SoundEvent getAmbientSound() {
+		return IcariaSoundEvents.ARACHNE_DRONE_AMBIENT;
+	}
+
+	@Override
+	public SoundEvent getDeathSound() {
+		return IcariaSoundEvents.ARACHNE_DRONE_DEATH;
+	}
+
+	@Override
+	public SoundEvent getHurtSound(DamageSource pDamageSource) {
+		return IcariaSoundEvents.ARACHNE_DRONE_HURT;
 	}
 
 	@Override

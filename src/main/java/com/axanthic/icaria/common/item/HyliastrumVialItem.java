@@ -2,9 +2,9 @@ package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -27,7 +27,7 @@ public class HyliastrumVialItem extends Item {
 		var level = pContext.getLevel();
 		var entity = IcariaEntityTypes.HYLIASTER.get().create(level);
 		if (player != null) {
-			player.playSound(SoundEvents.BOTTLE_EMPTY);
+			player.playSound(IcariaSoundEvents.VIAL_EMPTY);
 			if (!level.isClientSide() && entity != null) {
 				entity.moveTo(pContext.getClickedPos().relative(pContext.getClickedFace()), 0.0F, 0.0F);
 				entity.setSize(1);

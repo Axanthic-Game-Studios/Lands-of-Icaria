@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.nbt.CompoundTag;
@@ -10,7 +11,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -91,7 +91,7 @@ public class BidentEntity extends AbstractArrow {
 			}
 		}
 
-		this.playSound(SoundEvents.TRIDENT_HIT, 0.1F, 1.0F);
+		this.playSound(IcariaSoundEvents.BIDENT_HIT);
 		this.setDealt(true);
 		this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
 	}
@@ -141,6 +141,6 @@ public class BidentEntity extends AbstractArrow {
 
 	@Override
 	public SoundEvent getDefaultHitGroundSoundEvent() {
-		return SoundEvents.TRIDENT_HIT_GROUND;
+		return IcariaSoundEvents.BIDENT_HIT_GROUND;
 	}
 }

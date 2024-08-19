@@ -47,6 +47,6 @@ public class VineSproutItem extends Item {
 
 	@Override
 	public SoundEvent getBreakingSound() {
-		return SoundEvents.PLAYER_BURP;
+		return SoundEvents.EMPTY;
 	}
 }

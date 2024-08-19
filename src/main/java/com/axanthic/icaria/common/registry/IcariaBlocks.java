@@ -179,14 +179,14 @@ public class IcariaBlocks {
 	public static final Supplier<Block> MOLYBDENUM_ORE = IcariaBlocks.register("molybdenum_ore", () -> new Block(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN, SoundType.STONE)));
 	public static final Supplier<Block> HYLIASTRUM_ORE = IcariaBlocks.register("hyliastrum_ore", () -> new HyliastrumOreBlock(IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_CYAN, SoundType.STONE)));
 
-	public static final Supplier<Block> CALCITE = IcariaBlocks.registerSimple("calcite", () -> new AmethystBlock(IcariaBlocks.propertiesMineral(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST)));
-	public static final Supplier<Block> BUDDING_CALCITE = IcariaBlocks.registerSimple("budding_calcite", () -> new AmethystBlock(IcariaBlocks.propertiesBudding(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST)));
-	public static final Supplier<Block> HALITE = IcariaBlocks.registerSimple("halite", () -> new AmethystBlock(IcariaBlocks.propertiesMineral(MapColor.COLOR_GREEN, SoundType.AMETHYST)));
-	public static final Supplier<Block> BUDDING_HALITE = IcariaBlocks.registerSimple("budding_halite", () -> new AmethystBlock(IcariaBlocks.propertiesBudding(MapColor.COLOR_GREEN, SoundType.AMETHYST)));
-	public static final Supplier<Block> JASPER = IcariaBlocks.registerSimple("jasper", () -> new AmethystBlock(IcariaBlocks.propertiesMineral(MapColor.COLOR_RED, SoundType.AMETHYST)));
-	public static final Supplier<Block> BUDDING_JASPER = IcariaBlocks.registerSimple("budding_jasper", () -> new AmethystBlock(IcariaBlocks.propertiesBudding(MapColor.COLOR_RED, SoundType.AMETHYST)));
-	public static final Supplier<Block> ZIRCON = IcariaBlocks.registerSimple("zircon", () -> new AmethystBlock(IcariaBlocks.propertiesMineral(MapColor.COLOR_BLUE, SoundType.AMETHYST)));
-	public static final Supplier<Block> BUDDING_ZIRCON = IcariaBlocks.registerSimple("budding_zircon", () -> new AmethystBlock(IcariaBlocks.propertiesBudding(MapColor.COLOR_BLUE, SoundType.AMETHYST)));
+	public static final Supplier<Block> CALCITE = IcariaBlocks.registerSimple("calcite", () -> new Block(IcariaBlocks.propertiesMineral(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST)));
+	public static final Supplier<Block> BUDDING_CALCITE = IcariaBlocks.registerSimple("budding_calcite", () -> new Block(IcariaBlocks.propertiesBudding(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST)));
+	public static final Supplier<Block> HALITE = IcariaBlocks.registerSimple("halite", () -> new Block(IcariaBlocks.propertiesMineral(MapColor.COLOR_GREEN, SoundType.AMETHYST)));
+	public static final Supplier<Block> BUDDING_HALITE = IcariaBlocks.registerSimple("budding_halite", () -> new Block(IcariaBlocks.propertiesBudding(MapColor.COLOR_GREEN, SoundType.AMETHYST)));
+	public static final Supplier<Block> JASPER = IcariaBlocks.registerSimple("jasper", () -> new Block(IcariaBlocks.propertiesMineral(MapColor.COLOR_RED, SoundType.AMETHYST)));
+	public static final Supplier<Block> BUDDING_JASPER = IcariaBlocks.registerSimple("budding_jasper", () -> new Block(IcariaBlocks.propertiesBudding(MapColor.COLOR_RED, SoundType.AMETHYST)));
+	public static final Supplier<Block> ZIRCON = IcariaBlocks.registerSimple("zircon", () -> new Block(IcariaBlocks.propertiesMineral(MapColor.COLOR_BLUE, SoundType.AMETHYST)));
+	public static final Supplier<Block> BUDDING_ZIRCON = IcariaBlocks.registerSimple("budding_zircon", () -> new Block(IcariaBlocks.propertiesBudding(MapColor.COLOR_BLUE, SoundType.AMETHYST)));
 
 	public static final Supplier<Block> CALCITE_CRYSTAL = IcariaBlocks.register("calcite_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystal(MapColor.NONE, SoundType.AMETHYST_CLUSTER)));
 	public static final Supplier<Block> HALITE_CRYSTAL = IcariaBlocks.register("halite_crystal", () -> new CrystalBlock(IcariaBlocks.propertiesCrystal(MapColor.NONE, SoundType.AMETHYST_CLUSTER)));

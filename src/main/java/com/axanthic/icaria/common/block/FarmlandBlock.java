@@ -2,12 +2,12 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
@@ -106,7 +106,7 @@ public class FarmlandBlock extends FarmBlock {
 	@Override
 	public ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pResult) {
 		if (pStack.is(IcariaItems.CALCITE_DUST.get()) && pState.getValue(BlockStateProperties.MOISTURE) == 7) {
-			pLevel.playSound(null, pPos, SoundEvents.HOE_TILL, SoundSource.BLOCKS);
+			pLevel.playSound(null, pPos, IcariaSoundEvents.CALCITE_FERTILIZE, SoundSource.BLOCKS);
 			if (!pLevel.isClientSide()) {
 				pLevel.setBlock(pPos, IcariaBlocks.FERTILIZED_FARMLAND.get().defaultBlockState(), 2);
 				pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CALCITE_DUST.get()));

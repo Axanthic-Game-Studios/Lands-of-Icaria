@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.nbt.CompoundTag;
@@ -8,7 +9,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -292,16 +292,16 @@ public class SnullEntity extends SizedPathfinderMobEntity {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return SoundEvents.SLIME_SQUISH;
+		return IcariaSoundEvents.SNULL_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.SLIME_DEATH;
+		return IcariaSoundEvents.SNULL_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.SLIME_HURT;
+		return IcariaSoundEvents.SNULL_HURT;
 	}
 }

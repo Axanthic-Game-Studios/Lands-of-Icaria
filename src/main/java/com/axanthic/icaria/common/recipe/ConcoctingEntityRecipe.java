@@ -1,17 +1,13 @@
 package com.axanthic.icaria.common.recipe;
 
 import com.axanthic.icaria.common.block.KettleBlock;
-import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
-import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+import com.axanthic.icaria.common.registry.*;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -87,7 +83,7 @@ public class ConcoctingEntityRecipe implements Recipe<RecipeInput> {
 					if (this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.CAPTAIN_REVENANT.get()).toString())) {
 						livingEntity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.ORICHALCUM_TOOLS.sword.get()));
 						livingEntity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
-						pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
+						pLevel.playSound(null, pPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 						pLevel.addFreshEntity(livingEntity);
 					} else if (this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.CRAWLER_REVENANT.get()).toString()) || this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.MYRMEKE_SOLDIER.get()).toString())) {
 						livingEntity.moveTo(blockPos, 0.0F, 0.0F);
@@ -95,16 +91,16 @@ public class ConcoctingEntityRecipe implements Recipe<RecipeInput> {
 					} else if (this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get()).toString())) {
 						livingEntity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
 						livingEntity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
-						pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
+						pLevel.playSound(null, pPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 						pLevel.addFreshEntity(livingEntity);
 					} else if (this.entity.equals(BuiltInRegistries.ENTITY_TYPE.getKey(IcariaEntityTypes.SOLDIER_REVENANT.get()).toString())) {
 						livingEntity.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.KASSITEROS_TOOLS.sword.get()));
 						livingEntity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
-						pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
+						pLevel.playSound(null, pPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 						pLevel.addFreshEntity(livingEntity);
 					} else {
 						livingEntity.moveTo(pPos.getX() + kettleBlock.getX(state), pPos.getY() + 0.75D, pPos.getZ() + kettleBlock.getZ(state));
-						pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
+						pLevel.playSound(null, pPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 						pLevel.addFreshEntity(livingEntity);
 					}
 				}

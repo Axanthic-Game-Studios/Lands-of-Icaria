@@ -276,16 +276,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.SWIRLY_VINE.get())
 			.add(IcariaBlocks.THORNY_VINE.get());
 
-		this.tag(BlockTags.CRYSTAL_SOUND_BLOCKS)
-			.add(IcariaBlocks.CALCITE.get())
-			.add(IcariaBlocks.BUDDING_CALCITE.get())
-			.add(IcariaBlocks.HALITE.get())
-			.add(IcariaBlocks.BUDDING_HALITE.get())
-			.add(IcariaBlocks.JASPER.get())
-			.add(IcariaBlocks.BUDDING_JASPER.get())
-			.add(IcariaBlocks.ZIRCON.get())
-			.add(IcariaBlocks.BUDDING_ZIRCON.get());
-
 		this.tag(BlockTags.OCCLUDES_VIBRATION_SIGNALS)
 			.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get());
 

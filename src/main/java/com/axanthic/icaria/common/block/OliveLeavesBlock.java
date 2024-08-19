@@ -3,11 +3,11 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.properties.Olives;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
@@ -58,12 +58,12 @@ public class OliveLeavesBlock extends IcariaLeavesBlock {
 	@Override
 	public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
 		if (pState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.GREEN) {
-			pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
+			pLevel.playSound(null, pPos, IcariaSoundEvents.OLIVES_POP, SoundSource.BLOCKS);
 			pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE), 2);
 			Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.GREEN_OLIVES.get()));
 			return InteractionResult.sidedSuccess(pLevel.isClientSide());
 		} else if (pState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.BLACK) {
-			pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
+			pLevel.playSound(null, pPos, IcariaSoundEvents.OLIVES_POP, SoundSource.BLOCKS);
 			pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE), 2);
 			Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.BLACK_OLIVES.get()));
 			return InteractionResult.sidedSuccess(pLevel.isClientSide());

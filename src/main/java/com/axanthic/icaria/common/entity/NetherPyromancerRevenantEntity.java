@@ -9,7 +9,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
@@ -133,7 +132,7 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
 			this.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
 			this.setThrown(this.maxThrown);
 			if (!this.isSilent()) {
-				this.level().playSound(null, this.blockPosition(), SoundEvents.ARROW_SHOOT, SoundSource.HOSTILE, 0.1F, 1.0F);
+				this.level().playSound(null, this.blockPosition(), IcariaSoundEvents.GREEK_FIRE_GRENADE_THROW, SoundSource.HOSTILE, 0.1F, 1.0F);
 			}
 		}
 	}
@@ -195,6 +194,6 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return IcariaSoundEvents.PYROMANCER_REVENANT_AMBIENT;
+		return IcariaSoundEvents.NETHER_PYROMANCER_REVENANT_AMBIENT;
 	}
 }

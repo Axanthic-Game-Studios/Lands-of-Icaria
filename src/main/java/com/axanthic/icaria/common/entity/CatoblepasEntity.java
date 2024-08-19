@@ -6,12 +6,12 @@ import com.axanthic.icaria.common.goal.IcariaFollowParentGoal;
 import com.axanthic.icaria.common.goal.IcariaPanicGoal;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -66,7 +66,7 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
 
 	@Override
 	public void playStepSound(BlockPos pPos, BlockState pState) {
-		this.playSound(SoundEvents.COW_STEP, 0.1F, 1.0F);
+		this.playSound(IcariaSoundEvents.CATOBLEPAS_STEP, 0.1F, 1.0F);
 	}
 
 	@Override
@@ -107,7 +107,7 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
 		if (!this.isBaby()) {
 			if (itemStack.is(Items.BUCKET)) {
 				var filledResult = ItemUtils.createFilledResult(itemStack, pPlayer, Items.MILK_BUCKET.getDefaultInstance());
-				pPlayer.playSound(SoundEvents.COW_MILK);
+				pPlayer.playSound(IcariaSoundEvents.CATOBLEPAS_MILK);
 				pPlayer.setItemInHand(pHand, filledResult);
 				return InteractionResult.sidedSuccess(this.level().isClientSide());
 			}
@@ -118,16 +118,16 @@ public class CatoblepasEntity extends IcariaAnimalEntity {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return SoundEvents.COW_AMBIENT;
+		return IcariaSoundEvents.CATOBLEPAS_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.COW_DEATH;
+		return IcariaSoundEvents.CATOBLEPAS_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.COW_HURT;
+		return IcariaSoundEvents.CATOBLEPAS_HURT;
 	}
 }

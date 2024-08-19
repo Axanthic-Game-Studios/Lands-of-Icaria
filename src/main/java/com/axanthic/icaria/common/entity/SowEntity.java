@@ -6,12 +6,12 @@ import com.axanthic.icaria.common.goal.IcariaFollowParentGoal;
 import com.axanthic.icaria.common.goal.IcariaPanicGoal;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
@@ -61,7 +61,7 @@ public class SowEntity extends IcariaAnimalEntity {
 
 	@Override
 	public void playStepSound(BlockPos pPos, BlockState pState) {
-		this.playSound(SoundEvents.PIG_STEP, 0.1F, 1.0F);
+		this.playSound(IcariaSoundEvents.SOW_STEP, 0.1F, 1.0F);
 	}
 
 	@Override
@@ -93,17 +93,17 @@ public class SowEntity extends IcariaAnimalEntity {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return SoundEvents.PIG_AMBIENT;
+		return IcariaSoundEvents.SOW_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.PIG_DEATH;
+		return IcariaSoundEvents.SOW_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.PIG_HURT;
+		return IcariaSoundEvents.SOW_HURT;
 	}
 
 	@Override

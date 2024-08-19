@@ -3,12 +3,12 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.goal.*;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
@@ -80,7 +80,7 @@ public class AeternaeEntity extends IcariaAnimalEntity {
 
 	@Override
 	public void playStepSound(BlockPos pPos, BlockState pState) {
-		this.playSound(SoundEvents.COW_STEP, 0.1F, 1.0F);
+		this.playSound(IcariaSoundEvents.AETERNAE_STEP, 0.1F, 1.0F);
 	}
 
 	@Override
@@ -119,16 +119,16 @@ public class AeternaeEntity extends IcariaAnimalEntity {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return SoundEvents.COW_AMBIENT;
+		return IcariaSoundEvents.AETERNAE_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.COW_DEATH;
+		return IcariaSoundEvents.AETERNAE_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.COW_HURT;
+		return IcariaSoundEvents.AETERNAE_HURT;
 	}
 }

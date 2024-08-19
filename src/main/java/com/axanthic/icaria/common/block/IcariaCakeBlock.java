@@ -8,7 +8,6 @@ import com.axanthic.icaria.common.registry.IcariaShapes;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionResult;
@@ -98,7 +97,6 @@ public class IcariaCakeBlock extends Block {
 			if (pState.is(IcariaBlocks.LAUREL_CHERRY_CAKE.get())) {
 				if (!pLevel.isClientSide()) {
 					for (int i = 0; i < 16; ++i) {
-						pPlayer.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT);
 						pPlayer.randomTeleport(pPlayer.getX() + (pPlayer.getRandom().nextDouble() - 0.5D) * 16.0D, Mth.clamp(pPlayer.getY() + (pPlayer.getRandom().nextInt(16) - 8), pLevel.getMinBuildHeight(), pLevel.getMaxBuildHeight()), pPlayer.getZ() + (pPlayer.getRandom().nextDouble() - 0.5D) * 16.0D, true);
 						if (pPlayer.isPassenger()) {
 							pPlayer.stopRiding();

@@ -1,8 +1,12 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.MyrmekeDroneHurtByTargetGoal;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -11,6 +15,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -41,6 +46,11 @@ public class MyrmekeDroneEntity extends MyrmekeQueenEntity {
 	}
 
 	@Override
+	public void playStepSound(BlockPos pPos, BlockState pState) {
+		this.playSound(IcariaSoundEvents.MYRMEKE_DRONE_STEP, 0.1F, 1.0F);
+	}
+
+	@Override
 	public void registerGoals() {
 		this.goalSelector.addGoal(1, new FloatGoal(this));
 		this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.25F));
@@ -52,5 +62,20 @@ public class MyrmekeDroneEntity extends MyrmekeQueenEntity {
 
 	public static AttributeSupplier.Builder registerAttributes() {
 		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 1.0D).add(Attributes.MAX_HEALTH, 12.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+	}
+
+	@Override
+	public SoundEvent getAmbientSound() {
+		return IcariaSoundEvents.MYRMEKE_DRONE_AMBIENT;
+	}
+
+	@Override
+	public SoundEvent getDeathSound() {
+		return IcariaSoundEvents.MYRMEKE_DRONE_DEATH;
+	}
+
+	@Override
+	public SoundEvent getHurtSound(DamageSource pDamageSource) {
+		return IcariaSoundEvents.MYRMEKE_DRONE_HURT;
 	}
 }

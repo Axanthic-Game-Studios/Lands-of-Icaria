@@ -2,12 +2,12 @@ package com.axanthic.icaria.common.recipe;
 
 import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
@@ -70,7 +70,7 @@ public class ConcoctingItemRecipe implements Recipe<RecipeInput> {
 	}
 
 	public void performRecipe(Level pLevel, BlockPos pPos) {
-		pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS);
+		pLevel.playSound(null, pPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 	}
 
 	@Override

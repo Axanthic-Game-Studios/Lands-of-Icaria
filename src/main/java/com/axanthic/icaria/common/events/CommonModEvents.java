@@ -979,6 +979,7 @@ public class CommonModEvents {
 		generator.addProvider(pEvent.includeClient(), new IcariaGerman(packOutput, IcariaIdents.ID, "de_de"));
 		generator.addProvider(pEvent.includeClient(), new IcariaBlockStates(packOutput, IcariaIdents.ID, existingFileHelper));
 		generator.addProvider(pEvent.includeClient(), new IcariaItemModels(packOutput, IcariaIdents.ID, existingFileHelper));
+		generator.addProvider(pEvent.includeClient(), new IcariaSounds(packOutput, IcariaIdents.ID, existingFileHelper));
 
 		generator.addProvider(pEvent.includeServer(), new IcariaAdvancements(packOutput, lookupProvider, existingFileHelper));
 		generator.addProvider(pEvent.includeServer(), new IcariaLoot(packOutput, lookupProvider));

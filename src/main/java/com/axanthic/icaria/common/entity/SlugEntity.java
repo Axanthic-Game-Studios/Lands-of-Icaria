@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -11,7 +12,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
@@ -326,16 +326,16 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return SoundEvents.SLIME_SQUISH;
+		return IcariaSoundEvents.SLUG_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.SLIME_DEATH;
+		return IcariaSoundEvents.SLUG_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.SLIME_HURT;
+		return IcariaSoundEvents.SLUG_HURT;
 	}
 }

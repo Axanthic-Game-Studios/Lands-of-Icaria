@@ -6,7 +6,6 @@ import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.Entity;
@@ -51,7 +50,7 @@ public class CrocottaEntity extends Monster {
 
 	@Override
 	public void playStepSound(BlockPos pPos, BlockState pState) {
-		this.playSound(SoundEvents.WOLF_STEP, 0.1F, 1.0F);
+		this.playSound(IcariaSoundEvents.CROCOTTA_STEP, 0.1F, 1.0F);
 	}
 
 	@Override

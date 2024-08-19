@@ -1,9 +1,9 @@
 package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.common.entity.GreekFireGrenadeEntity;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -32,7 +32,7 @@ public class GreekFireGrenadeItem extends Item {
 	@Override
 	public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
 		if (pLivingEntity instanceof Player player && this.getUseDuration(pStack, pLivingEntity) - pTimeCharged >= 10) {
-			player.playSound(SoundEvents.ARROW_SHOOT);
+			player.playSound(IcariaSoundEvents.GREEK_FIRE_GRENADE_THROW);
 			if (!pLevel.isClientSide()) {
 				var entity = new GreekFireGrenadeEntity(pLevel, player, pStack);
 				entity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.0F, 1.0F);

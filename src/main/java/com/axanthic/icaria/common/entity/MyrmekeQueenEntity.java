@@ -4,6 +4,7 @@ import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.goal.MyrmekeQueenHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.MyrmekeQueenSummonGoal;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.common.util.IcariaSummonSpellTypes;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
@@ -13,7 +14,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -83,7 +83,7 @@ public class MyrmekeQueenEntity extends Monster {
 
 	@Override
 	public void playStepSound(BlockPos pPos, BlockState pState) {
-		this.playSound(SoundEvents.SPIDER_STEP, 0.1F, 1.0F);
+		this.playSound(IcariaSoundEvents.MYRMEKE_QUEEN_STEP, 0.1F, 1.0F);
 	}
 
 	@Override
@@ -142,16 +142,16 @@ public class MyrmekeQueenEntity extends Monster {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return SoundEvents.SPIDER_AMBIENT;
+		return IcariaSoundEvents.MYRMEKE_QUEEN_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.SPIDER_DEATH;
+		return IcariaSoundEvents.MYRMEKE_QUEEN_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.SPIDER_HURT;
+		return IcariaSoundEvents.MYRMEKE_QUEEN_HURT;
 	}
 }

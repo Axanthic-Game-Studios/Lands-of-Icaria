@@ -12,7 +12,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
@@ -140,13 +139,13 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
 
 		this.level().addFreshEntity(entity);
 		if (!this.isSilent()) {
-			this.level().playSound(null, this.blockPosition(), SoundEvents.SNOWBALL_THROW, SoundSource.HOSTILE, 0.1F, 1.0F);
+			this.level().playSound(null, this.blockPosition(), IcariaSoundEvents.VINEGAROON_SHOOT, SoundSource.HOSTILE);
 		}
 	}
 
 	@Override
 	public void playStepSound(BlockPos pPos, BlockState pState) {
-		this.playSound(SoundEvents.SPIDER_STEP, 0.1F, 1.0F);
+		this.playSound(IcariaSoundEvents.VINEGAROON_STEP, 0.1F, 1.0F);
 	}
 
 	@Override
@@ -225,17 +224,17 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return IcariaSoundEvents.SCORPION_AMBIENT;
+		return IcariaSoundEvents.VINEGAROON_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return IcariaSoundEvents.SCORPION_DEATH;
+		return IcariaSoundEvents.VINEGAROON_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return IcariaSoundEvents.SCORPION_HURT;
+		return IcariaSoundEvents.VINEGAROON_HURT;
 	}
 
 	@Override

@@ -134,7 +134,7 @@ public class KettleBlock extends BaseEntityBlock {
 							item.shrink(1);
 							kettleBlockEntity.resetProgress();
 							kettleBlockEntity.deque.offer(itemStack);
-							pLevel.playSound(null, pPos, SoundEvents.VILLAGER_WORK_LEATHERWORKER, SoundSource.BLOCKS);
+							pLevel.playSound(null, pPos, IcariaSoundEvents.KETTLE_CONSUME, SoundSource.BLOCKS);
 							pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true));
 							pLevel.setBlockAndUpdate(pPos.above(), pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(BlockStateProperties.LIT, true));
 						}
@@ -248,7 +248,7 @@ public class KettleBlock extends BaseEntityBlock {
 						var itemStack = new ItemStack(item.getItem());
 						kettleBlockEntity.resetProgress();
 						kettleBlockEntity.deque.offer(itemStack);
-						pLevel.playSound(null, pPos, SoundEvents.VILLAGER_WORK_LEATHERWORKER, SoundSource.BLOCKS);
+						pLevel.playSound(null, pPos, IcariaSoundEvents.KETTLE_CONSUME, SoundSource.BLOCKS);
 						pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true));
 						pLevel.setBlockAndUpdate(pPos.above(), pState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(BlockStateProperties.LIT, true));
 						pPlayer.awardStat(Stats.ITEM_USED.get(item.getItem()));

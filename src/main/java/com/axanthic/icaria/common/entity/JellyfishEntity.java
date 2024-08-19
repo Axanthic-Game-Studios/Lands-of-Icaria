@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.goal.JellyfishFleeGoal;
 import com.axanthic.icaria.common.goal.JellyfishRandomMovementGoal;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -11,7 +12,6 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
@@ -133,16 +133,11 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
 
 		var blockState = this.level().getBlockState(mutablePos);
 		if (blockState.blocksMotion() && !blockState.getFluidState().is(FluidTags.WATER)) {
-			boolean flag = this.randomTeleport(pX, pY, pZ, true);
 			if (EventHooks.onEnderTeleport(this, pX, pY, pZ).isCanceled()) {
 				return false;
 			}
 
-			if (flag && !this.isSilent()) {
-				this.playSound(SoundEvents.ENDERMAN_TELEPORT, 0.1F, 1.0F);
-			}
-
-			return flag;
+			return this.randomTeleport(pX, pY, pZ, true);
 		} else {
 			return false;
 		}
@@ -277,16 +272,16 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return SoundEvents.SQUID_AMBIENT;
+		return IcariaSoundEvents.JELLYFISH_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.SQUID_DEATH;
+		return IcariaSoundEvents.JELLYFISH_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.SQUID_HURT;
+		return IcariaSoundEvents.JELLYFISH_HURT;
 	}
 }

@@ -1,9 +1,9 @@
 package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.common.entity.SpellEntity;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -41,7 +41,7 @@ public class SpellItem extends Item {
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
 		var itemStack = pPlayer.getItemInHand(pUsedHand);
-		pPlayer.playSound(SoundEvents.SNOWBALL_THROW);
+		pPlayer.playSound(IcariaSoundEvents.SPELL_SHOOT);
 		if (!pLevel.isClientSide()) {
 			if (this.getEntity() != null) {
 				if (this.getEntity().create(pLevel) instanceof SpellEntity spellEntity) {

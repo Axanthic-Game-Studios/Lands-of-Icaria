@@ -31,7 +31,7 @@ public class BubbleSpellItem extends Item {
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
 		var itemStack = pPlayer.getItemInHand(pUsedHand);
-		pPlayer.playSound(IcariaSoundEvents.BUBBLE_SPELL_CAST);
+		pPlayer.playSound(IcariaSoundEvents.BUBBLE_SPELL_SHOOT);
 		if (!pLevel.isClientSide()) {
 			for (int i = 0; i < pLevel.getRandom().nextInt(4) + 4; ++i) {
 				if (this.getEntity().create(pLevel) instanceof BubbleSpellEntity spellEntity) {

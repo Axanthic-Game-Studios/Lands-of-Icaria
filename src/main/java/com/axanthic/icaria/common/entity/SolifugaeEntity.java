@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.IcariaArachnidTargetGoal;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.data.tags.IcariaBlockTags;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -9,7 +10,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -70,7 +70,7 @@ public class SolifugaeEntity extends IcariaArachnidEntity {
 
 	@Override
 	public void playStepSound(BlockPos pPos, BlockState pState) {
-		this.playSound(SoundEvents.SPIDER_STEP, 0.1F, 1.0F);
+		this.playSound(IcariaSoundEvents.SOLIFUGAE_STEP, 0.1F, 1.0F);
 	}
 
 	@Override
@@ -114,16 +114,16 @@ public class SolifugaeEntity extends IcariaArachnidEntity {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return SoundEvents.SPIDER_AMBIENT;
+		return IcariaSoundEvents.SOLIFUGAE_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.SPIDER_DEATH;
+		return IcariaSoundEvents.SOLIFUGAE_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return SoundEvents.SPIDER_HURT;
+		return IcariaSoundEvents.SOLIFUGAE_HURT;
 	}
 }

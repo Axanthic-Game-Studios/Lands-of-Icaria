@@ -1,10 +1,10 @@
 package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.common.entity.BidentEntity;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -56,7 +56,7 @@ public class BidentItem extends TieredItem {
 	@Override
 	public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
 		if (pLivingEntity instanceof Player player && this.getUseDuration(pStack, pLivingEntity) - pTimeCharged >= 10) {
-			player.playSound(SoundEvents.TRIDENT_THROW.value());
+			player.playSound(IcariaSoundEvents.BIDENT_THROW);
 			if (!pLevel.isClientSide()) {
 				player.awardStat(Stats.ITEM_USED.get(this));
 				pStack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(pLivingEntity.getUsedItemHand()));

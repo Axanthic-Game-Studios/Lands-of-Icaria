@@ -1,22 +1,27 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.MyrmekeSoldierHurtByTargetGoal;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -71,6 +76,11 @@ public class MyrmekeSoldierEntity extends MyrmekeDroneEntity {
 	}
 
 	@Override
+	public void playStepSound(BlockPos pPos, BlockState pState) {
+		this.playSound(IcariaSoundEvents.MYRMEKE_SOLDIER_STEP, 0.1F, 1.0F);
+	}
+
+	@Override
 	public void readAdditionalSaveData(CompoundTag pCompound) {
 		super.readAdditionalSaveData(pCompound);
 		this.setTick(pCompound.getInt("Tick"));
@@ -113,5 +123,20 @@ public class MyrmekeSoldierEntity extends MyrmekeDroneEntity {
 
 	public static AttributeSupplier.Builder registerAttributes() {
 		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+	}
+
+	@Override
+	public SoundEvent getAmbientSound() {
+		return IcariaSoundEvents.MYRMEKE_SOLDIER_AMBIENT;
+	}
+
+	@Override
+	public SoundEvent getDeathSound() {
+		return IcariaSoundEvents.MYRMEKE_SOLDIER_DEATH;
+	}
+
+	@Override
+	public SoundEvent getHurtSound(DamageSource pDamageSource) {
+		return IcariaSoundEvents.MYRMEKE_SOLDIER_HURT;
 	}
 }
