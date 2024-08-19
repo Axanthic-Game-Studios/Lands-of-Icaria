@@ -15,8 +15,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("deprecation")
-
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 

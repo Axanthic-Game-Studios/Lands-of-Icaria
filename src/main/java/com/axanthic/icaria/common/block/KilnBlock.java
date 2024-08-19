@@ -43,8 +43,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("deprecation")
-
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 
