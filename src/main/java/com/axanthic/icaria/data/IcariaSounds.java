@@ -79,14 +79,14 @@ public class IcariaSounds extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.MYRMEKE_DRONE_DEATH, SoundEvents.SPIDER_DEATH, "myrmeke_drone", "death");
 		this.register(IcariaSoundEvents.MYRMEKE_DRONE_HURT, SoundEvents.SPIDER_HURT, "myrmeke_drone", "hurt");
 		this.register(IcariaSoundEvents.MYRMEKE_DRONE_STEP, SoundEvents.SPIDER_STEP, "myrmeke_drone", "step");
-		this.register(IcariaSoundEvents.MYRMEKE_QUEEN_AMBIENT, SoundEvents.SPIDER_AMBIENT, "myrmeke_queen", "ambient");
-		this.register(IcariaSoundEvents.MYRMEKE_QUEEN_DEATH, SoundEvents.SPIDER_DEATH, "myrmeke_queen", "death");
-		this.register(IcariaSoundEvents.MYRMEKE_QUEEN_HURT, SoundEvents.SPIDER_HURT, "myrmeke_queen", "hurt");
-		this.register(IcariaSoundEvents.MYRMEKE_QUEEN_STEP, SoundEvents.SPIDER_STEP, "myrmeke_queen", "step");
 		this.register(IcariaSoundEvents.MYRMEKE_SOLDIER_AMBIENT, SoundEvents.SPIDER_AMBIENT, "myrmeke_soldier", "ambient");
 		this.register(IcariaSoundEvents.MYRMEKE_SOLDIER_DEATH, SoundEvents.SPIDER_DEATH, "myrmeke_soldier", "death");
 		this.register(IcariaSoundEvents.MYRMEKE_SOLDIER_HURT, SoundEvents.SPIDER_HURT, "myrmeke_soldier", "hurt");
 		this.register(IcariaSoundEvents.MYRMEKE_SOLDIER_STEP, SoundEvents.SPIDER_STEP, "myrmeke_soldier", "step");
+		this.register(IcariaSoundEvents.MYRMEKE_QUEEN_AMBIENT, SoundEvents.SPIDER_AMBIENT, "myrmeke_queen", "ambient");
+		this.register(IcariaSoundEvents.MYRMEKE_QUEEN_DEATH, SoundEvents.SPIDER_DEATH, "myrmeke_queen", "death");
+		this.register(IcariaSoundEvents.MYRMEKE_QUEEN_HURT, SoundEvents.SPIDER_HURT, "myrmeke_queen", "hurt");
+		this.register(IcariaSoundEvents.MYRMEKE_QUEEN_STEP, SoundEvents.SPIDER_STEP, "myrmeke_queen", "step");
 		this.register(IcariaSoundEvents.REVENANT_AMBIENT, "entity", "revenant", "ambient", 3);
 		this.register(IcariaSoundEvents.REVENANT_DEATH, "entity", "revenant", "death", 1);
 		this.register(IcariaSoundEvents.REVENANT_HURT, "entity", "revenant", "hurt", 3);
