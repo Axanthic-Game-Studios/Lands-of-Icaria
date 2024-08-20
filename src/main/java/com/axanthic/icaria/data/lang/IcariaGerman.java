@@ -386,7 +386,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaBlocks.ARACHNE_SPAWNER.get(), "Arachnen-Spawner");
 		this.add(IcariaBlocks.REVENANT_SPAWNER.get(), "Wiedergänger-Spawner");
 
-		this.add(IcariaBlocks.AETERNAE_SKULL.get(), "Äternschädel");
+		this.add(IcariaBlocks.AETERNAE_SKULL.get(), "Äternenschädel");
 		this.add(IcariaBlocks.ARGAN_HOUND_SKULL.get(), "Arganischer Hundeschädel");
 		this.add(IcariaBlocks.CAPELLA_SKULL.get(), "Kapellaschädel");
 		this.add(IcariaBlocks.CATOBLEPAS_SKULL.get(), "Katoblepasschädel");
@@ -782,7 +782,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaMobEffects.FREEZING.value(), "Vereisung");
 		this.add(IcariaMobEffects.LIFESTEAL.value(), "Lebensraub");
 
-		this.add(IcariaEntityTypes.AETERNAE.get(), "Ätern");
+		this.add(IcariaEntityTypes.AETERNAE.get(), "Äterne");
 		this.add(IcariaEntityTypes.ARACHNE.get(), "Arachne");
 		this.add(IcariaEntityTypes.ARACHNE_DRONE.get(), "Arachnendrohne");
 		this.add(IcariaEntityTypes.ARGAN_HOUND.get(), "Arganischer Hund");
@@ -954,10 +954,10 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.scythe.get(), "Molybdänstahlsense");
 		this.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.bident.get(), "Molybdänstahlzweizack");
 
-		this.add(IcariaItems.AETERNAE_HIDE_ARMOR.helmet.get(), "Äternen Lederkappe");
-		this.add(IcariaItems.AETERNAE_HIDE_ARMOR.chestplate.get(), "Äternen Lederjacke");
-		this.add(IcariaItems.AETERNAE_HIDE_ARMOR.leggings.get(), "Äternen Lederhose");
-		this.add(IcariaItems.AETERNAE_HIDE_ARMOR.boots.get(), "Äternen Lederstiefel");
+		this.add(IcariaItems.AETERNAE_HIDE_ARMOR.helmet.get(), "Äternen-Lederkappe");
+		this.add(IcariaItems.AETERNAE_HIDE_ARMOR.chestplate.get(), "Äternen-Lederjacke");
+		this.add(IcariaItems.AETERNAE_HIDE_ARMOR.leggings.get(), "Äternen-Lederhose");
+		this.add(IcariaItems.AETERNAE_HIDE_ARMOR.boots.get(), "Äternen-Lederstiefel");
 		this.add(IcariaItems.CHALKOS_ARMOR.helmet.get(), "Kuffarhelm");
 		this.add(IcariaItems.CHALKOS_ARMOR.chestplate.get(), "Kuffarharnisch");
 		this.add(IcariaItems.CHALKOS_ARMOR.leggings.get(), "Kuffarbeinschutz");
@@ -1037,7 +1037,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.YELLOW_GEARFRAGMENT.get(), "Gelbes Mahlradfragment");
 		this.add(IcariaItems.DAEDALIAN_GEAR.get(), "Dädalisches Mahlrad");
 
-		this.add(IcariaItems.AETERNAE_HIDE.get(), "Äternen Leder");
+		this.add(IcariaItems.AETERNAE_HIDE.get(), "Äternen-Leder");
 		this.add(IcariaItems.SPELT_FLOUR.get(), "Dinkelmehl");
 		this.add(IcariaItems.SPELT_BREAD.get(), "Dinkelbrot");
 		this.add(IcariaItems.VINE_SPROUT.get(), "Rankensprosse");
@@ -1075,7 +1075,7 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.STRAWBERRY_SEEDS.get(), "Erdbeersamen");
 		this.add(IcariaItems.PHYSALIS_SEEDS.get(), "Physalissamen");
 
-		this.add(IcariaItems.AETERNAE_SPAWN_EGG.get(), "Ätern-Spawn-Ei");
+		this.add(IcariaItems.AETERNAE_SPAWN_EGG.get(), "Äternen-Spawn-Ei");
 		this.add(IcariaItems.ARACHNE_SPAWN_EGG.get(), "Arachnendrohnen-Spawn-Ei");
 		this.add(IcariaItems.ARACHNE_DRONE_SPAWN_EGG.get(), "Arachnen-Spawn-Ei");
 		this.add(IcariaItems.ARGAN_HOUND_SPAWN_EGG.get(), "Arganischer Hund-Spawn-Ei");
