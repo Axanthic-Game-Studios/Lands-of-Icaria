@@ -1533,5 +1533,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaStructureTags.RUINED_VILLAGES, "Ruined Villages");
 
 		this.add(IcariaStructureTags.VILLAGES, "Villages");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "pillar_head" + "." + "title", "Sneak to invert placement");
 	}
 }

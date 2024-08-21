@@ -1533,5 +1533,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaStructureTags.RUINED_VILLAGES, "Ruinierte Dörfer");
 
 		this.add(IcariaStructureTags.VILLAGES, "Dörfer");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "pillar_head" + "." + "title", "Schleichen zum invertierten Platzieren");
 	}
 }
