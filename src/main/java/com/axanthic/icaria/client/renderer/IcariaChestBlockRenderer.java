@@ -19,7 +19,10 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.ChestRenderer;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.FastColor;
+import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.AbstractChestBlock;
 import net.minecraft.world.level.block.Blocks;
@@ -64,6 +67,17 @@ public class IcariaChestBlockRenderer extends ChestRenderer<IcariaChestBlockEnti
 		this.lock = single.getChild("lock");
 	}
 
+	public int getDarkColor(int pColor) {
+		if (pColor == 0) {
+			return -988212;
+		} else {
+			int r = (int) (FastColor.ARGB32.red(pColor) / 2.5F);
+			int g = (int) (FastColor.ARGB32.green(pColor) / 2.5F);
+			int b = (int) (FastColor.ARGB32.blue(pColor) / 2.5F);
+			return FastColor.ARGB32.color(0, r, g, b);
+		}
+	}
+
 	@Override
 	public void render(IcariaChestBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
 		boolean flag = pBlockEntity.getLevel() != null;
@@ -93,67 +107,67 @@ public class IcariaChestBlockRenderer extends ChestRenderer<IcariaChestBlockEnti
 
 			if (chestType.equals(ChestType.SINGLE)) {
 				this.render(angle, pPackedLight, pPackedOverlay, this.bottom, this.lid, this.lock, pPoseStack, vertexConsumer);
-				this.renderSingle(true, pBlockEntity.hasTextUp(), angle, 0.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_lid", pBlockEntity.getTextUp());
+				this.renderSingle(pBlockEntity.hasLabelUp(), pBlockEntity.getStyleUp(), true, angle, 0.0F, pBlockEntity.getColorUp(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_lid", pBlockEntity.getLabelUp());
 				if (blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).equals(Direction.NORTH)) {
-					this.renderSingle(false, pBlockEntity.hasTextNorth(), angle, 180.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front", pBlockEntity.getTextNorth());
-					this.renderSingle(false, pBlockEntity.hasTextEast(), angle, 90.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right", pBlockEntity.getTextEast());
-					this.renderSingle(false, pBlockEntity.hasTextSouth(), angle, 0.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back", pBlockEntity.getTextSouth());
-					this.renderSingle(false, pBlockEntity.hasTextWest(), angle, 270.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left", pBlockEntity.getTextWest());
+					this.renderSingle(pBlockEntity.hasLabelNorth(), pBlockEntity.getStyleNorth(), false, angle, 180.0F, pBlockEntity.getColorNorth(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front", pBlockEntity.getLabelNorth());
+					this.renderSingle(pBlockEntity.hasLabelEast(), pBlockEntity.getStyleEast(), false, angle, 90.0F, pBlockEntity.getColorEast(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right", pBlockEntity.getLabelEast());
+					this.renderSingle(pBlockEntity.hasLabelSouth(), pBlockEntity.getStyleSouth(), false, angle, 0.0F, pBlockEntity.getColorSouth(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back", pBlockEntity.getLabelSouth());
+					this.renderSingle(pBlockEntity.hasLabelWest(), pBlockEntity.getStyleWest(), false, angle, 270.0F, pBlockEntity.getColorWest(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left", pBlockEntity.getLabelWest());
 				} else if (blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).equals(Direction.EAST)) {
-					this.renderSingle(false, pBlockEntity.hasTextNorth(), angle, 270.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left", pBlockEntity.getTextNorth());
-					this.renderSingle(false, pBlockEntity.hasTextEast(), angle, 180.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front", pBlockEntity.getTextEast());
-					this.renderSingle(false, pBlockEntity.hasTextSouth(), angle, 90.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right", pBlockEntity.getTextSouth());
-					this.renderSingle(false, pBlockEntity.hasTextWest(), angle, 0.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back", pBlockEntity.getTextWest());
+					this.renderSingle(pBlockEntity.hasLabelNorth(), pBlockEntity.getStyleNorth(), false, angle, 270.0F, pBlockEntity.getColorNorth(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left", pBlockEntity.getLabelNorth());
+					this.renderSingle(pBlockEntity.hasLabelEast(), pBlockEntity.getStyleEast(), false, angle, 180.0F, pBlockEntity.getColorEast(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front", pBlockEntity.getLabelEast());
+					this.renderSingle(pBlockEntity.hasLabelSouth(), pBlockEntity.getStyleSouth(), false, angle, 90.0F, pBlockEntity.getColorSouth(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right", pBlockEntity.getLabelSouth());
+					this.renderSingle(pBlockEntity.hasLabelWest(), pBlockEntity.getStyleWest(), false, angle, 0.0F, pBlockEntity.getColorWest(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back", pBlockEntity.getLabelWest());
 				} else if (blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).equals(Direction.SOUTH)) {
-					this.renderSingle(false, pBlockEntity.hasTextNorth(), angle, 0.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back", pBlockEntity.getTextNorth());
-					this.renderSingle(false, pBlockEntity.hasTextEast(), angle, 270.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left", pBlockEntity.getTextEast());
-					this.renderSingle(false, pBlockEntity.hasTextSouth(), angle, 180.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front", pBlockEntity.getTextSouth());
-					this.renderSingle(false, pBlockEntity.hasTextWest(), angle, 90.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right", pBlockEntity.getTextWest());
+					this.renderSingle(pBlockEntity.hasLabelNorth(), pBlockEntity.getStyleNorth(), false, angle, 0.0F, pBlockEntity.getColorNorth(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back", pBlockEntity.getLabelNorth());
+					this.renderSingle(pBlockEntity.hasLabelEast(), pBlockEntity.getStyleEast(), false, angle, 270.0F, pBlockEntity.getColorEast(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left", pBlockEntity.getLabelEast());
+					this.renderSingle(pBlockEntity.hasLabelSouth(), pBlockEntity.getStyleSouth(), false, angle, 180.0F, pBlockEntity.getColorSouth(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front", pBlockEntity.getLabelSouth());
+					this.renderSingle(pBlockEntity.hasLabelWest(), pBlockEntity.getStyleWest(), false, angle, 90.0F, pBlockEntity.getColorWest(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right", pBlockEntity.getLabelWest());
 				} else if (blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).equals(Direction.WEST)) {
-					this.renderSingle(false, pBlockEntity.hasTextNorth(), angle, 90.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right", pBlockEntity.getTextNorth());
-					this.renderSingle(false, pBlockEntity.hasTextEast(), angle, 0.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back", pBlockEntity.getTextEast());
-					this.renderSingle(false, pBlockEntity.hasTextSouth(), angle, 270.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left", pBlockEntity.getTextSouth());
-					this.renderSingle(false, pBlockEntity.hasTextWest(), angle, 180.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front", pBlockEntity.getTextWest());
+					this.renderSingle(pBlockEntity.hasLabelNorth(), pBlockEntity.getStyleNorth(), false, angle, 90.0F, pBlockEntity.getColorNorth(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right", pBlockEntity.getLabelNorth());
+					this.renderSingle(pBlockEntity.hasLabelEast(), pBlockEntity.getStyleEast(), false, angle, 0.0F, pBlockEntity.getColorEast(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back", pBlockEntity.getLabelEast());
+					this.renderSingle(pBlockEntity.hasLabelSouth(), pBlockEntity.getStyleSouth(), false, angle, 270.0F, pBlockEntity.getColorSouth(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left", pBlockEntity.getLabelSouth());
+					this.renderSingle(pBlockEntity.hasLabelWest(), pBlockEntity.getStyleWest(), false, angle, 180.0F, pBlockEntity.getColorWest(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front", pBlockEntity.getLabelWest());
 				}
 			} else if (chestType.equals(ChestType.RIGHT)) {
 				this.render(angle, pPackedLight, pPackedOverlay, this.doubleRightBottom, this.doubleRightLid, this.doubleRightLock, pPoseStack, vertexConsumer);
-				this.renderRight(true, pBlockEntity.hasTextUp(), angle, 0.0F, 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_lid_right", pBlockEntity.getTextUp());
+				this.renderRight(pBlockEntity.hasLabelUp(), pBlockEntity.getStyleUp(), true, angle, 0.0F, pBlockEntity.getColorUp(), 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_lid_right", pBlockEntity.getLabelUp());
 				if (blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).equals(Direction.NORTH)) {
-					this.renderRight(false, pBlockEntity.hasTextNorth(), angle, 180.0F, 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_right", pBlockEntity.getTextNorth());
-					this.renderRight(false, pBlockEntity.hasTextEast(), angle, 90.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right_right", pBlockEntity.getTextEast());
-					this.renderRight(false, pBlockEntity.hasTextSouth(), angle, 0.0F, -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_right", pBlockEntity.getTextSouth());
+					this.renderRight(pBlockEntity.hasLabelNorth(), pBlockEntity.getStyleNorth(), false, angle, 180.0F, pBlockEntity.getColorNorth(), 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_right", pBlockEntity.getLabelNorth());
+					this.renderRight(pBlockEntity.hasLabelEast(), pBlockEntity.getStyleEast(), false, angle, 90.0F, pBlockEntity.getColorEast(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right_right", pBlockEntity.getLabelEast());
+					this.renderRight(pBlockEntity.hasLabelSouth(), pBlockEntity.getStyleSouth(), false, angle, 0.0F, pBlockEntity.getColorSouth(), -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_right", pBlockEntity.getLabelSouth());
 				} else if (blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).equals(Direction.EAST)) {
-					this.renderRight(false, pBlockEntity.hasTextEast(), angle, 180.0F, 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_right", pBlockEntity.getTextEast());
-					this.renderRight(false, pBlockEntity.hasTextSouth(), angle, 90.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right_right", pBlockEntity.getTextSouth());
-					this.renderRight(false, pBlockEntity.hasTextWest(), angle, 0.0F, -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_right", pBlockEntity.getTextWest());
+					this.renderRight(pBlockEntity.hasLabelEast(), pBlockEntity.getStyleEast(), false, angle, 180.0F, pBlockEntity.getColorEast(), 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_right", pBlockEntity.getLabelEast());
+					this.renderRight(pBlockEntity.hasLabelSouth(), pBlockEntity.getStyleSouth(), false, angle, 90.0F, pBlockEntity.getColorSouth(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right_right", pBlockEntity.getLabelSouth());
+					this.renderRight(pBlockEntity.hasLabelWest(), pBlockEntity.getStyleWest(), false, angle, 0.0F, pBlockEntity.getColorWest(), -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_right", pBlockEntity.getLabelWest());
 				} else if (blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).equals(Direction.SOUTH)) {
-					this.renderRight(false, pBlockEntity.hasTextNorth(), angle, 0.0F, -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_right", pBlockEntity.getTextNorth());
-					this.renderRight(false, pBlockEntity.hasTextSouth(), angle, 180.0F, 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_right", pBlockEntity.getTextSouth());
-					this.renderRight(false, pBlockEntity.hasTextWest(), angle, 90.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right_right", pBlockEntity.getTextWest());
+					this.renderRight(pBlockEntity.hasLabelNorth(), pBlockEntity.getStyleNorth(), false, angle, 0.0F, pBlockEntity.getColorNorth(), -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_right", pBlockEntity.getLabelNorth());
+					this.renderRight(pBlockEntity.hasLabelSouth(), pBlockEntity.getStyleSouth(), false, angle, 180.0F, pBlockEntity.getColorSouth(), 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_right", pBlockEntity.getLabelSouth());
+					this.renderRight(pBlockEntity.hasLabelWest(), pBlockEntity.getStyleWest(), false, angle, 90.0F, pBlockEntity.getColorWest(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right_right", pBlockEntity.getLabelWest());
 				} else if (blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).equals(Direction.WEST)) {
-					this.renderRight(false, pBlockEntity.hasTextNorth(), angle, 90.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right_right", pBlockEntity.getTextNorth());
-					this.renderRight(false, pBlockEntity.hasTextEast(), angle, 0.0F, -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_right", pBlockEntity.getTextEast());
-					this.renderRight(false, pBlockEntity.hasTextWest(), angle, 180.0F, 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_right", pBlockEntity.getTextWest());
+					this.renderRight(pBlockEntity.hasLabelNorth(), pBlockEntity.getStyleNorth(), false, angle, 90.0F, pBlockEntity.getColorNorth(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_right_right", pBlockEntity.getLabelNorth());
+					this.renderRight(pBlockEntity.hasLabelEast(), pBlockEntity.getStyleEast(), false, angle, 0.0F, pBlockEntity.getColorEast(), -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_right", pBlockEntity.getLabelEast());
+					this.renderRight(pBlockEntity.hasLabelWest(), pBlockEntity.getStyleWest(), false, angle, 180.0F, pBlockEntity.getColorWest(), 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_right", pBlockEntity.getLabelWest());
 				}
 			} else if (chestType.equals(ChestType.LEFT)) {
 				this.render(angle, pPackedLight, pPackedOverlay, this.doubleLeftBottom, this.doubleLeftLid, this.doubleLeftLock, pPoseStack, vertexConsumer);
-				this.renderLeft(true, pBlockEntity.hasTextUp(), angle, 0.0F, -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_lid_left", pBlockEntity.getTextUp());
+				this.renderLeft(pBlockEntity.hasLabelUp(), pBlockEntity.getStyleUp(), true, angle, 0.0F, pBlockEntity.getColorUp(), -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_lid_left", pBlockEntity.getLabelUp());
 				if (blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).equals(Direction.NORTH)) {
-					this.renderLeft(false, pBlockEntity.hasTextNorth(), angle, 180.0F, -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_left", pBlockEntity.getTextNorth());
-					this.renderLeft(false, pBlockEntity.hasTextWest(), angle, 270.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left_left", pBlockEntity.getTextWest());
-					this.renderLeft(false, pBlockEntity.hasTextSouth(), angle, 0.0F, 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_left", pBlockEntity.getTextSouth());
+					this.renderLeft(pBlockEntity.hasLabelNorth(), pBlockEntity.getStyleNorth(), false, angle, 180.0F, pBlockEntity.getColorNorth(), -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_left", pBlockEntity.getLabelNorth());
+					this.renderLeft(pBlockEntity.hasLabelWest(), pBlockEntity.getStyleWest(), false, angle, 270.0F, pBlockEntity.getColorWest(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left_left", pBlockEntity.getLabelWest());
+					this.renderLeft(pBlockEntity.hasLabelSouth(), pBlockEntity.getStyleSouth(), false, angle, 0.0F, pBlockEntity.getColorSouth(), 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_left", pBlockEntity.getLabelSouth());
 				} else if (blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).equals(Direction.EAST)) {
-					this.renderLeft(false, pBlockEntity.hasTextNorth(), angle, 270.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left_left", pBlockEntity.getTextNorth());
-					this.renderLeft(false, pBlockEntity.hasTextEast(), angle, 180.0F, -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_left", pBlockEntity.getTextEast());
-					this.renderLeft(false, pBlockEntity.hasTextWest(), angle, 0.0F, 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_left", pBlockEntity.getTextWest());
+					this.renderLeft(pBlockEntity.hasLabelNorth(), pBlockEntity.getStyleNorth(), false, angle, 270.0F, pBlockEntity.getColorNorth(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left_left", pBlockEntity.getLabelNorth());
+					this.renderLeft(pBlockEntity.hasLabelEast(), pBlockEntity.getStyleEast(), false, angle, 180.0F, pBlockEntity.getColorEast(), -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_left", pBlockEntity.getLabelEast());
+					this.renderLeft(pBlockEntity.hasLabelWest(), pBlockEntity.getStyleWest(), false, angle, 0.0F, pBlockEntity.getColorWest(), 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_left", pBlockEntity.getLabelWest());
 				} else if (blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).equals(Direction.SOUTH)) {
-					this.renderLeft(false, pBlockEntity.hasTextNorth(), angle, 0.0F, 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_left", pBlockEntity.getTextNorth());
-					this.renderLeft(false, pBlockEntity.hasTextEast(), angle, 270.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left_left", pBlockEntity.getTextEast());
-					this.renderLeft(false, pBlockEntity.hasTextSouth(), angle, 180.0F, -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_left", pBlockEntity.getTextSouth());
+					this.renderLeft(pBlockEntity.hasLabelNorth(), pBlockEntity.getStyleNorth(), false, angle, 0.0F, pBlockEntity.getColorNorth(), 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_left", pBlockEntity.getLabelNorth());
+					this.renderLeft(pBlockEntity.hasLabelEast(), pBlockEntity.getStyleEast(), false, angle, 270.0F, pBlockEntity.getColorEast(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left_left", pBlockEntity.getLabelEast());
+					this.renderLeft(pBlockEntity.hasLabelSouth(), pBlockEntity.getStyleSouth(), false, angle, 180.0F, pBlockEntity.getColorSouth(), -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_left", pBlockEntity.getLabelSouth());
 				} else if (blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).equals(Direction.WEST)) {
-					this.renderLeft(false, pBlockEntity.hasTextEast(), angle, 0.0F, 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_left", pBlockEntity.getTextEast());
-					this.renderLeft(false, pBlockEntity.hasTextSouth(), angle, 270.0F, 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left_left", pBlockEntity.getTextSouth());
-					this.renderLeft(false, pBlockEntity.hasTextWest(), angle, 180.0F, -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_left", pBlockEntity.getTextWest());
+					this.renderLeft(pBlockEntity.hasLabelEast(), pBlockEntity.getStyleEast(), false, angle, 0.0F, pBlockEntity.getColorEast(), 5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_back_left", pBlockEntity.getLabelEast());
+					this.renderLeft(pBlockEntity.hasLabelSouth(), pBlockEntity.getStyleSouth(), false, angle, 270.0F, pBlockEntity.getColorSouth(), 0, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_left_left", pBlockEntity.getLabelSouth());
+					this.renderLeft(pBlockEntity.hasLabelWest(), pBlockEntity.getStyleWest(), false, angle, 180.0F, pBlockEntity.getColorWest(), -5, pPackedLight, pPackedOverlay, pBuffer, pPoseStack, "label_bottom_front_left", pBlockEntity.getLabelWest());
 				}
 			}
 
@@ -169,63 +183,70 @@ public class IcariaChestBlockRenderer extends ChestRenderer<IcariaChestBlockEnti
 		pBottom.render(pPoseStack, pConsumer, pPackedLight, pPackedOverlay);
 	}
 
-	public void renderSingle(boolean pUp, boolean pCheck, float pAngle, float pRotation, int pOffset, int pPackedLight, int pPackedOverlay, MultiBufferSource pBuffer, PoseStack pPoseStack, String pLabel, String pText) {
+	public void renderSingle(boolean pCheck, boolean pStyle, boolean pUp, float pAngle, float pRotation, int pColor, int pOffset, int pPackedLight, int pPackedOverlay, MultiBufferSource pBuffer, PoseStack pPoseStack, String pLabel, String pText) {
 		if (pCheck) {
 			this.renderSprite(pAngle, pPackedLight, pPackedOverlay, this.bottom, this.lid, this.lock, pBuffer, pPoseStack, pLabel);
-			this.renderString(pUp, pAngle, pRotation, pOffset, pPackedLight, pBuffer, pPoseStack, pText);
+			this.renderString(pStyle, pUp, pAngle, pRotation, pColor, pOffset, pPackedLight, pBuffer, pPoseStack, pText);
 		}
 	}
 
-	public void renderRight(boolean pUp, boolean pCheck, float pAngle, float pRotation, int pOffset, int pPackedLight, int pPackedOverlay, MultiBufferSource pBuffer, PoseStack pPoseStack, String pLabel, String pText) {
+	public void renderRight(boolean pCheck, boolean pStyle, boolean pUp, float pAngle, float pRotation, int pColor, int pOffset, int pPackedLight, int pPackedOverlay, MultiBufferSource pBuffer, PoseStack pPoseStack, String pLabel, String pText) {
 		if (pCheck) {
 			this.renderSprite(pAngle, pPackedLight, pPackedOverlay, this.doubleRightBottom, this.doubleRightLid, this.doubleRightLock, pBuffer, pPoseStack, pLabel);
-			this.renderString(pUp, pAngle, pRotation, pOffset, pPackedLight, pBuffer, pPoseStack, pText);
+			this.renderString(pStyle, pUp, pAngle, pRotation, pColor, pOffset, pPackedLight, pBuffer, pPoseStack, pText);
 		}
 	}
 
-	public void renderLeft(boolean pUp, boolean pCheck, float pAngle, float pRotation, int pOffset, int pPackedLight, int pPackedOverlay, MultiBufferSource pBuffer, PoseStack pPoseStack, String pLabel, String pText) {
+	public void renderLeft(boolean pCheck, boolean pStyle, boolean pUp, float pAngle, float pRotation, int pColor, int pOffset, int pPackedLight, int pPackedOverlay, MultiBufferSource pBuffer, PoseStack pPoseStack, String pLabel, String pText) {
 		if (pCheck) {
 			this.renderSprite(pAngle, pPackedLight, pPackedOverlay, this.doubleLeftBottom, this.doubleLeftLid, this.doubleLeftLock, pBuffer, pPoseStack, pLabel);
-			this.renderString(pUp, pAngle, pRotation, pOffset, pPackedLight, pBuffer, pPoseStack, pText);
+			this.renderString(pStyle, pUp, pAngle, pRotation, pColor, pOffset, pPackedLight, pBuffer, pPoseStack, pText);
 		}
 	}
 
 	public void renderSprite(float pAngle, int pPackedLight, int pPackedOverlay, ModelPart pBottom, ModelPart pLid, ModelPart pLock, MultiBufferSource pBuffer, PoseStack pPoseStack, String pString) {
 		pPoseStack.pushPose();
-		pPoseStack.translate(0.5F, 0.5F, 0.5F);
-		pPoseStack.scale(1.001F, 1.001F, 1.001F);
-		pPoseStack.translate(-0.5F, -0.5F, -0.5F);
-		this.render(pAngle, pPackedLight, pPackedOverlay, pBottom, pLid, pLock, pPoseStack, new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity/chest/" + pString)).buffer(pBuffer, RenderType::entityCutout));
+		this.render(pAngle, pPackedLight, pPackedOverlay, pBottom, pLid, pLock, pPoseStack, new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "chest" + "/" + pString)).buffer(pBuffer, RenderType::entityCutout));
 		pPoseStack.popPose();
 	}
 
-	public void renderString(boolean pUp, float pAngle, float pRotation, int pOffset, int pPackedLight, MultiBufferSource pBuffer, PoseStack pPoseStack, String pString) {
+	public void renderString(boolean pStyle, boolean pUp, float pAngle, float pRotation, int pColor, int pOffset, int pPackedLight, MultiBufferSource pBuffer, PoseStack pPoseStack, String pString) {
+		var sequence = FormattedCharSequence.forward(pString, Style.EMPTY);
+
 		pPoseStack.pushPose();
 		if (pUp) {
 			pPoseStack.translate(0.5F, 0.565F, 0.060F);
 			pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+			pPoseStack.scale(1.0001F, 1.0001F, 1.0001F);
 			pPoseStack.mulPose(Axis.XN.rotation(Mth.PI * pAngle * 0.5F));
 			pPoseStack.translate(0.0F, 0.405F, -0.310F);
 		} else {
 			pPoseStack.translate(0.5F, 0.5F, 0.5F);
 			pPoseStack.mulPose(Axis.YP.rotationDegrees(pRotation));
+			pPoseStack.scale(1.0001F, 1.0001F, 1.0001F);
 			pPoseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
 			pPoseStack.translate(0.0F, 0.275F, -0.4375F);
 		}
 
 		pPoseStack.scale(0.01F, 0.01F, 0.01F);
-		this.font.drawInBatch(pString, pOffset - this.font.width(pString) * 0.5F, 0.0F, 0, false, pPoseStack.last().pose(), pBuffer, Font.DisplayMode.POLYGON_OFFSET, 0, pPackedLight);
+
+		if (pStyle) {
+			this.font.drawInBatch8xOutline(sequence, pOffset - this.font.width(pString) * 0.5F, 0.0F, pColor, this.getDarkColor(pColor), pPoseStack.last().pose(), pBuffer, 15728880);
+		} else {
+			this.font.drawInBatch(sequence, pOffset - this.font.width(pString) * 0.5F, 0.0F, pColor, false, pPoseStack.last().pose(), pBuffer, Font.DisplayMode.POLYGON_OFFSET, 0, pPackedLight);
+		}
+
 		pPoseStack.popPose();
 	}
 
 	@Override
 	public Material getMaterial(IcariaChestBlockEntity pBlockEntity, ChestType pChestType) {
 		if (pChestType.equals(ChestType.RIGHT)) {
-			return new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity/chest/" + this.getType(pBlockEntity) + "_" + "right"));
+			return new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "chest" + "/" + this.getType(pBlockEntity) + "_" + "right"));
 		} else if (pChestType.equals(ChestType.LEFT)) {
-			return new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity/chest/" + this.getType(pBlockEntity) + "_" + "left"));
+			return new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "chest" + "/" + this.getType(pBlockEntity) + "_" + "left"));
 		} else {
-			return new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity/chest/" + this.getType(pBlockEntity)));
+			return new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "chest" + "/" + this.getType(pBlockEntity)));
 		}
 	}
 

@@ -1126,7 +1126,6 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("menu" + "." + IcariaIdents.ID + "." + "storage_vase", "Speichervase");
 
 		this.add("message" + "." + IcariaIdents.ID + "." + "barrel", "Schleichen zum Werfen des Fasses");
-		this.add("message" + "." + IcariaIdents.ID + "." + "chest_label", "Name des Kistenetiketts zu lang");
 		this.add("message" + "." + IcariaIdents.ID + "." + "loot_vase", "Schleichen zum Werfen der Beutevase");
 
 		this.add("painting" + "." + IcariaIdents.ID + "." + "bridge" + "." + "author", "Axanthic Studios");
@@ -1142,6 +1141,8 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("painting" + "." + IcariaIdents.ID + "." + "perfection" + "." + "title", "Perfektion");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "portal" + "." + "title", "Portal");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "pyro" + "." + "title", "Pyro");
+
+		this.add("screen" + "." + IcariaIdents.ID + "." + "chest_label", "Kistenetikett");
 
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "barrel" + "." + "break", "Fass zerstört");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "grinder" + "." + "grind", "Mühle mahlt");
@@ -1533,6 +1534,28 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaStructureTags.RUINED_VILLAGES, "Ruinierte Dörfer");
 
 		this.add(IcariaStructureTags.VILLAGES, "Dörfer");
+
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "title", "Rechte Maustaste zum Bearbeiten");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "color", "Farbe");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "white", "Weiß");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "light_gray", "Hellgrau");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "gray", "Grau");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "black", "Schwarz");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "brown", "Braun");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "red", "Rot");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "orange", "Orange");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "yellow", "Gelb");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "lime", "Hellgrün");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "green", "Grün");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "cyan", "Türkis");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "light_blue", "Hellblau");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "blue", "Blau");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "purple", "Violett");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "magenta", "Magenta");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "pink", "Rosa");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "style", "Stil");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "classic", "Klassisch");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "glowing", "Leuchtend");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "pillar_head" + "." + "title", "Schleichen zum invertierten Platzieren");
 	}
 }

@@ -113,6 +113,7 @@ public class IcariaResourceLocations {
 
 	// GUI
 
+	public static final ResourceLocation CHEST_LABEL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/chest_label.png");
 	public static final ResourceLocation FORGE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/forge.png");
 	public static final ResourceLocation FORGE_CATEGORY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/jei/forge.png");
 	public static final ResourceLocation GRINDER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/grinder.png");
@@ -292,7 +293,6 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation CALCITE_FERTILIZE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.calcite.fertilize");
 	public static final ResourceLocation CHEST_LABEL_APPLY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.chest_label.apply");
 	public static final ResourceLocation CHEST_LABEL_CLEAR = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.chest_label.clear");
-	public static final ResourceLocation CHEST_LABEL_RESET = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.chest_label.reset");
 	public static final ResourceLocation GREEK_FIRE_GRENADE_THROW = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.greek_fire_grenade.throw");
 	public static final ResourceLocation OLIVES_POP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.olives.pop");
 	public static final ResourceLocation SPELL_SHOOT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.spell.shoot");

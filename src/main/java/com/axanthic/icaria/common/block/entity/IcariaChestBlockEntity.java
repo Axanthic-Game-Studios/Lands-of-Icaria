@@ -27,13 +27,27 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaChestBlockEntity extends ChestBlockEntity {
-	public NonNullList<ItemStack> items = NonNullList.withSize(18, ItemStack.EMPTY);
+	public boolean styleUp;
+	public boolean styleNorth;
+	public boolean styleEast;
+	public boolean styleSouth;
+	public boolean styleWest;
 
-	public String textUp;
-	public String textNorth;
-	public String textEast;
-	public String textSouth;
-	public String textWest;
+	public boolean waxed;
+
+	public int colorUp;
+	public int colorNorth;
+	public int colorEast;
+	public int colorSouth;
+	public int colorWest;
+
+	public String labelUp;
+	public String labelNorth;
+	public String labelEast;
+	public String labelSouth;
+	public String labelWest;
+
+	public NonNullList<ItemStack> items = NonNullList.withSize(18, ItemStack.EMPTY);
 
 	public IcariaChestBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
 		super(pType, pPos, pBlockState);
@@ -43,24 +57,68 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
 		this(IcariaBlockEntityTypes.CHEST.get(), pPos, pBlockState);
 	}
 
-	public boolean hasTextUp() {
-		return this.getTextUp() != null;
+	public boolean hasLabelUp() {
+		return this.getLabelUp() != null;
 	}
 
-	public boolean hasTextNorth() {
-		return this.getTextNorth() != null;
+	public boolean hasLabelNorth() {
+		return this.getLabelNorth() != null;
 	}
 
-	public boolean hasTextEast() {
-		return this.getTextEast() != null;
+	public boolean hasLabelEast() {
+		return this.getLabelEast() != null;
 	}
 
-	public boolean hasTextSouth() {
-		return this.getTextSouth() != null;
+	public boolean hasLabelSouth() {
+		return this.getLabelSouth() != null;
 	}
 
-	public boolean hasTextWest() {
-		return this.getTextWest() != null;
+	public boolean hasLabelWest() {
+		return this.getLabelWest() != null;
+	}
+
+	public boolean getStyleUp() {
+		return this.styleUp;
+	}
+
+	public boolean getStyleNorth() {
+		return this.styleNorth;
+	}
+
+	public boolean getStyleEast() {
+		return this.styleEast;
+	}
+
+	public boolean getStyleSouth() {
+		return this.styleSouth;
+	}
+
+	public boolean getStyleWest() {
+		return this.styleWest;
+	}
+
+	public boolean getWaxed() {
+		return this.waxed;
+	}
+
+	public int getColorUp() {
+		return this.colorUp;
+	}
+
+	public int getColorNorth() {
+		return this.colorNorth;
+	}
+
+	public int getColorEast() {
+		return this.colorEast;
+	}
+
+	public int getColorSouth() {
+		return this.colorSouth;
+	}
+
+	public int getColorWest() {
+		return this.colorWest;
 	}
 
 	@Override
@@ -71,83 +129,157 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
 	@Override
 	public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
 		super.loadAdditional(pTag, pProvider);
+
+		this.styleUp = pTag.getBoolean("StyleUp");
+		this.styleNorth = pTag.getBoolean("StyleNorth");
+		this.styleEast = pTag.getBoolean("StyleEast");
+		this.styleSouth = pTag.getBoolean("StyleSouth");
+		this.styleWest = pTag.getBoolean("StyleWest");
+
+		this.waxed = pTag.getBoolean("Waxed");
+
+		this.colorUp = pTag.getInt("ColorUp");
+		this.colorNorth = pTag.getInt("ColorNorth");
+		this.colorEast = pTag.getInt("ColorEast");
+		this.colorSouth = pTag.getInt("ColorSouth");
+		this.colorWest = pTag.getInt("ColorWest");
+
+		if (pTag.contains("LabelUp")) {
+			this.labelUp = pTag.getString("LabelUp");
+		}
+
+		if (pTag.contains("LabelNorth")) {
+			this.labelNorth = pTag.getString("LabelNorth");
+		}
+
+		if (pTag.contains("LabelEast")) {
+			this.labelEast = pTag.getString("LabelEast");
+		}
+
+		if (pTag.contains("LabelSouth")) {
+			this.labelSouth = pTag.getString("LabelSouth");
+		}
+
+		if (pTag.contains("LabelWest")) {
+			this.labelWest = pTag.getString("LabelWest");
+		}
+
 		this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
 		if (!this.tryLoadLootTable(pTag)) {
 			ContainerHelper.loadAllItems(pTag, this.items, pProvider);
-		}
-
-		if (pTag.contains("TextUp")) {
-			this.textUp = pTag.getString("TextUp");
-		}
-
-		if (pTag.contains("TextNorth")) {
-			this.textNorth = pTag.getString("TextNorth");
-		}
-
-		if (pTag.contains("TextEast")) {
-			this.textEast = pTag.getString("TextEast");
-		}
-
-		if (pTag.contains("TextSouth")) {
-			this.textSouth = pTag.getString("TextSouth");
-		}
-
-		if (pTag.contains("TextWest")) {
-			this.textWest = pTag.getString("TextWest");
 		}
 	}
 
 	@Override
 	public void saveAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
 		super.saveAdditional(pTag, pProvider);
+
+		pTag.putBoolean("StyleUp", this.styleUp);
+		pTag.putBoolean("StyleNorth", this.styleNorth);
+		pTag.putBoolean("StyleEast", this.styleEast);
+		pTag.putBoolean("StyleSouth", this.styleSouth);
+		pTag.putBoolean("StyleWest", this.styleWest);
+
+		pTag.putBoolean("Waxed", this.waxed);
+
+		pTag.putInt("ColorUp", this.colorUp);
+		pTag.putInt("ColorNorth", this.colorNorth);
+		pTag.putInt("ColorEast", this.colorEast);
+		pTag.putInt("ColorSouth", this.colorSouth);
+		pTag.putInt("ColorWest", this.colorWest);
+
+		if (this.labelUp != null) {
+			pTag.putString("LabelUp", this.labelUp);
+		}
+
+		if (this.labelNorth != null) {
+			pTag.putString("LabelNorth", this.labelNorth);
+		}
+
+		if (this.labelEast != null) {
+			pTag.putString("LabelEast", this.labelEast);
+		}
+
+		if (this.labelSouth != null) {
+			pTag.putString("LabelSouth", this.labelSouth);
+		}
+
+		if (this.labelWest != null) {
+			pTag.putString("LabelWest", this.labelWest);
+		}
+
 		if (!this.trySaveLootTable(pTag)) {
 			ContainerHelper.saveAllItems(pTag, this.items, pProvider);
 		}
+	}
 
-		if (this.textUp != null) {
-			pTag.putString("TextUp", this.textUp);
-		}
+	public void setStyleUp(boolean pBold) {
+		this.styleUp = pBold;
+	}
 
-		if (this.textNorth != null) {
-			pTag.putString("TextNorth", this.textNorth);
-		}
+	public void setStyleNorth(boolean pBold) {
+		this.styleNorth = pBold;
+	}
 
-		if (this.textEast != null) {
-			pTag.putString("TextEast", this.textEast);
-		}
+	public void setStyleEast(boolean pBold) {
+		this.styleEast = pBold;
+	}
 
-		if (this.textSouth != null) {
-			pTag.putString("TextSouth", this.textSouth);
-		}
+	public void setStyleSouth(boolean pBold) {
+		this.styleSouth = pBold;
+	}
 
-		if (this.textWest != null) {
-			pTag.putString("TextWest", this.textWest);
-		}
+	public void setStyleWest(boolean pBold) {
+		this.styleWest = pBold;
+	}
+
+	public void setWaxed(boolean pWaxed) {
+		this.waxed = pWaxed;
+	}
+
+	public void setColorUp(int pColor) {
+		this.colorUp = pColor;
+	}
+
+	public void setColorNorth(int pColor) {
+		this.colorNorth = pColor;
+	}
+
+	public void setColorEast(int pColor) {
+		this.colorEast = pColor;
+	}
+
+	public void setColorSouth(int pColor) {
+		this.colorSouth = pColor;
+	}
+
+	public void setColorWest(int pColor) {
+		this.colorWest = pColor;
+	}
+
+	public void setLabelUp(@Nullable String pName) {
+		this.labelUp = pName;
+	}
+
+	public void setLabelNorth(@Nullable String pName) {
+		this.labelNorth = pName;
+	}
+
+	public void setLabelEast(@Nullable String pName) {
+		this.labelEast = pName;
+	}
+
+	public void setLabelSouth(@Nullable String pName) {
+		this.labelSouth = pName;
+	}
+
+	public void setLabelWest(@Nullable String pName) {
+		this.labelWest = pName;
 	}
 
 	@Override
 	public void setItems(NonNullList<ItemStack> pItems) {
 		this.items = pItems;
-	}
-
-	public void setTextUp(@Nullable String pName) {
-		this.textUp = pName;
-	}
-
-	public void setTextNorth(@Nullable String pName) {
-		this.textNorth = pName;
-	}
-
-	public void setTextEast(@Nullable String pName) {
-		this.textEast = pName;
-	}
-
-	public void setTextSouth(@Nullable String pName) {
-		this.textSouth = pName;
-	}
-
-	public void setTextWest(@Nullable String pName) {
-		this.textWest = pName;
 	}
 
 	@Override
@@ -170,23 +302,23 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
 		return ClientboundBlockEntityDataPacket.create(this);
 	}
 
-	public String getTextUp() {
-		return this.textUp;
+	public String getLabelUp() {
+		return this.labelUp;
 	}
 
-	public String getTextNorth() {
-		return this.textNorth;
+	public String getLabelNorth() {
+		return this.labelNorth;
 	}
 
-	public String getTextEast() {
-		return this.textEast;
+	public String getLabelEast() {
+		return this.labelEast;
 	}
 
-	public String getTextSouth() {
-		return this.textSouth;
+	public String getLabelSouth() {
+		return this.labelSouth;
 	}
 
-	public String getTextWest() {
-		return this.textWest;
+	public String getLabelWest() {
+		return this.labelWest;
 	}
 }

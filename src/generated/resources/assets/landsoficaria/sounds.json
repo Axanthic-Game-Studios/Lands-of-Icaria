@@ -954,15 +954,6 @@
     ],
     "subtitle": "subtitle.landsoficaria.chest_label.clear"
   },
-  "item.chest_label.reset": {
-    "sounds": [
-      {
-        "type": "event",
-        "name": "entity.villager.work_cartographer"
-      }
-    ],
-    "subtitle": "subtitle.landsoficaria.chest_label.reset"
-  },
   "item.greek_fire_grenade.throw": {
     "sounds": [
       {

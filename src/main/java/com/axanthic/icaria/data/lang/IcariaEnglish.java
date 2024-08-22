@@ -1126,7 +1126,6 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("menu" + "." + IcariaIdents.ID + "." + "storage_vase", "Storage Vase");
 
 		this.add("message" + "." + IcariaIdents.ID + "." + "barrel", "Sneak to throw the barrel");
-		this.add("message" + "." + IcariaIdents.ID + "." + "chest_label", "Chest label name too long");
 		this.add("message" + "." + IcariaIdents.ID + "." + "loot_vase", "Sneak to throw loot vase");
 
 		this.add("painting" + "." + IcariaIdents.ID + "." + "bridge" + "." + "author", "Axanthic Studios");
@@ -1142,6 +1141,8 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("painting" + "." + IcariaIdents.ID + "." + "perfection" + "." + "title", "Perfection");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "portal" + "." + "title", "Portal");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "pyro" + "." + "title", "Pyro");
+
+		this.add("screen" + "." + IcariaIdents.ID + "." + "chest_label", "Chest Label");
 
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "barrel" + "." + "break", "Barrel breaks");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "grinder" + "." + "grind", "Grinder grinds");
@@ -1533,6 +1534,28 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaStructureTags.RUINED_VILLAGES, "Ruined Villages");
 
 		this.add(IcariaStructureTags.VILLAGES, "Villages");
+
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "title", "Right click to edit");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "color", "Color");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "white", "White");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "light_gray", "Light Gray");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "gray", "Gray");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "black", "Black");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "brown", "Brown");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "red", "Red");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "orange", "Orange");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "yellow", "Yellow");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "lime", "Lime");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "green", "Green");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "cyan", "Cyan");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "light_blue", "Light Blue");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "blue", "Blue");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "purple", "Purple");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "magenta", "Magenta");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "pink", "Pink");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "style", "Style");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "classic", "Classic");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "glowing", "Glowing");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "pillar_head" + "." + "title", "Sneak to invert placement");
 	}
 }

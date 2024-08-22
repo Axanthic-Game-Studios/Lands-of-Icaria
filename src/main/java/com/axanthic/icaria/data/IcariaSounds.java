@@ -134,7 +134,6 @@ public class IcariaSounds extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.CALCITE_FERTILIZE, SoundEvents.HOE_TILL, "calcite", "fertilize");
 		this.register(IcariaSoundEvents.CHEST_LABEL_APPLY, SoundEvents.AXE_STRIP, "chest_label", "apply");
 		this.register(IcariaSoundEvents.CHEST_LABEL_CLEAR, SoundEvents.AXE_STRIP, "chest_label", "clear");
-		this.register(IcariaSoundEvents.CHEST_LABEL_RESET, SoundEvents.VILLAGER_WORK_CARTOGRAPHER, "chest_label", "reset");
 		this.register(IcariaSoundEvents.GREEK_FIRE_GRENADE_THROW, SoundEvents.WITCH_THROW, "greek_fire_grenade", "throw");
 		this.register(IcariaSoundEvents.OLIVES_POP, SoundEvents.CAVE_VINES_PICK_BERRIES, "olives", "pop");
 		this.register(IcariaSoundEvents.SPELL_SHOOT, SoundEvents.ARROW_SHOOT, "spell", "shoot");

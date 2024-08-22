@@ -42,6 +42,7 @@ public class Icaria {
 		IcariaWoodDecoBlocks.BLOCKS.register(pBus);
 		IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(pBus);
 		IcariaCreativeModeTabs.CREATIVE_MODE_TABS.register(pBus);
+		IcariaDataComponents.DATA_COMPONENT_TYPES.register(pBus);
 		IcariaEntityTypes.ENTITY_TYPES.register(pBus);
 		IcariaFeatures.FEATURES.register(pBus);
 		IcariaFluids.FLUIDS.register(pBus);
