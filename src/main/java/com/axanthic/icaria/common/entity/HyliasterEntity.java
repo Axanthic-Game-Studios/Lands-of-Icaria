@@ -43,9 +43,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class HyliasterEntity extends Monster {
 	public int maxSize = 4;
-	public int maxTick = 48000;
 	public int minSize = 1;
-	public int minTick = 0;
 
 	public float aabbMult = 0.2F;
 	public float renderMult = 0.25F;
@@ -56,7 +54,6 @@ public class HyliasterEntity extends Monster {
 	public AnimationState moveAnimationState = new AnimationState();
 
 	public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(HyliasterEntity.class, EntityDataSerializers.INT);
-	public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(HyliasterEntity.class, EntityDataSerializers.INT);
 
 	public HyliasterEntity(EntityType<? extends HyliasterEntity> pType, Level pLevel) {
 		super(pType, pLevel);
@@ -109,39 +106,17 @@ public class HyliasterEntity extends Monster {
 		return this.entityData.get(HyliasterEntity.SIZE);
 	}
 
-	public int getTick() {
-		return this.entityData.get(HyliasterEntity.TICK);
-	}
-
 	@Override
 	public void addAdditionalSaveData(CompoundTag pCompound) {
 		super.addAdditionalSaveData(pCompound);
 		pCompound.putInt("Size", this.getSize());
-		pCompound.putInt("Tick", this.getTick());
 	}
 
 	@Override
 	public void aiStep() {
 		super.aiStep();
 		if (this.isAlive()) {
-			int tick = this.getTick();
-			if (tick < 16000) {
-				++tick;
-				this.setTick(tick);
-				this.setSize(1);
-			} else if (tick < 32000) {
-				++tick;
-				this.setTick(tick);
-				this.setSize(2);
-			} else if (tick < 48000) {
-				++tick;
-				this.setTick(tick);
-				this.setSize(3);
-			} else {
-				++tick;
-				this.setTick(tick);
-				this.setSize(4);
-			}
+			this.setSize(this.getSize());
 		}
 	}
 
@@ -149,7 +124,6 @@ public class HyliasterEntity extends Monster {
 	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
 		super.defineSynchedData(pBuilder);
 		pBuilder.define(HyliasterEntity.SIZE, this.minSize);
-		pBuilder.define(HyliasterEntity.TICK, this.minTick);
 	}
 
 	@Override
@@ -169,7 +143,6 @@ public class HyliasterEntity extends Monster {
 	public void readAdditionalSaveData(CompoundTag pCompound) {
 		super.readAdditionalSaveData(pCompound);
 		this.setSize(pCompound.getInt("Size"));
-		this.setTick(pCompound.getInt("Tick"));
 	}
 
 	@Override
@@ -196,8 +169,8 @@ public class HyliasterEntity extends Monster {
 			if (size > this.minSize) {
 				if (this.isDeadOrDying()) {
 					for (int l = 0; l < size; ++l) {
-						float xOffset = ((float) (l % 2) - 0.5F) * size * 0.1F;
-						float zOffset = ((float) (l / 2) - 0.5F) * size * 0.1F;
+						float xOffset = ((float) (l % 2) - 0.5F) * size * 0.05F;
+						float zOffset = ((float) (l / 2) - 0.5F) * size * 0.05F;
 						var entity = IcariaEntityTypes.HYLIASTER.get().create(this.level());
 						if (entity != null) {
 							entity.moveTo(this.getX() + xOffset, this.getY() + 0.5D, this.getZ() + zOffset, this.random.nextFloat() * 360.0F, 0.0F);
@@ -219,11 +192,6 @@ public class HyliasterEntity extends Monster {
 		this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((size * 0.04D) + 0.1D);
 		this.entityData.set(HyliasterEntity.SIZE, size);
 		this.xpReward = size + 1;
-	}
-
-	public void setTick(int pSize) {
-		int tick = Mth.clamp(pSize, this.minTick, this.maxTick);
-		this.entityData.set(HyliasterEntity.TICK, tick);
 	}
 
 	@Override
@@ -254,7 +222,7 @@ public class HyliasterEntity extends Monster {
 		if (itemStack.is(IcariaItems.EMPTY_VIAL.get())) {
 			var filledResult = ItemUtils.createFilledResult(itemStack, pPlayer, IcariaItems.HYLIASTRUM_VIAL.get().getDefaultInstance());
 			this.remove();
-			this.setTick(this.getTick() - 16000);
+			this.setSize(this.getSize() - 1);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.EMPTY_VIAL.get()));
 			pPlayer.playSound(IcariaSoundEvents.VIAL_FILL);
 			pPlayer.setItemInHand(pHand, filledResult);
@@ -276,8 +244,7 @@ public class HyliasterEntity extends Monster {
 
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
-		this.setSize(this.random.nextIntBetweenInclusive(0, 4));
-		this.setTick(this.random.nextIntBetweenInclusive(0, 64000));
+		this.setSize(this.random.nextIntBetweenInclusive(1, 4));
 		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
 	}
 }

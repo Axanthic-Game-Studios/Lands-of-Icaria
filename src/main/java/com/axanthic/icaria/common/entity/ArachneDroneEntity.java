@@ -39,9 +39,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class ArachneDroneEntity extends ArachneEntity {
 	public int maxSize = 4;
-	public int maxTick = 48000;
 	public int minSize = 1;
-	public int minTick = 0;
 
 	public float aabbMult = 0.25F;
 	public float renderMult = 0.15F;
@@ -52,7 +50,6 @@ public class ArachneDroneEntity extends ArachneEntity {
 	public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.BYTE);
 
 	public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.INT);
-	public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(ArachneDroneEntity.class, EntityDataSerializers.INT);
 
 	public ArachneDroneEntity(EntityType<? extends ArachneDroneEntity> pType, Level pLevel) {
 		super(pType, pLevel);
@@ -115,39 +112,17 @@ public class ArachneDroneEntity extends ArachneEntity {
 		return this.entityData.get(ArachneDroneEntity.SIZE);
 	}
 
-	public int getTick() {
-		return this.entityData.get(ArachneDroneEntity.TICK);
-	}
-
 	@Override
 	public void addAdditionalSaveData(CompoundTag pCompound) {
 		super.addAdditionalSaveData(pCompound);
 		pCompound.putInt("Size", this.getSize());
-		pCompound.putInt("Tick", this.getTick());
 	}
 
 	@Override
 	public void aiStep() {
 		super.aiStep();
 		if (this.isAlive()) {
-			int tick = this.getTick();
-			if (tick < 16000) {
-				++tick;
-				this.setTick(tick);
-				this.setSize(1);
-			} else if (tick < 32000) {
-				++tick;
-				this.setTick(tick);
-				this.setSize(2);
-			} else if (tick < 48000) {
-				++tick;
-				this.setTick(tick);
-				this.setSize(3);
-			} else {
-				++tick;
-				this.setTick(tick);
-				this.setSize(4);
-			}
+			this.setSize(this.getSize());
 		}
 	}
 
@@ -156,7 +131,6 @@ public class ArachneDroneEntity extends ArachneEntity {
 		super.defineSynchedData(pBuilder);
 		pBuilder.define(ArachneDroneEntity.CLIMBING, (byte) 0);
 		pBuilder.define(ArachneDroneEntity.SIZE, this.minSize);
-		pBuilder.define(ArachneDroneEntity.TICK, this.minTick);
 	}
 
 	@Override
@@ -183,7 +157,6 @@ public class ArachneDroneEntity extends ArachneEntity {
 	public void readAdditionalSaveData(CompoundTag pCompound) {
 		super.readAdditionalSaveData(pCompound);
 		this.setSize(pCompound.getInt("Size"));
-		this.setTick(pCompound.getInt("Tick"));
 	}
 
 	@Override
@@ -217,11 +190,6 @@ public class ArachneDroneEntity extends ArachneEntity {
 		this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((size * 0.04D) + 0.1D);
 		this.entityData.set(ArachneDroneEntity.SIZE, size);
 		this.xpReward = size + 1;
-	}
-
-	public void setTick(int pSize) {
-		int tick = Mth.clamp(pSize, this.minTick, this.maxTick);
-		this.entityData.set(ArachneDroneEntity.TICK, tick);
 	}
 
 	@Override
@@ -264,8 +232,7 @@ public class ArachneDroneEntity extends ArachneEntity {
 
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
-		this.setSize(this.random.nextIntBetweenInclusive(0, 4));
-		this.setTick(this.random.nextIntBetweenInclusive(0, 64000));
+		this.setSize(this.random.nextIntBetweenInclusive(1, 4));
 		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
 	}
 }

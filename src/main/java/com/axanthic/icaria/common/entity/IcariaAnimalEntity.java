@@ -38,7 +38,7 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
 	public int minCooldown = 0;
 	public int maxDuration = 1200;
 	public int minDuration = 0;
-	public int maxTick = 48000;
+	public int maxTick = 64000;
 	public int minTick = 0;
 
 	public static final EntityDataAccessor<Integer> COOLDOWN = SynchedEntityData.defineId(IcariaAnimalEntity.class, EntityDataSerializers.INT);
@@ -96,6 +96,18 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
 		return false;
 	}
 
+	public int age(int pAge) {
+		if (this.getTick() < 16000) {
+			return Math.min(this.getTick() + pAge, 16000);
+		} else if (this.getTick() < 32000) {
+			return Math.min(this.getTick() + pAge, 32000);
+		} else if (this.getTick() < 48000) {
+			return Math.min(this.getTick() + pAge, 48000);
+		} else {
+			return Math.min(this.getTick() + pAge, 64000);
+		}
+	}
+
 	public int getCooldown() {
 		return this.entityData.get(IcariaAnimalEntity.COOLDOWN);
 	}
@@ -139,20 +151,23 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
 			int tick = this.getTick();
 			if (tick < 16000) {
 				++tick;
-				this.setTick(tick);
 				this.setSize(1);
+				this.setTick(tick);
 			} else if (tick < 32000) {
 				++tick;
-				this.setTick(tick);
 				this.setSize(2);
+				this.heal(16000);
+				this.setTick(tick);
 			} else if (tick < 48000) {
 				++tick;
-				this.setTick(tick);
 				this.setSize(3);
-			} else {
-				++tick;
+				this.heal(32000);
 				this.setTick(tick);
+			} else if (tick < 64000) {
+				++tick;
 				this.setSize(4);
+				this.heal(48000);
+				this.setTick(tick);
 			}
 		}
 	}
@@ -161,7 +176,7 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
 	public void ate() {
 		super.ate();
 		if (this.isBaby()) {
-			this.setTick(this.getTick() + 2400);
+			this.setTick(this.age(1200));
 		}
 	}
 
@@ -182,6 +197,12 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
 			}
 		} else {
 			super.handleEntityEvent(pId);
+		}
+	}
+
+	public void heal(int pTick) {
+		if (this.getTick() == pTick) {
+			this.setHealth(this.getMaxHealth());
 		}
 	}
 
@@ -247,7 +268,7 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
 			if (this.isBaby()) {
 				itemStack.shrink(1);
 				this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
-				this.setTick(this.getTick() + ((this.maxTick - this.getTick()) / 10));
+				this.setTick(this.age(1200));
 				return InteractionResult.sidedSuccess(this.level().isClientSide());
 			}
 
@@ -261,7 +282,6 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity implem
 
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
-		this.setHealth(this.getMaxHealth());
 		this.setTick(this.random.nextIntBetweenInclusive(0, 64000));
 		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
 	}
