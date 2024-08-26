@@ -161,10 +161,10 @@ public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntit
 
 			pPoseStack.pushPose();
 
-			consumer.addVertex(matrix4f, pMinX, height, pMinZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.25F), sprite.getV(0.25F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(0.0F, 0.0F, 1.0F);
-			consumer.addVertex(matrix4f, pMinX, height, pMaxZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.75F), sprite.getV(0.25F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(0.0F, 0.0F, 1.0F);
-			consumer.addVertex(matrix4f, pMaxX, height, pMaxZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.75F), sprite.getV(0.75F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(0.0F, 0.0F, 1.0F);
-			consumer.addVertex(matrix4f, pMaxX, height, pMinZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.25F), sprite.getV(0.75F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(0.0F, 0.0F, 1.0F);
+			consumer.addVertex(matrix4f, pMinX, height, pMinZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.25F), sprite.getV(0.25F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F);
+			consumer.addVertex(matrix4f, pMinX, height, pMaxZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.75F), sprite.getV(0.25F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F);
+			consumer.addVertex(matrix4f, pMaxX, height, pMaxZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.75F), sprite.getV(0.75F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F);
+			consumer.addVertex(matrix4f, pMaxX, height, pMinZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.25F), sprite.getV(0.75F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F);
 
 			pPoseStack.popPose();
 		}
