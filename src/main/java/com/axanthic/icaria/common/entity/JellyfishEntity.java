@@ -74,8 +74,8 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
 			} else if (pSource.is(DamageTypeTags.IS_PROJECTILE)) {
 				boolean flag;
 				var entity = pSource.getDirectEntity();
-				if (entity instanceof ThrownPotion) {
-					flag = this.hurtWithCleanWater(pSource, (ThrownPotion) entity, pAmount);
+				if (entity instanceof ThrownPotion thrownPotion) {
+					flag = this.hurtWithCleanWater(pSource, thrownPotion, pAmount);
 				} else {
 					flag = false;
 				}

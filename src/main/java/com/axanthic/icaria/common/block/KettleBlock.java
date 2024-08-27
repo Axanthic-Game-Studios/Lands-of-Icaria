@@ -168,17 +168,6 @@ public class KettleBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-		if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-			pLevel.setBlock(pPos.above(), Blocks.AIR.defaultBlockState(), 3);
-		} else {
-			pLevel.setBlock(pPos.below(), Blocks.AIR.defaultBlockState(), 3);
-		}
-
-		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
-	}
-
-	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
 		pLevel.setBlock(pPos.above(), pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER), 3);
 	}
@@ -214,6 +203,17 @@ public class KettleBlock extends BaseEntityBlock {
 	@Override
 	public BlockState mirror(BlockState pState, Mirror pMirror) {
 		return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	}
+
+	@Override
+	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+		if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+			pLevel.setBlock(pPos.above(), Blocks.AIR.defaultBlockState(), 3);
+		} else {
+			pLevel.setBlock(pPos.below(), Blocks.AIR.defaultBlockState(), 3);
+		}
+
+		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
 	}
 
 	@Override

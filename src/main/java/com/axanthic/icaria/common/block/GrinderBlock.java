@@ -143,15 +143,6 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-		var blockPos = GrinderBlock.getBlockEntityPosition(pState, pPos);
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
-	}
-
-	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
 		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 		pLevel.setBlock(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT), 3);
@@ -191,6 +182,15 @@ public class GrinderBlock extends BaseEntityBlock {
 	public BlockState mirror(BlockState pState, Mirror pMirror) {
 		var state = pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
 		return pMirror == Mirror.NONE ? state : state.setValue(IcariaBlockStateProperties.SIDE, state.getValue(IcariaBlockStateProperties.SIDE).getOpposite());
+	}
+
+	@Override
+	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+		var blockPos = GrinderBlock.getBlockEntityPosition(pState, pPos);
+		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
+		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
 	}
 
 	@Override

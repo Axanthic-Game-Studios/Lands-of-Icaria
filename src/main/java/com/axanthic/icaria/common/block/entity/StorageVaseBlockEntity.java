@@ -27,8 +27,8 @@ public class StorageVaseBlockEntity extends RandomizableContainerBlockEntity {
 
 	public NonNullList<ItemStack> items = NonNullList.withSize(this.size, ItemStack.EMPTY);
 
-	public StorageVaseBlockEntity(BlockPos pPos, BlockState pBlockState) {
-		super(IcariaBlockEntityTypes.STORAGE_VASE.get(), pPos, pBlockState);
+	public StorageVaseBlockEntity(BlockPos pPos, BlockState pState) {
+		super(IcariaBlockEntityTypes.STORAGE_VASE.get(), pPos, pState);
 	}
 
 	@Override

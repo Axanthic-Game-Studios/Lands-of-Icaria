@@ -53,8 +53,8 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
 		super(pType, pPos, pBlockState);
 	}
 
-	public IcariaChestBlockEntity(BlockPos pPos, BlockState pBlockState) {
-		this(IcariaBlockEntityTypes.CHEST.get(), pPos, pBlockState);
+	public IcariaChestBlockEntity(BlockPos pPos, BlockState pState) {
+		this(IcariaBlockEntityTypes.CHEST.get(), pPos, pState);
 	}
 
 	public boolean hasLabelUp() {

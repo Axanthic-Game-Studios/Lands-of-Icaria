@@ -60,27 +60,8 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	@Override
-	public void onBlockExploded(BlockState pState, Level pLevel, BlockPos pPos, Explosion pExplosion) {
-		if (pLevel.getBlockEntity(pPos) instanceof IcariaChestBlockEntity blockEntity) {
-			this.dropLabel(pPos, pState, pLevel, blockEntity.getLabelUp(), blockEntity.getColorUp(), blockEntity.getStyleUp(), IcariaBlockStateProperties.LABEL_UP);
-			this.dropLabel(pPos, pState, pLevel, blockEntity.getLabelNorth(), blockEntity.getColorNorth(), blockEntity.getStyleNorth(), IcariaBlockStateProperties.LABEL_NORTH);
-			this.dropLabel(pPos, pState, pLevel, blockEntity.getLabelEast(), blockEntity.getColorEast(), blockEntity.getStyleEast(), IcariaBlockStateProperties.LABEL_EAST);
-			this.dropLabel(pPos, pState, pLevel, blockEntity.getLabelSouth(), blockEntity.getColorSouth(), blockEntity.getStyleSouth(), IcariaBlockStateProperties.LABEL_SOUTH);
-			this.dropLabel(pPos, pState, pLevel, blockEntity.getLabelWest(), blockEntity.getColorWest(), blockEntity.getStyleWest(), IcariaBlockStateProperties.LABEL_WEST);
-		}
-
-		super.onBlockExploded(pState, pLevel, pPos, pExplosion);
-	}
-
-	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
 		pBuilder.add(BlockStateProperties.CHEST_TYPE, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, IcariaBlockStateProperties.LABEL_UP, IcariaBlockStateProperties.LABEL_NORTH, IcariaBlockStateProperties.LABEL_EAST, IcariaBlockStateProperties.LABEL_SOUTH, IcariaBlockStateProperties.LABEL_WEST, BlockStateProperties.WATERLOGGED);
-	}
-
-	public void shrinkStack(boolean pCreative, ItemStack pStack) {
-		if (!pCreative) {
-			pStack.shrink(1);
-		}
 	}
 
 	public void dropLabel(BlockPos pPos, Direction pDirection, Level pLevel, String pLabel, int pColor, boolean pStyle) {
@@ -101,6 +82,19 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 		}
 	}
 
+	@Override
+	public void onBlockExploded(BlockState pState, Level pLevel, BlockPos pPos, Explosion pExplosion) {
+		if (pLevel.getBlockEntity(pPos) instanceof IcariaChestBlockEntity blockEntity) {
+			this.dropLabel(pPos, pState, pLevel, blockEntity.getLabelUp(), blockEntity.getColorUp(), blockEntity.getStyleUp(), IcariaBlockStateProperties.LABEL_UP);
+			this.dropLabel(pPos, pState, pLevel, blockEntity.getLabelNorth(), blockEntity.getColorNorth(), blockEntity.getStyleNorth(), IcariaBlockStateProperties.LABEL_NORTH);
+			this.dropLabel(pPos, pState, pLevel, blockEntity.getLabelEast(), blockEntity.getColorEast(), blockEntity.getStyleEast(), IcariaBlockStateProperties.LABEL_EAST);
+			this.dropLabel(pPos, pState, pLevel, blockEntity.getLabelSouth(), blockEntity.getColorSouth(), blockEntity.getStyleSouth(), IcariaBlockStateProperties.LABEL_SOUTH);
+			this.dropLabel(pPos, pState, pLevel, blockEntity.getLabelWest(), blockEntity.getColorWest(), blockEntity.getStyleWest(), IcariaBlockStateProperties.LABEL_WEST);
+		}
+
+		super.onBlockExploded(pState, pLevel, pPos, pExplosion);
+	}
+
 	public void playApplySound(Level pLevel, BlockPos pPos) {
 		pLevel.playSound(null, pPos, IcariaSoundEvents.CHEST_LABEL_APPLY, SoundSource.BLOCKS);
 	}
@@ -119,6 +113,12 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 
 	public void playGlowInkSacSound(Level pLevel, BlockPos pPos) {
 		pLevel.playSound(null, pPos, SoundEvents.GLOW_INK_SAC_USE, SoundSource.BLOCKS);
+	}
+
+	public void shrinkStack(boolean pCreative, ItemStack pStack) {
+		if (!pCreative) {
+			pStack.shrink(1);
+		}
 	}
 
 	@Override

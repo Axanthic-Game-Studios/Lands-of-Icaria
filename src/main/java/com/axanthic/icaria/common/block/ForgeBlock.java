@@ -187,28 +187,6 @@ public class ForgeBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-		var blockPos = ForgeBlock.getBlockEntityPosition(pState, pPos);
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-
-		if (pLevel.getBlockEntity(blockPos) instanceof ForgeBlockEntity) {
-			pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
-		}
-
-		if (pLevel.getBlockEntity(ForgeBlock.getBlockEntityPosition(pState, blockPos)) == null) {
-			pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.offset(facing.getOpposite().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.above().offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.above().offset(facing.getOpposite().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-		}
-
-		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
-	}
-
-	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
 		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 		pLevel.setBlock(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT), 3);
@@ -266,6 +244,28 @@ public class ForgeBlock extends BaseEntityBlock {
 	public BlockState mirror(BlockState pState, Mirror pMirror) {
 		var state = pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
 		return pMirror == Mirror.NONE ? state : state.setValue(IcariaBlockStateProperties.CORNER, state.getValue(IcariaBlockStateProperties.CORNER).getOpposite());
+	}
+
+	@Override
+	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+		var blockPos = ForgeBlock.getBlockEntityPosition(pState, pPos);
+		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+
+		if (pLevel.getBlockEntity(blockPos) instanceof ForgeBlockEntity) {
+			pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
+		}
+
+		if (pLevel.getBlockEntity(ForgeBlock.getBlockEntityPosition(pState, blockPos)) == null) {
+			pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
+			pLevel.setBlock(blockPos.offset(facing.getOpposite().getNormal()), Blocks.AIR.defaultBlockState(), 3);
+			pLevel.setBlock(blockPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
+			pLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
+			pLevel.setBlock(blockPos.above().offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
+			pLevel.setBlock(blockPos.above().offset(facing.getOpposite().getNormal()), Blocks.AIR.defaultBlockState(), 3);
+			pLevel.setBlock(blockPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
+		}
+
+		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
 	}
 
 	@Override
