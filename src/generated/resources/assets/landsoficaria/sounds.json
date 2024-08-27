@@ -1008,6 +1008,24 @@
     ],
     "subtitle": "subtitle.landsoficaria.spell.shoot"
   },
+  "item.trough.empty": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "block.composter.ready"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.trough.empty"
+  },
+  "item.trough.fill": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "block.composter.fill"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.trough.fill"
+  },
   "item.vanadiumsteel.equip": {
     "sounds": [
       {

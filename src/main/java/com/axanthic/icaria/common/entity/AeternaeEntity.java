@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.*;
+import com.axanthic.icaria.common.properties.Trough;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
@@ -35,7 +36,7 @@ public class AeternaeEntity extends IcariaAnimalEntity {
 	public AnimationState attackAnimationState = new AnimationState();
 	public AnimationState eatingAnimationState = new AnimationState();
 
-	public IcariaEatBlockGoal eatBlockGoal;
+	public IcariaEatGoal eatBlockGoal;
 
 	public AeternaeEntity(EntityType<? extends AeternaeEntity> pType, Level pLevel) {
 		super(pType, pLevel, 0.25F, 0.25F, 0.15F, 0.75F, 0.25F);
@@ -85,7 +86,7 @@ public class AeternaeEntity extends IcariaAnimalEntity {
 
 	@Override
 	public void registerGoals() {
-		this.eatBlockGoal = new IcariaEatBlockGoal(this);
+		this.eatBlockGoal = new IcariaEatGoal(this, Trough.SPELT);
 		this.goalSelector.addGoal(1, new FloatGoal(this));
 		this.goalSelector.addGoal(2, new IcariaPanicGoal(this, 1.5D));
 		this.goalSelector.addGoal(3, new IcariaBreedGoal(this, 1.0D));

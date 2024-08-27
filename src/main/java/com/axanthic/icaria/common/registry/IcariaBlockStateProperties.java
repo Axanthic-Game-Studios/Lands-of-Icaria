@@ -28,7 +28,6 @@ public class IcariaBlockStateProperties {
 	public static final BooleanProperty MEDITERRANEAN_WATERLOGGED = BooleanProperty.create("mediterranean_waterlogged");
 	public static final BooleanProperty PLAYER_PLACED = BooleanProperty.create("player_placed");
 	public static final BooleanProperty TAPPED_BARREL = BooleanProperty.create("tapped_barrel");
-	public static final BooleanProperty TROUGH_WATER = BooleanProperty.create("trough_water");
 
 	public static final DirectionProperty BARREL_FACING = DirectionProperty.create("barrel_facing", (direction) -> direction != Direction.DOWN);
 
@@ -39,9 +38,11 @@ public class IcariaBlockStateProperties {
 	public static final EnumProperty<Olives> OLIVES = EnumProperty.create("olives", Olives.class);
 	public static final EnumProperty<Ripe> RIPE = EnumProperty.create("ripe", Ripe.class);
 	public static final EnumProperty<Side> SIDE = EnumProperty.create("side", Side.class);
+	public static final EnumProperty<Trough> TROUGH = EnumProperty.create("trough", Trough.class);
 	public static final EnumProperty<VerticalCorner> VERTICAL_CORNER = EnumProperty.create("vertical_corner", VerticalCorner.class);
 	public static final EnumProperty<Vine> VINE = EnumProperty.create("vine", Vine.class);
 
 	public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);
 	public static final IntegerProperty GRINDER_ROTATION = IntegerProperty.create("grinder_rotation", 0, 90);
+	public static final IntegerProperty TROUGH_FILL = IntegerProperty.create("trough_fill", 0, 9);
 }

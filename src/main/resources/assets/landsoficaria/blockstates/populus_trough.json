@@ -1,12 +1,8 @@
 {
   "variants": {
-    "facing=north,trough_water=false": { "model": "landsoficaria:block/empty_populus_trough", "y": 0 },
-    "facing=east,trough_water=false": { "model": "landsoficaria:block/empty_populus_trough", "y": 90 },
-    "facing=south,trough_water=false": { "model": "landsoficaria:block/empty_populus_trough", "y": 180 },
-    "facing=west,trough_water=false": { "model": "landsoficaria:block/empty_populus_trough", "y": 270 },
-    "facing=north,trough_water=true": { "model": "landsoficaria:block/water_populus_trough", "y": 0 },
-    "facing=east,trough_water=true": { "model": "landsoficaria:block/water_populus_trough", "y": 90 },
-    "facing=south,trough_water=true": { "model": "landsoficaria:block/water_populus_trough", "y": 180 },
-    "facing=west,trough_water=true": { "model": "landsoficaria:block/water_populus_trough", "y": 270 }
+    "facing=north": { "model": "landsoficaria:block/populus_trough", "y": 0 },
+    "facing=east": { "model": "landsoficaria:block/populus_trough", "y": 90 },
+    "facing=south": { "model": "landsoficaria:block/populus_trough", "y": 180 },
+    "facing=west": { "model": "landsoficaria:block/populus_trough", "y": 270 }
   }
 }

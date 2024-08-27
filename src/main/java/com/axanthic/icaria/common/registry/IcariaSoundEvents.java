@@ -122,6 +122,8 @@ public class IcariaSoundEvents {
 	public static final SoundEvent SPELL_SHOOT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.SPELL_SHOOT);
 	public static final SoundEvent BUBBLE_SPELL_POP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.BUBBLE_SPELL_POP);
 	public static final SoundEvent BUBBLE_SPELL_SHOOT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.BUBBLE_SPELL_SHOOT);
+	public static final SoundEvent TROUGH_EMPTY = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.TROUGH_EMPTY);
+	public static final SoundEvent TROUGH_FILL = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.TROUGH_FILL);
 	public static final SoundEvent VIAL_EMPTY = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.VIAL_EMPTY);
 	public static final SoundEvent VIAL_FILL = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.VIAL_FILL);
 }

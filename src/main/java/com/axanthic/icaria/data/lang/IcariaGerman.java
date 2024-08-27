@@ -1258,6 +1258,8 @@ public class IcariaGerman extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "spell" + "." + "shoot", "Zauber schießt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bubble_spell" + "." + "pop", "Blasen-Zauber platzt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bubble_spell" + "." + "shoot", "Blasen-Zauber schießt");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "trough" + "." + "empty", "Trog geleert");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "trough" + "." + "fill", "Trog gefüllt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vial" + "." + "empty", "Phiole geleert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vial" + "." + "fill", "Phiole gefüllt");
 
@@ -1321,6 +1323,8 @@ public class IcariaGerman extends LanguageProvider {
 
 		this.add(IcariaBlockTags.RUBBLE_SPAWNS_ON, "Geröll spawnt darauf");
 		this.add(IcariaBlockTags.RELICSTONE_RUBBLE_SPAWNS_ON, "Reliktensteingeröll spawnt darauf");
+
+		this.add(IcariaBlockTags.TROUGHS, "Tröge");
 
 		this.add(IcariaBlockTags.VILLAGE_REPLACE_BLOCKS, "Dorfersatzblöcke");
 		this.add(IcariaBlockTags.RUINED_VILLAGE_REPLACE_BLOCKS, "Ruinierte Dorfersatzblöcke");

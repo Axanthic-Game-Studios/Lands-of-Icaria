@@ -76,6 +76,8 @@ public class IcariaBlockTags extends BlockTagsProvider {
 	public static final TagKey<Block> RUBBLE_SPAWNS_ON = IcariaBlockTags.icariaTag("rubble_spawns_on");
 	public static final TagKey<Block> RELICSTONE_RUBBLE_SPAWNS_ON = IcariaBlockTags.icariaTag("relicstone_rubble_spawns_on");
 
+	public static final TagKey<Block> TROUGHS = IcariaBlockTags.icariaTag("troughs");
+
 	public static final TagKey<Block> VILLAGE_REPLACE_BLOCKS = IcariaBlockTags.icariaTag("village_replace_blocks");
 	public static final TagKey<Block> RUINED_VILLAGE_REPLACE_BLOCKS = IcariaBlockTags.icariaTag("ruined_village_replace_blocks");
 
@@ -1055,6 +1057,15 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.SILKSAND.get())
 			.add(IcariaBlocks.RELICSTONE.get());
+
+		this.tag(IcariaBlockTags.TROUGHS)
+			.add(IcariaBlocks.CYPRESS_TROUGH.get())
+			.add(IcariaBlocks.DROUGHTROOT_TROUGH.get())
+			.add(IcariaBlocks.FIR_TROUGH.get())
+			.add(IcariaBlocks.LAUREL_TROUGH.get())
+			.add(IcariaBlocks.OLIVE_TROUGH.get())
+			.add(IcariaBlocks.PLANE_TROUGH.get())
+			.add(IcariaBlocks.POPULUS_TROUGH.get());
 
 		this.tag(IcariaBlockTags.VILLAGE_REPLACE_BLOCKS)
 			.add(Blocks.COBWEB) // TODO replace with Arachne web

@@ -102,6 +102,7 @@ public class SowModel extends HierarchicalModel<SowEntity> {
 		this.lookAnim(pNetHeadYaw, pHeadPitch);
 		this.walkAnim(pLimbSwing, pLimbSwingAmount);
 		this.animate(pEntity.attackAnimationState, IcariaAnimations.SOW_ATTACK, pAgeInTicks);
+		this.animate(pEntity.eatingAnimationState, IcariaAnimations.SOW_EATING, pAgeInTicks);
 	}
 
 	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {

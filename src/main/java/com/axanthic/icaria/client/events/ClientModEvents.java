@@ -113,14 +113,6 @@ public class ClientModEvents {
 		ClientModEvents.grassColor(IcariaBlocks.PURPLE_BROMELIA.get());
 		ClientModEvents.grassColor(IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
 
-		ClientModEvents.waterColor(IcariaBlocks.CYPRESS_TROUGH.get());
-		ClientModEvents.waterColor(IcariaBlocks.DROUGHTROOT_TROUGH.get());
-		ClientModEvents.waterColor(IcariaBlocks.FIR_TROUGH.get());
-		ClientModEvents.waterColor(IcariaBlocks.LAUREL_TROUGH.get());
-		ClientModEvents.waterColor(IcariaBlocks.OLIVE_TROUGH.get());
-		ClientModEvents.waterColor(IcariaBlocks.PLANE_TROUGH.get());
-		ClientModEvents.waterColor(IcariaBlocks.POPULUS_TROUGH.get());
-
 		ClientModEvents.itemColor(IcariaItems.GRASSY_MARL.get());
 		ClientModEvents.itemColor(IcariaItems.PALM_FERN.get());
 		ClientModEvents.itemColor(IcariaItems.WHITE_BROMELIA.get());
@@ -312,13 +304,6 @@ public class ClientModEvents {
 		ClientModEvents.renderTranslucent(IcariaBlocks.CALCITE_BLOCK.get());
 		ClientModEvents.renderTranslucent(IcariaBlocks.HALITE_BLOCK.get());
 		ClientModEvents.renderTranslucent(IcariaBlocks.ZIRCON_BLOCK.get());
-		ClientModEvents.renderTranslucent(IcariaBlocks.CYPRESS_TROUGH.get());
-		ClientModEvents.renderTranslucent(IcariaBlocks.DROUGHTROOT_TROUGH.get());
-		ClientModEvents.renderTranslucent(IcariaBlocks.FIR_TROUGH.get());
-		ClientModEvents.renderTranslucent(IcariaBlocks.LAUREL_TROUGH.get());
-		ClientModEvents.renderTranslucent(IcariaBlocks.OLIVE_TROUGH.get());
-		ClientModEvents.renderTranslucent(IcariaBlocks.PLANE_TROUGH.get());
-		ClientModEvents.renderTranslucent(IcariaBlocks.POPULUS_TROUGH.get());
 		ClientModEvents.renderTranslucent(IcariaBlocks.ICARIA_PORTAL.get());
 		ClientModEvents.renderTranslucent(IcariaFluids.MEDITERRANEAN_WATER.get());
 		ClientModEvents.renderTranslucent(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get());
@@ -334,6 +319,7 @@ public class ClientModEvents {
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SKULL.get(), IcariaSkullBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SPAWNER.get(), IcariaSpawnerBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.TRAPPED_CHEST.get(), IcariaChestBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.TROUGH.get(), TroughBlockRenderer::new);
 
 		EntityRenderers.register(IcariaEntityTypes.AETERNAE.get(), AeternaeRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.ARACHNE.get(), ArachneRenderer::new);

@@ -1,9 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.goal.IcariaAnimalHurtByTargetGoal;
-import com.axanthic.icaria.common.goal.IcariaBreedGoal;
-import com.axanthic.icaria.common.goal.IcariaFollowParentGoal;
-import com.axanthic.icaria.common.goal.IcariaPanicGoal;
+import com.axanthic.icaria.common.goal.*;
+import com.axanthic.icaria.common.properties.Trough;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
@@ -33,7 +31,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class SowEntity extends IcariaAnimalEntity {
+	public int eatAnimationTick;
+
 	public AnimationState attackAnimationState = new AnimationState();
+	public AnimationState eatingAnimationState = new AnimationState();
+
+	public IcariaEatGoal eatBlockGoal;
 
 	public SowEntity(EntityType<? extends SowEntity> pType, Level pLevel) {
 		super(pType, pLevel, 0.25F, 0.25F, 0.15F, 0.75F, 0.25F);
@@ -51,9 +54,26 @@ public class SowEntity extends IcariaAnimalEntity {
 	}
 
 	@Override
+	public void aiStep() {
+		super.aiStep();
+		if (this.level().isClientSide()) {
+			this.eatAnimationTick = Math.max(0, this.eatAnimationTick - 1);
+		}
+	}
+
+	@Override
+	public void customServerAiStep() {
+		super.customServerAiStep();
+		this.eatAnimationTick = this.eatBlockGoal.getEatAnimationTick();
+	}
+
+	@Override
 	public void handleEntityEvent(byte pId) {
 		if (pId == 4) {
 			this.attackAnimationState.start(this.tickCount);
+		} else if (pId == 10) {
+			this.eatAnimationTick = 40;
+			this.eatingAnimationState.start(this.tickCount);
 		} else {
 			super.handleEntityEvent(pId);
 		}
@@ -66,15 +86,17 @@ public class SowEntity extends IcariaAnimalEntity {
 
 	@Override
 	public void registerGoals() {
+		this.eatBlockGoal = new IcariaEatGoal(this, Trough.ONION);
 		this.goalSelector.addGoal(1, new FloatGoal(this));
 		this.goalSelector.addGoal(2, new IcariaPanicGoal(this, 1.5D));
 		this.goalSelector.addGoal(3, new IcariaBreedGoal(this, 1.0D));
 		this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, true));
 		this.goalSelector.addGoal(5, new TemptGoal(this, 1.0D, Ingredient.of(IcariaItems.ONION.get()), false));
 		this.goalSelector.addGoal(6, new IcariaFollowParentGoal(this, 1.0D));
-		this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
-		this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 5.0F, 0.025F, false));
-		this.goalSelector.addGoal(9, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(7, this.eatBlockGoal);
+		this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
+		this.goalSelector.addGoal(9, new LookAtPlayerGoal(this, Player.class, 5.0F, 0.025F, false));
+		this.goalSelector.addGoal(10, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(1, new IcariaAnimalHurtByTargetGoal(this, 1.5D).setAlertOthers());
 	}
 

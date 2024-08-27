@@ -137,6 +137,7 @@ public class CapellaModel extends HierarchicalModel<CapellaEntity> {
 		this.lookAnim(pNetHeadYaw, pHeadPitch);
 		this.walkAnim(pLimbSwing, pLimbSwingAmount);
 		this.animate(pEntity.attackAnimationState, IcariaAnimations.CAPELLA_ATTACK, pAgeInTicks);
+		this.animate(pEntity.eatingAnimationState, IcariaAnimations.CAPELLA_EATING, pAgeInTicks);
 	}
 
 	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {

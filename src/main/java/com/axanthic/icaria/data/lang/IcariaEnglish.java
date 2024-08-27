@@ -1258,6 +1258,8 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "spell" + "." + "shoot", "Spell shoots");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bubble_spell" + "." + "pop", "Bubble Spell pops");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bubble_spell" + "." + "shoot", "Bubble Spell shoots");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "trough" + "." + "empty", "Trough empties");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "trough" + "." + "fill", "Trough fills");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vial" + "." + "empty", "Vial empties");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vial" + "." + "fill", "Vial fills");
 
@@ -1321,6 +1323,8 @@ public class IcariaEnglish extends LanguageProvider {
 
 		this.add(IcariaBlockTags.RUBBLE_SPAWNS_ON, "Rubble Spawns On");
 		this.add(IcariaBlockTags.RELICSTONE_RUBBLE_SPAWNS_ON, "Relicstone Rubble Spawns On");
+
+		this.add(IcariaBlockTags.TROUGHS, "Troughs");
 
 		this.add(IcariaBlockTags.VILLAGE_REPLACE_BLOCKS, "Village Replace Blocks");
 		this.add(IcariaBlockTags.RUINED_VILLAGE_REPLACE_BLOCKS, "Ruined Village Replace Blocks");

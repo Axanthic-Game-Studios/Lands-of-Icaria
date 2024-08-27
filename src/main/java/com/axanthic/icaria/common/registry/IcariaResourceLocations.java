@@ -22,10 +22,14 @@ public class IcariaResourceLocations {
 
 	// BLOCK
 
+	public static final ResourceLocation WATER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "block/water_still");
 	public static final ResourceLocation CONCOCTION_FAST = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/kettle_concoction_fast");
 	public static final ResourceLocation CONCOCTION_SLOW = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/kettle_concoction_slow");
-	public static final ResourceLocation FLOWING_MEDITERRANEAN_WATER_TEXTURE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/flowing_mediterranean_water");
-	public static final ResourceLocation MEDITERRANEAN_WATER_TEXTURE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/mediterranean_water");
+	public static final ResourceLocation FLOWING_MEDITERRANEAN_WATER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/flowing_mediterranean_water");
+	public static final ResourceLocation MEDITERRANEAN_WATER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/mediterranean_water");
+	public static final ResourceLocation ONION = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/trough_onion");
+	public static final ResourceLocation SPELT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/spelt_bale_block_end");
+	public static final ResourceLocation VINEBERRIES = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/trough_vineberries");
 
 	// EFFECT
 
@@ -298,6 +302,8 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation SPELL_SHOOT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.spell.shoot");
 	public static final ResourceLocation BUBBLE_SPELL_POP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.bubble_spell.pop");
 	public static final ResourceLocation BUBBLE_SPELL_SHOOT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.bubble_spell.shoot");
+	public static final ResourceLocation TROUGH_EMPTY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.trough.empty");
+	public static final ResourceLocation TROUGH_FILL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.trough.fill");
 	public static final ResourceLocation VIAL_EMPTY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.vial.empty");
 	public static final ResourceLocation VIAL_FILL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.vial.fill");
 }

@@ -139,6 +139,8 @@ public class IcariaSounds extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.SPELL_SHOOT, SoundEvents.ARROW_SHOOT, "spell", "shoot");
 		this.register(IcariaSoundEvents.BUBBLE_SPELL_POP, SoundEvents.BUBBLE_COLUMN_BUBBLE_POP, "bubble_spell", "pop");
 		this.register(IcariaSoundEvents.BUBBLE_SPELL_SHOOT, "item", "bubble_spell", "shoot", 3);
+		this.register(IcariaSoundEvents.TROUGH_EMPTY, SoundEvents.COMPOSTER_READY, "trough", "empty");
+		this.register(IcariaSoundEvents.TROUGH_FILL, SoundEvents.COMPOSTER_FILL, "trough", "fill");
 		this.register(IcariaSoundEvents.VIAL_EMPTY, SoundEvents.BOTTLE_EMPTY, "vial", "empty");
 		this.register(IcariaSoundEvents.VIAL_FILL, SoundEvents.BOTTLE_FILL, "vial", "fill");
 	}

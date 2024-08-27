@@ -31,11 +31,11 @@ public class MediterraneanWaterFluidTypeExtensions implements IClientFluidTypeEx
 
 	@Override
 	public ResourceLocation getFlowingTexture() {
-		return IcariaResourceLocations.FLOWING_MEDITERRANEAN_WATER_TEXTURE;
+		return IcariaResourceLocations.FLOWING_MEDITERRANEAN_WATER;
 	}
 
 	@Override
 	public ResourceLocation getStillTexture() {
-		return IcariaResourceLocations.MEDITERRANEAN_WATER_TEXTURE;
+		return IcariaResourceLocations.MEDITERRANEAN_WATER;
 	}
 }

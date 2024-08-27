@@ -134,6 +134,7 @@ public class CatoblepasModel extends HierarchicalModel<CatoblepasEntity> {
 		this.lookAnim(pNetHeadYaw, pHeadPitch);
 		this.walkAnim(pLimbSwing, pLimbSwingAmount);
 		this.animate(pEntity.attackAnimationState, IcariaAnimations.CATOBLEPAS_ATTACK, pAgeInTicks);
+		this.animate(pEntity.eatingAnimationState, IcariaAnimations.CATOBLEPAS_EATING, pAgeInTicks);
 	}
 
 	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
