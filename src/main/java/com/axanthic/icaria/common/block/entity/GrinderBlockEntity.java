@@ -61,7 +61,6 @@ public class GrinderBlockEntity extends BlockEntity {
 	public int maxFuel = 0;
 	public int progress = 0;
 	public int maxProgress = 0;
-	public int rotation = 0;
 	public int size = 6;
 
 	public ItemStackHandler fuelHandler = new GrinderFuelItemStackHandler(1, this);
@@ -241,12 +240,6 @@ public class GrinderBlockEntity extends BlockEntity {
 			}
 
 			if (pBlockEntity.hasFuel() && pBlockEntity.hasRecipe()) {
-				if (pBlockEntity.rotation >= 90) {
-					pBlockEntity.rotation = 0;
-				} else {
-					pBlockEntity.rotation++;
-				}
-
 				if (IcariaConfig.GRINDER_SOUNDS.get()) {
 					if (pBlockEntity.lastSound >= 6) {
 						pBlockEntity.lastSound = 0;
@@ -269,8 +262,8 @@ public class GrinderBlockEntity extends BlockEntity {
 
 				pBlockEntity.progress++;
 				pBlockEntity.fuel--;
-				pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.SIDE, Side.LEFT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, true).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, pBlockEntity.rotation));
-				pLevel.setBlockAndUpdate(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, true).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, pBlockEntity.rotation));
+				pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.SIDE, Side.LEFT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, true));
+				pLevel.setBlockAndUpdate(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, true));
 			} else {
 				pBlockEntity.resetProgress();
 				pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.SIDE, Side.LEFT).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, false));

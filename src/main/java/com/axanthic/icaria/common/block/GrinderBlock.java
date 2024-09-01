@@ -50,7 +50,7 @@ public class GrinderBlock extends BaseEntityBlock {
 
 	public GrinderBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.GRINDER_GRINDING, false).setValue(IcariaBlockStateProperties.GRINDER_ROTATION, 0).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.SIDE, Side.LEFT));
+		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.GRINDER_GRINDING, false).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.SIDE, Side.LEFT));
 	}
 
 	@Override
@@ -115,7 +115,7 @@ public class GrinderBlock extends BaseEntityBlock {
 
 	@Override
 	public void createBlockStateDefinition(Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(IcariaBlockStateProperties.GRINDER_GRINDING, IcariaBlockStateProperties.GRINDER_ROTATION, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.SIDE);
+		pBuilder.add(IcariaBlockStateProperties.GRINDER_GRINDING, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.SIDE);
 	}
 
 	@Override
