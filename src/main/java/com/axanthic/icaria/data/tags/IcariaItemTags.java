@@ -173,10 +173,14 @@ public class IcariaItemTags extends ItemTagsProvider {
 		this.tag(ItemTags.MEAT)
 			.add(IcariaItems.RAW_AETERNAE_MEAT.get())
 			.add(IcariaItems.COOKED_AETERNAE_MEAT.get())
+			.add(IcariaItems.RAW_CAPELLA_MEAT.get())
+			.add(IcariaItems.COOKED_CAPELLA_MEAT.get())
 			.add(IcariaItems.RAW_CATOBLEPAS_MEAT.get())
 			.add(IcariaItems.COOKED_CATOBLEPAS_MEAT.get())
 			.add(IcariaItems.RAW_CERVER_MEAT.get())
 			.add(IcariaItems.COOKED_CERVER_MEAT.get())
+			.add(IcariaItems.RAW_CROCOTTA_MEAT.get())
+			.add(IcariaItems.COOKED_CROCOTTA_MEAT.get())
 			.add(IcariaItems.RAW_SOW_MEAT.get())
 			.add(IcariaItems.COOKED_SOW_MEAT.get());
 
@@ -438,14 +442,18 @@ public class IcariaItemTags extends ItemTagsProvider {
 
 		this.tag(Tags.Items.FOODS_RAW_MEAT)
 			.add(IcariaItems.RAW_AETERNAE_MEAT.get())
+			.add(IcariaItems.RAW_CAPELLA_MEAT.get())
 			.add(IcariaItems.RAW_CATOBLEPAS_MEAT.get())
 			.add(IcariaItems.RAW_CERVER_MEAT.get())
+			.add(IcariaItems.RAW_CROCOTTA_MEAT.get())
 			.add(IcariaItems.RAW_SOW_MEAT.get());
 
 		this.tag(Tags.Items.FOODS_COOKED_MEAT)
 			.add(IcariaItems.COOKED_AETERNAE_MEAT.get())
+			.add(IcariaItems.COOKED_CAPELLA_MEAT.get())
 			.add(IcariaItems.COOKED_CATOBLEPAS_MEAT.get())
 			.add(IcariaItems.COOKED_CERVER_MEAT.get())
+			.add(IcariaItems.COOKED_CROCOTTA_MEAT.get())
 			.add(IcariaItems.COOKED_SOW_MEAT.get());
 
 		this.tag(Tags.Items.FOODS_SOUP)

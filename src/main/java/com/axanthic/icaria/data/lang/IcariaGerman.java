@@ -1051,12 +1051,17 @@ public class IcariaGerman extends LanguageProvider {
 		this.add(IcariaItems.ONION.get(), "Zwiebel");
 		this.add(IcariaItems.RAW_AETERNAE_MEAT.get(), "Rohes Wildsteak");
 		this.add(IcariaItems.COOKED_AETERNAE_MEAT.get(), "Gekochtes Wildsteak");
+		this.add(IcariaItems.RAW_CAPELLA_MEAT.get(), "Rohe Ziegenschulter");
+		this.add(IcariaItems.COOKED_CAPELLA_MEAT.get(), "Gekochte Ziegenschulter");
 		this.add(IcariaItems.RAW_CATOBLEPAS_MEAT.get(), "Rohes Rumpsteak");
 		this.add(IcariaItems.COOKED_CATOBLEPAS_MEAT.get(), "Gekochtes Rumpsteak");
 		this.add(IcariaItems.RAW_CERVER_MEAT.get(), "Rohes Raubkatzenfleisch");
 		this.add(IcariaItems.COOKED_CERVER_MEAT.get(), "Gekochtes Raubkatzenfleisch");
+		this.add(IcariaItems.RAW_CROCOTTA_MEAT.get(), "Rohe Hyänenkeule");
+		this.add(IcariaItems.COOKED_CROCOTTA_MEAT.get(), "Gekochte Hyänenkeule");
 		this.add(IcariaItems.RAW_SOW_MEAT.get(), "Roher Schweinrücken");
 		this.add(IcariaItems.COOKED_SOW_MEAT.get(), "Gekochter Schweinrücken");
+		this.add(IcariaItems.CAPELLA_HORN.get(), "Kapellahorn");
 		this.add(IcariaItems.MYRMEKE_SCALES.get(), "Ameisenschuppen");
 		this.add(IcariaItems.SLUG_SCALES.get(), "Nacktschneckenschuppen");
 		this.add(IcariaItems.SNULL_CREAM.get(), "Snull Creme");

@@ -691,12 +691,17 @@ public class IcariaItems {
 	public static final Supplier<Item> ONION = IcariaItems.register("onion", () -> new ItemNameBlockItem(IcariaBlocks.ONION_CROP.get(), IcariaItems.propertiesFood(2, 0.5F)));
 	public static final Supplier<Item> RAW_AETERNAE_MEAT = IcariaItems.register("raw_aeternae_meat", () -> new Item(IcariaItems.propertiesFood(3, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F)));
 	public static final Supplier<Item> COOKED_AETERNAE_MEAT = IcariaItems.register("cooked_aeternae_meat", () -> new Item(IcariaItems.propertiesFood(8, 1.0F)));
+	public static final Supplier<Item> RAW_CAPELLA_MEAT = IcariaItems.register("raw_capella_meat", () -> new Item(IcariaItems.propertiesFood(2, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F)));
+	public static final Supplier<Item> COOKED_CAPELLA_MEAT = IcariaItems.register("cooked_capella_meat", () -> new Item(IcariaItems.propertiesFood(7, 1.0F)));
 	public static final Supplier<Item> RAW_CATOBLEPAS_MEAT = IcariaItems.register("raw_catoblepas_meat", () -> new Item(IcariaItems.propertiesFood(2, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F)));
 	public static final Supplier<Item> COOKED_CATOBLEPAS_MEAT = IcariaItems.register("cooked_catoblepas_meat", () -> new Item(IcariaItems.propertiesFood(7, 1.0F)));
 	public static final Supplier<Item> RAW_CERVER_MEAT = IcariaItems.register("raw_cerver_meat", () -> new Item(IcariaItems.propertiesItem().food(IcariaItems.foodProperties(3, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F))));
 	public static final Supplier<Item> COOKED_CERVER_MEAT = IcariaItems.register("cooked_cerver_meat", () -> new Item(IcariaItems.propertiesFood(8, 1.0F)));
+	public static final Supplier<Item> RAW_CROCOTTA_MEAT = IcariaItems.register("raw_crocotta_meat", () -> new Item(IcariaItems.propertiesFood(2, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F)));
+	public static final Supplier<Item> COOKED_CROCOTTA_MEAT = IcariaItems.register("cooked_crocotta_meat", () -> new Item(IcariaItems.propertiesFood(7, 1.0F)));
 	public static final Supplier<Item> RAW_SOW_MEAT = IcariaItems.register("raw_sow_meat", () -> new Item(IcariaItems.propertiesItem().food(IcariaItems.foodProperties(2, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F))));
 	public static final Supplier<Item> COOKED_SOW_MEAT = IcariaItems.register("cooked_sow_meat", () -> new Item(IcariaItems.propertiesFood(7, 1.0F)));
+	public static final Supplier<Item> CAPELLA_HORN = IcariaItems.register("capella_horn", () -> new Item(IcariaItems.propertiesItem()));
 	public static final Supplier<Item> MYRMEKE_SCALES = IcariaItems.register("myrmeke_scales", () -> new Item(IcariaItems.propertiesItem()));
 	public static final Supplier<Item> SLUG_SCALES = IcariaItems.register("slug_scales", () -> new Item(IcariaItems.propertiesItem()));
 	public static final Supplier<Item> SNULL_CREAM = IcariaItems.register("snull_cream", () -> new Item(IcariaItems.propertiesFood(2, 0.5F, MobEffects.HUNGER, 200, 0, 1.0F, MobEffects.CONFUSION, 200, 0, 1.0F)));

@@ -1051,12 +1051,17 @@ public class IcariaEnglish extends LanguageProvider {
 		this.add(IcariaItems.ONION.get(), "Onion");
 		this.add(IcariaItems.RAW_AETERNAE_MEAT.get(), "Raw Aeternae Meat");
 		this.add(IcariaItems.COOKED_AETERNAE_MEAT.get(), "Cooked Aeternae Meat");
+		this.add(IcariaItems.RAW_CAPELLA_MEAT.get(), "Raw Capella Meat");
+		this.add(IcariaItems.COOKED_CAPELLA_MEAT.get(), "Cooked Capella Meat");
 		this.add(IcariaItems.RAW_CATOBLEPAS_MEAT.get(), "Raw Catoblepas Meat");
 		this.add(IcariaItems.COOKED_CATOBLEPAS_MEAT.get(), "Cooked Catoblepas Meat");
 		this.add(IcariaItems.RAW_CERVER_MEAT.get(), "Raw Cerver Meat");
 		this.add(IcariaItems.COOKED_CERVER_MEAT.get(), "Cooked Cerver Meat");
+		this.add(IcariaItems.RAW_CROCOTTA_MEAT.get(), "Raw Crocotta Meat");
+		this.add(IcariaItems.COOKED_CROCOTTA_MEAT.get(), "Cooked Crocotta Meat");
 		this.add(IcariaItems.RAW_SOW_MEAT.get(), "Raw Sow Meat");
 		this.add(IcariaItems.COOKED_SOW_MEAT.get(), "Cooked Sow Meat");
+		this.add(IcariaItems.CAPELLA_HORN.get(), "Capella Horn");
 		this.add(IcariaItems.MYRMEKE_SCALES.get(), "Myrmeke Scales");
 		this.add(IcariaItems.SLUG_SCALES.get(), "Slug Scales");
 		this.add(IcariaItems.SNULL_CREAM.get(), "Snull Cream");

@@ -855,12 +855,17 @@ public class CommonModEvents {
 			pEvent.accept(IcariaItems.ONION.get());
 			pEvent.accept(IcariaItems.RAW_AETERNAE_MEAT.get());
 			pEvent.accept(IcariaItems.COOKED_AETERNAE_MEAT.get());
+			pEvent.accept(IcariaItems.RAW_CAPELLA_MEAT.get());
+			pEvent.accept(IcariaItems.COOKED_CAPELLA_MEAT.get());
 			pEvent.accept(IcariaItems.RAW_CATOBLEPAS_MEAT.get());
 			pEvent.accept(IcariaItems.COOKED_CATOBLEPAS_MEAT.get());
 			pEvent.accept(IcariaItems.RAW_CERVER_MEAT.get());
 			pEvent.accept(IcariaItems.COOKED_CERVER_MEAT.get());
+			pEvent.accept(IcariaItems.RAW_CROCOTTA_MEAT.get());
+			pEvent.accept(IcariaItems.COOKED_CROCOTTA_MEAT.get());
 			pEvent.accept(IcariaItems.RAW_SOW_MEAT.get());
 			pEvent.accept(IcariaItems.COOKED_SOW_MEAT.get());
+			pEvent.accept(IcariaItems.CAPELLA_HORN.get());
 			pEvent.accept(IcariaItems.MYRMEKE_SCALES.get());
 			pEvent.accept(IcariaItems.SLUG_SCALES.get());
 			pEvent.accept(IcariaItems.SNULL_CREAM.get());

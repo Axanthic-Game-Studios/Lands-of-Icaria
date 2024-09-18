@@ -596,8 +596,10 @@ public class IcariaRecipes extends RecipeProvider {
 		this.gearRecipe(pOutput, IcariaItems.VANADIUM_INGOT.get(), IcariaItems.VANADIUM_GEAR.get());
 
 		this.foodCookingRecipes(pOutput, IcariaItems.RAW_AETERNAE_MEAT.get(), IcariaItems.COOKED_AETERNAE_MEAT.get());
+		this.foodCookingRecipes(pOutput, IcariaItems.RAW_CAPELLA_MEAT.get(), IcariaItems.COOKED_CAPELLA_MEAT.get());
 		this.foodCookingRecipes(pOutput, IcariaItems.RAW_CATOBLEPAS_MEAT.get(), IcariaItems.COOKED_CATOBLEPAS_MEAT.get());
 		this.foodCookingRecipes(pOutput, IcariaItems.RAW_CERVER_MEAT.get(), IcariaItems.COOKED_CERVER_MEAT.get());
+		this.foodCookingRecipes(pOutput, IcariaItems.RAW_CROCOTTA_MEAT.get(), IcariaItems.COOKED_CROCOTTA_MEAT.get());
 		this.foodCookingRecipes(pOutput, IcariaItems.RAW_SOW_MEAT.get(), IcariaItems.COOKED_SOW_MEAT.get());
 
 		this.stewRecipe(pOutput, IcariaItems.RAW_AETERNAE_MEAT.get(), Items.BEETROOT, IcariaItems.AETERNAE_STEW.get());

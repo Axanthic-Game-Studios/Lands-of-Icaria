@@ -39,6 +39,8 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
 	public void generate() {
 		this.arachneQueen();
 
+		this.capella();
+
 		this.laurelForest();
 
 		this.dropNone(IcariaEntityTypes.HYLIASTER.get());
@@ -49,8 +51,6 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
 		this.dropNone(IcariaEntityTypes.VINEGAROON.get());
 
 		this.dropNone(IcariaEntityTypes.ARGAN_HOUND.get(), IcariaItems.ARGAN_HOUND_SKULL.get());
-		this.dropNone(IcariaEntityTypes.CAPELLA.get(), IcariaItems.CAPELLA_SKULL.get());
-		this.dropNone(IcariaEntityTypes.CROCOTTA.get(), IcariaItems.CROCOTTA_SKULL.get());
 
 		this.dropItem(IcariaEntityTypes.ARACHNE_DRONE.get(), IcariaItems.ARACHNE_STRING.get());
 		this.dropItem(IcariaEntityTypes.FIRE_JELLYFISH.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get());
@@ -67,6 +67,7 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
 
 		this.dropItemWithCookFunc(IcariaEntityTypes.CATOBLEPAS.get(), IcariaItems.CATOBLEPAS_SKULL.get(), IcariaItems.RAW_CATOBLEPAS_MEAT.get());
 		this.dropItemWithCookFunc(IcariaEntityTypes.CERVER.get(), IcariaItems.CERVER_SKULL.get(), IcariaItems.RAW_CERVER_MEAT.get());
+		this.dropItemWithCookFunc(IcariaEntityTypes.CROCOTTA.get(), IcariaItems.CROCOTTA_SKULL.get(), IcariaItems.RAW_CROCOTTA_MEAT.get());
 		this.dropItemWithCookFunc(IcariaEntityTypes.SOW.get(), IcariaItems.SOW_SKULL.get(), IcariaItems.RAW_SOW_MEAT.get());
 
 		this.dropItemPlusScnd(IcariaEntityTypes.ENDER_JELLYFISH.get(), IcariaItems.ENDER_JELLYFISH_JELLY.get(), Items.ENDER_PEARL);
@@ -90,6 +91,10 @@ public class IcariaEntityLoot extends EntityLootSubProvider {
 
 	public void arachneQueen() {
 		this.add(IcariaEntityTypes.ARACHNE.get(), LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.ARACHNE_STRING.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_STUFFING.get())).add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_UNBLINDING.get())).add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_UNDROWNING.get())).add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_UNSHATTERING.get())).add(LootItem.lootTableItem(IcariaItems.TOTEM_OF_UNSINKING.get()))));
+	}
+
+	public void capella() {
+		this.add(IcariaEntityTypes.CAPELLA.get(), LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.CAPELLA_SKULL.get())).when(LootItemRandomChanceCondition.randomChance(0.01F))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.CAPELLA_HORN.get()).when(LootItemRandomChanceCondition.randomChance(0.1F)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.RAW_CAPELLA_MEAT.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))).apply(EnchantedCountIncreaseFunction.lootingMultiplier(this.registries, UniformGenerator.between(0.0F, 1.0F))).apply(SmeltItemFunction.smelted().when(this.shouldSmeltLoot())))));
 	}
 
 	public void laurelForest() {
