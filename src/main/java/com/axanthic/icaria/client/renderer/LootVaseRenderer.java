@@ -10,17 +10,15 @@ import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.block.RenderShape;
 
 import net.neoforged.neoforge.client.model.data.ModelData;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -55,6 +53,6 @@ public class LootVaseRenderer extends EntityRenderer<LootVaseEntity> {
 
 	@Override
 	public ResourceLocation getTextureLocation(LootVaseEntity pEntity) {
-		return TextureAtlas.LOCATION_BLOCKS;
+		return InventoryMenu.BLOCK_ATLAS;
 	}
 }

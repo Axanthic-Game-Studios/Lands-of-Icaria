@@ -7,15 +7,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -31,7 +28,7 @@ public class HyliastrumOreBlock extends Block {
 		var entity = IcariaEntityTypes.HYLIASTER.get().create(pLevel);
 		var registryLookup = pLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
 		if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) {
-			if (EnchantmentHelper.getItemEnchantmentLevel(registryLookup.getOrThrow(Enchantments.SILK_TOUCH), pStack) == 0) {
+			if (pStack.getEnchantmentLevel(registryLookup.getOrThrow(Enchantments.SILK_TOUCH)) == 0) {
 				if (entity != null) {
 					entity.moveTo(pPos.getX() + 0.5D, pPos.getY(), pPos.getZ() + 0.5D, 0.0F, 0.0F);
 					entity.setSize(4);
