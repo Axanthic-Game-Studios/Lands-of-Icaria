@@ -32,7 +32,7 @@ import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("unused")
+@SuppressWarnings("deprecation, unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
